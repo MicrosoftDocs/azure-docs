@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/15/2020
 ms.author: apimpm
 ---
 
@@ -25,6 +25,9 @@ This article describes the differences between self-hosted and managed versions 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a> The new developer portal is incompatible with the legacy developer portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance.
 
 ## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
@@ -77,10 +80,6 @@ If you're using the self-hosted version, use the `scripts/cleanup.bat` and `scri
 If you don't want to reset the content of the portal, you may consider using newly available widgets throughout your pages. Existing widgets have been automatically updated to the latest versions.
 
 If your portal was provisioned after the general availability announcement, it should already feature the new default content. No action is required from your side.
-
-### How can I migrate from the legacy developer portal to the developer portal?
-
-Portals are incompatible and you need to migrate the content manually.
 
 ### Does the portal have all the features of the legacy portal?
 

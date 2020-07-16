@@ -25,7 +25,7 @@ The following image shows examples of data sources that write to different table
 ![Tables](media/logs-structure/queries-tables.png)
 
 ## Log Analytics workspace
-All data collected by Azure Monitor Logs except for Application Insights is stored in a [Log Analytics workspace](../platform/manage-access.md). You can create one or more workspaces depending on your particular requirements. [Data Sources](../platform/data-sources.md) such as activity logs and resource logs from Azure resources, agents on virtual machines, and data from insights and monitoring solutions will write data to one or more workspaces that you configure as part of their onboarding. Other services such as [Azure Security Center](/azure/security-center/) and [Azure Sentinel](/azure/sentinel/) also use a Log Analytics workspace to store their data so it can be analyzed using log queries along with monitoring data from other sources.
+All data collected by Azure Monitor Logs except for Application Insights is stored in a [Log Analytics workspace](../platform/manage-access.md). You can create one or more workspaces depending on your particular requirements. [Data Sources](../platform/data-sources.md) such as activity logs and resource logs from Azure resources, agents on virtual machines, and data from insights and monitoring solutions will write data to one or more workspaces that you configure as part of their onboarding. Other services such as [Azure Security Center](../../security-center/index.yml) and [Azure Sentinel](../../sentinel/index.yml) also use a Log Analytics workspace to store their data so it can be analyzed using log queries along with monitoring data from other sources.
 
 Different kinds of data are stored in different tables in the workspace, and each table has a unique set of properties. A standard set of tables are added to a workspace when it's created, and new tables are added for different data sources, solutions, and services as they're onboarded. You can also create custom tables using the [Data Collector API](../platform/data-collector-api.md).
 
@@ -41,7 +41,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-See documentation for each data source for details of the tables they create. Examples include articles for [agent data sources](../platform/agent-data-sources.md), [resource logs](../platform/diagnostic-logs-schema.md), and [monitoring solutions](../insights/solutions-inventory.md).
+See documentation for each data source for details of the tables they create. Examples include articles for [agent data sources](../platform/agent-data-sources.md), [resource logs](../platform/resource-logs-schema.md), and [monitoring solutions](../monitor-reference.md).
 
 ### Workspace permissions
 See [Designing an Azure Monitor Logs deployment](../platform/design-logs-deployment.md) to understand the access control strategy and recommendations to provide access to data in a workspace. In addition to granting access to the workspace itself, you can limit access to individual tables using [Table Level RBAC](../platform/manage-access.md#table-level-rbac).
@@ -84,5 +84,5 @@ While each table in Azure Monitor Logs has its own schema, there are standard pr
 | _BilledSize   |            | Specifies the size in bytes of data that will be billed. |
 
 ## Next steps
-- Learn about using [Log Analytics to create and edit log searches](../log-query/portals.md).
+- Learn about using [Log Analytics to create and edit log searches](./log-query-overview.md).
 - Check out a [tutorial on writing queries](../log-query/get-started-queries.md) using the new query language.
