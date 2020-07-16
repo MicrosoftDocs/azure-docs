@@ -1,6 +1,6 @@
 ---
-title: Private Links (preview) for exporting and importing Azure Managed Disks 
-description: Private links for securely exporting and importing data to Azure Managed Disks
+title: Azure portal - Restrict import/export access to managed disks with Private Links (preview)
+description: Enable Private Links (preview) for your managed disks with Azure portal. Allowing you to securely export and import disks within only your virtual network.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Enable Private Links (preview) for importing and exporting managed disks - Azure portal
+# Azure portal - Restrict import/export access for managed disks with Private Links (preview)
 
 You can generate a time bound Shared Access Signature (SAS) URI for unattached managed disks and snapshots for exporting the data to other region for regional expansion, disaster recovery and to read the data for forensic analysis. You can also use the SAS URI to directly upload VHD to an empty disk from your on-premises.  Now you can leverage [private links](../private-link/private-link-overview.md) (preview) for restricting the export and import to Managed Disks only from your Azure virtual network. Moreover, you are rest assured that the data never goes over the public internet and always travels within the secure Microsoft backbone network when you use Private Links. 
 
