@@ -361,12 +361,18 @@
         href: howto-hyperscale-troubleshoot-common-connection-issues.md
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/postgres
-  - name: REST API
-    href: /rest/api/postgresql
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.dbforpostgresql/allversions
+  - name: Single server
+    items:
+      - name: Azure CLI
+        href: /cli/azure/postgres
+      - name: REST API
+        href: /rest/api/postgresql
+      - name: Resource Manager template
+        href: /azure/templates/microsoft.dbforpostgresql/allversions
+  - name: Hyperscale (Citus)
+    items:
+      - name: SQL API functions
+      - href: reference-hyperscale-udf.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
