@@ -61,3 +61,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 
 1. Run the script.
 
+
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Analyze using spark](get-started-analyze-spark.md)
