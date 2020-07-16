@@ -29,7 +29,7 @@
   - name: Telephony and SMS 
     items:
       - name: Request phone numbers
-        href: quickstarts/voice-and-video-calling/request-phone-numbers.md
+        href: quickstarts/telephony-and-sms/request-phone-numbers.md
       - name: Buy A Telephone Number 
         href: quickstarts/telephony-and-sms/search-and-acquire-phone-number.md
       - name: Place a Telephone Call
