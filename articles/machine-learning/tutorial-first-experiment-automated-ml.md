@@ -17,7 +17,7 @@ ms.date: 07/10/2020
 # Tutorial: Create a classification model with automated ML in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this tutorial, you learn how to create a basic classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create a basic classification model without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
 >[!IMPORTANT]
 > The automated machine learning experience in the Azure Machine learning studio is in preview. Certain features may not be supported or have limited capabilities.
@@ -190,7 +190,7 @@ Once the experiment run is complete, the **Details** page is populated with a **
 
 We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. Select **VotingEnsemble** to open the model specific page.
+1. Select **VotingEnsemble** to open the model-specific page.
 
 1. Select the **Deploy** button in the top-left.
 

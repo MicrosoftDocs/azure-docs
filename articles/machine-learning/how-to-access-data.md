@@ -20,7 +20,7 @@ ms.custom: seodec18, tracking-python
 
 In this article, learn how to **connect to Azure storage services via Azure Machine Learning datastores**. Datastores store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. 
 
-**For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move) to a supported Azure storage solutions.  You can create datastores from [these Azure storage solutions](#matrix). 
+**For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move) to a supported Azure storage solution.  You can create datastores from [these Azure storage solutions](#matrix). 
 
 To understand where datastores fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
