@@ -95,6 +95,8 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ## Configure inputs and output
 
 ### Create a datastore with sample images

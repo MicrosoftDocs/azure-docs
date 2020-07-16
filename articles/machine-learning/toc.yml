@@ -96,6 +96,7 @@
     - name: Enterprise vs. Basic editions
       href: concept-editions.md
     - name: Plan and manage costs
+      displayName: low priority VM
       href: concept-plan-manage-cost.md
     - name: Designer (drag-n-drop ML)
       items: 
