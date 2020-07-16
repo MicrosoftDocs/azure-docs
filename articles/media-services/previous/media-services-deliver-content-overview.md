@@ -1,22 +1,17 @@
 ---
-title: Delivering content to customers | Microsoft Docs
+title: Delivering content to customers
 description: This topic gives an overview of what is involved in delivering your content with Azure Media Services.
 services: media-services
-documentationcenter: ''
 author: Juliako
 manager: femila
-editor: ''
-
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-
 ---
+
 # Deliver content to customers
 When you're delivering your streaming or video-on-demand content to customers, your goal is to deliver high-quality video to various devices under different network conditions.
 
@@ -51,7 +46,7 @@ You can define filters for your assets with Media Services. These filters are se
 
 For more information, see [Filters and dynamic manifests](media-services-dynamic-manifest-overview.md).
 
-## <a id="locators"/>Locators
+## <a name="locators"></a>Locators
 To provide your user with a URL that can be used to stream or download your content, you first need to publish your asset by creating a locator. A locator provides an entry point to access the files contained in an asset. Media Services supports two types of locators:
 
 * OnDemandOrigin locators. These are used to stream media (for example, MPEG-DASH, HLS, or Smooth Streaming) or progressively download files.
@@ -83,7 +78,7 @@ To provide users with streaming URLs, you first must create an OnDemandOrigin lo
 
 You can only stream over TLS if the streaming endpoint from which you deliver your content was created after September 10th, 2014. If your streaming URLs are based on the streaming endpoints created after September 10th, 2014, the URL contains “streaming.mediaservices.windows.net.” Streaming URLs that contain “origin.mediaservices.windows.net” (the old format) do not support TLS. If your URL is in the old format and you want to be able to stream over TLS, create a new streaming endpoint. Use URLs based on the new streaming endpoint to stream your content over TLS.
 
-## <a id="URLs"/>Streaming URL formats
+## <a name="URLs"></a>Streaming URL formats
 
 ### MPEG-DASH format
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)

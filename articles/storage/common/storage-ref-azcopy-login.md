@@ -79,7 +79,7 @@ azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/
 Log in as a service principal using a client secret. Set the environment variable AZCOPY_SPA_CLIENT_SECRET to the client secret for secret based service principal auth.
 
 ```azcopy
-azcopy login --service-principal
+azcopy login --service-principal --application-id "YOUR_APP_ID" --tenant-id "YOUR_TENANT_ID"
 ```
 
 Log in as a service principal using a certificate and password. Set the environment variable AZCOPY_SPA_CERT_PASSWORD to the certificate's password for cert-based service principal authorization.

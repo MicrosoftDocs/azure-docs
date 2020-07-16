@@ -179,6 +179,8 @@
       href: azure-nfs-volume.md
     - name: Azure NetApp Files
       href: azure-netapp-files.md
+    - name: Use Azure Ultra Disks (preview)
+      href: use-ultra-disks.md
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -383,10 +385,10 @@
     href: https://azure.microsoft.com/pricing/details/container-service/
   - name: Support policies
     href: support-policies.md
-  - name: Roadmap
+  - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Provide product feedback
-    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
+  - name: AKS Roadmap
+    href: https://github.com/Azure/AKS/projects/1
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos

@@ -30,7 +30,7 @@ In Azure Cognitive Search, queries target a single index. Developers who want to
 
 The following example is from the [real-estate sample](search-get-started-portal.md) which has several string fields containing content in different languages. Notice the language analyzer assignments for the fields in this index. Fields that contain strings perform better in full text search when paired with an analyzer engineered to handle the linguistic rules of the target language.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Screenshot showing the Fields screen of the real-estate sample. A group of fields are highlighted to point out how the language analyzer assignments correspond to the languages for the highlighted fields.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > For code examples showing field definitions with languages analyzers, see [Define an index (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) and [Define an index (REST)](search-create-index-rest-api.md).

@@ -116,7 +116,7 @@ When you select **Failures** at the top of the page, the **Failures** table of t
 
 ### Metric definitions
 
-For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+For a full list of the metric definitions that form these workbooks, check out the [article on available metrics and reporting intervals](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## View from an Azure Cache for Redis resource
 
@@ -152,7 +152,7 @@ Selecting any of the other tabs for **Performance** or **Operations** opens the 
 
 ## Pin, export, and expand
 
-To pin any metric section to an [Azure dashboard](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), select the pushpin symbol in the section's upper right.
+To pin any metric section to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
 
 ![A metric section with the pushpin symbol highlighted](./media/cosmosdb-insights-overview/pin.png)
 
@@ -182,6 +182,6 @@ For troubleshooting guidance, refer to the dedicated workbook-based insights [tr
 
 ## Next steps
 
-* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerts that aid in detecting problems.
+* Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerts that aid in detecting problems.
 
 * Learn the scenarios that workbooks support, how to author or customize reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../platform/workbooks-overview.md).

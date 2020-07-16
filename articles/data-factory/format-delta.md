@@ -19,6 +19,8 @@ This article highlights how to copy data to and from a delta lake stored in [Azu
 > [!NOTE]
 > The delta format connector for mapping data flows is currently available as a public preview.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
+
 ## Mapping data flow properties
 
 This connector is available as an [inline dataset](data-flow-source.md#inline-datasets) in mapping data flows as both a source and a sink.
