@@ -25,7 +25,7 @@ In some cases, applications require a local certificate file generated from a tr
 > [!NOTE]
 >
 > To check the certificate's authenticity, you can verify its SHA-256
-> fingerprint using the OpenSSL commnad line tool:
+> fingerprint using the OpenSSL command line tool:
 >
 > ```sh
 > openssl x509 -in DigiCertGlobalRootCA.crt.pem -noout -sha256 -fingerprint
