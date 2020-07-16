@@ -28,7 +28,7 @@ AKS-managed Azure Active Directory integration is available in public regions wh
 ## Limitations 
 
 * AKS-managed AAD integration can't be disabled on existing clusters
-* AKS-managed AAD integration on non RBAC enabled clusters isn't supported
+* AKS-managed AAD integration on non-RBAC enabled clusters isn't supported
 * Changing the AAD tenant associated with AKS-managed AAD integration isn't supported
 
 ## Prerequisites
@@ -136,7 +136,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## Upgrading to AKS-managed Azure AD Integration
 
-You can upgrade to AKS-managed Azure AD Integration if you cluster uses legacy Azure AD integration or on RBAC enabled cluster.
+You can upgrade to AKS-managed Azure AD Integration if your cluster uses legacy Azure AD integration or on RBAC enabled cluster.
 
 > [!Important]
 > The Azure Kubernetes Service Azure AD legacy integration feature will be retired on 31 August 2021. AKS cluster using Azure AD legacy integration should consider upgrading to AKS-managed Azure AD integration.
