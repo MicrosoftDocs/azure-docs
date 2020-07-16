@@ -19,8 +19,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 > This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
 > In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for PostgreSQL server.
 
-<a name="anch-terminology-and-description-82f" />
-
+<a name="anch-terminology-and-description-82f"></a>
 ## Terminology and description
 
 **Virtual network:** You can have virtual networks associated with your Azure subscription.
@@ -32,12 +31,6 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 **Virtual network rule:** A virtual network rule for your Azure Database for PostgreSQL server is a subnet that is listed in the access control list (ACL) of your Azure Database for PostgreSQL server. To be in the ACL for your Azure Database for PostgreSQL server, the subnet must contain the **Microsoft.Sql** type name.
 
 A virtual network rule tells your Azure Database for PostgreSQL server to accept communications from every node that is on the subnet.
-
-
-
-
-
-
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 

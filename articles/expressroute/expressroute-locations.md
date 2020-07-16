@@ -11,7 +11,7 @@ ms.date: 06/30/2020
 ms.author: cherylmc
 
 ---
-# ExpressRoute partners and peering locations
+# ExpressRoute connectivity partners and peering locations
 
 > [!div class="op_single_selector"]
 > * [Locations By Provider](expressroute-locations.md)
@@ -352,7 +352,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | Asia |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | Europe |
 | **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | North America |
-| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | North America |
+| **[Presidio](https://www.presidio.com/subpage/1107/microsoft-azure)** | North America |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | Europe |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | Australia |

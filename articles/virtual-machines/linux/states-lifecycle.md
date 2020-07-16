@@ -16,4 +16,4 @@ ms.author: vashan
 
 ## Next steps
 
-To learn more about monitoring your VM, see [How to monitor virtual machines in Azure](monitor.md).
+To learn more about monitoring your VM, see [Monitor virtual machines in Azure](../../azure-monitor/insights/monitor-vm-azure.md).
