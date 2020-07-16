@@ -70,24 +70,9 @@
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/container-service/kubernetes/TOC.yml",
-      "redirect_url": "/previous-versions/azure/container-service/kubernetes/container-service-intro-kubernetes",
-      "redirect_document_id": false
-    },
-    {
+     {
       "source_path": "articles/container-service/kubernetes/index.yml",
       "redirect_url": "/previous-versions/azure/container-service/kubernetes/container-service-intro-kubernetes",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/container-service/TOC.yml",
-      "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/container-service/dcos-swarm/TOC.yml",
-      "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
       "redirect_document_id": false
     },
     {
