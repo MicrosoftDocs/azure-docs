@@ -115,6 +115,8 @@ There are several possible causes for this symptom, however the overall reason i
 
 - A `POST` request is sent with neither a `Content-Length` nor a `Transfer-Encoding` header being present (for example using `curl -X POST https://example-front-door.domain.com`); this does not meet the requirements set out in [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) and would be blocked by your Front Door with a HTTP 411 response
 
+This behaviour is separate from the WAF functionality of Front Door; there is currently no way to disable this behaviour and all HTTP requests must meet the requirements even if the WAF functionality is not in use.
+
 ### Troubleshooting steps
 
 - Verify that your requests comply with the requirements set out in the necessary RFCs
