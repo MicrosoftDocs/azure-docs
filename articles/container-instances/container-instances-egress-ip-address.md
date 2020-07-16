@@ -2,16 +2,16 @@
 title: Configure static outbound IP
 description: Configure Azure firewall and user-defined routes for Azure Container Instances workloads that use the firewall's public IP address for ingress and egress
 ms.topic: article
-ms.date: 06/04/2020
+ms.date: 07/16/2020
 author: dlepow
 ms.author: danlep
 ---
 
-# Configure a single public IP address for outbound and inbound  traffic to a container group    
+# Configure a single public IP address for outbound and inbound traffic to a container group
 
 Setting up a [container group](container-instances-container-groups.md) with an external-facing IP address allows external clients to use the IP address to access a container in the group. For example, a browser can access a web app running in a container. However, currently a container group uses a different IP address for outbound traffic. This egress IP address isn't exposed programmatically, which makes container group monitoring and configuration of client firewall rules more complex.
 
-This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with [Azure Firewall](../firewall/overview.md). By setting up a user-defined route to the container group and firewall rules, you can route and identify traffic to and from the container group. Container group ingress and egress use the public IP address of the firewall.
+This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with [Azure Firewall](../firewall/overview.md). By setting up a user-defined route to the container group and firewall rules, you can route and identify traffic to and from the container group. Container group ingress and egress use the public IP address of the firewall. A single egress IP address can be used by multiple container groups deployed in the virtual network's subnet delegated to Azure Container Instances.
 
 In this article you use the Azure CLI to create the resources for this scenario:
 
@@ -52,6 +52,9 @@ az container create \
   --subnet aci-subnet \
   --subnet-address-prefix 10.0.0.0/24
 ```
+
+> [!TIP]
+> Adjust the value of `--subnet address-prefix` for the IP address space you need in your subnet. The smallest supported subnet is /29, which provides eight IP addresses. Some IP addresses are reserved for use by Azure.
 
 For use in a later step, get the private IP address of the container group by running the [az container show][az-container-show] command:
 
@@ -201,7 +204,7 @@ az network firewall nat-rule create \
   --priority 200
 ```
 
-Add NAT rules as needed for additional container groups that expose IP addresses for inbound traffic.
+Add NAT rules as needed to filter traffic to other IP addresses in the subnet. For example, other container groups in the subnet could expose IP addresses for inbound traffic, or other internal IP addresses could be assigned to the container group after a restart.
 
 ### Create outbound application rule on the firewall
 
