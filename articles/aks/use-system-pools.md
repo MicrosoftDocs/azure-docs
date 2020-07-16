@@ -91,7 +91,7 @@ You can check the details of your node pool with the following command.
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
-A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools.
+A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools. Verify the taint is set to `CriticalAddonsOnly=true:NoSchedule`, which will prevent application pods from beings scheduled on this node pool.
 
 ```output
 {
