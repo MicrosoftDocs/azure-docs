@@ -7,7 +7,9 @@ ms.date: 07/07/2020
 
 # Troubleshoot registry login
 
-This article helps you troubleshoot common problems when logging into an Azure container registry. Symptoms can include:
+This article helps you troubleshoot common problems when logging into an Azure container registry. 
+
+Symptoms can include:
 
 * Unable to login to registry using `docker login`, `az acr login`, or both
 * Unable to login to registry and you receive Docker error `unauthorized: authentication required`
@@ -15,13 +17,17 @@ This article helps you troubleshoot common problems when logging into an Azure c
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
 * Unable to push or pull images and you receive  Azure CLI error `Could not connect to the registry login server`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
+* Unable to access registry in Azure portal or manage registry using the Azure CLI
 
 ## Causes
 
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
 * The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
-* The credentials aren't authorized for push or pull operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
+* The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
+
+> [!NOTE]
+> Certain login errors can also occur if there are firewall or network configurations that prevent registry access. See Troubleshoot network access and connectivity [add link when available]
 
 If you don't resolve your problem here, see [Next steps](#next-steps) for other options.
 
@@ -60,7 +66,11 @@ Related links:
 
 ### Confirm credentials are authorized to access registry
 
-Confirm the registry permissions that are associated with the credentials, such as the `AcrPull` RBAC role to pull images from the registry, or the `AcrPush` role to push images. You or a registry owner must have sufficient privileges in the subscription to add or remove role assignments.
+Confirm the registry permissions that are associated with the credentials, such as the `AcrPull` RBAC role to pull images from the registry, or the `AcrPush` role to push images. 
+
+Access to a registry in the portal or registry management using the Azure CLI requires at least the `Reader` role to perform Azure Resource Manager operations.
+
+You or a registry owner must have sufficient privileges in the subscription to add or remove role assignments.
 
 Related links:
 
