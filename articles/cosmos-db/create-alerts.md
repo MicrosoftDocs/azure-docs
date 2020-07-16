@@ -55,7 +55,7 @@ This section shows how to create an alert when you receive a HTTP status code 42
 
      * In the **Alert logic**, set the **Threshold** to **Static**. The static threshold uses a user-defined threshold value to evaluate the rule, whereas the dynamic thresholds uses inbuilt machine learning algorithms to continuously learn the metric behavior pattern and calculate the thresholds automatically. 
 
-     * Set the **operator** to **Greater than**, the **Aggregation type** to **Total**, and the **Threshold value** to **5**. With this logic, if your client sees more than 5 requests that have a 429 status code, the alert is triggered. You can also configure the aggregation type, aggregation granularity, and the frequency of evaluation based on your requirement. 
+     * Set the **operator** to **Greater than**, the **Aggregation type** to **Total**, and the **Threshold value** to **100**. With this logic, if your client sees more than 100 requests that have a 429 status code, the alert is triggered. You can also configure the aggregation type, aggregation granularity, and the frequency of evaluation based on your requirement. 
 
      * After filling the form, select **Done**.
 
