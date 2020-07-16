@@ -14,6 +14,9 @@ ms.author: aahi
 
 # Deploy the Face container to Azure Container Instances
 
+> [!IMPORTANT]
+> The limit for new Face container users has been reached. We are not currently accepting new applications for the Face container.
+
 Learn how to deploy the Cognitive Services [Face](../face-how-to-install-containers.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). This procedure demonstrates the creation of an Azure Face resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
