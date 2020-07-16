@@ -99,7 +99,7 @@ Finally, get credentials to access the cluster:
 az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 
-## Bring your own (BYO) control plane MI (Preview)
+## Bring your own control plane MI (Preview)
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This enables scenarios such as using an custom VNET or outboundType of UDR with a managed identity.
 
 > [!IMPORTANT]
@@ -110,9 +110,9 @@ A custom control plane identity enables access to be granted to the existing ide
 
 You must have the following resources installed:
 - The Azure CLI, version 2.9.0 or later
-- The aks-preview 0.4.57 extension
+- The aks-preview 0.4.58 extension
 
-Limitations for Bring your own control plane MI (Preview):
+Limitations for bring your own control plane MI (Preview):
 * Azure Government isn't currently supported.
 * Azure China 21Vianet isn't currently supported.
 
