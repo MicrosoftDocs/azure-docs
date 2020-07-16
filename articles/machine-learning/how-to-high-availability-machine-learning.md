@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 07/16/2020
 ---
 
-# Enable increase resiliency of Azure Machine Learning
+# Increase the resiliency of Azure Machine Learning
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
