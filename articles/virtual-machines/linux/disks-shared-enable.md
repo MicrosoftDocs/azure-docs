@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: references_regions
 ---
 
 # Enable shared disk
