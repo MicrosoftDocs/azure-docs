@@ -47,7 +47,7 @@ In the REST API, issue HTTP POST requests with JSON request bodies to your Azure
 In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Cognitive Search what action to perform on that document. For a code example, see the [C# Quickstart](search-get-started-dotnet.md).
 
 
-| s@earch.action | Description | Necessary fields for each document | Notes |
+| @search.action | Description | Necessary fields for each document | Notes |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. |key, plus any other fields you wish to define |When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value. |
 | `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. In the .NET SDK, this includes fields of type `DataType.Collection(DataType.String)`. In the REST API, this includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
