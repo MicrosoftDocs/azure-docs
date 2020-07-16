@@ -115,7 +115,7 @@ Owner role required: **No**
 
 You do not have to be an owner on the Azure subscription to run this step.
 
-### Run the command
+### Run the creation command
 
 In this section, you'll create an instance with the Cloud Shell command. You'll need to provide a name for your instance, a resource group to deploy it in, and a region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
@@ -170,6 +170,10 @@ The result of this command is outputted information about the role assignment th
 > az ad user show --id <AAD-email-of-user-to-assign> --query objectId
 > ```
 > Then, repeat the role assignment command using the user's *Object ID* in place of their email.
+
+One way to check that the role assignment was successful is to view the role assignments for the Azure Digital Twins instance in the Azure portal. From your portal page of [Azure Digital Twins instances](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances), select the name of the instance you want to check. Then, view all of its assigned roles under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
+
+:::image type="content" source="media/how-to-set-up-instance/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
 
 You now have an Azure Digital Twins instance ready to go, and assigned permissions to manage it. Next, you'll set up permissions for a client app to access it.
 
