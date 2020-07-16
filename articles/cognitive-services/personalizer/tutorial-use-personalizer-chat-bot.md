@@ -2,7 +2,7 @@
 title: Use Personalizer in chat bot - Personalizer
 description: Customize a C# .NET chat bot with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
 ms.topic: tutorial
-ms.date: 07/14/2020
+ms.date: 07/16/2020
 ms.author: diberry
 ---
 
@@ -190,9 +190,9 @@ Keep the web site running because the tutorial explains what the bot is doing, s
 1. Let the bot suggest an item by entering `Please suggest a drink for me.`
     The emulator displays the Rank request and response in the chat window, so you can see the full JSON. And the bot makes a suggestion, something like `How about Latte?`
 1. Answer that you would like that which means you accept Personalizer's top Ranked selection, `I like it.`
-    The emulator displays the Reward request with reward score 0 and response in the chat window, so you can see the full JSON. And the bot responds with `That’s great! I’ll keep learning your preferences over time.` and `Would you like to get a new suggestion or reset the simulated context to a new day?`
+    The emulator displays the Reward request with reward score 1 and response in the chat window, so you can see the full JSON. And the bot responds with `That’s great! I’ll keep learning your preferences over time.` and `Would you like to get a new suggestion or reset the simulated context to a new day?`
 
-    If you response with `no` to the selection, the reward score of 1 is sent to Personalizer.
+    If you respond with `no` to the selection, the reward score of 0 is sent to Personalizer.
 
 
 ## Understand the .NET code using Personalizer
