@@ -1,13 +1,11 @@
 ---
 title: "include file"
-description: "include file"
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: "include"
 ms.date: 07/16/2020
 ms.author: tamram
-ms.custom: "include file"
 ---
 
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
