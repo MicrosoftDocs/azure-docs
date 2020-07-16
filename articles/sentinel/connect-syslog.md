@@ -1,6 +1,6 @@
 ---
 title: Connect Syslog data to Azure Sentinel | Microsoft Docs
-description: Connect any on-premises appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Sentinel. 
+description: Connect any machine or appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -13,40 +13,60 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 07/17/2020
 ms.author: yelevin
 
 ---
-# Connect your external solution using Syslog
+# Collect data from Linux-based sources using Syslog
 
-You can connect any on-premises appliance that supports Syslog to Azure Sentinel. This is done by using an agent based on a Linux machine between the appliance and Azure Sentinel. If your Linux machine is in Azure, you can stream the logs from your appliance or application to a dedicated workspace you create in Azure and connect it. If your Linux machine is not in Azure, you can stream the logs from your appliance to a dedicated on premises VM or machine onto which you install the Agent for Linux. 
+You can stream events from any Linux-based, Syslog-supporting machine or appliance into Azure Sentinel, using the Log Analytics agent for Linux (formerly known as the OMS agent). There are two ways to use this solution:
+
+- For Linux-based VMs, whether on-premises or in the cloud, you can install the Log Analytics agent directly on the VM and have it stream the events directly to your Azure Sentinel workspace.
+
+- For external appliances or networking equipment, you should install the agent onto a dedicated Syslog-based log collector VM. The syslog daemon will collect the events from the appliances and forward them locally to the agent, which will stream them to your workspace.
 
 > [!NOTE]
-> If your appliance supports Syslog CEF, the connection is more complete and you should choose this option and follow the instructions in [Connecting data from CEF](connect-common-event-format.md).
+> If your appliance supports **Common Event Format (CEF) over Syslog**, a more complete data set is collected, and the data is parsed at collection. You should choose this option and follow the instructions in [Connect your external solution using CEF](connect-common-event-format.md).
 
 ## How it works
 
-Syslog is an event logging protocol that is common to Linux. Applications will send messages that may be stored on the local machine or delivered to a Syslog collector. When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to Azure Monitor where a corresponding record is created.
+Syslog is an event logging protocol that is common to Linux. When the Log Analytics agent for Linux is installed, whether on the Linux VM originating the events or on a log collector VM, the installation routine configures the local Syslog daemon to forward messages to the agent. The agent then sends the message to your Log Analytics workspace where it is parsed into an Azure Sentinel event log entry.
 
 For more information, see [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
-> - The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
-> - If you want to support connectors for both CEF and Syslog on the same VM, perform the following steps to avoid duplicating data:
->    1.	Follow the instructions to [Connect your CEF](connect-common-event-format.md).
->    2.	To connect the Syslog data, go to **Settings** > **Workspace settings** > **Advanced settings** > **Data** > **Syslog** and set the Facilities and their priorities so that they are not the same facilities and properties you used in your CEF configuration. <br></br>If you select **Apply below configuration to my machines**, it applies these setings to all VMs connected to this workspace.
+>
+> - The Log Analytics agent can stream logs from multiple sources, but to do so, it must be installed on a dedicated collector machine. A single collector machine can collect from several sources.
+>
+> - If you want to collect data from both CEF and Syslog sources on the same VM, perform the following steps to avoid sending duplicate events to Azure Sentinel:
+>
+>    1.	Follow the instructions to [collect data from your CEF sources](connect-common-event-format.md).
+>
+>    2.	To collect the Syslog data, go to **Settings** > **Workspace settings** > **Advanced settings** > **Data** > **Syslog** and set the facilities and their severities so that they are not the same facilities and severities you used in your CEF configuration. <br></br>If you select **Apply below configuration to my machines**, it applies these settings to all VMs connected to this workspace.
 
-
-## Connect your Syslog appliance
+## Configure your Linux machine
 
 1. In Azure Sentinel, select **Data connectors** and then select the **Syslog** connector.
 
 2. On the **Syslog** blade, select **Open connector page**.
 
-3. Install the Linux agent:
+3. Install the Linux agent. Under **Choose where to install the agent:**
     
-    - If your Linux virtual machine is in Azure, select **Download and install agent on Azure Linux virtual machine**. In the **Virtual machines** blade, select the virtual machines to install the agent on, and then click **Connect**.
-    - If your Linux machine isn't in Azure, select **Download and install agent on Linux non-Azure machine**. In the **Direct agent** blade, copy the command for **DOWNLOAD AND ONBOARD AGENT FOR LINUX** and run it on your computer. 
+    **If your Linux virtual machine is in Azure**
+      
+    1. Select **Install agent on Azure Linux virtual machine**.
+    
+    1. Click the **Download & install agent for Azure Linux Virtual machines >** link. 
+    
+    1. In the **Virtual machines** blade, click a virtual machine to install the agent on, and then click **Connect**. Repeat this step for each VM you wish to connect.
+    
+    **If your Linux machine isn't in Azure**
+
+    1. Select **Install agent on a non-Azure Linux Machine**
+
+    1. Click the **Download & install agent for non-Azure Linux machines >** link. 
+
+    1. In the **Agents management** blade, click the **Linux servers** tab, then copy the command for **Download and onboard agent for Linux** and run it on your Linux machine. 
     
    > [!NOTE]
    > Make sure you configure security settings for these computers according to your organization's security policy. For example, you can configure the network settings to align with your organization's network security policy, and change the ports and protocols in the daemon to align with the security requirements.
@@ -55,7 +75,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 5. On the **Advanced settings** blade, select **Data** > **Syslog**. Then add the facilities for the connector to collect.
     
-    Add the facilities that your syslog appliance includes in its log headers. You can see this configuration in your Syslog appliance in **Syslog-d** in the `/etc/rsyslog.d/security-config-omsagent.conf` folder, and in **r-Syslog** from `/etc/syslog-ng/security-config-omsagent.conf`.
+    Add the facilities that your syslog appliance includes in its log headers. 
     
     If you want to use anomalous SSH login detection with the data that you collect, add **auth** and **authpriv**. See the [following section](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) for additional details.
 
@@ -63,11 +83,11 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 7. Select **Save**. 
 
-8. On your syslog appliance, make sure you're sending the facilities that you specified.
+8. On your VM or appliance, make sure you're sending the facilities that you specified.
 
-9. To use the relevant schema in Azure Monitor for the syslog logs, search for **Syslog**.
+9. To query the syslog log data in **Logs**, type `Syslog` in the query window.
 
-10. You can use the Kusto function described in [Using functions in Azure Monitor log queries](../azure-monitor/log-query/functions.md) to parse your Syslog messages. You can then save them as a new Log Analytics function to use as a new data type.
+10. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/log-query/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 
 ### Configure the Syslog connector for anomalous SSH login detection
 
