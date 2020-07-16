@@ -86,7 +86,7 @@ The flow is as follows:
 
 Ultra disks offer an additional throttle, for a total of two throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the ReadOnly or Read/Write access for Reservation Holder, Registered, and Others.":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the `ReadOnly` or `Read/Write` access for Reservation Holder, Registered, and Others.":::
 
 ## Performance throttles
 
@@ -123,19 +123,19 @@ The following examples depict a few scenarios that show how the throttling can w
 
 ##### Two nodes cluster using cluster shared volumes
 
-The following is an example of a 2-node WSFC using clustered shared volumes. With this configuration, both VMs have simultaneous write-access to the disk, which results in the ReadWrite throttle being split across the two VMs and the `ReadOnly` throttle not being used.
+The following is an example of a 2-node WSFC using clustered shared volumes. With this configuration, both VMs have simultaneous write-access to the disk, which results in the `ReadWrite` throttle being split across the two VMs and the `ReadOnly` throttle not being used.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV two node ultra example":::
 
 ##### Two node cluster without cluster share volumes
 
-The following is an example of a 2-node WSFC that isn't using clustered shared volumes. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the `ReadOnly` throttle only being used by the secondary.
+The following is an example of a 2-node WSFC that isn't using clustered shared volumes. With this configuration, only one VM has write-access to the disk. This results in the `ReadWrite` throttle being used exclusively for the primary VM and the `ReadOnly` throttle only being used by the secondary.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV two nodes no csv ultra disk example":::
 
 ##### Four node Linux cluster
 
-The following is an example of a 4-node Linux cluster with a single writer and three scale-out readers. With this configuration, only one VM has write-access to the disk. This results in the ReadWrite throttle being used exclusively for the primary VM and the `ReadOnly` throttle being split by the secondary VMs.
+The following is an example of a 4-node Linux cluster with a single writer and three scale-out readers. With this configuration, only one VM has write-access to the disk. This results in the `ReadWrite` throttle being used exclusively for the primary VM and the `ReadOnly` throttle being split by the secondary VMs.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
 
