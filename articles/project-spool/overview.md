@@ -11,8 +11,6 @@ ms.topic: overview
 ms.service: azure-project-spool
 
 ---
-> [!WARNING]
-> This is a temporary page.  **This will not be published.*** 
 
 
 # About Azure Communication Services
