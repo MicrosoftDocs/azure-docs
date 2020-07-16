@@ -51,12 +51,13 @@ The following steps may help you with troubleshooting connectivity/certificate/t
 ## Issues that may occur with service upgrades/restarts
 
 ### Symptoms
-Backend service upgrades and restarts may cause the following impact to your applications:
-
 - Requests may be momentarily throttled.
 - There may be a drop in incoming messages/requests.
 - The log file may contain error messages.
 - The applications may be disconnected from the service for a few seconds.
+
+### Cause
+Backend service upgrades and restarts may cause these issues in your applications.
 
 ### Resolution
 If the application code uses SDK, the retry policy is already built in and active. The application will reconnect without significant impact to the application/workflow.
