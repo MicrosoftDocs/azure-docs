@@ -24917,12 +24917,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/virtual-machines/linux/regions.md",
+      "source_path": "articles/virtual-machines/linux/regions.md",
       "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/virtual-machines/windows/regions.md",
+      "source_path": "articles/virtual-machines/windows/regions.md",
       "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
@@ -25176,7 +25176,7 @@
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
     },    {
-      "source_path": "articles/virtual-machines/virtual-machines/windows/isolation.md",
+      "source_path": "articles/virtual-machines/windows/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
     },
@@ -26086,7 +26086,7 @@
       "redirect_document_id": false
     },    
     {
-      "source_path": "articles/virtual-machines/virtual-machines/linux/availability.md",
+      "source_path": "articles/virtual-machines/linux/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
     },
