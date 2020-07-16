@@ -166,7 +166,7 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Managed Virtual network
+  - name: Managed Virtual Network
     href: managed-virtual-network-private-endpoint.md
   - name: Security
     items:
