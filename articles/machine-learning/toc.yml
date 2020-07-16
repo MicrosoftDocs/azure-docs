@@ -413,21 +413,21 @@
       - name: Iterating and evolving machine learning pipelines
         displayName: modularizing testing
         href: concept-pipeline-practices-tips.md
-    - name: Azure Pipelines for CI/CD
-      displayName: continuous, integration, delivery
-      href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
-    - name: Manage resource quotas
-      displayName: limits
-      href: how-to-manage-quotas.md
-    - name: Manage resources VS Code
-      displayName: vscode,resources
-      href: how-to-manage-resources-vscode.md
-    - name: Export and delete data
-      displayName: GDPR
-      href: how-to-export-delete-data.md
-    - name: Create event driven workflows
-      displayName: event grid
-      href: how-to-use-event-grid.md
+  - name: Azure Pipelines for CI/CD
+    displayName: continuous, integration, delivery
+    href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+  - name: Manage resource quotas
+    displayName: limits
+    href: how-to-manage-quotas.md
+  - name: Manage resources VS Code
+    displayName: vscode,resources
+    href: how-to-manage-resources-vscode.md
+  - name: Export and delete data
+    displayName: GDPR
+    href: how-to-export-delete-data.md
+  - name: Create event driven workflows
+    displayName: event grid
+    href: how-to-use-event-grid.md
 - name: Reference
   items: 
     - name: Python SDK
