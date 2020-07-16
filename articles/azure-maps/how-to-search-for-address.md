@@ -1,6 +1,6 @@
 ---
 title: Search for a location using Azure Maps Search services
-description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search Service for geocoding and reverse geocoding.
+description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search APIs for geocoding, reverse geocoding, fuzzy search and reverse cross street search.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/14/2020
@@ -12,7 +12,7 @@ manager: philmea
 
 # Search for a location using Azure Maps Search services
 
-The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) is a set of RESTful APIs for searching addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, search services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route](https://docs.microsoft.com/rest/api/maps/route) and [Weather](https://docs.microsoft.com/rest/api/maps/weather) services.
+Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) is a set of RESTful APIs for searching addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, search services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route](https://docs.microsoft.com/rest/api/maps/route) and [Weather](https://docs.microsoft.com/rest/api/maps/weather) services.
 
 In this article you will learn how to:
 
@@ -20,7 +20,7 @@ In this article you will learn how to:
 * Search for an address or Point of Interest (POI) using the [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
 * Search for an address, its properties and coordinates.
 * Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate coordinate location to street address.
-* Search for a cross street using the [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).
+* Search for a cross street using the [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).Most often this is needed in tracking applications where you receive a GPS feed from the device or asset and wish to know what address where the coordinate is located.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Request latitude and longitude for an address (geocoding)
 
-In this example, we'll use the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert an address into latitude and longitude coordinates. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, and county/state/country region information.
+In this example, we'll use the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, and county/state/country region information.
 
 >[!TIP]
 >If you have a set of addresses to geocode, you can use the [Post Search Address Batch API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
@@ -40,7 +40,9 @@ In this example, we'll use the Azure Maps [Get Search Address API](https://docs.
 
 2. To create the request, select **New** again. In the **Create New** window, select **Request**. Enter a **Request name** for the request. Select the collection you created in the previous step, and then select **Save**.
 
-3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
+3. Select the **GET** HTTP method in the builder tab and enter the following URL. In this request, we're searching for a specific address: `400 Braod St, Seattle, WA 98109`.
+
+    For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key. The request should look like the following URL:
 
     ```http
     https://atlas.microsoft.com/search/address/json?&subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&language=en-US&query=400 Broad St, Seattle, WA 98109
@@ -48,11 +50,13 @@ In this example, we'll use the Azure Maps [Get Search Address API](https://docs.
 
 4. Click the blue **Send** button. The response body will contain data for a single location.
 
-5. Now, we'll search an address that has two possible locations. In the **Params** section, change the `query` key to `400 Broad, Seattle`.  Also, add the `typeahead` key, and set it's value to `true`. The `typeahead` flag tells the Address Search API to treat the query as a partial input and to return an array of predictive values.
+5. Now, we'll search an address that has more than one possible locations. In the **Params** section, change the `query` key to `400 Broad, Seattle`.  Also, add the `typeahead` key, and set it's value to `true`. The `typeahead` flag tells the Address Search API to treat the query as a partial input and to return an array of predictive values. Click the blue **Send** button.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Search for address":::
 
-6. Click the **Send** button. The response body will contain data for three locations.
+6. Next, try setting the `query` key to `400 Broa`.
+
+7. Click the **Send** button. The response body will contain data for multiple locations.
 
 ## Using Fuzzy Search API
 
