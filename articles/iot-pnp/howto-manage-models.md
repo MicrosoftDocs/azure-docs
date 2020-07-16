@@ -10,36 +10,38 @@ ms.date: 07/16/2020
 ms.author: v-jambra
 ---
 
-# Manage models in the repository
+# Manage models in the model repository
 
-The Azure IoT Model Repository stores the interfaces that define and compose models. The model repository makes the models and interfaces discoverable and consumable by solution developers.
+The Azure IoT Model Repository stores the models defined using [DTDLv2](<provide link>). The model repository makes the models discoverable and consumable by device and solution developers.
 
-You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo), the Azure CLI, or the Model repository REST API to manage models in the repository.  
+You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo), the [Model repository Azure CLI commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest), or the [Model repository REST API](https://review.docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel?branch=iotpnp) to manage models in the repository.  
 
 ## Public and Private models
 
-Interfaces can be public or private.
+Models can be public or private to the organization.
 
-Private interfaces are maintained by your company. Access to private interfaces is controlled through role-based access control (RBAC) both on your organization's Azure AD tenant and on individual interfaces. Tenant roles determine who can create and publish interfaces in your organization. Roles on individual interfaces allow the creator of a private interface to share it with a limited audience of your partners.
+Company models are private and are maintained by your company. Access to company models is controlled through role-based access control (RBAC) on your repository tenant. Repository tenant roles determine who can create and publish models in your organization. Permissions on models allow the creator of a private model to share it with a limited audience within the company or with partners of your organization.
 
-Once an interface has been published, it is public. Public interfaces are available through anonymous authentication and can be read by any user or service principal.
+Once a model has been published, it is public. Public models are available anonymously.
 
-For an overview of the model repository including RBAC, see [Understand the Azure IoT Model Repository](concepts-model-repository.md).
+For an overview of model repository concepts including RBAC, see [Understand the Azure IoT Model Repository](concepts-model-repository.md).
 
-## Model repository sign-in
+## Model repository user management
 
-Use your Microsoft _work account_ to sign in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo). The portal checks your membership with the Microsoft Partner Center when you sign in:
+Use your _work or school account_ to access the model repository. The model repository checks your membership with the Microsoft Partner Center when you access it:
 
-- If you're the first user from your organization to sign in to the portal, you're granted the _Tenant Administrator_ role. This role allows you to assign roles to other users in your company (Azure Active Directory tenant).
-- If you're not the first user from your organization to sign in to the portal, you're granted _ReadTenantModels_ permission. This enables you to read your company's interfaces as well as all public interfaces. You can be assigned other roles by a _Tenant Administrator_.
+- If you're the first user from your organization to access the model repository or to sign in to the portal, you're granted the _Tenant Administrator_ role. This role allows you to assign roles to other users in your organization's repository (repository tenant).
+- You can be assigned other roles by a _Tenant Administrator_ like _ReadTenantModels_ or _CreateModels_.
 - If your organization isn't a member of the [Microsoft Partner Center](https://docs.microsoft.com/partner-center/), you can't publish your models.
-- If you see a notification message that your Microsoft Partner Network ID is missing, you should [create a Partner Center account](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). When your account is approved, you can return to the portal and publish your models. For more information, see the [Partner Center FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
+- If you see a notification message in the [Azure IoT Model Repository](https://aka.ms/iotmodelrepo) that your Microsoft Partner Network ID is missing, you should [create a Partner Center account](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). When your account is approved, you can return and publish your models. For more information, see the [Partner Center FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
 
-## Manage tenant roles
+To learn how to create a user or service principal in an Azure AD tenant, see the links to Azure AD topics in [Manage models with the Model repository REST API](#manage-models-with-the-model-repository-rest-api).
 
- By default, users can read their company's private interfaces, interfaces that have been shared with them by other companies, and all public interfaces. Tenant administrators can add users to tenant roles so that they can create private interfaces, publish private interfaces, or manage roles for other users.
+## Manage model repository tenant roles
 
-To add a user to a tenant role:
+ By default, users can read their company's private models, models that have been shared with them by other companies, and all public models. Repository tenant administrators can add users and service principals  to repository tenant roles so that they can create private models, publish private models, or manage roles for other users and service principals.
+
+To add a user or a service principal to a model repository tenant role using the portal:
 
 1. Sign-in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo).
 
@@ -51,9 +53,15 @@ To add a user to a tenant role:
 
     ![Choose tenant role.](./media/howto-manage-models/choose-role.png)
 
-## Create an interface
+To add permissions to a user or service principal in a model repository tenant through REST Api (<refer to REST API documentation>)
 
-To create an interface in the model repository, you must be a member of the tenant  _Creator_ role.
+To add permissions to a user or service principal in a model repository tenant through Azure CLI(<refer to CLI>)
+
+## Upload a model
+
+You must be a member of the repository tenant's _Creator_ role to upload a model to the model repository.
+
+To upload a model using the portal:
 
 1. Sign-in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo).
 
@@ -61,31 +69,35 @@ To create an interface in the model repository, you must be a member of the tena
 
     ![Create a model.](./media/howto-manage-models/create-model.png)
 
-3. Select the file you want to upload. If the portal successfully validates your interface, select **Save**.
+3. Select the file you want to upload. If the portal successfully validates your model, select **Save**.
 
-## Share a private interface
+## Share a private model
 
-You can share private interfaces that you have created with external users. In this way, you can allow your partners to view and develop solutions with your private interfaces.
+You can share private models that you have created with users and service principals of external organizations. In this way, you can allow your collaborators to view and develop solutions with your company's private models.
 
-If you're the creator of an interface, the **Share** and **Shared with** buttons will be active when you view the interface in your Company models.
+To share a private model using the portal:
+
+If you're the creator of a model, the **Share** and **Shared with** buttons will be active when you view the model in your Company models.
 
 ![Model sharing.](./media/howto-manage-models/share-model.png)
 
-- To share the interface with an external user, select **Share**. In the **Share model** pane, enter the email address of the external user and select **Save**.
+- To share the model with an external user, select **Share**. In the **Share model** pane, enter the email address of the external user and select **Save**.
 
 - To see the users who you have shared the model with, select **Shared with**.
 
-- To stop sharing the interface with a specific user, select the user from the list of users on the **Shared with** pane. Then select **Remove** and confirm your choice when prompted.
+- To stop sharing the model with a specific user, select the user from the list of users on the **Shared with** pane. Then select **Remove** and confirm your choice when prompted.
 
     ![Stop sharing a model.](./media/howto-manage-models/unshare-model.png)
 
-## Publish an interface
+## Publish a model
 
-To publish an interface, you must be a member of the tenant _Publisher_ role.
+You must be a member of the repository tenant's _Publisher_ role to publish a model.
+
+To publish a model using the portal:
 
 1. Sign-in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo).
 
-2. Expand **Company Models** on the left pane and select the interface you want to publish. Then select **Publish**.
+2. Expand **Company Models** on the left pane and select the model you want to publish. Then select **Publish**.
 
     ![Publish a model.](./media/howto-manage-models/publish-model.png)
 
@@ -108,7 +120,7 @@ You may find the following topics helpful when working with Azure Active Directo
 
 ## Manage models with the Azure CLI
 
-To manage models with the Azure CLI, see the documentation for [az iot pnp command](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
+To manage models with the Azure CLI, see the documentation for the [az iot pnp command](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
 
 ## Next steps
 
