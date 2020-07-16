@@ -1022,14 +1022,12 @@ To install the Azure Extension for SAP by using Azure CLI:
 
 The new VM Extension for SAP uses a Managed Identity assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using PowerShell, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example disks and network interfaces.
 
-The process will be automated in the next version of Azure PowerShell (> 4.2.0). We will update this article once the new version is available. Until then, please follow these steps to install the extension manually.
-
 > [!NOTE]
 > The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks etc.)
 
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Make sure to uninstall the current version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
-1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
+1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0). For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 1. Run the following PowerShell cmdlet.
     For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
 
