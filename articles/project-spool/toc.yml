@@ -28,10 +28,14 @@
         href: quickstarts/networking/route-events.md
   - name: Telephony and SMS 
     items:
+      - name: Buy A Telephone Number
+        href: quickstarts/telephony-and-sms/search-and-acquire-phone-number.md
       - name: Place a Telephone Call
         href: quickstarts/telephony-and-sms/get-started-with-phone.md
-      - name: Send an SMS
-        href: quickstarts/telephony-and-sms/get-started-with-sms.md
+      - name: Send an SMS (JS)
+        href: quickstarts/telephony-and-sms/send-sms-js.md
+      - name: Send an SMS (.NET)
+        href: quickstarts/telephony-and-sms/send-sms-net.md
   - name: Voice and Video Calling
     items:
     - name: Request phone numbers

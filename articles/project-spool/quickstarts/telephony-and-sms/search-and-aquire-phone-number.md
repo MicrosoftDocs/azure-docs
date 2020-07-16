@@ -1,3 +1,17 @@
+---
+title: Search and Acquire a Phone Number
+description: Setting up the SMS SDK for ACS in Javascript
+author: dademath    
+manager: nimag
+services: azure-project-spool
+
+ms.author: dademath
+ms.date: 07/09/2020
+ms.topic: quickstart
+ms.service: azure-project-spool
+
+---
+
 # Search and acquire a phone number on Azure Communication Services portal
 
 Before proceeding, please review the [Plan you Telephony and SMS solution](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/voice/plan-your-telephony-and-sms-solution/) concept document
