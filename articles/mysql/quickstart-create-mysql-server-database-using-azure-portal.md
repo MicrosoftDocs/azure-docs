@@ -80,64 +80,46 @@ You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.
    > ![Portal Full View Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
 2.  Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. The admin username requires '@<servername> as shown below for Azure Database for MySQL  
 
-```azurecli-interactive
-mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p
-```
+  ```azurecli-interactive
+  mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
+  ```
 
-Here is how the experience looks like in the Cloud Shell terminal
-```
-Requesting a Cloud Shell.Succeeded.
-Connecting terminal...
+  Here is how the experience looks like in the Cloud Shell terminal
+  ```
+  Requesting a Cloud Shell.Succeeded.
+  Connecting terminal...
 
-Welcome to Azure Cloud Shell
+  Welcome to Azure Cloud Shell
 
-Type "az" to use Azure CLI
-Type "help" to learn about Cloud Shell
+  Type "az" to use Azure CLI
+  Type "help" to learn about Cloud Shell
 
-sunitha@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u admin@wpapp-mysqldbserver -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 64796
-Server version: 5.6.42.0 Source distribution
+  sunitha@Azure:~$mysql -h mydemoserver.mysql.database.azure.com -u admin@wpapp-mysqldbserver -p
+  Enter password:
+  Welcome to the MySQL monitor.  Commands end with ; or \g.
+  Your MySQL connection id is 64796
+  Server version: 5.6.42.0 Source distribution
 
-Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+  Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
 
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
+  Oracle is a registered trademark of Oracle Corporation and/or its
+  affiliates. Other names may be trademarks of their respective
+  owners.
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql>
-```
-- In the same Azure Cloud Shell terminal , create a database **myproject** 
-```
-mysql> CREATE DATABASE myproject;
-Query OK, 1 row affected (0.27 sec)
-```
-- Create a table **Persons**
-```
-mysql> USE myproject;
-Database changed
-mysql> CREATE TABLE Persons ( PersonID int,   LastName varchar(255),  FirstName varchar(255),  Address varchar(255), City varchar(255) );
-Query OK, 0 rows affected (0.56 sec)
-```
-- Insert sample data into the **Persons** table
-```
-mysql> INSERT INTO Persons (PersonID, LastName,FirstName,Address,City) VALUES (1, 'Smith', 'John', 'One Micorosft Way ', 'Redmond');
-Query OK, 1 row affected (0.21 sec)
-```
-- Retrieve the sample data from the **Persons** table
-```
-mysql> SELECT * FROM Persons;
-+----------+----------+-----------+--------------------+---------+
-| PersonID | LastName | FirstName | Address            | City    |
-+----------+----------+-----------+--------------------+---------+
-|        1 | Smith    | John      | One Micorosft Way  | Redmond |
-+----------+----------+-----------+--------------------+---------+
-1 row in set (0.03 sec)
-
-```
+  Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+  mysql>
+  ```
+3. In the same Azure Cloud Shell terminal , create a database **guest** 
+  ```
+  mysql> CREATE DATABASE guest;
+  Query OK, 1 row affected (0.27 sec)
+  ```
+4. Change to database **guest**
+  ```
+  mysql> USE guest;
+  Database changed 
+  ```
+5. Type ```quit```, and then select the Enter key to quit mysql.   
 
 ## Clean up resources
 You have successfully created an Azure Database for MySQL server in a resource group.  If you don't expect to need these resources in the future, you can delete them by deleting the resource group or just delete the MySQL server. To delete the resource group follow these steps:
