@@ -109,13 +109,15 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 #  -ResourceGroupName SQLVM-RG -Offer SQL2017-WS2016
 #  -Sku Enterprise -DomainFqdn domain.com -ClusterOperatorAccount vmadmin@domain.com
 #  -ClusterBootstrapAccount vmadmin@domain.com  -SqlServiceAccount sqlservice@domain.com 
-#  -StorageAccountUrl '<ex:https://cloudwitness.blob.core.windows.net/>' -StorageAccountPrimaryKey '4Z4/i1Dn8/bpbseyWX'
+#  -StorageAccountUrl '<ex:https://cloudwitness.blob.core.windows.net/>' `
+#  -StorageAccountPrimaryKey '4Z4/i1Dn8/bpbseyWX'
 
 $group = New-AzSqlVMGroup -Name <name> -Location <regio> 
   -ResourceGroupName <resource group name> -Offer <SQL201?-WS201?> 
   -Sku Enterprise -DomainFqdn <FQDN> -ClusterOperatorAccount <domain account> 
   -ClusterBootstrapAccount <domain account>  -SqlServiceAccount <service account> 
-  -StorageAccountUrl '<ex:StorageAccountUrl>' -StorageAccountPrimaryKey '<PublicKey>'
+  -StorageAccountUrl '<ex:StorageAccountUrl>' `
+  -StorageAccountPrimaryKey '<PublicKey>'
 ```
 
 ---
@@ -154,7 +156,7 @@ Use this command to add any other SQL Server VMs to the cluster. Modify only the
 #  -SqlServiceAccountPassword Str0ngAzur3P@ssword! `
 #  -ClusterBootstrapAccountPassword Str0ngAzur3P@ssword!
 
-$sqlvmconfig2 = Set-AzSqlVMConfigGroup -SqlVM $sqlvm2 `
+# $sqlvmconfig2 = Set-AzSqlVMConfigGroup -SqlVM $sqlvm2 `
 #  -SqlVMGroup $group -ClusterOperatorAccountPassword Str0ngAzur3P@ssword! `
 #  -SqlServiceAccountPassword Str0ngAzur3P@ssword! `
 #  - ClusterBootstrapAccountPassword Str0ngAzur3P@ssword!
@@ -382,7 +384,7 @@ To remove a replica from the availability group:
    ```powershell-interactive
    # Update the listener metadata by removing the VM from the SQLVMs list
    # example: Update-AzAvailabilityGroupListener -Name AGListener -ResourceGroupName SQLVM-RG `
-     -SqlVMGroupName Cluster -SqlVirtualMachineId SQLVM3
+   #  -SqlVMGroupName Cluster -SqlVirtualMachineId SQLVM3
 
    Update-AzAvailabilityGroupListener -Name <Listener> -ResourceGroupName <Resource Group Name> `
       -SqlVMGroupName <cluster name> -SqlVirtualMachineId <SQL VMs that remain>
@@ -398,7 +400,8 @@ To remove a replica from the availability group:
 
    $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
       $sqlvm. SqlVirtualMachineGroup = ""
-     Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
+    
+    Update-AzSqlVM -ResourceId $sqlvm -SqlVM $sqlvm
    ```
 
 ---
@@ -421,7 +424,7 @@ az sql vm group ag-listener delete --group-name <cluster name> --name <listener 
 
 ```powershell-interactive
 # Remove the availability group listener
-# example: Remove-AzAvailabilityGroupListener -Name AGListener> `
+# example: Remove-AzAvailabilityGroupListener -Name AGListener `
 #   -ResourceGroupName SQLVM-RG -SqlVMGroupName Cluster
 
 Remove-AzAvailabilityGroupListener -Name <Listener> `
