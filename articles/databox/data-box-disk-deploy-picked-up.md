@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/08/2020
+ms.date: 07/16/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -18,13 +18,14 @@ ms.localizationpriority: high
 
 ::: zone target="docs"
 
-# Tutorial: Return Azure Data Box Disk 
+# Tutorial: Return Azure Data Box Disk
 
-This tutorial describes how to schedule a pick up to return your Azure Data Box Disk. The pick up instructions depend on where you are returning the device. 
+This tutorial describes how to schedule a pick up to return your Azure Data Box Disk. The pick up instructions depend on where you are returning the device.
 
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
+>
 > * Ship Data Box Disk to Microsoft
 > * Pick up Data Box Disk in different regions
 
@@ -32,14 +33,13 @@ In this tutorial, you will learn how to:
 
 Before you begin, make sure that you have completed the [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md).
 
-
 ## Ship Data Box Disk back
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-## Return Azure Data Box Disk 
+## Return Azure Data Box Disk
 
 ::: zone-end
 
@@ -157,9 +157,40 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 3. Hand over to the courier.
 
+### [In China](#tab/in-china)
+
+Take the following steps if returning the device in China.
+
+#### Prepare the package
+
+1. Wrap and place the disk(s) and the provided accessories into the box. Charges may apply if the accessories are missing.  
+
+2. Reuse the packaging from the initial shipment.  
+    a. We recommend that you pack disks using a well-secured bubbled wrap.
+    b. Make sure the fit is snug to reduce any movements within the box.  
+
+3. Attach the shipping label provided and paste it on the box. This contains the tracking number. In case the shipping label is missing, it can be downloaded from **Overview > View** ship instructions.
+
+#### Request pickup
+
+1. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the email template below.  
+
+2. Receive an email confirmation from FedEx after completion of booking pick up.  
+
+3. 
+ 
+    ```
+    To: Bao Ying <ying.bao@fedex.com>
+    Subject: Pickup request for Microsoft Azure : Order Name
+    Body: Need pick up for the below shipment 
+     * FedEx tracking number (reference number)
+     * Requested pickup date：yyyy/mm/dd; time: HH MM
+    ```  
+   If you encounter any issues, email DL-DC-SHA@oe.21vianet.com with details of issue encountered and subject mentioning order name.
+
 ### [In Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box Disk in Japan, Singapore, Korea, West Europe or India and have selected the self-managed shipping option during order creation, follow these instructions. 
+If you are using Data Box Disk in Japan, Singapore, Korea, West Europe or India and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
