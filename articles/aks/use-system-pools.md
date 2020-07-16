@@ -89,7 +89,7 @@ az aks nodepool add \
 You can check the details of your node pool with the following command.  
 
 ```azurecli-interactive
-az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
+az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
 ```
 
 A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools. Verify the taint is set to `CriticalAddonsOnly=true:NoSchedule`, which will prevent application pods from beings scheduled on this node pool.
@@ -98,27 +98,34 @@ A mode of type **System** is defined for system node pools, and a mode of type *
 {
   "agentPoolType": "VirtualMachineScaleSets",
   "availabilityZones": null,
-  "count": 3,
+  "count": 1,
   "enableAutoScaling": null,
   "enableNodePublicIp": false,
-  "id": "/subscriptions/666d66d8-1e43-4136-be25-f25bb5de5883/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/mynodepool",
+  "id": "/subscriptions/yourSubscriptionId/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/systempool",
   "maxCount": null,
   "maxPods": 110,
   "minCount": null,
   "mode": "System",
-  "name": "mynodepool",
+  "name": "systempool",
+  "nodeImageVersion": "AKSUbuntu-1604-2020.06.30",
   "nodeLabels": {},
-  "nodeTaints": null,
-  "orchestratorVersion": "1.15.10",
-  "osDiskSizeGb": 100,
+  "nodeTaints": [
+    "CriticalAddonsOnly=true:NoSchedule"
+  ],
+  "orchestratorVersion": "1.16.10",
+  "osDiskSizeGb": 128,
   "osType": "Linux",
-  "provisioningState": "Succeeded",
+  "provisioningState": "Failed",
+  "proximityPlacementGroupId": null,
   "resourceGroup": "myResourceGroup",
   "scaleSetEvictionPolicy": null,
   "scaleSetPriority": null,
   "spotMaxPrice": null,
   "tags": null,
   "type": "Microsoft.ContainerService/managedClusters/agentPools",
+  "upgradeSettings": {
+    "maxSurge": null
+  },
   "vmSize": "Standard_DS2_v2",
   "vnetSubnetId": null
 }
