@@ -24,37 +24,36 @@
     href: quickstarts/create-a-communication-resource.md
   - name: Chat
     items:
+      - name: Get Started With Chat
+        href: quickstarts/chat/get-started-with-chat.md
   - name: Networking
     items:
   - name: Telephony and SMS
     items:
+      - name: Place a Telephone Call
+        href: quickstarts/telephony-and-sms/get-started-with-phone.md
+      - name: Send an SMS
+        href: quickstarts/telephony-and-sms/get-started-with-sms.md
   - name: Voice and Video Calling
     items:
     - name: Request phone numbers
       href: quickstarts/voice-and-video-calling/request-phone-numbers.md
     - name: Initialize Your Calling Client
-    href: quickstarts/init-client.md
+      href: quickstarts/voice-and-video-calling/init-client.md
+    - name: Capture a Local Video Stream
+      href: quickstarts/voice-and-video-calling/capture-local-video-stream.md
  # - name: Configure Your Server
  #   href: quickstarts/configure-server.md
-  
-  - name: Capture a Local Video Stream
-    href: quickstarts/capture-local-video-stream.md
  # - name: Place a VoIP Call
  #   href: quickstarts/get-started-with-voice.md
  # - name: Place a Video Call
  #   href: quickstarts/get-started-with-video.md
-  - name: Place a Telephone Call
-    href: quickstarts/get-started-with-phone.md
-  - name: Send an SMS
-    href: quickstarts/get-started-with-sms.md
   - name: Events quickstart
     href: quickstarts/acs-events-quickstart.md
  # - name: Share Your Screen
  #   href: quickstarts/todo.md
  # - name: Implement Two-Factor Authentication
  #   href: quickstarts/todo.md
-  - name: Chat
-    href: quickstarts/get-started-with-chat.md
  # - name: Assign A Telephone Number To An MS Graph Bot
  #   href: quickstarts/assign-a-telephone-number-to-a-ms-graph-bot.md
  # - name: Place A Telephone Call To An MS Graph Bot
@@ -70,10 +69,7 @@
     items:
   - name: Voice and Video Calling
     items:
-  - name: Add SMS To Your Web App
-    href: tutorials/add-sms-to-your-web-app.md
-  - name: Voice and Video Calling
-    href: concepts/calling-client-samples.md
+ 
   # - name: Add Calling To Your App
   #  href: tutorials/add-calling-to-your-app.md  
   # - name: Add Signaling To Your App
@@ -121,6 +117,8 @@
         href: concepts/video/about-webrtc.md
       - name: ICE, STUN, NAT, TURN, and SDP
         href: concepts/video/ice-stun-nat-turn-sdp.md
+      - name: Calling Client Samples
+        href: concepts/voice-and-video-calling/calling-client-samples.md
       #- name: Data Channels
       #  href: concepts/video/data-channels.md
   - name: Chat
@@ -129,14 +127,14 @@
         href: concepts/chat/chat.md
   - name: Telephony and SMS
     items: 
+      - name: SMS
+        href: concepts/telephony-and-sms/sms.md
+      - name: SMS Flows
+        href: concepts/telephony-and-sms/sms-flows.md
   - name: Networking
     items: 
-  - name: Client and Server Architecture
-    href: concepts/client-and-server-architecture.md
-  - name: SMS
-    href: concepts/sms.md
-  - name: SMS Flows
-    href: concepts/sms-flows.md
+      - name: Client and Server Architecture
+        href: concepts/client-and-server-architecture.md
   - name: SDK Options
     href: concepts/sdk-options.md
   - name: Diagnostics and metrics
