@@ -244,8 +244,6 @@
             href: platform/diagnostics-extension-to-application-insights.md
           - name: Version history
             href: platform/diagnostics-extension-versions.md
-          - name: JSON Lines resource logs format
-            href: platform/resource-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
         - name: Linux
