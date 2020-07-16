@@ -44,7 +44,7 @@ System node pools have the following restrictions:
 
 You can do the following operations with node pools:
 
-* Create a dedicated system node pool (enforced isolation for system pods from application pods)
+* Create a dedicated system node pool (prefer scheduling of system pods to node pools of `mode:system`)
 * Change a system node pool to be a user node pool, provided you have another system node pool to take its place in the AKS cluster.
 * Change a user node pool to be a system node pool.
 * Delete user node pools.
