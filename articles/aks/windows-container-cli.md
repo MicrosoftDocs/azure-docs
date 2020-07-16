@@ -292,4 +292,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements.md#reference
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
