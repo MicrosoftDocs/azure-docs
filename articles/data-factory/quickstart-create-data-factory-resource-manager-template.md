@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan, jingwang
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 07/10/2020
+ms.date: 07/16/2020
 ---
 
 # Quickstart: Create an Azure Data Factory using Azure Resource Manager template
@@ -30,148 +30,126 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 
 ## Prerequisites
 
-- Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-- [Azure Storage account](../storage/common/storage-account-create.md) You need an Azure Storage account as both *source* and *destination* data stores.
+### Create a file
 
-- [Blob container](../storage/blobs/storage-quickstart-blobs-portal.md): You need a blob container. Remember that the name of your blob must be unique across Azure. For this article, we use the name **adftutorial**.
-    - Create a folder in the blob container you created. For this quickstart, the name of the folder is **input**.
-    - Upload a sample file to your blob container folder (input). Before you begin, open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
+Open a text editor such as **Notepad**, and create a file named **emp.txt** with the following content:
 
-        ```emp.txt
-        John, Doe
-        Jane, Doe
-        ```
-    - Save the file on your local system.
-    - [Upload the **emp.txt** file to your blob container](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container).
-
-
-Keep the **adftutorial** container page open. You use it to verify the output at the end of this quickstart.
-
-# [Portal](#tab/Portal)
-
-```azurecli-interactive
-echo "Enter the Resource Group name:" &&
-read resourceGroupName &&
-az group delete --name $resourceGroupName &&
-echo "Press [ENTER] to continue ..."
+```emp.txt
+John, Doe
+Jane, Doe
 ```
+
+Save the file in the **C:\ADFv2QuickStartPSH** folder. (If the folder doesn't already exist, create it.)
 
 ## Create an Azure Data Factory
 
 ### Review template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-data-factory-v2-blob-to-blob-copy/).
 
-:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
-
-Three Azure resources are defined in the template:
+:::code language="json" source="~/quickstart-templates/101-data-factory-v2-blob-to-blob-copy/azuredeploy.json":::
 
 There are Azure resources defined in the template:
-
 - [Microsoft.DataFactory/factories](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories): Create an Azure Data Factory.
 - [Microsoft.DataFactory/factories/linkedServices](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/linkedservices): Create an Azure Data Factory linked service.
 - [Microsoft.DataFactory/factories/datasets](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/datasets): Create an Azure Data Factory dataset.
 - [Microsoft.DataFactory/factories/pipelines](https://docs.microsoft.com/azure/templates/microsoft.datafactory/factories/pipelines): Create an Azure Data Factory pipeline.
 
-Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parameters for the Azure Resource Manager template.
+More Azure Data Factory template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
-- Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. You created the adftutorial container and uploaded the sample file (emp.txt) to the input folder in this Azure blob storage.
-- Specify a globally unique name for the data factory for the **dataFactoryName** parameter. For example: ARMTutorialFactoryJohnDoe11282017.
+## Deploy the template
 
-```json
-{  
-    "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion":"1.0.0.0",
-    "parameters":{  
-        "dataFactoryName":{  
-            "value":"GEN-UNIQUE"
-        },
-        "dataFactoryLocation":{  
-            "value":"East US"
-        },
-        "storageAccountName":{  
-            "value":"GEN-UNIQUE"
-        },
-        "storageAccountKey":{  
-            "value":"<yourstorageaccountkey>"
-        },
-    }
-```
+1. Select the following image to sign in to Azure and open a template. The template creates an Azure Data Factory account, a storage account, and a blob container.
 
-> [!IMPORTANT]
-> You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-factory-v2-blob-to-blob-copy%2Fazuredeploy.json)
 
-### Deploy Data Factory entities
+2. Select or enter the following values.
 
-- Specify the name and key of your Azure Storage account for the **storageAccountName** and **storageAccountKey** parameters in this parameter file. You created the adftutorial container and uploaded the sample file (emp.txt) to the input folder in this Azure blob storage.
-- Specify a globally unique name for the data factory for the **dataFactoryName** parameter. For example: ARMTutorialFactoryJohnDoe11282017.
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM template, Azure Cosmos DB integration, deploy portal":::
 
-In PowerShell, run the following command to deploy Data Factory entities in your resource group (in this case, take ADFTutorialResourceGroup as an example) using the Resource Manager template you created earlier in this quickstart.
+    Unless it is specified, use the default values to create the Azure Data Factory resources.
 
-```powershell
-New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
-```
+    * **Subscription**: select an Azure subscription.
+    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
+    * **Location**: select a location.  For example, **Central US**.
+    * **Account Name**: enter a name for the Azure Cosmos account. It must be globally unique.
+    * **Location**: enter a location where you want to create your Azure Cosmos account. The Azure Cosmos account can be in the same location as the resource group.
+    * **Primary Region**: The primary replica region for the Azure Cosmos account.
+    * **Secondary region**: The secondary replica region for the Azure Cosmos account.
+    * **Default Consistency Level**: The default consistency level for the Azure Cosmos account.
+    * **Max Staleness Prefix**: Max stale requests. Required for BoundedStaleness.
+    * **Max Interval in Seconds**: Max lag time. Required for BoundedStaleness.
+    * **Database Name**: The name of the Azure Cosmos database.
+    * **Container Name**: The name of the Azure Cosmos container.
+    * **Throughput**:  The throughput for the container, minimum throughput value is 400 RU/s.
+    * **I agree to the terms and conditions state above**: Select.
 
-You see output similar to the following sample:
-
-```console
-DeploymentName          : MyARMDeployment
-ResourceGroupName       : ADFTutorialResourceGroup
-ProvisioningState       : Succeeded
-Timestamp               : 9/8/2019 10:52:29 AM
-Mode                    : Incremental
-TemplateLink            : 
-Parameters              : 
-                          Name                   Type                       Value     
-                          =====================  =========================  ==========
-                          dataFactoryName        String                     <data factory name>
-                          dataFactoryLocation    String                     East US   
-                          storageAccountName     String                     <storage account name>
-                          storageAccountKey      SecureString                         
-                          triggerStartTime       String                     9/8/2019 11:00:00 AM
-                          triggerEndTime         String                     9/8/2019 2:00:00 PM
-
-Outputs                 :
-DeploymentDebugLogLevel :
-```
 
 ## Review deployed resources
 
-1. After logging in to the [Azure portal](https://portal.azure.com/), Select **All services**, search with the keyword such as **data fa**, and select **Data factories**.
+1. Login to the [Azure portal](https://portal.azure.com/).
 
-2. In the **Data Factories** page, select the data factory you created. If needed, filter the list with the name of your data factory.
+2. Select **All services**, search with the keyword **storage**, and select **Storage accounts**.
+    1. On the **Storage account** page, select the storage account you created.
+        1. The storage account name is in the format - storage<uniqueid>.
 
-3. In the Data factory page, select **Author & Monitor** tile.
+3. While on the  **Storage accounts** page, select **Containers**.
+    1. On the **Containers** page, select the blob container you created.
+        1. The storage account name is in the format - blob<uniqueid>.
 
-Trigger steps
+4. Select **All services**, search with the keyword such as **data fa**, and select **Data factories**.
+    1. On the **Data Factories** page, select the data factory you created.
+        1. data factory name is in the format - datafactory<uniqueid>.
 
-4. In the **Let's get started** page, select the **Monitor tab**. 
+### Upload a file
+
+1. On the **Upload blob** page, select **Upload**.
+2. In te right pane, select the **Files** box, and then browse to and select the **emp.txt** file that you created earlier.
+3. Expand the **Advanced** heading.
+    1. ![Select Advanced link](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
+4. In the **Upload to folder** box, enter **input**.
+5. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
+6. Select the **Close** icon (an **X**) to close the **Upload blob** page.
+
+Keep the container page open. You use it to verify the output at the end of this quickstart.
+
+### Initiate Trigger
+
+1. While on the Data factory page, select the **Author & Monitor** tile.
+
+2. Select the **Author** tab.
+
+3. Select the pipeline created - ArmtemplateSampleCopyPipeline.
+
+4. Select **Add Trigger** > **Trigger Now**.
+
+5. In the right pane under **Pipeline run**, select **OK**.
+
+### Monitor
+
+1. Select the **Monitor** tab. 
     ![Monitor pipeline run](media/doc-common-process/get-started-page-monitor-button.png)
 
     > [!IMPORTANT]
     > You see pipeline runs only at the hour clock (for example: 4 AM, 5 AM, 6 AM, etc.). Select **Refresh** on the toolbar to refresh the list when the time reaches the next hour.
 
-5. Select the **View Activity Runs** link in the **Actions** column.
+2. Select the **View Activity Runs** link in the **Actions** column.
 
     ![Pipeline actions link](media/quickstart-create-data-factory-resource-manager-template/pipeline-actions-link.png)
 
-6. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity.
+3. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity.
 
     ![Activity runs](media/quickstart-create-data-factory-resource-manager-template/activity-runs.png)
-7. Select the **Output** link under Actions column. You see the output from the copy operation in an **Output** window. Select the maximize button to see the full output. You can close the maximized output window or close it.
 
-8. Stop the trigger once you see a successful/failure run. The trigger runs the pipeline once an hour. The pipeline copies the same file from the input folder to the output folder for each run. To stop the trigger, run the following command in the PowerShell window.
-    
-    ```powershell
-    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
-    ```
+4. Select the **Output** link under Actions column. You see the output from the copy operation in an **Output** window. Select the maximize button to see the full output. You can close the maximized output window or close it.
 
-### Verify output file
+### Verify the output file
 
-The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
+The pipeline automatically creates the output folder in the blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
 
-1. In the Azure portal, on the **adftutorial** container page, select **Refresh** to see the output folder. 
+1. In the Azure portal, on the container page, select **Refresh** to see the output folder. 
     
     ![Refresh](media/data-factory-quickstart-verify-output-cleanup/output-refresh.png)
 
@@ -199,6 +177,7 @@ If you want to delete just the data factory, not the entire resource group, run 
 ```powershell
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
+
 ## Next steps
 
 In this quickstart, you created an Azure Data Factory using an Azure Resource Manager template and validated the deployment. To learn more about Azure Data Factory and Azure Resource Manager, continue on to the articles below.
