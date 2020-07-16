@@ -76,12 +76,7 @@ You can add one or more system node pools to existing AKS clusters. It's recomme
 The following command adds a dedicated node pool of mode type system with a default count of three nodes.
 
 ```azurecli-interactive
-az aks nodepool add \
-	-g myResourceGroup \
-	--cluster-name myAKSCluster \
-	-n mysystemnodepool \ 
-	--node-taints CriticalAddonsOnly=true:NoSchedule \ 
-	--mode system
+az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n systemnpool --node-taints CriticalAddonsOnly=true:NoSchedule --mode system
 ```
 ## Show details for your node pool
 
