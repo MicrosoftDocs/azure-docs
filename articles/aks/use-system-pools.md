@@ -49,11 +49,9 @@ You can do the following operations with node pools:
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
 * If you want to change various immutable settings on existing node pools, you can create new node pools to replace them. One example is to add a new node pool with a new maxPods setting and delete the old node pool.
 
-## Create a new AKS cluster with a dedicated system node pool
+## Create a new AKS cluster with a system node pool
 
 When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with `az aks nodepool add`, those node pools are user node pools unless you explicitly specify the mode parameter.
-
-It is recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
@@ -61,22 +59,24 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-> [!Important]
-> You can't change node taints through the CLI after the node pool is created.
-
 Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one dedicated system pool containing one node. For your production workloads, ensure you are using system node pools with at least three nodes. This operation may take several minutes to complete.
 
 ```azurecli-interactive
-# Create dedicated system pool by specifying a taint
-az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --node-taints CriticalAddonsOnly=true:NoSchedule --generate-ssh-keys
+# Create a new AKS cluster with a single system pool
+az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-## Add a system node pool to an existing AKS cluster
+## Add a dedicated system node pool to an existing AKS cluster
 
-You can add one or more system node pools to existing AKS clusters. The following command adds a node pool of mode type system with a default count of three nodes.
+> [!Important]
+> You can't change node taints through the CLI after the node pool is created.
+
+You can add one or more system node pools to existing AKS clusters. t is recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools. 
+
+The following command adds a dedicated node pool of mode type system with a default count of three nodes.
 
 ```azurecli-interactive
-az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
+az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mysystemnodepool --node-taints CriticalAddonsOnly=true:NoSchedule --mode system
 ```
 ## Show details for your node pool
 
