@@ -190,23 +190,23 @@ Take the following steps if returning the device in China.
 
 #### Premier Customer Care contact information
 
-<ins>Premier Customer Care for Microsoft (primary)</ins>
+<ins>Primary</ins>
 
-| | |
+| Contact information | Details |
 |---|---|
 |Name:       | Bao Ying|
-|Designation | Sr OneCall Representative |
+|Designation | Senior OneCall Representative |
 |Phone:      | 400.889.6066 ext. 3693 |
-|E-mail:     | [Boa Ying](mailto:ying.bao@fedex.com) |
+|E-mail:     | [ying.bao@fedex.com](mailto:ying.bao@fedex.com) |
 
-<ins>Customer Care for Microsoft (backup)</ins>
+<ins>Backup</ins>
 
-| | |
+| Contact information | Details |
 |---|---|
 |Name:       | He Xun|
 |Designation | OneCall Representative |
 |Phone:      | 400.889.6066 ext. 3603 |
-|E-mail:     | [He Xun](mailto:739951@fedex.com) |
+|E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
 ### [In Self-Managed](#tab/in-selfmanaged)
 
