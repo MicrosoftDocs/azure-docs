@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Troubleshoot
+# Troubleshoot Azure FarmBeats
 
 This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) or email us at farmbeatssupport@microsoft.com.
 
