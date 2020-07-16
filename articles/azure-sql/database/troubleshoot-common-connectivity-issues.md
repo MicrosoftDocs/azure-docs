@@ -100,7 +100,7 @@ To make this test practical, unplug your computer from the network before you st
 - Pause further execution by using either the **Console.ReadLine** method or a dialog with an OK button. The user presses the Enter key after the computer is plugged into the network.
 - Attempt again to connect, expecting success.
 
-#### Test by misspelling the database name when connecting
+#### Test by misspelling the user name when connecting
 
 Your program can purposely misspell the user name before the first connection attempt. The error is:
 

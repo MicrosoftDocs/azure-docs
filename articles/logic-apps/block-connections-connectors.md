@@ -26,7 +26,7 @@ This topic shows how to set up a policy that blocks specific connections by usin
 
 If you already have a logic app with the connection that you want to block, follow the [steps for the Azure portal](#connector-ID-portal). Otherwise, follow these steps:
 
-1. Visit the [Logic Apps connectors list](https://docs.microsoft.com/connectors/connector-reference/connector-reference-logicapps-connectors).
+1. Visit the [Logic Apps connectors list](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 1. Find the reference page for the connector that you want to block.
 
@@ -358,7 +358,7 @@ To try your policy, start creating a connection by using the now restricted conn
 
 The message includes this information:
 
-| | |
+| Description | Content |
 |---|---|
 | Reason for the failure | `"Resource 'instagram' was disallowed by policy."` |
 | Assignment name | `"Block Instagram connections"` |

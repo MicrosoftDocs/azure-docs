@@ -31,7 +31,7 @@ Your sample application isn't complex at the moment. But in real-world developme
 * Some developers resort to simulating, or mocking up, many of their service dependencies. This approach can help, but managing those mocks can soon impact development cost. Plus, this approach leads to your development environment looking different from production, which can lead to subtle bugs occurring.
 * It follows that doing any type of integration testing becomes difficult. Integration testing can only realistically happen post-commit, which means you see problems later in the development cycle.
 
-    ![](media/common/microservices-challenges.png)
+    ![An image showing the complexity of integration testing by illustrating the relationships between an app service and its dependencies.](media/common/microservices-challenges.png)
 
 ### Work in a shared dev space
 With Azure Dev Spaces, you can set up a *shared* dev space in Azure. Each developer can focus on just their part of the application, and can iteratively develop *pre-commit code* in a dev space that already contains all the other services and cloud resources that their scenarios depend on. Dependencies are always up-to-date, and developers are working in a way that mirrors production.
@@ -86,15 +86,15 @@ Do the following to create a new space:
 4. From here, you can change or create the cluster and/or space that will be used when you F5 or Ctrl+F5. *Make sure the Azure Dev Space you created earlier is selected*.
 5. In the Space dropdown, select **\<Create New Space…\>**.
 
-    ![](media/get-started-netcore-visualstudio/Settings.png)
+    ![Screenshot showing the selection of "Create New Space" in the Space dropdown in the Debug project properties page of the Visual Studio Solution Explorer.](media/get-started-netcore-visualstudio/Settings.png)
 
 6. In the **Add Space** dialog, set the parent space to **dev**, and enter a name for your new space. You can use your name (for example, "scott") for the new space so that it is identifiable to your peers what space you're working in. Click **OK**.
 
-    ![](media/get-started-netcore-visualstudio/AddSpace.png)
+    ![Screenshot showing the Add Space dialog for adding a new dev space for team development.](media/get-started-netcore-visualstudio/AddSpace.png)
 
 7. You should now see your AKS cluster and new Space selected on the project properties page.
 
-    ![](media/get-started-netcore-visualstudio/Settings2.png)
+    ![Screenshot showing the AKS cluster "MyAKS" and Space "scott" selected in the Debug project properties page of the Visual Studio Solution Explorer.](media/get-started-netcore-visualstudio/Settings2.png)
 
 ### Update code for *mywebapi*
 
@@ -113,7 +113,7 @@ Do the following to create a new space:
 
 Here is a diagram that will help you understand how the different spaces work. The purple path shows a request via the _dev_ space, which is the default path used if no space is prepended to the URL. The pink path shows a request via the _dev/scott_ space.
 
-![](media/common/Space-Routing.png)
+![A diagram showing the differences in the path names and routing of requests through the newly created "dev/scott" space and the default "dev" space.](media/common/Space-Routing.png)
 
 This built-in capability of Azure Dev Spaces enables you to test code end-to-end in a shared environment without requiring each developer to re-create the full stack of services in their space. This routing requires propagation headers to be forwarded in your app code, as illustrated in the previous step of this guide.
 

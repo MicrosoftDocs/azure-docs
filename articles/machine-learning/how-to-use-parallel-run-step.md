@@ -6,11 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 07/13/2020
+ms.date: 07/16/2020
 ms.custom: Build2020, tracking-python
 ---
 
@@ -263,7 +262,7 @@ Now you have everything you need: the data inputs, the model, the output, and yo
 
 First, specify the dependencies for your script. Doing so allows you to install pip packages as well as configure the environment.
 
-Please always include **azureml-core** and **azureml-dataset-runtime[pandas, fuse]** in the pip package list. If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
+Always include **azureml-core** and **azureml-dataset-runtime[pandas, fuse]** in the pip package list. If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
 
 ```python
 from azureml.core.environment import Environment
@@ -281,7 +280,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### Specify the parameters using ParallelRunConfig
 
-`ParallelRunConfig` is the major configuration for `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following:
+`ParallelRunConfig` is the major configuration for `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following entries:
 - `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directory` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
 - `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for FileDataset and `1MB` for TabularDataset.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
@@ -300,7 +299,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 - `run_max_try`: Maximum try count of `run()` for a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
-You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
+You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
 
 This example assumes that you're using the `digit_identification.py` script that was discussed earlier. If you use your own script, change the `source_directory` and `entry_script` parameters accordingly.
 
@@ -374,7 +373,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## Resubmit a run with new data inputs and parameters
 
-Since you made the inputs and several configures as `PipelineParameter`, you can resubmit a batch inference run with a different dataset input and fine tune the parameters without having to create an entirely new pipeline. You will use the same datastore but use only a single image as data inputs.
+Since you made the inputs and several configures as `PipelineParameter`, you can resubmit a batch inference run with a different dataset input and fine-tune the parameters without having to create an entirely new pipeline. You will use the same datastore but use only a single image as data inputs.
 
 ```python
 path_on_datastore = mnist_blob.path('mnist/0.png')

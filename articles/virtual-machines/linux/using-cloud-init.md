@@ -15,7 +15,7 @@ This article explains the support that exists for [cloud-init](https://cloudinit
 
 VM Provisioning is the process where the Azure will pass down your VM Create parameter values, such as hostname, username, password etc., and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 
 
-Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedocs.io), and the [Azure Linux Agent (WALA)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
+Azure supports two provisioning agents [cloud-init](https://cloudinit.readthedocs.io), and the [Azure Linux Agent (WALA)](../extensions/agent-linux.md).
 
 ## cloud-init overview
 [cloud-init](https://cloudinit.readthedocs.io) is a widely used approach to customize a Linux VM as it boots for the first time. You can use cloud-init to install packages and write files, or to configure users and security. Because cloud-init is called during the initial boot process, there are no additional steps or required agents to apply your configuration.  For more information on how to properly format your `#cloud-config` files or other inputs, see the [cloud-init documentation site](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` files are text files encoded in base64.
@@ -102,7 +102,7 @@ These SLES images have been updated to provision using cloud-init, the Gen2 imag
 Currently Azure Stack will support the provisioning of cloud-init enabled images.
 
 ## What is the difference between cloud-init and the Linux Agent (WALA)?
-WALA is an Azure platform-specific agent used to provision and configure VMs, and handle [Azure extensions](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux). 
+WALA is an Azure platform-specific agent used to provision and configure VMs, and handle [Azure extensions](../extensions/features-linux.md). 
 
 We are enhancing the task of configuring VMs to use cloud-init instead of the Linux Agent in order to allow existing cloud-init customers to use their current cloud-init scripts, or new customers to take advantage of the rich cloud-init configuration functionality. If you have existing investments in cloud-init scripts for configuring Linux systems, there are **no additional settings required** to enable cloud-init process them. 
 

@@ -126,5 +126,5 @@ The Mobility service coordinates replication between on-premises VMware servers 
 
 Download the [InMage Scout user guide](https://aka.ms/asr-scout-user-guide)
 
-- [Replicate Hyper-V VMs in VMM clouds to a secondary site](tutorial-vmm-to-vmm.md)
-- [Replicate VMware VMs and physical servers to a secondary site](tutorial-vmware-to-vmware.md)
+- [Replicate Hyper-V VMs in VMM clouds to a secondary site](./hyper-v-vmm-disaster-recovery.md)
+- [Replicate VMware VMs and physical servers to a secondary site](./vmware-physical-secondary-disaster-recovery.md)

@@ -78,7 +78,7 @@ You can recover a single or instance database to a point in time from the overvi
 
 #### SQL Database
 
-To recover a single or pooled database to a point in time by using the Azure portal, open the database overview page and select **Restore** on the toolbar. Choose the backup source, and select the point-in-time backup point from which a new database will be created.
+To recover a database to a point in time by using the Azure portal, open the database overview page and select **Restore** on the toolbar. Choose the backup source, and select the point-in-time backup point from which a new database will be created.
 
   ![Screenshot of database restore options](./media/recovery-using-backups/pitr-backup-sql-database-annotated.png)
 
@@ -104,7 +104,7 @@ You restore deleted databases from the Azure portal from the server or managed i
 
 #### SQL Database
 
-To recover a single or pooled deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
+To recover a deleted database to the deletion time by using the Azure portal, open the server overview page, and select **Deleted databases**. Select a deleted database that you want to restore, and type the name for the new database that will be created with data restored from the backup.
 
   ![Screenshot of restore deleted database](./media/recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
@@ -224,7 +224,7 @@ To restore a managed instance database, see [Restore-AzSqlInstanceDatabase](/pow
 
 ### REST API
 
-To restore a single or pooled database by using the REST API:
+To restore a database by using the REST API:
 
 | API | Description |
 | --- | --- |
@@ -235,7 +235,7 @@ To restore a single or pooled database by using the REST API:
 
 #### SQL Database
 
-To restore a single or pooled database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 
 #### SQL Managed Instance
 

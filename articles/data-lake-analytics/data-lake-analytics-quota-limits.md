@@ -8,7 +8,7 @@ ms.author: omidm
 ms.reviewer: jasonwhowell
 
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/15/2018
 ---
 
