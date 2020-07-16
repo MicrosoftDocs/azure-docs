@@ -45,7 +45,7 @@ The following screenshot shows the steps to set the system units to meters in 3d
 1. We can now begin to create the models. In the sample scene, we'll create several box objects, each representing a different material type. For example, metal, rubber, and plastic. 
 
    >[!TIP]
-   >When you create assets, it's a good practice to name them appropriately as you go. This will make them easier to find later if the scene contains a lot of objects.
+   >When you create assets, it's a good practice to name them appropriately as you go. This makes them easier to find later if the scene contains a lot of objects.
 
 1. Rename the objects, as shown in the following screenshot: 
 
@@ -60,43 +60,46 @@ With some objects in our scene, in this case a number of cubes, we can begin the
 1. In the Material Editor, you'll see a number of spheres. These spheres are the materials. We'll assign one of these materials to each object (each box) in the scene. To assign the materials, first select one of the objects in the main viewport. Then select the first sphere in the Material Editor. After it's assigned to an object, the selected material will be highlighted, as shown in the next image.
 
 1. Select **Assign Material to Selection**, as shown. The material is now assigned to the selected object.
-![Screenshot that shows how to assign materials.](media/3dsmax/assign-material.jpg)
+
+   ![Screenshot that shows how to assign materials.](media/3dsmax/assign-material.jpg)
 
     In the Material Editor, you can choose from a wide selection of material types, depending on your needs. Typically, the material type is set to **Standard** by default. This material is a basic material that's not suitable for PBR setup, so we'll need to change the material type to a PBR material. Physical Material is the preferred 3ds Max material for Azure Remote Rendering projects.
 
-1. In the Material Editor, select the **Standard** tab. In the **Material/Map Browser**, select **Physical Material**. This action will convert the assigned **Standard** material to a PBR Physical Material.
-![Screenshot that shows how to change the material.](media/3dsmax/physical-material.jpg)
+1. In the Material Editor, select the **Standard** tab. In the **Material/Map Browser**, select **Physical Material**. This action converts the assigned **Standard** material to a PBR Physical Material.
 
-    In the Material Editor, you now see the properties for the Physical Material, as shown in the following screenshot.) You can now start to assign textures to the asset.
-![Screenshot that shows the list of textures.](media/3dsmax/textures-list.jpg)
+   ![Screenshot that shows how to change the material.](media/3dsmax/physical-material.jpg)
+
+    In the Material Editor, you now see the properties for the Physical Material, as shown in the following screenshot. You can now start to assign textures to the asset.
+
+   ![Screenshot that shows the list of textures.](media/3dsmax/textures-list.jpg)
 
 As you can see, there are a wide range of maps and textures that can be added to the material. For this tutorial, we'll use only five texture slots in the material.
 
 >[!TIP]
 >It's good practice to name your materials appropriately, as shown in the preceding screenshot.
 
-How you generate your textures can vary according to preference or usage. For example, you might be happy to use tiling textures that can be applied to any asset. Or you might need specific parts of a project or asset to have their own custom sets of textures. You might want to use generic tiling textures that you can get online or create them yourself in apps like Photoshop, Quixel Suite, and Substance Suite.
+How you generate your textures can vary according to preference or usage. For example, you might want to use tiling textures that can be applied to any asset. Or you might need specific parts of a project or asset to have their own custom sets of textures. You might want to use generic tiling textures that you can get online or create them yourself in apps like Photoshop, Quixel Suite, and Substance Suite.
 
 Before we start to assign textures, we'll need to consider the asset's texture coordinates (UVW). It's a best practice when applying any textures to a model to ensure that the model is unwrapped. (Textures won't display properly without proper UV unwrapping.) It's especially important for our purposes because we want to use an Ambient Occlusion (AO) map on our model. Unlike Stingray Shader in Maya, Physical Material in 3ds Max doesn't have a dedicated AO texture slot. So we'll apply the AO map to another slot. To allow it to be used separately from the other textures (tiling textures for example), we'll assign it a UVW map channel of its own. 
 
 We'll start by assigning an unwrap UVW modifier to the model, as shown in the following screenshot. 
 
-- In the selected objects properties editor, select the modifier list. In the drop-down list that appears, scroll down and select **Unwrap UVW**. This action will apply an unwrap UVW modifier to the asset.
+- In the selected objects properties editor, select the modifier list. In the drop-down list that appears, scroll down and select **Unwrap UVW**. This action applies an unwrap UVW modifier to the asset.
 ![Screenshot that shows how to select Unwrap UVW.](media/3dsmax/unwrap-modifier.jpg)
 
-The map channel is set to 1. You'll typically do the main unwrapping in map channel 1. In this case, the object has been unwrapped with no overlapping texture coordinates (UV).
+  The map channel is set to 1. You'll typically do the main unwrapping in map channel 1. In this case, the object has been unwrapped with no overlapping texture coordinates (UV).
 ![Screenshot that shows unwrapped texture coordinates (UVW).](media/3dsmax/unwrapped-uvw.jpg)
 
 The next step is to create a second UV map channel.
 
 1. Close the UV editor if it's open. In the **Channel** section of the **Edit UVs** menu, change the channel number to **2**. Map channel 2 is the expected channel for AO maps. 
 
-1. In the **Channel Change Warning** dialog box, you'll have the option to either **Move** the existing UVs in channel 1 into the new channel 2 or **Abandon** the existing UVs that will create a new UV unwrap automatically. Select **Abandon** only if you plan to create a new UV unwrap for the AO map that differs from the UVs in map channel 1. (For example, if you want to use tiling textures in channel 1.) In this tutorial, we'll move the UVs from channel one to channel 2 because we don't need to edit the new UV channel.
+1. In the **Channel Change Warning** dialog box, you have the option to either **Move** the existing UVs in channel 1 into the new channel 2 or **Abandon** the existing UVs that will create a new UV unwrap automatically. Select **Abandon** only if you plan to create a new UV unwrap for the AO map that differs from the UVs in map channel 1. (For example, if you want to use tiling textures in channel 1.) In this tutorial, we'll move the UVs from channel one to channel 2 because we don't need to edit the new UV channel.
 
->[!NOTE]
->Even if you've copied (moved) the UV unwrap from map channel 1 into map channel 2, you can make any necessary edits to the new channel UVs without affecting the original map channel.
+   >[!NOTE]
+   >Even if you've copied (moved) the UV unwrap from map channel 1 into map channel 2, you can make any necessary edits to the new channel UVs without affecting the original map channel.
 
-![Screenshot that shows the Channel Change Warning.](media/3dsmax/channel-change.jpg)
+   ![Screenshot that shows the Channel Change Warning.](media/3dsmax/channel-change.jpg)
 
 Now that the new map channel is created, we can return to the Physical Material in the Material Editor and start to add our textures to it. First we'll add the AO map because there's a further step to allow it to work correctly. After the AO map is plugged in to our material, we need to configure it to use map channel 2.
 
@@ -106,25 +109,26 @@ As noted earlier, there's no dedicated slot for AO maps in the 3ds Max Physical 
 
 1. In the AO textures properties, the map channel is set to **1** by default. Change this value to **2**. This action completes the steps necessary to add your AO map.
 
->[!IMPORTANT]
->This is an important step, particularly if your UVs in channel 2 are different from those in channel 1, because the AO won't map correctly if the wrong channel is selected.
+   >[!IMPORTANT]
+   >This is an important step, particularly if your UVs in channel 2 are different from those in channel 1, because the AO won't map correctly if the wrong channel is selected.
 
-![Screenshot that shows how to assign an AO map.](media/3dsmax/assign-ao-map.jpg)
+   ![Screenshot that shows how to assign an AO map.](media/3dsmax/assign-ao-map.jpg)
 
 We'll now assign the normal map to the PBR material. This action differs somewhat from the process in Maya. The normal map isn't applied directly to the bump map slot. (There's no normal map slot in the 3ds Max Physical Material.) Instead, you add the normal map to a normal map modifier, which itself is plugged into the normal's slot.
 
 1. In the **Special Maps** section of the Physical Material properties (in the Material Editor), select the **No Map** slot next to **Bump Map**. 
 
-1. In the **Material/Map Browser**, locate and select **Normal Bump**. This action will add a **Normal Bump** modifier to the material.
+1. In the **Material/Map Browser**, locate and select **Normal Bump**. This action adds a **Normal Bump** modifier to the material.
 
 1. In the **Normal Bump** modifier, select **No Map** next to **Normal**. Locate and load your normal map.
 
 1. Make sure the method is set to **Tangent**. (It should be, by default.) If necessary, toggle **Flip Green (Y)**.
 
-![Screenshot that shows how to select Normal Bump.](media/3dsmax/normal-bump.jpg)
-![Screenshot that shows loading the normal map.](media/3dsmax/load-normal-map.jpg)
+   ![Screenshot that shows how to select Normal Bump.](media/3dsmax/normal-bump.jpg)
+   ![Screenshot that shows loading the normal map.](media/3dsmax/load-normal-map.jpg)
 
 With the normal map correctly assigned, we can assign the remaining textures to complete the Physical Material setup. This process is a simple. There are no special settings to consider. The following screenshot shows the full set of textures assigned to the material: 
+
 ![Screenshot that shows the full set of textures assigned to the material.](media/3dsmax/all-textures.jpg)
 
 Now that the PBR materials are created and set up, it's worth thinking about instancing objects in the scene. Instance similar objects in the scene, like nuts, bolts, screws, and washers. Any objects that are the same can yield significant savings in terms of file size. Instances of a master object can have their own scale, rotation, and transforms, so they can be placed as needed in your scene. In 3ds Max, the process of instancing is simple.
@@ -134,12 +138,13 @@ Now that the PBR materials are created and set up, it's worth thinking about ins
 1. Hold the **Shift** key and drag the assets upwards by using the transform (move) tool. 
 
 1. In the **Clone Options** dialog box, set **Object** to **Instance** and then select **OK**. 
-![Screenshot of the Clone Options dialog box.](media/3dsmax/instance-object.jpg)
 
-This action will create an instance of your object that can be moved, rotated, or scaled independently of its parent and of other instances of that parent.
+   ![Screenshot of the Clone Options dialog box.](media/3dsmax/instance-object.jpg)
+
+This action creates an instance of your object that can be moved, rotated, or scaled independently of its parent and of other instances of that parent.
 
 >[!IMPORTANT]
->Any changes you make to an instance while you're in sub object mode will be transmitted to all instances of the object. So if you're working with an instanced object's  components, like vertices and polygon faces, be sure that you want any changes you make to affect all of the instances. Remember that any instanced object can be made into a unique object at any time. 
+>Any changes you make to an instance while you're in sub object mode are transmitted to all instances of the object. So if you're working with an instanced object's components, like vertices and polygon faces, be sure that you want any changes you make to affect all of the instances. Remember that any instanced object can be made into a unique object at any time. 
 
 >[!TIP]
 >When instancing in your scene, it's a good idea to create instances as you go along. Replacing copies with instanced objects later is difficult. 
@@ -152,12 +157,13 @@ One final thing to take into consideration before we move on to the export proce
 
 1. Next to them, in the **Full Path** column, you'll see the path of the location of your textures, most likely the path of their location on your local machine.
 
-1. Finally, you'll see a column called **Status**. This column indicates whether a given texture has been located and applied to your scene. It will flag the texture with one of these terms: **Ok**, **Found**, or **File Missing**. The first two indicate that the file has been found and loaded. The last obviously means that the tracker has failed to locate the file.
-![Screenshot that shows the Asset Tracking window.](media/3dsmax/texture-paths.jpg)
+1. Finally, you'll see a column called **Status**. This column indicates whether a given texture has been located and applied to your scene. It flags the texture with one of these terms: **Ok**, **Found**, or **File Missing**. The first two indicate that the file has been found and loaded. The last obviously means that the tracker has failed to locate the file.
+ 
+   ![Screenshot that shows the Asset Tracking window.](media/3dsmax/texture-paths.jpg)
 
 You might notice that not all of your textures are listed in the Asset Tracking window when you first open it. This is nothing to be concerned about. Running through the path-finding process once or twice usually finds all of a scene's textures. The path-finding process is as follows: 
 
-1. In the Asset Tracking window, hold down the **Shift** key and select the top texture in the **Maps/Shaders** list, and, continuing to hold **Shift**, select the last texture in the list. This action will select all the textures in the list. The selected textures will be highlighted in blue. (See the preceding screenshot.)
+1. In the Asset Tracking window, hold down the **Shift** key and select the top texture in the **Maps/Shaders** list, and, continuing to hold **Shift**, select the last texture in the list. This action selects all the textures in the list. The selected textures are highlighted in blue. (See the preceding screenshot.)
 
 1. Right-click the selection and select **Set Path**.
 
@@ -166,7 +172,7 @@ You might notice that not all of your textures are listed in the Asset Tracking 
     The Asset Tracking window will update as shown in the following screenshot. This might take a while, depending on how many textures are in your scene and on how large your scene is.
 ![Screensthot that shows the updated Asset Tracking window.](media/3dsmax/resolve-textures.jpg)
 
-Notice that the **Full Path** column is now blank. It means that the scene is no longer looking for the relevant textures in a specific (absolute) location but will always find them as long as the .max file or related FBX file is in the same folder as the textures. 
+Notice that the **Full Path** column is now blank. This means that the scene is no longer looking for the relevant textures in a specific (absolute) location but will always find them as long as the .max file or related FBX file is in the same folder as the textures. 
 
 >[!NOTE]
 >You might have to repeat this process a couple of times to find and resolve all textures and paths. This is nothing to be concerned about. Just repeat the process until all relevant assets are accounted for. In some cases, some files won't be found. In that case, simply select all the assets in the list and then select **Remove Missing Paths**. (See the preceding image.)
@@ -182,7 +188,7 @@ Now that we've made the texture paths relative, we can move on to the FBX export
 
 1. In the scene, select the assets that you want to export. On the main toolbar, go to **File** > **Export** > **Export Selected**.
 
-1. In the **Select File to Export** dialog box, type or select an output file name. In the **Save as type** list, select **Autodesk (*.fbx)**. This action will open the **FBX Export** window.
+1. In the **Select File to Export** dialog box, type or select an output file name. In the **Save as type** list, select **Autodesk (*.fbx)**. This action opens the **FBX Export** window.
 
     >[!IMPORTANT] If you've created instances in your scene, it's important to select **Preserve Instances** in the FBX export settings. 
 
@@ -190,7 +196,7 @@ Now that we've made the texture paths relative, we can move on to the FBX export
 
     Remember, there are a couple of ways to export the file. If the intention is to share the FBX along with its texture files in a folder/directory, the settings shown in the following screenshot should work well. 
 
-   If you prefer not to share large folders/directories of textures along with the FBX, you can choose to embed the textures in the FBX. If you embed the textures, the entire asset, including textures, will be added to a single FBX. Doing so combines your export into a single asset, but the FBX file will be considerably larger as a result.
+   If you prefer not to share large folders/directories of textures along with the FBX, you can choose to embed the textures in the FBX. If you embed the textures, the entire asset, including textures, are added to a single FBX. Doing so combines your export into a single asset, but the FBX file will be considerably larger as a result.
 
    >[!IMPORTANT]
    >If the resulting FBX file is bigger than 2.4 GB, the minimum version specified in the FBX export settings should be 2016 or later. (See the preceding screenshot.) Newer versions have 64 bit support, so they support bigger files.
