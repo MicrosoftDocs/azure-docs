@@ -16,7 +16,7 @@ ms.reviewer: sngun
 |400|CosmosRequestHeaderTooLarge|Service|
 
 ## Description
-The size of the header has grown to large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version 3.x or 2.x, which adds header size tracing to the exception message.
+The size of the header has grown too large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version 3.x or 2.x, which adds header size tracing to the exception message.
 
 ## Troubleshooting steps
 
