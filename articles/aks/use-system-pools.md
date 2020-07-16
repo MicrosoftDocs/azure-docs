@@ -30,7 +30,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## System and user node pools
 
-System node pool nodes each have the label **kubernetes.azure.com/mode: system**. Every AKS cluster contains at least one system node pool. System node pools have the following restrictions:
+System node pool nodes each have the label **kubernetes.azure.com/mode: system**, which causes AKS to prefer scheduling system pods on these node pools. Although not recommended, this label does not prevent you from scheduling application pods on system node pools. You can create a dedicated system node pool by using the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools. Every AKS cluster contains at least one system node pool. System node pools have the following restrictions:
 
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
@@ -41,6 +41,7 @@ System node pool nodes each have the label **kubernetes.azure.com/mode: system**
 
 You can do the following operations with node pools:
 
+* Create a dedicated system node pool
 * Change a system node pool to be a user node pool, provided you have another system node pool to take its place in the AKS cluster.
 * Change a user node pool to be a system node pool.
 * Delete user node pools.
@@ -48,9 +49,11 @@ You can do the following operations with node pools:
 * An AKS cluster may have multiple system node pools and requires at least one system node pool.
 * If you want to change various immutable settings on existing node pools, you can create new node pools to replace them. One example is to add a new node pool with a new maxPods setting and delete the old node pool.
 
-## Create a new AKS cluster with a system node pool
+## Create a new AKS cluster with a dedicated system node pool
 
 When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with az aks nodepool add, those node pools are user node pools unless you explicitly specify the mode parameter.
+
+It is recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Enforce this behavior with the 'CriticalAddonsOnly=true:NoSchedule' [taint][aks-taints].
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
@@ -58,10 +61,14 @@ The following example creates a resource group named *myResourceGroup* in the *e
 az group create --name myResourceGroup --location eastus
 ```
 
-Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one system pool containing one node. For your production workloads, ensure you are using system node pools with at least three nodes. This operation may take several minutes to complete.
+> [!Important]
+> You can't change node taints through the CLI after the node pool is created.
+
+Use the [az aks create][az-aks-create] command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one dedicated system pool containing one node. For your production workloads, ensure you are using system node pools with at least three nodes. This operation may take several minutes to complete.
 
 ```azurecli-interactive
-az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
+# Create dedicated system pool by specifying a taint
+az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --node-taints CriticalAddonsOnly=true:NoSchedule --generate-ssh-keys
 ```
 
 ## Add a system node pool to an existing AKS cluster
@@ -154,6 +161,7 @@ In this article, you learned how to create and manage system node pools in an AK
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
+[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
