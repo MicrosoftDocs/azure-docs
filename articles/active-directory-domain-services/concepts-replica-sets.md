@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/16/2020
 ms.author: iainfou
 ---
 
@@ -22,7 +22,7 @@ You can expand a managed domain to have more than one replica set per Azure AD t
 Replica sets are currently in preview.
 
 > [!NOTE]
-> Replica sets do not let you deploy multiple unique managed domains in a single Azure tenant. Each replica set contains the same data.
+> Replica sets don't let you deploy multiple unique managed domains in a single Azure tenant. Each replica set contains the same data.
 
 ## How replica sets work
 
@@ -33,7 +33,7 @@ You create each replica set in a virtual network. Each virtual network must be p
 All replica sets are placed in the same Active Directory site. As the result, all changes are propagated using intrasite replication for quick convergence.
 
 > [!NOTE]
-> It is not possible to define separate sites and define replication settings between replica sets.
+> It's not possible to define separate sites and define replication settings between replica sets.
 
 The following diagram shows a managed domain with two replica sets. The first replica set is created with the domain namespace. A second replica set is created after that:
 
@@ -54,7 +54,7 @@ The default SKU for a managed domain is the *Enterprise* SKU, which supports mul
 
 The maximum number of replica sets supported during preview is four, including the first replica created when you created the managed domain.
 
-Billing for each replica set is based on the domain configuration SKU. For example, if you have a managed domain that uses the *Enterprise* SKU and you have three replica sets, your subscription will be billed per hour for each of the three replica sets.
+Billing for each replica set is based on the domain configuration SKU. For example, if you have a managed domain that uses the *Enterprise* SKU and you have three replica sets, your subscription is billed per hour for each of the three replica sets.
 
 ## Frequently asked questions
 
