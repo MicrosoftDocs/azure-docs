@@ -1,56 +1,248 @@
 ---
-title: Setting access control lists recursively in Azure Data Lake Storage Gen2 | Microsoft Docs
+title: Set ACLs recursively in Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Put some description here.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: normesta
 ms.reviewer: prishet
 ---
 
-# Setting access control lists recursively
+# Set access control lists (ACLs) recursively in Azure Data Lake Storage Gen2
 
-The recursive ACL process provides the ability to add, update or remove ACL entries for folders/files within a parent directory for ADLS Gen2. This helps with propagation of permission updates from parent directory to existing child folders/files.
+The recursive ACL process provides the ability to add, update or remove ACL entries for folders/files within a parent directory for ADLS Gen2. This helps with propagation of permission updates from parent directory to existing child folders/files. 
+
+To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
 > [!NOTE]
-> The ability to set access lists recursively is a in public preview, and is available in the blah and blah regions. To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
+> The ability to set access lists recursively is a in public preview, and is available in the blah and blah regions. To enroll in the preview, see [this form](https://aka.ms/adls/qa-preview-signup). 
 
-## Before you begin
+## Prerequisites
 
-Make sure that you have the correct permission to set ACLs on your account. You'll need these things:
+> [!div class="checklist"]
+> * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 
-- A provisioned AAD Service Principal or user that has been assigned Storage Blob Data Owner role on the target account or container OR Owning user for target container/directory on which recursive ACL process is to be executed. (Note: owning user must have permissions for all child items for this target container/directory) 
+## Set up your project
 
-- Ensure a working understanding of how ACLs are applied in ADLS Gen2 as described in: https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control
+Some sort of intro comment
 
-## General workflow
+> [!NOTE] 
+> To help lower latency for access to the ADLS Gen2 storage account, we recommend running the recursive ACL process in an Azure VM that is in the same region as your ADLS Gen2 storage account.
 
-Describe the workflow
+### [.NET](#tab/dotnet)
 
-## Known issues
+To get started, install the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) NuGet package.
 
-- Java, JavaScript, Azure CLI, and Azure Storage Explorer are not yet supported.
-- Support for Java, JavaScript, and CLI? What about Storage Explorer.
-- The maximum number of ACLs that can be applied to a file/folder is 32 access ACLs and 32 default ACLs. For more information, refer to ADLS Gen2 access control 
+For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio).
 
-## Best practices
+Then, add these using statements to the top of your code file.
 
-- Handling run-time errors: If there are run-time errors (such as outage, client machine connectivity etc.), the best practice for recovery is to restart the recursive ACL process. If an ACL has already been applied, re-applying that ACL has no negative impact. 
+```csharp
+using Azure.Storage.Files.DataLake;
+using Azure.Storage.Files.DataLake.Models;
+using Azure.Storage;
+using System.IO;
+using Azure;
+```
 
-- Handling permission errors (403): If you encounter access control exceptions for an intermediate directory/file during the recursive ACL process, the most common reason is the user/SPN does not have sufficient permissions to apply ACLs for that given directory/file. Process stops and a continuation token is provided. Fix permission issue and use continuation token to process the remaining dataset (files/folders that have been successfully processed will not need to be reprocessed) 
+### [Python](#tab/python)
+
+Put something here.
+
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
+---
+
+## Connect to your account
 
 - Credentials: As best practice, we recommend provisioning an AAD service principal assigned with the Storage Blob Data Owner role scoped to the target account or container. 
 
-- Performance: To help lower latency for access to the ADLS Gen2 storage account, we recommend running the recursive ACL process in an Azure VM that is in the same region as your ADLS Gen2 storage account. 
+- A provisioned AAD Service Principal or user that has been assigned Storage Blob Data Owner role on the target account or container OR Owning user for target container/directory on which recursive ACL process is to be executed. (Note: owning user must have permissions for all child items for this target container/directory) 
 
-## Use PowerShell
+### [.NET](#tab/dotnet)
 
-Get the bits (guidance)
-Capture read me items for the preview.
+To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. 
 
-### Example
+#### Connect by using an account key
+
+This is the easiest way to connect to an account. 
+
+This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using an account key.
+
+```cs
+public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
+    string accountName, string accountKey)
+{
+    StorageSharedKeyCredential sharedKeyCredential =
+        new StorageSharedKeyCredential(accountName, accountKey);
+
+    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
+
+    dataLakeServiceClient = new DataLakeServiceClient
+        (new Uri(dfsUri), sharedKeyCredential);
+}
+```
+
+#### Connect by using Azure Active Directory (AD)
+
+You can use the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) to authenticate your application with Azure AD.
+
+This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+```cs
+public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
+    String accountName, String clientID, string clientSecret, string tenantID)
+{
+
+    TokenCredential credential = new ClientSecretCredential(
+        tenantID, clientID, clientSecret, new TokenCredentialOptions());
+
+    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
+
+    dataLakeServiceClient = new DataLakeServiceClient(new Uri(dfsUri), credential);
+}
+
+```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) documentation.
+
+### [Python](#tab/python)
+
+Put something here.
+
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
+---
+
+## Set ACL recursively
+
+This code sets the ACL. Explain what set means.
+
+- The maximum number of ACLs that can be applied to a file/folder is 32 access ACLs and 32 default ACLs. For more information, refer to ADLS Gen2 access control 
+
+### [.NET](#tab/dotnet)
+
+Get the access control list (ACL) of a directory by calling the [DataLakeDirectoryClient.GetAccessControlAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.getaccesscontrolasync) method and set the ACL by calling the [DataLakeDirectoryClient.SetAccessControlList](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.setaccesscontrollist) method.
+
+> [!NOTE]
+> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+
+This example gets and sets the ACL of a directory named `my-directory`. The string `user::rwx,group::r-x,other::rw-` gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read and write permission.
+
+```cs
+public async Task SetDirectoryACLRecursive(DataLakeFileSystemClient fileSystemClientD)
+{
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
+
+    IList<PathAccessControlItem> accessControlList
+        = PathAccessControlExtensions.ParseAccessControlList
+        ("user::rwx,group::r-x,other::rw-");
+
+    directoryClient.SetAccessControlList(accessControlList);
+
+}
+
+```
+
+If you want to set an ACL for an object ID, you'd just use the blah parameter.
+
+### [Python](#tab/python)
+
+Put something here.
+
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
+---
+
+## Update ACL recursively
+
+This code updates an ACL recursively.
+
+- The maximum number of ACLs that can be applied to a file/folder is 32 access ACLs and 32 default ACLs. For more information, refer to ADLS Gen2 access control
+
+### [.NET](#tab/dotnet)
+
+Put something here.
+
+### [Python](#tab/python)
+
+Put something here.
+
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
+---
+
+## Remove ACL recursively
+
+This code removes and ACL recursively
+
+### [.NET](#tab/dotnet)
+
+Put something here.
+
+### [Python](#tab/python)
+
+Put something here.
+
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
+---
+
+## Handle errors
+
+This code keeps track of a continuation token and shows how you would resume operation.
+
+- Handling run-time errors: If there are run-time errors (such as outage, client machine connectivity etc.), the best practice for recovery is to restart the recursive ACL process. If an ACL has already been applied, re-applying that ACL has no negative impact.
+- 
+- Handling permission errors (403): If you encounter access control exceptions for an intermediate directory/file during the recursive ACL process, the most common reason is the user/SPN does not have sufficient permissions to apply ACLs for that given directory/file. Process stops and a continuation token is provided. Fix permission issue and use continuation token to process the remaining dataset (files/folders that have been successfully processed will not need to be reprocessed) 
+
+## [.NET](#tab/dotnet)
+
+Put something here.
+
+### [Python](#tab/python)
+
+Put something here.
+
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
+---
+
+This code continues execution even if there is a failure.
+
+### [.NET](#tab/dotnet)
+
+Put something here.
+
+### [Python](#tab/python)
+
+Put something here.
+
+### [PowerShell](#tab/azure-powershell)
+
+Put something here.
+
+---
+
+
+## Example
 
 Here is a PowerShell example:
 
@@ -103,65 +295,7 @@ $dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $d
 $dir.ACL
 ```
 
-## .NET
-
-Put readme items here.
-
-### Example
-
-Here is a .NET example:
-
-```csharp
-await test.FileSystem.GetRootDirectoryClient().SetAccessControlListAsync(ExecuteOnlyAccessControlList);
-
-TokenCredential tokenCredential = GetOAuthCredential(TestConfigHierarchicalNamespace);
-Uri uri = new Uri($"{TestConfigHierarchicalNamespace.BlobServiceEndpoint}/{fileSystemName}/{topDirectoryName}").ToHttps();
-
-// Create tree as AAD App
-DataLakeDirectoryClient directory = InstrumentClient(new DataLakeDirectoryClient(uri, tokenCredential, GetOptions()));
-await directory.CreateAsync();
-DataLakeDirectoryClient subdirectory1 = await directory.CreateSubDirectoryAsync(GetNewDirectoryName());
-DataLakeFileClient file1 = await subdirectory1.CreateFileAsync(GetNewFileName());
-DataLakeFileClient file2 = await subdirectory1.CreateFileAsync(GetNewFileName());
-DataLakeDirectoryClient subdirectory2 = await directory.CreateSubDirectoryAsync(GetNewDirectoryName());
-DataLakeFileClient file3 = await subdirectory2.CreateFileAsync(GetNewFileName());
-
-// Add file as superuser
-DataLakeFileClient file4 = await test.FileSystem.GetDirectoryClient(directory.Name)
-   .GetSubDirectoryClient(subdirectory2.Name)
-   .CreateFileAsync(GetNewFileName());
-DataLakeFileClient file5 = await test.FileSystem.GetDirectoryClient(directory.Name)
-   .GetSubDirectoryClient(subdirectory2.Name)
-   .CreateFileAsync(GetNewFileName());
-DataLakeFileClient file6 = await test.FileSystem.GetDirectoryClient(directory.Name)
-   .GetSubDirectoryClient(subdirectory2.Name)
-   .CreateFileAsync(GetNewFileName());
-// Add directory as superuser
-DataLakeDirectoryClient subdirectory3 = await test.FileSystem.GetDirectoryClient(directory.Name)
-   .GetSubDirectoryClient(subdirectory2.Name)
-   .CreateSubDirectoryAsync(GetNewDirectoryName());
-
-AccessControlChangeOptions options = new AccessControlChangeOptions()
-{
-   ContinueOnFailure = true
-};
-
-// Act
-AccessControlChangeResult result = await directory.SetAccessControlRecursiveAsync(
-   accessControlList: AccessControlList,
-   progressHandler: null,
-   options);
-
-// Assert
-Assert.AreEqual(3, result.Counters.ChangedDirectoriesCount);
-Assert.AreEqual(3, result.Counters.ChangedFilesCount);
-Assert.AreEqual(4, result.Counters.FailedChangesCount);
-
-```
-
-## Python
-
-### Example
+---
 
 ## Questions
 
