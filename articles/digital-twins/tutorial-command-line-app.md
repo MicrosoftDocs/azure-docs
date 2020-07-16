@@ -317,10 +317,10 @@ In this tutorial, you got started with Azure Digital Twins by setting up an inst
 Continue to the next tutorial to use the sample command-line app in combination with other Azure services to complete a data-driven, end-to-end scenario:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md)
+> [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md)
 
 Or, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Custom models](concepts-models.md)
+* [*Concepts: Custom models*](concepts-models.md)
 
 You can also go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
