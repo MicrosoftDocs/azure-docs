@@ -1,6 +1,6 @@
 ---
 title: Managed virtual network & managed private endpoints
-description: Learn about Managed virtual network and managed private endpoints in Azure Data Factory.
+description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
