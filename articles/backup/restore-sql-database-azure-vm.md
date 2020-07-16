@@ -66,9 +66,9 @@ Restore as follows:
    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
-    > [!IMPORTANT]
-    > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-    >
+        > [!IMPORTANT]
+        > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+        >
    - **Restore as files**: Instead of restoring as a database, restore the backup files that can be recovered as a database later on any machine where the files are present using SQL Server Management Studio.
      ![Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration.png)
 
@@ -151,7 +151,7 @@ If you've selected **Full & Differential** as the restore type, do the following
 
 1. Select a recovery point from the list, and select **OK** to complete the restore point procedure.
 
-    ![Choose a full recovery point](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+    ![Choose a full recovery point](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
     > By default, recovery points from the last 30 days are displayed. You can display recovery points older than 30 days by clicking **Filter** and selecting a custom range.

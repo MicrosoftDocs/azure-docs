@@ -172,8 +172,8 @@ How to discover databases running on a VM:
      * To protect more than 50 databases, configure multiple backups.
      * To [enable](#enable-auto-protection) the entire instance or the Always On availability group, in the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
 
-    > [!NOTE]
-    > The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
+         > [!NOTE]
+         > The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
 
 1. Define the **Backup policy**. You can do one of the following:
 
