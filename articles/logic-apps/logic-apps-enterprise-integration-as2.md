@@ -119,7 +119,7 @@ To try deploying a fully operational logic app and sample AS2 scenario, see the 
 
 ## Connector reference
 
-For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](https://docs.microsoft.com/connectors/as2/). 
+For more technical details about this connector, such as actions and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/as2/). 
 
 > [!NOTE]
 > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 

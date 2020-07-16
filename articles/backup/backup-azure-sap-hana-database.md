@@ -11,7 +11,7 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 
 This article shows how to back up SAP HANA databases that are running on Azure VMs to an Azure Backup Recovery Services vault.
 
-In this article, you will learn how to:
+In this article, you'll learn how to:
 > [!div class="checklist"]
 >
 > * Create and configure a vault
@@ -168,7 +168,7 @@ Specify the policy settings as follows:
 
 7. Click **OK** to save the policy and return to the main **Backup policy** menu.
 8. Select **Log Backup** to add a transactional log backup policy,
-    * In **Log Backup**, select **Enable**.  This cannot be disabled as SAP HANA manages all log backups.
+    * In **Log Backup**, select **Enable**.  This can't be disabled, since SAP HANA manages all log backups.
     * Set the frequency and retention controls.
 
     > [!NOTE]
@@ -194,15 +194,17 @@ Backups run in accordance with the policy schedule. You can run a backup on-dema
 If you want to take a local backup (using HANA Studio) of a database that's being backed up with Azure Backup, do the following:
 
 1. Wait for any full or log backups for the database to finish. Check the status in SAP HANA Studio / Cockpit.
-2. Disable log backups, and set the backup catalog to the file system for relevant database.
-3. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
-4. Set **enable_auto_log_backup** to **No**.
-5. Set **log_backup_using_backint** to **False**.
-6. Take an on-demand full backup of the database.
-7. Wait for the full backup and catalog backup to finish.
-8. Revert the previous settings back to those for Azure:
+1. Disable log backups, and set the backup catalog to the file system for relevant database.
+1. To do this, double-click **systemdb** > **Configuration** > **Select Database** > **Filter (Log)**.
+1. Set **enable_auto_log_backup** to **No**.
+1. Set **log_backup_using_backint** to **False**.
+1. Set **catalog_backup_using_backint** to **False**.
+1. Take an on-demand full backup of the database.
+1. Wait for the full backup and catalog backup to finish.
+1. Revert the previous settings back to those for Azure:
     * Set **enable_auto_log_backup** to **Yes**.
     * Set **log_backup_using_backint** to **True**.
+    * Set **catalog_backup_using_backint** to **True**.
 
 ## Next steps
 
