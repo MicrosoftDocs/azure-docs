@@ -189,4 +189,4 @@ try
 ## Next steps
 
 Walk through the steps to create a client app where you can use your SDK:
-* [Tutorial: Code a client app](tutorial-code.md)
+* [*Tutorial: Code a client app*](tutorial-code.md)

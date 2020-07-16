@@ -24,7 +24,7 @@ The **Customer dashboard** of the **Analyze** menu displays data for customers w
 - [Customer by geography](#customer-by-geography)
 - [Customer trends](#customer-trends)
 - [Customers by orders and usage](#customers-by-orders-and-usage)
-- [Customers by SKUs](#customers-by-skus)
+- [Customers by plans](#customers-by-plans)
 - [Orders and usage by customer type](#orders-and-usage-by-customer-type)
 - [Customer details table](#customer-details-table)
 - [Customer page filters](#customer-page-filters)
@@ -66,14 +66,14 @@ The **Customers by orders/usage** chart has three tabs, "orders," "normalized us
 
 As an example, see the chart below for normalized usage: The top 30th percentile of customers are contributing to 87% of the normalized usage cumulatively. The 30th percentile of customers are only contributing 1.57 million hours of usage.
 
-### Customers by SKUs
+### Customers by plans
 
-The **Customers by SKUs/usage** charts are described below.
+The **Customers by plans/usage** charts are described below.
 
 1. The Leader board presents details of the top 50 customers ranked by order count. After selecting a customer, the details of the customer are presented in sections 2, 3, and 4 of this leader board.
 2. The Customer profile details are displayed in this space when publishers are logged in with an owner role. If publishers are logged in with a contributor role, the details in this section will not be available.
-3. The Orders by SKUs donut chart displays the breakdown of orders purchased for SKUs. The top 5 SKUs with the highest order count are displayed, while the rest of the orders are grouped under 'rest all'.
-4. The Seats by SKUs donut chart displays the breakdown of seats ordered for SKUs. The top 5 SKUs with the highest seats are displayed, while the rest of the orders are grouped under rest all.
+3. The Orders by plans donut chart displays the breakdown of orders purchased for plans. The top five plans with the highest order count are displayed, while the rest of the orders are grouped under 'rest all'.
+4. The Seats by plans donut chart displays the breakdown of seats ordered for plans. The top five plans with the highest seats are displayed, while the rest of the orders are grouped under rest all.
 
 ### Orders and usage by customer type
 
