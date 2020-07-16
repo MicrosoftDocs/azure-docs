@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-pnp
 services: iot-pnp
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 07/16/2020
 ms.author: v-jambra
 ---
 
@@ -14,7 +14,7 @@ ms.author: v-jambra
 
 The Azure IoT Model Repository stores the interfaces that define and compose models. The model repository makes the models and interfaces discoverable and consumable by solution developers.
 
-You use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo) to manage models in the repository.  
+You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo), the Azure CLI, or the Model repository REST API to manage models in the repository.  
 
 ## Public and Private models
 
@@ -91,6 +91,24 @@ To publish an interface, you must be a member of the tenant _Publisher_ role.
 
     > [!NOTE]
     > If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see [Model repository sign-in](#model-repository-sign-in).
+
+## Manage models with the Model repository REST API
+
+To manage models with the Model repository REST API, see the [Model repository REST API documentation](https://review.docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel?branch=iotpnp).
+
+You may find the following topics helpful when working with Azure Active Directory:
+
+- To create a new Azure AD tenant, see [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant). Note that Most organizations will already have Azure AD tenants.
+
+- To add users or guest users to an Azure AD tenant, see [Add or delete users using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
+
+- To add a service principal to an Azure AD tenant, see [How to use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+- To learn how to get a JWT token from Azure AD to use when calling REST APIs, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app).
+
+## Manage models with the Azure CLI
+
+To manage models with the Azure CLI, see the documentation for [az iot pnp command](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest).
 
 ## Next steps
 
