@@ -16,18 +16,18 @@ tag: azure-Synapse
 
 # Analyze data with Azure Machine Learning
 
-This tutorial uses [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) to build a predictive machine learning model based on data stored in Azure Synapse. The tutorial walks through the steps of building a targeted marketing campaign for Adventure Works, the bike shop, by predicting if a customer is likely to buy a bike or not.
+This tutorial uses [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) to build a predictive machine learning model. The model is based on the data stored in Azure Synapse. The scenario for the tutorial is to predict if a customer is likely to buy a bike or not so Adventure Works, the bike shop, can build a targeted marketing campaign.
 
 ## Prerequisites
 
 To step through this tutorial, you need:
 
-* a SQL pool pre-loaded with AdventureWorksDW sample data. To provision this, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but do not have sample data, you can [load sample data manually](load-data-from-azure-blob-storage-using-polybase.md).
+* a SQL pool pre-loaded with AdventureWorksDW sample data. To provision this SQL Pool, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but don't have sample data, you can [load sample data manually](load-data-from-azure-blob-storage-using-polybase.md).
 * an Azure Machine learning workspace. Follow [this tutorial](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) to create a new one.
 
 ## Get the data
 
-The data used is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first loaded into Azure Data Lake Storage account. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the [copy activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview). Use the following query for import:
+The data used is in the dbo.vTargetMail view in AdventureWorksDW. To use Datastore in this tutorial, the data is first exported to Azure Data Lake Storage account as Azure Synapse doesn't currently support datasets. Azure Data Factory can be used to export data from the data warehouse to Azure Data Lake Storage using the [copy activity](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview). Use the following query for import:
 
 ```sql
 SELECT [CustomerKey]
@@ -63,7 +63,7 @@ Once the data is available in Azure Data Lake Storage, Datastores in Azure Machi
 
 1. Specify the name of the dataset and select the type to be **Tabular**. Then, click **Next** to move forward.
 
-1. In **Select or create a datastore section**, select the option **Previously created datastore** and select the datastore created earlier. Click Next and specify the path and file settings. Make sure to specify column header if the files contain one.
+1. In **Select or create a datastore section**, select the option **Previously created datastore**. Select the datastore that was created earlier. Click Next and specify the path and file settings. Make sure to specify column header if the files contain one.
 
 1. Finally, click **Create** to create the dataset.
 
@@ -89,7 +89,7 @@ Next, follow steps below for designer configuration:
 
 ## Clean the data
 
-To clean the data, drop columns that are not relevant for the model. To do this:
+To clean the data, drop columns that aren't relevant for the model. Follow the steps below:
 
 1. Select the **Modules** subtab in the left pane.
 
@@ -115,7 +115,7 @@ The data is split 80-20: 80% to train a machine learning model and 20% to test t
 
 1. Drag the **Two-Class Boosted Decision Tree** module into the canvas.
 
-1. Drag the **Train Model** module into the canvas and specify inputs by connecting it to the **Two-Class Boosted Decision Tree** (ML algorithm) and **Split Data** (data to train the algorithm on) modules. 
+1. Drag the **Train Model** module into the canvas. Specify inputs by connecting it to the **Two-Class Boosted Decision Tree** (ML algorithm) and **Split Data** (data to train the algorithm on) modules. 
 
 1. For Train Model model,  in **Label column** option in the Properties pane, select Edit column. Select the **BikeBuyer** column as the column to predict and select **Save**.
 
@@ -125,32 +125,32 @@ The data is split 80-20: 80% to train a machine learning model and 20% to test t
 
 ## Score the model
 
-Now, test how the model performs on test data. Two different algorithms will be compared to see which performs better. To do this, follow the steps below:
+Now, test how does the model perform on test data. Two different algorithms will be compared to see which one performs better. Follow the steps below:
 
 1. Drag **Score Model** module into the canvas and connect it to **Train Model** and **Split Data** modules.
 
-1. Drag the **Two-Class Bayes Averaged Perceptron** into the experiment canvas. You will compare how this algorithm performs in comparison to the Two-Class Boosted Decision Tree.
+1. Drag the **Two-Class Bayes Averaged Perceptron** into the experiment canvas. You'll compare how this algorithm performs in comparison to the Two-Class Boosted Decision Tree.
 
 1. Copy and paste the modules **Train Model** and **Score Model** in the canvas.
 
 1. Drag the **Evaluate Model** module into the canvas to compare the two algorithms.
 
-1. Click **submit** to setup the pipeline run. 
+1. Click **submit** to set up the pipeline run. 
 
    ![Run the experiment](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algocomparison.png)
 
-1. Once the run finishes, right click on the **Evaluate Model** module and click **Visualize Evaluation results**.
+1. Once the run finishes, right-click on the **Evaluate Model** module and click **Visualize Evaluation results**.
 
    ![Visualize evaluation results](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/resultvisualize.png)
 
-The metrics provided are the ROC curve, precision-recall diagram, and lift curve. Look at these metrics to see that the first model performed better than the second one. To look at what the first model predicted, right click on the Score Model module and click and click Visualize Scored dataset to see the predicted results.
+The metrics provided are the ROC curve, precision-recall diagram, and lift curve. Look at these metrics to see that the first model performed better than the second one. To look at what the first model predicted, right-click on the Score Model module and click Visualize Scored dataset to see the predicted results.
 
-You will see two more columns added to your test dataset.
+You'll see two more columns added to your test dataset.
 
 * Scored Probabilities: the likelihood that a customer is a bike buyer.
 * Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
-Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers and [publish this model as a web service](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) or write results back to Azure Synapse.
+Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers. You can [publish this model as a web service](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) or write results back to Azure Synapse.
 
 ## Next steps
 
