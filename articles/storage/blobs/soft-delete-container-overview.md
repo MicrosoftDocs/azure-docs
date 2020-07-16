@@ -118,7 +118,7 @@ az feature show --namespace Microsoft.Storage --name ContainerSoftDelete
 
 There is no additional charge to enable container soft delete. Data in soft deleted containers is billed at the same rate as active data.
 
-# Next steps
+## Next steps
 
 - [Configure container soft delete](soft-delete-container-enable.md)
 - [Soft delete for blobs](soft-delete-blob-overview.md)
