@@ -29,8 +29,6 @@ landingContent:
       links:
         - text: Connect a sample device to IoT Hub
           url: quickstart-connect-device-c.md
-        - text: Interact with a device from your solution
-          url: quickstart-service-node.md
     - linkListType: concept
       links:
         - text: Architecture
@@ -39,6 +37,10 @@ landingContent:
           url: concepts-developer-guide.md
   - title: Build solutions
     linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Interact with a device from your solution
+          url: quickstart-service-node.md
     - linkListType: concept
       links:
         - text: Architecture
