@@ -74,5 +74,4 @@ This will load the 'Agent' interface, which will allow simultaneous / independen
 
 > [!div class="checklist"]
 > * Enable cognitive services on the sample by setting up a cognitive service resource in Azure Portal.
-> * Enable 'end of call' transfer to Bot and adaptive cards rendering on the sample by setting up a 'Web App Bot' using Azure Bot Services. The code for the Bot logic and instructions to set it up can be downloaded here : https://github.com/Azure/communication-preview/releases)
 
