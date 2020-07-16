@@ -220,6 +220,9 @@
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
+        - name: Use private Python packages
+          displayName: pip, Conda, anaconda
+          href: how-to-use-private-python-packages.md
         - name: Enable logging
           displayName: troubleshoot, log, files, tracing
           href: how-to-enable-logging.md
@@ -396,6 +399,9 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
+      - name: Deploy encrypted inferencing service
+        displayName: homomorhic,encryption,deployment
+        href: how-to-homomorphic-encryption-seal.md
     - name: Build & use ML pipelines
       displayName: pipelines
       items: 
