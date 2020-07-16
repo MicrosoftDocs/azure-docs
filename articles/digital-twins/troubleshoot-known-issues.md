@@ -28,6 +28,20 @@ The instructions for this can be found in [*How-to: Manage endpoints and routes*
 
 You are signed into the portal with a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), such as an *@outlook.com* account. Managing event routes in the Azure portal is currently only available to Azure users on corporate-domain accounts.
 
+## "400 Client Error: Bad Request" in Cloud Shell
+
+Commands in Cloud Shell may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token" followed by full stack trace.
+
+### Troubleshooting steps
+
+This can be resolved by re-running the `az login` command and completing subsequent login steps.
+
+After this, you should be able to re-run the command.
+
+### Possible causes
+
+This is the result of a known issue in Cloud Shell: [*Getting token from Cloud Shell intermittently fails with 400 Client Error: Bad Request*](https://github.com/Azure/azure-cli/issues/11749).
+
 ## Next steps
 
 Read more about security and permissions on Azure Digital Twins:

@@ -36,8 +36,8 @@ The following table outlines how to use scoped synchronization:
 
 You use the Azure portal or PowerShell to configure the scoped synchronization settings:
 
-| Action | | |
-|--|--|--|
+| Action | Use<br>Azure portal | Use<br>PowerShell |
+| ------ | ------------------- | ----------------- |
 | Create a managed domain and configure scoped synchronization | [Azure portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
 | Modify scoped synchronization | [Azure portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
 | Disable scoped synchronization | [Azure portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
