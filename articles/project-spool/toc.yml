@@ -28,7 +28,7 @@
         href: quickstarts/networking/route-events.md
   - name: Telephony and SMS 
     items:
-      - name: Buy A Telephone Number
+      - name: Buy A Telephone Number 
         href: quickstarts/telephony-and-sms/search-and-acquire-phone-number.md
       - name: Place a Telephone Call
         href: quickstarts/telephony-and-sms/get-started-with-phone.md
