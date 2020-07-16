@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.author: jasteppe
 ---
 # IoT Connector (preview) troubleshooting guide and how-to
