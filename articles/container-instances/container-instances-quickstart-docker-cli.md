@@ -2,7 +2,7 @@
 title: Quickstart - Deploy Docker container to container instance - Docker CLI
 description: In this quickstart, you use the Docker CLI to quickly deploy a containerized web app that runs in an isolated Azure container instance
 ms.topic: quickstart
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.custom: 
 ---
 
@@ -16,7 +16,10 @@ In this quickstart, you use native Docker CLI commands to deploy an isolated Doc
 
 If you don't have an Azure subscription, create a [free account][azure-account] before you begin.
 
-For this quickstart, you need to install Docker Desktop Edge version 2.3.2.0 or later, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [MacOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux) (beta). Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions).
+For this quickstart, you need to install Docker Desktop Edge version 2.3.2.0 or later, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux) (beta). 
+
+> [!IMPORTANT]
+> This feature is currently in preview, and requires beta (preview) features in Docker. Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions). Not all features of Azure Container Instances are supported. Azure previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Create Azure context
 
@@ -118,7 +121,9 @@ docker rm hungry-kirch
 
 ## Next steps
 
-In this quickstart, you created an Azure container instance from a public image by using integration between Docker and Azure. Learn more about integration scenarios in the [Docker documentation](https://docs.docker.com/engine/context/aci-integration/). You can also use the [Docker extension](https://aka.ms/VSCodeDocker) for Visual Studio Code for an integrated experience to develop, run, and manage containers, images, and contexts.
+In this quickstart, you created an Azure container instance from a public image by using integration between Docker and Azure. Learn more about integration scenarios in the [Docker documentation](https://docs.docker.com/engine/context/aci-integration/). Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
+
+You can also use the [Docker extension](https://aka.ms/VSCodeDocker) for Visual Studio Code for an integrated experience to develop, run, and manage containers, images, and contexts.
 
 To use Azure tools to create and manage container instances, see other quickstarts using the [Azure CLI](container-instances-quickstart.md), [Azure PowerShell](container-instances-quickstart-powershell.md), [Azure portal](container-instances-quickstart-portal.md), and [Azure Resource Manager template](container-instances-quickstart-template.md).
 
@@ -130,4 +135,5 @@ If you'd like to build a container image and deploy it from a private Azure cont
 <!-- LINKS - External -->
 
 [azure-account]: https://azure.microsoft.com/free/
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
