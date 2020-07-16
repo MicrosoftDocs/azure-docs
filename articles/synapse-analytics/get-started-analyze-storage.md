@@ -65,4 +65,4 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Analyze using spark](get-started-analyze-spark.md)
+> [Orchestrate activities with pipelines](get-started-pipelines.md)
