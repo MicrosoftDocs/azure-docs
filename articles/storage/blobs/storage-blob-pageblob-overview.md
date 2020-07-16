@@ -32,7 +32,7 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 
 ## Pricing
 
-Both types of storage offered with page blobs have their own pricing model. Premium page blobs follow the managed disks pricing model, while standard page blobs are billed on used size and with each transaction. For more information, see the [Azure Page Blobs pricing page](https://azure.microsoft.com/en-us/pricing/details/storage/page-blobs/).
+Both types of storage offered with page blobs have their own pricing model. Premium page blobs follow the managed disks pricing model, while standard page blobs are billed on used size and with each transaction. For more information, see the [Azure Page Blobs pricing page](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 ## Page blob features
 
