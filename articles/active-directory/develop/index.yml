@@ -114,7 +114,7 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: About Managed identities for Azure resources
+          - text: About managed identities for Azure resources
             url: ../managed-identities-azure-resources/overview.md
           - text: Managed identities and Azure VMs
             url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
