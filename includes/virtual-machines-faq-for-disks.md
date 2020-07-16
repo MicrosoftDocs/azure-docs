@@ -155,15 +155,19 @@ Azure disks reservation are purchased for a specific region and SKU (like P30 in
 **What happens when my Azure disks reservation expires?**    
 You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+**Do Standard SSD Disks support "single instance VM SLA"?**
+
+Yes, all disk types support single instance VM SLA.
+
 ### Azure shared disks
 
 **Is the shared disks feature supported for unmanaged disks or page blobs?**
 
-No, it is only supported for premium SSD managed disks.
+No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-Currently only West Central US.
+For regional information, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
 
 **Can shared disks be used as an OS disk?**
 
@@ -171,11 +175,11 @@ No, shared disks are only supported for data disks.
 
 **What disk sizes support shared disks?**
 
-Only premium SSDs that are P15 or greater support shared disks.
+For supported sizes, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
 
-**If I have an existing premium SSD, can I enable shared disks on it?**
+**If I have an existing disk, can I enable shared disks on it?**
 
-All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the `maxShares` property on the disk.
+All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the **maxShares** property on the disk.
 
 **If I no longer want to use a disk in shared mode, how do I disable it?**
 
@@ -191,7 +195,7 @@ No.
 
 **Can I enable host caching for a disk that has shared disk enabled?**
 
-The only supported host caching option is 'None'.
+The only supported host caching option is **None**.
 
 ## Ultra disks
 
@@ -202,7 +206,7 @@ If you are unsure what to set your disk throughput to, we recommend you start by
 In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md).
 
 **Can I use caching levels with an ultra disk?**
-No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to None.
+No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to **None**.
 
 **Can I attach an ultra disk to my existing VM?**
 Maybe, your VM has to be in a region and availability zone pair that supports Ultra disks. See [getting started with ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) for details.
@@ -259,9 +263,6 @@ Standard SSD disks deliver better latency, consistency, availability, and reliab
 
 **Can I use Standard SSDs as Unmanaged Disks?**
 No, Standard SSDs disks are only available as Managed Disks.
-
-**Do Standard SSD Disks support "single instance VM SLA"?**
-No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
 ## Migrate to Managed Disks
 
@@ -448,7 +449,7 @@ The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under globa
 
 **Do we support enabling Host Caching on all disk sizes?**
 
-Host Caching (ReadOnly and Read/Write) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
+Host Caching (**ReadOnly** and **Read/Write**) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
 
 ## Private Links for securely exporting and importing Managed Disks
 

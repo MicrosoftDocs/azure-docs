@@ -669,8 +669,6 @@
       href: scheduled-event-service.md
   - name: Monitor VMs
     items:
-    - name: Monitor Azure virtual machines
-      href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Agents
       items:
       - name: Agents overview
