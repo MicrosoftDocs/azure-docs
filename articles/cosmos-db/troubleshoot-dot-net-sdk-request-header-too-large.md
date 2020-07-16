@@ -35,7 +35,7 @@ Restart the application will reset all the session tokens. This session token wi
 ### 2. Continuation token too large
 
 #### Cause:
-The 400 bad request is happening on query operations where the continuation token is being passed in. The continuation token has grown to large. Different queries will have different continuation token sizes.
+The 400 bad request is happening on query operations where the continuation token is being passed in. The continuation token has grown too large. Different queries will have different continuation token sizes.
     
 #### Solution:
 1. Follow the performance tips and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issue.
