@@ -60,7 +60,7 @@ Billing for each replica set is based on the domain configuration SKU. For examp
 
 ### Can I use my production managed domain with this preview?
 
-Replica sets are a public preview feature in Azure AD Domain Services. Please be aware of the support differences that exist for features still in preview. For more information about previews, [Azure Active Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Replica sets are a public preview feature in Azure AD Domain Services. You can use a production managed domain, but please be aware of the support differences that exist for features still in preview. For more information about previews, [Azure Active Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### Can I create a replica set in subscription different from my managed domain?
 

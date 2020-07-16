@@ -21,6 +21,8 @@ To improve the resiliency of an Azure Active Directory Domain Services (Azure AD
 
 You can add a replica set to any peered virtual network in any Azure region that supports Azure AD DS.
 
+Replica sets are a public preview feature in Azure AD Domain Services. Please be aware of the support differences that exist for features still in preview. For more information about previews, [Azure Active Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
