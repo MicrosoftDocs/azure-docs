@@ -101,3 +101,22 @@ There are several possible causes for this symptom:
 
     - _Url Rewrite_ is disabled by default and you should only use this field if you want to narrow the scope of backend-hosted resources that you want to make available. When disabled, Front Door will forward the same request path it receives. It is possible that this field is misconfigured and Front Door is requesting a resource from the backend that is not available, thus returning an HTTP 404 status code.
 
+## Request to Frontend hostname Returns 411 Status Code
+
+### Symptom
+
+- You have created a Front Door and configured a frontend host, a backend pool with at least one backend in it, and a routing rule that connects the frontend host to the backend pool. Your content does not seem to be available when sending a request to the configured frontend host because an HTTP 411 status code is returned.
+
+- Responses to these requests may also contain an HTML error page in the response body, containing an explanatory statement; for example `HTTP Error 411. The request must be chunked or have a content length`
+
+### Cause
+
+There are several possible causes for this symptom, however the overall reason is that your HTTP request is not fully RFC compliant. Some examples of non-compliance may be:
+
+- A `POST` request is sent with neither a `Content-Length` nor a `Transfer-Encoding` header being present (for example using `curl -X POST https://example-front-door.domain.com`); this does not meet the requirements set out in [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) and would be blocked by your Front Door with a HTTP 411 response
+
+### Troubleshooting steps
+
+- Verify that your requests comply with the requirements set out in the necessary RFCs
+
+- Take note of any HTML message body which may be returned in response to your request as this may explain exactly *how* your request is non-compliant
