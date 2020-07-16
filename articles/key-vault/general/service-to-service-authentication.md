@@ -227,7 +227,7 @@ By default, `AzureServiceTokenProvider` tries the following authentication metho
 
 - [A managed identity for Azure resources](../..//active-directory/managed-identities-azure-resources/overview.md)
 - Visual Studio authentication
-- [Azure CLI authentication](/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Azure CLI authentication](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 - [Integrated Windows authentication](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
 To control the process, use a connection string passed to the `AzureServiceTokenProvider` constructor or specified in the *AzureServicesAuthConnectionString* environment variable.  The following options are supported:

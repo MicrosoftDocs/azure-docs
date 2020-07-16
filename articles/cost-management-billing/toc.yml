@@ -465,4 +465,4 @@
       - name: Cloudyn FAQ
         href: cloudyn/cost-mgt-faq.md
       - name: Contact Cloudyn support
-        href: /cloudyn/open-support-request.md
+        href: https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request
