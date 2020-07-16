@@ -46,7 +46,7 @@ PowerShell classic can be installed alongside either Az or AzureRM to cover both
 ## <a name="support-table"></a> PowerShell support table
 
 
-| | **Az** |  **PowerShell classic** |
+|  **Az** |  **PowerShell classic** |
 | --- | --- | --- |
 | Create/delete workspaces | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Manage workspace commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |

@@ -98,11 +98,10 @@ Transactional replication is useful in the following scenarios:
 
 ### Compare Data Sync with Transactional Replication
 
-| | Data Sync | Transactional Replication |
+| Category | Data Sync | Transactional Replication |
 |---|---|---|
 | Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
 | Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database <br/>- High maintenance cost |
-| | | |
 
 ## Common configurations
 

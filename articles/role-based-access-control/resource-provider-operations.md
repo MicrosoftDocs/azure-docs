@@ -18,7 +18,7 @@ Click the resource provider name in the following table to see the list of opera
 
 ## All
 
-| General |
+| Resource Provider Name  |
 | --- |
 | [Microsoft.Addons](#microsoftaddons) |
 | [Microsoft.Marketplace](#microsoftmarketplace) |
