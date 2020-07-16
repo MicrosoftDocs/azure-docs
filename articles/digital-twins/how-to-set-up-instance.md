@@ -175,7 +175,7 @@ One way to check that the role assignment was successful is to view the role ass
 
 :::image type="content" source="media/how-to-set-up-instance/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
 
-You now have an Azure Digital Twins instance ready to go, and assigned permissions to manage it. Next, you'll set up permissions for a client app to access it.
+You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it. Next, you'll set up permissions for a client app to access it.
 
 ### Set up access permissions for client applications
 
@@ -250,7 +250,7 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 > * If your Azure subscription is created using a Microsoft account such as Live, Xbox, or Hotmail, you need to set the *signInAudience* on the app registration to support personal accounts.
 > The easiest way to set up these settings is to use the [Azure portal](https://portal.azure.com/). For more information about this process, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/graph/auth-register-app-v2).
 
-You now have an Azure Digital Twins instance ready to go, assigned permissions to manage it, and permissions for a client app to access it.
+You now have an Azure Digital Twins instance ready to go, have assigned permissions to manage it, and have set up permissions for a client app to access it.
 
 ## Next steps
 
