@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/16/2020
 ms.author: alkohli
 ---
 # Use the local web UI to administer your Data Box and Data Box Heavy
@@ -38,14 +38,13 @@ If you experience any device issues, you can create a Support package from the s
 
     ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Once the Support package creation is complete, click **Download Support package**. 
+3. Once the Support package creation is complete, click **Download Support package**.
 
     ![Create Support package 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Browse and choose the download location. Open the folder to view the contents.
 
     ![Create Support package 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## Shut down or restart your device
 
@@ -180,4 +179,3 @@ We strongly recommend that you do not disable checksum unless the performance is
 > The skip checksum computation option is available only when the Azure Data Box is unlocked. You won't see this option when the device is locked.
 
 - Learn how to [Manage the Data Box and Data Box Heavy via the Azure portal](data-box-portal-admin.md).
-
