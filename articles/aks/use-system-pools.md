@@ -30,7 +30,10 @@ The following limitations apply when you create and manage AKS clusters that sup
 
 ## System and user node pools
 
-System node pool nodes each have the label **kubernetes.azure.com/mode: system**, which causes AKS to prefer scheduling system pods on these node pools. Although not recommended, this label does not prevent you from scheduling application pods on system node pools. You can create a dedicated system node pool by using the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools. Every AKS cluster contains at least one system node pool. System node pools have the following restrictions:
+For a system node pool, AKS automatically assigns the label **kubernetes.azure.com/mode: system** to its nodes. This causes AKS to prefer scheduling system pods on node pools that contain this label. This label does not prevent you from scheduling application pods on system node pools. However, we recommend you isolate critical system pods from your application pods to prevent misconfigured or rogue application pods from accidentally killing system pods. 
+You can enforce this behavior by creating a dedicated system node pool. Use the `CriticalAddonsOnly=true:NoSchedule` taint to prevent application pods from being scheduled on system node pools.
+
+System node pools have the following restrictions:
 
 * System pools osType must be Linux.
 * User node pools osType may be Linux or Windows.
@@ -92,7 +95,7 @@ You can check the details of your node pool with the following command.
 az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
 ```
 
-A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools. Verify the taint is set to `CriticalAddonsOnly=true:NoSchedule`, which will prevent application pods from beings scheduled on this node pool.
+A mode of type **System** is defined for system node pools, and a mode of type **User** is defined for user node pools. For a system pool, verify the taint is set to `CriticalAddonsOnly=true:NoSchedule`, which will prevent application pods from beings scheduled on this node pool.
 
 ```output
 {
