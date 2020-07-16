@@ -108,6 +108,31 @@ Currently you can retrieve chat messages using `getMessages` method, and it will
 let messages = await chatClient.getMessages(threadId);
 ```
 
+## Add Users to a thread
+Once a thread is created, you can then add and remove users from that thread. By adding users, you give them access to be able to send messages to the thred.
+You will need to start by getting a new access token and identity for that user. The user will need that access token in order to initialize their chat client.
+More information on tokens here: [User Access Tokens](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/user-access-tokens?branch=pr-en-us-104477)
+```Javascript
+//Get a new token created for the user. The token response will contain a token and an identity for the user.
+let userTokenResponse = await myTokenFunction();
+
+await chatClient.addMembers(Thread_ID, {
+    members : [
+        {id: USER_ID, displayName: NAME, memberRole: ROLE}
+    ]
+});
+
+//Pass back to the user the USER_ID and Access Token both of which you get from the User Token Response.
+
+```
+## Remove Users to a thread
+Similar to above, you can also remove users from a thread. In order to remove, you will need to track the ids of the members you have added.
+```Javascript
+
+await chatClient.removeMember(Thread_ID, Memeber_ID);
+
+```
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
