@@ -216,7 +216,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 ```
 
 > [!IMPORTANT]
-> ReadyToRun currently does not support cross-compilation. You must build your app on the same platform as the deployment target. Also pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](https://docs.microsoft.com/dotnet/core/rid-catalog).
+> ReadyToRun currently doesn't support cross-compilation. You must build your app on the same platform as the deployment target. Also, pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](/dotnet/core/rid-catalog).
 
 Instead of updating the project file, you can alternatively specify ReadyToRun when publishing your app from the command line.
 
