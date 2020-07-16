@@ -99,10 +99,10 @@ Azure datacenters in Australia have an additional security notification. All the
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
-        a. 08：00-13：00 
-        b. 13：00-15：00 
-        c. 15：00-17：00 
-        d. 17：00-19：00 
+        a. 08：00-13：00
+        b. 13：00-15：00
+        c. 15：00-17：00
+        d. 17：00-19：00
     ```
     - **If you are picking up in Osaka**, then modify the subject in the email template to: `Pickup request for Microsoft Azure OSA`.
     - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
@@ -121,12 +121,12 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 2. To request pickup when consignment note is present:
     1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection.  
     2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
-    3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
+    3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements.
     4. You receive an email confirmation for the pickup schedule.
 3. Do this step only if the consignment note is not present. To request pickup:
     1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft Azure pickup* and the service request number to arrange for a collection. Specify that you need a new consignment note to arrange for a collection. Provide sender (customer), receiver information (Azure datacenter), and reference number (service request number). 
     2. If the hotline is busy, email `microsoft@rocketparcel.com`, with the email subject *Microsoft Azure Pickup* and the service request number as reference.
-    3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
+    3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements.
     4. You receive a verbal confirmation if the request is made via telephone.
 
 
