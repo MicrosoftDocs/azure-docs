@@ -31,28 +31,31 @@ It also affects the sharpness or blurriness of the reflections and highlights on
 ## Prepare the scene
 In 3ds Max, the process for setting up a PBR material is as follows.
 
-To start, we've created a number of box objects in the sample scene, each of which represents a different type of material.
+To start, we'll create a number of box objects, each of which represents a different type of material.
 
 >[!TIP]
 >It's worth noting before you start to create assets for Remote Rendering that it uses meters for measurement.  
 >So it's a good idea to set your scene's system units to meters. It's also  a good idea to set **Units** to meters in the FBX export settings when you export a scene.
 
-The following screenshot shows the steps to set the system units to meters in 3ds Max. In the main menu, go to **Customize** > **Units Setup** > **System Units Setup**. In **System Unit Scale**, select **Meters**:
+The following screenshot shows the steps to set the system units to meters in 3ds Max. 
+
+1. On the main menu, go to **Customize** > **Units Setup** > **System Units Setup**. In **System Unit Scale**, select **Meters**:
 ![Screenshot that shows how to set system units.](media/3dsmax/system-units.jpg)
 
-We can now begin to create our models. In the sample scene, we create several box objects, each representing a different material type. For example, metal, rubber, and plastic. 
+1. We can now begin to create the models. In the sample scene, we'll create several box objects, each representing a different material type. For example, metal, rubber, and plastic. 
 
->[!TIP]
->When you create assets, it's a good practice to name them appropriately as you go. This will make them easier to find later if the scene contains a lot of objects.
+   >[!TIP]
+   >When you create assets, it's a good practice to name them appropriately as you go. This will make them easier to find later if the scene contains a lot of objects.
 
-The following screenshot shows how to rename objects: 
-![Screenshot that shows how to rename objects.](media/3dsmax/rename-objects.jpg)
+1. Rename the objects, as shown in the following screenshot: 
+
+   ![Screenshot that shows how to rename objects.](media/3dsmax/rename-objects.jpg)
 
 ## Assign materials
 
 With some objects in our scene, in this case a number of cubes, we can begin the PBR setup:
 
-1. On the main toolbar, select the **Material Editor** icon as shown in the following screenshot. You can also select **M** on your keyboard to open the editor. The Material Editor has two modes that you can select in the **Modes** list: **Compact Material Editor** mode and **Slate Material editor** mode. Because this scene is relatively simple, we'll use the compact mode.
+1. On the main toolbar, select the **Material Editor** icon as shown in the following screenshot. You can also select **M** on your keyboard to open the editor. The Material Editor has two modes that you can select in the **Modes** list: **Compact Material Editor** mode and **Slate Material Editor** mode. Because this scene is relatively simple, we'll use the compact mode.
 
 1. In the Material Editor, you'll see a number of spheres. These spheres are the materials. We'll assign one of these materials to each object (each box) in the scene. To assign the materials, first select one of the objects in the main viewport. Then select the first sphere in the Material Editor. After it's assigned to an object, the selected material will be highlighted, as shown in the next image.
 
@@ -61,10 +64,10 @@ With some objects in our scene, in this case a number of cubes, we can begin the
 
     In the Material Editor, you can choose from a wide selection of material types, depending on your needs. Typically, the material type is set to **Standard** by default. This material is a basic material that's not suitable for PBR setup, so we'll need to change the material type to a PBR material. Physical Material is the preferred 3ds Max material for Azure Remote Rendering projects.
 
-1. In the Material Editor, select the **Standard** tab. In the **Material/Map Browser**, select **Physical Material**. This action will convert the assigned **Standard** material to a PBR physical material.
+1. In the Material Editor, select the **Standard** tab. In the **Material/Map Browser**, select **Physical Material**. This action will convert the assigned **Standard** material to a PBR Physical Material.
 ![Screenshot that shows how to change the material.](media/3dsmax/physical-material.jpg)
 
-    In the Material Editor, you now see the properties for the physical material, as shown in the following screenshot.) You can now start to assign textures to the asset.
+    In the Material Editor, you now see the properties for the Physical Material, as shown in the following screenshot.) You can now start to assign textures to the asset.
 ![Screenshot that shows the list of textures.](media/3dsmax/textures-list.jpg)
 
 As you can see, there are a wide range of maps and textures that can be added to the material. For this tutorial, we'll use only five texture slots in the material.
@@ -95,11 +98,11 @@ The next step is to create a second UV map channel.
 
 ![Screenshot that shows the Channel Change Warning.](media/3dsmax/channel-change.jpg)
 
-Now that the new map channel is created, we can return to the physical material in the Material Editor and start to add our textures to it. First we'll add the AO map because there's a further step to allow it to work correctly. After the AO map is plugged in to our material, we need to configure it to use map channel 2.
+Now that the new map channel is created, we can return to the Physical Material in the Material Editor and start to add our textures to it. First we'll add the AO map because there's a further step to allow it to work correctly. After the AO map is plugged in to our material, we need to configure it to use map channel 2.
 
-As noted earlier, there's no dedicated slot for AO maps in the 3ds Max physical material. We'll instead apply the AO map to the **Diffuse Roughness** slot.
+As noted earlier, there's no dedicated slot for AO maps in the 3ds Max Physical Material. We'll instead apply the AO map to the **Diffuse Roughness** slot.
 
-1. In the physical material's **Generic Maps** list, select the **No Map** slot next to **Diffuse Roughness** and load your AO map.
+1. In the Physical Material's **Generic Maps** list, select the **No Map** slot next to **Diffuse Roughness** and load your AO map.
 
 1. In the AO textures properties, the map channel is set to **1** by default. Change this value to **2**. This action completes the steps necessary to add your AO map.
 
@@ -108,9 +111,9 @@ As noted earlier, there's no dedicated slot for AO maps in the 3ds Max physical 
 
 ![Screenshot that shows how to assign an AO map.](media/3dsmax/assign-ao-map.jpg)
 
-We'll now assign the normal map to the PBR material. This action differs somewhat from the process in Maya. The normal map isn't applied directly to the bump map slot. (There's no normal map slot in the 3ds Max physical material.) Instead, you add the normal map to a normal map modifier, which itself is plugged into the normal's slot.
+We'll now assign the normal map to the PBR material. This action differs somewhat from the process in Maya. The normal map isn't applied directly to the bump map slot. (There's no normal map slot in the 3ds Max Physical Material.) Instead, you add the normal map to a normal map modifier, which itself is plugged into the normal's slot.
 
-1. In the **Special Maps** section of the physical material properties (in the Material Editor), select the **No Map** slot next to **Bump Map**. 
+1. In the **Special Maps** section of the Physical Material properties (in the Material Editor), select the **No Map** slot next to **Bump Map**. 
 
 1. In the **Material/Map Browser**, locate and select **Normal Bump**. This action will add a **Normal Bump** modifier to the material.
 
@@ -121,7 +124,7 @@ We'll now assign the normal map to the PBR material. This action differs somewha
 ![Screenshot that shows how to select Normal Bump.](media/3dsmax/normal-bump.jpg)
 ![Screenshot that shows loading the normal map.](media/3dsmax/load-normal-map.jpg)
 
-With the normal map correctly assigned, we can assign the remaining textures to complete the physical material setup. This process is a simple. There are no special settings to consider. The following screenshot shows the full set of textures assigned to the material: 
+With the normal map correctly assigned, we can assign the remaining textures to complete the Physical Material setup. This process is a simple. There are no special settings to consider. The following screenshot shows the full set of textures assigned to the material: 
 ![Screenshot that shows the full set of textures assigned to the material.](media/3dsmax/all-textures.jpg)
 
 Now that the PBR materials are created and set up, it's worth thinking about instancing objects in the scene. Instance similar objects in the scene, like nuts, bolts, screws, and washers. Any objects that are the same can yield significant savings in terms of file size. Instances of a master object can have their own scale, rotation, and transforms, so they can be placed as needed in your scene. In 3ds Max, the process of instancing is simple.
@@ -170,34 +173,42 @@ Notice that the **Full Path** column is now blank. It means that the scene is no
 
 ## FBX export
 
-With the asset tracking complete, we can now move on to the FBX export. Again, the process is simple and can be done in a couple of ways. 
+Now that we've made the texture paths relative, we can move on to the FBX export. Again, the process is simple, and you can do it in a couple of ways. 
 
 >[!TIP]
->It is good practice that unless you wish to export your entire scene, you select for export only those assets which are needed. In particularly resource intensive scenes, export can take a long time so it makes sense to export only what you need
+>Unless you want to export your entire scene, it's a good idea to select for export only the assets that you need. In resource-intensive scenes, export can take a long time.
 >
->It is advisable that if you have used modifiers such as **Turbosmooth** or **Open SubDiv** etc that you collapse them before export as they can cause problems during export. Always save your scene before doing this! 
+>If you've used modifiers like Turbosmooth or Open SubDiv, it's a good idea to collapse them before export because they can cause problems during export. Be sure to save your scene before collapsing them. 
 
-* In the scene, select those assets that you want to export and in the main toolbar, go to **File** > **Export** > **Export Selected**
+1. In the scene, select the assets that you want to export. On the main toolbar, go to **File** > **Export** > **Export Selected**.
 
-* In the **Select File to Export** dialog, type or select output file name and in the **Save as Type** options select **Autodesk (*.fbx)**. This action will open the FBX export menu. 
+1. In the **Select File to Export** dialog box, type or select an output file name. In the **Save as type** list, select **Autodesk (*.fbx)**. This action will open the **FBX Export** window.
 
-* Remember, if you have created instances in your scene that it is important that **Preserve Instances** is toggled on in the FBX export settings. 
-![fbx-export](media/3dsmax/fbx-export.jpg)
+    >[!IMPORTANT] If you've created instances in your scene, it's important to select **Preserve Instances** in the FBX export settings. 
 
-Remember that previously it was mentioned that there were a couple of ways to export our file. If the intention when exporting is that the FBX is to be shared along with its textures files in a folder/directory, then the settings shown in the image below should apply and work well. Once you have selected your settings, click **OK**.
-![fbx-settings](media/3dsmax/fbx-settings.jpg)
+    ![Screenshot that shows how to export to FBX.](media/3dsmax/fbx-export.jpg)
 
-However, if you would prefer not to share large folders/directories of textures along with the FBX you can choose to **Embed** the textures in the FBX. It means that the entire asset - textures included - will be added to a single FBX. Be aware though, while it combines your export into a single asset that the FBX file will be considerably larger as a result.
+    Remember, there are a couple of ways to export the file. If the intention is to share the FBX along with its texture files in a folder/directory, the settings shown in the following screenshot should work well. 
 
->[!IMPORTANT]
->If your result FBX file is bigger than 2.4GB then the minimum version of FBX export settings (see above) should be 2016 or newer. Because newer versions have 64 bit support and thus support bigger files.
+   If you prefer not to share large folders/directories of textures along with the FBX, you can choose to embed the textures in the FBX. If you embed the textures, the entire asset, including textures, will be added to a single FBX. Doing so combines your export into a single asset, but the FBX file will be considerably larger as a result.
 
-* In the FBX export settings, toggle on **Embed Media, then click **OK** to export with textures included. 
+   >[!IMPORTANT]
+   >If the resulting FBX file is bigger than 2.4 GB, the minimum version specified in the FBX export settings should be 2016 or later. (See the preceding screenshot.) Newer versions have 64 bit support, so they support bigger files.
 
-On exporting to FBX while using the Physical Material, you will likely see the following warning pop-up after clicking 'OK' in the export dialogue: 
-![export-warnings](media/3dsmax/export-warnings.jpg)
+1. If you want to export the scene with textures included, in the **FBX Export** window, select **Embed Media**. 
 
-This warning simply informs the user that the exported materials may not be compatible with other software packages. As the physical material is compatible with Azure Remote Rendering, it is nothing to worry about. Simply click **OK** to complete the process and close the window.
+1. Select the rest of your settings, and then select **OK**:
+
+    ![Screenshot that shows the FBX export settings.](media/3dsmax/fbx-settings.jpg)
+
+
+   When you export to FBX while using a Physical Material, you'll probably see the following warning after you select **OK** in the **FBX Export** window: 
+
+   ![Screenshot that shows Material export failed warning.](media/3dsmax/export-warnings.jpg)
+
+   This warning is telling you that the exported materials might not be compatible with other software packages. Because Physical Material is compatible with Azure Remote Rendering, you don't need to worry about this warning. 
+
+1. Select **OK** to complete the process and close the window.
 
 ## Conclusion
 
@@ -205,7 +216,7 @@ In general, this type of material looks more realistic because it's based on the
 
 ## Next steps
 
-You now know how to set up materials with advanced lighting for objects in a scene. You also know how to export the objects to FBX format that's supported by Azure Remote Rendering. The next step is to convert the FBX file and visualize it in Azure Remote Rendering.
+You now know how to set up materials with advanced lighting for objects in a scene. You also know how to export objects to FBX format, which is supported by Azure Remote Rendering. The next step is to convert the FBX file and visualize it in Azure Remote Rendering.
 
 >[!div class="nextstepaction"]
 >[Quickstart: Convert a model for rendering](../../quickstarts\convert-model.md)
