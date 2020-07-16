@@ -101,7 +101,7 @@ To clean the data, drop columns that aren't relevant for the model. Follow the s
 
 1. Exclude two columns: CustomerAlternateKey and GeographyKey. Click **Save**
 
-   ![Remove unnecessary columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/dropcolumns.png)
+   ![Remove unnecessary columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/drop-columns.png)
 
 ## Build the model
 
