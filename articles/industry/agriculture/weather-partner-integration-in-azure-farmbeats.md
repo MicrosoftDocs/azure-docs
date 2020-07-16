@@ -133,7 +133,7 @@ This component will be invoked every time a FarmBeats user runs a job of your /J
 
 ### Details of the objects
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Description |
   --- | ---
   Name  | Name of the weather data model |
   Description  | Provide a meaningful description of the model. |
@@ -146,7 +146,7 @@ This component will be invoked every time a FarmBeats user runs a job of your /J
   weatherMeasures > AggregationType  | Either of None, Average, Maximum, Minimum, StandardDeviation, Sum, Total
   weatherMeasures > Depth  | The depth of the sensor in centimeters. For example, the measurement of moisture 10 cm under the ground.
   weatherMeasures > Description  | Provide a meaningful description of the measurement. |
-  **JobType** |  |
+  **JobType** | **Description** |
   Name  | name of the Job - for example Get_Daily_Forecast; the job that customer will run to get weather data|
   pipelineDetails > parameters > name  | name of the parameter |
   pipelineDetails > parameters > type | either of String, Int, Float, Bool, Array |
@@ -155,7 +155,7 @@ This component will be invoked every time a FarmBeats user runs a job of your /J
   pipelineDetails > parameters > description | Description of the parameter |
   Properties  | Additional properties from the manufacturer.
   Properties > **programRunCommand** | docker run command - this command will be executed when the customer runs the weather job. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **Description** |
   weatherDataModelId  | ID of the corresponding WeatherDataModel that was created during bootstrap|
   location  | represents latitude, longitude, and elevation |
   Name | Name of the object |
