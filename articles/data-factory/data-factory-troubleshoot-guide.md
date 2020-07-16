@@ -123,9 +123,9 @@ For connector issues such as an encounter error using the copy activity, refer t
 
 - **Message**: `An error occurred while sending the request.`
 
-- **Cause**: The network connection to Databricks Service was interrupted.
+- **Cause**: The network connection to the Databricks service was interrupted.
 
-- **Recommendation**: If you are using self-hosted IR, please make sure that the network connection is reliable from the IR nodes. If you are using Azure IR, retry usually will work.
+- **Recommendation**: If you're using a self-hosted integration runtime, make sure that the network connection is reliable from the integration runtime nodes. If you're using Azure integration runtime, retry usually works.
  
 ## Azure Data Lake Analytics
 
