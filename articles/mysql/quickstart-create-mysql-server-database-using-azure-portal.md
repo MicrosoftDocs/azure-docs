@@ -59,7 +59,7 @@ Compute + Storage | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 
 By default, the following databases are created under your server: **information_schema**, **mysql**, **performance_schema**, and **sys**.
 
 ## Configure a server-level firewall rule
-By default the server created is protected with a firewall and is not accessible publicly. To give access to your IP, go to your server resource in the Azure portal and select **Connection security** from left-side menu for your server resource. Dont know how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+By default the server created is protected with a firewall and is not accessible publicly. To give access to your IP, go to your server resource in the Azure portal and select **Connection security** from left-side menu for your server resource. Don't know how to find your resource, see [How to open a resource](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
 
 >[!div class="mx-imgBorder"]
 > ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png)
