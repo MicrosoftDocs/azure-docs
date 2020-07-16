@@ -17,6 +17,7 @@ ms.author: memildin
 
 ---
 # Adaptive application controls
+
 Learn how to configure application controls in Azure Security Center using this walkthrough.
 
 
@@ -25,6 +26,10 @@ Learn how to configure application controls in Azure Security Center using this 
 Adaptive application controls is an intelligent, automated, end-to-end solution from Azure Security Center for defining which applications can run on your machines.
 
 Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. See below for instructions on how to customize this list.
+
+Often, organizations have collections of stable machines that routinely run the same processes. For security and convenience, adaptive application controls identifies groups of machines running the same processes and applications and creates a list of the known-safe software. Enabling adaptive application controls ensures that when an application is run that isn't on the list, an alert will be triggered.
+
+
 
 
 
@@ -55,9 +60,47 @@ By defining lists of known-safe applications, and generating alerts when anythin
 
 
 
-## How to enable adaptive application controls?
 
-Adaptive application controls help you define a set of applications that are allowed to run on configured groups of machines. This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines. Use the following steps to configure your application allow lists:
+### Enable adaptive application controls on a group of machines
+
+![Configuring JIT VM access in Azure Security Center](./media/security-center-just-in-time/jit-config-security-center.gif)
+
+If Security Center has identified groups of stable machines that run a similar set of processes, you'll be prompted with a recommendation to enable adaptive application controls. Select that recommendation, or open the adaptive application controls page to view the list of suggested known-safe processes and groups of machines.
+
+1. From Security Center's menu, select **Adaptive application controls**.
+
+    The **Adaptive application controls** page opens with your VMs grouped into the following tabs:
+
+    - **Configured** - Groups of machines that already have a defined allow list of applications. For each group, the configured tab shows:
+        - the number of machines in the group
+        - recent alerts
+    - **Recommended** - Groups of machines without a defined allow list of applications, but that can support this feature. We recommend that you enable adaptive application controls for these groups.
+    - **No recommendation** - Groups of machines without a defined allow list of applications, and which don't support the feature. Your machine might be in this tab for the following reasons:
+      - Unstable list of applications and processes - If Security Center can't see a pattern
+      - Missing Log Analytics agent
+      - Log Analytics agent isn't sending events
+
+1. To view a suggested allow list, modify it as necessary, and apply it: 
+
+   1.  From the **Recommended** tab,select a group of machines. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Enable adaptive application controls
+
+To configure the lists of known-safe applications your application allow lists:
 
 1. Open the **Security Center** dashboard.
 
