@@ -140,8 +140,8 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - XZ00001234567 
-    Body: 
+    Subject: Microsoft Azure Pick-up - XZ00001234567
+    Body:
      a.    Requestor name
      b.    Requestor contact number
      c.    Requestor collection address
@@ -150,8 +150,9 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
    > [!NOTE]
    > For booking requests received on a business day:
-   > - Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
-   > - After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
+   >
+   > * Before 3 PM, pickup will be the next business day between 9 AM and 1 PM.
+   > * After 3 PM, pickup will be the next business day between 2 PM to 6 PM.
 
    If you encounter any issues, kindly reach out to Data Box Operations Asia at adbo@microsoft.com. Provide the job name in the subject header and the issue encountered.
 
@@ -178,7 +179,7 @@ Take the following steps if returning the device in China.
 The email format should look like the following:
 
    ```output
-   To: Bao Ying <ying.bao@fedex.com>
+   To: ying.bao@fedex.com
    Subject: Pickup request for Microsoft Azure : Order Name
    Body: Need pick up for the below shipment
    * FedEx tracking number (reference number)
@@ -187,26 +188,27 @@ The email format should look like the following:
 
 2. Receive an email confirmation from FedEx after completion of booking pick up.  
 
-3. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](DL-DC-SHA@oe.21vianet.com) with details of issue encountered and subject mentioning order name.
+3. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of issue encountered and subject mentioning order name.
+
+#### Premier Customer Care contact information
 
 <ins>Premier Customer Care for Microsoft (primary)</ins>
+
 | | |
 |---|---|
 |Name:       | Bao Ying|
 |Designation | Sr OneCall Representative |
 |Phone:      | 400.889.6066 ext. 3693 |
-|E-mail:     | email [Ying Boa](ying.bao@fedex.com) |
+|E-mail:     | [Boa Ying](mailto:ying.bao@fedex.com) |
 
 <ins>Customer Care for Microsoft (backup)</ins>
+
 | | |
 |---|---|
 |Name:       | He Xun|
 |Designation | OneCall Representative |
 |Phone:      | 400.889.6066 ext. 3603 |
-|E-mail:     | email [He Xun](739951@fedex.com) |
-
-    
-   
+|E-mail:     | [He Xun](mailto:739951@fedex.com) |
 
 ### [In Self-Managed](#tab/in-selfmanaged)
 
@@ -219,7 +221,7 @@ If you are using Data Box Disk in Japan, Singapore, Korea, West Europe or India 
     ```
     To: adbops@microsoft.com
     Subject: Request for Azure Data Box Disk drop-off for order: 'orderName'
-    Body: 
+    Body:
      a. Order name
      b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
@@ -232,6 +234,7 @@ If you are using Data Box Disk in Japan, Singapore, Korea, West Europe or India 
 In this tutorial, you learned about Azure Data Box Disk topics such as:
 
 > [!div class="checklist"]
+>
 > * Ship Data Box Disk to Microsoft
 > * Pick up Data Box Disk in different regions
 
