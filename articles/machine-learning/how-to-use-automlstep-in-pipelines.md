@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 04/28/2020
+ms.date: 06/15/2020
 ms.custom: tracking-python
 
 ---
@@ -264,7 +264,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Comparing the two techniques:
 
-| Technique |  | 
+| Technique | Benefits and drawbacks | 
 |-|-|
 |`PipelineOutputTabularDataset`| Higher performance | 
 || Natural route from `PipelineData` | 

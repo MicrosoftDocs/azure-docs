@@ -258,7 +258,7 @@ Once the app has restarted, test it by following the instructions in [Test the w
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Enable SSH connections
 

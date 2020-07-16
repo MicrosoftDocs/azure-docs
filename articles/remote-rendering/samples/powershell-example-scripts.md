@@ -71,6 +71,9 @@ Next to the `.ps1` files there's an `arrconfig.json` that you need to fill out:
 > [!CAUTION]
 > Make sure to properly escape backslashes in the LocalAssetDirectoryPath path by using double backslashes: "\\\\" and use forward slashes "/" in all other paths like inputFolderPath and inputAssetPath.
 
+> [!CAUTION]
+> Optional values need to be filled out or you need to remove the key and value altogether. For example, if you do not use the  `"outputAssetFileName"` parameter, you need to delete the whole line inside `arrconfig.json`.
+
 ### accountSettings
 
 For `arrAccountId` and `arrAccountKey`, see [Create an Azure Remote Rendering account](../how-tos/create-an-account.md).

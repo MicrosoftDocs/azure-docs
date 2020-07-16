@@ -88,8 +88,8 @@ The following is a consolidated list of the documentation for AI enrichment.
 ## APIs
 
 + [REST API](https://docs.microsoft.com/rest/api/searchservice/)
-  + [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-  + [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
+  + [Create Skillset (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Create Indexer (api-version=2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## See also
 

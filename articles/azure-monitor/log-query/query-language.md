@@ -23,7 +23,7 @@ Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queri
 ## Concepts
 
 - [Analyze log data in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) gives a brief overview of log queries and describes how Azure Monitor log data is structured.
-- [Viewing and analyzing log data in Azure Monitor](../../azure-monitor/log-query/portals.md) explains the portals where you create and run log queries.
+- [Viewing and analyzing log data in Azure Monitor](./log-query-overview.md) explains the portals where you create and run log queries.
 
 ## Reference
 

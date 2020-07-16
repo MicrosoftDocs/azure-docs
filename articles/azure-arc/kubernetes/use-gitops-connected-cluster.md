@@ -163,7 +163,7 @@ Note that the `sourceControlConfiguration` resource is updated with compliance s
 Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
 {
   "complianceStatus": {
-    "complianceState": "Compliant",
+    "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
     "message": "...",
     "messageLevel": "3"
@@ -197,8 +197,8 @@ When the `sourceControlConfiguration` is created, a few things happen under the 
 While the provisioning process happens, the `sourceControlConfiguration` will move through a few state changes. Monitor progress with the `az k8sconfiguration show ...` command above:
 
 1. `complianceStatus` -> `Pending`: represents the initial and in-progress states
-1. `complianceStatus` -> `Compliant`: `config-agent` was able to successfully configure the cluster and deploy `flux` without error
-1. `complianceStatus` -> `Noncompliant`: `config-agent` encountered an error deploying `flux`, details should be available in `complianceStatus.message` response body
+1. `complianceStatus` -> `Installed`: `config-agent` was able to successfully configure the cluster and deploy `flux` without error
+1. `complianceStatus` -> `Failed`: `config-agent` encountered an error deploying `flux`, details should be available in `complianceStatus.message` response body
 
 ## Apply configuration from a private git repository
 

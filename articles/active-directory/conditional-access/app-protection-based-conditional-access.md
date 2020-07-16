@@ -5,7 +5,7 @@ description: Learn how to require app protection policy for cloud app access wit
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/08/2020
 
 ms.author: joflore

@@ -134,7 +134,9 @@ The column names were not included here. You can subselect on the column names b
 
 Copy the JSON definition of the table into a file called *onpremtabledef.json* file and save it to a known location (here assumed to be *C:\temp\onpremtabledef.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
+```
 
 
 ### <a name="adf-table-blob-store"></a>Blob Table
@@ -167,7 +169,9 @@ Definition for the table for the output blob location is in the following (this 
 
 Copy the JSON definition of the table into a file called *bloboutputtabledef.json* file and save it to a known location (here assumed to be *C:\temp\bloboutputtabledef.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
+```
 
 ### <a name="adf-table-azure-sql"></a>SQL Azure Table
 Definition for the table for the SQL Azure output is in the following (this schema maps the data coming from the blob):
@@ -199,7 +203,9 @@ Definition for the table for the SQL Azure output is in the following (this sche
 
 Copy the JSON definition of the table into a file called *AzureSqlTable.json* file and save it to a known location (here assumed to be *C:\temp\AzureSqlTable.json*). Create the table in ADF with the following Azure PowerShell cmdlet:
 
-    New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```azurepowershell
+New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
+```
 
 
 ## <a name="adf-pipeline"></a>Define and create the pipeline
@@ -285,13 +291,17 @@ Using the table definitions provided previously, the pipeline definition for the
 
 Copy this JSON definition of the pipeline into a file called *pipelinedef.json* file and save it to a known location (here assumed to be *C:\temp\pipelinedef.json*). Create the pipeline in ADF with the following Azure PowerShell cmdlet:
 
-    New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```azurepowershell
+New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
+```
 
 
 ## <a name="adf-pipeline-start"></a>Start the Pipeline
 The pipeline can now be run using the following command:
 
-    Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```azurepowershell
+Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
+```
 
 The *startdate* and *enddate* parameter values need to be replaced with the actual dates between which you want the pipeline to run.
 

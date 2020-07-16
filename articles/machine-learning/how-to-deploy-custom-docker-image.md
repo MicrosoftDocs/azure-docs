@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/15/2020
+ms.date: 06/17/2020
 ms.custom: tracking-python
 ---
 
@@ -200,15 +200,7 @@ For more information about the ONNX Runtime base images see the [ONNX Runtime do
 > [!TIP]
 > Since these images are publicly available, you do not need to provide an address, username or password when using them.
 
-For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers).
-
-> [!TIP]
->__If your model is trained on Azure Machine Learning Compute__, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. To discover the name of this image, use `run.properties["AzureML.DerivedImageName"]`. The following example demonstrates how to use this image:
->
-> ```python
-> # Use an image built during training with SDK 1.0.22 or greater
-> image_config.base_image = run.properties["AzureML.DerivedImageName"]
-> ```
+For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers) repository on GitHub.
 
 ### Use an image with the Azure Machine Learning SDK
 

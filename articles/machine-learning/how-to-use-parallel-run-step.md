@@ -6,11 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-
-ms.reviewer: trbye, jmartens, larryfr
+ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 04/15/2020
+ms.date: 06/23/2020
 ms.custom: Build2020, tracking-python
 ---
 
@@ -108,9 +107,6 @@ You can change this step to point to your blob container by providing your own v
 from azureml.core import Datastore
 from azureml.core import Workspace
 
-# Load workspace authorization details from config.json
-ws = Workspace.from_config()
-
 mnist_blob = Datastore.register_azure_blob_container(ws, 
                       datastore_name="mnist_datastore", 
                       container_name="sampledata", 
@@ -136,8 +132,6 @@ For more information about Azure Machine Learning datasets, see [Create and acce
 
 ```python
 from azureml.core.dataset import Dataset
-
-mnist_ds_name = 'mnist_sample_data'
 
 path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
@@ -206,7 +200,7 @@ The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
     -  `mini_batch`: ParallelRunStep will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in mini_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
-    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. You should make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
+    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
 # Snippets from a sample script.
@@ -214,6 +208,7 @@ The script *must contain* two functions:
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
+%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -262,11 +257,11 @@ file_path = os.path.join(script_dir, "<file_name>")
 
 ## Build and run the pipeline containing ParallelRunStep
 
-Now you have everything you need: the data inputs, the model, the output and your inference script. Let's build the batch inference pipeline containing ParallelRunStep.
+Now you have everything you need: the data inputs, the model, the output, and your inference script. Let's build the batch inference pipeline containing ParallelRunStep.
 
 ### Prepare the environment
 
-First, specify the dependencies for your script. This allows you to install pip packages as well as configure the environment. Please always include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages.
+First, specify the dependencies for your script. Doing so allows you to install pip packages as well as configure the environment. Always include **azureml-core** and **azureml-dataprep[pandas, fuse]** packages.
 
 If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
 
@@ -305,14 +300,16 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 - `run_max_try`: Maximum try count of `run()` for a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
-You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
+You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
+
+This example assumes that you're using the `digit_identification.py` script that was discussed earlier. If you use your own script, change the `source_directory` and `entry_script` parameters accordingly.
 
 ```python
 from azureml.pipeline.core import PipelineParameter
 from azureml.pipeline.steps import ParallelRunConfig
 
 parallel_run_config = ParallelRunConfig(
-    source_directory=scripts_folder,
+    source_directory='.',
     entry_script="digit_identification.py",
     mini_batch_size=PipelineParameter(name="batch_size_param", default_value="5"),
     error_threshold=10,
@@ -380,9 +377,8 @@ pipeline_run.wait_for_completion(show_output=True)
 Since you made the inputs and several configures as `PipelineParameter`, you can resubmit a batch inference run with a different dataset input and fine tune the parameters without having to create an entirely new pipeline. You will use the same datastore but use only a single image as data inputs.
 
 ```python
-path_on_datastore = mnist_data.path('mnist/0.png')
+path_on_datastore = mnist_blob.path('mnist/0.png')
 single_image_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
-single_image_ds._ensure_saved(ws)
 
 pipeline_run_2 = experiment.submit(pipeline, 
                                    pipeline_parameters={"mnist_param": single_image_ds, 

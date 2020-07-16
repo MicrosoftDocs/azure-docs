@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross

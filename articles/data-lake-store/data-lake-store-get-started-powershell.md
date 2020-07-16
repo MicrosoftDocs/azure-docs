@@ -4,7 +4,7 @@ description: Use Azure PowerShell to create an Azure Data Lake Storage Gen1 acco
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 

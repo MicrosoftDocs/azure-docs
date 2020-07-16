@@ -7,7 +7,7 @@ author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2019
 ms.author: hrasheed
 ---
@@ -53,7 +53,9 @@ To download an older HDP version sandbox, see the links under **Older Versions**
 
 2. Once logged in, enter the following command:
 
-        ambari-admin-password-reset
+    ```bash
+    ambari-admin-password-reset
+    ```
 
     When prompted, provide a password for the Ambari admin account. This is used when you access the Ambari Web UI.
 
@@ -61,13 +63,21 @@ To download an older HDP version sandbox, see the links under **Older Versions**
 
 1. From an SSH connection to the sandbox, use the following command to start the Hive shell:
 
-        hive
+    ```bash
+    hive
+    ```
+
 2. Once the shell has started, use the following to view the tables that are provided with the sandbox:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
+
 3. Use the following to retrieve 10 rows from the `sample_07` table:
 
-        select * from sample_07 limit 10;
+    ```hiveql
+    select * from sample_07 limit 10;
+    ```
 
 ## Next steps
 

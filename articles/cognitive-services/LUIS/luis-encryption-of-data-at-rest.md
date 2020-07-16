@@ -19,7 +19,7 @@ The Language Understanding service automatically encrypts your data when it is p
 
 ## About Cognitive Services encryption
 
-Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don’t need to modify your code or applications to take advantage of encryption.
+Data is encrypted and decrypted using [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) compliant [256-bit AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) encryption. Encryption and decryption are transparent, meaning encryption and access are managed for you. Your data is secure by default and you don't need to modify your code or applications to take advantage of encryption.
 
 ## About encryption key management
 
@@ -33,15 +33,13 @@ You must use Azure Key Vault to store your customer-managed keys. You can either
 
 ### Customer-managed keys for Language Understanding
 
-To request the ability to use customer-managed keys, fill out and submit the [LUIS Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with LUIS, you'll need to create a new Language Understanding resource from the Azure portal and select E0 as the Pricing Tier. The new SKU will function the same as the F0 SKU that is already available except for CMK. Users won’t be able to upgrade from the F0 to the new E0 SKU.
-
-E0 resources are only available for Authoring service and that the E0 tier will initially only be supported in West US Region.
+To request the ability to use customer-managed keys, fill out and submit the [LUIS Service Customer-Managed Key Request Form](https://aka.ms/cogsvc-cmk). It will take approximately 3-5 business days to hear back on the status of your request. Depending on demand, you may be placed in a queue and approved as space becomes available. Once approved for using CMK with LUIS, you'll need to create a new Language Understanding resource from the Azure portal and select E0 as the Pricing Tier. The new SKU will function the same as the F0 SKU that is already available except for CMK. Users won't be able to upgrade from the F0 to the new E0 SKU.
 
 ![LUIS subscription image](../media/cognitive-services-encryption/luis-subscription.png)
 
 ### Regional availability
 
-Customer-managed keys are currently available in the **West US** region.
+Customer-managed keys are available in all [authoring regions](luis-reference-regions.md). 
 
 ### Limitations
 

@@ -21,7 +21,7 @@ The following table includes links to PowerShell script examples for Azure AD Ap
 
 For more information about the cmdlets used in these samples, see [Application Proxy Application Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) and [Application Proxy Connector Management](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management).
 
-| | |
+| Link | Description |
 |---|---|
 |**Application Proxy apps**||
 | [List basic information for all Application Proxy apps](scripts/powershell-get-all-app-proxy-apps-basic.md) | Lists basic information (AppId, DisplayName, ObjId) about all the Application Proxy apps in your directory . |

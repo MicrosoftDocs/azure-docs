@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/08/2020
 ms.author: jingwang
 
 ---
@@ -92,6 +92,54 @@ The following properties are supported in the copy activity ***\*source\**** sec
         ...
     }
 ]
+```
+
+## Mapping data flow properties
+
+In mapping data flows, you can read Excel format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties). You can point to Excel files either using Excel dataset or using an [inline dataset](data-flow-source.md#inline-datasets).
+
+### Source properties
+
+The below table lists the properties supported by an Excel source. You can edit these properties in the **Source options** tab. When using inline dataset, you will see additional file settings which are the same as the properties described in [dataset properties](#dataset-properties) section.
+
+| Name                      | Description                                                  | Required | Allowed values                                            | Data flow script property         |
+| ------------------------- | ------------------------------------------------------------ | -------- | --------------------------------------------------------- | --------------------------------- |
+| Wild card paths           | All files matching the wildcard path will be processed. Overrides the folder and file path set in the dataset. | no       | String[]                                                  | wildcardPaths                     |
+| Partition root path       | For file data that is partitioned, you can enter a partition root path in order to read partitioned folders as columns | no       | String                                                    | partitionRootPath                 |
+| List of files             | Whether your source is pointing to a text file that lists files to process | no       | `true` or `false`                                         | fileList                          |
+| Column to store file name | Create a new column with the source file name and path       | no       | String                                                    | rowUrlColumn                      |
+| After completion          | Delete or move the files after processing. File path starts from the container root | no       | Delete: `true` or `false` <br> Move: `['<from>', '<to>']` | purgeFiles <br> moveFiles         |
+| Filter by last modified   | Choose to filter files based upon when they were last altered | no       | Timestamp                                                 | modifiedAfter <br> modifiedBefore |
+
+### Source example
+
+The below image is an example of an Excel source configuration in mapping data flows using dataset mode.
+
+![Excel source](media/data-flow/excel-source.png)
+
+The associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	wildcardPaths:['*.xls']) ~> ExcelSource
+```
+
+If you use inline dataset, you see the following source options in mapping data flow.
+
+![Excel source inline dataset](media/data-flow/excel-source-inline-dataset.png)
+
+The associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	format: 'excel',
+	fileSystem: 'container',
+	folderPath: 'path',
+	fileName: 'sample.xls',
+	sheetName: 'worksheet',
+	firstRowAsHeader: true) ~> ExcelSourceInlineDataset
 ```
 
 ## Next steps

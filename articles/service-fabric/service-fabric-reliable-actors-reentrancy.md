@@ -97,4 +97,4 @@ static class Program
 
 
 ## Next steps
-* Learn more about reentrancy in the [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Learn more about reentrancy in the [Actor API reference documentation](/previous-versions/azure/dn971626(v=azure.100))

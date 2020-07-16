@@ -12,20 +12,16 @@ ms.author: chlound
 
 By using Azure Automation and PowerShell Runbooks, you can perform automated data refresh operations on your Azure Analysis tabular models.  
 
-The example in this article uses the [PowerShell SqlServer modules](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps).
-
-A sample PowerShell Runbook, which demonstrates refreshing a model is provided later in this article.  
+The example in this article uses the [SqlServer PowerShell module](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). A sample PowerShell Runbook, which demonstrates refreshing a model is provided later in this article.  
 
 ## Authentication
 
-All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article will use a Service Principal (SPN) to authenticate to Azure Analysis Services.
-
-To learn more about creating a Service Principal, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
+All calls must be authenticated with a valid Azure Active Directory (OAuth 2) token.  The example in this article uses a Service Principal (SPN) to authenticate to Azure Analysis Services. To learn more, see [Create a service principal by using Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> The following example assumes the Azure Analysis Services firewall is disabled. If the firewall is enabled, then the public IP address of the request initiator will need to be whitelisted in the firewall.
+> The following example assumes the Azure Analysis Services firewall is disabled. If a firewall is enabled, the public IP address of the request initiator must be included in a firewall rule.
 
 ### Install SqlServer modules from PowerShell gallery.
 

@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-nineteen
+zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
 # Automatic language detection for speech to text
@@ -130,6 +130,20 @@ NSString *detectedLanguage = [languageDetectionResult language];
 
 ::: zone-end
 
+::: zone pivot="programming-language-javascript"
+
+```Javascript
+var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromLanguages(["en-US", "de-DE"]);
+var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audioConfig, autoDetectConfig);
+speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
+        var languageDetectionResult = SpeechSDK.AutoDetectSourceLanguageResult.fromResult(result);
+        var detectedLanguage = languageDetectionResult.language;
+},
+{});
+```
+
+::: zone-end
+
 ## Use a custom model for automatic language detection
 
 In addition to language detection using Speech service models, you can specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
@@ -204,6 +218,16 @@ SPXSourceLanguageConfiguration* frLanguageConfig = \
 NSArray *languageConfigs = @[enLanguageConfig, frLanguageConfig];
 SPXAutoDetectSourceLanguageConfiguration* autoDetectSourceLanguageConfig = \
         [[SPXAutoDetectSourceLanguageConfiguration alloc]initWithSourceLanguageConfigurations:languageConfigs];
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```Javascript
+var enLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("en-US");
+var frLanguageConfig = SpeechSDK.SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR");
+var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs([enLanguageConfig, frLanguageConfig]);
 ```
 
 ::: zone-end

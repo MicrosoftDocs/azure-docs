@@ -30,9 +30,9 @@
   - name: Automation with service principals
     href: analysis-services-service-principal.md
   - name: Client libraries
-    href: analysis-services-data-providers.md
+    href: https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current
   - name: Compatibility level
-    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services
+    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current
   - name: Connecting to on-premises data sources
     href: analysis-services-gateway.md
   - name: Connecting to servers

@@ -21,8 +21,8 @@ ms.author: anfeldma
 > * [Async Java SDK v2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
-> * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
+> * [REST](/rest/api/cosmos-db/)
+> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
@@ -43,7 +43,7 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 | |  |
 |---|---|
 | **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos) |
-|**API documentation** | [Java API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html) |
+|**API documentation** | [Java API reference documentation](https://docs.microsoft.com/java/api/overview/azure/cosmosdb/client?view=azure-java-stable) |
 |**Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos) | 
 |**Get started** | [Quickstart: Build a Java app to manage Azure Cosmos DB SQL API data](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-java) · [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-cosmos-java-getting-started) | 
 |**Basic code samples** | [Azure Cosmos DB: Java examples for the SQL API](sql-api-java-sdk-samples.md) · [GitHub repo with sample code](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples)|
@@ -56,6 +56,16 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 | **Azure Cosmos DB workshops and labs** |[Cosmos DB workshops home page](https://aka.ms/cosmosworkshop)
 
 ## Release history
+
+### 4.1.0 (2020-06-25)
+#### New Features
+* Added support for `GROUP BY` query.
+* Increased the default value of maxConnectionsPerEndpoint to 130 in DirectConnectionConfig.
+* Increased the default value of maxRequestsPerConnection to 30 in DirectConnectionConfig.
+#### Key Bug Fixes
+* Fixed issues with order by query returning duplicate results when resuming by using continuation token. 
+* Fixed issues with value query returning null values for nested object.
+* Fixed null pointer exception on request manager in RntbdClientChannelPool.
 
 ### 4.0.1 (2020-06-10)
 #### New Features

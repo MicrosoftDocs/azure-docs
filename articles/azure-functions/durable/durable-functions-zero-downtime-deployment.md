@@ -5,6 +5,7 @@ author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
+ms.custom: fasttrack-edit
 #Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my Durable Functions orchestration execution.
 --- 
 
@@ -15,9 +16,6 @@ The [reliable execution model](durable-functions-checkpointing-and-replay.md) of
 To prevent these failures from happening, you have two options: 
 - Delay your deployment until all running orchestration instances have completed.
 - Make sure that any running orchestration instances use the existing versions of your functions. 
-
-> [!NOTE]
-> This article provides guidance for functions apps that target Durable Functions 1.x. It hasn't been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between extension versions, see [Durable Functions versions](durable-functions-versions.md).
 
 The following chart compares the three main strategies to achieve a zero-downtime deployment for Durable Functions: 
 
@@ -93,7 +91,7 @@ Configure your CI/CD pipeline to deploy only when your function app has no pendi
 [FunctionName("StatusCheck")]
 public static async Task<IActionResult> StatusCheck(
     [HttpTrigger(AuthorizationLevel.Function, "get", "post")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient client,
+    [DurableClient] IDurableOrchestrationClient client,
     ILogger log)
 {
     var runtimeStatus = new List<OrchestrationRuntimeStatus>();
@@ -101,8 +99,8 @@ public static async Task<IActionResult> StatusCheck(
     runtimeStatus.Add(OrchestrationRuntimeStatus.Pending);
     runtimeStatus.Add(OrchestrationRuntimeStatus.Running);
 
-    var status = await client.GetStatusAsync(new DateTime(2015,10,10), null, runtimeStatus);
-    return (ActionResult) new OkObjectResult(new Status() {HasRunning = (status.Count != 0)});
+    var result = await client.ListInstancesAsync(new OrchestrationStatusQueryCondition() { RuntimeStatus = runtimeStatus }, CancellationToken.None);
+    return (ActionResult)new OkObjectResult(new { HasRunning = result.DurableOrchestrationState.Any() });
 }
 ```
 

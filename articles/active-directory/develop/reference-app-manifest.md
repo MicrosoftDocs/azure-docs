@@ -6,7 +6,7 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: reference
 ms.workload: identity
 ms.date: 04/15/2020
 ms.author: ryanwi

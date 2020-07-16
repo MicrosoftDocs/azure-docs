@@ -3,7 +3,7 @@ title: Troubleshoot Azure File Sync | Microsoft Docs
 description: Troubleshoot common issues with Azure File Sync.
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
@@ -686,7 +686,9 @@ This error occurs because the server endpoint deletion failed and the endpoint i
 | **HRESULT (decimal)** | -1906441711 |
 | **Error string** | JET_errLogDiskFull |
 | **Remediation required** | Yes |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
 | **Error string** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
@@ -713,12 +715,16 @@ This error occurs because the cloud endpoint was created with content already ex
 | **HRESULT (decimal)** | -2134375877 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediation required** | Yes |
+
 | | |
+|-|-|
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
 | **Error string** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |

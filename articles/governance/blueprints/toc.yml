@@ -69,6 +69,17 @@
     - name: Steps to deploy
       displayName: standards, DoD, IL4
       href: ./samples/dod-impact-level-4/deploy.md
+  - name: DoD Impact Level 5
+    items:
+    - name: Overview
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/index.md
+    - name: Control mapping
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, DoD, IL5
+      href: ./samples/dod-impact-level-5/deploy.md
   - name: FedRAMP Moderate
     items:
     - name: Overview
@@ -160,6 +171,9 @@
   - name: NIST SP 800-53 R4
     displayName: standards, nist, 800-53, rev 4
     href: ./samples/nist-sp-800-53-r4.md
+  - name: NIST SP 800-171 R2
+    displayName: standards, nist, 800-171, rev 2
+    href: ./samples/nist-sp-800-171-r2.md
   - name: PCI-DSS v3.2.1
     items:
     - name: Overview

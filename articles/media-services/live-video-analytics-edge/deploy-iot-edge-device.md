@@ -18,7 +18,7 @@ This article lists the steps that will help you deploy Live Video Analytics on y
 * [Register IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
 * [Install the Azure IoT Edge runtime on Debian-based Linux systems](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
 * [Create an Azure Media Services account](../latest/create-account-howto.md)
-    * Use one of these regions: East US 2, Central US, North Central US, Japan West, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
+    * Use one of these regions: East US 2, Central US, North Central US, Japan East, West US 2, West Central US, Canada East, UK South, France Central, France South, Switzerland North, Switzerland West, and Japan West.
     * It is recommended that you use General-purpose v2 (GPv2) Storage accounts.
 
 ## Configuring Azure resources for using Live Video Analytics

@@ -442,9 +442,14 @@ This example is for Node.js, so you may have to alter this example for other lan
 
 A custom handler can be deployed to nearly every Azure Functions hosting option (see [restrictions](#restrictions)). If your handler requires custom dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
 
+To deploy a custom handler app using Azure Functions Core Tools, run the following command.
+
+```bash
+func azure functionapp publish $functionAppName --no-build --force
+```
+
 ## Restrictions
 
-- Custom handlers are not supported in Linux consumption plans.
 - The web server needs to start within 60 seconds.
 
 ## Samples

@@ -23,13 +23,7 @@ You can host function apps in a couple of ways:
 
 ## Matrix of networking features
 
-|                |[Consumption plan](functions-scale.md#consumption-plan)|[Premium plan](functions-scale.md#premium-plan)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
-|----------------|-----------|----------------|---------|-----------------------|  
-|[Inbound IP restrictions and private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
-|[Virtual network triggers (non-HTTP)](#virtual-network-triggers-non-http)|❌No| ✅Yes |✅Yes|✅Yes|
-|[Hybrid connections](#hybrid-connections) (Windows only)|❌No|✅Yes|✅Yes|✅Yes|
-|[Outbound IP restrictions](#outbound-ip-restrictions)|❌No| ✅Yes|✅Yes|✅Yes|
+[!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
 
 ## Inbound IP restrictions
 
@@ -134,6 +128,12 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 Outbound IP restrictions are available in a Premium plan, App Service plan, or App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
 When you integrate a function app in a Premium plan or an App Service plan with a virtual network, the app can still make outbound calls to the internet by default. By adding the application setting `WEBSITE_VNET_ROUTE_ALL=1`, you force all outbound traffic to be sent into your virtual network, where network security group rules can be used to restrict traffic.
+
+## Automation
+The following APIs let you programmatically manage regional virtual network integrations:
+
++ **Azure CLI**: Use the [`az functionapp vnet-integration`](/cli/azure/functionapp/vnet-integration) commands to add, list, or remove a regional virtual network integrations.  
++ **ARM templates**: Regional virtual network integration can be enabled by using an Azure Resource Manager template. For a full example, see [this Functions quickstart template](https://azure.microsoft.com/resources/templates/101-function-premium-vnet-integration/).
 
 ## Troubleshooting
 

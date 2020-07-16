@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -110,7 +110,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 For non-production environments, if you don't already have a certificate, you can use a self-signed certificate. On Windows, you can use PowerShell's [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 1. Execute this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
-    ```PowerShell
+    ```powershell
     New-SelfSignedCertificate `
         -KeyExportPolicy Exportable `
         -Subject "CN=yourappname.yourtenant.onmicrosoft.com" `
@@ -281,7 +281,7 @@ To support bearer token authentication in your custom policy, modify the REST AP
 
 After you add the above snippets, your technical profile should look like the following XML code:
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>

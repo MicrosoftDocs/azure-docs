@@ -151,7 +151,7 @@ Policies affect the run-time behavior of an activity, specifically when the slic
 | longRetryInterval |TimeSpan |00:00:00 |The delay between long retry attempts |
 
 ## Sample copy pipeline
-In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to an Azure SQL database.
+In the following sample pipeline, there is one activity of type **Copy** in the **activities** section. In this sample, the [copy activity](data-factory-data-movement-activities.md) copies data from an Azure Blob storage to Azure SQL Database.
 
 ```json
 {

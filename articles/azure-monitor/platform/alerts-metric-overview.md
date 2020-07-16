@@ -1,7 +1,7 @@
 ---
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-ms.date: 03/17/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.subservice: alerts
 
@@ -131,9 +131,13 @@ This feature is currently supported for platform metrics (not custom metrics) fo
 
 You can specify the scope of monitoring by a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
 
-- a list of virtual machines in one Azure region within a subscription
+- a list of virtual machines (in one Azure region) within a subscription
 - all virtual machines (in one Azure region) in one or more resource groups in a subscription
-- all virtual machines (in one Azure region) in one subscription
+- all virtual machines (in one Azure region) in a subscription
+
+> [!NOTE]
+>
+> The scope of a multi-resource metric alert rule must contain at least one resource of the selected resource type.
 
 Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
 

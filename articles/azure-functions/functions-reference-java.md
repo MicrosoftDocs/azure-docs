@@ -45,20 +45,6 @@ mvn archetype:generate \
 
 To get started using this archetype, see the [Java quickstart](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java). 
 
-## Create Kotlin functions (preview)
-
-There is also a Maven archetype to generate Kotlin functions. This archetype, currently in preview, is published under the following _groupId_:_artifactId_: [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/). 
-
-The following command generates a new Java function project using this archetype:
-
-```
-mvn archetype:generate \
-    -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-kotlin-archetype
-```
-
-To get started using this archetype, see the [Kotlin quickstart](functions-create-first-kotlin-maven.md).
-
 ## Folder structure
 
 Here is the folder structure of an Azure Functions Java project:
@@ -84,8 +70,6 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
-
-_* The Kotlin project looks very similar since it is still Maven_
 
 You can use a shared [host.json](functions-host-json.md) file to configure the function app. Each function has its own code file (.java) and binding configuration file (function.json).
 

@@ -23,6 +23,10 @@ Follow these steps to install the Speech CLI on Windows:
 
 In the command prompt, change directory to this location, and then type `spx` to see help for the Speech CLI.
 
+> [!NOTE]
+> Powershell does not check the local directory when looking for a command. In Powershell, change directory to the location of `spx` and call the tool by entering `.\spx`.
+> If you add this directory to your path, Powershell and the Windows command prompt will find `spx` from any directory without including the `.\` prefix.
+
 #### [Linux Install](#tab/linuxinstall)
 
 Follow these steps to install the Speech CLI on Linux on an x64 CPU:
@@ -41,7 +45,9 @@ Type `spx` to see help for the Speech CLI.
 
 ## Create subscription config
 
-To start using the Speech CLI, you first need to enter your Speech subscription key and region information. See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier. Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
+To start using the Speech CLI, you first need to enter your Speech subscription key and region information. 
+See the [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) page to find your region identifier. 
+Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
 
 ```shell
 spx config @key --set YOUR-SUBSCRIPTION-KEY

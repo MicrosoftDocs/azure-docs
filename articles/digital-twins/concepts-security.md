@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Secure Azure Digital Twins with role-based access control
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
 
@@ -53,13 +50,16 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 * Azure Digital Twins Owner (Preview) – Use this role to give full access over Azure Digital Twins resources.
 * Azure Digital Twins Reader (Preview) – Use this role to give read-only access to Azure Digital Twins resources.
 
+> [!TIP]
+> The Azure Digital Twins Reader (Preview) role now also supports browsing relationships.
+
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
 * via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
-For more detailed steps on how to do this, try it out in the [Azure Digital Twins tutorial: Connect an end-to-end solution](tutorial-end-to-end.md).
+For more detailed steps on how to do this, try it out in the [Azure Digital Twins tutorial: *Connect an end-to-end solution*](tutorial-end-to-end.md).
 
 ## Permission scopes
 
@@ -74,6 +74,6 @@ The following list describes the levels at which you can scope access to Azure D
 
 ## Next steps
 
-* See how to walk through these steps with a sample client application in [How-to: Authenticate a client application](how-to-authenticate-client.md).
+* See how to walk through these steps with a sample client application in [*How-to: Authenticate a client application*](how-to-authenticate-client.md).
 
 * Read more about [RBAC for Azure](../role-based-access-control/overview.md).

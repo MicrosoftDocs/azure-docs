@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/08/2019
 ms.author: mimart
 ms.subservice: B2C
@@ -22,7 +22,7 @@ In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create the identity provider applications
-> * Add the identity providers to your tenant
+> * Add the identity providers to your tenant - both in Facebook and in Azure Active Directory
 > * Add the identity providers to your user flow
 
 You typically use only one identity provider in your applications, but you have the option to add more. This tutorial shows you how to add an Azure AD identity provider and a Facebook identity provider to your application. Adding both of these identity providers to your application is optional. You can also add other identity providers, such as [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md), or [Twitter](identity-provider-twitter.md).

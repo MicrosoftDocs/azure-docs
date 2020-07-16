@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ---
 
 # Sentiment cognitive skill
@@ -18,7 +18,7 @@ The **Sentiment** skill evaluates unstructured text along a positive-negative co
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## @odata.type  
@@ -32,22 +32,22 @@ The maximum size of a record should be 5000 characters as measured by [`String.L
 
 Parameters are case-sensitive.
 
-| Parameter Name |                      |
+| Parameter Name | Description |
 |----------------|----------------------|
-| defaultLanguageCode | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
 ## Skill inputs 
 
 | Input	Name | Description |
 |--------------------|-------------|
-| text | The text to be analyzed.|
-| languageCode	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See [Full list of supported languages](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
+| `text` | The text to be analyzed.|
+| `languageCode`	|  (Optional) A string indicating the language of the records. If this parameter is not specified, the default value is "en". <br/>See [Full list of supported languages](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
 ## Skill outputs
 
 | Output	Name | Description |
 |--------------------|-------------|
-| score | A value between 0 and 1 that represents the sentiment of the analyzed text. Values close to 0 have negative sentiment, close to 0.5 have neutral sentiment, and values close to 1 have positive sentiment.|
+| `score` | A value between 0 and 1 that represents the sentiment of the analyzed text. Values close to 0 have negative sentiment, close to 0.5 have neutral sentiment, and values close to 1 have positive sentiment.|
 
 
 ##	Sample definition

@@ -17,86 +17,88 @@ Points to note:
 * Time durations are in tenths of a microsecond, so 10000000 == 1 second.
 * Dates and times are UTC, and are given in the ISO format `yyyy-MM-DDThh:mm:ss.sssZ`
 
-
 ## Example
-    // A server report about an HTTP request
+
+```json
+// A server report about an HTTP request
+{
+  "request": [
     {
-    "request": [
-      {
-        "urlData": { // derived from 'url'
-          "host": "contoso.org",
-          "base": "/",
-          "hashTag": ""
-        },
-        "responseCode": 200, // Sent to client
-        "success": true, // Default == responseCode<400
-        // Request id becomes the operation id of child events
-        "id": "fCOhCdCnZ9I=",  
-        "name": "GET Home/Index",
-        "count": 1, // 100% / sampling rate
-        "durationMetric": {
-          "value": 1046804.0, // 10000000 == 1 second
-          // Currently the following fields are redundant:
-          "count": 1.0,
-          "min": 1046804.0,
-          "max": 1046804.0,
-          "stdDev": 0.0,
-          "sampledValue": 1046804.0
-        },
-        "url": "/"
-      }
-    ],
-    "internal": {
-      "data": {
-        "id": "7f156650-ef4c-11e5-8453-3f984b167d05",
-        "documentVersion": "1.61"
-      }
+      "urlData": { // derived from 'url'
+        "host": "contoso.org",
+        "base": "/",
+        "hashTag": ""
+      },
+      "responseCode": 200, // Sent to client
+      "success": true, // Default == responseCode<400
+      // Request id becomes the operation id of child events
+      "id": "fCOhCdCnZ9I=",  
+      "name": "GET Home/Index",
+      "count": 1, // 100% / sampling rate
+      "durationMetric": {
+        "value": 1046804.0, // 10000000 == 1 second
+        // Currently the following fields are redundant:
+        "count": 1.0,
+        "min": 1046804.0,
+        "max": 1046804.0,
+        "stdDev": 0.0,
+        "sampledValue": 1046804.0
+      },
+      "url": "/"
+    }
+  ],
+  "internal": {
+    "data": {
+      "id": "7f156650-ef4c-11e5-8453-3f984b167d05",
+      "documentVersion": "1.61"
+    }
+  },
+  "context": {
+    "device": { // client browser
+      "type": "PC",
+      "screenResolution": { },
+      "roleInstance": "WFWEB14B.fabrikam.net"
     },
-    "context": {
-      "device": { // client browser
-        "type": "PC",
-        "screenResolution": { },
-        "roleInstance": "WFWEB14B.fabrikam.net"
-      },
-      "application": { },
-      "location": { // derived from client ip
-        "continent": "North America",
-        "country": "United States",
-        // last octagon is anonymized to 0 at portal:
-        "clientip": "168.62.177.0",
-        "province": "",
-        "city": ""
-      },
-      "data": {
-        "isSynthetic": true, // we identified source as a bot
-        // percentage of generated data sent to portal:
-        "samplingRate": 100.0,
-        "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
-      },
-      "user": {
-        "isAuthenticated": false,
-        "anonId": "us-tx-sn1-azr", // bot agent id
-        "anonAcquisitionDate": "0001-01-01T00:00:00Z",
-        "authAcquisitionDate": "0001-01-01T00:00:00Z",
-        "accountAcquisitionDate": "0001-01-01T00:00:00Z"
-      },
-      "operation": {
-        "id": "fCOhCdCnZ9I=",
-        "parentId": "fCOhCdCnZ9I=",
-        "name": "GET Home/Index"
-      },
-      "cloud": { },
-      "serverDevice": { },
-      "custom": { // set by custom fields of track calls
-        "dimensions": [ ],
-        "metrics": [ ]
-      },
-      "session": {
-        "id": "65504c10-44a6-489e-b9dc-94184eb00d86",
-        "isFirst": true
-      }
+    "application": { },
+    "location": { // derived from client ip
+      "continent": "North America",
+      "country": "United States",
+      // last octagon is anonymized to 0 at portal:
+      "clientip": "168.62.177.0",
+      "province": "",
+      "city": ""
+    },
+    "data": {
+      "isSynthetic": true, // we identified source as a bot
+      // percentage of generated data sent to portal:
+      "samplingRate": 100.0,
+      "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
+    },
+    "user": {
+      "isAuthenticated": false,
+      "anonId": "us-tx-sn1-azr", // bot agent id
+      "anonAcquisitionDate": "0001-01-01T00:00:00Z",
+      "authAcquisitionDate": "0001-01-01T00:00:00Z",
+      "accountAcquisitionDate": "0001-01-01T00:00:00Z"
+    },
+    "operation": {
+      "id": "fCOhCdCnZ9I=",
+      "parentId": "fCOhCdCnZ9I=",
+      "name": "GET Home/Index"
+    },
+    "cloud": { },
+    "serverDevice": { },
+    "custom": { // set by custom fields of track calls
+      "dimensions": [ ],
+      "metrics": [ ]
+    },
+    "session": {
+      "id": "65504c10-44a6-489e-b9dc-94184eb00d86",
+      "isFirst": true
     }
   }
+}
+```
 
 ## Context
 All types of telemetry are accompanied by a context section. Not all of these fields are transmitted with every data point.
@@ -290,48 +292,54 @@ The metric value is found in context.custom.metrics[0]
 
 For example:
 
-    {
-     "metric": [ ],
-     "context": {
-     ...
-     "custom": {
-        "dimensions": [
-          { "ProcessId": "4068" }
-        ],
-        "metrics": [
-          {
-            "dispatchRate": {
-              "value": 0.001295,
-              "count": 1.0,
-              "min": 0.001295,
-              "max": 0.001295,
-              "stdDev": 0.0,
-              "sampledValue": 0.001295,
-              "sum": 0.001295
-            }
+```json
+{
+  "metric": [ ],
+  "context": {
+  ...
+    "custom": {
+      "dimensions": [
+        { "ProcessId": "4068" }
+      ],
+      "metrics": [
+        {
+          "dispatchRate": {
+            "value": 0.001295,
+            "count": 1.0,
+            "min": 0.001295,
+            "max": 0.001295,
+            "stdDev": 0.0,
+            "sampledValue": 0.001295,
+            "sum": 0.001295
           }
-         } ] }
+        }
+      ]  
     }
+  }
+}
+```
 
 ## About metric values
 Metric values, both in metric reports and elsewhere, are reported with a standard object structure. For example:
 
-      "durationMetric": {
-        "name": "contoso.org",
-        "type": "Aggregation",
-        "value": 468.71603053650279,
-        "count": 1.0,
-        "min": 468.71603053650279,
-        "max": 468.71603053650279,
-        "stdDev": 0.0,
-        "sampledValue": 468.71603053650279
-      }
+```json
+"durationMetric": {
+  "name": "contoso.org",
+  "type": "Aggregation",
+  "value": 468.71603053650279,
+  "count": 1.0,
+  "min": 468.71603053650279,
+  "max": 468.71603053650279,
+  "stdDev": 0.0,
+  "sampledValue": 468.71603053650279
+}
+```
 
 Currently - though this might change in the future - in all values reported from the standard SDK modules, `count==1` and only the `name` and `value` fields are useful. The only case where they would be different would be if you write your own TrackMetric calls in which you set the other parameters.
 
 The purpose of the other fields is to allow metrics to be aggregated in the SDK, to reduce traffic to the portal. For example, you could average several successive readings before sending each metric report. Then you would calculate the min, max, standard deviation and aggregate value (sum or average) and set count to the number of readings represented by the report.
 
-In the tables above, we have omitted the rarely-used fields count, min, max, stdDev and sampledValue.
+In the tables above, we have omitted the rarely used fields count, min, max, stdDev, and sampledValue.
 
 Instead of pre-aggregating metrics, you can use [sampling](../../azure-monitor/app/sampling.md) if you need to reduce the volume of telemetry.
 

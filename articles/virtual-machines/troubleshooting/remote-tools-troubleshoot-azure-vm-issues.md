@@ -28,7 +28,7 @@ Use a [serial console for Azure Virtual Machines](serial-console-windows.md) to 
 
 ## Remote CMD
 
-Download [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec). Connect to the VM by running the following command:
+Download [PsExec](/sysinternals/downloads/psexec). Connect to the VM by running the following command:
 
 ```cmd
 psexec \\<computer>-u user -s cmd
@@ -248,9 +248,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 ## Next steps
 
-- For more information about the Enter-PSSession cmdlet, see [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
-- For more information about the Custom Script Extension for Windows using the classic deployment model, see [Custom Script Extension for Windows](../extensions/custom-script-classic.md).
+- For more information about the Enter-PSSession cmdlet, see [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- For more information about the Custom Script Extension for Windows using the classic deployment model, see [Custom Script Extension for Windows](../extensions/custom-script-windows.md).
 - PsExec is part of the [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip).
-- For more information about the PSTools Suite, see [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
-
-
+- For more information about the PSTools Suite, see [PSTools](/sysinternals/downloads/pstools).

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 01/20/2020
 ---
 
-# Back up Azure file shares in a Recovery Services vault
+# Back up Azure file shares
 
 This article explains how to use the Azure portal to back up [Azure file shares](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
@@ -21,27 +21,6 @@ In this article, you'll learn how to:
 * Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
-
-## Modify storage replication
-
-By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-* If the vault is your primary backup mechanism, we recommend that you use GRS.
-* You can use [locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) as a low-cost option.
-
-To modify the storage replication type:
-
-1. In the new vault, select **Properties** under the **Settings** section.
-
-1. On the **Properties** page, under **Backup Configuration**, select **Update**.
-
-1. Select the storage replication type, and select **Save**.
-
-    ![Update Backup Configuration](./media/backup-afs/backup-configuration.png)
-
-> [!NOTE]
-> You can't modify the storage replication type after the vault is set up and contains backup items. If you want to do this, you need to re-create the vault.
->
 
 ## Discover file shares and configure backup
 

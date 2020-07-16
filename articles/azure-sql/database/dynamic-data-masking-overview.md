@@ -2,7 +2,7 @@
 title: Dynamic data masking
 description: Dynamic data masking limits sensitive data exposure by masking it to non-privileged users for Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang:

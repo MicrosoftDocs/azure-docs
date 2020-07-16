@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 06/17/2020
 ms.author: absha
 ---
 
@@ -73,7 +73,7 @@ Trusted root certificate is required to allow backend instances in application g
 
 The following steps help you export the .cer file for your certificate:
 
-1. Use the steps 1-9 mentioned in the section **Export authentication certificate from a backend certificate (for v1 SKU)** above to export the public key from your backend certificate.
+1. Use the steps 1 - 8 mentioned in the previous section [Export authentication certificate (for v1 SKU)](#export-authentication-certificate-for-v1-sku) to export the public key from your backend certificate.
 
 2. Once the public key has been exported, open the file.
 

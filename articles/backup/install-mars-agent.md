@@ -67,6 +67,7 @@ If your machine has limited internet access, ensure that firewall settings on th
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * IP addresses
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -78,6 +79,7 @@ You can back up your data over Azure ExpressRoute by using public peering (avail
 To use public peering, first ensure access to the following domains and addresses:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`

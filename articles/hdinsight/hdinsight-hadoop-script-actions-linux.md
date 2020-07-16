@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/28/2019
 ---
 
@@ -259,11 +259,15 @@ Values passed to the script as parameters should be enclosed by single quotes ('
 
 Setting an environment variable is performed by the following statement:
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 Where VARIABLENAME is the name of the variable. To access the variable, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following statement:
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 Subsequent access to the information could then use `$PASSWORD`.
 
@@ -347,7 +351,9 @@ This problem most often occurs when the script is authored on a Windows environm
 
 *Resolution*: Save the file either as ASCII, or as UTF-8 without a BOM. You may also use the following command on a Linux or Unix system to create a file without the BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 Replace `INFILE` with the file containing the BOM. `OUTFILE` should be a new file name, which contains the script without the BOM.
 

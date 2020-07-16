@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB output binding for Functions 2.x
+title: Azure Cosmos DB output binding for Functions 2.x and higher
 description: Learn to use the Azure Cosmos DB output binding in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
@@ -8,7 +8,7 @@ ms.author: cshoe
 ms.custom: tracking-python
 ---
 
-# Azure Cosmos DB output binding for Azure Functions 2.x
+# Azure Cosmos DB output binding for Azure Functions 2.x and higher
 
 The Azure Cosmos DB output binding lets you write a new document to an Azure Cosmos DB database using the SQL API.
 
