@@ -154,6 +154,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Save** button.
 
+    >[!NOTE]
+	>About the documentation, if it's possible, we would link our  [Support article](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On) on how to integrate SSO with CA.
+
 ### Create Cloud Academy-SSO test user
 
 1. Login to the **Cloud Academy - SSO** .
@@ -169,7 +172,6 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Enter the required fields on click on **Invite**.
 
     ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser2.PNG)
-
 
 ## Test SSO 
 
@@ -190,4 +192,3 @@ When you click the Cloud Academy - SSO tile in the Access Panel, you should be a
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Cloud Academy - SSO with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
