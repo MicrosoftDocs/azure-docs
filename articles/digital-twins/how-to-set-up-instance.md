@@ -177,7 +177,16 @@ This app registration is where you configure access permissions to the [Azure Di
 
 Owner role required: **Maybe**
 
-By default, you do not have to be an owner on the Azure subscription to run this step. However, an admin may globally turn on *Admin Content Required* in AAD for all app registrations within your subscription. If so, you will need to be an admin to complete this step.
+By default, you do not have to be an owner on the Azure subscription to run this step. 
+
+However, an admin may globally turn on *Admin Content Required* in AAD for all app registrations within your subscription. If so, you will need to be an admin to complete this step.
+
+It is also possible that your organization requires additional action from admins in order to successfully set up an app registration. Here are some potential activities that an admin may need to perform:
+* Grant admin consent for the app registration
+* Confirm the *Read.Write* API permission is added to the registration for "Azure Digital Twins"
+* Grant *Owner* role in the app registration to any users who will be calling the API
+
+These and other operations can be performed from the [AAD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
 
 #### Create the registration
 
@@ -221,10 +230,10 @@ From this overview, select the app registration you just created from the list. 
 
 :::image type="content" source="media/how-to-authenticate-client/get-authentication-ids.png" alt-text="Azure portal: authentication IDs":::
 
-Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. You will use these values later to authenticate a client app against the Azure Digital Twins APIs.
+Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
 
 > [!NOTE]
-> Depending on your scenario, you may need to make additional changes to the app registration. Here are some common requirements you may need to meet:
+> Depending on your organization's requirements, you may need to make additional changes to the app registration. Here are some common requirements you may need to meet:
 > * Activate public client access
 > * Set specific reply URLs for web and desktop access
 > * Allow for implicit OAuth2 authentication flows
