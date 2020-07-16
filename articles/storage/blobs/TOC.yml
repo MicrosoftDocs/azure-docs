@@ -426,7 +426,7 @@
       - name: Enable soft delete for blobs
         href: soft-delete-blob-enable.md
       - name: Enable soft delete for containers
-        href: soft-delete-blob-container-enable.md
+        href: soft-delete-container-enable.md
       - name: Create snapshots (.NET)
         href: snapshots-manage-dotnet.md
       - name: Process change feed logs

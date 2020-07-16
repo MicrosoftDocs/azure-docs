@@ -15,13 +15,13 @@ ms.custom: references_regions
 
 # Soft delete for containers (preview)
 
-Soft delete for containers (preview) protects your data from being accidentally or erroneously modified or deleted. When soft delete for containers is enabled for a storage account, containers and their contents in that storage account are retained in the system for the retention period that you specify. You can restore previously deleted containers during the retention period.
+Soft delete for containers (preview) protects your data from being accidentally or erroneously modified or deleted. When container soft delete is enabled for a storage account, any deleted container and their contents are retained in Azure Storage for the period that you specify. During the retention period, you can restore previously deleted containers and any blobs within them.
 
 For end to end protection for your blob data, Microsoft recommends enabling the following data protection features:
 
 - Container soft delete, to protect against accidental delete or overwrite of a container. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
 - Blob soft delete, to protect against accidental delete or overwrite of an individual blob. To learn how to enable blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
-- Blob versioning (preview), to automatically maintain previous versions of an object. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
+- Blob versioning (preview), to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
 > [!IMPORTANT]
 > To prevent accidental deletion of a storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
@@ -34,9 +34,7 @@ When you enable container soft delete, you can specify a retention period for de
 
 When you restore a container, you can restore it to its original name if that name has not been reused. If the original container name has been used, then you can restore the container with a new name.
 
-After the retention period has expired, the container is permanently deleted from Azure Storage and cannot be recovered.
-
-The clock starts on the retention period at the point that the container is deleted. You can change the retention period at any time, but keep in mind that an updated retention period applies only to newly deleted containers. Previously deleted containers will be permanently deleted based on the retention period that was in effect at the time that the container was deleted.
+After the retention period has expired, the container is permanently deleted from Azure Storage and cannot be recovered. The clock starts on the retention period at the point that the container is deleted. You can change the retention period at any time, but keep in mind that an updated retention period applies only to newly deleted containers. Previously deleted containers will be permanently deleted based on the retention period that was in effect at the time that the container was deleted.
 
 Disabling container soft delete does not result in permanent deletion of containers that were previously soft-deleted. Any soft-deleted containers will be permanently deleted at the expiration of the retention period that was in effect at the time that the container was deleted.
 
@@ -48,13 +46,14 @@ Container soft delete is available in preview in the following regions:
 - Canada East
 - Canada Central
 
-The preview is intended for non-production use only.
+> [!IMPORTANT]
+> The container soft delete preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
 Version 2019-12-12 and higher of the Azure Storage REST API supports container soft delete.
 
-## Storage account support
+### Storage account support
 
-Blob versioning is available for the following types of storage accounts:
+Container soft delete is available for the following types of storage accounts:
 
 - General-purpose v2 storage accounts
 - Block blob storage accounts
@@ -73,7 +72,7 @@ To enroll in the preview for container soft delete, use PowerShell or Azure CLI 
 To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
 
 ```powershell
-# Register for blob versioning (preview)
+# Register for container soft delete (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName ContainerSoftDelete
 

@@ -18,11 +18,11 @@ Container soft delete (preview) protects your data from being accidentally or er
 
 If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on container soft delete. This article shows how to enable soft delete for containers. For more details about container soft delete, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
 
-Microsoft recommends that you also enable soft delete for blobs and blob versioning (preview). To learn how to also enable soft delete for blobs, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md). To learn how to enable blob versioning, see [Blob versioning (preview)](versioning-overview.md).
+For end-to-end data protection, Microsoft recommends that you also enable soft delete for blobs and blob versioning (preview). To learn how to also enable soft delete for blobs, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md). To learn how to enable blob versioning, see [Blob versioning (preview)](versioning-overview.md).
 
 ## Enable container soft delete
 
-You can enable or disable container soft delete for the storage account at any time by using either the Azure portal or client tools such as PowerShell and Azure CLI.
+You can enable or disable container soft delete for the storage account at any time by using either the Azure portal or an Azure Resource Manager template.
 
 # [Portal](#tab/azure-portal)
 

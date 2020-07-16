@@ -201,7 +201,8 @@ Blob versioning is available in preview in the following regions:
 - Canada East
 - Canada Central
 
-The preview is intended for non-production use only.
+> [!IMPORTANT]
+> The blob versioning preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
 
 Version 2019-10-10 and higher of the Azure Storage REST API supports blob versioning.
 
