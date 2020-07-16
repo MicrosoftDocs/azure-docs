@@ -463,3 +463,6 @@ You're ready to deploy this registered model by using the instructions in the ne
 
 > [!div class="nextstepaction"]
 > [Tutorial 2 - Deploy models](tutorial-deploy-models-with-aml.md)
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+

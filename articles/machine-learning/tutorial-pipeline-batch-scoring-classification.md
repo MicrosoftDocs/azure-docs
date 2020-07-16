@@ -450,3 +450,6 @@ In this machine learning pipelines tutorial, you did the following tasks:
 > * Published a pipeline and enabled it to be run from a REST endpoint.
 
 For more examples of how to build pipelines by using the machine learning SDK, see the [notebook repository](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines).
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
