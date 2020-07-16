@@ -414,6 +414,8 @@
       href: connector-web-table.md
     - name: Xero
       href: connector-xero.md
+    - name: XML format
+      href: format-xml.md
     - name: Zoho
       href: connector-zoho.md
   - name: Move data
