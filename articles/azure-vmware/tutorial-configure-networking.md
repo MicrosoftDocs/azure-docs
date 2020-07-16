@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution (AVS) private cloud requires a virtual network. Because AVS won't support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a Virtual Network Gateway are also required and will be addressed in this tutorial.
+An Azure VMware Solution (AVS) private cloud requires an Azure Virtual Network. Because AVS doesn't support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway are also required and will be addressed in this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -17,28 +17,27 @@ In this tutorial, you learn how to:
 > * Connect your ExpressRoute circuit to the gateway
 > * Locate the URLs for vCenter and NSX Manager
 
+## Prerequisites 
+An [AVS private cloud](tutorial-create-private-cloud.md) created. 
+
 ## Create a virtual network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Navigate to the resource group you created in the [create a private cloud tutorial](tutorial-create-private-cloud.md), and select **+ Add** to define a new resource.
+1. Select **Create a resource** and from the Azure Marketplace, select **Networking > Virtual network**. 
 
-3. In the **Search the Marketplace** text box type **Virtual Network**. Find the Virtual Network resource and select it.
-
-4. On the Virtual Network page, select **Create** to set up your virtual network for your private cloud.
-
-5. On the **Create Virtual Network** page, enter the relevant details for your virtual network, a description of the properties is shown in the following table:
+1. On the **Create Virtual Network** page, enter the details for your virtual network.
 
    > [!IMPORTANT]
    > You must use an address space that **does not** overlap with the address space you used when you created your private cloud in the preceding tutorial.
 
-1. On the **Basics** tab, enter a name for the virtual network and select the appropriate region and select **Next : IP Addresses**
+1. On the **Basics** tab, enter a name for the virtual network and select the appropriate region and select **Next : IP Addresses**.
 
 1. On the **IP Addresses** tab, under **IPv4 address space**, enter the address space you created in the previous tutorial.
 
 1. Select **+ Add subnet**, and on the **Add subnet** page, give the subnet a name and appropriate address range. When complete, select **Add**.
 
-1. Select **Review + create**
+1. Select **Review + create**.
 
    :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network.png" alt-text="create a virtual network" border="true":::
 
@@ -46,7 +45,7 @@ In this tutorial, you learn how to:
 
 ## Create a virtual network gateway
 
-You have created a virtual network in the preceding section, now you'll create a Virtual Network Gateway.
+Now that you've created a virtual network, you'll create a virtual network gateway.
 
 1. In your resource group, select **+ Add** to add a new resource.
 
@@ -71,12 +70,12 @@ You have created a virtual network in the preceding section, now you'll create a
 
    :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="create a gateway" border="true":::
 
-1. Verify that the details are correct, and select **Create** to start deployment of your virtual network gateway. 
-1. Once the deployment completes, move to the next section in this tutorial to connect your ExpressRoute connection to the virtual network containing your private cloud.
+1. Verify that the details are correct, and select **Create** to start the deployment of your virtual network gateway. 
+1. Once the deployment completes, move to the next section to connect your ExpressRoute connection to the virtual network gateway containing your AVS private cloud.
 
 ## Connect ExpressRoute to the virtual network gateway
 
-This section walks you through adding a connection between your AVS private cloud and the virtual network gateway you created.
+Now that you've deployed a virtual network gateway, you'll add a connection between it and your AVS private cloud.
 
 1. Navigate to the private cloud you created in the previous tutorial and select **Connectivity** under **Manage**, select the **ExpressRoute** tab.
 
@@ -94,13 +93,13 @@ in the previous step and under **Settings**, select **Connections**. On the **Co
    | **Name**  | Enter a name for the connection.  |
    | **Connection type**  | Select **ExpressRoute**.  |
    | **Redeem authorization**  | Ensure this box is selected.  |
-   | **Virtual network gateway** | The virtual network gateway you created previously  |
+   | **Virtual network gateway** | The Virtual Network gateway you created previously.  |
    | **Authorization key**  | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
    | **Peer circuit URI**  | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.  |
 
    :::image type="content" source="./media/tutorial-configure-networking/add-connection.png" alt-text="add a connection" border="true":::
 
-The connection between your ExpressRoute circuit and your virtual network is created.
+The connection between your ExpressRoute circuit and your Virtual Network is created.
 
 
 

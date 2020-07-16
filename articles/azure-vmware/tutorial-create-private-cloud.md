@@ -9,7 +9,7 @@ ms.date: 07/15/2020
 
 Azure VMware Solution (AVS) gives you the ability to deploy a vSphere cluster in Azure. The minimum initial deployment is three hosts. Additional hosts can be added one at a time, up to a maximum of 16 hosts per cluster. 
 
-Because AVS will not allow you to manage your private cloud with your on-premises vCenter at launch, you’ll need to perform additional configuration of and connection to a local vCenter instance, virtual network and more. These procedures and related prerequisites will be covered in this tutorial series.
+Because AVS doesn't allow you to manage your private cloud with your on-premises vCenter at launch, you’ll need to perform additional configuration of and connection to a local vCenter instance, virtual network and more. These procedures and related prerequisites are covered in this tutorial.
 
 In this tutorial, you learn how to:
 
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Register the resource provider
 
-In order to use the Azure VMware Solution you must first register the resource provider. The following example registers the resource provider with your subscription.
+In order to use AVS, you must first register the resource provider with your subscription.
 
 ```azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
