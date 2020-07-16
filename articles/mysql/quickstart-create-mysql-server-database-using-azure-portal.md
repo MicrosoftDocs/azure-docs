@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 7/15/2020
 ---
 
-# Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal
+# Quickstart: Create an Azure Database for MySQL server in the Azure portal
 
 Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL Databases in the cloud. This Quickstart shows you how to create an Azure Database for MySQL server in about five minutes using the Azure portal.  
 
@@ -38,10 +38,10 @@ Follow these steps to create an Azure Database for MySQL server:
 
 **Setting** | **Suggested value** | **Field description** 
 ---|---|---
-Server name | Unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, 'mysqldbserver'.The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
 Resource group | *myresourcegroup* | Provide a new or existing resource group name. Resource group can be used organize you azure dependencies that belong to single project.
-Select source | *Blank* | Select *Blank* to create a new server from scratch. (You select *Backup* if you are creating a server from a geo-backup of an existing Azure Database for MySQL server).
+Server name | Unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, 'mysqldbserver'.The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
+Data source |*None* | Select *None* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for MySQL server).
 Server admin login | myadmin | A sign-in account to use when you're connecting to the server. The admin sign-in name cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
 Password | *Your choice* | Provide a new password for the server admin account. It must contain from 8 to 128 characters with a combination of uppercase or lowercase letters, numbers, and non-alphanuric characters (!, $, #, %, and so on).
 Confirm password | *Your choice*| Confirm the admin account password.
@@ -69,8 +69,8 @@ Now select **Add current client IP address** and then select **Save**. You can a
 > [!NOTE]
 > Check if your network allows outbound traffic over port 3306 that is used by Azure Database for MySQL to avoid connectivity issues.  
 
-## Connect to Azure Database for PostgreSQL server using mysql command-line client
-You can choose one of the most popular tools to connec to your server , **mysql.exe** or **[MySQL Workbench](./connect-workbench.md)** from your local environment. In this quickstart , we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) to connect to your server. 
+## Connect to Azure Database for MySQL server using mysql command-line client
+You can choose either **mysql.exe** or **[MySQL Workbench](./connect-workbench.md)** to connect to the server from your local environment. In this quickstart , we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) to connect to the server.
 
 1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top left side. Make a note of your server name , server admin login name , password and subscription Id for your newly created server from the **Overview** section of your server as shown in the image below.
 
