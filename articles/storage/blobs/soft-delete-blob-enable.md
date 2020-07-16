@@ -1,64 +1,62 @@
 ---
 title: Enable and manage soft delete for blobs
 titleSuffix: Azure Storage 
-description: Enable soft delete for blob objects to more easily recover your data when it is erroneously modified or deleted.
+description: Enable soft delete for blobs to more easily recover your data when it is erroneously modified or deleted.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # Enable and manage soft delete for blobs
 
-Soft delete protects blob data from being accidentally or erroneously modified or deleted. When soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
+Blob soft delete protects your data from being accidentally or erroneously modified or deleted. When blob soft delete is enabled for a storage account, blobs, blob versions (preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.
 
-If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete. This article shows how to enable soft delete.
+If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on blob soft delete. This article shows how to enable soft delete for blobs. For more details about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).
 
-## Enable soft delete
+To learn how to also enable soft delete for containers, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
+
+## Enable blob soft delete
 
 # [Portal](#tab/azure-portal)
 
 Enable soft delete for blobs on your storage account by using Azure portal:
 
-1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
+1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+1. Locate the **Data Protection** option under **Blob service**.
+1. Set the **Blob soft delete** property to *Enabled*.
+1. Under **Retention policies**, specify how long soft-deleted blobs are retained by Azure Storage.
+1. Save your changes.
 
-2. Navigate to the **Data Protection** option under **Blob Service**.
-
-3. Click **Enabled** under **Blob soft delete**
-
-4. Enter the number of days you want to *retain for* under **Retention policies**
-
-5. Choose the **Save** button to confirm your Data Protection settings
-
-![Screenshot of the Azure Portal with the Data Protection blob service elected.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+![Screenshot of the Azure Portal with the Data Protection blob service elected.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-configuration.png)
 
 To view soft deleted blobs, select the **Show deleted blobs** checkbox.
 
-![Screenshot of the Data Protection blob service page with the Show deleted blobs option highlighted.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
+![Screenshot of the Data Protection blob service page with the Show deleted blobs option highlighted.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted.png)
 
 To view soft deleted snapshots for a given blob, select the blob then click **View snapshots**.
 
-![Screenshot of the Data Protection blob service page with the View snapshots option highlighted.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
+![Screenshot of the Data Protection blob service page with the View snapshots option highlighted.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots.png)
 
 Make sure the **Show deleted snapshots** checkbox is selected.
 
-![Screenshot of the View snapshots page with the Show deleted blobs option highlighted.](media/soft-delete-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
+![Screenshot of the View snapshots page with the Show deleted blobs option highlighted.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-view-soft-deleted-snapshots-check.png)
 
 When you click on a soft deleted blob or snapshot, notice the new blob properties. They indicate when the object was deleted, and how many days are left until the blob or blob snapshot is permanently expired. If the soft deleted object is not a snapshot, you will also have the option to undelete it.
 
-![Screenshot of the details of a soft deleted object.](media/soft-delete-enable/storage-blob-soft-delete-portal-properties.png)
+![Screenshot of the details of a soft deleted object.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-properties.png)
 
 Remember that undeleting a blob will also undelete all associated snapshots. To undelete soft deleted snapshots for an active blob, click on the blob and select **Undelete all snapshots**.
 
-![Screenshot of the details of a soft deleted blob.](media/soft-delete-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
+![Screenshot of the details of a soft deleted blob.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-undelete-all-snapshots.png)
 
 Once you undelete a blob's snapshots, you can click **Promote** to copy a snapshot over the root blob, thereby restoring the blob to the snapshot.
 
-![Screenshot of the View snapshots page with the Promote option highlighted.](media/soft-delete-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
+![Screenshot of the View snapshots page with the Promote option highlighted.](media/soft-delete-blob-enable/storage-blob-soft-delete-portal-promote-snapshot.png)
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -79,7 +77,7 @@ $MatchingAccounts | $account = Get-AzStorageAccount -ResourceGroupName myresourc
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context | Select-Object -ExpandProperty DeleteRetentionPolicy
 ```
 
-To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
+To recover blobs that were accidentally deleted, call **Undelete Blob** on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls **Undelete Blob** on all soft deleted and active blobs in a container:
 
 ```powershell
 # Create a context by specifying storage account name and key
@@ -161,7 +159,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-To recover blobs that were accidentally deleted, call Undelete on those blobs. Remember that calling **Undelete**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls Undelete on all soft deleted and active blobs in a container:
+To recover blobs that were accidentally deleted, call **Undelete Blob** on those blobs. Remember that calling **Undelete Blob**, both on active and soft deleted blobs, will restore all associated soft deleted snapshots as active. The following example calls **Undelete Blob** on all soft-deleted and active blobs in a container:
 
 ```csharp
 // Recover all blobs in a container
@@ -171,7 +169,7 @@ foreach (CloudBlob blob in container.ListBlobs(useFlatBlobListing: true, blobLis
 }
 ```
 
-To recover to a specific blob version, first call Undelete on a blob, then copy the desired snapshot over the blob. The following example recovers a block blob to its most recently generated snapshot:
+To recover to a specific blob version, first call the **Undelete Blob** operation, then copy the desired snapshot over the blob. The following example recovers a block blob to its most recently generated snapshot:
 
 ```csharp
 // Undelete
@@ -181,7 +179,7 @@ await blockBlob.UndeleteAsync();
 IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
     prefix: blockBlob.Name, useFlatBlobListing: true, blobListingDetails: BlobListingDetails.Snapshots);
 
-// Restore the most recently generated snapshot to the active blob    
+// Restore the most recently generated snapshot to the active blob
 CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);

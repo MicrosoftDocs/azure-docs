@@ -20,6 +20,8 @@ Blob versioning is enabled on the storage account and applies to all blobs in th
 
 Microsoft recommends using blob versioning to maintain previous versions of a blob for superior data protection. When possible, use blob versioning instead of blob snapshots to maintain previous versions. Blob snapshots provide similar functionality in that they maintain earlier versions of a blob, but snapshots must be maintained manually by your application.
 
+To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
+
 > [!IMPORTANT]
 > Blob versioning cannot help you to recover from the accidental deletion of a storage account or container. To prevent accidental deletion of the storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
 
@@ -237,8 +239,8 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 To register with Azure CLI, call the [az feature register](/cli/azure/feature#az-feature-register) command.
 
 ```azurecli
-az feature register --namespace Microsoft.Storage \
-    --name Versioning
+az feature register --namespace Microsoft.Storage --name Versioning
+az provider register --namespace 'Microsoft.Storage'
 ```
 
 ---
@@ -261,8 +263,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
 To check the status of your registration with Azure CLI, call the [az feature](/cli/azure/feature#az-feature-show) command.
 
 ```azurecli
-az feature show --namespace Microsoft.Storage \
-    --name Versioning
+az feature show --namespace Microsoft.Storage --name Versioning
 ```
 
 ---

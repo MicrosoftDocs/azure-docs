@@ -28391,6 +28391,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/blobs/soft-delete-overview.md",
+      "redirect_url": "/azure/storage/blobs/soft-delete-blob-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/soft-delete-enable.md",
+      "redirect_url": "/azure/storage/blobs/soft-delete-blob-enable",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/storage/storage-blob-storage-tiers.md",
       "redirect_url": "/azure/storage/blobs/storage-blob-storage-tiers",
       "redirect_document_id": true
