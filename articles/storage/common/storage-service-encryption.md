@@ -46,7 +46,6 @@ The following table compares key management options for Azure Storage encryption
 | Key storage | Microsoft key store | Azure Key Vault | Customer's own key store |
 | Key rotation responsibility | Microsoft | Customer | Customer |
 | Key control | Microsoft | Customer | Customer |
-| Cost | No charge | Associated cost | Associated cost??? |
 
 <sup>1</sup> For information about creating an account that supports using customer-managed keys with Queue storage, see [Create an account that supports customer-managed keys for queues](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
 <sup>2</sup> For information about creating an account that supports using customer-managed keys with Table storage, see [Create an account that supports customer-managed keys for tables](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
@@ -66,6 +65,8 @@ After you have created an encryption scope, you can specify that encryption scop
 
 > [!IMPORTANT]
 > The encryption scopes preview is intended for non-production use only. Production service-level agreements (SLAs) are not currently available.
+>
+> To avoid unexpected costs, be sure to disable any encryption scopes that you do not currently need.
 
 ### Create a container or blob with an encryption scope
 
@@ -88,12 +89,6 @@ If your encryption scope is protected with customer-managed keys for Azure Key V
 
 > [!NOTE]
 > It is not possible to delete an encryption scope.
-
-### Pricing and billing
-
-Billing for encryption scopes depends on the length of time that the scope is enabled. Billing for an encryption scope is fixed for the first 30 days that a scope is enabled, so you are billed for a minimum of 30 days whenever you enable an encryption scope. After 30 days, the cost of an encryption scope is prorated on an hourly basis.
-
-To avoid unexpected costs, make sure that disable any encryption scopes that you do not currently need.
 
 ## Next steps
 

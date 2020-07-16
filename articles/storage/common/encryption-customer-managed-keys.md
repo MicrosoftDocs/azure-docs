@@ -55,8 +55,6 @@ To learn how to use customer-managed keys with Azure Key Vault for Azure Storage
 - [Configure customer-managed keys with Key Vault for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
 - [Configure customer-managed keys with Key Vault for Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
 
-Customer-managed keys have an associated cost, while Microsoft-managed keys are free. To avoid unnecessary costs, consider where you may be able to use Microsoft-managed keys.
-
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure AD. Managed identities do not currently support cross-directory scenarios. When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned to your storage account under the covers. If you subsequently move the subscription, resource group, or storage account from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
@@ -65,6 +63,8 @@ Customer-managed keys have an associated cost, while Microsoft-managed keys are 
 To enable customer-managed keys on a storage account, you must use an Azure key vault to store your keys. You must enable both the **Soft Delete** and **Do Not Purge** properties on the key vault.
 
 Azure storage encryption supports RSA and RSA-HSM keys of sizes 2048, 3072 and 4096. For more information about keys, see **Key Vault keys** in [About Azure Key Vault keys, secrets and certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-keys).
+
+Using Azure Key Vault has associated costs. For more information, see [Key Vault pricing](/pricing/details/key-vault/).
 
 ## Rotate customer-managed keys
 
