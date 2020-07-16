@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/07/2020
+ms.date: 07/16/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create and use replica sets in Azure Active Directory Domain Services to provide resiliency or geographical distributed managed domain data.
@@ -17,7 +17,7 @@ ms.author: iainfou
 
 # Tutorial: Create and use replica sets for resiliency or geolocation in Azure Active Directory Domain Services (preview)
 
-To improve the resiliency of an Azure Active Directory Domain Services (Azure AD DS) managed domain, or deploy to additional geographic locations close to your applications, you can use *replica sets*. Every Azure AD DS managed domain namespace, such as *aaddscontoso.com*, contains one initial replica set. The ability to create additional replica sets in other Azure regions provides geographical resiliency for a managed domain. 
+To improve the resiliency of an Azure Active Directory Domain Services (Azure AD DS) managed domain, or deploy to additional geographic locations close to your applications, you can use *replica sets*. Every Azure AD DS managed domain namespace, such as *aaddscontoso.com*, contains one initial replica set. The ability to create additional replica sets in other Azure regions provides geographical resiliency for a managed domain.
 
 You can add a replica set to any peered virtual network in any Azure region that supports Azure AD DS.
 
@@ -50,7 +50,7 @@ In this tutorial, you create and manage replica sets using the Azure portal. To 
 
 ## Networking considerations
 
-The virtual networks that host replica sets must be able to communicate with each other. Applications and services that will depend on Azure AD DS will also need network connectivity to the virtual networks hosting the replica sets. Azure virtual network peering should be configured between all virtual networks to create a fully meshed network. These peerings enable effective intra-site replication between replica sets.
+The virtual networks that host replica sets must be able to communicate with each other. Applications and services that depend on Azure AD DS also need network connectivity to the virtual networks hosting the replica sets. Azure virtual network peering should be configured between all virtual networks to create a fully meshed network. These peerings enable effective intra-site replication between replica sets.
 
 Before you can use replica sets in Azure AD DS, review the following Azure virtual network requirements:
 
@@ -68,7 +68,7 @@ Before you can use replica sets in Azure AD DS, review the following Azure virtu
 
 When you create a managed domain, such as *aaddscontoso.com*, an initial replica set is created. Additional replica sets share the same namespace and configuration. Changes to Azure AD DS, including configuration, user identity and credentials, groups, group policy objects, computer objects, and other changes are applied to all replica sets in the managed domain using AD DS replication.
 
-In this tutorial, you will create an additional replica set in an Azure region different than the initial Azure AD DS replica set.
+In this tutorial, you create an additional replica set in an Azure region different than the initial Azure AD DS replica set.
 
 To create an additional replica set, complete the following steps:
 
@@ -102,8 +102,8 @@ The replica set reports as *Provisioning* as deployment continues, as shown in t
 
 A managed domain is currently limited to four replicas - the initial replica set, and three additional replica sets. If you don't need a replica set anymore, or if you want to create a replica set in another region, you can delete unneeded replica sets.
 
-> [!NOTE]
->You can't delete the last replica set in a managed domain.
+> [!IMPORTANT]
+> You can't delete the last replica set in a managed domain.
 
 To delete a replica set, complete the following steps:
 
@@ -113,8 +113,7 @@ To delete a replica set, complete the following steps:
 1. Select **Delete** from the context menu, then confirm you want to delete the replica set.
 
 > [!NOTE]
->Replica set deletion may be a time-consuming operation.
-
+> Replica set deletion may be a time-consuming operation.
 
 If you no longer need the virtual network or peering used by the replica set, you can also delete those resources. Make sure no other application resources in the other region need the network connections before you delete them.
 
