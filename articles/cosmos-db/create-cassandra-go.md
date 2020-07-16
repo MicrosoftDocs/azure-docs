@@ -62,7 +62,7 @@ Start by cloning the application from GitHub.
 
 This step is optional. If you're interested to learn how the code creates the database resources, you can review the following code snippets. Otherwise, you can skip ahead to [Run the application](#run-the-application)
 
-The `GetSession` function (part of `utils/utils.go`) returns a [`*gocql.Session`](https://godoc.org/github.com/gocql/gocql#Session) that is used to execute cluster operations such as insert, find etc.
+The `GetSession` function (part of `utils\utils.go`) returns a [`*gocql.Session`](https://godoc.org/github.com/gocql/gocql#Session) that is used to execute cluster operations such as insert, find etc.
 
 ```go
 func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandraUser, cosmosCassandraPassword string) *gocql.Session {
@@ -107,7 +107,7 @@ func init() {
 }
 ```
 
-It is then used to execute various operations (part of `operations/setup.go`) on Azure Cosmos DB starting with `keyspace` and `table` creation.
+It is then used to execute various operations (part of `operations\setup.go`) on Azure Cosmos DB starting with `keyspace` and `table` creation.
 
 As the name suggests, the `DropKeySpaceIfExists` function  drops the `keyspace` only if it exists.
 
@@ -145,7 +145,7 @@ const createTable = "CREATE TABLE %s.%s (user_id int PRIMARY KEY, user_name text
 func CreateUserTable(keyspace, table string, session *gocql.Session) {
     err := session.Query(fmt.Sprintf(createTable, keyspace, table)).Exec()
     if err != nil {
-        log.Println("failed to create table ", err)
+        log.Fatal("failed to create table ", err)
     }
     log.Println("Table created")
 }
@@ -227,25 +227,25 @@ As previously mentioned, the application accepts connectivity and credentials in
 Copy the values for the following attributes (`CONTACT POINT`, `PORT`, `USERNAME` and `PRIMARY PASSWORD`) and set them to the respective environment variables
 
 ```shell
-export COSMOSDB_CASSANDRA_CONTACT_POINT=<value for "CONTACT POINT">
-export COSMOSDB_CASSANDRA_PORT=<value for "PORT">
-export COSMOSDB_CASSANDRA_USER=<value for "USERNAME">
-export COSMOSDB_CASSANDRA_PASSWORD=<value for "PRIMARY PASSWORD">
+set COSMOSDB_CASSANDRA_CONTACT_POINT=<value for "CONTACT POINT">
+set COSMOSDB_CASSANDRA_PORT=<value for "PORT">
+set COSMOSDB_CASSANDRA_USER=<value for "USERNAME">
+set COSMOSDB_CASSANDRA_PASSWORD=<value for "PRIMARY PASSWORD">
 ```
 
 In the terminal window, change to the correct folder. For example:
 
-    ```shell
-    cd "C:\git-samples\azure-cosmosdb-cassandra-go-getting-started"
-    ```
+```shell
+cd "C:\git-samples\azure-cosmosdb-cassandra-go-getting-started"
+```
 
 2. In the terminal, run the following command to start the application.
 
-    ```shell
-    go run main.go
-    ```
+```shell
+go run main.go
+```
 
-    The terminal window displays notifications for the various operations including keyspace and table setup, user creation etc.
+3. The terminal window displays notifications for the various operations including keyspace and table setup, user creation etc.
 
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
