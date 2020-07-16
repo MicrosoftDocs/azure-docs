@@ -26,7 +26,7 @@ The following list contains known causes for request timeout exceptions.
 For optimal latency, it is recommended that CPU usage should be roughly 40%. It is recommended to use 10 seconds as the interval to monitor CPU utilization. If the interval is larger, then CPU spikes can be missed by getting averaged in with lower values. CPU spikes are more common with cross partition queries where it might do multiple connections for a single query.
 
 #### Solution:
-The application should be scaled up/out.
+The client application that uses the SDK should be scaled up/out.
 
 ### 2. Socket / Port availability might be low
 When running in Azure, clients using the .NET SDK can hit Azure SNAT (PAT) port exhaustion.
