@@ -160,13 +160,9 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 Take the following steps if returning the device in China.
 
-#### Prepare the package
+1. Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
 
-Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
-
-#### Request pickup
-
-1. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the following email template:  
+2. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the following email template:  
 
    ```output
    To: ying.bao@fedex.com;739951@fedex.com
@@ -176,9 +172,9 @@ Attach the shipping label provided and paste it on the box. This label contains 
    * Requested pickup date：yyyy/mm/dd; time: HH MM
    ```
 
-2. Receive an email confirmation from FedEx after completion of booking pickup.  
+3. Receive an email confirmation from FedEx after completion of booking pickup.  
 
-3. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of the issue encountered and subject mentioning order name.
+4. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of the issue encountered and subject mentioning order name.
 
 #### Premier Customer Care contact information
 
