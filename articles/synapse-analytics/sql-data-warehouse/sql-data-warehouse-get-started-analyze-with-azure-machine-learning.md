@@ -53,9 +53,9 @@ Once the data is available in Azure Data Lake Storage, Datastores in Azure Machi
 
 1. Launch Azure Machine learning studio either from Azure portal or sign in at [Azure Machine Learning studio](https://ml.azure.com/).
 
-1. Click on **Datastores** on the left pane in the **Manage** section and then click on **New Datastore**. 
+1. Click on **Datastores** on the left pane in the **Manage** section and then click on **New Datastore**.
 
-    ![Datastores](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/datastorestab.png)
+    ![Datastores](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/datastores-tab.png)
 
 1. Provide a name for the datastore, select the type as 'Azure Blob Storage', provide location and credentials. Then, click **Create**.
 
@@ -85,7 +85,7 @@ Next, follow steps below for designer configuration:
 
 1. Drag the dataset your created earlier into the canvas.
 
-    ![Project Columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/importdataset.png)
+    ![Project Columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/import-dataset.png)
 
 ## Clean the data
 
@@ -95,7 +95,7 @@ To clean the data, drop columns that aren't relevant for the model. Follow the s
 
 1. Drag the **Select Columns in Dataset** module under **Data Transformation < Manipulation** into the canvas. Connect this module to the **Dataset** module.
 
-    ![Project Columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/selectcolumns.png)
+    ![Project Columns](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/select-columns.png)
 
 1. Click on the module to open properties pane. Click on Edit column to specify which columns you wish to drop.
 
@@ -111,17 +111,17 @@ The data is split 80-20: 80% to train a machine learning model and 20% to test t
 
 1. In the properties pane, enter 0.8 for **Fraction of rows in the first output dataset**.
 
-   ![Split data into training and test set](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/splitdata.png)
+   ![Split data into training and test set](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/split-data.png)
 
 1. Drag the **Two-Class Boosted Decision Tree** module into the canvas.
 
-1. Drag the **Train Model** module into the canvas. Specify inputs by connecting it to the **Two-Class Boosted Decision Tree** (ML algorithm) and **Split Data** (data to train the algorithm on) modules. 
+1. Drag the **Train Model** module into the canvas. Specify inputs by connecting it to the **Two-Class Boosted Decision Tree** (ML algorithm) and **Split Data** (data to train the algorithm on) modules.
 
 1. For Train Model model,  in **Label column** option in the Properties pane, select Edit column. Select the **BikeBuyer** column as the column to predict and select **Save**.
 
-   ![Select Column to predict](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/labelcolumn.png)
+   ![Select Column to predict](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/label-column.png)
 
-     ![Connect the Train Model module](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/trainmodel.png)
+     ![Connect the Train Model module](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/train-model.png)
 
 ## Score the model
 
@@ -135,13 +135,13 @@ Now, test how does the model perform on test data. Two different algorithms will
 
 1. Drag the **Evaluate Model** module into the canvas to compare the two algorithms.
 
-1. Click **submit** to set up the pipeline run. 
+1. Click **submit** to set up the pipeline run.
 
-   ![Run the experiment](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algocomparison.png)
+   ![Run the experiment](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/algo-comparison.png)
 
 1. Once the run finishes, right-click on the **Evaluate Model** module and click **Visualize Evaluation results**.
 
-   ![Visualize evaluation results](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/resultvisualize.png)
+   ![Visualize evaluation results](./media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/result-visualize.png)
 
 The metrics provided are the ROC curve, precision-recall diagram, and lift curve. Look at these metrics to see that the first model performed better than the second one. To look at what the first model predicted, right-click on the Score Model module and click Visualize Scored dataset to see the predicted results.
 
@@ -154,4 +154,6 @@ Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to se
 
 ## Next steps
 
-To learn more about building predictive machine learning models, refer to [Introduction to Machine Learning on Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+To learn more about Azure Machine Learning, refer to [Introduction to Machine Learning on Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+
+Learn about built-in scoring in the data warehouse, [here](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
