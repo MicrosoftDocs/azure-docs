@@ -22,8 +22,8 @@
         href: quickstarts/chat/get-started-with-chat.md
   - name: Networking
     items:
-      - name: Placeholder
-        href: quickstarts/acs-events-quickstart.md
+      - name: Route Events
+        href: quickstarts/networking/route-events.md
   - name: Telephony and SMS 
     items:
       - name: Place a Telephone Call
