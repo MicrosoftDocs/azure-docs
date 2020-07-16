@@ -167,16 +167,14 @@ Take the following steps if returning the device in China.
 1. Wrap and place the disk(s) and the provided accessories into the box. Charges may apply if the accessories are missing.  
 
 2. Reuse the packaging from the initial shipment.  
-    a. We recommend that you pack disks using a well-secured bubbled wrap.
-    b. Make sure the fit is snug to reduce any movements within the box.  
+    a. We recommend that you pack disks using well-secured bubbled wrap.
+    b. Make sure the device is fit securely in the package to reduce any movements within the box.  
 
-3. Attach the shipping label provided and paste it on the box. This contains the tracking number. In case the shipping label is missing, it can be downloaded from **Overview > View** ship instructions.
+3. Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > View** ship instructions.
 
 #### Request pickup
 
-1. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the email template below.  
-
-The email format should look like the following:
+1. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the following email template:  
 
    ```output
    To: ying.bao@fedex.com
@@ -188,7 +186,7 @@ The email format should look like the following:
 
 2. Receive an email confirmation from FedEx after completion of booking pick up.  
 
-3. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of issue encountered and subject mentioning order name.
+3. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of the issue encountered and subject mentioning order name.
 
 #### Premier Customer Care contact information
 
