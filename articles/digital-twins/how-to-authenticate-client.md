@@ -17,11 +17,11 @@ ms.service: digital-twins
 
 # Write client app authentication code
 
-After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you how to write code in that client app to authenticate it against the Azure Digital Twins instance.
+After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you **how to write code in that client app to authenticate it** against the Azure Digital Twins instance.
 
-The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
-
-The second section of sample code is for users not using the .NET SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this process, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
+There are two approaches to sample code in this article. You can use the one that's right for you, depending on your language of choice:
+* The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
+* The second section of sample code is for users not using the .NET SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this strategy, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also read more about the APIs and SDKs for Azure Digital Twins in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
@@ -95,7 +95,7 @@ Also, to use authentication in a function, remember to:
 * [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp)
 * Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) for more information.
 
-## Authentication in an AutoRest-generated SDK
+## Authentication with an AutoRest-generated SDK
 
 If you are not using .NET, you may opt to build an SDK library in a language of your choice, as described in [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
