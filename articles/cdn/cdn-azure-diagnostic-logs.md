@@ -82,7 +82,7 @@ To use Log Analytics for the logs, follow these steps:
 
 3. Select the subscription and Log Analytics workspace for the logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/05_la_workspace.png" alt-text="Diagnostics logs - Log Analytics." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Diagnostics logs - Log Analytics." border="true":::
 
 4. Select **Save**.
 
@@ -99,7 +99,7 @@ To use an event hub for the logs, follow these steps:
 
 3. Select the subscription and event hub namespace for the logs.
 
-   :::image type="content" source="./media/cdn-diagnostics-log/06_eventhub_namespace.png" alt-text="Diagnostics logs - Event hub." border="true":::
+   :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Diagnostics logs - Event hub." border="true":::
 
 4. Select **Save**.
 
