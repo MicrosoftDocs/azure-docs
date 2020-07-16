@@ -23,7 +23,7 @@ The flow is:
     1. Verifies that the hash of the public key that signed the JWT token matches the report data in the verified quote.
 
 The following diagram depicts the relationship between the different artifacts produced the MAA service for JWT token validation.
-![JWT Validation Overview Diagram](./docs/maa.jwt.validation.overview.png)
+![JWT Validation Overview Diagram](./media/maa.jwt.validation.overview.png)
 
 ## Remote Quote Generation
 *Note: The SGX enclave code in this sample is derived from the [remote_attestation sample code](https://github.com/openenclave/openenclave/tree/master/samples/remote_attestation) in Open Enclave SDK.  Many thanks to the author(s)!*
