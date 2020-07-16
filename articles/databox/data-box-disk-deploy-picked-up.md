@@ -20,7 +20,7 @@ ms.localizationpriority: high
 
 # Tutorial: Return Azure Data Box Disk
 
-This tutorial describes how to schedule a pick up to return your Azure Data Box Disk. The pick up instructions depend on where you are returning the device.
+This tutorial describes how to schedule a pick up to return your Azure Data Box Disk. The pickup instructions depend on where you are returning the device.
 
 In this tutorial, you will learn how to:
 
@@ -44,7 +44,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 ::: zone-end
 
 1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
-2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
+2. Wrap all the disks and the connecting cables with a bubble wrap and place them into the shipping box. Charges may apply if the accessories are missing.
     - Reuse the packaging from the initial shipment.  
     - We recommend that you pack disks using a well-secured bubbled wrap.
     - Make sure the fit is snug to reduce any movements within the box.
@@ -55,7 +55,7 @@ The next steps are determined by where you are returning the device. The instruc
 
 Take the following steps if returning the device in US or Canada.
 
-1. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost:
+1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
     - Affix the label on the device.
 
@@ -71,13 +71,13 @@ Take the following steps if returning the device in US or Canada.
 
 Take the following steps if returning the device in Europe.
 
-1. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost:
+1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
     - Affix the label on the device.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 3. If you are returning the device in Europe with DHL, request for pickup from DHL by visiting their website and specifying the airway bill number.
-4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.    
+4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
 3. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
 ### [In Australia](#tab/in-australia)
@@ -85,8 +85,8 @@ Take the following steps if returning the device in Europe.
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
 1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
-3. Affix the label on the box. 
-4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
+2. Affix the label on the box.
+3. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
 ### [In Japan](#tab/in-japan)
 
@@ -105,14 +105,14 @@ Azure datacenters in Australia have an additional security notification. All the
         d. 17：00-19：00
     ```
     - **If you are picking up in Osaka**, then modify the subject in the email template to: `Pickup request for Microsoft Azure OSA`.
-    - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
+    - If Japan Post Chakubarai consignment note wasn't included or is missing, make a note of this in the email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
     - If you have multiple orders, email to ensure individual pickup.
 
 3. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
 
 If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
 
-- Email：Customerservice.JP@quantiumsolutions.com 
+- Email：[Customerservice.JP@quantiumsolutions.com](mailto:Customerservice.JP@quantiumsolutions.com)
 - Telephone：03-5755-0150 
 
 ### [In Korea](#tab/in-korea)
@@ -184,7 +184,7 @@ Take the following steps if returning the device in China.
    * Requested pickup date：yyyy/mm/dd; time: HH MM
    ```
 
-2. Receive an email confirmation from FedEx after completion of booking pick up.  
+2. Receive an email confirmation from FedEx after completion of booking pickup.  
 
 3. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](mailto:DL-DC-SHA@oe.21vianet.com) with details of the issue encountered and subject mentioning order name.
 
@@ -210,7 +210,7 @@ Take the following steps if returning the device in China.
 
 ### [In Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box Disk in Japan, Singapore, Korea, West Europe or India and have selected the self-managed shipping option during order creation, follow these instructions.
+If you are using Data Box Disk in Japan, Singapore, Korea, West Europe, or India and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 
