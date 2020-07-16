@@ -43,7 +43,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](../../azure-monitor/platform/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
-| [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collection information from Azure storage. |
+| [Azure storage account](./resource-logs.md#send-to-log-analytics-workspace) | No | The solution does not collection information from Azure storage. |
 
 ## Prerequisites
 
@@ -300,7 +300,7 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-This script requires a bearer authentication token for authentication against Azure Active Directory. One way to retrieve this token is using an article in the [REST API documentation site](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Click **Try It** and log into your Azure subscription. You can copy the bearer token from the **Request Preview** as shown in the following image.
+This script requires a bearer authentication token for authentication against Azure Active Directory. One way to retrieve this token is using an article in the [REST API documentation site](/rest/api/loganalytics/datasources/createorupdate). Click **Try It** and log into your Azure subscription. You can copy the bearer token from the **Request Preview** as shown in the following image.
 
 
 ![Bearer token](media/app-insights-connector/bearer-token.png)

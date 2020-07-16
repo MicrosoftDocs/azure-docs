@@ -3,7 +3,7 @@ title: Azure Automation Update Management overview
 description: This article provides an overview of the Update Management feature that implements updates for your Windows and Linux machines.
 services: automation
 ms.subservice: update-management
-ms.date: 07/14/2020
+ms.date: 07/15/2020
 ms.topic: conceptual
 ---
 # Update Management overview
@@ -187,15 +187,15 @@ The following addresses are required specifically for Update Management. Communi
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
+When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tag](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+
 For Windows machines, you must also allow traffic to any endpoints required by Windows Update. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
 For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
 For more information about ports required for the Hybrid Runbook Worker, see [Update Management addresses for Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-We recommend that you use the addresses listed when defining exceptions. For IP addresses, you can download [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and it reflects the currently deployed ranges and any upcoming changes to the IP ranges.
-
-Follow the instructions in [Connect computers without internet access](../azure-monitor/platform/gateway.md) to configure machines that don't have internet access.
+If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../azure-monitor/platform/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
 ## Update classifications
 
