@@ -1,20 +1,22 @@
 ---
 title: Deploy Azure Monitor
-description: 
+description: Describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription.
 ms.subservice: 
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 
 ---
 
 # Deploy Azure Monitor
-Enabling Azure Monitor for monitoring of all your Azure resources is a combination of understanding what data is collected automatically, configuring Azure Monitor components to support particular features, and configuring Azure resources to generate monitoring data for Azure Monitor to collect. This article describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription. Basic descriptions for each step are provided with links to other documentation for complete details. 
+Enabling Azure Monitor for monitoring of all your Azure resources is a combination of understanding what data is collected automatically, configuring Azure Monitor components to support particular features, and configuring Azure resources to generate monitoring data for Azure Monitor to collect. This article describes the different steps required for a complete implementation of Azure Monitor to monitor all of the resources in your Azure subscription. Basic descriptions for each step are provided with links to other documentation for detailed configuration requirements.
 
-The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for complete pricing details.
+> [!IMPORTANT]
+> The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for complete pricing details.
 
-## Understand data in Azure Monitor
+## Configuration goals
+As you enable features in Azure Monitor, data will be sent to either [Azure Monitor Metrics](platform/data-platform-metrics.md) or [Azure Monitor Logs](platform/data-platform-logs.md). Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](platform/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](platform/alerts-overview.md) for a description of different alert types. 
 
-As you enable features in Azure Monitor, data will be sent to either [Azure Monitor Metrics](platform/data-platform-metrics.md) or [Azure Monitor Logs](platform/data-platform-logs.md), while some data is sent to both. Each stores different kinds of data and enables different kinds of analysis and alerting. See [Compare Azure Monitor Metrics and Logs](platform/data-platform.md) for a comparison of the two and [Overview of alerts in Microsoft Azure](platform/alerts-overview.md) for a description of different alert types. Each of the configuration steps below 
+Some data can be sent to both Metrics and Logs in order to leverage it using different features. In these cases, you may need to configure each separately. For example, metric data is automatically sent by Azure resources to Metrics, which supports metrics explorer and metric alerts. Create a diagnostic setting for each resource to send that same metric data to Logs, which allows you to analyze performance trends with other log data using Log Analytics. The sections below identify where data is sent and includes each step required to send data to all possible locations.
 
 ## Collect data from Azure resources
 
@@ -111,15 +113,12 @@ See [Install and configure Windows Azure diagnostics extension (WAD)](platform/d
 
 
 ## Monitor applications
-Monitoring of your custom applications is performed by Azure Monitor using [Application Insights](app/app-insights-overview.md). The configuration will vary depending on the type of application being monitored and the type of monitoring that you want to perform.
-
-Data collected by Application Insights is stored in both Azure Monitor Metrics and Azure Monitor Logs. Its log data is stored separately from your Log Analytics workspace as described in [How is data in Azure Monitor Logs structured?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Currently in preview though is the ability to store your application data directly in a Log Analytics workspace with your other data. This simplifies your configuration and allows your application to take advantage of all the features of a Log Analytics workspace.
-
-![Deploy application insights](media/deploy/deploy-application-insights.png)
-
+Monitoring of your custom applications is performed by Azure Monitor using [Application Insights](app/app-insights-overview.md), which you must configure for each application you want to monitor. The configuration process will vary depending on the type of application being monitored and the type of monitoring that you want to perform. Data collected by Application Insights is stored in Azure Monitor Metrics, Azure Monitor Logs, and Azure blob storage, depending on the feature.
 
 ### Create an application resource
-You must create a resource in Application Insights for each application that you're going to monitor. When you create the application, you must select whether to use classic or workspace-based. Workspace-based is recommended, although this configuration is still in preview. See [Create an Application Insights resource](app/create-new-resource.md) to create a classic application. 
+You must create a resource in Application Insights for each application that you're going to monitor. Log data collected by Application Insights is stored in Azure Monitor Logs but is separate from your Log Analytics workspace as described in [How is data in Azure Monitor Logs structured?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Currently in preview though is the ability to store your application data directly in a Log Analytics workspace with your other data. This simplifies your configuration and allows your application to take advantage of all the features of a Log Analytics workspace.
+
+ When you create the application, you must select whether to use classic or workspace-based (preview). See [Create an Application Insights resource](app/create-new-resource.md) to create a classic application. 
 See [Workspace-based Application Insights resources (preview)](app/create-workspace-resource.md) to create a workspace-based application.
 
 ### Configure codeless or code-based monitoring
@@ -144,32 +143,26 @@ To enable monitoring for an application, you must decide whether you will use co
 - [Other platforms](app/platforms.md)
 
 ### Configure availability testing
-Availability tests in Application Insights are recurring tests that monitor the availability and responsiveness of your application at regular intervals from points around the world. You can create a simple ping test for free or create a sequence of web requests to simulate user transactions which has associated cost.
+Availability tests in Application Insights are recurring tests that monitor the availability and responsiveness of your application at regular intervals from points around the world. You can create a simple ping test for free or create a sequence of web requests to simulate user transactions which has associated cost. See [Monitor the availability of any website](app/monitor-web-app-availability.md) for summary of the different kinds of test and details on creating them.
 
-The results of availability tests are stored in Azure Monitor Logs while performance data from the application during the test is stored in Azure Monitor Metrics. See [Monitor the availability of any website](app/monitor-web-app-availability.md) for summary of the different kinds of test and details on creating them.
-
-### Configure profiler
-Profiler in Application Insights provides performance traces for applications. It helps you identify the "hot" code path that takes the longest time when it's handling a particular web request. The details of each request are stored in Azure Monitor Logs while the code-level breakdown in stored in blob storage. 
-
-The process for configuring the profiler varies depending on the type of application. See [Profile production applications in Azure with Application Insights](app/profiler-overview.md) for details.
+### Configure Profiler
+Profiler in Application Insights provides performance traces for .NET applications. It helps you identify the "hot" code path that takes the longest time when it's handling a particular web request. The process for configuring the profiler varies depending on the type of application. See [Profile production applications in Azure with Application Insights](app/profiler-overview.md) for details.
 
 ### Configure Snapshot Debugger
-Snapshot Debugger in Application Insights monitors exception telemetry from your web application and collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. It stores these snapshots in blob storage.
-
-The process for configuring Snapshot Debugger varies depending on the type of application. See [Debug snapshots on exceptions in .NET apps](app/snapshot-debugger.md) for details.
+Snapshot Debugger in Application Insights monitors exception telemetry from your .NET application and collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. The process for configuring Snapshot Debugger varies depending on the type of application. See [Debug snapshots on exceptions in .NET apps](app/snapshot-debugger.md) for details.
 
 
-## Workbooks and visualizations
+## Visualize data
 Insights and solutions will include their own workbooks and view for analyzing their data. You can create your own [visualizations using different methods](visualizations.md).
 
 ### Workbooks
 [Workbooks](platform/workbooks-overview.md) in Azure Monitor allow you to create rich visual reports in the Azure portal. You can combine different sets of metric and log data collected in Azure Monitor to create unified interactive experiences. Insights include pre-built workbooks, and you can access a gallery of workbooks in the **Workbooks** tab of the Azure Monitor menu. See [Azure Monitor Workbooks](platform/workbooks-overview.md) for details on creating custom workbooks.
 
 ### Dashboards
-[Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure and allow you to combine Azure Monitor data with data from other services to provide a single pane of glass over your Azure infrastructure.
+[Azure dashboards](../azure-portal/azure-portal-dashboards.md) are the primary dashboarding technology for Azure and allow you to combine Azure Monitor data with data from other services to provide a single pane of glass over your Azure infrastructure. See [Create and share dashboards of Log Analytics data](learn/tutorial-logs-dashboards.md) for details on creating a dashboard that includes data from Azure Monitor Logs. See [Create custom KPI dashboards using Azure Application Insights](learn/tutorial-app-dashboards.md) for details on creating a dashboard that includes data from Application Insights. 
 
-## Alerts
-As you use the tools in Azure Monitor to inspect data that you've collected, you can start to create [alert rules](platform/alerts-overview.md) that proactively notify you of any notable information identified in your monitoring data.
+## Create alert rules
+Alerts in Azure Monitor proactively notify you of important data or patterns identified in your monitoring data. [Alert rules](platform/alerts-overview.md) include the data to analyze, the criteria for when to generate and alert, and what actions to take. 
 
 
 ### Action groups
@@ -184,7 +177,7 @@ There are multiple types of alert rules defined by the type of data that they us
 - [Activity log rules](platform/activity-log-alerts.md). Creates an alert in response to a new Activity log event that matches specified conditions. There is no cost to these alerts so they should be your first choice. See [Create, view, and manage activity log alerts by using Azure Monitor](platform/alerts-activity-log.md) for details on creating an Activity log alert.
 - [Metric alert rules](platform/alerts-metric-overview.md). Creates an alert in response to one or more metric values exceeding a threshold. Metric alerts are stateful meaning that the alert will automatically close when the value drops below the threshold, and it will only send out notifications when the state changes. There is a cost to metric alerts, but this is significantly less than log alerts. See [Create, view, and manage metric alerts using Azure Monitor](platform/alerts-metric.md) for details on creating a metric alert.
 - [Log alert rules](platform/alerts-unified-log.md). Creates an alert when the results of a schedule query matches specified criteria. They are the most expensive of the alert rules, but they allow the most complex criteria. See [Create, view, and manage log alerts using Azure Monitor](platform/alerts-log.md) for details on creating a log query alert.
-- [Application alerts](app/monitor-web-app-availability.md) allow you to perform proactive performance and availability testing of your web application. You can perform a simple ping test at no cost, but there is a cost to more complex testing. See [Monitor the availability of any website](app/monitor-web-app-availability.md) for a description of the different tests and details on creating them.l
+- [Application alerts](app/monitor-web-app-availability.md) allow you to perform proactive performance and availability testing of your web application. You can perform a simple ping test at no cost, but there is a cost to more complex testing. See [Monitor the availability of any website](app/monitor-web-app-availability.md) for a description of the different tests and details on creating them.
 
 
 ## Next steps
