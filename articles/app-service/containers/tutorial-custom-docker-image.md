@@ -30,7 +30,7 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 ## Set up your initial environment
 
-* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
 * Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
@@ -136,7 +136,7 @@ ENTRYPOINT ["init.sh"]
     This [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command specifies the port with the `-p` argument followed by the name of the image. 
     
     > [!TIP]
-    > If you are running on Windows and see the error, "standard_init_linux.go:211: exec user process caused "no such file or directory", the *init.sh* file contains CR-LF line endings instead of the expected LF endings. This error happens if you used git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config`` argument. If you downloaded the repository as a ZIP, the error happens if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
+    > If you are running on Windows and see the error, *standard_init_linux.go:211: exec user process caused "no such file or directory"*, the *init.sh* file contains CR-LF line endings instead of the expected LF endings. This error happens if you used git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config`` argument. If you downloaded the repository as a ZIP, the error happens if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
 
 1. Browse to `http://localhost:8000` to verify the web app and container are functioning correctly.
 
@@ -383,9 +383,9 @@ RUN apt-get update \
 ```
 
 > [!NOTE]
-> This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with your Azure account.
+> This configuration doesn't allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with your Azure account.
 
-The *Dockerfile* also copies the **sshd_config** file to the */etc/ssh/* folder and exposes port 2222 on the container:
+The *Dockerfile* also copies the *sshd_config* file to the */etc/ssh/* folder and exposes port 2222 on the container:
 
 ```Dockerfile
 COPY sshd_config /etc/ssh/
