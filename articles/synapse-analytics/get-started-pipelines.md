@@ -32,4 +32,4 @@ You can orchestrate a wide variety of tasks in Azure Synapse.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Analyze using spark](get-started-analyze-spark.md)
+> [Visualize data with Power BI](get-started-visualize-powerbi.md)
