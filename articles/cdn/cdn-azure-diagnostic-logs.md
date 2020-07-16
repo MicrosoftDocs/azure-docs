@@ -115,7 +115,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 1. Sign in to Azure PowerShell:
 
     ```azurepowershell-interactive
-        Connect-AzAccount 
+    Connect-AzAccount 
     ```
 
 2. To enable Diagnostic Logs in a storage account, enter these commands. Replace the variables with your values:
@@ -139,7 +139,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 1. Sign in to Azure PowerShell:
 
     ```azurepowershell-interactive
-        Connect-AzAccount 
+    Connect-AzAccount 
     ```
 2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
 
@@ -161,7 +161,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 1. Sign in to Azure PowerShell:
 
     ```azurepowershell-interactive
-        Connect-AzAccount 
+    Connect-AzAccount 
     ```
 2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
 
