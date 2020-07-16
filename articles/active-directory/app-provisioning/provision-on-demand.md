@@ -30,6 +30,8 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 6. Search for a user by first name, last name, display name, user principal name, or email.
 7. Select **Provision** at the bottom of the page.
 
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for on-demand provisioning of a user.":::
+
 ## Understand the provisioning steps
 
 The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, will be shown during the on-demand provisioning experience.
@@ -53,6 +55,7 @@ Next, the provisioning service retrieves the user from the source system. The us
 * Determine what user attributes to export to the target system.
 
 #### View details
+
 
 The **View details** section shows the properties of the user that were imported from the source system (for example, Azure Active Directory).
 
@@ -111,9 +114,11 @@ The **View details** page shows the properties of the users that were matched in
 
 Finally, the provisioning service takes an action, such as creating, updating, deleting, or skipping the user.
 
+:::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot that shows the successful on-demand provisioning of a user.":::
+
 #### View details
 
-The **View details** section displays the attributes that were modified in the target application. This display represents the final output of the provisioning service activity and the attributes that were exported. If this step fails, the attributes displayed represent the attributes that the provisioning service attempted to modify.  
+The **View details** section displays the attributes that were modified in the target application. This display represents the final output of the provisioning service activity and the attributes that were exported. If this step fails, the attributes displayed represent the attributes that the provisioning service attempted to modify.
 
 #### Troubleshooting tips
 
@@ -134,7 +139,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 
 * These applications don't support on-demand provisioning: Workday, AWS, and SuccessFactors.
 * On-demand provisioning of groups and roles isn't supported.
-* Disabling or deleting users and groups isn't supported.
+* On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
 
 ## Next steps
 

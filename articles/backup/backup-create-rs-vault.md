@@ -3,6 +3,7 @@ title: Create and configure Recovery Services vaults
 description: In this article, learn how to create and configure Recovery Services vaults that store the backups and recovery points.
 ms.topic: conceptual
 ms.date: 05/30/2019
+ms.custom: references_regions 
 ---
 
 # Create and configure a Recovery Services vault

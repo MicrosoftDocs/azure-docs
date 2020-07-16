@@ -36,7 +36,7 @@ If you're on Azure Security Center's standard tier, you can add the Container Re
 
 Whenever an image is pushed to your registry, Security Center automatically scans that image. To trigger the scan of an image, push it to your repository.
 
-When the scan completes (typically after approximately 10 minutes, but can be up to 40 minutes), findings are available as Security Center recommendations like this:
+When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
 
 [![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

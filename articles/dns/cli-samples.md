@@ -13,7 +13,7 @@ ms.author: rohink
 
 The following table includes links to Azure CLI examples for Azure DNS.
 
-| | |
+| Article | Description |
 |-|-|
 | [Create a DNS zone and record](./scripts/dns-cli-create-dns-zone-record.md) | Creates a DNS zone and record for a domain name. |
 | | |
