@@ -14,7 +14,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 ## June 2020
 
 ### General
-- [Deploy Azure Monitor](platform/deploy-scale.md) - New article.
+- [Deploy Azure Monitor](deploy-scale.md) - New article.
 - [Azure Monitor customer-managed key](platform/customer-managed-keys.md) - Updated billingtype property. Added PowerShell commands.
 
 ### Agents

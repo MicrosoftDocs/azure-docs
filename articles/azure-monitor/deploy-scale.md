@@ -1,8 +1,10 @@
 ---
-title: Deploy Azure Monitor
+title: Deploy Azure Monitor at scale using Azure Policy
 description: Deploy Azure Monitor features at scale using Azure Policy.
 ms.subservice: 
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 06/08/2020
 
 ---
@@ -124,7 +126,7 @@ Instead of creating assignments for these initiatives using the Azure Policy int
 
 For details of this process, see [Enable Azure Monitor for VMs by using Azure Policy](insights/vminsights-enable-at-scale-policy.md).
 
-![Azure Monitor for VMs policy](platform/media/deploy-scale/vminsights-policy.png)
+![Azure Monitor for VMs policy](media/deploy-scale/vminsights-policy.png)
 
 
 ## Next steps
