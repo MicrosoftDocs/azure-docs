@@ -179,11 +179,7 @@ Because results are required only for the restaurant "Paradise", you can set a f
 {
     "question": "When does this hotel close?",
     "top": 1,
-    "strictFilters": [
-      {
-        "name": "restaurant",
-        "value": "paradise"
-      }]
+    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
 }
 ```
 
@@ -196,6 +192,21 @@ This is equivalent to using the `strictFiltersCompoundOperationType` property wi
 ### Logical OR using strictFiltersCompoundOperationType property
 
 When combining several metadata filters, if you are only concerned with one or some of the filters matching, use the `strictFiltersCompoundOperationType` property with the value of `OR`.
+
+This allows your knowledge base to return answers when any filter matches but won't return answers that have no metadata.
+
+```json
+{
+    "question": "When do facilities in this hotel close?",
+    "top": 1,
+    "strictFilters": [
+      { "name": "type","value": "restaurant"},
+      { "name": "type", "value": "bar"},
+      { "name": "type", "value": "poolbar"}
+    ],
+    "strictFiltersCompoundOperationType": "OR"
+}
+```
 
 ### Metadata examples in quickstarts
 
