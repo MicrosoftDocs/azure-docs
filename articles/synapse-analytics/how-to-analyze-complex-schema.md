@@ -78,7 +78,7 @@ The data frame above counts for 5 columns and 1 row only. After transformation, 
 
 ## Flatten nested structures and explode arrays with Apache Spark
 
-With Synapse Spark, transforming nested structures into columns and array elements into multiple rows is easy. The following steps can be used for implementation.
+With Synapse Spark, it's easy to transform nested structures into columns and array elements into multiple rows. The following steps can be used for implementation.
 
 [![Spark transformations steps](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
