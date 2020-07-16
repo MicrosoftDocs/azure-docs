@@ -20,7 +20,7 @@ By using Azure Monitor, you can collect custom metrics via your application tele
  ![Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Custom Metrics are not supported in all regions. Supported regions are listed [here](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#supported-regions)
+> Custom Metrics are not supported in all regions. Supported regions are listed [here](./metrics-custom-overview.md#supported-regions)
 
 ## Send custom metrics 
 
@@ -132,6 +132,3 @@ When they're no longer needed, you can delete the resource group, virtual machin
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
-
-
-

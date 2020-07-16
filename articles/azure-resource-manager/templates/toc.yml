@@ -54,6 +54,8 @@
       items:
       - name: Batch
         href: ../../batch/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Functions
+        href: ../../azure-functions/functions-create-first-function-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json  
       - name: Linux virtual machine
         href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Virtual machine scale sets - Linux
@@ -82,12 +84,18 @@
         href: ../../mysql/quickstart-create-mysql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Database for PostgreSQL
         href: ../../postgresql/quickstart-create-postgresql-server-database-using-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Database Migration Service
+        href: ../../dms/create-dms-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: SQL Database
         href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: SQL Managed Instance
-        href: ../..//azure-sql/managed-instance/create-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+        href: ../../azure-sql/managed-instance/create-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: SQL Server on Virtual Machines
+        href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json 
     - name: DevOps
       items:
+      - name: DevTest Labs
+        href: ../../devtest-labs/create-lab-windows-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Pipelines
         href: /azure/devops/pipelines/apps/cd/azure/deploy-arm-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Integration

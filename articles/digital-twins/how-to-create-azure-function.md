@@ -233,4 +233,4 @@ In this article, you followed the steps to set up an Azure function for use with
 * An Event Grid endpoint receiving messages from other services
 
 Next, see how to build on your basic Azure function to ingest IoT Hub data into Azure Digital Twins:
-* [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+* [*How-to: Ingest telemetry from IoT Hub*](how-to-ingest-iot-hub-data.md)
