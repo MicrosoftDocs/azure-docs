@@ -114,3 +114,7 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
 
 * SQL on-demand has its own SQL on-demand databases that exist independently from any SQL on-demand pool.
 * A workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Analyze using a SQL pool](get-started-analyze-sql-pool.md)
