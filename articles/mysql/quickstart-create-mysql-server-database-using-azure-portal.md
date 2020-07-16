@@ -42,7 +42,7 @@ Subscription | Your subscription | Select the Azure subscription that you want t
 Resource group | *myresourcegroup* | Provide a new or existing resource group name. Resource group can be used organize your dependencies that belong to single project.
 Server name | Unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, 'mysqldbserver'.The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 Data source |*None* | Select *None* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for MySQL server).
-Server admin login | myadmin | Enter a username for your server adminsitrator.You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
+Server admin login | myadmin | Enter a username for your server adminsitrator. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
 Password | *Your choice* | Provide a new password for the server admin account. Password must be 8 to 128 characters in length with a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
 Confirm password | *Your choice*| Confirm the admin account password.
 Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
@@ -72,13 +72,13 @@ Now select **Add current client IP address** and then select **Save**. You can a
 ## Connect to Azure Database for MySQL server using mysql command-line client
 You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) or [MySQL Workbench](./connect-workbench.md) to connect to the server from your local environment. In this quickstart, we will run **mysql.exe** in [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) to connect to the server.
 
-1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top-left side. Make a note of your server name, server admin login name, password and subscription for your newly created server from the **Overview** section as shown in the image below.
+1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top-left side. Make a note of your server name, server admin login name, password, and subscription for your newly created server from the **Overview** section as shown in the image below.
 
     > Note: If you are launching cloud shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-   time step and will be automatically attached for all sessions. 
 
    >[!div class="mx-imgBorder"]
    > ![Portal Full View Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
-2.  Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. The admin username requires '@<servername> as shown below for Azure Database for MySQL  
+2. Run this command on Azure Cloud Shell terminal. Replace values with your actual server name and admin user login name. The admin username requires '@<servername> as shown below for Azure Database for MySQL  
 
   ```azurecli-interactive
   mysql --host=mydemoserver.mysql.database.azure.com --user=myadmin@mydemoserver -p 
