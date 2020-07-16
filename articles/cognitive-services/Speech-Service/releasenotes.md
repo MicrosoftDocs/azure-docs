@@ -13,7 +13,7 @@ ms.author: oliversc
 ms.custom: seodec18
 ---
 
-# Release notes
+# Speech Service release notes
 
 ## Text-to-speech 2020-July release
 
