@@ -29,3 +29,8 @@ Tables in Spark databases are automatically visible, and they can be queried by 
     > [!NOTE]
     > The first time you run a query that uses SQL on-demand, it takes about 10 seconds for SQL on-demand to gather the SQL resources needed to run your queries. Subsequent queries will be much faster.
   
+
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Analyze using spark](get-started-analyze-spark.md)
