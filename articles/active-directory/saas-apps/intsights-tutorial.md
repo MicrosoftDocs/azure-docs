@@ -44,7 +44,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * IntSights supports **Just In Time** user provisioning
 
-* Once you configure IntSights you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure IntSights you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding IntSights from the gallery
 
@@ -96,7 +96,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, IntSights application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, IntSights application expects few more attributes to be passed back in SAML response, which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
 	| Name | |  Source Attribute|
 	| ---------------| --------------- | --------- |
