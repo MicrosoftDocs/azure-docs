@@ -43,7 +43,7 @@ This sample template performs the following:
 
 After you complete these steps, you need to [configure diagnostic settings](automation-manage-send-joblogs-log-analytics.md) for your Automation account to send runbook job status and job streams to the linked Log Analytics workspace.
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/101-automation/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-automation/).
 
 :::code language="json" source="~/quickstart-templates/101-automation/azuredeploy.json" range="1-324" highlight="58-122":::
 
