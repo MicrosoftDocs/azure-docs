@@ -7,7 +7,7 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: your-msft-alias
-ms.date: 03/17/22
+ms.date: 07/16/20
 ---
 
 <!-- ms.topic and ms.custom in the metadata section are required -->
@@ -31,7 +31,7 @@ This quickstart describes how to use an Azure Resource Manager template (ARM tem
 Second paragraph: Use the following include file. This include file is a paragraph that consistently introduces ARM concepts before doing a deployment and includes all our desired links to ARM content. You might need to change the file path of the include file depending on your content structure. 
 .-->
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/resource-manager-quickstart-introduction.md)]
 
 <!-- 
 Final paragraph: Explains that readers who are experienced with ARM templates can continue to the deployment. For information about the button image and how to create the template's URI, see "Deploy the template" for Portal.
@@ -39,7 +39,7 @@ Final paragraph: Explains that readers who are experienced with ARM templates ca
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/<template's URI>)
+[![Deploy to Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/<template's URI>)
 
 ## Prerequisites
 
@@ -130,7 +130,7 @@ Notice the resourceType and sort elements in the URL.
 
     To find more information about this deployment option, see [Use a deployment button to deploy templates from GitHub repository](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
 
-    The shared button image is in [GitHub](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/media/template-deployments/deploy-to-azure.svg).
+    The shared button image is in [GitHub](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media/template-deployments/deploy-to-azure.svg).
  -->
 
 ## Review deployed resources
@@ -183,4 +183,4 @@ To include additional links for more information about the service, it's accepta
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Create and deploy your first ARM template](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-resource-manager/templates/template-tutorial-create-first-template.md)
