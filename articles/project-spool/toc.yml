@@ -20,6 +20,8 @@
     items:
       - name: Get Started With Chat
         href: quickstarts/chat/get-started-with-chat.md
+      - name: Get Started With The 1:N Group Chat Sample
+        href: quickstarts/chat/group-chat-sample.md
   - name: Networking
     items:
       - name: Route Events
