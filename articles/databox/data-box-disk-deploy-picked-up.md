@@ -20,14 +20,13 @@ ms.localizationpriority: high
 
 # Tutorial: Return Azure Data Box Disk
 
-This tutorial describes how to schedule a pick up to return your Azure Data Box Disk. The pickup instructions depend on where you are returning the device.
+This tutorial describes how to return your Azure Data Box Disk. The pickup instructions depend on where you are returning the device.
 
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
 >
 > * Ship Data Box Disk to Microsoft
-> * Pick up Data Box Disk in different regions
 
 ## Prerequisites
 
@@ -51,7 +50,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 The next steps are determined by where you are returning the device. The instructions are different for US/Canada, European Union (EU), Australia, or countries/regions in Asia.
 
-### [In US or Canada](#tab/in-us-or-canada)
+### [US or Canada](#tab/in-us-or-canada)
 
 Take the following steps if returning the device in US or Canada.
 
@@ -67,7 +66,7 @@ Take the following steps if returning the device in US or Canada.
     - If the tracking number is not quoted, UPS will require you to pay an additional charge during pickup.
     - Instead of scheduling the pickup, you can also drop off the Data Box Disk at the nearest drop-off location.
 
-### [In Europe](#tab/in-europe)
+### [Europe](#tab/in-europe)
 
 Take the following steps if returning the device in Europe.
 
@@ -80,7 +79,7 @@ Take the following steps if returning the device in Europe.
 4. Go to the country/region DHL Express website and choose **Book a Courier Collection > eReturn Shipment**.
 3. Specify the waybill number and click **Schedule Pickup** to arrange for pickup.
 
-### [In Australia](#tab/in-australia)
+### [Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
@@ -88,7 +87,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Affix the label on the box.
 3. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### [In Japan](#tab/in-japan)
+### [Japan](#tab/in-japan)
 
 1. Write your company name and address information on the consignment note as your sender information.
 2. Email Quantium solution using the following email template.
@@ -115,7 +114,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：[Customerservice.JP@quantiumsolutions.com](mailto:Customerservice.JP@quantiumsolutions.com)
 - Telephone：03-5755-0150 
 
-### [In Korea](#tab/in-korea)
+### [Korea](#tab/in-korea)
 
 1. Make sure to include the return consignment note.
 2. To request pickup when consignment note is present:
@@ -130,7 +129,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     4. You receive a verbal confirmation if the request is made via telephone.
 
 
-### [In Singapore](#tab/in-singapore)
+### [Singapore](#tab/in-singapore)
 
 1. Print the shipping label and attach it to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.
@@ -158,19 +157,13 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 3. Hand over to the courier.
 
-### [In China](#tab/in-china)
+### [China](#tab/in-china)
 
 Take the following steps if returning the device in China.
 
 #### Prepare the package
 
-1. Wrap and place the disk(s) and the provided accessories into the box. Charges may apply if the accessories are missing.  
-
-2. Reuse the packaging from the initial shipment.  
-    a. We recommend that you pack disks using well-secured bubbled wrap.
-    b. Make sure the device is fit securely in the package to reduce any movements within the box.  
-
-3. Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > View** ship instructions.
+Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
 
 #### Request pickup
 
@@ -236,7 +229,6 @@ In this tutorial, you learned about Azure Data Box Disk topics such as:
 > [!div class="checklist"]
 >
 > * Ship Data Box Disk to Microsoft
-> * Pick up Data Box Disk in different regions
 
 Advance to the next how-to to learn how to verify data upload from Data Box Disk to the Azure Storage account.
 
