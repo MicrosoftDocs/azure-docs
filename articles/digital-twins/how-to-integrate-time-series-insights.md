@@ -98,7 +98,9 @@ namespace SampleFunctionsApp
             Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
             foreach (var operation in message["patch"]) {
                 if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
-                    tsiUpdate.Add(operation["path"].ToString(), operation["value"]);
+                    string path = operation["path"].ToString().Substring(1);                    
+                    path = path.Replace("/", ".");                    
+                    tsiUpdate.Add(path, operation["value"]);
             }
             //Send an update to TSI if the twin has been updated
             if (tsiUpdate.Count>0){
