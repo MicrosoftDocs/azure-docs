@@ -53,7 +53,7 @@ You can do the following operations with node pools:
 
 When you create a new AKS cluster, you automatically create a system node pool with a single node. The initial node pool defaults to a mode of type system. When you create new node pools with `az aks nodepool add`, those node pools are user node pools unless you explicitly specify the mode parameter.
 
-It is recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints].
+It is recommended to schedule your application pods on user node pools, and dedicate system node pools to only critical system pods. Enforce this behavior with the `CriticalAddonsOnly=true:NoSchedule` [taint][aks-taints] for your system node pools.
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* region.
 
