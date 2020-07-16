@@ -1,5 +1,6 @@
 ---
-title: Diagnostic logs - Azure CDN
+title: Diagnostic logs
+titleSuffix: Azure Content Delivery Network
 description: Customer can enable log analysis for Azure CDN.
 services: cdn
 author: asudbring
