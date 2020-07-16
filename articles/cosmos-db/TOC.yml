@@ -1026,6 +1026,8 @@
           href: troubleshoot-request-timeout.md
         - name : Troubleshoot request rate too large
           href: troubleshoot-request-rate-too-large.md
+        - name : Troubleshoot not found
+          href: troubleshoot-not-found.md
         - name : Troubleshoot unauthorized
           href: troubleshoot-unauthorized.md
       - name: .NET
