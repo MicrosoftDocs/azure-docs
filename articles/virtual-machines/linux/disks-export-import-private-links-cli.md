@@ -1,6 +1,6 @@
 ---
-title: Private Links (preview) for exporting and importing Azure Managed Disks 
-description: Private links for securely exporting and importing data to Azure Managed Disks
+title: Azure CLI - Restrict import/export access to managed disks with Private Links (preview)
+description: Enable Private Links (preview) for your managed disks with Azure CLI. Allowing you to securely export and import disks within only your virtual network.
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Securely exporting/importing data to Azure managed disks using Private Links (preview)
+# Azure CLI - Restrict import/export access for managed disks with Private Links (preview)
 
 You can use [private endpoints](../../private-link/private-endpoint-overview.md) (preview) to restrict the export and import of managed disks and securely access data over a [Private Link](../../private-link/private-link-overview.md) from clients on your Azure virtual network. The private endpoint uses an IP address from the virtual network address space for your managed disks service. Network traffic between the clients on the virtual network and managed disks traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. 
 

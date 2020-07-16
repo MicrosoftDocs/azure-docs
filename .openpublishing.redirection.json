@@ -24917,12 +24917,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/virtual-machines/linux/regions.md",
+      "source_path": "articles/virtual-machines/linux/regions.md",
       "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/virtual-machines/windows/regions.md",
+      "source_path": "articles/virtual-machines/windows/regions.md",
       "redirect_url": "/azure/virtual-machines/regions",
       "redirect_document_id": false
     },
@@ -25176,7 +25176,7 @@
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
     },    {
-      "source_path": "articles/virtual-machines/virtual-machines/windows/isolation.md",
+      "source_path": "articles/virtual-machines/windows/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
     },
@@ -26086,7 +26086,7 @@
       "redirect_document_id": false
     },    
     {
-      "source_path": "articles/virtual-machines/virtual-machines/linux/availability.md",
+      "source_path": "articles/virtual-machines/linux/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
     },
@@ -32919,6 +32919,16 @@
       "source_path": "articles/virtual-machines/windows/classic/inject-custom-data.md",
       "redirect_url": "/azure/virtual-machines/windows/tutorial-automate-vm-deployment",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/monitor.md",
+      "redirect_url": "/azure/azure-monitor/insights/monitor-vm-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/monitor.md",
+      "redirect_url": "/azure/azure-monitor/insights/monitor-vm-azure",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/classic/about-images.md",
@@ -43733,6 +43743,11 @@
     {
       "source_path": "articles/azure-monitor/platform/activity-log-export.md",
       "redirect_url": "/azure/azure-monitor/platform/activity-log#legacy-collection-methods",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/resource-logs-append-blobs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-blob-format",
       "redirect_document_id": false
     },
     {

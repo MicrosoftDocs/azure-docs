@@ -158,9 +158,10 @@ This section provides template questionnaires to help gather important informati
 
 ### Azure requirements questionnaire
 
-|**Topic**: **Infrastructure** |||
-|---|---|---|
+**Topic**: **Infrastructure**
+
 |**Question**|**Example**|**Answer**|
+|---|---|---|
 | Preferred Region|US East||
 |VNet preferred?|Yes||
 |HA / DR Needed?|Yes||
