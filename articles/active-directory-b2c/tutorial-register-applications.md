@@ -58,7 +58,7 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 
 Once the application registration is complete, enable the implicit grant flow:
 
-1. In the left pane, in **Manage** section, select **Authentication**.
+1. In the left pane, under **Manage** section, select **Authentication**.
 1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
 1. Select **Save**.
 
