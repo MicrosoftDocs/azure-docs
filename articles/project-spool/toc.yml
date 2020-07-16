@@ -28,6 +28,8 @@
         href: quickstarts/networking/route-events.md
   - name: Telephony and SMS 
     items:
+      - name: Request phone numbers
+        href: quickstarts/voice-and-video-calling/request-phone-numbers.md
       - name: Buy A Telephone Number 
         href: quickstarts/telephony-and-sms/search-and-acquire-phone-number.md
       - name: Place a Telephone Call
@@ -38,8 +40,6 @@
         href: quickstarts/telephony-and-sms/send-sms-net.md
   - name: Voice and Video Calling
     items:
-    - name: Request phone numbers
-      href: quickstarts/voice-and-video-calling/request-phone-numbers.md
     - name: Initialize Your Calling Client
       href: quickstarts/voice-and-video-calling/init-client.md
     - name: Capture a Local Video Stream
