@@ -23,7 +23,7 @@
         href: quickstarts/chat/get-started-with-chat.md
   - name: Networking
     items:
-  - name: Telephony and SMS
+  - name: Telephony and SMS 
     items:
       - name: Place a Telephone Call
         href: quickstarts/telephony-and-sms/get-started-with-phone.md
@@ -130,16 +130,16 @@
         href: concepts/voice-and-video-calling/calling-client-samples.md
       #- name: Data Channels
       #  href: concepts/video/data-channels.md
+  - name: Diagnostics and metrics
+  items:
+    - name: Metrics definitions 
+      href: concepts/azure-communication-metric-definitions.md
+    - name: Leveraging metrics and logs
+      href: concepts/most-out-of-metrics-logs.md
+    - name: Logging
+      href: concepts/logs-schema-list.md
   - name: SDK Options
     href: concepts/sdk-options.md
-  - name: Diagnostics and metrics
-    items:
-      - name: Metrics definitions 
-        href: concepts/azure-communication-metric-definitions.md
-      - name: Leveraging metrics and logs
-        href: concepts/most-out-of-metrics-logs.md
-      - name: Logging
-        href: concepts/logs-schema-list.md
   - name: Pricing Model
     href: concepts/pricing.md
   - name: Authentication and Authorization
