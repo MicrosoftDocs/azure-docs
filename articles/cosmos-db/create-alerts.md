@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 07/16/2020
 ---
 
 # Create alerts to manage resources in Azure Cosmos DB
@@ -24,49 +24,76 @@ You can set up alerts from the Azure Cosmos DB pane or the Azure Monitor service
 
 ## Create an alert rule
 
-This section shows how to create an alert when you receive a HTTP status code 429 which is received when the requests are rate limited. You can use the these steps to configure other types of alerts, you just need to choose a different condition based on your requirement.
+This section shows how to create an alert when you receive a HTTP status code 429 which is received when the requests are rate limited. For examples, you may want to receive an alert when there are 100 or more rate limited requests. This article shows you how to configure an alert for such scenario by using the HTTP status code. You can use the similar steps to configure other types of alerts as well, you just need to choose a different condition based on your requirement.
 
 1. Sign into the [Azure portal.](https://portal.azure.com/)
+
 1. Select **Monitor** from the left-hand navigation bar and select **Alerts**.
+
 1. Select the New alert rule button to open the Create alert rule pane.  
-1. Fill out the following sections in this pane:
 
-   * **Scope:** Open the **Select resource** blade and configure the following:
+1. Fill out the **Scope:** section:
 
-     * Choose your **subscription** name.
+   * Open the **Select resource** pane and configure the following:
 
-     * Select **Azure Cosmos DB accounts** for the **resource type**.
+   * Choose your **subscription** name.
 
-     * The **location** of your Azure Cosmos account.
+   * Select **Azure Cosmos DB accounts** for the **resource type**.
 
-     * After filling in the details, a list of Azure Cosmos accounts in the selected scope are displayed. Choose the one for which you want to configure alerts and select **Done**.
+   * The **location** of your Azure Cosmos account.
 
-   * **Condition:** Open the *Select condition** blade and configure the following:
+   * After filling in the details, a list of Azure Cosmos accounts in the selected scope are displayed. Choose the one for which you want to configure alerts and select **Done**.
 
-     * In the **Configure signal logic** page, select a signal. The **signal type** can be a **Metric** or an **Activity Log**. Choose **Metrics** for this scenario. Because you want to get an alert when the total request units metric 
+1. Fill out the **Condition:** section:
 
-     * Select **All** for the **Monitor service**
+   * Open the **Select condition** pane to open the the **Configure signal logic** page and configure the following:
 
-     * Choose a **Signal name**. To get an alert for HTTP status codes, choose the **Total Request Units** signal.
+   * Select a signal. The **signal type** can be a **Metric** or an **Activity Log**. Choose **Metrics** for this scenario. Because you want to get an alert when there are rate limiting issues on the total request units metric.
 
-     * In the next tab you can define the logic for triggering an alert and use the chart to view trends of your Azure Cosmos account. The **Total Request Units** metric supports dimensions. These dimensions allow you to filter on the metric. If you don’t select any dimension, this value is ignored.
+   * Select **All** for the **Monitor service**
 
-     * Choose **StatusCode** as the **Dimension name**. Select **Add custom value** and set the status code to 429.
+   * Choose a **Signal name**. To get an alert for HTTP status codes, choose the **Total Request Units** signal.
 
-     * In the **Alert logic**, set the **Threshold** to **Static**. The static threshold uses a user-defined threshold value to evaluate the rule, whereas the dynamic thresholds uses inbuilt machine learning algorithms to continuously learn the metric behavior pattern and calculate the thresholds automatically. 
+   * In the next tab you can define the logic for triggering an alert and use the chart to view trends of your Azure Cosmos account. The **Total Request Units** metric supports dimensions. These dimensions allow you to filter on the metric. If you don’t select any dimension, this value is ignored.
 
-     * Set the **operator** to **Greater than**, the **Aggregation type** to **Total**, and the **Threshold value** to **100**. With this logic, if your client sees more than 100 requests that have a 429 status code, the alert is triggered. You can also configure the aggregation type, aggregation granularity, and the frequency of evaluation based on your requirement. 
+   * Choose **StatusCode** as the **Dimension name**. Select **Add custom value** and set the status code to 429.
 
-     * After filling the form, select **Done**.
+   * In the **Alert logic**, set the **Threshold** to **Static**. The static threshold uses a user-defined threshold value to evaluate the rule, whereas the dynamic thresholds uses inbuilt machine learning algorithms to continuously learn the metric behavior pattern and calculate the thresholds automatically.
 
-       :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configure the logic to receive alerts for rate limited/429 requests":::
+   * Set the **operator** to **Greater than**, the **Aggregation type** to **Total**, and the **Threshold value** to **100**. With this logic, if your client sees more than 100 requests that have a 429 status code, the alert is triggered. You can also configure the aggregation type, aggregation granularity, and the frequency of evaluation based on your requirement.
 
-   * **Action group:** On the **Create rule** pane, select an existing **Action group** or create a new group. An action group enables you to define the action to be taken when an alert condition occurs. For this example, create an action group to send you an email notification when the alert is triggered.
+   * After filling the form, select **Done**. The following screenshot shows the details of the alert logic:
 
-      :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configure the action type such as email notification to receive the alert":::
+     :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configure the logic to receive alerts for rate limited/429 requests":::
 
-   * **Alert rule details:** Define a name for the rule, provide an optional description, the severity level of the alert, choose whether to enable the rule upon rule creation, and then select **Create rule alert** to create the metric rule alert.
+1. Fill out the **Action group:** section:
+
+   * On the **Create rule** pane, select an existing action group or create a new group. An action group enables you to define the action to be taken when an alert condition occurs. For this example, create a new action group to receive an email notification when the alert is triggered. Open the **Add action group** pane and fill out the following details:
+
+   * **Action group name** - The action group name must be unique within a resource group.
+
+   * **Short name** - The action group's Short name, this value is included in email and SMS notifications to identify which action group was the source of the notification.
+
+   * Choose the subscription and the resource group in which this action group will be created.  
+
+   * Provide a name for your action and select **Email/SMS message/Push/Voice** as the **Action Type**. The following screenshot shows the details of the action type:
+
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configure the action type such as email notification to receive the alert":::
+
+1. Fill out the **Alert rule details:** section:
+
+   * Define a name for the rule, provide an optional description, the severity level of the alert, choose whether to enable the rule upon rule creation, and then select **Create rule alert** to create the metric rule alert.
 
 After creating the alert, it will be active within 10 minutes.
+
+## Alerting scenarios 
+
+The following are some scenarios where setting up alerts is helpful:
+
+* When the keys of an Azure Cosmos account are updated.
+* When the data or index usage of a container, database, or a region exceeds a certain number of bytes.
+* When the normalized RU/s consumption is greater than certain percentage. The normalized RU consumption metrics gives the maximum throughput utilization within a replica set. To learn, see the [How to monitor normalized RU/s](monitor-normalized-request-units.md) article.  
+* When a region is added, removed, or if it goes offline.
+* When the throughput of your database or the container is changed.
 
 ## Next steps
