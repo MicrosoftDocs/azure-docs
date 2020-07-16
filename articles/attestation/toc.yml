@@ -16,9 +16,9 @@
 - name: Samples
   items:
     - name: Examples of attestation policy
-    - href: policy-samples.md
+      href: policy-samples.md
     - name: Examples of policy signer certificate
-    - href: policysigner-samples.md
+      href: policysigner-samples.md
 - name: Concepts
   items:
   - name: Basic concepts
