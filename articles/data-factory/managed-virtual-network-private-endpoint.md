@@ -33,9 +33,8 @@ Benefits of using Managed Virtual Network :
 - Managed Virtual Network along with Managed private endpoints protects against data exfiltration. 
 
 > [!IMPORTANT]
-> During the preview, to enable this feature you will have to create a new data factory with 'enabled managed virtual network (preview)' configuration enabled. 
 >Currently, the managed VNet is only supported in the same region as Azure Data Factory region.
-> Both these limitations will be removed in the coming months.  
+> This limitations will be removed in the coming months.  
 
 ![ADF Managed Virtual Network architecture](./media/managed-vnet/managed-vnet-architecture-diagram.png)
 
