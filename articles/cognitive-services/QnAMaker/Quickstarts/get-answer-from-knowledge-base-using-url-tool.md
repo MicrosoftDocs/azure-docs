@@ -36,5 +36,5 @@ ms.author: diberry
 > [Test knowledge base with batch file](batch-testing.md)
 
 Learn more about metadata:
-* [Authoring - add metadata to QnA pair](../how-to/edit-knowledge-base#add-metadata.md)
-* [Query prediction - filter answers by metadata](../how-to/metadata-generateanswer-usage#use-metadata-to-filter-answers-by-custom-metadata-tags.md)
+* [Authoring - add metadata to QnA pair](../How-To/edit-knowledge-base.md#add-metadata)
+* [Query prediction - filter answers by metadata](../How-To/metadata-generateanswer-usage.md#use-metadata-to-filter-answers-by-custom-metadata-tags)
