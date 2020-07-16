@@ -175,18 +175,38 @@ Take the following steps if returning the device in China.
 
 1. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the email template below.  
 
-2. Receive an email confirmation from FedEx after completion of booking pick up.  
+The email format should look like the following:
 
-3. 
- 
     ```
     To: Bao Ying <ying.bao@fedex.com>
     Subject: Pickup request for Microsoft Azure : Order Name
-    Body: Need pick up for the below shipment 
+    Body: Need pick up for the below shipment
      * FedEx tracking number (reference number)
      * Requested pickup date：yyyy/mm/dd; time: HH MM
     ```  
-   If you encounter any issues, email DL-DC-SHA@oe.21vianet.com with details of issue encountered and subject mentioning order name.
+
+2. Receive an email confirmation from FedEx after completion of booking pick up.  
+
+3. If you encounter any issues, email [DL-DC-SHA@oe.21vianet.com](DL-DC-SHA@oe.21vianet.com) with details of issue encountered and subject mentioning order name.
+
+<ins>Premier Customer Care for Microsoft (primary)</ins>
+| | |
+|---|---|
+|Name:       | Bao Ying|
+|Designation | Sr OneCall Representative |
+|Phone:      | 400.889.6066 ext. 3693 |
+|E-mail:     | email [Ying Boa](ying.bao@fedex.com) |
+
+<ins>Customer Care for Microsoft (backup)</ins>
+| | |
+|---|---|
+|Name:       | He Xun|
+|Designation | OneCall Representative |
+|Phone:      | 400.889.6066 ext. 3603 |
+|E-mail:     | email [He Xun](739951@fedex.com) |
+
+    
+   
 
 ### [In Self-Managed](#tab/in-selfmanaged)
 
