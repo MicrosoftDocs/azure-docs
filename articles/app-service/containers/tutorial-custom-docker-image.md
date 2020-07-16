@@ -280,13 +280,14 @@ You can complete these steps once the image is pushed to the container registry 
     az webapp config container set --name <app-name> --resource-group AppSvc-DockerTutorial-rg --docker-custom-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest --docker-registry-server-url https://<registry-name>.azurecr.io
     ```
     
-    Replace `<app_name>` with the name of your web app and replace `<registry-name>` in two places with the name of your registry. If you see the message, "No credential was provided to access Azure Container Registry. Trying to look up...", Azure is telling you that it's using the app's managed identity rather than asking for a username and password.
+    Replace `<app_name>` with the name of your web app and replace `<registry-name>` in two places with the name of your registry. 
 
-    > [!NOTE]
-    > When using a registry other than Docker Hub, `--docker-registry-server-url` must be formatted as `https://` followed by the fully qualified domain name of the registry.
-    
-    > [!NOTE]
-    > If you encounter the error, "AttributeError: 'NoneType' object has no attribute 'reserved'", make sure your `<app-name>` is correct.
+    - When using a registry other than Docker Hub (as this example shows), `--docker-registry-server-url` must be formatted as `https://` followed by the fully qualified domain name of the registry.
+    - The message, "No credential was provided to access Azure Container Registry. Trying to look up..." tells you that Azure is using the app's managed identity to authenticate with the container registry rather than asking for a username and password.
+    - If you encounter the error, "AttributeError: 'NoneType' object has no attribute 'reserved'", make sure your `<app-name>` is correct.
+
+    > [!TIP]
+    > You can retrieve the web app's container settings at any time with the command `az webapp config container show --name <app-name> --resource-group AppSvc-DockerTutorial-rg`. The image is specified in the property `DOCKER_CUSTOM_IMAGE_NAME`. When the web app is deployed through Azure DevOps or Azure Resource Manager templates, the image can also appear in a property named `LinuxFxVersion`. Both properties serve the same purpose. If both are present in the web app's configuration, `LinuxFxVersion` takes precedence.
 
 1. Once the `az webapp config container set` command completes, the web app should be running in the container on App Service.
 
