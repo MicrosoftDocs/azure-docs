@@ -22,6 +22,16 @@
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
     href: quickstarts/create-a-communication-resource.md
+  - name: Chat
+    items:
+  - name: Media
+    items:
+  - name: Networking
+    items:
+  - name: Telephony and SMS
+    items:
+  - name: Voice and Video Calling
+    items:
   - name: Request phone numbers
     href: quickstarts/request-phone-numbers.md
  # - name: Configure Your Server
@@ -53,6 +63,16 @@
 - name: Tutorials
   expanded: true
   items:
+  - name: Chat
+    items:
+  - name: Media
+    items:
+  - name: Networking
+    items:
+  - name: Telephony and SMS
+    items:
+  - name: Voice and Video Calling
+    items:
   - name: Add SMS To Your Web App
     href: tutorials/add-sms-to-your-web-app.md
   - name: Voice and Video Calling
@@ -78,7 +98,7 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Voice
+  - name: Voice and Video Calling
     items:
       - name: About Voice
         href: concepts/voice/voice.md
@@ -98,8 +118,6 @@
       #  href: concepts/voice/call-analytics.md
       #- name: Spam and Robocall Protection
       #  href: concepts/voice/spam-robocall.md
-  - name: Video
-    items:
       - name: About Video
         href: concepts/video/video.md
       - name: Introduction to WebRTC
@@ -112,6 +130,10 @@
     items: 
       - name: About Chat
         href: concepts/chat/chat.md
+  - name: Telephony and SMS
+    items: 
+  - name: Networking
+    items: 
   - name: Client and Server Architecture
     href: concepts/client-and-server-architecture.md
   - name: SMS
