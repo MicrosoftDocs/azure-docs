@@ -23,7 +23,7 @@ To complete a first publish in [Partner Center](https://partner.microsoft.com/da
 
 There are two options for functional validation:
 
-- Hold a 30-minute conference call during Pacific Standard time (PST) business hours to demonstrate and record the [LCS](https://lcs.dynamics.com/) environment and solution, or
+- Hold a 30-minute conference call with us during Pacific Standard time (PST) business hours to demonstrate and record the [LCS](https://lcs.dynamics.com/) environment and solution, or
 - In Partner Center, go to [Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) > **Overview** and upload a demo video URL and LCS screenshots on the offer's Supplemental Content tab.
 
 The Microsoft certification team reviews the video and files, then either approves the solution or emails you about next steps.
