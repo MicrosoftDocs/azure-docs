@@ -26,7 +26,7 @@ The agent is responsible for communication between the FreeBSD VM and the Azure 
 As for future versions of FreeBSD, the strategy is to stay current and make the latest releases available shortly after they are published by the FreeBSD release engineering team.
 
 ### Create a FreeBSD VM through Azure CLI on FreeBSD
-First you need to install [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
+First you need to install [Azure CLI](/cli/azure/get-started-with-azure-cli) though following command on a FreeBSD machine.
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash

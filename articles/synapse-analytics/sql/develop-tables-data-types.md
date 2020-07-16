@@ -1,5 +1,5 @@
 ---
-title: Defining data types
+title: Table data types in Synapse SQL
 description: Recommendations for defining table data types in Synapse SQL. 
 services: synapse-analytics
 author: filippopovic

@@ -10,7 +10,7 @@ Azure Advisor provides you with a consistent, consolidated view of recommendatio
 
 Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the controls you need. 
 
-For more information about security recommendations, see [Managing security recommendations in Azure Security Center](https://azure.microsoft.com/documentation/articles/security-center-recommendations/).
+For more information about security recommendations, see [Managing security recommendations in Azure Security Center](../security-center/security-center-recommendations.md).
 
 ## How to access Security recommendations in Azure Advisor
 
@@ -27,5 +27,5 @@ To learn more about Advisor recommendations, see:
 * [Advisor performance recommendations](advisor-performance-recommendations.md)
 * [Advisor reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)
-* [Advisor REST API](https://docs.microsoft.com/rest/api/advisor/)
+* [Advisor REST API](/rest/api/advisor/)
  
