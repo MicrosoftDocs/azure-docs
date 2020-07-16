@@ -8,7 +8,7 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 07/16/2020
 ms.reviewer: cynthn
-
+e
 ---
 # Using a prebuilt Flatcar image for Azure
 
@@ -23,7 +23,7 @@ Linux for each of the Flatcar supported channels:
 This image is already fully set up and optimized to run on Azure. You only
 need to decompress it.
 
-# Building your own Flatcar-based virtual machine for Azure
+## Building your own Flatcar-based virtual machine for Azure
 
 Alternatively, you can choose to build your own Flatcar Container Linux
 image.
