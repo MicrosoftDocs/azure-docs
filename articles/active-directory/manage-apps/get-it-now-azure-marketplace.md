@@ -19,4 +19,4 @@ You are almost there!
 
 If you are trying to use Azure AD as the identity provider for an app then you are in the right place. You just need to add it to your Azure AD tenant. To learn how to do this, follow the quickstart series here: [View apps in your Azure AD tenant](view-applications-portal.md).
 
-If you are trying to install an app on your local computer or mobile device then you are in the wrong place. The Azure Marketplace is designed for organizations. For personal computers and devices, check out the [Microsoft Apps store](https://www.microsoft.com/store/apps).
+If you are trying to install an app on your local computer or mobile device then you are in the wrong place. The Azure Marketplace is designed for organizations using apps with their Azure tenants. For personal computers and devices, check out the [Microsoft Apps store](https://www.microsoft.com/store/apps).
