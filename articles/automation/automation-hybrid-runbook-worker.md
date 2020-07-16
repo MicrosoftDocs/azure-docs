@@ -90,13 +90,7 @@ A machine configured this way is not registered with any Hybrid Runbook Worker g
 
 ### Update Management addresses for Hybrid Runbook Worker
 
-On top of the standard addresses and ports that the Hybrid Runbook Worker requires, Update Management needs the addresses in the next table. Communication to these addresses uses port 443.
-
-|Azure Public  |Azure Government  |
-|---------|---------|
-|`*.ods.opinsights.azure.com`     | `*.ods.opinsights.azure.us`         |
-|`*.oms.opinsights.azure.com`     | `*.oms.opinsights.azure.us`        |
-|`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
+On top of the standard addresses and ports required for the Hybrid Runbook Worker, Update Management has additional network configuration requirements described under the [network planning](automation-update-management.md#ports) section.
 
 ## Azure Automation State Configuration on a Hybrid Runbook Worker
 
@@ -119,4 +113,5 @@ Since they access non-Azure resources, runbooks running on a Hybrid Runbook Work
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
 * To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/hybrid-runbook-worker.md#general).
