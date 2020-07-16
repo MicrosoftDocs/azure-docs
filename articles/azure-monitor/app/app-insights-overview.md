@@ -53,7 +53,7 @@ There are plenty of ways to explore your data. Check out these articles:
 | [**Metrics Explorer for aggregated data**](../../azure-monitor/platform/metrics-charts.md)<br/>Explore, filter, and segment aggregated data such as rates of requests, failures, and exceptions; response times, page load times. |![Metrics](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboards**](../../azure-monitor/app/overview-dashboard.md)<br/>Mash up data from multiple resources and share with others. Great for multi-component applications, and for continuous display in the team room. |![Dashboards sample](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](../../azure-monitor/app/live-stream.md)<br/>When you deploy a new build, watch these near-real-time performance indicators to make sure everything works as expected. |![Live metrics sample](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analytics**](../../azure-monitor/app/analytics.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
+| [**Analytics**](../log-query/log-query-overview.md)<br/>Answer tough questions about your app's performance and usage by using this powerful query language. |![Analytics sample](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>See performance data in the code. Go to code from stack traces.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Snapshot debugger**](../../azure-monitor/app/snapshot-debugger.md)<br/>Debug snapshots sampled from live operations, with parameter values.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>Integrate usage metrics with other business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
@@ -123,7 +123,7 @@ Get started at development time with:
 ## Support and feedback
 * Questions and Issues:
   * [Troubleshooting][qna]
-  * [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+  * [Microsoft Q&A question page](/answers/topics/azure-monitor.html)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Your suggestions:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
@@ -142,5 +142,5 @@ Get started at development time with:
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ../../azure-monitor/app/platforms.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
