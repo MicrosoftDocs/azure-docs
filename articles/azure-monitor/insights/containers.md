@@ -101,11 +101,11 @@ Use the following information to install and configure the solution.
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Review Use Helm to deploy Log Analytics agent on Linux Kubernetes.
-     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Azure Monitor](/previous-versions/azure/container-service/dcos-swarm/container-service-monitoring-oms).
      - If you have a Docker Swarm mode environment, learn more at Configure an Log Analytics agent for Docker Swarm.
      - If you have a Service Fabric cluster, learn more at [Monitor containers with Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
-Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
+Review the [Docker Engine on Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
 > [!IMPORTANT]
 > Docker must be running **before** you install the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) on your container hosts. If you've already installed the agent before installing Docker, you need to reinstall the Log Analytics agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
@@ -501,7 +501,7 @@ dockerd --register-service -H npipe:// -H 0.0.0.0:2375
 Start-Service docker
 ```
 
-For more information about the Docker daemon configuration used with Windows Containers, see [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+For more information about the Docker daemon configuration used with Windows Containers, see [Docker Engine on Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 #### Install Windows agents
 

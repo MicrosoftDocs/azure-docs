@@ -25200,8 +25200,7 @@
       "source_path": "articles/virtual-machines/linux-isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
-    },
-    {
+    },    {
       "source_path": "articles/virtual-machines/windows/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
@@ -26110,7 +26109,7 @@
       "source_path": "articles/virtual-machines/windows/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/virtual-machines/linux/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
@@ -49804,6 +49803,11 @@
       "source_path": "articles/lab-services/enable-browser-connection-on-lab-virtual-machines.md",
       "redirect_url": "/azure/devtest-labs/enable-browser-connection-on-lab-virtual-machines",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/devtest-labs/enable-browser-connection-on-lab-virtual-machines.md",
+      "redirect_url": "/azure/devtest-labs/enable-browser-connection-lab-virtual-machines",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/lab-services/enable-managed-identities-lab-vms.md",

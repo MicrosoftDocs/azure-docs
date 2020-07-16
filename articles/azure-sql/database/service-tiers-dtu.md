@@ -28,7 +28,7 @@ Service tiers in the DTU-based purchase model are differentiated by a range of c
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
 
-|Basic|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
 |Target workload|Development and production|Development and production|Development and production|
 |Uptime SLA|99.99%|99.99%|99.99%|
