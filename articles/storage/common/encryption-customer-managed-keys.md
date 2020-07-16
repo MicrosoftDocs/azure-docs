@@ -49,6 +49,8 @@ When you enable or disable customer managed keys, or when you modify the key or 
 
 Customer-managed keys can enabled only on existing storage accounts. The key vault must be configured with access policies that grant permissions to the managed identity that is associated with the storage account. The managed identity is available only after the storage account is created.
 
+You can switch between customer-managed keys and Microsoft-managed keys at any time. For more information about Microsoft-managed keys, see [About encryption key management](storage-service-encryption.md#about-encryption-key-management).
+
 To learn how to use customer-managed keys with Azure Key Vault for Azure Storage encryption, see one of these articles:
 
 - [Configure customer-managed keys with Key Vault for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
