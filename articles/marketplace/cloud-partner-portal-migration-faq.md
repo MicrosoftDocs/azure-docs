@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: anbene
 ms.author: mingshen
-ms.date: 06/29/2020
+ms.date: 07/14/2020
 ---
 
 # Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center
@@ -25,7 +25,7 @@ You can continue doing business as usual in Partner Center:
 | New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
 | Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](partner-center-portal/get-paid.md). |
 | API integrations with existing [Cloud Partner Portal APIs](cloud-partner-portal-api-overview.md) | Existing Cloud Partner Portal APIs are still supported and your existing integrations still work. Learn more at [Will the Cloud Partner Portal REST APIs be supported?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
+| Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. There are differences between how analytics reports display in CPP and Partner Center. For example, **Seller Insights** in CPP has an **Orders & Usage** tab which displays data for usage-based offers and non-usage-based offers, while in Partner Center the **Orders** page has a separate tab for SaaS Offers. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## Do I need to create a new account to manage my offers in Partner Center?
@@ -45,6 +45,19 @@ Following are Partner Center links for pages commonly used in the Cloud Partner 
 | History page | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | The History feature is not yet supported in Partner Center. |
 | Insights dashboard | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
 | Payout report | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
+
+## Payout report differences
+
+These are the differences in the payout report between the retired Cloud Partner Portal and the current Partner Center:
+
+| Cloud Partner Portal | Partner Center |
+| --- | --- |
+| **Link**: https://cloudpartner.azure.com/ | **Link**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory and https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navigation**: Payout reporting provided in Insights Payout | **Navigation**: Payout reporting provided in Partner Center – Payout Icon |
+| **Scope**:<ul><li>Transaction per line item is visible, for collection in progress, collected, and paid.</li><li>Reporting – shows all line items once purchase order is created, including collection in progress and billing in progress, and collection status and line items that are not yet eligible to be paid.</li></ul> | **Scope**:<ul><li>Shows the line items after they're deemed as eligible earnings.</li><li>The customers pay to Microsoft first, and then ISVs can see the payout report starting.</li><li>Payout report won't show collection in progress and billing in Progress.</li></ul> |
+| **Transaction not ready for payout**: Billing in Progress | **Transaction not ready for payout**: Next estimated payment: The payout status is in the unprocessed state. |
+| **Payout status**: n/a | **Payout status**:<ul><li>Unprocessed: The earning is eligible for payment.</li><li>Upcoming: The earning will be sent to the publisher in the next monthly payout.</li><li>Sent: The payment has been sent to your bank.</li></ul> |
 |||
 
 ## What about offers I published in the Cloud Partner Portal?

@@ -69,3 +69,5 @@ The licensing fees charged for SQL Server or Oracle are constrained to the new v
 | Standard_DS13-2_v2  | 2    | Same as DS13_v2 |
 | Standard_DS14-8_v2  | 8    | Same as DS14_v2 |
 | Standard_DS14-4_v2  | 4    | Same as DS14_v2 |
+| Standard_M416-208s_v2 | 208    | Same as M416s_v2|
+| Standard_M416-208ms_v2 | 208    | Same as M416ms_v2 |
