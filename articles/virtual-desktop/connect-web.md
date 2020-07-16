@@ -10,7 +10,7 @@ ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the web client
+# Connect to Windows Virtual Desktop with the web client
 
 >[!IMPORTANT]
 >This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-web-2019.md).
