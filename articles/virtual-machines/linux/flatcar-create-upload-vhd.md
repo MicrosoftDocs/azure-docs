@@ -8,7 +8,7 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 07/16/2020
 ms.reviewer: cynthn
-e
+
 ---
 # Using a prebuilt Flatcar image for Azure
 
