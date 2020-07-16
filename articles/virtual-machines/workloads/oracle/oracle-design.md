@@ -47,7 +47,7 @@ The following table lists some of the differences between an on-premises impleme
 > | **Resilience** |MTBF (mean time between failures) |MTTR (mean time to recovery)|
 > | **Planned maintenance** |Patching/upgrades|[Availability sets](../../windows/infrastructure-example.md) (patching/upgrades managed by Azure) |
 > | **Resource** |Dedicated  |Shared with other clients|
-> | **Regions** |Datacenters |[Region pairs](/azure/virtual-machines/windows/regions#region-pairs)|
+> | **Regions** |Datacenters |[Region pairs](../../regions.md#region-pairs)|
 > | **Storage** |SAN/physical disks |[Azure-managed storage](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Scale** |Vertical scale |Horizontal scale|
 
