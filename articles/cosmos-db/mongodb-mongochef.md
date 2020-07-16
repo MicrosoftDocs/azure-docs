@@ -57,25 +57,29 @@ To create a database, collection, and documents using Studio 3T, perform the fol
     :::image type="content" source="./media/mongodb-mongochef/AddDocument1.png" alt-text="Screenshot of the Studio 3T Add Document menu item":::
 5. In the Add Document dialog, paste the following and then click **Add Document**.
 
-        {
+    ```json
+    {
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-               { "firstName": "Thomas" },
-               { "firstName": "Mary Kay"}
+            { "firstName": "Thomas" },
+            { "firstName": "Mary Kay"}
         ],
         "children": [
-           {
-               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-               "pets": [{ "givenName": "Fluffy" }]
-           }
+            {
+                "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+                "pets": [{ "givenName": "Fluffy" }]
+            }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
-        }
+    }
+    ```
+    
 6. Add another document, this time with the following content:
 
-        {
+    ```json
+    {
         "_id": "WakefieldFamily",
         "parents": [
             { "familyName": "Wakefield", "givenName": "Robin" },
@@ -84,7 +88,7 @@ To create a database, collection, and documents using Studio 3T, perform the fol
         "children": [
             {
                 "familyName": "Merriam",
-                 "givenName": "Jesse",
+                "givenName": "Jesse",
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -93,13 +97,15 @@ To create a database, collection, and documents using Studio 3T, perform the fol
             },
             {
                 "familyName": "Miller",
-                 "givenName": "Lisa",
-                 "gender": "female",
-                 "grade": 8 }
+                "givenName": "Lisa",
+                "gender": "female",
+                "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
-        }
+    }
+    ```
+
 7. Execute a sample query. For example, search for families with the last name 'Andersen' and return the parents and state fields.
 
     :::image type="content" source="./media/mongodb-mongochef/QueryDocument1.png" alt-text="Screenshot of Mongo Chef query results":::

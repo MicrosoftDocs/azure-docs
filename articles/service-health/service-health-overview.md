@@ -17,7 +17,7 @@ Service Health tracks four types of health events that may impact your resources
 1. **Service issues** - Problems in the Azure services that affect you right now. 
 2. **Planned maintenance** - Upcoming maintenance that can affect the availability of your services in the future.  
 3. **Health advisories** - Changes in Azure services that require your attention. Examples include deprecation of Azure features or upgrade requirements (e.g upgrade to a supported PHP framework).
-4. **Security advisories (preview)** - Security related notifications that may affect the availability of your Azure services.
+4. **Security advisories** - Security related notifications or violations that may affect the availability of your Azure services.
 
 > [!NOTE]
 > To view Service Health events, users must be [granted the Reader role](../role-based-access-control/role-assignments-portal.md) on a subscription.
@@ -32,11 +32,11 @@ To launch your Service Health dashboard, select the Service Health tile on your 
 
 The **Service issues** view shows any ongoing problems in Azure services that are impacting your resources. You can understand when the issue began, and what services and regions are impacted. You can also read the most recent update to understand what Azure is doing to resolve the issue. 
 
-![Manage service issue](./media/service-health-overview/azure-service-health-overview-2.png)
+[![Manage service issue](./media/service-health-overview/azure-service-health-overview-2.png)](./media/service-health-overview/azure-service-health-overview-2.png#lightbox)
 
 Choose the **Potential impact** tab to see the specific list of resources you own that might be impacted by the issue. You can download a CSV list of these resources to share with your team.
 
-![Manage service issue - Impact](./media/service-health-overview/azure-service-health-overview-4.png)
+[![Manage service issue - Impact](./media/service-health-overview/azure-service-health-overview-4.png)](./media/service-health-overview/azure-service-health-overview-4.png#lightbox)
 
 ## See emerging issues which may impact your services
 
@@ -48,7 +48,7 @@ There are situations when widespread service issues may be posted to the [Azure 
 
 You can get a link for the issue to use in your problem management system. You can download PDF and sometimes CSV files to share with people who don't have access to the Azure portal.   
 
-![Manage service issue - Problem management](./media/service-health-overview/azure-service-health-overview-3.png)
+[![Manage service issue - Problem management](./media/service-health-overview/azure-service-health-overview-3.png)](./media/service-health-overview/azure-service-health-overview-3.png#lightbox)
 
 ## Get support from Microsoft
 
@@ -58,7 +58,7 @@ Contact support if your resource is left in a bad state even after the issue is 
 
 Filter Service Health to show your business-critical subscriptions, regions, and resource types. Save the filter and pin a personalized health world map to your portal dashboard. 
 
-![Filter personalized health map](./media/service-health-overview/azure-service-health-overview-6a.png)
+[![Filter personalized health map](./media/service-health-overview/azure-service-health-overview-6a.png)](./media/service-health-overview/azure-service-health-overview-6a.png#lightbox)
 
 ![Pin a personalized health map](./media/service-health-overview/azure-service-health-overview-6b.png)
 

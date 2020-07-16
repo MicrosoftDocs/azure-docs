@@ -25,19 +25,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Set up an Azure Digital Twins instance
 
-Next, run the following commands to create a new Azure resource group for use in this how-to, and then create a new instance of Azure Digital Twins in this resource group.
+Next, you will create a new Azure resource group for use in this how-to. Then, you can **create a new instance of Azure Digital Twins** inside that resource group. 
+
+You'll also need to provide a name for your instance and choose a region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+
+>[!NOTE]
+> The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll have to pick a different name).
+
+Create the resource group and the instance with the following commands:
 
 ```azurecli
 az group create --location <region> --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
-
-> [!TIP]
-> To output a list of Azure region names that can be passed into commands in the Azure CLI, run this command:
-> ```azurecli
-> az account list-locations -o table
-> ```
-> To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
 The result of these commands looks something like this, outputting information about the resources you've created:
 

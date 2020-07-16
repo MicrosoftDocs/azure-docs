@@ -18,7 +18,7 @@ Azure Media Player is easy to set up. It only takes a few moments to get basic p
 With Azure Media Player, you can access the scripts from the CDN hosted version. It's often recommended now to put JavaScript before the end body tag `<body>` instead of the `<head>`, but Azure Media Player includes an 'HTML5 Shiv', which needs to be in the head for older IE versions to respect the video tag as a valid element.
 
 > [!NOTE]
-> If you're already using an HTML5 shiv like [Modernizr](http://modernizr.com/) you can include the Azure Media Player JavaScript anywhere. However make sure your version of Modernizr includes the shiv for video.
+> If you're already using an HTML5 shiv like [Modernizr](https://modernizr.com/) you can include the Azure Media Player JavaScript anywhere. However make sure your version of Modernizr includes the shiv for video.
 
 ### CDN Version ###
     <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">

@@ -82,11 +82,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
     In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://<subdomain>.globalview.adp.com/federate`|
-	| `https://<subdomain>.globalview.adp.com/federate2`|
-	| |
+    ```https
+    https://<subdomain>.globalview.adp.com/federate
+    https://<subdomain>.globalview.adp.com/federate2
+    ```
+
 
 	> [!NOTE]
 	> This value is not real. Update the value with the actual Identifier. Contact [ADP Globalview Client support team](https://www.adp.com/contact-us/overview.aspx) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

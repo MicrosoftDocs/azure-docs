@@ -148,7 +148,7 @@ In this example, this connection string specifies explicit overrides for every s
 Connection Strings are supported in the following SDK versions:
 - .NET and .NET Core v2.12.0
 - Java v2.5.1 and Java 3.0
-- Javascript v2.3.0
+- JavaScript v2.3.0
 - NodeJS v1.5.0
 - Python v1.0.0
 
@@ -164,7 +164,7 @@ A connection string can be set by either in code, environment variable, or confi
 
 TelemetryConfiguration.ConnectionString: https://github.com/microsoft/ApplicationInsights-dotnet/blob/add45ceed35a817dc7202ec07d3df1672d1f610d/BASE/src/Microsoft.ApplicationInsights/Extensibility/TelemetryConfiguration.cs#L271-L274
 
-.Net Explicitly Set:
+.NET Explicitly Set:
 ```csharp
 var configuration = new TelemetryConfiguration
 {
@@ -172,7 +172,7 @@ var configuration = new TelemetryConfiguration
 };
 ```
 
-.Net Config File:
+.NET Config File:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -181,6 +181,14 @@ var configuration = new TelemetryConfiguration
 </ApplicationInsights>
 ```
 
+NetCore Explicitly Set:
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    var options = new ApplicationInsightsServiceOptions { ConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;" };
+    services.AddApplicationInsightsTelemetry(options: options);
+}
+```
 
 NetCore config.json: 
 
@@ -211,7 +219,7 @@ ApplicationInsights.xml
 
 # [JavaScript](#tab/js)
 
-Important: Javascript doesn't support the use of Environment Variables.
+Important: JavaScript doesn't support the use of Environment Variables.
 
 Using the snippet:
 

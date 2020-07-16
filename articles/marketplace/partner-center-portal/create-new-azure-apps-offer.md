@@ -34,7 +34,7 @@ Review the following resources as you prepare your Azure application offer for t
 * Quickstarts:
 
     * [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/)
-    * [GitHub Azure Quickstart templates](https://github.com/azure/azure-quickstart-templates)
+    * [Azure templates best practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
     * [Publish application definition](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Deploy service catalog app](https://docs.microsoft.com/azure/managed-applications/deploy-service-catalog-quickstart)
 
@@ -421,10 +421,14 @@ You can configure each plan to be visible to everyone or to only a specific audi
 
 Select **This is a private plan** to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone; it cannot be reconfigured as a private plan.
 
+>[!Note]
+>A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
+
 If you make the plan private, enter an **Azure subscription IDs** and its description. Each is an audience that will have access to this private plan. Access is assigned using Azure subscription IDs with the option to include a description of each Azure subscription ID assigned. Add up to 10 customers subscription IDs individually, or 20,000 by importing a CSV file. Azure subscription IDs are represented as GUIDs and letters must be lowercase.
 
 >[!Note]
->A private or restricted audience is different from the preview audience you defined on the **Preview** tab. A preview audience can access your offer _before_ its published live in the marketplace. While the private audience choice only applies to a specific plan, the preview audience can view all plans (private or not) for validation purposes.
+>Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
+
 
 ### Technical configuration 
 

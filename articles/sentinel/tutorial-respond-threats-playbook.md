@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Run a playbook in Azure Sentinel'
-description: 'Tutorial: This article describes how to run a playbook in Azure Sentinel.'
+description: Use this tutorial to help you use security playbooks in Azure Sentinel to set automated threat responses to security-related issues.
 services: sentinel
 documentationcenter: na
 author: yelevin

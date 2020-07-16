@@ -3,11 +3,10 @@ title: Service-to-service authentication to Azure Key Vault using .NET
 description: Use the Microsoft.Azure.Services.AppAuthentication library to authenticate to Azure Key Vault using .NET.
 keywords: azure key-vault authentication local credentials
 author: msmbaldwin
-manager: rkarlin
 services: key-vault
 
 ms.author: mbaldwin
-ms.date: 08/28/2019
+ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
@@ -15,6 +14,9 @@ ms.subservice: general
 ---
 
 # Service-to-service authentication to Azure Key Vault using .NET
+
+> ![NOTE]
+> The authentication methods documented in this article are no longer considered best practices. We encourage you to adopt the updated authentication methods in [How to authenticate to Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication).
 
 To authenticate to Azure Key Vault, you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
 

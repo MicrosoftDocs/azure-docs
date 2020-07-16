@@ -39,7 +39,7 @@ Instead of creating a service principal, consider using managed identities for A
 
 If you're creating an Azure AD app and service principal, the app has to be in its own tenant. After you create the app, give the app **Contributor** or **Owner** role access to the Media Services account.
 
-If you're not sure whether you have permissions to create an Azure AD app, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+If you're not sure whether you have permissions to create an Azure AD app, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 In the following figure, the numbers represent the flow of the requests in chronological order:
 

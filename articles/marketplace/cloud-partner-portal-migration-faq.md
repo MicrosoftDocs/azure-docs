@@ -1,151 +1,169 @@
 ---
-title: Common questions about the migration to Partner Center - Microsoft commercial marketplace
-description: Answers to commonly asked questions about the migration of offers from Cloud Partner Portal to Partner Center.
+title: Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center - Microsoft commercial marketplace
+description: Answers to commonly asked questions about transitioning offers from Cloud Partner Portal to Partner Center.
 author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: article
+ms.date: 06/29/2020
 ms.author: mingshen
 ---
 
-# Common questions about migrating from the Cloud Partner Portal to Partner Center
+# Frequently asked questions about transitioning from the Cloud Partner Portal to Partner Center
 
-This article addresses commonly asked questions about the migration of offers from the Cloud Partner Portal to Partner Center.
+The Cloud Partner Portal has transitioned to Partner Center. Partner Center offers a streamlined, integrated experience for publishing new offers on [Microsoft AppSource](https://appsource.microsoft.com/) or [Azure Marketplace](https://azuremarketplace.microsoft.com/) and for managing existing offers that were migrated from the Cloud Partner Portal. All the functions of the Cloud Partner Portal are available in Partner Center. This article addresses commonly asked questions about this.
 
-## What does offer migration mean?
+## What does the transition to Partner Center mean for me?
 
-We are moving your offer data from the Cloud Partner Portal to Partner Center with changes in the offer publishing and management experience.
+You can continue doing business as usual in Partner Center:
 
-| Area  | Changes  |
-|-------|----------|
-| **Publishing and offer management experience** | You'll have an improved user experience with an intuitive interface in Partner Center. For more details, see [What are the differences between Partner Center and the Cloud Partner Portal?](#what-are-the-differences-between-partner-center-and-the-cloud-partner-portal) |
-| **Availability of your offers in the marketplace** | No changes. If your offer is live in the marketplace it will continue to be live during and after the migration is completed. |
-| **New purchases and deployments** | No changes. Your customers will continue to be able to purchase and deploy your offers with no interruptions. |
-| **Payouts** | Any purchases and deployments that occur during or after the migration will continue to be paid out to you as normal. |
-|**API integrations with existing [Cloud Partner Portal APIs](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview)** | Existing Cloud Partner Portal APIs will continue to be supported after the migration and your existing integrations will continue to work. For more details, see [Will the Cloud Partner Portal REST APIs be supported post-migration?](#will-the-cloud-partner-portal-rest-apis-be-supported-post-migration) |
-| | |
+| Area<img src="" width=200px> | Changes |
+| --- | --- |
+| Account | No need to create a new Partner Center account; you can use your existing Cloud Partner Portal credentials to log into Partner Center where you will now manage your account, users, permissions, and billing. The publishing agreement and company profile information are migrated to your new Partner Center account, along with any payout profile information, user accounts and permissions, and active offers. Learn more at [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md). |
+| Offer publishing and offer management experience | We've moved your offer data from the Cloud Partner Portal to Partner Center. You will now access your offers in Partner Center, which offers an improved user experience and intuitive interface. Learn how to [Update an existing offer in the Commercial Marketplace](partner-center-portal/update-existing-offer.md). |
+| Availability of your offers in the commercial marketplace | No changes. If your offer is live in the commercial marketplace it will continue to be live. |
+| New purchases and deployments | No changes. Your customers can continue purchasing and deploying your offers with no interruptions. |
+| Payouts | Any purchases and deployments will continue to be paid out to you as normal. Learn more about [Getting paid in the commercial marketplace](partner-center-portal/get-paid.md). |
+| API integrations with existing [Cloud Partner Portal APIs](cloud-partner-portal-api-overview.md) | Existing Cloud Partner Portal APIs are still supported and your existing integrations still work. Learn more at [Will the Cloud Partner Portal REST APIs be supported?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
+| Analytics | You can continue to monitor sales, evaluate performance, and optimize your offers in the commercial marketplace by viewing analytics in Partner Center. Learn more at [Access analytic reports for the commercial marketplace in Partner Center](partner-center-portal/analytics.md). |
+|||
 
-## Can I still access the Cloud Partner Portal and manage my offers during migration?
+## Do I need to create a new account to manage my offers in Partner Center?
 
-All offers have been migrated to Partner Center. The migration period for each offer should have been less than 24 hours. After your offer was migrated, you should have received an email notification.
-
-After your offers are migrated, they will be in read-only mode **for a limited period of time** in the Cloud Partner Portal. Their status will show "Moved to Partner Center" and include a link to your offer in Partner Center, as shown in the following screenshots. From this point, you'll manage updates to all your offers or create new offers exclusively through Partner Center,
-
-:::image type="content" source="media/migration-faq/all-offers-2.png" alt-text="Illustrates the message given for offers that have been migrated to Partner Center":::
-
-:::image type="content" source="media/migration-faq/offer-has-moved.png" alt-text="Illustrates the Cloud Partner Portal page for a migrated offer.":::
-
-## How will I create new offers?
-
-From the Cloud Partner Portal, you'll be directed to create new offers in Partner Center
-
-:::image type="content" source="media/migration-faq/create-new-offer-1.png" alt-text="Illustrates the menu to create a new offer in Cloud Partner Portal":::
-
-After you select a new offer, you'll see a message, such as the following.
-
-:::image type="content" source="media/migration-faq/create-new-offer-2.png" alt-text="Illustrates the message received when creating a new offer in CPP":::
-
-## Do I need to create a new account to manage offers in Partner Center?
-
-No. Your underlying account will be preserved, and you should already be managing it in Partner Center. This means that if you're an existing partner, you can use your existing Cloud Partner Portal account credentials to log into Partner Center post-migration. Only offers and the associated management experience are moving from the Cloud Partner Portal to Partner Center. We ask that you don't create any new accounts as your offers won't be associated with the new account.
-
-## I see a message in the Cloud Partner Portal to activate my account, what does this mean?
-
-We need a few more details from you in order to properly migrate your account to Partner Center and enable you to manage your offers in Partner Center after the offer migration is complete. For more details about account activation, see [Account migration from Cloud Partner Portal to Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc).
-
-The steps required to complete the account activation vary based on your account role.
-
-| Account role | Activation steps |
-|--------------|----------------|
-|Owner | Go to the [Publisher Profile](https://cloudpartner.azure.com/#profile) page in the Cloud Partner Portal and then click the link in the banner to activate. You'll be redirected to Partner Center to complete the account activation. |
-| Contributor | Only a user in the account with an owner role can activate the account. Contact your account owners to complete the account activation. Your account owners should be listed in the banner message. |
-| | |
-
-## I'm having trouble logging in to my account and opening a support ticket
-
-If you can't log in to your account, you can open a [support ticket](https://partner.microsoft.com/support/v2/?stage=1).
-
-## Where can I find documentation on the new Partner Center publishing experience?
-
-Go to the [commercial marketplace documentation](https://docs.microsoft.com/azure/marketplace/). Then expand **Commercial Marketplace Portal in Partner Center**  > **Create a new offer** to see the help topics for creating each type of offer.
-
-:::image type="content" source="media/migration-faq/marketplace-help-topics.png" alt-text="Illustrates the help topics for Partner Center":::
-
-### What are the differences between Partner Center and the Cloud Partner Portal?
-
-You might notice the following differences between the Cloud Partner Portal and Partner Center.
-
-### Modular publishing capabilities
-
-Partner Center provides a modular publishing option that lets you select the changes you want to publish instead of always publishing all updates at once. For example, the following screenshot shows that the only changes selected to be published are the changes to **Properties** and **Offer Listing**.
-
-:::image type="content" source="media/migration-faq/review-and-publish-migration.png" alt-text="Illustrates the Preview and Publish page":::
-
-The updates that you don't publish are saved as drafts. Continue to use your offer preview to verify your offer before making it live to the public.
-
-### Rich text format
-
-Enhance your offer and plan description using the Rich Text Editor on the Offer Listing and Plan Listing page.
-
-:::image type="content" source="media/migration-faq/rich-text-editor-migration.png" alt-text="Illustrates the rich text editor":::
-
-### Enhanced preview options
-
-Partner Center includes a [compare feature](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#compare-changes-to-marketplace-offers) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
-
-:::image type="content" source="media/migration-faq/enhanced-preview.png" alt-text="Illustrates the compare feature":::
-
-### Branding and navigation changes
-
-You'll notice some branding changes. For example, "SKUs" are branded as "Plans" in Partner Center.
-
-:::image type="content" source="media/migration-faq/plan-overview-migration.png" alt-text="Illustrates the plan overview.":::
-
-Also, the information you used to provide in the **Marketplace** or S**torefront Details** (Consulting Service, Power BI app) pages in the Cloud Partner Portal is collected in the **Offer listing** page in Partner Center.
-
-:::image type="content" source="media/migration-faq/offer-listing-migration.png" alt-text="Illustrates the offer listing page.":::
-
-The information you used to provide for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
-
-* Plan set up page
-* Plan listing page
-* Plan availability page
-* Plan technical configuration page, as shown in this screenshot.
-
-:::image type="content" source="media/migration-faq/tech-config-migration.png" alt-text="Illustrates the Plan technical configuration page.":::
-
-Your offer ID is now shown on the left-navigation bar of the offer.
-
-:::image type="content" source="media/migration-faq/offer-id-offer-overview.png" alt-text="Illustrates the left navigation menu with the offer ID.":::
-
-### Stop selling an offer
-
-You can request to [stop selling an offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
-
-:::image type="content" source="media/migration-faq/stop-selling-migration.png" alt-text="Illustrates the Offer Overview page with the stop selling option.":::
+No, your account will be preserved. This means that if you're an existing partner, you can use your existing Cloud Partner Portal account credentials to sign in to Partner Center. Don't create a new account or any offers created in Cloud Partner Portal and moved to Partner Center won't be associated with it.
 
 ## What pages in Partner Center correspond to pages I used in the Cloud Partner Portal?
 
-The following table shows corresponding links between the two portals.
+Following are Partner Center links for pages commonly used in the Cloud Partner Portal. If you saved the Cloud Partner Portal links as bookmarks, you'll want to update them.
 
-| Page | Cloud Partner Portal link | Partner Center link |
-|------|---------------------------|---------------------|
-| **All offers page** | https://cloudpartner.azure.com/#alloffers | https://partner.microsoft.com/dashboard/commercial-marketplace/overview |
-| **All publishers page** | https://cloudpartner.azure.com/#publishers | https://partner.microsoft.com/dashboard/account/v3/publishers/list |
-| **Publisher profile** | https://cloudpartner.azure.com/#profile | https://partner.microsoft.com/dashboard/account/management |
-| **Users page** | https://cloudpartner.azure.com/#users | https://partner.microsoft.com/dashboard/account/usermanagement |
-| **History page** | https://cloudpartner.azure.com/#history | The History feature is not yet supported in Partner Center. |
-| **Insights dashboard** | https://cloudpartner.azure.com/#insights | https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary |
-| **Payout report** | https://cloudpartner.azure.com/#insights/payout | https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
-| | |
+| Cloud Partner Portal page <img src="" width=100px>| Cloud Partner Portal page link | Partner Center page link |
+| --- | --- | --- |
+| All offers page | [https://cloudpartner.azure.com/#alloffers](https://cloudpartner.azure.com/#alloffers) | [https://partner.microsoft.com/dashboard/commercial-marketplace/overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) |
+| All publishers page | [https://cloudpartner.azure.com/#publishers](https://cloudpartner.azure.com/#publishers) | [https://partner.microsoft.com/dashboard/account/v3/publishers/list](https://partner.microsoft.com/dashboard/account/v3/publishers/list) |
+| Publisher profile | [https://cloudpartner.azure.com/#profile](https://cloudpartner.azure.com/#profile) | [https://partner.microsoft.com/dashboard/account/management](https://partner.microsoft.com/dashboard/account/management) |
+| Users page | [https://cloudpartner.azure.com/#users](https://cloudpartner.azure.com/#users) | [https://partner.microsoft.com/dashboard/account/usermanagement](https://partner.microsoft.com/dashboard/account/usermanagement) |
+| History page | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | The History feature is not yet supported in Partner Center. |
+| Insights dashboard | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
+| Payout report | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
 
-## Will the Cloud Partner Portal REST APIs be supported post-migration?
+## What about offers I published in the Cloud Partner Portal?
 
-The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work after your offers are migrated to Partner Center. The integration introduces small changes. Review the changes in the table below to ensure your code continues to work after the migration to Partner Center.
+The offers were moved to Partner Center and will be accessible to you after you sign in to Partner Center, with the exception of Dynamics Nav Managed Service and Cortana Intelligence offers. If your offer was live in the commercial marketplace, it will continue to be live and your customers will continue to be able to purchase and deploy it without interruptions. See the next question, **What offers were moved to Partner Center?**, for more details.
 
-| **API** | **Change description** | **Impact** |
-| ------- | ---------------------- | ---------- |
-| POST Publish, GoLive, Cancel | For migrated offers, the response header will have a different format but will continue to work in the same way, denoting a relative path to retrieve the operation status. | When sending any of the corresponding POST requests for an offer, the Location header will have one of two format depending on the migration status of the offer:<ul><li>Non-migrated offers<br>`/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrated offers<br>`/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li> |
-| GET Operation | For offers that previously supported 'notification-email' field in the response, this field will be deprecated and no longer returned for migrated offers. | For migrated offers, we'll no longer send notifications to the list of emails specified in the requests. Instead, the API service will align with the notification email process in Partner Center to send emails. Specifically, notifications will be sent to the email address set in the Seller contact info section of your Account settings in Partner Center, to notify you of operation progress.<br><br>Review the email address set in the Seller contact info section in the [Account settings](https://partner.microsoft.com/dashboard/account/management) in Partner Center to ensure the correct email is provided for notifications.  |
-| | | |
+## What offers were moved to Partner Center?
+
+All offer types previously supported in the Cloud Partner Portal are supported in Partner Center, with the exception of Dynamics Nav Managed Service and Cortana Intelligence offers.
+
+For the offer types supported in Partner Center, all offers were moved regardless of their status; draft, de-listed, and preview-only offers also moved.
+
+| Offer type <img src="" width=150px>| Moved to Partner Center? <img src="" width=100px>| Next steps |
+| --- | --- | --- |
+| SaaS | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a new SaaS offer in the commercial marketplace](partner-center-portal/create-new-saas-offer.md). |
+| Virtual Machine | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure virtual machine offer on Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| Azure application | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure application offer](partner-center-portal/create-new-azure-apps-offer.md). |
+| Dynamics 365 Business Central | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md). |
+| Dynamics 365 for Customer Engagement & PowerApps | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Customer Engagement & PowerApps offer](partner-center-portal/create-new-customer-engagement-offer.md). |
+| Dynamics 365 for Operations | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Dynamics 365 for Operations offer](partner-center-portal/create-new-operations-offer.md). |
+| Power BI App | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Power BI app for AppSource](partner-center-portal/create-power-bi-app-offer.md). |
+| IoT Edge module | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create, configure, and publish an IoT Edge module offer in Azure Marketplace](partner-center-portal/azure-iot-edge-module-creation.md). |
+| Container | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create an Azure container offer](partner-center-portal/create-azure-container-offer.md). |
+| Consulting Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a consulting service offer](partner-center-portal/create-consulting-service-offer.md). |
+| Managed Service | Yes | Sign in to Partner Center to create new offers and manage offers that were created in Cloud Partner Portal. Learn more at [Create a Managed Service offer](partner-center-portal/create-new-managed-service-offer.md). |
+| Dynamics Nav Managed Service | No | Microsoft has evolved Dynamics NAV Managed Service into [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), so we de-listed Dynamics NAV Managed Service live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in AppSource, adapt them to Dynamics 365 Business Central offers and submit them in [Partner Center](https://partner.microsoft.com/). Learn more at [Create a Dynamics 365 Business Central offer](partner-center-portal/create-new-business-central-offer.md). |
+| Cortana Intelligence | No | Microsoft has evolved the product road map for Cortana Intelligence, so we de-listed Cortana Intelligence live offers from AppSource. These offers are no longer discoverable by customers and haven't been moved to Partner Center. To make your offers available in the commercial marketplace, adapt your offers to Software as a Service (SaaS) offers and submit them in [Partner Center](hhttps://partner.microsoft.com/). Learn more at [SaaS offer creation checklist in Partner Center](partner-center-portal/offer-creation-checklist.md). |
+
+## I can't find my Cloud Partner Portal offers in Partner Center
+
+What you see in Partner Center depends on the programs you are enrolled in, the accounts you belong to, and the user roles and permissions you have been assigned. There are many Partner Center programs available and you may be enrolled in multiple programs. You may also have access to multiple accounts with the same user credentials.
+
+The offers you created in Cloud Partner Portal are available in Partner Center under the **Commercial Marketplace** program and under the account used to create the offers. To make sure you are viewing the right program and the right account, follow the steps below. For other troubleshooting tips, see [Manage your Partner Center account](https://docs.microsoft.com/partner-center/partner-center-account-setup).
+
+### Access the right program in Partner Center
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with the same credentials used to sign into the Cloud Partner Portal. The navigation pane on the left displays options associated with the programs you are enrolled in.
+
+    Example: assume you have access to three programs: the MPN program, the Referrals program, and the Commercial Marketplace program. When you sign into Partner Center, you will see these three programs on the navigation pane.
+
+2. Select **Commercial Marketplace** > **Overview** to access your offers.
+
+    If you don't see the Commercial Marketplace program in the navigation pane on the left, you may be in the wrong account. Follow the steps in the next section to access the right account.
+
+    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
+
+### Access the right account in Partner Center
+
+If you are part of multiple accounts, in Partner center you will see an account picker button marked by two arrows in the navigation menu on the left. Select the account picker button to view a list of all the accounts you belong to. Select any account on the list to switch to it and see all the programs and information pertaining to that account. If you don't see an account picker button in the navigation menu, you are a member of a single account.
+
+[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+
+## How do I create new offers?
+
+Access the Commercial marketplace program in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to create new offers. On the Overview page, select **+ New offer**.
+
+[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+
+## I can't sign in and need to open a support ticket
+
+If you can't sign in to your account, you can open a [support ticket](https://partner.microsoft.com/support/v2/?stage=1) here.
+
+## Where are instructions for using Partner Center?
+
+Go to the [commercial marketplace documentation](https://docs.microsoft.com/azure/marketplace/), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
+
+## What are the publishing and offer management differences?
+
+Here are some differences between the Cloud Partner Portal and Partner Center.
+
+### Modular publishing capabilities
+
+Partner Center provides a modular publishing option that lets you select the changes you want to publish instead of always publishing all updates at once. For example, the following screen shows that the only changes selected to be published are the changes to **Properties** and  **Offer Listing**. The changes you make in the Preview page will not be published.
+
+[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
+
+The updates that you don't publish are saved as drafts. Continue to use your offer preview to verify your offer before making it live to the public.
+
+### Enhanced preview options
+
+Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
+
+[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
+
+### Branding and navigation changes
+
+You'll notice some branding changes. For example, *SKUs* are branded as *Plans* in Partner Center:
+
+[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
+
+Also, the information you previously provided in the **Marketplace** or **Storefront Details**  (Consulting Service, Power BI app) pages in the Cloud Partner Portal is now collected on the **Offer listing** page in Partner Center:
+
+[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+
+The information you previously provided for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
+
+- Plan set up page
+- Plan listing page
+- Plan availability page
+- Plan technical configuration page, as shown here:
+![![](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+
+Your offer ID is now shown on the left-navigation bar of the offer:
+
+![Shows the Partner Center Offer ID location](media/cpp-pc-faq/offer-id.png)
+
+### Stop selling an offer
+
+You can request to [stop selling an offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
+
+[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+<br><br>
+
+## Are the Cloud Partner Portal REST APIs still supported?
+
+The Cloud Partner Portal APIs are integrated with Partner Center and will continue to work. The transition to Partner Center introduces small changes. Review the table below to ensure your code continues to work in Partner Center.
+
+| API <img src="" width=100px>| Change description | Impact |
+| --- | --- | --- |
+| POST Publish, GoLive, Cancel | For migrated offers, the response header will have a different format but will continue to work in the same way, denoting a relative path to retrieve the operation status. | When sending any of the corresponding POST requests for an offer, the Location header will have one of two formats depending on the migration status of the offer: <ul><li>Non-migrated offers: `/api/operations/{PublisherId}${offerId}$2$preview?api-version=2017-10-31`</li><li>Migrated offers: `/api/publishers/{PublisherId}/offers/{offereId}/operations/408a4835-0000-1000-0000-000000000000?api-version=2017-10-31`</li></ul>|
+| GET Operation | For offers that previously supported a 'notification-email' field in the response, this field will be deprecated and no longer returned for migrated offers. | For migrated offers, we'll no longer send notifications to the list of emails specified in the requests. Instead, the API service will align with the notification email process in Partner Center to send emails. Specifically, notifications of operation progress will be sent to the email address set in the Seller contact info section of your account settings in Partner Center.<br><br>Ensure the email address set in the Seller contact info section in the [Account settings](https://partner.microsoft.com/dashboard/account/management) in Partner Center is correct to receive notifications. |
+|||

@@ -147,7 +147,7 @@ protected async override void OnAppearing()
 The following code snippet:
 
 1. Creates a `MemoryStream` of text.
-1. Uploads the text to a Blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) function of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, passing it both the filename defined the class level variable and the `MemoryStream` of text. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Uploads the text to a Blob by calling the [UploadAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.uploadblobasync?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_UploadBlobAsync_System_String_System_IO_Stream_System_Threading_CancellationToken_) function of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, passing it in both the filename and the `MemoryStream` of text. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the *MainPage.xaml.cs* file:
 

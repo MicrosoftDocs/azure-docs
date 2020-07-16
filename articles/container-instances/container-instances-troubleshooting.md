@@ -2,7 +2,7 @@
 title: Troubleshoot common issues
 description: Learn how to troubleshoot common issues when your deploy, run, or manage Azure Container Instances
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 06/25/2020
 ms.custom: mvc
 ---
 
@@ -12,19 +12,20 @@ This article shows how to troubleshoot common issues for managing or deploying c
 
 If you need additional support, see available **Help + support** options in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Issues during Container Group deployment
+## Issues during container group deployment
 ### Naming conventions
 
-When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information on Azure naming conventions, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center.
+When defining your container specification, certain parameters require adherence to naming restrictions. Below is a table with specific requirements for container group properties. For more information, see [Naming conventions][azure-name-restrictions] in the Azure Architecture Center and [Naming rules and restrictions for Azure resources][naming-rules].
 
 | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
 | --- | --- | --- | --- | --- | --- |
-| Container group name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Container name | 1-64 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Container name<sup>1</sup> | 1-63 |Lowercase | Alphanumeric, and hyphen anywhere except the first or last character |`<name>-<role>-container<number>` |`web-batch-container1` |
 | Container ports | Between 1 and 65535 |Integer |Integer between 1 and 65535 |`<port-number>` |`443` |
 | DNS name label | 5-63 |Case insensitive |Alphanumeric, and hyphen anywhere except the first or last character |`<name>` |`frontend-site1` |
 | Environment variable | 1-63 |Case insensitive |Alphanumeric, and underscore (_) anywhere except the first or last character |`<name>` |`MY_VARIABLE` |
-| Volume name | 5-63 |Case insensitive |Lowercase letters and numbers, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
+| Volume name | 5-63 |Lowercase |Alphanumeric, and hyphens anywhere except the first or last character. Cannot contain two consecutive hyphens. |`<name>` |`batch-output-volume` |
+
+<sup>1</sup>Restriction also for container group names when not specified independently of container instances, for example with `az container create` command deployments.
 
 ### OS version of image not supported
 
@@ -90,7 +91,7 @@ This error indicates that due to heavy load in the region in which you are attem
 * Deploy to a different Azure region
 * Deploy at a later time
 
-## Issues during Container Group runtime
+## Issues during container group runtime
 ### Container continually exits and restarts (no long-running process)
 
 Container groups default to a [restart policy](container-instances-restart-policy.md) of **Always**, so containers in the container group always restart after they run to completion. You may need to change this to **OnFailure** or **Never** if you intend to run task-based containers. If you specify **OnFailure** and still see continual restarts, there might be an issue with the application or script executed in your container.
@@ -223,6 +224,7 @@ Learn how to [retrieve container logs and events](container-instances-get-logs.m
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources
+[naming-rules]: ../azure-resource-manager/management/resource-name-rules.md
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore
@@ -230,4 +232,4 @@ Learn how to [retrieve container logs and events](container-instances-get-logs.m
 
 <!-- LINKS - Internal -->
 [az-container-show]: /cli/azure/container#az-container-show
-[list-cached-images]: /rest/api/container-instances/listcachedimages
+[list-cached-images]: /rest/api/container-instances/location/listcachedimages

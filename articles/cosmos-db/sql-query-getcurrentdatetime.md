@@ -21,7 +21,7 @@ GetCurrentDateTime ()
   
   Returns the current UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` where:
   
-  |||
+  |Format|Description|
   |-|-|
   |YYYY|four-digit year|
   |MM|two-digit month (01 = January, etc.)|

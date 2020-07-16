@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 6/30/2020
 ---
 
 # How to backup and restore a server in Azure Database for PostgreSQL - Single Server using the Azure portal
@@ -66,24 +66,49 @@ The new server created by point-in-time restore has the same server admin login 
 
 The new server created during a restore does not have the firewall rules or VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server.
 
-
 ## Geo restore
 
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for PostgreSQL**.
 
-   ![The "Azure Database for PostgreSQL" option](./media/howto-restore-server-portal/1-navigate-to-postgres.png)
+   :::image type="content" source="./media/howto-restore-server-portal/1-navigate-to-postgres.png" alt-text="Navigate to Azure Database for PostgreSQL.":::
 
-2. In the form's **Select Source** dropdown, choose **Backup**. This action loads a list of servers that have geo redundant backups enabled. Select one of these backups to be the source of your new server.
-   ![Select Source: Backup and list of geo redundant backups](./media/howto-restore-server-portal/2-georestore.png)
+2. Select the **Single server** deployment option.
 
+   :::image type="content" source="./media/howto-restore-server-portal/2-select-deployment-option.png" alt-text="Select Azure Database for PostgreSQL - Single server deployment option.":::
+ 
+3. Provide the subscription, resource group, and name of the new server. 
+
+4. Select **Backup** as the **Data source**. This action loads a dropdown that provides a list of servers that have geo redundant backups enabled.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore.png" alt-text="Select data source.":::
+    
    > [!NOTE]
    > When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
    >
 
-3. Fill out the rest of the form with your preferences. You can select any **Location**. After selecting the location, you can select **Pricing Tier**. By default the parameters for the existing server you are restoring from are displayed. You can click **OK** without making any changes to inherit those settings. Or you can change **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
+5. Select the **Backup** dropdown.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-geo-restore-backup.png" alt-text="Select backup dropdown.":::
 
+6. Select the source server to restore from.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-select-backup.png" alt-text="Select backup.":::
+
+7. The server will default to values for number of **vCores**, **Backup Retention Period**, **Backup Redundancy Option**, **Engine version**, and **Admin credentials**. Select **Continue**. 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/7-accept-backup.png" alt-text="Continue with backup.":::
+
+8. Fill out the rest of the form with your preferences. You can select any **Location**.
+
+    After selecting the location, you can select **Configure server** to update the **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
+
+   :::image type="content" source="./media/howto-restore-server-portal/8-create.png" alt-text="Fill form."::: 
+
+9. Select **Review + create** to review your selections. 
+
+10. Select **Create** to provision the server. This operation may take a few minutes.
 
 The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 

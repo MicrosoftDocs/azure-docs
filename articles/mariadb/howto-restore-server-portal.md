@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 6/30/2020
 ---
 
 # How to backup and restore a server in Azure Database for MariaDB using the Azure portal
@@ -68,7 +68,6 @@ The following steps restore the sample server to a point-in-time:
 
 5. Once the restore finishes, locate the new server that is created to verify the data was restored as expected.
 
-
 The new server created by point-in-time restore has the same server admin login name and password that was valid for the existing server at the point-in-time chose. You can change the password from the new server's **Overview** page.
 
 The new server created during a restore does not have the VNet service endpoints that existed on the original server. These rules need to be set up separately for this new server. Firewall rules from the original server are restored.
@@ -77,18 +76,41 @@ The new server created during a restore does not have the VNet service endpoints
 
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.  
 
-1. Select **Databases** > **Azure Database for MariaDB**. You can also type **MariaDB** in the search box to find the service.
+1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Select **Databases** > **Azure Database for MariaDB**.
 
-   ![The "Azure Database for MariaDB" option](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2_navigate-to-mariadb.png" alt-text="Navigate to Azure Database for MariaDB.":::
+ 
+2. Provide the subscription, resource group, and name of the new server. 
 
-2. In the form's **Select Source** dropdown, choose **Backup**. This action loads a list of servers that have geo redundant backups enabled. Select one of these backups to be the source of your new server.
-   ![Select Source: Backup and list of geo redundant backups](./media/howto-restore-server-portal/2-georestore.png)
-
+3. Select **Backup** as the **Data source**. This action loads a dropdown that provides a list of servers that have geo redundant backups enabled.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/3-geo-restore.png" alt-text="Select data source.":::
+    
    > [!NOTE]
    > When a server is first created it may not be immediately available for geo restore. It may take a few hours for the necessary metadata to be populated.
    >
 
-3. Fill out the rest of the form with your preferences. You can select any **Location**. After selecting the location, you can select **Pricing Tier**. By default the parameters for the existing server you are restoring from are displayed. You can click **OK** without making any changes to inherit those settings. Or you can change **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
+4. Select the **Backup** dropdown.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/4-geo-restore-backup.png" alt-text="Select backup dropdown.":::
+
+5. Select the source server to restore from.
+   
+   :::image type="content" source="./media/howto-restore-server-portal/5-select-backup.png" alt-text="Select backup.":::
+
+6. The server will default to values for number of **vCores**, **Backup Retention Period**, **Backup Redundancy Option**, **Engine version**, and **Admin credentials**. Select **Continue**. 
+   
+   :::image type="content" source="./media/howto-restore-server-portal/6-accept-backup.png" alt-text="Continue with backup.":::
+
+7. Fill out the rest of the form with your preferences. You can select any **Location**.
+
+    After selecting the location, you can select **Configure server** to update the **Compute Generation** (if available in the region you have chosen), number of **vCores**, **Backup Retention Period**, and **Backup Redundancy Option**. Changing **Pricing Tier** (Basic, General Purpose, or Memory Optimized) or **Storage** size during restore is not supported.
+
+   :::image type="content" source="./media/howto-restore-server-portal/7-create.png" alt-text="Fill form."::: 
+
+8. Select **Review + create** to review your selections. 
+
+9. Select **Create** to provision the server. This operation may take a few minutes.
 
 The new server created by geo restore has the same server admin login name and password that was valid for the existing server at the time the restore was initiated. The password can be changed from the new server's **Overview** page.
 

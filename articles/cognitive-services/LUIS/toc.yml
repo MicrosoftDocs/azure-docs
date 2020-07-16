@@ -61,6 +61,8 @@
       href: luis-nodejs-tutorial-bf-v4.md
 - name: Concepts
   items:
+  - name: Artificial intelligence
+    href: artificial-intelligence.md
   - name: Development lifecycle
     href: luis-concept-app-iteration.md
   - name: Plan your app

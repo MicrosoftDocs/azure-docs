@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and Amazon S3 buckets
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common

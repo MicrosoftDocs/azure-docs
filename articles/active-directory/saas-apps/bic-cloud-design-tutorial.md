@@ -94,10 +94,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
 
-	|||
-	|-|-|
-	| `https://<customer-specific-name/tenant>.biccloud.com`|
-	| `https://<customer-specific-name/tenant>.biccloud.de` |
+    ```https
+    https://<customer-specific-name/tenant>.biccloud.com
+    https://<customer-specific-name/tenant>.biccloud.de
+    ```
 
 	> [!Note]
 	> If the **Identifier** value does not get auto polulated, then please fill in the value manually according to your requirement. The Sign-on URL value is not real. Update this value with the actual Sign-on URL. Contact [BIC Cloud Design Client support team](mailto:bicsupport@gbtec.de) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

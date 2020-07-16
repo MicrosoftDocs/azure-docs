@@ -36,6 +36,30 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
+  - name: Pricing concepts
+    href: pricing-concepts.md
+  - name: Routing
+    items:
+    - name: About virtual hub routing
+      href: about-virtual-hub-routing.md
+    - name: Scenarios
+      items:
+      - name: Any-to-any
+        href: scenario-any-to-any.md
+      - name: Isolate VNets
+        href: scenario-isolate-vnets.md
+      - name: Isolate VNets - custom
+        href: scenario-isolate-vnets-custom.md
+      - name: Shared Services VNets
+        href: scenario-shared-services-vnet.md
+      - name: Route through NVA
+        href: scenario-route-through-nva.md
+      - name: Route through NVA - custom (Preview)
+        href: scenario-route-through-nvas-custom.md
+      - name: Azure Firewall - Interhub (Preview)
+        href: scenario-route-between-hubs-firewall.md
+      - name: Azure Firewall - custom
+        href: scenario-route-between-vnets-firewall.md
   - name: Site-to-site
     items:
     - name: About IPsec policies
@@ -44,8 +68,6 @@
       href: path-selection-multiple-links.md
 - name: How-to guides
   items:
-  - name: Configure Global VNet peering
-    href: global-peering-vnet.md
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
   - name: ExpressRoute
@@ -90,13 +112,9 @@
       href: openvpn-azure-ad-tenant-multi-app.md
   - name: Routing
     items:
-    - name: Route traffic from a virtual hub to an NVA
-      items:
-        - name: Azure portal
-          href: virtual-wan-route-table-portal.md
-        - name: Azure PowerShell
-          href: virtual-wan-route-table.md
-    - name: View virtual hub effective routes
+    - name: How to configure virtual hub routing
+      href: how-to-virtual-hub-routing.md
+    - name: How to view virtual hub effective routes
       href: effective-routes-virtual-hub.md
   - name: Security
     items:

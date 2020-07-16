@@ -62,7 +62,7 @@ Azure Active Directory (Azure AD) has a gallery that contains thousands of pre-i
 
       Behavior for **assigned** users:
 
-       | Application property settings | | | Assigned-user experience | |
+       | Application property | Application property | Application property | Assigned-user experience | Assigned-user experience |
        |---|---|---|---|---|
        | Enabled for users to sign-in? | User assignment required? | Visible to users? | Can assigned users sign in? | Can assigned users see the application?* |
        | yes | yes | yes | yes | yes  |

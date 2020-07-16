@@ -2,28 +2,57 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Arc for servers?
+  - name: About Arc for Kubernetes
+    href: ./kubernetes/overview.md
+  - name: About Azure Arc for servers
     href: ./servers/overview.md
-- name: How-to guides
-  items:
-  - name: Connect to Azure Arc
-    items:
-    - name: Connected Machine agent overview
-      href: ./servers/agent-overview.md
-    - name: Connect machines to Azure Arc from the Azure portal
-      href: ./servers/onboard-portal.md
-    - name: Connect machines at scale using a service principal
-      href: ./servers/onboard-service-principal.md
-    - name: Connect machines to Azure Arc with PowerShell DSC
-      href: ./servers/onboard-dsc.md
-  - name: Manage
-    items:
-    - name: Manage and use Azure VM extensions
-      href: ./servers/manage-vm-extensions.md
-    - name: Manage agent
-      href: ./servers/manage-agent.md
 - name: Samples
   items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./servers/policy-samples.md
+  - name: Azure Policy built-ins 
+    items:
+     - name: Arc for Kubernetes
+       href: ./kubernetes/policy-samples.md
+     - name: Arc for servers
+       href: ./servers/policy-samples.md
+- name: How-to guides
+  items:
+   - name: Arc for Kubernetes
+     items:
+     - name: Cluster operations
+       items:
+       - name: Connect cluster
+         href: ./kubernetes/connect-cluster.md
+       - name: Use GitOps for connected clusters
+         href: ./kubernetes/use-gitops-connected-cluster.md
+       - name: Use GitOps with Helm
+         href: ./kubernetes/use-gitops-with-helm.md
+       - name: Enforce GitOps using Azure Policy
+         href: ./kubernetes/use-azure-policy.md
+       - name: Monitor with Azure Monitor for containers
+         href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+       - name: Admission control policies using Azure Policy
+         href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+       - name: Deploy IoT workloads
+         href: ./kubernetes/deploy-azure-iot-edge-workloads.md
+       - name: Onboarding service principal
+         href: ./kubernetes/create-onboarding-service-principal.md
+       - name: Troubleshooting
+         href: ./kubernetes/Troubleshooting.md
+   - name: Arc for servers
+     items:
+     - name: Connect to Azure Arc
+       items:
+       - name: Connected Machine agent overview
+         href: ./servers/agent-overview.md
+       - name: Connect machines to Azure Arc from the Azure portal
+         href: ./servers/onboard-portal.md
+       - name: Connect machines at scale using a service principal
+         href: ./servers/onboard-service-principal.md
+       - name: Connect machines to Azure Arc with PowerShell DSC
+         href: ./servers/onboard-dsc.md
+     - name: Manage
+       items:
+       - name: Manage and use Azure VM extensions
+         href: ./servers/manage-vm-extensions.md
+       - name: Manage agent
+         href: ./servers/manage-agent.md

@@ -16,9 +16,9 @@ ms.author: pafarley
 
 Some features of Computer Vision support multiple languages; any features not mentioned here only support English.
 
-## Text recognition
+## Text detection (OCR)
 
-Computer Vision can recognize text in many languages. The OCR and Read APIs do not require you to specify a language code. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
+Computer Vision can detect text in many languages. The Read and OCR APIs do not require you to specify a language code. See [Read text from images and documents](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
 
 |Language| Language code | OCR API | Read API |
 |:-----|:----:|:-----:|:---:|

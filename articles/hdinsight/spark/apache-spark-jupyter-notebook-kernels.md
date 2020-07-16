@@ -126,7 +126,7 @@ Whether the cluster uses Azure Storage or Azure Data Lake Storage as the default
 
 Jupyter notebooks on Spark HDInsight clusters are supported only on Google Chrome.
 
-## Feedback
+## Suggestions
 
 The new kernels are in evolving stage and will mature over time. So the APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. The feedback is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Feedback** section at the bottom of this article.
 

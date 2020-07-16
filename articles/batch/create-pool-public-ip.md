@@ -11,6 +11,8 @@ When you create an Azure Batch pool, you can [provision the pool in a subnet of 
 
 You can create a list of static public IP addresses to use with the virtual machines in your pool. This allows you to control the list of public IP addresses and ensure that they won't change unexpectedly. This can be especially useful if you are working with any external service, such as a database, that restricts access to certain IP addresses.
 
+For information about creating pools without public IP addresses, read [Create an Azure Batch pool without public IP addresses](https://docs.microsoft.com/azure/batch/batch-pool-no-public-ip-address).
+
 ## Prerequisites
 
 - **Authentication**. To use a public IP address, the Batch client API must use [Azure Active Directory (AD) authentication](batch-aad-auth.md).
@@ -90,3 +92,5 @@ Request Body
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [creating a pool in a subnet of an Azure virtual network](batch-virtual-network.md).
+- Learn about [creating an Azure Batch pool without public IP addresses](https://docs.microsoft.com/azure/batch/batch-pool-no-public-ip-address).
+

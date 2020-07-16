@@ -102,7 +102,7 @@ The client application is secured either by a shared secret or by a certificate.
 
 When using a shared secret, a service-to-service access token request contains the following parameters:
 
-| Parameter |  | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | grant_type |required | The type of the token request. An OBO request uses a JSON Web Token (JWT) so the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the access token used in the request. |
@@ -136,7 +136,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 A service-to-service access token request with a certificate contains the following parameters:
 
-| Parameter |  | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | grant_type |required | The type of the token request. An OBO request uses a JWT access token so the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the token used in the request. |
@@ -246,7 +246,7 @@ Some OAuth-based web services need to access other web service APIs that accept 
 
 A service-to-service request for a SAML assertion contains the following parameters:
 
-| Parameter |  | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | grant_type |required | The type of the token request. For a request that uses a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the access token used in the request.|

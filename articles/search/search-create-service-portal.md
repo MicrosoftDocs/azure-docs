@@ -23,11 +23,11 @@ Prefer PowerShell? Use the Azure Resource Manager [service template](https://azu
 
 ## Before you start
 
-The following service properties are fixed for the lifetime of the service. Changing any of these properties later will require a new service:
+The following service properties are fixed for the lifetime of the service and changing them requires a new service. As you create a service, think about how you will use it:
 
-* name
-* tier (Free, Basic, Standard)
-* region (choose a location that has related services, such as Cognitive Services or data services)
+* name (review [these suggestions](#name-the-service) for service names)
+* tier (Free, Basic, Standard [affects billing](search-sku-tier.md) and sets an upward limit on capacity)
+* region (choose a location that has related services. For integration with Cognitive Services or Azure Machine Learning, co-locating services in the same region is a requirement)
 
 ## Subscribe (free or paid)
 

@@ -103,11 +103,10 @@ To configure Azure AD single sign-on with Dossier, perform the following steps:
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn`|
-	| `https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn`|
-	| |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso/account/SignIn
+    https://dossier.<CLIENTDOMAINNAME>/azuresso/account/SignIn
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `Dossier/<CLIENTNAME>`
 
@@ -116,11 +115,10 @@ To configure Azure AD single sign-on with Dossier, perform the following steps:
 
     c. In the **Reply URL** textbox, type a URL using the following pattern:
 	
-	| |
-	|-|-|
-	|  `https://<SUBDOMAIN>.dossiersystems.com/azuresso`|
-	| `https://dossier.<CLIENTDOMAINNAME>/azuresso`|
-	| |
+    ```http
+    https://<SUBDOMAIN>.dossiersystems.com/azuresso
+    https://dossier.<CLIENTDOMAINNAME>/azuresso
+    ```
 
 
 	> [!NOTE]

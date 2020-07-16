@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
-ms.date: 04/02/2020
+ms.date: 06/30/2020
 ---
 
 # Model interpretability in Azure Machine Learning
@@ -38,8 +38,6 @@ The interpretability classes are made available through multiple SDK packages: (
 * `azureml.interpret`, the main package, containing functionalities supported by Microsoft.
 
 * `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
-
-* `azureml.train.automl.automlexplainer` package for interpreting automated machine learning models.
 
 Use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` for general use, and `pip install azureml-contrib-interpret` for AutoML use to get the interpretability packages.
 

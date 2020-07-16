@@ -37,25 +37,25 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Set up a new Azure Migrate project as follows:
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
-1. Under **Services**, select **Azure Migrate**.
-1. In **Overview**, under **Discover, assess and migrate servers**, select **Assess and migrate servers**.
+2. Under **Services**, select **Azure Migrate**.
+3. In **Overview**, under **Discover, assess and migrate servers**, select **Assess and migrate servers**.
 
    ![Button to assess and migrate servers](./media/tutorial-assess-vmware/assess-migrate.png)
 
-1. In **Getting started**, select **Add tools**.
-1. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-1. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+4. In **Getting started**, select **Add tools**.
+5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
+6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
    ![Boxes for project name and region](./media/tutorial-assess-vmware/migrate-project.png)
 
-1. Select **Next**.
-1. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.
+7. Select **Next**.
+8. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.
 
    ![Selection for the Server Assessment tool](./media/tutorial-assess-vmware/assessment-tool.png)
 
-1. In **Select migration tool**, select **Skip adding a migration tool for now** > **Next**.
-1. In **Review + add tools**, review the settings, and select **Add tools**.
-1. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
+9. In **Select migration tool**, select **Skip adding a migration tool for now** > **Next**.
+10. In **Review + add tools**, review the settings, and select **Add tools**.
+11. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
 
 ## Set up the Azure Migrate appliance
 
@@ -70,8 +70,8 @@ After creating the appliance, you check that it can connect to Azure Migrate:Ser
 ### Download the OVA template
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, select **Discover**.
-1. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMWare vSphere hypervisor**.
-1. Select **Download** to download the OVA template file.
+2. In **Discover machines** > **Are your machines virtualized?**, select **Yes, with VMWare vSphere hypervisor**.
+3. Select **Download** to download the OVA template file.
 
    ![Selections for downloading an OVA file](./media/tutorial-assess-vmware/download-ova.png)
 
@@ -109,13 +109,13 @@ Import the downloaded file, and create a VM:
 
    ![Menu command for deploying an OVF template](./media/tutorial-assess-vmware/deploy-ovf.png)
 
-1. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
-1. In **Name** and **Location**, specify a friendly name for the VM. Select the inventory object in which the VM will be hosted.
-1. In **Host/Cluster**, specify the host or cluster on which the VM will run.
-1. In **Storage**, specify the storage destination for the VM.
-1. In **Disk Format**, specify the disk type and size.
-1. In **Network Mapping**, specify the network to which the VM will connect. The network needs internet connectivity to send metadata to Azure Migrate Server Assessment.
-1. Review and confirm the settings, and then select **Finish**.
+2. In the Deploy OVF Template Wizard > **Source**, specify the location of the OVA file.
+3. In **Name** and **Location**, specify a friendly name for the VM. Select the inventory object in which the VM will be hosted.
+4. In **Host/Cluster**, specify the host or cluster on which the VM will run.
+5. In **Storage**, specify the storage destination for the VM.
+6. In **Disk Format**, specify the disk type and size.
+7. In **Network Mapping**, specify the network to which the VM will connect. The network needs internet connectivity to send metadata to Azure Migrate Server Assessment.
+8. Review and confirm the settings, and then select **Finish**.
 
 ## Verify appliance access to Azure
 
@@ -129,8 +129,8 @@ Set up the appliance for the first time.
 > If you set up the appliance using a [PowerShell script](deploy-appliance-script.md) instead of the downloaded OVA, the first two steps in this procedure aren't relevant.
 
 1. In the vSphere Client console, right-click the VM, and then select **Open Console**.
-1. Provide the language, time zone, and password for the appliance.
-1. Open a browser on any machine that can connect to the VM, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
+2. Provide the language, time zone, and password for the appliance.
+3. Open a browser on any machine that can connect to the VM, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the appliance desktop by selecting the app shortcut.
 1. In the web app > **Set up prerequisites**, do the following:
@@ -148,13 +148,13 @@ Set up the appliance for the first time.
 ### Register the appliance with Azure Migrate
 
 1. Select **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, sign in by using your Azure username and password.
+2. On the new tab, sign in by using your Azure username and password.
    
    Sign-in with a PIN isn't supported.
-1. After you successfully sign in, go back to the web app.
-1. Select the subscription in which the Azure Migrate project was created, and then select the project.
-1. Specify a name for the appliance. The name should be alphanumeric with 14 characters or fewer.
-1. Select **Register**.
+3. After you successfully sign in, go back to the web app.
+4. Select the subscription in which the Azure Migrate project was created, and then select the project.
+5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or fewer.
+6. Select **Register**.
 
 
 ## Start continuous discovery
@@ -186,39 +186,53 @@ Discovery works as follows:
 After discovery, you can verify that the VMs appear in the Azure portal:
 
 1. Open the Azure Migrate dashboard.
-1. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment**, select the icon that displays the count for **Discovered servers**.
+2. In **Azure Migrate - Servers** > **Azure Migrate: Server Assessment**, select the icon that displays the count for **Discovered servers**.
 
 ## Set up an assessment
 
 You can create two types of assessments by using Azure Migrate Server Assessment:
 
-**Assessment** | **Details** | **Data**
+**Assessment Type** | **Details**
+--- | --- 
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type. [Learn more](concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+
+Server Assessment provides two sizing criteria options:
+
+**Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments based on collected performance data | **Recommended VM size**: Based on CPU and memory utilization data.<br/><br/> **Recommended disk type (standard or premium managed disk)**: Based on the IOPS and throughput of the on-premises disks.
-**As on-premises** | Assessments based on on-premises sizing | **Recommended VM size**: Based on the on-premises VM size.<br/><br> **Recommended disk type**: Based on the storage type setting that you select for the assessment.
+**Performance-based** | Assessments that make recommendations based on collected performance data | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on CPU and memory utilization data.
+**As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
 
 ## Run an assessment
 
-Run an assessment as follows:
+Run an *Azure VM assessment* as follows:
 
 1. Review the [best practices](best-practices-assessment.md) for creating assessments.
-1. On the **Servers** tab, in the **Azure Migrate: Server Assessment** tile, select **Assess**.
+2. On the **Servers** tab, in the **Azure Migrate: Server Assessment** tile, select **Assess**.
 
    ![Location of the Assess button](./media/tutorial-assess-vmware/assess.png)
 
-1. In **Assess servers**, specify a name for the assessment.
-1. Select **View all**, and then review the assessment properties.
+3. In **Assess servers**, select the assessment type as "Azure VM", select the discovery source and specify the assessment name.
+
+    ![Assessment Basics](./media/tutorial-assess-vmware/assess-servers-azurevm.png)
+ 
+4. Select **View all**, and then review the assessment properties.
 
    ![Assessment properties](./media/tutorial-assess-vmware/view-all.png)
 
-1. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
-1. In **Add machines to the group**, select VMs to add to the group.
-1. Select **Create Assessment** to create the group and run the assessment.
+5. Click **next** to **Select machines to assess**. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
+6. In **Add machines to the group**, select VMs to add to the group.
+7. Click **next** to **Review + create assessment** to review the assessment details.
+8. Select **Create Assessment** to create the group and run the assessment.
 
    ![Assess servers](./media/tutorial-assess-vmware/assessment-create.png)
 
-1. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
-1. Select **Export assessment** to download it as an Excel file.
+8. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
+9. Select **Export assessment** to download it as an Excel file.
+
+If you want to run an **Azure VMware Solution (AVS) assessment**, follow the steps mentioned [here](how-to-create-azure-vmware-solution-assessment.md).
+
 
 ## Review an assessment
 
@@ -231,20 +245,20 @@ An assessment describes:
 To view an assessment:
 
 1. In **Migration goals** > **Servers**, select **Assessments** in **Azure Migrate: Server Assessment**.
-1. In **Assessments**, select an assessment to open it.
+2. In **Assessments**, select an assessment to open it.
 
    ![Assessment summary](./media/tutorial-assess-vmware/assessment-summary.png)
 
 ### Review Azure readiness
 
 1. In **Azure readiness**, verify whether VMs are ready for migration to Azure.
-1. Review the VM status:
+2. Review the VM status:
     - **Ready for Azure**: Used when Azure Migrate recommends a VM size and cost estimates for VMs in the assessment.
     - **Ready with conditions**: Shows issues and suggested remediation.
     - **Not ready for Azure**: Shows issues and suggested remediation.
     - **Readiness unknown**: Used when Azure Migrate can't assess readiness because of data availability issues.
 
-1. Select an **Azure readiness** status. You can view VM readiness details. You can also drill down to see VM details, including compute, storage, and network settings.
+3. Select an **Azure readiness** status. You can view VM readiness details. You can also drill down to see VM details, including compute, storage, and network settings.
 
 ### Review cost details
 

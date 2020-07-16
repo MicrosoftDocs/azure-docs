@@ -15,7 +15,7 @@ ms.author: aahi
 
 # Tutorial: Build a Custom Search web page
 
-Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
+Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a martial arts website that provides a search experience, you can specify the domains, sub-sites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of paging through general search results that may contain irrelevant content. 
 
 This tutorial demonstrates how to configure a custom search instance and integrate it into a new web page.
 
@@ -30,7 +30,7 @@ The tasks covered are:
 
 ## Prerequisites
 
-- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal. you can also use a [trial key](https://azure.microsoft.com/try/cognitive-services).
+- To follow along with the tutorial, you need a subscription key for the Bing Custom Search API.  To get a key, [Create a Bing Custom Search resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) in the Azure portal.
 - If you don't already have Visual Studio 2017 or later installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/).
 
 ## Create a custom search instance
@@ -75,7 +75,7 @@ To exclude results from specific websites or URLs, add them to the **Blocked** t
 
 ## Add pinned entries
 
-To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user's query string matches the pin's query string based on pin's match condition. Only indexed webpages will be displayed in searches. See [Define your custom view](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results) for more information.
+To pin a specific webpage to the top of the search results, add the webpage and query term to the **Pinned** tab. The **Pinned** tab contains a list of webpage and query term pairs that specify the webpage that appears as the top result for a specific query. The webpage is pinned only if the user's query string matches the pin's query string based on pin's match condition. Only indexed webpages will be displayed in searches. For more information, see [Define your custom view](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. On the **Configuration** page, click the **Pinned** tab and enter the webpage and query term of the webpage that you want returned as the top result.  
   
@@ -112,7 +112,7 @@ Custom Search provides a hosted UI to render the JSON response of your custom se
 
    ![Screenshot of the Hosted UI advanced configurations step](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually. For information about getting keys, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Select your subscription keys from the dropdown lists. Or, you can enter the subscription key manually.
   
    ![Screenshot of the Hosted UI additional configurations step](./media/custom-search-hosted-ui-subscription-key.png)
 
@@ -126,7 +126,7 @@ There are two ways to consume the hosted UI.
 - Option 1: Integrate the provided JavaScript snippet into your application.
 - Option 2: Use the HTML Endpoint provided.
 
-The remainder of this tutorial illustrates **Option 1: Javascript snippet**.  
+The remainder of this tutorial illustrates **Option 1: JavaScript snippet**.  
 
 ## Set up your Visual Studio solution
 

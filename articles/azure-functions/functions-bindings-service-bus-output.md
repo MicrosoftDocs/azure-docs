@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus bindings for Azure Functions
+title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 author: craigshoemaker
 
@@ -377,13 +377,14 @@ This section describes the global configuration settings available for this bind
     }
 }
 ```
+
 If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` will be honored.  If you have `isSessionsEnabled` set to `false`, the `messageHandlerOptions` will be honored.
 
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
 |maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|autoComplete|true|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.|
+|autoComplete|true|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
 |maxConcurrentSessions|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
 

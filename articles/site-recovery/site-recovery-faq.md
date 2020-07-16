@@ -123,7 +123,7 @@ Yes. When you use Site Recovery to orchestrate replication and failover in your 
 
 ### Is disaster recovery supported for Azure VMs?
 
-Yes, Site Recovery supports disaster for Azure VMs between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure VM disaster recovery.
+Yes, Site Recovery supports disaster for Azure VMs between Azure regions. [Review common questions](azure-to-azure-common-questions.md) about Azure VM disaster recovery. If you want to replicate between two Azure regions on the same continent, please use our Azure to Azure DR offering. No need to set up configuration server/process server and ExpressRoute connections.
 
 ### Is disaster recovery supported for VMware VMs?
 

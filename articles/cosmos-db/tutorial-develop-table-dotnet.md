@@ -249,7 +249,7 @@ Right click on your project **CosmosTableSamples**. Select **Add**, **New Item**
  }
 ```
 
-### Get an entity from a partition
+## Get an entity from a partition
 
 You can get entity from a partition by using the Retrieve method under the [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) class. The following code example gets the partition key row key, email and phone number of a customer entity. This example also prints out the request units consumed to query for the entity. To query for an entity, append the following code to **SamplesUtils.cs** file: 
 

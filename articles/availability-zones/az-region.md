@@ -4,7 +4,7 @@ description: To create highly available and resilient applications in Azure, Ava
 author: cynthn
 ms.service: azure
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 06/29/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
 ---
@@ -51,6 +51,15 @@ Services that are available in each region, along with upcoming roadmap for avai
 | **Identity**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 
+Azure also offers Availability Zones support in the following regions:
+
+- US Gov Virginia
+- Australia East
+- South Africa North
+- South Central US
+- Canada Central
+
+To learn more about Availability Zones support in these five regions, contact your Microsoft sales or customer representative.
 
 ## Next steps
 

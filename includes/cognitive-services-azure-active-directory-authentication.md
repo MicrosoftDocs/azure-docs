@@ -81,6 +81,10 @@ In this sample, a password is used to authenticate the service principal. The to
    ```
 
 2. Get a token:
+   > [!NOTE]
+   > If you're using Azure Cloud Shell, the `SecureClientSecret` class isn't available. 
+
+   #### [PoweerShell](#tab/powershell)
    ```powershell-interactive
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
    $secureSecretObject = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.SecureClientSecret" -ArgumentList $SecureStringPassword   
@@ -88,6 +92,17 @@ In this sample, a password is used to authenticate the service principal. The to
    $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
    $token
    ```
+   
+   #### [Azure Cloud Shell](#tab/azure-cloud-shell)
+   ```Azure Cloud Shell
+   $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList "https://login.windows.net/<TENANT_ID>"
+   $clientCredential = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential" -ArgumentList $app.ApplicationId, <YOUR_PASSWORD>
+   $token=$authContext.AcquireTokenAsync("https://cognitiveservices.azure.com/", $clientCredential).Result
+   $token
+   ``` 
+
+   ---
+
 3. Call the Computer Vision API:
    ```powershell-interactive
    $url = $account.Endpoint+"vision/v1.0/models"

@@ -30,7 +30,7 @@ NAT rules are used to specify a backend resource to route traffic to. For exampl
 ## What is IP 168.63.129.16?
 The virtual IP address for the host tagged as the Azure infrastructure Load Balancer where the Azure Health Probes originate. When configuring backend instances, they must allow traffic from this IP address to successfully respond to health probes. This rule does not interact with access to your Load Balancer frontend. If you're not using the Azure Load Balancer, you can override this rule. You can learn more about service tags [here](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 
-## Can I use Global VNET peering with Basic Load Blancer?
+## Can I use Global VNET peering with Basic Load Balancer?
 No. Basic Load Balancer does not support Global VNET peering. You can use a Standard Load Balancer instead. See the [upgrade from Basic to Standard](upgrade-basic-standard.md) article for seamless upgrade.
 
 ## Next Steps

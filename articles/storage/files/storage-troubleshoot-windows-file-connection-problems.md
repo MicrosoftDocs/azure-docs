@@ -3,7 +3,7 @@ title: Troubleshoot Azure Files problems in Windows | Microsoft Docs
 description: Troubleshooting Azure Files problems in Windows
 author: jeffpatt24
 ms.service: storage
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files

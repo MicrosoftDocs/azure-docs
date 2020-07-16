@@ -30,7 +30,7 @@ To use a Facebook account as an [identity provider](identity-providers.md), you 
 
 > [!NOTE]  
 > Use the following URLs in the steps 9 and 16 below.
-> - For **Site URL** enter `https://login.microsoftonline.com`.
+> - For **Site URL** enter the address of your application, such as `https://contoso.com`.
 > - For **Valid OAuth redirect URIs**, enter `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. You can find your `<tenant-ID>` in the Azure Active Directory Overview blade.
 
 

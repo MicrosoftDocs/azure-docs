@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/28/2020
 ms.custom: designer
 ---
 
@@ -103,8 +103,8 @@ You can visualize the data to understand the dataset that you'll use.
 1. In the module details pane to the right of the canvas, select **Outputs + log**.
 
 1. Select the graph icon to visualize the data.
-
-    ![Visualize the data](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
+    
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Alt text here.":::
 
 1. Select the different columns in the data window to view information about each one.
 
@@ -176,8 +176,8 @@ Your dataset still has missing values after you remove the **normalized-losses**
 1. In the module details pane to the right of the canvas, select the **Comment** box, and enter *Remove missing value rows*. 
 
     Your pipeline should now look something like this:
-    
-    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
+
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Select-column":::
 
 ## Train a machine learning model
 
@@ -225,7 +225,7 @@ Train the model by giving it a dataset that includes the price. The algorithm co
     > [!IMPORTANT]
     > Be sure that the left output ports of **Split Data** connects to **Train Model**. The left port contains the the training set. The right port contains the test set.
 
-    ![Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot showing the correct configuration of the Train Model module. The Linear Regression module connects to left port of Train Model module and the Split Data module connects to right port of Train Model.":::
 
 1. Select the **Train Model** module.
 
@@ -240,7 +240,7 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 
     Your pipeline should look like this:
 
-    ![Screenshot showing the correct configuration of the pipeline after adding the Train Model module.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot showing the correct configuration of the pipeline after adding the Train Model module.":::
 
 ### Add the Score Model module
 
@@ -260,7 +260,7 @@ Use the **Evaluate Model** module to evaluate how well your model scored the tes
 
     The final pipeline should look something like this:
 
-    ![Screenshot showing the correct configuration of the pipeline.](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot showing the correct configuration of the pipeline.":::
 
 ## Submit the pipeline
 
@@ -291,7 +291,7 @@ After the run completes, you can view the results of the pipeline run. First, lo
 
     Here you can see the predicted prices and the actual prices from the testing data.
 
-    ![Screenshot of the output visualization highlighting the Scored Label column](./media/tutorial-designer-automobile-price-train-score/score-result.png)
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot of the output visualization highlighting the Scored Label column":::
 
 ### Evaluate models
 

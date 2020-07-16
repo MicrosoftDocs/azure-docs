@@ -18,7 +18,7 @@ ms.date: 01/02/2020
 > SQL API is generally available.
 > MongoDB API, Gremlin API, and Cassandra API support are currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > You can request access to the previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
+> The [REST API version 2020-06-30-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 > [!WARNING]
 > Only Cosmos DB collections with an [indexing policy](https://docs.microsoft.com/azure/cosmos-db/index-policy) set to [Consistent](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) are supported by Azure Cognitive Search. Indexing collections with a Lazy indexing policy is not recommended and may result in missing data. Collections with indexing disabled are not supported.
@@ -31,9 +31,9 @@ The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items
 
 + For [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference), which is generally available, you can use the [portal](#cosmos-indexer-portal), [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) to create the data source and indexer.
 
-+ For [MongoDB API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), you can use either the [portal](#cosmos-indexer-portal) or the [REST API version 2019-05-06-Preview](search-api-preview.md) to create the data source and indexer.
++ For [MongoDB API (preview)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction), you can use either the [portal](#cosmos-indexer-portal) or the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source and indexer.
 
-+ For [Cassandra API (preview)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) and [Gremlin API (preview)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), you can only use the [REST API version 2019-05-06-Preview](search-api-preview.md) to create the data source and indexer.
++ For [Cassandra API (preview)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) and [Gremlin API (preview)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction), you can only use the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source and indexer.
 
 
 > [!Note]
@@ -121,7 +121,7 @@ When indexing is complete, you can use [Search explorer](search-explorer.md) to 
 You can use the REST API to index Azure Cosmos DB data, following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. Data extraction from Cosmos DB occurs when you submit the Create Indexer request. After this request is finished, you will have a queryable index. 
 
 > [!NOTE]
-> For indexing data from Cosmos DB Gremlin API or Cosmos DB Cassandra API you must first request access to the gated previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). Once your request is processed, you will receive instructions for how to use the [REST API version 2019-05-06-Preview](search-api-preview.md) to create the data source.
+> For indexing data from Cosmos DB Gremlin API or Cosmos DB Cassandra API you must first request access to the gated previews by filling out [this form](https://aka.ms/azure-cognitive-search/indexer-preview). Once your request is processed, you will receive instructions for how to use the [REST API version 2020-06-30-Preview](search-api-preview.md) to create the data source.
 
 Earlier in this article it is mentioned that [Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Cognitive Search indexing](search-what-is-an-index.md) indexing are distinct operations. For Cosmos DB indexing, by default all documents are automatically indexed except with the Cassandra API. If you turn off automatic indexing, documents can be accessed only through their self-links or by queries by using the document ID. Azure Cognitive Search indexing requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Cognitive Search. When signing up for the Cosmos DB Cassandra API indexer preview, you'll be given instructions on how set up Cosmos DB indexing.
 
@@ -152,7 +152,7 @@ A **data source** specifies the data to index, credentials, and policies for ide
 
 To create a data source, formulate a POST request:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -221,7 +221,7 @@ Array flattening query:
 
 [Create a target Azure Cognitive Search index](/rest/api/searchservice/create-index) if you don’t have one already. The following example creates an index with an ID and description field:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -265,7 +265,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 
 Once the index and data source have been created, you're ready to create the indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -338,7 +338,7 @@ If you are using a custom query, make sure that the property referenced by `soft
 
 The following example creates a data source with a soft-deletion policy:
 
-	POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+	POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [Search service admin key]
 

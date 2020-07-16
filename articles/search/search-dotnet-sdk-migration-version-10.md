@@ -18,7 +18,7 @@ If you're using version 9.0 or older of the [.NET SDK](https://docs.microsoft.co
 
 Azure Search is renamed to Azure Cognitive Search in version 10, but namespaces and package names are unchanged. Previous versions of the SDK (9.0 and earlier) continue to use the former name. For more information about using the SDK, including examples, see [How to use Azure Cognitive Search from a .NET Application](search-howto-dotnet-sdk.md).
 
-Version 10 adds several features and bug fixes, bringing it to the same functional level as the most recent release of the REST API version `2019-05-06`. In cases where a change breaks existing code, we'll walk you through the [steps required to resolve the issue](#UpgradeSteps).
+Version 10 adds several features and bug fixes, bringing it to the same functional level as the REST API version `2019-05-06`. In cases where a change breaks existing code, we'll walk you through the [steps required to resolve the issue](#UpgradeSteps).
 
 > [!NOTE]
 > If you're using version 8.0-preview or older, you should upgrade to version 9 first, and then upgrade to version 10. See [Upgrading to the Azure Search .NET SDK version 9](search-dotnet-sdk-migration-version-9.md) for instructions.
@@ -28,7 +28,7 @@ Version 10 adds several features and bug fixes, bringing it to the same function
 <a name="WhatsNew"></a>
 
 ## What's new in version 10
-Version 10 of the Azure Cognitive Search .NET SDK targets the latest generally available version of the REST API (`2019-05-06`) with these updates:
+Version 10 of the Azure Cognitive Search .NET SDK targets REST API `2019-05-06` with these updates:
 
 * Introduction of two new skills - [Conditional skill](cognitive-search-skill-conditional.md) and [Text Translation skill](cognitive-search-skill-text-translation.md).
 * [Shaper skill](cognitive-search-skill-shaper.md) inputs have been restructured to accommodate consolidation from nested contexts. For more information, see this [example JSON definition](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).

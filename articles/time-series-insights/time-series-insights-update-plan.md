@@ -36,7 +36,7 @@ Azure Time Series Insights employs a pay-as-you-go business model. For more info
 When you provision a Time Series Insights Preview environment, you create two Azure resources:
 
 * An Azure Time Series Insights Preview environment
-* An Azure Storage general-purpose V1 account
+* An Azure Storage account
 
 As part of the provisioning process, you specify whether you want to enable a warm store. Warm store provides you with a tiered query experience. When enabled, you must specify a retention period between 7 and 30 days. Queries executed within the warm store retention period generally provide faster response times. When a query spans over the warm store retention period, it's served from cold store.
 

@@ -172,6 +172,9 @@
               href: how-to-change-storage-access-key.md
             - name: Use Azure Firewall
               href: how-to-access-azureml-behind-firewall.md
+            - name: Secure coding
+              href: concept-secure-code-best-practice.md
+              displayName: security threat
         - name: Set up authentication
           displayName: authentication, auth, oauth
           href: how-to-setup-authentication.md
@@ -314,6 +317,8 @@
             - name: Explain automated ML models
               displayName: SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml
               href: how-to-machine-learning-interpretability-automl.md
+        - name: Assess and mitigate model fairness
+          href: how-to-machine-learning-fairness-aml.md              
         - name: Use Key Vault when training
           displayName: secrets keyvault
           href: how-to-use-secrets-in-runs.md
@@ -330,9 +335,6 @@
         - name: Use remote compute targets
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
-        - name: Define ML tasks
-          displayName: machine learning, task type, automl
-          href: how-to-define-task-type.md
         - name: Auto-train a forecast model
           displayName: time series
           href: how-to-auto-train-forecast.md

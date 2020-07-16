@@ -3,7 +3,7 @@ title: Monitor Azure File Sync | Microsoft Docs
 description: How to monitor Azure File Sync.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files

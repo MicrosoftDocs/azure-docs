@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 05/28/2020
+ms.date: 06/30/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -180,7 +180,7 @@ For example, suppose that your logic app has an authorization policy that requir
 
 ### Restrict inbound IP addresses
 
-Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app. For example, if you manage your request endpoint by using Azure API Management, you can restrict your logic app to accept requests only from the IP address for the API Management instance.
+Along with Shared Access Signature (SAS), you might want to specifically limit the clients that can call your logic app. For example, if you manage your request endpoint by using [Azure API Management](../api-management/api-management-key-concepts.md), you can restrict your logic app to accept requests only from the IP address for the [API Management service instance that you create](../api-management/get-started-create-service-instance.md).
 
 #### Restrict inbound IP ranges in Azure portal
 
@@ -197,10 +197,10 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 If you want your logic app to trigger only as a nested logic app, from the **Allowed inbound IP addresses** list, select **Only other Logic Apps**. This option writes an empty array to your logic app resource. That way, only calls from the Logic Apps service (parent logic apps) can trigger the nested logic app.
 
 > [!NOTE]
-> Regardless of IP address, you can still run a logic app that has a request-based trigger by using 
-> `/triggers/<trigger-name>/run` through the Azure REST API or through API Management. However, this scenario 
-> still requires [authentication](../active-directory/develop/authentication-scenarios.md) against the 
-> Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+> Regardless of IP address, you can still run a logic app that has a request-based trigger by using the 
+> [Logic Apps REST API: Workflow Triggers - Run](https://docs.microsoft.com/rest/api/logic/workflowtriggers/run) 
+> request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-scenarios.md) 
+> against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 #### Restrict inbound IP ranges in Azure Resource Manager template
 
@@ -688,7 +688,29 @@ Here are some ways that you can help secure endpoints that receive calls or requ
 
   * Connect through Azure API Management
 
-    [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and ExpressRoute integration for secured proxy and communication to on-premises systems. From your logic app's workflow in the Logic App Designer, you can select an API that's exposed by API Management, which provides quick access to on-premises systems.
+    [Azure API Management](../api-management/api-management-key-concepts.md) provides on-premises connection options, such as site-to-site virtual private network and [ExpressRoute](../expressroute/expressroute-introduction.md) integration for secured proxy and communication to on-premises systems. If you have an API that provides access to your on-premises system, and you exposed that API by creating an [API Management service instance](../api-management/get-started-create-service-instance.md), you can call that API in your logic app's workflow by selecting the built-in API Management trigger or action in the Logic App Designer.
+
+    > [!NOTE]
+    > The connector shows only those API Management services where you have permissions to view and connect, 
+    > but doesn't show consumption-based API Management services.
+
+    1. In the Logic App Designer, enter `api management` in the search box. Choose the step based on whether you're adding a trigger or an action:<p>
+
+       * If you're adding a trigger, which is always the first step in your workflow, select **Choose an Azure API Management trigger**.
+
+       * If you're adding an action, select **Choose an Azure API Management action**.
+
+       This example adds a trigger:
+
+       ![Add Azure API Management trigger](./media/logic-apps-securing-a-logic-app/select-api-management.png)
+
+    1. Select your previously created API Management service instance.
+
+       ![Select API Management service instance](./media/logic-apps-securing-a-logic-app/select-api-management-service-instance.png)
+
+    1. Select the API call to use.
+
+       ![Select existing API](./media/logic-apps-securing-a-logic-app/select-api.png)
 
 <a name="add-authentication-outbound"></a>
 

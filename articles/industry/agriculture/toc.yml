@@ -29,6 +29,8 @@
      href: manage-farms-in-azure-farmbeats.md
    - name: Get sensor data
      href: get-sensor-data-from-sensor-partner.md
+   - name: Get weather data
+     href: get-weather-data-from-weather-partner.md
    - name: Generate maps
      href: generate-maps-in-azure-farmbeats.md
    - name: Configure rules and manage alerts

@@ -868,10 +868,14 @@
         href: sql/get-started-power-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Reference
   items:
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
+  - name: Azure CLI
+    href: /cli/azure/ext/synapse/?view=azure-cli-latest
   - name: Database collation types
     href: sql/reference-collation-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - name: Go
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
   - name: PowerShell 
     href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs

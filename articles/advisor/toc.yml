@@ -4,6 +4,14 @@
   items:
   - name: What is Azure Advisor?
     href: advisor-overview.md
+- name: Quickstarts
+  items:
+  - name: Configure alerts for new recommendations
+    items:
+    - name: Azure portal
+      href: advisor-alerts-portal.md
+    - name: ARM template
+      href: advisor-alerts-arm.md
 - name: Tutorials
   items:
   - name: Get started with Advisor
@@ -25,7 +33,7 @@
   - name: Permissions and blocked actions
     href: permissions.md
   - name: Configure Alerts for recommendations
-    href: advisor-alerts.md
+    href: advisor-alerts-portal.md
   - name: Bulk remediation for recommendations
     href: advisor-quick-fix.md
   - name: Advisor data in Azure Resource Graph

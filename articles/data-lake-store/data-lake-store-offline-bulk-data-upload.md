@@ -4,7 +4,7 @@ description: Use the Import/Export service to copy data from Azure Blob storage 
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 

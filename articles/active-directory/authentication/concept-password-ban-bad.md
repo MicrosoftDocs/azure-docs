@@ -159,7 +159,7 @@ Since this password is at least five (5) points, it is accepted.
 
 ## License requirements
 
-|   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
+| Users | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
 | --- | --- | --- |
 | Cloud-only users | Azure AD Free | Azure AD Premium P1 or P2 |
 | Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |

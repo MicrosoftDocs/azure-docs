@@ -43,7 +43,7 @@ My Profile pages are localized based on the language settings of the computer ac
 
 Combined registration supports the following authentication methods and actions:
 
-|   | Register | Change | Delete |
+| Method | Register | Change | Delete |
 | --- | --- | --- | --- |
 | Microsoft Authenticator | Yes (maximum of 5) | No | Yes |
 | Other authenticator app | Yes (maximum of 5) | No | Yes |

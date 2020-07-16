@@ -4,7 +4,7 @@ description: Use AdlCopy tool to copy data from Azure Storage Blobs to Azure Dat
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 

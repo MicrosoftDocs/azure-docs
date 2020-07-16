@@ -14,10 +14,11 @@ ms.subservice: blobs
 
 You can serve static content (HTML, CSS, JavaScript, and image files) directly from a storage container named *$web*. Hosting your content in Azure Storage enables you to use serverless architectures that include [Azure Functions](/azure/azure-functions/functions-overview) and other Platform as a service (PaaS) services.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
 > If your site depends on server-side code, use [Azure App Service](/azure/app-service/overview) instead.
+Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
 
 ## Setting up a static website
 

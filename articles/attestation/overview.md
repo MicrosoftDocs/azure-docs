@@ -18,7 +18,7 @@ Attestation is a process for demonstrating that software binaries were properly 
 
 Azure Attestation enables cutting-edge security paradigms such as [Azure Confidential computing](https://docs.microsoft.com/en-us/azure/confidential-computing/overview) and Intelligent Edge protection. These innovative approaches take cloud security to a new level by introducing data encryption while in-use (in memory). Such capabilities allow customers to pave their path to the Azure cloud. As a result, customers can tap into disruptive business models which hitherto required highly scalable compute resources and uncompromising trust, an often-impossible combination. Concretely, customers have been requesting the ability to independently verify the location of a machine, the posture of a virtual machine (VM) on that machine, and the environment within which enclaves are running on that VM. Azure Attestation will empower these and many additional customer requests. 
 
-Azure Attestation receives evidence from compute entities, turns them into a set of claims, validates them against configurable policies, and produces cryptographic proofs for claims-based applications (e.g., relying parties, auditing authorities etc).
+Azure Attestation receives evidence from compute entities, turns them into a set of claims, validates them against configurable policies, and produces cryptographic proofs for claims-based applications (for example, relying parties and auditing authorities ).
 
 ## Use cases
 Azure Attestation is tasked with providing comprehensive attestation services for multiple environments and distinctive use cases.

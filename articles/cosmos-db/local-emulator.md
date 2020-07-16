@@ -228,7 +228,9 @@ From the installation location, you can use the command-line to start and stop t
 
 ### Command-line syntax
 
-    Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
+```
 
 To view the list of options, type `Microsoft.Azure.Cosmos.Emulator.exe /?` at the command prompt.
 
@@ -413,7 +415,7 @@ Closing the interactive shell once the emulator has been started will shut down 
 
 To open the Data Explorer, navigate to the following URL in your browser. The emulator endpoint is provided in the response message shown above.
 
-    https://<emulator endpoint provided in response>/_explorer/index.html
+**https\://**\<emulator endpoint provided in response>**/_explorer/index.html**
 
 If you have a .NET client application running on a Linux docker container and if you are running Azure Cosmos emulator on a host machine, please follow the below section for Linux to import the certificate into the Linux docker container.
 

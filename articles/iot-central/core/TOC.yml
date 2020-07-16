@@ -133,6 +133,8 @@
               href: howto-use-app-templates.md
             - name: Monitor application health
               href: howto-monitor-application-health.md
+            - name: About your application
+              href: howto-get-app-info.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
@@ -152,6 +154,10 @@
             - name: Toggle live chat
               href: howto-show-hide-chat.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

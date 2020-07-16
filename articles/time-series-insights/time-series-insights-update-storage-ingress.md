@@ -55,8 +55,13 @@ The supported data types are:
 |---|---|
 | **bool** | A data type having one of two states: `true` or `false`. |
 | **dateTime** | Represents an instant in time, typically expressed as a date and time of day. Expressed in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format. |
+| **long** | A signed 64-bit integer  |
 | **double** | A double-precision 64-bit [IEEE 754](https://ieeexplore.ieee.org/document/8766229) floating point. |
 | **string** | Text values, comprised of Unicode characters.          |
+
+> [!IMPORTANT]
+>
+> * Your TSI environment is strongly typed. If devices or tags send both integral and nonintegral data, the device property values will be stored in two separated double and long columns and the [coalesce() function](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) should be used when making API calls and defining your Time Series Model Variable expressions.
 
 #### Objects and arrays
 
@@ -227,9 +232,11 @@ Time Series Insights Preview stores copies of your data as follows:
 
 * The second, repartitioned copy is grouped by Time Series IDs and resides in the `PT=TsId` folder:
 
-  `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+  `V=1/PT=TsId/<TSI_INTERNAL_STRUCTURE>/<TSI_INTERNAL_NAME>.parquet`
 
-In both cases, the time property of the Parquet file corresponds to blob creation time. Data in the `PT=Time` folder is preserved with no changes once it's written to the file. Data in the `PT=TsId` folder will be optimized for query over time and is not static.
+Timestamp in the blobs names in `PT=Time` folder corresponds to the arrival time of the data to TSI (not the timestamp of the events).
+
+Data in the `PT=TsId` folder will be optimized for query over time and is not static. During repartitioning, same events might be present in multiple blobs. Also, naming of the blobs might change in the future.
 
 > [!NOTE]
 >

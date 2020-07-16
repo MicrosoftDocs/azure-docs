@@ -65,7 +65,7 @@ Clicking this button will bring up the following screen with storage properties 
 Fill out the form in the following manner:
 
 * Create a new Resource Group from the link below the drop-down box and name this **ARR_Tutorial**
-* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is ready given. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
+* For the **Storage account name**, enter a unique name here. **This name must be globally unique**, otherwise there will be a prompt that informs you that the name is already taken. In the scope of this quickstart, we name it **arrtutorialstorage**. Accordingly, you need to replace it with your name for any occurrence in this quickstart.
 * Select a **location** close to you. Ideally use the same location as used for setting up the rendering in the other quickstart.
 * **Performance** set to 'Standard'
 * **Account kind** set to 'StorageV2 (general purpose v2)'
@@ -108,8 +108,8 @@ To make it easier to call the asset conversion service, we provide a utility scr
 In particular, this script
 
 1. uploads all files in a given directory from local disk to the input storage container
-1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md) which will retrieve the data from the input storage container and start a conversion which will return a conversion id
-1. poll the conversion status API with the retrieved conversion id until the conversion process terminates with success or failure
+1. calls the [the asset conversion REST API](../how-tos/conversion/conversion-rest-api.md) which will retrieve the data from the input storage container and start a conversion which will return a conversion ID
+1. poll the conversion status API with the retrieved conversion ID until the conversion process terminates with success or failure
 1. retrieves a link to the converted asset in the output storage
 
 The script reads its configuration from the file *Scripts\arrconfig.json*. Open that JSON file in a text editor.
@@ -152,7 +152,7 @@ Change **inputAssetPath** to the path of the model to be converted - the path is
 
 Once the model was converted it will be written back to the storage container given by **blobOutputContainerName**. A subpath can be specified by providing the optional **outputFolderPath**. In the example above the resulting "robot.arrAsset" will be copied to the output blob container under "converted/robot".
 
-The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise. 
+The config setting **outputAssetFileName** determines the name of the converted asset - the parameter is optional and the output filename will be deduced from the input file name otherwise.
 
 Open a PowerShell, make sure you installed the *Azure PowerShell* as mentioned in the [prerequisites](#prerequisites). Then log into your subscription with the following command and follow the on-screen directions:
 
@@ -171,6 +171,8 @@ Change to the `azure-remote-rendering\Scripts` directory and run the conversion 
 
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
+
+## Insert new model into Quickstart Sample App
 
 The conversion script generates a *Shared Access Signature (SAS)* URI for the converted model. You can now copy this URI as the **Model Name** into the quickstart sample app (see [Quickstart: Render a model with Unity](render-model.md)).
 
@@ -196,4 +198,4 @@ Now that you know the basics, have a look at our tutorials to gain more in-depth
 If you want to learn the details of model conversion, check out [the model conversion REST API](../how-tos/conversion/conversion-rest-api.md).
 
 > [!div class="nextstepaction"]
-> [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md)
+> [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md)

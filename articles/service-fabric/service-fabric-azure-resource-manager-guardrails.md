@@ -63,7 +63,7 @@ To fix a durability mismatch, which is indicated by any of the above error messa
 
 ## Seed node deletion 
 ### Overview
-A Service Fabric cluster has a [reliability tier](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) property which is used to determine the number of replicas of system services that run on the primary node type of the cluster. The number of required replicas will determine the minimum number of nodes that must be maintained in the primary node type of the cluster. If the number of nodes in the primary node type goes below the required minimum for the reliability tier, the cluster will become unstable.  
+A Service Fabric cluster has a [reliability tier](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#reliability-characteristics-of-the-cluster) property which is used to determine the number of replicas of system services that run on the primary node type of the cluster. The number of required replicas will determine the minimum number of nodes that must be maintained in the primary node type of the cluster. If the number of nodes in the primary node type goes below the required minimum for the reliability tier, the cluster will become unstable.  
 
 ### Error messages 
 Seed node removal operation has been detected, and will be rejected. 

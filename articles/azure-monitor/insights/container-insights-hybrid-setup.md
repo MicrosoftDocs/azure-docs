@@ -2,7 +2,7 @@
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 06/30/2020
 ---
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
@@ -11,7 +11,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 ## Supported configurations
 
-The following is officially supported with Azure Monitor for containers.
+The following configurations are officially supported with Azure Monitor for containers.
 
 - Environments:
 
@@ -33,7 +33,7 @@ The following is officially supported with Azure Monitor for containers.
 
 Before you start, make sure that you have the following:
 
-- A Log Analytics workspace.
+- A [Log Analytics workspace](../platform/design-logs-deployment.md).
 
     Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
@@ -41,7 +41,9 @@ Before you start, make sure that you have the following:
     >Enable monitoring of multiple clusters with the same cluster name to same Log Analytics workspace is not supported. Cluster names must be unique.
     >
 
-- You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage access to workspace and log data](../platform/manage-access.md)
+- You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage access to workspace and log data](../platform/manage-access.md).
+
+- To view the monitoring data, you need to have [*Log Analytics reader*](../platform/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Azure Monitor for containers.
 
 - [HELM client](https://helm.sh/docs/using_helm/) to onboard the Azure Monitor for containers chart for the specified Kubernetes cluster.
 
@@ -243,46 +245,58 @@ To first identify the full resource ID of your Log Analytics workspace required 
 
        After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
-## Install the chart
+## Install the HELM chart
+
+In this section you install the containerized agent for Azure Monitor for containers. Before proceeding, you need to identify the workspace ID required for the `omsagent.secret.wsid` parameter, and primary key required for the `omsagent.secret.key` parameter. You can identify this information by performing the following steps, and then run the commands to install the agent using the HELM chart.
+
+1. Run the following command to identify the workspace ID:
+
+    `az monitor log-analytics workspace list --resource-group <resourceGroupName>`
+
+    In the output, find the workspace name under the field **name**, and then copy the workspace ID of that Log Analytics workspace under the field **customerID**.
+
+2. Run the following command to identify the primary key for the workspace:
+
+    `az monitor log-analytics workspace get-shared-keys --resource-group <resourceGroupName> --workspace-name <logAnalyticsWorkspaceName>`
+
+    In the output, find the primary key under the field **primarySharedKey**, and then copy the value.
 
 >[!NOTE]
->The following commands are applicable only for Helm version 2. Use of the `--name` parameter is not applicable with Helm version 3.
-
-To enable the HELM chart, do the following:
+>The following commands are applicable only for Helm version 2. Use of the `--name` parameter is not applicable with Helm version 3. 
 
 >[!NOTE]
 >If your Kubernetes cluster communicates through a proxy server, configure the parameter `omsagent.proxy` with the URL of the proxy server. If the cluster does not communicate through a proxy server, then you don't need to specify this parameter. For more information, see [Configure proxy endpoint](#configure-proxy-endpoint) later in this article.
 
-1. Add the Azure charts repository to your local list by running the following command:
+3. Add the Azure charts repository to your local list by running the following command:
 
     ```
     helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
     ````
 
-2. Install the chart by running the following command:
+4. Install the chart by running the following command:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+    --set omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
     ```
 
     If the Log Analytics workspace is in Azure China 21Vianet, run the following command:
 
     ```
     $ helm install --name myrelease-1 \
-     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
     If the Log Analytics workspace is in Azure US Government, run the following command:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+    --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<logAnalyticsWorkspaceId>,omsagent.secret.key=<logAnalyticsWorkspaceKey>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
 
 ### Enable the Helm chart using the API Model
 
-You can specify an addon in the AKS Engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics workspace where the collected monitoring data is stored.
+You can specify an addon in the AKS Engine cluster specification json file, also referred to as the API Model. In this addon, provide the base64 encoded version of `WorkspaceGUID` and `WorkspaceKey` of the Log Analytics workspace where the collected monitoring data is stored. You can find the `WorkspaceGUID` and `WorkspaceKey` using steps 1 and 2 in the previous section.
 
 Supported API definitions for the Azure Stack Hub cluster can be found in this example - [kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json). Specifically, find the **addons** property in **kubernetesConfig**:
 
@@ -294,7 +308,7 @@ Supported API definitions for the Azure Stack Hub cluster can be found in this e
              "name": "container-monitoring",
              "enabled": true,
              "config": {
-               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceGuid": "<Azure Log Analytics Workspace Id in Base-64 encoded>",
                "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
              }
            }

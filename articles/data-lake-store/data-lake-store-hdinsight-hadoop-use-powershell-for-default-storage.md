@@ -4,7 +4,7 @@ description: Use Azure PowerShell to create and use Azure HDInsight clusters wit
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 

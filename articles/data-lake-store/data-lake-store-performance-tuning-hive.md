@@ -4,7 +4,7 @@ description: Performance tuning guidelines for Hive on HdInsight and Azure Data 
 
 author: stewu
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 

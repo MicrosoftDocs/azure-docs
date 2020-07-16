@@ -12,7 +12,7 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 Other support matrices:
 
 - [General support matrix](backup-support-matrix.md) for Azure Backup
-- [Support matrix](backup-support-matrix-mabs-dpm.md) for Azure Backup server/System Center Data Protection Manager (DPM) backup
+- [Support matrix](backup-support-matrix-mabs-dpm.md) for Azure Backup server / System Center Data Protection Manager (DPM) backup
 - [Support matrix](backup-support-matrix-mars-agent.md) for backup with the Microsoft Azure Recovery Services (MARS) agent
 
 ## Supported scenarios
@@ -58,7 +58,7 @@ The following table summarizes the supported operating systems when backing up W
 
 **Scenario** | **OS support**
 --- | ---
-Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
+Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#supported-operating-systems) operating systems.
 Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
@@ -153,7 +153,7 @@ Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs]
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Support for backup of Azure VMs with up to 32 disks is in public preview in [these regions](#backup-of-azure-virtual-machines-with-up-to-32-disks).<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
+Azure VM data disks | Support for backup of Azure VMs with up to 32 disks is in public preview in all regions except National Clouds (Azure Government, Azure China and Azure Germany).<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
@@ -165,12 +165,7 @@ Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not supported. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 [Shared disks](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Not supported.
 
-### Backup of Azure virtual machines with up to 32 disks
 
-Azure Backup now supports backup of Azure VMs with up to 32 attached disks.  This feature is in public preview in West Central US, Canada Central, Asia SouthEast, Brazil South, Canada East, France Central, France South, India Central, India South, Japan East, Japan West, Korea Central, Korea South, South Africa North, UK South, UK West, Australia East.  If you are interested in this feature in other regions, sign up for the limited preview by writing to us at AskAzureBackupTeam@microsoft.com.  
-
->[!NOTE]
->Azure Backup only supports up to 16 disks for Azure VMs with unmanaged disks or classic VMs.
 
 ## VM network support
 

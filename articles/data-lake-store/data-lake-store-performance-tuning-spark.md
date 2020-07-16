@@ -4,7 +4,7 @@ description: Learn about performance tuning guidelines for Spark on Azure HDInsi
 
 author: stewu
 ms.service: data-lake-store
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
 

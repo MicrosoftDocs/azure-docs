@@ -272,9 +272,6 @@ Specify your preview audience using Azure subscription ID GUIDs, along with an o
 
 Add at least one Azure subscription ID, either individually (up to 10) or by uploading a CSV file (up to 100). By adding these subscription IDs, you define who can preview your offer before it's published live. If your offer is already live, you can define a preview audience to test changes or updates to your offer.
 
-> [!NOTE]
-> The preview audience differs from a private audience. A **preview** audience can see and confirm all offer plans before they are live in the marketplace, including those that will be published only to a **private** audience (set on the Availability tab).
-
 Select **Save draft** before proceeding to the next section, Plan overview.
 
 ### Plan overview
@@ -474,7 +471,7 @@ On the review page you can see the publishing status:
 
 To submit the offer for publishing, select **Publish**.
 
-We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public (or if a private offer, to a private audience), go to Partner Center and select **Go-live**.
+We'll send you an email to let you know when a preview version of the offer is available to review and approve. To publish your offer to the public, go to Partner Center and select **Go-live**.
 
 ## Next steps
 

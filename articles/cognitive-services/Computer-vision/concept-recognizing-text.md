@@ -20,12 +20,11 @@ Computer Vision includes new deep-learning-based Optical Character Recognition (
 
 ## Read API 
 
-Computer Vision’s [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Microsoft’s latest OCR technology that extracts printed text, handwritten text (English only), digits, and currency symbols from images and PDF documents. It's optimized to extract text from images in-the-wild, images with visual noise, PDF documents that are either digital or scanned, and text heavy images. It supports printed and handwritten text (English), and mixed languages in the same image or document. The full list of supported languages can be found on the [Language support for Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) page.
-
+Computer Vision’s [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is Microsoft’s latest OCR technology that extracts printed text (seven languages), handwritten text (English only), digits, and currency symbols from images and multi-page PDF documents. It's optimized to extract text from in-the-wild text-heavy images and multi-page PDF documents with mixed languages. It supports detecting printed and handwritten text (English only) in the same image or document. The full list of supported languages can be found on the [Language support for Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) page.
 
 ### How it works
 
-The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) is asynchronous. The first step is to call the Read operation. The Read operation takes an image or PDF document as the input and returns an operation ID. 
+The [Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) supports text-heavy documents up to 2000 pages, and therefore executes asynchronously. The first step is to call the Read operation. The Read operation takes an image or PDF document as the input and returns an operation ID. 
 
 The second step is to call the [Get Results](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d9869604be85dee480c8750) operation. This operation takes in the operation ID that was created by the Read operation. It then returns the extracted text content from your image or document in the form of JSON. The JSON response maintains the original line groupings of recognized words. It includes the extracted text lines and their bounding box coordinates. Each text line includes all extracted words with their coordinates and a confidence scores.
 
@@ -86,7 +85,7 @@ Read is also available as a Docker container (preview) to enable you to deploy t
 
 ## OCR API
 
-The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model. It supports single images only, not PDFs, and returns an immediate response. It supports [more languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than Read API.
+The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) uses an older recognition model, supports only images, and executes synchronously, returning immediately with the detected text. It supports [more languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#text-recognition) than Read API.
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Enable soft delete - Azure file shares
 description: Learn how to enable soft delete (preview) on Azure file shares for data recovery and preventing accidental deletion.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files

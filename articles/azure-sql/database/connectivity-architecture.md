@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-ms.date: 03/09/2020
+ms.date: 06/26/2020
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -103,6 +103,8 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | South Africa West    | 102.133.24.0       |
 | South Central US     | 13.66.62.124, 23.98.162.75, 104.214.16.32   |
 | South East Asia      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
+| Switzerland North    | 51.107.56.0, 51.107.57.0 |
+| Switzerland West     | 51.107.152.0, 51.107.153.0 |
 | UAE Central          | 20.37.72.64        |
 | UAE North            | 65.52.248.0        |
 | UK South             | 51.140.184.11      |

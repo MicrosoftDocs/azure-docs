@@ -86,6 +86,8 @@
       href: stream-analytics-edge-csharp-udf-methods.md
     - name: Machine learning UDF
       href: machine-learning-udf.md
+    - name: Debug UDFs and updates
+      href: debug-user-defined-functions.md
   - name: Optimize your Stream Analytics job
     items:
     - name: Understand and adjust Streaming Units
@@ -228,6 +230,8 @@
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
       href: visual-studio-code-local-run-live-input.md
+    - name: Debug queries using job diagram 
+      href: debug-locally-using-job-diagram-vs-code.md
     - name: Set up CI/CD pipeline
       href: setup-cicd-vs-code.md
     - name: Explore jobs

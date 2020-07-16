@@ -16,15 +16,24 @@ This article summarizes best practices when creating assessments using the Azure
 
 ## About assessments
 
-Assessments you create with Azure Migrate Server Assessment are a point-in-time snapshot of data. There are two types of assessments in Azure Migrate.
+Assessments you create with Azure Migrate Server Assessment are a point-in-time snapshot of data. There are two types of assessments you can create using Azure Migrate: Server Assessment:
 
-**Assessment type** | **Details** | **Data**
+**Assessment Type** | **Details**
+--- | --- 
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type. [Learn more](concepts-assessment-calculation.md)
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](https://docs.microsoft.com/azure/azure-vmware/introduction). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+
+
+### Sizing criteria
+Server Assessment provides two sizing criteria options:
+
+**Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data | VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.
-**As-is on-premises** | Assessments that don't use performance data to make recommendations. | VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.
+**Performance-based** | Assessments that make recommendations based on collected performance data | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on CPU and memory utilization data.
+**As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
 
-### Example
-As an example, if you have an on-premises VM with four cores at 20% utilization, and memory of 8 GB with 10% utilization, the assessments will be as follows:
+#### Example
+As an example, if you have an on-premises VM with four cores at 20% utilization, and memory of 8 GB with 10% utilization, the Azure VM assessment will be as follows:
 
 - **Performance-based assessment**:
     - Identifies effective cores and memory based on core (4 x 0.20 = 0.8), and memory (8 GB x 0.10 = 0.8) utilization.
@@ -33,6 +42,7 @@ As an example, if you have an on-premises VM with four cores at 20% utilization,
 
 - **As-is (as on-premises) assessment**:
     -  Recommends a VM with four cores; 8 GB of memory.
+
 
 ## Best practices for creating assessments
 
@@ -49,6 +59,19 @@ Follow these best practices for assessments of servers imported into Azure Migra
 - **Create as-is assessments**: You can create as-is assessments immediately once your machines show up in the Azure Migrate portal.
 - **Create performance-based assessment**: This helps to get a better cost estimate, especially if you have overprovisioned server capacity on-premises. However, the accuracy of the performance-based assessment depends on the performance data specified by you for the servers. 
 - **Recalculate assessments**: Since assessments are point-in-time snapshots, they aren't automatically updated with the latest data. To update an assessment with the latest imported data, you need to recalculate it.
+ 
+### FTT Sizing Parameters for AVS assessments
+
+The storage engine used in AVS is vSAN. vSAN storage polices define storage requirements for your virtual machines. These policies guarantee the required level of service for your VMs because they determine how storage is allocated to the VM. These are the available FTT-Raid Combinations: 
+
+**Failures to Tolerate (FTT)** | **RAID Configuration** | **Minimum Hosts Required** | **Sizing consideration**
+--- | --- | --- | --- 
+1 | RAID-1 (Mirroring) | 3 | A 100GB VM would consume 200GB.
+1 | RAID-5 (Erasure Coding) | 4 | A 100GB VM would consume 133.33GB
+2 | RAID-1 (Mirroring) | 5 | A 100GB VM would consume 300GB.
+2 | RAID-6 (Erasure Coding) | 6 | A 100GB VM would consume 150GB.
+3 | RAID-1 (Mirroring) | 7 | A 100GB VM would consume 400GB.
+
 
 ## Best practices for confidence ratings
 
@@ -87,7 +110,7 @@ If there are on-premises changes to VMs that are in a group that's been assessed
 - Number of disks
 - Number of network adaptor
 - Disk size change(GB Allocated)
-- Update to Nic properties. Example: Mac address changes, IP address addition etc.
+- Nic properties update. Example: Mac address changes, IP address addition etc.
 
 Run the assessment again (**Recalculate**) to reflect the changes.
 
@@ -100,6 +123,12 @@ An assessment might not have all the data points for a number of reasons:
 - Few VMs were shut down during the period for which the assessment is calculated. If some VMs were powered off for some duration, Server Assessment will not be able to collect the performance data for that period.
 
 - Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
+
+### Migration Tool Guidance for AVS assessments
+
+In the Azure readiness report for Azure VMware Solution (AVS) assessment, you can see the following suggested tools: 
+- **VMware HCX or Enterprise**: For VMware machines, VMWare Hybrid Cloud Extension (HCX) solution is the suggested migration tool to migrate your on-premises workload to your Azure VMWare Solution (AVS) private cloud. [Learn More](https://docs.microsoft.com/azure/azure-vmware/hybrid-cloud-extension-installation).
+- **Unknown**: For machines imported via a CSV file, the default migration tool is unknown. Though, for VMware machines, its is recommended to use the VMWare Hybrid Cloud Extension (HCX) solution.
 
 
 ## Next steps

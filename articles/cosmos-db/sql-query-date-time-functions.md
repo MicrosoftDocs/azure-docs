@@ -16,10 +16,8 @@ The date and time functions let you perform DateTime and timestamp operations in
 
 The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format:
 
-|||
-|-|-|
-|[GetCurrentDateTime](sql-query-getcurrentdatetime.md)|[GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)||
-
+* [GetCurrentDateTime](sql-query-getcurrentdatetime.md)
+* [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)
 
 ## Next steps
 

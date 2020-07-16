@@ -4,7 +4,7 @@ description: Configure MPIO on StorSimple connected to a Linux host running Cent
 author: alkohli
 ms.assetid: ca289eed-12b7-4e2e-9117-adf7e2034f2f
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
 ---
