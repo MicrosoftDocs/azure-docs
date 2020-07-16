@@ -9,11 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB request rate too large
-
-| Http Status Code | Name | Category |
-|---|---|---|
-|429|CosmosRequestRateTooLarge|Service|
+# Diagnose and troubleshoot Cosmos DB 429 (Too Many Requests)
 
 ## Description
 'Request rate too large' or error code 429 indicates that your requests are being throttled, because the consumed throughput (RU/s) has exceeded the [provisioned throughput](https://docs.microsoft.com/azure/cosmos-db/set-throughput). The SDK will automatically retry requests based on the specified retry policy. If you get this failure often, consider increasing the throughput on the collection. Check the portal's metrics to see if you are getting 429 errors. Review your partition key to ensure it results in an [even distribution of storage and request volume](https://docs.microsoft.com/azure/cosmos-db/partition-data).

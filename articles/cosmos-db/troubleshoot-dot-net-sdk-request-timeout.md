@@ -9,11 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB request timeout
-
-| Http Status Code | Name | Category |
-|---|---|---|
-|408|CosmosDotNetRequestTimeout|Service|
+# Diagnose and troubleshoot Cosmos DB .NET SDK 408 (Request Timeout)
 
 ## Issue
 
@@ -54,13 +50,13 @@ Choose a good partition key that evenly distributes request volume and storage. 
 The application is doing a high level of concurrency, which can lead to contention on the channel
 
 #### Solution:
-Try to scale the application up/out.
+The client application that uses the SDK should be scaled up/out.
 
 ### 6. Large requests and/or responses
 Large requests or responses can lead to head-of-line blocking on the channel and exacerbate contention, even with a relatively low degree of concurrency.
 
 #### Solution:
-Try to scale the application up/out.
+The client application that uses the SDK should be scaled up/out.
 
 ### 7. Failure rate is within Cosmos DB SLA
 The application should be able to handle transient failures and retry when necessary. 408 exceptions are not retried because on create paths it's not possible to know if the service created the item or if it did not. Sending the same item again for create will cause a conflict exception. User applications business logic might have custom logic to handle conflicts, which would break from the ambiguity of an existing item vs conflict from a create retry.

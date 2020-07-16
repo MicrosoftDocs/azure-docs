@@ -9,11 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB service request timeout
-
-| Http Status Code | Name | Category |
-|---|---|---|
-|408|CosmosServiceRequestTimeout|Service|
+# Diagnose and troubleshoot Cosmos DB 408 (Request Timeout) from the service
 
 ## Issue
 

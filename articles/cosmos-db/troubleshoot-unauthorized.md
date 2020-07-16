@@ -9,11 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB unauthorized
-
-| Http Status Code | Name | Category |
-|---|---|---|
-|401|CosmosUnauthorized|Service|
+# Diagnose and troubleshoot Cosmos DB 401 (Unauthorized)
 
 ## Description
 HTTP 401: The MAC signature found in the HTTP request is not the same as the computed signature

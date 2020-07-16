@@ -9,11 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB not found
-
-| Http Status Code | Name | Category |
-|---|---|---|
-|404|CosmosNotFound|Service|
+# Diagnose and troubleshoot Cosmos DB 404 not found
 
 ## Description
 This status code represents that the resource no longer exists. 

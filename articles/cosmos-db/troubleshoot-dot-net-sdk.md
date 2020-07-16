@@ -62,7 +62,7 @@ Checking the [portal metrics](monitor-accounts.md) will help determine if it's a
 
 ### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
-If your app is deployed on [Azure Virtual Machines without a public IP address](../load-balancer/load-balancer-outbound-connections.md), by default [Azure SNAT ports](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). This situation can lead to connection throttling, connection closure, or the above mentioned [Request timeouts](#request-timeouts).
+If your app is deployed on [Azure Virtual Machines without a public IP address](../load-balancer/load-balancer-outbound-connections.md), by default [Azure SNAT ports](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). This situation can lead to connection throttling, connection closure, or the above mentioned [Request timeouts](troubleshoot-dot-net-sdk-request-timeout.md).
 
  Azure SNAT ports are used only when your VM has a private IP address is connecting to a public IP address. There are two workarounds to avoid Azure SNAT limitation (provided you already are using a single client instance across the entire application):
 
@@ -74,7 +74,7 @@ If your app is deployed on [Azure Virtual Machines without a public IP address](
 ### <a name="high-network-latency"></a>High network latency
 High network latency can be identified by using the [diagnostics string](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet) in the V2 SDK or [diagnostics](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) in V3 SDK.
 
-If no [timeouts](#request-timeouts) are present and the diagnostics show single requests where the high latency is evident on the difference between `ResponseTime` and `RequestStartTime`, like so (>300 milliseconds in this example):
+If no [timeouts](troubleshoot-dot-net-sdk-request-timeout.md) are present and the diagnostics show single requests where the high latency is evident on the difference between `ResponseTime` and `RequestStartTime`, like so (>300 milliseconds in this example):
 
 ```bash
 RequestStartTime: 2020-03-09T22:44:49.5373624Z, RequestEndTime: 2020-03-09T22:44:49.9279906Z,  Number of regions attempted:1

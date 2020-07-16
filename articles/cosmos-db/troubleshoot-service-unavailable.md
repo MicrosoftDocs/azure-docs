@@ -9,11 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB service unavailable
-
-| Http Status Code | Name | Category |
-|---|---|---|
-|503|CosmosServiceUnavailable|Service|
+# Diagnose and troubleshoot Cosmos DB 503 (Service Unavailable)
 
 ## Issue
 

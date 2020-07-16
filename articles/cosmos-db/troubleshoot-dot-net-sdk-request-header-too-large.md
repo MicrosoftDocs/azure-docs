@@ -9,11 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB request header too large exception
-
-| Http Status Code | Name | Category |
-|---|---|---|
-|400|CosmosRequestHeaderTooLarge|Service|
+# Diagnose and troubleshoot Cosmos DB 400 bad request with mesage "request header too large"
 
 ## Description
 The size of the header has grown too large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version 3.x or 2.x, which adds header size tracing to the exception message.
@@ -30,7 +26,7 @@ Restart the application will reset all the session tokens. This session token wi
 
 #### Solution:
 1. Follow the performance tips and convert the application to Direct + TCP connection mode. Direct + TCP does not have the header size restriction like HTTP does which avoids this issue. Make sure to use the latest SDK version, which has a fix for query operations when the service interop is not available.
-2. If Direct + TCP is not an option then mitigation can be done by changing the client consistency level. The session token is only used for session consistency, which is the default for Cosmos DB. Any other consistency level will not use the session token.
+2. If Direct + TCP is not an option then mitigation can be done by changing the [client consistency level](how-to-manage-consistency.md). The session token is only used for session consistency, which is the default for Cosmos DB. Any other consistency level will not use the session token.
 
 ### 2. Continuation token too large
 
