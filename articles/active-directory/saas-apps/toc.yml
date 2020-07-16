@@ -1594,6 +1594,8 @@
         href: terraform-enterprise-tutorial.md
       - name: TextExpander
         href: textexpander-tutorial.md
+      - name: Textline
+        href: textline-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
