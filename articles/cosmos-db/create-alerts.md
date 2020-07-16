@@ -1,5 +1,5 @@
 ---
-title: Create alerts to manage resources in Azure Cosmos DB
+title: Create alerts for Azure Cosmos DB using Azure Monitor
 description: Learn how to set up alerts for Azure Cosmos DB using Azure Monitor.
 author: SnehaGunda
 ms.author: sngun
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ---
 
-# Create alerts to manage resources in Azure Cosmos DB
+# Create alerts for Azure Cosmos DB using Azure Monitor
 
 Alerts are used to set up recurring tests to monitor the availability and responsiveness of your Azure Cosmos DB resources. Alerts can send you a notification in the form of an  email, or execute an Azure Function when one of your metrics reaches the threshold or if a specific event is logged in the activity log.
 
@@ -86,7 +86,7 @@ This section shows how to create an alert when you receive a HTTP status code 42
 
 After creating the alert, it will be active within 10 minutes.
 
-## Alerting scenarios 
+## Common alerting scenarios
 
 The following are some scenarios where setting up alerts is helpful:
 
@@ -94,6 +94,10 @@ The following are some scenarios where setting up alerts is helpful:
 * When the data or index usage of a container, database, or a region exceeds a certain number of bytes.
 * When the normalized RU/s consumption is greater than certain percentage. The normalized RU consumption metrics gives the maximum throughput utilization within a replica set. To learn, see the [How to monitor normalized RU/s](monitor-normalized-request-units.md) article.  
 * When a region is added, removed, or if it goes offline.
+* When a database or a container is created, deleted, or updated.
 * When the throughput of your database or the container is changed.
 
 ## Next steps
+
+* How to [monitor normalized RU/s metric](monitor-normalized-request-units.md) in Azure Cosmos container.
+* How to [monitor throughput or request unit usage](monitor-request-unit-usage.md) of an operation in Azure Cosmos DB
