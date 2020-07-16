@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/16/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
@@ -16,11 +16,7 @@ ms.custom: references_regions
 Blob storage now supports the Network File System (NFS) 3.0 protocol. This support enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. 
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview.
->
-> In general-purpose v2 accounts, support is available in the following regions: US Central (EUAP), and US East 2 (EUAP) regions. 
->
-> For BlockBlobStorage accounts, support is available in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
 
 ## General workflow: Mounting a storage account container
 
@@ -47,7 +43,7 @@ For step-by-step guidance, see [Mount Blob storage on Linux by using the Network
 
 ## Network security
 
-Your storage account must be contained within a VNet because the only way to secure your data is by using network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and POSIX access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
+Your storage account must be contained within a VNet. A VNet enables clients to securely connect to your storage account. The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them. 
 
 To learn more, see [Network security recommendations for Blob storage](security-recommendations.md#networking).
 
@@ -73,7 +69,7 @@ The following Azure Storage features aren't supported when you enable the NFS 3.
 
 - Azure Active Directory (AD) security
 
-- POSIX access control lists (ACLs)
+- POSIX-like access control lists (ACLs)
 
 - The ability to enable NFS 3.0 support on existing storage accounts
 
@@ -81,7 +77,10 @@ The following Azure Storage features aren't supported when you enable the NFS 3.
 
 - Access to directories and files by using REST APIs, Blob SDKs, or Data Lake Storage SDKs.
 
-  Once you've enabled the NFS 3.0 protocol for your storage account, you can only use that protocol to access directories and files in the storage account. 
+  > [!IMPORTANT]
+  > Once you've enabled the NFS 3.0 protocol for your storage account, you can only use the NFS 3.0 protocol to access directories and files in the storage account. 
+
+  
 
 ## NFS 3.0 features not yet supported
 
@@ -107,7 +106,7 @@ The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage
 
 During the preview, the data stored in your storage account is billed at the same capacity rate that blob storage charges per GB per month. 
 
-A transaction is free during the preview. Transactions will not be free when this feature becomes generally available. The exact transaction pricing is yet to be determined. 
+A transaction is not charged during the preview. Pricing for transactions is subject to change and will be determined when it is generally available.
 
 ## Next Steps
 
