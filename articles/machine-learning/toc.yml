@@ -375,6 +375,8 @@
       - name: Azure Functions
         displayName: functions app
         href: how-to-deploy-functions.md
+      - name: Azure Cognitive Search
+        href: how-to-deploy-model-cognitive-search.md
       - name: Compute instances
         href: how-to-deploy-local-container-notebook-vm.md
       - name: Use custom Docker image
