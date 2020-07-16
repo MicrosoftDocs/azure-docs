@@ -80,7 +80,7 @@ The data frame above counts for 5 columns and 1 row only. After transformation, 
 
 With Synapse Spark, transforming nested structures into columns and array elements into multiple rows is easy. The following steps can be used for implementation.
 
-[![Spark transformations steps](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transfo-steps.png#lightbox)
+[![Spark transformations steps](./media/how-to-complex-schema/spark-transform-steps.png)](./media/how-to-complex-schema/spark-transform-steps.png#lightbox)
 
 **Step 1**: We define a function to flatten the nested schema. This function can be used without change. Create a cell in a [PySpark notebook](quickstart-apache-spark-notebook.md) with the following function:
 
