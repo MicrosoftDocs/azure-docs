@@ -10,7 +10,7 @@
   - name: Docs FAQ
     href: docs-faq.md
   - name: Generating Reference Docs
-    href: automatingreferencedocs.md
+    href: reference-docs-guidance.md
 - name: About Azure Communication Services
   href: overview.md
 - name: Quickstarts
