@@ -177,7 +177,7 @@ Take the following steps if returning the device in China.
 1. Email FedEx Premier Customer Care and provide them with tracking number (shipment reference number) to organize pickup using the following email template:  
 
    ```output
-   To: ying.bao@fedex.com
+   To: ying.bao@fedex.com;739951@fedex.com
    Subject: Pickup request for Microsoft Azure : Order Name
    Body: Need pick up for the below shipment
    * FedEx tracking number (reference number)
