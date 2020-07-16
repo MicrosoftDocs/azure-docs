@@ -67,11 +67,11 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 2. Select the **SSH** tab, and then copy the ssh command to the clipboard.
 
-3. Log on to your VM using your credentials and the [SSH client](/azure/virtual-machines/linux/use-remote-desktop) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt. PuTTY works just as well.
+3. Log on to your VM using your credentials and the [SSH client](../../../linux/use-remote-desktop.md) of choice. This demo uses the Linux extensions for Windows 10, which adds a bash shell to the Windows command prompt. PuTTY works just as well.
 
 4. When logged on, create a directory to upload the IBM packages. Keep in mind Linux is case sensitive. For example, this demo assumes the packages are uploaded to:
 
-        /home/MyUserID/ZDT/adcd/nov2017/volumes
+    `/home/MyUserID/ZDT/adcd/nov2017/volumes`
 
 5. Upload the files using an SSH client such as[WinSCP](https://winscp.net/eng/index.php). Since SCP is a part of SSH , it uses port 22, which is what SSH uses. If your local computer is not Windows, you can type the [scp command](http://man7.org/linux/man-pages/man1/scp.1.html) in your SSH session.
 
@@ -84,8 +84,8 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 
 8. When the uploads are complete, navigate to the volumes directory and decompress all of the **gz** volumes:
 
-    ```
-        gunzip \*.gz
+    ```console
+    gunzip \*.gz
     ```
     
 ![File explorer showing decompressed gz volumes](media/01-gunzip.png)
@@ -95,9 +95,9 @@ Now that you have the package(s), you must upload them to your VM on Azure.
 The next step is to configure zD&T to use the uploaded package(s). The image storage process within zD&T allows you to mount and use the images. It can use SSH or FTP.
 
 1. Start the **zDTServer**. To do this, you must be at the root level. Enter the following two commands in order:
-    ```
-        sudo su -
-        /opt/ibm/zDT/bin/startServer
+    ```console
+    sudo su -
+    /opt/ibm/zDT/bin/startServer
     ```
 2. Note the URL output by the command and use this URL to access the web server. It looks similar to:
      > https://(your VM name or IP address):9443/ZDTMC/index.html
@@ -183,9 +183,9 @@ Congratulations! You are now running an IBM mainframe environment on Azure.
 
 ## Learn more
 
-- [Mainframe migration: myths and facts](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Troubleshooting](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Mainframe migration: myths and facts](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale on Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [Troubleshooting](../../../troubleshooting/index.yml)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

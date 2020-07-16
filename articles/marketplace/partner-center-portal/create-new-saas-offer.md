@@ -1,8 +1,6 @@
 ---
 title: Create a new SaaS offer for the Microsoft commercial marketplace 
 description: How to create a new Software as a Service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the Microsoft commercial marketplace program in Microsoft Partner Center. 
-author: dsindona 
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -344,7 +342,7 @@ Select **Save draft** before continuing.
 
 ## Plan overview
 
-This page lets you provide a variety of plan options within the same offer. These plans (sometimes referred to as SKUs) could differ in terms of version, monetization, or tiers of service. You must set up at least one plan in order to sell your offer in the marketplace.
+This page lets you provide a variety of plan options within the same offer. These plans (formerly called SKUs) can differ in terms of version, monetization, or tiers of service. You must set up at least one plan to sell your offer in the marketplace.
 
 Once created, you will see your plan names, IDs, pricing models, availability (Public or Private), current publishing status, and any available actions.
 

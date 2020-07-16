@@ -221,7 +221,7 @@ We recommend that you:
 ## Troubleshooting the migration process
 
 When you try to migrate but can't find your Azure subscription in the drop-down list:
-* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free trial](https://azure.microsoft.com/free/).
+* Ensure that you have a valid Azure subscription that's authorized to create Cognitive Services resources. Go to the [Azure portal](https://ms.portal.azure.com) and check the status of the subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/cognitive-services/).
 * Ensure that you're in the proper tenant associated with your valid subscription. You can switch tenants from the avatar to the left of your initials on this toolbar:
 ![Toolbar where you can switch tenants](./media/migrate-authoring-key/switch-user-tenant-2.png)
 

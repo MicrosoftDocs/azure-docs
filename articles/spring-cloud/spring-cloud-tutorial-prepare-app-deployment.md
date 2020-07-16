@@ -1,6 +1,6 @@
 ---
-title: How-to - Prepare a Java Spring application for deployment in Azure Spring Cloud
-description: In this topic, you prepare a Java Spring application for deployment to Azure Spring Cloud.
+title: How to prepare a Java Spring application for deployment in Azure Spring Cloud
+description: Learn how to prepare a Java Spring application for deployment to Azure Spring Cloud.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: how-to
@@ -248,7 +248,7 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
 </dependency>
 ```
 
- You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. Read the [tutorial on distributed tracing](spring-cloud-tutorial-distributed-tracing.md) to learn how to use Application Insights with Azure Spring Cloud.
+ You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. For information about how to use Application Insights with Azure Spring Cloud, see the [documentation on distributed tracing](spring-cloud-tutorial-distributed-tracing.md).
 
 ## See also
 * [Analyze application logs and metrics](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
@@ -259,9 +259,6 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
 
 ## Next steps
 
-In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see the following article.
-
-> [!div class="nextstepaction"]
-> [Learn how to set up a Config Server instance](spring-cloud-tutorial-config-server.md)
+In this topic, you learned how to configure your Java Spring application for deployment to Azure Spring Cloud. To learn how to set up a Config Server instance, see [Set up a Config Server instance](spring-cloud-tutorial-config-server.md).
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

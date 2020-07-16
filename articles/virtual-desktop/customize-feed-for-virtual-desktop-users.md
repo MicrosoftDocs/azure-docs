@@ -119,7 +119,7 @@ You can change the display name for a published remote desktop by setting a frie
 
 Now that you've customized the feed for users, you can sign in to a Windows Virtual Desktop client to test it out. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
 
- * [Connect with Windows 10 or Windows 7](connect-windows-7-and-10.md)
+ * [Connect with Windows 10 or Windows 7](connect-windows-7-10.md)
  * [Connect with the web client](connect-web.md)
  * [Connect with the Android client](connect-android.md)
  * [Connect with the iOS client](connect-ios.md)

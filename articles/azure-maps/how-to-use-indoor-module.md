@@ -16,7 +16,7 @@ The Azure Maps Web SDK includes the *Azure Maps Indoor* module. The  *Azure Maps
 
 ## Prerequisites
 
-1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps)
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Create a Creator resource](how-to-manage-creator.md)
 3. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 4. Get a `tilesetId` and a `statesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md).

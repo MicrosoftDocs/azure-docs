@@ -127,6 +127,10 @@ The machine learning CLI is an extension for the Azure CLI. It provides cross-pl
 * [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md)
 * [MLOps on Azure](https://github.com/microsoft/MLOps)
 
+## VS Code
+
+You can use the VS Code extension to run and manage your training jobs. See the [VS Code resource management how-to guide](how-to-manage-resources-vscode.md#experiments) to learn more.
+
 ## Next steps
 
 Learn how to [Set up training environments](how-to-set-up-training-targets.md).

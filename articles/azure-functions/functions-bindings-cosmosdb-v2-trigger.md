@@ -204,7 +204,7 @@ Attributes are not supported by Python.
 
 # [Java](#tab/java)
 
-From the [Java functions runtime library](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on parameters that read data from Cosmos DB.
+From the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBInput` annotation on parameters that read data from Cosmos DB.
 
 ---
 
