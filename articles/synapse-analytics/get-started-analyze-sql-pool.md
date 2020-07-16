@@ -44,3 +44,9 @@ ms.date: 05/19/2020
     This query shows how the total trip distances and average trip distance relate to the number of passengers.
 1. In the SQL script result window, change the **View** to **Chart** to see a visualization of the results as a line chart.
 
+
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Analyze using spark](get-started-analyze-spark.md)
+
