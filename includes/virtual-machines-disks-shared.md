@@ -26,7 +26,7 @@ Shared managed disks do not natively offer a fully managed file system that can 
 
 ### Operating system requirements
 
-Shared disks offer support for a subset of operating systems. See the [Windows](#windows) and [Linux](#linux) sections for the supported operating systems.
+Shared disks offer support for a subset of operating systems. See the [Windows](#windows) or [Linux](#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 
