@@ -26,13 +26,13 @@ With Azure diagnostic logs, you can view core analytics and save them into one o
  
 This feature is available on CDN endpoints for all pricing tiers. 
 
-Azure diagnostics logs allow you to export basic usage metrics from your CDN endpoint to a variety of sources so that you can consume them in a customized way. For example, you can do the following types of data export:
+Diagnostics logs allow you to export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way. You can do the following types of data export:
 
 - Export data to blob storage, export to CSV, and generate graphs in Excel.
 - Export data to Event Hubs and correlate with data from other Azure services.
 - Export data to Azure Monitor logs and view data in your own Log Analytics workspace
 
-A Azure CDN profile is required for the following steps. Refer to [create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
+An Azure CDN profile is required for the following steps. Refer to [create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
 ## Enable logging with the Azure portal
 
@@ -180,10 +180,10 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
     ```
 
 ## Consuming diagnostics logs from Azure Storage
-This section describes the schema of CDN core analytics, how it is organized inside of an Azure storage account, and provides sample code to download the logs in a CSV file.
+This section describes the schema of CDN core analytics, organization in an Azure storage account, and provides sample code to download the logs in a CSV file.
 
 ### Using Microsoft Azure Storage Explorer
-Before you can access the core analytics data from an Azure storage account, you first need a tool to access the contents in a storage account. While there are several tools available in the market, the one that we recommend is the Microsoft Azure Storage Explorer. To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
+To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/). After downloading and installing the software, configure it to use the same Azure storage account that was configured as a destination to the CDN Diagnostics Logs.
 
 1.	Open **Microsoft Azure Storage Explorer**
 2.	Locate the storage account
@@ -196,7 +196,7 @@ Before you can access the core analytics data from an Azure storage account, you
 
 #### Blob path format
 
-Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
+Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Storage explorer tool interprets '/' as a directory separator and shows the hierarchy. The path to the Azure blob appears as if there's a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
 
 ```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
@@ -215,7 +215,7 @@ Core analytics logs are generated every hour and the data is collected and store
 
 ### Exporting the core analytics data to a CSV file
 
-To make it easy to access core analytics, sample code for a tool is provided. This tool allows downloading the JSON files into a flat comma-separated file format, which can be used to create charts or other aggregations.
+To access core analytics, sample code for a tool is provided. This tool allows downloading the JSON files into a flat comma-separated file format, which can be used to create charts or other aggregations.
 
 Here's how you can use the tool:
 
@@ -238,7 +238,13 @@ Delayed by 1 hour. | Delayed by 1 hour and can take up to 2 hours to start appea
 Microsoft currently offers core analytics logs only, which contain metrics showing HTTP response statistics and egress statistics as seen from the CDN POPs/edges.
 
 ### Core analytics metrics details
-The following table shows a list of metrics available in the core analytics logs for **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, and **Azure CDN Standard/Premium from Verizon**. Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those CDN endpoints that have traffic on them.
+The following table shows a list of metrics available in the core analytics logs for:
+
+* **Azure CDN Standard from Microsoft**
+* **Azure CDN Standard from Akamai**
+* **Azure CDN Standard/Premium from Verizon**
+
+Not all metrics are available from all providers, although such differences are minimal. The table also displays whether a given metric is available from a provider. The metrics are available for only those CDN endpoints that have traffic on them.
 
 
 |Metric                     | Description | Microsoft | Verizon | Akamai |
@@ -255,9 +261,9 @@ The following table shows a list of metrics available in the core analytics logs
 | RequestCountHttpStatus304 | Count of all requests that resulted in a 304 HTTP code response. | Yes | No  |Yes |
 | RequestCountHttpStatus404 | Count of all requests that resulted in a 404 HTTP code response. | Yes | No  |Yes |
 | RequestCountCacheHit | Count of all requests that resulted in a Cache hit. The asset was served directly from the POP to the client. | Yes | Yes | No  |
-| RequestCountCacheMiss | Count of all requests that resulted in a Cache miss. A Cache miss means the asset was not found on the POP closest to the client, and therefore was retrieved from the Origin. | Yes | Yes | No |
-| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached due to a user configuration on the edge. | Yes | Yes | No |
-| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from being cached by the asset's Cache-Control and Expires headers, which indicate that it should not be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| RequestCountCacheMiss | Count of all requests that resulted in a Cache miss. A Cache miss means the asset wasn't found on the POP closest to the client, and was retrieved from the origin. | Yes | Yes | No |
+| RequestCountCacheNoCache | Count of all requests to an asset that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
+| RequestCountCacheUncacheable | Count of all requests to assets that are prevented from being cached by the asset's Cache-Control and Expires headers. This count indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
 | RequestCountCacheOthers | Count of all requests with cache status not covered by above. | No | Yes | No  |
 | EgressTotal | Outbound data transfer in GB | Yes |Yes |Yes |
 | EgressHttpStatus2xx | Outbound data transfer* for responses with 2xx HTTP status codes in GB. | Yes | Yes | No  |
@@ -266,9 +272,9 @@ The following table shows a list of metrics available in the core analytics logs
 | EgressHttpStatus5xx | Outbound data transfer for responses with 5xx HTTP status codes in GB. | Yes | Yes | No |
 | EgressHttpStatusOthers | Outbound data transfer for responses with other HTTP status codes in GB. | Yes | Yes | No  |
 | EgressCacheHit | Outbound data transfer for responses that were delivered directly from the CDN cache on the CDN POPs/Edges. | Yes | Yes | No |
-| EgressCacheMiss. | Outbound data transfer for responses that were not found on the nearest POP server, and retrieved from the origin server. | Yes | Yes | No |
-| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached due to a user configuration on the edge. | Yes | Yes | No |
-| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from being cached by the asset's Cache-Control and/or Expires headers. Indicates that it should not be cached on a POP or by the HTTP client. | Yes | Yes | No |
+| EgressCacheMiss. | Outbound data transfer for responses that weren't found on the nearest POP server, and retrieved from the origin server. | Yes | Yes | No |
+| EgressCacheNoCache | Outbound data transfer for assets that are prevented from being cached because of a user configuration on the edge. | Yes | Yes | No |
+| EgressCacheUncacheable | Outbound data transfer for assets that are prevented from being cached by the asset's Cache-Control and, or Expires headers. Indicates that it shouldn't be cached on a POP or by the HTTP client. | Yes | Yes | No |
 | EgressCacheOthers | Outbound data transfers for other cache scenarios. | No | Yes | No |
 
 *Outbound data transfer refers to traffic delivered from CDN POP servers to the client.
@@ -321,7 +327,7 @@ All logs are stored in JSON format and each entry has string fields according to
 }
 ```
 
-Where *time* represents the start time of the hour boundary for which the statistics is reported. When a metric is not supported by a CDN provider, instead of a double or integer value, there is a null value. This null value indicates the absence of a metric, and is different from a value of 0. There is one set of these metrics per domain configured on the endpoint.
+Where *time* represents the start time of the hour boundary for which the statistics is reported. A metric unsupported by a CDN provider, instead of a double or integer value, results in a null value. This null value indicates the absence of a metric, and is different from a value of 0. One set of these metrics per domain is configured on the endpoint.
 
 Example properties:
 
