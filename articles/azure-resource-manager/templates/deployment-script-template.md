@@ -599,7 +599,6 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Deployment script error codes
 
-|------------|-------------|
 | Error code | Description |
 |------------|-------------|
 | DeploymentScriptInvalidOperation | The deployment script resource definition in the template contains invalid property names. |
@@ -618,7 +617,7 @@ After the script is tested successfully, you can use it as a deployment script i
 | DeploymentScriptInvalidOutputs | The deployment script outputs is not a valid JSON object. |
 | DeploymentScriptContainerInstancesServiceLoginFailure | The user-assigned managed identity was not able to login after 10 attempts with 1 minute interval. |
 | DeploymentScriptContainerGroupNotFound | A Container group created by deployment script service got deleted by an external tool or process. |
-| DeploymentScriptDownloadFailure | Failed downloading a supporting script. See [Use supporting script](#use-supporting-script).|
+| DeploymentScriptDownloadFailure | Failed downloading a supporting script. See [Use supporting script](#use-supporting-scripts).|
 | DeploymentScriptError | The user script threw an error. |
 | DeploymentScriptBootstrapScriptExecutionFailed | The bootstrap script threw an error. Bootstrap script is the system script that orchestrates the deployment script execution. |
 | DeploymentScriptExecutionFailed | Unknown error during the deployment script execution. |
