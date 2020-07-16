@@ -22,6 +22,8 @@
         href: quickstarts/chat/get-started-with-chat.md
   - name: Networking
     items:
+      - name: Placeholder
+        href: quickstarts/acs-events-quickstart.md
   - name: Telephony and SMS 
     items:
       - name: Place a Telephone Call
@@ -61,12 +63,20 @@
   items:
   - name: Chat
     items:
+    - name: Placeholder
+      href: quickstarts/acs-events-quickstart.md
   - name: Networking
     items:
+    - name: Placeholder
+      href: quickstarts/acs-events-quickstart.md
   - name: Telephony and SMS
     items:
+    - name: Placeholder
+      href: quickstarts/acs-events-quickstart.md
   - name: Voice and Video Calling
     items:
+    - name: Placeholder
+      href: quickstarts/acs-events-quickstart.md
   # - name: Add Calling To Your App
   #  href: tutorials/add-calling-to-your-app.md  
   # - name: Add Signaling To Your App
@@ -98,6 +108,10 @@
         href: concepts/telephony-and-sms/sms.md
       - name: SMS Flows
         href: concepts/telephony-and-sms/sms-flows.md
+      - name: Push Notifications Overview
+        href: concepts/push-notifications-overview.md
+      - name: Registering For Push Notifications
+        href: concepts/notifications-azure-portal-registration.md
   - name: Voice and Video Calling
     items:
       - name: About Voice
@@ -144,11 +158,6 @@
     href: concepts/authentication.md
   - name: ACS As An Event Grid Source
     href: concepts/acs-event-grid.md
-  - name: Push notifications
-    href: concepts/push-notifications.md
-    items:
-      - name: Registering through communication service portal
-        href: concepts/notifications-azure-portal-registration.md
   - name: User Access Tokens
     href: concepts/user-access-tokens.md
   - name: Identity Model
