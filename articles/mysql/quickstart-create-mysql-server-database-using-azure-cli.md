@@ -67,7 +67,7 @@ sku-name|GP_Gen5_2|Enter the name of the pricing tier and compute configuration.
 >- SSL is enabled by default on your server . For more infroamtion on SSL, see [Configure SSL connectivity](howto-configure-ssl.md)
 
 ## Configure a server-level firewall rule 
-By default the new server created is protected with firewall rules and not accessible publicly. You can configure the firewall rule on your server using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule) command to give your local environment access to connect to the server. 
+By default the new server created is protected with firewall rules and not accessible publicly. You can configure the firewall rule on your server using the [az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule) command. This will allow you to connect to the server locally.
 
 The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Replace the IP address you will be connecting from. You can use an range of IP addresses if needed. Don't know how to look for your IP, then go to [https://whatismyipaddress.com/](https://whatismyipaddress.com/) to get your IP address.
 
@@ -117,8 +117,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to Azure Database for MySQL server using mysql command-line client
-**[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool is popular client used to connect to your MySQL servers. You can connect to your server using **mysql** with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use mysql command line on your local environment if you have it available.
-
+You can connect to your server using a popular client tool,**[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use mysql command line on your local environment.
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
