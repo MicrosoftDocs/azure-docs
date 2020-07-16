@@ -19,7 +19,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). **The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) using private endpoints in [Azure Data Factory managed VNet](managed-virtual-network-private-endpoint.md).** The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). **The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) using private endpoints in [Azure Data Factory managed Virtual Network](managed-virtual-network-private-endpoint.md).** The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [supported data stores](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) table.
 
 > [!NOTE]
 >
@@ -104,12 +104,12 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 10. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
-## Create a Azure Integration Runtime in ADF Managed Virtual Network
-In this step, you create a Azure Integration Runtime and enable Managed Virtual Network.
+## Create an Azure Integration Runtime in ADF Managed Virtual Network
+In this step, you create an Azure Integration Runtime and enable Managed Virtual Network.
 
 1. In ADF portal, go to **Manage Hub** and click **New** to create a new Azure Integration Runtime.
    ![Create new Azure Integration Runtime](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
-2. Choose to create a **Azure** Integration Runtime.
+2. Choose to create an Azure** Integration Runtime.
    ![New Azure Integration Runtime](./media/tutorial-copy-data-portal-private/azure-ir.png)
 3. Enable **Virtual Network**.
    ![New Azure Integration Runtime](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
@@ -155,7 +155,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     ![Interactive authoring](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
 
-1. Select **Test connection**, it should fail when the Storage Account allows access only from 'Selected Network' and requires Azure Data Factory to create a Private Endpoint to it which should be approved prior to using it. In the error message, you should see a link to create a **private endpoint** that you can follow to create a managed private endpoint. *An alternative is to go directly to the Manage tab and follow instructions in [next section](#create-a-managed-private-endpoint) to create a managed private endpoint*
+1. Select **Test connection**, it should fail when the Storage Account allows access only from 'Selected Network' and requires Azure Data Factory to create a Private Endpoint to it that should be approved prior to using it. In the error message, you should see a link to create a **private endpoint** that you can follow to create a managed private endpoint. *An alternative is to go directly to the Manage tab and follow instructions in [next section](#create-a-managed-private-endpoint) to create a managed private endpoint*
 > [!NOTE]
 > Manage tab may not be available for all data factory instances. If you do not see it, you can still access Private Endpoints through '**Author**' tab --> '**Connections**' --> '**Private Endpoint**'
 1. Keep the dialog box open, and then go to your Storage Account selected above.
@@ -230,7 +230,7 @@ In case you did not click into the hyperlink when testing the connection above, 
     1. Under **Database name**, select your SQL database.
     1. Under **User name**, enter the name of the user.
     1. Under **Password**, enter the password for the user.
-    1. Select **Test connection**. It should fail because the SQL server allows access only from 'selected networks' and requires Azure Data Factory to create a Private Endpoint to it which should be approved prior to using it. In the error message, you should see a link to create a **private endpoint** that you can follow to create a managed private endpoint. *An alternative is to go directly to the Manage tab and follow instructions in next section to create a managed private endpoint*
+    1. Select **Test connection**. It should fail because the SQL server allows access only from 'selected networks' and requires Azure Data Factory to create a Private Endpoint to it, which should be approved prior to using it. In the error message, you should see a link to create a **private endpoint** that you can follow to create a managed private endpoint. *An alternative is to go directly to the Manage tab and follow instructions in next section to create a managed private endpoint*
     1. Keep the dialog box open, and then go to your SQL server selected above.    
     1. Follow instructions in [this section](#approval-of-a-private-link-in-sql-server) to approve the private link.
     1. Go back to the dialog box. **Test connection** again and select **Create** to deploy the linked service.
@@ -277,7 +277,7 @@ You can debug a pipeline before you publish artifacts (linked services, datasets
 
 
 #### Summary
-The pipeline in this sample copies data from Blob storage to Azure SQL DB using private endpoint in managed VNet. You learned how to:
+The pipeline in this sample copies data from Blob storage to Azure SQL DB using private endpoint in managed Virtual Network. You learned how to:
 
 > * Create a data factory
 > * Create a pipeline with a copy activity
