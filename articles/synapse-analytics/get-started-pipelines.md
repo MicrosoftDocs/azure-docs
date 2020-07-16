@@ -28,3 +28,8 @@ You can orchestrate a wide variety of tasks in Azure Synapse.
 1. Select **Publish All**. The the pipeline runs every hour.
 1. To make the pipeline run now, without waiting for the next hour, select **Add trigger** > **New/edit**.
 
+
+
+## Next steps
+> [!div class="nextstepaction"]
+> [Analyze using spark](get-started-analyze-spark.md)
