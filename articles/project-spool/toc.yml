@@ -24,20 +24,19 @@
     href: quickstarts/create-a-communication-resource.md
   - name: Chat
     items:
-  - name: Media
-    items:
   - name: Networking
     items:
   - name: Telephony and SMS
     items:
   - name: Voice and Video Calling
     items:
-  - name: Request phone numbers
-    href: quickstarts/request-phone-numbers.md
+    - name: Request phone numbers
+      href: quickstarts/voice-and-video-calling/request-phone-numbers.md
+    - name: Initialize Your Calling Client
+    href: quickstarts/init-client.md
  # - name: Configure Your Server
  #   href: quickstarts/configure-server.md
-  - name: Initialize Your Calling Client
-    href: quickstarts/init-client.md
+  
   - name: Capture a Local Video Stream
     href: quickstarts/capture-local-video-stream.md
  # - name: Place a VoIP Call
@@ -64,8 +63,6 @@
   expanded: true
   items:
   - name: Chat
-    items:
-  - name: Media
     items:
   - name: Networking
     items:
