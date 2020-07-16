@@ -34,7 +34,7 @@ See [Enable InfiniBand](enable-infiniband.md) to learn more about setting up Inf
 
 ## Get started
 
-First, decide which H-series VM you're going to use. For details about HPC optimized VMs, see [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md). For specifications, see [High performance compute VM sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
+First, decide which H-series VM you're going to use. For details about HPC optimized VMs, see [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md). For specifications, see [High performance compute VM sizes](../../sizes-hpc.md).
 
 Once you've selected and created a VM for your application, you'll need to configure it by enabling InfiniBand. To learn how to enable InfiniBand on both Windows and Linux VMs, see [Enable InfiniBand](enable-infiniband.md).
 
@@ -46,4 +46,4 @@ Once you've chosen your VM series, set up Infiniband and MPI, you're ready to st
 
 - Review the [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md) to learn about key differences and specifications.
 
-- For a higher level, architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- For a higher level, architectural view of running HPC workloads, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).

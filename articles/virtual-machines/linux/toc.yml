@@ -728,7 +728,6 @@
     - name: Scheduled events
       href: scheduled-events.md
   - name: Monitor VMs
-    href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     items:
     - name: Agents
       items:
@@ -939,6 +938,10 @@
       href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
+    - name: Securely import/export a disk - CLI
+      href: disks-export-import-private-links-cli.md
+    - name: Securely import/export a disk - Portal
+      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Resize a disk
       href: expand-disks.md
     - name: Use Storage Explorer to manage disks

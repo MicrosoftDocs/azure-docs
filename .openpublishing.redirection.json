@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups",
       "redirect_document_id": false
@@ -3451,6 +3456,11 @@
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-create-index-portal.md",
+      "redirect_url": "/azure/search/search-what-is-an-index",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/search/search-example-adventureworks-modeling.md",
@@ -32911,6 +32921,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/windows/monitor.md",
+      "redirect_url": "/azure/azure-monitor/insights/monitor-vm-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/monitor.md",
+      "redirect_url": "/azure/azure-monitor/insights/monitor-vm-azure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/classic/about-images.md",
       "redirect_url": "/azure/virtual-machines/windows/cli-ps-findimage",
       "redirect_document_id": true
@@ -36583,6 +36603,26 @@
     {
       "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
       "redirect_url": "/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-backend-service-flutter.md",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-backend-service-react-native.md",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/notification-hubs-backend-service-xamarin-forms.md",
+      "redirect_url": "/azure/notification-hubs/notification-hubs-push-notification-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/ios-sdk-swift-rest.md",
+      "redirect_url": "/azure/notification-hubs/ios-sdk-get-started",
       "redirect_document_id": false
     },
     {
@@ -56797,6 +56837,11 @@
       "source_path": "articles/virtual-desktop/connect-windows-7-and-10.md",
       "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
+      "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
+      "redirect_document_id": false
     }
   ]
 }
