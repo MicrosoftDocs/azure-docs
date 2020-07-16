@@ -177,13 +177,13 @@ Take the following steps if returning the device in China.
 
 The email format should look like the following:
 
-    ```
-    To: Bao Ying <ying.bao@fedex.com>
-    Subject: Pickup request for Microsoft Azure : Order Name
-    Body: Need pick up for the below shipment
-     * FedEx tracking number (reference number)
-     * Requested pickup date：yyyy/mm/dd; time: HH MM
-    ```  
+   ```output
+   To: Bao Ying <ying.bao@fedex.com>
+   Subject: Pickup request for Microsoft Azure : Order Name
+   Body: Need pick up for the below shipment
+   * FedEx tracking number (reference number)
+   * Requested pickup date：yyyy/mm/dd; time: HH MM
+   ```
 
 2. Receive an email confirmation from FedEx after completion of booking pick up.  
 
