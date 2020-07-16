@@ -12,8 +12,6 @@ ms.date: 07/16/2020
 The Hyperscale (Citus) coordinator node requires client applications to connect with Transport Layer Security (TLS). Enforcing TLS between the database server and client applications helps keep data confidential in transit. Extra verification settings described below also protect against "man-in-the-middle" attacks.
 
 ## Enforcing TLS connections
-All Azure Database for PostgreSQL servers provisioned through the Azure portal enforce TLS connections by default.
-
 Applications use a "connection string" to identify the destination database and settings for a connection. Different clients require different settings. To see a list of connection strings used by common clients, consult the **Connection Strings** section for your server group in the Azure portal.
 
 The TLS parameters `ssl` and `sslmode` vary based on the capabilities of the connector, for example `ssl=true` or `sslmode=require` or `sslmode=required`.
