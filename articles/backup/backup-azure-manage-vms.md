@@ -135,7 +135,7 @@ To stop protection and delete data of a VM:
     ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
 > [!NOTE]
-> After completing the delete operation the backed up data will be retained for 14 days in soft deleted state, [learn more](https://docs.microsoft.com/azure/backup/soft-delete-virtual-machines). <br>In addition, you can also enable or disable soft delete, [learn more](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
+> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](https://docs.microsoft.com/azure/backup/soft-delete-virtual-machines). <br>In addition, you can also [enable or disable soft delete](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
 
 ## Resume protection of a VM
 

@@ -17,7 +17,7 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Configuration server ova** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
-[Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | 2.0.9183.0
+[Rollup 47](https://support.microsoft.com/help/4570609/) | 9.34.5634.1 | 5.1.6100.0 | 9.34.5634.1 | 5.1.6100.0 | HyperV Machines - 2.0.9183.0 <br> VMware Machines - 2.0.9177.0 
 [Rollup 46](https://support.microsoft.com/help/4564347/) | 9.33.5598.1 | 5.1.5900.0 | 9.33.5598.1 | 5.1.5900.0 | 2.0.9175.0
 [Rollup 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [Rollup 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0

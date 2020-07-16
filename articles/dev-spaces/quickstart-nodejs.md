@@ -134,7 +134,7 @@ Select **Debug** then **Stop Debugging** to stop the debugger.
 
 Change the debug mode to **Attach to a Server (AZDS)** and start the service:
 
-![](media/get-started-node/attach-nodejs.png)
+![Screenshot of the VS Code UI with the Attache to Server (AZDS) option selected.](media/get-started-node/attach-nodejs.png)
 
 This command builds and runs your service in Azure Dev Spaces. It also starts a [nodemon](https://nodemon.io) process in your service's container and attaches VS Code to it. The *nodemon* process allows for automatic restarts when source code changes are made, enabling faster inner loop development similar to developing on your local machine.
 

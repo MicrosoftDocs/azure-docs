@@ -1,5 +1,5 @@
 ---
-title: Connect to Windows Virtual Desktop from macOS - Azure
+title: Connect to Windows Virtual Desktop Fall 2019 from macOS - Azure
 description: How to connect to Windows Virtual Desktop using the macOS client.
 services: virtual-desktop
 author: heidilohr
