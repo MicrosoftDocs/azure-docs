@@ -108,7 +108,7 @@ By default, user access tokens expire after 24 hours but it is a good security p
 
 ## User access token scopes
 
-Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able to authorize. By default, user access tokens enable clients to participate in chat threads they have been invited to and to receive incoming VOIP calls. Additional scopes must be specified when creating user access tokens.
+Scopes allow you to specify the exact Azure Communications Services functionality that a user access token will be able to authorize. Scopes must be specified when creating user access tokens.
 
 #### [C#](#tab/c-sharp)
 ```csharp
