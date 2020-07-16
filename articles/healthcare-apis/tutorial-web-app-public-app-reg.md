@@ -38,7 +38,7 @@ If you have [written your web app](tutorial-web-app-write-web-app.md) to connect
 
 1. Select the **Access Token** and **ID token** check boxes.
 
-:::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Screenshot of the app Authentication settings blade, with the steps to add a platform highlighted.":::
+   :::image type="content" source="media/tutorial-web-app/web-app-authentication.png" alt-text="Screenshot of the app Authentication settings blade, with the steps to add a platform highlighted.":::
 
 ## Add API permissions
 
