@@ -218,10 +218,10 @@
       items:
         - name: Restrict and control cluster egress traffic
           href: limit-egress-traffic.md
-        - name: Use a static public IP address for egress traffic
-          href: egress.md
         - name: Use a user defined route for egress
           href: egress-outboundtype.md
+        - name: Use a basic load balancer and static IP address
+          href: egress.md
     - name: Customize CoreDNS
       href: coredns-custom.md
   - name: Security and authentication
