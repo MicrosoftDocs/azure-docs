@@ -263,7 +263,7 @@ Now you have everything you need: the data inputs, the model, the output, and yo
 
 First, specify the dependencies for your script. Doing so allows you to install pip packages as well as configure the environment.
 
-Please always include **azureml-defaults** in the pip package list, otherwise may result in job failures during execution. If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
+Please always include **azureml-core** and **azureml-dataset-runtime[pandas, fuse]** in the pip package list. If you use a custom docker image (user_managed_dependencies=True), you should also have conda installed.
 
 ```python
 from azureml.core.environment import Environment
@@ -271,7 +271,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
 batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.15.2", "pillow", 
-                                                          "azureml-defaults"])
+                                                          "azureml-core", "azureml-dataset-runtime[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
