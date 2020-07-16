@@ -30,7 +30,7 @@ You are signed into the portal with a personal [Microsoft account (MSA)](https:/
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 
-Commands in Cloud Shell may intermittently fail with the error *400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token*, followed by full stack trace.
+Commands in Cloud Shell may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token" followed by full stack trace.
 
 ### Troubleshooting steps
 
@@ -40,7 +40,7 @@ After this, you should be able to re-run the command.
 
 ### Possible causes
 
-This is the result of a known issue in Cloud Shell: [Getting token from Cloud Shell intermittently fails with 400 Client Error: Bad Request](https://github.com/Azure/azure-cli/issues/11749).
+This is the result of a known issue in Cloud Shell: [*Getting token from Cloud Shell intermittently fails with 400 Client Error: Bad Request*](https://github.com/Azure/azure-cli/issues/11749).
 
 ## Next steps
 
