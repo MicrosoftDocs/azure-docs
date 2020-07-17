@@ -1,7 +1,7 @@
 ---
 title: Deploy HIPAA HITRUST blueprint sample
 description: Deploy steps for the HIPAA HITRUST blueprint sample including blueprint artifact parameter details.
-ms.date: 12/03/2019
+ms.date: 07/17/2020
 ms.topic: sample
 ---
 # Deploy the HIPAA HITRUST blueprint sample
