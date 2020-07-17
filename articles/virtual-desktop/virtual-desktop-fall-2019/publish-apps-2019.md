@@ -1,5 +1,5 @@
 ---
-title: Publish built-in apps in Windows Virtual Desktop
+title: Publish built-in apps in Windows Virtual Desktop Fall 2019 - Azure
 description: How to publish built-in apps in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
