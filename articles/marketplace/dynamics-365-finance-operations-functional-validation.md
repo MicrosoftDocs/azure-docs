@@ -1,6 +1,6 @@
 ---
-title: Functional validation of an AppSource Dynamics 365 Finance and Operations offer in the commercial marketplace 
-description: How to functionally validate a Dynamics 365 Finance and Operations offer in the commercial marketplace. 
+title: Functional validation of an AppSource Dynamics 365 Finance and Operations offer in Azure Marketplace.
+description: How to functionally validate a Dynamics 365 Finance and Operations offer in Azure Marketplace. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
@@ -53,12 +53,12 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
 
     | Field | Image <img src="" width="400px">|
     | --- | --- |
-    | Package overview | [![](media/dynamics-365-finance-operations/package-overview-45.png "Package overview screen.")](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
-    | <ul><li>Solution approvers</li></ul> | [![](media/dynamics-365-finance-operations/solution-approvers-45.png "Package overview screen.")](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
-    | Package contents<ul><li>Model</li><li>Software deployable package</li></ul> | [![](media/dynamics-365-finance-operations/package-contents-1-45.png "Package contents screen one.")](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
-    | <ul><li>GER configuration</li><li>Database backup</li></ul><br>Artifacts are not required in the **GER configuration** section. | [![](media/dynamics-365-finance-operations/package-contents-2-45.png "Package contents screen two.")](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |
-    | <ul><li>Power BI report model</li><li>BPM artifact</li></ul><br>Artifacts are not required in the **Power BI** section. | [![](media/dynamics-365-finance-operations/package-contents-3-45.png "Package contents screen three.")](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
-    | <ul><li>Process data package</li><li>Solution license agreement and privacy policy</li></ul><br>The **GER configuration** and **Power BI report model** sections are optional to include for Finance and Operations offers. | [![](media/dynamics-365-finance-operations/package-contents-4-45.png "Package contents screen four.")](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
+    | Package overview | [![Package overview screen](media/dynamics-365-finance-operations/package-overview-45.png)](media/dynamics-365-finance-operations/package-overview.png#lightbox) |
+    | <ul><li>Solution approvers</li></ul> | [![Package overview screen](media/dynamics-365-finance-operations/solution-approvers-45.png)](media/dynamics-365-finance-operations/solution-approvers.png#lightbox) |
+    | Package contents<ul><li>Model</li><li>Software deployable package</li></ul> | [![Package contents screen one](media/dynamics-365-finance-operations/package-contents-1-45.png)](media/dynamics-365-finance-operations/package-contents-1.png#lightbox) |
+    | <ul><li>GER configuration</li><li>Database backup</li></ul><br>Artifacts are not required in the **GER configuration** section. | [![Package contents screen two](media/dynamics-365-finance-operations/package-contents-2-45.png)](media/dynamics-365-finance-operations/package-contents-2.png#lightbox) |
+    | <ul><li>Power BI report model</li><li>BPM artifact</li></ul><br>Artifacts are not required in the **Power BI** section. | [![Package contents screen three](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
+    | <ul><li>Process data package</li><li>Solution license agreement and privacy policy</li></ul><br>The **GER configuration** and **Power BI report model** sections are optional to include for Finance and Operations offers. | [![Package contents screen four](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
     To learn more about each section of the LCS portal, see the [LCS User Guide](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
@@ -67,8 +67,8 @@ To schedule a final review call, contact [appsourceCRM@microsoft.com](mailto:app
     1. Create a text document that includes the demo video address and screenshots, or save the screenshots as separate JPG files.
     2. Add the text and any JPG files to a .zip file in the [Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center on your Finance and Operations offer's **Supplemental Content** tab.
 
-    [![](media/dynamics-365-finance-operations/supplemental-content.png "Shows the project library window.")](media/dynamics-365-finance-operations/supplemental-content.png#lightbox)
+    [![Shows the project library window](media/dynamics-365-finance-operations/supplemental-content.png)](media/dynamics-365-finance-operations/supplemental-content.png#lightbox)
 
 ## Next steps
 
-- To learn about creating an offer, see: [Create a Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+To learn about creating an offer, see: [Create a Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
