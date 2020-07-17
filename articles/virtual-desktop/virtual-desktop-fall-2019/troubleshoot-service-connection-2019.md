@@ -10,7 +10,7 @@ ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
 ---
-# Windows Virtual Desktop service connections
+# Troubleshoot Windows Virtual Desktop service connections
 
 >[!IMPORTANT]
 >This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../troubleshoot-service-connection.md).

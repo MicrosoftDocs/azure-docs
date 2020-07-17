@@ -11,6 +11,6 @@ ms.date: 10/30/2017
 ms.author: vikdesai
 
 ---
-# Save costs with Azure Reserved VM Instances
+# Save costs with Azure Reserved VM Instances (Linux)
 [!INCLUDE [virtual-machines-buy-compute-reservations](../../../includes/virtual-machines-common-prepay-reserved-vm-instances.md)]
 
