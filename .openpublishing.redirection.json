@@ -56880,7 +56880,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/dev-spaces/how-to-local-process-kubernetes-vs.md",
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-visual-studio.md",
       "redirect_url": "/visualstudio/containers/local-process-kubernetes",
       "redirect_document_id": true
     },
