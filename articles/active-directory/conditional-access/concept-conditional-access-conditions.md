@@ -57,18 +57,23 @@ For example, some organizations may choose to not require multi-factor authentic
 
 More information about locations can be found in the article, [What is the location condition in Azure Active Directory Conditional Access](location-condition.md).
 
-## Client apps (preview)
+## Client apps
 
-Conditional Access policies by default apply to browser-based applications and applications that utilize modern authentication protocols. In addition to these applications, administrators can choose to include Exchange ActiveSync clients and other clients that utilize legacy protocols.
+Conditional Access policies by default apply to browser-based applications and applications that utilize modern authentication protocols. In addition to these applications, administrators can choose to include Exchange ActiveSync clients and other clients.
 
-- Browser
-   - These include web-based applications that use protocols like SAML, WS-Federation, OpenID Connect, or services registered as an OAuth confidential client.
-- Mobile apps and desktop clients
-   - Modern authentication clients
-      - This option includes applications like the Office desktop and phone applications.
+> [!NOTE]
+> The behavior of the client apps condition was updated in July 2020 [link to Alex Simons blog post]. By default, all new Conditional Access policies will apply to all client app types when the client apps condition is not configured, including browser, mobile apps and desktop clients, Exchange ActiveSync, and other clients. If you have exisiting Conditional Access policies, they will remain unchanged. However, if you click on an existing policy, the configure toggle has been removed and the client apps the policy applies to are selected.
+
+- Modern authentication clients
+   - Browser
+      - These include web-based applications that use protocols like SAML, WS-Federation, OpenID Connect, or services registered as an OAuth confidential client.
+   - Mobile apps and desktop clients
+      -  This option includes applications like the Office desktop and phone applications.
+- Legacy authentication clients
    - Exchange ActiveSync clients
-      - By default this includes all use of the Exchange ActiveSync (EAS) protocol. Choosing **Apply policy only to supported platforms** will limit to supported platforms like iOS, Android, and Windows.
+      - This includes all use of the Exchange ActiveSync (EAS) protocol.
       - When policy blocks the use of Exchange ActiveSync the affected user will receive a single quarantine email. This email with provide information on why they are blocked and include remediation instructions if able.
+      - Administrators can apply policy only to supported platforms (such as iOS, Android, and Windows) through the Conditional Access MS Graph API.
    - Other clients
       - This option includes clients that use basic/legacy authentication protocols that do not support modern authentication.
          - Authenticated SMTP - Used by POP and IMAP client's to send email messages.
