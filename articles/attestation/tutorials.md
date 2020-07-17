@@ -1,4 +1,4 @@
-# Microsoft Azure Attestation SGX Sample Code
+# Sample code for SGX attestation in Linux VMs
 ## Overview
 The SGX Attestation sample code demonstrates how to generate a quote in an SGX enclave and then get it validated by the Azure Attestation service. The "enclave held data" for the quote is populated with public key component of a 2048 bit RSA key that's held within the enclave.
 
@@ -17,10 +17,6 @@ The flow is:
     1. Validates that the MAA JWT passes signature validation and is issued by the expected party
     1. Validates that the MAA JWT claim values match the parsed data in the JSON file for the well known fields like Security Version Number, ProductID, MRSIGNER, MRENCLAVE, etc.
     1. Produces a report in the console with the results
-1. ```validatequotes.net``` - This application is build on the .NET framework and only runs on Windows.  It performs all the validation performed by ```validatequotes.core``` and additionally validates the MAA service SGX quote embedded in its signing certificate using the Open Enclave SDK locally.  The additional steps are:
-    1. Checks for the presence of an SGX quote for the MAA service itself as an extension in the MAA X.509 signing certificate.
-    1. Verifies the SGX quote with the Open Enclve SDK's ```oe_verify_remote_report``` API.
-    1. Verifies that the hash of the public key that signed the JWT token matches the report data in the verified quote.
 
 The following diagram depicts the relationship between the different artifacts produced the MAA service for JWT token validation.
 ![JWT Validation Overview Diagram](./media/maa.jwt.validation.overview.png)
