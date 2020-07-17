@@ -1,9 +1,9 @@
 ---
 title: Understand IoT Plug and Play digital twins
 description: Understand the digital twins when using Plug and Play preview
-author: miagdp
-ms.author: miag
-ms.date: 07/15/2020
+author: prashmo
+ms.author: prashmo
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -11,195 +11,305 @@ services: iot-pnp
 
 # Understand IoT Plug and Play digital twins
 
-Every IoT Plug and Play device that registers with IoT Hub has a digital twin. When an IoT Plug and Play device connects to IoT Hub for the first time, an initial device twin and digital twin are populated. The information captured in [device twins](../iot-hub/iot-hub-devguide-device-twins.md) follows the IoT Plug and Play convention, where the schema is defined in the [Digital Twin Definition Language (DTDL) V2](https://github.com/Azure/opendigitaltwins-dtdl). There's a set of device facing endpoints that are designed to interact with the device twin. Digital Twin REST APIs are provided for the service backend to interact with the digital twin as a resource.
+A IoT plug and play device implements a model described by [DTDL v2](https://aka.ms/DTDL) schema. A model describes the set of components, properties, commands, telemetry messages that a particular twin can have. When an IoT Plug and Play device connects to IoT Hub for the first time, an initial device twin and digital twin are populated. 
 
-## Device twins
+Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
+Both device and solution developers can continue to use the same set of Device Twin APIs and SDKs to implement device using IoT Plug and Play conventions.
 
-Device twins are JSON documents that store device state information including metadata, configurations, and conditions. Azure IoT Hub maintains a device twin for each device that you connect to IoT Hub. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
+Solution developers can additionally operate on high level constructs like components, properties, commands using Digital Twin API surface.
+This article talks about how components and properties are represented within desired and reported section of device twin. It also describes how these concepts are mapped within the corresponding digital twin.
 
-For an IoT Plug and Play device, device twins are created when a device connects. Both desired properties and reported properties are exposed in this JSON document and they're implemented using IoT Plug and Play as the convention. Any device that conforms to the IoT Plug and Play convention automatically benefits from IoT Plug and Play features. For device twins, devices can use the same set of APIs and SDKs. The same operations can be applied to device twins for both IoT Plug and Play and non-IoT Plug and Play devices. To learn more, see [Device Operations](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
-
-The following JSON shows how properties are exposed in a device twin that's created when an IoT Plug and Play device connects. In this example, the `PnPDevice` has implemented model `dtmi:contoso:macaw;1`, and within this model there's a component `setting` that has a reported property `fanspeed`. The initial value for this property is `1`. Any device reporting a component must have the `{"t": "c"}` marker:
-
+Here is an example of a IoT Plug and Play device twin formatted as a JSON object:
 ```json
 {
-  "deviceId": "PnPDevice",
-  "modelId": "dtmi:contoso:macaw;1",
-  "properties": {
-    "reported": {
-      "settings": {
-        "fanSpeed": {
-          "value": 1,
-          "ac": 200,
-          "av": 1
-        },
-        "__t": "c"
-        },
-        "$metadata": {
-          "$lastUpdated": "2020-07-10T22:35:56.0487962Z",
-          "settings": {
-            "$lastUpdated": "2020-07-10T22:35:56.0487962Z",
-            "fanSpeed": {
-              "$lastUpdated": "2020-07-10T22:35:56.0487962Z",
-              "value": {
-                "$lastUpdated": "2020-07-10T22:35:56.0487962Z"
-              },
-              "ac": {
-                "$lastUpdated": "2020-07-10T22:35:56.0487962Z"
-              },
-              "av": {
-                "$lastUpdated": "2020-07-10T22:35:56.0487962Z"
-              }
+    "deviceId": "sample-device",
+    "modelId": "dtmi:com:example:TemperatureController;1",
+    "version": 15,
+    "properties": {
+        "desired": {
+            "serialNumber": "alwinexlepaho8329-a",
+            "thermostat1": {
+                "__t": "c",
+                "targetTemperature": "72.2"
             },
-          },
+            "$metadata": {
+                "$lastUpdated": "2020-07-17T06:12:57.9247361Z",
+                "$lastUpdatedVersion": 4,
+                "serialNumber": {
+                    "$lastUpdated": "2020-07-17T06:09:14.5746526Z",
+                    "$lastUpdatedVersion": 2
+                },
+                "thermostat1": {
+                    "$lastUpdated": "2020-07-17T06:12:57.9247361Z",
+                    "$lastUpdatedVersion": 4,
+                    "__t": {
+                        "$lastUpdated": "2020-07-17T06:11:04.8581212Z",
+                        "$lastUpdatedVersion": 3
+                    },
+                    "targetTemperature": {
+                        "$lastUpdated": "2020-07-17T06:12:57.9247361Z",
+                        "$lastUpdatedVersion": 4
+                    }
+                }
+            },
+            "$version": 4
         },
-        "$version": 3
+        "reported": {
+            "serialNumber": {
+                "value": "alwinexlepaho8329-a",
+                "ac": 200,
+                "av": 2,
+                "ad": "Successfully executed patch"
+            },
+            "thermostat1": {
+                "maxTempSinceLastReboot": 67.89,
+                "__t": "c",
+                "targetTemperature": {
+                    "value": "72.2",
+                    "ac": 200,
+                    "ad": "Successfully executed patch",
+                }
+            },
+            "$metadata": {
+
+            },
+            "$version": 11
+        }
     }
-  },
 }
 ```
-
-## Digital twins
-
-A digital twin is created when an IoT Plug and Play device connects to an IoT hub. Digital twins can be directly managed and updated by service back-end using the Digital Twin REST APIs. Operations that update digital twins trigger a digital twin change event as well as a twin change event. These events can be routed to an endpoint such as an Event hub. To learn more, see [IoT Hub message routing](../iot-hub/iot-hub-devguide-messages-d2c.md).
-
-For the device twin example shown previously, the corresponding digital twin looks like the following JSON. The sample shows the same information of a desired property `fanspeed` within a component `setting`.
-
+Below is the corresponding digital twin formatted as JSON object:
 ```json
 {
-  "$dtId": "PnPDevice",
-  "settings": {
-    "fanSpeed": 1,
+    "$dtId": "sample-device",
+    "serialNumber": "alwinexlepaho8329",
+    "thermostat1": {
+        "maxTempSinceLastReboot": 67.89,
+        "targetTemperature": "72.2",
+        "$metadata": {
+            "targetTemperature": {
+                "desiredValue": "72.2",
+                "desiredVersion": 4,
+                "ackVersion": 4,
+                "ackCode": 200,
+                "ackDescription": "Successfully executed patch",
+                "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+            },
+            "maxTempSinceLastReboot": {
+                "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+            }
+        }
+    },
     "$metadata": {
-      "fanSpeed": {
-        "ackVersion": 1,
-        "ackCode": 200,
-        "lastUpdateTime": "2020-07-10T22:35:56.0487962Z"
-      },
+        "$model": "",
+        "serialNumber": {
+            "desiredValue": "alwinexlepaho8329-a",
+            "desiredVersion": 2,
+            "ackVersion": 1,
+            "ackCode": 200,
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+        }
     }
-  },
-  "$metadata": {
-    "$model": "dtmi:contoso:macaw;1",
-  }
-}
-```
+}```
 
-To use the digital twin, a device must follow these rules:
+Within device twin, the state of the property is split across the desired and reported section. On the other hand, digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is available within `$metadata`.
+In this example, `alwinexlepaho8329` is the current value of the `serialNumber` property reported by the device. `alwinexlepaho8329-a` is the desired value set by the solution. The desired value and synchronization state of a root level property is set within root level `$metadata` for a digital twin.
+Below is the side-by-side JSON representation of writable property `serialNumber`
+:::row:::
+   :::column span="":::
+      **Device Twin**
+      ```json
+      {
+        "properties": {
+          "desired": {
+              "serialNumber": "alwinexlepaho8329-a",
+          },
+          "reported": {
+              "serialNumber": {
+                  "value": "alwinexlepaho8329-a",
+                  "ac": 200,
+                  "av": 2,
+                  "ad": "Successfully executed patch"
+              }
+          }
+        },
+      }
+      ```
+   :::column-end:::
+   :::column span="":::
+      **Digital Twin**
+        {
+          "serialNumber": "alwinexlepaho8329",
+          "$metadata": {
+              "serialNumber": {
+                  "desiredValue": "alwinexlepaho8329-a",
+                  "desiredVersion": 2,
+                  "ackVersion": 1,
+                  "ackCode": 200,
+                  "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+              }
+          }
+        }
+      ```
+   :::column-end:::
+:::row-end:::
+Within a device twin, a component is indicated by `{ "__t": "c"}` marker, where as `$metadata` marks a component within a digital twin.
+Below is the side-by-side JSON representation of component `thermostat1`
+:::row:::
+   :::column span="":::
+      **Device Twin**
+      ```json
+          {             
+            "properties": {
+                "desired": {
+                    
+                    "thermostat1": {
+                        "__t": "c",
+                        "targetTemperature": "72.2"
+                    },
+                    "$metadata": {
+                        "thermostat1": {
+                            "$lastUpdated": "2020-07-17T06:12:57.9247361Z",
+                            "$lastUpdatedVersion": 4,
+                            "__t": {
+                                "$lastUpdated": "2020-07-17T06:11:04.8581212Z",
+                                "$lastUpdatedVersion": 3
+                            },
+                            "targetTemperature": {
+                                "$lastUpdated": "2020-07-17T06:12:57.9247361Z",
+                                "$lastUpdatedVersion": 4
+                            }
+                        }
+                    },
+                    "$version": 4
+                },
+                "reported": {
+                    "thermostat1": {
+                        "maxTempSinceLastReboot": 67.89,
+                        "__t": "c",
+                        "targetTemperature": {
+                            "value": "72.2",
+                            "ac": 200,
+                            "ad": "Successfully executed patch",
+                            "av": 4
+                        }
+                    },
+                    "$metadata": {
+                    },
+                    "$version": 11
+                }
+            }
+          }
+      ```
+   :::column-end:::
+   :::column span="":::
+      **Digital Twin**
+        {
+          "thermostat1": {
+              "maxTempSinceLastReboot": 67.89,
+              "targetTemperature": "72.2",
+              "$metadata": {
+                  "targetTemperature": {
+                      "desiredValue": "72.2",
+                      "desiredVersion": 4,
+                      "ackVersion": 4,
+                      "ackCode": 200,
+                      "ackDescription": "Successfully executed patch",
+                      "lastUpdateTime": "2020-07-17T06:11:04.9309159Z"
+                  },
+                  "maxTempSinceLastReboot": {
+                      "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
+                  }
+              }
+          }
+        }
+      ```
+   :::column-end:::
+:::row-end:::
 
-- Rules on setting desired value of a digital twin writable property:
-  - Simple key value form.
-  - Name must be a valid DTDL v2 name.
-  - Value must be a valid DTDL v2 value.
+### Digital twin JSON format
 
-- Rules on reporting a digital twin property:
-  - Read-only property:
-    - Simple key value form.
-    - Name must be a valid DTDL v2 name.
-    - Value must be a valid DTDL v2 value.
-  - Writable property:
-    - Always needs to be in the embedded form: `value`, `ac`, and `av` are required fields.
-    - Name must be a valid DTDL v2 name.
-    - `value` must be a valid DTDL v2 value.
-    - `ac` and `av` must be numeric values.
-    - `ad` description is an optional string.
+When represented as a JSON object, a digital twin will display the following fields:
+
+| Field name | Description |
+| --- | --- |
+| `$dtId` | A user-provided string representing the ID of the digital twin |
+| `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
+| `$metadata.$model` | [Optional] The ID of the model interface that characterizes this digital twin |
+| `$metadata.{propertyName}.desiredValue` | [Only for writable properties] The desired value of the specified property |
+| `$metadata.{propertyName}.desiredVersion` | [Only for writable properties] The version of the desired value |
+| `$metadata.{propertyName}.ackVersion` | [Required, only for writable properties] The version acknowledged by the device implementing the digital twin, it must by greater or equal to desired version |
+| `$metadata.{propertyName}.ackCode` | [Required, only for writable properties] The `ack` code returned by the device app implementing the digital twin |
+| `$metadata.{propertyName}.ackDescription` | [Optional, only for writable properties] The `ack` description returned by the device app implementing the digital twin |
+| `$metadata.{propertyName}.lastUpdateTime` | IoT Hub maintains the timestamp of the last update of the property by the device. The timestamps are in UTC and encoded in the ISO8601 format YYYY-MM-DDTHH:MM:SS.mmmZ |
+| `{componentName}` | A JSON object containing the component's property values and metadata, similar to those of the root object. |
+| `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
+| `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
 
 ## Digital Twin REST APIs
 
-A set of REST APIs is provided to interact with a digital twin: **Get Digital Twin**, **Invoke Component Command**, **Invoke Command**, and **Update Digital Twin**. To learn more, see [Digital Twin REST API reference](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin). The following rules apply to digital twin patches:
-
-- **Component CRUD**: Component level operations require empty object `$metadata` marker within the value:
-  - **Create or Update**: Sets the desired values all properties provided and clears desired values for any properties not provided.
-  - **Delete**: Clears the desired values of all the properties present. A device stops reporting the individual properties and the component is eventually removed from the digital twin.
-
-    Examples for component CRUD operations:
-
-    ```json
-    {
-      "op": "add",
-      "path": "/led",
-      "value": {
-        "testDisplay": "test_string",
-        "color": "green",
-          "$metadata": {}
-      }
-    },
-    {
-      "op": "replace",
-      "path": "/led",
-      "value": {
-        "testDisplay": "test_string",
-        "color": "green",
-        "$metadata": {}
-      }
-    },
-    {
-      "op": "remove", // Clears desired value of "testDisplay", "color"
-      "path": "/led"
-    }
-    ```
-
-- Properties CRUD
-  - **Create or Update**: JSON patch value is set as the property's desired value. The device can then pick up the desired value and report an update in the embedded form with `value`, `ac`, `av`.
-  - **Delete**: Clears the desired value of property if it's set. The device can then stop reporting this property and the property is removed.
-
-    Examples for properties operations:
-
-    ```json
-    {
-      "op": "add",
-      "path": "/led/testDisplay",
-      "value": "Test123!"
-    },
-    {
-      "op": "replace",
-      "path": "/led/color",
-      "value": "Red"
-    },
-    {
-      "op": "remove", // Clears the desired value of "timer"
-      "path": "/led/timer",
-    }
-    ```
-
-- Conversion between property and component types isn't supported. The object must be removed and readded with the new type.
-
-- Desired values for root level properties are set in the root `$metadata`. For example:
-
-  ```json
-  "$metadata": {
-    "$model": "dtmi:contoso:mxchip;1",
-    "properties": {
-        "lastUpdateTime": "2020-07-10T18:20:14.597656Z"
-    },
-    "irSwitch": {
-      "ackVersion": 1,
-      "ackCode": 200,
-      "lastUpdateTime": "2020-07-10T22:43:15.3276407Z"
-    },
-    "current": {
-      "ackVersion": 1,
-      "ackCode": 200,
-      "lastUpdateTime": "2020-07-10T22:43:15.3276407Z"
-    }
-  }
-  ```
+A set of REST APIs is provided to interact with a digital twin: **Get Digital Twin**, **Invoke Component Command**, **Invoke Command**, and **Update Digital Twin**. To learn more, see [Digital Twin REST API reference](https://docs.microsoft.com/en-us/rest/api/iothub/service/digitaltwin).
 
 ## Digital Twin change events
 
-A digital twin change event is triggered when a desired value and version is set, and when device reports them. For example:
+When digital twin change event is enabled, an event is triggered whenever the current or desired value of the component and/or property changes.
+Corresponding events are generated in the device twin format if twin change events are enabled.
+Digital twin change events are generated in [Json Patch format](https://tools.ietf.org/html/rfc6902)
+To learn how to enable routing, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c#non-telemetry-events)
+
+For example, below digital twin change event is triggered when `targetTemperature` is set by the solution.
 
 ```json
-iothub-connection-device-id: PnPDevice
-iothub-enqueuedtime:7/7/2020 10:47:14 PM
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/17/2020 6:11:04 AM
 iothub-message-source:digitalTwinChangeEvents
-correlation-id:fe0630c28b0
+correlation-id:275d463fa034
 content-type:application/json-patch+json
 content-encoding:utf-8
 [
   {
-    "op": "replace",
-    "path": "/settings/fanSpeed",
-    "value": 5
+    "op": "add",
+    "path": "/thermostat1/$metadata/targetTemperature",
+    "value": {
+      "desiredValue": "72.2",
+      "desiredVersion": 4
+    }
+  }
+]```
+
+Below digital twin event is triggered when the device reported that the change was applied.
+```json
+iothub-connection-device-id:sample-device
+iothub-enqueuedtime:7/17/2020 6:11:05 AM
+iothub-message-source:digitalTwinChangeEvents
+correlation-id:275d464a2c80
+content-type:application/json-patch+json
+content-encoding:utf-8
+[
+  {
+    "op": "add",
+    "path": "/thermostat1/$metadata/targetTemperature/ackCode",
+    "value": 200
+  },
+  {
+    "op": "add",
+    "path": "/thermostat1/$metadata/targetTemperature/ackDescription",
+    "value": "Successfully executed patch"
+  },
+  {
+    "op": "add",
+    "path": "/thermostat1/$metadata/targetTemperature/ackVersion",
+    "value": 4
+  },
+  {
+    "op": "add",
+    "path": "/thermostat1/$metadata/targetTemperature/lastUpdateTime",
+    "value": "2020-07-17T06:11:04.9309159Z"
+  },
+  {
+    "op": "add",
+    "path": "/thermostat1/targetTemperature",
+    "value": "72.2"
   }
 ]
 ```
@@ -207,8 +317,7 @@ content-encoding:utf-8
 Now that you've learned about digital twins, here are some additional resources:
 
 - [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL)
-- [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
+- [Node service SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
-- [Model components](./concepts-components.md)
-
+- [Azure IoT explorer](./howto-install-iot-explorer.md)
 
