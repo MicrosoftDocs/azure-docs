@@ -25,6 +25,7 @@ This version of this article goes through these steps manually, one by one. To r
 
 [!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
 
+## Set up Cloud Shell session
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 ## Create the Azure Digital Twins instance

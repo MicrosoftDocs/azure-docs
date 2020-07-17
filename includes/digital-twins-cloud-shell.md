@@ -3,13 +3,11 @@ author: baanders
 description: include file for Azure Digital Twins - set up Cloud Shell and the IoT extension
 ms.service: digital-twins
 ms.topic: include
-ms.date: 5/25/2020
+ms.date: 7/17/2020
 ms.author: baanders
 ---
 
-### Set up Cloud Shell session
-
-After opening a Cloud Shell window, the first thing to do is log in and set the shell context to your subscription for this session. Run these commands in your Cloud Shell:
+To start working with Azure Digital Twins in an open [Azure Cloud Shell](https://shell.azure.com) window, the first thing to do is log in and set the shell context to your subscription for this session. Run these commands in your Cloud Shell:
 
 ```azurecli
 az login
