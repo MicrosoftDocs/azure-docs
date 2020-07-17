@@ -18,8 +18,8 @@ The following metrics are enabled as part of this feature:
 
 | Metric namespace | Metric | Description |
 |------------------|--------|-------------|
-| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | These are *node* metrics and include *host* as a dimension. They also include the<br> node's name as value for the *host* dimension. |
-| Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | These are *pod* metrics and include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | As *node* metrics, they include *host* as a dimension. They also include the<br> node's name as value for the *host* dimension. |
+| Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | As *pod* metrics, they include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
 | Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
 To support these new capabilities, a new containerized agent, version **microsoft/oms:ciprod02212019**, is included in the release. New deployments of AKS automatically include this configuration change and capabilities. Updating your cluster to support this feature can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI. You can enable this per-cluster or for all clusters in your subscription.
