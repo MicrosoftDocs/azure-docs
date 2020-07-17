@@ -57,11 +57,7 @@ If you find that the value is *Contributor* or something other than *Owner*, you
 
 ## Create the Azure Digital Twins instance
 
-In this section, you will **create a new instance of Azure Digital Twins**. 
-
-### Run the creation command
-
-Now you'll create an instance of Azure Digital Twins using the Cloud Shell command. You'll need to provide:
+In this section, you will **create a new instance of Azure Digital Twins** using the Cloud Shell command. You'll need to provide:
 * A resource group to deploy it in. If you don't already have an existing resource group in mind, you can create one now with this command:
     ```azurecli
     az group create --location <region> --name <name-for-your-resource-group>
