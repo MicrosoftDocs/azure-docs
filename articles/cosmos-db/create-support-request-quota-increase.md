@@ -1,11 +1,11 @@
 ---
 title: How to request quota increase for Azure CosmosDB resources
 description: Learn how to request a quota increase for Azure Cosmos DB resources. You will also learn how to enable a subscription to access a region.
-author: 
-ms.author: 
+author: SnehaGunda
+ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/26/2018q
+ms.date: 07/17/2020
 ---
 
 # How to request quota increase for Azure CosmosDB resources
@@ -25,6 +25,8 @@ To request a quota increase, you must create a new support request with your wor
    * For **Issue type**, select **Service and subscription limits (quotas)**
    * For **Subscription**, select the subscription for which you want to increase the quota.
    * For **Quota type**, select **Cosmos DB**
+
+   :::image type="content" source="./media/create-support-request-quota-increase/create-quota-increase-request.png" alt-text="Create a new Cosmos DB support request for quota increase":::
 
 1. In the **Details** tab, enter the details corresponding to your quota request. The Information provided on this tab will be used to further assess your issue and help the support engineer troubleshoot the problem.
 
@@ -60,8 +62,10 @@ To request a quota increase, you must create a new support request with your wor
 
    * **Preferred contact method**: You can either choose to be contacted over **Email** or by **Phone**.
 
-1. Fill out the remaining details such as the support language, contact information, email, phone number, on the form.
+1. Fill out the remaining details such as the your availability, support language, contact information, email, phone number, on the form.
 
 1. Select **Next: Review+Create**. Validate the information provided and select **Create** to create a support request.
 
 ## Next steps
+
+* See the [Azure Cosmos DB default service quotas](concepts-limits.md)
