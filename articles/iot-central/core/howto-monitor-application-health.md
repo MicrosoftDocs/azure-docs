@@ -14,7 +14,7 @@ services: iot-central
 # Monitor the overall health of the devices connected to an IoT Central application
 
 > [!NOTE]
-> Metrics only works for version 3 IoT Central application. To learn how to check your application version, see [About your application](./howto-get-app-info.md).
+> Metrics are only available for version 3 IoT Central applications. To learn how to check your application version, see [About your application](./howto-get-app-info.md).
 
 *This article applies to operators and administrators.*
 
@@ -43,7 +43,7 @@ Access to metrics in the Azure portal is managed by [Azure role based access con
 
 ## IoT Central metrics
 
-The metrics that are currently available for IoT Central are [here](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
+For a list of of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
 
 ### Metrics and invoices
 
