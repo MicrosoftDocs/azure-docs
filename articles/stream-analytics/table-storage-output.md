@@ -1,6 +1,6 @@
 ---
 title: Table storage output from Azure Stream Analytics
-description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
+description: This article describes data output options available in Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -26,6 +26,6 @@ The following table lists the property names and their descriptions for creating
 | Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) for more details on modifying this setting. |
 
 ## Partitioning
-| Azure Table storage | Yes | Any output column.  | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
+Partition key is any output column. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md).
 ## Output batch size
 | Azure Table storage | See [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | The default is 100 entities per single transaction. You can configure it to a smaller value as needed. |

@@ -1,6 +1,6 @@
 ---
 title: Power BI output from Azure Stream Analytics
-description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
+description: This article describes data output options available in Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -62,7 +62,6 @@ Double | Double | String | String | Double
 String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
-## Partitioning
-| Power BI | No | None | Not applicable. |
+
 ## Output batch size
 | Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx). |

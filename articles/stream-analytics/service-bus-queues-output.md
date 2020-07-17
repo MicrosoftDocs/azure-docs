@@ -1,6 +1,6 @@
 ---
 title: Service Bus queues output from Azure Stream Analytics
-description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
+description: This article describes data output options available in Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -34,7 +34,9 @@ The following table lists the property names and their descriptions for creating
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
 
 ## Partitioning
-| Azure Service Bus queue | Yes | Automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.| Same as the number of partitions in the output queue. |
+
+Partitioning is automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition. The number of output writers is the same as the number of partitions in the output queue.
+
 ## Output batch size
 | Azure Service Bus queue    | 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
 

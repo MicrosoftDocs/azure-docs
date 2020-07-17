@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics output from Azure Stream Analytics
-description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
+description: This article describes data output options available in Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -31,5 +31,7 @@ The following table lists the property names and their descriptions for creating
 |Table  | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates.|
 
 ## Partitioning
+
+None.
 
 ## Output batch size

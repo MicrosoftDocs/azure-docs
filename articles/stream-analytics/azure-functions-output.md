@@ -1,6 +1,6 @@
 ---
 title: Azure Functions output from Azure Stream Analytics
-description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
+description: This article describes Azure functions as output for Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -10,6 +10,7 @@ ms.date: 07/15/2020
 ---
 
 ## Azure Functions output from Azure Stream Analytics
+
 Azure Functions is a serverless compute service that you can use to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that's triggered by events occurring in Azure or partner services. This ability of Azure Functions to respond to triggers makes it a natural output for Azure Stream Analytics. This output adapter enables users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
 Azure Functions output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
@@ -34,6 +35,8 @@ When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exc
 Also, in a situation where there's no event landing in a time window, no output is generated. As a result, the **computeResult** function isn't called. This behavior is consistent with the built-in windowed aggregate functions.
 
 ## Partitioning
-| Azure Functions | Yes | Based on the PARTITION BY clause in the query. | Follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). |
+
+Partitionig is based on the PARTITION BY clause in the query. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md).
+
 ## Output batch size
 | Azure Functions    | | The default batch size is 262,144 bytes (256 KB). <br /> The default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
