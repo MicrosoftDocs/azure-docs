@@ -133,7 +133,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 
    |Setting  |Value  |
    |---------|---------|
-   |Resource group     |**FW-Manager**|
+   |Resource group     |**fw-manager**|
    |Virtual machine name     |**Srv-workload-01**|
    |Region     |**(US) East US)**|
    |Administrator user name     |type a user name|
