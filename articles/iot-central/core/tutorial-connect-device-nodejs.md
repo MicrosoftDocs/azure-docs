@@ -323,6 +323,10 @@ You can see how the device responds to commands and property updates:
 
 ![Observe the client application](media/tutorial-connect-device-nodejs/run-application-2.png)
 
+## View raw data
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+
 ## Next steps
 
 As a device developer, now that you've learned the basics of how to create a device using Node.js, some suggested next steps are to:
