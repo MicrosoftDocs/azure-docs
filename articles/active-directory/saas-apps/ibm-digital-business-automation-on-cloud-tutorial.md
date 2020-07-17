@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> If the **Identifier** and **Reply URL** values do not get auto populated, then fill in the values manually according to your requirement.
 
     > [!Note]
-    > Customers can obtain the metadata file for their Cloud subscription from the [DBAoC DevOps team](mailto:supportbpmoncloud@us.ibm.com).
+    > Customers can obtain the metadata file for their Cloud subscription from the [IBM Digital Business Automation on Cloud Client support team](mailto:supportbpmoncloud@us.ibm.com).
 
 1. If you don't have **Service Provider metadata file**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 

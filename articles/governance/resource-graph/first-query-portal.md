@@ -121,11 +121,11 @@ your Azure portal workflow, try out these example dashboards.
 
 - [Resource Graph Explorer - Sample Dashboard #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Example image for Sample Dashboard #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Example image for Sample Dashboard #1" lightbox="./media/arge-sample1-large.png":::
 
 - [Resource Graph Explorer - Sample Dashboard #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Example image for Sample Dashboard #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Example image for Sample Dashboard #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Counts and charts in the above example dashboard screenshots vary depending on your Azure

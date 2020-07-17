@@ -25,15 +25,16 @@ This sample app can:
 > * Manage subscription keys
 > * Handle errors
 
-To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) to get a subscription key.
+To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required.
 
 ## Prerequisites
 
 Here are a few things that you'll need to run the app:
 
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+
 * Node.js 8 or later
-* A subscription key for the Bing Search API. If you don't have one, [Create a Bing Search v7 resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). You can also use a [trial key](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
-## Get the source code and install dependencies
 
 The first step is to clone the repository with the sample app's source code.
 

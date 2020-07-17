@@ -228,11 +228,11 @@ Similar to the `up` command, code is synced to the development environment when 
 
 Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` on [line 13 of `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
 
-    ```javascript
-    app.get('/api', function (req, res) {
-        res.send('Hello from webfrontend');
-    });
-    ```
+```javascript
+app.get('/api', function (req, res) {
+    res.send('Hello from webfrontend');
+});
+```
 
 Refresh the browser page, or press the *Say It Again* button, and you should hit the breakpoint and be able to step through code.
 

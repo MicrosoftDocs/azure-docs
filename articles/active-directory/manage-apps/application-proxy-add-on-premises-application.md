@@ -42,7 +42,7 @@ To use Application Proxy, you need a Windows server running Windows Server 2012 
 For high availability in your production environment, we recommend having more than one Windows server. For this tutorial, one Windows server is sufficient.
 
 > [!IMPORTANT]
-> If you are installing the connector on Windows Server 2019, you must disable HTTP2 protocol support in the WinHttp component. This is disabled by default in earlier versions of supported operating systems. Adding the following registry key and restarting the server disables it on Windows Server 2019. Note that this is a machine-wide registry key.
+> If you are installing the connector on Windows Server 2019, you must disable HTTP2 protocol support in the WinHttp component for Kerberos Constrained Delegation to properly work. This is disabled by default in earlier versions of supported operating systems. Adding the following registry key and restarting the server disables it on Windows Server 2019. Note that this is a machine-wide registry key.
 >
 > ```
 > Windows Registry Editor Version 5.00
@@ -67,12 +67,19 @@ To enable TLS 1.2:
 
 1. Set the following registry keys:
 	
-    ```
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
-    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
-    ```
+   ```
+   Windows Registry Editor Version 5.00
+
+   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client]
+   "DisabledByDefault"=dword:00000000
+   "Enabled"=dword:00000001
+   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
+   "DisabledByDefault"=dword:00000000
+   "Enabled"=dword:00000001
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+   "SchUseStrongCrypto"=dword:00000001
+   ```
 
 1. Restart the server.
 

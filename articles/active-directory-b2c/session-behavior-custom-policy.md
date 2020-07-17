@@ -7,7 +7,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
@@ -56,7 +56,7 @@ When you redirect the user to the Azure AD B2C sign-out endpoint (for both OAuth
 To support single sign-out, the token issuer technical profiles for both JWT and SAML must specify:
 
 - The protocol name, such as `<Protocol Name="OpenIdConnect" />`
-- The reference  to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
+- The reference  to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />`.
 
 The following example illustrates the JWT and SAML token issuers with single sign-out:
 
@@ -70,7 +70,7 @@ The following example illustrates the JWT and SAML token issuers with single sig
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->

@@ -2,7 +2,7 @@
 title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
 
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 09/12/2018
 
 ---
@@ -234,7 +234,7 @@ public static class ICollectorExample
 
 ## Logging
 
-To log output to your streaming logs in C#, include an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`, as in the following example:  
+To log output to your streaming logs in C#, include an argument of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`, as in the following example:  
 
 ```csharp
 public static class SimpleExample
@@ -253,7 +253,7 @@ Avoid using `Console.Write` in Azure Functions. For more information, see [Write
 
 ## Async
 
-To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public static class AsyncExample
@@ -326,7 +326,7 @@ public static class EnvironmentVariablesExample
 
 App settings can be read from environment variables both when developing locally and when running in Azure. When developing locally, app settings come from the `Values` collection in the *local.settings.json* file. In both environments, local and Azure, `GetEnvironmentVariable("<app setting name>")` retrieves the value of the named app setting. For instance, when you're running locally, "My Site Name" would be returned if your *local.settings.json* file contains `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
-The [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
+The [System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
 
 ## Binding at runtime
 

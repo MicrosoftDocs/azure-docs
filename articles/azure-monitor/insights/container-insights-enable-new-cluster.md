@@ -3,12 +3,12 @@ title: Monitor a new Azure Kubernetes Service (AKS) cluster | Microsoft Docs
 description: Learn how to enable monitoring for a new Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers subscription.
 ms.topic: conceptual
 ms.date: 04/25/2019
-
+ms.custom: devx-track-terraform
 ---
 
 # Enable monitoring of a new Azure Kubernetes Service (AKS) cluster
 
-This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) that you are preparing to deploy in your subscription.
+This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that you are preparing to deploy in your subscription.
 
 You can enable monitoring of an AKS cluster using one of the supported methods:
 
@@ -20,7 +20,7 @@ You can enable monitoring of an AKS cluster using one of the supported methods:
 To enable monitoring of a new AKS cluster created with Azure CLI, follow the step in the quickstart article under the section [Create AKS cluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.74 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.74 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 >If you have installed the aks-preview CLI extension version 0.4.12 or higher, remove any changes you have made to enable a preview extension as it can override the default Azure CLI behavior since AKS Preview features aren't available in Azure US Governmnet cloud.
 
 ## Enable using Terraform

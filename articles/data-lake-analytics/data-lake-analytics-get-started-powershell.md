@@ -42,7 +42,7 @@ Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 If  successful, the output of this command looks like the following text:
 
-```
+```text
 Environment           : AzureCloud
 Account               : joe@contoso.com
 TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

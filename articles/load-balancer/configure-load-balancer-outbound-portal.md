@@ -40,7 +40,7 @@ In this section, you create a load balancer that will load balance virtual machi
     | Name                   | **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** or **Basic**. Microsoft recommends Standard for production workloads. |
+    | SKU           | Select **Standard**. |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**.  Existing public IP must be **Standard** SKU.  Basic public IPs aren't compatible with **Standard** SKU load balancer.  |
     | Public IP address name              | Type **myPublicIP** in the text box.|
     | Availability zone | Select **Zone-redundant** to create a resilient Load Balancer. To create a zonal Load Balancer, select a specific zone from 1, 2, or 3 |
@@ -127,8 +127,8 @@ Load balancer outbound rules configure outbound SNAT for VMs in the backend pool
     | ------- | ----- |
     | Name | Enter **LoadBalancerFrontEndOutbound**. |
     | IP version | Select **IPv4**. |
-    | IP type | Select **IP address**.|
-    | Public IP address | Select **Create new**. In the **Add a public IP address**, enter **myPublicIPOutbound**.  Select **OK**. |
+    | IP type | Select **IP address** or **IP Prefix**.|
+    | Public IP address | Select **Create new**. </br> In the **Add a public IP address**, enter **myPublicIPOutbound**. </br> If using IP Prefix, in **Add a public IP prefix**, enter **myPublicIPPrefixOutbound**. Choose a **Prefix size** for the public IP prefix </br> Select **OK**.  |
 
 4. Select **Add**.
 
@@ -152,7 +152,7 @@ Load balancer outbound rules configure outbound SNAT for VMs in the backend pool
     | ------- | ----- |
     | Name | Enter **myOutboundRule**. |
     | Frontend IP address | Select **LoadBalancerFrontEndOutbound**. |
-    | Idle timeout (minutes) | Move slider to **15 minutes.|
+    | Idle timeout (minutes) | Move slider to **15 minutes**.|
     | TCP Reset | Select **Enabled**.|
     | Backend pool | Select **myBackendPoolOutbound** |
     | Port allocation -> Port allocation | Select **Manually choose number of outbound ports** |

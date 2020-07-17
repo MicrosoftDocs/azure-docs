@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/08/2020
+ms.date: 06/23/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -278,6 +278,33 @@ The following are the IDs for an [Azure MFA technical profile](multi-factor-auth
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfServerError">Cannot use MFA service, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">Your request has been throttled, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfWrongCodeEntered">Wrong code entered, please try again.</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## Azure AD SSPR
+
+The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
+
+| ID | Default value |
+| -- | ------------- |
+|UserMessageIfChallengeExpired | The code has expired.|
+|UserMessageIfInternalError | The email service has encountered an internal error, please try again later.|
+|UserMessageIfThrottled | You have sent too many requests, please try again later.|
+|UserMessageIfVerificationFailedNoRetry | You have exceeded maximum number of verification attempts.|
+|UserMessageIfVerificationFailedRetryAllowed | The verification has failed, please try again.|
+
+
+### Example
+
+```XML
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInternalError">We are having trouble verifying your email address. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfThrottled">There have been too many requests to verify this email address. Please wait a while, then try again.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfChallengeExpired">That code is expired. Please request a new code.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedNoRetry">You've made too many incorrect attempts. Please try again later.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```

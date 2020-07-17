@@ -17,7 +17,7 @@ For additional Cosmos DB PowerShell samples for SQL (Core) API and documentation
 > [!NOTE]
 > The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please check for updates to `Az.CosmosDB` regularly.
 
-| | |
+|Task | Description |
 |---|---|
 |[Create an account, database and container](scripts/powershell/sql/ps-sql-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create an Azure Cosmos DB account, database and container. |
 |[Create a container with a large partition key](scripts/powershell/sql/ps-sql-container-create-large-partition-key.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Create a container with a large partition key. |

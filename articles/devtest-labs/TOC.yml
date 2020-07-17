@@ -6,11 +6,16 @@
     href: devtest-lab-overview.md
   - name: Azure DevTest Labs and Lab Services
     href: lab-services-overview.md
+- name: Quickstart
+  items:
+  - name: Create a lab - ARM template
+    displayName: Resource Manager
+    href: create-lab-windows-vm-template.md  
 - name: Tutorials
   items:
-  - name: 1. Set up a lab
+  - name: Set up a lab
     href: tutorial-create-custom-lab.md 
-  - name: 2. Access a lab
+  - name: Access a lab
     href: tutorial-use-custom-lab.md
 - name: Samples
   items:
@@ -60,6 +65,10 @@
       href: devtest-lab-training-lab.md
     - name: Scenarios for using claimable VMs
       href: devtest-lab-use-claim-capabilities.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Configure a lab
@@ -259,6 +268,12 @@
       href: troubleshoot-vm-environment-creation-failures.md
     - name: Troubleshoot artifact failures
       href: devtest-lab-troubleshoot-artifact-failure.md
+  - name: Monitor
+    items: 
+    - name: View activity logs
+      href: activity-logs.md
+    - name: Create activity log alerts
+      href: create-alerts.md
 - name: Reference
   items:
   - name: CLI

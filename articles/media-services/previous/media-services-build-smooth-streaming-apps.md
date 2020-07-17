@@ -148,15 +148,24 @@ In this XAML file, some event handlers are associated with the controls.  You mu
 
 1. From Solution Explorer, right-click **MainPage.xaml**, and then click **View Code**.
 2. At the top of the file, add the following using statement:
-   
+
+    ```csharp
         using Windows.Media;
+    ```
+
 3. At the beginning of the **MainPage** class, add the following data member:
-   
-         private MediaExtensionManager extensions = new MediaExtensionManager();
+
+    ```csharp
+        private MediaExtensionManager extensions = new MediaExtensionManager();
+    ```
+
 4. At the end of the **MainPage** constructor, add the following two lines:
-   
+
+    ```csharp
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
+    ```
+
 5. At the end of the **MainPage** class, paste the following code:
    ```csharp
          # region UI Button Click Events

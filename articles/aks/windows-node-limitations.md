@@ -41,7 +41,11 @@ The master nodes (the control plane) in an AKS cluster are hosted by AKS the ser
 
 ## What network plug-ins are supported?
 
-AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. - The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+AKS clusters with Windows node pools must use the Azure CNI (advanced) networking model. Kubenet (basic) networking is not supported. For more information on the differences in network models, see [Network concepts for applications in AKS][azure-network-models]. The Azure CNI network model requires additional planning and considerations for IP address management. For more information on how to plan and implement Azure CNI, see [Configure Azure CNI networking in AKS][configure-azure-cni].
+
+## Is preserving the client source IP supported?
+
+At this time, [client source IP preservation][client-source-ip] is not supported with Windows nodes.
 
 ## Can I change the max. # of pods per node?
 
@@ -82,7 +86,7 @@ You have to keep the name to a maximum of 6 (six) characters. This is a current 
 
 ## Are all features supported with Windows nodes?
 
-Network policies and kubenet are currently not supported with Windows nodes. 
+Network policies and kubenet are currently not supported with Windows nodes.
 
 ## Can I run ingress controllers on Windows nodes?
 
@@ -98,7 +102,15 @@ Group managed service accounts (gMSA) support is not currently available in AKS.
 
 ## Can I use Azure Monitor for containers with Windows nodes and containers?
 
-Yes, however Azure Monitor has a set of [limitations][azure-monitor] for Windows support.
+Yes you can, however Azure Monitor is in public preview for gathering logs (stdout, stderr) and metrics from Windows containers. You can also attach to the live stream of stdout logs from a Windows container.
+
+## Are there any limitations on the number of services on a cluster with Windows nodes?
+
+A cluster with Windows nodes can have approximately 500 services before it encounters port exhaustion.
+
+## Can I use the Kubernetes Web Dashboard with Windows containers?
+
+Yes, you can use the [Kubernetes Web Dashboard][kubernetes-dashboard] to access information about Windows containers, but at this time you can't run *kubectl exec* into a running Windows container directly from the Kubernetes Web Dashboard. For more details on connecting to your running Windows container see [Connect with RDP to Azure Kubernetes Service (AKS) cluster Windows Server nodes for maintenance or troubleshooting][windows-rdp].
 
 ## What if I need a feature which is not supported?
 
@@ -129,3 +141,6 @@ To get started with Windows Server containers in AKS, [create a node pool that r
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
 [azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[client-source-ip]: concepts-network.md#ingress-controllers
+[kubernetes-dashboard]: kubernetes-dashboard.md
+[windows-rdp]: rdp.md

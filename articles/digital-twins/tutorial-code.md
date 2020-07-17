@@ -8,7 +8,6 @@ ms.author: cschorm # Microsoft employees only
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Coding with the Azure Digital Twins APIs
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 It is common for developers working with Azure Digital Twins to write a client application for interacting with their instance of the Azure Digital Twins service. This developer-focused tutorial provides an introduction to programming against the Azure Digital Twins service, using the [Azure IoT Digital Twin client library for .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). It walks you through writing a C# console client app step by step, starting from scratch.
 
@@ -51,7 +48,7 @@ This will create several files inside your directory, including one called *Prog
 Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
@@ -180,7 +177,7 @@ In the directory where you created your project, create a new *.json* file calle
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-use-parser.md).
+> There is a language-agnostic [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [*How-to: Parse and validate models*](how-to-use-parser.md).
 
 Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
 
@@ -191,7 +188,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 ```
 
 Next, prepare to use the asynchronous methods in the C# service SDK, by changing the `Main` method signature to allow for async execution. 
@@ -291,6 +287,7 @@ Add a new `using` statement at the top, as you will need the built-in .NET Json 
 
 ```csharp
 using System.Text.Json;
+using Azure.DigitalTwins.Core.Serialization;
 ```
 
 Then, add the following code to the end of the `Main` method to create and initialize three digital twins based on this model.
@@ -321,7 +318,7 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, add a `using` statement for the relationship base type in the SDK:
+To be able to create relationships, add a `using` statement for the relationship base type in the SDK:skip this if already added.
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
@@ -536,7 +533,7 @@ namespace minimal
 ```
 ## Clean up resources
  
-The instance used in this tutorial can be reused in the next tutorial, [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
+The instance used in this tutorial can be reused in the next tutorial, [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). If you plan to continue to the next tutorial, you can keep the Azure Digital Twins instance you set up here.
  
 If you no longer need the resources created in this tutorial, follow these steps to delete them.
 
@@ -566,8 +563,8 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md)
+> [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md)
 
 You can also add to the code you wrote in this tutorial by learning more management operations in the how-to articles, or start looking at the concept documentation to learn more about elements you worked with in the tutorial.
-* [How-to: Manage a twin model](how-to-manage-model.md)
-* [Concepts: Custom models](concepts-models.md)
+* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [*Concepts: Custom models*](concepts-models.md)

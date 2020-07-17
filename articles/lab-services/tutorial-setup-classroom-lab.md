@@ -1,22 +1,10 @@
 ---
 title: Set up a classroom lab using Azure Lab Services | Microsoft Docs
 description: In this tutorial, you use Azure Lab Services to set up a classroom lab with virtual machines that are used by students in your class. 
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 05/19/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Tutorial: Set up a classroom lab 
 In this tutorial, you set up a classroom lab with virtual machines that are used by students in the classroom.  
 

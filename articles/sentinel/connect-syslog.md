@@ -1,6 +1,6 @@
 ---
 title: Connect Syslog data to Azure Sentinel | Microsoft Docs
-description: Learn how to connect Syslog data to Azure Sentinel.
+description: Connect any on-premises appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -90,7 +90,9 @@ This detection requires a specific configuration of the Syslog data connector:
 
 2. Allow sufficient time for syslog information to be collected. Then, navigate to **Azure Sentinel - Logs**, and copy and paste the following query:
     
-    	Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```console
+    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```
     
     Change the **Time range** if required, and select **Run**.
     

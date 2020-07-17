@@ -178,7 +178,7 @@ Run the project with a web server by using Node.js:
 
 ### How the sample works
 
-:::image type="content" source="media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow for a single-page application":::
+![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
 ### msal.js
 

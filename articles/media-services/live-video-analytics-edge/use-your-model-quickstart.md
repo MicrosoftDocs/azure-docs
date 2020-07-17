@@ -185,7 +185,7 @@ In the following messages, the Live Video Analytics module defines the applicati
 
 ### MediaSessionEstablished event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live55 container. If the connection succeeds, then the following event is printed. The event type is `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, then the following event is printed. The event type is `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:

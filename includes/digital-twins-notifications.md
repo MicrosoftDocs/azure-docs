@@ -10,5 +10,5 @@ ms.author: baanders
 | --- | --- | --- |
 | Digital Twin Change Notification | Digital Twin Change Notification    | any digital twin property change |
 | Digital Twin Lifecycle Notification | Digital Twin Lifecycle Notification    | any digital twin create or delete operation |
-| Digital Twin Edge Change Notification    | Digital Twin Edge Change Notification    | any digital twin relationship change |
+| Digital Twin Relationship Change Notification    | Digital Twin Relationship Change Notification    | any digital twin relationship change |
 | Digital Twin Telemetry Messages|     Telemetry Messages | any telemetry message |

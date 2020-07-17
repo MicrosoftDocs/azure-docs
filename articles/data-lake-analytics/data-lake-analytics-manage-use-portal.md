@@ -8,7 +8,7 @@ ms.author: saveenr
 
 ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
 ---
 # Manage Azure Data Lake Analytics using the Azure portal

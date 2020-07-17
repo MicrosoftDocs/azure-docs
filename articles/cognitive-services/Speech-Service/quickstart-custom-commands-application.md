@@ -19,7 +19,7 @@ In this quickstart, you create and test a basic Custom Commands application usin
 ## Prerequisites
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Create an Azure Speech resource in a region that supports Custom Commands.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
 > * Download the sample
 [Smart Room Lite](https://aka.ms/speech/cc-quickstart) json file.
 > * Download the latest version of [Windows Voice Assistant Client](https://aka.ms/speech/va-samples-wvac).
@@ -78,7 +78,8 @@ You should now see overview of your new Custom Commands application.
     - Turn on the tv
     - Set the temperature to 80 degrees
     - Turn it off
-    - Set an alarm
+    - The tv
+    - Set an alarm for 5 PM
 
 ## Integrate Custom Commands application in an assistant
 Before you can access this application from outside Speech Studio, you need to publish the application. For publishing an application, you will need to configure prediction LUIS resource.  
@@ -106,7 +107,7 @@ Alternatively, you can also get these values by selecting **Settings** > **Gener
 
 In the scope of this article, we will be using the Windows Voice Assistant client you downloaded as part of the pre-requisites. Unzip the folder.
 1. Launch **VoiceAssistantClient.exe**.
-1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key**, **Subscription key region** and **Custom commands app ID**.
+1. Create a new publish profile and enter value for **Connection Profile**. In the **General Settings** section, enter values **Subscription Key** (this is same as the **Speech resource key** value you saved when publishing the application), **Subscription key region** and **Custom commands app ID**.
     > [!div class="mx-imgBorder"]
     > ![WVAC Create profile](media/custom-commands/create-profile.png)
 1. Select **Save and Apply Profile**.

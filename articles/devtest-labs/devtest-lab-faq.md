@@ -1,21 +1,8 @@
 ---
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Azure DevTest Labs FAQ

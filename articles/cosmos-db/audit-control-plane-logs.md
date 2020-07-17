@@ -4,7 +4,7 @@ description: Learn how to audit the control plane operations such as add a regio
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/23/2020
+ms.date: 06/25/2020
 ms.author: sngun
 
 ---
@@ -25,7 +25,7 @@ The following are some example scenarios where auditing control plane operations
 
 Before you audit the control plane operations in Azure Cosmos DB, disable the key-based metadata write access on your account. When key based metadata write access is disabled, clients connecting to the Azure Cosmos account through account keys are prevented from accessing the account. You can disable write access by setting the `disableKeyBasedMetadataWriteAccess` property to true. After you set this property, changes to any resource can happen from a user with the proper Role-based access control(RBAC) role and credentials. To learn more on how to set this property, see the [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. 
 
-After the `disableKeyBasedMetadataWriteAccess` is turned on, if the SDK based clients run create or update operations, an error *"Operation 'POST' on resource 'ContainerNameorDatabaseName' is not allowed through Azure Cosmos DB endpoint* is returned. You have to turn on access to such operations for your account, or perform the create/update operations through Azure Resource Manager, Azure CLI or Azure Powershell. To switch back, set the disableKeyBasedMetadataWriteAccess to **false** by using Azure CLI as described in the [Preventing changes from Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. Make sure to change the value of `disableKeyBasedMetadataWriteAccess` to false instead of true.
+After the `disableKeyBasedMetadataWriteAccess` is turned on, if the SDK based clients run create or update operations, an error *"Operation 'POST' on resource 'ContainerNameorDatabaseName' is not allowed through Azure Cosmos DB endpoint* is returned. You have to turn on access to such operations for your account, or perform the create/update operations through Azure Resource Manager, Azure CLI or Azure PowerShell. To switch back, set the disableKeyBasedMetadataWriteAccess to **false** by using Azure CLI as described in the [Preventing changes from Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) article. Make sure to change the value of `disableKeyBasedMetadataWriteAccess` to false instead of true.
 
 Consider the following points when turning off the metadata write access:
 
@@ -67,7 +67,7 @@ The following screenshots capture logs when a consistency level is changed for a
 
 :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
 
-The following screenshots capture logs when throughput of a Cassandra table is updated:
+The following screenshots capture logs when the keyspace or a table of a Cassandra account are created and when the throughput is updated. The control plane logs for create and update operations on the database and the container are logged separately as shown in the following screenshot:
 
 :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
 
@@ -97,30 +97,39 @@ The following are the control plane operations available at the account level. M
 
 The following are the control plane operations available at the database and container level. These operations are available as metrics in Azure monitor:
 
+* SQL Database Created
 * SQL Database Updated
-* SQL Container Updated
 * SQL Database Throughput Updated
-* SQL Container Throughput Updated
 * SQL Database Deleted
+* SQL Container Created
+* SQL Container Updated
+* SQL Container Throughput Updated
 * SQL Container Deleted
+* Cassandra Keyspace Created
 * Cassandra Keyspace Updated
-* Cassandra Table Updated
 * Cassandra Keyspace Throughput Updated
-* Cassandra Table Throughput Updated
 * Cassandra Keyspace Deleted
+* Cassandra Table Created
+* Cassandra Table Updated
+* Cassandra Table Throughput Updated
 * Cassandra Table Deleted
+* Gremlin Database Created
 * Gremlin Database Updated
-* Gremlin Graph Updated
 * Gremlin Database Throughput Updated
-* Gremlin Graph Throughput Updated
 * Gremlin Database Deleted
+* Gremlin Graph Created
+* Gremlin Graph Updated
+* Gremlin Graph Throughput Updated
 * Gremlin Graph Deleted
+* Mongo Database Created
 * Mongo Database Updated
-* Mongo Collection Updated
 * Mongo Database Throughput Updated
-* Mongo Collection Throughput Updated
 * Mongo Database Deleted
+* Mongo Collection Created
+* Mongo Collection Updated
+* Mongo Collection Throughput Updated
 * Mongo Collection Deleted
+* AzureTable Table Created
 * AzureTable Table Updated
 * AzureTable Table Throughput Updated
 * AzureTable Table Deleted
@@ -140,14 +149,15 @@ The following are the operation names in diagnostic logs for different operation
 
 For API-specific operations, the operation is named with the following format:
 
-* ApiKind + ApiKindResourceType + OperationType + Start/Complete
-* ApiKind + ApiKindResourceType + "Throughput" + operationType + Start/Complete
+* ApiKind + ApiKindResourceType + OperationType
+* ApiKind + ApiKindResourceType + "Throughput" + operationType
 
 **Example** 
 
-* CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
-* CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
-* SqlContainersUpdateStart, SqlContainersUpdateComplete
+* CassandraKeyspacesCreate
+* CassandraKeyspacesUpdate
+* CassandraKeyspacesThroughputUpdate
+* SqlContainersUpdate
 
 The *ResourceDetails* property contains the entire resource body as a request payload and it contains all the properties requested to update
 
@@ -157,14 +167,28 @@ The following are some examples to get diagnostic logs for control plane operati
 
 ```kusto
 AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdateStart"
+| where Category startswith "ControlPlane"
+| where OperationName contains "Update"
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+| where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 ## Next steps

@@ -5,7 +5,7 @@ author: jseb225
 ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
 ---
@@ -206,7 +206,7 @@ The **TestConnection** method tests whether the Stream Analytics job is able to 
 ## Create a Stream Analytics output target
 Creating an output target is similar to creating a Stream Analytics input source. Like input sources, output targets are tied to a specific job. To use the same output target for different jobs, you must call the method again and specify a different job name.
 
-The following code creates an output target (Azure SQL database). You can customize the output target's data type and/or serialization type.
+The following code creates an output target (Azure SQL Database). You can customize the output target's data type and/or serialization type.
 
    ```csharp
    // Create an output

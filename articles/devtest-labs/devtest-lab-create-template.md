@@ -1,21 +1,8 @@
 ---
 title: Create an Azure DevTest Labs custom image from a VHD file | Microsoft Docs
 description: Learn how to create a custom image in Azure DevTest Labs from a VHD file using the Azure portal
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: b795bc61-7c28-40e6-82fc-96d629ee0568
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Create a custom image from a VHD file

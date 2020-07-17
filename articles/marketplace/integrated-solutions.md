@@ -1,12 +1,12 @@
 ---
 title: Integrated solutions - Microsoft commercial marketplace
 description: Learn about advantages, resources, and next steps for offering integrated solutions in the commercial marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/15/2020
-ms.author: dsindona
 ---
 
 # Integrated solutions in the commercial marketplace

@@ -158,6 +158,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Change log
 
 * 04/30/2020 - Added support for enterprise extension attribute and custom attribute "CanEdit" for users.
+* 06/15/2020 - Soft deletion of users is enabled (Supporting [active](https://tools.ietf.org/html/rfc7643) attribute).
 
 ## Additional resources
 

@@ -7,18 +7,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/14/2020
 ms.author: aahi
 ---
 
 # Install and run Form Recognizer containers (Preview)
 
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
+
 Azure Form Recognizer applies machine learning technology to identify and extract key-value pairs and tables from forms. It associates values and table entries with the key-value pairs and then outputs structured data that includes the relationships in the original file. 
 
 To reduce complexity and easily integrate a custom Form Recognizer model into your workflow automation process or other application, you can call the model by using a simple REST API. Only five form documents (or one empty form and two filled-in forms) are needed, so you can get results quickly, accurately, and tailored to your specific content. No heavy manual intervention or extensive data science expertise is necessary. And it doesn't require data labeling or data annotation.
-
-> [!IMPORTANT]
-> The Form Recognizer containers currently use version 1.0 of the Form Recognizer API. You can access the latest version of the API by using the managed service instead.
 
 | Function | Features |
 |----------|----------|
@@ -59,14 +58,6 @@ This key is used to start the container, and is available on the Azure portal's 
 
 > [!IMPORTANT]
 > These subscription keys are used to access your Cognitive Service API. Do not share your keys. Store them securely, for example, using Azure Key Vault. We also recommend regenerating these keys regularly. Only one key is necessary to make an API call. When regenerating the first key, you can use the second key for continued access to the service.
-
-## Request access to the container registry
-
-Fill out and submit the [request form](https://aka.ms/cognitivegate) to request access to the container.
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## The host computer
 
@@ -133,6 +124,9 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 [Examples](form-recognizer-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 
 ### Form Recognizer
+
+> [!NOTE]
+> The directories use for `--mount` in these examples are Windows directory paths. If you're using Linux or macOS, change the parameter for your environment. 
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \

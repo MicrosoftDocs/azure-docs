@@ -19,7 +19,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 - If you have an Application Insights Resource:
     - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean up) with the following choices.
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](../../azure-functions/functions-create-scheduled-function.md) (stop before clean up) with the following choices.
         -  Select the **Monitoring** tab near the top.
 
             ![ Create an Azure Functions app with your own App Insights resource](media/availability-azure-functions/create-function-app.png)
@@ -31,7 +31,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
         - Select **Review + create**
 - If you do not have an Application Insights Resource created yet for your timer triggered function:
     - By default when you are creating your Azure Functions application it will create an Application Insights resource for you.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean-up).
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](../../azure-functions/functions-create-scheduled-function.md) (stop before clean-up).
 
 ## Sample code
 
@@ -41,7 +41,7 @@ Copy the code below into the run.csx file (this will replace the pre-existing co
 >![Azure function's run.csx in Azure portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
+> For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](./custom-endpoints.md#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
 
 ```C#
 #load "runAvailabilityTest.csx"

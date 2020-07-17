@@ -1,21 +1,10 @@
 ---
 title: Configure usage settings in classroom labs of Azure Lab Services
 description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add and manage lab users
 
 This article describes how to add student users to a lab, register them with the lab, control the number of additional hours they can use the virtual machine (VM), and more. 

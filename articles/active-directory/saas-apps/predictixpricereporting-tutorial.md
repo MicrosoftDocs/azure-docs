@@ -107,11 +107,10 @@ To configure Azure AD single sign-on with Predictix Price Reporting, take these 
 
     1. In the **Identifier (Entity ID)** box, enter a URL in this pattern:
 
-        | |
-	    |--|
-	    | `https://<companyname-pricing>.predictix.com` |
-	    | `https://<companyname-pricing>.dev.predictix.com` |
-	    | |
+        ```https
+        https://<companyname-pricing>.predictix.com
+        https://<companyname-pricing>.dev.predictix.com
+        ```
 
 	> [!NOTE]
 	> These values are placeholders. You need to use the actual sign-on URL and identifier. Contact the [Predictix Price Reporting support team](https://www.infor.com/company/customer-center/) to get the values. You can also refer to the patterns shown in the **Basic SAML Configuration** dialog box in the Azure portal.

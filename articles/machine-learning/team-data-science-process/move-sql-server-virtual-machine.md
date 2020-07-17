@@ -182,11 +182,11 @@ Various methods can be used to bulk export data from an On-Premises SQL Server a
 
     Format file generation when running BCP from the SQL Server computer
 
-        bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n
+    `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 
     Format file generation when running BCP remotely against a SQL Server
 
-        bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n
+    `bcp dbname..tablename format nul -c -x -f  exportformatfilename.xml  -U username@servername.database.windows.net -S tcp:servername -P password  --t \t -r \n`
 4. Use any of the methods described in section [Moving Data from File Source](#filesource_to_sqlonazurevm) to move the data in flat files to a SQL Server.
 
 ### <a name="sql-migration"></a>SQL Database Migration Wizard

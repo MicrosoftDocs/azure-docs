@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 06/29/2020
 ms.author: swmachan
 ---
 
@@ -61,14 +61,13 @@ When using the [BreakSentence](https://docs.microsoft.com/azure/cognitive-servic
 
 | Language | Code | Character limit |
 |----------|------|-----------------|
-| Chinese | zh | 132 |
-| German | de | 290 |
-| Italian | it | 280 |
-| Japanese | ja | 150 |
-| Portuguese | pt | 290 |
-| Spanish | es | 280 |
-| Italian | it | 280 |
-| Thai | th | 258 |
+| Chinese | zh | 166 |
+| German | de | 800 |
+| Italian | it | 800 |
+| Japanese | ja | 166 |
+| Portuguese | pt | 800 |
+| Spanish | es | 800 |
+| Thai | th | 180 |
 
 > [!NOTE]
 > This limit doesn't apply to translations.

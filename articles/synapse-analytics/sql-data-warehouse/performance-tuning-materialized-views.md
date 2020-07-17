@@ -1,5 +1,5 @@
 ---
-title: Performance tuning with materialized views
+title: Performance tune with materialized views
 description: Recommendations and considerations you should know as you use materialized views to improve your query performance. 
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -12,7 +12,7 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ---
 
-# Performance tuning with materialized views
+# Performance tune with materialized views
 
 Materialized views in Synapse SQL pool provide a low maintenance method for complex analytical queries to get fast performance without any query change. This article discusses the general guidance on using materialized views.
 
