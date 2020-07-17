@@ -71,7 +71,7 @@
     - name: Python
       href: https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer
     - name: Java
-      href: https://docs.microsoft.com/en-us/java/api/overview/azure/ai-formrecognizer-readme-pre
+      href: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre
     - name: JavaScript
       href: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme-pre
 - name: Resources
