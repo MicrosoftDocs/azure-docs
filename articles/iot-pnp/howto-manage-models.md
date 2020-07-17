@@ -99,7 +99,7 @@ To publish a model using the portal:
     ![Publish a model.](./media/howto-manage-models/publish-model.png)
 
     > [!NOTE]
-    > If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see [Model repository sign-in](#model-repository-sign-in).
+    > If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see [Set up your model repository tenant and users](#set-up-your-model-repository-tenant-and-users).
 
 ## Manage models with the Model repository REST API
 
