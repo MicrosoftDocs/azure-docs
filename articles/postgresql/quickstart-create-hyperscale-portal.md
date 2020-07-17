@@ -111,7 +111,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-So far the queries have involved the github\_events exclusively, but we can combine this information with github\_users. Since we sharded both users and events on the same identifier (`user_id`), the rows of both tables with matching user IDs will be [colocated](concepts-hyperscale-colocation) on the same database nodes and can easily be joined.
+So far the queries have involved the github\_events exclusively, but we can combine this information with github\_users. Since we sharded both users and events on the same identifier (`user_id`), the rows of both tables with matching user IDs will be [colocated](concepts-hyperscale-colocation.md) on the same database nodes and can easily be joined.
 
 If we join on `user_id`, Hyperscale can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
 

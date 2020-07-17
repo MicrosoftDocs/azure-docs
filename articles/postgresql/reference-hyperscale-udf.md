@@ -47,20 +47,20 @@ defaults to 'hash'.
 of another table. By default tables are co-located when they are distributed by
 columns of the same type, have the same shard count, and have the same
 replication factor. If you want to break this colocation later, you can use
-[update_distributed_table_colocation](#update-distributed-table-colocation).
+[update_distributed_table_colocation](#update_distributed_table_colocation).
 Possible values for `colocate_with` are `default`, `none` to start a new
 co-location group, or the name of another table to co-locate with that table.
-(See [table colocation](concepts-hyperscale-colocation).)
+(See [table colocation](concepts-hyperscale-colocation.md).)
 
 Keep in mind that the default value of `colocate_with` does implicit
-co-location. As [colocation](concepts-hyperscale-colocation) explains, this can
+co-location. As [colocation](concepts-hyperscale-colocation.md) explains, this can
 be a great thing when tables are related or will be joined.  However when two
 tables are unrelated but happen to use the same datatype for their distribution
 columns, accidentally co-locating them can decrease performance during [shard
-rebalancing](howto-hyperscale-scaling#rebalance-shards).  The table
+rebalancing](howto-hyperscale-scaling.md#rebalance-shards).  The table
 shards will be moved together unnecessarily in a \"cascade.\" If you want to
 break this implicit colocation, you can use
-[update_distributed_table_colocation](#update-distributed-table-colocation).
+[update_distributed_table_colocation](#update_distributed_table_colocation).
 
 If a new distributed table is not related to other tables, it's best to
 specify `colocate_with => 'none'`.
@@ -142,7 +142,7 @@ SELECT create_reference_table('nation');
 The upgrade\_to\_reference\_table() function takes an existing distributed
 table which has a shard count of one, and upgrades it to be a recognized
 reference table. After calling this function, the table will be as if it had
-been created with [create_reference_table](#create-reference-table).
+been created with [create_reference_table](#create_reference_table).
 
 #### Arguments
 
@@ -1526,7 +1526,7 @@ assigned to the new shard.
 
 **cascade\_option:** (Optional) When set to \"CASCADE,\" also isolates a shard
 from all tables in the current table's [colocation
-group](concepts-hyperscale-colocation).
+group](concepts-hyperscale-colocation.md).
 
 #### Return Value
 
