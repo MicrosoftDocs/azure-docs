@@ -19,7 +19,7 @@ Learn what's new in the service. These items may include release notes, videos, 
 
 ### July 2020
 
-* * New tutorial - [using Personalizer in a chat bot](tutorial-use-personalizer-chat-bot.md)
+* New tutorial - [using Personalizer in a chat bot](tutorial-use-personalizer-chat-bot.md)
 
 ### June 2020
 
