@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 06/17/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -30,9 +30,11 @@ At a high level, the entire authentication flow for an application looks a bit l
 
 ![OAuth Auth Code Flow](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## Setup required for single-page apps
+## Redirect URI setup required for single-page apps
 
-The authorization code flow for single page applications requires some additional setup.  While you are [creating your application](howto-create-service-principal-portal.md), you must mark the redirect URI for your app as a `spa` redirect URI. This causes the login server to allow CORS (cross origin resource sharing) for your app.  This is required to redeem the code using XHR.
+The authorization code flow for single page applications requires some additional setup.  Follow the instructions for [creating your single-page application](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) to correctly mark your redirect URI as enabled for CORS. To update an existing redirect URI to enable CORS, open the manifest editor and set the `type` field for your redirect URI to `spa` in the `replyUrlsWithType` section. You can also click on the redirect URI in the "Web" section of the Authentication tab, and select the URIs you want to migreate to using the authorization code flow. 
+
+Note that the `spa` redirect type is backwards compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow. 
 
 If you attempt to use the authorization code flow and see this error:
 
