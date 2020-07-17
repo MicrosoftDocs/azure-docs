@@ -116,7 +116,7 @@ The DPM server/MABS needs access to these URLs:
 
 ### Azure ExpressRoute support
 
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
 
 With public peering: Ensure access to the following domains/addresses:
 
@@ -126,13 +126,13 @@ With public peering: Ensure access to the following domains/addresses:
 - `.microsoftonline.com`
 - `.windows.net`
 
-With Microsoft peering, please select the following services/regions and relevant community values:
+With Microsoft peering, select the following services/regions and relevant community values:
 
 - Azure Active Directory (12076:5060)
 - Microsoft Azure Region (according to the location of your Recovery Services vault)
 - Azure Storage (according to the location of your Recovery Services vault)
 
-For more details, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more information, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.
@@ -148,6 +148,13 @@ Connected | Expired/deprovisioned | No backup to disk or Azure.<br/><br/> If the
 No connectivity for more than 15 days | Active | No backup to disk or Azure.<br/><br/> You can restore from disk or Azure.
 No connectivity for more than 15 days | Expired/deprovisioned | No backup to disk or Azure.<br/><br/> If the subscription is expired, you can restore from disk or Azure.<br/><br/> If the subscription is decommissioned, you can't restore from disk or Azure. The Azure recovery points are deleted.
 
+## Domain and Domain trusts support
+
+|Requirement |Details |
+|---------|---------|
+|Domain    | The DPM/MABS server should be in a Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012 domain.        |
+|Domain trust   |  DPM/MABS supports data protection across forests, as long as you establish a forest-level, two-way trust between the separate forests.   <BR><BR>   DPM/MABS can protect servers and workstations across domains, within a forest that has a two-way trust relationship with the DPM/MABS server domain. To protect computers in workgroups or untrusted domains, see [Back up and restore workloads in workgroups and untrusted domains.](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)  |
+
 ## DPM/MABS storage support
 
 Data that is backed up to DPM/MABS is stored on local disk storage.
@@ -156,7 +163,7 @@ Data that is backed up to DPM/MABS is stored on local disk storage.
 --- | ---
 **MBS** | Modern backup storage (MBS) is supported from DPM 2016/MABS v2 and later. It isn't available for MABS v1.
 **MABS storage on Azure VM** | Data is stored on Azure disks that are attached to the DPM/MABS VM, and that are managed in DPM/MABS. The number of disks that can be used for DPM/MABS storage pool is limited by the size of the VM.<br/><br/> A2 VM: 4 disks; A3 VM: 8 disks; A4 VM: 16 disks, with a maximum size of 1 TB for each disk. This determines the total backup storage pool that is available.<br/><br/> The amount of data you can back up depends on the number and size of the attached disks.
-**MABS data retention on Azure VM** | We recommend that you retain data for one day on the DPM/MABS Azure disk, and back up from DPM/MABS to the vault for longer retention. You can thus protect a larger amount of data by offloading it to Azure Backup.
+**MABS data retention on Azure VM** | We recommend that you retain data for one day on the DPM/MABS Azure disk, and back up from DPM/MABS to the vault for longer retention. This way you can protect a larger amount of data by offloading it to Azure Backup.
 
 ### Modern backup storage (MBS)
 

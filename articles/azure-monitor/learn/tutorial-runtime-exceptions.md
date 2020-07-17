@@ -31,7 +31,7 @@ To complete this tutorial:
 	- ASP.NET and web development
 	- Azure development
 - Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Enable [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+- Enable [Visual Studio Snapshot Debugger](../app/snapshot-debugger.md)
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md). 
 - The tutorial tracks the identification of an exception in your application, so modify your code in your development or test environment to generate an exception. 
 
