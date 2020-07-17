@@ -292,7 +292,7 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 See how to use the APIs to create an Azure Digital Twins instance:
-* [How-to: Create an Azure Digital Twins instance](how-to-set-up-instance.md)
+* [*How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md)
 
 Or, walk through the steps to create a client app like the one used in this how-to:
-* [Tutorial: Code a client app](tutorial-code.md)
+* [*Tutorial: Code a client app*](tutorial-code.md)
