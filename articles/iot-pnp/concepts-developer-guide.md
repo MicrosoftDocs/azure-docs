@@ -13,23 +13,23 @@ services: iot-pnp
 
 IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-This guide describes the basic steps required to create a device that follows the [IoT Plug and Play Convention](concepts-convention.md), and the available REST apis to interact with the device.
+This guide describes the basic steps required to create a device that follows the [IoT Plug and Play convention](concepts-convention.md), and the available REST APIs you can use to interact with the device.
 
-To build an IoT Plug and Play device, you must follow the next steps:
+To build an IoT Plug and Play device, follow theses steps:
 
-1. Ensure your device is using MQTT or MQTT over web sockets as the protocol to connect to Azure IoT Hub.
-1. Create your DTDL model to describe your device. Modeling is explained in more detail in [Understand components in Azure IoT Plug and Play models](concepts-components.md).
-1. Update your device to _announce_ the `model-id` as part of the device connection.
-1. Implement Telemetry, Properties and commands using the [IoT Plug and Play Convention](concepts-convention.md)
+1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
+1. Create a [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL) model to describe your device. To learn more, see [Understand components in Azure IoT Plug and Play models](concepts-components.md).
+1. Update your device to announce the `model-id` as part of the device connection.
+1. Implement telemetry, properties, and commands using the [IoT Plug and Play convention](concepts-convention.md)
 
-Once your device implementation is ready, you can validate if it's _PnP conformant_ by  using the [Azure IoT Explorer](howto-use-iot-explorer.md).
+Once your device implementation is ready, use the [Azure IoT explorer](howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play convention.
 
->[!Tip]
->Note. All code fragments in this article use C# but the concepts are applicable to any of the avialble SDKs for C, Python, Node and Java.
+> [!Tip]
+> All code fragments in this article use C#, but the concepts are applicable to any of the available SDKs for C, Python, Node, and Java.
 
-## Model Id announcement
+## Model ID announcement
 
-To announce the Model Id the device must include the model id with the connection information
+To announce the model ID, the device must include it in the connection information:
 
 ```csharp
 DeviceClient.CreateFromConnectionString(
@@ -38,9 +38,9 @@ DeviceClient.CreateFromConnectionString(
   new ClientOptions() { ModelId = modelId })
 ```
 
-The new `ClientOptions` overload is available in all `DeviceClient` methods used to initialize the connection.
+The new `ClientOptions` overload is available in all `DeviceClient` methods used to initialize a connection.
 
-The model id announcement has been added to the next versions of the SDKs
+The model ID announcement has been added to the next versions of the SDKs
 
 |SDK|Version|
 |---|-------|
@@ -50,15 +50,15 @@ The model id announcement has been added to the next versions of the SDKs
 |Node|1.17.0|
 |Python|2.1.4|
 
-## Implement Telemetry, Property and Commands
+## Implement telemetry, properties, and commands
 
-As described in [Understand components in Azure IoT Plug and Play models](concepts-components.md), device developers must decide if they want to use components to describe their devices. When using components devices must follow the rules described in this section.
+As described in [Understand components in Azure IoT Plug and Play models](concepts-components.md), device developers must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
 
 ### Telemetry
 
 Models without components don't require any special property.
 
-When using components devices must set a message property with the component name
+When using components, devices must set a message property with the component name:
 
 ```c#
 public async Task SendComponentTelemetryValueAsync(string componentName, string serializedTelemetry)
@@ -71,9 +71,9 @@ public async Task SendComponentTelemetryValueAsync(string componentName, string 
 }
 ```
 
-### Read-only Properties
+### Read-only properties
 
-Models without components don't require any special construct.
+Models without components don't require any special construct:
 
 ```csharp
 TwinCollection reportedProperties = new TwinCollection();
@@ -81,7 +81,7 @@ reportedProperties["maxTemperature"] = 38.7;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin will be updated with the next reported property:
+The device twin is updated with the next reported property:
 
 ```json
 {
@@ -91,7 +91,7 @@ The device twin will be updated with the next reported property:
 }
 ```
 
-When using components, properties must be created within the component name.
+When using components, properties must be created within the component name:
 
 ```csharp
 TwinCollection reportedProperties = new TwinCollection();
@@ -102,7 +102,7 @@ reportedProperties["thermostat1"] = component;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin will be updated with the next reported property:
+The device twin is updated with the next reported property:
 
 ```json
 {
@@ -114,14 +114,16 @@ The device twin will be updated with the next reported property:
   }
 }
 ```
+
 ### Writable properties
 
-These properties can be set by reported by the device and/or updated by the solution, in that case the client will receive a notification as a callback in the `DeviceClient`, to be comformant with the convention the device must inform the service that the property was successfully received.
+These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient`. To follow the IoT Plug and Play convention, the device must inform the service that the property was successfully received.
 
 #### Report a writable property
-When a device reports a writable property it must include the _ack_ values defined in the convention.
 
-To report a  writable property without components:
+When a device reports a writable property, it must include the `ack` values defined in the convention.
+
+To report a writable property without components:
 
 ```csharp
 TwinCollection reportedProperties = new TwinCollection();
@@ -134,7 +136,7 @@ reportedProperties["targetTemperature"] = ackProps;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin will be updated with the next reported property:
+The device twin is updated with the next reported property:
 
 ```json
 {
@@ -149,7 +151,7 @@ The device twin will be updated with the next reported property:
 }
 ```
 
-To report a writable property from a component, the twin must include the same marker as with read-only properties:
+To report a writable property from a component, the twin must include a marker:
 
 ```csharp
 TwinCollection reportedProperties = new TwinCollection();
@@ -158,14 +160,14 @@ TwinCollection ackProps = new TwinCollection();
 component["__t"] = "c"; // marker to identify a component
 ackProps["value"] = 23.2;
 ackProps["ac"] = 200; // using HTTP status codes
-ackProps["av"] = 0; // not readed from a desired property
+ackProps["av"] = 0; // not read from a desired property
 ackProps["ad"] = "reported default value";
 component["targetTemperature"] = ackProps;
 reportedProperties["thermostat1"] = component;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin will be updated with the next reported property:
+The device twin is updated with the next reported property:
 
 ```json
 {
@@ -185,9 +187,9 @@ The device twin will be updated with the next reported property:
 
 #### Subscribe to desired property updates
 
-Services can update desired properties that will trigger a notification on the connected devices. This notification will include the updated desired properties, including the version number identifying the update. Devices must respond with the same _ack_ message in reported properties.
+Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must respond with the same `ack` message as reported properties.
 
-Models without components will see the single property and will create the reportes _ack_ with the received version.
+Models without components see the single property and create the reported `ack` with the received version:
 
 ```csharp
 await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) => 
@@ -207,7 +209,7 @@ await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) =>
 }, null);
 ```
 
-The device twin will show the property in the desired and reported sections.
+The device twin shows the property in the desired and reported sections:
 
 ```json
 {
@@ -226,7 +228,7 @@ The device twin will show the property in the desired and reported sections.
 }
 ```
 
-Models with components will receive the desired properties wrapped with the component name, and should report back the _ack_ reported property:
+Models with components receive the desired properties wrapped with the component name, and should report back the `ack` reported property:
 
 ```csharp
 await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) =>
@@ -250,7 +252,7 @@ await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) =>
 }, null);
 ```
 
-The device twin for components will show the desired and reported sections as follows:
+The device twin for components shows the desired and reported sections as follows:
 
 ```json
 {
@@ -274,12 +276,12 @@ The device twin for components will show the desired and reported sections as fo
   }
 }
 ```
+
 ### Commands
 
-Models without components will receive the command name as it was invoked by the service.
+Models without components receive the command name as it was invoked by the service.
 
 Models with components will receive the command name prefixed with the component and the `*` separator.
-
 
 ```csharp
 await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, object ctx) =>
@@ -290,7 +292,7 @@ await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, objec
 null);
 ```
 
-## Interact with the device 
+## Interact with the device
 
 IoT Plug and Play lets you use devices that have announced their model ID with your IoT hub. For example, you can access the properties and commands of a device directly.
 
@@ -302,7 +304,7 @@ If your thermostat device is called `t-123`, you get the all the properties on a
 GET /digitalTwins/t-123
 ```
 
-This call will include the Json property `$metadata.$model` with the model Id announced by the device.
+This call will include the Json property `$metadata.$model` with the model ID announced by the device.
 
 All properties on all interfaces are accessed with the `GET /DigitalTwin/{device-id}` REST API template where `{device-id}` is the identifier for the device:
 
