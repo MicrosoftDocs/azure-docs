@@ -103,8 +103,7 @@ The below table lists the properties supported by an XML source. You can edit th
 | Filter by last modified | Choose to filter files based upon when they were last altered | No | Timestamp | modifiedAfter <br>modifiedBefore |
 | Validation mode | Specifies whether to validate the XML schema. | No | `None` (default, no validation)<br>`xsd` (validate using XSD)<br>`dtd` (validate using DTD). | validationMode |
 | Namespaces | Whether to enable namespace when parsing the XML files. | No | `true` (default) or `false` | namespaces |
-| Namespace prefix pairs | Namespace URI to prefix mapping which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.
-If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No | Array with pattern`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Namespace prefix pairs | Namespace URI to prefix mapping which is used to name fields when parsing the xml file.<br/>If an XML file has namespace and namespace is enabled, by default, the field name is the same as it is in the XML document.<br>If there is an item defined for the namespace URI in this map, the field name is `prefix:fieldName`. | No | Array with pattern`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 
 ### XML source script example
 
