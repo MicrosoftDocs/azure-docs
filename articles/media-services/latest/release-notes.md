@@ -33,6 +33,20 @@ To stay up-to-date with the most recent developments, this article provides you 
 >
 > For details, see: [the Azure portal limitations for Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## July 2020
+
+### Live transcriptions
+
+Live Transcriptions now supports 19 languages and 8 regions.
+
+## Protecting your content with Media Services and Azure AD
+
+We published a tutorial called [End-to-End content protection using Azure AD](https://docs.microsoft.com/azure/media-services/latest/azure-ad-content-protection).
+
+### High availablity
+
+We published a High Availability with Media Services and Video on Demand (VOD) [overview](https://docs.microsoft.com/azure/media-services/latest/media-services-high-availability-encoding) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
+
 ## June 2020
 
 ### Live Video Analytics on IoT Edge preview release
@@ -40,9 +54,6 @@ To stay up-to-date with the most recent developments, this article provides you 
 The preview of Live Video Analytics on IoT Edge went public. For more information, see [release notes](../live-video-analytics-edge/release-notes.md).
 
 Live Video Analytics on IoT Edge is an expansion to the Media Service family. It enables you to analyze live video with AI models of your choice on your own edge devices, and optionally capture and record that video. You can now build apps with real-time video analytics at the edge without worrying about the complexity of building and operating a live video pipeline.
-
-### Live transcriptions
-Live Transcriptions now supports 19 languages and 8 regions.
 
 ## May 2020
 
