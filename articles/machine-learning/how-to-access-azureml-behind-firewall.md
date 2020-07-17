@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/27/2020
+ms.date: 07/17/2020
 ms.custom: tracking-python
 ---
 
@@ -56,7 +56,10 @@ The hosts in this section are used to install Python packages. They are required
 | **Host name** | **Purpose** |
 | ---- | ---- |
 | **anaconda.com** | Used when installing conda packages |
+| **\*.anaconda.org** | Used when installing conda packages |
 | **pypi.org** | Used when installing pip packages |
+| **\*.pythonhosted.org** | Used when installing pip packages |
+
 
 ## R hosts
 
