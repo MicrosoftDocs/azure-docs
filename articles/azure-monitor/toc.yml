@@ -244,8 +244,6 @@
             href: platform/diagnostics-extension-to-application-insights.md
           - name: Version history
             href: platform/diagnostics-extension-versions.md
-          - name: JSON Lines resource logs format
-            href: platform/resource-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
         - name: Linux
@@ -970,7 +968,11 @@
     - name: Analyze data with log queries
       href: insights/container-insights-log-search.md
     - name: Alerting
-      href: insights/container-insights-alerts.md
+      items:
+      - name: Create log alert rules
+        href: insights/container-insights-log-alerts.md
+      - name: Create metric alert rules
+        href: insights/container-insights-metric-alerts.md
     - name: Agent management
       href: insights/container-insights-manage-agent.md
     - name: Configure Prometheus metric scraping
