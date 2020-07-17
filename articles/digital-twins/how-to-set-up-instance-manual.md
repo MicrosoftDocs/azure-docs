@@ -66,7 +66,9 @@ This section will show you how to create a role assignment for a user in the Azu
 
 ### Assign the role
 
-To assign a user "owner" permissions in an Azure Digital Twins instance, use the following command (must be run by an owner of the Azure subscription):
+To give a user permissions to manage an Azure Digital Twins instance, you must assign them the *Azure Digital Twins Owner (Preview)* role within the instance. This is different from the *Owner* role on the entire Azure subscription, as it is scoped to this individual Azure Digital Twins resource.
+
+Use the following command (must be run by an owner of the Azure subscription):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<AAD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
@@ -141,7 +143,7 @@ Next, select *Overview* from the menu bar to see the details of the app registra
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
 
-### Possible additional requirements
+### Other possible requirements for your organization
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 

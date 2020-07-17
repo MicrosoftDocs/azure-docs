@@ -92,7 +92,7 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 
 [!INCLUDE [digital-twins-setup-verify-app-registration.md](../../includes/digital-twins-setup-verify-app-registration.md)]
 
-## Possible additional requirements
+## Other possible requirements for your organization
 
 [!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
