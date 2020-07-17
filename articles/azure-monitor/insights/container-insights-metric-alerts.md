@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/17/2020
 
 ---
 
@@ -24,7 +24,7 @@ Before you start, confirm the following:
 
     To verify your cluster is running the newer version of the agent, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`. In the status returned, note the value for *omi* and *omsagent*. They should match the latest version.
 
-    For further details related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify the metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, this indicates you can go ahead and start setting up the alerts.
+    For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts.
 
 ## Alert rules overview
 
@@ -150,7 +150,7 @@ The basic steps are as follows:
     * Resource group
     * Location
     * Alert Name
-    * Cluster Resource Id
+    * Cluster Resource ID
 
 #### Deploy with Azure PowerShell or CLI
 
@@ -194,11 +194,11 @@ You can view and manage Azure Monitor for containers alert rules, to edit its th
     * To modify the alert rule threshold, select the **Condition**.
     * To specify an existing or create an action group, select **Add** or **Create** under **Action group**
 
-To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. This redirects you to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster.
+To view alerts created for the enabled rules, in the **Recommended alerts** pane select **View in alerts**. You are redirected to the alert menu for the AKS cluster, where you can see all the alerts currently created for your cluster.
 
 ## Configure alertable metrics in ConfigMaps
 
-Perform the following steps to configure your ConfigMap configuration file to override the default container resource utilization thresholds. This is only applicable for the following alertable metrics.
+Perform the following steps to configure your ConfigMap configuration file to override the default container resource utilization thresholds. These steps are only applicable for the following alertable metrics.
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*

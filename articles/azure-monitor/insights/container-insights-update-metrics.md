@@ -2,7 +2,7 @@
 title: How to update Azure Monitor for containers for metrics | Microsoft Docs
 description: This article describes how you update Azure Monitor for containers to enable the custom metrics feature that supports exploring and alerting on aggregated metrics.
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 07/17/2020
 
 ---
 
@@ -18,13 +18,13 @@ The following metrics are enabled as part of this feature:
 
 | Metric namespace | Metric | Description |
 |------------------|--------|-------------|
-| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | These are *node* metrics and include *host* as a dimension, and they also include the<br> node's name as value for the *host* dimension. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | These are *node* metrics and include *host* as a dimension. They also include the<br> node's name as value for the *host* dimension. |
 | Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | These are *pod* metrics and include the following as dimensions - ControllerName, Kubernetes namespace, name, phase. |
 | Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
 To support these new capabilities, a new containerized agent, version **microsoft/oms:ciprod02212019**, is included in the release. New deployments of AKS automatically include this configuration change and capabilities. Updating your cluster to support this feature can be performed from the Azure portal, Azure PowerShell, or with Azure CLI. With Azure PowerShell and CLI. You can enable this per-cluster or for all clusters in your subscription.
 
-Either process assigns the **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For further information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Either process assigns the **Monitoring Metrics Publisher** role to the cluster's service principal or User assigned MSI for the monitoring add-on so that the data collected by the agent can be published to your clusters resource. Monitoring Metrics Publisher has permission only to push metrics to the resource, it cannot alter any state, update the resource, or read any data. For more information about the role, see [Monitoring Metrics Publisher role](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## Prerequisites
 
@@ -75,7 +75,7 @@ Perform the following steps to update a specific cluster in your subscription us
     az role assignment create --assignee <clientIdOfSPN> --scope <clusterResourceId> --role "Monitoring Metrics Publisher" 
     ```
 
-    To get the value for **clientIdOfSPNOrMsi**, you can run the command `az aks show` as shown in the example below. If the **servicePrincipalProfile** object has a valid *clientid* value you can use that. Otherwise, if it is set to *msi*, you need to pass in the clientid from `addonProfiles.omsagent.identity.clientId`.
+    To get the value for **clientIdOfSPNOrMsi**, you can run the command `az aks show` as shown in the example below. If the **servicePrincipalProfile** object has a valid *clientid* value, you can use that. Otherwise, if it is set to *msi*, you need to pass in the clientid from `addonProfiles.omsagent.identity.clientId`.
 
     ```azurecli
     az login
@@ -120,4 +120,4 @@ Perform the following steps to update a specific cluster using Azure PowerShell.
 
 ## Verify update
 
-After initiating the update using one of the methods described earlier, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, this indicates you can go ahead and start setting up [metric alerts](../platform/alerts-metric.md) or pinning your charts to [dashboards](../../azure-portal/azure-portal-dashboards.md).  
+After initiating the update using one of the methods described earlier, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up [metric alerts](../platform/alerts-metric.md) or pinning your charts to [dashboards](../../azure-portal/azure-portal-dashboards.md).  
