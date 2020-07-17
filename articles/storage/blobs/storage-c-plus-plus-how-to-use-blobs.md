@@ -54,7 +54,7 @@ An Azure storage client uses a storage connection string to store endpoints and 
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-To test your application in your local Windows computer, you can use the [Azurite storage emulator](../storage-use-azurite.md). Azurite is a utility that simulates the Blob and Queue services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
+To test your application in your local Windows computer, you can use the [Azurite storage emulator](../common/storage-use-azurite.md). Azurite is a utility that simulates the Blob and Queue services available in Azure on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:
 
 ```cpp
 // Define the connection-string with Azurite.
