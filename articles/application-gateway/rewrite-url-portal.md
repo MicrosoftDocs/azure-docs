@@ -39,39 +39,39 @@ In the below example whenever the request URL contains */article*, the URL path 
 
 4. Provide a name for the rewrite set and associate it with a routing rule:
 
-    * Enter the name for the rewrite set in the **Name** box.
+    a. Enter the name for the rewrite set in the **Name** box.
     
-    * Select one or more of the rules listed in the **Associated routing rules** list. This is used to associate the rewrite configuration to the source listener via the routing rule. You can select only those routing rules that haven't been associated with other rewrite sets. The rules that have already been associated with other rewrite sets are greyed out.
+    b. Select one or more of the rules listed in the **Associated routing rules** list. This is used to associate the rewrite configuration to the source listener via the routing rule. You can select only those routing rules that haven't been associated with other rewrite sets. The rules that have already been associated with other rewrite sets are greyed out.
     
-    * Select **Next**.
+    c. Select **Next**.
     
     ![img](./media/rewrite-url-portal/rewrite-url-portal-2.png)
 
 5. Create a rewrite rule:
 
-    * Select **Add rewrite rule**.
+    a. Select **Add rewrite rule**.
     
     ![Add rewrite rule](./media/rewrite-url-portal/rewrite-url-portal-3.png)
     
-    * Enter a name for the rewrite rule in the **Rewrite rule name** box. Enter a number in the **Rule sequence** box.
+    b. Enter a name for the rewrite rule in the **Rewrite rule name** box. Enter a number in the **Rule sequence** box.
 
 6. In this example, we'll rewrite URL path and URL query string only when path contains */article*. To do this, add a condition to evaluate whether the URL path contains */article*
 
-    * Select **Add condition** and then select the box containing the **If** instructions to expand it.
+    a. Select **Add condition** and then select the box containing the **If** instructions to expand it.
     
-    * Since in this example we want       to check the pattern */article* in the URL path, in the **Type of variable to check** list, select **Server variable**.
+    b. Since in this example we want       to check the pattern */article* in the URL path, in the **Type of variable to check** list, select **Server variable**.
     
-    * In the **Server variable** list, select uri_path
+    c. In the **Server variable** list, select uri_path
     
-    * Under **Case-sensitive**, select **No**.
+    d. Under **Case-sensitive**, select **No**.
     
-    * In the **Operator** list, select **equal (=)**.
+    e. In the **Operator** list, select **equal (=)**.
     
-    * Enter a regular expression pattern. In this example, we'll use the pattern `.*article/(.*)/(.*)`
+    f. Enter a regular expression pattern. In this example, we'll use the pattern `.*article/(.*)/(.*)`
     
         **Note**: ( ) is used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [here](rewrite-http-headers-url.md#capturing).
 
-    * Select **OK**.
+    g. Select **OK**.
 
     ![img](./media/rewrite-url-portal/rewrite-url-portal-4.png)
 
@@ -79,23 +79,23 @@ In the below example whenever the request URL contains */article*, the URL path 
 
 7. Add an action to rewrite the URL and URL path
 
-   * In the **Rewrite type** list, select **URL**.
+   a. In the **Rewrite type** list, select **URL**.
 
-   * In the **Action type** list, select **Set**.
+   b. In the **Action type** list, select **Set**.
 
-   * Under **Components**, select **Both URL path and URL query string**
+   c. Under **Components**, select **Both URL path and URL query string**
 
-   * In the **URL path value**, enter the new value of the path. In this example, we will use **/article.aspx**
+   d. In the **URL path value**, enter the new value of the path. In this example, we will use **/article.aspx**
 
     ![img](./media/rewrite-url-portal/rewrite-url-portal-5.png) 
 
-    * In the **URL query       string value**, enter the new value of the URL query striong. In this       example, we will use **id={var_uri_path_1}&title={var_uri_path_2}**
+   e. In the **URL query       string value**, enter the new value of the URL query string. In this       example, we will use **id={var_uri_path_1}&title={var_uri_path_2}**
     
       **Note**: {var_uri_path_1} and {var_uri_path_1} are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
     
         ![img](./media/rewrite-url-portal/rewrite-url-portal-6.png)
     
-    * Select **OK**.
+   f.Select **OK**.
 
 8. Click **Create** to create the rewrite set.
 
