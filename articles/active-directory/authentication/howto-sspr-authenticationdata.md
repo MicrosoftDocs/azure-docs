@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 
-To use Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication contact information for a user must be present. Some organizations have users register their authentication data themselves. Other organizations prefer to synchronize with data that already exists in Active Directory Domain Services (AD DS). This synced data is made available to Azure AD and SSPR without requiring user interaction. When users need to change or reset their password, they can do even if they've previously registered their contact information.
+To use Azure Active Directory (Azure AD) self-service password reset (SSPR), authentication contact information for a user must be present. Some organizations have users register their authentication data themselves. Other organizations prefer to synchronize from authentication data that already exists in Active Directory Domain Services (AD DS). This synchronized data is made available to Azure AD and SSPR without requiring user interaction. When users need to change or reset their password, they can do so even if they haven't previously registered their contact information.
 
 You can pre-populate authentication contact information if you meet the following requirements:
 
@@ -85,7 +85,7 @@ The following fields can be set through PowerShell:
 
 ### Use PowerShell version 1
 
-To get started, you need to [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). After you have it installed, you can use the steps that follow to configure each field.
+To get started, [download and install the Azure AD PowerShell module](https://msdn.microsoft.com/library/azure/jj151815.aspx#bkmk_installmodule). After it's installed, use the following steps to configure each field.
 
 #### Set the authentication data with PowerShell version 1
 
@@ -123,7 +123,7 @@ Get-MsolUser -UserPrincipalName user@domain.com | select -Expand StrongAuthentic
 
 ### Use PowerShell version 2
 
-To get started, you need to [download and install the Azure AD version 2 PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
+To get started, [download and install the Azure AD version 2 PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0).
 
 To quickly install from recent versions of PowerShell that support `Install-Module`, run the following commands. The first line checks to see if the module is already installed:
 
