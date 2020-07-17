@@ -1,6 +1,6 @@
 ---
 title: Understand IoT Plug and Play digital twins
-description: Understand the digital twins when using Plug and Play preview
+description: Understand how IoT Plug and Play Preview uses digital twins
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
@@ -11,17 +11,19 @@ services: iot-pnp
 
 # Understand IoT Plug and Play digital twins
 
-A IoT plug and play device implements a model described by [DTDL v2](https://aka.ms/DTDL) schema. A model describes the set of components, properties, commands, telemetry messages that a particular twin can have. When an IoT Plug and Play device connects to IoT Hub for the first time, an initial device twin and digital twin are populated. 
+An IoT Plug and Play device implements a model described by [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular twin can have. When an IoT Plug and Play device connects to IoT Hub for the first time, an initial device twin and digital twin are populated.
 
 Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
-Both device and solution developers can continue to use the same set of Device Twin APIs and SDKs to implement device/solution using IoT Plug and Play conventions.
+Both device and solution developers can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
 
-Solution developers can additionally operate on high level constructs like components, properties, commands using Digital Twin API surface.
-This article talks about how components and properties are represented within desired and reported section of device twin. It also describes how these concepts are mapped within the corresponding digital twin.
+Solution developers can also use high level constructs such as components, properties, and commands using the Digital Twin APIs.
 
-## Device Twins vs Digital Twins
+This article describes how components and properties are represented in the desired and reported sections of a device twin. It also describes how these concepts are mapped in the corresponding digital twin.
 
-Here is an example of a IoT Plug and Play device twin formatted as a JSON object:
+## Device twins and digital twins
+
+The following snippet shows an IoT Plug and Play device twin formatted as a JSON object:
+
 ```json
 {
     "deviceId": "sample-device",
@@ -80,7 +82,8 @@ Here is an example of a IoT Plug and Play device twin formatted as a JSON object
     }
 }
 ```
-Below is the corresponding digital twin formatted as JSON object:
+
+The following snippet shows the digital twin formatted as a JSON object:
 
 ```json
 {
@@ -115,15 +118,18 @@ Below is the corresponding digital twin formatted as JSON object:
     }
 }
 ```
-### Property
-Within device twin, the state of the property is split across the desired and reported section. On the other hand, digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is available within `$metadata`.
+
+### Properties
+
+In a device twin, the state of the property is split across the desired and reported sections. A digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is stored in the `$metadata` section.
 
 In this example, `alwinexlepaho8329` is the current value of the `serialNumber` property reported by the device. `alwinexlepaho8329-a` is the desired value set by the solution. The desired value and synchronization state of a root level property is set within root level `$metadata` for a digital twin.
 
-Below is the side-by-side JSON representation of writable property `serialNumber`
+The following snippets show the side-by-side JSON representation of the `serialNumber` writable property:
+
 :::row:::
    :::column span="":::
-      **Device Twin**
+      **Device twin**
       ```json
       {
         "properties": {
@@ -143,7 +149,7 @@ Below is the side-by-side JSON representation of writable property `serialNumber
       ```
    :::column-end:::
    :::column span="":::
-      **Digital Twin**
+      **Digital twin**
       ```json
         {
           "serialNumber": "alwinexlepaho8329",
@@ -161,13 +167,15 @@ Below is the side-by-side JSON representation of writable property `serialNumber
    :::column-end:::
 :::row-end:::
 
-### Component
-Within a device twin, a component is indicated by `{ "__t": "c"}` marker, where as `$metadata` marks a component within a digital twin.
-Below is the side-by-side JSON representation of component `thermostat1`
+### Components
+
+In a device twin, a component is identified by the `{ "__t": "c"}` marker. In a digital twin, `$metadata` marks a component.
+
+The following snippets show the side-by-side JSON representation of the `thermostat1` component:
 
 :::row:::
    :::column span="":::
-      **Device Twin**
+      **Device twin**
       ```json
           {             
             "properties": {
@@ -212,7 +220,7 @@ Below is the side-by-side JSON representation of component `thermostat1`
       ```
    :::column-end:::
    :::column span="":::
-      **Digital Twin**
+      **Digital twin**
       ```json
         {
           "thermostat1": {
@@ -239,7 +247,7 @@ Below is the side-by-side JSON representation of component `thermostat1`
 
 ### Digital twin JSON format
 
-When represented as a JSON object, a digital twin will display the following fields:
+When represented as a JSON object, a digital twin includes the following fields:
 
 | Field name | Description |
 | --- | --- |
@@ -252,22 +260,25 @@ When represented as a JSON object, a digital twin will display the following fie
 | `$metadata.{propertyName}.ackCode` | [Required, only for writable properties] The `ack` code returned by the device app implementing the digital twin |
 | `$metadata.{propertyName}.ackDescription` | [Optional, only for writable properties] The `ack` description returned by the device app implementing the digital twin |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub maintains the timestamp of the last update of the property by the device. The timestamps are in UTC and encoded in the ISO8601 format YYYY-MM-DDTHH:MM:SS.mmmZ |
-| `{componentName}` | A JSON object containing the component's property values and metadata, similar to those of the root object. |
+| `{componentName}` | A JSON object containing the component's property values and metadata, similar to a root object. |
 | `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
 | `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
 
-## Digital Twin REST APIs
+## Digital twin REST APIs
 
-A set of REST APIs is provided to interact with a digital twin: **Get Digital Twin**, **Invoke Component Command**, **Invoke Command**, and **Update Digital Twin**. To learn more, see [Digital Twin REST API reference](https://docs.microsoft.com/en-us/rest/api/iothub/service/digitaltwin).
+A set of REST APIs lets you interact with a digital twin: **Get Digital Twin**, **Invoke Component Command**, **Invoke Command**, and **Update Digital Twin**. To learn more, see [Digital Twin REST API reference](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin).
 
-## Digital Twin change events
+## Digital twin change events
 
-When digital twin change event is enabled, an event is triggered whenever the current or desired value of the component and/or property changes.
+When digital twin change event is enabled, an event is triggered whenever the current or desired value of the component or property changes.
+
 Corresponding events are generated in the device twin format if twin change events are enabled.
-Digital twin change events are generated in [Json Patch format](https://tools.ietf.org/html/rfc6902)
-To learn how to enable routing, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c#non-telemetry-events)
 
-For example, below digital twin change event is triggered when `targetTemperature` is set by the solution.
+Digital twin change events are generated in [JSON patch format](https://tools.ietf.org/html/rfc6902).
+
+To learn how to enable routing, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)
+
+For example, the following digital twin change event is triggered when `targetTemperature` is set by the solution:
 
 ```json
 iothub-connection-device-id:sample-device
@@ -288,7 +299,8 @@ content-encoding:utf-8
 ]
 ```
 
-Below digital twin event is triggered when the device reported that the desired change was applied.
+The following digital twin event is triggered when the device reports that the desired change was applied:
+
 ```json
 iothub-connection-device-id:sample-device
 iothub-enqueuedtime:7/17/2020 6:11:05 AM
@@ -324,6 +336,8 @@ content-encoding:utf-8
   }
 ]
 ```
+
+## Next steps
 
 Now that you've learned about digital twins, here are some additional resources:
 
