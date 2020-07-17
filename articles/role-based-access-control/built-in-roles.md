@@ -3135,7 +3135,7 @@ Grants access to read and write Azure Kubernetes Service clusters
 
 ### Azure Kubernetes Service RBAC Admin
 
-Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces.
+Lets you manage all resources under cluster/namespace, except update or delete resource quotas and namespaces. [Learn more](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3198,7 +3198,7 @@ Lets you manage all resources under cluster/namespace, except update or delete r
 
 ### Azure Kubernetes Service RBAC Cluster Admin
 
-Lets you manage all resources in the cluster.
+Lets you manage all resources in the cluster. [Learn more](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3253,7 +3253,7 @@ Lets you manage all resources in the cluster.
 
 ### Azure Kubernetes Service RBAC Reader
 
-Lets you view all resources in cluster/namespace, except secrets.
+Lets you view all resources in cluster/namespace, except secrets. [Learn more](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -3314,7 +3314,7 @@ Lets you view all resources in cluster/namespace, except secrets.
 
 ### Azure Kubernetes Service RBAC Writer
 
-Lets you update everything in cluster/namespace, except resource quotas, namespaces, pod security policies, certificate signing requests, (cluster)roles and (cluster)role bindings.
+Lets you update everything in cluster/namespace, except resource quotas, namespaces, pod security policies, certificate signing requests, (cluster)roles and (cluster)role bindings. [Learn more](../aks/concepts-identity.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
