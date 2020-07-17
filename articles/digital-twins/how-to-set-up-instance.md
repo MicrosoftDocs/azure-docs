@@ -41,7 +41,9 @@ You can check your permission level by running this command in Cloud Shell:
 az role assignment list --assignee <your-Azure-email>
 ```
 
-If you are an owner, the `roleDefinitionName` value in the output is *Owner*. 
+If you are an owner, the `roleDefinitionName` value in the output is *Owner*:
+
+:::image type="content" source="media/how-to-set-up-instance/owner-role.png" alt-text="Cloud Shell window showing output of the az role assignment list command":::
 
 If you find that the value is *Contributor* or something other than *Owner*, you can contact your subscription administrator and proceed in one of the following ways:
 * Request for the administrator to complete all steps in this article on your behalf
