@@ -70,7 +70,12 @@
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": false
     },
-     {
+    {
+      "source_path": "articles/container-service/index.yml",
+      "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/kubernetes/index.yml",
       "redirect_url": "/previous-versions/azure/container-service/kubernetes/container-service-intro-kubernetes",
       "redirect_document_id": false
@@ -25182,10 +25187,11 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/linux-isolation.md",
+      "source_path": "articles/virtual-machines/linux/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/virtual-machines/windows/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
@@ -26094,7 +26100,7 @@
       "source_path": "articles/virtual-machines/windows/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/virtual-machines/linux/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
