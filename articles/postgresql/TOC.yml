@@ -372,7 +372,7 @@
   - name: Hyperscale (Citus)
     items:
       - name: SQL API functions
-      - href: reference-hyperscale-udf.md
+        href: reference-hyperscale-udf.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
