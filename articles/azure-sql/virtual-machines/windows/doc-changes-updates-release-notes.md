@@ -24,12 +24,10 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 | Changes | Details |
 | --- | --- |
 | **Migrate log to ultra disk** | Learn how you can [migrate your log file to an ultra disk](storage-migrate-to-ultradisk.md) to leverage high performance and low latency. | 
-
-
+| **Create AG using PowerShell** | It's now possible to simplify the creation of an availability group by using [PowerShell](availability-group-az-commandline-configure.md) as well as the Azure CLI. | 
 
 
 ## June 2020
-
 
 | Changes | Details |
 | --- | --- |
