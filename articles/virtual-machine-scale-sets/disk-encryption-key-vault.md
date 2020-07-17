@@ -12,7 +12,7 @@ ms.custom: mimckitt
 
 ---
 
-# Creating and configuring a key vault for Azure Disk Encryption
+# Create and configure a key vault for Azure Disk Encryption
 
 Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/general/overview.md) and [Secure your key vault](../key-vault/general/secure-your-key-vault.md).
 

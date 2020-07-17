@@ -3,7 +3,7 @@ title: Tutorial - Connect a generic Python client app to Azure IoT Central | Mic
 description: This tutorial shows you how, as a device developer, to connect a device running a Python client app to your Azure IoT Central application. You create a device template by importing a device capability model and add views that let you interact with a connected device
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -300,6 +300,10 @@ You can see the device connects to your Azure IoT Central application and starts
 You can see how the device responds to commands and property updates:
 
 ![Observe the client application](media/tutorial-connect-device-python/run-application-2.png)
+
+## View raw data
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
 
 ## Next steps
 
