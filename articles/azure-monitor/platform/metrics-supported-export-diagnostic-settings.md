@@ -22,7 +22,7 @@ All metrics are exportable using the REST API.
 
 ## Exported zero vs NULL values 
 
-When platform metrics can be exported via diagnostic settings, they export NULLs when the resource sends no data.  They export '0's only when they truly been emitted by the underlying resource. 
+When platform metrics can be exported via diagnostic settings, they export NULLs when the resource sends no data.  They export '0's only when they are truly been emitted by the underlying resource. 
 
 If you delete a resource group or a specific resource, metric data from the affected resources no longer is sent to diagnostic setting export destinations. That is, it no longer appears in Event Hubs, Azure Storage accounts and Log Analytics workspaces.
 
