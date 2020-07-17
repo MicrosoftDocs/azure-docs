@@ -173,7 +173,7 @@ group, this function creates one, and assigns the source and targets to
 it.
 
 Usually colocating tables ought to be done at table distribution time via the
-`colocate_with` parameter of [create_distributed_table](#create-distributed-table)
+`colocate_with` parameter of [create_distributed_table](#create_distributed_table)
 But `mark_tables_colocated` can take care of it if necessary.
 
 If you want to break colocation of a table, you can use
@@ -344,7 +344,7 @@ SELECT create_distributed_function(
 
 > [!WARNING]
 > This function is deprecated, and replaced by
-> [create_distributed_table](#create-distributed-table).
+> [create_distributed_table](#create_distributed_table).
 
 The master\_create\_distributed\_table() function is used to define a
 distributed table. This function takes in a table name, the distribution
@@ -673,7 +673,7 @@ SELECT * FROM master_set_node_property('localhost', 5433, 'shouldhaveshards', fa
 ### master\_add\_inactive\_node
 
 The `master_add_inactive_node` function, similar to
-[master_add_node](#master-add-node), registers a new node in
+[master_add_node](#master_add_node), registers a new node in
 `pg_dist_node`. However it marks the new node as inactive, meaning no
 shards will be placed there. Also it does *not* copy reference tables to
 the new node.
@@ -712,7 +712,7 @@ select * from master_add_inactive_node('new-node', 12345);
 
 The `master_activate_node` function marks a node as active in the Hyperscale
 (Citus) metadata table `pg_dist_node` and copies reference tables to the node.
-Useful for nodes added via [master_add_inactive_node](#master-add-inactive-node).
+Useful for nodes added via [master_add_inactive_node](#master_add_inactive_node).
 
 #### Arguments
 
@@ -946,7 +946,7 @@ column name. This is useful to determine the distribution column of a
 distributed table.
 
 For a more detailed discussion, see [choosing a distribution
-column](concepts-hyperscale-choose-distribution-column).
+column](concepts-hyperscale-choose-distribution-column.md).
 
 #### Arguments
 
@@ -1200,7 +1200,7 @@ can result in a bad plan. In this case you may customize the strategy,
 using the `rebalance_strategy` parameter.
 
 It's advisable to call
-[get_rebalance_table_shards_plan](#get-rebalance-table-shards-plan) before
+[get_rebalance_table_shards_plan](#get_rebalance_table_shards_plan) before
 running rebalance\_table\_shards, to see and verify the actions to be
 performed.
 
@@ -1267,7 +1267,7 @@ SELECT rebalance_table_shards('github_events', excluded_shard_list:='{1,2}');
 ### get\_rebalance\_table\_shards\_plan
 
 Output the planned shard movements of
-[rebalance_table_shards](#rebalance-table-shards) without performing them.
+[rebalance_table_shards](#rebalance_table_shards) without performing them.
 While it's unlikely, get\_rebalance\_table\_shards\_plan can output a slightly
 different plan than what a rebalance\_table\_shards call with the same
 arguments will do. This could happen because they are not executed at the same
@@ -1458,7 +1458,7 @@ Here are the typical steps to remove a single node (for example
 3.  Remove the node
 
 When draining multiple nodes it's recommended to use
-[rebalance_table_shards](#rebalance-table-shards) instead. Doing so allows
+[rebalance_table_shards](#rebalance_table_shards) instead. Doing so allows
 Hyperscale (Citus) to plan ahead and move shards the minimum number of times.
 
 1.  Run this for each node that you want to remove:
@@ -1468,7 +1468,7 @@ Hyperscale (Citus) to plan ahead and move shards the minimum number of times.
     ```
 
 2.  Drain them all at once with
-    [rebalance_table_shards](#rebalance-table-shards)
+    [rebalance_table_shards](#rebalance_table_shards)
 
     ```postgresql
     SELECT * FROM rebalance_table_shards(drain_only := true);
