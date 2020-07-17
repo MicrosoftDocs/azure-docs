@@ -12,15 +12,15 @@ ms.author: v-jambra
 
 # Manage models in the model repository
 
-The Azure IoT Model Repository stores the models defined using [DTDLv2](<provide link>) language specification. The model repository makes the models discoverable and consumable by device and solution developers.
+The Azure IoT Model Repository stores the models defined using [DTDLv2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) language specification. The model repository makes the models discoverable and consumable by device and solution developers.
 
 You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo), the [Azure CLI model repository commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest), or the [Model repository REST API](https://review.docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel?branch=iotpnp) to manage models in the repository.  
 
 ## Public and Private models
 
-Models can be privately visibile to the company (or organization) or publicly available to everyone.
+Models can be privately visible to the company (or organization) or publicly available to everyone.
 
-Company models are private and are maintained by your company (or organization). Access to company models is controlled through role-based access control (RBAC) on your repository tenant. Repository tenant roles determine who can create and publish models in your organization. Permissions on models allow the creator of a model private to the company to share it with a limited audience within the company or with partners of your organization.
+Company models are private and are maintained by your company (or organization). Access to company models is controlled through role-based access control (RBAC) on your repository tenant. Repository tenant roles determine who can create and publish models in your organization. Permissions on models allow the creator of a model which is private to the company (or organization) to share it with a limited audience external to your organization.
 
 Once a model has been published, it is public. Public models are available anonymously.
 
@@ -28,18 +28,15 @@ For an overview of model repository concepts including RBAC, see [Understand the
 
 ## Set up your model repository tenant and users
 
-Use your _work or school account_ to access the model repository. The model repository checks your membership with the Microsoft Partner Center when you access it:
+Use your _work or school account_ to access the model repository. To learn how to set up an Azure AD tenant and to create a user or service principal in an Azure AD tenant, see the [Additional information](#additional_information) section.
 
 - If you're the first user from your organization to access the model repository or to sign in to the portal, you're granted the _Tenant Administrator_ role. This role allows you to assign roles to other users in your organization's repository (repository tenant).
 - You can be assigned other roles by a _Tenant Administrator_ like _ReadTenantModels_ or _CreateModels_.
-- If your organization isn't a member of the [Microsoft Partner Center](https://docs.microsoft.com/partner-center/), you can't publish your models.
-- If you see a notification message in the [Azure IoT Model Repository](https://aka.ms/iotmodelrepo) that your Microsoft Partner Network ID is missing, you should [create a Partner Center account](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). When your account is approved, you can return and publish your models. For more information, see the [Partner Center FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
-
-To learn how to create a user or service principal in an Azure AD tenant, see the [Additional information](#additional_information) section.
+- To publish your models, your organization needs to be a member of the [Microsoft Partner Network](https://docs.microsoft.com/partner-center/). To create a partner center account, see [create a Partner Center account](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). After your account is approved, you can publish your models. For more information, see the [Partner Center FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
 
 ## Manage model repository tenant roles
 
- By default, users can read their company's private models, models that have been shared with them by other companies, and all public models. Repository tenant administrators can add users and service principals  to repository tenant roles so that they can create private models, publish private models, or manage roles for other users and service principals.
+ By default, users and service principals can read their company's private models, models that have been shared with them by other companies, and all public models. Repository tenant administrators can add users and service principals  to repository tenant roles so that they can create private models, publish private models, or manage roles for other users and service principals.
 
 To add permissions to a user or a service principal in a model repository tenant role using the portal:
 
@@ -52,10 +49,6 @@ To add permissions to a user or a service principal in a model repository tenant
 3. Choose the role you want to add the user to from the **Role** dropdown. Then select **Save**.
 
     ![Choose tenant role.](./media/howto-manage-models/choose-role.png)
-
-To add permissions to a user or service principal in a model repository tenant using the REST Api (<refer to REST API documentation>)
-
-To add permissions to a user or service principal in a model repository tenant using the Azure CLI(<refer to CLI>)
 
 ## Upload a model
 
@@ -93,7 +86,7 @@ If you're the creator of a model, the **Share** and **Shared with** buttons will
 
 To publish a model, the following requirements must be met:
 
-1. The company (or organization) tenant must be a Microsoft Partner. See section below for steps to register as a Microsoft Partner.
+1. The company (or organization) tenant must be a Microsoft Partner. To learn how to register as a Microsoft Partner, see [Set up your model repository tenant and users](#set-up-your-model-repository-tenant-and-users).
 
 2. The user or service principal must be a member of the repository tenant's _Publisher_ role.
 
