@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/12/2020
+ms.date: 07/17/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -55,7 +55,7 @@ With Automai's ScenarioBuilder tool and GUI-based workflow engine, IT teams can 
 
 Once you're ready for launch, you can use all the workflow scripts you created for load testing to continuously monitor performance in production. Automai's bots can do more than just availability monitoring. The bots can also test end-user workflows from key locations, taking screenshots and collecting error reports in real time. This leads to a more proactive than reactive approach to bug fixes for Windows Virtual Desktop applications.
 
-Automai lets you use the same scripts for performance testing, functional testing, performance monitoring, and even robotic process autimation, all on one platform.
+Automai lets you use the same scripts for performance testing, functional testing, performance monitoring, and even robotic process automation, all on one platform.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4B76N).
 - [Go to the partner website](https://www.automai.com/wvd-testing-monitoring?hs_preview=EyZXkOWu-30742040580).
@@ -244,7 +244,7 @@ When used with Windows Virtual Desktop, Cloudpaging further reduces costs by com
 
 PolicyPak Software is a Windows Virtual Desktop partner that performs total settings management for applications, desktop, browsers, Java, and security settings. PolicyPak keeps your desktop, system, and security settings in compliance. PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows' built-in administration. Use your existing Active Directory Group Policy and/or Windows Intune to deliver PolicyPak's settings and increase administrators' ability to manage their Windows 10 machines. 
 
-The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block Ransomware, manage multiple browsers, manage Internet Explorer's Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.  
+The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block ransomware, manage multiple browsers, manage Internet Explorer's Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.  
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Go to partner website](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
@@ -295,7 +295,7 @@ Rimo3 offers an easy-to-use, scalable, automated application testing platform. T
 
 ![sepago logo](./media/partners/sepago.png)
 
-sepago was founded in 2002 by four friends in Cologne. Today, sepago is an IT management consultancy with a steadily increasing number of sepagists, with locations throughout Germany in Cologne, Munich, and Hamburg. sepago are experts on automated application provisioning, virtualization, cloud solutions, and IT security. sepago supports medium-sized and large companies on their way to digital transformation and ensure that users can work securely and efficiently.
+sepago was founded in 2002 by four friends in Cologne. Today, sepago is an IT management consultancy with a steadily increasing number of sepagists, with locations throughout Germany in Cologne, Munich, and Hamburg. sepago are experts on automated application provisioning, virtualization, cloud solutions, and IT security. sepago supports medium-sized and large companies on their way to digital transformation and ensures that users can work securely and efficiently.
 
 sepago's innovation and development lab builds smart solutions using big data and AI technologies. These solutions focus on improving the business, user experience, and administrations of partner products like Windows Virtual Desktop.
 
