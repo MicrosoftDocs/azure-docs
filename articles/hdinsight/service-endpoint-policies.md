@@ -15,11 +15,114 @@ This article provides information about how to implement service endpoint polici
 
 ## Background
 
-Azure HDInsight allows you to create clusters in your own virtual network. If you need to allow outgoing traffic from your virtual network to other Azure services like storage accounts, you can achieve this with service endpoint policies. The current functionality of service endpoint policies as created through the Azure portal, however, only allows you to create a policy for a single account, all accounts in a subscription, or all accounts in a resource group.
+Azure HDInsight allows you to create clusters in your own virtual network. If you need to allow outgoing traffic from your virtual network to other Azure services like storage accounts, you can achieve this with [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md). Service endpoint policies which are created through the Azure portal, however, only allow you to create a policy for a single account, all accounts in a subscription, or all accounts in a resource group.
 
-As a managed service, Azure HDInsight collects telemetry about cluster creation, job execution and scaling operations to provide support and troubleshooting assistance. In order for this data to reach HDInsight from your VNET, it is necessary for you to create service endpoint policies that allow outgoing traffic to specific data collection points managed by the HDInsight team. The storage account which you need to allow traffic for are different for each Azure region.
+As a managed service, however, Azure HDInsight collects telemetry and log files from each cluster in specific storage accounts in each region. In order for this data to reach HDInsight from your virtual network, it is necessary for you to create service endpoint policies that allow outgoing traffic to specific data collection points managed by Azure HDInsight.
 
-In addition, for new clusters being created in virtual networks, service endpoint policies must be created to allow traffic to HDInsight storage accounts so that cluster nodes can be created with the necessary software and libraries.
+## Service endpoint policies for HDInsight management storage accounts
+
+These service endpoint policies support the following functionality:
+
+1. Collection of logs and telemetry on cluster creation, job execution, and platform operations such as scaling.
+1. Attaching virtual hard disks (VHDs) to newly created cluster nodes for provisioning software and libraries on your cluster.
+
+If service endpoint policies are not created to enabled this flow of data, cluster creation may fail and Azure HDInsight will be unable to provide support for your clusters.
+
+## Create service endpoint policies for HDInsight
+
+Please ensure that the correct service endpoint policies are attached to your VNet before creating new clusters. Otherwise the cluster creation may fail or result in error.
+
+Use the following process to create the necessary service endpoint policies:
+
+1. Decide the region where you will be creating your HDInsight cluster.
+1. Look up that region in the [list of service endpoint policy resources](https://github.com/Azure-Samples/hdinsight-enterprise-security/blob/main/hdinsight-service-endpoint-policy-resources.json), which gives all of the resource groups for HDInsight management storage accounts.
+1. Select the list of resource groups for your region. An example of the resources for `Canada Central` is shown below:
+
+    ```json
+    "Canada Central":[
+        "/subscriptions/235d341f-7fb9-435c-9bdc-034b7306c9b4/resourceGroups/Default-Storage-WestUS",
+        "/subscriptions/da0c4c68-9283-4f88-9c35-18f7bd72fbdd/resourceGroups/GenevaWarmPathManageRG",
+        "/subscriptions/6a853a41-3423-4167-8d9c-bcf37dc72818/resourceGroups/GenevaWarmPathManageRG",
+        "/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/Default-Storage-CanadaCentral",
+        "/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/cancstorage",
+        "/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/GenevaWarmPathManageRG"
+    ],
+    ```
+
+1. Insert that list of resource groups into the setup script written in Azure CLI or Azure PowerShell.
+
+```azurecli
+$subscriptionId = "<subscription id>"
+$rgName="<resource group name> "
+$location="<location name>"
+$vnetName="<vnet name>"
+$subnetName="<subnet name>"
+$sepName="<service endpoint policy name>"
+$sepDefName="<service endpoint policy definition name>"
+
+# Set to the right subscription ID
+az account set --subscription $subscriptionId
+
+# setup service endpoint on the virtual network subnet
+az network vnet subnet update -g $rgName --vnet-name $vnetName -n $subnetName --service-endpoints Microsoft.Storage
+
+# Create Service Endpoint Policy
+az network service-endpoint policy create -g $rgName  -n $sepName -l $location
+
+# Insert the list of HDInsight owned resources for the region your clusters will be created in.
+[String[]]$resources = @("/subscriptions/235d341f-7fb9-435c-9bdc-034b7306c9b4/resourceGroups/Default-Storage-WestUS",`
+"/subscriptions/da0c4c68-9283-4f88-9c35-18f7bd72fbdd/resourceGroups/GenevaWarmPathManageRG",`
+"/subscriptions/6a853a41-3423-4167-8d9c-bcf37dc72818/resourceGroups/GenevaWarmPathManageRG",`
+"/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/Default-Storage-CanadaCentral",`
+"/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/cancstorage",`
+"/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/GenevaWarmPathManageRG")
+
+#Assign service resources to the SEP policy.
+az network service-endpoint policy-definition create -g $rgName --policy-name $sepName -n $sepDefName --service "Microsoft.Storage" --service-resources $resources
+
+# Associate a subnet to the service endpoint policy just created. If there is a delay in updating it to subnet, you can use the Azure portal to associate the policy with the subnet.
+az network vnet subnet update -g $rgName --vnet-name $vnetName -n $subnetName --service-endpoint-policy $sepName
+```
+
+If you prefer to set up your service endpoint policy using PowerShell, using the following code snippet.
+
+```json
+#Script to assign SEP 
+$subscriptionId = "<subscription id>"
+$rgName = "<resource group name>"
+$vnetName = "<vnet name>"
+$subnetName = "<subnet Name"
+$location = "Canada Central"
+
+# Connect to your Azure Account
+Connect-AzAccount
+
+# Select the Subscription that you want to use
+Select-AzSubscription -SubscriptionId $subscriptionId
+
+# Retrieve VNet Config
+$vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
+
+# Retrieve Subnet Config
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet
+
+# Insert the list of HDInsight owned resources for the region your clusters will be created in.
+[String[]]$resources = @("/subscriptions/235d341f-7fb9-435c-9bdc-034b7306c9b4/resourceGroups/Default-Storage-WestUS",
+"/subscriptions/da0c4c68-9283-4f88-9c35-18f7bd72fbdd/resourceGroups/GenevaWarmPathManageRG",
+"/subscriptions/6a853a41-3423-4167-8d9c-bcf37dc72818/resourceGroups/GenevaWarmPathManageRG",
+"/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/Default-Storage-CanadaCentral",
+"/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/cancstorage",
+"/subscriptions/c8845df8-14d1-4a46-b6dd-e0c44ae400b0/resourceGroups/GenevaWarmPathManageRG")
+
+#Declare service endpoint policy definition
+$sepDef = New-AzServiceEndpointPolicyDefinition -Name "SEPHDICanadaCentral" -Description "Service Endpoint Policy Definition" -Service "Microsoft.Storage" -ServiceResource $resources
+
+# Service Endpoint Policy
+$sep= New-AzServiceEndpointPolicy -ResourceGroupName $rgName -Name "SEPHDICanadaCentral" -Location $location -ServiceEndpointPolicyDefinition $sepDef
+
+# Associate a subnet to the service endpoint policy just created. If there is a delay in updating it to subnet, you can use the Azure portal to associate the policy with the subnet.
+Set-AzVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet -AddressPrefix $subnet.AddressPrefix -ServiceEndpointPolicy $sep
+```
 
 ## Next steps
 
