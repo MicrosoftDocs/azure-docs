@@ -46,22 +46,86 @@ The following limitations apply during public preview of the Azure Monitor Agent
   - *.ods.opinsights.azure.com
   - *.ingest.monitor.azure.com
   - *.control.monitor.azure.com
-- The following operating systems are currently supported:
-  - Windows 
-    - Windows Server 2019
-    - Windows Server 2016
-    - Windows Server 2012
-    - Windows Server 2012 R2
+
+
+
+## Costs
+There is no cost for Azure Monitor agent, but you may incur charges for the data ingested. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for details on Log Analytics data collection and retention and for customer metrics.
+
+## Data sources and destinations
+The following table lists the types of data you can collect with the Azure Monitor agent and where you can send that data. See [What is monitored by Azure Monitor?](../monitor-reference.md) for a list of insights, solutions, and other solutions that use the Azure Monitor agent to collect other kinds of data.
+
+
+The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics workspace supporting Azure Monitor Logs.
+
+| Data Source | Destinations | Description |
+|:---|:---|:---|
+| Performance        | Azure Monitor Metrics<br>Log Analytics workspace | Numerical values measuring performance of different aspects of operating system and workloads. |
+| Windows Event logs | Log Analytics workspace | Information sent to the Windows event logging system. |
+| Syslog             | Log Analytics workspace | Information sent to the Linux event logging system. |
+
+
+## Supported operating systems
+The following operating systems are currently supported byt the Azure Monitor agent.
+
+### Windows 
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012
+  - Windows Server 2012 R2
+
+### Linux
   - Linux
-    - CentOS 7
-    - Oracle Linux 6, 7
-    - RHEL 6, 7, 8
-    - Debian 9 + 10
-    - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
-    - SLES 11, 12, 15
- 
+  - CentOS 7
+  - Oracle Linux 6, 7
+  - RHEL 6, 7, 8
+  - Debian 9 + 10
+  - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
+  - SLES 11, 12, 15
+
+## Install the Azure Monitor agent
+The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. 
+
+| Property | Windows | Linux |
+|:---|:---|:---|
+| Publisher | Microsoft.Azure.Monitor  | Microsoft.Azure.Monitor |
+| Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
+| TypeHandlerVersion  | 1.0 | 0.9 |
+
+Install the Azure Monitor agent using any of the methods to install virtual machine agents including the following using PowerShell or CLI.
+
+## Windows
+
+# [CLI](#tab/CLI1)
+
+```azurecli
+az vm extension set --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --version 1.0 --ids {resource ID of the VM}
+
+```
+
+# [PowerShell](#tab/PowerShell1)
+
+```powershell
+Set-AzVMExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -Version 1.0 -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+```
+---
 
 
+## Linux
+
+# [CLI](#tab/CLI2)
+
+```azurecli
+az vm extension set --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --version 0.9 --ids {resource ID of the VM}
+
+```
+
+# [PowerShell](#tab/PowerShell2)
+
+```powershell
+Set-AzVMExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -Version 0.9 -ResourceGroupName {Resource Group Name} -VMName {VM name} -Location eastus
+```
+---
 
 ## Next steps
 

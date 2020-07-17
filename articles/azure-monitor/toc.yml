@@ -210,10 +210,12 @@
         items:
         - name: Overview
           href: platform/azure-monitor-agent-overview.md
-        - name: Install
-          href: platform/azure-monitor-agent-install.md
-        - name: Data Collection Rules
-          href: platform/data-collection-rules.md
+        - name: Data collections rules
+          items:
+          - name: Create using Azure portal
+            href: platform/data-collection-rule-portal.md
+          - name: Create using JSON
+            href: platform/data-collection-rule-json.md
       - name: Azure Diagnostics extension
         items:
         - name: Overview

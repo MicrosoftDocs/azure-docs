@@ -9,8 +9,11 @@ ms.date: 06/11/2020
 
 ---
 
-# Data Collection Rules in Azure Monitor agent (preview)
-Data Collection Rules (DCR) define the details of data to be collected from the guest operating system of virtual machines monitored by the Azure Monitor Agent. A DCR defines what data should be collected and where that data should be sent. You can create a DCR by directly editing is JSON or by using the Azure portal.
+# Configure data collection for the Azure Monitor agent using JSON (preview)
+
+
+## Data collection rules
+Data Collection Rules (DCR) define the details of data to be collected from the guest operating system of virtual machines monitored by the Azure Monitor Agent. A DCR defines what data should be collected and where that data should be sent. You can create a DCR using the Azure portal or by directly editing is JSON.
 
 ## Components of a DCR
 
@@ -48,12 +51,6 @@ An association relates a virtual machine to a DCR. You can create and associatio
 
 ## Create and assign a DCR
 
-### Azure portal
-In the **Settings** section of the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules**.
-
-Click **Add** to create a new DCR.
-
-Click **Add virtual machines**. Select a scope.
 
 
 
