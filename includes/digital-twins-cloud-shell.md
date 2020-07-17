@@ -13,12 +13,10 @@ After opening a Cloud Shell window, the first thing to do is log in and set the 
 
 ```azurecli
 az login
-az account set --subscription <your-Azure-subscription-ID>
+az account set --subscription "<your-Azure-subscription-ID>"
 ```
 > [!TIP]
-> You can also set your subscription by using your subscription name. Use this command: 
-> ```azurecli
-> az account set --subscription "your-Azure-subscription-name"
+> You can also use your subscription name instead of the ID in the command above. 
 
 If this is the first time you've used this subscription with Azure Digital Twins, run this command to register with the Azure Digital Twins namespace. (If you're not sure, it's ok to run it again even if you've done it sometime in the past.)
 
@@ -34,10 +32,10 @@ First, run this command to see a list of all the extensions you already have ins
 az extension list
 ```
 
-In the output, look for the `"name"` field for each list entry to see the names of the extensions.
+The output is an array of all the extensions you currently have. Look for the `"name"` field for each list entry to see the names of the extensions.
 
 Use the output to determine which of the following commands to run for the extension setup (you may run more than one).
-* If the list contains `azure-iot`: You have the extension already. Run this command to make sure you have the latest update:
+* If the list contains `azure-iot`: You have the extension already. Run this command to make sure you have the latest update and there are no more updates available:
 
    ```azurecli-interactive
    az extension update --name azure-iot

@@ -109,7 +109,7 @@ This section explains the process for setting up an Azure Digital Twins instance
 
 ### Create the Azure Digital Twins instance
 
-First, you will create a new Azure resource group for use in this how-to. Then, you can **create a new instance of Azure Digital Twins** inside that resource group. 
+In this section, you will **create a new instance of Azure Digital Twins**. 
 
 #### Permission requirements
 
@@ -119,15 +119,17 @@ You do not have to be an owner on the Azure subscription to run this step.
 
 #### Run the creation command
 
-In this section, you'll create an instance with the Cloud Shell command. You'll need to provide a name for your instance, a resource group to deploy it in, and a region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+Now you'll create an instance of Azure Digital Twins using the Cloud Shell command. You'll need to provide:
+* A resource group to deploy it in. If you don't already have an existing resource group in mind, you can create one now with this command:
+    ```azurecli
+    az group create --location <region> --name <name-for-your-resource-group>
+    ```
+* A region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* A name for your instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
 
->[!NOTE]
-> The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll have to pick a different name).
-
-Create the resource group and the instance with the following commands:
+Use these values in the following command to create the instance:
 
 ```azurecli
-az group create --location <region> --name <name-for-your-resource-group>
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -146,7 +148,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 Azure Digital Twins uses [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before a user can make data plane calls to your Azure Digital Twins instance, that user must first be assigned a role with permissions to do so.
 
-For Azure Digital Twins, this role is *Azure Digital Twins Owner (Preview)*. You can read more about roles and security in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
+For Azure Digital Twins, this role is _**Azure Digital Twins Owner (Preview)**_. You can read more about roles and security in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
 
 This section will show you how to create a role assignment for a user in the Azure Digital Twins instance, through their email associated with the AAD tenant on your Azure subscription. Depending on your role and your permissions on your Azure subscription, you will either set this up for yourself, or set this up on behalf of someone else who will be managing the Azure Digital Twins instance.
 
@@ -173,7 +175,7 @@ The result of this command is outputted information about the role assignment th
 > ```
 > Then, repeat the role assignment command using the user's *Object ID* in place of their email.
 
-One way to check that the role assignment was successful is to view the role assignments for the Azure Digital Twins instance in the Azure portal. From your portal page of [Azure Digital Twins instances](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances), select the name of the instance you want to check. Then, view all of its assigned roles under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
+Afterwards, one way to check that the role assignment was successful is to view the role assignments for the Azure Digital Twins instance in the Azure portal. From your portal page of [Azure Digital Twins instances](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances), select the name of the instance you want to check. Then, view all of its assigned roles under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
 
 :::image type="content" source="media/how-to-set-up-instance/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
 
