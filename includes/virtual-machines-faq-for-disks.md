@@ -155,6 +155,10 @@ Azure disks reservation are purchased for a specific region and SKU (like P30 in
 **What happens when my Azure disks reservation expires?**    
 You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+**Do Standard SSD Disks support "single instance VM SLA"?**
+
+Yes, all disk types support single instance VM SLA.
+
 ### Azure shared disks
 
 **Is the shared disks feature supported for unmanaged disks or page blobs?**
@@ -259,9 +263,6 @@ Standard SSD disks deliver better latency, consistency, availability, and reliab
 
 **Can I use Standard SSDs as Unmanaged Disks?**
 No, Standard SSDs disks are only available as Managed Disks.
-
-**Do Standard SSD Disks support "single instance VM SLA"?**
-No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
 ## Migrate to Managed Disks
 

@@ -10,7 +10,7 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Data locations for Windows Virtual Desktop
+# Data and metadata locations for Windows Virtual Desktop
 
 >[!IMPORTANT]
 >This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/data-locations-2019.md).

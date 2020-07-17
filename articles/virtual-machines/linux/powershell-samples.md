@@ -9,7 +9,7 @@ ms.date: 03/01/2019
 ms.author: cynthn
 
 ---
-# Azure Virtual Machine PowerShell samples
+# Azure Virtual Machine PowerShell samples for creating and managing Linux VMs
 
 The following table includes links to PowerShell scripts samples that create and manage Linux virtual machines.
 

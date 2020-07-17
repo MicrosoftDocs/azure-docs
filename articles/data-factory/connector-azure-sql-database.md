@@ -76,7 +76,7 @@ For different authentication types, refer to the following sections on prerequis
 
 ### SQL authentication
 
-#### Linked service example that uses SQL authentication
+**Example: using SQL authentication**
 
 ```json
 {
@@ -94,7 +94,7 @@ For different authentication types, refer to the following sections on prerequis
 }
 ```
 
-**Password in Azure Key Vault**
+**Example: password in Azure Key Vault**
 
 ```json
 {
