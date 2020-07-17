@@ -47,7 +47,7 @@ The following distributions are supported out of the box from the Azure Gallery:
 * **Debian "Stretch" with backports kernel**
 * **Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)**
 * **Oracle Linux 7.5 and later with UEK version 5**
-* **FreeBSD 10.4, 11.1 & 12.0**
+* **FreeBSD 10.4, 11.1 & 12.0 or later**
 
 ## Limitations and Constraints
 
