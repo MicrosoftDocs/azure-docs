@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 07/15/2020
+ms.date: 07/17/2020
 ---
 
 # Functions in the Hyperscale (Citus) SQL API
@@ -50,14 +50,14 @@ replication factor. If you want to break this colocation later, you can use
 [update_distributed_table_colocation](#update-distributed-table-colocation).
 Possible values for `colocate_with` are `default`, `none` to start a new
 co-location group, or the name of another table to co-locate with that table.
-(See `colocation_groups`{.interpreted-text role="ref"}.)
+(See [table colocation](concepts-hyperscale-colocation).)
 
 Keep in mind that the default value of `colocate_with` does implicit
 co-location. As [colocation](concepts-hyperscale-colocation) explains, this can
 be a great thing when tables are related or will be joined.  However when two
 tables are unrelated but happen to use the same datatype for their distribution
-columns, accidentally co-locating them can decrease performance during `shard
-rebalancing <shard_rebalancing>`{.interpreted-text role="ref"}.  The table
+columns, accidentally co-locating them can decrease performance during [shard
+rebalancing](howto-hyperscale-scaling#rebalance-shards).  The table
 shards will be moved together unnecessarily in a \"cascade.\" If you want to
 break this implicit colocation, you can use
 [update_distributed_table_colocation](#update-distributed-table-colocation).
@@ -81,8 +81,6 @@ SELECT create_distributed_table('github_events', 'repo_id');
 SELECT create_distributed_table('github_events', 'repo_id',
                                 colocate_with => 'github_repo');
 ```
-
-For more examples, see `ddl`{.interpreted-text role="ref"}.
 
 ### truncate\_local\_data\_after\_distributing\_table
 
@@ -943,8 +941,8 @@ Translates the `partkey` column of `pg_dist_partition` into a textual
 column name. This is useful to determine the distribution column of a
 distributed table.
 
-For a more detailed discussion, see `finding_dist_col`{.interpreted-text
-role="ref"}.
+For a more detailed discussion, see [choosing a distribution
+column](concepts-hyperscale-choose-distribution-column).
 
 #### Arguments
 
@@ -1526,9 +1524,9 @@ role="ref"}.
 **tenant\_id:** The value of the distribution column which will be
 assigned to the new shard.
 
-**cascade\_option:** (Optional) When set to \"CASCADE,\" also isolates a
-shard from all tables in the current table's
-`colocation_groups`{.interpreted-text role="ref"}.
+**cascade\_option:** (Optional) When set to \"CASCADE,\" also isolates a shard
+from all tables in the current table's [colocation
+group](concepts-hyperscale-colocation).
 
 #### Return Value
 
