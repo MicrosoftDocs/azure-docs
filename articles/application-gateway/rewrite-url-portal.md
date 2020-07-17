@@ -69,7 +69,7 @@ In the below example whenever the request URL contains */article*, the URL path 
     
     f. Enter a regular expression pattern. In this example, we'll use the pattern `.*article/(.*)/(.*)`
     
-        **Note**: ( ) is used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [here](rewrite-http-headers-url.md#capturing).
+      ( ) is used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [here](rewrite-http-headers-url.md#capturing).
 
     g. Select **OK**.
 
@@ -85,19 +85,13 @@ In the below example whenever the request URL contains */article*, the URL path 
 
    c. Under **Components**, select **Both URL path and URL query string**
 
-<<<<<<< HEAD
-   * In the **URL path value**, enter the new value of the path. In this example, we will use **/article.aspx** 
-=======
-   d. In the **URL path value**, enter the new value of the path. In this example, we will use **/article.aspx**
-
-    ![img](./media/rewrite-url-portal/rewrite-url-portal-5.png) 
->>>>>>> bcfe549ca99b476f037ffb4350dc8019848ae2d2
+   d. In the **URL path value**, enter the new value of the path. In this example, we will use **/article.aspx** 
 
    e. In the **URL query       string value**, enter the new value of the URL query string. In this       example, we will use **id={var_uri_path_1}&title={var_uri_path_2}**
     
     `{var_uri_path_1}` and `{var_uri_path_1}` are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
     
-   f.Select **OK**.
+   f. Select **OK**.
 
     :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Action":::
 
