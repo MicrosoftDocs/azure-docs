@@ -82,27 +82,26 @@ Before you begin, make sure that your device has completed **Prepare to ship** s
 
 1. Go to the local web UI for your device. You will see that the device has completed the prepare to ship. When the device preparation is complete, your device status is displayed as **Ready to ship**.
 
-    ![Device ready to ship](media/data-box-portal-admin/ready-to-ship.png)
+    ![Device ready to ship](media/data-box-local-web-ui-admin/prepare-to-ship3.png)
 
 2. Click **Download list of files** to download the list of files that were copied on your Data Box.
 
-    ![Click Download list of files](media/data-box-portal-admin/download-list-of-files.png)
+    <!-- ![Click Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
 3. In File Explorer, you will see that separate list of files are generated depending on the protocol used to connect to the device and the Azure Storage type used.
 
-    ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png)
+    <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
+    ![Files for storage type and connection protocol](media/data-box-local-web-ui-admin/prepare-to-ship5.png)
 
    The following table maps the file names to the Azure Storage type and the connection protocol used.
 
     |File name  |Azure Storage type  |Connection protocol used |
     |---------|---------|---------|
-    |databoxe2etest_BlockBlob.txt     |Block blobs         |SMB/NFS         |
-    |databoxe2etest_PageBlob.txt     |Page blobs         |SMB/NFS         |
-    |databoxe2etest_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
-    |databoxe2etest_PageBlock_Rest-BOM.txt     |Page blobs         |REST        |
-    |databoxe2etest_BlockBlock_Rest-BOM.txt    |Block blobs         |REST         |
-    |mydbmdrg1_MDisk-BOM.txt    |Managed Disk         |SMB/NFS         |
-    |mydbmdrg2_MDisk-BOM.txt     |Managed Disk         |SMB/NFS         |
+    |utSAC1_202006051000_BlockBlob-BOM.txt     |Block blobs         |SMB/NFS         |
+    |utSAC1_202006051000_PageBlob-BOM.txt     |Page blobs         |SMB/NFS         |
+    |utSAC1_202006051000_AzFile-BOM.txt    |Azure Files         |SMB/NFS         |
+    |utsac1_PageBlock_Rest-BOM.txt     |Page blobs         |REST        |
+    |utsac1_BlockBlock_Rest-BOM.txt    |Block blobs         |REST         |
 
 You use this list to verify the files uploaded into the Azure Storage account after the Data Box returns to the Azure datacenter. A sample manifest file is shown below.
 
