@@ -26,17 +26,17 @@ Use on-demand provisioning to provision a user into an application in seconds. A
 2. Go to **All services** > **Enterprise applications**.
 3. Select your application, and then go to the provisioning configuration page.
 4. Configure provisioning by providing your admin credentials.
-5. Select **Provision on-demand**.
-6. Search for a user by first name, last name, display name, user principal name, or email.
+5. Select **Provision on demand**.
+6. Search for a user by first name, last name, display name, user principal name, or email address.
 7. Select **Provision** at the bottom of the page.
 
-:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for on-demand provisioning of a user.":::
+:::image type="content" source="media/provision-on-demand/on-demand-provision-user.jpg" alt-text="Screenshot that shows the Azure portal UI for provisioning a user on demand.":::
 
 ## Understand the provisioning steps
 
 The on-demand provisioning process attempts to show the steps that the provisioning service takes when provisioning a user. There are typically five steps to provision a user. One or more of those steps, explained in the following sections, will be shown during the on-demand provisioning experience.
 
-### Step 1: Test the connection
+### Step 1: Test connection
 
 The provisioning service attempts to authorize access to the target application by making a request for a "test user". The provisioning service expects a  response that indicates that the service authorized to continue with the provisioning steps. This step is shown only when it fails. It's not shown during the on-demand provisioning experience when the step is successful.
 
@@ -46,7 +46,7 @@ The provisioning service attempts to authorize access to the target application 
 * Make sure that the target application supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
 * For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure AD provisioning service expects. Have a look at an [example request](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
 
-### Step 2: Import the user
+### Step 2: Import user
 
 Next, the provisioning service retrieves the user from the source system. The user attributes that the service retrieves are used later to:
 
@@ -69,7 +69,7 @@ The **View details** section shows the properties of the user that were imported
 * If an attribute that you expected is missing from the imported list, ensure that the attribute has a value on the user object in the source system. The provisioning service currently doesn't support provisioning null attributes.
 * Make sure that the **Attribute mapping** page of your provisioning configuration contains the attribute that you expect.
 
-### Step 3: Determine whether the user is in scope
+### Step 3: Determine if user is in scope
 
 Next, the provisioning service determines whether the user is in [scope](https://docs.microsoft.com/azure/active-directory/app-provisioning/how-provisioning-works#scoping) for provisioning. The service considers aspects such as:
 
@@ -85,14 +85,14 @@ The **View details** section shows the scoping conditions that were evaluated. Y
 * **Assigned to application** indicates that the user is assigned to the application in Azure AD.
 * **Scope sync all** indicates that the scope setting allows all users and groups in the tenant.
 * **User has required role** indicates that the user has the necessary roles to be provisioned into the application. 
-* **Scoping filters** are also shown if you have defined scoping filters for your application. The filter is displayed with the following format - {scoping filter title} {scoping filter attribute} {scoping filter operator} {scoping filter value}.
+* **Scoping filters** are also shown if you have defined scoping filters for your application. The filter is displayed with the following format: {scoping filter title} {scoping filter attribute} {scoping filter operator} {scoping filter value}.
 
 #### Troubleshooting tips
 
 * Make sure that you've defined a valid scoping role. For example, avoid using the [Greater_Than operator](https://docs.microsoft.com/azure/active-directory/app-provisioning/define-conditional-rules-for-provisioning-user-accounts#create-a-scoping-filter) with a non-integer value.
 * If the user doesn't have the necessary role, review the [tips for provisioning users assigned to the default access role](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-config-problem-no-users-provisioned#provisioning-users-assigned-to-the-default-access-role).
 
-### Step 4: Match the user between source and target systems
+### Step 4: Match user between source and target
 
 In this step, the service attempts to match the user that was retrieved in the import step with a user in the target system.
 
@@ -110,9 +110,11 @@ The **View details** page shows the properties of the users that were matched in
 * The provisioning service might not be able to match a user in the source system uniquely with a user in the target. Resolve this problem by ensuring that the matching attribute is unique.
 * Make sure that the target application supports filtering on the attribute that's defined as the matching attribute.  
 
-### Step 5: Take action
+### Step 5: Perform action
 
 Finally, the provisioning service takes an action, such as creating, updating, deleting, or skipping the user.
+
+Here's an example of what you might see after the successful on-demand provisioning of a user:
 
 :::image type="content" source="media/provision-on-demand/success-on-demand-provision.jpg" alt-text="Screenshot that shows the successful on-demand provisioning of a user.":::
 
@@ -137,7 +139,7 @@ There are currently a few known limitations to on-demand provisioning. Post your
 > [!NOTE]
 > The following limitations are specific to the on-demand provisioning capability. For information about whether an application supports provisioning groups, deletions, or other capabilities, check the tutorial for that application.
 
-* These applications don't support on-demand provisioning: Workday, AWS, and SuccessFactors.
+* Workday, Amazon Web Services (AWS), and SuccessFactors applications don't support on-demand provisioning. 
 * On-demand provisioning of groups and roles isn't supported.
 * On-demand provisioning supports disabling users that have been unassigned from the application. However, it doesn't support disabling or deleting users that have been disabled or deleted from Azure AD. Those users won't appear when you search for a user.
 
