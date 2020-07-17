@@ -67,7 +67,7 @@ To configure and test Azure AD SSO with ExpenseIn, complete the following buildi
     1. **[Create ExpenseIn test user](#create-expensein-test-user)** to have a counterpart of B.Simon in ExpenseIn that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 
-### Configure ExpenseIn SSO
+## Configure ExpenseIn SSO
 
 1. Open a new web browser window and sign into your ExpenseIn company site as an administrator.
 
@@ -171,7 +171,7 @@ To enable Azure AD users to sign in to ExpenseIn, they must be provisioned into 
 
     d. Click **Create**.
 
-### Test SSO
+## Test SSO
 
 When you select the ExpenseIn tile in the Access Panel, you should be automatically signed in to the ExpenseIn for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
