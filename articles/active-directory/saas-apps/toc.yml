@@ -347,6 +347,8 @@
         href: coda-tutorial.md
       - name: Code42
         href: code42-tutorial.md
+      - name: Coggle
+        href: coggle-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -1728,6 +1730,8 @@
         href: whitesource-tutorial.md
       - name: WhosOffice
         href: whosoffice-tutorial.md
+      - name: WhosOnLocation
+        href: whos-on-location-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF

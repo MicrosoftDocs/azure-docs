@@ -40,11 +40,11 @@ This topic shows you how to request push notification registration with Azure No
 
      At this point, your storyboard looks like the following:
 
-     ![][0]
+     ![Screenshot of the MainStoryboard_iPhone.storyboard app with the components added.][0]
 
 2. In the assistant editor, create outlets for all the switched controls and call them, connect the text fields with the View Controller (delegate), and create an **Action** for the **login** button.
 
-    ![][1]
+    ![Screenshot of the assistant editor in the MainStoryboard_iPhone.storyboard app][1]
 
     Your BreakingNewsViewController.h file should now contain the following code:
 

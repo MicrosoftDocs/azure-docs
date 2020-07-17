@@ -8,7 +8,7 @@ ms.date: 12/13/2018
 
 # System performance counters in Application Insights
 
-Windows provides a wide variety of [performance counters](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own performance counters. Performance counters collection is supported as long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access. Though applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters are collected by Application Insights.
+Windows provides a wide variety of [performance counters](/windows/desktop/perfctrs/about-performance-counters) such as CPU occupancy, memory, disk, and network usage. You can also define your own performance counters. Performance counters collection is supported as long as your application is running under IIS on an on-premises host, or virtual machine to which you have administrative access. Though applications running as Azure Web Apps don't have direct access to performance counters, a subset of available counters are collected by Application Insights.
 
 ## View counters
 
@@ -36,7 +36,7 @@ If the performance counter you want isn't included in the list of metrics, you c
 
     `Get-Counter -ListSet *`
 
-    (See [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
+    (See [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1).)
 2. Open ApplicationInsights.config.
 
    * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then redeploy it to your servers.
@@ -105,7 +105,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## Performance counters in Analytics
-You can search and display performance counter reports in [Analytics](../../azure-monitor/app/analytics.md).
+You can search and display performance counter reports in [Analytics](../log-query/log-query-overview.md).
 
 The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 
@@ -149,4 +149,3 @@ Like other metrics, you can [set an alert](../../azure-monitor/platform/alerts-l
 
 * [Dependency tracking](../../azure-monitor/app/asp-net-dependencies.md)
 * [Exception tracking](../../azure-monitor/app/asp-net-exceptions.md)
-

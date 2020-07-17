@@ -50,9 +50,7 @@ To verify that the agent is seen by Azure and is healthy, follow these steps.
 
 ### Verify the port
 
-To verify that Azure is listening on port 443 and that your agent can communicate with it, use the following tool:
-
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
+Verify that Azure is listening on port 443 and that your agent can communicate with it. 
 
 This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
 

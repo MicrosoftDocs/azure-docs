@@ -4,7 +4,7 @@ description: This article highlights how to discover registered data assets with
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 

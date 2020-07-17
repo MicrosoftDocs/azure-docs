@@ -72,7 +72,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
 5. To initialize the map control, define a new script tag in the html body. Pass in the `id` of the map `<div>` or an `HTMLElement` (for example, `document.getElementById('myMap')`) as the first parameter when creating an instance of the `Map` class. Use your own Azure Maps account key or Azure Active Directory (AAD) credentials to authenticate the map using [authentication options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
 
-   If you need to create an account or find your key, follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
+   If you need to create an account or find your key, follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
 
    The **language** option specifies the language to be used for map labels and controls. For more information on supported languages, see [supported languages](supported-languages.md).If you are using a subscription key for authentication, use the following:
 

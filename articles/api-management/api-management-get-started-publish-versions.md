@@ -18,7 +18,7 @@ ms.author: apimpm
 ---
 # Publish multiple versions of your API 
 
-There are times when it is impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach. It is possible to do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
+There are times when it is impractical to have all callers to your API use exactly the same version. When callers want to upgrade to a later version, they want to be able to do this using an easy to understand approach. It is possible to do this using **versions** in Azure API Management. For more information, see [Versions & revisions](https://azure.microsoft.com/blog/versions-revisions/).
 
 In this tutorial, you learn how to:
 
