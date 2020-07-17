@@ -136,7 +136,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## Upgrading to AKS-managed Azure AD Integration
 
-You can upgrade to AKS-managed Azure AD Integration if your cluster uses legacy Azure AD integration or is RBAC enabled cluster.
+If your cluster uses legacy Azure AD integration or is RBAC enabled cluster only, you can upgrade to AKS-managed Azure AD Integration.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
