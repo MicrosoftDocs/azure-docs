@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.author: jasteppe
 ---
 # IoT Connector (preview) troubleshooting guide and how-to
@@ -31,31 +31,33 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 
 ## Creating copies of the IoT Connector (preview) mapping files
 > [!NOTE]
-> The copying of IoT Connector mapping files can be useful for editing and archiving outside of the Azure Portal website and for providing to Azure Technical Support when opening a support ticket.
+> JSON is the only supported format for Device and FHIR mapping files at this time.
 
 > [!TIP]
-> Learn more about the IoT Connector [Device and FHIR mapping JSON files](https://github.com/microsoft/IoT-fhir/blob/master/docs/Configuration.md)
+> The copying of IoT Connector mapping files can be useful for editing and archiving outside of the Azure Portal website and  for providing to Azure Technical Support when opening a support ticket.
+> 
+> Learn more about the IoT Connector [Device and FHIR mapping JSON files](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
 
-1. On the lower left side of the Azure API for FHIR resource dashboard in the "Add-ins" section, click **"IoT Connector (preview)"**.
+1. Select **"IoT Connector (preview)"** on the lower left side of the Azure API for FHIR resource dashboard in the **"Add-ins"** section.
 
-:::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
-2. Select the IoT Connector (preview) which you'll be copying the mapping files from.
+2. Select the **"Connector"** that you'll be copying the mapping files from.
 
-:::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 3. Select **"Configure device mapping"**.
 
-:::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 > [!NOTE]
 > This process can also be used for copying/saving the contents of the **"Configure FHIR mapping"** JSON.
 
-4. Select the contents of the JSON and perform a "Copy" operation (for example: **Ctrl + c**). 
+4. Select the contents of the JSON and perform a **"Copy"** operation (for example: **Ctrl + c**). 
 
-:::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
-5. Perform a "Paste" operation (for example: **Ctrl + v**) into a new file within an editor (for example: Visual Studio Code, NotePad) and save the file with an *.json extension.
+5. Perform a **"Paste"** operation (for example: **Ctrl + v**) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
 
 > [!TIP]
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, make sure to include copies of your mapping files to help with the troubleshooting process.

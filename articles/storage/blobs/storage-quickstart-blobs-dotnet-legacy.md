@@ -14,6 +14,9 @@ ms.topic: quickstart
 
 Get started with the Azure Blob Storage client library v11 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Azure Blob storage client library for .NET](storage-quickstart-blobs-dotnet.md).
+
 Use the Azure Blob Storage client library for .NET to:
 
 * Create a container
