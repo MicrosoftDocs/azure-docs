@@ -3,7 +3,7 @@ title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/17/2020
 ms.author: thomasge
 ---
 
@@ -110,7 +110,7 @@ A custom control plane identity enables access to be granted to the existing ide
 
 You must have the following resources installed:
 - The Azure CLI, version 2.9.0 or later
-- The aks-preview 0.4.58 extension
+- The aks-preview 0.4.57 extension
 
 Limitations for bring your own control plane MI (Preview):
 * Azure Government isn't currently supported.
