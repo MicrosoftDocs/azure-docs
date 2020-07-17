@@ -12,6 +12,9 @@ ms.author: thomasge
 
 AKS-managed Azure AD integration is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
+> [!Important]
+> AKS-managed Azure Active Directory integration is the new experience to integrate with Azure AD. Azure AD legacy integration feature is marked for deprecation and will be retired on **31. August 2021**. You can [migrate][aad-migrate] from Azure AD legacy integration to AKS-managed Azure Active Directory integration.
+
 ## Azure AD authentication overview
 
 Cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
@@ -27,9 +30,9 @@ AKS-managed Azure Active Directory integration is available in public regions wh
 
 ## Limitations 
 
-* AKS-managed AAD integration can't be disabled on existing clusters
-* AKS-managed AAD integration on non-RBAC enabled clusters isn't supported
-* Changing the AAD tenant associated with AKS-managed AAD integration isn't supported
+* AKS-managed Azure AD integration can't be disabled
+* non-RBAC enabled clusters aren't supported for AKS-managed AAD integration
+* Changing the Azure AD tenant associated with AKS-managed AAD integration isn't supported
 
 ## Prerequisites
 
@@ -50,7 +53,7 @@ Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 ## Before you begin
 
-For your cluster, you need an Azure AD group. This group is needed as admin group for the cluster to grant cluster admin permissions. You can use an existing Azure AD group, or create a new one. You need the object ID for your Azure AD group.
+For your cluster, you need an Azure AD group. This group is needed as admin group for the cluster to grant cluster admin permissions. You can use an existing Azure AD group, or create a new one. Record the object ID of your Azure AD group.
 
 ```azurecli-interactive
 # List existing groups in the directory
@@ -136,10 +139,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## Upgrading to AKS-managed Azure AD Integration
 
-You can upgrade to AKS-managed Azure AD Integration if your cluster uses legacy Azure AD integration or on RBAC enabled cluster.
-
-> [!Important]
-> The Azure Kubernetes Service Azure AD legacy integration feature will be retired on 31 August 2021. AKS cluster using Azure AD legacy integration should consider upgrading to AKS-managed Azure AD integration.
+You can upgrade to AKS-managed Azure AD Integration if your cluster uses legacy Azure AD integration or is RBAC enabled cluster.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
@@ -193,3 +193,4 @@ There are some non-interactive scenarios, such as continuous integration pipelin
 [azure-ad-rbac]: azure-ad-rbac.md
 [azure-ad-cli]: azure-ad-integration-cli.md
 [access-cluster]: #access-an-azure-ad-enabled-cluster
+[aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
