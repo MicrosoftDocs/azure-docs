@@ -883,7 +883,7 @@ productDirectory:
       url: https://docs.microsoft.com/azure-stack/
     # Card
     - title: Azure Stack HCI solutions
-      summary: Run virtual machines on-premises and easily connect to Azure with a hyperconverged infrastructure (HCI) solution.
+      summary: Run virtual machines on-premises and easily connect to Azure with a hyperconverged infrastructure (HCI) solution
       imageSrc: ./media/index/azure-stack-hci.svg
       azureCategories:
         - hybrid
