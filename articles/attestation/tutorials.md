@@ -1,4 +1,4 @@
-# Sample code for SGX attestation in Linux VMs
+# Sample code for SGX attestation in Linux VM
 ## Overview
 The SGX Attestation sample code demonstrates how to generate a quote in an SGX enclave and then get it validated by the Azure Attestation service. The "enclave held data" for the quote is populated with public key component of a 2048 bit RSA key that's held within the enclave.
 
