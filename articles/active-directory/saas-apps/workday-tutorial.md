@@ -247,7 +247,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Workday test user
 
-In this section, you create a user called B.Simon in Workday. Work with [Workday Client support team](https://www.workday.com/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Workday. Work with [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to add the users in the Workday platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

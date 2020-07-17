@@ -5,7 +5,7 @@ author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ---
@@ -215,4 +215,4 @@ To learn more about [Apache HBase](https://hbase.apache.org/) and upgrading HDIn
 * [Upgrade an HDInsight cluster to a newer version](../hdinsight-upgrade-cluster.md)
 * [Monitor and manage Azure HDInsight using the Apache Ambari Web UI](../hdinsight-hadoop-manage-ambari.md)
 * [Apache Hadoop components and versions](../hdinsight-component-versioning.md)
-* [Optimize configurations using Apache Ambari](../hdinsight-changing-configs-via-ambari.md#apache-hbase-optimization-with-the-ambari-web-ui)
+* [Optimize Apache HBase](../optimize-hbase-ambari.md)

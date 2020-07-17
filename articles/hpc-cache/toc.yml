@@ -14,7 +14,7 @@
 - name: How-to guides
   items:
   - name: Prerequisites
-    href: hpc-cache-prereqs.md
+    href: hpc-cache-prerequisites.md
   - name: Create the cache
     href: hpc-cache-create.md
   - name: Add storage
@@ -42,10 +42,17 @@
   - name: Configure optional settings
     href: configuration.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/hpc-cache/hpc-cache
+
 - name: Resources
   items: 
   - name: Open a support ticket
     href: hpc-cache-support-ticket.md
+  - name: Set up Azure CLI for Azure HPC Cache
+    href: az-cli-prerequisites.md
   - name: Work around Blob storage account firewall settings
     href: hpc-cache-blob-firewall-fix.md
   - name: Troubleshoot NFS storage target creation
@@ -56,3 +63,5 @@
     href: customer-keys.md
   - name: Use Azure NetApp Files with Azure HPC Cache
     href: hpc-cache-netapp.md
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?service=hpc-cache

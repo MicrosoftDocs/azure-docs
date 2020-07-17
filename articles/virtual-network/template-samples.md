@@ -4,7 +4,7 @@ description: Learn about different Azure Resource Manager templates available fo
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags:
 

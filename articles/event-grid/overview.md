@@ -1,15 +1,8 @@
 ---
 title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
-services: event-grid
-author: banisadr
-manager: timlt
-
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: babanisa
-ms.custom: seodec18
+ms.date: 07/07/2020
 ---
 
 # What is Azure Event Grid?
@@ -48,15 +41,15 @@ Currently, the following Azure services support sending events to Event Grid:
 
 For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
-* [Azure Automation](event-handlers.md#azure-automation)
-* [Azure Functions](event-handlers.md#azure-functions)
-* [Event Hubs](event-handlers.md#event-hubs)
-* [Hybrid Connections](event-handlers.md#hybrid-connections)
-* [Logic Apps](event-handlers.md#logic-apps)
+* [Azure Automation](handler-webhooks.md#azure-automation)
+* [Azure Functions](handler-functions.md)
+* [Event Hubs](handler-event-hubs.md)
+* [Relay Hybrid Connections](handler-relay-hybrid-connections.md)
+* [Logic Apps](handler-webhooks.md#logic-apps)
 * [Power Automate (Formerly known as Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
-* [Service Bus](event-handlers.md#service-bus)
-* [Queue Storage](event-handlers.md#queue-storage)
-* [WebHooks](event-handlers.md#webhooks)
+* [Service Bus](handler-service-bus.md)
+* [Queue Storage](handler-storage-queues.md)
+* [WebHooks](handler-webhooks.md)
 
 ## Concepts
 
@@ -99,7 +92,7 @@ Event Grid connects data sources and event handlers. For example, use Event Grid
 
 ![Operations automation](./media/overview/Ops_automation.png)
 
-Event Grid allows you to speed automation and simplify policy enforcement. For example, use Event Grid to notify Azure Automation when a virtual machine or SQL database is created. Use the events to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
+Event Grid allows you to speed automation and simplify policy enforcement. For example, use Event Grid to notify Azure Automation when a virtual machine or database in Azure SQL is created. Use the events to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
 
 ### Application integration
 

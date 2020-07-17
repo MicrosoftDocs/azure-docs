@@ -16,20 +16,22 @@ ms.author: pafarley
 
 # Learn image moderation concepts
 
-Use Content Moderator's machine-assisted image moderation and [human-in-the-loop Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
+Use Content Moderator's machine-assisted image moderation and [Review tool](Review-Tool-User-Guide/human-in-the-loop.md) to moderate images for adult and racy content. Scan images for text content and extract that text, and detect faces. You can match images against custom lists, and take further action.
 
 ## Evaluating for adult and racy content
 
 The **Evaluate** operation returns a confidence score between 0 and 1. It also returns boolean data equal to true or false. These values predict whether the image contains potential adult or racy content. When you call the API with your image (file or URL), the returned response includes the following information:
 
-    "ImageModeration": {
-      .............
-      "adultClassificationScore": 0.019196987152099609,
-      "isImageAdultClassified": false,
-      "racyClassificationScore": 0.032390203326940536,
-      "isImageRacyClassified": false,
-      ............
-      ],
+```json
+"ImageModeration": {
+    .............
+    "adultClassificationScore": 0.019196987152099609,
+    "isImageAdultClassified": false,
+    "racyClassificationScore": 0.032390203326940536,
+    "isImageRacyClassified": false,
+    ............
+    ],
+```
 
 > [!NOTE]
 > 
@@ -48,18 +50,19 @@ The response includes the following information:
 
 Example extract:
 
-    "TextDetection": {
-      "status": {
+```json
+"TextDetection": {
+    "status": {
         "code": 3000.0,
         "description": "OK",
         "exception": null
-      },
-      .........
-      "language": "eng",
-      "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
-      "candidates": []
     },
-
+    .........
+    "language": "eng",
+    "text": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n",
+    "candidates": []
+},
+```
 
 ## Detecting faces
 
@@ -72,29 +75,30 @@ A response includes this information:
 
 Example extract:
 
-
-    "FaceDetection": {
-       ......
-      "result": true,
-      "count": 2,
-      "advancedInfo": [
-      .....
-      ],
-      "faces": [
+```json
+"FaceDetection": {
+    ......
+    "result": true,
+    "count": 2,
+    "advancedInfo": [
+        .....
+    ],
+    "faces": [
         {
-          "bottom": 598,
-          "left": 44,
-          "right": 268,
-          "top": 374
+            "bottom": 598,
+            "left": 44,
+            "right": 268,
+            "top": 374
         },
         {
-          "bottom": 620,
-          "left": 308,
-          "right": 532,
-          "top": 396
+            "bottom": 620,
+            "left": 308,
+            "right": 532,
+            "top": 396
         }
-      ]
-    }
+    ]
+}
+```
 
 ## Creating and managing custom lists
 
@@ -121,7 +125,8 @@ If a match is found, the operation returns the identifier and the moderation tag
 
 Example extract:
 
-    {
+```json
+{
     ..............,
     "IsMatch": true,
     "Matches": [
@@ -134,7 +139,8 @@ Example extract:
         }
     ],
     ....
-    }
+}
+```
 
 ## Review tool
 
@@ -144,4 +150,4 @@ For more nuanced cases, use the Content Moderator [Review tool](Review-Tool-User
 
 ## Next steps
 
-Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also check out the Image moderation section of the [.NET SDK quickstart](dotnet-sdk-quickstart.md) if you are familiar with Visual Studio and C#.
+Test drive the [Image Moderation API console](try-image-api.md) and use the REST API code samples. Also see [Reviews, workflows, and jobs](./review-api.md) to learn how to set up human reviews.

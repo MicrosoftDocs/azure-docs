@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: bastion
  ms.topic: include
- ms.date: 03/05/2020
+ ms.date: 07/16/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -30,6 +30,8 @@
 * France Central
 * North Europe
 * Norway East
+* Norway West
+* Switzerland North
 * UK South
 * UK West
 * West Europe
@@ -44,6 +46,7 @@
 * Korea Central
 * Korea South
 * Southeast Asia
+* Central India
 * West India
 
 **Middle East and Africa**
@@ -57,3 +60,6 @@
 * US Gov Iowa
 * US Gov Texas
 * US Gov Virginia
+
+**Azure China**
+* China North 2

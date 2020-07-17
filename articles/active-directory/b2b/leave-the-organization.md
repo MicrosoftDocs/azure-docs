@@ -6,7 +6,7 @@ description: Shows how an Azure AD B2B guest user can leave an organization by u
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/13/2019
 
 ms.author: mimart

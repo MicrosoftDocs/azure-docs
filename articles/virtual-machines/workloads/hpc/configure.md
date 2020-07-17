@@ -73,4 +73,4 @@ sudo systemctl disable cpupower
 
 * Learn more about [enabling InfiniBand](enable-infiniband.md) and optimizing OS images.
 
-* Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
+* Learn more about [HPC](/azure/architecture/topics/high-performance-computing/) on Azure.

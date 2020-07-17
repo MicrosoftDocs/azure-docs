@@ -1,12 +1,13 @@
 ---
 title: Commercial Marketplace partner and customer usage attribution
 description: Get an overview of tracking customer usage for Azure Marketplace solutions.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
+ms.custom: devx-track-terraform
 ---
 
 # Commercial Marketplace partner and customer usage attribution
@@ -32,10 +33,10 @@ Customer usage attribution supports three deployment options:
 
 ## Create GUIDs
 
-A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) that will email you a GUID of the correct format and can be reused across the different tracking systems.
+A GUID is a unique reference identifier that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
 
 > [!NOTE]
-> It is highly recommended that you use [Azure Storage's GUID generator form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) to create your GUID. For more information, see our [FAQ](#faq).
+> It is highly recommended that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
 
 We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
@@ -54,11 +55,14 @@ The GUIDs must be registered in Partner Center to enable customer usage attribut
 
 After you add a GUID to your template or in the user agent, and register the GUID in Partner Center, future deployments are tracked.
 
+> [!NOTE]
+> If you are publishing your [Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) offer to the Azure Marketplace through Partner Center, any new GUID used inside your template will be automatically registered to your Partner Center profile when the template is uploaded.  
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
-1. Sign up as a [commercial marketplace publisher](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
 
-   * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
+   * Partners are required to [have a profile in Partner Center](become-publisher.md). You're encouraged to list the offer in Azure Marketplace or AppSource.
    * Partners can register multiple GUIDs.
    * Partners can register GUIDs for non-marketplace solution templates and offers.
 
@@ -66,7 +70,7 @@ After you add a GUID to your template or in the user agent, and register the GUI
 
 1. On the **Account settings page**, select **Add Tracking GUID.**
 
-1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Description** box, enter your offer name or description.
+1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the `pid-` prefix. In the **Description** box, enter your offer name or description.
 
 1. To register more than one GUID, select **Add Tracking GUID** again. Additional boxes appear on the page.
 
@@ -77,7 +81,7 @@ Many partner solutions are deployed using Azure Resource Manager templates. If y
 
 > [!NOTE]
 > For more information on creating and publishing Solution Templates, see
-> * [Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+> * [Create and deploy your first Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 >* [Azure Application offer](./partner-center-portal/create-new-azure-apps-offer.md).
 >* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
@@ -90,7 +94,7 @@ To add a globally unique identifier (GUID), you make a single modification to th
 
 1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-1. Enter the GUID value after the **pid-** prefix (e.g., pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Enter the GUID value after the `pid-` prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Check the template for any errors.
 
@@ -129,12 +133,12 @@ If you're using a Resource Manager template, you should tag your solution by fol
 
 ### Tag a deployment with the Resource Manager APIs
 
-To enable customer usage attribution, when you design your API calls, include a GUID in the user agent header in the request. Add the GUID for each offer or SKU. Format the string with the **pid-** prefix and include the partner-generated GUID. Here's an example of the GUID format for insertion into the user agent:
+To enable customer usage attribution, when you design your API calls, include a GUID in the user agent header in the request. Add the GUID for each offer or SKU. Format the string with the `pid-` prefix and include the partner-generated GUID. Here's an example of the GUID format for insertion into the user agent:
 
 ![Example GUID format](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!NOTE]
-> The format of the string is important. If the **pid-** prefix isn't included, it's not possible to query the data. Different SDKs track differently. To implement this method, review the support and tracking approach for your preferred Azure SDK.
+> The format of the string is important. If the `pid-` prefix isn't included, it's not possible to query the data. Different SDKs track differently. To implement this method, review the support and tracking approach for your preferred Azure SDK.
 
 #### Example: The Python SDK
 
@@ -160,7 +164,7 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/go/).
+For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/developer/go/).
 
 ## Use Terraform
 
@@ -249,7 +253,7 @@ There are two support channels depending on the issues you are facing.
 
 If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
-![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
+![Screenshot of Get support page](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 If you need assistance for Marketplace Onboarding and/or customer usage attribution in general, such as how to set up the customer usage attribution, follow the steps below:
 
@@ -281,7 +285,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
 
 ### How to submit a technical consultation request
 
-1. Visit [Partner Technical Services](https://partner.microsoft.com/training/partner-technical-services).
+1. Visit [Partner Technical Services](https://aka.ms/TechnicalJourney).
 1. Select Cloud infrastructure and management, and a new page will open for you to view the technical journey.
 1. Under Deployment Services, click the Submit a request button
 1. Sign in using your MSA (MPN account) or your AAD (Partner Dashboard account); based on your sign-in credentials, an online request form will open:
@@ -290,7 +294,7 @@ You can also receive technical guidance from a Microsoft Partner Technical Consu
     * Enter a title and the description of the problem (provide as much detail as possible).
 1. Click Submit
 
-View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://support.microsoft.com/help/3121537/using-technical-presales-and-deployment-services#request%20a%20technical%20consultation).
+View step-by-step instructions with screenshots at [Using Technical Presales and Deployment Services](https://aka.ms/TechConsultInstructions).
 
 ### What's next
 
@@ -324,7 +328,7 @@ Azure Storage's GUID Generator form is guaranteed to generate a GUID of the requ
 
 **Can I use a private, custom VHD for a solution template offer in the Azure Marketplace?**
 
-No, you cannot. The virtual machine image must come from the Azure Marketplace, see: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+No, you cannot. The virtual machine image must come from the Azure Marketplace, see: [Publishing guide for virtual machine offers on Azure Marketplace](marketplace-virtual-machines.md).
 
 You can create a VM offer in marketplace using your custom VHD and mark it as Private so that no one can see it. Then reference to this VM in your solution template.
 

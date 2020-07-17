@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: twooley
   ms.author: twooley
-  ms.date: 04/07/2020
+  ms.date: 05/01/2020
 
 
 highlightedContent:
@@ -165,7 +165,7 @@ additionalContent:
           - url: /azure/backup/quick-backup-vm-portal
             text: Back up VMs (Azure Backup)
           - url: /azure/backup/tutorial-backup-azure-files
-            text: Back up Azure file shares (preview)
+            text: Back up Azure file shares
           - url: /azure/backup/
             text: See more >                
 

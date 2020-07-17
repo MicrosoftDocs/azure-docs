@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 01/15/2020
+ms.date: 04/27/2020
 ms.author: diberry
 ---
 [Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest) |[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js)
@@ -31,7 +31,7 @@ There are several steps to use this quickstart:
 
 [!INCLUDE [Create Azure resource for Personalizer](create-personalizer-resource.md)]
 
-[!INCLUDE [!Change model frequency](change-model-frequency.md)]
+[!INCLUDE [Change model frequency](change-model-frequency.md)]
 
 ## Create a new Node.js application
 

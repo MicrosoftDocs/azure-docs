@@ -72,7 +72,7 @@ DestPublicIPsAggregated = iif(isnotempty(DestPublicIPs_s), DestPublicIPs_s, "N/A
 
 The old field used the format:
 
-<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>
+`<Index value 0)>|<NSG_ RuleName>|<Flow Direction>|<Flow Status>|<FlowCount ProcessedByRule>`
 
 We no longer aggregate data across a network security group (NSG). In the updated schema, **NSGList_s** contains only one NSG. Also **NSGRules** contains only one rule. We removed the complicated formatting here and in other fields as shown in the example.
 

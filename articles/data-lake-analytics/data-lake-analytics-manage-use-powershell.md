@@ -8,7 +8,7 @@ ms.author: mahi
 
 ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/29/2018
 ---
 

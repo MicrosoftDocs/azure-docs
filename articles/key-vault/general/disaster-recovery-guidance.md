@@ -2,14 +2,14 @@
 title: What to do in the event of an Azure service disruption that affects Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Learn what to do in the event of an Azure service disruption that affects Azure Key Vault.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.date: 05/04/2020
+ms.author: sudbalas
 
 ---
 # Azure Key Vault availability and redundancy
@@ -30,6 +30,8 @@ There are a few caveats to be aware of:
 * After a failover is complete, your key vault is in read-only mode. Requests that are supported in this mode are:
   * List key vaults
   * Get properties of key vaults
+   * List certificates
+  * Get certificates
   * List secrets
   * Get secrets
   * List keys

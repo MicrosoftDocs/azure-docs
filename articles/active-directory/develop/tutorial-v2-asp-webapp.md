@@ -66,10 +66,8 @@ This section describes how to install and configure the authentication pipeline 
     Install-Package Microsoft.Owin.Host.SystemWeb
     ```
 
-<!--start-collapse-->
-> ### About these libraries
-> These libraries enable single sign-on (SSO) by using OpenID Connect through cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so that the user doesn't have to retype the password, and no additional verification is needed.
-<!--end-collapse-->
+### About these libraries
+These libraries enable single sign-on (SSO) by using OpenID Connect through cookie-based authentication. After authentication is completed and the token representing the user is sent to your application, OWIN middleware creates a session cookie. The browser then uses this cookie on subsequent requests so that the user doesn't have to retype the password, and no additional verification is needed.
 
 ## Configure the authentication pipeline
 
@@ -167,10 +165,9 @@ The following steps are used to create an OWIN middleware Startup class to confi
 > Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications, you must validate the issuer.
 > See the samples to learn how to do that.
 
-<!--start-collapse-->
-> ### More information
-> The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Microsoft identity platform. Because the OpenID Connect middleware uses cookies in the background, you must also set up cookie authentication as the preceding code shows. The *ValidateIssuer* value tells OpenIdConnect not to restrict access to one specific organization.
-<!--end-collapse-->
+### More information
+
+The parameters you provide in *OpenIDConnectAuthenticationOptions* serve as coordinates for the application to communicate with Microsoft identity platform. Because the OpenID Connect middleware uses cookies in the background, you must also set up cookie authentication as the preceding code shows. The *ValidateIssuer* value tells OpenIdConnect not to restrict access to one specific organization.
 
 ## Add a controller to handle sign-in and sign-out requests
 
@@ -262,10 +259,8 @@ In Visual Studio, create a new view to add the sign-in button and to display use
     </html>
     ```
 
-<!--start-collapse-->
-> ### More information
-> This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to the [Branding guidelines](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
-<!--end-collapse-->
+### More information
+This page adds a sign-in button in SVG format with a black background:<br/>![Sign in with Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to the [Branding guidelines](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
 
 ## Add a controller to display user's claims
 This controller demonstrates the uses of the `[Authorize]` attribute to protect a controller. This attribute restricts access to the controller by allowing only authenticated users. The following code makes use of the attribute to display user claims that were retrieved as part of sign-in:
@@ -305,10 +300,8 @@ This controller demonstrates the uses of the `[Authorize]` attribute to protect 
     }
     ```
 
-<!--start-collapse-->
-> ### More information
-> Because of the use of the `[Authorize]` attribute, all methods of this controller can be executed only if the user is authenticated. If the user isn't authenticated and tries to access the controller, OWIN initiates an authentication challenge and forces the user to authenticate. The preceding code looks at the list of claims for specific user attributes included in the user’s Id token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization.
-<!--end-collapse-->
+### More information
+Because of the use of the `[Authorize]` attribute, all methods of this controller can be executed only if the user is authenticated. If the user isn't authenticated and tries to access the controller, OWIN initiates an authentication challenge and forces the user to authenticate. The preceding code looks at the list of claims for specific user attributes included in the user’s Id token. These attributes include the user’s full name and username, as well as the global user identifier subject. It also contains the *Tenant ID*, which represents the ID for the user’s organization.
 
 ## Create a view to display the user's claims
 
@@ -399,16 +392,16 @@ When you're ready to run your test, use an Azure AD account (work or school acco
 <br/><br/>
 ![Sign in to your Microsoft account](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
-<!--start-collapse-->
-> ###  Permissions and consent in the Microsoft identity platform endpoint
->  Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with Microsoft identity platform to access this application, they will be prompted to consent to the permissions requested by the application ("View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
->  > - The application developer adds any additional permissions that require **Admin consent**.
->  > - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
->
-> For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
-<!--end-collapse-->
+#### Permissions and consent in the Microsoft identity platform endpoint
 
-#### View application results
+Applications that integrate with Microsoft identity platform follow an authorization model that gives users and administrators control over how data can be accessed. After a user authenticates with Microsoft identity platform to access this application, they will be prompted to consent to the permissions requested by the application ("View your basic profile" and "Maintain access to data you have given it access to"). After accepting these permissions, the user will continue on to the application results. However, the user may instead be prompted with a **Need admin consent** page if either of the following occur:
+
+- The application developer adds any additional permissions that require **Admin consent**.
+- Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
+
+For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+
+### View application results
 
 After you sign in, the user is redirected to the home page of your website. The home page is the HTTPS URL that's specified in your application registration info in the Microsoft Application Registration Portal. The home page includes a *"Hello \<user>"* welcome message, a link to sign out, and a link to view the user’s claims. The link for the user's claims connects to the Claims controller that you created earlier.
 
@@ -442,14 +435,13 @@ You're prompted to authenticate to use the protected controller view.
 
 ## Advanced options
 
-<!--start-collapse-->
 ### Protect your entire website
+
 To protect your entire website, in the **Global.asax** file, add the `AuthorizeAttribute` attribute to the `GlobalFilters` filter in the `Application_Start` method:
 
 ```csharp
 GlobalFilters.Filters.Add(new AuthorizeAttribute());
 ```
-<!--end-collapse-->
 
 ### Restrict who can sign in to your application
 
@@ -472,13 +464,13 @@ You can restrict sign-in access to only those user accounts that are in an Azure
 
 #### Option 3: Use a custom method to validate issuers
 
-You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, see [TokenValidationParameters class](/previous-versions/visualstudio/dn464192(v=vs.114)).
+You can implement a custom method to validate issuers by using the **IssuerValidator** parameter. For more information about how to use this parameter, see [TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters) class.
 
 ## Next steps
 
 Learn about how web apps can call web APIs.
 
-### Learn how to create the application used in this quickstart guide
+### Learn how to create the application used in this quickstart
 
 Learn more about Web apps calling web APIs with the Microsoft identity platform:
 

@@ -24,7 +24,7 @@ To run Functions on your Kubernetes cluster, you must install the KEDA component
 
 ### Installing with Helm
 
-There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/deploy/).
+There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/1.4/deploy/).
 
 ## Deploying a function app to Kubernetes
 
@@ -63,7 +63,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/deploy/).
+Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/docs/1.4/deploy/).
 
 ## Supported triggers in KEDA
 

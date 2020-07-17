@@ -206,7 +206,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### Create the public IP address
 
-A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) is needed to communicate with the virtual machine.
+A [Public IP address](../../virtual-network/public-ip-addresses.md) is needed to communicate with the virtual machine.
 
 To create the public IP address for the virtual machine, add this code to the try block in the main method:
 
@@ -460,5 +460,4 @@ It should take about five minutes for this console application to run completely
 
 
 ## Next steps
-* Learn more about using the [Azure libraries for Java](https://docs.microsoft.com/java/azure/java-sdk-azure-overview).
-
+* Learn more about using the [Azure libraries for Java](/java/azure/java-sdk-azure-overview).

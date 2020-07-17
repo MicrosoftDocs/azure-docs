@@ -1,12 +1,8 @@
 ---
 title: Azure Maps as Event Grid source
 description: Describes the properties and schema provided for Azure Maps events with Azure Event Grid
-services: event-grid
-author: banisadr
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: babanisa
+ms.date: 07/07/2020
 ---
 
 # Azure Maps as an Event Grid source

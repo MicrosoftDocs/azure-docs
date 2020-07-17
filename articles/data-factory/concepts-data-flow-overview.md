@@ -7,7 +7,7 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
+ms.date: 06/09/2020
 ---
 
 # What are mapping data flows?
@@ -17,6 +17,8 @@ ms.date: 01/28/2020
 Mapping data flows are visually designed data transformations in Azure Data Factory. Data flows allow data engineers to develop graphical data transformation logic without writing code. The resulting data flows are executed as activities within Azure Data Factory pipelines that use scaled-out Apache Spark clusters. Data flow activities can be engaged via existing Data Factory scheduling, control, flow, and monitoring capabilities.
 
 Mapping data flows provide an entirely visual experience with no coding required. Your data flows run on your execution cluster for scaled-out data processing. Azure Data Factory handles all the code translation, path optimization, and execution of your data flow jobs.
+
+![Architecture](media/data-flow/adf-data-flows.png "Architecture")
 
 ## Getting started
 
@@ -66,9 +68,9 @@ If you put all of your logic inside a single data flow, ADF executes that same j
 
 This option can be more challenging to follow and troubleshoot because your business rules and business logic can be jumbled together. This option also doesn't provide much reusability.
 
-##### Execute data flows serially
+##### Execute data flows sequentially
 
-If you execute your data flow activities in serial in the pipeline and you have set a TTL on the Azure IR configuration, then ADF reuses the compute resources (VMs), resulting in faster subsequent execution times. You still receive a new Spark context for each execution.
+If you execute your data flow activities in sequence in the pipeline and you have set a TTL on the Azure IR configuration, then ADF will reuse the compute resources (VMs) resulting in faster subsequent execution times. You will still receive a new Spark context for each execution.
 
 Of these three options, this action likely takes the longest time to execute end-to-end. But it does provide a clean separation of logical operations in each data flow step.
 

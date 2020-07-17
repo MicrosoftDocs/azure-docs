@@ -1,13 +1,8 @@
 ---
 title: Azure Machine Learning as Event Grid source
 description: Describes the properties that are provided for Machine Learning Workspace events with Azure Event Grid
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Azure Machine Learning as an Event Grid source
@@ -26,7 +21,7 @@ Azure Machine Learning emits the following event types:
 | Microsoft.MachineLearningServices.ModelDeployed | Raised when Model(s) have been successfully deployed to an Endpoint. |
 | Microsoft.MachineLearningServices.RunCompleted | Raised when a Run has been successfully completed. |
 | Microsoft.MachineLearningServices.DatasetDriftDetected | Raised when a Dataset drift monitor detects drift. |
-| Microsoft.MachineLearningServices.RunStatusChanged | Raised when a run status changes to 'failed'. |
+| Microsoft.MachineLearningServices.RunStatusChanged | Raised when a run status changes. |
 
 ### The contents of an event response
 
@@ -263,5 +258,5 @@ The data object has the following properties for each event type:
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md)
-* For an introduction to using Azure Event Grid with Azure Machine Learning, see [Consume Azure Machine Learning events](/azure/machine-learning/service/concept-event-grid-integration)
-* For an example of using Azure Event Grid with Azure Machine Learning, see [Create event driven machine learning workflows](/azure/machine-learning/service/how-to-use-event-grid)
+* For an introduction to using Azure Event Grid with Azure Machine Learning, see [Consume Azure Machine Learning events](/azure/machine-learning/concept-event-grid-integration)
+* For an example of using Azure Event Grid with Azure Machine Learning, see [Create event driven machine learning workflows](/azure/machine-learning/how-to-use-event-grid)

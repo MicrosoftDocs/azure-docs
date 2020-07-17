@@ -1,8 +1,8 @@
-﻿---
+---
 title: Use template reference
 description: Use the Azure Resource Manager template reference to create a template.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Use Visual Studio Code to create ARM templates](use-vs-code-to-create-template.md).
+* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create Azure Resource Manager templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 
 ## Open a Quickstart template
 
@@ -70,7 +70,7 @@ To complete this article, you need:
 
 ## Find the template reference
 
-1. Browse to [Azure Template reference](https://docs.microsoft.com/azure/templates/).
+1. Browse to [Azure Template reference](/azure/templates/).
 1. In the **Filter by title** box, enter **storage accounts**, and select the first **Storage Accounts** under **Reference > Storage**.
 
     ![Resource Manager template reference storage account](./media/template-tutorial-use-template-reference/resource-manager-template-resources-reference-storage-accounts.png)
@@ -97,21 +97,42 @@ From Visual Studio Code, add the additional storage account types as shown in th
 
 ## Deploy the template
 
-Refer to the [Deploy the template](quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) section in the Visual Studio Code quickstart for the deployment procedure. When you deploy the template, specify the **storageAccountType** parameter with a newly added value, for example, **Premium_ZRS**. The deploy would fail if you use the original quickstart template because **Premium_ZRS** was not an allowed value.  To pass the parameter value, add the following switch to the deployment command:
+1. Sign in to the [Azure Cloud Shell](https://shell.azure.com)
 
-# [CLI](#tab/CLI)
+1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
 
-```azurecli
---parameters storageAccountType='Premium_ZRS'
-```
+    ![Azure portal Cloud Shell upload file](./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png)
 
-# [PowerShell](#tab/PowerShell)
+1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved in the previous section. After uploading the file, you can  use the **ls** command and the **cat** command to verify the file is uploaded successfully.
 
-```azurepowershell
--storageAccountType "Premium_ZRS"
-```
+1. From the Cloud Shell, run the following commands. Select the tab to show the PowerShell code or the CLI code.
 
----
+    # [CLI](#tab/CLI)
+
+    ```azurecli
+    echo "Enter a project name that is used to generate resource group name:" &&
+    read projectName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    resourceGroupName="${projectName}rg" &&
+    az group create --name $resourceGroupName --location "$location" &&
+    az deployment group create --resource-group $resourceGroupName --template-file "$HOME/azuredeploy.json" --parameters storageAccountType='Standard_RAGRS'
+    ```
+
+    # [PowerShell](#tab/PowerShell)
+
+    ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -storageAccountType "Standard_RAGRS"
+    ```
+
+    ---
+
+ When you deploy the template, specify the **storageAccountType** parameter with a newly added value, for example, **Standard_RAGRS**. The deploy would fail if you use the original quickstart template because **Standard_RAGRS** was not an allowed value.
 
 ## Clean up resources
 

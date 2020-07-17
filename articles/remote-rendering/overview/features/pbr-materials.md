@@ -21,7 +21,7 @@ PBR materials are not a universal solution, though. There are materials that ref
 
 These properties are common to all materials:
 
-* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *vertex colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
+* **albedoColor:** This color is multiplied with other colors, such as the *albedoMap* or *:::no-loc text="vertex "::: colors*. If *transparency* is enabled on a material, the alpha channel is used to adjust the opacity, with `1` meaning fully opaque and `0` meaning fully transparent. Default is white.
 
   > [!NOTE]
   > When a PBR material is fully transparent, like a perfectly clean piece of glass, it still reflects the environment. Bright spots like the sun are still visible in the reflection. This is different for [color materials](color-materials.md).
@@ -32,9 +32,9 @@ These properties are common to all materials:
 
 * **textureCoordinateScale** and **textureCoordinateOffset:** The scale is multiplied into the UV texture coordinates, the offset is added to it. Can be used to stretch and shift the textures. The default scale is (1, 1) and offset is (0, 0).
 
-* **useVertexColor:** If the mesh contains vertex colors and this option is enabled, the meshes' vertex colors are multiplied into the *albedoColor* and *albedoMap*. By default vertex colors are disabled.
+* **useVertexColor:** If the mesh contains :::no-loc text="vertex"::: colors and this option is enabled, the meshes' :::no-loc text="vertex"::: color is multiplied into the *albedoColor* and *albedoMap*. By default *useVertexColor* is disabled.
 
-* **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. For PBR materials lighting is also computed properly for back faces. By default this option is disabled. See also [Single-sided rendering](single-sided-rendering.md).
+* **isDoubleSided:** If double-sidedness is set to true, triangles with this material are rendered even if the camera is looking at their back faces. For PBR materials lighting is also computed properly for back faces. By default this option is disabled. See also [:::no-loc text="Single-sided"::: rendering](single-sided-rendering.md).
 
 ## PBR material properties
 

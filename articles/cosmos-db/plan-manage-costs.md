@@ -26,7 +26,7 @@ Use the [Azure Cosmos DB capacity calculator](https://cosmos.azure.com/capacityc
 
 The following screenshot shows the throughput and cost estimation by using the capacity calculator:
 
-![Cost estimate in Azure Cosmos DB capacity calculator](./media/plan-manage-costs/capacity-calculator-cost-estimate.png)
+:::image type="content" source="./media/plan-manage-costs/capacity-calculator-cost-estimate.png" alt-text="Cost estimate in Azure Cosmos DB capacity calculator":::
 
 ## Review estimated costs from the Azure portal
 
@@ -37,7 +37,7 @@ As you create Azure Cosmos DB resources from Azure portal, you can see the estim
 1. Create a new container such as a graph container.
 1. Input the throughput required for your workload such as 400 RU/s. After you input the throughput value, you can see the pricing estimate as shown in the following screenshot:
 
-   ![Cost estimate in Azure portal](./media/plan-manage-costs/cost-estimate-portal.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-estimate-portal.png" alt-text="Cost estimate in Azure portal":::
 
 If your Azure subscription has a spending limit, Azure prevents you from spending over your credit amount. As you create and use Azure resources, your credits are used. When reach your credit limit, the resources that you deployed are disabled for the rest of that billing period. You can’t change your credit limit, but you can remove it. For more information about spending limits, see [Azure spending limit](../billing/billing-spending-limit.md).
 
@@ -59,7 +59,7 @@ When you use cost analysis, you can view the Azure Cosmos DB costs in graphs and
 
 1. To narrow costs for a single service such as Azure Cosmos DB, select **Add filter** and then select **Service name**. Then, choose **Azure Cosmos DB** from the list. Here’s an example showing costs for just Azure Cosmos DB:
  
-   ![Monitor costs with Cost Analysis pane](./media/plan-manage-costs/cost-analysis-pane.png)
+   :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Monitor costs with Cost Analysis pane":::
 
 In the preceding example, you see the current cost for Azure Cosmos DB for the month of Feb. The charts also contain Azure Cosmos DB costs by location and by resource group.
 

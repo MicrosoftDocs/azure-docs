@@ -25,23 +25,26 @@ The key features of ephemeral disks are:
  
 Key differences between persistent and ephemeral OS disks:
 
-|                             | Persistent OS Disk                          | Ephemeral OS Disk                              |    |
+|                             | Persistent OS Disk                          | Ephemeral OS Disk                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| Size limit for OS disk      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller. For the **cache size in GiB**, see [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
-| VM sizes supported          | All                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
-| Disk type support           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
-| Region support              | All regions                                                                                  | All regions                              |
-| Data persistence            | OS disk data written to OS disk are stored in Azure Storage                                  | Data written to OS disk is stored to the local VM storage and is not persisted to Azure Storage. |
-| Stop-deallocated state      | VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated                                  |
-| Specialized OS disk support | Yes                                                                                          | No                                                                                 |
-| OS disk resize              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
-| Resizing to a new VM size   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
+| **Size limit for OS disk**      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller. For the **cache size in GiB**, see [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
+| **VM sizes supported**          | All                                                                                          | VM sizes that supports Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, LSv2, M                                               |
+| **Disk type support**           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
+| **Region support**              | All regions                                                                                  | All regions                              |
+| **Data persistence**            | OS disk data written to OS disk are stored in Azure Storage                                  | Data written to OS disk is stored to the local VM storage and is not persisted to Azure Storage. |
+| **Stop-deallocated state**      | VMs and scale set instances can be stop-deallocated and restarted from the stop-deallocated state | VMs and scale set instances cannot be stop-deallocated                                  |
+| **Specialized OS disk support** | Yes                                                                                          | No                                                                                 |
+| **OS disk resize**              | Supported during VM creation and after VM is stop-deallocated                                | Supported during VM creation only                                                  |
+| **Resizing to a new VM size**   | OS disk data is preserved                                                                    | Data on the OS disk is deleted, OS is re-provisioned                                      |
 
 ## Size requirements
 
 You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 
 Ephemeral disks also require that the VM size supports Premium storage. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](../articles/virtual-machines/linux/sizes.md) for details around which sizes support Premium storage.
+
+## Preview - Ephemeral OS Disks can now be stored on temp disks
+Ephemeral OS Disks can now be stored on VM temp/resource disk in addition to the VM cache. So, now you can use Ephemeral OS Disks with VM which don’t have a cache or has insufficient cache but has a temp/resource disk to store the Ephemeral OS disk such as Dav3, Dav4, Eav4 and Eav3. If a VM has sufficient cache and temp space, you will now also be able to specify where you want to store the ephemeral OS Disk by using a new property called [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). This feature is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. To get started, [request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
 
 ## PowerShell
 
@@ -194,7 +197,24 @@ A: Yes, you can attach a managed data disk to a VM that uses an ephemeral OS dis
 
 **Q: Will all VM sizes be supported for ephemeral OS disks?**
 
-A: No, all Premium Storage VM sizes are supported (DS, ES, FS, GS and M) except the B-series, N-series, and H-series sizes.  
+A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To know whether a particular VM size supports ephemeral OS disks, you can:
+
+Call the `Get-AzComputeResourceSku` PowerShell cmdlet
+```azurepowershell-interactive
+ 
+$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
+
+foreach($vmSize in $vmSizes)
+{
+   foreach($capability in $vmSize.capabilities)
+   {
+       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
+       {
+           $vmSize
+       }
+   }
+}
+```
  
 **Q: Can the ephemeral OS disk be applied to existing VMs and scale sets?**
 

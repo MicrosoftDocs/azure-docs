@@ -142,7 +142,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
    ![OBS output settings](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. Leave the rest of the settings unchanced and click **OK**.
+1. Leave the rest of the settings unchanged and click **OK**.
 
 ### Start streaming
 

@@ -50,6 +50,11 @@ The QnA Maker service uses CMK from the Azure Search service. Follow these steps
 
 Customer-managed keys are available in all Azure Search regions.
 
+## Encryption of data in transit
+
+QnA Maker portal runs in the user's browser. Every action trigger a direct call to the respective cognitive service API. Hence, QnA Maker is compliant for data in transit.
+However, as the QnA Maker portal service is hosted in West-US, it is still not ideal for non-US customers. 
+
 ## Next steps
 
 * [Encryption in Azure Search using CMKs in Azure Key Vault](https://docs.microsoft.com/azure/search/search-security-manage-encryption-keys)

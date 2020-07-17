@@ -3,10 +3,10 @@ title: Edit and manage logic apps by using Visual Studio with Cloud Explorer
 description: Edit, update, manage, add to source control, and deploy logic apps by using Visual Studio with Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
+ms.date: 04/29/2020
 ---
 
 # Manage logic apps with Visual Studio
@@ -32,9 +32,9 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
-    > For more information, see [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > For more information, see [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer).
 
-    To install Cloud Explorer for Visual Studio 2015, [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+    To install Cloud Explorer for Visual Studio 2015, [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). For more information, see [Manage resources associated with your Azure Accounts in Visual Studio Cloud Explorer (2015)](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
   * [Azure SDK (2.9.1 or later)](https://azure.microsoft.com/downloads/)
 
@@ -48,7 +48,7 @@ You can also [manage your logic apps in the Azure portal](manage-logic-apps-with
 
     * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
 
-    You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
+    You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
 * Access to the web while using the embedded Logic Apps Designer
 
@@ -262,7 +262,11 @@ To delete your logic app from the Azure portal, in Cloud Explorer, open your log
 
 > [!NOTE]
 > When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
-> If you have thousands of runs, cancellation might take significant time to complete. 
+> If you have thousands of runs, cancellation might take significant time to complete.
+
+> [!NOTE]
+> If you delete and recreate a child logic app, you must resave the parent logic app. The recreated child app will have different metadata.
+> If you don't resave the parent logic app after recreating its child, your calls to the child logic app will fail with an error of "unauthorized." This behavior applies to parent-child logic apps, for example, those that use artifacts in integration accounts or call Azure functions.
 
 ## Troubleshooting
 

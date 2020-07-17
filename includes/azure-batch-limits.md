@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: batch
- author: LauraBrenner
+ author: JnHs
  ms.service: batch
  ms.topic: include
- ms.date: 05/28/2019
- ms.author: labrenne
+ ms.date: 06/03/2020
+ ms.author: jenhayes
  ms.custom: include file
 ---
 
@@ -19,6 +19,9 @@
 | Pools per Batch account | 20-100 | 500<sup>1</sup> |
 
 <sup>1</sup>To request an increase beyond this limit, contact Azure Support.
+
+> [!IMPORTANT]
+> We are changing how you request and manage dedicated quota.  The total dedicated vCPUs is the currently enforced value, but soon we will enforce dedicated quota per VM series. Low-priority quota will continue being enforced based on the total limit; it will not be enforced by VM series.
 
 > [!NOTE]
 > Default limits vary depending on the type of subscription you use to create a Batch account. Cores quotas shown are for Batch accounts in Batch service mode. [View the quotas in your Batch account](../articles/batch/batch-quota-limit.md#view-batch-quotas).

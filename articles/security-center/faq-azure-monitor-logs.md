@@ -38,7 +38,7 @@ When Security Center identifies that a VM is already connected to a workspace yo
 ## I already have workspaces in my environment, can I use them to collect security data?
 If a VM already has the Log Analytics agent installed as an Azure extension, Security Center uses the existing connected workspace. A Security Center solution is installed on the workspace if not present already, and the solution is applied only to the relevant VMs via [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
-When Security Center installs the Log Analytics agent on VMs, it uses the default workspace(s) created by Security Center.
+When Security Center installs the Log Analytics agent on VMs, it uses the default workspace(s) created by Security Center if Security Center isn't pointed to an existing workspace.
 
 ## I already have security solution on my workspaces. What are the billing implications?
 The Security & Audit solution is used to enable Security Center standard tier features for Azure VMs. If the Security & Audit solution is already installed on a workspace, Security Center uses the existing solution. There is no change in billing.

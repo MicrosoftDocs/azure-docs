@@ -4,17 +4,12 @@ description: In this article, you learn how to configure SQL FQDNs in Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 07/19/2019
+ms.topic: how-to
+ms.date: 06/18/2020
 ms.author: victorh
 ---
 
 # Configure Azure Firewall application rules with SQL FQDNs
-
-> [!IMPORTANT]
-> Azure Firewall application rules with SQL FQDNs is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can now configure Azure Firewall application rules with SQL FQDNs. This allows you to limit access from your virtual networks to only the specified SQL server instances.
 
@@ -24,10 +19,8 @@ With SQL FQDNs, you can filter traffic:
 - From on-premises to Azure SQL Managed Instances or SQL IaaS running in your VNets.
 - From spoke-to-spoke to Azure SQL Managed Instances or SQL IaaS running in your VNets.
 
-During the public preview, SQL FQDN filtering is supported in [proxy-mode](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](overview.md#network-traffic-filtering-rules).
+SQL FQDN filtering is supported in [proxy-mode](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-architecture#connection-policy) only (port 1433). If you use SQL in the default redirect mode, you can filter access using the SQL service tag as part of [network rules](features.md#network-traffic-filtering-rules).
 If you use non-default ports for SQL IaaS traffic, you can configure those ports in the firewall application rules.
-
-Application rules with SQL FQDNs is currently available in all regions via the Azure portal, Azure CLI, REST, and templates.
 
 ## Configure using Azure CLI
 
@@ -65,4 +58,4 @@ Application rules with SQL FQDNs is currently available in all regions via the A
 
 ## Next steps
 
-To learn about SQL proxy and redirect modes, see [Azure SQL database connectivity architecture](../sql-database/sql-database-connectivity-architecture.md).
+To learn about SQL proxy and redirect modes, see [Azure SQL Database connectivity architecture](../azure-sql/database/connectivity-architecture.md).

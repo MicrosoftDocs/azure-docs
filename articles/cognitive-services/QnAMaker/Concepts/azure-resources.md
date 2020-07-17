@@ -39,11 +39,11 @@ Typically there are three parameters you need to consider:
 
 The following table gives you some high-level guidelines.
 
-|                        | QnA Maker Management | App Service | Azure Cognitive Search | Limitations                      |
-| ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
-| Experimentation        | Free SKU             | Free Tier   | Free Tier    | Publish Up to 2 KBs, 50 MB size  |
-| Dev/Test Environment   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
-| Production Environment | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
+|                            | QnA Maker Management | App Service | Azure Cognitive Search | Limitations                      |
+| -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
+| **Experimentation**        | Free SKU             | Free Tier   | Free Tier    | Publish Up to 2 KBs, 50 MB size  |
+| **Dev/Test Environment**   | Standard SKU         | Shared      | Basic        | Publish Up to 14 KBs, 2 GB size    |
+| **Production Environment** | Standard SKU         | Basic       | Standard     | Publish Up to 49 KBs, 25 GB size |
 
 ## Recommended Settings
 
@@ -177,6 +177,14 @@ Use these keys when making requests to the service through APIs.
 The terms authoring and query endpoint key are corrective terms. The previous term was **subscription key**. If you see other documentation referring to subscription keys, these are equivalent to authoring and query endpoint keys (used in the runtime).
 
 You must know what the key is accessing, knowledge base management or knowledge base querying, to know which key you need to find.
+
+## Recommended settings for network isolation
+
+* Protect  Cognitive Service Resource from public access by [configuring the virtual network](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal).
+* Protect App Service (QnA Runtime) from public access:
+    * Allow traffic only from Cognitive Service IPs. These are already included in Service Tag "CognitiveServicesManagement". This is required for Authoring APIs (Create/Update KB) to invoke the app service and update Azure Search service accordingly.
+    * Make sure you also allow other entry points like Bot service, QnA Maker portal (may be your corpnet) etc. for prediction "GenerateAnswer" API access.
+    * Check out [more information about service tags.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
 
 ## Next steps
 

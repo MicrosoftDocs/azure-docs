@@ -1,7 +1,7 @@
 ---
-title: High availability and disaster recovery - Azure Batch
-description: Learn how to design your Batch application for a regional outage. Workloads should failover to another region or be split between two or more regions.
-ms.topic: article
+title: High availability and disaster recovery
+description: Learn how to design your Batch application for a regional outage.
+ms.topic: how-to
 ms.date: 01/29/2019
 ---
 

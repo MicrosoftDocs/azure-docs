@@ -12,7 +12,7 @@ ms.date: 10/24/2019
 # Get started with log queries in Azure Monitor
 
 > [!NOTE]
-> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
+> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.  If you already know how to query in KQL, but just need to quickly create useful queries based on resource type(s), see the [saved example queries pane](saved-queries.md).
 
 In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
@@ -32,12 +32,14 @@ Follow along with a video version of this tutorial below:
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## Writing a new query
+
 Queries can start with either a table name or the *search* command. You should start with a table name, since it defines a clear scope for the query and improves both query performance and relevance of the results.
 
 > [!NOTE]
 > The Kusto query language used by Azure Monitor is case-sensitive. Language keywords are typically written in lower-case. When using names of tables or columns in a query, make sure to use the correct case, as shown on the schema pane.
 
 ### Table-based queries
+
 Azure Monitor organizes log data in tables, each composed of multiple columns. All tables and columns are shown on the schema pane in Log Analytics in the Analytics portal. Identify a table that you're interested in and then take a look at a bit of data:
 
 ```Kusto
@@ -54,6 +56,7 @@ The query shown above returns 10 results from the *SecurityEvent* table, in no s
 We could actually run the query even without adding `| take 10` - that would still be valid, but it could return up to 10,000 results.
 
 ### Search queries
+
 Search queries are less structured, and generally more suited for finding records that include a specific value in any of their columns:
 
 ```Kusto
@@ -129,12 +132,14 @@ SecurityEvent
 ## Specify a time range
 
 ### Time picker
+
 The time picker is next to the Run button and indicates we’re querying only records from the last 24 hours. This is the default time range applied to all queries. To get only records from the last hour, select _Last hour_ and run the query again.
 
 ![Time Picker](media/get-started-queries/timepicker.png)
 
 
 ### Time filter in query
+
 You can also define your own time range by adding a time filter to the query. It’s best to place the time filter immediately after the table name: 
 
 ```Kusto
@@ -147,6 +152,7 @@ In the above time filter  `ago(30m)` means "30 minutes ago" so this query only r
 
 
 ## Project and Extend: select and compute columns
+
 Use **project** to select specific columns to include in the results:
 
 ```Kusto

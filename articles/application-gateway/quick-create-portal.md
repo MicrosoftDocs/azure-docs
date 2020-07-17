@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/09/2020
+ms.date: 05/21/2020
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -226,4 +226,4 @@ To delete the resource group:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage web traffic with an application gateway using the Azure CLI](./tutorial-manage-web-traffic-cli.md)
+> [Tutorial: Configure an application gateway with TLS termination using the Azure portal](create-ssl-portal.md)

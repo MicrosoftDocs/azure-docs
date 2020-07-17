@@ -1,18 +1,8 @@
 ---
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
-services: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: timlt
-
-ms.service: event-hubs
-ms.devlang: na
-ms.custom: seodec18
 ms.topic: article
-ms.date: 12/20/2019
-ms.author: spelluru
-
+ms.date: 07/16/2020
 ---
 
 # Configure IP firewall rules for an Azure Event Hubs namespace
@@ -26,7 +16,6 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 > Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Azure Monitor (diagnostic setting)
 > - Azure Stream Analytics
 > - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
@@ -51,6 +40,9 @@ This section shows you how to use the Azure portal to create IP firewall rules f
     1. Select **Add your client IP address** option to give your current client IP the access to the namespace. 
     2. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation. 
     3. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. 
+
+        > [!WARNING]
+        > If you choose the **Selected networks** option and don't specify an IP address or address range, the service will allow traffic from all networks. 
 
         ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
 3. Select **Save** on the toolbar to save the settings. Wait for a few minutes for the confirmation to show up on the portal notifications.

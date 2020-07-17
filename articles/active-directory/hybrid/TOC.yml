@@ -107,6 +107,8 @@
       href:  how-to-connect-install-express.md
     - name: Install Azure AD Connect Federation or other Custom settings
       href:  how-to-connect-install-custom.md
+    - name: Import and export configuration settings
+      href:  how-to-connect-import-export-config.md
     - name: Install Azure AD Connect with Pass-through Authentication (PTA)
       href:  how-to-connect-pta-quick-start.md 
     - name: Install Azure AD Connect Health
@@ -189,6 +191,8 @@
     items:
     - name: Enable device writeback
       href: how-to-connect-device-writeback.md
+    - name: Enable group writeback
+      href: how-to-connect-group-writeback.md
     - name: Device options
       href: how-to-connect-device-options.md
     - name: Additional features in Azure AD Connect
@@ -282,6 +286,8 @@
       href: how-to-connect-sync-feature-scheduler.md
     - name: Create and customize a synchronization rule
       href: how-to-connect-create-custom-sync-rule.md
+    - name: Azure AD Connect sync V2 endpoint API
+      href: how-to-connect-sync-endpoint-api-v2.md
     - name: Azure AD Connect Sync service manager
       items: 
        - name: Manage the service manager operations tab

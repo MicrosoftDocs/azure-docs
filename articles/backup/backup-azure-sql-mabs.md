@@ -30,7 +30,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 1. For the protection group type, select **Servers**.
 
     ![Select the Servers protection group type](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expand the SQL Server machine where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Select **Next**.
+1. Expand the SQL Server instance where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Select **Next**.
 
     ![Select a SQL Server database](./media/backup-azure-backup-sql/pg-databases.png)
 1. Name the protection group and then select **I want online protection**.
@@ -58,14 +58,14 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
     ![Choose a replica-creation method in MABS](./media/backup-azure-backup-sql/pg-manual.png)
 
-    The initial backup copy requires the transfer of the entire data source (SQL Server database). The backup data moves from the production server (SQL Server machine) to MABS. If this backup is large, then transferring the data over the network could cause bandwidth congestion. For this reason, administrators can choose to use removable media to transfer the initial backup **Manually**. Or they can transfer the data **Automatically over the network** at a specified time.
+    The initial backup copy requires the transfer of the entire data source (SQL Server database). The backup data moves from the production server (SQL Server computer) to MABS. If this backup is large, then transferring the data over the network could cause bandwidth congestion. For this reason, administrators can choose to use removable media to transfer the initial backup **Manually**. Or they can transfer the data **Automatically over the network** at a specified time.
 
     After the initial backup finishes, backups continue incrementally on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 1. Choose when to run a consistency check. Then select **Next**.
 
     ![Choose when to run a consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    MABS can run a consistency check on the integrity of the backup point. It calculates the checksum of the backup file on the production server (the SQL Server machine in this example) and the backed-up data for that file in MABS. If the check finds a conflict, then the backed-up file in MABS is assumed to be corrupt. MABS fixes the backed-up data by sending the blocks that correspond to the checksum mismatch. Because the consistency check is a performance-intensive operation, administrators can choose to schedule the consistency check or run it automatically.
+    MABS can run a consistency check on the integrity of the backup point. It calculates the checksum of the backup file on the production server (the SQL Server computer in this example) and the backed-up data for that file in MABS. If the check finds a conflict, then the backed-up file in MABS is assumed to be corrupt. MABS fixes the backed-up data by sending the blocks that correspond to the checksum mismatch. Because the consistency check is a performance-intensive operation, administrators can choose to schedule the consistency check or run it automatically.
 1. Select the data sources to protect in Azure. Then select **Next**.
 
     ![Select data sources to protect in Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)

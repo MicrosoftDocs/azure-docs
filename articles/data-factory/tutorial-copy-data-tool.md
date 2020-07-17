@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 03/03/2020
+ms.date: 06/08/2020
 ---
 
 # Copy data from Azure Blob storage to a SQL Database by using the Copy Data tool
@@ -37,7 +37,7 @@ In this tutorial, you perform the following steps:
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * **Azure Storage account**: Use Blob storage as the _source_ data store. If you don't have an Azure Storage account, see the instructions in [Create a storage account](../storage/common/storage-account-create.md).
-* **Azure SQL Database**: Use a SQL Database as the _sink_ data store. If you don't have a SQL Database, see the instructions in [Create a SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**: Use a SQL Database as the _sink_ data store. If you don't have a SQL Database, see the instructions in [Create a SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
 ### Create a blob and a SQL table
 
@@ -71,7 +71,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL Server. Verify that the setting **Allow Azure services and resources to access this server** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to Azure SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** option to **ON**.
+2. Allow Azure services to access SQL Server. Verify that the setting **Allow Azure services and resources to access this server** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to logical SQL server > Security > Firewalls and virtual networks > set the **Allow Azure services and resources to access this server** option to **ON**.
 
 ## Create a data factory
 
@@ -151,11 +151,13 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
     ![Column mapping page](./media/tutorial-copy-data-tool/column-mapping.png)
 
 1. On the **Settings** page, select **Next**.
-1. On the **Summary** page, review the settings, and then select **Next**.
-1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
- 
-    ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
 
+1. On the **Summary** page, review the settings, and then select **Next**.
+
+1. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
+
+    ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+    
 1. On the Pipeline runs page, select **Refresh** to refresh the list. Click the link under **PIPELINE NAME** to view activity run details or rerun the pipeline. 
     ![Pipeline run](./media/tutorial-copy-data-tool/pipeline-run.png)
 
@@ -163,9 +165,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
     ![Monitor activity runs](./media/tutorial-copy-data-tool/activity-monitoring.png)
 
-
 1. Verify that the data is inserted into the **dbo.emp** table in your SQL Database.
-
 
 1. Select the **Author** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines that were created via the tool by using the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 

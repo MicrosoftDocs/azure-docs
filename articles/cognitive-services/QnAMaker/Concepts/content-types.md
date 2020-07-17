@@ -44,4 +44,4 @@ Learn more about the [format guidelines](../reference-document-format-guidelines
 
 ## Next steps
 
-Understand what information is stored in a [question and answer (QnA) set](question-answer-set.md).
+Understand what information is stored in a [question and answer (QnA) pair](question-answer-set.md).

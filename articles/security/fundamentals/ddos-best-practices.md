@@ -272,7 +272,5 @@ documentation.
 ## Next steps
 
 * [Shared responsibility in the cloud](shared-responsibility.md)
-
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)

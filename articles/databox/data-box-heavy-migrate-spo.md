@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: heavy
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
 ---

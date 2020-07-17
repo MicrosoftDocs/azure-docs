@@ -12,8 +12,6 @@ manager: philmea
 
 # Configure rules
 
-
-
 *This article applies to operators, builders, and administrators.*
 
 Rules in IoT Central serve as a customizable response tool that trigger on actively monitored events from connected devices. The following sections describe how rules are evaluated.
@@ -32,6 +30,12 @@ In the following screenshot, the conditions check when the temperature is greate
 
 ![Conditions](media/howto-configure-rules/conditions.png)
 
+### Use a cloud property in a value field
+
+You can reference a cloud property from the device template in the **Value** field for a condition. The cloud property and telemetry value must have similar types. For example, if **Temperature** is a double, then only cloud properties of type double show as options in the **Value** drop-down.
+
+If you choose an event type telemetry value, the **Value** drop-down includes the option **Any**. The **Any** option means the rule fires when your application receives an event of that type, whatever the payload.
+
 ## Use aggregate windowing
 
 Rules evaluate aggregate time windows as tumbling windows. In the screenshot below, the time window is five minutes. Every five minutes, the rule evaluates on the last five minutes of data. The data is only evaluated once in the window to which it corresponds.
@@ -44,7 +48,4 @@ A restriction applies to rules that are applied to IoT Edge modules. Rules on te
 
 ## Next steps
 
-Now that you've learned how to configure a rule in your Azure IoT Central application, you can:
-
-> [!div class="nextstepaction"]
-> [Analyze your data on the fly](howto-create-analytics.md)
+Now that you've learned how to configure a rule in your Azure IoT Central application, you can learn how to [Configure advanced rules](howto-configure-rules-advanced.md) using Power Automate or Azure Logic Apps.

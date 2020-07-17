@@ -35,7 +35,7 @@ enterprise-ready foundation. This environment is composed of:
   - Allowed Azure Region for Resources and Resource Groups
   - Allowed Storage Account SKUs (choose while deploying)
   - Allowed Azure VM SKUs (choose while deploying)
-  - Require Network Watch to be deployed 
+  - Require Network Watcher to be deployed 
   - Require Azure Storage Account Secure transfer Encryption
   - Deny resource types (choose while deploying)  
 - Initiatives

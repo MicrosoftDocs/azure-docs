@@ -1,10 +1,10 @@
 ---
 title: Configure metric alerts - Azure portal - Azure Database for MySQL
 description: This article describes how to configure and access metric alerts for Azure Database for MySQL from the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 

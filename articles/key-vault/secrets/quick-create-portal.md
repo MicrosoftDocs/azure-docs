@@ -59,7 +59,11 @@ To add a secret to the vault, you just need to take a couple of additional steps
     - **Value**: hVFkk965BuUv
     - Leave the other values to their defaults. Click **Create**.
 
-Once that you receive the message that the secret has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
+Once that you receive the message that the secret has been successfully created, you may click on it on the list. 
+
+## Retrieve a secret from Key Vault
+
+If you click on the current version, you can see the value you specified in the previous step.
 
 ![Secret properties](../media/quick-create-portal/current-version-hidden.png)
 

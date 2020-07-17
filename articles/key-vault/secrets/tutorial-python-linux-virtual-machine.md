@@ -10,7 +10,7 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app so that they are kept secure.
 ---
 

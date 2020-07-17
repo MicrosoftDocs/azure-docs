@@ -59,7 +59,7 @@ If you need to create a storage account, follow these steps:
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet:
+2. Create a storage account named **mystorageaccount** in this resource group by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet:
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -67,7 +67,7 @@ If you need to create a storage account, follow these steps:
     ```
    
 ### Upload the VHD to your storage account
-Use the [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
+Use the [Add-AzVhd](/powershell/module/az.compute/add-azvhd) cmdlet to upload the image to a container in your storage account. This example uploads the file **myVHD.vhd** from `"C:\Users\Public\Documents\Virtual hard disks\"` to a storage account named **mystorageaccount** in the **myResourceGroup** resource group. The file will be placed into the container named **mycontainer** and the new file name will be **myUploadedVHD.vhd**.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -101,14 +101,14 @@ You can copy a VHD to another storage account to use when creating a new, duplic
 ### Before you begin
 Make sure that you:
 
-* Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**All Services** > Storage accounts > Add) or using the [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet. 
-* Have downloaded and installed the [AzCopy tool](../../storage/common/storage-use-azcopy.md). 
+* Have information about the **source and destination storage accounts**. For the source VM, you need to have the storage account and container names. Usually, the container name will be **vhds**. You also need to have a destination storage account. If you don't already have one, you can create one using either the portal (**All Services** > Storage accounts > Add) or using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet. 
+* Have downloaded and installed the [AzCopy tool](../../storage/common/storage-use-azcopy-v10.md). 
 
 ### Deallocate the VM
 Deallocate the VM, which frees up the VHD to be copied. 
 
 * **Portal**: Click **Virtual machines** > **myVM** > Stop
-* **Powershell**: Use [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) to stop (deallocate) the VM named **myVM** in resource group **myResourceGroup**.
+* **Powershell**: Use [Stop-AzVM](/powershell/module/az.compute/stop-azvm) to stop (deallocate) the VM named **myVM** in resource group **myResourceGroup**.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -122,17 +122,17 @@ You need the URLs of the source and destination storage accounts. The URLs look 
 You can use the Azure portal or Azure Powershell to get the URL:
 
 * **Portal**: Click the **>** for **All services** > **Storage accounts** > *storage account* > **Blobs** and your source VHD file is probably in the **vhds** container. Click **Properties** for the container, and copy the text labeled **URL**. You'll need the URLs of both the source and destination containers. 
-* **Powershell**: Use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) to get the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
+* **Powershell**: Use [Get-AzVM](/powershell/module/az.compute/get-azvm) to get the information for VM named **myVM** in the resource group **myResourceGroup**. In the results, look in the **Storage profile** section for the **Vhd Uri**. The first part of the Uri is the URL to the container and the last part is the OS VHD name for the VM.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## Get the storage access keys
-Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).
+Find the access keys for the source and destination storage accounts. For more information about access keys, see [About Azure storage accounts](../../storage/common/storage-account-create.md).
 
 * **Portal**: Click **All services** > **Storage accounts** > *storage account* > **Access keys**. Copy the key labeled as **key1**.
-* **Powershell**: Use [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) to get the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled **key1**.
+* **Powershell**: Use [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) to get the storage key for the storage account **mystorageaccount** in the resource group **myResourceGroup**. Copy the key labeled **key1**.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -220,7 +220,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure using PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
 
 1. Create the public IP. In this example, the public IP address name is set to **myIP**.
    
@@ -304,4 +304,3 @@ $vmList.Name
 
 ## Next steps
 Sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).
-

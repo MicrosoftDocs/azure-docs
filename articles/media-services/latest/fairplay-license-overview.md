@@ -58,6 +58,9 @@ The following are required when using Media Services to encrypt your HLS content
   * .der file
   * .pfx file
   * password for the .pfx
+  
+> [!NOTE]
+> Azure Media Services doesn't check the certificate expiration date during packaging or key delivery. It will continue to work after the certificate expires.
 
 ## FairPlay and player apps
 
@@ -105,7 +108,7 @@ private static ContentKeyPolicyFairPlayConfiguration ConfigureFairPlayPolicyOpti
         RentalAndLeaseKeyType =
                 ContentKeyPolicyFairPlayRentalAndLeaseKeyType
                 .PersistentUnlimited,
-        RentalDuration = 2249
+        RentalDuration = 2249 // in seconds
     };
 
     return fairPlayConfiguration;

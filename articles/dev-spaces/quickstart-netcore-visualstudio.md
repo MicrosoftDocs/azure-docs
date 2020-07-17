@@ -25,26 +25,44 @@ Azure Dev Spaces also allows you debug and iterate using:
 ## Prerequisites
 
 - An Azure subscription. If you don't have one, you can create a [free account](https://azure.microsoft.com/free).
-- Visual Studio 2019 on Windows with the Azure Development workload installed. You can also use Visual Studio 2017 on Windows with the Web Development workload and [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools) installed. If you don't have Visual Studio installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Visual Studio 2019 on Windows with the Azure Development workload installed. If you don't have Visual Studio installed, download it [here](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Create an Azure Kubernetes Service cluster
 
-You must create an AKS cluster in a [supported region][supported-regions]. To create a cluster:
+You need to create an AKS cluster in a [supported region][supported-regions]. The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Select *+ Create a resource > Kubernetes Service*. 
-1. Enter the _Subscription_, _Resource Group_, _Kubernetes cluster name_, _Region_, _Kubernetes version_, and _DNS name prefix_.
-
-    ![Create AKS in the Azure portal](media/get-started-netcore-visualstudio/create-aks-portal.png)
-
-1. Click *Review + create*.
-1. Click *Create*.
+```azurecli
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
+```
 
 ## Enable Azure Dev Spaces on your AKS cluster
 
-Navigate to your AKS cluster in the Azure portal and click *Dev Spaces*. Change *Use Dev Spaces* to *Yes* and click *Save*.
+Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
 
-![Enable Dev Spaces in the Azure portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
+
+```azurecli
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+```
+
+```output
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
 
 ## Create a new ASP.NET web app
 
@@ -60,15 +78,15 @@ Navigate to your AKS cluster in the Azure portal and click *Dev Spaces*. Change 
 
 In your project, select **Azure Dev Spaces** from the launch settings dropdown as shown below.
 
-![](media/get-started-netcore-visualstudio/LaunchSettings.png)
+![Screenshot of the Visual Studio UI with the IIS Express option highlighted and selected and the Azure Dev Spaces option highlighted.](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
 In the Azure Dev Spaces dialog, select your *Subscription* and *Azure Kubernetes Cluster*. Leave *Space* set to *default* and enable the *Publicly Accessible* checkbox. Click *OK*.
 
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
+![Screenshot of the Azure Dev Spaces dialog box.](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
 This process deploys your service to the *default* dev space with a publicly accessible URL. If you choose a cluster that hasn't been configured to work with Azure Dev Spaces, you'll see a message asking if you want to configure it. Click *OK*.
 
-![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
+![Screenshot of the Add Azure Spaces Resource dialog box.](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
 The public URL for the service running in the *default* dev space is displayed in the *Output* window:
 

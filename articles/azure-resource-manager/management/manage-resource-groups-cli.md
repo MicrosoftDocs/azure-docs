@@ -145,5 +145,5 @@ For more information, see [Single and multi-resource export to template in Azure
 
 - To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/template-syntax.md).
-- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

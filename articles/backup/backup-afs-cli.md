@@ -37,7 +37,7 @@ Follow these steps to create a recovery services vault:
     eastus      AzureFiles
     ```
 
-2. Use the [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
+1. Use the [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-create) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
 
     The following example creates a recovery services vault named *azurefilesvault* in the East US region.
 
@@ -49,28 +49,6 @@ Follow these steps to create a recovery services vault:
     Location    Name                ResourceGroup
     ----------  ----------------    ---------------
     eastus      azurefilesvault     azurefiles
-    ```
-
-3. Specify the type of redundancy to use for the vault storage. You can use [locally redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs) or [geo-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
-
-    The following example sets storage redundancy option for *azurefilesvault* to **Georedundant** using the [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set) cmdlet.
-
-    ```azurecli-interactive
-    az backup vault backup-properties set --name azurefilesvault --resource-group azurefiles --backup-storage-redundancy Georedundant
-    ```
-
-    To check if the vault is created successfully, you can use the [az backup vault show](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest#az-backup-vault-show) cmdlet to get details of your vault. The following example displays the details of the *azurefilesvault* we created in the steps above.
-
-    ```azurecli-interactive
-    az backup vault show --name azurefilesvault --resource-group azurefiles --output table
-    ```
-
-    The output will be similar to the following response:
-
-    ```output
-    Location     Name               ResourceGroup
-    ----------   ---------------    ---------------
-    eastus       azurefilesvault    azurefiles
     ```
 
 ## Enable backup for Azure file shares
@@ -103,7 +81,7 @@ You need to define the following parameters to trigger an on-demand backup:
 * **--item-name** is the name of the file share for which you want to trigger an on-demand backup. To retrieve the **name** or **friendly name** of your backed-up item, use the [az backup item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) command.
 * **--retain-until** specifies the date until when you want to retain the recovery point. The value should be set in UTC time format (dd-mm-yyyy).
 
-The following example triggers an on-demand backup for the *azuresfiles* fileshare in the *afsaccount* storage account with retention until *20-01-2020*.
+The following example triggers an on-demand backup for the *azurefiles* fileshare in the *afsaccount* storage account with retention until *20-01-2020*.
 
 ```azurecli-interactive
 az backup protection backup-now --vault-name azurefilesvault --resource-group azurefiles --container-name "StorageContainer;Storage;AzureFiles;afsaccount" --item-name "AzureFileShare;azurefiles" --retain-until 20-01-2020 --output table
@@ -120,4 +98,4 @@ The **Name** attribute in the output corresponds to the name of the job that is 
 ## Next steps
 
 * Learn how to [Restore Azure file shares with CLI](restore-afs-cli.md)
-* Learn how to [Manage Azure file share ackups with CLI](manage-afs-backup-cli.md)
+* Learn how to [Manage Azure file share backups with CLI](manage-afs-backup-cli.md)

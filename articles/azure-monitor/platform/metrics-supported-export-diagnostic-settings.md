@@ -8,17 +8,20 @@ ms.subservice: metrics
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings
 
-Azure Monitor provides [platform metrics](data-platform-metrics.md) by default with no configuration. It provides several ways to interact with platform metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. See [metrics-supported](metrics-supported.md) for a complete list of platform metrics currently available with Azure Monitor's consolidated metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Other metrics may be available in the portal or using legacy APIs.
+Azure Monitor provides [platform metrics](data-platform-metrics.md) by default with no configuration. It provides several ways to interact with platform metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. See [metrics-supported](metrics-supported.md) for a complete list of platform metrics currently available with Azure Monitor's consolidated metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics may be available in the portal or using legacy APIs.
 
 You can export the platform metrics from the Azure monitor pipeline to other locations in one of two ways.
 1. Using [diagnostic settings](diagnostic-settings.md) to send to Log Analytics, Event Hubs or Azure Storage.
-2. Use the [metrics REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+2. Use the [metrics REST API](/rest/api/monitor/metrics/list)
 
 Because of intricacies in the Azure Monitor backend, not all metrics are exportable using diagnostic settings. The table below lists which can and cannot be exported using diagnostic settings.
 
 ## Change to behavior for NULLs and Zero values 
  
-For the platform metrics that can be exported via diagnostic settings, there are a few metrics for which Azure Monitor interprets '0s' as 'Nulls'. This has caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (Nulls). Soon a change will occur and platform metrics exported via diagnostic settings will no longer export '0s' unless they have truly been emitted by the underlying resource. The change was scheduled for April 1, 2020, but has been delayed due to priority shifts due to COVID-19. 
+For the platform metrics that can be exported via diagnostic settings, there are a few metrics for which Azure Monitor interprets '0s' as 'Nulls'. This has caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (Nulls). Soon a change will occur and platform metrics exported via diagnostic settings will no longer export '0s' unless they have truly been emitted by the underlying resource. 
+
+> [!CAUTION]
+> The change in behavior described above is scheduled to occur on June 1, 2020.
 
 Please note:
 

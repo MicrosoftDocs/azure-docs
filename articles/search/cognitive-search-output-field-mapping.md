@@ -17,11 +17,14 @@ In this article, you learn how to map enriched input fields to output fields in 
 
 Output Field Mappings are required for moving content from enriched documents into the index.  The enriched document is really a tree of information, and even though there is support for complex types in the index, sometimes you may want to transform the information from the enriched tree into a more simple type (for instance, an array of strings). Output field mappings allow you to perform data shape transformations by flattening information.
 
+> [!NOTE]
+> We recently enabled the functionality of mapping functions on output field mappings. For more details on mapping functions, see [Field mapping functions](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
+
 ## Use outputFieldMappings
 To map fields, add `outputFieldMappings` to your indexer definition as shown below:
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -46,7 +49,10 @@ The body of the request is structured as follows:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

@@ -572,8 +572,8 @@ ms.date: 04/20/2020
 - [Bug Fix] [AzureHtml5JS] Live playback freezing on MPD updates when there are small imprecisions in the timestamp
 - [Bug Fix] [AzureHtml5JS] Mitigated several Live playback issues
 - [Bug Fix] [AzureHtml5JS] Flush buffers when window size heuristics is on and go to a higher resolution screen
-- [Bug Fix] [AzureHtml5JS] Chrome now properly shows ended event. Linked to previous known issue of *Chrome will not properly send â&euro;œendedâ&euro; event when using AzureHtml5JS. There is an issue in the underlying browser.*
-- [Bug Fix] [AzureHtml5JS] Disabled Safari for this tech in order to address *Playback issue with OSX Yosemite with AzureHtml5JS tech. There are MSE implementation issues. Temporary Mitigation: force â&euro;œflashSSâ&euro;, â&euro;œsilverlightSSâ&euro; as tech order for these user agents*
+- [Bug Fix] [AzureHtml5JS] Chrome now properly shows ended event. Linked to previous known issue of *Chrome will not properly send ended event when using AzureHtml5JS. There is an issue in the underlying browser.*
+- [Bug Fix] [AzureHtml5JS] Disabled Safari for this tech in order to address *Playback issue with OSX Yosemite with AzureHtml5JS tech. There are MSE implementation issues. Temporary Mitigation: force flashSS, silverlightSS as tech order for these user agents*
 - [Bug Fix] [FlashSS] loadstart fired after error occurred
 
 ## 0.2.0 (Beta) ##

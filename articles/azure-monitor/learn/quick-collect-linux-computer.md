@@ -111,7 +111,7 @@ For example: `https://user01:password@proxy01.contoso.com:30443`
 
 Azure Monitor can collect events from the Linux Syslog and performance counters that you specify for longer term analysis and reporting. It can also take action when it detects a particular condition. Follow these steps to configure collection of events from the Linux Syslog, and several common performance counters to start with.  
 
-1. In the lower-left corner of the Azure portal, select **More services**. In the search box, enter **Log Analytics**. As you type, the list filters based on your input. Select **Log Analytics workspaces**.
+1. In the Azure portal, select **All services**. In the list of resources, type Log Analytics. As you type, the list filters based on your input. Select **Log Analytics workspaces** and in your list of Log Analytics workspaces, select the workspace you are looking for and select **Advanced settings** of the **Log Analytics** workspace.
 
 2. Select **Data**, and then select **Syslog**.  
 
@@ -164,4 +164,4 @@ Now that you are collecting operational and performance data from your on-premis
 To learn how to view and analyze the data, continue to the tutorial.
 
 > [!div class="nextstepaction"]
-> [View or analyze data in Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [View or analyze data in Log Analytics](../log-query/get-started-portal.md)

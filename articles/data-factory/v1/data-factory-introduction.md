@@ -107,7 +107,7 @@ For example, an Azure Storage-linked service specifies a connection string with 
 
 Linked services are used for two reasons in Data Factory:
 
-* To represent a *data store* that includes, but isn't limited to, an on-premises SQL Server database, Oracle database, file share, or Azure blob storage account. See the [Data movement activities](#data-movement-activities) section for a list of supported data stores.
+* To represent a *data store* that includes, but isn't limited to, a SQL Server database, Oracle database, file share, or Azure blob storage account. See the [Data movement activities](#data-movement-activities) section for a list of supported data stores.
 
 * To represent a *compute resource* that can host the execution of an activity. For example, the HDInsightHive activity runs on an HDInsight Hadoop cluster. See the [Data transformation activities](#data-transformation-activities) section for a list of supported compute environments.
 
@@ -137,6 +137,6 @@ To learn how to build data factories with data pipelines, follow the step-by-ste
 
 | Tutorial | Description |
 | --- | --- |
-| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that moves data from blob storage to a SQL database. |
+| [Move data between two cloud data stores](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) |Create a data factory with a pipeline that moves data from blob storage to SQL Database. |
 | [Transform data by using Hadoop cluster](data-factory-build-your-first-pipeline.md) |Build your first Azure data factory with a data pipeline that processes data by running a Hive script on an Azure HDInsight (Hadoop) cluster. |
-| [Move data between an on-premises data store and a cloud data store by using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that moves data from an on-premises SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |
+| [Move data between an on-premises data store and a cloud data store by using Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) |Build a data factory with a pipeline that moves data from a SQL Server database to an Azure blob. As part of the walkthrough, you install and configure the Data Management Gateway on your machine. |

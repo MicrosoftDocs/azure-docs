@@ -4,6 +4,7 @@ description: This article describes firewall rules for Azure Database for Postgr
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
+ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
 ---

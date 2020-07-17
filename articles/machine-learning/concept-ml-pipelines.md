@@ -1,7 +1,6 @@
 ---
-title: 'What are ML Pipelines'
-titleSuffix: Azure Machine Learning
-description: In this article, learn the advantages of the machine learning (ML) pipelines you can build with the Azure Machine Learning SDK for Python. Machine learning pipelines are used by data scientists to build, optimize, and manage their machine learning workflows.
+title: 'What are Azure Machine Learning Pipelines'
+description: Learn about how machine learning (ML) pipelines help you build, optimize, and manage machine learning workflows.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +8,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
+ms.custom: tracking-python
 ---
 
 # What are Azure Machine Learning pipelines?
 
-Azure Machine Learning pipelines allow you to create workflows in your machine learning projects. These workflows have a number of benefits: 
+In this article, you can learn how Azure Machine Learning pipelines help you build, optimize, and manage machine learning workflows. These workflows have a number of benefits: 
 
 + Simplicity
 + Speed
@@ -40,7 +40,6 @@ The Azure cloud provides several other pipelines, each with a different purpose.
 | Model orchestration (Machine learning) | Data scientist | Azure Machine Learning Pipelines | Kubeflow Pipelines | Data -> Model | Distribution, caching, code-first, reuse | 
 | Data orchestration (Data prep) | Data engineer | [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache Airflow | Data -> Data | Strongly-typed movement. Data-centric activities. |
 | Code & app orchestration (CI/CD) | App Developer / Ops | [Azure DevOps Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Code + Model -> App/Service | Most open and flexible activity support, approval queues, phases with gating | 
-
 
 ## What can Azure ML pipelines do?
 

@@ -1,153 +1,102 @@
 ---
-title: Onboard update, change tracking, and inventory solutions to Azure Automation
-description: Learn how to onboard update and change tracking solutions to Azure Automation.
+title: Enable Azure Automation Update Management from runbook
+description: This article tells how to enable Update Management from a runbook.
 services: automation
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
 ---
-# Onboard update, change tracking, and inventory solutions to Azure Automation
+# Enable Update Management from a runbook
 
-In this tutorial, you learn how to automatically onboard Update, Change Tracking, and Inventory solutions for VMs to Azure Automation:
+This article describes how you can use a runbook to enable the [Update Management](automation-update-management.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Update Management. 
 
-> [!div class="checklist"]
-> * Onboard an Azure VM
-> * Enable solutions
-> * Install and update modules
-> * Import the onboarding runbook
-> * Start the runbook
-
->[!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). For Az module installation instructions on your Hybrid Runbook Worker, see [Install the Azure PowerShell Module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). For your Automation account, you can update your modules to the latest version using [How to update Azure PowerShell modules in Azure Automation](automation-update-azure-modules.md).
+> [!NOTE]
+> When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](how-to/region-mappings.md).
 
 ## Prerequisites
 
-To complete this tutorial, the following are required:
-
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to manage machines.
-* A [virtual machine](../virtual-machines/windows/quick-create-portal.md) to onboard.
+* [Automation account](./index.yml) to manage machines.
+* A [virtual machine](../virtual-machines/windows/quick-create-portal.md).
 
-## Onboard an Azure VM
+## Enable Update Management
 
-There are multiple ways to onboard machines, you can onboard the solution [from a virtual machine](automation-onboard-solutions-from-vm.md), [from browsing multiple machines](automation-onboard-solutions-from-browse.md) [from your Automation account](automation-onboard-solutions-from-automation-account.md),  or by runbook. This tutorial walks through enabling Update Management through a runbook. To onboard Azure Virtual Machines at scale, an existing VM must be onboarded with the Change tracking or Update management solution. In this step, you onboard a virtual machine with Update management, and Change tracking.
+1. In your Automation account, select **Update Management** under **Update Management**.
 
-### Enable Change Tracking and Inventory
+2. Select the Log Analytics workspace, then click **Enable**. While Update Management is being enabled, a blue banner is shown. 
 
-The Change Tracking and Inventory solutions allow you to [track changes](automation-vm-change-tracking.md) and [inventory](automation-vm-inventory.md) on your virtual machines. In this step, you enable the solutions on a virtual machine.
+    ![Enable Update Management](media/automation-onboard-solutions/update-onboard.png)
 
-1. In the Azure portal, select **Automation Accounts**, and then select your automation account in the list.
-1. Select **Inventory** under **Configuration Management**.
-1. Select an existing Log Analytics workspace or create a new one. 
-1. Click **Enable**.
+## Select Azure VM to manage
 
-    ![Onboard Update solution](media/automation-onboard-solutions/inventory-onboard.png)
+With Update Management enabled, you can add an Azure VM to receive updates.
 
-### Enable Update Management
+1. From your Automation account, select **Update management** under **Update management**.
 
-The Update Management solution allows you to manage updates and patches for your Azure Windows VMs. You can assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM. In this step, you enable the solution for your VM.
+2. Select **Add Azure VMs** to add your VM.
 
-1. In your Automation account, select **Update Management** in the **Update Management** section.
-1. The Log analytics workspace selected is the workspace used in the preceding step. Click **Enable** to onboard the Update management solution. While the Update management solution is being installed, a blue banner is shown. 
+3. Choose the VM from the list and click **Enable** to set up the VM for updates. 
 
-    ![Onboard Update solution](media/automation-onboard-solutions/update-onboard.png)
+   ![Enable Update Management for VM](media/automation-onboard-solutions/enable-update.png)
 
-### Select Azure VM to be managed
-
-Now that the solutions are enabled, you can add an Azure VM to onboard to those solutions.
-
-1. From your Automation account, select **Change tracking** under **Configuration Management**. 
-2. On the Change tracking page, click **Add Azure VMs** to add your VM.
-
-3. Select your VM from the list and click **Enable**. This action enables the Change Tracking and Inventory solutions for the VM.
-
-   ![Enable update solution for vm](media/automation-onboard-solutions/enable-change-tracking.png)
-
-4. When the VM onboarding notification completes, select **Update management** under **Update Management**.
-
-5. Select **Add Azure VMs** to add your VM.
-
-6. Select your VM from the list and select **Enable**. This action enables the Update Management solution for the VM.
-
-   ![Enable update solution for vm](media/automation-onboard-solutions/enable-update.png)
-
-> [!NOTE]
-> If you don't wait for the other solution to complete, when Enabling the next solution, you receive the message: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
+    > [!NOTE]
+    > If you try to enable another feature before setup of Update Management has completed, you receive this message: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
 
 ## Install and update modules
 
-It's required to update to the latest Azure modules and import the [Az.OperationalInsights](https://docs.microsoft.com/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully automate solution onboarding.
-
-## Update Azure Modules
+It's required to update to the latest Azure modules and import the [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully enable Update Management for your VMs.
 
 1. In your Automation account, select **Modules** under **Shared Resources**. 
 2. Select **Update Azure Modules** to update the Azure modules to the latest version. 
 3. Click **Yes** to update all existing Azure modules to the latest version.
 
-![Update modules](media/automation-onboard-solutions/update-modules.png)
-A
+    ![Update modules](media/automation-onboard-solutions/update-modules.png)
 
-### Install Az.OperationalInsights module
+4. Return to **Modules** under **Shared Resources**. 
+5. Select **Browse gallery** to open the module gallery. 
+6. Search for `Az.OperationalInsights` and import this module into your Automation account.
 
-1. In the Automation account, select **Modules** under **Shared Resources**. 
-2. Select **Browse gallery** to open up the module gallery. 
-3. Search for Az.OperationalInsights and import this module into the Automation account.
+    ![Import OperationalInsights module](media/automation-onboard-solutions/import-operational-insights-module.png)
 
-![Import OperationalInsights module](media/automation-onboard-solutions/import-operational-insights-module.png)
-
-## Import the onboarding runbook
+## Import a runbook to enable Update Management
 
 1. In your Automation account, select **Runbooks** under **Process Automation**.
-1. Select **Browse gallery**.
-1. Search for `update and change tracking`.
-3. Select the runbook and click **Import** on the View Source page. 
-4. Click **OK** to import the runbook into the Automation account.
+2. Select **Browse gallery**.
+3. Search for `update and change tracking`.
+4. Select the runbook and click **Import** on the View Source page. 
+5. Click **OK** to import the runbook into the Automation account.
 
-   ![Import onboarding runbook](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Import runbook for setup](media/automation-onboard-solutions/import-from-gallery.png)
 
 6. On the Runbook page, click **Edit**, then select **Publish**. 
 7. On the Publish Runbook pane, click **Yes** to publish the runbook.
 
 ## Start the runbook
 
-You must have onboarded either change tracking or update solutions to an Azure VM to start this runbook. It requires an existing virtual machine and resource group with the solution onboarded for parameters.
+You must have enabled Update Management for an Azure VM to start this runbook. It requires an existing VM and resource group with the feature enabled for parameters.
 
 1. Open the **Enable-MultipleSolution** runbook.
 
-   ![Multiple solution runbooks](media/automation-onboard-solutions/runbook-overview.png)
+   ![Multiple solution runbook](media/automation-onboard-solutions/runbook-overview.png)
 
-1. Click the start button and enter the following values for parameters.
+2. Click the start button and enter parameter values in the following fields:
 
-   * **VMNAME** - Leave blank. The name of an existing VM to onboard to update or change tracking solution. By leaving this value blank, all VMs in the resource group are onboarded.
-   * **VMRESOURCEGROUP** - The name of the resource group for the VMs to be onboarded.
-   * **SUBSCRIPTIONID** - Leave blank. The subscription ID of the new VM to be onboarded. If left blank, the subscription of the workspace is used. When a different subscription ID is given, the RunAs account for this automation account should be added as a contributor for this subscription also.
-   * **ALREADYONBOARDEDVM** - The name of the VM that was manually onboarded to either the Updates or ChangeTracking solution.
+   * **VMNAME** - The name of an existing VM to add to Update Management. Leave this field blank to add all VMs in the resource group.
+   * **VMRESOURCEGROUP** - The name of the resource group for the VMs to enable.
+   * **SUBSCRIPTIONID** - The subscription ID of the new VM to enable. Leave this field blank to use the subscription of the workspace. When you use a different subscription ID, add the Run As account for your Automation account as a contributor for the subscription.
+   * **ALREADYONBOARDEDVM** - The name of the VM that is already manually enabled for updates.
    * **ALREADYONBOARDEDVMRESOURCEGROUP** - The name of the resource group to which the VM belongs.
-   * **SOLUTIONTYPE** - Enter **Updates** or **ChangeTracking**.
+   * **SOLUTIONTYPE** - Enter **Updates**.
 
    ![Enable-MultipleSolution runbook parameters](media/automation-onboard-solutions/runbook-parameters.png)
 
-1. Select **OK** to start the runbook job.
-1. Monitor progress and any errors on the runbook job page.
-
-## Clean up resources
-
-To remove a VM from Update Management:
-
-1. In your Log Analytics workspace, remove the VM from the saved search for the scope configuration `MicrosoftDefaultScopeConfig-Updates`. Saved searches can be found under **General** in your workspace.
-2. Remove the [Log Analytics agent for Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) or the [Log Analytics agent for Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+3. Select **OK** to start the runbook job.
+4. Monitor progress and any errors on the runbook job page.
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Onboard an Azure virtual machine manually.
-> * Install and update required Azure modules.
-> * Import a runbook that onboards Azure VMs.
-> * Start the runbook that onboards Azure VMs automatically.
-
-Follow this link to learn more about scheduling runbooks.
-
-> [!div class="nextstepaction"]
-> [Scheduling runbooks](automation-schedules.md).
+* To schedule a runbook, see [Manage schedules in Azure Automation](shared-resources/schedules.md).
+* To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

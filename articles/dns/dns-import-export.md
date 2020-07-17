@@ -7,7 +7,7 @@ author: rohinkoul
 ms.service: dns
 ms.date: 4/3/2019
 ms.author: rohink
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Import and export a DNS zone file using the Azure CLI

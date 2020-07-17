@@ -2,15 +2,15 @@
 title: Tutorial - Use Azure Key Vault with a Windows virtual machine in Python | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
-author: msmbaldwin
-manager: rajvijan
+author: ShaneBala-keyvault
+manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 09/05/2018
-ms.author: mbaldwin
-ms.custom: mvc
+ms.date: 05/11/2020
+ms.author: sudbalas
+ms.custom: mvc, tracking-python
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
 
@@ -149,7 +149,10 @@ The code presents a two-step process:
     # importing the requests library 
     import requests 
 
-    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.      
+    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.
+    # Resources with an MSI configured recieve an AAD access token by using the Azure Instance Metadata Service (IMDS)
+    # IMDS provides an endpoint accessible to all IaaS VMs using a non-routable well-known IP Address
+    # To learn more about IMDS and MSI Authentication see the following link: https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service
     # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
     MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
@@ -159,7 +162,7 @@ The code presents a two-step process:
     data = r.json() 
     
     # Step 2: Pass the access_token received from previous HTTP GET call to your key vault.
-    KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+    KeyVaultURL = "https://{YOUR KEY VAULT NAME}.vault.azure.net/secrets/{YOUR SECRET NAME}?api-version=2016-10-01"
     kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
     
     print(kvSecret.json()["value"])

@@ -1,15 +1,15 @@
 ---
 title: Characteristics of multiple tenant interaction - Azure AD | Microsoft Docs
-description: Understanding your Azure Active Directory tenants as fully independent organizations
-services: active-tenant
+description: Understanding the data independence of your Azure Active Directory organizations
+services: active-directory
 documentationcenter: ''
 author: curtand
 manager: daveba
 ms.service: active-directory
-ms.topic: article
+ms.topic: overview
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Understand how multiple Azure Active Directory organizations interact
 
-In Azure Active Directory (Azure AD), each tenant is a fully independent organization: a peer that is logically independent from the other Azure AD organizations that you manage. This independence between organizations includes resource independence, administrative independence, and synchronization independence. There is no parent-child relationship between organizations.
+In Azure Active Directory (Azure AD), each Azure AD organization is fully independent: a peer that is logically independent from the other Azure AD organizations that you manage. This independence between organizations includes resource independence, administrative independence, and synchronization independence. There is no parent-child relationship between organizations.
 
 ## Resource independence
 

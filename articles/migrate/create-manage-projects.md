@@ -78,7 +78,7 @@ Note that:
        
     - If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
-2. [Follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
+2. [Follow the instructions](../azure-monitor/platform/delete-workspace.md) to delete the workspace.
 
 ## Next steps
 

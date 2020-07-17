@@ -1,12 +1,12 @@
 ---
 title: Co-sell option in Partner Center | Azure Marketplace
 description: The information you provide on the Co-sell tab of your offer will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs.
-author: dsindona 
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/31/2020
+author: palanis-MSFT
+ms.author: palanis
+ms.date: 05/12/2020
 ---
 
 # Co-sell option in Partner Center
@@ -17,11 +17,11 @@ The co-sell option in Partner Center is currently available for some offer types
 
 | **Offer Type** | **Co-sell Page available in Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Software as a Service  (SaaS) |     General availability April 2020      |
+| Software as a Service  (SaaS) |      Available now      |
 | Dynamics 365 for Customer Engagement & PowerApps      |     Available now      |
 | Dynamics 365 for Operations     |     Available now       |
-| Dynamics 365 Business Central      |  General availability April 2020     |
-| Azure Application     |     General availability April 2020     |
+| Dynamics 365 Business Central      |   Available now     |
+| Azure Application     |      Available now     |
 | Azure Virtual Machine      |     To be announced       |
 | Azure Container     |     To be announced       |
 | Consulting Service      |     To be announced       |

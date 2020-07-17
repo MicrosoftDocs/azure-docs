@@ -36,7 +36,7 @@ highlightedContent:
     # Card
     - title: What is Relay?
       itemType: overview
-      url: ../service-bus-relay/relay-what-is-it.md
+      url: ../azure-relay/relay-what-is-it.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -186,13 +186,13 @@ conceptualContent:
     # Card
     - title: Hybrid connections
       links:
-        - url: ../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md
+        - url: ../azure-relay/relay-hybrid-connections-dotnet-get-started.md
           itemType: tutorial
           text: Get started with Relay Hybrid Connections WebSockets in .NET
-        - url: ../service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
+        - url: ../azure-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
           itemType: tutorial
           text: Get started with Relay Hybrid Connections HTTP requests in .NET
       # footerLink (optional)
       footerLink:
-        url: ../service-bus-relay/index.yml
+        url: ../azure-relay/index.yml
         text: See more

@@ -4,7 +4,7 @@ description: Learn about error codes that you could possibly see when using Spot
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
 #pmcontact: jagaveer

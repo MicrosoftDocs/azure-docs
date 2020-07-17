@@ -1,8 +1,8 @@
 ---
-title: Azure Migrate Server Migration FAQ
+title: Common questions about Azure Migrate Server Migration
 description: Get answers to common questions about using Azure Migrate Server Migration to migrate machines.
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/04/2020
 ---
 
 # Azure Migrate Server Migration: Common questions
@@ -62,6 +62,9 @@ No. Azure Availability Zones aren't supported for Azure Migrate migration.
 
 Azure Migrate uses the Network Block Device (NBD) protocol with TLS encryption.
 
+## How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission? 
+The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).  
+
 ## What is the minimum vCenter Server version required for migration?
 
 You must have at least vCenter Server 5.5 and vSphere ESXi host version 5.5.
@@ -81,6 +84,10 @@ You can throttle using NetQosPolicy. For example:
 The AppNamePrefix to use in the NetQosPolicy is "GatewayWindowsService.exe". You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
  
 New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+
+## Can I migrate VMs that are already being replicated to Azure? 
+
+If VMs are already being replicated to Azure by some other means, you can't migrate those machines as VMs with Azure Migrate Server Migration. As a workaround, you can treat the VMs as physical servers, and migrate them in accordance with [supported physical server migration](migrate-support-matrix-physical-migration.md).
 
 ## When do I migrate machines as physical servers?
 
