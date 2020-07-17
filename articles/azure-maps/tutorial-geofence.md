@@ -34,7 +34,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Upload Geofencing GeoJSON data
 
-In this tutorial, we'll upload Geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second one can only be queried against during business hours (9-5 P.M. PST), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [GeoFencing GeoJSON data](geofence-geojson.md).
+In this tutorial, we'll upload Geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second one can only be queried against during business hours (9-5 P.M. PST), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data](geofence-geojson.md).
 
 >[!TIP]
 >You can update your Geofencing data at any time. For more information on how to update your data, see [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
@@ -214,7 +214,7 @@ In this section, we'll create two [Logic App](https://docs.microsoft.com/azure/e
   
     :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Create a logic app designer":::
 
-10. Sign-in to your Outlook.com account. Make sure to click **Yes** to allow the Logic App to access the account. Fill in the fields for sending an email.
+10. Sign in to your Outlook.com account. Make sure to click **Yes** to allow the Logic App to access the account. Fill in the fields for sending an email.
 
     :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Create a logic app send email step":::
 
@@ -255,7 +255,7 @@ Follow the steps below to create an event subscription for the geofence enter ev
 
 ## Use Search Geofence Get API
 
-Now, we'll use the [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to send email notifications to the Operations Manager, when a piece of equipment enters or exits the construction site areas.
+Now, we'll use the [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) to send email notifications to the Operations Manager, when a piece of equipment enters or exits the geofences.
 
 Each equipment has a `deviceId`. In this tutorial,  we'll be tracking a single piece of equipment, whose unique ID is `device_1`.
 
