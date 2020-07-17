@@ -25,7 +25,7 @@ Deep learning frameworks on the DSVM are listed below.
 >
 > These VM images are only available to existing customers that use ARM deployments. These images will continue to receive critical security patches until their retirement date, but will not be updated with the latest data science tools going forward.
 > 
-> Please refer to the [DSVM retirements page](./reference-retirements-policy.md).
+> Please refer to the [DSVM Image Deprecations page](./reference-deprecation.md).
 
 ## [Caffe](https://github.com/BVLC/caffe)
 
