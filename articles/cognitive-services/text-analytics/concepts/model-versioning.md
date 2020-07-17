@@ -21,14 +21,14 @@ Version 3 of the Text Analytics API lets you choose the model version that gets 
 Use the table below to find which model versions are supported by each endpoint.
 
 
-| Endpoint                        | Supported Versions                       | latest version |
-|---------------------------------|------------------------------------------|----------------|
-| `/sentiment`                    | `2019-10-01`, `2020-04-01`               | `2020-04-01`   |
-| `/languages`                    | `2019-10-01`                             | `2019-10-01`   |
-| `/entities/linking`             | `2019-10-01`, `2020-02-01`               | `2020-02-01`   |
-| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01` | `2020-04-01`   |
-| `/keyphrases`                   | `2019-10-01`, `2020-07-01`               | `2019-10-01`   |
+| Endpoint                        | Supported Versions                                     | latest version |
+|---------------------------------|--------------------------------------------------------|----------------|
+| `/sentiment`                    | `2019-10-01`, `2020-04-01`                             | `2020-04-01`   |
+| `/languages`                    | `2019-10-01`                                           | `2019-10-01`   |
+| `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
+| `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`, `2020-07-01` | `2020-04-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-04-01`   |
+| `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2019-10-01`   |
 
 
 You can find details about the updates for these models in [What's new](../whats-new.md).
