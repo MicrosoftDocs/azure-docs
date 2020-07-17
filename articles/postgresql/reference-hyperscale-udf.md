@@ -90,7 +90,9 @@ cascades to tables having a foreign key to the designated table. If the
 referring tables are not themselves distributed then truncation is
 forbidden until they are, to protect referential integrity:
 
-    ERROR:  cannot truncate a table referenced in a foreign key constraint by a local table
+```
+ERROR:  cannot truncate a table referenced in a foreign key constraint by a local table
+```
 
 Truncating local coordinator node table data is safe for distributed
 tables because their rows, if they have any, are copied to worker nodes
@@ -195,8 +197,10 @@ Failing this, Hyperscale (Citus) will raise an error. For instance, attempting
 to colocate tables `apples` and `oranges` whose distribution column types
 differ results in:
 
-    ERROR:  XX000: cannot colocate tables apples and oranges
-    DETAIL:  Distribution column types don't match for apples and oranges.
+```
+ERROR:  XX000: cannot colocate tables apples and oranges
+DETAIL:  Distribution column types don't match for apples and oranges.
+```
 
 #### Return Value
 
@@ -967,11 +971,13 @@ SELECT column_to_column_name(logicalrelid, partkey) AS dist_col_name
 
 Output:
 
-    ┌───────────────┐
-    │ dist_col_name │
-    ├───────────────┤
-    │ company_id    │
-    └───────────────┘
+```
+┌───────────────┐
+│ dist_col_name │
+├───────────────┤
+│ company_id    │
+└───────────────┘
+```
 
 ### citus\_relation\_size
 
@@ -993,9 +999,11 @@ Size in bytes as a bigint.
 SELECT pg_size_pretty(citus_relation_size('github_events'));
 ```
 
-    pg_size_pretty
-    --------------
-    23 MB
+```
+pg_size_pretty
+--------------
+23 MB
+```
 
 ### citus\_table\_size
 
@@ -1017,9 +1025,11 @@ Size in bytes as a bigint.
 SELECT pg_size_pretty(citus_table_size('github_events'));
 ```
 
-    pg_size_pretty
-    --------------
-    37 MB
+```
+pg_size_pretty
+--------------
+37 MB
+```
 
 ### citus\_total\_relation\_size
 
@@ -1040,9 +1050,11 @@ Size in bytes as a bigint.
 SELECT pg_size_pretty(citus_total_relation_size('github_events'));
 ```
 
-    pg_size_pretty
-    --------------
-    73 MB
+```
+pg_size_pretty
+--------------
+73 MB
+```
 
 ### citus\_stat\_statements\_reset
 
@@ -1310,14 +1322,16 @@ Tuples containing these columns:
 SELECT * FROM get_rebalance_progress();
 ```
 
-    ┌───────────┬────────────┬─────────┬────────────┬───────────────┬────────────┬───────────────┬────────────┬──────────┐
-    │ sessionid │ table_name │ shardid │ shard_size │  sourcename   │ sourceport │  targetname   │ targetport │ progress │
-    ├───────────┼────────────┼─────────┼────────────┼───────────────┼────────────┼───────────────┼────────────┼──────────┤
-    │      7083 │ foo        │  102008 │    1204224 │ n1.foobar.com │       5432 │ n4.foobar.com │       5432 │        0 │
-    │      7083 │ foo        │  102009 │    1802240 │ n1.foobar.com │       5432 │ n4.foobar.com │       5432 │        0 │
-    │      7083 │ foo        │  102018 │     614400 │ n2.foobar.com │       5432 │ n4.foobar.com │       5432 │        1 │
-    │      7083 │ foo        │  102019 │       8192 │ n3.foobar.com │       5432 │ n4.foobar.com │       5432 │        2 │
-    └───────────┴────────────┴─────────┴────────────┴───────────────┴────────────┴───────────────┴────────────┴──────────┘
+```
+┌───────────┬────────────┬─────────┬────────────┬───────────────┬────────────┬───────────────┬────────────┬──────────┐
+│ sessionid │ table_name │ shardid │ shard_size │  sourcename   │ sourceport │  targetname   │ targetport │ progress │
+├───────────┼────────────┼─────────┼────────────┼───────────────┼────────────┼───────────────┼────────────┼──────────┤
+│      7083 │ foo        │  102008 │    1204224 │ n1.foobar.com │       5432 │ n4.foobar.com │       5432 │        0 │
+│      7083 │ foo        │  102009 │    1802240 │ n1.foobar.com │       5432 │ n4.foobar.com │       5432 │        0 │
+│      7083 │ foo        │  102018 │     614400 │ n2.foobar.com │       5432 │ n4.foobar.com │       5432 │        1 │
+│      7083 │ foo        │  102019 │       8192 │ n3.foobar.com │       5432 │ n4.foobar.com │       5432 │        2 │
+└───────────┴────────────┴─────────┴────────────┴───────────────┴────────────┴───────────────┴────────────┴──────────┘
+```
 
 ### citus\_add\_rebalance\_strategy
 
@@ -1385,11 +1399,12 @@ N/A
 SELECT * from citus_remote_connection_stats();
 ```
 
-    .
-        hostname    | port | database_name | connection_count_to_node
-    ----------------+------+---------------+--------------------------
-     citus_worker_1 | 5432 | postgres      |                        3
-    (1 row)
+```
+	hostname    | port | database_name | connection_count_to_node
+----------------+------+---------------+--------------------------
+ citus_worker_1 | 5432 | postgres      |                        3
+(1 row)
+```
 
 ### master\_drain\_node
 
@@ -1541,11 +1556,13 @@ Create a new shard to hold the lineitems for tenant 135:
 SELECT isolate_tenant_to_new_shard('lineitem', 135);
 ```
 
-    ┌─────────────────────────────┐
-    │ isolate_tenant_to_new_shard │
-    ├─────────────────────────────┤
-    │                      102240 │
-    └─────────────────────────────┘
+```
+┌─────────────────────────────┐
+│ isolate_tenant_to_new_shard │
+├─────────────────────────────┤
+│                      102240 │
+└─────────────────────────────┘
+```
 
 ### citus\_create\_restore\_point
 
@@ -1571,8 +1588,10 @@ coordinator node WAL.
 select citus_create_restore_point('foo');
 ```
 
-    ┌────────────────────────────┐
-    │ citus_create_restore_point │
-    ├────────────────────────────┤
-    │ 0/1EA2808                  │
-    └────────────────────────────┘
+```
+┌────────────────────────────┐
+│ citus_create_restore_point │
+├────────────────────────────┤
+│ 0/1EA2808                  │
+└────────────────────────────┘
+```
