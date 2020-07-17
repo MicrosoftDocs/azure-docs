@@ -272,32 +272,27 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ## [Hong Kong](#tab/in-hk)
 
 1. Retain the original box used to ship the device for return shipment.
-2. Power off the device and remove the cables.
-3. Spool and securely place the power cord that was provided with the device in the back of the device.
-4. Write your company name and address information on the consignment note as your sender information.
-5. Email Quantium solution using the following email template.
-
-    * If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
-    * If you have multiple orders, email to ensure individual pickup.
+2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful. Note down the reference number (tracking number for reverse shipment) shown on the device local user interface.
+3. Download the shipping label that is available on the local user interface of the Data Box and paste it on the packaged box.  
+4. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device in the back of the device.
+5. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
+6. Quote Microsoft Azure pickup and the Reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
+7. You will get a verbal confirmation for the pick-up schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
+8. Upon booking a pick-up with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 
     ```
-    To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box｜Job name：
+    To: adbo@microsoft.com
+    Subject: Microsoft Data Box Job: [order name] has completed copy
     Body:
-    - Japan Post Yu-Pack tracking number (reference number)：
-    - Requested pickup date：mmdd (Select a requested time slot from below).
-    a. 08：00-13：00
-    b. 13：00-15：00
-    c. 15：00-17：00
-    d. 17：00-19：00
+    We have confirmed the pick-up details with Quantium.
+
+       * Requestor name:
+       * Requestor contact number:
+       * Pick-up Date:  
+       * Pick-up time:
     ```
 
-6. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
-
-If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
-
-- Email：Customerservice.JP@quantiumsolutions.com 
-- Telephone：03-5755-0150 
+Should you encounter any issues, kindly reach out to Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing Job name in Subject header and the issue encountered.
 
 ::: zone target="chromeless"
 
