@@ -258,7 +258,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 [!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
 
 ## Erasure of data from Data Box
- 
+
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone-end
@@ -280,7 +280,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 7. You will get a verbal confirmation for the pick-up schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
 8. Upon booking a pick-up with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 
-    ```
+    ```output
     To: adbo@microsoft.com
     Subject: Microsoft Data Box Job: [order name] has completed copy
     Body:
