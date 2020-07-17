@@ -111,8 +111,6 @@ The following properties are supported for Salesforce Marketing Cloud linked ser
 
 If you were using Salesforce Marketing Cloud linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward which adds enhanced package support.
 
-**Example:**
-
 ```json
 {
     "name": "SalesforceMarketingCloudLinkedService",
