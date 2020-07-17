@@ -218,7 +218,13 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 > [!IMPORTANT]
 > ReadyToRun currently doesn't support cross-compilation. You must build your app on the same platform as the deployment target. Also, pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](/dotnet/core/rid-catalog).
 
-Instead of updating the project file, you can alternatively specify ReadyToRun when publishing your app from the command line.
+Instead of updating the project file, you can also specify ReadyToRun from the command line. Do this when you publish your project from the command line instead of from Visual Studio or Visual Studio Code. For example, use the following command when publishing from the command line using Azure Functions Core Tools:
+
+```cmd
+func azure functionapp publish <FunctionAppName> --dotnet-cli-params -p:PublishReadyToRun=true
+```
+
+Use the following command in the `dotnet publish` action of a deployment pipeline:
 
 ```bash
 dotnet publish -c Release -p:PublishReadyToRun=true -r linux-x64 --self-contained
