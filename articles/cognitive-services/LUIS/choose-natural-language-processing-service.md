@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ---
 
-# Use Cognitive Services with natural language processing (NLP) to enrich bot conversations
+# Use Cognitive Services with natural language processing (NLP) to enrich chat bot conversations
 
 [!INCLUDE [QnA and LUIS - concepts](../includes/luis-qnamaker-shared-concept.md)]
 
