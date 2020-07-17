@@ -78,7 +78,7 @@ This high-level diagram shows the architecture of the sample provided to get you
 * When you create a [job](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept):
     * Randomly select an account from the list of currently used accounts (this list will normally contain both accounts but if issues are detected it may contain only one account). If the list is empty, raise an alert so an operator can investigate.
     * Create a record to keep track of each inflight job and the region/account used.
-    * When your `JobStateChange` handler gets a notification that a job has reached the scheduled state, record the time it enters the scheduled state and the region/account used.
+* When your `JobStateChange` handler gets a notification that a job has reached the scheduled state, record the time it enters the scheduled state and the region/account used.
 * When your `JobStateChange` handler gets a notification that a job has reached the processing state, mark the record for the job as processing and record the time it enters the processsing state.
 * When your `JobStateChange` handler gets a notification that a job has reached a final state (Finished/Errored/Canceled), mark the record for the job appropriately.
 * Have a separate process that periodically looks at your records of the jobs
