@@ -10,7 +10,7 @@ ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the Windows Desktop client
+# Connect with the Windows Desktop client - Fall 2019
 
 > Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
 
