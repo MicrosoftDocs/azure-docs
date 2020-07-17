@@ -40,7 +40,7 @@ One of the core features of the Speech service is the ability to recognize human
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
