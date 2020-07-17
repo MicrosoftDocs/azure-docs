@@ -12,9 +12,6 @@ ms.author: thomasge
 
 AKS-managed Azure AD integration is designed to simplify the Azure AD integration experience, where users were previously required to create a client app, a server app, and required the Azure AD tenant to grant Directory Read permissions. In the new version, the AKS resource provider manages the client and server apps for you.
 
-> [!Important]
-> AKS-managed Azure Active Directory integration is the new experience to integrate with Azure AD. Azure AD legacy integration feature is marked for deprecation and will be retired on **31. August 2021**. You can [migrate][aad-migrate] from Azure AD legacy integration to AKS-managed Azure Active Directory integration.
-
 ## Azure AD authentication overview
 
 Cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership. Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect].
