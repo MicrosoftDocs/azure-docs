@@ -29,7 +29,7 @@ This Salesforce Marketing Cloud connector is supported for the following activit
 
 You can copy data from Salesforce Marketing Cloud to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-The Salesforce Marketing Cloud connector supports OAuth 2 and Enhanced STS OAuth 2 authentications, and it supports both legacy and enhanced package types. The connector is built on top of the [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+The Salesforce Marketing Cloud connector supports OAuth 2 authentication, and it supports both legacy and enhanced package types. The connector is built on top of the [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
 >This connector doesn't support retrieving custom objects or custom data extensions.
@@ -50,7 +50,7 @@ The following properties are supported for Salesforce Marketing Cloud linked ser
 | connectionProperties | A group of properties that defines how to connect to Salesforce Marketing Cloud. | Yes |
 | ***Under `connectionProperties`:*** | | |
 | authenticationType | Specifies the authentication method to use. Allowed values are `Enhanced sts OAuth 2.0` or `OAuth_2.0`.<br><br>Salesforce Marketing Cloud legacy package only supports `OAuth_2.0`, while enhanced package needs `Enhanced sts OAuth 2.0`. <br>Since August 1, 2019, Salesforce Marketing Cloud has removed the ability to create legacy packages. All new packages are enhanced packages. | Yes |
-| host | For enhanced package, the host should be your subdomain which is represented by a 28-character string starting with the letters "mc", e.g. `mc563885gzs27c5t9-63k636ttgm`. <br>For legacy package, specify `www.exacttargetapis.com`. | Yes |
+| host | For enhanced package, the host should be your [subdomain](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/your-subdomain-tenant-specific-endpoints.htm) which is represented by a 28-character string starting with the letters "mc", e.g. `mc563885gzs27c5t9-63k636ttgm`. <br>For legacy package, specify `www.exacttargetapis.com`. | Yes |
 | clientId | The client ID associated with the Salesforce Marketing Cloud application.  | Yes |
 | clientSecret | The client secret associated with the Salesforce Marketing Cloud application. You can choose to mark this field as a SecureString to store it securely in ADF, or store the secret in Azure Key Vault and let ADF copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
@@ -83,7 +83,7 @@ The following properties are supported for Salesforce Marketing Cloud linked ser
 
 ```
 
-**Example: using OAuth 2 authentication**
+**Example: using OAuth 2 authentication for legacy package** 
 
 ```json
 {
