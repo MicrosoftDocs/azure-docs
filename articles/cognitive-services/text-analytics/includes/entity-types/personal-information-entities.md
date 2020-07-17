@@ -23,14 +23,14 @@ The following entity categories are returned when sending requests to the `/v3.1
 | PersonType | N/A         | Job types or roles held by a person. | `2020-02-01` | |
 | PhoneNumber | N/A | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi` |
 |Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
-|Organization | Medical | Medical companies and groups. | `2020-04-01` | Also returned with `domain=phi`. |
-|Organization | Stock exchange | Stock exchange groups. | `2020-04-01` | Also returned with `domain=phi`. |
-| Organization | Sports | Sports-related organizations. | `2020-04-01` | Also returned with `domain=phi`. |
+|Organization | Medical | Medical companies and groups. | `2020-04-01` |  |
+|Organization | Stock exchange | Stock exchange groups. | `2020-04-01` |  |
+| Organization | Sports | Sports-related organizations. | `2020-04-01` |  |
 | Address | N/A | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
 | EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
 | Email | N/A | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
 | URL | N/A | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
-| IP | N/A | Network IP addresses. | `2019-10-01` | |
+| IP | N/A | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
 | DateTime | N/A | Dates and times of day. | `2019-10-01` |  | 
 | DateTime | Date | Calender dates. | `2019-10-01` | Also returned with `domain=phi`. |
 | Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` |  |
