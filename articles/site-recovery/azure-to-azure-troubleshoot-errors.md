@@ -532,7 +532,7 @@ Delete the replica disk identified in the error message and retry the failed pro
 
 ## Enable protection failed as the installer is unable to find the  root disk (error code 151137)
 
-This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE).
+This error occurs for Linux machines where the OS disk is encrypted using Azure Disk Encryption (ADE). This is valid issue in Agent version 9.35 only.
 
 ### Possible Causes
 
