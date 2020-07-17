@@ -103,7 +103,15 @@ Now that you've seen the code, use the following command to run the sample:
 python pnp_thermostat.py
 ```
 
-The device is now ready to receive commands and property updates, and has started sending telemetry data every eight seconds to the hub.
+You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates:
+
+```cmd/sh
+Connecting using Connection String HostName=<your hub name>.azure-devices.net;DeviceId=<your device id>;SharedAccessKey=<your device shared access key>
+Listening for command requests and property updates
+Press Q to quit
+Sending telemetry for temperature
+Sent message
+```
 
 Keep the sample running as you complete the next steps.
 
