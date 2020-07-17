@@ -191,7 +191,7 @@ To accomplish scenarios where you want to choose the backend pool based on the v
 
 **Step1:**  Create a path-map as shown in the image below
 
-![img](./media/rewrite-http-headers-url/url-scenario1-1.png)
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-1.png" alt-text="URL rewrite scenario 1-1.":::
 
 **Step 2 (a):** Create a rewrite set which has 3 rewrite rules: 
 
@@ -201,13 +201,13 @@ To accomplish scenarios where you want to choose the backend pool based on the v
 
 * The third rule has a condition that checks the *query_string*  variable for *category=accessories* and has an action that rewrites the URL path to /*listing3* and has **Re-evaluate path map** enabled
 
-![img](./media/rewrite-http-headers-url/url-scenario1-2.png)
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL rewrite scenario 1-2.":::
 
  
 
 **Step 2 (b):** Associate this rewrite set with the default path of the above path-based rule
 
-![img](./media/rewrite-http-headers-url/url-scenario1-3.png)
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL rewrite scenario 1-3.":::
 
 Now, if the user requests *contoso.com/listing?category=any*, then it will be matched with the default path since none of the path patterns in the path map (/listing1, /listing2, /listing3) will match. Since you associated the above rewrite set with this path, this rewrite set will be evaluated. As the query string will not match the condition in any of the 3 rewrite rules in this rewrite set, no rewrite action will take place and therefore, the request will be routed unchanged to the backend associated with the default path (which is *GenericList*).
 
@@ -223,11 +223,11 @@ In that case, Application Gateway can capture parameters from the URL and add qu
 
 **Condition** - If server variable `uri_path` equals to the pattern `/(.+)/(.+)`
 
-![img](./media/rewrite-http-headers-url/url-scenario2-1.png)
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL rewrite scenario 2-1.":::
 
 **Action** - Set URL path to `buy.aspx` and query string to `category={var_uri_path_1}&product={var_uri_path_2}`
 
-![img](./media/rewrite-http-headers-url/url-scenario2-2.png)
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL rewrite scenario 2-2.":::
 
 For a step-by-step guide to achieve the scenario described above, see [Rewrite URL with Application Gateway using Azure portal](rewrite-url-portal.md)
 
@@ -237,7 +237,7 @@ In case of URL rewrite, Application Gateway rewrites the URL before the request 
 
 In case of URL redirect, Application Gateway sends a redirect response to the client with the new URL. That, in turn, requires the client to resend its request to the new URL provided in the redirect. URL that user sees in the browser will update to the new URL
 
-![img](./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png)
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Rewrite vs Redirect.":::
 
 ## Limitations
 

@@ -35,7 +35,7 @@ In the below example whenever the request URL contains */article*, the URL path 
 
 3. Select **Rewrite set**:
 
-    ![Add rewrite set](./media/rewrite-url-portal/rewrite-url-portal-1.png)
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-1.png" alt-text="Add rewrite set":::
 
 4. Provide a name for the rewrite set and associate it with a routing rule:
 
@@ -45,13 +45,13 @@ In the below example whenever the request URL contains */article*, the URL path 
     
     * Select **Next**.
     
-    ![img](./media/rewrite-url-portal/rewrite-url-portal-2.png)
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-2.png" alt-text="Associate to a rule":::
 
 5. Create a rewrite rule:
 
     * Select **Add rewrite rule**.
     
-    ![Add rewrite rule](./media/rewrite-url-portal/rewrite-url-portal-3.png)
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-3.png" alt-text="Add rewrite rule":::
     
     * Enter a name for the rewrite rule in the **Rewrite rule name** box. Enter a number in the **Rule sequence** box.
 
@@ -73,7 +73,7 @@ In the below example whenever the request URL contains */article*, the URL path 
 
     * Select **OK**.
 
-    ![img](./media/rewrite-url-portal/rewrite-url-portal-4.png)
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-4.png" alt-text="Condition":::
 
  
 
@@ -85,23 +85,21 @@ In the below example whenever the request URL contains */article*, the URL path 
 
    * Under **Components**, select **Both URL path and URL query string**
 
-   * In the **URL path value**, enter the new value of the path. In this example, we will use **/article.aspx**
-
-    ![img](./media/rewrite-url-portal/rewrite-url-portal-5.png) 
+   * In the **URL path value**, enter the new value of the path. In this example, we will use **/article.aspx** 
 
     * In the **URL query       string value**, enter the new value of the URL query striong. In this       example, we will use **id={var_uri_path_1}&title={var_uri_path_2}**
     
-      **Note**: {var_uri_path_1} and {var_uri_path_1} are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
-    
-        ![img](./media/rewrite-url-portal/rewrite-url-portal-6.png)
+    `{var_uri_path_1}` and `{var_uri_path_1}` are used to fetch the substrings captured while evaluating the   condition in this expression `.*article/(.*)/(.*)`
     
     * Select **OK**.
+
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-5.png" alt-text="Action":::
 
 8. Click **Create** to create the rewrite set.
 
 9. Verify that the new rewrite set appears in the list of rewrite sets
 
-    ![img](./media/rewrite-url-portal/rewrite-url-portal-5.png)
+    :::image type="content" source="./media/rewrite-url-portal/rewrite-url-portal-6.png" alt-text="Add rewrite rule":::
 
 ## Verify URL rewrite through access logs
 
