@@ -31,6 +31,8 @@ This article offers two possible ways to go through these steps. The first is to
 
 Whichever process you are using, both require an Azure subscription (which you can set up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)), and utilize Azure Cloud Shell.
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
 ## Prerequisites: Permission requirements
 
 To be able to complete all the steps in this article, you need to be classified as an owner in your Azure subscription. 
@@ -49,8 +51,6 @@ If you find that the value is *Contributor* or something other than *Owner*, you
 * Request for the administrator to complete all steps in this article on your behalf
 * Complete the steps possible for your role, then request for the administrator to complete the rest on your behalf. Look for the *Permission requirements* section within each step to understand which is which.
 * Request for the administrator to elevate your role on the entire subscription so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Option 1: Automated setup with the deployment script
 
