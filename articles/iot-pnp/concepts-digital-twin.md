@@ -21,9 +21,9 @@ Device twins are JSON documents that store device state information including me
 
 Both device and solution builders can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
 
-Solution builders can also use high level constructs such as components, properties, and commands using the Digital Twin APIs.
+Solution builders can work with high level constructs such as components, properties, and commands using the Digital Twin APIs.
 
-In a device twin, the state of the property is split across the desired and reported sections. A digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is stored in the `$metadata` section.
+In a device twin, the state of the property is split across the desired and reported sections. A digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is stored in the corresponding root-level or component `$metadata` section.
 
 ### Digital twin JSON format
 
@@ -31,7 +31,7 @@ When represented as a JSON object, a digital twin includes the following fields:
 
 | Field name | Description |
 | --- | --- |
-| `$dtId` | A user-provided string representing the ID of the digital twin |
+| `$dtId` | A user-provided string representing the ID of the device digital twin |
 | `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
 | `$metadata.$model` | [Optional] The ID of the model interface that characterizes this digital twin |
 | `$metadata.{propertyName}.desiredValue` | [Only for writable properties] The desired value of the specified property |
@@ -143,7 +143,7 @@ The following snippet shows the digital twin formatted as a JSON object:
 
 ### Properties
 
-In this example, `alwinexlepaho8329` is the current value of the `serialNumber` property reported by the device. `alwinexlepaho8329-a` is the desired value set by the solution. The desired value and synchronization state of a root level property is set within root level `$metadata` for a digital twin.
+In this example, `alwinexlepaho8329` is the current value of the `serialNumber` property reported by the device. `alwinexlepaho8329-a` is the desired value set by the solution. The desired value and synchronization state of a root-level property is set within root-level `$metadata` for a digital twin.
 
 The following snippets show the side-by-side JSON representation of the `serialNumber` writable property:
 
@@ -187,7 +187,7 @@ The following snippets show the side-by-side JSON representation of the `serialN
 
 In a device twin, a component is identified by the `{ "__t": "c"}` marker. In a digital twin, `$metadata` marks a component.
 
-In this example, `thermostat1` is a component with two properties. `maxTempSinceLastReboot` is read-only property. `targetTemperature` is a writable property that has been successfully synced by the device.
+In this example, `thermostat1` is a component with two properties. `maxTempSinceLastReboot` is read-only property. `targetTemperature` is a writable property that's been successfully synced by the device. The desired value and synchronization state of a theses properties are within component's `$metadata`.
 
 The following snippets show the side-by-side JSON representation of the `thermostat1` component:
 
@@ -261,7 +261,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin REST APIs
 
-A set of REST APIs lets you interact with a digital twin: **Get Digital Twin**, **Invoke Component Command**, **Invoke Command**, and **Update Digital Twin**. To learn more, see [Digital Twin REST API reference](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin).
+A set of REST APIs lets you interact with a digital twin: **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command**, . To learn more, see [Digital Twin REST API reference](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin).
 
 ## Digital twin change events
 
@@ -290,7 +290,7 @@ content-encoding:utf-8
 ]
 ```
 
-The following digital twin event is triggered when the device reports that the desired change was applied:
+The following digital twin event is triggered when the device reports that the previous desired change was applied:
 
 ```json
 iothub-connection-device-id:sample-device
