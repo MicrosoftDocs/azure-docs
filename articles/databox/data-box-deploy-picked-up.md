@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 07/17/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
