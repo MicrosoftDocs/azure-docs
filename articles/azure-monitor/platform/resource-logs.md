@@ -5,7 +5,7 @@ author: bwren
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
 ---
@@ -86,10 +86,6 @@ Most Azure resources will write data to the workspace in either **Azure Diagnost
    ![Diagnostic Settings mode selector](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
 
-
-
-> [!NOTE]
-> Currently, **Azure diagnostics** and **Resource-specific** mode can only be selected when configuring the diagnostic setting in the Azure portal. If you configure the setting using CLI, PowerShell, or Rest API, it will default to **Azure diagnostic**.
 
 You can modify an existing diagnostic setting to resource-specific mode. In this case, data that was already collected will remain in the _AzureDiagnostics_ table until it's removed according to your retention setting for the workspace. New data will be collected in  the dedicated table. Use the [union](/azure/kusto/query/unionoperator) operator to query data across both tables.
 
