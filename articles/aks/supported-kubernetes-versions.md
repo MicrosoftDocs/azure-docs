@@ -130,7 +130,7 @@ For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernete
 | 1.17  | Dec-09-19  | Jan 19   | Jul 20  | 1.20 GA | 
 | 1.18  | Mar-23-20  | May 20   | Aug 20  | 1.21 GA | 
 | 1.19  | Aug-04-20  | Aug 20   | Nov 20  | 1.22 GA | 
-| 1.20  | *Nov 20    | *Dec 21   | *Jan 21  | 1.23 GA | 
+| 1.20  | *Nov 20    | *Dec 20   | *Jan 21  | 1.23 GA | 
 
 \* Pending Upstream release date confirmation.
 
