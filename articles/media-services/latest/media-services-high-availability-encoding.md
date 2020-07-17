@@ -77,14 +77,13 @@ This high-level diagram shows the architecture of the sample provided to get you
 
 * When you create a [job](https://review.docs.microsoft.com/azure/media-services/latest/transforms-jobs-concept):
     * Randomly select an account from the list of currently used accounts (this list will normally contain both accounts but if issues are detected it may contain only one account). If the list is empty, raise an alert so an operator can investigate.
-    * Keep a count of the number of inflight jobs.
-    * When your JobStateChange handler gets a notification that a job has reached the scheduled state, record the time it enters the schedule state and the region/account used.
-
-* When your `JobStateChange` handler gets a notification that a job has reached the processing state, mark the record for the job as processing.
-* When your `JobStateChange` handler gets a notification that a job has reached the Finished/Errored/Canceled state, mark the record for the job as final and decrement the inflight job count.
+    * Create a record to keep track of each inflight job and the region/account used.
+    * When your `JobStateChange` handler gets a notification that a job has reached the scheduled state, record the time it enters the scheduled state and the region/account used.
+* When your `JobStateChange` handler gets a notification that a job has reached the processing state, mark the record for the job as processing and record the time it enters the processsing state.
+* When your `JobStateChange` handler gets a notification that a job has reached a final state (Finished/Errored/Canceled), mark the record for the job appropriately.
 * Have a separate process that periodically looks at your records of the jobs
-* If you have jobs in the scheduled state that haven't advanced to the processing state in a reasonable amount of time for a given region, remove that region from your list of currently used accounts. Depending on your business requirements, you could decide to cancel those jobs right away and resubmit them to the other region. Or, you could give them some more time to move to the next state.
-* If a region was removed from the account list, monitor it for recovery before adding it back to the list. The regional health can be monitored via the existing jobs on the region (if they weren't canceled and resubmitted), by adding the account back to the list after a period of time, and by operators monitoring Azure communications about outages that may be affecting Azure Media Services.
+    * If you have jobs in the scheduled state that haven't advanced to the processing state in a reasonable amount of time for a given region, remove that region from your list of currently used accounts. Depending on your business requirements, you could decide to cancel those jobs right away and resubmit them to the other region. Or, you could give them some more time to move to the next state.
+    * If a region was removed from the account list, monitor it for recovery before adding it back to the list. The regional health can be monitored via the existing jobs on the region (if they weren't canceled and resubmitted), by adding the account back to the list after a period of time, and by operators monitoring Azure communications about outages that may be affecting Azure Media Services.
 
 ## Next steps
 
