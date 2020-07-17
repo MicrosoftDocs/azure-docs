@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create the spoke virtual network
 > * Create a secured virtual hub
-> * Connect the hub and spoke VNets
+> * Connect the hub and spoke virtual networks
 > * Route traffic to your hub
 > * Deploy the servers
 > * Create a firewall policy and secure your hub
@@ -72,7 +72,7 @@ Create your secured virtual hub using Firewall Manager.
 2. For **Hub address space**, type **10.0.0.0/16**.
 3. For the new vWAN name, type **Vwan-01**.
 4. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
-5. Select **Next:Azure Firewall**.
+5. Select **Next: Azure Firewall**.
 6. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
 7. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
 8. Select **Create**. It will take about 30 minutes to deploy.
@@ -86,9 +86,9 @@ Now you can get the firewall public IP address.
 7. Select **Public IP configuration**.
 8. Note the public IP address to use later.
 
-### Connect the hub and spoke VNets
+### Connect the hub and spoke virtual networks
 
-Now you can peer the hub and spoke VNets.
+Now you can peer the hub and spoke virtual networks.
 
 1. Select the **FW-Manager** resource group, then select the **Vwan-01** virtual WAN.
 2. Under **Connectivity**, select **Virtual network connections**.
@@ -165,7 +165,7 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 2. Select **Create Azure Firewall Policy**.
 3. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
 4. Select **Next: DNS Settings (preview)**.
-1. Select **Next:Rules**.
+1. Select **Next: Rules**.
 2. On the **Rules** tab, select **Add a rule collection**.
 3. On the **Add a rule collection** page, type **App-RC-01** for the **Name**.
 4. For **Rule collection type**, select **Application**.
@@ -196,7 +196,7 @@ Add a DNAT rule so you can connect a remote desktop to the **Srv-Workload-01** v
 13. For **Translated port**, type **3389**.
 14. Select **Add**.
 
-Add a network rule so you can can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
+Add a network rule so you can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
 
 1. Select **Add a rule collection**.
 2. For **Name**, type **vnet-rdp**.
@@ -210,7 +210,7 @@ Add a network rule so you can can connect a remote desktop from **Srv-Workload-0
 9. For **Destination Type**, select **IP Address**.
 10. For **Destination**, type the **Srv-Workload-02** private IP address that you noted previously.
 11. Select **Add**.
-1. Select **Next : Threat intelligence**.
+1. Select **Next: Threat intelligence**.
 2. Select **Next: Hubs**.
 3. On the **Hubs** tab, select **Associate virtual hubs**.
 4. Select **Hub-01** and then select **Add**.
