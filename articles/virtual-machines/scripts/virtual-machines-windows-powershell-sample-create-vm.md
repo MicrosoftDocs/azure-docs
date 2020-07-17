@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Script Sample - Create a Windows VM 
+title: Azure PowerShell script sample - Create a fully configured Windows VM 
 description: Azure PowerShell Script Sample - Create a Windows VM
 services: virtual-machines-windows
 documentationcenter: virtual-machines
