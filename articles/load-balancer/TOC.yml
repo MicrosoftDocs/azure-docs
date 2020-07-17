@@ -21,7 +21,7 @@
   expanded: true
 - name: Tutorials
   items:
-  - name: Internal load balancer
+  - name: Internal Load Balancer
     items: 
     - name: Create an internal Load Balancer - Portal
       href: tutorial-load-balancer-standard-internal-portal.md
