@@ -16,7 +16,7 @@
 
 ## Supported operating systems
 
-Shared disks offer support for a subset of operating systems. See the [Windows](../articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](../articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 
