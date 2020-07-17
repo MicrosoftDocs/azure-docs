@@ -64,7 +64,9 @@
 - name: How-to guides
   items:
   - name: Install and use IoT explorer
-    href: howto-install-iot-explorer.md
+    href: howto-use-iot-explorer.md
+  - name: Install and use Azure IoT CLI extension
+    href: howto-use-iot-pnp-cli.md
   - name: Manage models in the repository
     href: howto-manage-models.md
 - name: Reference
