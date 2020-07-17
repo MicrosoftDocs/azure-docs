@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/10/2020
+ms.date: 07/17/2020
 ms.author: victorh
 ---
 
@@ -17,15 +17,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ## What capabilities are supported in Azure Firewall?
 
-* Stateful firewall as a service
-* Built-in high availability with unrestricted cloud scalability
-* FQDN filtering
-* FQDN tags
-* Network traffic filtering rules
-* Outbound SNAT support
-* Inbound DNAT support
-* Centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and VNETs
-* Fully integrated with Azure Monitor for logging and analytics
+To learn about Azure Firewall features, see [Azure Firewall features](features.md).
 
 ## What is the typical deployment model for Azure Firewall?
 
