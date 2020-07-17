@@ -30,7 +30,7 @@ Application Gateway includes the following features:
 - [Websocket and HTTP/2 traffic](#websocket-and-http2-traffic)
 - [Connection draining](#connection-draining)
 - [Custom error pages](#custom-error-pages)
-- [Rewrite HTTP headers](#rewrite-http-headers)
+- [Rewrite HTTP headers and URL](#rewrite-http-headers-and-url)
 - [Sizing](#sizing)
 
 ## Secure Sockets Layer (SSL/TLS) termination
@@ -127,7 +127,7 @@ Application Gateway allows you to create custom error pages instead of displayin
 
 For more information, see [Custom Errors](custom-error.md).
 
-## Rewrite HTTP headers
+## Rewrite HTTP headers and URL
 
 HTTP headers allow the client and server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios, such as:
 
@@ -135,9 +135,11 @@ HTTP headers allow the client and server to pass additional information with the
 - Removing response header fields that can reveal sensitive information.
 - Stripping port information from X-Forwarded-For headers.
 
-Application Gateway supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. It also provides you with the capability to add conditions to ensure the specified headers are rewritten only when certain conditions are met.
+Application Gateway and WAF v2 SKU supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. You can also rewrite URLs, query string parameters and host name. With URL rewrite and URL path-based routing, you can choose to either route requests to one of the backend pools based on the original path or the rewritten path, using the re-evaluate path map option. 
 
-For more information, see [Rewrite HTTP headers](rewrite-http-headers.md).
+It also provides you with the capability to add conditions to ensure the specified headers or URL are rewritten only when certain conditions are met. These conditions are based on the request and response information.
+
+For more information, see [Rewrite HTTP headers and URL](rewrite-http-headers-url.md).
 
 ## Sizing
 
