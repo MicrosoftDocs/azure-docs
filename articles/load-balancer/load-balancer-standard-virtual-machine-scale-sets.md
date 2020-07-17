@@ -31,7 +31,7 @@ When working with virtual machine scale sets and load balancer, the following gu
 ## Outbound rules:
   *  To create outbound rule for a backend pool that is already referenced by a load balancing rule, you need to first mark **"Create implicit outbound rules"** as **No** in the portal when the inbound load balancing rule is created.
 
-  :::image type="content" source="./media/vmsslb.png" alt-text="Load balancing rule creation" border="true":::
+  :::image type="content" source="./media/vm-scale-sets/vmsslb.png" alt-text="Load balancing rule creation" border="true":::
 
 The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
 
