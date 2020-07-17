@@ -1,5 +1,5 @@
 ---
-title: Provision and secure a linked service in Azure Synapse Analytics 
+title: Secure a linked service 
 description: Learn how to provision and secure a linked service with Managed Vnet 
 services: synapse-analytics 
 author: acomet
