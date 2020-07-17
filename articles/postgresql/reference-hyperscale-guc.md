@@ -1,5 +1,5 @@
 ---
-title: Configuration options – Hyperscale (Hyperscale (Citus)) - Azure Database for PostgreSQL
+title: Configuration options – Hyperscale (Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Functions the in Hyperscale (Citus) SQL API
 author: jonels-msft
 ms.author: jonels
@@ -9,7 +9,7 @@ ms.topic: reference
 ms.date: 07/17/2020
 ---
 
-# Configuration Reference
+# Configuration options
 
 There are various configuration parameters that affect the behavior of
 Hyperscale (Citus). These include both standard PostgreSQL parameters, and
