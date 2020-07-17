@@ -5,7 +5,7 @@ ms.topic: article
 ms.date: 03/06/2020
 ---
 
-# Encryption at rest using customer-managed keys
+# Encrypt your application data at rest using customer-managed keys
 
 Encrypting your function app's application data at rest requires an Azure Storage Account and an Azure Key Vault. These services are used when you run your app from a deployment package.
 

@@ -18,6 +18,8 @@ This article shows you how to create and use a static public IP address for use 
 
 ## Before you begin
 
+This article assumes you are using the Azure Basic Load Balancer.  We recommend using the [Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview), and you can use more advanced features for [controlling AKS egress traffic](https://docs.microsoft.com/azure/aks/limit-egress-traffic).
+
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
@@ -114,6 +114,10 @@ Once you've added app roles in your application, you can assign users and groups
 1. Choose a role and press the **Select** button.
 1. Press the **Assign** button on the bottom to finish the assignments of users and groups to the app.
 1. Confirm that the users and groups you added are showing up in the updated **Users and groups** list.
+
+### Receive roles in tokens
+
+When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
 
 ## More information
 

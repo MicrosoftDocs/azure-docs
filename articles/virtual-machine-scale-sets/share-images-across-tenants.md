@@ -11,7 +11,7 @@ ms.reviewer: akjosh
 ms.custom: akjosh
 
 ---
-# Share gallery VM images across Azure tenants
+# Share gallery VM images across tenants in Azure
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
