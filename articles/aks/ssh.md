@@ -139,7 +139,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 1. Run a `debian` container image and attach a terminal session to it. This container can be used to create an SSH session with any node in the AKS cluster:
 
     ```console
-    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
