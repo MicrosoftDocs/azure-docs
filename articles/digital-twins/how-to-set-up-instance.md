@@ -120,7 +120,9 @@ Use these values in the following command to create the instance:
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
-The result of these commands looks something like this, outputting information about the resources you've created:
+#### Verify success
+
+If the instance was created successfully, the result in Cloud Shell looks something like this, outputting information about the resource you've created:
 
 :::image type="content" source="media/how-to-set-up-instance/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
 
@@ -155,6 +157,8 @@ The result of this command is outputted information about the role assignment th
 > az ad user show --id <AAD-email-of-user-to-assign> --query objectId
 > ```
 > Then, repeat the role assignment command using the user's *Object ID* in place of their email.
+
+#### Verify success
 
 Afterwards, one way to check that the role assignment was successful is to view the role assignments for the Azure Digital Twins instance in the Azure portal. From your portal page of [Azure Digital Twins instances](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances), select the name of the instance you want to check. Then, view all of its assigned roles under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
 
