@@ -94,6 +94,18 @@ If the script completes successfully, the final printout will say `Deployment co
 
 Upon script completion, you now have an Azure Digital Twins instance ready to go and permissions set up to manage it.
 
+#### Collect key values
+
+There are two important values from the app registration that will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). 
+
+To find them, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal. This page shows all the app registrations that have been created in your subscription.
+
+You should see the the app registration you just created in this list. Select it to open up its details:
+
+:::image type="content" source="media/how-to-set-up-instance/app-key-values.png" alt-text="Portal view of the key values for the app registration":::
+
+Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. If you are not the person who will be writing code for client applications, you'll need to share these values with the person who will be.
+
 ### Verify success
 
 If you would like to verify the creation of your resources and permissions set up by the script, you can look at them in the [Azure portal](https://portal.azure.com).
