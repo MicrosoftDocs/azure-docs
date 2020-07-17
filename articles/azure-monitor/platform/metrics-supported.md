@@ -2367,6 +2367,8 @@ For additional information, see [Monitoring Agents Overview](agents-overview.md)
 > [!IMPORTANT]
 > **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
 
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
 |AppConnections|Yes|Connections|Count|Average|Connections|Instance|
 |AverageMemoryWorkingSet|Yes|Average memory working set|Bytes|Average|Average memory working set|Instance|
 |AverageResponseTime|Yes|Average Response Time **(deprecated)**|Seconds|Average|Average Response Time|Instance|
