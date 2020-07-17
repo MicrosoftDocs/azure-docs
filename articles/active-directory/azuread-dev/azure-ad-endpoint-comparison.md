@@ -137,7 +137,7 @@ App registrations that support work and school accounts and personal accounts ha
 
 ### Restrictions on redirect URLs
 
-For the most up-to-date information about restrictions on redirect URLs for apps that are registered for Microsoft identity platform, see [Redirect URI/reply URL restrictions and limitations](https://docs.microsoft.com/en-us/azure/active-directory/develop/reply-url) in the Microsoft identity platform documentation.
+For the most up-to-date information about restrictions on redirect URLs for apps that are registered for Microsoft identity platform, see [Redirect URI/reply URL restrictions and limitations](https://docs.microsoft.com/azure/active-directory/develop/reply-url) in the Microsoft identity platform documentation.
 
 To learn how to register an app for use with Microsoft identity platform, see [Register an app using the new App registrations experience](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
