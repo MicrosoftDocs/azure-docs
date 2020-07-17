@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 07/06/2020
 ms.author: genli
 
 ---
@@ -60,14 +60,12 @@ Use the following steps to install the VM Agent in offline mode.
 
     2. Export the following registries:
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE\BROKENSYSTEM\\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet001\Services\RdAgent
 
 8.	Use the existing files on the troubleshooter VM as a repository for the VM Agent installation. Complete the following steps:
 
     1. From the troubleshooter VM, export the following subkeys in registry format (.reg): 
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureGuestAgent
-        - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
           ![Export the registry subkeys](./media/install-vm-agent-offline/backup-reg.png)
@@ -78,9 +76,8 @@ Use the following steps to install the VM Agent in offline mode.
 
     3. Import the registry files into the repository by double-clicking each registry file.
 
-    4. Confirm that the following three subkeys are successfully imported into the **BROKENSYSTEM** hive:
+    4. Confirm that the following two subkeys are successfully imported into the **BROKENSYSTEM** hive:
         - WindowsAzureGuestAgent
-        - WindowsAzureTelemetryService
         - RdAgent
 
     5. Copy the installation folder of the current VM Agent to the attached OS disk: 
@@ -102,6 +99,8 @@ Use the following steps to install the VM Agent in offline mode.
 If you created the VM by using the Resource Manager deployment model, you're done.
 
 ### Use the ProvisionGuestAgent property for classic VMs
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 If you created the VM by using the classic model, use the Azure PowerShell module to update the **ProvisionGuestAgent** property. The property informs Azure that the VM has the VM Agent installed.
 

@@ -2,12 +2,12 @@
 title: 'Connect to a Windows virtual machine scale set using Azure Bastion  | Microsoft Docs'
 description: In this article, learn how to connect to an Azure virtual machine scale set using Azure Bastion.
 services: bastion
-author: cherylmc
+author: charwen
 
 ms.service: bastion
-ms.topic: conceptual
-ms.date: 10/14/2019
-ms.author: cherylmc
+ms.topic: how-to
+ms.date: 02/03/2020
+ms.author: charwen
 
 ---
 

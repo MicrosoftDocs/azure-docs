@@ -7,81 +7,50 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 07/14/2020
 ---
-# Release notes
+# Azure HDInsight release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 11/07/2019
+## Release date: 07/13/2020
 
-This release applies both for HDInsight 3.6 and 4.0.
-
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight versioning article](hdinsight-component-versioning.md).
-
+This release applies both for HDInsight 3.6 and 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
+### Support for Customer Lockbox for Microsoft Azure
+Azure HDInsight now supports Azure Customer Lockbox. It provides an interface for customers to review and approve, or reject customer data access requests. It is used when Microsoft engineer needs to access customer data during a support request. For more information, see [Customer Lockbox for Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-preview).
 
-### HDInsight Identity Broker (HIB) (Preview)
-
-HDInsight Identity Broker (HIB) enables users to sign in to Apache Ambari using multi-factor authentication (MFA) and get the required Kerberos tickets without needing password hashes in Azure Active Directory Domain Services (AAD-DS). Currently HIB is only available for clusters deployed through ARM template.
-
-### Kafka Rest API Proxy (Preview)
-
-Kafka Rest API Proxy provides one-click deployment of highly available REST proxy with Kafka cluster via secured AAD authorization and OAuth protocol. 
-
-### Auto scale
-
-Autoscale for Azure HDInsight is now generally available across all regions for Apache Spark and Hadoop cluster types. This feature makes it possible to manage big data analytics workloads in a more cost-efficient and productive way. Now you can optimize use of your HDInsight clusters and only pay for what you need.
-
-Depending on your requirements, you can choose between load-based and schedule-based autoscaling. Load-based Autoscale can scale the cluster size up and down based on the current resource needs while schedule-based Autoscale can change the cluster size based on a predefined schedule. 
-
-Autoscale support for HBase and LLAP workload is also public preview. For more information, see [Automatically scale Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-autoscale-clusters).
-
-### HDInsight Accelerated Writes for Apache HBase 
-
-Accelerated Writes uses Azure premium SSD managed disks to improve performance of the Apache HBase Write Ahead Log (WAL). For more information, see [Azure HDInsight Accelerated Writes for Apache HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes).
-
-### Custom Ambari DB
-
-HDInsight now offers a new capacity to enable customers to use their own SQL DB for Ambari. Now customers can choose the right SQL DB for Ambari and  easily upgrade the it based on their own business growth requirement. The deployment is done with an Azure Resource Manager template. For more information, see [Set up HDInsight clusters with a custom Ambari DB](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db).
-
-### F-series virtual machines are now available with HDInsight
-
-F-series virtual machines(VMs) are good choice to get started with HDInsight with light processing requirements. At a lower per-hour list price, the F-series is the best value in price-performance in the Azure portfolio based on the Azure Compute Unit (ACU) per vCPU. For more information, see [Selecting the right VM size for your Azure HDInsight cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-selecting-vm-size).
+### Service endpoint policies for storage
+Customers can now use Service Endpoint Policies (SEP) on the HDInsight cluster subnet. Learn more about [Azure service endpoint policy](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview).
 
 ## Deprecation
-
-### G-series virtual machine deprecation
-From this release, G-series VMs are no longer offered in HDInsight.
-
-### Dv1 virtual machine deprecation
-From this release, the use of Dv1 VMs with HDInsight is deprecated. Any customer request for Dv1 will be served with Dv2 automatically. There is no price difference between Dv1 and Dv2 VMs.
+### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
+Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInsight 3.6 by June 30 2020 to avoid potential system/support interruption.
+ 
+### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
+Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+ 
+### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
+Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
 
 ## Behavior changes
-
-### Cluster managed disk size change
-HDInsight provides managed disk space with the cluster. From this release, the managed disk size of each node in the new created cluster is changed to 128 GB.
+No behavior changes you need to pay attention to.
 
 ## Upcoming changes
-The following changes will happen in the upcoming releases. 
-
-### Moving to Azure virtual machine scale sets
-HDInsight now uses Azure virtual machines to provision the cluster. Starting from December, HDInsight will use Azure virtual machine scale sets instead. See more about [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
-
-### HBase 2.0 to 2.1
-In the upcoming HDInsight 4.0 release, HBase version will be upgraded from version 2.0 to 2.1.
-
-### A-series virtual machine deprecation for ESP cluster
-A-series VMs could cause ESP cluster issues due to relatively low CPU and memory capacity. In the upcoming release, A-series VMs will be deprecated for creating new ESP clusters.
+No upcoming breaking changes you need to pay attention to.
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
+### Fixed Hive Warehouse Connector issue
+There was an issue for Hive Warehouse connector usability in previous release. The issue has been fixed. 
+
+### Fixed Zeppelin notebook truncates leading zeros issue
+Zeppelin was incorrectly truncating leading zeros in the table output for String format. We've fixed this issue in this release.
 
 ## Component version change
-There is no component version change for this release. You could find the current component versions for HDInsight 4.0 ad HDInsight 3.6 [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+No component version change for this release. You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).

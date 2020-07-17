@@ -1,20 +1,8 @@
 ---
 title: Managed identities for Azure resources with Service Bus
-description: Use managed identities for Azure resources with Azure Service Bus
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-
-ms.assetid:
-ms.service: service-bus-messaging
-ms.devlang: na
+description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/22/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
@@ -137,7 +125,7 @@ To send or receive messages, enter the name of the namespace and the name of the
 
 
 > [!NOTE]
-> - The managed identity works only inside the Azure environment, on App services, Azure VMs, and scale sets. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library, which is used by the Service Bus NuGet package, provides an abstraction over this protocol and supports a local development experience. This library also allows you to test your code locally on your development machine, using your user account from Visual Studio, Azure CLI 2.0 or Active Directory Integrated Authentication. For more on local development options with this library, see [Service-to-service authentication to Azure Key Vault using .NET](../key-vault/service-to-service-authentication.md).  
+> - The managed identity works only inside the Azure environment, on App services, Azure VMs, and scale sets. For .NET applications, the Microsoft.Azure.Services.AppAuthentication library, which is used by the Service Bus NuGet package, provides an abstraction over this protocol and supports a local development experience. This library also allows you to test your code locally on your development machine, using your user account from Visual Studio, Azure CLI 2.0 or Active Directory Integrated Authentication. For more on local development options with this library, see [Service-to-service authentication to Azure Key Vault using .NET](../key-vault/general/service-to-service-authentication.md).  
 > 
 > - Currently, managed identities do not work with App Service deployment slots.
 

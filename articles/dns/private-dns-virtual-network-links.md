@@ -28,7 +28,7 @@ One private DNS zone can have multiple resolution virtual networks and a virtual
 
 ## Limits
 
-To understand how many registration and resolution networks, you can link to private DNS zones see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits)
+To understand how many registration and resolution networks, you can link to private DNS zones see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-dns-limits)
 
 ## Other considerations
 

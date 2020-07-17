@@ -4,23 +4,27 @@ description: An On-premises gateway is necessary if your Analysis Services serve
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ---
 # Connecting to on-premises data sources with On-premises data gateway
 
-The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Microsoft Flow. You can associate multiple services in the same subscription and same region with a single gateway. While the gateway you install is the same across all of these services, Azure Analysis Services and Logic Apps have some additional steps.
+The on-premises data gateway provides secure data transfer between on-premises data sources and your Azure Analysis Services servers in the cloud. In addition to working with multiple Azure Analysis Services servers in the same region, the latest version of the gateway also works with Azure Logic Apps, Power BI, Power Apps, and Power Automate. While the gateway you install is the same across all of these services, Azure Analysis Services and Logic Apps have some additional steps.
+
+Information provided here is specific to how Azure Analysis Services works with the On-premises Data Gateway. To learn more about the gateway in general and how it works with other services, see [What is an on-premises data gateway?](/data-integration/gateway/service-gateway-onprem).
 
 For Azure Analysis Services, getting setup with the gateway the first time is a four-part process:
 
 - **Download and run setup** - This step installs a gateway service on a computer in your organization. You also sign in to Azure using an account in your [tenant's](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Azure B2B (guest) accounts are not supported.
 
-- **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but we recommend it be in the same region as your Analysis Services servers. 
+- **Register your gateway** - In this step, you specify a name and recovery key for your gateway and select a region, registering your gateway with the Gateway Cloud Service. Your gateway resource can be registered in any region, but it's recommended it be in the same region as your Analysis Services servers. 
 
-- **Create a gateway resource in Azure** - In this step, you create a gateway resource in your Azure subscription.
+- **Create a gateway resource in Azure** - In this step, you create a gateway resource in Azure.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource in your subscription, you can begin connecting your servers to it. You can connect multiple servers and other resources, provided they are in the same subscription and same region.
+- **Connect your servers to your gateway resource** - Once you have a gateway resource, you can begin connecting servers to it. You can connect multiple servers and other resources provided they are in the same region.
+
+
 
 ## <a name="how-it-works"> </a>How it works
 The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create an On-premises data gateway resource for your Azure subscription. Your Azure Analysis Services servers are then connected to your Azure gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
@@ -44,7 +48,7 @@ When installing for an Azure Analysis Services environment, it's important you f
 
 The gateway creates an outbound connection to Azure Service Bus. It communicates on outbound ports: TCP 443 (default), 5671, 5672, 9350 through 9354.  The gateway does not require inbound ports.
 
-You may need to include IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated weekly. The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+You may need to include IP addresses for your data region in your firewall. You can download the [Microsoft Azure Datacenter IP list](https://www.microsoft.com/download/details.aspx?id=56519). This list is updated weekly. The IP Addresses listed in the Azure Datacenter IP list are in CIDR notation. To learn more, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 The following are fully qualified domain names used by the gateway.
 

@@ -5,10 +5,10 @@ description: Learn how to retrain a model and update a classic web service to us
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: peterclu
-ms.author: amlstudiodocs
+ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ---
@@ -44,22 +44,9 @@ You can add scoring endpoints using the sample code provided in this [GitHub rep
 1. Click **Add**.
 1. Type a name and description for the new endpoint. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](web-services-logging.md).
 
-## Update the added endpoint’s trained model
+## Update the added endpoint's trained model
 
 ### Retrieve PATCH URL
-
-### Option 1: Programmatically
-
-To get the correct PATCH URL programmatically, follow these steps:
-
-1. Run the [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) sample code.
-1. From the output of AddEndpoint, find the *HelpLocation* value and copy the URL.
-
-   ![HelpLocation in the output of the addEndpoint sample.](./media/retrain-classic/addEndpoint-output.png)
-1. Paste the URL into a browser to navigate to a page that provides help links for the web service.
-1. Click the **Update Resource** link to open the patch help page.
-
-### Option 2: Use the Azure Machine Learning Web Services portal
 
 Follow these steps to get the correct PATCH URL using the web portal:
 
@@ -84,43 +71,45 @@ You can now use the trained model to update the scoring endpoint that you create
 
 The following sample code shows you how to use the *BaseLocation*, *RelativeLocation*, *SasBlobToken*, and PATCH URL to update the endpoint.
 
-    private async Task OverwriteModel()
+```csharp
+private async Task OverwriteModel()
+{
+    var resourceLocations = new
     {
-        var resourceLocations = new
+        Resources = new[]
         {
-            Resources = new[]
+            new
             {
-                new
+                Name = "Census Model [trained model]",
+                Location = new AzureBlobDataReference()
                 {
-                    Name = "Census Model [trained model]",
-                    Location = new AzureBlobDataReference()
-                    {
-                        BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
-                        RelativeLocation = "your endpoint relative location", //from the output, for example: “experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner”
-                        SasBlobToken = "your endpoint SAS blob token" //from the output, for example: “?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl”
-                    }
+                    BaseLocation = "https://esintussouthsus.blob.core.windows.net/",
+                    RelativeLocation = "your endpoint relative location", //from the output, for example: "experimentoutput/8946abfd-79d6-4438-89a9-3e5d109183/8946abfd-79d6-4438-89a9-3e5d109183.ilearner"
+                    SasBlobToken = "your endpoint SAS blob token" //from the output, for example: "?sv=2013-08-15&sr=c&sig=37lTTfngRwxCcf94%3D&st=2015-01-30T22%3A53%3A06Z&se=2015-01-31T22%3A58%3A06Z&sp=rl"
                 }
-            }
-        };
-
-        using (var client = new HttpClient())
-        {
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-
-            using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), endpointUrl))
-            {
-                request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations), System.Text.Encoding.UTF8, "application/json");
-                HttpResponseMessage response = await client.SendAsync(request);
-
-                if (!response.IsSuccessStatusCode)
-                {
-                    await WriteFailedResponse(response);
-                }
-
-                // Do what you want with a successful response here.
             }
         }
+    };
+
+    using (var client = new HttpClient())
+    {
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+
+        using (var request = new HttpRequestMessage(new HttpMethod("PATCH"), endpointUrl))
+        {
+            request.Content = new StringContent(JsonConvert.SerializeObject(resourceLocations), System.Text.Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                await WriteFailedResponse(response);
+            }
+
+            // Do what you want with a successful response here.
+        }
     }
+}
+```
 
 The *apiKey* and the *endpointUrl* for the call can be obtained from endpoint dashboard.
 

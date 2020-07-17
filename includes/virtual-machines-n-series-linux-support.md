@@ -14,14 +14,11 @@
 
 ### NVIDIA CUDA drivers
 
-NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV-series) are supported only on the Linux distributions listed in the following table. CUDA driver information is current at time of publication. For the latest CUDA drivers, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest CUDA drivers for your distribution. 
+NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV-series) are supported only on the Linux distributions listed in the following table. CUDA driver information is current at time of publication. For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest CUDA drivers for your distribution. 
 
 > [!TIP]
 > As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Ubuntu 16.04 LTS or CentOS 7.4 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
 
-| Distribution | Driver |
-| --- | -- | 
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> CentOS-based 7.3, 7.4, 7.5, 7.6, CentOS-based 7.4 HPC | NVIDIA CUDA 10.1, driver branch R418 |
 
 ### NVIDIA GRID drivers
 
@@ -29,7 +26,7 @@ Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs
 
 | Distribution | Driver |
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.0 to 7.6<br/><br/>CentOS-based 7.0 to 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.1, driver branch R430|
+|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.0 to 7.7<br/><br/>CentOS-based 7.0 to 7.7<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 10.1, driver branch R440|
 
 > [!WARNING] 
 > Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).

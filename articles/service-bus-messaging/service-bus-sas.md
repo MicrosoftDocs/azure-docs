@@ -1,20 +1,8 @@
 ---
-title: Azure Service Bus access control with Shared Access Signatures | Microsoft Docs
+title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-editor: spelluru
-
-ms.assetid: ''
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Service Bus access control with Shared Access Signatures
@@ -79,7 +67,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** - URI of the resource being accessed.
 * **`sig`** - Signature.
 
-The `signature-string` is the SHA-256 hash computed over the resource URI (**scope** as described in the previous section) and the string representation of the token expiry instant, separated by CRLF.
+The `signature-string` is the SHA-256 hash computed over the resource URI (**scope** as described in the previous section) and the string representation of the token expiry instant, separated by LF.
 
 The hash computation looks similar to the following pseudo code and returns a 256-bit/32-byte hash value.
 

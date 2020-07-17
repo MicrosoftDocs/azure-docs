@@ -1,6 +1,6 @@
 ---
 title: How to use Notification Hubs with Python
-description: Learn how to use Azure Notification Hubs from a Python back-end.
+description: Learn how to use Azure Notification Hubs from a Python application.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -17,6 +17,7 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom: tracking-python
 ---
 
 # How to use Notification Hubs from Python
@@ -378,7 +379,7 @@ Running your Python code should produce a notification appearing on your target 
 
 When you enable the debug flag while initializing the NotificationHub, you see detailed HTTP request and response dump as well as NotificationOutcome like the following where you can understand what HTTP headers are passed in the request and what HTTP response was received from the Notification Hub:
 
-![][1]
+![Screenshot of a console with details of the H T T P request and response dump and Notification Outcome messages outlined in red.][1]
 
 You see detailed Notification Hub result for example.
 
@@ -399,7 +400,7 @@ Notice the headers that get sent out when you are sending a broadcast toast noti
 hub.send_windows_notification(wns_payload)
 ```
 
-![][2]
+![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format and X W N S Type values outlined in red.][2]
 
 ### Send notification specifying a tag (or tag expression)
 
@@ -409,7 +410,7 @@ Notice the Tags HTTP header, which gets added to the HTTP request (in the exampl
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![][3]
+![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, Service Bus Notification Tags, and X W N S Type values outlined in red.][3]
 
 ### Send notification specifying multiple tags
 
@@ -420,7 +421,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![][4]
+![Screenshot of a console with details of the H T T P request and the Service Bus Notification Format, Service Bus Notification Tags, and X W N S Type values outlined in red.][4]
 
 ### Templated notification
 
@@ -439,7 +440,7 @@ template_payload = {'greeting_en': 'Hello', 'greeting_fr': 'Salut'}
 hub.send_template_notification(template_payload)
 ```
 
-![][5]
+![Screenshot of a console with details of the H T T P request and the Content type and Service Bus Notification Format values outlined in red.][5]
 
 ## Next Steps
 

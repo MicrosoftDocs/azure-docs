@@ -1,6 +1,6 @@
 ---
 title: Scalar expressions in Azure Cosmos DB SQL queries
-description: Learn about scalar expression SQL syntax for Azure Cosmos DB.
+description: Learn about the scalar expression SQL syntax for Azure Cosmos DB. This article also describes how to combine scalar expressions into complex expressions by using operators. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual

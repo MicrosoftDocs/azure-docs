@@ -1,5 +1,5 @@
 ---
-title: Subclip a video when encoding with Azure Media Services REST API
+title: Subclip a video when encoding with Azure Media Services REST
 description: This topic describes how to subclip a video when encoding with Azure Media Services using REST
 services: media-services
 documentationcenter: ''

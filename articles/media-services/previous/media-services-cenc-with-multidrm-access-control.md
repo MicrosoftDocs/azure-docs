@@ -222,7 +222,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 
 For information on Azure AD:
 
-* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
+* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/azuread-dev/v1-overview.md).
 * You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation
@@ -230,8 +230,10 @@ Use the following troubleshooting information for help with implementation issue
 
 * The issuer URL must end with "/". The audience must be the player application client ID. Also, add "/" at the end of the issuer URL.
 
-        <add key="ida:audience" value="[Application Client ID GUID]" />
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```xml
+    <add key="ida:audience" value="[Application Client ID GUID]" />
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/" />
+    ```
 
     In the [JWT Decoder](http://jwt.calebb.net/), you see **aud** and **iss**, as shown in the JWT:
 
@@ -243,11 +245,15 @@ Use the following troubleshooting information for help with implementation issue
 
 * Use the correct issuer when you set up dynamic CENC protection.
 
-        <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```xml
+    <add key="ida:issuer" value="https://sts.windows.net/[AAD Tenant ID]/"/>
+    ```
 
     The following doesn't work:
 
-        <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```xml
+    <add key="ida:issuer" value="https://willzhanad.onmicrosoft.com/" />
+    ```
 
     The GUID is the Azure AD tenant ID. The GUID can be found in the **Endpoints** pop-up menu in the Azure portal.
 
@@ -257,7 +263,9 @@ Use the following troubleshooting information for help with implementation issue
 
 * Set the proper TokenType when you create restriction requirements.
 
-        objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```csharp
+    objTokenRestrictionTemplate.TokenType = TokenType.JWT;
+    ```
 
     Because you add support for JWT (Azure AD) in addition to SWT (ACS), the default TokenType is TokenType.JWT. If you use SWT/ACS, you must set the token to TokenType.SWT.
 
@@ -309,9 +317,9 @@ What if the key rollover happens after Azure AD generates a JWT but before the J
 Because a key can be rolled over at any moment, more than one valid public key is always available in the federation metadata document. Media Services license delivery can use any of the keys specified in the document. Because one key might be rolled soon, another might be its replacement, and so forth.
 
 ### Where is the access token?
-If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/develop/web-api.md), the authentication flow is as follows:
+If you look at how a web app calls an API app under [Application identity with OAuth 2.0 client credentials grant](../../active-directory/azuread-dev/web-api.md), the authentication flow is as follows:
 
-* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/develop/web-app.md).
+* A user signs in to Azure AD in the web application. For more information, see [Web browser to web application](../../active-directory/azuread-dev/web-app.md).
 * The Azure AD authorization endpoint redirects the user agent back to the client application with an authorization code. The user agent returns the authorization code to the client application's redirect URI.
 * The web application needs to acquire an access token so that it can authenticate to the web API and retrieve the desired resource. It makes a request to the Azure AD token endpoint and provides the credential, client ID, and web API's application ID URI. It presents the authorization code to prove that the user consented.
 * Azure AD authenticates the application and returns a JWT access token that's used to call the web API.
@@ -459,11 +467,16 @@ The following screenshot shows a scenario that uses an asymmetric key via an X50
 In both of the previous cases, user authentication stays the same. It takes place through Azure AD. The only difference is that JWTs are issued by the custom STS instead of Azure AD. When you configure dynamic CENC protection, the license delivery service restriction specifies the type of JWT, either a symmetric or an asymmetric key.
 
 ## Summary
+
 This document discussed CENC with multi-native DRM and access control via token authentication, its design, and its implementation by using Azure, Media Services, and Media Player.
 
 * A reference design was presented that contains all the necessary components in a DRM/CENC subsystem.
 * A reference implementation was presented on Azure, Media Services, and Media Player.
 * Some topics directly involved in the design and implementation were also discussed.
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

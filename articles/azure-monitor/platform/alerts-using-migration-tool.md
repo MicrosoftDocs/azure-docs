@@ -1,11 +1,10 @@
 ---
-title: "Migrate your classic alerts in Azure Monitor by using the voluntary migration tool"
+title: Migrate Azure Monitor alert rules
 description: Learn how to use the voluntary migration tool to migrate your classic alert rules.
-author: snehithm
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
 ms.subservice: alerts
 ---
 # Use the voluntary migration tool to migrate your classic alert rules

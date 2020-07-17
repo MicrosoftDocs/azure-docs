@@ -1,12 +1,12 @@
 ---
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft may need to access customer data.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
+ms.author: terrylan
+manager: rkarlin
 ms.date: 11/04/2019
 ---
 
@@ -37,37 +37,37 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     - The scope of the resource
     - Whether the requester is an isolated identity or using multi-factor authentication
     - Permissions levels
-    
+
     Based on the JIT rule, this request may also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
 
 6. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
-    
+
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 
-7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
-    
+7. At the customer organization, the user who has the [Owner role](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) for the Azure subscription receives an email from Microsoft, to notify them about the pending access request. For Customer Lockbox requests, this person is the designated approver.
+
     Example email:
-    
+
     ![Azure Customer Lockbox - email notification](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. The email notification provides a link to the **Customer Lockbox** blade in the Azure portal. Using this link, the designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox:
-    
+
     ![Azure Customer Lockbox - landing page](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 
 9. To get the details of the pending request, the designated approver can select the lockbox request from **Pending Requests**:
-    
+
     ![Azure Customer Lockbox - view the pending request](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
 10. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
-    
+
     ![Azure Customer Lockbox - view the support ticket request](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. After reviewing the request, the designated approver selects **Approve** or **Deny**:
-    
+
     ![Azure Customer Lockbox - select Approve or Deny](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     As a result of the selection:
     - **Approve**:  Access is granted to the Microsoft engineer. The access is granted for a default period of eight hours.
     - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
@@ -108,13 +108,13 @@ For scenarios that involve remote desktop access, you can use Windows event logs
 
 The following services are now currently in preview for Customer Lockbox:
 
-- Azure Storage 
+- Azure Storage
 
-- Azure SQL DB 
+- Azure SQL DB
 
-- Azure Data Explorer 
+- Azure Data Explorer
 
-- Virtual machines (now also covering access to memory dumps and managed disks) 
+- Virtual machines (now also covering access to memory dumps and managed disks)
 
 - Azure subscription transfers
 

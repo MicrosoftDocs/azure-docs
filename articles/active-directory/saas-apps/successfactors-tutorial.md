@@ -12,9 +12,8 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,7 +40,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* SuccessFactors supports **SP** initiated SSO
+* SuccessFactors supports **SP** initiated SSO.
+* Once you configure the SuccessFactors you can enforce session controls, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session controls extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding SuccessFactors from the gallery
 
@@ -82,41 +82,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://<companyname>.successfactors.com/<companyname>`|
-    | `https://<companyname>.sapsf.com/<companyname>`|
-    | `https://<companyname>.successfactors.eu/<companyname>`|
-    | `https://<companyname>.sapsf.eu`|
+    - `https://<companyname>.successfactors.com/<companyname>`
+    - `https://<companyname>.sapsf.com/<companyname>`
+    - `https://<companyname>.successfactors.eu/<companyname>`
+    - `https://<companyname>.sapsf.eu`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://www.successfactors.com/<companyname>`|
-    | `https://www.successfactors.com`|
-    | `https://<companyname>.successfactors.eu`|
-    | `https://www.successfactors.eu/<companyname>`|
-    | `https://<companyname>.sapsf.com`|
-    | `https://hcm4preview.sapsf.com/<companyname>`|
-    | `https://<companyname>.sapsf.eu`|
-    | `https://www.successfactors.cn`|
-    | `https://www.successfactors.cn/<companyname>`|
+    - `https://www.successfactors.com/<companyname>`
+    - `https://www.successfactors.com`
+    - `https://<companyname>.successfactors.eu`
+    - `https://www.successfactors.eu/<companyname>`
+    - `https://<companyname>.sapsf.com`
+    - `https://hcm4preview.sapsf.com/<companyname>`
+    - `https://<companyname>.sapsf.eu`
+    - `https://www.successfactors.cn`
+    - `https://www.successfactors.cn/<companyname>`
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
 
-    | |
-    |--|
-    | `https://<companyname>.successfactors.com/<companyname>`|
-    | `https://<companyname>.successfactors.com`|
-    | `https://<companyname>.sapsf.com/<companyname>`|
-    | `https://<companyname>.sapsf.com`|
-    | `https://<companyname>.successfactors.eu/<companyname>`|
-    | `https://<companyname>.successfactors.eu`|
-    | `https://<companyname>.sapsf.eu`|
-    | `https://<companyname>.sapsf.eu/<companyname>`|
-    | `https://<companyname>.sapsf.cn`|
-    | `https://<companyname>.sapsf.cn/<companyname>`|
+    - `https://<companyname>.successfactors.com/<companyname>`
+    - `https://<companyname>.successfactors.com`
+    - `https://<companyname>.sapsf.com/<companyname>`
+    - `https://<companyname>.sapsf.com`
+    - `https://<companyname>.successfactors.eu/<companyname>`
+    - `https://<companyname>.successfactors.eu`
+    - `https://<companyname>.sapsf.eu`
+    - `https://<companyname>.sapsf.eu/<companyname>`
+    - `https://<companyname>.sapsf.cn`
+    - `https://<companyname>.sapsf.cn/<companyname>`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-on URL, Identifier and Reply URL. Contact [SuccessFactors Client support team](https://www.successfactors.com/content/ssf-site/en/support.html) to get these values.
@@ -247,6 +241,10 @@ When you click the SuccessFactors tile in the Access Panel, you should be automa
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try SuccessFactors with Azure AD](https://aad.portal.azure.com)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [How to protect SuccessFactors with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

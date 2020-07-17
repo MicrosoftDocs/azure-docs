@@ -14,6 +14,9 @@ ms.topic: quickstart
 
 Get started with the Azure Blob Storage client library v11 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Azure Blob storage client library for .NET](storage-quickstart-blobs-dotnet.md).
+
 Use the Azure Blob Storage client library for .NET to:
 
 * Create a container
@@ -23,7 +26,12 @@ Use the Azure Blob Storage client library for .NET to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+Additional resources:
+
+* [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)
+* [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob)
+* [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -105,12 +113,11 @@ namespace blob_quickstart
 {
     class Program
     {
-        public static void Main()
+        public static async Task Main()
         {
             Console.WriteLine("Azure Blob Storage - .NET quickstart sample\n");
 
-            // Run the examples asynchronously, wait for the results before proceeding
-            ProcessAsync().GetAwaiter().GetResult();
+            await ProcessAsync();
 
             Console.WriteLine("Press any key to exit the sample application.");
             Console.ReadLine();
@@ -141,7 +148,7 @@ After you have copied your connection string, write it to a new environment vari
 #### Windows
 
 ```cmd
-setx CONNECT_STR "<yourconnectionstring>"
+setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
 After you add the environment variable in Windows, you must start a new instance of the command window.
@@ -149,13 +156,13 @@ After you add the environment variable in Windows, you must start a new instance
 #### Linux
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 #### MacOS
 
 ```bash
-export CONNECT_STR="<yourconnectionstring>"
+export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 After you add the environment variable, restart any running programs that will need to read the environment variable. For example, restart your development environment or editor before continuing.
@@ -200,11 +207,11 @@ Add this code inside the `ProcessAsync` method:
 ```csharp
 // Retrieve the connection string for use with the application. The storage 
 // connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
+// running the application called AZURE_STORAGE_CONNECTION_STRING. If the 
 // environment variable is created after the application is launched in a 
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+string storageConnectionString = Environment.GetEnvironmentVariable("AZURE_STORAGE_CONNECTION_STRING");
 
 // Check whether the connection string can be parsed.
 CloudStorageAccount storageAccount;
@@ -219,7 +226,7 @@ else
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add an environment variable named 'CONNECT_STR' with your storage " +
+        "Add an environment variable named 'AZURE_STORAGE_CONNECTION_STRING' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the application.");
     Console.ReadLine();

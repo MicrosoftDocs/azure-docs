@@ -2,13 +2,13 @@
 title: Team Data Science Process project planning 
 description: Microsoft Project and Excel templates that help you plan and manage data science projects.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -54,7 +54,7 @@ Use this [project template repository](https://github.com/Azure/Azure-TDSP-Proje
 
 ## Next steps
 
-[Agile development of data science projects](agile-development.md) This document describes to execute a data science project in a systematic, version controlled, and collaborative way within a project team by using the Team Data Science Process.
+[Agile development of data science projects](agile-development.md) This document describes a data science project in a systematic, version controlled, and collaborative way by using the Team Data Science Process.
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
 

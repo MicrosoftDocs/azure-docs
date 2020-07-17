@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Speech SDK for .NET Framework (Windows) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C# under .NET Framework for Windows with the Speech Services SDK.
+description: Use this guide to set up your platform for C# under .NET Framework for Windows with the Speech service SDK.
 services: cognitive-services
 author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for .NET Framework (Windows).
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for .NET Framework (Windows). If you just want the package name to get started on your own, run `Install-Package Microsoft.CognitiveServices.Speech` in the NuGet console.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -66,7 +66,21 @@ You'll need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nu
 
    After the package is installed, a confirmation appears in the **Package Manager Console** window.
 
-You can now move on to [Next steps](#next-steps) below.
+### Choose target architecture
+
+To build and run the console application, create a platform configuration matching your computer's architecture.
+
+1. From the menu bar, select **Build** > **Configuration Manager**. The **Configuration Manager** dialog box appears.
+
+   ![Configuration Manager dialog box](~/articles/cognitive-services/speech-service/media/sdk/vs-configuration-manager-dialog-box.png)
+
+1. In the **Active solution platform** drop-down box, select **New**. The **New Solution Platform** dialog box appears.
+
+1. In the **Type or select the new platform** drop-down box:
+   - If you're running 64-bit Windows, select **x64**.
+   - If you're running 32-bit Windows, select **x86**.
+
+1. Select **OK** and then **Close**.
 
 ## Next steps
 

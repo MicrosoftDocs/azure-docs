@@ -82,7 +82,7 @@ In this scenario, you use [Microsoft Message Analyzer](https://technet.microsoft
 
 ### Download Microsoft Message Analyzer
 
-Download [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) and install the application.
+Download [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) and install the application.
 
 Launch the application and choose **File** > **Open** > **From Other File Sources**.
 

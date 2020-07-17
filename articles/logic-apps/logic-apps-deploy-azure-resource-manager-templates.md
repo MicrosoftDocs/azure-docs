@@ -1,12 +1,9 @@
 ---
-title: Deploy logic app templates - Azure Logic Apps
+title: Deploy logic app templates
 description: Learn how to deploy Azure Resource Manager templates created for Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
 ---
@@ -19,8 +16,8 @@ After you create an Azure Resource Manager template for your logic app, you can 
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
-* [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
-* [Azure DevOps Azure Pipelines](#azure-pipelines)
+* [Azure Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
+* [Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -42,7 +39,7 @@ For example, you're prompted for the following information after you sign in to 
 For more information, see these topics:
 
 * [Overview: Automate deployment for logic apps with Azure Resource Manager templates](logic-apps-azure-resource-manager-templates-overview.md)
-* [Deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Deploy resources with Azure Resource Manager templates and the Azure portal](../azure-resource-manager/templates/deploy-portal.md)
 
 <a name="visual-studio"></a>
 
@@ -62,8 +59,8 @@ New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -Te
 
 For more information, see these topics:
 
-* [Deploy resources with Resource Manager templates and Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
-* [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [`New-AzResourceGroupDeployment`](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
 
 <a name="cli"></a>
 
@@ -77,23 +74,24 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 
 For more information, see these topics:
 
-* [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
-* [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
+* [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [`az group deployment create`](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
 
 ## Deploy with Azure DevOps
 
-To deploy logic app templates and manage environments, teams commonly use a tool such as [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines) in [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/what-is-azure-devops-services). Azure Pipelines provides an [Azure Resource Group Deployment task](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) that you can add to any build or release pipeline. For authorization to deploy and generate the release pipeline, you also need an Azure Active Directory (AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md). Learn more about [using service principals with Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure).
+To deploy logic app templates and manage environments, teams commonly use a tool such as [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) in [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops-services). Azure Pipelines provides an [Azure Resource Group Deployment task](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) that you can add to any build or release pipeline. For authorization to deploy and generate the release pipeline, you also need an Azure Active Directory (AD) [service principal](../active-directory/develop/app-objects-and-service-principals.md). Learn more about [using service principals with Azure Pipelines](/azure/devops/pipelines/library/connect-to-azure).
 
 For more information about continuous integration and continuous deployment (CI/CD) for Azure Resource Manager templates with Azure Pipelines, see these topics and samples:
 
-* [Integrate Resource Manager templates with Azure Pipelines](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
-* [Tutorial: Continuous integration for Azure Resource Manager templates with Azure Pipelines](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
-* [Sample: Connect to Azure Service Bus queues from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Sample: Connect to Azure Storage accounts from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Sample: Set up a function app action for Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [Sample: Connect to an integration account from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Integrate Resource Manager templates with Azure Pipelines](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
+* [Tutorial: Continuous integration of Azure Resource Manager templates with Azure Pipelines](../azure-resource-manager/templates/deployment-tutorial-pipeline.md)
+* [Sample: Connect to Azure Service Bus queues from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Sample: Connect to Azure Storage accounts from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Sample: Set up a function app action for Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Sample: Connect to an integration account from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [Sample: Orchestrate Azure Pipelines by using Azure Logic Apps](/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
 Here are the general high-level steps for using Azure Pipelines:
 
@@ -105,7 +103,7 @@ Here are the general high-level steps for using Azure Pipelines:
 
    ![Add "Azure Resource Group Deployment" task](./media/logic-apps-deploy-azure-resource-manager-templates/add-azure-resource-group-deployment-task.png)
 
-1. Configure with a [service principal](https://docs.microsoft.com/azure/devops/pipelines/library/connect-to-azure).
+1. Configure with a [service principal](/azure/devops/pipelines/library/connect-to-azure).
 
 1. Add references to your logic app template and template parameters files.
 
@@ -115,7 +113,7 @@ Here are the general high-level steps for using Azure Pipelines:
 
 ## Authorize OAuth connections
 
-After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-scenarios.md). Here are ways that you can authorize OAuth connections:
+After deployment, your logic app works end-to-end with valid parameters. However, you must still authorize any OAuth connections to generate valid access tokens for [authenticating your credentials](../active-directory/develop/authentication-vs-authorization.md). Here are ways that you can authorize OAuth connections:
 
 * For automated deployments, you can use a script that provides consent for each OAuth connection. Here's an example script in GitHub in the [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) project.
 
@@ -126,4 +124,4 @@ If you use an Azure Active Directory (Azure AD) [service principal](../active-di
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitor logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [Monitor logic apps](../logic-apps/monitor-logic-apps.md)

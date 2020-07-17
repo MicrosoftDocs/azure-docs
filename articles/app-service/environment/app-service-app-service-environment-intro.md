@@ -1,16 +1,9 @@
 ---
-title: Introduction to App Service Environment v1 - Azure
-description: Learn about the App Service Environment v1 feature that provides secure, VNet-joined, dedicated scale units for running all of your apps.
-services: app-service
-documentationcenter: ''
+title: Introduction to ASE v1
+description: Learn about the App Service Environment v1 features. This doc is provided only for customers who use the legacy v1 ASE. 
 author: stefsch
-manager: erikre
-editor: ''
 
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
@@ -51,7 +44,7 @@ All of the compute resources in an App Service Environment are dedicated exclusi
 
 An App Service Environment is composed of a front-end compute resource pool, as well as one to three worker compute resource pools.
 
-The front-end pool contains compute resources responsible for SSL termination as well automatic load balancing of app requests within an App Service Environment.
+The front-end pool contains compute resources responsible for TLS termination as well automatic load balancing of app requests within an App Service Environment.
 
 Each worker pool contains compute resources allocated to [App Service Plans][AppServicePlan], which in turn contain one or more Azure App Service apps.  Since there can be up to three different worker pools in an App Service Environment, you have the flexibility to choose different compute resources for each worker pool.  
 

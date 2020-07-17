@@ -5,8 +5,8 @@ description: Using report-only mode in Conditional Access to aid in adoption
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 10/25/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,9 +15,12 @@ ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
 ---
-# Configure a Conditional Access policy in report-only mode (Preview)
+# Configure a Conditional Access policy in report-only mode
 
 To configure a Conditional Access policy in report-only mode:
+
+> [!IMPORTANT]
+> If your organization has not already, [Set up Azure Monitor integration with Azure AD](#set-up-azure-monitor-integration-with-azure-ad). This process must take place before data will be available to review.
 
 1. Sign into the **Azure portal** as a Conditional Access administrator, security administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -36,24 +39,27 @@ To view the result of a report-only policy for a particular sign-in:
 1. Sign into the **Azure portal** as a reports reader, security reader, security administrator, or global administrator.
 1. Browse to **Azure Active Directory** > **Sign-ins**.
 1. Select a sign-in or add filters to narrow results.
-1. In the **Details** drawer, select the **Report-only (Preview)** tab to view the policies evaluated during sign-in.
+1. In the **Details** drawer, select the **Report-only** tab to view the policies evaluated during sign-in.
+
+> [!NOTE]
+> When downloading the Sign-ins logs, choose JSON format to include Conditional Access report-only result data.
 
 ## Set up Azure Monitor integration with Azure AD
 
-In order to view the aggregate impact of Conditional Access policies using the new Conditional Access Insights workbook, you must integrate Azure Monitor with Azure AD and export the sign-in logs. There are two steps to set this integration up: 
+In order to view the aggregate impact of Conditional Access policies using the new Conditional Access Insights workbook, you must integrate Azure Monitor with Azure AD and export the sign-in logs. There are two steps to set up this integration: 
 
-1. [Sign up for an Azure Monitor subscription and create a workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
-1. [Export the Sign-in logs from Azure AD to Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Sign up for an Azure Monitor subscription and create a workspace](/azure/azure-monitor/learn/quick-create-workspace).
+1. [Export the Sign-in logs from Azure AD to Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 More information about Azure Monitor pricing can be found on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Resources to estimate costs, set a daily cap, or customize the data retention period, can be found in the article, [Manage usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 
 ## View Conditional Access Insights workbook
 
-Once you’ve integrated your Azure AD logs with Azure Monitor, you can monitor the impact of Conditional Access policies using the new Conditional Access insights workbooks.
+Once you've integrated your Azure AD logs with Azure Monitor, you can monitor the impact of Conditional Access policies using the new Conditional Access insights workbooks.
 
 1. Sign into the **Azure portal** as a security administrator or global administrator.
 1. Browse to **Azure Active Directory** > **Workbooks**.
-1. Select **Conditional Access Insights (Preview)**.
+1. Select **Conditional Access Insights**.
 1. Select one or more policies from the **Conditional Access Policy** dropdown. All enabled policies are selected by default.
 1. Select a time range (if the time range exceeds the available dataset, the report will show all available data). Once you have set the **Conditional Access Policy** and **Time Range** parameters, the report will load.
    1. Optionally, search for individual **Users** or **Apps** to narrow the scope of the report.
@@ -72,9 +78,9 @@ Once you’ve integrated your Azure AD logs with Azure Monitor, you can monitor 
 
 Customers have noticed that queries sometimes fail if the wrong or multiple workspaces are associated with the workbook. To fix this problem, click **Edit** at the top of the workbook and then the Settings gear. Select and then remove workspaces that are not associated with the workbook. There should be only one workspace associated with each workbook.
 
-### Why doesn’t the Conditional Access Policies dropdown parameter contain my policies?
+### Why doesn't the Conditional Access Policies dropdown parameter contain my policies?
 
-The Conditional Access Policies dropdown is populated by querying the most recent sign-ins over a period of 4 hours. If a tenant doesn’t have any sign-ins in the past 4 hours, it is possible that the dropdown will be empty. If this delay is a persistent problem, such as in small tenants with infrequent sign-ins, admins can edit the query for the Conditional Access Policies dropdown and extend the time for the query to a time longer than 4 hours.
+The Conditional Access Policies dropdown is populated by querying the most recent sign-ins over a period of 4 hours. If a tenant doesn't have any sign-ins in the past 4 hours, it is possible that the dropdown will be empty. If this delay is a persistent problem, such as in small tenants with infrequent sign-ins, admins can edit the query for the Conditional Access Policies dropdown and extend the time for the query to a time longer than 4 hours.
 
 ## Next steps
 

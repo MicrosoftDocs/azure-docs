@@ -1,20 +1,21 @@
 ---
-title: Web service parameters - Azure Machine Learning Studio (classic) | Microsoft Docs
+title: Web service parameters
+titleSuffix: ML Studio (classic) - Azure
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
 ms.subservice: studio
 ms.workload: data-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/12/2017
 ---
 # Use Azure Machine Learning Studio (classic) web service parameters
+
 An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters. In some cases, you may want to change the module behavior while the web service is running. *Web Service Parameters* allow you to do this task. 
 
 A common example is setting up the [Import Data][reader] module so that the user of the published web service can specify a different data source when the web service is accessed. Or configuring the [Export Data][writer] module so that a different destination can be specified. Some other examples include changing the number of bits for the [Feature Hashing][feature-hashing] module or the number of desired features for the [Filter-Based Feature Selection][filter-based-feature-selection] module. 
@@ -40,7 +41,7 @@ The API documentation for the web service includes information for the web servi
 ## Example
 As an example, let's assume we have an experiment with an [Export Data][writer] module that sends information to Azure blob storage. We'll define a Web Service Parameter named "Blob path" that allows the web service user to change the path to the blob storage when the service is accessed.
 
-1. In  the classic version of Machine Learning Studio, click the [Export Data][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
+1. In Machine Learning Studio (classic), click the [Export Data][writer] module to select it. Its properties are shown in the Properties pane to the right of the experiment canvas.
 2. Specify the storage type:
    
    * Under **Please specify data destination**, select "Azure Blob Storage".

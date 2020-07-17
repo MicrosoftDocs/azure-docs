@@ -18,12 +18,12 @@ Choose from a letter-sized or A3-sized download.
 
 Download the [Azure Cosmos DB letter-sized query cheat sheets](https://go.microsoft.com/fwlink/?LinkId=623215) if you're going to print to letter-sized paper (8.5" x 11").
 
-![Azure Cosmos DB query cheat sheets - letter-sized, with SQL API, JavaScript, MongoDB, Gremlin, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png" alt-text="Azure Cosmos DB query cheat sheets - letter-sized, with SQL API, JavaScript, MongoDB, Gremlin, and Table API queries and functions" border="false":::
 
 ## Oversized cheat sheets
 Download the [Azure Cosmos DB A3-sized query cheat sheets](https://go.microsoft.com/fwlink/?linkid=870413) if you're going to print using a plotter or large-scale printer on A3-sized paper (11.7" x 16.5").
 
-![Azure Cosmos DB query cheat sheets - A3-sized, with SQL API, JavaScript, MongoDB, Gremlin, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png)
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB query cheat sheets - A3-sized, with SQL API, JavaScript, MongoDB, Gremlin, and Table API queries and functions" border="false":::
 
 ## Next steps
 For more help writing queries, see the following articles:

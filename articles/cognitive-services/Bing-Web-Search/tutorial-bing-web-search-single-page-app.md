@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -25,16 +25,16 @@ This sample app can:
 > * Manage subscription keys
 > * Handle errors
 
-To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) to get a subscription key.
+To use this app, an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs is required.
 
 ## Prerequisites
 
 Here are a few things that you'll need to run the app:
 
-* Node.js 8 or later
-* A subscription key
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
-## Get the source code and install dependencies
+* Node.js 8 or later
 
 The first step is to clone the repository with the sample app's source code.
 
@@ -100,7 +100,7 @@ function bingSearchOptions(form) {
     // Where option.
     options.push("mkt=" + form.where.value);
     // SafeSearch option.
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
     // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -123,7 +123,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. This form uses a checkbox, which has two states. In this snippet, SafeSearch is set to `strict` or `off`, `moderate` isn't used.
+`SafeSearch` can be set to `strict`, `moderate`, or `off`, with `moderate` being the default setting for Bing Web Search. This form uses a checkbox, which has two states: `strict` or `moderate`.
 
 If any of the **Promote** checkboxes are selected, the `answerCount` parameter is added to the query. `answerCount` is required when using the `promote` parameter. In this snippet, the value is set to `9` to return all available result types.
 > [!NOTE]

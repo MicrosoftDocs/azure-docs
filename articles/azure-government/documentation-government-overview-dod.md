@@ -1,20 +1,16 @@
-﻿---
+---
 title: Azure Government DoD Overview | Microsoft Docs
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: smichelotti
-manager: zakramer
 
-ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 05/18/2017
-ms.author: stemi
 
 ---
 # Department of Defense (DoD) in Azure Government

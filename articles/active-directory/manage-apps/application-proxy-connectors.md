@@ -2,14 +2,14 @@
 title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ---
@@ -97,7 +97,9 @@ In general, the more users you have, the larger a machine you'll need. Below is 
 \* This machine used a custom setting to raise some of the default connection limits beyond .NET recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
 
 > [!NOTE]
-> There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  
+> There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.
+>
+> This table also focuses on the expected performance of a connector based on the type of machine it is installed on. This is separate from the Application Proxy service's throttling limits, see [Service limits and restrictions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
 
 ## Security and networking
 
@@ -111,7 +113,7 @@ For more information about configuring outbound firewall rules, see [Work with e
 
 Scale for the Application Proxy service is transparent, but scale is a factor for connectors. You need to have enough connectors to handle peak traffic. Since connectors are stateless, they aren't affected by the number of users or sessions. Instead, they respond to the number of requests and their payload size. With standard web traffic, an average machine can handle a couple thousand requests per second. The specific capacity depends on the exact machine characteristics.
 
-The connector performance is bound by CPU and networking. CPU performance is needed for SSL encryption and decryption, while networking is important to get fast connectivity to the applications and the online service in Azure.
+The connector performance is bound by CPU and networking. CPU performance is needed for TLS encryption and decryption, while networking is important to get fast connectivity to the applications and the online service in Azure.
 
 In contrast, memory is less of an issue for connectors. The online service takes care of much of the processing and all unauthenticated traffic. Everything that can be done in the cloud is done in the cloud.
 
@@ -129,7 +131,7 @@ For more information about optimizing your network, see [Network topology consid
 
 Connectors can run on a machine that is not domain-joined. However, if you want single sign-on (SSO) to applications that use Integrated Windows Authentication (IWA), you need a domain-joined machine. In this case, the connector machines must be joined to a domain that can perform [Kerberos](https://web.mit.edu/kerberos) Constrained Delegation on behalf of the users for the published applications.
 
-Connectors can also be joined to domains or forests that have a partial trust, or to read-only domain controllers.
+Connectors can also be joined to domains in forests that have a partial trust, or to read-only domain controllers.
 
 ## Connector deployments on hardened environments
 
@@ -146,12 +148,17 @@ To provide a secure service, connectors have to authenticate toward the service,
 
 The certificates used are specific to the Application Proxy service. They get created during the initial registration and are automatically renewed by the connectors every couple of months.
 
+After the first successful certificate renewal the Azure AD Application Proxy Connector service (Network Service) has no permission to remove the old certificate from the local machine store. If the certificate has expired or it won't be used by the service anymore, you can delete it safely.
+
+To avoid problems with the certificate renewal, ensure that the network communication from the connector towards the [documented destinations](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment) is enabled.
+
 If a connector is not connected to the service for several months, its certificates may be outdated. In this case, uninstall and reinstall the connector to trigger registration. You can run the following PowerShell commands:
 
 ```
 Import-module AppProxyPSModule
 Register-AppProxyConnector
 ```
+To learn more about how to verify the certificate and troubleshoot problems see [Verify Machine and backend components support for Application Proxy trust certificate](application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## Under the hood
 
@@ -163,9 +170,9 @@ and Windows performance counters.
 
 ![Add counters to the connector with the Performance Monitor](./media/application-proxy-connectors/performance-monitor.png)
 
-The connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details.
+The connectors have both **Admin** and **Session** logs. The **Admin** log includes key events and their errors. The **Session** log includes all the transactions and their processing details.
 
-To see the logs, go to the Event Viewer, open the **View** menu, and enable **Show analytic and debug logs**. Then, enable them to start collecting events. These logs do not appear in Web Application Proxy in Windows Server 2012 R2, as the connectors are based on a more recent version.
+To see the logs, open **Event Viewer** and go to **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector**. To make the **Session** log visible, on the **View** menu, select **Show Analytic and Debug Logs**. The **Session** log is typically used for troubleshooting, and it's disabled by default. Enable it to start collecting events and disable it when it's no longer needed.
 
 You can examine the state of the service in the Services window. The connector is made up of two Windows Services: the actual connector, and the updater. Both of them must run all the time.
 

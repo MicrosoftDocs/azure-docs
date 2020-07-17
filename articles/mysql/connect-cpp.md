@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL from C++'
+title: 'Connect using C++ - Azure Database for MySQL'
 description: This quickstart provides a C++ code sample you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
-ms.date: 04/12/2018
+ms.date: 5/26/2020
 ---
 
 # Azure Database for MySQL: Use Connector/C++ to connect and query data
@@ -23,6 +23,9 @@ You also need to:
 - Install [Visual Studio](https://www.visualstudio.com/downloads/)
 - Install [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
 - Install [Boost](https://www.boost.org/)
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Install Visual Studio and .NET
 The steps in this section assume that you're familiar with developing using .NET.

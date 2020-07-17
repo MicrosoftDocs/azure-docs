@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 04/22/2020
 ---
 
 # Two-Class Support Vector Machine module
@@ -40,6 +40,8 @@ For this model type, it is recommended that you normalize the dataset before usi
   
     -   **Single Parameter**: If you know how you want to configure the model, you can provide a specific set of values as arguments.  
 
+    -   **Parameter Range**: If you are not sure of the best parameters, you can find the optimal parameters by using the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module. You provide some range of values, and the trainer iterates over multiple combinations of the settings to determine the combination of values that produces the best result.
+
 3.  For **Number of iterations**, type a number that denotes the number of iterations used when building the model.  
   
      This parameter can be used to control trade-off between training speed and accuracy.  
@@ -58,20 +60,29 @@ For this model type, it is recommended that you normalize the dataset before usi
   
 7.  In **Random number seed**, type an integer value to use as a seed if you want to ensure reproducibility across runs.  Otherwise, a system clock value is used as a seed, which can result in slightly different results across runs.
   
-9. Connect a labeled dataset, and one of the [training modules](module-reference.md):
-  
-    -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
-  
+9. Connect a labeled dataset, and train the model:
 
-10. Run the pipeline.
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
+  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
+  
+10. Submit the pipeline.
 
 ## Results
 
 After training is complete:
 
-+ To see a summary of the model's parameters, together with the feature weights learned from training, right-click the output of [Train Model](./train-model.md), and select **Visualize**.
++ To save a snapshot of the trained model, select the **Outputs** tab in the right panel of the **Train model** module. Select the **Register dataset** icon to save the model as a reusable module.
 
-+ To use the trained models to make predictions, connect the trained model to the [Score Model](score-model.md) module.
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps

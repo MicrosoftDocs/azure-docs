@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial 1: Predict credit risk'
 titleSuffix: ML Studio (classic) - Azure
-description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in the classic version of Azure Machine Learning Studio. This tutorial is part one of a three-part tutorial series.  It shows how to create a workspace, upload data, and create an experiment.
+description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic). This tutorial is part one of a three-part tutorial series.  It shows how to create a workspace, upload data, and create an experiment.
 keywords: credit risk, predictive analytics solution,risk assessment
 author: sdgilley
 ms.author: sgilley
@@ -19,7 +19,7 @@ In this tutorial, you take an extended look at the process of developing a predi
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio (classic). You'll use the classic version of Azure Machine Learning Studio and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio (classic). You'll use Azure Machine Learning Studio (classic) and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
@@ -90,21 +90,25 @@ This will increase the cost of this error in the training results.
 
 ### Convert the dataset format
 
-The original dataset uses a blank-separated format. The classic version of Machine Learning Studio works better with a comma-separated value (CSV) file, so you'll convert the dataset by replacing spaces with commas.  
+The original dataset uses a blank-separated format. Machine Learning Studio (classic) works better with a comma-separated value (CSV) file, so you'll convert the dataset by replacing spaces with commas.  
 
 There are many ways to convert this data. One way is by using the following Windows PowerShell command:   
 
-    cat german.data | %{$_ -replace " ",","} | sc german.csv  
+```powershell
+cat german.data | %{$_ -replace " ",","} | sc german.csv  
+```
 
 Another way is by using the Unix sed command:  
 
-    sed 's/ /,/g' german.data > german.csv  
+```console
+sed 's/ /,/g' german.data > german.csv
+```
 
 In either case, you have created a comma-separated version of the data in a file named **german.csv** that you can use in your experiment.
 
 ### Upload the dataset to Machine Learning Studio (classic)
 
-Once the data has been converted to CSV format, you need to upload it into the classic version of Machine Learning Studio. 
+Once the data has been converted to CSV format, you need to upload it into Machine Learning Studio (classic). 
 
 1. Open the Machine Learning Studio (classic) home page ([https://studio.azureml.net](https://studio.azureml.net)). 
 
@@ -124,7 +128,7 @@ Once the data has been converted to CSV format, you need to upload it into the c
 
 8. For data type, select **Generic CSV File With no header (.nh.csv)**.
 
-9. Add a description if you’d like.
+9. Add a description if you'd like.
 
 10. Click the **OK** check mark.  
 
@@ -140,7 +144,7 @@ For more information about importing other types of data into an experiment, see
 
 ## Create an experiment
 
-The next step in this tutorial is to create an experiment in  the classic version of Machine Learning Studio that uses the dataset you uploaded.  
+The next step in this tutorial is to create an experiment in  Machine Learning Studio (classic) that uses the dataset you uploaded.  
 
 1. In Studio (classic), click **+NEW** at the bottom of the window.
 1. Select **EXPERIMENT**, and then select "Blank Experiment". 
@@ -168,7 +172,7 @@ The next step in this tutorial is to create an experiment in  the classic versio
 
 You can view the first 100 rows of the data and some statistical information for the whole dataset: Click the output port of the dataset (the small circle at the bottom) and select **Visualize**.  
 
-Because the data file didn't come with column headings,  the classic version of Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when you eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
+Because the data file didn't come with column headings, Studio (classic) has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when you eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
 
 You can add column headings using the [Edit Metadata][edit-metadata] module.
 
@@ -251,11 +255,13 @@ You can do this replication using R code:
 
 1. In the **Properties** pane, delete the default text in the **R Script** parameter and enter this script:
    
-       dataset1 <- maml.mapInputPort(1)
-       data.set<-dataset1[dataset1[,21]==1,]
-       pos<-dataset1[dataset1[,21]==2,]
-       for (i in 1:5) data.set<-rbind(data.set,pos)
-       maml.mapOutputPort("data.set")
+    ```r
+    dataset1 <- maml.mapInputPort(1)
+    data.set<-dataset1[dataset1[,21]==1,]
+    pos<-dataset1[dataset1[,21]==2,]
+    for (i in 1:5) data.set<-rbind(data.set,pos)
+    maml.mapOutputPort("data.set")
+    ```
 
     ![R script in the Execute R Script module](./media/tutorial-part1-credit-risk/execute-r-script.png)
 

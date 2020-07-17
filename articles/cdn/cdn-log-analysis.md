@@ -3,7 +3,7 @@ title: Analyze Azure CDN usage patterns | Microsoft Docs
 description: This article describes the different types of analysis reports available for Azure CDN products.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
-ms.author: magattus
+ms.author: allensu
 ---
 
 

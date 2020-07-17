@@ -16,21 +16,15 @@ The Azure Functions runtime provides flexibility in hosting where and how you wa
 
 The Azure Functions service is made up of two key components: a runtime and a scale controller.  The Functions runtime runs and executes your code.  The runtime includes logic on how to trigger, log, and manage function executions.  The Azure Functions runtime can run *anywhere*.  The other component is a scale controller.  The scale controller monitors the rate of events that are targeting your function, and proactively scales the number of instances running your app.  To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-Kubernetes-based Functions provides the Functions runtime in a [Docker container](functions-create-function-linux-custom-image.md) with event-driven scaling through KEDA.  KEDA can scale down to 0 instances (when no events are occurring) and up to *n* instances. It does this by exposing custom metrics for the Kubernetes autoscaler (Horizontal Pod Autoscaler).  Using Functions containers with KEDA makes it possible to replicate serverless function capabilities in any Kubernetes cluster.  These functions can also be deployed using [Azure Kubernetes Services (AKS) virtual nodes](../aks/virtual-nodes-cli.md) feature for serverless infrastructure.
+Kubernetes-based Functions provides the Functions runtime in a [Docker container](functions-create-function-linux-custom-image.md) with event-driven scaling through KEDA.  KEDA can scale in to 0 instances (when no events are occurring) and out to *n* instances. It does this by exposing custom metrics for the Kubernetes autoscaler (Horizontal Pod Autoscaler).  Using Functions containers with KEDA makes it possible to replicate serverless function capabilities in any Kubernetes cluster.  These functions can also be deployed using [Azure Kubernetes Services (AKS) virtual nodes](../aks/virtual-nodes-cli.md) feature for serverless infrastructure.
 
 ## Managing KEDA and functions in Kubernetes
 
 To run Functions on your Kubernetes cluster, you must install the KEDA component. You can install this component using [Azure Functions Core Tools](functions-run-local.md).
 
-### Installing with the Azure Functions Core Tools
+### Installing with Helm
 
-By default, Core Tools installs both KEDA and Osiris components, which support event-driven and HTTP scaling, respectively.  The installation uses `kubectl` running in the current context.
-
-Install KEDA in your cluster by running the following install command:
-
-```cli
-func kubernetes install --namespace keda
-```
+There are various ways to install KEDA in any Kubernetes cluster including Helm.  Deployment options are documented on the [KEDA site](https://keda.sh/docs/1.4/deploy/).
 
 ## Deploying a function app to Kubernetes
 
@@ -43,7 +37,7 @@ func init --docker-only
 To build an image and deploy your functions to Kubernetes, run the following command:
 
 > [!NOTE]
-> The core tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
+> The Core Tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
@@ -69,11 +63,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## Uninstalling KEDA from Kubernetes
 
-You can run the following core tools command to remove KEDA from a Kubernetes cluster:
-
-```cli
-func kubernetes remove --namespace keda
-```
+Steps to uninstall KEDA are documented [on the KEDA site](https://keda.sh/docs/1.4/deploy/).
 
 ## Supported triggers in KEDA
 
@@ -87,11 +77,11 @@ KEDA has support for the following Azure Function triggers:
 
 ### HTTP Trigger support
 
-You can use Azure Functions that expose HTTP triggers, but KEDA doesn't directly manage them.  The Azure Functions Core Tools will install a related project, Osiris, that enables scaling HTTP endpoints from 0 to 1.  Scaling from 1 to *n* would rely on the traditional Kubernetes scaling policies.
+You can use Azure Functions that expose HTTP triggers, but KEDA doesn't directly manage them.  You can leverage the KEDA prometheus trigger to [scale HTTP Azure Functions from 1 to *n* instances](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
 
 ## Next Steps
 For more information, see the following resources:
 
 * [Create a function using a custom image](functions-create-function-linux-custom-image.md)
 * [Code and test Azure Functions locally](functions-develop-local.md)
-* [How the Azure Function consumption plan works](functions-scale.md)
+* [How the Azure Function Consumption plan works](functions-scale.md)

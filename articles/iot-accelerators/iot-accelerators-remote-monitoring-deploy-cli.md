@@ -90,7 +90,7 @@ A standard deployment creates the following services in your Azure subscription:
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard tier | Device management, command and control |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Storing configuration data, and device telemetry like rules, alerts, and messages |
 | 5     | [Azure Storage Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 for VM storage, and 1 for the streaming checkpoints |
-| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over SSL |
+| 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application gateway over TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Managing user identities and security |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Viewing asset locations |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 units              | Enabling real-time analytics |

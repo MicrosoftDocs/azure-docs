@@ -60,7 +60,7 @@ Learn more:
 
 * [Overview of single sign-on](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [What is application access and single sign-on with Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Integrate Azure Active Directory single sign-on with SaaS apps](../../active-directory/manage-apps/configure-single-sign-on-portal.md)
+* [Integrate Azure Active Directory single sign-on with SaaS apps](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
 ## Reverse proxy
 
@@ -86,6 +86,11 @@ Learn more:
 ## RBAC
 
 RBAC is an authorization system built on Azure Resource Manager that provides fine-grained access management of resources in Azure. RBAC allows you to granularly control the level of access that users have. For example, you can limit a user to only manage virtual networks and another user to manage all resources in a resource group. Azure includes several built-in roles that you can use. The following lists four fundamental built-in roles. The first three apply to all resource types.
+
+- [Owner](/azure/role-based-access-control/built-in-roles.md#owner) - Has full access to all resources including the right to delegate access to others. 
+- [Contributor](/azure/role-based-access-control/built-in-roles.md#contributor) - Can create and manage all types of Azure resources but can't grant access to others.
+- [Reader](/azure/role-based-access-control/built-in-roles.md#reader) - Can view existing Azure resources.
+- [User Access Administrator](/azure/role-based-access-control/built-in-roles.md#administrator) - Lets you manage user access to Azure resources.
 
 Learn more:
 
@@ -121,8 +126,8 @@ When you use Azure AD B2C, your consumers can sign up for your applications by u
 Learn more:
 
 * [What is Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C preview: Sign up and sign in consumers in your applications](../../active-directory-b2c/overview.md)
+* [Azure Active Directory B2C Preview: Types of applications](../../active-directory-b2c/application-types.md)
 
 ## Device registration
 

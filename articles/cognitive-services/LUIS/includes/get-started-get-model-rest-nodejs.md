@@ -5,125 +5,153 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 10/18/2019
+ms.topic: include
+ms.date: 06/03/2020
 ms.author: diberry
 ---
+
+[Reference documentation](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45) | [Sample](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/node-model-with-rest/model.js)
+
 ## Prerequisites
 
-* Starter key.
-* Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
-* The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
-* The version ID within the application that receives the utterances. The default ID is "0.1".
-* [Node.js](https://nodejs.org/) programming language 
+* [Node.js](https://nodejs.org/) programming language
 * [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
+## Create the Node.js project
 
-## Get LUIS key
+1. Create a new folder to hold your Node.js project, such as `node-model-with-rest`.
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
+1. Open a new Command Prompt, navigate to the folder you created and execute the following command:
+
+    ```console
+    npm init
+    ```
+
+    Press Enter at each prompt to accept the default settings.
+
+1. Install the request-promise module by entering the following command:
+
+    ```console
+    npm install --save request
+    npm install --save request-promise
+    npm install --save querystring
+    ```
 
 ## Change model programmatically
 
-Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
-
 1. Create a new file named `model.js`. Add the following code:
 
-    ```javascript
-    var request = require('request');
-    var requestpromise = require('request-promise');
-    
-    const LUIS_authoringKey = "YOUR-KEY";
-    const LUIS_endpoint = "YOUR-ENDPOINT";
-    const LUIS_appId = "YOUR-APP-ID";
-    const LUIS_versionId = "0.1";
-    const addUtterancesURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/examples`;
-    const addTrainURI = `https://${LUIS_endpoint}/luis/authoring/v3.0-preview/apps/${LUIS_appId}/versions/${LUIS_versionId}/train`;
-    
-    const utterances = [
-    		{
-    		  'text': 'go to Seattle today',
-    		  'intentName': 'BookFlight',
-    		  'entityLabels': [
-    			{
-    			  'entityName': 'Location::LocationTo',
-    			  'startCharIndex': 6,
-    			  'endCharIndex': 12
-    			}
-    		  ]
-    		},
-    		{
-    			'text': 'a barking dog is annoying',
-    			'intentName': 'None',
-    			'entityLabels': []
-    		}
-    	  ];
-    
-    const main = async() =>{
-    
-    
-        await addUtterance();
-        await train("POST");
-        await trainStatus("GET");
-    
-    }
-    const addUtterance = async () => {
-    
-        const options = {
-            uri: addUtterancesURI,
-            method: 'POST',
-            headers: {
-                'Ocp-Apim-Subscription-Key': LUIS_authoringKey
-            },
-            json: true,
-            body: utterances
-        };
-    
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
-    }
-    const train = async (verb) => {
-    
-        const options = {
-            uri: addTrainURI,
-            method: verb, 
-            headers: {
-                'Ocp-Apim-Subscription-Key': LUIS_authoringKey
-            },
-            json: true,
-            body: null // The body can be empty for a training request
-        };
-    
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
-    }
-    
-    // MAIN
-    main().then(() => console.log("done")).catch((err)=> console.log(err returned));
-    ```
-1. Replace the following values:
+    [!code-javascript[Code snippet](~/cognitive-services-quickstart-code/javascript/LUIS/node-model-with-rest/model.js)]
 
-    * `YOUR-KEY` with your starter key
-    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
-    * `YOUR-APP-ID` with your app's ID
+1. Replace the values starting with `YOUR-` with your own values.
 
-1. With a command prompt in the same directory as where you created the file, enter the following command to run the file:
+    |Information|Purpose|
+    |--|--|
+    |`YOUR-APP-ID`| Your LUIS app ID. |
+    |`YOUR-AUTHORING-KEY`|Your 32 character authoring key.|
+    |`YOUR-AUTHORING-ENDPOINT`| Your authoring URL endpoint. For example, `https://replace-with-your-resource-name.api.cognitive.microsoft.com/`. You set your resource name when you created the resource.|
+
+    Assigned keys and resources are visible in the LUIS portal in the Manage section, on the **Azure resources** page. The app ID is available in the same Manage section, on the **Application Settings** page.
+
+1. At the command prompt, enter the following command to run the project:
 
     ```console
     node model.js
-    ```  
+    ```
 
-## LUIS keys
+1. Review the authoring response:
 
-[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
+    ```json
+    addUtterance:
+    [
+      {
+        "value": {
+          "ExampleId": 1137150691,
+          "UtteranceText": "order a pizza"
+        },
+        "hasError": false
+      },
+      {
+        "value": {
+          "ExampleId": 1137150692,
+          "UtteranceText": "order a large pepperoni pizza"
+        },
+        "hasError": false
+      },
+      {
+        "value": {
+          "ExampleId": 1137150693,
+          "UtteranceText": "i want two large pepperoni pizzas on thin crust"
+        },
+        "hasError": false
+      }
+    ]
+    train POST:
+    {
+      "statusId": 9,
+      "status": "Queued"
+    }
+    train GET:
+    [
+      {
+        "modelId": "edb46abf-0000-41ab-beb2-a41a0fe1630f",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "a5030be2-616c-4648-bf2f-380fa9417d37",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "3f2b1f31-a3c3-4fbd-8182-e9d9dbc120b9",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "e4b6704b-1636-474c-9459-fe9ccbeba51c",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "031d3777-2a00-4a7a-9323-9a3280a30000",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      },
+      {
+        "modelId": "9250e7a1-06eb-4413-9432-ae132ed32583",
+        "details": {
+          "statusId": 9,
+          "status": "Queued",
+          "exampleCount": 0
+        }
+      }
+    ]
+    done
+    ```
 
 ## Clean up resources
 
-When you are finished with this quickstart, delete the file from the file system. 
+When you are finished with this quickstart, delete the project folder from the file system.
 
 ## Next steps
 

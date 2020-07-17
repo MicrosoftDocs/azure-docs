@@ -1,6 +1,6 @@
 ---
 title: FAQs about FHIR services in Azure - Azure API for FHIR
-description: Get answers to frequently asked questions about Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
+description: Get answers to frequently asked questions about the Azure API for FHIR, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
@@ -10,29 +10,76 @@ ms.date: 02/07/2019
 ms.author: mihansen
 ---
 
-# Frequently Asked Questions about Azure API for FHIR
+# Frequently asked questions about the Azure API for FHIR
 
-## Storage location
+## Azure API for FHIR
 
-**Is the data behind the FHIR&reg; APIs stored in Azure?** Yes, the data is stored in managed databases in Azure. The Azure API for FHIR does not provide direct access to the underlying data store.
+### What is FHIR?
+The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an interoperability standard intended to enable the exchange of healthcare data between different health systems. This standard was developed by the HL7 organization and is being adopted by healthcare organizations around the world. The most current version of FHIR available is R4 (Release 4). The Azure API for FHIR supports R4 and also supports the previous version STU3 (Standard for Trial Use 3). For more information on FHIR, visit [HL7.org](http://hl7.org/fhir/summary.html).
 
-## Identity providers
+### Is the data behind the FHIR APIs stored in Azure?
+
+Yes, the data is stored in managed databases in Azure. The Azure API for FHIR does not provide direct access to the underlying data store.
+
+### What identity provider do you support?
 
 We currently support Microsoft Azure Active Directory as the identity provider.
 
-## Supported FHIR version
+### What FHIR version do you support?
 
-We support versions 4.0.0 and 3.0.1 on both Azure API for FHIR (PaaS) and FHIR Server for Azure (OSS)
+We support versions 4.0.0 and 3.0.1 on both the Azure API for FHIR (PaaS) and FHIR Server for Azure (open source).
 
-See [Supported Features](fhir-features-supported.md) for details. Read about what has changed between versions in [HL7 FHIR's Version History](https://hl7.org/fhir/R4/history.html)
+For details, see [Supported features](fhir-features-supported.md). Read about what has changed between versions in the [version history for HL7 FHIR](https://hl7.org/fhir/R4/history.html).
 
-## OSS and Azure API for FHIR
+### What's the difference between the open-source Microsoft FHIR Server for Azure and the Azure API for FHIR?
 
-What is the difference between the Open Source Microsoft FHIR server for Azure and Azure API for FHIR? The Azure API for FHIR is a hosted and managed version of the OSS Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance, updates, etc. When running the OSS FHIR Server for Azure, you have direct access to the underlying services, but you are also responsible for maintaining, updating the server and all required compliance work if storing PHI data.
+The Azure API for FHIR is a hosted and managed version of the open-source Microsoft FHIR Server for Azure. In the managed service, Microsoft provides all maintenance and updates. 
+
+When you're running FHIR Server for Azure, you have direct access to the underlying services. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
+
+From a development standpoint, every feature is deployed to the open-source Microsoft FHIR Server for Azure first. Once it has been validated in open-source, it will be released to the PaaS Azure API for FHIR solution. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities. 
+
+### What is SMART on FHIR?
+
+SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
+Authentication and Azure API for FHIR. To learn more about SMART, visit [SMART Health IT](https://smarthealthit.org/).
+
+
+## IoT Connector (preview)
+
+### What is IoMT?
+IoMT stands for Internet of Medical Things and it's a category of IoT devices that capture and exchange health and wellness data with other healthcare IT systems over a network. Some examples of IoMT devices include fitness and clinical wearables, monitoring sensors, activity trackers, point of care kiosks, or even a smart pill.
+
+### How many IoT Connectors do I need?
+A single IoT Connector can be used to ingest data from a large number of different types of devices. You may still decide to use different connectors for the following reasons:
+- **Scale**: For public preview, IoT Connector resource capacity is fixed and expected to provide a throughput of about 200 messages per second. You may add more IoT Connectors, if higher throughput is needed.
+- **Device type**: You may setup a separate IoT Connector for each type of IoMT devices you have for device management reasons.
+
+### Is there a limit on number of IoT Connectors during public preview?
+Yes, you can create only two IoT Connectors per subscription while the feature is in public preview. This limit exists to prevent unexpected expense as the feature is available for free during the preview. On request this limit could be raised up to a maximum of five IoT Connectors.
+
+### What Azure regions IoT Connector feature is available during public preview?
+IoT Connector is available in all Azure regions where Azure API for FHIR is available.
+
+### Can I configure scaling capacity for IoT Connector?
+Since IoT Connector is free of charge during public preview, its scaling capacity is fixed and limited. IoT Connector configuration available in public preview is expected to provide a throughput of about 200 messages per second. Some form of resource capacity configuration will be made available in General Availability (GA).
+
+### What FHIR version does IoT Connector support?
+IoT Connector currently supports only FHIR version R4. Hence, this feature is visible only on the R4 instances of Azure API for FHIR and Microsoft doesn't plan to support version STU3 at this time.
+
+### Why can't I install IoT Connector when Private Link is enabled on Azure API for FHIR?
+IoT Connector doesn't support Private Link capability at this time. Hence, if you have Private Link enabled on Azure API for FHIR, you can't install IoT Connector and vice-versa. This limitation is expected to go away when IoT Connector is available for General Availability (GA).
+
+### What's the difference between the open-source IoMT FHIR Connector for Azure and IoT Connector feature of Azure API for FHIR service?
+IoT Connector is a hosted and managed version of the open-source IoMT FHIR Connector for Azure. In the managed service, Microsoft provides all maintenance and updates.
+
+When you're running IoMT FHIR Connector for Azure, you have direct access to the underlying resources. But you're also responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
+
+From a development standpoint, every feature is deployed to the open-source IoMT FHIR Connector for Azure first. Once it has been validated in open-source, it will be released to the PaaS IoT Connector feature of Azure API for FHIR service. The time between the release in open-source and PaaS depends on the complexity of the feature and other road-map priorities.
 
 ## Next steps
 
-In this article, you've read some of the frequently asked questions about Azure API for FHIR. Read about the supported API features in Microsoft FHIR server for Azure.
+In this article, you've read some of the frequently asked questions about the Azure API for FHIR. Read about the supported features in FHIR Server for Azure:
  
 >[!div class="nextstepaction"]
 >[Supported FHIR features](fhir-features-supported.md)

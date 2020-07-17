@@ -1,21 +1,12 @@
 ---
-title: Fix 502 bad gateway, 503 service unavailable errors - Azure App Service | Microsoft Docs
+title: Fix HTTP 502 and HTTP 503 errors
 description: Troubleshoot 502 bad gateway and 503 service unavailable errors in your app hosted in Azure App Service.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
 tags: top-support-issue
 keywords: 502 bad gateway, 503 service unavailable, error 503, error 502
 
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
 
 ---
@@ -43,7 +34,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 
 [App Service](overview.md) gives you various options at each step.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### 1. Observe and monitor application behavior
 #### Track Service health
@@ -67,7 +58,7 @@ For more information, see:
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
 * [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### 2. Collect data
 #### Use the diagnostics tool
@@ -92,7 +83,7 @@ Another useful feature of Kudu is that, in case your application is throwing fir
 For more information on features available in Kudu, see
 [Azure Websites online tools you should know about](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### 3. Mitigate the issue
 #### Scale the app

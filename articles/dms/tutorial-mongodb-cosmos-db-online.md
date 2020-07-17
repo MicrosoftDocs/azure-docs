@@ -1,14 +1,15 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service to migrate MongoDB to Azure Cosmos DB's API for MongoDB online | Microsoft Docs"
-description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB's API for MongoDB online by using Azure Database Migration Service.
+title: "Tutorial: Migrate MongoDB online to Azure Cosmos DB API for MongoDB"
+titleSuffix: Azure Database Migration Service
+description: Learn to migrate from MongoDB on-premises to Azure Cosmos DB API for MongoDB online by using Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
 ms.date: 09/25/2019
 ---
@@ -44,10 +45,10 @@ To complete this tutorial, you need to:
 
 * [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps such as estimating throughput, choosing a partition key, and the indexing policy.
 * [Create an Azure Cosmos DB's API for MongoDB account](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
     > [!NOTE]
-    > During VNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
+    > During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
     >
     > * Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)
     > * Storage endpoint
@@ -55,7 +56,7 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because Azure Database Migration Service lacks internet connectivity.
 
-* Ensure that your VNet Network Security Group (NSG) rules don't block the following communication ports: 53, 443, 445, 9354, and 10000-20000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Ensure that your virtual network Network Security Group (NSG) rules don't block the following communication ports: 53, 443, 445, 9354, and 10000-20000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Open your Windows firewall to allow Azure Database Migration Service to access the source MongoDB server, which by default is TCP port 27017.
 * When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration.
 
@@ -87,11 +88,11 @@ To complete this tutorial, you need to:
 
 4. Select the location in which you want to create the instance of Azure Database Migration Service.
 
-5. Select an existing VNet, or create a new one.
+5. Select an existing virtual network, or create a new one.
 
-   The VNet provides Azure Database Migration Service with access to the source MongoDB instance and the target Azure Cosmos DB account.
+   The virtual network provides Azure Database Migration Service with access to the source MongoDB instance and the target Azure Cosmos DB account.
 
-   For more information about how to create a VNet in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
+   For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
 6. Select a SKU from the Premium pricing tier.
 
@@ -142,7 +143,7 @@ After the service is created, locate it within the Azure portal, open it, and th
      https://blobnameurl/container?SASKEY
      ```
 
-     Also, based on the type dump information in Azure storage, keep the following detail in mind.
+     Also, based on the type dump information in Azure Storage, keep the following detail in mind.
 
      * For BSON dumps, the data within the blob container must be in bsondump format, such that data files are placed into folders named after the containing databases in the format collection.bson. Metadata files (if any) should be named using the format *collection*.metadata.json.
 

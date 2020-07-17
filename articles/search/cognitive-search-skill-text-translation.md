@@ -1,7 +1,7 @@
 ---
-title: Text Translation cognitive skill (preview)
+title: Text Translation cognitive skill
 titleSuffix: Azure Cognitive Search
-description: Evaluates text and, for each record, returns text translated to the specified target language in an  AI enrichment pipeline in Azure Cognitive Search. This skill is currently in public preview.
+description: Evaluates text and, for each record, returns text translated to the specified target language in an  AI enrichment pipeline in Azure Cognitive Search. 
 
 manager: nitinme
 author: careyjmac
@@ -13,10 +13,6 @@ ms.date: 11/04/2019
 
 #	Text Translation cognitive skill
 
-> [!IMPORTANT] 
-> This skill is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
-
 The **Text Translation** skill evaluates text and, for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) available in Cognitive Services.
 
 This capability is useful if you expect that your documents may not all be in one language, in which case you can normalize the text to a single language before indexing for search by translating it.  It is also useful for localization use cases, where you may want to have copies of the same text available in multiple languages.
@@ -26,7 +22,7 @@ The [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-servic
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 ## @odata.type  
 Microsoft.Skills.Text.TranslationSkill

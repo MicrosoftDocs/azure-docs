@@ -1,47 +1,66 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure FXT Edge Filer Documentation
+### YamlMime:Landing
+
+title: Azure FXT Edge Filer documentation
+summary: The Azure FXT Edge Filer hybrid storage cache is a hardware/software hybrid system that speeds up data access for file-based, read-intensive high-performance computing (HPC) workflows.
+
 metadata:
-  title: Azure FXT Edge Filer Documentation 
-  description: Use Azure FXT Edge Filer as a caching layer for read-intensive high-performance computing (HPC) tasks
-  author: ekpgh
-  ms.service: fxt-edge-filer 
+  title: Azure FXT Edge Filer documentation
+  description: Use Azure FXT Edge Filer as a caching layer for read-intensive high-performance computing (HPC) tasks.
+  ms.service: fxt-edge-filer
   ms.topic: landing-page
-  ms.date: 07/10/2019
+  author: ronhogue
   ms.author: rohogue
-abstract:
-  description: The Azure FXT Edge Filer hybrid storage cache is a hardware/software hybrid system that speeds up data access for file-based, read-intensive high-performance computing (HPC) workflows. A cluster of three or more Azure FXT Edge Filer devices can accelerate storage performance for on-premises NAS systems (NetApp or Dell EMC Isilon), cloud storage, or a combination of solutions. 
+  ms.date: 03/20/2020 
 
-  
-sections:
-- title: Step-by-step tutorials  
-  items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="fxt-install">Install Azure FXT Edge Filer hardware</a>
-    - html: <a href="fxt-network-power">Make network connections for the Azure FXT Edge Filer</a>
-    - html: <a href="fxt-node-password">Set root passwords on the hardware nodes</a>
-    - html: <a href="fxt-cluster-create">Create the hybrid storage cache cluster</a>
-    - html: <a href="fxt-add-nodes">Add cluster nodes</a>
-    - html: <a href="fxt-add-storage">Add back-end storage and configure virtual namespace</a>
-    - html: <a href="fxt-configure-network">Configure the cluster's network settings</a>
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
-- title: How-to guides
-  items:
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="fxt-mount-clients">Connect clients to the Azure FXT Edge Filer cluster</a> 
-    - html: <a href="fxt-monitor">Monitor the Azure FXT Edge Filer</a>
-    - html: <a href="fxt-power-off">Safely power off a hardware node</a>
+landingContent:
+  # Card
+  - title: About Azure FXT Edge Filer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure FXT Edge Filer?
+            url: fxt-overview.md
 
-- title: Resources
-  items: 
-  - type: list
-    style: unordered
-    items: 
-    - html: <a href="fxt-specs">Hardware specifications</a>
-    - html: <a href="fxt-additional-doc">Additional documentation</a>
-    - html: <a href="fxt-support-ticket">Open a support ticket</a>
-  
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: 1 - Install hardware
+            url: fxt-install.md
+          - text: 2 - Connect cables
+            url: fxt-network-power.md
+          - text: 3 - Set hardware passwords
+            url: fxt-node-password.md
+          - text: 4 - Create a cluster
+            url: fxt-cluster-create.md
+          - text: 5 - Add cluster nodes
+            url: fxt-add-nodes.md
+          - text: 6 - Add back-end storage and configure the virtual namespace
+            url: fxt-add-storage.md
+          - text: 7 - Configure the cluster's network settings
+            url: fxt-configure-network.md
+          - text: 8 - Mount clients on the cluster
+            url: fxt-mount-clients.md
+
+  # Card
+  - title: Manage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor hardware status
+            url: fxt-monitor.md
+          - text: Safely power off hardware
+            url: fxt-power-off.md                      
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Hardware specifications
+            url: fxt-specs.md
+          - text: Additional documentation
+            url: fxt-additional-doc.md

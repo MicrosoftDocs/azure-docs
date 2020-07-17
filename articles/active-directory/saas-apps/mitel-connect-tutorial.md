@@ -198,7 +198,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 In this section, you create a user named Britta Simon on your MiCloud Connect account. Users must be created and activated before using single sign-on.
 
-For details about adding users in the Mitel Account portal, see the [Adding a User](https://docs.shoretel.com/connectcloud/Account/Users/AddUser) article in the Mitel Knowledge Base.
+For details about adding users in the Mitel Account portal, see the [Adding a User](https://oneview.mitel.com/s/article/Adding-a-User-092815) article in the Mitel Knowledge Base.
 
 Create a user on your MiCloud Connect account with the following details:
 

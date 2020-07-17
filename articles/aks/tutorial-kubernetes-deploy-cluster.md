@@ -2,12 +2,9 @@
 title: Kubernetes on Azure tutorial - Deploy a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.author: mlearned
+ms.date: 02/25/2020
+
 ms.custom: mvc
 
 #Customer intent: As a developer or IT pro, I want to learn how to create an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
@@ -28,13 +25,13 @@ In additional tutorials, the Azure Vote application is deployed to the cluster, 
 
 In previous tutorials, a container image was created and uploaded to an Azure Container Registry instance. If you haven't done these steps, and would like to follow along, start at [Tutorial 1 – Create container images][aks-tutorial-prepare-app].
 
-This tutorial requires that you're running the Azure CLI version 2.0.75 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a Kubernetes cluster
 
 AKS clusters can use Kubernetes role-based access controls (RBAC). These controls let you define access to resources based on roles assigned to users. Permissions are combined if a user is assigned multiple roles, and permissions can be scoped to either a single namespace or across the whole cluster. By default, the Azure CLI automatically enables RBAC when you create an AKS cluster.
 
-Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is automatically created, since you did not specify one. Here, this service principal is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial.
+Create an AKS cluster using [az aks create][]. The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. This resource group was created in the [previous tutorial][aks-tutorial-prepare-acr]. To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is automatically created, since you did not specify one. Here, this service principal is [granted the right to pull images][container-registry-integration] from the Azure Container Registry (ACR) instance you created in the previous tutorial. Note that you can use a [managed identity](use-managed-identity.md) instead of a service principal for easier management.
 
 ```azurecli
 az aks create \
@@ -44,6 +41,8 @@ az aks create \
     --generate-ssh-keys \
     --attach-acr <acrName>
 ```
+
+You can also manually configure a service principal to pull images from ACR. For more information, see [ACR authentication with service principals](../container-registry/container-registry-auth-service-principal.md) or [Authenticate from Kubernetes with a pull secret](../container-registry/container-registry-auth-kubernetes.md).
 
 After a few minutes, the deployment completes, and returns JSON-formatted information about the AKS deployment.
 
@@ -68,13 +67,13 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command:
+To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command to return a list of the cluster nodes:
 
 ```
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
 ```
 
 ## Next steps

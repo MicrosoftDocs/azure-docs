@@ -4,8 +4,8 @@ description: Transfer data with AzCopy and Amazon S3 buckets
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
-ms.date: 04/23/2019
+ms.topic: how-to
+ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -51,12 +51,17 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 > [!TIP]
 > The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
 
+ These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts. 
+
 ### Copy an object
+
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
 > [!NOTE]
 > Examples in this article use path-style URLs for AWS S3 buckets (For example: `http://s3.amazonaws.com/<bucket-name>`). 
@@ -67,31 +72,43 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 
 ### Copy a directory
 
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
+
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### Copy a bucket
+
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### Copy all buckets in all regions
+
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### Copy all buckets in a specific S3 region
+
+Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3-<region-name>.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://s3-rds.eu-north-1.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ## Handle differences in object naming rules
 
@@ -105,7 +122,7 @@ Also, as AzCopy copies over files, it checks for naming collisions and attempts 
 
 AWS S3 and Azure allow different sets of characters in the names of object keys. You can read about the characters that AWS S3 uses [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). On the Azure side, blob object keys adhere to the naming rules for [C# identifiers](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-invalid-metadata-handle` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
+As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-handle-invalid-metadata` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
 
 | Flag value | Description  |
 |--------|-----------|
@@ -113,7 +130,7 @@ As part of an AzCopy `copy` command, you can provide a value for optional the `s
 | **FailIfInvalid** | Objects aren't copied. AzCopy logs an error and includes that error in the failed count that appears in the transfer summary.  |
 | **RenameIfInvalid**  | AzCopy resolves the invalid metadata key, and copies the object to Azure using the resolved metadata key value pair. To learn exactly what steps AzCopy takes to rename object keys, see the [How AzCopy renames object keys](#rename-logic) section below. If AzCopy is unable to rename the key, then the object won't be copied. |
 
-<a id="rename-logic" />
+<a id="rename-logic"></a>
 
 ### How AzCopy renames object keys
 

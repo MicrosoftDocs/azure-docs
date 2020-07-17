@@ -2,7 +2,7 @@
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Filtering, ordering, and paging of Media Services entities
 titleSuffix: Azure Media Services
-description: Learn about filtering, ordering, and paging of Azure Media Services entities. 
+description: Learn about filtering, ordering, and paging of Azure Media Services v3 entities. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
 
@@ -45,7 +45,7 @@ Range operators:
 
 ## Filter
 
-Use `$filter` to supply an OData filter parameter to find only the objects you’re interested in.
+Use `$filter` to supply an OData filter parameter to find only the objects you're interested in.
 
 The following REST example filters on the `alternateId` value of an asset:
 
@@ -79,7 +79,7 @@ In Media Services v3, you can't configure the page size. The page size varies by
 If entities are created or deleted while you're paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that hasn't been downloaded).
 
 > [!TIP]
-> You should always use `nextLink` to enumerate the collection and not depend on a particular page size.
+> Always use `nextLink` to enumerate the collection and don't depend on a particular page size.
 >
 > The `nextLink` value will be present only if there's more than one page of entities.
 
@@ -161,8 +161,8 @@ The following table shows how you can apply the filtering and ordering options t
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` and `desc`|
 |[Content key policies](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.description	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 ||properties.policyId|`eq`, `ne`||
 |[Jobs](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` and `desc`|
@@ -170,10 +170,10 @@ The following table shows how you can apply the filtering and ordering options t
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` and `desc`| 
 |[Streaming locators](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
-||properties.endTime	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`,  `gt`, `lt`|`asc` and `desc`|
+||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 |[Streaming policies](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
-||properties.created	|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
+||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` and `desc`|
 |[Transforms](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` and `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` and `desc`|
@@ -186,4 +186,4 @@ The following table shows how you can apply the filtering and ordering options t
 * [List Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 * [List Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 * [Stream a file](stream-files-dotnet-quickstart.md)
-* [Quotas and limitations](limits-quotas-constraints.md)
+* [Quotas and limits](limits-quotas-constraints.md)

@@ -1,6 +1,6 @@
 ---
 author: paulbouwer
-ms.service: container-service
+
 ms.topic: include
 ms.date: 11/15/2019
 ms.author: pabouwer
@@ -38,4 +38,4 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 ```
 
 <!-- LINKS - external -->
-[install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
+[install-wsl]: /windows/wsl/install-win10

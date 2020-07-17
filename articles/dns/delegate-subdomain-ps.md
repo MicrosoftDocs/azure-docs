@@ -2,11 +2,11 @@
 title: Delegate a subdomain - Azure PowerShell - Azure DNS
 description: With this learning path, get started delegating an Azure DNS subdomain using Azure PowerShell.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/7/2019
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Delegate an Azure DNS subdomain using Azure PowerShell

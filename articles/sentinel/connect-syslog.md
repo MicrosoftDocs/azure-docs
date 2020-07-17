@@ -1,9 +1,9 @@
 ---
 title: Connect Syslog data to Azure Sentinel | Microsoft Docs
-description: Learn how to connect Syslog data to Azure Sentinel.
+description: Connect any on-premises appliance that supports Syslog to Azure Sentinel by using an agent on a Linux machine between the appliance and Sentinel. 
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
-ms.author: rkarlin
+ms.date: 12/30/2019
+ms.author: yelevin
 
 ---
 # Connect your external solution using Syslog
@@ -31,7 +31,11 @@ Syslog is an event logging protocol that is common to Linux. Applications will s
 For more information, see [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md).
 
 > [!NOTE]
-> The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
+> - The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
+> - If you want to support connectors for both CEF and Syslog on the same VM, perform the following steps to avoid duplicating data:
+>    1.	Follow the instructions to [Connect your CEF](connect-common-event-format.md).
+>    2.	To connect the Syslog data, go to **Settings** > **Workspace settings** > **Advanced settings** > **Data** > **Syslog** and set the Facilities and their priorities so that they are not the same facilities and properties you used in your CEF configuration. <br></br>If you select **Apply below configuration to my machines**, it applies these setings to all VMs connected to this workspace.
+
 
 ## Connect your Syslog appliance
 
@@ -86,7 +90,9 @@ This detection requires a specific configuration of the Syslog data connector:
 
 2. Allow sufficient time for syslog information to be collected. Then, navigate to **Azure Sentinel - Logs**, and copy and paste the following query:
     
-    	Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```console
+    Syslog |  where Facility in ("authpriv","auth")| extend c = extract( "Accepted\\s(publickey|password|keyboard-interactive/pam)\\sfor ([^\\s]+)",1,SyslogMessage)| where isnotempty(c) | count 
+    ```
     
     Change the **Time range** if required, and select **Run**.
     
@@ -98,3 +104,5 @@ This detection requires a specific configuration of the Syslog data connector:
 In this document, you learned how to connect Syslog on-premises appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+

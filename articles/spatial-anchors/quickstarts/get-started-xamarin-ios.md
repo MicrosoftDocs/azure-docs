@@ -30,7 +30,8 @@ To complete this quickstart, make sure you have:
 - A Mac running macOS High Sierra (10.13) or above with:
   - The latest version of Xcode and iOS SDK installed from the [App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12).
   - An up-to-date version of <a href="https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019" target="_blank">Visual Studio for Mac 8.1+</a>.
-  - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>
+  - <a href="https://git-scm.com/download/mac" target="_blank">Git for macOS</a>.
+  - <a href="https://git-lfs.github.com/">Git LFS</a>.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -49,6 +50,10 @@ Open `Xamarin/SampleXamarin.Common/AccountDetails.cs`.
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+
+Open `Xamarin/SampleXamarin.iOS/ViewControllers/DemoViewControllerBase.cs`
+
+Locate `StartSession()` and add the following line, substituting in your account domain from earlier: `this.cloudSession.Configuration.AccountDomain = "MyAccountDomain";`.
 
 ## Deploy the app to your iOS device
 

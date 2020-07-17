@@ -24,14 +24,17 @@ Just like any other resource, the Azure Serial Console can be enabled and disabl
 You can also disable serial console for an individual VM or virtual machine scale set instance by disabling boot diagnostics. You will require contributor level access or above on both the VM/virtual machine scale set and your boot diagnostics storage account.
 
 ## VM-level disable
-The serial console can be disabled for a specific VM or virtual machine scale set by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure Portal to disable the serial console for the VM or the virtual machine scale set. If you are using serial console on a virtual machine scale set, ensure you upgrade your virtual machine scale set instances to the latest model.
+The serial console can be disabled for a specific VM or virtual machine scale set by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the virtual machine scale set. If you are using serial console on a virtual machine scale set, ensure you upgrade your virtual machine scale set instances to the latest model.
 
 
-## Subscription-level disable
+## Subscription-level enable/disable
+
+> [!NOTE]
+> Ensure you are in the right cloud (Azure Public Cloud, Azure US Government Cloud) before running this command. You can check with `az cloud list` and set your cloud with `az cloud set -n <Name of cloud>`.
 
 ### Azure CLI
 
-Serial console can be disabled and re-enabled for an entire subscription by using the following commands in the Azure CLI:
+Serial console can be disabled and re-enabled for an entire subscription by using the following commands in the Azure CLI (you may use the "Try it" button to launch an instance of the Azure Cloud Shell in which you can run the commands):
 
 To disable serial console for a subscription, use the following commands:
 ```azurecli-interactive

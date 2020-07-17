@@ -46,7 +46,7 @@ If you want a narrowing effect in your search results, filters are not your only
 
 + `$select` parameter is used to specify which fields to include in a result set, effectively trimming the response before sending it to the calling application. This parameter does not refine the query or reduce the document collection, but if a smaller response is your goal, this parameter is an option to consider. 
 
-For more information about either parameter, see [Search Documents > Request > Query parameters](https://docs.microsoft.com/rest/api/searchservice/search-documents#request).
+For more information about either parameter, see [Search Documents > Request > Query parameters](/rest/api/searchservice/search-documents#query-parameters).
 
 
 ## How filters are executed
@@ -66,10 +66,10 @@ The following examples represent prototypical filter definitions in several APIs
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
+GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2020-06-30&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
 
 # Option 2: Use filter for POST and pass it in the request body
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "*",
     "filter": "Rooms/any(room: room/BaseRate lt 150.0)",

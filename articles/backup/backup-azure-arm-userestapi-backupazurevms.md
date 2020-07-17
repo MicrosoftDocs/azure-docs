@@ -24,7 +24,7 @@ First, the vault should be able to identify the Azure VM. This is triggered usin
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". As per our example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there is no need for a separate request body.
+The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". According to our example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there is no need for a separate request body.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -157,7 +157,7 @@ In the example, the above values translate to:
 
 ### Enabling protection for the Azure VM
 
-After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the below example.
+After the relevant VM is "cached" and "identified", select the policy to protect. To know more about existing policies in the vault, refer to [list Policy API](https://docs.microsoft.com/rest/api/backup/backuppolicies/list). Then select the [relevant policy](/rest/api/backup/protectionpolicies/get) by referring to the policy name. To create policies, refer to [create policy tutorial](backup-azure-arm-userestapi-createorupdatepolicy.md). "DefaultPolicy" is selected in the below example.
 
 Enabling protection is an asynchronous *PUT* operation that creates a 'protected item'.
 
@@ -267,11 +267,11 @@ Once the operation completes, it returns 200 (OK) with the protected item conten
 }
 ```
 
-This confirms that protection is enabled for the VM and the first backup will be triggered as per the policy schedule.
+This confirms that protection is enabled for the VM and the first backup will be triggered according to the policy schedule.
 
 ## Trigger an on-demand backup for a protected Azure VM
 
-Once an Azure VM is configured for backup, backups happen as per the policy schedule. You can wait for the first scheduled backup or trigger an on-demand backup anytime. Retention for on-demand backups is separate from backup policy's retention and can be specified to a particular date-time. If not specified, it's assumed to be 30 days from the day of the trigger of on-demand backup.
+Once an Azure VM is configured for backup, backups happen according to the policy schedule. You can wait for the first scheduled backup or trigger an on-demand backup anytime. Retention for on-demand backups is separate from backup policy's retention and can be specified to a particular date-time. If not specified, it's assumed to be 30 days from the day of the trigger of on-demand backup.
 
 Triggering an on-demand backup is a *POST* operation.
 
@@ -428,7 +428,7 @@ The `{containerName}` and `{protectedItemName}` are as constructed [above](#resp
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-### <a name="responses-2"></a>Responses
+#### <a name="responses-2"></a>Responses
 
 *DELETE* protection is an [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
 
@@ -438,6 +438,28 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 Accepted     |         |     Accepted    |
+
+> [!IMPORTANT]
+> In order to protect against accidental delete scenarios, there is a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery services vault. If the soft-delete state of the vault is set to enabled, then the delete operation will NOT immediately delete the data. It will be kept for 14 days and then permanently purged. Customer is not charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-stop-protection-and-delete-data).
+
+### Undo the stop protection and delete data
+
+Undoing the accidental deletion is similar to creating the backup item. After undoing the deletion, the item is retained but no future backups are triggered.
+
+Undo deletion is a *PUT* operation which is very similar to [changing the policy](#changing-the-policy-of-protection) and/or [enabling the protection](#enabling-protection-for-the-azure-vm). Just provide the intent to undo the deletion with the variable *isRehydrate*  in [the request body](#example-request-body) and submit the request. For example: To undo the deletion for testVM, the following request body should be used.
+
+```http
+{
+  "properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "protectionState": "ProtectionStopped",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "isRehydrate": true
+  }
+}
+```
+
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-3). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## Next steps
 

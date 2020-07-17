@@ -5,7 +5,7 @@ author: nberdy
 ms.author: nberdy
 ms.date: 08/08/2019
 ms.topic: overview
-ms.custom: mvc
+ms.custom:  [mvc, amqp, mqtt]
 ms.service: iot-hub
 services: iot-hub
 ---
@@ -106,7 +106,7 @@ If your solution cannot use one of the supported protocols, you can extend IoT H
 
 Each Azure subscription has default quota limits in place to prevent service abuse, and these limits could impact the scope of your IoT solution. The current limit on a per-subscription basis is 50 IoT hubs per subscription. You can request quota increases by contacting support. For more information, see [IoT Hub Quotas and Throttling](iot-hub-devguide-quotas-throttling.md). For more details on quota limits, see one of the following articles:
 
-* [Azure subscription service limits](../azure-subscription-service-limits.md)
+* [Azure subscription service limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
@@ -115,3 +115,7 @@ Each Azure subscription has default quota limits in place to prevent service abu
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 * [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-node.md)
+
+To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
+
+* [Fundamentals: Azure IoT technologies and solutions](../iot-fundamentals/iot-services-and-technologies.md).

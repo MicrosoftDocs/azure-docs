@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a custom policy definition"
 description: In this tutorial, you craft a custom policy definition for Azure Policy to enforce custom business rules on your Azure resources.
-ms.date: 11/21/2019
+ms.date: 06/16/2020
 ms.topic: tutorial
 ---
 # Tutorial: Create a custom policy definition
@@ -64,7 +64,7 @@ There are many ways to determine the properties for an Azure resource. We'll loo
 this tutorial:
 
 - Azure Policy extension for VS Code
-- Resource Manager templates
+- Azure Resource Manager templates (ARM templates)
   - Export existing resource
   - Creation experience
   - Quickstart templates (GitHub)
@@ -76,10 +76,10 @@ this tutorial:
 The [VS Code extension](../how-to/extension-for-vscode.md#search-for-and-view-resources) can be used
 to browse resources in your environment and see the Resource Manager properties on each resource.
 
-### Resource Manager templates
+### ARM templates
 
 There are several ways to look at a [Resource Manager
-template](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)
+template](../../../azure-resource-manager/templates/template-tutorial-use-template-reference.md)
 that includes the property you're looking to manage.
 
 #### Existing resource in the portal
@@ -89,7 +89,7 @@ already configured with the setting you want to enforce also provide the value t
 Look at the **Export template** page (under **Settings**) in the Azure portal for that specific
 resource.
 
-![Export template page on existing resource](../media/create-custom-policy-definition/export-template.png)
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Export template page on existing resource" border="false":::
 
 Doing so for a storage account reveals a template similar to this example:
 
@@ -171,16 +171,15 @@ property we're looking for.
 #### Quickstart templates on GitHub
 
 The [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates) on GitHub has
-hundreds of Resource Manager templates built for different resources. These templates can be a great
-way to find the resource property you're looking for. Some properties may appear to be what you're
-looking for, but control something else.
+hundreds of ARM templates built for different resources. These templates can be a great way to find
+the resource property you're looking for. Some properties may appear to be what you're looking for,
+but control something else.
 
 #### Resource reference docs
 
-To validate **supportsHttpsTrafficOnly** is correct property, check the Resource Manager template
-reference for the [storage account
-resource](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) on the storage provider.
-The properties object has a list of valid parameters. Selecting the
+To validate **supportsHttpsTrafficOnly** is correct property, check the ARM template reference for
+the [storage account resource](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) on the
+storage provider. The properties object has a list of valid parameters. Selecting the
 [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object)
 link shows a table of acceptable properties. **supportsHttpsTrafficOnly** is present and the
 description matches what we are looking for to meet the business requirements.
@@ -213,6 +212,10 @@ tutorial:
 
 The Azure Policy extension for VS Code extension makes it easy to browse your resources and
 [discover aliases](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
+
+> [!NOTE]
+> The VS Code extension only exposes Resource Manager mode properties and doesn't display any
+> [Resource Provider mode](../concepts/definition-structure.md#mode) properties.
 
 ### Azure CLI
 
@@ -249,39 +252,41 @@ Like Azure CLI, the results show an alias supported by the storage accounts name
 
 ### Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) is a new service. It enables another method
+[Azure Resource Graph](../../resource-graph/overview.md) is a service that provides another method
 to find properties of Azure resources. Here is a sample query for looking at a single storage
 account with Resource Graph:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-The results look similar to what we see in the Resource Manager templates and through the Azure
-Resource Explorer. However, Azure Resource Graph results can also include [alias](../concepts/definition-structure.md#aliases)
-details by _projecting_ the _aliases_ array:
+The results look similar to what we see in the ARM templates and through the Azure Resource
+Explorer. However, Azure Resource Graph results can also include
+[alias](../concepts/definition-structure.md#aliases) details by _projecting_ the _aliases_ array:
 
 ```kusto
-where type=~'microsoft.storage/storageaccounts'
+Resources
+| where type=~'microsoft.storage/storageaccounts'
 | limit 1
 | project aliases
 ```
 
 ```azurecli-interactive
-az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
 Here is example output from a storage account for aliases:
@@ -377,7 +382,7 @@ evaluate in the first place. Each possible response to a non-compliant resource 
 blocked, has data appended, or has a deployment associated to it for putting the resource back into
 a compliant state.
 
-For our example, Deny is the effect we want as we do not want non-compliant resources created in our
+For our example, Deny is the effect we want as we don't want non-compliant resources created in our
 Azure environment. Audit is a good first choice for a policy effect to determine what the impact of
 a policy is before setting it to Deny. One way to make changing the effect per assignment easier is
 to parameterize the effect. See [parameters](#parameters) below for the details on how.
@@ -527,6 +532,19 @@ The completed definition can be used to create a new policy. Portal and each SDK
 PowerShell, and REST API) accept the definition in different ways, so review the commands for each
 to validate correct usage. Then assign it, using the parameterized effect, to appropriate resources
 to manage the security of your storage accounts.
+
+## Clean up resources
+
+If you're done working with resources from this tutorial, use the following steps to delete any of
+the assignments or definitions created above:
+
+1. Select **Definitions** (or **Assignments** if you're trying to delete an assignment) under
+   **Authoring** in the left side of the Azure Policy page.
+
+1. Search for the new initiative or policy definition (or assignment) you want to remove.
+
+1. Right-click the row or select the ellipses at the end of the definition (or assignment), and
+   select **Delete definition** (or **Delete assignment**).
 
 ## Review
 

@@ -1,21 +1,13 @@
 ---
 title: Expand the OS drive of a Windows VM in an Azure 
 description: Expand the size of the OS drive of a virtual machine using Azure Powershell in the  Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
-author: kirpasingh
-manager: roshar
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
+author: mimckitt
+manager: vashan
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: kirpas
+ms.author: mimckitt
 ms.subservice: disks
 
 ---
@@ -163,7 +155,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## Resizing data disks
 
-This article is focused primarily on expanding the OS disk of the VM, but the script can also be used for expanding the data disks attached to the VM. For example, to expand the first data disk attached to the VM, replace the `OSDisk` object of `StorageProfile` with `DataDisks` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
+This article is focused primarily on expanding the OS disk of the VM, but the script can also be used for expanding the data disks attached to the VM. If only expanding a data disk, the VM does **not** have to be deallocated. For example, to expand the first data disk attached to the VM, replace the `OSDisk` object of `StorageProfile` with `DataDisks` array and use a numeric index to obtain a reference to first attached data disk, as shown below:
 
 **Managed disk**
 

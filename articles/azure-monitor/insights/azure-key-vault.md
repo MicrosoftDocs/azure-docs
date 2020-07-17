@@ -1,7 +1,6 @@
 ---
 title: Azure Key Vault solution in Azure Monitor | Microsoft Docs
 description: You can use the Azure Key Vault solution in Azure Monitor to review Azure Key Vault logs.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -47,7 +46,7 @@ Use the following instructions to install and configure the Azure Key Vault solu
 8. Click *Save* to enable the logging of diagnostics to Log Analytics workspace.
 
 ### Enable Key Vault diagnostics using PowerShell
-The following PowerShell script provides an example of how to use `Set-AzDiagnosticSetting` to enable diagnostic logging for Key Vault:
+The following PowerShell script provides an example of how to use `Set-AzDiagnosticSetting` to enable resource logging for Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -91,7 +90,7 @@ After you click the **Key Vault Analytics** tile, you can view summaries of your
     On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 
 ## Azure Monitor log records
-The Azure Key Vault solution analyzes records that have a type of **KeyVaults** that are collected from [AuditEvent logs](../../key-vault/key-vault-logging.md) in Azure Diagnostics.  Properties for these records are in the following table:  
+The Azure Key Vault solution analyzes records that have a type of **KeyVaults** that are collected from [AuditEvent logs](../../key-vault/general/logging.md) in Azure Diagnostics.  Properties for these records are in the following table:  
 
 | Property | Description |
 |:--- |:--- |
@@ -104,7 +103,7 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 | `httpStatusCode_d` |HTTP status code returned by the request (for example, *200*) |
 | `id_s` |Unique ID of the request |
 | `identity_claim_appid_g` | GUID for the application ID |
-| `OperationName` |Name of the operation, as documented in [Azure Key Vault Logging](../../key-vault/key-vault-logging.md) |
+| `OperationName` |Name of the operation, as documented in [Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | `OperationVersion` |REST API version requested by the client (for example *2015-06-01*) |
 | `requestUri_s` |Uri of the request |
 | `Resource` |Name of the key vault |

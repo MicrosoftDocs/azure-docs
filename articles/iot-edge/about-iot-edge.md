@@ -22,7 +22,7 @@ Analytics drives business value in IoT solutions, but not all analytics needs to
 Azure IoT Edge is made up of three components:
 
 * **IoT Edge modules** are containers that run Azure services, third-party services, or your own code. Modules are deployed to IoT Edge devices and execute locally on those devices.
-* The **IoT Edge runtime** runs on each IoT Edge device and manages the modules deployed to each device. 
+* The **IoT Edge runtime** runs on each IoT Edge device and manages the modules deployed to each device.
 * A **cloud-based interface** enables you to remotely monitor and manage IoT Edge devices.
 
 >[!NOTE]

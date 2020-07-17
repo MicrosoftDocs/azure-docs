@@ -1,17 +1,9 @@
 ---
 title: Azure CLI script sample - Subscribe to custom topic | Microsoft Docs
-description: Azure CLI Script Sample - Subscribe to custom topic
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-
-ms.service: event-grid
+description: This article provides a sample Azure CLI script that shows how to subscribe to Event Grid events for a custom topic. 
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
+ms.date: 07/08/2020
 ---
 
 # Subscribe to events for a custom topic with Azure CLI

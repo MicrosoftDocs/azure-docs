@@ -1,20 +1,8 @@
 ---
-title: Azure Service Bus message expiration | Microsoft Docs
-description: Expiration and time to live of Azure Service Bus messages
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Service Bus - message expiration
+description: This article explains about expiration and time to live of Azure Service Bus messages. After such a deadline, the message is no longer delivered.
 ms.topic: article
-ms.date: 01/23/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Message expiration (Time to Live)

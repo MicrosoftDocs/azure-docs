@@ -1,13 +1,11 @@
 ---
-title: Push notifications to specific iOS devices using Azure Notification Hubs | Microsoft Docs
+title: Send push notifications to specific iOS devices using Azure Notification Hubs | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to specific iOS devices. 
 services: notification-hubs
 documentationcenter: ios
 author: sethmanheim
 manager: femila
-editor: jwargo
 
-ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -19,7 +17,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
 ---
 
-# Tutorial: Push notifications to specific iOS devices using Azure Notification Hubs
+# Tutorial: Send push notifications to specific iOS devices using Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
@@ -155,7 +153,7 @@ The first step is to add the UI elements to your existing storyboard that enable
 9. In the `didRegisterForRemoteNotificationsWithDeviceToken` method in `AppDelegate.m`, replace the code in the method with the following code to pass the device token to the `notifications` class. The `notifications` class performs the registering for notifications with the categories. If the user changes category selections, call the `subscribeWithCategories` method in response to the **subscribe** button to update them.
 
     > [!NOTE]
-    > Because the device token assigned by the Apple Push Notification Service (APNS) can chance at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
+    > Because the device token assigned by the Apple Push Notification Service (APNS) can change at any time, you should register for notifications frequently to avoid notification failures. This example registers for notification every time that the app starts. For apps that are run frequently, more than once a day, you can probably skip registration to preserve bandwidth if less than a day has passed since the previous registration.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -366,5 +364,5 @@ In this tutorial, you sent broadcast notifications to specific iOS devices that 
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
-[get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[get-started]: ios-sdk-get-started.md
 [Azure portal]: https://portal.azure.com

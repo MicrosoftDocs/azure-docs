@@ -4,7 +4,7 @@ description: How-to article highlighting how to include table- and column-level 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 
@@ -40,7 +40,7 @@ Including data profiles when registering data assets helps users answer question
 > You can also add documentation to an asset to describe how data could be integrated into an application. See [How to document data sources](data-catalog-how-to-documentation.md).
 >
 
-<a name="howto"/>
+<a name="howto"></a>
 
 ## How to include a data profile when registering a data source
 

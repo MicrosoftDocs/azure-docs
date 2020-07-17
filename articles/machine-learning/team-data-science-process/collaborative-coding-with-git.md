@@ -2,12 +2,12 @@
 title: Collaborative coding with Git - Team Data Science Process
 description: How to do collaborative code development for data science projects using Git with agile planning.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -25,7 +25,7 @@ To connect a work item to a new branch, select the **Actions** ellipsis (**...**
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-In the **Create a branch** dialog, provide the new branch name and the base Azure Repos Git repository and branch. The base repository must be in the same Azure DevOps project as the work item. The base branch can be the master branch or another existing branch. Select **Create branch**. 
+In the **Create a branch** dialog, provide the new branch name and the base Azure Repos Git repository and branch. The base repository must be in the same Azure DevOps project as the work item. The base branch can be any existing branch. Select **Create branch**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -47,7 +47,7 @@ After you switch to the working branch, you can start developing code or documen
 
 It's a good practice to create a Git branch for each User Story work item. Then, for each Task work item, you can create a branch based on the User Story branch. Organize the branches in a hierarchy that corresponds to the User Story-Task relationship when you have multiple people working on different User Stories for the same project, or on different Tasks for the same User Story. You can minimize conflicts by having each team member work on a different branch, or on different code or other artifacts when sharing a branch. 
 
-The following diagram shows the recommended branching strategy for TDSP. You might not need as many branches as shown here, especially when only one or two people work on a project, or only one person works on all Tasks of a User Story. But separating the development branch from the master branch is always a good practice, and can help prevent the release branch from being interrupted by development activities. For a complete description of the Git branch model, see [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
+The following diagram shows the recommended branching strategy for TDSP. You might not need as many branches as shown here, especially when only one or two people work on a project, or only one person works on all Tasks of a User Story. But separating the development branch from the primary branch is always a good practice, and can help prevent the release branch from being interrupted by development activities. For a complete description of the Git branch model, see [A Successful Git Branching Model](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 
@@ -76,7 +76,7 @@ From the main page of your Azure DevOps project, point to **Repos** > **Pull req
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your changes into. Add or change any other information you want. Under **Reviewers**, add the names of those you need to review your changes, and then select **Create**. 
+On the **New Pull Request** screen, if necessary, navigate to the Git repository and branch you want to merge your changes into. Add or change any other information you want. Under **Reviewers**, add the names of the reviewers, and then select **Create**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -94,7 +94,7 @@ Confirm that the request is marked as **COMPLETED**.
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-When you go back to **Repos** in the left navigation, you can see that you've been switched to the master branch since the `script` branch was deleted.
+When you go back to **Repos** in the left navigation, you can see that you've been switched to the main branch since the `script` branch was deleted.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

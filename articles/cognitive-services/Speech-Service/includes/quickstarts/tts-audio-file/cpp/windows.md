@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech into audio file, C++ (Windows) - Speech Service'
+title: 'Quickstart: Synthesize speech into audio file, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,8 +7,8 @@ author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 08/19/2019
+ms.topic: include
+ms.date: 04/04/2020
 ms.author: wolfma
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## Add sample code
 
@@ -30,7 +29,7 @@ Before you get started, make sure to:
    ```C++
 
     // Creates an instance of a speech config with specified subscription key and service region.
-    // Replace with your own subscription key and service region (e.g., "westus").
+    // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
     auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
     // Creates a speech synthesizer using file as audio output.
@@ -86,7 +85,7 @@ Before you get started, make sure to:
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

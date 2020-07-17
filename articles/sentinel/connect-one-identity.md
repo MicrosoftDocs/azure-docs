@@ -3,7 +3,7 @@ title: Connect One Identity Safeguard to Azure Sentinel| Microsoft Docs
 description: Learn how to connect One Identity Safeguard to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
-ms.author: cabailey
+ms.date: 12/30/2019
+ms.author: yelevin
 
 ---
 # Connect One Identity Safeguard
@@ -38,4 +38,6 @@ The One Identity Safeguard data connector enhances the standard Common Event For
 In this document, you learned how to connect One Identity Safeguard to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+
 

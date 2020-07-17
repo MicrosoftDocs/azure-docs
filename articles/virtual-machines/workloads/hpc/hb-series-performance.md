@@ -33,7 +33,7 @@ Several performance tests have been run on HB-series sizes. The following are so
 ## InfiniBand send latency
 Mellanox Perftest.
 
-```azure-cli
+```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
@@ -115,8 +115,4 @@ OSU MPI Bandwidth Test v5.4.3.
 
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
-
-
-
-
+Learn more about [high-performance computing](/azure/architecture/topics/high-performance-computing/) in Azure.

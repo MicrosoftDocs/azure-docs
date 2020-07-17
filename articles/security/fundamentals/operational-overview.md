@@ -46,7 +46,7 @@ You can consolidate data from a variety of sources and combine data from your Az
 
 Azure Backup offers components that you download and deploy on the appropriate computer or server, or in the cloud. The component, or agent, that you deploy depends on what you want to protect. All Azure Backup components (whether you're protecting data on-premises or in the cloud) can be used to back up data to an Azure Recovery Services vault in Azure.
 
-For more information, see the [Azure Backup components table](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
+For more information, see the [Azure Backup components table](/azure/backup/backup-overview#what-can-i-back-up).
 
 ### Site Recovery
 
@@ -58,7 +58,7 @@ For more information, see the [Azure Backup components table](/azure/backup/back
 
 -	Enables identity and access management (IAM) as a cloud service.
 -	Provides central access management, single sign-on (SSO), and reporting.
--	Supports integrated access management for [thousands of applications](https://azure.microsoft.com/marketplace/active-directory/) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
+-	Supports integrated access management for [thousands of applications](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) in the Azure Marketplace, including Salesforce, Google Apps, Box, and Concur.
 
 Azure AD also includes a full suite of [identity management capabilities](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), including these:
 

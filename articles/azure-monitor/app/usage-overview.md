@@ -1,12 +1,8 @@
 ---
 title: Usage analysis with Azure Application Insights | Microsoft docs
 description: Understand your users and what they do with your app.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 09/19/2019
+ms.date: 03/25/2019
 
 ---
 
@@ -34,7 +30,7 @@ The best experience is obtained by installing Application Insights both in your 
     </script>
     ```
 
-    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
 3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../../azure-monitor/learn/mobile-center-quickstart.md).
 
@@ -45,7 +41,7 @@ The best experience is obtained by installing Application Insights both in your 
 ## Include user and session ID in your telemetry
 To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
 
-Start sending user and session IDs using [this process](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Start sending user and session IDs using [this process](./usage-send-user-context.md).
 
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 
@@ -129,10 +125,14 @@ To do this, [set up a telemetry initializer](../../azure-monitor/app/api-filteri
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
-        public void Initialize (ITelemetry telemetry)
-        {
-            telemetry.Properties["AppVersion"] = "v2.1";
-        }
+        public void Initialize(ITelemetry item)
+            {
+                var itemProperties = item as ISupportProperties;
+                if (itemProperties != null && !itemProperties.Properties.ContainsKey("AppVersion"))
+                {
+                    itemProperties.Properties["AppVersion"] = "v2.1";
+                }
+            }
     }
 ```
 
@@ -171,5 +171,5 @@ All new TelemetryClients automatically add the property value you specify. Indiv
    - [Funnels](usage-funnels.md)
    - [Retention](usage-retention.md)
    - [User Flows](usage-flows.md)
-   - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+   - [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
    - [Add user context](usage-send-user-context.md)

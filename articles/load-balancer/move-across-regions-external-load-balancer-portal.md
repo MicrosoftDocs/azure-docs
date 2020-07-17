@@ -3,7 +3,7 @@ title: Move an Azure external load balancer to another Azure region by using the
 description: Use an Azure Resource Manager template to move an external load balancer from one Azure region to another by using the Azure portal.
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: allensu
 ---
@@ -27,7 +27,7 @@ In a literal sense, you can't move an Azure external load balancer from one regi
 
 - Verify that your Azure subscription allows you to create external load balancers in the target region. Contact support to enable the required quota.
 
-- Make sure your subscription has enough resources to support the addition of the load balancers. See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Make sure your subscription has enough resources to support the addition of the load balancers. See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 ## Prepare and move
 The following procedures show how to prepare the external load balancer for the move by using a Resource Manager template and move the external load balancer configuration to the target region by using the Azure portal. You must first export the public IP configuration of external load balancer.

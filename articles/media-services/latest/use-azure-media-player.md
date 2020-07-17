@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Playback with Azure Media Player - Azure | Microsoft Docs
-description: This topic gives an overview of Azure Media Player.
+description: Azure Media Player is a web video player built to play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -16,7 +16,7 @@ ms.author: juliako
 
 ---
 
-# Azure Media Player overview
+# Playback with Azure Media Player
 
 Azure Media Player is a web video player built to play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices. Azure Media Player utilizes industry standards, such as HTML5, Media Source Extensions (MSE), and Encrypted Media Extensions (EME) to provide an enriched adaptive streaming experience. When these standards are not available on a device or in a browser, Azure Media Player uses Flash and Silverlight as fallback technology. Regardless of the playback technology used, developers will have a unified JavaScript interface to access APIs. This allows for content served by Azure Media Services to be played across a wide-range of devices and browsers without any extra effort.
 
@@ -24,8 +24,6 @@ Microsoft Azure Media Services allows for content to be served up with HLS, DASH
 
 > [!NOTE]
 > HTTPS playback is required for Widevine encrypted content.
-
-[Start your free trial](https://azure.microsoft.com/pricing/free-trial/)
 
 ## Use Azure Media Player demo page
 
@@ -48,6 +46,10 @@ You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) 
 ## Set up Azure Media Player in your HTML
 
 Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](https://aka.ms/ampdocs) for details on how to set up and configure Azure Media Player. 
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Next steps
 

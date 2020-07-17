@@ -8,10 +8,10 @@ author: curtand
 manager: daveba
 
 ms.service: active-directory
-ms.topic: article
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 This article walks you through assigning product licenses to a group of users and verifying that they're licensed correctly in Azure Active Directory (Azure AD).
 
-In this example, the tenant contains a security group called **HR Department**. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
+In this example, the Azure AD organization contains a security group called **HR Department**. This group includes all members of the human resources department (around 1,000 users). You want to assign Office 365 Enterprise E3 licenses to the entire department. The Yammer Enterprise service that's included in the product must be temporarily disabled until the department is ready to start using it. You also want to deploy Enterprise Mobility + Security licenses to the same group of users.
 
 > [!NOTE]
 > Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the Usage location property on the user.
@@ -33,11 +33,11 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 1. Sign in to the [**Azure AD admin center**](https://aad.portal.azure.com) with a license administrator account. To manage licenses, the account must be a license administrator, user administrator, or global administrator.
 
-1. Select **Licenses** to open a page where you can see and manage all licensable products in the tenant.
+1. Select **Licenses** to open a page where you can see and manage all licensable products in the organization.
 
 1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the page.
 
-   ![Select products to assign licenses](./media/licensing-groups-assign/all-products-assign.png)
+   ![Select products to assign licenses](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
 1. On the **Assign license** page, select **Users and groups** to open a list of users and groups.
 
@@ -85,7 +85,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. Select a user to open the user's **Licenses** page. This page shows all licenses that are currently assigned to the user. In this example, the user has the Office 365 Enterprise E1 license that was inherited from the **Kiosk users** group. This conflicts with the E3 license that the system tried to apply from the **HR Department** group. As a result, none of the licenses from that group has been assigned to the user.
 
-   ![View all license conflicts for a user](./media/licensing-groups-assign/user-license-view.png)
+   ![View all license conflicts for a user](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
 1. To solve this conflict, remove the user from the **Kiosk users** group. After Azure AD processes the change, the **HR Department** licenses are correctly assigned.
 

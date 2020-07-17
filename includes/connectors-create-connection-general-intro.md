@@ -1,13 +1,15 @@
 ---
-title: include file
-description: include file
-services: logic-apps
 ms.service: logic-apps
+ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.topic: include
-ms.date: 09/18/2019
-ms.custom: include file
+ms.date: 06/06/2020
 ---
 
-When you use a trigger or action that accesses a service for the first time, the Logic Apps Designer prompts you to create a *connection* to that service. You can then provide the necessary connection information directly from your logic app inside the designer.
+When you add a trigger or action that connects to a service or system for the first time, the Logic App Designer prompts you to create a *connection* by providing the necessary information, which varies based on the connection, for example:
+
+* A name to use for the new connection
+* The server or system name
+* Your user or account credentials
+* The authentication type to use
+* The Azure subscription and name for the data gateway that you previously create when connecting to on-premises data sources

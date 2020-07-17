@@ -1,5 +1,5 @@
 ---
-title: Manage access to Azure management with Conditional Access in Azure Active Directory
+title: Manage access to Azure management with Conditional Access in Azure AD
 description: Learn about using Conditional Access in Azure AD to manage access to Azure management.
 services: active-directory
 documentationcenter: ''
@@ -42,5 +42,4 @@ The policy you create applies to all Azure management endpoints, including the f
 
 Note that the policy applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), which calls Microsoft Graph.
 
-
-For more information on how to set up and use Conditional Access, see [Conditional Access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+For more information on how to set up a sample policy to enable Conditional Access for Microsoft Azure management, see the article [Conditional Access: Require MFA for Azure management](../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).

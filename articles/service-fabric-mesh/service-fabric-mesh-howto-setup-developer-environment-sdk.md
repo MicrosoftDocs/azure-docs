@@ -1,14 +1,10 @@
 ---
-title: Set up a Windows development environment to build Service Fabric Mesh apps | Microsoft Docs
+title: Set up a Windows dev environment for Service Fabric Mesh
 description: Set up your Windows development environment so you can create a Service Fabric Mesh application and deploy it to Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords:  
 author: dkkapur
 ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
 #Customer intent: As a developer, I need to install the prerequisites to enable service fabric mesh development in visual studio.
 ---
 
@@ -115,7 +111,7 @@ Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutori
 
 Find answers to [common questions and known issues](service-fabric-mesh-faq.md).
 
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
+[azure-cli-install]: /cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/
 [download-runtime]: https://aka.ms/sfruntime

@@ -1,7 +1,6 @@
 ---
 title: IIS logs in Azure Monitor | Microsoft Docs
 description: Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor.  This article describes how to configure collection of IIS logs and details of the records they create in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -16,7 +15,7 @@ Internet Information Services (IIS) stores user activity in log files that can b
 ![IIS logs](media/data-sources-iis-logs/overview.png)
 
 ## Configuring IIS logs
-Azure Monitor collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx).
+Azure Monitor collects entries from log files created by IIS, so you must [configure IIS for logging](/previous-versions/orphan-topics/ws.11/hh831775(v=ws.11)).
 
 Azure Monitor only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging. It does not collect logs in NCSA or IIS native format.
 

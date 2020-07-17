@@ -23,7 +23,7 @@ The Speech Devices SDK works best with a microphone array that has been designed
 
 The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 
-|     | Circular Array |     | Linear Array |     |
+| Mics & Geometry | Circular Array | Circular Array | Linear Array | Linear Array |
 | --- | -------------- | --- | ------------ | --- |
 |     | <img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/> | <img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/> | <img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/> |
 | \# Mics | 7 | 4 | 4 | 2 |
@@ -106,7 +106,7 @@ microphones into a device:
 
 ## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (such as an SoC that runs the Microsoft Audio Stack) and interfaces to speech services or other applications.
+Where applicable, arrays may be connected to a USB host (such as an SoC that runs the Microsoft Audio Stack) and interfaces to Speech services or other applications.
 
 Hardware components such as PDM-to-TDM conversion should ensure that the dynamic range and SNR of the microphones is preserved within re-samplers.
 

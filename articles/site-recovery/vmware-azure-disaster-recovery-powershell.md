@@ -4,7 +4,7 @@ description: Learn how to set up replication and failover to Azure for disaster 
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 06/30/2019
+ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: sutalasi
 
@@ -32,7 +32,7 @@ You learn how to:
 Before you start:
 
 - Make sure that you understand the [scenario architecture and components](vmware-azure-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-to-azure.md) for all components.
+- Review the [support requirements](./vmware-physical-azure-support-matrix.md) for all components.
 - You have the Azure PowerShell `Az`  module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## Log into Azure
@@ -368,9 +368,13 @@ $PolicyMap  = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionCon
 #Get the protectable item corresponding to the virtual machine CentOSVM1
 $VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "CentOSVM1"
 
-# Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0
+# Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0 onwards to replicate to managed disks
 # The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
 $Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
+
+# Alternatively, if the virtual machine CentOSVM1 has CMK enabled disks, enable replication using Az module 3.3.0 onwards as below
+# $diskID is the Disk Encryption Set ID to be used for all replica managed disks and target managed disks in the target region
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId -DiskEncryptionSetId $diskId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1"
 
 #Get the protectable item corresponding to the virtual machine Win2K12VM1
 $VM2 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $ProtectionContainer -FriendlyName "Win2K12VM1"
@@ -489,4 +493,4 @@ In this step, we fail over the virtual machine Win2K12VM1 to a specific recovery
 2. Once failed over successfully, you can commit the failover operation, and set up reverse replication from Azure back to the on-premises VMware site.
 
 ## Next steps
-Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).
+Learn how to automate more tasks using the [Azure Site Recovery PowerShell reference](/powershell/module/Az.RecoveryServices).

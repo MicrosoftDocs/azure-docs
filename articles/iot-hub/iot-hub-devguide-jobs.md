@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2019
+ms.custom: mqtt
 ---
 
 # Schedule jobs on multiple devices

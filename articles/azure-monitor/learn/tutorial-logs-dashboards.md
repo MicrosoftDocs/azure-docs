@@ -1,12 +1,11 @@
 ---
 title: Create and share dashboards of Azure Log Analytics data | Microsoft Docs
 description: This tutorial helps you understand how Log Analytics dashboards can visualize all of your saved log queries, giving you a single lens to view your environment.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/19/2019
+author: bwren
+ms.author: bwren
+ms.date: 05/28/2020
 
 ms.custom: mvc
 ---
@@ -32,6 +31,14 @@ Select **Dashboard** to open your default [dashboard](../../azure-portal/azure-p
 ![Azure portal dashboard](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 Here you can bring together operational data that is most important to IT across all your Azure resources, including telemetry from Azure Log Analytics.  Before we step into visualizing a log query, let's first create a dashboard and share it.  We can then focus on our example performance log query, which will render as a line chart, and add it to the dashboard.  
+
+> [!NOTE]
+> The following chart types are supported in Azure dashboards using log queries:
+> - areachart
+> - columnchart
+> - piechart (will render in dashboard as donut)
+> - scatterchart
+> - timechart
 
 To create a dashboard, select the **New dashboard** button next to the current dashboard's name.
 

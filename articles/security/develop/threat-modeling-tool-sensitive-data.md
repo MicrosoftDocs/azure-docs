@@ -76,7 +76,7 @@ ms.author: jegeib
 | **Applicable Technologies** | Generic, Web Forms, MVC5, MVC6 |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
-| **Steps** | Browsers can store information for purposes of caching and history. These cached files are stored in a folder, like the Temporary Internet Files folder in the case of Internet Explorer. When these pages are referred again, the browser displays them from its cache. If sensitive information is displayed to the user (such as their address, credit card details, Social Security Number, or username), then this information could be stored in browser’s cache, and therefore retrievable through examining the browser's cache or by simply pressing the browser's "Back" button. Set cache-control response header value to “no-store” for all pages. |
+| **Steps** | Browsers can store information for purposes of caching and history. These cached files are stored in a folder, like the Temporary Internet Files folder in the case of Internet Explorer. When these pages are referred again, the browser displays them from its cache. If sensitive information is displayed to the user (such as their address, credit card details, Social Security Number, or username), then this information could be stored in browser's cache, and therefore retrievable through examining the browser's cache or by simply pressing the browser's "Back" button. Set cache-control response header value to "no-store" for all pages. |
 
 ### Example
 ```XML
@@ -347,7 +347,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, Xamarin  |
 | **Attributes**              | N/A  |
-| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](https://docs.microsoft.com/mem/intune/configuration/), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
 | **Steps** | <p>If the application writes sensitive information like user's PII (email, phone number, first name, last name, preferences etc.)- on mobile's file system, then it should be encrypted before writing to the local file system. If the application is an enterprise application, then explore the possibility of publishing application using Windows Intune.</p>|
 
 ### Example

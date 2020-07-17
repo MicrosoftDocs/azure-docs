@@ -1,0 +1,143 @@
+- name: Azure Managed Applications Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About managed applications
+    href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Publish application definition
+    href: publish-service-catalog-app.md
+  - name: Deploy service catalog app
+    href: deploy-service-catalog-quickstart.md
+- name: Tutorials
+  items:
+  - name: Publish marketplace application 
+    href: publish-marketplace-app.md 
+  - name: Create managed application with custom provider
+    href: tutorial-create-managed-app-with-custom-provider.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Managed application solutions
+    href: sample-projects.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-samples.md
+- name: Concepts
+  items:
+  - name: View definition artifact
+    href: concepts-view-definition.md
+  - name: Azure Policy for associations
+    href: concepts-built-in-policy.md
+  - name: Role definition artifact
+    href: concepts-custom-role-definition.md
+- name: How-to guides
+  items:
+  - name: Publishers
+    items:
+    - name: Create portal interface
+      href: create-uidefinition-overview.md
+    - name: Test portal interface
+      href: test-createuidefinition.md
+    - name: Request just-in-time access
+      href: request-just-in-time-access.md
+    - name: Use existing virtual network
+      href: existing-vnet-integration.md
+    - name: Update managed resources
+      href: update-managed-resources.md
+    - name: Use portal to publish application definition
+      href: publish-portal.md
+    - name: Use secret from Key Vault
+      href: key-vault-access.md
+    - name: Deploy with Managed Identity
+      href: publish-managed-identity.md
+    - name: Deploy with notifications
+      href: publish-notifications.md
+  - name: Consumers
+    items:
+    - name: Monitor managed application
+      href: monitor-managed-application-portal.md
+    - name: Approve just-in-time access
+      href: approve-just-in-time-access.md
+- name: Reference
+  items:
+  - name: Application artifacts
+    items:
+    - name: User interface elements
+      href: reference-createuidefinition-artifact.md
+    - name: Deployment template
+      href: reference-main-template-artifact.md
+    - name: View definition
+      href: reference-view-definition-artifact.md
+  - name: Azure CLI
+    href: /cli/azure/managedapp
+  - name: PowerShell
+    href: /powershell/module/az.resources
+  - name: REST
+    href: /rest/api/resources/
+  - name: User interface functions
+    href: create-uidefinition-functions.md
+  - name: User interface elements
+    href: create-uidefinition-elements.md
+    items:
+    - name: Common
+      items:
+      - name: DropDown
+        href: microsoft-common-dropdown.md
+      - name: FileUpload
+        href: microsoft-common-fileupload.md
+      - name: InfoBox
+        href: microsoft-common-infobox.md
+      - name: OptionsGroup
+        href: microsoft-common-optionsgroup.md
+      - name: PasswordBox
+        href: microsoft-common-passwordbox.md
+      - name: Section
+        href: microsoft-common-section.md
+      - name: TagsByResource
+        href: microsoft-common-tagsbyresource.md
+      - name: TextBlock
+        href: microsoft-common-textblock.md
+      - name: TextBox
+        href: microsoft-common-textbox.md
+    - name: Compute
+      items:
+      - name: CredentialsCombo
+        href: microsoft-compute-credentialscombo.md
+      - name: SizeSelector
+        href: microsoft-compute-sizeselector.md
+      - name: UserNameTextBox
+        href: microsoft-compute-usernametextbox.md
+    - name: Managed Identity
+      items:
+      - name: IdentitySelector
+        href: microsoft-managedidentity-identityselector.md
+    - name: Network
+      items:
+      - name: PublicIPAddressCombo
+        href: microsoft-network-publicipaddresscombo.md
+      - name: VirtualNetworkCombo
+        href: microsoft-network-virtualnetworkcombo.md
+    - name: Storage
+      items:
+      - name: MultiStorageAccountCombo
+        href: microsoft-storage-multistorageaccountcombo.md
+      - name: StorageAccountSelector
+        href: microsoft-storage-storageaccountselector.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/managed-applications/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Resource Manager template best practices
+    href: https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-managedapps

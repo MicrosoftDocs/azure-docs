@@ -3,7 +3,7 @@
   - name: Developer guide
     href: azure-developer-guide.md
   - name: SDKs and tools
-    href: https://docs.microsoft.com/azure/index#pivot=sdkstools
+    href: https://aka.ms/azsdkpackages
 - name: Quickstart
   items:
   - name: Web Apps
@@ -175,7 +175,7 @@
     - name: PHP
       href: https://github.com/Azure/azure-sdk-for-php/blob/master/README.md
     - name: Python
-      href: http://azure-sdk-for-python.readthedocs.io/en/latest/
+      href: https://github.com/Azure/azure-sdk-for-python/blob/master/README.md
     - name: Ruby
       href: https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md
   - name: Command line interfaces
@@ -189,7 +189,7 @@
 - name: Resources
   items:
   - name: Azure limits and quotas
-    href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+    href: ../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
   - name: Azure regions
     href: https://azure.microsoft.com/regions/
   - name: Azure Roadmap

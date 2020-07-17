@@ -1,22 +1,10 @@
 ---
-title: Deploy a Service Fabric app with continuous integration and Azure Pipelines in Azure | Microsoft Docs
+title: Deploy an app with CI and Azure Pipelines
 description: In this tutorial, you learn how to set up continuous integration and deployment for a Service Fabric application using Azure Pipelines.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
-ms.author: atsenthi
 ms.custom: mvc
-
 ---
 # Tutorial: Deploy an application with CI/CD to a Service Fabric cluster
 
@@ -46,7 +34,7 @@ Before you begin this tutorial:
 * [Install Visual Studio 2019](https://www.visualstudio.com/) and install the **Azure development** and **ASP.NET and web development** workloads.
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 * Create a Windows Service Fabric cluster on Azure, for example by [following this tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Create an [Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
+* Create an [Azure DevOps organization](/azure/devops/organizations/accounts/create-organization-msa-or-work-student). This allows you to create a project in Azure DevOps and use Azure Pipelines.
 
 ## Download the Voting sample application
 

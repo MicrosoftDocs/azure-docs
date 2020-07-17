@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Learn how to quickly start suggesting search terms in real-time with the Bing Autosuggest API.
+description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,23 +9,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 07/26/2019
+ms.date: 05/06/2020
 ms.author: aahi
 ---
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#
 
-Use this quickstart to begin making calls to the Bing Autosuggest API and getting the JSON response. This simple C# application sends a partial search query to the API, and returns suggestions for searches. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Follow this quickstart to learn how to make calls to the Bing Autosuggest API and read the JSON response. This simple C# application sends a partial search query to the API, and returns suggestions for searches. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages. The source code for this sample is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/).
-* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
+* If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## Create a Visual Search Solution
 
-1. Create a new console solution in Visual Studio. Then add the following namespaces into the main code file.
+1. Create a new console solution in Visual Studio. Then, add the following namespaces into the main code file.
 
     ```csharp
     using System;
@@ -35,7 +35,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     using System.Text;
     ```
 
-2. In a new class, create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query.
+2. In a new class, create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), and a partial search query. Use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";
@@ -60,7 +60,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
     }
     ```
 
-2. In the same function above, create a request URI by combining your API host and path. Append your market to the `?mkt=` parameter, and your query to the `&query=` paramter. Be sure to URL-encode your query. 
+2. In the same function above, create a request URI by combining your API host and path. Append your market to the `mkt=` parameter, and your query to the `query=` parameter. Be sure to URL-encode your query. 
 
     ```csharp
     string uri = host + path + "?mkt=" + market + "&query=" + System.Net.WebUtility.UrlEncode (query);

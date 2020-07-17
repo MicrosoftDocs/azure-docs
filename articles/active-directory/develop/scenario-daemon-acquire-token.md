@@ -1,43 +1,40 @@
 ---
-title: Daemon app calling web APIs (acquiring tokens for the app) - Microsoft identity platform
+title: Acquire tokens to call a web API (daemon app) - Microsoft identity platform | Azure
 description: Learn how to build a daemon app that calls web APIs (acquiring tokens)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs using the Microsoft identity platform for developers.
-ms.collection: M365-identity-device-management
+
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
+
 ---
 
 # Daemon app that calls web APIs - acquire a token
 
-Once the confidential client application is constructed, you can acquire a token for the app by calling ``AcquireTokenForClient``, passing the scope, and forcing or not a refresh of the token.
+After you've constructed a confidential client application, you can acquire a token for the app by calling `AcquireTokenForClient`, passing the scope, and optionally forcing a refresh of the token.
 
 ## Scopes to request
 
-The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure AD to use the **application level permissions** declared statically during the application registration. Also, as seen previously, these API permissions must be granted by a tenant administrator
+The scope to request for a client credential flow is the name of the resource followed by `/.default`. This notation tells Azure Active Directory (Azure AD) to use the *application-level permissions* declared statically during application registration. Also, these API permissions must be granted by a tenant administrator.
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
 # [Python](#tab/python)
 
-In MSAL Python, the configuration file would look like the following code snippet:
+In MSAL Python, the configuration file looks like this code snippet:
 
 ```Json
 {
@@ -53,26 +50,26 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ---
 
-### Case of Azure AD (v1.0) resources
+### Azure AD (v1.0) resources
 
-The scope used for client credentials should always be resourceId+"/.default"
+The scope used for client credentials should always be the resource ID followed by `/.default`.
 
 > [!IMPORTANT]
-> For MSAL asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
-> Therefore if, like Azure SQL (**https://database.windows.net**) the resource expects an audience ending with a slash (for Azure SQL: `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default` (note the double slash). See also MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure.
+> When MSAL requests an access token for a resource that accepts a version 1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier.
+> So if, like Azure SQL Database (**https:\//database.windows.net**), the resource expects an audience that ends with a slash (for Azure SQL Database, `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default`. (Note the double slash.) See also MSAL.NET issue [#747: Resource url's trailing slash is omitted, which caused sql auth failure](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## AcquireTokenForClient API
 
-To acquire a token for the app, you'll use `AcquireTokenForClient` or the equivalent depending on the platforms.
+To acquire a token for the app, you'll use `AcquireTokenForClient` or its equivalent, depending on the platform.
 
 # [.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
-// With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
+// With client credentials flows, the scope is always of the shape "resource/.default" because the
 // application permissions need to be set statically (in the portal or by PowerShell), and then granted by
-// a tenant administrator
+// a tenant administrator.
 string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
 
 AuthenticationResult result = null;
@@ -83,14 +80,14 @@ try
 }
 catch (MsalUiRequiredException ex)
 {
-    // The application does not have sufficient permissions
-    // - did you declare enough app permissions in during the app creation?
-    // - did the tenant admin needs to grant permissions to the application.
+    // The application doesn't have sufficient permissions.
+    // - Did you declare enough app permissions during app creation?
+    // - Did the tenant admin grant permissions to the application?
 }
 catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 {
-    // Invalid scope. The scope has to be of the form "https://resourceurl/.default"
-    // Mitigation: change the scope to be as expected !
+    // Invalid scope. The scope has to be in the form "https://resourceurl/.default"
+    // Mitigation: Change the scope to be as expected.
 }
 ```
 
@@ -100,9 +97,9 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 # The pattern to acquire a token looks like this.
 result = None
 
-# Firstly, looks up a token from cache
-# Since we are looking for token for the current app, NOT for an end user,
-# notice we give account parameter as None.
+# First, the code looks up a token from the cache.
+# Because we're looking for a token for the current app, not for a user,
+# use None for the account parameter.
 result = app.acquire_token_silent(config["scope"], account=None)
 
 if not result:
@@ -110,49 +107,73 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 
 if "access_token" in result:
-    # Call a protected API with the access token
+    # Call a protected API with the access token.
     print(result["token_type"])
 else:
     print(result.get("error"))
     print(result.get("error_description"))
-    print(result.get("correlation_id"))  # You may need this when reporting a bug
+    print(result.get("correlation_id"))  # You might need this when reporting a bug.
 ```
 
 # [Java](#tab/java)
 
-This is an extract from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
+This code is extracted from the [MSAL Java dev samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
-ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
-        Collections.singleton(GRAPH_DEFAULT_SCOPE))
-        .build();
+private static IAuthenticationResult acquireToken() throws Exception {
 
-CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
+     // Load token cache from file and initialize token cache aspect. The token cache will have
+     // dummy data, so the acquireTokenSilently call will fail.
+     TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
 
-BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
-    if (ex != null) {
-        System.out.println("Oops! We have an exception - " + ex.getMessage());
-    }
-    System.out.println("Returned ok - " + res);
-    System.out.println("ID Token - " + res.idToken());
+     IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
+     ConfidentialClientApplication cca =
+             ConfidentialClientApplication
+                     .builder(CLIENT_ID, credential)
+                     .authority(AUTHORITY)
+                     .setTokenCacheAccessAspect(tokenCacheAspect)
+                     .build();
 
-    /* call a protected API with res.accessToken() */
-};
+     IAuthenticationResult result;
+     try {
+         SilentParameters silentParameters =
+                 SilentParameters
+                         .builder(SCOPE)
+                         .build();
 
-future.whenCompleteAsync(processAuthResult);
-future.join();
+         // try to acquire token silently. This call will fail since the token cache does not
+         // have a token for the application you are requesting an access token for
+         result = cca.acquireTokenSilently(silentParameters).join();
+     } catch (Exception ex) {
+         if (ex.getCause() instanceof MsalException) {
+
+             ClientCredentialParameters parameters =
+                     ClientCredentialParameters
+                             .builder(SCOPE)
+                             .build();
+
+             // Try to acquire a token. If successful, you should see
+             // the token information printed out to console
+             result = cca.acquireToken(parameters).join();
+         } else {
+             // Handle other exceptions accordingly
+             throw ex;
+         }
+     }
+     return result;
+ }
 ```
 
 ---
 
 ### Protocol
 
-If you don't have yet a library for your language of choice, you might want to use  the protocol directly:
+If you don't yet have a library for your chosen language, you might want to use the protocol directly:
 
-#### First case: Access token request with a shared secret
+#### First case: Access the token request by using a shared secret
 
-```Text
-POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
+```HTTP
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -162,10 +183,10 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-#### Second case: Access token request with a certificate
+#### Second case: Access the token request by using a certificate
 
-```Text
-POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
+```HTTP
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -180,8 +201,8 @@ For more information, see the protocol documentation: [Microsoft identity platfo
 
 ## Application token cache
 
-In MSAL.NET, `AcquireTokenForClient` uses the **application token cache** (All the other AcquireTokenXX methods use the user token cache)
-Don't call `AcquireTokenSilent` before calling `AcquireTokenForClient` as `AcquireTokenSilent` uses the **user** token cache. `AcquireTokenForClient` checks the **application** token cache itself and updates it.
+In MSAL.NET, `AcquireTokenForClient` uses the application token cache. (All the other AcquireToken*XX* methods use the user token cache.)
+Don't call `AcquireTokenSilent` before you call `AcquireTokenForClient`, because `AcquireTokenSilent` uses the *user* token cache. `AcquireTokenForClient` checks the *application* token cache itself and updates it.
 
 ## Troubleshooting
 
@@ -191,10 +212,10 @@ If you get an error message telling you that you used an invalid scope, you prob
 
 ### Did you forget to provide admin consent? Daemon apps need it!
 
-If you get an error when calling the API **Insufficient privileges to complete the operation**, the tenant administrator needs to grant permissions to the application. See step 6 of Register the client app above.
-You'll typically see and error like the following error description:
+If you get an **Insufficient privileges to complete the operation** error when you call the API, the tenant administrator needs to grant permissions to the application. See step 6 of Register the client app above.
+You'll typically see an error that looks like this error:
 
-```JSon
+```json
 Failed to call the web API: Forbidden
 Content: {
   "error": {

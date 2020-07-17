@@ -1,9 +1,10 @@
 ---
 title: Create an Azure Blockchain Service member - Azure CLI
 description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure CLI.
-ms.date: 11/20/2019
+ms.date: 07/16/2020
 ms.topic: quickstart
-ms.reviewer: janders
+ms.reviewer: ravastra
+ms.custom: references_regions
 #Customer intent: As a network operator, I want use Azure Blockchain Service so that I can create a blockchain member on Azure
 ---
 
@@ -12,6 +13,10 @@ ms.reviewer: janders
 In this quickstart, you deploy a new blockchain member and consortium in Azure Blockchain Service using Azure CLI.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## Prerequisites
+
+None.
 
 ## Launch Azure Cloud Shell
 
@@ -33,7 +38,9 @@ az group create \
 
 ## Create a blockchain member
 
-Create a blockchain member in Azure Blockchain Service that runs the Quorum ledger protocol in a new consortium. There are several parameters and properties you need to pass. Replace the example parameters with your values.
+An Azure Blockchain Service member is a blockchain node in a private consortium blockchain network. When provisioning a member, you can create or join a consortium network. You need at least one member for a consortium network. The number of blockchain members needed by participants depends on your scenario. Consortium participants may have one or more blockchain members or they may share members with other participants. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
+
+There are several parameters and properties you need to pass. Replace the example parameters with your values.
 
 ```azurecli-interactive
 az resource create \
@@ -48,17 +55,17 @@ az resource create \
 |---------|-------------|
 | **resource-group** | Resource group name where Azure Blockchain Service resources are created. Use the resource group you created in the previous section.
 | **name** | A unique name that identifies your Azure Blockchain Service blockchain member. The name is used for the public endpoint address. For example, `myblockchainmember.blockchain.azure.com`.
-| **location** | Azure region where the blockchain member is created. For example, `westus2`. Choose the location that is closest to your users or your other Azure applications.
+| **location** | Azure region where the blockchain member is created. For example, `westus2`. Choose the location that is closest to your users or your other Azure applications. Features may not be available in some regions. Azure Blockchain Data Manager is available in the following Azure regions: East US and West Europe.
 | **password** | The password for the member's default transaction node. Use the password for basic authentication when connecting to blockchain member's default transaction node public endpoint.
-| **consortium** | Name of the consortium to join or create.
+| **consortium** | Name of the consortium to join or create. For more information on consortia, see [Azure Blockchain Service consortium](consortium.md).
 | **consortiumAccountPassword** | The consortium account password is also known as the member account password. The member account password is used to encrypt the private key for the Ethereum account that is created for your member. You use the member account and member account password for consortium management.
-| **skuName** | Tier type. Use S0 for Standard and B0 for Basic.
+| **skuName** | Tier type. Use S0 for Standard and B0 for Basic. Use the *Basic* tier for development, testing, and proof of concepts. Use the *Standard* tier for production grade deployments. You should also use the *Standard* tier if you are using Blockchain Data Manager or sending a high volume of private transactions. Changing the pricing tier between basic and standard after member creation is not supported.
 
 It takes about 10 minutes to create the blockchain member and supporting resources.
 
 ## Clean up resources
 
-You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created by the Azure Blockchain Service.
+You can use the blockchain member you created for the next quickstart or tutorial. When no longer needed, you can delete the resources by deleting the `myResourceGroup` resource group you created for the quickstart.
 
 Run the following command to remove the resource group and all related resources.
 
@@ -70,7 +77,7 @@ az group delete \
 
 ## Next steps
 
-In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use  Azure Blockchain Development Kit for Ethereum to attach to a consortium on Azure Blockchain Service.
+In this quickstart, you deployed an Azure Blockchain Service member and a new consortium. Try the next quickstart to use Azure Blockchain Development Kit for Ethereum to attach to an Azure Blockchain Service member.
 
 > [!div class="nextstepaction"]
-> [Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md)
+> [Use Visual Studio Code to connect to Azure Blockchain Service](connect-vscode.md)

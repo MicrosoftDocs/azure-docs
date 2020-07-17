@@ -1,7 +1,6 @@
 ---
 title: Azure Monitor for Networks (Preview)
 description: A quick overview for Azure Monitor for Network which provides a comprehensive view of health and metrics for all deployed network resource without any configuration.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -67,4 +66,4 @@ Click on **Detailed Metric View** to launch a pre-configured workbook with detai
 
 ## Next steps 
 
-- Learn more about network monitoring at What is [Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview).
+- Learn more about network monitoring at What is [Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md).

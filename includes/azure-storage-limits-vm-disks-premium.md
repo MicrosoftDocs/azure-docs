@@ -2,12 +2,12 @@
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/09/2018	
+ms.date: 11/09/2018    
 ms.author: rogarana
 ---
 **Premium unmanaged virtual machine disks: Per-account limits**
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Total disk capacity per account |35 TB |
 | Total snapshot capacity per account |10 TB |
@@ -26,7 +26,7 @@ ms.author: rogarana
 
 **Premium unmanaged virtual machine disks: Per-VM limits**
 
-| Resource | Default limit |
+| Resource | Limit |
 | --- | --- |
 | Maximum IOPS per VM |80,000 IOPS with GS5 VM |
 | Maximum throughput per VM |2,000 MB/sec with GS5 VM |

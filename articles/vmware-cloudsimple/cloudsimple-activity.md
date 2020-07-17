@@ -1,5 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - CloudSimple activity management 
+title: CloudSimple activity management
+titleSuffix: Azure VMware Solution by CloudSimple 
 description: Describes activity concepts on VMware Solution by CloudSimple
 author: sharaths-cs
 ms.author: dikamath

@@ -4,17 +4,13 @@ description: This article compares features and provides guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: smichelotti 
-manager: zakramer
 
-ms.assetid: 6e04e9aa-1a73-442c-a46c-2e4ff87e58d5
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/15/2019
-ms.author: stemi
 
 ---
 
@@ -57,6 +53,7 @@ Navigate through the links below to get started using Azure Government.
 * [Login to Azure Government Portal](documentation-government-get-started-connect-with-portal.md)
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 * [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
+* [Connect with Visual Studio](documentation-government-connect-vs.md)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
 * [Connect with Azure SDK for Python](/azure/python/python-sdk-azure-multi-cloud)
 
@@ -79,7 +76,6 @@ The following table shows the mapping between some Azure services and Azure Gove
 | Azure Cloud Shell |  https:\//portal.azure.us | https:\//portal.azure.com |
 | Active Directory Endpoint and Authority | https:\//login.microsoftonline.us | https:\//login.microsoftonline.com <br/> https:\//login.windows.net |
 | Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
-| Active Directory Graph API | https:\//graph.windows.net/ | https:\//graph.windows.net/ |
 | Microsoft Graph API | https:\//graph.microsoft.us/ | https:\//graph.microsoft.com/ |
 | Azure API | https:\//management.usgovcloudapi.net/ | https:\//management.azure.com/ |
 | SQL Database DNS Suffix | \*.database.usgovcloudapi.net | \*.database.windows.net |

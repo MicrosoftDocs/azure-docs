@@ -5,16 +5,14 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 02/01/2019
+ ms.date: 02/10/2020
  ms.author: cherylmc
  ms.custom: include file
 ---
 
 Open your PowerShell console with elevated privileges.
 
-
-
-If you are running Azure PowerShell locally, connect to your Azure account. The *Connect-AzAccount* cmdlet prompts you for credentials. After authenticating, it downloads your account settings so that they are available to Azure PowerShell. If you are not running PowerShell locally and are instead using the Azure Cloud Shell 'Try it' in the browser, skip this first step. You will connect to your Azure account automatically.
+If you are running Azure PowerShell locally, connect to your Azure account. The *Connect-AzAccount* cmdlet prompts you for credentials. After authenticating, it downloads your account settings so that they are available to Azure PowerShell. If you are using Azure Cloud Shell instead, you do not need to run *Connect-AzAccount*. Azure Cloud Shell connects to your Azure account automatically.
 
 ```azurepowershell
 Connect-AzAccount

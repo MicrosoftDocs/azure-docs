@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/22/2019
+ms.date: 07/09/2020
 ms.author: juliako
 ---
 
@@ -38,7 +38,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- If you don't have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- If you don't have Visual Studio installed, you can get [Visual Studio Community 2019](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You'll need to use them to access the API.
 
@@ -84,6 +84,8 @@ The following function performs these actions:
 
 * Creates an **Asset**.
 * Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
+
+    If using asset’s [ListContainerSas](https://docs.microsoft.com/rest/api/media/assets/listcontainersas) function to get SAS URLs, note that the function returns multiple SAS URLs as there are two storage account keys for each storage account. A storage account has two keys because it allows for seamless rotation  of storage account keys (for example, change one while using the other then start using the new key and rotate the other key). The 1st SAS URL represents storage key1 and second one storage key2.
 * Uploads the file into the container in storage using the SAS URL.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -158,7 +160,7 @@ Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/strea
 
 ### Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, and you'll persist StreamingLocators, etc.). If you want your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes Jobs:
+Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, and you'll persist StreamingLocators, etc.). If you want your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes the job, created assets and content key policy:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 

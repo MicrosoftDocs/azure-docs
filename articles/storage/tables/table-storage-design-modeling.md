@@ -1,5 +1,5 @@
 ---
-title: Modeling relationships in Azure storage table design | Microsoft Docs
+title: Modeling relationships in Azure Table storage design | Microsoft Docs
 description: Understand the modeling process when designing your table storage solution.
 services: storage
 author: MarkMcGeeAtAquent

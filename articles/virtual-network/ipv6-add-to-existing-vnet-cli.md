@@ -5,22 +5,20 @@ description: This article shows how to deploy IPv6 addresses to an existing appl
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2019
+ms.date: 03/31/2020
 ms.author: kumud
 ---
 
-# Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI (Preview)
+# Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI
 
 This article shows you how to add IPv6 addresses to an application that is using IPv4 public IP address in an Azure virtual network for a Standard Load Balancer using Azure CLI. The in-place upgrade includes a virtual network and subnet, a Standard Load Balancer with IPv4 + IPV6 frontend configurations, VMs with NICs that have a IPv4 + IPv6 configurations, network security group, and public IPs.
 
-> [!Important]
-> IPv6 support for Azure Virtual Network is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -28,27 +26,6 @@ If you decide to install and use Azure CLI locally instead, this quickstart requ
 
 ## Prerequisites
 
-### Register the service
-
-Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure CLI:
-
-```azurecli
-az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure CLI command:
-
-```azurelci
-az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
-az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
-```
-After the registration is complete, run the following command:
-
-```azurelci
-az provider register --namespace Microsoft.Network
-```
-
-### Create a Standard Load Balancer
 This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## Create IPv6 addresses
@@ -166,8 +143,6 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 
   ![IPv6 dual stack virtual network in Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
 
 ## Clean up resources
 

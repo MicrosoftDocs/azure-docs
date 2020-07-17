@@ -1,17 +1,9 @@
 ---
 title: Azure PowerShell - subscribe to Azure subscription
-description: Azure PowerShell & Azure Event Grid script sample - subscribe to Azure subscription
-services: event-grid
-documentationcenter: na
-author: spelluru
-
-ms.service: event-grid
+description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for an Azure subscription. 
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/22/2019
-ms.author: spelluru
+ms.date: 07/08/2020
 ---
 
 # Subscribe to events for an Azure subscription with PowerShell
@@ -20,9 +12,6 @@ This script creates an Event Grid subscription to the events for an Azure subscr
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-The preview sample script requires the Event Grid module. To install, run
-`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
-
 ## Sample script - stable
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -30,6 +19,9 @@ The preview sample script requires the Event Grid module. To install, run
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
 ## Sample script - preview module
+
+This preview sample script requires the Event Grid module. To install, run
+`Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

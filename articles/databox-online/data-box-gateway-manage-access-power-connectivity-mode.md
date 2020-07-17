@@ -1,23 +1,24 @@
 ---
-title: Microsoft Azure Data Box Gateway device access, power, and connectivity mode | Microsoft Docs 
+title: Azure Data Box Gateway device access, power, and connectivity mode
 description: Describes how to manage access, power, and connectivity mode for the Azure Data Box Gateway device that helps transfer data to Azure
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
 ---
 
 # Manage access, power, and connectivity mode for your Azure Data Box Gateway
 
-This article describes how to manage the access, power, and connectivity mode for your Azure Data Box Gateway. These operations are performed via the local web UI or the Azure portal.
+This article describes how to manage the access, power, and connectivity mode for your Azure Data Box Gateway. These operations are performed via the local web UI or the Azure portal. 
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Manage device access
 > * Manage connectivity mode
 > * Manage power
@@ -52,30 +53,30 @@ The reset workflow does not require the user to recall the old password and is u
 
 ## Manage resource access
 
-To create your Data Box Edge/Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to Azure Active Directory Graph API are also required. These are described in the following sections.
+To create your Azure Stack Edge/Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to Azure Active Directory Graph API are also required. These are described in the following sections.
 
-### Manage Microsoft Azure Active Directory Graph API permissions
+### Manage Microsoft Graph API permissions
 
-When generating the activation key for the Data Box Edge device, or performing any operations that require credentials, you need permissions to Azure Active Directory Graph API. The operations that need credentials could be:
+When generating the activation key for the Azure Stack Edge device, or performing any operations that require credentials, you need permissions to Microsoft Graph API. The operations that need credentials could be:
 
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Data Box Edge device, creation of a user will all fail.
+You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge device, creation of a user will all fail.
 
-For more information on how to provide access to users to Azure Active Directory Graph API, see [Default access for administrators, users, and guest users](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 
 ### Register resource providers
 
-To provision a resource in Azure (in the Azure Resource Manager model), you need a resource provider that supports the creation of that resource. For example, to provision a virtual machine, you should have a ‘Microsoft.Compute’ resource provider available in the subscription.
+To provision a resource in Azure (in the Azure Resource Manager model), you need a resource provider that supports the creation of that resource. For example, to provision a virtual machine, you should have a 'Microsoft.Compute' resource provider available in the subscription.
  
-Resource providers are registered on the level of the subscription. By default, any new Azure subscription is pre-registered with a list of commonly used resource providers. The resource provider for ‘Microsoft.DataBoxEdge' is not included in this list.
+Resource providers are registered on the level of the subscription. By default, any new Azure subscription is pre-registered with a list of commonly used resource providers. The resource provider for 'Microsoft.DataBoxEdge' is not included in this list.
 
-You don't need to grant access permissions to the subscription level for users to be able to create resources like ‘Microsoft.DataBoxEdge’ within their resource groups that they have owner rights on, as long as the resource providers for these resources is already registered.
+You don't need to grant access permissions to the subscription level for users to be able to create resources like 'Microsoft.DataBoxEdge' within their resource groups that they have owner rights on, as long as the resource providers for these resources is already registered.
 
 Before you attempt to create any resource, make sure that the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider on the subscription level. If you haven't done this as well, then you'll see the following error:
 
-*The subscription \<Subscription name> doesn’t have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
+*The subscription \<Subscription name> doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
 
 To get a list of registered resource providers in the current subscription, run the following command:
@@ -84,7 +85,7 @@ To get a list of registered resource providers in the current subscription, run 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-For Data Box Edge device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
+For Azure Stack Edge device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

@@ -3,7 +3,7 @@ title: Control Azure CDN caching behavior with caching rules | Microsoft Docs
 description: You can use CDN caching rules to set or modify default cache expiration behavior both globally and with conditions, such as a URL path and file extensions.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -11,9 +11,9 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2019
-ms.author: magattus
+ms.author: allensu
 ---
 
 # Control Azure CDN caching behavior with caching rules

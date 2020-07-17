@@ -1,18 +1,8 @@
 ---
-title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
-description: Frequently asked questions about Service Fabric and their answers
-services: service-fabric
-documentationcenter: .net
-author: chackdan
-manager: chackdan
-editor: ''
+title: Common questions about Microsoft Azure Service Fabric 
+description: Frequently asked questions about Service Fabric, including capabilities, use cases, and common scenarios.
 
-ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/18/2017
 ms.author: pepogors
 ---
@@ -29,9 +19,9 @@ There are many commonly asked questions about what Service Fabric can do and how
 
 ### How do I roll back my Service Fabric cluster certificate?
 
-Rolling back any upgrade to your application requires health failure detection prior to your Service Fabric cluster quorum committing the change; committed changes can only be rolled forward. Escalation engineer’s through Customer Support Services, may be required to recover your cluster, if an unmonitored breaking certificate change has been introduced.  [Service Fabric’s application upgrade](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) applies [Application upgrade parameters](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), and delivers zero downtime upgrade promise.  Following our recommended application upgrade monitored mode, automatic progress through update domains is based upon health checks passing, rolling back automatically if updating a default service fails.
+Rolling back any upgrade to your application requires health failure detection prior to your Service Fabric cluster quorum committing the change; committed changes can only be rolled forward. Escalation engineer’s through Customer Support Services, may be required to recover your cluster, if an unmonitored breaking certificate change has been introduced.  [Service Fabric’s application upgrade](./service-fabric-application-upgrade.md?branch=master) applies [Application upgrade parameters](./service-fabric-application-upgrade-parameters.md?branch=master), and delivers zero downtime upgrade promise.  Following our recommended application upgrade monitored mode, automatic progress through update domains is based upon health checks passing, rolling back automatically if updating a default service fails.
  
-If your cluster is still leveraging the classic Certificate Thumbprint property in your Resource Manager template, it's recommended you [Change cluster from certificate thumbprint to common name](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), to leverage modern secrets management features.
+If your cluster is still leveraging the classic Certificate Thumbprint property in your Resource Manager template, it's recommended you [Change cluster from certificate thumbprint to common name](./service-fabric-cluster-change-cert-thumbprint-to-cn.md), to leverage modern secrets management features.
 
 ### Can I create a cluster that spans multiple Azure regions or my own datacenters?
 
@@ -48,7 +38,7 @@ Some things to consider:
 
 ### Do Service Fabric nodes automatically receive OS updates?
 
-You can use [Virtual Machine Scale Set Automatic OS Image Update](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) Generally Available feature today.
+You can use [Virtual Machine Scale Set Automatic OS Image Update](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) Generally Available feature today.
 
 For clusters that are NOT run in Azure, we have [provided an application](service-fabric-patch-orchestration-application.md) to patch the operating systems underneath your Service Fabric nodes.
 
@@ -133,7 +123,7 @@ No. Low-priority VMs are not supported.
 The following are means for your application to obtain credentials for authenticating to KeyVault:
 
 A. During your applications build/packing job, you can pull a certificate into your SF app's data package, and use this to authenticate to KeyVault.
-B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md), and then [retrieve your secrets from KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## Application Design
 
@@ -143,7 +133,8 @@ Reliable collections are typically [partitioned](service-fabric-concepts-partiti
 
 - Create a service that queries all partitions of another service to pull in the required data.
 - Create a service that can receive data from all partitions of another service.
-- Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic.
+- Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic, as the external store's data will be stale.
+- Alternatively, store data that must support querying across all records directly in a data store rather than in a reliable collection. This eliminates the issue with stale data, but doesn't allow the advantages of reliable collections to be leveraged.
 
 
 ### What's the best way to query data across my actors?
@@ -183,11 +174,10 @@ Containers offer a simple way to package services and their dependencies such th
 
 We have open-sourced parts of Service Fabric ([reliable services framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [reliable actors framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core integration libraries](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), and [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) on GitHub and accept community contributions to those projects. 
 
-We [recently announced](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) that we plan to open-source the Service Fabric runtime. At this point we have the [Service Fabric repo](https://github.com/Microsoft/service-fabric/) up on GitHub with Linux build and test tools, which means you can clone the repo, build Service Fabric for Linux, run basic tests, open issues, and submit pull requests. We’re working hard to get the Windows build environment migrated over as well, along with a complete CI environment.
+We [recently announced](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) that we plan to open-source the Service Fabric runtime. At this point we have the [Service Fabric repo](https://github.com/Microsoft/service-fabric/) up on GitHub with Linux build and test tools, which means you can clone the repo, build Service Fabric for Linux, run basic tests, open issues, and submit pull requests. We’re working hard to get the Windows build environment migrated over as well, along with a complete CI environment.
 
-Follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) for more details as they're announced.
+Follow the [Service Fabric blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) for more details as they're announced.
 
 ## Next steps
 
 Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)
-ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)

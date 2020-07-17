@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Python - Speech Service'
+title: 'Quickstart: Recognize speech, Python - Speech service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -7,8 +7,8 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
+ms.topic: include
+ms.date: 04/04/2020
 ms.author: chlandsi
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=python)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=python)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=python&pivots=programming-language-python)
 
 ## Add sample code
 
@@ -33,7 +32,7 @@ Before you get started, make sure to:
     def translate_speech_to_text():
 
         # Creates an instance of a speech translation config with specified subscription key and service region.
-        # Replace with your own subscription key and service region (e.g., "westus").
+        # Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
         translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=speech_key, region=service_region)
 
         # Sets source and target languages.
@@ -86,7 +85,7 @@ Before you get started, make sure to:
    python quickstart.py
    ```
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech service, which translates and transcribes to text (in this case, to French and German). The Speech service then sends the text back to the application for display.
 
    ```
    Say something...

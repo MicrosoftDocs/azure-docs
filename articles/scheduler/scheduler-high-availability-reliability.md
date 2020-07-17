@@ -1,12 +1,11 @@
 ---
-title: High availability and reliability - Azure Scheduler 
+title: High availability and reliability
 description: Learn about high availability and reliability in Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
+ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
 ---
@@ -18,10 +17,12 @@ ms.date: 08/16/2016
 > [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
 > To continue working with the jobs that you set up in Scheduler, please 
 > [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
+>
+> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
+> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
+> at this time so that you can manage your jobs and job collections.
 
-Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) 
-and reliability for your jobs. For more information, see 
-[SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+Azure Scheduler provides both [high availability](https://docs.microsoft.com/azure/architecture/framework/#resiliency) and reliability for your jobs. For more information, see [SLA for Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
 
 ## High availability
 
@@ -30,11 +31,7 @@ and uses both geo-redundant service deployment and geo-regional job replication.
 
 ### Geo-redundant service deployment
 
-Azure Scheduler is available in the Azure portal across almost 
-[every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). 
-So, if an Azure datacenter in a hosted region becomes unavailable, 
-you can still use Azure Scheduler because the service's failover 
-capabilities make Scheduler available from another datacenter.
+Azure Scheduler is available across almost [every geographical region supported by Azure today](https://azure.microsoft.com/global-infrastructure/regions/#services). So, if an Azure datacenter in a hosted region becomes unavailable, you can still use Azure Scheduler because the service's failover capabilities make Scheduler available from another datacenter.
 
 ### Geo-regional job replication
 
@@ -110,9 +107,9 @@ Service Bus queue, or Service Bus topic action.
 To learn how to set up an alternate endpoint, see 
 [errorAction](scheduler-concepts-terms.md#error-action).
 
-## See also
+## Next steps
 
-* [What is Azure Scheduler?](scheduler-intro.md)
 * [Concepts, terminology, and entity hierarchy](scheduler-concepts-terms.md)
-* [Build complex schedules and advanced recurrence](scheduler-advanced-complexity.md)
+* [Azure Scheduler REST API reference](/rest/api/scheduler)
+* [Azure Scheduler PowerShell cmdlets reference](scheduler-powershell-reference.md)
 * [Limits, quotas, default values, and error codes](scheduler-limits-defaults-errors.md)

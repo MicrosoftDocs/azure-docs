@@ -65,10 +65,10 @@ This article explains which languages are supported for the Ink Recognizer API. 
 | Russian                                    |     `ru-RU`     |
 | Scottish Gaelic                            |     `gd-GB`     |
 | Sesotho sa Leboa                           |    `nso-ZA`     |
-| Serbian (Cyrillic, Bosnia, and Herzegovina) |  `sr-Cyrl-BA`   |
+| Serbian (Cyrillic, Bosnia and Herzegovina) |  `sr-Cyrl-BA`   |
 | Serbian (Cyrillic, Montenegro)             |  `sr-Cyrl-ME`   |
 | Serbian (Cyrillic, Serbia)                 |  `sr-Cyrl-RS`   |
-| Serbian (Latin, Bosnia, and Herzegovina)    |  `sr-Latn-BA`   |
+| Serbian (Latin, Bosnia and Herzegovina)    |  `sr-Latn-BA`   |
 | Serbian (Latin, Montenegro)                |  `sr-Latn-ME`   |
 | Serbian (Latin, Serbia)                    |  `sr-Latn-RS`   |
 | Setswana (South Africa)                    |     `tn-ZA`     |

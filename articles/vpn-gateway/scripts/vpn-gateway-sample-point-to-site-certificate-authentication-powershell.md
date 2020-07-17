@@ -8,12 +8,12 @@ author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 04/17/2018
+ms.date: 01/10/2020
 ms.author: alzam
 
 ---
 
-# Create a VPN Gateway and add point-to-site configuration using PowerShell
+# Configure a point-to-site VPN using native Azure certificate authentication
 
 This script creates a route-based VPN Gateway and adds point-to-site configuration using native Azure certificate authentication
 

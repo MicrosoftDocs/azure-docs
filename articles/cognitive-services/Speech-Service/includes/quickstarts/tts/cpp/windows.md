@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C++ (Windows) - Speech Service'
+title: 'Quickstart: Synthesize speech, C++ (Windows) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in C++ on Windows Desktop by using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/24/2019
+ms.date: 04/04/2020
 ms.author: yinhew
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=windows&pivots=programming-language-cpp)
 
 ## Add sample code
 
@@ -41,13 +40,14 @@ Before you get started, make sure to:
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Type an English phrase or sentence. The application transmits your text to the Speech Services, which sends synthesized speech to the application to play on your speaker.
+1. Type an English phrase or sentence. The application transmits your text to the Speech service, which sends synthesized speech to the application to play on your speaker.
 
    ![Console output after successful speech synthesis](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
+
 
 ## See also
 

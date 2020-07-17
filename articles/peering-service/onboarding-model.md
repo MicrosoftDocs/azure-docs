@@ -1,16 +1,16 @@
 ---
-title: Azure Peering Service (Preview) Onboarding model
+title: Azure Peering Service onboarding model
 description: Learn about on how to onboard Azure Peering Service
 services: peering-service
 documentationcenter: na
-author: ypitsch
+author: derekolo
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 11/04/2019
-ms.author: v-meravi
+ms.date: 05/18/2020
+ms.author: derekol
 ---
 
 # Onboarding Peering Service model
@@ -26,20 +26,17 @@ Action plans for the above listed models are described as below:
 | **Step** | **Action**| **What you get**|
 |-----------|---------|---------|---------|
 |1|Customer to provision the connectivity from a connectivity partner (no interaction with Microsoft).​ |An Internet provider who is well connected to Microsoft and meets the technical requirements for performant and reliable connectivity to Microsoft. ​ |
-|2 (Optional)|Customer registers locations into the Azure portal.​ A location is defined by: ISP/IXP Name​, Physical location of the customer site (state level), IP Prefix given to the location by the Service Provider or the enterprise​.  ​|Telemetry​: Internet Routes monitoring​, traffic prioritization from Microsoft to the user’s closest edge location​. |
+|2 (Optional)|Customer registers locations into the Azure portal.​ A location is defined by: ISP/IXP Name​, Physical location of the customer site (state level), IP Prefix given to the location by the Service Provider or the enterprise​.  ​|Telemetry​: Internet Route monitoring​, traffic prioritization from Microsoft to the user’s closest edge POP location​. |
 
-> [!IMPORTANT]
-> "Peering Service” is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Onboarding Peering Service connection
 
 To onboard Peering Service connection, do the following:
 
-Work with Internet Service provider or Internet Exchange Partner to obtain Peering Service to connect your network with Microsoft network.
+Work with Internet Service provider (ISP) or Internet Exchange (IX) Partner to obtain Peering Service to connect your network with the Microsoft network.
 
-Ensure the connectivity providers are partnered with Microsoft.
+Ensure the [connectivity providers](location-partners.md) are partnered with Microsoft for Peering Service. 
 
 ## Onboarding Peering Service connection telemetry
 

@@ -1,12 +1,12 @@
 ---
 title: Issues with JDBC/ODBC & Apache Thrift framework - Azure HDInsight
 description: Unable to download large data sets using JDBC/ODBC and Apache Thrift software framework in Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 07/29/2019
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 05/14/2020
 ---
 
 # Unable to download large data sets using JDBC/ODBC and Apache Thrift software framework in HDInsight
@@ -28,7 +28,10 @@ This exception is caused by the serialization process trying to use more buffer 
 
 ## Resolution
 
-Increase the `Kryoserializer` buffer value. Add a key named `spark.kryoserializer.buffer.max` and set it to `2048` in spark2 config under `Custom spark2-thrift-sparkconf`.
+Increase the `Kryoserializer` buffer value. Add a key named `spark.kryoserializer.buffer.max` and set it to `2047` in spark2 config under `Custom spark2-thrift-sparkconf`. Restart all affected components.
+
+> [!IMPORTANT]
+> The value for `spark.kryoserializer.buffer.max` must be less than 2048. Fractional values are not supported.
 
 ## Next steps
 
@@ -38,4 +41,4 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, please review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

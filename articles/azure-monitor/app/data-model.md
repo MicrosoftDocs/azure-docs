@@ -3,16 +3,15 @@ title: Azure Application Insights Telemetry Data Model | Microsoft Docs
 description: Application Insights data model overview
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+
 manager: carmonm
-ms.service: azure-monitor
-ms.subservice: application-insights
+
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
+
 ---
 # Application Insights telemetry data model
 

@@ -5,12 +5,12 @@ description: Once a machine learning service is deployed from Azure Machine Lear
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
-author: xiaoharper
-ms.author: amlstudiodocs
-ms.custom: seodec18
-ms.date: 06/02/2017
+author: likebupt
+ms.author: keli19
+ms.custom: seodec18, tracking-python
+ms.date: 05/29/2020
 ---
 # How to consume an Azure Machine Learning Studio (classic) web service
 
@@ -27,7 +27,7 @@ You can find more information about how to create and deploy a Machine Learning 
 ## Overview
 With the Azure Machine Learning Web service, an external application communicates with a Machine Learning workflow scoring model in real time. A Machine Learning Web service call returns prediction results to an external application. To make a Machine Learning Web service call, you pass an API key that is created when you deploy a prediction. The Machine Learning Web service is based on REST, a popular architecture choice for web programming projects.
 
-The classic version of Azure Machine Learning Studio has two types of services:
+Azure Machine Learning Studio (classic) has two types of services:
 
 * Request-Response Service (RRS) – A low latency, highly scalable service that provides an interface to the stateless models created and deployed from the Machine Learning Studio (classic).
 * Batch Execution Service (BES) – An asynchronous service that scores a batch for data records.
@@ -200,7 +200,7 @@ To connect to a Machine Learning Web service, use the **urllib2** library for Py
 
 **Here is what a complete request will look like.**
 ```python
-import urllib2 # urllib.request for Python 3.X
+import urllib2 # urllib.request and urllib.error for Python 3.X
 import json
 
 data = {
@@ -224,7 +224,7 @@ url = '<your-api-uri>'
 api_key = '<your-api-key>'
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-# "urllib.request.Request(uri, body, headers)" for Python 3.X
+# "urllib.request.Request(url, body, headers)" for Python 3.X
 req = urllib2.Request(url, body, headers)
 
 try:
@@ -248,54 +248,46 @@ To connect to a Machine Learning Web Service, use the **RCurl** and **rjson** li
 
 **Here is what a complete request will look like.**
 ```r
-library("RCurl")
+library("curl")
+library("httr")
 library("rjson")
 
-# Accept SSL certificates issued by public Certificate Authorities
-options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+requestFailed = function(response) {
+    return (response$status_code >= 400)
+}
 
-h = basicTextGatherer()
-hdr = basicHeaderGatherer()
+printHttpResult = function(response, result) {
+    if (requestFailed(response)) {
+        print(paste("The request failed with status code:", response$status_code, sep=" "))
+    
+        # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
+        print(response$headers)
+    }
+    
+    print("Result:") 
+    print(fromJSON(result))  
+}
 
 req = list(
-    Inputs = list(
+        Inputs = list( 
             "input1" = list(
-                list(
-                        'column1' = "value1",
-                        'column2' = "value2",
-                        'column3' = "value3"
-                    )
-            )
-        ),
+                "ColumnNames" = list("Col1", "Col2", "Col3"),
+                "Values" = list( list( "0", "value", "0" ),  list( "0", "value", "0" )  )
+            )                ),
         GlobalParameters = setNames(fromJSON('{}'), character(0))
 )
 
 body = enc2utf8(toJSON(req))
-api_key = "<your-api-key>" # Replace this with the API key for the web service
+api_key = "abc123" # Replace this with the API key for the web service
 authz_hdr = paste('Bearer', api_key, sep=' ')
 
-h$reset()
-curlPerform(url = "<your-api-uri>",
-httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
-postfields=body,
-writefunction = h$update,
-headerfunction = hdr$update,
-verbose = TRUE
-)
+response = POST(url= "<your-api-uri>",
+        add_headers("Content-Type" = "application/json", "Authorization" = authz_hdr),
+        body = body)
 
-headers = hdr$value()
-httpStatus = headers["status"]
-if (httpStatus >= 400)
-{
-print(paste("The request failed with status code:", httpStatus, sep=" "))
+result = content(response, type="text", encoding="UTF-8")
 
-# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
-print(headers)
-}
-
-print("Result:")
-result = h$value()
-print(fromJSON(result))
+printHttpResult(response, result)
 ```
 
 ### JavaScript Sample

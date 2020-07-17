@@ -1,72 +1,104 @@
 ---
-title: Azure Data Factory mapping data flow Pivot Transformation
+title: Pivot transformation in mapping data flow
 description: Pivot data from rows to columns using Azure Data Factory mapping data flow Pivot Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ---
 
-# Azure data factory pivot transformation
+# Pivot transformation in mapping data flow
 
 
-Use Pivot in ADF Data Flow as an aggregation where one or more grouping columns has its distinct row values transformed into individual columns. Essentially, you can Pivot row values into new columns (turn data into metadata).
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-![Pivot options](media/data-flow/pivot1.png "pivot 1")
+Use the pivot transformation to create multiple columns from the unique row values of a single column. Pivot is an aggregation transformation where you select group by columns and generate pivot columns using [aggregate functions](data-flow-expression-functions.md#aggregate-functions).
 
-## Group by
+## Configuration
 
-![Pivot options](media/data-flow/pivot2.png "pivot 2")
+The pivot transformation requires three different inputs: group by columns, the pivot key, and how to generate the pivoted columns
 
-First, set the columns that you wish to group by for your pivot aggregation. You can set more than 1 column here with the + sign next to the column list.
+### Group by
 
-## Pivot key
+![Group by options](media/data-flow/pivot2.png "Group by options")
 
-![Pivot options](media/data-flow/pivot3.png "pivot 3")
+Select which columns to aggregate the pivoted columns over. The output data will group all rows with the same group by values into one row. The aggregation done in the pivoted column will occur over each group.
 
-The Pivot Key is the column that ADF will pivot from row to column. By default, each unique value in the dataset for this field will pivot to a column. However, you can optionally enter the values from the dataset that you wish to pivot to column values. This is the column that will determine the new columns that will be created.
+This section is optional. If no group by columns are selected, the entire data stream will be aggregated and only one row will be outputted.
 
-## Pivoted columns
+### Pivot key
 
-![Pivot options](media/data-flow/pivot4.png "pivot 4")
+![Pivot key](media/data-flow/pivot3.png "Pivot key")
 
-Lastly, you will choose the aggregation that you wish to use for the pivoted values and how you would like the columns to be displayed in the new output projection from the transformation.
+The pivot key is the column whose row values get pivoted into new columns. By default, the pivot transformation will create a new column for each unique row value.
 
-(Optional) You can set a naming pattern with a prefix, middle, and suffix to be added to each new column name from the row values.
+In the section labeled **Value**, you can enter specific row values to be pivoted. Only the row values entered in this section will be pivoted. Enabling **Null value** will create a pivoted column for the null values in the column.
 
-For instance, pivoting "Sales" by "Region" would result in new column values from each sales value, i.e. "25", "50", "1000", etc. However, if you set a prefix value of "Sales-", each column value would add "Sales-" to the beginning of the value.
+### Pivoted columns
 
-![Pivot options](media/data-flow/pivot5.png "pivot 5")
+![Pivoted columns](media/data-flow/pivot4.png "Pivoted columns")
 
-Setting the Column Arrangement to "Normal" will group together all of the pivoted columns with their aggregated values. Setting the columns arrangement to "Lateral" will alternate between column and value.
+For each unique pivot key value that becomes a column, generate an aggregated row value for each group. You can create multiple columns per pivot key. Each pivot column must contain at least one [aggregate function](data-flow-expression-functions.md#aggregate-functions).
 
-### Aggregation
+**Column name pattern:** Select how to format the column name of each pivot column. The outputted column name will be a combination of the pivot key value, column prefix and optional prefix, suffice, middle characters. 
 
-To set the aggregation you wish to use for the pivot values, click on the field at the bottom of the Pivoted Columns pane. You will enter into the ADF Data Flow expression builder where you can build an aggregation expression and provide a descriptive alias name for your new aggregated values.
+**Column arrangement:** If you generate more than one pivot column per pivot key, choose how you want the columns to be ordered. 
 
-Use the ADF Data Flow Expression Language to describe the pivoted column transformations in the Expression Builder: https://aka.ms/dataflowexpressions.
+**Column prefix:** If you generate more than one pivot column per pivot key, enter a column prefix for each column. This setting is optional if you only have one pivoted column.
+
+## Help graphic
+
+The below help graphic shows how the different pivot components interact with one another
+
+![Pivot help graphics](media/data-flow/pivot5.png "Pivot help graphic")
 
 ## Pivot metadata
 
-The Pivot transformation will produce new column names that are dynamic based on your incoming data. The Pivot Key produces the values for each new column name. If you do not specify individual values and wish to create dynamic column names for each unique value in your Pivot Key, then the UI will not display the metadata in Inspect and there will be no column propagation to the Sink transformation. If you set values for the Pivot Key, then ADF can determine the new column names and those column names will be available to you in the Inspect and Sink mapping.
+If no values are specified in the pivot key configuration, the pivoted columns will be dynamically generated at run time. The number of pivoted columns will equal the number of unique pivot key values multiplied by the number of pivot columns. As this can be a changing number, the UX will not display the column metadata in the **Inspect** tab and there will be no column propagation. To transformation these columns, use the [column pattern](concepts-data-flow-column-pattern.md) capabilities of mapping data flow. 
 
-### Generate a new model from dynamic columns
+If specific pivot key values are set, the pivoted columns will appear in the metadata. The column names will be available to you in the Inspect and Sink mapping.
 
-Pivot generates new column names dynamically based on row values. You can turn those new columns into metadata that can be referenced later in your data flow. To do this, click on the Data Preview tab. All new columns generated by the your Pivot transformation appear with a "drifted" icon in the table header. Click on the "Map drifted" button to turn those new columns into metadata, making them part of your data flow's model.
+### Generate metadata from drifted columns
+
+Pivot generates new column names dynamically based on row values. You can add these new columns into the metadata that can be referenced later in your data flow. To do this, use the [map drifted](concepts-data-flow-schema-drift.md#map-drifted-columns-quick-action) quick action in data preview. 
 
 ![Pivot columns](media/data-flow/newpivot1.png "Map drifted Pivot columns")
 
-### Landing new columns in Sink
+### Sinking pivoted columns
 
-Even with dynamic column names in Pivot, you can still sink your new column names and values into your destination store. Just set "Allow Schema Drift" to on in your Sink settings. You will not see the new dynamic names in your column metadata, but the schema drift option will allow you to land the data.
+Although pivoted columns are dynamic, they can still be written into your destination data store. Enable **Allow schema drift** in your sink settings. This will allow you to write columns that are not included in metadata. You will not see the new dynamic names in your column metadata, but the schema drift option will allow you to land the data.
 
-### View metadata in design mode
+### Rejoin original fields
 
-If you wish to view the new column names as metadata in Inspect and you wish to see the columns propagate explicitly to the Sink transformation, then set explicit Values in the Pivot Key tab.
+The pivot transformation will only project the group by and pivoted columns. If you want your output data to include other input columns, use a [self join](data-flow-join.md#self-join) pattern.
 
-### How to rejoin original fields
-The Pivot transformation will only project the columns used in the aggregation, grouping, and pivot action. If you wish to include the other columns from the previous step in your flow, use a New Branch from the previous step and use the self-join pattern to connect the flow with the original metadata.
+## Data flow script
+
+### Syntax
+
+```
+<incomingStreamName>
+    pivot(groupBy(Tm),
+        pivotBy(<pivotKeyColumn, [<specifiedColumnName1>,...,<specifiedColumnNameN>]),
+        <pivotColumnPrefix> = <pivotedColumnValue>,
+        columnNaming: '< prefix >< $N | $V ><middle >< $N | $V >< suffix >',
+        lateral: { 'true' | 'false'}
+    ) ~> <pivotTransformationName
+```
+### Example
+
+The screens shown in the configuration section, have the following data flow script:
+
+```
+BasketballPlayerStats pivot(groupBy(Tm),
+    pivotBy(Pos),
+    {} = count(),
+    columnNaming: '$V$N count',
+    lateral: true) ~> PivotExample
+
+```
 
 ## Next steps
 

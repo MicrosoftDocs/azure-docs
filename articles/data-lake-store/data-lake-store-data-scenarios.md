@@ -36,7 +36,7 @@ This represents smaller data sets that are used for prototyping a big data appli
 
 | Data Source | Ingest it using |
 | --- | --- |
-| Local computer |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Local computer |<ul> <li>[Azure portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Using Data Lake Tools for Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy tool](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp running on HDInsight cluster](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### Streamed data
@@ -104,7 +104,7 @@ You can look at the following examples.
 ## Download data from Data Lake Storage Gen1
 You might also want to download or move data from Azure Data Lake Storage Gen1 for scenarios such as:
 
-* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen1 to Azure SQL Database or on-premises SQL Server.
+* Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen1 to Azure SQL Database or SQL Server.
 * Download data to your local computer for processing in IDE environments while building application prototypes.
 
 ![Egress data from Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen1")
@@ -127,4 +127,4 @@ You can use a mix of services to create visual representations of data stored in
 ![Visualize data in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen1")
 
 * You can start by using [Azure Data Factory to move data from Data Lake Storage Gen1 to Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.
+* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.

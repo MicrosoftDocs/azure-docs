@@ -5,7 +5,7 @@ services: internet-analyzer
 author: mattcalder
 
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 # Customer intent: As someone interested in creating an Internet Analyzer resource, I want to learn how to install the JavaScript client, which is necessary to run tests. 
@@ -32,6 +32,7 @@ Option 1. In the Azure portal, use [this link](https://aka.ms/InternetAnalyzerPr
 
 Option 2. Using the Azure CLI, check the `scriptFileUri` Property.
 ```azurecli-interactive
+    az extension add --name internet-analyzer    
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
 ```
 

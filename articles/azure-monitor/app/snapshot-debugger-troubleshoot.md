@@ -1,11 +1,8 @@
 ---
-title: Troubleshoot problems with Azure Application Insights Snapshot Debugger | Microsoft Docs
+title: Troubleshoot Azure Application Insights Snapshot Debugger
 description: This article presents troubleshooting steps and information to help developers who are having trouble enabling or using Application Insights Snapshot Debugger.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: brahmnes
-ms.author: mbullwin
 ms.date: 03/07/2019
 
 ms.reviewer: mbullwin
@@ -215,4 +212,4 @@ If you still don't see an exception with that snapshot ID, then the exception te
 
 ## Edit network proxy or firewall rules
 
-If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Snapshot Debugger service. Here is [a list of IP addresses and ports used by the Snapshot Debugger](../../azure-monitor/app/ip-addresses.md#snapshot-debugger).
+If your application connects to the Internet via a proxy or a firewall, you may need to edit the rules to allow your application to communicate with the Snapshot Debugger service. The IPs used by Snapshot Debugger are included in the Azure Monitor service tag.

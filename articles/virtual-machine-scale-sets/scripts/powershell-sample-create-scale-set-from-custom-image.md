@@ -1,22 +1,14 @@
 ---
-title: Azure PowerShell Samples - Use a custom VM image | Microsoft Docs
-description: Azure PowerShell Samples
-services: virtual-machine-scale-sets
-documentationcenter: ''
-author: cynthn
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
-ms.service: virtual-machine-scale-sets
-ms.devlang: na
+title: Azure PowerShell Samples - Use a custom VM image
+description: This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
+author: axayjo
+ms.author: akjosh
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: virtual-machine-scale-sets
+ms.subservice: imaging
 ms.date: 03/27/2018
-ms.author: cynthn
-ms.custom: mvc
+ms.reviewer: cynthn
+ms.custom: akjosh
 
 ---
 
@@ -48,5 +40,3 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
-
-Additional virtual machine scale set PowerShell script samples can be found in the [Azure virtual machine scale set documentation](../powershell-samples.md).

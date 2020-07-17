@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Create an Azure Database for MariaDB server - Azure CLI'
+title: 'Quickstart: Create a server - Azure CLI - Azure Database for MariaDB'
 description: This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 3/18/2020
 ms.custom: mvc
 ---
 
 # Create an Azure Database for MariaDB server by using the Azure CLI
 
-You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes. 
+You can use the Azure CLI to create and manage Azure resources from the command line or in scripts. This quickstart describes how to use the Azure CLI to create an Azure Database for MariaDB server in an Azure resource group in about five minutes.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-If you install and use the CLI locally, for this quickstart, you must run Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you install and use the CLI locally, for this quickstart, you must run Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 If you have multiple subscriptions, choose the subscription that contains the resource or the subscription in which you are billed. To select a specific subscription ID in your account, use the [az account set](/cli/azure/account#az-account-set) command:
 
@@ -69,13 +69,12 @@ az mariadb server create --resource-group myresourcegroup --name mydemoserver  -
 
 > [!NOTE]
 > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.
-> 
 
 ## Configure a firewall rule
 
-Create an Azure Database for MariaDB server-level firewall rule by using the [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) command. A server-level firewall rule allows an external application like the mysql command-line tool or MySQL Workbench to connect to your server through the Azure Database for MariaDB service firewall. 
+Create an Azure Database for MariaDB server-level firewall rule by using the [az mariadb server firewall-rule create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) command. A server-level firewall rule allows an external application like the mysql command-line tool or MySQL Workbench to connect to your server through the Azure Database for MariaDB service firewall.
 
-The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that corresponds to the location you connect from. 
+The following example creates a firewall rule called `AllowMyIP` that allows connections from a specific IP address, 192.168.0.1. Substitute an IP address or range of IP addresses that corresponds to the location you connect from.
 
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mydemoserver --name AllowMyIP --start-ip-address 192.168.0.1 --end-ip-address 192.168.0.1
@@ -83,14 +82,13 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 
 > [!NOTE]
 > Connections to Azure Database for MariaDB communicate over port 3306. If you try to connect from inside a corporate network, outbound traffic over port 3306 might not be allowed. In this case, you can connect to your server only if your IT department opens port 3306.
-> 
 
 ## Configure SSL settings
 
 By default, SSL connections between your server and client applications are enforced. This default setting ensures security of "in-motion" data by encrypting the data stream over the internet. For this quickstart, disable SSL connections for your server. Disabling SSL is not recommended for production servers. For more information, see [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).
 
 The following example disables SSL enforcing on your Azure Database for MariaDB server:
- 
+
 ```azurecli-interactive
 az mariadb server update --resource-group myresourcegroup --name mydemoserver --ssl-enforcement Disabled
 ```
@@ -151,9 +149,10 @@ To connect to the server by using the mysql command-line tool:
    ```sql
    status
    ```
+
    You should see something similar to the following text:
 
-   ```bash
+   ```cmd
    C:\Users\>mysql -h mydemoserver.mariadb.database.azure.com -u myadmin@mydemoserver -p
    Enter password: ***********
    Welcome to the MySQL monitor.  Commands end with ; or \g.

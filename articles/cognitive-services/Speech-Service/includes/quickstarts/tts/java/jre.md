@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Java (Windows, Linux, macOS) - Speech Service'
+title: 'Quickstart: Synthesize speech, Java (Windows, Linux, macOS) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn to create a simple Java application that captures and synthesize speech from text and play it with the default speaker.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 04/04/2020
 ms.author: yulili
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 ## Add sample code
 
@@ -46,7 +45,7 @@ Input a text when prompted, and you will hear the synthesized audio played from 
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/17/2019
 ---
 
@@ -21,7 +21,7 @@ You can leverage the [Apache Hive ODBC driver](../hadoop/apache-hadoop-connect-h
 ## Prerequisites
 Before going through this article, you must have the following items:
 
-* **HDInsight cluster**. The cluster can be either an HDInsight cluster with Apache Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+* **HDInsight cluster**. The cluster can be either an HDInsight cluster with Apache Hive or a newly released Interactive Query cluster. For creating clusters, see [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**. You can download a copy from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331).
 
 ## Load data from HDInsight

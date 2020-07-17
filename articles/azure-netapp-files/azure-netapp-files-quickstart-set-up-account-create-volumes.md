@@ -1,20 +1,12 @@
 ---
-title: Quickstart - Set up Azure NetApp Files and create an NFS volume | Microsoft Docs
+title: 'Quickstart: Set up Azure NetApp Files and NFS volume'
 description: Quickstart - Describes how to quickly set up Azure NetApp Files and create a volume.
-services: azure-netapp-files
-documentationcenter: ''
 author: b-juche
-manager: ''
-editor: ''
-
-ms.assetid:
+ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart 
-ms.date: 10/12/2019
-ms.author: b-juche
+ms.date: 06/09/2020
 #Customer intent: As an IT admin new to Azure NetApp Files, I want to quickly set up Azure NetApp Files and create a volume.
 ---
 # Quickstart: Set up Azure NetApp Files and create an NFS volume 
@@ -33,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Before you begin 
 
 > [!IMPORTANT] 
-> You need to be granted access to the Azure NetApp Files service.  To request access to the service, see the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u).  You must wait for an official confirmation email from the Azure NetApp Files team before continuing. 
+> You need to be granted access to the Azure NetApp Files service.  To request access to the service, see the [Azure NetApp Files waitlist submission page](https://aka.ms/azurenetappfiles).  You must wait for an official confirmation email from the Azure NetApp Files team before continuing. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -253,9 +245,6 @@ This how-to article requires the Azure PowerShell module Az version 2.6.0 or lat
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
       See [considerations](azure-netapp-files-create-volumes.md#considerations) and [best practice](azure-netapp-files-create-volumes.md#best-practice) about NFS versions. 
       
-> [!IMPORTANT] 
-> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
-
   ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Click **Review + create**.

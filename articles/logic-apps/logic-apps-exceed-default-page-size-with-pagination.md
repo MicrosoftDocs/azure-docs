@@ -1,12 +1,9 @@
 ---
-title: Get more items or records with pagination - Azure Logic Apps
+title: Get more items or records with pagination
 description: Set up pagination to exceed the default page size limit for connector actions in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
 ---
@@ -41,16 +38,16 @@ the action returns 6144 records (3 pages x 2048 records), not 5000 records.
 Here's a list with just some of the connectors where you 
 can exceed the default page size for specific actions:
 
-* [Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/)
-* [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
-* [Excel](https://docs.microsoft.com/connectors/excel/)
-* [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
-* [IBM DB2](https://docs.microsoft.com/connectors/db2/)
-* [Microsoft Teams](https://docs.microsoft.com/connectors/teams/)
-* [Oracle Database](https://docs.microsoft.com/connectors/oracle/)
-* [Salesforce](https://docs.microsoft.com/connectors/salesforce/)
-* [SharePoint](https://docs.microsoft.com/connectors/sharepointonline/)
-* [SQL Server](https://docs.microsoft.com/connectors/sql/)
+* [Azure Blob Storage](/connectors/azureblob/)
+* [Dynamics 365](/connectors/dynamicscrmonline/)
+* [Excel](/connectors/excel/)
+* [HTTP](../connectors/connectors-native-http.md)
+* [IBM DB2](/connectors/db2/)
+* [Microsoft Teams](/connectors/teams/)
+* [Oracle Database](/connectors/oracle/)
+* [Salesforce](/connectors/salesforce/)
+* [SharePoint](/connectors/sharepointonline/)
+* [SQL Server](/connectors/sql/)
 
 ## Prerequisites
 
@@ -111,4 +108,4 @@ property along with the `"minimumItemCount"` property in that action's
 ## Get support
 
 For questions, visit the 
-[Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+[Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).

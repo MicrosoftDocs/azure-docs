@@ -1,15 +1,8 @@
 ---
-title: Introduction to Azure Advisor | Microsoft Docs
+title: Introduction to Azure Advisor
 description: Use Azure Advisor to optimize your Azure deployments.
-services: advisor
-documentationcenter: NA
-author: sagupt
-ms.service: advisor
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/01/2019
-ms.author: sagupt
 ---
 
 # Introduction to Azure Advisor
@@ -17,18 +10,18 @@ ms.author: sagupt
 Learn about the key capabilities of Azure Advisor and get answers to frequently asked questions.
 
 ## What is Advisor?
-Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of your Azure resources.
+Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, Reliability (formerly called High availability), and security of your Azure resources.
 
 With Advisor, you can:
 * Get proactive, actionable, and personalized best practices recommendations. 
-* Improve the performance, security, and high availability of your resources, as you identify opportunities to reduce your overall Azure spend.
+* Improve the performance, security, and reliability of your resources, as you identify opportunities to reduce your overall Azure spend.
 * Get recommendations with proposed actions inline.
 
 You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign in to the [portal](https://portal.azure.com), locate **Advisor** in the navigation menu, or search for it in the **All services** menu.
 
-The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into four categories: 
+The Advisor dashboard displays personalized recommendations for all your subscriptions.  You can apply filters to display recommendations for specific subscriptions and resource types.  The recommendations are divided into five categories: 
 
-* **High Availability**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor High Availability recommendations](advisor-high-availability-recommendations.md).
+* **Reliability (formerly called High Availability)**: To ensure and improve the continuity of your business-critical applications. For more information, see [Advisor Reliability recommendations](advisor-high-availability-recommendations.md).
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 * **Performance**: To improve the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
 * **Cost**: To optimize and reduce your overall Azure spending. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
@@ -59,7 +52,7 @@ You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of
 
 Advisor provides recommendations for Application Gateway, App Services, availability sets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public IP addresses, SQL Data Warehouse, SQL servers, storage accounts, Traffic Manager profiles, and virtual machines.
 
-Azure Advisor also includes your recommendations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) which may include recommendations for additional resource types.
+Azure Advisor also includes your recommendations from [Azure Security Center](../security-center/security-center-recommendations.md) which may include recommendations for additional resource types.
 
 ### Can I postpone or dismiss a recommendation?
 
@@ -70,7 +63,7 @@ To postpone or dismiss a recommendation, click the **Postpone** link. You can sp
 To learn more about Advisor recommendations, see:
 
 * [Get started with Advisor](advisor-get-started.md)
-* [Advisor High Availability recommendations](advisor-high-availability-recommendations.md)
+* [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)

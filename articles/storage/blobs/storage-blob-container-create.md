@@ -5,15 +5,15 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 12/17/2019
 ms.author: tamram
 ms.subservice: blobs
 ---
 
 # Create or delete a container in Azure Storage with .NET
 
-Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create and delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. This article shows how to create and delete containers with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## Name a container
 
@@ -122,7 +122,7 @@ To delete a container in .NET, use one of the following methods:
 
 The **Delete** and **DeleteAsync** methods throw an exception if the container does not exist.
 
-The **DeleteIfNotExists** and **DeleteIfNotExistsAsync** methods return a Boolean value indicating whether the container was deleted. If the specified container does not exist, then these methods return **False** to indicate that the container was not deleted.
+The **DeleteIfExists** and **DeleteIfExistsAsync** methods return a Boolean value indicating whether the container was deleted. If the specified container does not exist, then these methods return **False** to indicate that the container was not deleted.
 
 After you delete a container, you cannot create a container with the same name for at least 30 seconds, and possibly longer. While the container is being deleted, an attempt to create a container with the same name will fail with HTTP error code 409 (Conflict). Any other operations on the container or the blobs it contains will fail with HTTP error code 404 (Not Found) while the container is being deleted.
 

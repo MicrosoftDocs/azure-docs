@@ -46,7 +46,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
   "properties": {
     "publisher": "Chef.Bootstrap.WindowsAzure",
     "type": "[parameters('chef_vm_extension_type')]",
-    "typeHandlerVersion": "1210.12",
+    "typeHandlerVersion": "1210.13",
     "settings": {
       "bootstrap_options": {
         "chef_server_url": "[parameters('chef_server_url')]",
@@ -68,7 +68,7 @@ The following JSON shows the schema for the Chef VM Extension. The extension req
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | string (double) |
+| typeHandlerVersion | `1210.13` | string (double) |
 
 ### Settings
 
@@ -102,7 +102,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. Templ
 
 A sample Resource Manager template that includes the Chef VM Extension can be found in the [Azure quickstart gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md).
+The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md).
 
 ## Azure CLI deployment
 
@@ -114,7 +114,7 @@ az vm extension set \
   --vm-name myExistingVM \
   --name LinuxChefClient \
   --publisher Chef.Bootstrap.WindowsAzure \
-  --version 1210.12 --protected-settings '{"validation_key": "<validation_key>"}' \
+  --version 1210.13 --protected-settings '{"validation_key": "<validation_key>"}' \
   --settings '{ "bootstrap_options": { "chef_server_url": "<chef_server_url>", "validation_client_name": "<validation_client_name>" }, "runlist": "<run_list>" }'
 ```
 
@@ -147,6 +147,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | This extension is not supported on the VM's operating system | |
 
 Additional troubleshooting information can be found in the [Chef VM Extension readme](https://github.com/chef-partners/azure-chef-extension).
+
+> [!NOTE]
+> For anything else directly related to Chef, contact [Chef Support](https://www.chef.io/support/).
 
 ## Next steps
 

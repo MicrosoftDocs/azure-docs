@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 10/22/2019
+author: likebupt
+ms.author: keli19
+ms.date: 02/11/2020
 ---
 
 # Clean Missing Data module
@@ -20,7 +20,7 @@ Use this module to remove, replace, or infer missing values.
 
 Data scientists often check data for missing values and then perform various operations to fix the data or insert new values. The goal of such cleaning operations is to prevent problems caused by missing data that can arise when training a model. 
 
-This module supports multiple type of operations for "cleaning" missing values, including:
+This module supports multiple types of operations for "cleaning" missing values, including:
 
 + Replacing missing values with a placeholder, mean, or other value
 + Completely removing rows and columns that have missing values
@@ -33,11 +33,11 @@ This module also outputs a definition of the transformation used to clean the mi
 
 ## How to use Clean Missing Data
 
-This module lets you define a cleaning operation. You can also save the cleaning operation so that you can apply it later to new data. See the following links for a description of how to create and save a cleaning process: 
+This module lets you define a cleaning operation. You can also save the cleaning operation so that you can apply it later to new data. See the following sections of how to create and save a cleaning process: 
  
-+ To replace missing values
++ [To replace missing values](#replace-missing-values)
   
-+ To apply a cleaning transformation to new data
++ [To apply a cleaning transformation to new data](#apply-a-saved-cleaning-operation-to-new-data)
  
 > [!IMPORTANT]
 > The cleaning method that you use for handling missing values can dramatically affect your results. We recommend that you experiment with different methods. Consider both the justification for use of a particular method, and the quality of the results.
@@ -52,12 +52,9 @@ Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) modu
 
     For example, to check for missing values in all numeric columns:
 
-    1. Open the Column Selector, and select **WITH RULES**.
-    2. For **BEGIN WITH**, select **NO COLUMNS**.
+    1. Select the **Clean Missing Data** module, and click on **Edit column** in the right panel of the module.
 
-        You can also start with ALL COLUMNS and then exclude columns. Initially, rules are not shown if you first click **ALL COLUMNS**, but you can click **NO COLUMNS** and then click **ALL COLUMNS** again to start with all columns and then filter out (exclude) columns based on the name, data type, or columns index.
-
-    3. For **Include**, select **Column type** from the dropdown list, and then select **Numeric**, or a more specific numeric type. 
+    3. For **Include**, select **Column types** from the dropdown list, and then select **Numeric**. 
   
     Any cleaning or replacement method that you choose must be applicable to **all** columns in the selection. If the data in any column is incompatible with the specified operation, the module returns an error and stops the pipeline.
   
@@ -105,11 +102,11 @@ Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) modu
   
 6. The option **Replacement value** is available if you have selected the option, **Custom substitution value**. Type a new value to use as the replacement value for all missing values in the column.  
   
-    Note that you can use this option only in columns that have the Integer, Double, Boolean, or Date data types. For date columns, the replacement value can also be entered as the number of 100-nanosecond ticks since 1/1/0001 12:00 A.M.  
+    Note that you can use this option only in columns that have the Integer, Double, Boolean, or String.
   
 7. **Generate missing value indicator column**: Select this option if you want to output some indication of whether the values in the column met the criteria for missing value cleaning. This option is particularly useful when you are setting up a new cleaning operation and want to make sure it works as designed.
   
-8. Run the pipeline.
+8. Submit the pipeline.
 
 ### Results
 
@@ -137,7 +134,7 @@ If you need to repeat cleaning operations often, we recommend that you save your
 
     However, suppose you created a transformation on a subset of numeric columns. You can apply this transformation to a dataset of mixed column types without raising an error, because the missing values are changed only in the matching numeric columns.
 
-6.  Run the pipeline.  
+6.  Submit the pipeline.  
 
 ## Next steps
 

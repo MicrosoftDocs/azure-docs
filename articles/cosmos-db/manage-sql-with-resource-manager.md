@@ -1,170 +1,83 @@
 ---
-title: Create and manage Azure Cosmos DB using Azure Resource Manager templates
-description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for SQL (Core) API 
-author: TheovanKraay
+title: Create and manage Azure Cosmos DB with Resource Manager templates
+description: Use Azure Resource Manager templates to create and configure Azure Cosmos DB for Core (SQL) API 
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 11/12/2019
-ms.author: thvankra
+ms.topic: how-to
+ms.date: 06/19/2020
+ms.author: mjbrown
 ---
 
-# Manage Azure Cosmos DB SQL (Core) API resources using Azure Resource Manager templates
+# Manage Azure Cosmos DB Core (SQL) API resources with Azure Resource Manager templates
 
-This article describes how to perform different operations to automate management of your Azure Cosmos DB accounts, databases and containers using Azure Resource Manager templates. This article has examples for SQL API accounts only, to find examples for other API type accounts see: use Azure Resource Manager templates with Azure Cosmos DB's API for  [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md), [Table](manage-table-with-resource-manager.md) articles.
+In this article, you learn how to use Azure Resource Manager templates to help deploy and manage your Azure Cosmos DB accounts, databases, and containers.
 
-how to create and manage Cosmos DB accounts, databases and containers for MongoDB, Gremlin, Cassandra and Table API.
+This article only shows Azure Resource Manager template examples for Core (SQL) API accounts. You can also find template examples for [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md),
+[MongoDB](manage-mongodb-with-resource-manager.md), and [Table](manage-table-with-resource-manager.md) APIs.
 
-## Create an Azure Cosmos account, database and container <a id="create-resource"></a>
-
-Create Azure Cosmos DB resources using an Azure Resource Manager template. This template will create an Azure Cosmos account with two containers that share 400 RU/s throughput at the database level and a single container with dedicated 400 RU/s throughput. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
-
-> [!NOTE]
+> [!IMPORTANT]
 >
-> - You cannot simultaneously add or remove locations to an Azure Cosmos account and modify other properties. These must be done as separate operations.
-> - Account names must be lowercase and 44 or fewer characters.
-> - To update RU/s, resubmit the template with updated throughput property values.
+> * Account names are limited to 44 characters, all lowercase.
+> * To change the throughput values, redeploy the template with updated RU/s.
+> * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+To create any of the Azure Cosmos DB resources below, copy the following example template into a new json file. You can optionally create a parameters json file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure portal](../azure-resource-manager/templates/deploy-portal.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) and [GitHub](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
-> [!NOTE]
-> To create a container with large partition key, include the `"version":2` property within the `partitionKey` object in the previous template.
+<a id="create-autoscale"></a>
 
-### Deploy via PowerShell
+## Azure Cosmos account with autoscale throughput
 
-To deploy the Azure Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
+This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for autoscale throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-```azurepowershell-interactive
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-autoscale%2Fazuredeploy.json)
 
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$accountName = Read-Host -Prompt "Enter the account name"
-$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
-$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
-$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
-$databaseName = Read-Host -Prompt "Enter the database name"
-$sharedThroughput = Read-Host -Prompt "Enter the shared database throughput (i.e. 400)"
-$sharedContainer1Name = Read-Host -Prompt "Enter the first shared container name"
-$sharedContainer2Name = Read-Host -Prompt "Enter the second shared container name"
-$dedicatedContainer1Name = Read-Host -Prompt "Enter the dedicated container name"
-$dedicatedThroughput = Read-Host -Prompt "Enter the dedicated container throughput (i.e. 400)"
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-autoscale/azuredeploy.json":::
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql/azuredeploy.json" `
-    -accountName $accountName `
-    -location $location `
-    -primaryRegion $primaryRegion `
-    -secondaryRegion $secondaryRegion `
-    -databaseName $databaseName `
-    -sharedThroughput $ $sharedThroughput `
-    -sharedContainer1Name $sharedContainer1Name `
-    -sharedContainer2Name $sharedContainer2Name `
-    -dedicatedContainer1Name $dedicatedContainer1Name `
-    -dedicatedThroughput $dedicatedThroughput
+<a id="create-analytical-store"></a>
 
- (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
-```
+## Azure Cosmos account with analytical store
 
-If you choose to use a locally installed version of PowerShell instead of from Azure Cloud Shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
+This template creates an Azure Cosmos account in one region with a container with Analytical TTL enabled and options for manual or autoscale throughput. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-### Deploy via Azure CLI
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-analytical-store%2Fazuredeploy.json)
 
-To deploy the Azure Resource Manager template using Azure CLI, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-analytical-store/azuredeploy.json":::
 
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the location (i.e. westus2): ' location
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
-read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
-read -p 'Enter the database name: ' databaseName
-read -p 'Enter the shared database throughput: sharedThroughput
-read -p 'Enter the first shared container name: ' sharedContainer1Name
-read -p 'Enter the second shared container name: ' sharedContainer2Name
-read -p 'Enter the dedicated container name: ' dedicatedContainer1Name
-read -p 'Enter the dedicated container throughput: dedicatedThroughput
+<a id="create-manual"></a>
 
-az group create --name $resourceGroupName --location $location
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql/azuredeploy.json \
-   --parameters accountName=$accountName \
-   primaryRegion=$primaryRegion \
-   secondaryRegion=$secondaryRegion \
-   databaseName=$databaseName \
-   sharedThroughput=$sharedThroughput \
-   sharedContainer1Name=$sharedContainer1Name \
-   sharedContainer2Name=$sharedContainer2Name \
-   dedicatedContainer1Name=$dedicatedContainer1Name \
-   dedicatedThroughput=$dedicatedThroughput
+## Azure Cosmos account with standard provisioned throughput
 
-az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
-```
+This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for standard throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-The `az cosmosdb show` command shows the newly created Azure Cosmos account after it has been provisioned. If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](/cli/azure/) article.
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
-## Create an Azure Cosmos DB container with server-side functionality <a id="create-sproc"></a>
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
-Create an Azure Cosmos DB container with a stored procedure, trigger and user-defined function using an Azure Resource Manager template. Copy the template and deploy as shown below or visit [Azure Quickstart Gallery](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) and deploy from the Azure portal. You can also download the template to your local computer or create a new template and specify the local path with the `--template-file` parameter.
+<a id="create-sproc"></a>
 
-[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+## Azure Cosmos DB container with server-side functionality
 
-### Deploy stored procedure template via PowerShell
+This template creates an Azure Cosmos account, database and container with with a stored procedure, trigger, and user-defined function. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql-container-sprocs%2Fazuredeploy.json)
 
-```azurepowershell-interactive
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$accountName = Read-Host -Prompt "Enter the account name"
-$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
-$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
-$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
-$databaseName = Read-Host -Prompt "Enter the database name"
-$containerName = Read-Host -Prompt "Enter the container name"
+<a id="free-tier"></a>
 
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment `
-    -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json" `
-    -accountName $accountName `
-    -location $location `
-    -primaryRegion $primaryRegion `
-    -secondaryRegion $secondaryRegion `
-    -databaseName $databaseName `
-    -containerName $containerName
+## Free tier Azure Cosmos DB account
 
- (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
-```
+This template creates a free-tier Azure Cosmos account and a database with shared throughput that can be shared with up to 25 containers. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
-If you choose to use a locally installed version of PowerShell instead of from Azure Cloud Shell, you have to [install](/powershell/azure/install-az-ps) the Azure PowerShell module. Run `Get-Module -ListAvailable Az` to find the version.
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-free%2Fazuredeploy.json)
 
-### Deploy stored procedure template via Azure CLI
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-free/azuredeploy.json":::
 
-To deploy the Azure Resource Manager template using Azure CLI, select **Try it** to open Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**:
-
-```azurecli-interactive
-read -p 'Enter the Resource Group name: ' resourceGroupName
-read -p 'Enter the location (i.e. westus2): ' location
-read -p 'Enter the account name: ' accountName
-read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
-read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
-read -p 'Enter the database name: ' databaseName
-read -p 'Enter the container name: ' containerName
-
-az group create --name $resourceGroupName --location $location
-az group deployment create --resource-group $resourceGroupName \
-   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json \
-   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion databaseName=$databaseName \
-   containerName=$containerName
-
-az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
-```
-
-## Next Steps
+## Next steps
 
 Here are some additional resources:
 
-- [Azure Resource Manager documentation](/azure/azure-resource-manager/)
-- [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
-- [Azure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Azure Resource Manager documentation](/azure/azure-resource-manager/)
+* [Azure Cosmos DB resource provider schema](/azure/templates/microsoft.documentdb/allversions)
+* [Azure Cosmos DB Quickstart templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
+* [Troubleshoot common Azure Resource Manager deployment errors](../azure-resource-manager/templates/common-deployment-errors.md)

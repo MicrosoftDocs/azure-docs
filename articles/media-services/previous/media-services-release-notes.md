@@ -1,6 +1,6 @@
 ---
-title: Media Services release notes | Microsoft Docs
-description: Media Services release notes
+title: Azure Media Services release notes | Microsoft Docs
+description: This article talks about the Microsoft Azure Media Services v2 release notes.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -21,12 +21,12 @@ ms.author: juliako
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 We want to hear from our customers so that we can focus on fixing problems that affect you. To report a problem or ask questions, submit a post in the [Azure Media Services MSDN Forum]. 
 
-## <a id="issues"/>Known issues
-### <a id="general_issues"/>Media Services general issues
+## <a name="issues"></a>Known issues
+### <a name="general_issues"></a>Media Services general issues
 
 | Issue | Description |
 | --- | --- |
@@ -39,22 +39,28 @@ We want to hear from our customers so that we can focus on fixing problems that 
 | Media Services .NET SDK objects can't be serialized and as a result don't work with Azure Cache for Redis. |If you try to serialize the SDK AssetCollection object to add it to Azure Cache for Redis, an exception is thrown. |
 |The REST API responds with an error message saying “The filter cannot be accessed by this version of REST Api” when attempting to get an Asset or Account level filter.|The filter was created or modified with a newer API version than is being used to try to get the filter. This can happen if two API versions are being used by code or tools being used by the customer.  The best solution here is to upgrade the code or tools to use the newer or the two API versions.|
 
-## <a id="rest_version_history"/>REST API version history
+## <a name="rest_version_history"></a>REST API version history
 For information about the Media Services REST API version history, see the [Azure Media Services REST API reference].
+
+## February 2020
+
+Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
 
 ## September 2019
 
 ### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
 
-For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+For the retirement dates, see this [legacy components](legacy-components.md) topic.
+
+Also see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 ## August 2019
 
 ### Deprecation of media processors
 
-We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired on March 31, 2020.
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. For the retirement dates, see this [legacy components](legacy-components.md) topic.
 
 For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
@@ -149,7 +155,7 @@ For more information on these properties, see [StreamingEndpoint](https://docs.m
 
  You now can use Media Services to access telemetry/metrics data for its services. You can use the current version of Media Services to collect telemetry data for live channel, streaming endpoint, and archive entities. For more information, see [Media Services telemetry](media-services-telemetry-overview.md).
 
-## <a id="july_changes16"/>July 2016 release
+## <a name="july_changes16"></a>July 2016 release
 ### Updates to the manifest file (*.ISM) generated by encoding tasks
 When an encoding task is submitted to Media Encoder Standard or Media Encoder Premium, the encoding task generates a [streaming manifest file](media-services-deliver-content-overview.md) (*.ism) in the output asset. With the latest service release, the syntax of this streaming manifest file was updated.
 
@@ -181,12 +187,14 @@ You now can use Media Services to dynamically encrypt your HTTP Live Streaming (
 ## <a id="feb_changes16"></a>February 2016 release
 The latest version of the Media Services SDK for .NET (3.5.3) contains a Google Widevine-related bug fix. It was impossible to reuse AssetDeliveryPolicy for multiple assets encrypted with Widevine. As part of this bug fix, the following property was added to the SDK: WidevineBaseLicenseAcquisitionUrl.
 
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-    {
-        {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
+```csharp
+Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
+    new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
+{
+    {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
 
-    };
+};
+```
 
 ## <a id="jan_changes_16"></a>January 2016 release
 Encoding reserved units were renamed to reduce confusion with encoder names.
@@ -222,7 +230,7 @@ Media Services is now live in the following data centers: Brazil South, India We
 
 ## <a id="september_changes_15"></a>September 2015 release
 Media Services now offers the ability to protect both video on demand and live streams with Widevine modular DRM technology. You can use the following delivery services partners to help you deliver Widevine licenses:
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -313,7 +321,9 @@ The Media Services .NET SDK is now version 3.1.0.1.
 
 This release marked the default Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization.TokenRestrictionTemplate constructor as obsolete. The new constructor takes TokenType as an argument.
 
-    TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```csharp
+TokenRestrictionTemplate template = new TokenRestrictionTemplate(TokenType.SWT);
+```
 
 
 ## <a id="december_changes_14"></a>December 2014 release
@@ -334,9 +344,9 @@ The [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.medias
 * Relative offsets for BeginDate and ExpirationDate in the PlayReady license template were added.
 
 ## <a id="november_changes_14"></a>November 2014 release
-* You now can use Media Services to ingest live Smooth Streaming (fMP4) content over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, Media Services doesn't support SSL with custom domains. For more information about live streaming, see [Work with Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
-* Currently, you can't ingest an RTMP live stream over an SSL connection.
-* You can stream over SSL only if the streaming endpoint from which you deliver your content was created after September 10, 2014. If your streaming URLs are based on the streaming endpoints created after September 10, 2014, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) don't support SSL. If your URL is in the old format and you want to stream over SSL, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). To stream your content over SSL, use URLs based on the new streaming endpoint.
+* You now can use Media Services to ingest live Smooth Streaming (fMP4) content over a TLS connection. To ingest over TLS, make sure to update the ingest URL to HTTPS. Currently, Media Services doesn't support TLS with custom domains. For more information about live streaming, see [Work with Azure Media Services Live Streaming](https://msdn.microsoft.com/library/azure/dn783466.aspx).
+* Currently, you can't ingest an RTMP live stream over a TLS connection.
+* You can stream over TLS only if the streaming endpoint from which you deliver your content was created after September 10, 2014. If your streaming URLs are based on the streaming endpoints created after September 10, 2014, the URL contains "streaming.mediaservices.windows.net" (the new format). Streaming URLs that contain "origin.mediaservices.windows.net" (the old format) don't support TLS. If your URL is in the old format and you want to stream over TLS, [create a new streaming endpoint](media-services-portal-manage-streaming-endpoints.md). To stream your content over TLS, use URLs based on the new streaming endpoint.
 
 ### <a id="oct_sdk"></a>Media Services .NET SDK
 The Media Services SDK for .NET extensions is now version 2.0.0.3.
@@ -551,6 +561,10 @@ The following functionality was new in the November release of the SDK:
   
     * Asynchronous support was added to all methods.
 
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
@@ -559,7 +573,7 @@ The following functionality was new in the November release of the SDK:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Azure Media Services MSDN Forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Microsoft Q&A question page for Azure Media Services]: https://docs.microsoft.com/answers/topics/azure-media-services.html
 [Azure Media Services REST API reference]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Input metadata]: https://msdn.microsoft.com/library/azure/dn783120.aspx

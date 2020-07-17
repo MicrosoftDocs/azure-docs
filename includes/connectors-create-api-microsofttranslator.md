@@ -1,11 +1,13 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
+ms.date: 11/03/2016
 ---
-### Prerequisites
+
+## Prerequisites
+
 * A [MicrosoftTranslator](https://www.microsoft.com/translator) account  
 
 Before you can use your MicrosoftTranslator account in a Logic app, you must authorize the Logic app to connect to your MicrosoftTranslator account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  

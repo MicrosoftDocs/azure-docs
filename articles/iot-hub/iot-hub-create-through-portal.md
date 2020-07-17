@@ -55,6 +55,10 @@ Click **Create** to add this newly created policy to the existing list.
 
 For more detailed information about the access granted by specific permissions, see [IoT Hub permissions](./iot-hub-devguide-security.md#iot-hub-permissions).
 
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
 ## Message Routing for an IoT hub
 
 Click **Message Routing** under **Messaging** to see the Message Routing pane, where you define routes and custom endpoints for the hub. [Message routing](iot-hub-devguide-messages-d2c.md) enables you to manage how data is sent from your devices to your endpoints. The first step is to add a new route. Then you can add an existing endpoint to the route, or create a new one of the types supported, such as blob storage. 

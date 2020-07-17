@@ -1,10 +1,9 @@
 ---
-title: Automated script to create Service Manager Web app to connect with IT Service Management Connector in Azure | Microsoft Docs
+title: Create web app for Service Management Connector
 description: Create a Service Manager Web app using an automated script to connect with IT Service Management Connector in Azure, and centrally monitor and manage the ITSM work items.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
 
@@ -311,6 +310,8 @@ Write-Host "URI:"  $azureSite
 if(!$err)
 {
     Write-Host "ServiceBus Namespace:"  $serviceName  
-}```
+}
+```
+
 ## Next steps
 [Configure the Hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).

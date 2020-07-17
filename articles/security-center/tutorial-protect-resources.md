@@ -105,7 +105,7 @@ If you wish to disable automatic provisioning:
 4. Select **Save**.
 
 >[!NOTE]
-> Disabling automatic provisioning does not remove the Microsoft Monitoring Agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
+> Disabling automatic provisioning does not remove the Log Analytics agent from Azure VMs where the agent has been provisioned. Disabling automatic provisioning limits security monitoring for your resources.
 >
 
 ## Next steps

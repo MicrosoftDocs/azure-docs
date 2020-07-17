@@ -3,20 +3,17 @@ title: Multiple IP addresses for Azure virtual machines - PowerShell | Microsoft
 description: Learn how to assign multiple IP addresses to a virtual machine using PowerShell. | Resource Manager
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
+ms.subservice: ip-services
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud
-ms.reviewer: annahar
+ms.author: allensu
+
 ---
 
 # Assign multiple IP addresses to virtual machines using PowerShell
@@ -118,7 +115,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	When you assign multiple IP configurations to a NIC, one configuration must be assigned as the *-Primary*.
 
 	> [!NOTE]
-	> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+	> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) article.
 
 7. Define the secondary IP configurations for the NIC. You can add or remove configurations as necessary. Each IP configuration must have a private IP address assigned. Each configuration can optionally have one public IP address assigned.
 
@@ -257,7 +254,7 @@ You can add private and public IP addresses to the Azure network interface by co
    A public IP address is added by associating a public IP address resource to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
    > [!NOTE]
-   > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
+   > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) article.
    >
 
    **Associate the public IP address resource to a new IP configuration**

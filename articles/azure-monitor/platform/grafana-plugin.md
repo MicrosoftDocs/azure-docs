@@ -1,11 +1,8 @@
 ---
 title: Monitor Azure services and applications using Grafana
 description: Route Azure Monitor and Application Insights data so you can view them in Grafana.
-ms.service:  azure-monitor
 ms.subservice: ""
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 11/06/2017
 
 ---
@@ -58,9 +55,9 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 2. Pick a name for the data source and select **Azure Monitor** as the type from the dropdown.
 
 3. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
-    * See [these instructions](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
-    * See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) to assign the Reader role to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
-    The Log Analytics API requires the [Log Analytics Reader role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), which includes the Reader role's permissions and adds to it.
+    * See [these instructions](../../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
+    * See [Assign application to role](../../active-directory/develop/howto-create-service-principal-portal.md) to assign the Reader role to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
+    The Log Analytics API requires the [Log Analytics Reader role](../../role-based-access-control/built-in-roles.md#log-analytics-reader), which includes the Reader role's permissions and adds to it.
 
 4. Provide the connection details to the APIs you'd like to use. You can connect to all or to some of them. 
     * If you connect to both metrics and logs in Azure Monitor, you can reuse the same credentials by selecting **Same details as Azure Monitor API**.
@@ -159,4 +156,3 @@ If you've setup a Grafana environment on Azure, you are charged when VMs are run
 
 ## Next steps
 * [Overview of Azure Monitor Metrics](data-platform.md)
-

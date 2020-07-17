@@ -1,5 +1,5 @@
 ---
-title: Hide or delete an access package in Azure AD entitlement management - Azure Active Directory
+title: Hide or delete access package in entitlement management - Azure AD
 description: Learn how to hide or delete an access package in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
@@ -10,9 +10,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management

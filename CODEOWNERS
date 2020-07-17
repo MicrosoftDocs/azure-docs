@@ -1,24 +1,37 @@
 # Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
-# articles/storage/  @tamram @robinsh
-# articles/virtual-machines/  @iainfoulds @cynthn
-# articles/virtual-machines/linux/  @iainfoulds @cynthn
-# articles/virtual-machines/windows/  @iainfoulds @cynthn
-# articles/application-insights/  @SergeyKanzhelev
-# articles/cosmos-db/ @mimig1
 
-# All Articles
-articles/ @apex-docs-pr-reviewers
+# Horizontals
+
+## Azure Policy: Samples
+articles/**/policy-samples.md @DCtheGeek
+includes/policy/ @DCtheGeek
+
+# Azure Active Directory
+
+articles/active-directory-b2c/ @msmimart @yoelhor
+articles/active-directory/app-provisioning/ @CelesteDG
+articles/active-directory/manage-apps/ @CelesteDG
 
 # Cognitive Services
-articles/cognitive-services/ @diberry @erhopf, @nitinme
+articles/cognitive-services/ @diberry @erhopf @aahill @trevorbye @patrickfarley @nitinme
 
 # DevOps
-
 articles/ansible/ @TomArcherMsft
 articles/chef/ @TomArcherMsft
 articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
 
-# Governance
+# Requires Internal Review
+articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking
 
+# Governance
 articles/governance/ @DCtheGeek
+
+# Security baselines
+articles/**/*security-baseline.md @msmbaldwin @mgblythe
+articles/security/benchmarks/ @msmbaldwin @mgblythe
+
+# Configuration
+*.json @SyntaxC4 @snoviking @martinekuan
+.acrolinx-config.edn @MonicaRush @martinekuan
+articles/zone-pivot-groups.yml @SyntaxC4 @snoviking @martinekuan

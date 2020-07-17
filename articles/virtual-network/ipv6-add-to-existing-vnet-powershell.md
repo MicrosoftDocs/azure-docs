@@ -5,26 +5,25 @@ description: This article shows how to deploy IPv6 addresses to an existing appl
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/21/2019
+ms.date: 03/31/2020
 ms.author: kumud
 ---
 
-# Upgrade an IPv4 application to IPv6 in Azure virtual network - PowerShell (Preview)
+# Upgrade an IPv4 application to IPv6 in Azure virtual network - PowerShell
 
 This article shows you how to add IPv6 connectivity to an existing IPv4 application in an Azure virtual network with a Standard Load Balancer and Public IP. The in-place upgrade includes:
 - IPv6 address space for the virtual network and subnet
 - a Standard Load Balancer with both IPv4 and IPV6 frontend configurations
 - VMs with NICs that have both an IPv4 + IPv6 configuration
-- IPv Public IP so the load balancer has Internet-facing IPv6 connectivity
+- IPv6 Public IP so the load balancer has Internet-facing IPv6 connectivity
 
-> [!Important]
-> IPv6 support for Azure Virtual Network is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,28 +31,6 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Prerequisites
 
-### Register the service
-
-Before you deploy a dual stack application in Azure, you must configure your subscription for this preview feature using the following Azure PowerShell:
-
-Register as follows:
-```azurepowershell
-Register-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Register-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-It takes up to 30 minutes for feature registration to complete. You can check your registration status by running the following Azure PowerShell command:
-Check on the registration as follows:
-```azurepowershell
-Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
-```
-After the registration is complete, run the following command:
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-### Create a Standard Load Balancer
 This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-create-standard-load-balancer-powershell.md).
 
 ## Retrieve the resource group
@@ -172,8 +149,7 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 
   ![IPv6 dual stack virtual network in Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
-> [!NOTE]
-> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
+
 
 ## Clean up resources
 

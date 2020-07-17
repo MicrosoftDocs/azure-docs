@@ -3,8 +3,6 @@ title: Customize CoreDNS for Azure Kubernetes Service (AKS)
 description: Learn how to customize CoreDNS to add subdomains or extend custom DNS endpoints using Azure Kubernetes Service (AKS)
 services: container-service
 author: jnoller
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
@@ -172,6 +170,21 @@ data:
               10.0.0.1 example.org
               fallthrough
           }
+```
+
+## Enable logging for DNS query debugging 
+
+To enable DNS query logging, apply the following configuration in your coredns-custom ConfigMap:
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom
+  namespace: kube-system
+data:
+  log.override: |
+        log
 ```
 
 ## Next steps

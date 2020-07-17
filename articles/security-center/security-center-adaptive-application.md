@@ -1,6 +1,6 @@
 ---
-title: Adaptive application controls in Azure Security Center | Microsoft Docs
-description: This document helps you to use adaptive application control in Azure Security Center to whitelist applications running in Azure VMs.
+title: Adaptive application controls in Azure Security Center
+description: This document helps you use adaptive application control in Azure Security Center to whitelist applications running in Azure machines.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2019
+ms.date: 12/23/2019
 ms.author: memildin
 
 ---
-# Adaptive application controls in Azure Security Center
+# Adaptive application controls
 Learn how to configure application control in Azure Security Center using this walkthrough.
 
 ## What are adaptive application controls in Security Center?
-Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure VMs (Windows and Linux). Among other benefits, this helps harden your VMs against malware. Security Center uses machine learning to analyze the applications running on your VMs and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Adaptive application control is an intelligent, automated, end-to-end solution from Azure Security Center which helps you control which applications can run on your Azure and non-Azure machines (Windows and Linux). Among other benefits, this helps harden your machines against malware. Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 - Comply with your organization's security policy that dictates the use of only licensed software.
@@ -30,15 +30,17 @@ Adaptive application control is an intelligent, automated, end-to-end solution f
 - Enable IT to control the access to sensitive data through app usage.
 
 > [!NOTE]
-> For Non-Azure and Linux VMs, adaptive application controls are supported in audit mode only.
+> For Non-Azure and Linux machines, adaptive application controls are supported in audit mode only.
 
 ## How to enable adaptive application controls?
-Adaptive application controls help you define a set of applications that are allowed to run on configured groups of VMs. This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux VMs and servers. Use the following steps to configure your application allow lists:
+
+Adaptive application controls help you define a set of applications that are allowed to run on configured groups of machines. This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines. Use the following steps to configure your application allow lists:
 
 1. Open the **Security Center** dashboard.
-2. In the left pane, select **Adaptive application controls** located under **Advanced cloud defense**.
 
-	![Defense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
+1. In the left pane, select **Adaptive application controls** located under **Advanced cloud defense**.
+
+	[![Defense](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png#lightbox)
 
 The **Adaptive application controls** page appears.
 
@@ -56,7 +58,8 @@ The **Groups of VMs** section contains three tabs:
 >
 
 ### Configure a new application control policy
-1. Click on the **Recommended** tab for a list of groups with application control recommendations:
+
+1. Select the **Recommended** tab for a list of groups with application control recommendations:
 
    ![Recommended](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
@@ -69,7 +72,7 @@ The **Groups of VMs** section contains three tabs:
 
 2. Click on a group to open the **Create application control rules** option.
 
-   ![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   [![Application control rules](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png#lightbox)
 
 3. In the **Select VMs**, review the list of recommended VMs and uncheck any you do not want to apply an application whitelisting policy to. Next, you see two lists:
 
@@ -173,5 +176,4 @@ In this document, you learned how to use adaptive application control in Azure S
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
 * [Azure Security Center Troubleshooting Guide](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Learn how to troubleshoot common issues in Security Center.
-* [Azure Security Center FAQ](security-center-faq.md). Find frequently asked questions about using the service.
 * [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

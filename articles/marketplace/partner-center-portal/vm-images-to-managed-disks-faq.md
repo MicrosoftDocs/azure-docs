@@ -1,9 +1,6 @@
 ---
 title: We're moving virtual machine (VM) images to managed disk storage in the Azure Marketplace 
 description: To provide faster, more reliable storage and support for new marketplace features and capabilities, we’re moving marketplace VM images to managed disk storage.  
-author: qianw211 
-manager: evansma
-ms.author: v-qiwe
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -14,7 +11,7 @@ ms.date: 11/22/2019
 
 To provide faster, more reliable storage and support for new marketplace features and capabilities, we’re moving marketplace VM images to managed disk storage.
 
-Starting on December 23, 2019, we’ll move VM images to managed disk storage in phases. In the first phase, we’ll only move images with no new deployments or running VMs in the previous 90 days. Before we move any of the images, we’ll send an email to let the publisher know which images will move and when they’ll be moved.
+Starting on January 2, 2020, we’ll move VM images to managed disk storage in phases. In the first phase, we’ll only move images with no new deployments or running VMs in the previous 90 days. Before we move any of the images, we’ll send an email to let the publisher know which images will move and when they’ll be moved.
 
 Publishers or consumers don’t need to take any action, and users won’t be affected. The marketplace offers will remain available and customers will still be able to deploy managed VMs from these images, during and after the move.
 
@@ -52,6 +49,10 @@ We recommend moving the images on the scheduled date. However, if you have conce
 
 Updates to the VM images cannot be made during the move.
 
-## Next steps
+### Will the publishing process change after my VM Image is moved to Managed Disk?
 
-Visit the [virtual machine offer publisher guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) page.
+No, the publishing process will remain the same. 
+
+### Can the publisher move their offers to Managed Disk?
+
+No, the publishers cannot move their offers to Managed Disk. They will have to wait and their images will be moved automatically. We will send notifications to the publisher before we make any changes.

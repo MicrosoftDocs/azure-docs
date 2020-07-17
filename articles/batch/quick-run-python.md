@@ -1,35 +1,24 @@
 ---
-title: 'Quickstart: Run an Azure Batch job - Python API'
-description: Quickly run a Batch job and tasks using the Batch Python client library.
-services: batch
-author: laurenhughes
-manager: gwallace 
-
-ms.service: batch
-ms.devlang: python
+title: Use Python API to run an Azure Batch job
+description: Quickly run an Azure Batch sample job and tasks using the Batch Python client library. Learn the key concepts of the Batch service.
 ms.topic: quickstart
 ms.date: 11/27/2018
-ms.author: lahugh
-ms.custom: [seo-python-october2019, mvc]
+ms.custom: [seo-python-october2019, mvc, tracking-python]
 ---
 
-# Quickstart: Run your first Batch job with the Python API
+# Quickstart: Use Python API to run an Azure Batch job
 
-This quickstart runs an Azure Batch job from an application built on the Azure Batch Python API.  After completing this quickstart, you will understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+In this quickstart, you use the Python API to run an Azure Batch job from an app. The app uploads input data files to Azure Storage and creates a *pool* of Batch compute nodes (virtual machines). It then creates a *job* that runs *tasks* to process each input file in the pool using a basic command.
 
-The app uploads several input data files to Azure storage and then creates a *pool* of Batch compute nodes (virtual machines). Then, it creates a sample *job* that runs *tasks* to process each input file on the pool using a basic command.
- 
+Here you'll learn key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+
 ![Overview of the Azure Batch workflow](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Python version 2.7 or 3.3 or later](https://www.python.org/downloads/)
-
-* [pip](https://pip.pypa.io/en/stable/installing/) package manager
-
-* An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An **Azure Batch** account and linked **Azure Storage** account. Use the [Azure portal](quick-create-portal.md) or [CLI](quick-create-cli.md) to create these accounts.
+- [Python](https://python.org/downloads), version 2.7 or 3.3 or later, including the [pip](https://pip.pypa.io/en/stable/installing/) package manager
 
 ## Sign in to Azure
 

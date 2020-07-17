@@ -83,7 +83,7 @@
     href: traffic-manager-load-balancing-azure.md
   - name: Measure Traffic Manager performance
     href: traffic-manager-performance-considerations.md
-  - name: Enable diagnostic logs
+  - name: Enable resource logs
     href: traffic-manager-diagnostic-logs.md
   - name: Use Azure PowerShell to manage Traffic Manager
     href: traffic-manager-powershell-arm.md
@@ -114,33 +114,25 @@
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python
-    href: http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-trafficmanager.html
+    href: https://azure.github.io/azure-sdk-for-python/ref/Traffic-Manager.html
   - name: REST
     href: https://msdn.microsoft.com/library/mt163667.aspx
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/trafficmanagerprofiles
-- name: Related
-  items:
-  - name: Application Gateway
-    href: /azure/application-gateway/
-  - name: Load Balancer
-    href: /azure/load-balancer/
-  - name: Azure DNS
-    href: /azure/dns/
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking/
-  - name: MSDN Forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: https://docs.microsoft.com/answers/topics/azure-virtual-network.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/traffic-manager/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service Limits
-    href: ../azure-subscription-service-limits.md#traffic-manager-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=traffic-manager
   - name: SLA

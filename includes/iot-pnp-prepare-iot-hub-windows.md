@@ -16,7 +16,7 @@ You also need an Azure IoT hub in your Azure subscription to complete this quick
 Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance:
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDeviceID** placeholders with your own _IoT Hub name_ and a _device ID_ of your choice.

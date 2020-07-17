@@ -35,7 +35,7 @@ You can run the tool in two modes:
 ## Before you start
 
 * Gather information about your environment, including VMs, disks per VM, storage per disk.
-* Identify your daily change (churn) rate for replicated data. Download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](site-recovery-capacity-planning-for-hyper-v-replication.md) about this tool. We recommend that you run this tool over a week to capture averages.
+* Identify your daily change (churn) rate for replicated data. Download the [Hyper-V capacity planning tool](https://www.microsoft.com/download/details.aspx?id=39057) to get the change rate. [Learn more](./hyper-v-deployment-planner-overview.md) about this tool. We recommend that you run this tool over a week to capture averages.
 
 
 ## Run the Quick Planner
@@ -49,7 +49,7 @@ You can run the tool in two modes:
 
    a. In **Select your scenario**, choose **Hyper-V to Azure** or **VMware/Physical to Azure**.
 
-   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](site-recovery-capacity-planning-for-hyper-v-replication.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
+   b. In **Average daily data change rate (%)**, enter the information you gather by using the [Hyper-V capacity planning tool](./hyper-v-deployment-planner-overview.md) or [Site Recovery Deployment Planner](./site-recovery-deployment-planner.md).
 
    c. The **Compression** setting isn't used when you replicate Hyper-V VMs to Azure. For compression, use a third-party appliance, such as Riverbed.
 
@@ -143,4 +143,4 @@ After all the information is entered, select **Submit data to the planner tool**
    ![Capacity Planner](./media/site-recovery-capacity-planner/capacity-planner.png)
 
 ## Next steps
-[Learn how to run](site-recovery-capacity-planning-for-hyper-v-replication.md) the capacity planning tool.
+[Learn how to run](./hyper-v-deployment-planner-overview.md) the capacity planning tool.

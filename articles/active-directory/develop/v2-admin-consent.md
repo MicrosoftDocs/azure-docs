@@ -1,29 +1,23 @@
 ---
-title: Microsoft identity platform admin consent protocols | Microsoft Docs
+title: Microsoft identity platform admin consent protocols
 description: A description of authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 8f98cbf0-a71d-4e34-babf-e642ad9ff423
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ---
 
 # Admin consent on the Microsoft identity platform
 
-Some permissions require consent from an administrator before they can be granted within a tenant.  You can also use the admin consent endpoint to grant permissions to an entire tenant.  
+Some permissions require consent from an administrator before they can be granted within a tenant.  You can also use the admin consent endpoint to grant permissions to an entire tenant.
 
 ## Recommended: Sign the user into your app
 
@@ -35,25 +29,25 @@ When you sign the user into your app, you can identify the organization to which
 
 When you're ready to request permissions from your organization's admin, you can redirect the user to the Microsoft identity platform *admin consent endpoint*.
 
-```
+```HTTP
 // Line breaks are for legibility only.
-	GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
-  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-  &state=12345
-  &redirect_uri=http://localhost/myapp/permissions
-	&scope=
-	https://graph.microsoft.com/calendars.read 
-	https://graph.microsoft.com/mail.send
+GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+&state=12345
+&redirect_uri=http://localhost/myapp/permissions
+&scope=
+https://graph.microsoft.com/calendars.read
+https://graph.microsoft.com/mail.send
 ```
 
 
 | Parameter		| Condition		| Description																				|
 |--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
-| `tenant` | Required | The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with `common` as seen in the example. |
+| `tenant` | Required | The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with `organizations` as seen in the example. Do not use 'common', as personal accounts cannot provide admin consent except in the context of a tenant. To ensure best compatibility with personal accounts that manage tenants, use the tenant ID when possible. |
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-|`scope`		| Required		| Defines the set of permissions being requested by the application. This can be either static (using /.default) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). | 
+|`scope`		| Required		| Defines the set of permissions being requested by the application. This can be either static (using /.default) or dynamic scopes.  This can include the OIDC scopes (`openid`, `profile`, `email`). |
 
 
 At this point, Azure AD requires a tenant administrator to sign in to complete the request. The administrator is asked to approve all the permissions that you have requested in the `scope` parameter.  If you've used a static (`/.default`) value, it will function like the v1.0 admin consent endpoint and request consent for all scopes found in the required permissions for the app.

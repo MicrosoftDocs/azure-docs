@@ -20,7 +20,7 @@ ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Push notifications to specific Android devices using Azure Notification Hubs and Google Cloud Messaging (deprecated)
+# Tutorial: Send push notifications to specific Android devices using Google Cloud Messaging (deprecated)
 
 > [!WARNING]
 > As of April 10, 2018, Google has deprecated Google Cloud Messaging (GCM). The GCM server and client APIs are deprecated and will be removed as soon as May 29, 2019. For more information, see [GCM and FCM Frequently Asked Questions](https://developers.google.com/cloud-messaging/faq).
@@ -116,7 +116,7 @@ The first step is to add the UI elements to your existing main activity that ena
 
     Your `main_activity.xml` graphical layout should look like in the following image:
 
-    ![][A1]
+    ![Screenshot of a development environment, with an app screen visible. The app lists the news categories that were added to the code.][A1]
 3. Create a class `Notifications` in the same package as your `MainActivity` class.
 
     ```java

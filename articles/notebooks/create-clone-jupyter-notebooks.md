@@ -1,11 +1,13 @@
 ---
-title: Create and clone Jupyter notebooks on Azure
-description: Azure Notebooks projects manage a collection of notebooks and related files, which you can create new or clone from another source.
-ms.topic: article
+title: Create and clone Jupyter notebooks - Azure Notebooks Preview
+description: Azure Notebooks Preview projects manage a collection of notebooks and related files, which you can create new or clone from another source.
+ms.topic: how-to
 ms.date: 02/25/2019
 ---
 
-# Create and clone projects
+# Create and clone projects in Azure Notebooks Preview
+
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 Azure Notebooks organizes your Jupyter notebooks and related files into logical groups called *projects*. You create a project first as a container, then create or clone one or more notebooks within a folder alongside other project files. (This process is demonstrated in the [tutorial](tutorial-create-run-jupyter-notebook.md).)
 
@@ -61,13 +63,33 @@ When you use the **+ New Project** command, Azure Notebooks displays a **Create 
 
 The following reserved words cannot be used by themselves as project IDs. These reserved words can, however, be used as part of longer project IDs.
 
-| | | | | | |
-| --- | --- | --- | --- | --- | --- |
-| about | account | administration | api | blog | classroom |
-| content | dashboard | explore | faq | help | html |
-| home | import | library | management | new | notebook |
-| notebooks | pdf | preview | pricing | profile | search |
-| status | support | test | | | |
+- about
+- account
+- administration
+- api
+- blog
+- classroom
+- content
+- dashboard
+- explore
+- faq
+- help
+- html
+- home
+- import
+- library
+- management
+- new
+- notebook
+- notebooks
+- pdf
+- preview
+- pricing
+- profile
+- search
+- status
+- support
+- test
 
 If you attempt to use one of these words as a project ID, the **Create New Project** and **Project Settings** popups indicate, "Library id is a reserved identifier."
 

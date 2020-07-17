@@ -124,7 +124,7 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
 ## Swap the OS disk for the VM
 
-Azure portal now supports change the OS disk of the VM. To do this, follow these steps:
+Azure portal now supports changing the OS disk of the VM. To do this, follow these steps:
 
 1. Go to [Azure portal](https://portal.azure.com). Select **Virtual machines** from the sidebar, and then select the VM that has problem.
 1. On the left pane, select **Disks**, and then select **Swap OS disk**.
@@ -136,6 +136,6 @@ Azure portal now supports change the OS disk of the VM. To do this, follow these
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](troubleshoot-app-connection.md).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/resource-group-overview.md).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
 

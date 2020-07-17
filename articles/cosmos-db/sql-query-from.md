@@ -1,10 +1,10 @@
 ---
 title: FROM clause in Azure Cosmos DB
-description: Learn about SQL FROM clause for Azure Cosmos DB
+description: Learn about the SQL syntax, and example for FROM clause for Azure Cosmos DB. This article also shows examples to scope results, and get sub items by using the FROM clause.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 05/08/2020
 ms.author: tisande
 
 ---
@@ -12,9 +12,9 @@ ms.author: tisande
 
 The FROM (`FROM <from_specification>`) clause is optional, unless the source is filtered or projected later in the query. A query like `SELECT * FROM Families` enumerates over the entire `Families` container. You can also use the special identifier ROOT for the container instead of using the container name.
 
-The FROM clause enforces the following rules per query:
+The `FROM` clause enforces the following rules per query:
 
-* The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. AS is an optional keyword to [alias](sql-query-aliasing.md) the identifier.  
+* The container can be aliased, such as `SELECT f.id FROM Families AS f` or simply `SELECT f.id FROM Families f`. Here `f` is the alias for `Families`. AS is an optional keyword to [alias](sql-query-working-with-json.md#aliasing) the identifier.  
 
 * Once aliased, the original source name cannot be bound. For example, `SELECT Families.id FROM Families f` is syntactically invalid because the identifier `Families` has been aliased and can't be resolved anymore.  
 
@@ -25,15 +25,15 @@ The FROM clause enforces the following rules per query:
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -46,9 +46,9 @@ FROM <from_specification>
   
   Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<container_expression>` using following rules:  
   
-  -  If the expression is a container_name, then container_name will be used as an alias.  
+-  If the expression is a container_name, then container_name will be used as an alias.  
   
-  -  If the expression is `<container_expression>`, then property_name, then property_name will be used as an alias. If the expression is a container_name, then container_name will be used as an alias.  
+-  If the expression is `<container_expression>`, then property_name, then property_name will be used as an alias. If the expression is a container_name, then container_name will be used as an alias.  
   
 - AS `input_alias`  
   
@@ -74,9 +74,9 @@ FROM <from_specification>
   
   Specifies that document should be retrieved from the other source defined by the provided alias.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -94,9 +94,9 @@ If a container expression accesses properties or array elements and that value d
   
 A container expression may be container-scoped or document-scoped:  
   
--   An expression is container-scoped, if the underlying source of the container expression is either ROOT or `container_name`. Such an expression represents a set of documents retrieved from the container directly, and is not dependent on the processing of other container expressions.  
+- An expression is container-scoped, if the underlying source of the container expression is either ROOT or `container_name`. Such an expression represents a set of documents retrieved from the container directly, and is not dependent on the processing of other container expressions.  
   
--   An expression is document-scoped, if the underlying source of the container expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the container expression in the scope of each document belonging to the set associated with the aliased container.  The resulting set will be a union of sets obtained by evaluating the container expression for each of the documents in the underlying set. 
+- An expression is document-scoped, if the underlying source of the container expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the container expression in the scope of each document belonging to the set associated with the aliased container. The resulting set will be a union of sets obtained by evaluating the container expression for each of the documents in the underlying set.
 
 ## Examples
 
@@ -142,7 +142,7 @@ The results are:
     ]
 ```
 
-The preceding query used an array as the source, but you can also use an object as the source. The query considers any valid, defined JSON value in the source for inclusion in the result. The following example would exclude `Families` that don’t have an `address.state` value.
+The preceding query used an array as the source, but you can also use an object as the source. The query considers any valid, defined JSON value in the source for inclusion in the result. The following example would exclude `Families` that don't have an `address.state` value.
 
 ```sql
     SELECT *

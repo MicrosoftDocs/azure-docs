@@ -1,49 +1,80 @@
 ---
-title: Azure Data Factory mapping data flow Surrogate Key Transformation
+title: Surrogate key transformation in mapping data flow 
 description: How to use Azure Data Factory's mapping data flow Surrogate Key Transformation to generate sequential key values
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.custom: seo-lt-2019
+ms.date: 04/08/2020
 ---
 
-# Mapping data flow Surrogate Key Transformation
+# Surrogate key transformation in mapping data flow 
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+Use the surrogate key transformation to add an incrementing key value to each row of data. This is useful when designing dimension tables in a star schema analytical data model. In a star schema, each member in your dimension tables requires a unique key that is a non-business key.
 
-Use the Surrogate Key Transformation to add an incrementing non-business arbitrary key value to your data flow rowset. This is useful when designing dimension tables in a star schema analytical data model where each member in your dimension tables needs to have a unique key that is a non-business key, part of the Kimball DW methodology.
+## Configuration
 
 ![Surrogate Key Transform](media/data-flow/surrogate.png "Surrogate Key Transformation")
 
-"Key Column" is the name that you will give to your new surrogate key column.
+**Key column:** The name of the generated surrogate key column.
 
-"Start Value" is the beginning point of the incremental value.
+**Start value:** The lowest key value that will be generated.
 
 ## Increment keys from existing sources
 
-If you'd like to start your sequence from a value that exists in a Source, you can use a Derived Column transformation immediately following your Surrogate Key transformation and add the two values together:
+To start your sequence from a value that exists in a source, use a derived column transformation following your surrogate key transformation to add the two values together:
 
 ![SK add Max](media/data-flow/sk006.png "Surrogate Key Transformation Add Max")
 
-To seed the key value with the previous max, there are two techniques that you can use:
+### Increment from existing maximum value
 
-### Database sources
+To seed the key value with the previous max, there are two techniques that you can use based on where your source data is.
 
-Use the "Query" option to select MAX() from your source using the Source transformation:
+#### Database sources
+
+Use a SQL query option to select MAX() from your source. For example, `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
 
 ![Surrogate Key Query](media/data-flow/sk002.png "Surrogate Key Transformation Query")
 
-### File sources
+#### File sources
 
-If your previous max value is in a file, you can use your Source transformation together with an Aggregate transformation and use the MAX() expression function to get the previous max value:
+If your previous max value is in a file, use the `max()` function in the aggregate transformation to get the previous max value:
 
 ![Surrogate Key File](media/data-flow/sk008.png "Surrogate Key File")
 
-In both cases, you must Join your incoming new data together with your source that contains the previous max value:
+In both cases, you must join your incoming new data together with your source that contains the previous max value.
 
 ![Surrogate Key Join](media/data-flow/sk004.png "Surrogate Key Join")
+
+## Data flow script
+
+### Syntax
+
+```
+<incomingStream> 
+    keyGenerate(
+        output(<surrogateColumnName> as long),
+        startAt: <number>L
+    ) ~> <surrogateKeyTransformationName>
+```
+
+### Example
+
+![Surrogate Key Transform](media/data-flow/surrogate.png "Surrogate Key Transformation")
+
+The data flow script for the above surrogate key configuration is in the code snippet below.
+
+```
+AggregateDayStats
+    keyGenerate(
+        output(key as long),
+        startAt: 1L
+    ) ~> SurrogateKey1
+```
 
 ## Next steps
 

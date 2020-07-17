@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 06/17/2020
 ---
 #	Language detection cognitive skill
 
@@ -21,14 +21,14 @@ Language detection leverages Bing's natural language processing libraries, which
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
 
 ## @odata.type  
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the language detection skill, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill inputs
 
@@ -36,15 +36,15 @@ Parameters are case-sensitive.
 
 | Inputs	 | Description |
 |--------------------|-------------|
-| text | The text to be analyzed.|
+| `text` | The text to be analyzed.|
 
 ## Skill outputs
 
 | Output Name	 | Description |
 |--------------------|-------------|
-| languageCode | The ISO 6391 language code for the language identified. For example, "en". |
-| languageName | The name of language. For example "English". |
-| score | A value between 0 and 1. The likelihood that language is correctly identified. The score may be lower than 1 if the sentence has mixed languages.  |
+| `languageCode` | The ISO 6391 language code for the language identified. For example, "en". |
+| `languageName` | The name of language. For example "English". |
+| `score` | A value between 0 and 1. The likelihood that language is correctly identified. The score may be lower than 1 if the sentence has mixed languages.  |
 
 ##	Sample definition
 

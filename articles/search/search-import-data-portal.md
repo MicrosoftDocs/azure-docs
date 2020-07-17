@@ -1,7 +1,7 @@
 ---
 title: Import data into a search index using Azure portal
 titleSuffix: Azure Cognitive Search
-description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
+description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, SQL Managed Instance and SQL Server on Azure VMs.
 
 author: HeidiSteen
 manager: nitinme
@@ -38,7 +38,7 @@ Known limitations are summarized as follows:
 
 + The wizard does not support iteration or reuse. Each pass through the wizard creates a new index, skillset, and indexer configuration. Only data sources can be persisted and reused within the wizard. To edit or refine other objects, you have to use the REST APIs or .NET SDK to retrieve and modify the structures.
 
-+ Source content must reside in a supported Azure data source, in a service under the same subscription.
++ Source content must reside in a supported Azure data source.
 
 + Sampling is over a subset of source data. For large data sources, it's possible for the wizard to miss fields. You might need to extend the schema, or correct the inferred data types, if sampling is insufficient.
 
@@ -60,7 +60,7 @@ You should create this single table or view before running the wizard, and it mu
 | ---------- | ----------- |
 | **Existing data source** |If you already have indexers defined in your search service, you might have an existing data source definition that you can reuse. In Azure Cognitive Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard, and reuse them as needed.|
 | **Samples**| Azure Cognitive Search provides two built-in sample data sources that are used in tutorials and quickstarts: a real estate SQL database and a Hotels database hosted on Cosmos DB. For a walk through based on the Hotels sample, see the [Create an index in the Azure portal](search-get-started-portal.md) quickstart. |
-| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.|
+| [**Azure SQL Database or SQL Managed Instance**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.|
 | **SQL Server on Azure VM** |Specify a fully qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Cognitive Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or leave the query blank. A query is not required in this wizard.|
 | [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Requirements include the storage account and a container. Optionally, if blob names follow a virtual naming convention for grouping purposes, you can specify the virtual directory portion of the name as a folder under container. See [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) for more information. |
@@ -88,7 +88,7 @@ The Import data wizard is started from the command bar on the service Overview p
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
-You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
+You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, SQL Managed Instance, and Azure Blob storage. Look for **Add Azure Cognitive Search** in the left-navigation pane on the service overview page.
 
 <a name="index-definition"></a>
 
@@ -104,7 +104,7 @@ The wizard generates an incomplete index, which will be populated with documents
 
 1. Set attributes to determine how that field is used in an index. 
 
-   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you will almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#storage-implications). Enabling filters and using suggesters increase storage requirements. 
+   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you will almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#index-size). Enabling filters and using suggesters increase storage requirements. 
    
    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 

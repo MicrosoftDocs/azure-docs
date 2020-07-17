@@ -1,15 +1,15 @@
 ---
-title: Azure PowerShell script - Create a container with a large partition key in an Azure Cosmos account
-description: Azure PowerShell script sample - Create a container with a large partition key in an Azure Cosmos account
+title: PowerShell script to create an Azure Cosmos DB container with a large partition key
+description: Azure PowerShell script sample - Create a container with a large partition key in an Azure Cosmos DB account
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 07/03/2019
+ms.date: 05/13/2020
 ms.author: mjbrown
 ---
 
-# Create a container with a large partition key in an Azure Cosmos account using PowerShell
+# Create a container with a large partition key in an Azure Cosmos DB account using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -33,8 +33,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-|**Azure Resources**| |
-| [New-AzResource](https://docs.microsoft.com/powershell/module/az.resources/new-azresource) | Creates a resource. |
+|**Azure Cosmos DB**| |
+| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Creates a Cosmos DB Account. |
+| [New-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Creates a Cosmos DB SQL Database. |
+| [New-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | Creates a Cosmos DB SQL Container. |
 |**Azure Resource Groups**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||

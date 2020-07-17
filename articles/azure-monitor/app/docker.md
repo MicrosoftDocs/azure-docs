@@ -1,11 +1,7 @@
 ---
 title: Monitor Docker applications in Azure Application Insights | Microsoft Docs
 description: Docker perf counters, events and exceptions can be displayed on Application Insights, along with the telemetry from the containerized apps.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
 
 ---
@@ -13,7 +9,7 @@ ms.date: 03/14/2019
 # Monitor Docker applications in Application Insights (Deprecated)
 
 > [!NOTE]
-> This solution has been deprecated. To learn more about our current investments in container monitoring we recommend checking out [Azure Monitor for containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+> This solution has been deprecated. To learn more about our current investments in container monitoring we recommend checking out [Azure Monitor for containers](../insights/container-insights-overview.md).
 
 Lifecycle events and performance counters from [Docker](https://www.docker.com/) containers can be charted on Application Insights. Install the [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) image in a container in your host, and it will display performance counters for the host, as well as for the other images.
 

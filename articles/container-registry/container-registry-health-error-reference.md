@@ -1,14 +1,8 @@
 ---
-title: Error reference for health check - Azure Container Registry
+title: Error reference for health checks
 description: Error codes and possible solutions to problems found by running the az acr check-health diagnostic command in Azure Container Registry
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: danlep
 ---
 # Health check error reference
 
@@ -58,7 +52,7 @@ This error means that the DNS for the given registry login server was pinged but
 
 ## CONNECTIVITY_FORBIDDEN_ERROR
 
-This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration. To see the currently configured firewall rules, run `az acr show --query networkRuleSet --name <registry>`.
+This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration or because access to the registry's public endpoint is not allowed. To see the currently configured firewall rules, run `az acr show --query networkRuleSet --name <registry>`.
 
 *Potential solutions*: Remove virtual network rules, or add the current client IP address to the allowed list.
 
@@ -97,6 +91,10 @@ This error means that the client was unable to establish a secure connection to 
 This error means that the CLI was unable to find the login server of the given registry, and no default suffix was found for the current cloud. This error can occur if the registry does not exist, if the user does not have the right permissions on the registry, if the registry's cloud and the current Azure CLI cloud do not match, or if the Azure CLI version is obsolete.
 
 *Potential solutions*: Verify that the spelling is correct and that the registry exists; verify that user has the right permissions on the registry, and that the clouds of the registry and the CLI environment match; update Azure CLI to the latest version.
+
+## NOTARY_VERSION_ERROR
+
+This error means that the CLI is not compatible with the currently installed version of Docker/Notary. Try downgrading your notary.exe version to a version earlier than 0.6.0 by replacing your Docker installation's Notary client manually to resolve this issue.
 
 ## Next steps
 

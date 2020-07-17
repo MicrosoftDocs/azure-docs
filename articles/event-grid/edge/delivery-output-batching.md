@@ -5,10 +5,8 @@ author: HiteshMadan
 manager: rajarv
 ms.author: himad
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
 ---
 
 # Output batching
@@ -74,8 +72,8 @@ The following deployment time settings control the maximum value allowed when cr
 
 | Property Name | Description |
 | ------------- | ----------- | 
-| `api:deliveryPolicyLimits:maxpreferredBatchSizeInKilobytes` | Maximum value allowed for the `PreferredBatchSizeInKilobytes` knob. Default `1033`.
-| `api:deliveryPolicyLimits:maxEventsPerBatch` | Maximum value allowed for the `MaxEventsPerBatch` knob. Default `50`.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Maximum value allowed for the `PreferredBatchSizeInKilobytes` knob. Default `1033`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Maximum value allowed for the `MaxEventsPerBatch` knob. Default `50`.
 
 ## Configuring runtime default values
 
@@ -83,5 +81,5 @@ The following deployment time settings control the runtime default value of each
 
 | Property Name | Description |
 | ------------- | ----------- |
-| `broker:defaultMaxBatchSizeInBytes` | Maximum delivery request size when only `MaxEventsPerBatch` is specified. Default `1_058_576`.
-| `broker:defaultMaxEventsPerBatch` | Maximum number of events to add to a batch when only `MaxBatchSizeInBytes` is specified. Default `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Maximum delivery request size when only `MaxEventsPerBatch` is specified. Default `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Maximum number of events to add to a batch when only `MaxBatchSizeInBytes` is specified. Default `10`.

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, C# (Unity) - Speech Service'
+title: 'Quickstart: Synthesize speech, C# (Unity) - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a text-to-speech application with Unity and the Speech SDK for Unity. When finished, you can synthesize speech from text in real time to your device's speaker.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 9/19/2019
+ms.date: 04/04/2020
 ms.author: yinhew
 ---
 
@@ -21,8 +21,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=unity)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=unity&pivots=programming-language-csharp)
 
 ## Add a UI
 
@@ -59,7 +58,7 @@ When you're finished, the UI should look similar to this screenshot:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
+1. Locate and replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
 1. Locate and replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, the region is `westus` if you use the free trial.
 
@@ -78,7 +77,7 @@ When you're finished, the UI should look similar to this screenshot:
 ## Run the application in the Unity Editor
 
 * Select the **Play** button in the Unity Editor toolbar that's underneath the menu bar.
-* After the app launches, enter some text in the input field and select the button. Your text is transmitted to Speech Service and synthesized to speech, which plays on your speaker.
+* After the app launches, enter some text in the input field and select the button. Your text is transmitted to the Speech service and synthesized to speech, which plays on your speaker.
 
   [![Screenshot of the running quickstart in the Unity Game window](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
@@ -91,7 +90,7 @@ See the [sample repository](https://aka.ms/csspeech/samples) in the quickstart/c
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

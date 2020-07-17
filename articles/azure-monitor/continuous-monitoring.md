@@ -1,7 +1,6 @@
 ---
 title: Continuous monitoring with Azure Monitor | Microsoft Docs
 description: Describes specific steps for using Azure Monitor to enable Continuous monitoring throughout your workflows.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -35,7 +34,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 - You automatically get [platform metrics, activity logs and diagnostics logs](platform/data-sources.md) from most of your Azure resources with no configuration.
 - Enable deeper monitoring for VMs with [Azure Monitor for VMs](insights/vminsights-overview.md).
 -  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](insights/container-insights-overview.md).
-- Add [monitoring solutions](insights/solutions-inventory.md) for different applications and services in your environment.
+- Add [monitoring solutions](./monitor-reference.md) for different applications and services in your environment.
 
 
 [Infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.
@@ -71,7 +70,7 @@ A critical aspect of monitoring is proactively notifying administrators of any c
 Ensuring that your development and operations have access to the same telemetry and tools allows them to view patterns across your entire environment and minimize your Mean Time To Detect (MTTD) and Mean Time To Restore (MTTR).
 
 - Prepare [custom dashboards](../azure-monitor/learn/tutorial-app-dashboards.md) based on common metrics and logs for the different roles in your organization. Dashboards can combine data from all Azure resources.
-- Prepare [Workbooks](../azure-monitor/app/usage-workbooks.md) to ensure knowledge sharing between development and operations. These could be prepared as dynamic reports with metric charts and log queries, or even as troubleshooting guides prepared by developers helping customer support or operations to handle basic problems.
+- Prepare [Workbooks](../azure-monitor/platform/workbooks-overview.md) to ensure knowledge sharing between development and operations. These could be prepared as dynamic reports with metric charts and log queries, or even as troubleshooting guides prepared by developers helping customer support or operations to handle basic problems.
 
 ## Continuously optimize
  Monitoring is one of the fundamental aspects of the popular Build-Measure-Learn philosophy, which recommends continuously tracking your KPIs and user behavior metrics and then striving to optimize them through planning iterations. Azure Monitor helps you collect metrics and logs relevant to your business and to add new data points in the next deployment as required.

@@ -1,5 +1,5 @@
 ---
-title: Use DRM dynamic encryption and license delivery service
+title: Azure Media Services DRM encryption and license delivery service
 titleSuffix: Azure Media Services
 description: Learn how to use DRM dynamic encryption and license delivery service to deliver streams encrypted with Microsoft PlayReady, Google Widevine, or Apple FairPlay licenses.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/25/2019
+ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
 
@@ -41,6 +41,8 @@ This tutorial shows you how to:
 > * Set requirements on the content key policy.
 > * Create a StreamingLocator with the specified streaming policy.
 > * Create a URL used to playback your file.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -158,7 +160,7 @@ You can open a browser and paste the resulting URL to launch the Azure Media Pla
 
 ## Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, StreamingLocators, and so on). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes Jobs:
+Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, StreamingLocators, and so on). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes the job, created assets and content key policy:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
@@ -171,6 +173,10 @@ Execute the following CLI command:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## Additional notes
+
+* Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
 
 ## Ask questions, give feedback, get updates
 

@@ -4,9 +4,8 @@ description: Learn how to upload, download, and migrate an Azure managed disk ac
 author: roygara
 ms.author: rogarana
 ms.date: 09/25/2019
-ms.topic: article
-ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
+ms.topic: how-to
+ms.service: virtual-machines
 ms.subservice: disks
 ---
 

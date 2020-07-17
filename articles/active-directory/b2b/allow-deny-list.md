@@ -6,7 +6,7 @@ description: Shows how an administrator can use the Azure portal or PowerShell t
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/15/2018
 
 ms.author: mimart

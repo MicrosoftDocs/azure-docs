@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: jeffsta
@@ -47,7 +47,7 @@ Users sign in once with their organizational account. This account is the same o
 
 Shared accounts not only increase oversight and improve usability, they also enhance your security. Users with permissions to use the credentials don't see the shared password, but rather get permissions to use the password as part of an orchestrated authentication flow. Further, some password SSO applications give you the option of using Azure AD to periodically rollover (update) passwords. The system uses large, complex passwords, which increases account security. The administrator can easily grant or revoke access to an application, knows who has access to the account, and who has accessed it in the past.
 
-Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS) or Azure AD Premium license plan, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](../manage-apps/configure-single-sign-on-portal.md).
+Azure AD supports shared accounts for any Enterprise Mobility Suite (EMS) or Azure AD Premium license plan, across all types of password single sign-on applications. You can share accounts for any of thousands of pre-integrated applications in the application gallery and can add your own password-authenticating application with [custom SSO apps](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 Azure AD features that enable account sharing include:
 
@@ -58,13 +58,13 @@ Azure AD features that enable account sharing include:
 * [App usage dashboard/reports](../active-directory-passwords-get-insights.md)
 * End-user access portals
 * [App proxy](../manage-apps/application-proxy.md)
-* [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## Sharing an account
 
 To use Azure AD to share an account, you need to:
 
-* Add an application [app gallery](https://azure.microsoft.com/marketplace/active-directory/) or [custom application](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Add an application [app gallery](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) or [custom application](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configure the application for password Single Sign-On (SSO)
 * Use [group-based assignment](groups-saasapps.md) and select the option to enter a shared credential
 

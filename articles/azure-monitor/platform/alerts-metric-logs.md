@@ -1,12 +1,10 @@
 ---
 title: Creating Metric Alerts for Logs in Azure Monitor
 description: Tutorial on creating near-real time metric alerts on popular log analytics data.
-author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+author: harelbr
+ms.author: harelbr
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.author: yalavi
+ms.date: 06/17/2020
 ms.subservice: alerts
 ---
 
@@ -39,7 +37,7 @@ There are many benefits for using **Metric Alerts for Logs** over query based [L
  Metric alerts support alerting for metrics that use dimensions. You can use dimensions to filter your metric to the right level. The full list of metrics supported for Logs from [Log Analytics workspaces](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) is listed; across supported solutions.
 
 > [!NOTE]
-> To view supported metrics for being extracted from Log Analytics workspace via [Azure Monitor - Metrics](../../azure-monitor/platform/metrics-charts.md); a metric alert for log must be created for the said metric. The dimensions chosen in Metric Alert for logs - will only appear for exploration via Azure Monitor - Metrics.
+> To view a supported metric extracted from a Log Analytics workspace via [Azure Monitor - Metrics](../../azure-monitor/platform/metrics-charts.md), a metric alert for log must be created on that specific metric. The dimensions chosen in the metric alert for logs - will only appear for exploration via Azure Monitor - Metrics.
 
 ## Creating metric alert for Log Analytics
 
@@ -65,10 +63,10 @@ For step-by-step details and samples - see [creating and managing metric alerts]
 - Signal chosen for metric alert for selected *Log Analytics workspace* is of type **Metric**
 - Filter for specific conditions or resource using dimension filters; metrics for logs are multi-dimensional
 - When configuring *Signal Logic*, a single alert can be created to span multiple values of dimension (like Computer)
-- If **not** using Azure portal for creating metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules).
+- If **not** using Azure portal for creating metric alert for selected *Log Analytics workspace*; then user must manually first create an explicit rule for converting log data into a metric using [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules).
 
 > [!NOTE]
-> When creating metric alert for Log Analytics workspace via Azure portal - corresponding rule for converting log data into metric via [Azure Monitor - Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) is automatically created in background, *without the need of any user intervention or action*. For metric alert for logs creation using means other than Azure portal, see [Resource Template for Metric Alerts for Logs](#resource-template-for-metric-alerts-for-logs) section on sample means of creating a ScheduledQueryRule based log to metric conversion rule before metric alert creation - else there will be no data for the metric alert on logs created.
+> When creating metric alert for Log Analytics workspace via Azure portal - corresponding rule for converting log data into metric via [Azure Monitor - Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules) is automatically created in background, *without the need of any user intervention or action*. For metric alert for logs creation using means other than Azure portal, see [Resource Template for Metric Alerts for Logs](#resource-template-for-metric-alerts-for-logs) section on sample means of creating a ScheduledQueryRule based log to metric conversion rule before metric alert creation - else there will be no data for the metric alert on logs created.
 
 ## Resource Template for Metric Alerts for Logs
 
@@ -160,7 +158,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -352,7 +350,7 @@ Say the above JSON is saved as metricfromLogsAlertStatic.json - then it can be c
 }
 ```
 
-Assuming the above parameter file is saved as metricfromLogsAlertStatic.parameters.json; then one can create metric alert for logs using [Resource Template for creation in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Assuming the above parameter file is saved as metricfromLogsAlertStatic.parameters.json; then one can create metric alert for logs using [Resource Template for creation in Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternatively, one can use the Azure Powershell command below as well:
 
@@ -362,7 +360,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 
 Or use deploy Resource Template using Azure CLI:
 
-```CLI
+```azurecli
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertStatic.json --parameters @metricfromLogsAlertStatic.parameters.json
 ```
 
@@ -449,7 +447,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
             "type": "string",
             "minLength": 1,
             "metadata": {
-                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example: /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
             }
         },
         "metricName": {
@@ -668,7 +666,7 @@ Say the above JSON is saved as metricfromLogsAlertDynamic.json - then it can be 
 }
 ```
 
-Assuming the above parameter file is saved as metricfromLogsAlertDynamic.parameters.json; then one can create metric alert for logs using [Resource Template for creation in Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Assuming the above parameter file is saved as metricfromLogsAlertDynamic.parameters.json; then one can create metric alert for logs using [Resource Template for creation in Azure portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternatively, one can use the Azure Powershell command below as well:
 
@@ -678,7 +676,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile metricfrom
 
 Or use deploy Resource Template using Azure CLI:
 
-```CLI
+```azurecli
 az group deployment create --resource-group myRG --template-file metricfromLogsAlertDynamic.json --parameters @metricfromLogsAlertDynamic.parameters.json
 ```
 

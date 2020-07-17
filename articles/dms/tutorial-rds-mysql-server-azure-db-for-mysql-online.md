@@ -1,5 +1,6 @@
 ---
-title: "Tutorial: Use Azure Database Migration Service for an online migration of RDS MySQL to Azure Database for MySQL | Microsoft Docs"
+title: "Tutorial: Migrate RDS MySQL online to Azure Database for MySQL"
+titleSuffix: Azure Database Migration Service
 description: Learn to perform an online migration from RDS MySQL to Azure Database for MySQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -8,9 +9,9 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc, tutorial
+ms.custom: "seo-lt-2019"
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 06/09/2020
 ---
 
 # Tutorial: Migrate RDS MySQL to Azure Database for MySQL online using DMS
@@ -50,8 +51,8 @@ To complete this tutorial, you need to:
 
 * Download and install the [MySQL **Employees** sample database](https://dev.mysql.com/doc/employee/en/employees-installation.html).
 * Create an instance of [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
-* Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). For more information about creating a virtual network, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+* Ensure that your virtual network Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, and 12000. For more detail on virtual network NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) (or your Linux firewall) to allow for database engine access. For MySQL server, allow port 3306 for connectivity.
 
 > [!NOTE]
@@ -61,6 +62,7 @@ To complete this tutorial, you need to:
 
 1. To create a new parameter group, follow the instructions provided by AWS in the article [MySQL Database Log Files](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_LogAccess.Concepts.MySQL.html), in the **Binary Logging Format** section.
 2. Create a new parameter group with the following configuration:
+    * log_bin = ON
     * binlog_format = row
     * binlog_checksum = NONE
 3. Save the new parameter group.
@@ -155,11 +157,11 @@ To complete this tutorial, you need to:
 
 4. Select the location in which you want to create the instance of Azure Database Migration Service.
 
-5. Select an existing VNet or create a new one.
+5. Select an existing virtual network or create a new one.
 
-    The VNet provides Azure Database Migration Service with access to the source MySQL instance and the target Azure Database for MySQL instance.
+    The virtual network provides Azure Database Migration Service with access to the source MySQL instance and the target Azure Database for MySQL instance.
 
-    For more information about how to create a VNet in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
+    For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
 6. Select a pricing tier; for this online migration, be sure to select the Premium: 4vCores pricing tier.
 

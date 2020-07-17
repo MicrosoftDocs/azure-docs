@@ -1,80 +1,64 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure DevOps Projects
+### YamlMime:Landing
+
+title: Azure DevOps Starter documentation
+summary: Azure DevOps Starter presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
+
 metadata:
-  document_id:
-  title: Azure DevOps Projects Documentation - Quickstarts and tutorials
-  meta.description: 
-  services: devops-project
-  author: mlearned
-  manager: gwallace
+  title: Azure DevOps Starter documentation
+  description: Bring your existing code and Git repository or choose a sample app to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
   ms.service: devops-project
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/06/2018
-  ms.author: mlearned
-abstract:
-  description: Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: _img\video-devops-project.png
-      width: 250  
-    title: Create CI/CD with the DevOps Projects video (8:53)
-    href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
-    width: 250
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to build your app type and deploy it to your choice of Azure service:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media\logo_net.svg
-      text: .NET
-      href: /azure/devops-project/azure-devops-project-aspnet-core
-    - image: 
-        src: media\logo_nodejs.svg
-      text: Node.js
-      href: /azure/devops-project/azure-devops-project-nodejs
-    - image: 
-        src: media\logo_java.svg
-      text: Java
-      href: /azure/devops-project/azure-devops-project-java
-    - image: 
-        src: media\logo_python.svg
-      text: Python
-      href: /azure/devops-project/azure-devops-project-python
-    - image: 
-        src: media\logo_php.svg
-      text: PHP
-      href: /azure/devops-project/azure-devops-project-php
-    - image: 
-        src: media\logo_ruby.svg
-      text: Ruby
-      href: /azure/devops-project/azure-devops-project-ruby
-    - image: 
-        src: media\logo_gopher.svg
-      text: Go
-      href: /azure/devops-project/azure-devops-project-go
+  author: 
+  ms.author: 
+  ms.date: 03/24/2020
 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
+landingContent:
+  # Card
+  - title: About Azure DevOps Starter
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DevOps Starter?
+            url: overview.md
+      - linkListType: video
+        links:
+          - text: Create CI/CD with the DevOps Starter video (8:53)
+            url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
 
+  # Card (optional)
+  - title: Create a CI/CD pipeline
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: .NET
+            url: /azure/devops-project/azure-devops-project-aspnet-core
+          - text: Node.js
+            url: /azure/devops-project/azure-devops-project-nodejs
+          - text: Java
+            url: /azure/devops-project/azure-devops-project-java
+          - text: Python
+            url: /azure/devops-project/azure-devops-project-python
+          - text: PHP
+            url: /azure/devops-project/azure-devops-project-php
+          - text: Ruby
+            url: /azure/devops-project/azure-devops-project-ruby
+          - text: Go
+            url: /azure/devops-project/azure-devops-project-go
 
-- title: Step-by-step tutorials
-  items:
-  - type: paragraph
-    text: Learn how to use DevOps Projects to create release pipelines
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="/azure/devops-project/azure-devops-project-github">Bring your own code with GitHub</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-vms">Deploy your ASP.NET app to Azure Virtual Machines</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Deploy your ASP.NET app and Azure SQL Database</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-aks">Deploy your app to Azure Container Service and Kubernetes</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Deploy your app to Azure Service Fabric</a>
-
+  # Card
+  - title: Create release pipelines
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Bring your own code with GitHub
+            url: azure-devops-project-vms.md
+          - text: Deploy your ASP.NET app to Azure Virtual Machines
+            url: azure-devops-project-vms.md
+          - text: Deploy your ASP.NET app and Azure SQL Database
+            url: azure-devops-project-sql-database.md
+          - text: Deploy your app to Azure Container Service and Kubernetes
+            url: azure-devops-project-aks.md
+          - text: Deploy your app to Azure Service Fabric
+            url: azure-devops-project-service-fabric.md

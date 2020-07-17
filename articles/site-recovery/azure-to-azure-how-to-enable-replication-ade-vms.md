@@ -15,7 +15,7 @@ ms.author: sutalasi
 This article describes how to replicate Azure VMs with Azure Disk Encryption (ADE) enabled, from one Azure region to another.
 
 >[!NOTE]
-> Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows.  For machines running ADE 1.1 (without AAD), the Windows VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with AAD) to 1.1 , you need to disable replication and enable replication for a VM after enabling 1.1.
+> Site Recovery currently supports ADE, with and without Azure Active Directory (AAD) for VMs running Windows operating systems. For Linux operating systems, we only support ADE without AAD. Moreover, for machines running ADE 1.1 (without AAD), the VMs must be using managed disks. VMs with unmanaged disks aren't supported. If you switch from ADE 0.1 (with AAD) to 1.1 , you need to disable replication and enable replication for a VM after enabling 1.1.
 
 
 ## <a id="required-user-permissions"></a> Required user permissions
@@ -89,7 +89,7 @@ For this example, the primary Azure region is East Asia, and the secondary regio
     - **Target location**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
     - **Target subscription**: The target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
     - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The name gets the "asr" suffix. If a resource group already exists that was created by Azure Site Recovery, it's reused. You can also choose to customize it, as shown in the following section. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
-    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the "asr" suffix. It's mapped to your source network and used for any future protection. [Learn more](site-recovery-network-mapping-azure-to-azure.md) about network mapping.
+    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the "asr" suffix. It's mapped to your source network and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
     - **Target storage accounts (if your source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused.
     - **Replica managed disks (if your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks of the same storage type (standard or premium) as the source VM's managed disks.
     - **Cache storage accounts**: Site Recovery needs an extra storage account called *cache storage* in the source region. All the changes on the source VMs are tracked and sent to the cache storage account. They're then replicated to the target location.

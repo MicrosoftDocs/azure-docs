@@ -1,7 +1,6 @@
 ---
 title: Computer groups in Azure Monitor log queries | Microsoft Docs
 description: Computer groups in Azure Monitor allow you to scope log queries to a particular set of computers.  This article describes the different methods you can use to create computer groups and how to use them in a log query.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -23,7 +22,7 @@ You can create a computer group in Azure Monitor using any of the methods in the
 | Log query |Create a log query that returns a list of computers. |
 | Log Search API |Use the Log Search API to programmatically create a computer group based on the results of a log query. |
 | Active Directory |Automatically scan the group membership of any agent computers that are members of an Active Directory domain and create a group in Azure Monitor for each security group. (Windows machines only)|
-| Configuration Manager | Import collections from System Center Configuration Manager  and create a group in Azure Monitor for each. |
+| Configuration Manager | Import collections from Microsoft Endpoint Configuration Manager and create a group in Azure Monitor for each. |
 | Windows Server Update Services |Automatically scan WSUS servers or clients for targeting groups and create a group in Azure Monitor for each. |
 
 ### Log query
@@ -31,7 +30,9 @@ Computer groups created from a log query contain all of the computers returned b
 
 You can use any query for a computer group, but it must return a distinct set of computers by using `distinct Computer`.  Following is a typical example query that you could use for as a computer group.
 
-    Heartbeat | where Computer contains "srv" | distinct Computer
+```kusto
+Heartbeat | where Computer contains "srv" | distinct Computer
+```
 
 Use the following procedure to create a computer group from a log search in the Azure portal.
 
@@ -71,7 +72,7 @@ You configure Azure Monitor to import WSUS groups from **Advanced settings** in 
 
 When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
-### System Center Configuration Manager
+### Configuration Manager
 When you configure Azure Monitor to import Configuration Manager collection memberships, it creates a computer group for each collection.  The collection membership information is retrieved every 3 hours to keep the  computer groups current. 
 
 Before you can import Configuration Manager collections, you must [connect Configuration Manager to Azure Monitor](collect-sccm.md).  
@@ -91,26 +92,28 @@ Click the **x** in the **Remove** column to delete the computer group.  Click th
 ## Using a computer group in a log query
 You use a Computer group created from a log query in a query by treating its alias as a function, typically with the following syntax:
 
-  `Table | where Computer in (ComputerGroup)`
+```kusto
+Table | where Computer in (ComputerGroup)`
+```
 
 For example, you could use the following to return UpdateSummary records for only computers in a computer group called mycomputergroup.
- 
-  `UpdateSummary | where Computer in (mycomputergroup)`
 
+```kusto
+UpdateSummary | where Computer in (mycomputergroup)`
+```
 
 Imported computer groups and their included computers are stored in the **ComputerGroup** table.  For example, the following query would return a list of computers in the Domain Computers group from Active Directory. 
 
-  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+```kusto
+ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer
+```
 
 The following query would return UpdateSummary records for only computers in Domain Computers.
 
-  ```
-  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+```kusto
+let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
   UpdateSummary | where Computer in (ADComputers)
-  ```
-
-
-
+```
 
 ## Computer group records
 A record is created in the Log Analytics workspace for each computer group membership created from Active Directory or WSUS.  These records have a type of **ComputerGroup** and have the properties in the following table.  Records are not created for computer groups based on log queries.

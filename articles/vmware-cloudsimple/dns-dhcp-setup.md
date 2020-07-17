@@ -22,11 +22,11 @@ Applications and workloads running in a Private Cloud environment require name r
 
 ## Linux-based DNS server setup
 
-Linux offers various packages for setting up DNS servers.  Here is an [example setup from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7) with instructions for setting up an open-source BIND DNS server.
+Linux offers various packages for setting up DNS servers.  Here is an [example setup from DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) with instructions for setting up an open-source BIND DNS server.
 
 ## Windows-based setup
 
 These Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
 
-* [Windows Server as DNS Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
-* [Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
+* [Windows Server as DNS Server](/windows-server/networking/dns/dns-top)
+* [Windows Server as DHCP Server](/windows-server/networking/technologies/dhcp/dhcp-top)

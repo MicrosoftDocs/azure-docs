@@ -1,14 +1,8 @@
 ---
-title: Policy to retain untagged manifests in Azure Container Registry
+title: Policy to retain untagged manifests
 description: Learn how to enable a retention policy in your Azure container registry, for automatic deletion of untagged manifests after a defined period.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: danlep
 ---
 
 # Set a retention policy for untagged manifests
@@ -16,6 +10,8 @@ ms.author: danlep
 Azure Container Registry gives you the option to set a *retention policy* for stored image manifests that don't have any associated tags (*untagged manifests*). When a retention policy is enabled, untagged manifests in the registry are automatically deleted after a number of days you set. This feature prevents the registry from filling up with artifacts that aren't needed and helps you save on storage costs. If the `delete-enabled` attribute of an untagged manifest is set to `false`, the manifest can't be deleted, and the retention policy doesn't apply.
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+
+A retention policy is a feature of **Premium** container registries. For information about registry service tiers, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -25,7 +21,6 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to ru
 
 ## Preview limitations
 
-* Only a **Premium** container registry can be configured with a retention policy. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md).
 * You can only set a retention policy for untagged manifests.
 * The retention policy currently applies only to manifests that are untagged *after* the policy is enabled. Existing untagged manifests in the registry aren't subject to the policy. To delete existing untagged manifests, see examples in [Delete container images in Azure Container Registry](container-registry-delete.md).
 

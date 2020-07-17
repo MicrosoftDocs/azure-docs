@@ -5,7 +5,7 @@ services: internet-analyzer
 author: mattcalder
 
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 # Customer intent: (1) As someone interested in migrating to Azure from on-prem/ other cloud, I want to configure a custom endpoint to measure. (2) As someone interested in comparing my custom Azure configuration to on-prem/other cloud/ Azure, I want to configure a custom endpoint to measure. 
@@ -28,8 +28,8 @@ Make sure you set up an Internet Analyzer resource and select the "Custom Endpoi
 ## Create Custom Endpoint
 
 1. Download a transparent one-pixel test image [here](https://fpc.msedge.net/apc/trans.gif). This one-pixel image is the asset the client JavaScript will fetch to measure performance.
-2. In your custom web application, deploy the test image in a publically accessible path. The path should work over HTTPS. 
-3. Copy the full custom endpoint URL (e.g. https://contoso.com/test/trans.gif) into the custom endpoint field during your test creation.
+2. In your custom web application, deploy the test image in a publicly accessible path. The path should work over HTTPS. 
+3. Copy the full custom endpoint URL (e.g. `https://contoso.com/test/trans.gif`) into the custom endpoint field during your test creation.
 
 ## Next steps
 

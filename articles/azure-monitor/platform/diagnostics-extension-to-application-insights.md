@@ -1,11 +1,10 @@
 ---
 title: Send Azure Diagnostics data to Application Insights
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
-ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+author: bwren
+ms.author: bwren
 ms.date: 03/19/2016
 
 ---
@@ -210,7 +209,6 @@ In the previous configuration, the following lines have the following meanings:
 - **You cannot send blob data collected by Azure diagnostics extension to Application Insights.** For example, anything specified under the *Directories* node. For Crash Dumps the actual crash dump is sent to blob storage and only a notification that the crash dump was generated is sent to Application Insights.
 
 ## Next Steps
-* Learn how to [view your Azure diagnostics information](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) in Application Insights.
+* Learn how to [view your Azure diagnostics information](../app/cloudservices.md) in Application Insights.
 * Use [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
 * Use [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) to enable the Azure diagnostics extension for your application
-

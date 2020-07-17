@@ -1,13 +1,11 @@
 ---
-title: Create an internal load balancer in Azure Kubernetes Service (AKS)
+title: Create an internal load balancer
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use an internal load balancer to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: mlearned
+
 
 #Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
 ---
@@ -17,7 +15,7 @@ ms.author: mlearned
 To restrict access to your applications in Azure Kubernetes Service (AKS), you can create and use an internal load balancer. An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the Kubernetes cluster. This article shows you how to create and use an internal load balancer with Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, the *Basic* SKU is used when a service manifest is used to create a load balancer on AKS. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison].
+> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, the Standard SKU is used when you create an AKS cluster.  When creating a Service with type as LoadBalancer, you will get the same LB type as when you provision the cluster. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
 ## Before you begin
 
@@ -25,7 +23,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
+The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. Instead of a service principal, you can use the system assigned managed identity for permissions. For more information, see [Use managed identities](use-managed-identity.md). For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 ## Create an internal load balancer
 
@@ -147,7 +145,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [advanced-networking]: configure-azure-cni.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[azure-lb-comparison]: ../load-balancer/skus.md
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md

@@ -9,15 +9,15 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
-ms.topic: overview
-ms.date: 11/08/2019
+ms.topic: how-to
+ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
 ---
 # Microsoft Graph APIs for Privileged Identity Management (Preview)
 
-You can perform all Privileged Identity Management tasks using the [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/concepts/overview) for Azure Active Directory. This article describes important concepts for using the Microsoft Graph APIs for Privileged Identity Management.
+You can perform Privileged Identity Management tasks using the [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/concepts/overview) for Azure Active Directory. This article describes important concepts for using the Microsoft Graph APIs for Privileged Identity Management.
 
 For details about the Microsoft Graph APIs, check out the [Azure AD Privileged Identity Management API reference](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/privilegedidentitymanagement_root).
 

@@ -12,7 +12,7 @@ ms.author: kgremban
 
 # Migrate your IoT Hub from operations monitoring to diagnostics settings
 
-Customers using [operations monitoring](iot-hub-operations-monitoring.md) to track the status of operations in IoT Hub can migrate that workflow to [Azure diagnostics settings](../azure-monitor/platform/resource-logs-overview.md), a feature of Azure Monitor. Diagnostics settings supply resource-level diagnostic information for many Azure services.
+Customers using [operations monitoring](iot-hub-operations-monitoring.md) to track the status of operations in IoT Hub can migrate that workflow to [Azure diagnostics settings](../azure-monitor/platform/platform-logs-overview.md), a feature of Azure Monitor. Diagnostics settings supply resource-level diagnostic information for many Azure services.
 
 **The operations monitoring functionality of IoT Hub is deprecated**, and has been removed from the portal. This article provides steps to move your workloads from operations monitoring to diagnostics settings. For more information about the deprecation timeline, see [Monitor your Azure IoT solutions with Azure Monitor and Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Synthesize speech into audio file, Java - Speech Service"
+title: "Quickstart: Synthesize speech into audio file, Java - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

@@ -1,11 +1,7 @@
 ---
 title: Using Search in Azure Application Insights | Microsoft Docs
 description: Search and filter raw telemetry sent by your web app.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/30/2019
 
 ---
@@ -148,4 +144,4 @@ We don't log the POST data automatically, but you can use [TrackTrace or log cal
 * [Write complex queries in Analytics](../../azure-monitor/log-query/get-started-portal.md)
 * [Send logs and custom telemetry to Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Set up availability and responsiveness tests](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
+* [Troubleshooting](../faq.md)

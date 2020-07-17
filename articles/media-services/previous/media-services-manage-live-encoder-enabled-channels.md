@@ -1,6 +1,6 @@
 ---
 title: Live streaming using Azure Media Services to create multi-bitrate streams | Microsoft Docs
-description: 'This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. The stream can then be delivered to client playback applications through one or more Streaming Endpoints, using one of the following adaptive streaming protocols: HLS, Smooth Stream, MPEG DASH.'
+description: This topic describes how to set up a Channel that receives a single bitrate live stream from an on-premises encoder and then performs live encoding to adaptive bitrate stream with Media Services. 
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -27,7 +27,7 @@ ms.reviewer: juliako
 In Azure Media Services (AMS), a **Channel** represents a pipeline for processing live streaming content. A **Channel** receives live input streams in one of two ways:
 
 * An on-premises live encoder sends a single-bitrate stream to the Channel that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (Fragmented MP4). The Channel then performs live encoding of the incoming single bitrate stream to a multi-bitrate (adaptive) video stream. When requested, Media Services delivers the stream to customers.
-* An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek and Tricaster encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends a multi-bitrate **RTMP** or **Smooth Streaming** (Fragmented MP4) to the Channel that is not enabled to perform live encoding with AMS. The ingested streams pass through **Channel**s without any further processing. This method is called **pass-through**. You can use the following live encoders that output multi-bitrate Smooth Streaming: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco and Elemental. The following live encoders output RTMP: [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md), Haivision, Teradek encoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
@@ -142,7 +142,7 @@ Considerations:
 * 44.1 kHz sampling rate
 * MPEG-2 style ADTS packaging
 * Recommended encoders include:
-* Telestream Wirecast
+* [Telestream Wirecast](media-services-configure-wirecast-live-encoder.md)
 * Flash Media Live Encoder
 
 #### Single bitrate Fragmented MP4 (Smooth Streaming)
@@ -163,7 +163,7 @@ A Channel provides an input endpoint (ingest URL) that you specify in the live e
 
 You can get the ingest URLs once you create a Channel. To get these URLs, the Channel does not have to be in the **Running** state. When you are ready to start pushing data into the Channel, it must be in the **Running** state. Once the Channel starts ingesting data, you can preview your stream through the preview URL.
 
-You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an SSL connection. To ingest over SSL, make sure to update the ingest URL to HTTPS. Currently, AMS doesn’t support SSL with custom domains.  
+You have an option of ingesting Fragmented MP4 (Smooth Streaming) live stream over an TLS connection. To ingest over TLS, make sure to update the ingest URL to HTTPS. Currently, AMS doesn’t support TLS with custom domains.  
 
 ### Allowed IP addresses
 You can define the IP addresses that are allowed to publish video to this channel. Allowed IP addresses can be specified as either a single IP address (for example, '10.0.0.1'), an IP range using an IP address and a CIDR subnet mask (for example, ‘10.0.0.1/22’), or an IP range using an IP address and a dotted decimal subnet mask (for example, '10.0.0.1(255.255.252.0)').

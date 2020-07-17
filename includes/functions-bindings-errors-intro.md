@@ -32,6 +32,6 @@ The following triggers have built-in retry support:
 * [Azure Queue storage](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (queue/topic)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-By default, these triggers retry requests up to five times. After the fifth retry, both triggers write a message to a [poison queue](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
+By default, these triggers retry requests up to five times. After the fifth retry, both the Azure Queue storage and Azure Service Bus triggers write a message to a [poison queue](..\articles\azure-functions\functions-bindings-storage-queue-trigger.md#poison-messages).
 
-You need to manually implement retry policies for any other triggers or bindings types. Manual implementations may include writing error information to a [poison message queue](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). By writing to a poison queue, you have the opportunity to retry operations at a later time. This approach is the same one used by the Blob storage trigger.
+You need to manually implement retry policies for any other triggers or bindings types. Manual implementations may include writing error information to a [poison message queue](..\articles\azure-functions\functions-bindings-storage-blob-trigger.md#poison-blobs). By writing to a poison queue, you have the opportunity to retry operations at a later time. This approach is the same one used by the Blob storage trigger.

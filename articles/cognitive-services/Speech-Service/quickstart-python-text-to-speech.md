@@ -1,30 +1,29 @@
 ---
-title: "Quickstart: Convert text-to-speech, Python - Speech Service"
+title: "Convert text-to-speech, Python - Speech service"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
+description: In this article, you'll learn how to convert text-to-speech using Python and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: erhopf
+ms.topic: how-to
+ms.date: 04/13/2020
+ms.author: trbye
+ms.custom: tracking-python
 ---
 
-# Quickstart: Convert text-to-speech using Python
+# Convert text-to-speech using Python
 
-In this quickstart, you'll learn how to convert text-to-speech using Python and the text-to-speech REST API. The request body in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
+In this article, you'll learn how to convert text-to-speech using Python and the text-to-speech REST API. The request body in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Services resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
+This article requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech service resource. If you don't have an account, you can use the [free trial](get-started.md) to get a subscription key.
 
 ## Prerequisites
 
-This quickstart requires:
-
 * Python 2.7.x or 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription key for the Speech Services
+* <a href="https://visualstudio.microsoft.com/downloads/" target="_blank">Visual Studio  <span class="docon docon-navigate-external x-hidden-focus"></span></a>, <a href="https://code.visualstudio.com/download" target="_blank"> Visual Studio Code <span class="docon docon-navigate-external x-hidden-focus"></span></a>, or your favorite text editor
+* An Azure subscription key for the Speech service
 
 ## Create a project and import required modules
 
@@ -68,9 +67,9 @@ The `subscription_key` is your unique key from the Azure portal. `tts` prompts t
 
 ## Get an access token
 
-The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This sample exchanges your Speech Services subscription key for an access token using the `issueToken` endpoint.
+The text-to-speech REST API requires an access token for authentication. To get an access token, an exchange is required. This sample exchanges your Speech service subscription key for an access token using the `issueToken` endpoint.
 
-This sample assumes that your Speech Services subscription is in the West US region. If you're using a different region, update the value for `fetch_token_url`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+This sample assumes that your Speech service subscription is in the West US region. If you're using a different region, update the value for `fetch_token_url`. For a full list, see [Regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copy this code into the `TextToSpeech` class:
 
@@ -89,14 +88,14 @@ def get_token(self):
 
 ## Make a request and save the response
 
-Here you're going to build the request and save the speech response. First, you need to set the `base_url` and `path`. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `base_url`. For more information, see [Speech Services regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Here you're going to build the request and save the speech response. First, you need to set the `base_url` and `path`. This sample assumes you're using the West US endpoint. If your resource is registered to a different region, make sure you update the `base_url`. For more information, see [Speech service regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Next, you need to add required headers for the request. Make sure that you update `User-Agent` with the name of your resource (located in the Azure portal), and set `X-Microsoft-OutputFormat` to your preferred audio output. For a full list of output formats, see [Audio outputs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Then construct the request body using Speech Synthesis Markup Language (SSML). This sample defines the structure, and uses the `tts` input you created earlier.
 
 >[!NOTE]
-> This sample uses the `Guy24KRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md).
+> This sample uses the `Guy24kRUS` voice font. For a complete list of Microsoft provided voices/languages, see [Language support](language-support.md).
 > If you're interested in creating a unique, recognizable voice for your brand, see [Creating custom voice fonts](how-to-customize-voice-font.md).
 
 Finally, you'll make a request to the service. If the request is successful, and a 200 status code is returned, the speech response is written to a timestamped file.
@@ -119,7 +118,7 @@ def save_audio(self):
     voice = ElementTree.SubElement(xml_body, 'voice')
     voice.set('{http://www.w3.org/XML/1998/namespace}lang', 'en-US')
     voice.set(
-        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24KRUS)')
+        'name', 'Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)')
     voice.text = self.tts
     body = ElementTree.tostring(xml_body)
 

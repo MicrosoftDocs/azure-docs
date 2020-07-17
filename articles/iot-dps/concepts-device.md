@@ -1,6 +1,6 @@
 ---
 title: Device concepts in Azure device provisioning | Microsoft Docs
-description: Describes device provisioning concepts specific to devices with Device Provisioning Service and IoT Hub
+description: Describes device provisioning concepts specific to devices with Device Provisioning Service (DPS) and IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 11/06/2019

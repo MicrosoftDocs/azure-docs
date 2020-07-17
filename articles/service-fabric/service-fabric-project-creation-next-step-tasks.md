@@ -1,21 +1,9 @@
 ---
-title: Service Fabric project creation next steps | Microsoft Docs
+title: Service Fabric project creation next steps 
 description: Learn about the application project you just created in Visual Studio.  Learn how to build services using tutorials and learn more about developing services for Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 299d1f97-1ca9-440d-9f81-d1d0dd2bf4df
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/07/2017
-ms.author: atsenthi
-
 ---
 # Your Service Fabric application and next steps
 Your Azure Service Fabric application has been created. This article describes some tutorials to try out, the makeup of your project, some more information you might be interested in, and potential next steps.

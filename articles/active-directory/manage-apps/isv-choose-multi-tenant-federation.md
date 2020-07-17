@@ -2,14 +2,14 @@
 title: Choose right federation protocol for multi-tenant application
 description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity   
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
@@ -39,7 +39,7 @@ The following table compares
 
 ## OAuth 2.0 and Open ID Connect
 
-OAuth 2.0 is an [industry-standard](https://oauth.net/2/) protocol for authorization. OIDC (OpenID Connect) is an [industry standard](https://openid.net/connect/) identity authentication layer built on top of the Oath 2.0 protocol.
+OAuth 2.0 is an [industry-standard](https://oauth.net/2/) protocol for authorization. OIDC (OpenID Connect) is an [industry standard](https://openid.net/connect/) identity authentication layer built on top of the OAuth 2.0 protocol.
 
 ### Benefits
 

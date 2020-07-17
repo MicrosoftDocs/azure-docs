@@ -1,13 +1,11 @@
 ---
-title: Operator best practices - Storage in Azure Kubernetes Services (AKS)
+title: Best practices for storage and backup
+titleSuffix: Azure Kubernetes Service
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: mlearned
+
 ---
 
 # Best practices for storage and backups in Azure Kubernetes Service (AKS)
@@ -34,11 +32,11 @@ The following table outlines the available storage types and their capabilities:
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Shared configuration       | Azure Files   | Yes | Yes | Yes | Yes |
 | Structured app data        | Azure Disks   | Yes | No  | No  | Yes |
-| Unstructured data, file system operations | [BlobFuse (preview)][blobfuse] | Yes | Yes | Yes | No |
+| Unstructured data, file system operations | [BlobFuse][blobfuse] | Yes | Yes | Yes | No |
 
 The two primary types of storage provided for volumes in AKS are backed by Azure Disks or Azure Files. To improve security, both types of storage use Azure Storage Service Encryption (SSE) by default that encrypts data at rest. Disks cannot currently be encrypted using Azure Disk Encryption at the AKS node level.
 
-Azure Files are currently available in the Standard performance tier. Azure Disks are available in Standard and Premium performance tiers:
+Both Azure Files and Azure Disks are available in Standard and Premium performance tiers:
 
 - *Premium* disks are backed by high-performance solid-state disks (SSDs). Premium disks are recommended for all production workloads.
 - *Standard* disks are backed by regular spinning disks (HDDs), and are good for archival or infrequently accessed data.
@@ -74,7 +72,7 @@ When you need to attach storage to pods, you use persistent volumes. These persi
 
 ![Persistent volume claims in an Azure Kubernetes Services (AKS) cluster](media/concepts-storage/persistent-volume-claims.png)
 
-A persistent volume claim (PVC) lets you dynamically create storage as needed. The underlying Azure disks are created as pods request them. In the pod definition, you request a volume to be created and attached to a designed mount path
+A persistent volume claim (PVC) lets you dynamically create storage as needed. The underlying Azure disks are created as pods request them. In the pod definition, you request a volume to be created and attached to a designated mount path.
 
 For the concepts on how to dynamically create and use volumes, see [Persistent Volumes Claims][aks-concepts-storage-pvcs].
 

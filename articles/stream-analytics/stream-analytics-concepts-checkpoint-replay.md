@@ -1,10 +1,9 @@
 ---
 title: Checkpoint and replay recovery concepts in Azure Stream Analytics
 description: This article describes checkpoint and replay job recovery concepts in Azure Stream Analytics.
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
@@ -53,7 +52,7 @@ To estimate the length of the delay due to a service upgrade, you can follow thi
 
 3. Measure the time between the start time and when the first output is generated. The time is rough how much delay the job would incur during a service upgrade.
 
-4. If the delay is too long, try to partition your job and increase number of SUs, so the load is spread out to more nodes. Alternatively, consider reducing the window sizes in your query, and perform further aggregation or other stateful processing on the output produced by the Stream Analytics job in the downstream sink (for example, using Azure SQL database).
+4. If the delay is too long, try to partition your job and increase number of SUs, so the load is spread out to more nodes. Alternatively, consider reducing the window sizes in your query, and perform further aggregation or other stateful processing on the output produced by the Stream Analytics job in the downstream sink (for example, using Azure SQL Database).
 
 For general service stability concern during upgrade of mission critical jobs, consider running duplicate jobs in paired Azure regions. For more information, see [Guarantee Stream Analytics job reliability during service updates](stream-analytics-job-reliability.md).
 

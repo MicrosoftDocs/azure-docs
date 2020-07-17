@@ -1,12 +1,11 @@
 ---
 title: Container Monitoring solution in Azure Monitor | Microsoft Docs
 description: The Container Monitoring solution in Azure Monitor helps you view and manage your Docker and Windows container hosts in a single location.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/22/2019
+ms.date: 07/06/2020
 
 ---
 
@@ -42,7 +41,7 @@ Before starting, review the following details to verify you meet the prerequisit
 
 The following table outlines the Docker orchestration and operating system monitoring support of container inventory, performance, and logs with Azure Monitor.   
 
-| | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log |
+|Docker Orchestration | ACS | Linux | Windows | Container<br>Inventory | Image<br>Inventory | Node<br>Inventory | Container<br>Performance | Container<br>Event | Event<br>Log | Container<br>Log |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -102,11 +101,11 @@ Use the following information to install and configure the solution.
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-a-log-analytics-linux-agent-for-kubernetes).
        - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-a-log-analytics-windows-agent-for-kubernetes).
        - Review Use Helm to deploy Log Analytics agent on Linux Kubernetes.
-     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Azure Monitor](../../container-service/dcos-swarm/container-service-monitoring-oms.md).
+     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Azure Monitor](/previous-versions/azure/container-service/dcos-swarm/container-service-monitoring-oms).
      - If you have a Docker Swarm mode environment, learn more at Configure an Log Analytics agent for Docker Swarm.
      - If you have a Service Fabric cluster, learn more at [Monitor containers with Azure Monitor](../../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
-Review the [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
+Review the [Docker Engine on Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) article for additional information about how to install and configure your Docker Engines on computers running Windows.
 
 > [!IMPORTANT]
 > Docker must be running **before** you install the [Log Analytics agent for Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) on your container hosts. If you've already installed the agent before installing Docker, you need to reinstall the Log Analytics agent for Linux. For more information about Docker, see the [Docker website](https://www.docker.com).
@@ -246,7 +245,32 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
 
     `oc describe secret omsagent-secret`  
 
-    and the  output should resemble:  
+    and the output should resemble:  
+
+    ```
+    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
+    Name:           omsagent-secret  
+    Namespace:      omslogging  
+    Labels:         <none>  
+    Annotations:    <none>  
+
+    Type:   Opaque  
+
+    Data  
+    ====  
+    KEY:    89 bytes  
+    WSID:   37 bytes  
+    ```
+
+5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
+
+    `oc create -f ocp-ds-omsagent.yaml`  
+
+6. Verify deployment by running the following:
+
+    `oc describe ds oms`
+
+    and the output should resemble:
 
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
@@ -262,31 +286,6 @@ If you want to use secrets to secure your Log Analytics Workspace ID and Primary
     Number of Nodes Misscheduled: 0  
     Pods Status:    3 Running / 0 Waiting / 0 Succeeded / 0 Failed  
     No events.  
-    ```
-
-5. Deploy the Log Analytics agent daemon-set yaml file by running the following:
-
-    `oc create -f ocp-ds-omsagent.yaml`  
-
-6. Verify deployment by running the following:
-
-    `oc describe ds oms`
-
-    and the output should resemble:
-
-    ```
-    [ocpadmin@khocp-master-0 ~]$ oc describe secret omsagent-secret  
-    Name:           omsagent-secret  
-    Namespace:      omslogging  
-    Labels:         <none>  
-    Annotations:    <none>  
-
-    Type:   Opaque  
-
-     Data  
-     ====  
-     KEY:    89 bytes  
-     WSID:   37 bytes  
     ```
 
 #### Configure a Log Analytics Linux agent for Kubernetes
@@ -502,7 +501,7 @@ dockerd --register-service -H npipe:// -H 0.0.0.0:2375
 Start-Service docker
 ```
 
-For more information about the Docker daemon configuration used with Windows Containers, see [Docker Engine on Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
+For more information about the Docker daemon configuration used with Windows Containers, see [Docker Engine on Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon).
 
 #### Install Windows agents
 
@@ -615,7 +614,6 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 - **KubeEvents_CL**  Use this type to see the Kubernetes events.
 - **KubePodInventory_CL**  Use this type when you want to understand the cluster hierarchy information.
 
-
 ### To query logs for container data
 
 * Choose an image that you know has failed recently and find the error logs for it. Start by finding a container name that is running that image with a **ContainerInventory** search. For example, search for `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
@@ -625,7 +623,7 @@ When you're troubleshooting a specific error, it can help to see where it is occ
 
 ## Example log queries
 
-It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **Sample Queries** area to help you build more advanced queries.
+It's often useful to build queries starting with an example or two and then modifying them to fit your environment. As a starting point, you can experiment with the **SAMPLE QUERIES** area on the far right of the solution page, to help you build more advanced queries.
 
 ![Containers queries](./media/containers/containers-queries.png)
 

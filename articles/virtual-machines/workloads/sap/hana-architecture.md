@@ -3,8 +3,8 @@ title: Architecture of SAP HANA on Azure (Large Instances) | Microsoft Docs
 description: Architecture of how to deploy SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: juergent
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -38,7 +38,7 @@ The architecture shown is divided into three sections:
 
    For SAP NetWeaver applications and databases that are supported to run in Azure, see [SAP Support Note #1928533 – SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533). For documentation on how to deploy SAP solutions on Azure, see:
 
-  -  [Use SAP on Windows virtual machines](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [Use SAP on Windows virtual machines](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 - **Left**: Shows the SAP HANA TDI-certified hardware in the Azure Large Instance stamp. The HANA Large Instance units are connected to the virtual networks of your Azure subscription by using the same technology as the connectivity from on-premises into Azure. As of May 2019, an optimization got introduced that allows to communicate between the HANA Large Instance units and the Azure VMs without involvement of the ExpressRoute Gateway. This optimization called ExpressRoute Fast Path is displayed in this architecture (red lines). 

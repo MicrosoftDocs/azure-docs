@@ -1,18 +1,16 @@
 ---
-title: Use a static IP address with the Azure Kubernetes Service (AKS) load balancer
+title: Use static IP with load balancer
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use a static IP address with the Azure Kubernetes Service (AKS) load balancer.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
-ms.date: 11/06/2019
-ms.author: mlearned
+ms.date: 03/09/2020
+
 
 #Customer intent: As a cluster operator or developer, I want to create and manage static IP address resources in Azure that I can use beyond the lifecycle of an individual Kubernetes service deployed in an AKS cluster.
 ---
 
-# Use a static public IP address with the Azure Kubernetes Service (AKS) load balancer
+# Use a static public IP address and DNS label with the Azure Kubernetes Service (AKS) load balancer
 
 By default, the public IP address assigned to a load balancer resource created by an AKS cluster is only valid for the lifespan of that resource. If you delete the Kubernetes service, the associated load balancer and IP address are also deleted. If you want to assign a specific IP address or retain an IP address for redeployed Kubernetes services, you can create and use a static public IP address.
 
@@ -68,9 +66,11 @@ Before creating a service, ensure the service principal used by the AKS cluster 
 ```azurecli-interactive
 az role assignment create \
     --assignee <SP Client ID> \
-    --role "Contributor" \
+    --role "Network Contributor" \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
+
+Alternatively, you can use the system assigned managed identity for permissions instead of the service principal. For more information, see [Use managed identities](use-managed-identity.md).
 
 To create a *LoadBalancer* service with the static public IP address, add the `loadBalancerIP` property and the value of the static public IP address to the YAML manifest. Create a file named `load-balancer-service.yaml` and copy in the following YAML. Provide your own public IP address created in the previous step. The following example also sets the annotation to the resource group named *myResourceGroup*. Provide your own resource group name.
 
@@ -95,6 +95,30 @@ Create the service and deployment with the `kubectl apply` command.
 ```console
 kubectl apply -f load-balancer-service.yaml
 ```
+
+## Apply a DNS label to the service
+
+If your service is using a dynamic or static public IP address, you can use the service annotation `service.beta.kubernetes.io/azure-dns-label-name` to set a public-facing DNS label. This publishes a fully qualified domain name for your service using Azure's public DNS servers and top-level domain. The annotation value must be unique within the Azure location, so it's recommended to use a sufficiently qualified label.   
+
+Azure will then automatically append a default subnet, such as `<location>.cloudapp.azure.com` (where location is the region you selected), to the name you provide, to create the fully qualified DNS name. For example:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-dns-label-name: myserviceuniquelabel
+  name: azure-load-balancer
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
+```
+
+> [!NOTE] 
+> To publish the service on your own domain, see [Azure DNS][azure-dns-zone] and the [external-dns][external-dns] project.
 
 ## Troubleshoot
 
@@ -134,6 +158,8 @@ For additional control over the network traffic to your applications, you may wa
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[azure-dns-zone]: https://azure.microsoft.com/services/dns/
+[external-dns]: https://github.com/kubernetes-sigs/external-dns
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
@@ -145,4 +171,4 @@ For additional control over the network traffic to your applications, you may wa
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku
+[ip-sku]: ../virtual-network/public-ip-addresses.md#sku

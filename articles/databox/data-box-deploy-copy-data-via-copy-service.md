@@ -1,5 +1,6 @@
 ---
-title: Tutorial to copy data to Azure Data Box device via data copy service | Microsoft Docs
+title: "Tutorial: Use data copy service to copy to your device"
+titleSuffix: Azure Data Box
 description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
 author: alkohli
@@ -23,6 +24,7 @@ Use the data copy service:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Copy data to Data Box
 
 ## Prerequisites
@@ -38,9 +40,14 @@ Before you begin, make sure that:
 
 After you're connected to the NAS device, the next step is to copy your data. Before you begin the data copy, review the following considerations:
 
-- While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
-- If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
-- If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+* While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
+
+* If data uploaded by Data Box is concurrently uploaded by other applications outside Data Box, upload-job failures and data corruption might result.
+
+* If the data is being modified as the data copy service is reading it, you might see failures or corruption of data.
+
+> [!IMPORTANT]
+> Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
 
 To copy data by using the data copy service, you need to create a job:
 
@@ -140,4 +147,3 @@ Advance to the next tutorial to learn how to ship your Data Box device back to M
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box device to Microsoft](./data-box-deploy-picked-up.md)
-

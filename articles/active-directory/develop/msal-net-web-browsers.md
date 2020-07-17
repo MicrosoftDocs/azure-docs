@@ -1,28 +1,24 @@
 ---
-title: Web browsers in Microsoft Authentication Library for .NET 
+title: Using web browsers (MSAL.NET) | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
-documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
-ms.author: twhitney
+ms.date: 05/18/2020
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about web browsers MSAL.NET so I can decide if this platform meets my application development needs and requirements.
-ms.collection: M365-identity-device-management
 ---
 
-# Using web browsers in MSAL.NET
+# Using web browsers (MSAL.NET)
+
 Web browsers are required for interactive authentication. By default, MSAL.NET supports the [system web browser](#system-web-browser-on-xamarinios-xamarinandroid) on Xamarin.iOS and Xamarin.Android. But [you can also enable the Embedded Web browser](#enable-embedded-webviews-on-ios-and-android) depending on your requirements (UX, need for single sign-on (SSO), security)  in [Xamarin.iOS](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) and [Xamarin.Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) apps. And you can even [choose dynamically](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) which web browser to use based on the presence of Chrome or a browser supporting Chrome custom tabs in Android. MSAL.NET only supports the system browser in .NET Core desktop applications.
 
 ## Web browsers in MSAL.NET
@@ -33,14 +29,14 @@ It's important to understand that when acquiring a token interactively, the cont
 
 - The password (if one was typed) is never stored by the application, nor the authentication library.
 - Enables redirections to other identity providers (for instance login-in with a work school account or a personal account with MSAL, or with a social account with Azure AD B2C).
-- Lets the STS control Conditional Access, for example, by having the user do multiple factor authentication (MFA) during the authentication phase (entering a Windows Hello pin, or being called on their phone, or on an authentication app on their phone). In cases where the required multi factor authentication isn't set it up yet, the user can set it up just in time in the same dialog.  The user enters their mobile phone number and is guided to install an authentication application and scan a QR tag to add their account. This server driven interaction is a great experience!
+- Lets the STS control Conditional Access, for example, by having the user do [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md) during the authentication phase (entering a Windows Hello pin, or being called on their phone, or on an authentication app on their phone). In cases where the required multi-factor authentication isn't set it up yet, the user can set it up just in time in the same dialog.  The user enters their mobile phone number and is guided to install an authentication application and scan a QR tag to add their account. This server driven interaction is a great experience!
 - Lets the user change their password in this same dialog when the password has expired (providing additional fields for the old password and the new password).
 - Enables branding of the tenant, or the application (images) controlled by the Azure AD tenant admin / application owner.
 - Enables the users to consent to let the application access resources / scopes in their name just after the authentication.
 
 ### Embedded vs System Web UI
 
-MSAL.NET is a multi-framework library and has framework-specific code to host a browser in a UI control (for example, on .Net Classic it uses WinForms, on Xamarin it uses native mobile controls etc.). This control is called `embedded` web UI. Alternatively, MSAL.NET is also able to kick off the system OS browser.
+MSAL.NET is a multi-framework library and has framework-specific code to host a browser in a UI control (for example, on .NET Classic it uses WinForms, on Xamarin it uses native mobile controls etc.). This control is called `embedded` web UI. Alternatively, MSAL.NET is also able to kick off the system OS browser.
 
 Generally, it's recommended that you use the platform default, and this is typically the system browser. The system browser is better at remembering the users that have logged in before. If you need to change this behavior, use `WithUseEmbeddedWebView(bool)`
 
@@ -99,8 +95,7 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 
 ### Linux and MAC
 
-On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To troubleshoot, run the tool from a terminal for example, `xdg-open "https://www.bing.com"`  
-On Mac, the browser is opened by invoking `open <url>`
+On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To troubleshoot, run the tool from a terminal, for example, `xdg-open "https://www.bing.com"`. On Mac, the browser is opened by invoking `open <url>`.
 
 ### Customizing the experience
 

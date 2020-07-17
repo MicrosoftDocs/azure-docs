@@ -1,5 +1,6 @@
 ---
-title: Security features used with Azure virtual machines - Azure security | Microsoft Docs
+title: Security features used with Azure VMs
+titleSuffix: Azure security
 description: This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines.
 services: security
 documentationcenter: na
@@ -56,7 +57,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
 * [Endpoint protection and response](/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
 * [Automated investigation and remediation](/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
-* [Secure score](/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Secure score](/windows/security/threat-protection/microsoft-defender-atp/tvm-microsoft-secure-score-devices)
 * [Advanced hunting](/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
 * [Management and APIs](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
@@ -153,9 +154,9 @@ Learn more:
 
 ## Confidential Computing
 
-While confidential computing is not technically part of virtual machine security, the topic of virtual machine security belongs to the higher-level subject of “compute” security. Confidential computing belongs within the category of “compute” security.
+While confidential computing is not technically part of virtual machine security, the topic of virtual machine security belongs to the higher-level subject of "compute" security. Confidential computing belongs within the category of "compute" security.
 
-Confidential computing ensures that when data is “in the clear,” which is required for efficient processing, the data is protected inside a Trusted Execution Environment  https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - also known as an enclave), an example of which is shown in the figure below.  
+Confidential computing ensures that when data is "in the clear," which is required for efficient processing, the data is protected inside a Trusted Execution Environment  https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - also known as an enclave), an example of which is shown in the figure below.  
 
 TEEs ensure there is no way to view data or the operations inside from the outside, even with a debugger. They even ensure that only authorized code is permitted to access data. If the code is altered or tampered, the operations are denied and the environment disabled. The TEE enforces these protections throughout the execution of code within it.
 

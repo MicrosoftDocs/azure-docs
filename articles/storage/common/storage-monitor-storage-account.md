@@ -4,10 +4,11 @@ description: Learn how to monitor a storage account in Azure by using the Azure 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
+ms.custom: monitoring
 ---
 # Monitor a storage account in the Azure portal
 
@@ -19,6 +20,8 @@ We recommend you review [Azure Monitor for Storage](../../azure-monitor/insights
 > There are costs associated with examining monitoring data in the Azure portal. For more information, see [Storage Analytics](storage-analytics.md).
 >
 > Azure Files currently supports Storage Analytics metrics, but does not yet support logging.
+>
+> Premium performance block blob storage accounts don't support Storage Analytic metrics but they do support logging. You can enable logging programmatically via the REST API or the client library. If you want to view metrics with premium performance blob blob storage accounts, consider using [Azure Storage Metrics in Azure Monitor](storage-metrics-in-azure-monitor.md).
 >
 > For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -123,7 +126,7 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 >
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
-1. Select **Diagnostics** in the **MONITORING** section of the menu blade.
+1. Select **Diagnostics settings (classic)** in the **Monitoring (classic)** section of the menu blade.
 
     ![Diagnostics menu item under MONITORING in the Azure portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 

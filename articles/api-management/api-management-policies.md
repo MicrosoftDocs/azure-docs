@@ -45,12 +45,12 @@ This section provides a reference for the following API Management policies. For
     -   [Set variable](api-management-advanced-policies.md#set-variable) - Persist a value in a named context variable for later access.  
     -   [Set request method](api-management-advanced-policies.md#SetRequestMethod) - Allows you to change the HTTP method for a request.  
     -   [Set status code](api-management-advanced-policies.md#SetStatus) - Changes the HTTP status code to the specified value.  
-    -   [Trace](api-management-advanced-policies.md#Trace) - Adds custom traces into the [API Inspector](https://azure.microsoft.com/documentation/articles/api-management-howto-api-inspector/) output, Application Insights telemetries, and Diagnostic Logs.  
+    -   [Trace](api-management-advanced-policies.md#Trace) - Adds custom traces into the [API Inspector](./api-management-howto-api-inspector.md) output, Application Insights telemetries, and Resource Logs.  
     -   [Wait](api-management-advanced-policies.md#Wait) - Waits for enclosed [Send request](api-management-advanced-policies.md#SendRequest), [Get value from cache](api-management-caching-policies.md#GetFromCacheByKey), or [Control flow](api-management-advanced-policies.md#choose) policies to complete before proceeding.  
 -   [Authentication policies](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.  
     -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) - Authenticate with a backend service using client certificates.  
-    -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with a backend service using a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
+    -   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with a backend service using a [managed identity](../active-directory/managed-identities-azure-resources/overview.md).  
 -   [Caching policies](api-management-caching-policies.md#CachingPolicies)  
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) - Perform cache look up and return a valid cached response when available.  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) - Caches response according to the specified cache control configuration.  

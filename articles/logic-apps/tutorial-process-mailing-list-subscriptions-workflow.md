@@ -1,13 +1,9 @@
 ---
-title: Build approval-based automated workflows - Azure Logic Apps
+title: Build approval-based automated workflows
 description: Tutorial - Create an approval-based automated workflow that processes mailing list subscriptions by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
@@ -58,7 +54,7 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
    |----------|-------|-------------|
    | **Name** | LA-MailingList | Your logic app's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "LA-MailingList". |
    | **Subscription** | <*your-Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md), which is used to organize related resources. This example uses "LA-MailingList-RG". |
+   | **Resource group** | LA-MailingList-RG | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which is used to organize related resources. This example uses "LA-MailingList-RG". |
    | **Location** | West US | TThe region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
@@ -105,7 +101,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
       ![Add "Subject Filter" property to trigger](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      For more information about this trigger's properties, see the [Office 365 Outlook connector reference](https://docs.microsoft.com/connectors/office365/) or the [Outlook.com connector reference](https://docs.microsoft.com/connectors/outlook/).
+      For more information about this trigger's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
 
    1. After the property appears in the trigger, enter this text: `subscribe-test-members-ML`
 
@@ -144,7 +140,7 @@ Now that you have a trigger, add an [action](../logic-apps/logic-apps-overview.m
 
    For now, ignore the dynamic content list that appears when you click inside specific edit boxes. This list lets you select available output from previous actions that you can use as inputs in your workflow.
 
-   For more information about this action's properties, see the [Office 365 Outlook connector reference](https://docs.microsoft.com/connectors/office365/) or the [Outlook.com connector reference](https://docs.microsoft.com/connectors/outlook/).
+   For more information about this action's properties, see the [Office 365 Outlook connector reference](/connectors/office365/) or the [Outlook.com connector reference](/connectors/outlook/).
  
 1. Save your logic app.
 
@@ -209,7 +205,7 @@ Now add an action that adds the approved member to your mailing list.
    | **Email Address** | Yes | <*new-member-email-address*> | From the dynamic content list, select **From** under **When a new mail arrives**, which passes in the email address for the new member. |
    ||||
 
-   For more information about this action's properties, see the [MailChimp connector reference](https://docs.microsoft.com/connectors/mailchimp/).
+   For more information about this action's properties, see the [MailChimp connector reference](/connectors/mailchimp/).
 
 1. Save your logic app.
 

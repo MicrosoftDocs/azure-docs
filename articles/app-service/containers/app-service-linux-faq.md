@@ -1,17 +1,9 @@
 ---
-title: App Service on Linux FAQ - Azure | Microsoft Docs
-description: Azure App Service on Linux FAQ.
+title: Run built-in containers FAQ
+description: Find answers to the frequently asked questions about the built-in Linux containers in Azure App Service.
 keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
-services: app-service
-documentationCenter: ''
 author: msangapu-msft
-manager: stefsch
-editor: ''
 
-ms.assetid:
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
@@ -35,10 +27,10 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 | Stack           | Expected Value                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
-| Java SE         | the command to start your JAR app (for example, `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
+| Java SE         | the command to start your JAR app (for example, `java -jar /home/site/wwwroot/app.jar --server.port=80`) |
+| Tomcat          | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | the PM2 configuration file or your script file                                |
-| .Net Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
+| .NET Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
 | Ruby            | the Ruby script that you want to initialize your app with                     |
 
 These commands or scripts are executed after the built-in Docker container is started, but before your application code is started.
@@ -59,7 +51,7 @@ Yes, you can do that through the source control management (SCM) site.
 
 **How can I create a Linux App Service plan through an SDK or an Azure Resource Manager template?**
 
-You should set the **reserved** field of the app service to *true*.
+Set the **reserved** field of the app service to *true*.
 
 ## Continuous integration and deployment
 
@@ -79,7 +71,7 @@ Yes, you need to set an app setting called `WEBSITE_WEBDEPLOY_USE_SCM` to *false
 
 If Git deployment fails to your Linux web app, choose one of the following options to deploy your application code:
 
-- Use the Continuous Delivery (Preview) feature: You can store your app’s source code in an Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Use the Continuous Delivery (Preview) feature: You can store your app's source code in an Azure DevOps Git repo or GitHub repo to use Azure Continuous Delivery. For more information, see [How to configure Continuous Delivery for Linux web app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Use the [ZIP deploy API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): To use this API, [SSH into your web app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) and go to the folder where you want to deploy your code. Run the following code:
 
@@ -176,13 +168,25 @@ Here are the rules for determining which container is accessible - in the order 
 - The first container to define port 80 or 8080
 - If neither of the above is true, the first container defined in the file will be accessible (exposed)
 
+
+## Web Sockets
+
+Web Sockets are supported on Linux apps.
+
+> [!IMPORTANT]
+> Web Sockets are not currently supported for Linux apps on Free App Service Plans. We are working on removing this limitation and plan to support up to 5 web socket connections on Free App Service plans.
+
 ## Pricing and SLA
 
 **What is the pricing, now that the service is generally available?**
 
-You are charged the normal Azure App Service pricing for the number of hours that your app runs.
+Pricing varies by SKU and region but you can see more details at our pricing page: [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 
 ## Other questions
+
+**What does "Requested feature is not available in resource group" mean?**
+
+You may see this message when creating web app using Azure Resource Manager (ARM). Based on a current limitation, for the same resource group, you cannot mix Windows and Linux apps in the same region.
 
 **What are the supported characters in application settings names?**
 

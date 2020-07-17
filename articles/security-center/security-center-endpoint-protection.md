@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2019
+ms.date: 12/29/2019
 ms.author: memildin
 ---
 
 # Endpoint protection assessment and recommendations in Azure Security Center
 
-Azure Security Center provides health assessments of [supported](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) versions of Endpoint protection solutions. This article explains the scenarios that lead Security Center to generate the following two recommendations:
+Azure Security Center provides health assessments of [supported](security-center-services.md#endpoint-supported) versions of Endpoint protection solutions. This article explains the scenarios that lead Security Center to generate the following two recommendations:
 
 * **Install endpoint protection solutions on your virtual machine**
 * **Resolve endpoint protection health issues on your machines**
@@ -55,25 +55,19 @@ Azure Security Center provides health assessments of [supported](https://docs.mi
 
 * Security Center recommends you **"Resolve endpoint protection health issues on your machines"** when **Get-MprotComputerStatus** runs and any of the following occurs:
 
-    * At least one of the following properties is false:
+  * At least one of the following properties is false:
 
-            **AMServiceEnabled**
+    * **AMServiceEnabled**
+    * **AntispywareEnabled**
+    * **RealTimeProtectionEnabled**
+    * **BehaviorMonitorEnabled**
+    * **IoavProtectionEnabled**
+    * **OnAccessProtectionEnabled**
 
-            **AntispywareEnabled**
-    
-            **RealTimeProtectionEnabled**
-    
-            **BehaviorMonitorEnabled**
-    
-            **IoavProtectionEnabled**
-    
-            **OnAccessProtectionEnabled**
-          
-    * If one or both of the following Signature Updates is greater or equal to 7. 
+  * If one or both of the following Signature Updates is greater or equal to 7. 
 
-            **AntispywareSignatureAge**
-    
-            **AntivirusSignatureAge**
+    * **AntispywareSignatureAge**
+    * **AntivirusSignatureAge**
 
 ## Trend Micro
 

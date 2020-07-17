@@ -1,21 +1,9 @@
 ---
-title: Deploy and upgrade applications and services with Azure Resource Manager | Microsoft Docs
+title: Deploy and upgrade with Azure Resource Manager
 description: Learn how to deploy applications and services to a Service Fabric cluster using an Azure Resource Manager template.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid:
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-
 ---
 # Manage applications and services as Azure Resource Manager resources
 
@@ -268,13 +256,12 @@ Simply removing Microsoft.ServiceFabric/clusters/application from your ARM templ
 
 ## Manage an existing application via Resource Manager
 
-If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and redeploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. For additional information, refer to [What is the Service Fabric application resource model?](https://docs.microsoft.com/azure/service-fabric/service-fabric-concept-resource-model)
+If your cluster is already up and some applications that you would like to manage as Resource Manager resources are already deployed on it, instead of removing the applications and redeploying them, you can use a PUT call using the same APIs to have the applications get acknowledged as Resource Manager resources. For additional information, refer to [What is the Service Fabric application resource model?](./service-fabric-concept-resource-model.md)
 
 > [!NOTE]
-> To allow a cluster upgrade to ignore unhealthy apps the customer can specify “maxPercentUnhealthyApplications: 100” in the “upgradeDescription/healthPolicy” section; detailed descriptions for all settings are in [Service Fabrics REST API Cluster Upgrade Policy documentation](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> To allow a cluster upgrade to ignore unhealthy apps the customer can specify “maxPercentUnhealthyApplications: 100” in the “upgradeDescription/healthPolicy” section; detailed descriptions for all settings are in [Service Fabrics REST API Cluster Upgrade Policy documentation](/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## Next steps
 
 * Use the [Service Fabric CLI](service-fabric-cli.md) or [PowerShell](service-fabric-deploy-remove-applications.md) to deploy other applications to your cluster. 
 * [Upgrade your Service Fabric cluster](service-fabric-cluster-upgrade.md)
-

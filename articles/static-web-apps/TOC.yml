@@ -1,0 +1,65 @@
+- name: Azure Static Web Apps Documentation
+  href: index.yml
+- name: Overview
+  items:
+    - name: About Static Web Apps
+      href: overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+    - name: Build your first static web app
+      href: getting-started.md
+- name: Concepts
+  items:
+    - name: API support with Azure Functions
+      href: apis.md
+    - name: Routes
+      href: routes.md
+    - name: Authentication and authorization
+      href: authentication-authorization.md
+    - name: Access user information
+      href: user-information.md
+    - name: Review pull requests in pre-production environments
+      href: review-publish-pull-requests.md
+    - name: Custom domain
+      href: custom-domain.md
+    - name: Build and workflow configuration
+      href: github-actions-workflow.md
+- name: How-to guides
+  items:
+    - name: Setup local development
+      href: local-development.md
+    - name: Add an API
+      href: add-api.md
+    - name: Configure app settings
+      href: application-settings.md
+    - name: Configure front-end frameworks and libraries
+      href: front-end-frameworks.md
+- name: Tutorials
+  items:
+    - name: Publish from a static site generator
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+        - name: Jekyll
+          href: publish-jekyll.md
+    - name: Deploy from a framework
+      items:
+        - name: Next.js
+          href: deploy-nextjs.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+- name: Resources
+  items:
+    - name: Build your skills with Microsoft Learn
+      items:
+        - name: Publish an Angular, React, Svelte, or Vue JavaScript app and API
+          href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Create and publish a static web app with Gatsby
+          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - name: Quotas
+      href: quotas.md

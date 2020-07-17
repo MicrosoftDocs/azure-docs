@@ -1,31 +1,26 @@
 ---
-# required metadata
-title: Connect to Office 365 Users - Azure Logic Apps | Microsoft Docs
-description: Manage user profiles with Office 365 Users REST APIs and Azure Logic Apps 
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
+title: Connect to Office 365 Users
+description: Automate tasks and workflows that get and manage profiles in Office 365 Users profiles by using Azure Logic Apps 
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
-ms.service: logic-apps
-services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
 ---
 
-# Get started with the Office 365 Users connector
+# Get and manage profiles in Office 365 Users by using Azure Logic Apps
+
 Connect to Office 365 Users to get profiles, search users, and more. With Office 365 Users, you can:
 
 * Build your business flow based on the data you get from Office 365 Users. 
-* Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a SQL Azure database. 
+* Use actions that get direct reports, get a manager's user profile, and more. These actions get a response, and then make the output available for other actions. For example, get a person's direct reports, and then take this information and update a database in Azure SQL Database. 
 
 You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to Office 365 Users
-When you add this connector to your logic apps, you must sign-in to your Office 365 Users account and allow logic apps to connect to your account.
+
+When you add this connector to your logic apps, you must sign-in to your Office 365 Users account so that Azure Logic Apps can connect to your account.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Users](../../includes/connectors-create-api-office365users.md)]
 > 
@@ -35,7 +30,8 @@ After you create the connection, you enter the Office 365 Users properties, like
 
 ## Connector-specific details
 
-View any triggers and actions defined in the swagger, and also see any limits in the [connector details](/connectors/officeusers/).
+For technical details about triggers, actions, and limits, which are described by the connector's Swagger description, review the [connector's reference page](/connectors/officeusers/).
 
-## More connectors
-Go back to the [APIs list](apis-list.md).
+## Next steps
+
+* Learn about other [Logic Apps connectors](apis-list.md)

@@ -3,7 +3,7 @@ title: Azure Application Insights log-based metrics | Microsoft Docs
 description: This article lists Azure Application Insights metrics with supported aggregations and dimensions. The details about log-based metrics include the underlying Kusto query statements.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
@@ -14,7 +14,7 @@ ms.subservice: application-insights
 
 Application Insights log-based metrics let you analyze the health of your monitored apps, create powerful dashboards, and configure alerts. There are two kinds of metrics:
 
-* [Log-based metrics](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](https://docs.microsoft.com/azure/kusto/query/) from stored events.
+* [Log-based metrics](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) behind the scene are translated into [Kusto queries](/azure/kusto/query/) from stored events.
 * [Standard metrics](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) are stored as pre-aggregated time series.
 
 Since *standard metrics* are pre-aggregated during collection, they have better performance at query time. This makes them a better choice for dashboarding and in real-time alerting. The *log-based metrics* have more dimensions, which makes them the superior option for data analysis and ad-hoc diagnostics. Use the [namespace selector](metrics-getting-started.md#create-your-first-metric-chart) to switch between log-based and standard metrics in [metrics explorer](metrics-getting-started.md).

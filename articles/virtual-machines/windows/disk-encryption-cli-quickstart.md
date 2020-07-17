@@ -3,7 +3,8 @@ title: Create and encrypt a Windows VM with Azure CLI
 description: In this quickstart, you learn how to use Azure CLI to create and encrypt a Windows virtual machine
 author: msmbaldwin
 ms.author: mbaldwin
-ms.service: security
+ms.service: virtual-machines-windows
+ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
 ---
@@ -16,7 +17,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the Azure CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -28,7 +29,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password. 
+Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*. This example uses *azureuser* for an administrative user name and *myPassword12* as the password.
 
 ```azurecli-interactive
 az vm create \
@@ -41,7 +42,7 @@ az vm create \
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
 
-```azurecli-interactive
+```
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -60,7 +61,7 @@ Azure disk encryption stores its encryption key in an Azure Key Vault. Create a 
 > [!Important]
 > Each Key Vault must have a unique name. The following example creates a Key Vault named *myKV*, but you must name yours something different.
 
-```azurecli
+```azurecli-interactive
 az keyvault create --name "myKV" --resource-group "myResourceGroup" --location eastus --enabled-for-disk-encryption
 ```
 
@@ -80,13 +81,13 @@ az vm show --name MyVM -g MyResourceGroup
 
 You will see the following in the returned output:
 
-```azurecli-interactive
+```
 "EncryptionOperation": "EnableEncryption"
 ```
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and Key Vault. 
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, VM, and Key Vault.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -98,4 +99,3 @@ In this quickstart, you created a virtual machine, created a Key Vault that was 
 
 > [!div class="nextstepaction"]
 > [Azure Disk Encryption overview](disk-encryption-overview.md)
-

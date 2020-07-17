@@ -1,8 +1,8 @@
 ---
-title: Render coverage in Azure Maps | Microsoft Docs
-description: Learn about Render coverage in Azure Maps
-author: jingjing-z
-ms.author: jinzh
+title: Render coverage | Microsoft Azure Maps
+description: In this article, learn about regions with Microsoft Azure Maps render coverage along with their level of rendered details.
+author: Philmea
+ms.author: philmea
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -13,9 +13,9 @@ manager:
 
 # Azure Maps render coverage
 
-Azure Maps uses both raster tiles and vector tiles to create maps. At its lowest resolution, the entire world fits on a single tile. At its highest resolution, a single tile represents 38 square meters. As you zoom in on a map, therefore, you can see increasingly more details about continents, regions, cities, and individual streets. For more information, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
+Azure Maps uses both raster tiles and vector tiles to create maps. At the lowest resolution, the entire world fits in a single tile. At the highest resolution, a single tile represents 38 square meters. You'll see more details about continents, regions, cities, and individual streets as you zoom in the map. For more information about tiles, see [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
 
-However, Maps does not have the same level of information and accuracy for all regions. The following tables provide information about what level of rendered detail you can expect from each region.
+However, Maps doesn't have the same level of information and accuracy for all regions. The following tables detail the level of information you can render for each region.
 
 ## Legend
 

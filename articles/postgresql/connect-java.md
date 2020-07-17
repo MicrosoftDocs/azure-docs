@@ -1,36 +1,36 @@
 ---
-title: 'Quickstart: Use Java to connect to Azure Database for PostgreSQL - Single Server'
+title: Connect with Java - Azure Database for PostgreSQL - Single Server
 description: This quickstart provides a Java code sample you can use to connect and query data from Azure Database for PostgreSQL  - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: ["mvc", "seo-java-august2019"]
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.custom: seo-java-august2019
 ---
 
 # Quickstart: Use Java to connect to and query data in Azure Database for PostgreSQL - Single Server
-This quickstart demonstrates how to connect to an Azure Database for PostgreSQL using a Java application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Java, and are new to working with Azure Database for PostgreSQL.
+
+In this quickstart, you connect to an Azure Database for PostgreSQL using a Java application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Java, and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
-- [Create DB - Portal](quickstart-create-server-database-portal.md)
-- [Create DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
-You also need to:
-- Download the [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) matching your version of Java and the Java Development Kit.
-- Include the PostgreSQL JDBC jar file (for example postgresql-42.1.1.jar) in your application classpath. For more information, see [classpath details](https://jdbc.postgresql.org/documentation/head/classpath.html).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+- Completion of [Quickstart: Create an Azure Database for PostgreSQL server in the Azure portal](quickstart-create-server-database-portal.md) or [Quickstart: Create an Azure Database for PostgreSQL using the Azure CLI](quickstart-create-server-database-azure-cli.md).
+
+- [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/download.html) - match your version of Java and the Java Development Kit.
+- [Classpath details](https://jdbc.postgresql.org/documentation/head/classpath.html) - Include the PostgreSQL JDBC jar file (for example postgresql-42.1.1.jar) in your application classpath.
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for PostgreSQL. You need the fully qualified server name and login credentials.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Select the server name.
-4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for PostgreSQL server name](./media/connect-java/azure-database-postgresql-server-name.png)
+1. In the [Azure portal](https://portal.azure.com/), search for and select the server you have created (such as **mydemoserver**).
+
+1. From the server's **Overview** panel, make a note of the **Server name** and **Admin username**. If you forget your password, you can also reset the password from this panel.
+
+    ![Azure Database for PostgreSQL connection string](./media/connect-java/server-details-azure-database-postgresql.png)
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data into the database using the function with an **INSERT** SQL statement. The methods [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), and [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) are used to connect to the database, drop, and create the table. The [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) runs the command for each set of parameters. 

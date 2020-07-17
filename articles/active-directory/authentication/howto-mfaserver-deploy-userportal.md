@@ -5,11 +5,11 @@ description: Get started with Azure MFA and the user portal.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 
@@ -40,11 +40,11 @@ In either scenario, if the Azure Multi-Factor Authentication Web Service SDK is 
 1. Open the Multi-Factor Authentication Server console.
 2. Go to the **Web Service SDK** and select **Install Web Service SDK**.
 3. Complete the install using the defaults unless you need to change them for some reason.
-4. Bind an SSL Certificate to the site in IIS.
+4. Bind a TLS/SSL Certificate to the site in IIS.
 
-If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+If you have questions about configuring a TLS/SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-The Web Service SDK must be secured with an SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the “Trusted Root Certification Authorities” store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the SSL connection.
+The Web Service SDK must be secured with a TLS/SSL certificate. A self-signed certificate is okay for this purpose. Import the certificate into the "Trusted Root Certification Authorities" store of the Local Computer account on the User Portal web server so that it trusts that certificate when initiating the TLS connection.
 
 ![MFA Server configuration setup Web Service SDK](./media/howto-mfaserver-deploy-userportal/sdk.png)
 
@@ -54,23 +54,23 @@ The following pre-requisites are required to install the user portal on the **sa
 
 * IIS, including ASP.NET, and IIS 6 meta base compatibility (for IIS 7 or higher)
 * An account with admin rights for the computer and Domain if applicable. The account needs permissions to create Active Directory security groups.
-* Secure the user portal with an SSL certificate.
-* Secure the Azure Multi-Factor Authentication Web Service SDK with an SSL certificate.
+* Secure the user portal with a TLS/SSL certificate.
+* Secure the Azure Multi-Factor Authentication Web Service SDK with a TLS/SSL certificate.
 
 To deploy the user portal, follow these steps:
 
 1. Open the Azure Multi-Factor Authentication Server console, click the **User Portal** icon in the left menu, then click **Install User Portal**.
 2. Complete the install using the defaults unless you need to change them for some reason.
-3. Bind an SSL Certificate to the site in IIS
+3. Bind a TLS/SSL Certificate to the site in IIS
 
    > [!NOTE]
-   > This SSL Certificate is usually a publicly signed SSL Certificate.
+   > This TLS/SSL Certificate is usually a publicly signed TLS/SSL Certificate.
 
-4. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
+4. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: `https://mfa.contoso.com/MultiFactorAuth`). Ensure that no certificate warnings or errors are displayed.
 
 ![MFA Server User Portal installation](./media/howto-mfaserver-deploy-userportal/install.png)
 
-If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+If you have questions about configuring a TLS/SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## Deploy the user portal on a separate server
 
@@ -82,19 +82,19 @@ If your organization uses the Microsoft Authenticator app as one of the verifica
 * Install the user portal on an internet-facing web server running Microsoft internet Information Services (IIS) 6.x or higher.
 * When using IIS 6.x, ensure ASP.NET v2.0.50727 is installed, registered, and set to **Allowed**.
 * When using IIS 7.x or higher, IIS, including Basic Authentication, ASP.NET, and IIS 6 meta base compatibility.
-* Secure the user portal with an SSL certificate.
-* Secure the Azure Multi-Factor Authentication Web Service SDK with an SSL certificate.
-* Ensure that the user portal can connect to the Azure Multi-Factor Authentication Web Service SDK over SSL.
+* Secure the user portal with a TLS/SSL certificate.
+* Secure the Azure Multi-Factor Authentication Web Service SDK with a TLS/SSL certificate.
+* Ensure that the user portal can connect to the Azure Multi-Factor Authentication Web Service SDK over TLS/SSL.
 * Ensure that the user portal can authenticate to the Azure Multi-Factor Authentication Web Service SDK using the credentials of a service account in the "PhoneFactor Admins" security group. This service account and group should exist in Active Directory if the Azure Multi-Factor Authentication Server is running on a domain-joined server. This service account and group exist locally on the Azure Multi-Factor Authentication Server if it is not joined to a domain.
 
 Installing the user portal on a server other than the Azure Multi-Factor Authentication Server requires the following steps:
 
 1. **On the MFA Server**, browse to the installation path (Example: C:\Program Files\Multi-Factor Authentication Server), and copy the file **MultiFactorAuthenticationUserPortalSetup64** to a location accessible to the internet-facing server where you will install it.
 2. **On the internet-facing web server**, run the  MultiFactorAuthenticationUserPortalSetup64 install file as an administrator, change the Site if desired and change the Virtual directory to a short name if you would like.
-3. Bind an SSL Certificate to the site in IIS.
+3. Bind a TLS/SSL Certificate to the site in IIS.
 
    > [!NOTE]
-   > This SSL Certificate is usually a publicly signed SSL Certificate.
+   > This TLS/SSL Certificate is usually a publicly signed TLS/SSL Certificate.
 
 4. Browse to **C:\inetpub\wwwroot\MultiFactorAuth**
 5. Edit the Web.Config file in Notepad
@@ -102,12 +102,12 @@ Installing the user portal on a server other than the Azure Multi-Factor Authent
     * Find the key **"USE_WEB_SERVICE_SDK"** and change **value="false"** to **value="true"**
     * Find the key **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** and change **value=""** to **value="DOMAIN\User"** where DOMAIN\User is a Service Account that is a part of "PhoneFactor Admins" Group.
     * Find the key **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** and change **value=""** to **value="Password"** where Password is the password for the Service Account entered in the previous line.
-    * Find the value **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** and change this placeholder URL to the Web Service SDK URL we installed in step 2.
+    * Find the value `https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx` and change this placeholder URL to the Web Service SDK URL we installed in step 2.
     * Save the Web.Config file and close Notepad.
 
-6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: https://mfa.contoso.com/MultiFactorAuth). Ensure that no certificate warnings or errors are displayed.
+6. Open a web browser from any computer and navigate to the URL where the user portal was installed (Example: `https://mfa.contoso.com/MultiFactorAuth`). Ensure that no certificate warnings or errors are displayed.
 
-If you have questions about configuring an SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+If you have questions about configuring a TLS/SSL Certificate on an IIS server, see the article [How to Set Up SSL on IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
 ## Configure user portal settings in the Azure Multi-Factor Authentication Server
 
@@ -159,9 +159,9 @@ If they select the Voice Call verification method or have been pre-configured to
 
 ![Register primary and backup phone numbers](./media/howto-mfaserver-deploy-userportal/backupphone.png)
 
-If the user is required to use a PIN when they authenticate, the page prompts them to create a PIN. After entering their phone number(s) and PIN (if applicable), the user clicks the **Call Me Now to Authenticate** button. Azure Multi-Factor Authentication performs a phone call verification to the user’s primary phone number. The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.
+If the user is required to use a PIN when they authenticate, the page prompts them to create a PIN. After entering their phone number(s) and PIN (if applicable), the user clicks the **Call Me Now to Authenticate** button. Azure Multi-Factor Authentication performs a phone call verification to the user's primary phone number. The user must answer the phone call and enter their PIN (if applicable) and press # to move on to the next step of the self-enrollment process.
 
-If the user selects the Text Message verification method or has been pre-configured to use that method, the page prompts the user for their mobile phone number. If the user is required to use a PIN when they authenticate, the page also prompts them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the **Text Me Now to Authenticate** button. Azure Multi-Factor Authentication performs an SMS verification to the user’s mobile phone. The user receives the text message with a one-time-passcode (OTP), then replies to the message with that OTP plus their PIN (if applicable).
+If the user selects the Text Message verification method or has been pre-configured to use that method, the page prompts the user for their mobile phone number. If the user is required to use a PIN when they authenticate, the page also prompts them to enter a PIN.  After entering their phone number and PIN (if applicable), the user clicks the **Text Me Now to Authenticate** button. Azure Multi-Factor Authentication performs an SMS verification to the user's mobile phone. The user receives the text message with a one-time-passcode (OTP), then replies to the message with that OTP plus their PIN (if applicable).
 
 ![User portal verification using SMS](./media/howto-mfaserver-deploy-userportal/text.png)
 
@@ -172,7 +172,7 @@ If the user selects the Mobile App verification method, the page prompts the use
 
 The page then displays an activation code and a URL along with a barcode picture. If the user is required to use a PIN when they authenticate, the page additionally prompts them to enter a PIN. The user enters the activation code and URL into the Microsoft Authenticator app or uses the barcode scanner to scan the barcode picture and clicks the Activate button.
 
-After the activation is complete, the user clicks the **Authenticate Me Now** button. Azure Multi-Factor Authentication performs a verification to the user’s mobile app. The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.
+After the activation is complete, the user clicks the **Authenticate Me Now** button. Azure Multi-Factor Authentication performs a verification to the user's mobile app. The user must enter their PIN (if applicable) and press the Authenticate button in their mobile app to move on to the next step of the self-enrollment process.
 
 If the administrators have configured the Azure Multi-Factor Authentication Server to collect security questions and answers, the user is then taken to the Security Questions page. The user must select four security questions and provide answers to their selected questions.
 

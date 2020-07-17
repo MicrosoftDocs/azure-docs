@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # Develop with Media Services v3 APIs
 
-As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
+As a developer, you can use Media Services [REST API](https://docs.microsoft.com/rest/api/media/) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
 This article discusses rules that apply to entities and APIs when you develop with Media Services v3.
 
@@ -39,7 +39,7 @@ Instead of creating a service principal, consider using managed identities for A
 
 If you're creating an Azure AD app and service principal, the app has to be in its own tenant. After you create the app, give the app **Contributor** or **Owner** role access to the Media Services account.
 
-If you're not sure whether you have permissions to create an Azure AD app, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+If you're not sure whether you have permissions to create an Azure AD app, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 In the following figure, the numbers represent the flow of the requests in chronological order:
 
@@ -53,7 +53,7 @@ In the following figure, the numbers represent the flow of the requests in chron
    * Azure AD app values: the client ID and client secret.
 
    To get all the needed values, 
-see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md).
+see [Access Azure Media Services API](access-api-cli-how-to.md).
 
 2. The Azure AD access token is sent to the middle tier.
 4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
@@ -147,7 +147,7 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## See also
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+To get all the needed values, see [Access Azure Media Services API](access-api-cli-how-to.md).
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
@@ -130,7 +130,7 @@ Same as with Android applications described above, the `ApnsService` object prov
 - **Payload** - the message's JSON or string payload.
 - **Callback** - the callback function.
 
-For more information the payload format, see The **Notification Payload** section of the [Local and Push Notification Programming Guide](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) document.
+For more information the payload format, see The **Notification Content** section of the [UserNotifications guide](https://developer.apple.com/documentation/usernotifications).
 
 The following code uses the `ApnsService` instance exposed by the `NotificationHubService` to send an alert message to all clients:
 

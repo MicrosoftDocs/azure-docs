@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to implement feature flags in Sprin
 services: azure-app-configuration
 documentationcenter: ''
 author: mrm9084
-manager: zhenlwa
+manager: zhenlan
 editor: ''
 
 ms.assetid: 
@@ -49,11 +49,23 @@ We recommend that you keep feature flags outside the application and manage them
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
 
+### Spring Cloud 1.1.x
+
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-    <version>1.1.0.M4</version>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.1.2</version>
+</dependency>
+```
+
+### Spring Cloud 1.2.x
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>
+    <version>1.2.2</version>
 </dependency>
 ```
 
@@ -67,23 +79,22 @@ The feature manager supports *application.yml* as a configuration source for fea
 
 ```yml
 feature-management:
-  featureSet:
-    features:
-      FeatureA: true
-      FeatureB: false
-      FeatureC:
-        EnabledFor:
-          -
-            name: Percentage
-            parameters:
-              value: 50
+  feature-set:
+    feature-a: true
+    feature-b: false
+    feature-c:
+      enabled-for:
+        -
+          name: Percentage
+          parameters:
+            value: 50
 ```
 
 By convention, the `feature-management` section of this YML document is used for feature flag settings. The prior example shows three feature flags with their filters defined in the `EnabledFor` property:
 
-* `FeatureA` is *on*.
-* `FeatureB` is *off*.
-* `FeatureC` specifies a filter named `Percentage` with a `Parameters` property. `Percentage` is a configurable filter. In this example, `Percentage` specifies a 50-percent probability for the `FeatureC` flag to be *on*.
+* `feature-a` is *on*.
+* `feature-b` is *off*.
+* `feature-c` specifies a filter named `Percentage` with a `parameters` property. `Percentage` is a configurable filter. In this example, `Percentage` specifies a 50-percent probability for the `feature-c` flag to be *on*.
 
 ## Feature flag checks
 
@@ -92,8 +103,7 @@ The basic pattern of feature management is to first check if a feature flag is s
 ```java
 private FeatureManager featureManager;
 ...
-if (featureManager.isEnabled("FeatureA"))
-{
+if (featureManager.isEnabledAsync("feature-a").block()) {
     // Run the following code
 }
 ```
@@ -116,11 +126,11 @@ public class HomeController {
 
 ## Controller actions
 
-In MVC controllers, you use the `@FeatureGate` attribute to control whether a specific action is enabled. The following `Index` action requires `FeatureA` to be *on* before it can run:
+In MVC controllers, you use the `@FeatureGate` attribute to control whether a specific action is enabled. The following `Index` action requires `feature-a` to be *on* before it can run:
 
 ```java
 @GetMapping("/")
-@FeatureGate(feature = "FeatureA")
+@FeatureGate(feature = "feature-a")
 public String index(Model model) {
     ...
 }
@@ -130,7 +140,7 @@ When an MVC controller or action is blocked because the controlling feature flag
 
 ## MVC filters
 
-You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `FeatureFlagFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled.
+You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `FeatureFlagFilter`. This filter is triggered within the MVC pipeline only if `feature-a` is enabled.
 
 ```java
 @Component
@@ -142,7 +152,7 @@ public class FeatureFlagFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        if(!featureManager.isEnabled("FeatureA")) {
+        if(!featureManager.isEnabledAsync("feature-a").block()) {
             chain.doFilter(request, response);
             return;
         }
@@ -154,11 +164,11 @@ public class FeatureFlagFilter implements Filter {
 
 ## Routes
 
-You can use feature flags to redirect routes. The following code will redirect a user from `FeatureA` is enabled:
+You can use feature flags to redirect routes. The following code will redirect a user from `feature-a` is enabled:
 
 ```java
 @GetMapping("/redirect")
-@FeatureGate(feature = "FeatureA", fallback = "/getOldFeature")
+@FeatureGate(feature = "feature-a", fallback = "/getOldFeature")
 public String getNewFeature() {
     // Some New Code
 }

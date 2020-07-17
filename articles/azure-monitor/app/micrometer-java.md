@@ -1,8 +1,6 @@
 ---
-title: How to use Micrometer with Azure Application Insights Java SDK | Microsoft Docs
-description: 'A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications. '
-ms.service:  azure-monitor
-ms.subservice: application-insights
+title: How to use Micrometer with Azure Application Insights Java SDK
+description: A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
@@ -270,4 +268,4 @@ Add the following binding code to the configuration  file:
 ## Next steps
 
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure, see the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/?view=azure-java-stable).

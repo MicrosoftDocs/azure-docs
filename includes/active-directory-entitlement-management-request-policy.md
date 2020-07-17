@@ -5,7 +5,7 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 11/11/2019
+ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
 ---
@@ -61,6 +61,7 @@ Follow these steps if you want to allow users not in your directory to request t
     | --- | --- |
     | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
     | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
+    | **All users (All connected organizations + any new external users)** | Choose this option if all users from all your connected organizations can request this access package and that the B2B allow or deny list settings should take precedence for any new external user. |
 
     A connected organization is an external Azure AD directory or domain that you have a relationship with.
 
@@ -101,6 +102,14 @@ In the Approval section, you specify whether an approval is required when users 
 - Approval from every selected approver isn't required for single or 2-stage approval.
 - The approval decision is based on whichever approver reviews the request first.
 
+For a demonstration of how to add approvers to a request policy, watch the following video:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+For a demonstration of how to add a multi-stage approval to a request policy, watch the following video:
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
 Follow these steps to specify the approval settings for requests for the access package:
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
@@ -110,7 +119,6 @@ Follow these steps to specify the approval settings for requests for the access 
 1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
 
     ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 
 Use the following steps to add approvers after selecting how many stages you require: 
 
@@ -140,7 +148,7 @@ Use the following steps to add approvers after selecting how many stages you req
 
     The justification is visible to other approvers and the requestor.
 
-### 2-stage approval (Preview)
+### 2-stage approval
 
 If you selected a 2-stage approval, you'll need to add a second approver.
 
@@ -181,11 +189,11 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life. In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life, and the decision of the main approver(s) has to time-out after at least 4 days. If the request time-out is less or equal than 3, there is not enough time to forward the request to alternate approver(s). In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
 
 ## Enable requests
 
-1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+1. If you want the access package to be made immediately available for users in the request policy to request, move the Enable toggle to **Yes**.
 
     You can always enable it in the future after you have finished creating the access package.
 

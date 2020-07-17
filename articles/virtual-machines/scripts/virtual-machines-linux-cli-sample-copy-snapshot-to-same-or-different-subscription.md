@@ -1,11 +1,11 @@
 ---
-title: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI
-description: Azure CLI Script Sample - Copy (move) snapshot of a managed disk to same or different subscription with CLI
+title: Copy managed disk snapshot to a subscription - CLI Sample
+description: Azure CLI Script Sample - Copy (or move) snapshot of a managed disk to same or different subscription with CLI
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -42,13 +42,13 @@ This script uses following commands to create a snapshot in the target subscript
 
 | Command | Notes |
 |---|---|
-| [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
-| [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
+| [az snapshot show](/cli/azure/snapshot) | Gets all the properties of a snapshot using the name and resource group properties of the snapshot. Id property is used to copy the snapshot to different subscription.  |
+| [az snapshot create](/cli/azure/snapshot) | Copies a snapshot by creating a snapshot in different subscription using the Id and name of the parent snapshot.  |
 
 ## Next steps
 
 [Create a virtual machine from a snapshot](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

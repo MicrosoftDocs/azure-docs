@@ -170,7 +170,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	1. In the **Transformation** list, select **ExtractMailPrefix()**.
 
-	1. In the **Parameter 1** list, select **user.userprinicipalname**.
+	1. In the **Parameter 1** list, select **user.userprincipalname**.
 
 	1. Select **Save**.
 

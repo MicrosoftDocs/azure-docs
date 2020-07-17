@@ -1,6 +1,6 @@
 ---
 title: Adaptive Network Hardening in Azure Security Center | Microsoft Docs
-description: " Learn how to enable Adaptive Network Hardening in Azure Security Center. "
+description: Learn how to use actual traffic patterns to harden your network security groups (NSG) rules and further improve your security posture.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2019
+ms.date: 03/11/2020
 ms.author: memildin
 ---
+
 # Adaptive Network Hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
 
@@ -23,12 +24,14 @@ Applying [network security groups (NSG)](https://docs.microsoft.com/azure/virtua
 
 Adaptive Network Hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise, and then provides recommendations to allow traffic only from specific IP/port tuples.
 
-For example, let’s say the existing NSG rule is to allow traffic from 140.20.30.10/24 on port 22. The Adaptive Network Hardening’s recommendation, based on the analysis, would be to narrow the range and allow traffic from 140.23.30.10/29 – which is a narrower IP range, and deny all other traffic to that port.
+For example, let's say the existing NSG rule is to allow traffic from 140.20.30.10/24 on port 22. The Adaptive Network Hardening's recommendation, based on the analysis, would be to narrow the range and allow traffic from 140.23.30.10/29 – which is a narrower IP range, and deny all other traffic to that port.
 
-![network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+>[!TIP]
+> Adaptive Network Hardening recommendations are only supported on the following specific ports (for both UDP and TCP): 13, 17, 19, 22, 23, 53, 69, 81, 111, 119, 123, 135, 137, 138, 139, 161, 162, 389, 445, 512, 514, 593, 636, 873, 1433, 1434, 1900, 2049, 2301, 2323, 2381, 3268, 3306, 3389, 4333, 5353, 5432, 5555, 5800, 5900, 5900, 5985, 5986, 6379, 6379, 7000, 7001, 7199, 8081, 8089, 8545, 9042, 9160, 9300, 11211, 16379, 26379, 27017, 37215
 
-> [!NOTE]
-> Adaptive Network Hardening recommendations are supported on the following ports: 22, 3389, 21, 23, 445, 4333, 3306, 1433, 1434, 53, 20, 5985, 5986, 5432, 139, 66, 1128
+
+![Network hardening view](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
+
 
 ## View Adaptive Network Hardening alerts and rules
 
@@ -38,11 +41,11 @@ For example, let’s say the existing NSG rule is to allow traffic from 140.20.3
    * **Unscanned resources**: VMs that the Adaptive Network Hardening algorithm cannot be run on because of one of the following reasons:
       * **VMs are Classic VMs**: Only Azure Resource Manager VMs are supported.
       * **Not enough data is available**: In order to generate accurate traffic hardening recommendations, Security Center requires at least 30 days of traffic data.
-      * **VM is not protected by ASC standard**: Only VMs that are set to Security Center’s Standard pricing tier are eligible for this feature.
+      * **VM is not protected by ASC standard**: Only VMs that are set to Security Center's Standard pricing tier are eligible for this feature.
 
      ![unhealthy resources](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. From the **Unhealthy resources** tab, select a VM to view it’s alerts and the recommended hardening rules to apply.
+2. From the **Unhealthy resources** tab, select a VM to view its alerts and the recommended hardening rules to apply.
 
     ![hardening alerts](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
@@ -74,19 +77,19 @@ You may want to modify the parameters of a rule that has been recommended. For e
 
 Some important guidelines for modifying an Adaptive Network Hardening rule:
 
-* You can modify the parameters of “allow” rules only. 
-* You cannot change “allow” rules to become “deny” rules. 
+* You can modify the parameters of "allow" rules only. 
+* You cannot change "allow" rules to become "deny" rules. 
 
   > [!NOTE]
-  > Creating and modifying “deny” rules is done directly on the NSG For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Creating and modifying "deny" rules is done directly on the NSG. For more information, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-* A **Deny all traffic** rule is the only type of “deny” rule that would be listed here, and it cannot be modified. You can, however, delete it (see [Delete a rule](#delete-rule)).
+* A **Deny all traffic** rule is the only type of "deny" rule that would be listed here, and it cannot be modified. You can, however, delete it (see [Delete a rule](#delete-rule)).
   > [!NOTE]
-  > A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as “*System Generated*”. After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, “DENY”, and a random number.
+  > A **Deny all traffic** rule is recommended when, as a result of running the algorithm, Security Center does not identify traffic that should be allowed, based on the existing NSG configuration. Therefore, the recommended rule is to deny all traffic to the specified port. The name of this type of rule is displayed as "*System Generated*". After enforcing this rule, its actual name in the NSG will be a string comprised of the protocol, traffic direction, "DENY", and a random number.
 
 *To modify an Adaptive Network Hardening rule:*
 
-1. To modify  some of the parameters of a rule, in the **Rules** tab, click on the three dots (...) at the end of the rule’s row, and click **Edit**.
+1. To modify  some of the parameters of a rule, in the **Rules** tab, click on the three dots (...) at the end of the rule's row, and click **Edit**.
 
    ![edit rule](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
@@ -103,14 +106,14 @@ Some important guidelines for modifying an Adaptive Network Hardening rule:
 
 ### Add a new rule <a name ="add-rule"> </a>
 
-You can add an “allow” rule that was not recommended by Security Center.
+You can add an "allow" rule that was not recommended by Security Center.
 
 > [!NOTE]
-> Only “allow” rules can be added here. If you want to add “deny” rules, you can do so directly on the NSG. For more details, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Only "allow" rules can be added here. If you want to add "deny" rules, you can do so directly on the NSG. For more information, see [Create, change, or delete a network security group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
 *To add an Adaptive Network Hardening rule:*
 
-1. Click **Add rule** (located in the top left corner).
+1. Click **Add rule** (located in the top-left corner).
 
    ![add rule](./media/security-center-adaptive-network-hardening/add-hard-rule.png)
 
@@ -130,15 +133,6 @@ When necessary, you can delete a recommended rule for the current session. For e
 
 *To delete an Adaptive Network Hardening rule for your current session:*
 
-1. In the **Rules** tab, click on the three dots (...) at the end of the rule’s row, and click **Delete**.  
+1. In the **Rules** tab, click on the three dots (...) at the end of the rule's row, and click **Delete**.  
 
     ![hardening rules](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
-
-
-
-
-
-
-
- 
-

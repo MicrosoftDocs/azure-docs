@@ -1,16 +1,16 @@
 ---
-title: Export or delete Azure portal settings | Microsoft Docs 
+title: Export or delete Azure portal settings
 description: Learn how you can export or delete your user settings, private dashboards, and custom settings in the Azure portal.  
 services: azure-portal
 keywords: 
 author: santhoshsomayajula
-ms.date: 04/08/2019
-ms.topic: conceptual
+ms.date: 01/29/2020
+ms.topic: how-to
 
 ms.service: azure-portal
 ms.custom: 
 manager:  mtillman
-ms.author: kfollis
+ms.author: mblythe
 ---
 # Export or delete user settings
 
@@ -27,28 +27,26 @@ It's a good idea to export and review your settings before you delete them. Rebu
 ## Export or delete your portal settings
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the header of the portal, select **Settings**.
 
-    ![Screenshot that shows the portal settings gear](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)
+1. In the header of the portal, select ![settings icon](media/azure-portal-export-delete-settings/settings-icon.png) **Settings**.
 
-3. Select **Export all settings** or **Delete all settings and private dashboards**.
+1. Select **Export all settings** or **Delete all settings and private dashboards**.
 
-    ![Screenshot that shows the portal export and delete settings](media/azure-portal-export-delete-settings/azure-portal-export-delete-settings.png)
+    ![Azure portal settings and settings options](media/azure-portal-export-delete-settings/azure-portal-settings-with-export-delete.png)
 
       The following table describes these actions.
 
       | Action | Description |
       | --- | --- |
-      | **Export all settings** | Creates a .json file that contains your user settings like your color theme, favorites, and private dashboards.|
+      | **Export all settings** | Creates a *.json* file that contains your user settings like your color theme, favorites, and private dashboards.|
       | **Delete all settings and private dashboards** | Deletes all links to private dashboards and other custom settings you've made to the portal. |
 
 > [!NOTE]
-> Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the .json file.
+> Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the *.json* file.
 >
 >
-
 
 ## Next steps
 
-* [Create and share Azure dashboards](azure-portal-dashboard-share-access.md)
-* [Add, remove, and sort favorites](azure-portal-add-remove-sort-favorites.md)
+* [Share Azure dashboards by using Role-Based Access Control](azure-portal-dashboard-share-access.md)
+* [Add, remove, and rearrange favorites](azure-portal-add-remove-sort-favorites.md)

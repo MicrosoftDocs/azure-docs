@@ -1,21 +1,8 @@
 ---
 title: Azure Service Bus Resource Manager exceptions | Microsoft Docs
 description: List of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: darosa
-editor: spelluru
-
-ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
-ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/26/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Service Bus Resource Manager exceptions
@@ -51,7 +38,7 @@ Just like in HTTP, "Error code 429" indicates "too many requests". It implies th
 
 | Error code | Error SubCode | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceed the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/resource-manager-request-limits.md)|
+| 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceed the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/management/request-limits-and-throttling.md)|
 | 429 | 40901 | SubCode=40901. Another conflicting operation is in progress. | Another conflicting operation is in progress on the same resource/entity | Wait for the current in-progress operation to complete before trying again. |
 | 429 | 40900 | SubCode=40900. Conflict. You're requesting an operation that isn't allowed in the resource's current state. | This condition may be hit when multiple requests are made to perform the operations on the same entity (queue, topic, subscription, or rule) at the same time. | Wait for a few seconds and try again |
 | 429 | 40901 | Request on entity *'entity name'* conflicted with another request | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |

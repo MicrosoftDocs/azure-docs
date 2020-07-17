@@ -1,22 +1,11 @@
 ---
-title: Monitor and diagnose Windows containers on Service Fabric in Azure | Microsoft Docs
+title: Monitor and diagnose Windows containers
 description: In this tutorial, you configure Azure Monitor logs for monitoring and diagnostics of Windows containers on Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
 
-ms.assetid: 
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-
 ---
 # Tutorial: Monitor Windows containers on Service Fabric using Azure Monitor logs
 
@@ -43,7 +32,7 @@ Before you begin this tutorial, you should:
 In the case that you used the [template provided](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) in the first part of this tutorial, it should include the following additions to a generic Service Fabric Azure Resource Manager template. In case the case that you have a cluster of your own that you are looking to set up for monitoring containers with Azure Monitor logs:
 
 * Make the following changes to your Resource Manager template.
-* Deploy it using PowerShell to upgrade your cluster by [deploying the template](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
+* Deploy it using PowerShell to upgrade your cluster by [deploying the template](./service-fabric-cluster-creation-via-arm.md). Azure Resource Manager realizes that the resource exists, so will roll it out as an upgrade.
 
 ### Adding Azure Monitor logs to your cluster template
 
@@ -239,6 +228,6 @@ In this tutorial, you learned how to:
 Now that you have set up monitoring for your containerized application, try the following:
 
 * Set up Azure Monitor logs for a Linux cluster, following similar steps as above. Reference [this template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) to make changes in your Resource Manager template.
-* Configure Azure Monitor logs to set up [automated alerting](../log-analytics/log-analytics-alerts.md) to aid in detecting and diagnostics.
+* Configure Azure Monitor logs to set up [automated alerting](../azure-monitor/platform/alerts-overview.md) to aid in detecting and diagnostics.
 * Explore Service Fabric's list of [recommended performance counters](service-fabric-diagnostics-event-generation-perf.md) to configure for your clusters.
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs.
+* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs.

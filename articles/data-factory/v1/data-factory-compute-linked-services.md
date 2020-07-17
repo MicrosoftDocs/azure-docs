@@ -1,5 +1,5 @@
 ---
-title: Compute environments supported by Azure Data Factory 
+title: Compute environments supported by Azure Data Factory version 1
 description: Learn about compute environments that you can use in Azure Data Factory pipelines (such as Azure HDInsight) to transform or process data.
 services: data-factory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ---
 
-# Compute environments supported by Azure Data Factory
+# Compute environments supported by Azure Data Factory version 1
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory. If you are using the current version of the Data Factory service, see [Compute linked services in](../compute-linked-services.md).
 
@@ -263,7 +263,7 @@ You can create a Batch linked service to register a Batch pool of virtual machin
 
 If you are new to using the Batch service:
 
-* Learn about [Azure Batch basics](../../batch/batch-technical-overview.md).
+* Learn about [Azure Batch basics](../../azure-sql/database/sql-database-paas-overview.md).
 * Learn about the [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) cmdlet. Use this cmdlet to create a Batch account. Or, you can create the Batch account by using the [Azure portal](../../batch/batch-account-create-portal.md). For detailed information about using the cmdlet, see [Using PowerShell to manage a Batch account](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Learn about the [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) cmdlet. Use this cmdlet to create a Batch pool.
 
