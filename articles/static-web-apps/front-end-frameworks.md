@@ -50,7 +50,7 @@ The intent of the table columns is explained by the following items:
 | [Svelte](https://svelte.dev/) | `public` | n/a |
 | [Three.js](https://threejs.org/) | `/` | n/a |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | n/a |
-| [Vue](http://vuejs.com/) | `dist` | n/a |
+| [Vue.js](https://vuejs.org/) | `dist` | n/a |
 
 <sup>1</sup> The above table is not meant to be an exhaustive list of frameworks and libraries that work with Azure Static Web Apps.
 
