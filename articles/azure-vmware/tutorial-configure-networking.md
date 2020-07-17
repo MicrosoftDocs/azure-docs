@@ -18,22 +18,26 @@ In this tutorial, you learn how to:
 > * Locate the URLs for vCenter and NSX Manager
 
 ## Prerequisites 
-An [AVS private cloud](tutorial-create-private-cloud.md) created. 
+Before you can create a virtual network, make sure you have created an [AVS private cloud](tutorial-create-private-cloud.md). 
 
 ## Create a virtual network
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select **Create a resource** and from the Azure Marketplace, select **Networking > Virtual network**. 
+1. Navigate to the resource group you created in the [create a private cloud tutorial](tutorial-create-private-cloud.md) and select **+ Add** to define a new resource. 
+
+1. In the **Search the Marketplace** text box, type **Virtual Network**. Find the Virtual Network resource and select it.
+
+1. On the **Virtual Network** page, select **Create** to set up your virtual network for your private cloud.
 
 1. On the **Create Virtual Network** page, enter the details for your virtual network.
-
-   > [!IMPORTANT]
-   > You must use an address space that **does not** overlap with the address space you used when you created your private cloud in the preceding tutorial.
 
 1. On the **Basics** tab, enter a name for the virtual network and select the appropriate region and select **Next : IP Addresses**.
 
 1. On the **IP Addresses** tab, under **IPv4 address space**, enter the address space you created in the previous tutorial.
+
+   > [!IMPORTANT]
+   > You must use an address space that **does not** overlap with the address space you used when you created your private cloud in the preceding tutorial.
 
 1. Select **+ Add subnet**, and on the **Add subnet** page, give the subnet a name and appropriate address range. When complete, select **Add**.
 
