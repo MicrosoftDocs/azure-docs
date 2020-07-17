@@ -42,13 +42,14 @@ To request a quota increase, you must create a new support request with your wor
      **Throughput limit requests** If your request corresponds to increasing the quota for the throughput, make sure to provide the following values:
 
        * Database name
-       * ID
+       * Subscription ID
        * New throughput limit
 
      **Database limit requests** If your request corresponds to increasing the quota for the database, make sure to provide the following values:
 
        * Subscription ID
        * New database limit
+       * Database name
 
      **Storage limit increase requests** If your request corresponds to increasing the quota for the storage, make sure to provide the following values:
 
