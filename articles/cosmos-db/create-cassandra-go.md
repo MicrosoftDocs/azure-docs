@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 07/14/2020
 ---
 
-# Quickstart: Build a Go app to manage Azure Cosmos DB Cassandra API data (`gocql` Driver)
+# Quickstart: Build a Go app with the `gocql` client to manage Azure Cosmos DB Cassandra API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -22,7 +22,7 @@ ms.date: 07/14/2020
 > * [Golang](create-cassandra-go.md)
 >
 
-Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you will start by creating an Azure Cosmos DB Cassandra API account. You will walk through and run a Go application to create a Cassandra keyspace, table, and execute a few operations. This app uses [gocql](https://github.com/gocql/gocql), which is a Cassandra client for Go. 
+Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities. In this quickstart, you will start by creating an Azure Cosmos DB Cassandra API account. You will then run a Go application to create a Cassandra keyspace, table, and execute a few operations. This Go app uses [gocql](https://github.com/gocql/gocql), which is a Cassandra client for the Go language. 
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Start by cloning the application from GitHub.
     md "C:\git-samples"
     ```
 
-2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
+2. Open a git terminal window, such as git bash. Use the `cd` command to change into the new folder and install the sample app.
 
     ```bash
     cd "C:\git-samples"
