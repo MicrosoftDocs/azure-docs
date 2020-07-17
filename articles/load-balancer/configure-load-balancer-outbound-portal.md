@@ -127,8 +127,8 @@ Load balancer outbound rules configure outbound SNAT for VMs in the backend pool
     | ------- | ----- |
     | Name | Enter **LoadBalancerFrontEndOutbound**. |
     | IP version | Select **IPv4**. |
-    | IP type | Select **IP address**.|
-    | Public IP address | Select **Create new**. In the **Add a public IP address**, enter **myPublicIPOutbound**.  Select **OK**. |
+    | IP type | Select **IP address** or **IP Prefix**.|
+    | Public IP address | Select **Create new**. </br> In the **Add a public IP address**, enter **myPublicIPOutbound**. </br> If using IP Prefix, in **Add a public IP prefix**, enter **myPublicIPPrefixOutbound**. Choose a **Prefix size** for the public IP prefix </br> Select **OK**.  |
 
 4. Select **Add**.
 
@@ -152,7 +152,7 @@ Load balancer outbound rules configure outbound SNAT for VMs in the backend pool
     | ------- | ----- |
     | Name | Enter **myOutboundRule**. |
     | Frontend IP address | Select **LoadBalancerFrontEndOutbound**. |
-    | Idle timeout (minutes) | Move slider to **15 minutes.|
+    | Idle timeout (minutes) | Move slider to **15 minutes**.|
     | TCP Reset | Select **Enabled**.|
     | Backend pool | Select **myBackendPoolOutbound** |
     | Port allocation -> Port allocation | Select **Manually choose number of outbound ports** |
