@@ -93,9 +93,8 @@ Application Gateway uses server variables to store useful information about the 
 
 Application gateway supports the following server variables:
 
-|       |                                                              |
+|   Variable name    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
-| **Variable name**         | **Description**                                              |
 | add_x_forwarded_for_proxy | The X-Forwarded-For client request header field with the `client_ip` variable   (see explanation later in this table) appended to it in the format IP1, IP2,   IP3, and so on. If the X-Forwarded-For field isn't in the client request header,   the `add_x_forwarded_for_proxy` variable   is equal to the `$client_ip` variable.   This variable is particularly useful when you want to rewrite the   X-Forwarded-For header set by Application Gateway so that the header contains   only the IP address without the port information. |
 | ciphers_supported         | A list of the ciphers supported by the client.               |
 | ciphers_used              | The string of ciphers used for an established TLS   connection. |
