@@ -16,21 +16,15 @@ ms.date: 07/15/2020
 ms.author: inhenkel
 ---
 
-# High availability with Media Services and Video on Demand (VOD)
-
-This article explains the deployment of Media Services and other Azure services to maintain a high-availability architecture with failover and ensure optimal availability for your Video on Demand (VOD) application.
-
-## High availability for Azure
-
-There is a high availability design pattern called [Geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) in the Azure Architecture documentation.  It explains the design pattern and when it would be used.
+# High Availability with Media Services and Video on Demand (VOD)
 
 ## High availability for VOD
 
-You can use Azure services to create an architecture that covers many high availability design considerations such as redundancy, health monitoring, load balancing, and data backup and recovery. Each service is described as well as how it can be used to create a high availability architecture for your VOD application. High availability architectures typically have services duplicated across multiple regions.
+There is a high availability design pattern called [Geodes](https://docs.microsoft.com/azure/architecture/patterns/geodes) in the Azure Architecture documentation. It describes how duplicate resources are deployed to different geographic regions to provide scalability and resiliency.  You can use Azure services to create such an architecture to cover many high availability design considerations such as redundancy, health monitoring, load balancing, and data backup and recovery.  One such architecture is described below with details on each service used in the solution as well as how the individual services can be used to create a high availability architecture for your VOD application.
 
 ### Sample
 
-There is a sample available for you to use to become familiar with high availability with Media Services and Video on Demand (VOD).  It is not intended for production but will give you concrete practice with the services.  It also goes into more detail about how the services are used for a VOD scenario. Check out the code on GitHub. <link to sample>
+There is a sample available for you to use to become familiar with high availability with Media Services and Video on Demand (VOD). It also goes into more detail about how the services are used for a VOD scenario.  The sample is not intended to be used in production in its current form.  Carefully review the sample code and the readme, particularly the section on [Failure Modes](https://github.com/Azure-Samples/media-services-v3-dotnet/HighAvailabilityEncodingStreaming/) before integrating it into a production application.  A production implementation of high availability for Video on Demand (VOD) should also carefully review their Content Delivery Network (CDN) strategy.  Check out the [code on GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet/HighAvailabilityEncodingStreaming/).
 
 ## Overview of services
 
