@@ -79,7 +79,7 @@ Here are the steps to run the deployment script in Cloud Shell.
  
 2. After signing in, look to the Cloud Shell window icon bar. Select the "Upload/Download files" icon and choose "Upload".
 
-    :::image type="content" source="media/how-to-authenticate-client/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 
     Navigate to the _**deploy.ps1**_ file on your machine and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
