@@ -137,7 +137,8 @@ Below is the side-by-side JSON representation of writable property `serialNumber
               }
           }
         },
-      }```
+      }
+      ```
    :::column-end:::
    :::column span="":::
       **Digital Twin**
