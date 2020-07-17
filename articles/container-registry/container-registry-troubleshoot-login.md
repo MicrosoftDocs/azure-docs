@@ -48,14 +48,14 @@ Related links:
 
 ### Confirm credentials to access registry
 
-Check the credentials you created for your scenario, or that were provided to you by a registry owner. If using an Active Directory service principal, the registry credentials are:
+Check that the credentials you use for your scenario, or that were provided to you by a registry owner, are valid. Some possible issues:
 
-* User name - service principal application ID (also called *client ID*)
-* Password - service principal password (also called *client secret*)
-
-If using a [repository-scoped token](container-registry-repository-scoped-permissions.md), ensure that the token is enabled and that the token password isn't expired
-
-If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
+* If using an individual AD identity for registry login, the AD token expires after 3 hours. Log in again to the registry. 
+* If using an Active Directory service principal, ensure you use the correct credentials:
+  * User name - service principal application ID (also called *client ID*)
+  * Password - service principal password (also called *client secret*)
+* If using a [repository-scoped token](container-registry-repository-scoped-permissions.md), ensure that the token is enabled and that the token password isn't expired
+* If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
 
 Related links:
 
