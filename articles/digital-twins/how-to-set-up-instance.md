@@ -234,15 +234,29 @@ Next, run the following command to create an app registration (replacing placeho
 az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
 ```
 
-The output from this command looks something like this.
+Here is an excerpt of the output from this command, showing information about the registration you've created:
 
-:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="New AAD app registration":::
+:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
 
-After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal.
+#### Verify success
 
-From this overview, select the app registration you just created from the list. This will open up its details in a page like this one:
+After creating the app registration, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal. This page shows all the app registrations that have been created in your subscription.
 
-:::image type="content" source="media/how-to-set-up-instance/get-authentication-ids.png" alt-text="Azure portal: authentication IDs":::
+You should see the the app registration you just created in the overview list. Select it to open up its details.
+
+First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
+
+:::image type="content" source="media/how-to-set-up-instance/verify-manifest.png" alt-text="Portal view of the manifest for the AAD app registration":::
+
+Next, select *API permissions* from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
+
+:::image type="content" source="media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Portal view of the API permissions for the AAD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+
+#### Collect key values
+
+Next, select *Overview* from the menu bar to see the details of the app registration:
+
+:::image type="content" source="media/how-to-set-up-instance/app-key-values.png" alt-text="Portal view of the key values for the  app registration":::
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
 
