@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 07/17/2020
 ---
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL - Single Server
 
@@ -50,11 +50,10 @@ You can salvage the IP option by obtaining a *static* IP address for your VM. Fo
 
 However, the static IP approach can become difficult to manage, and it is costly when done at scale. Virtual network rules are easier to establish and to manage.
 
-### C. Cannot yet have Azure Database for PostgreSQL on a subnet without defining a service endpoint
+### C. Cannot have Azure Database for PostgreSQL on a VNet subnet without defining a service endpoint
 
-If your **Microsoft.Sql** server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your Azure Database for PostgreSQL server. In this case, your VMs could communicate with Azure Database for PostgreSQL without needing any virtual network rules or IP rules.
+Azure Database for PostgreSQL - Single Server is not among the services that can be assigned directly to a subnet. Use service endpoints to communicate from your VNet to your Postgres server.
 
-However as of August 2018, the Azure Database for PostgreSQL service is not yet among the services that can be assigned directly to a subnet.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -107,6 +106,8 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
+- If you decide to use [non-VNet firewall rules](concepts-firewall-rules.md) to connect, you have to disable **Microsoft.Sql** for the subnet you are connecting from. If **Microsoft.Sql** is enabled, it indicates that you want to use VNet rules only.
+
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
     - On-premises via [ExpressRoute][expressroute-indexmd-744v]
@@ -117,9 +118,9 @@ If your network is connected to the Azure network through use of [ExpressRoute][
 
 To allow communication from your circuit to Azure Database for PostgreSQL, you must create IP network rules for the public IP addresses of your circuits. In order to find the public IP addresses of your ExpressRoute circuit, open a support ticket with ExpressRoute by using the Azure portal.
 
-## Adding a VNET Firewall rule to your server without turning On VNET Service Endpoints
+## Adding a VNET Firewall rule to your server without turning on VNET Service Endpoints
 
-Merely setting a Firewall rule does not help secure the server to the VNet. You must also turn VNet service endpoints **On** for the security to take effect. When you turn service endpoints **On**, your VNet-subnet experiences downtime until it completes the transition from **Off** to **On**. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
+Merely setting a VNet firewall rule does not help secure the server to the VNet. You must also turn VNet service endpoints **On** for the security to take effect. When you turn service endpoints **On**, your VNet-subnet experiences downtime until it completes the transition from **Off** to **On**. This is especially true in the context of large VNets. You can use the **IgnoreMissingServiceEndpoint** flag to reduce or eliminate the downtime during transition.
 
 You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or portal.
 
