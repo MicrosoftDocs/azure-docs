@@ -17,11 +17,11 @@ manager: lizross
 
 You can reduce your total Windows Virtual Desktop deployment cost by scaling your virtual machines (VMs). This means shutting down and deallocating session host VMs during off-peak usage hours, then turning them back on and reallocating them during peak hours.
 
-In this article, you'll learn about the scaling tool built with Azure Automation Account and Azure Logic App that will automatically scale session host VMs in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#Prerequisites).
+In this article, you'll learn about the scaling tool built with Azure Automation Account and Azure Logic App that will automatically scale session host VMs in your Windows Virtual Desktop environment. To learn how to use the scaling tool, skip ahead to [Prerequisites](#prerequisites).
 
 ## Report issues
 
-Issue reports for the scaling tool are currently being handled on GitHub instead of Microsoft Support. If you encounter any issue with the scaling tool, please collect all the necessary information from the [Reporting issues](#Reporting-issues) section and open a GitHub issue labeled with "4a-WVD-scaling-logicapps" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
+Issue reports for the scaling tool are currently being handled on GitHub instead of Microsoft Support. If you encounter any issue with the scaling tool, please collect all the necessary information from the [Reporting issues](#reporting-issues) section and open a GitHub issue labeled with "4a-WVD-scaling-logicapps" on the [RDS GitHub page](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## How the scaling tool works
 
@@ -80,7 +80,7 @@ If you have everything ready, then let's get started.
 >[!NOTE]
 >If you already have an existing Azure Automation Account with a runbook running an older version of the script, you can re-run just this step to update it to latest.
 
-First, you'll need an Azure Automation Account to run the PowerShell runbook. Below procedure is valid even if you have an existing Azure Automation Account which you would like to use to setup the PowerShell runbook. Here's how to set it up:
+First, you'll need an Azure Automation Account to run the PowerShell runbook. Below procedure is valid even if you have an existing Azure Automation Account which you would like to use to set up the PowerShell runbook. Here's how to set it up:
 
 1. Open Windows PowerShell.
 
@@ -163,7 +163,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-When you find the tenant with the host pools you want to scale, follow the instructions in [Create an Azure Automation Run As Account](#Create-an-Azure-Automation-Run-As-Account) to gather the **AzureRunAsConnection** ApplicationID and use the WVD tenant name you got from the previous cmdlet in the following cmdlet to create the role assignment:
+When you find the tenant with the host pools you want to scale, follow the instructions in [Create an Azure Automation Run As Account](#create-an-azure-automation-run-as-account) to gather the **AzureRunAsConnection** ApplicationID and use the WVD tenant name you got from the previous cmdlet in the following cmdlet to create the role assignment:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<applicationid>" -TenantName "<tenantname>"
@@ -291,14 +291,14 @@ Navigate to the runbook in your resource group hosting the Azure Automation Acco
 
 ### Check the version of the runbook script
 
-You can check the version of the runbook script by naviagting to the runbook in your Azure Automation Account and clicking on **View**. The script will appear from the right. The version in the form "**v#.#.#**" will be within first few lines of the script under the SYNOPSIS section. Latest version of the script can be found [here](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/wvd-scaling-script/basicScale.ps1#L1). If you don't see any version in your runbook script, its running a very old version of the script.
+You can check the version of the runbook script by navigating to the runbook in your Azure Automation Account and clicking on **View**. The script will appear from the right. The version in the form "**v#.#.#**" will be within first few lines of the script under the SYNOPSIS section. Latest version of the script can be found [here](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/wvd-scaling-script/basicScale.ps1#L1). If you don't see any version in your runbook script, its running a very old version of the script.
 
 ### Reporting issues
 
 When reporting issues, please collect and provide the following information to help troubleshoot the issue
 
-- Complete log from the **All Logs** tab by [navigating to the job](#View-logs-and-scaling-tool-output) that caused an issue. Feel free to mask any sensitive information from the log
-- [Version of the runbook script](#Check-the-version-of-the-runbook-script)
+- Complete log from the **All Logs** tab by [navigating to the job](#view-logs-and-scaling-tool-output) that caused an issue. Feel free to mask any sensitive information from the log
+- [Version of the runbook script](#check-the-version-of-the-runbook-script)
 - Mention that this is a non-ARM based runbook
 - Version of each of the following PowerShell modules installed in the Azure Automation Account. To find these modules, navigate to your Azure Automation Account and in the pane on the left side of the window, click on **Modules** under **Shared Resources** section. You can search for module by its name
     - Az.Accounts
@@ -307,7 +307,7 @@ When reporting issues, please collect and provide the following information to h
     - Az.Automation
     - OMSIngestionAPI
     - Microsoft.RDInfra.RDPowershell
-- Expiration of the [Run As Account](#Create-an-Azure-Automation-Run-As-Account). To find this, navigate to your Azure Automation Account and in the pane on the left side of the window, click on **Run As Accounts** under **Account Settings** section. You can check when it expires under **Azure Run As Account**
+- Expiration of the [Run As Account](#create-an-azure-automation-run-as-account). To find this, navigate to your Azure Automation Account and in the pane on the left side of the window, click on **Run As Accounts** under **Account Settings** section. You can check when it expires under **Azure Run As Account**
 
 ### Log Analytics
 
