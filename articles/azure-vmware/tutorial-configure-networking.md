@@ -7,7 +7,7 @@ ms.date: 05/04/2020
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
 
-An Azure VMware Solution (AVS) private cloud requires an Azure Virtual Network. Because AVS doesn't support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway are also required and will be addressed in this tutorial.
+An Azure VMware Solution (AVS) private cloud requires an Azure Virtual Network. Because AVS doesn't support your on-premises vCenter during preview, additional steps for integration with your on-premises environment are needed. Setting up an ExpressRoute circuit and a virtual network gateway are also required and is covered in this tutorial.
 
 In this tutorial, you learn how to:
 

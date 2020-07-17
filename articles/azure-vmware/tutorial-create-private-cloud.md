@@ -33,9 +33,6 @@ az provider register -n Microsoft.AVS --subscription <your subscription ID>
 
 For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Private Cloud
 
@@ -43,29 +40,35 @@ You can create an AVS private cloud by using the [Azure portal](#azure-portal) o
 
 ### Azure portal
 
-In the Azure portal, select **+ Create a new resource**. In the **Search the Marketplace**
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **+ Create a new resource**. In the **Search the Marketplace**
 text box type `Azure VMware Solution`, and select **Azure VMware Solution** from the list. On the **Azure VMware Solution** window, select **Create**
 
-On the **Basics** tab, enter values for the fields. The following table shows a detailed list of the properties.
+1. On the **Basics** tab, enter values for the fields. The following table shows a detailed list of the properties.
 
-| Field   | Value  |
-| ---| --- |
-| **Subscription** | The subscription you plan to use for the deployment.|
-| **Resource group** | The resource group for your private cloud resources. |
-| **Location** | Select a location, such as **east us**.|
-| **Resource name** | The name of your AVS private cloud. |
-| **SKU** | Select the following SKU value: AV36 |
-| **Hosts** | This is the number of hosts to add to the private cloud cluster. The default value is 3. This value can be raised or lowered after deployment.  |
-| **vCenter admin password** | Enter a cloud administrator password. |
-| **NSX-T manager password** | Enter a NSX-T administrator password. |
-| **Address block** | Enter an IP address block for the CIDR network for the private cloud. An example is, 10.175.0.0/22. |
+   | Field   | Value  |
+   | ---| --- |
+   | **Subscription** | The subscription you plan to use for the deployment.|
+   | **Resource group** | The resource group for your private cloud resources. |
+   | **Location** | Select a location, such as **east us**.|
+   | **Resource name** | The name of your AVS private cloud. |
+   | **SKU** | Select the following SKU value: AV36 |
+   | **Hosts** | This is the number of hosts to add to the private cloud cluster. The default value is 3. This value can be raised or lowered after deployment.  |
+   | **vCenter admin password** | Enter a cloud administrator password. |
+   | **NSX-T manager password** | Enter a NSX-T administrator password. |
+   | **Address block** | Enter an IP address block for the CIDR network for the private cloud. An example is, 10.175.0.0/22. |
 
-:::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="create a private cloud" border="true":::
+   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="create a private cloud" border="true":::
 
-Once finished, select **Review + Create**. On the next screen verify the information entered. If the information is all correct, select **Create**.
+1. Once finished, select **Review + Create**. On the next screen verify the information entered. If the information is all correct, select **Create**.
 
-> [!NOTE]
-> This step takes roughly two hours. 
+   > [!NOTE]
+   > This step takes roughly two hours. 
+
+1. Verify deployment was successful. Navigate to the resource group you created and select your private cloud, when the deployment is completed you'll see the following screen and you'll see the status of **Succeeded**. 
+
+   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Validate the private cloud deployed" border="true":::
 
 ### Azure CLI
 
@@ -75,7 +78,7 @@ Alternatively you can use the Azure CLI to create a AVS private cloud in Azure. 
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to https://shell.azure.com/bash. Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
 #### Create a resource group
 
@@ -103,15 +106,9 @@ To create an AVS private cloud you must provide a resource group name, a name fo
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
 
-## Verify deployment was successful
+## Delete a private cloud (Azure portal)
 
-Navigate to the resource group you created and select your private cloud, when the deployment is completed you'll see the following screen and you'll see the status of **Succeeded**.
-
-:::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Validate the private cloud deployed" border="true":::
-
-## Delete a private cloud
-
-If you have an AVS private cloud that you have verified you no longer in need, you can delete it. When you delete a private cloud, all clusters along with all their components are deleted.
+If you have an AVS private cloud that you no longer in need, you can delete it. When you delete a private cloud, all clusters along with all their components are deleted.
 
 To do so, navigate to your private cloud in the Azure portal, and select **Delete**. On the confirmation page, confirm with the name of the private cloud and select **Yes**.
 
