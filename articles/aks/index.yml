@@ -61,7 +61,7 @@ landingContent:
           - text: Use Local Process with Kubernetes with Visual Studio Code (preview)
             url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
           - text: Use Local Process with Kubernetes with Visual Studio (preview)
-            url: /visualstudio/containers/how-dev-spaces-works-local-process-kubernetes
+            url: /visualstudio/containers/local-process-kubernetes
 
   # Card
   - title: Deploy, manage, and update applications
