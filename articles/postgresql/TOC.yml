@@ -373,6 +373,8 @@
     items:
       - name: SQL API functions
         href: reference-hyperscale-udf.md
+      - name: Configuration options
+        href: reference-hyperscale-guc.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
