@@ -80,7 +80,10 @@ If you click on the **Device templates** tab, you will see that there are two di
 >[!div class="mx-imgBorder"] 
 >![Smart Vitals Patch Device Template](media/smart-vitals-device-template.png)
 
-If you click on the **Device groups** tab, you will also see that these device templates automatically have device groups created for them.
+### Device groups 
+Device groups allow you to logically group a set of devices to then perform bulk queries or operations over them. 
+
+If you click on the device groups tab, you will see that we've created some default device groups for each of the device templates in the application. You'll notice we have also created two additional sample device groups called 'Provision devices' and 'Devices with outdated firmware.' We'll use these sample device groups as inputs to run some [Jobs](#jobs).
 
 ### Rules
 
@@ -95,6 +98,13 @@ When jumping to the rules tab, you will see three rules that exist in the applic
 >[!div class="mx-imgBorder"] 
 >![Brace temperature high rule](media/brace-temp-rule.png)
 
+### Jobs
+
+Jobs allow you to run bulk operations on a set of devices, using [device groups](#device-groups) as the input. We've seeded the application template with two sample jobs that a solution operator might need to run at some point of the devices' lifecycle:
+* **Update knee brace firmware**: This job will find devices in the device group 'devices with outdated firmware' and run a command to update those devices to the latest firmware version of the knee brace. This sample job assumes that the devices has capabilities to receive an 'update' command and fetch the firmware files from the cloud directly.  
+
+* **Re-provision devices**: If you have a set of devices that have recently been returned to the hospital and need to be re-provisioned for the next set of patients, you can run this job to bulk update your provision devices. In this case we're taking all devices from a device group called 'provision devices', and we're executing a command to 're-provision' them. 
+
 ### Devices
 
 Click on the **Devices** tab and then select an instance of the **Smart Knee Brace**. You will see that there are three views to explore information about the particular device that you've selected. These views are created and published when building the device template for your device, which means they'll be consistent across all devices that you connect or simulate.
@@ -107,6 +117,10 @@ The **Commands** tab will allow you to run commands that have been modeled as pa
 
 >[!div class="mx-imgBorder"] 
 >![Knee brace views](media/knee-brace-dashboard.png)
+
+### Data export
+
+Data export allows you to export your IoT Central device data continuously to other Azure services, including the [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## Clean up resources
 
