@@ -66,9 +66,24 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
-    "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
-    "redirect_document_id": false
+      "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
+      "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-service/index.yml",
+      "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-service/kubernetes/index.yml",
+      "redirect_url": "/previous-versions/azure/container-service/kubernetes/container-service-intro-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-service/dcos-swarm/index.yml",
+      "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/container-service/dcos-swarm/container-service-application-specific-marathon.md",
@@ -316,9 +331,9 @@
       "redirect_document_id": false
     },
     {
-    "source_path": "articles/virtual-machines/linux/tutorial-lemp-stack.md",
-    "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
-    "redirect_document_id": false
+      "source_path": "articles/virtual-machines/linux/tutorial-lemp-stack.md",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-lamp-stack",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/tutorial-mean-stack.md",
@@ -22912,6 +22927,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/msal-js-known-issues-safari-browser.md",
+      "redirect_url": "/azure/active-directory/develop/reference-third-party-cookies-spas",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/quickstart-v2-register-an-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
@@ -23861,7 +23881,7 @@
       "redirect_url": "/azure/cloudfoundry/cloudfoundry-get-started",
       "redirect_document_id": false
     },
-	    {
+    {
       "source_path": "articles/virtual-machines/linux/cloudfoundry-deploy-your-first-app.md",
       "redirect_url": "/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
       "redirect_document_id": true
@@ -25172,10 +25192,11 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/linux-isolation.md",
+      "source_path": "articles/virtual-machines/linux/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/virtual-machines/windows/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
@@ -26084,7 +26105,7 @@
       "source_path": "articles/virtual-machines/windows/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/virtual-machines/linux/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
@@ -44456,49 +44477,49 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/azure-security-benchmark/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/azure-security-benchmark",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/cis-azure-1.1.0/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/cis-azure-1-1-0",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/index.md",
-        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/index.md",
+      "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md",
-        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/control-mapping.md",
+      "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
     },
     {
-        "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/deploy.md",
-        "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
-        "redirect_document_id": false
+      "source_path": "articles/governance/blueprints/samples/nist-sp-800-53-rev4/deploy.md",
+      "redirect_url": "/azure/governance/blueprints/samples/nist-sp-800-53-r4",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/media-services/video-indexer/migrate-from-v1-to-v2.md",
@@ -44934,8 +44955,8 @@
       "source_path": "articles/azure-databricks/connect-databricks-excel-python-r.md",
       "redirect_url": "/azure/databricks/scenarios/connect-databricks-excel-python-r",
       "redirect_document_id": false
-  },
-  {
+    },
+    {
       "source_path": "articles/azure-databricks/databricks-cli-from-azure-cloud-shell.md",
       "redirect_url": "/azure/databricks/scenarios/databricks-cli-from-azure-cloud-shell",
       "redirect_document_id": false
@@ -49385,6 +49406,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/form-recognizer/tutorial-form-recognizer-with-logic-apps.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -49968,7 +49994,7 @@
       "source_path": "articles/lab-services/class-type-mobile-dev-android-studio.md",
       "redirect_url": "/azure/lab-services/class-types",
       "redirect_document_id": true
-    },    
+    },
     {
       "source_path": "articles/lab-services/classroom-labs/class-type-shell-scripting-linux.md",
       "redirect_url": "/azure/lab-services/class-type-shell-scripting-linux",
@@ -54264,6 +54290,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-az-cli-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-commandline-configure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
       "redirect_document_id": false
@@ -56856,6 +56887,16 @@
     {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-visual-studio.md",
+      "redirect_url": "/visualstudio/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
+      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
       "redirect_document_id": false
     }
   ]

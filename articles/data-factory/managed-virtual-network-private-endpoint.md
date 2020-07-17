@@ -1,6 +1,6 @@
 ---
-title: Integration runtime
-description: 'Learn about integration runtime in Azure Data Factory.'
+title: Managed virtual network & managed private endpoints
+description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
