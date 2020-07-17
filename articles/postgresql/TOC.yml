@@ -375,6 +375,8 @@
         href: reference-hyperscale-udf.md
       - name: Configuration options
         href: reference-hyperscale-guc.md
+      - name: System tables
+        href: reference-hyperscale-metadata.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
