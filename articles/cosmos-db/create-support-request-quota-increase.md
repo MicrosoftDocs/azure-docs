@@ -66,6 +66,8 @@ To request a quota increase, you must create a new support request with your wor
 
 1. Select **Next: Review+Create**. Validate the information provided and select **Create** to create a support request.
 
+Within 24 hours, the Azure Cosmos DB support team will evaluate your request and get back to you.
+
 ## Next steps
 
 * See the [Azure Cosmos DB default service quotas](concepts-limits.md)
