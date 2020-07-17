@@ -1,6 +1,6 @@
 ---
 title: Configure service endpoint policies - Azure HDInsight
-description: Learn how to configure service endpoint policies for your virtual network so that your Azure HDInsight cluster can store important information in Azure storage.
+description: Learn how to configure service endpoint policies for your virtual network with Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,9 +15,9 @@ This article provides information about how to implement service endpoint polici
 
 ## Background
 
-Azure HDInsight allows you to create clusters in your own virtual network. If you need to allow outgoing traffic from your virtual network to other Azure services like storage accounts, you can achieve this with [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md). Service endpoint policies which are created through the Azure portal, however, only allow you to create a policy for a single account, all accounts in a subscription, or all accounts in a resource group.
+Azure HDInsight allows you to create clusters in your own virtual network. If you need to allow outgoing traffic from your virtual network to other Azure services like storage accounts, you can create [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md). Service endpoint policies that are created through the Azure portal, however, only allow you to create a policy for a single account, all accounts in a subscription, or all accounts in a resource group.
 
-As a managed service, however, Azure HDInsight collects telemetry and log files from each cluster in specific storage accounts in each region. In order for this data to reach HDInsight from your virtual network, it is necessary for you to create service endpoint policies that allow outgoing traffic to specific data collection points managed by Azure HDInsight.
+As a managed service, however, Azure HDInsight collects data and log files from each cluster in specific storage accounts in each region. In order for this data to reach HDInsight from your virtual network, it's necessary for you to create service endpoint policies that allow outgoing traffic to specific data collection points managed by Azure HDInsight.
 
 ## Service endpoint policies for HDInsight management storage accounts
 
@@ -26,11 +26,11 @@ These service endpoint policies support the following functionality:
 1. Collection of logs and telemetry on cluster creation, job execution, and platform operations such as scaling.
 1. Attaching virtual hard disks (VHDs) to newly created cluster nodes for provisioning software and libraries on your cluster.
 
-If service endpoint policies are not created to enabled this flow of data, cluster creation may fail and Azure HDInsight will be unable to provide support for your clusters.
+If service endpoint policies are not created to enable this flow of data, cluster creation may fail and Azure HDInsight will be unable to provide support for your clusters.
 
 ## Create service endpoint policies for HDInsight
 
-Please ensure that the correct service endpoint policies are attached to your VNet before creating new clusters. Otherwise the cluster creation may fail or result in error.
+Ensure that the correct service endpoint policies are attached to your virtual network before creating new clusters. Otherwise the cluster creation may fail or result in error.
 
 Use the following process to create the necessary service endpoint policies:
 
