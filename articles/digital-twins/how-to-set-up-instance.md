@@ -193,14 +193,7 @@ Owner role required: **Maybe**
 
 By default, you do not have to be an owner on the Azure subscription to run this step. 
 
-However, an admin may globally turn on *Admin Consent Required* in AAD for all app registrations within your subscription. If so, you will need to be an admin to complete this step.
-
-It is also possible that your organization requires additional action from admins in order to successfully set up an app registration. Here are some potential activities that an admin may need to perform:
-* Grant admin consent for the app registration
-* Confirm the *Read.Write* API permission is added to the registration for "Azure Digital Twins"
-* Grant *Owner* role in the app registration to any users who will be calling the API
-
-These and other operations can be performed from the [AAD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+However, your organization may have settings in place that require additional admin permissions for setting up AAD applications. See the [*Possible admin requirements*](#possible-admin-requirements) section below for additional steps that an admin may be required to perform.
 
 #### Create the registration
 
@@ -256,9 +249,24 @@ Next, select *API permissions* from the menu bar to verify that this app registr
 
 Next, select *Overview* from the menu bar to see the details of the app registration:
 
-:::image type="content" source="media/how-to-set-up-instance/app-key-values.png" alt-text="Portal view of the key values for the  app registration":::
+:::image type="content" source="media/how-to-set-up-instance/app-key-values.png" alt-text="Portal view of the key values for the app registration":::
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
+
+#### Possible admin requirements
+
+It is possible that your organization requires additional actions from admins in order to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
+
+However, here are some common potential activities that an admin may need to perform. These and other operations can be performed from the [AAD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+* Grant admin consent for the app registration: Your organization may have *Admin Consent Required* globally turned on in AAD for all app registrations within your subscription. If this is the case, the admin may need to select this button for your company on the app registration's *API permissions* page in the Azure portal:
+
+    :::image type="content" source="media/how-to-set-up-instance/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
+  - If this is successful, the entry for Azure Digital Twins should show a *Status* of _Granted for **your company**_
+   
+        :::image type="content" source="media/how-to-set-up-instance/granted-admin-consent.png" alt-text="Portal view of the admin consent granted for the company under API permissions":::
+* Grant *Owner* role in the app registration to any users who will be calling the API. You can do this on the *Owners* page in the Azure portal:
+
+    :::image type="content" source="media/how-to-set-up-instance/add-owners.png" alt-text="Portal view of the 'Add owners' button under Owners":::
 
 > [!NOTE]
 > Depending on your organization's requirements, you may need to make additional changes to the app registration. Here are some common requirements you may need to meet:
