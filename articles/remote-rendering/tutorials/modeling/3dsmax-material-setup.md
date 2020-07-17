@@ -35,6 +35,7 @@ To start, we'll create a number of box objects, each of which represents a diffe
 
 >[!TIP]
 >It's worth noting before you start to create assets for Remote Rendering that it uses meters for measurement.  
+>
 >So it's a good idea to set your scene's system units to meters. It's also  a good idea to set **Units** to meters in the FBX export settings when you export a scene.
 
 The following screenshot shows the steps to set the system units to meters in 3ds Max. 
@@ -53,7 +54,7 @@ The following screenshot shows the steps to set the system units to meters in 3d
 
 ## Assign materials
 
-With some objects in our scene, in this case a number of cubes, we can begin the PBR setup:
+Now that we have some objects in our scene, in this case a number of cubes, we can begin the PBR setup:
 
 1. On the main toolbar, select the **Material Editor** icon as shown in the following screenshot. You can also select **M** on your keyboard to open the editor. The Material Editor has two modes that you can select in the **Modes** list: **Compact Material Editor** mode and **Slate Material Editor** mode. Because this scene is relatively simple, we'll use the compact mode.
 
@@ -63,7 +64,7 @@ With some objects in our scene, in this case a number of cubes, we can begin the
 
    ![Screenshot that shows how to assign materials.](media/3dsmax/assign-material.jpg)
 
-    In the Material Editor, you can choose from a wide selection of material types, depending on your needs. Typically, the material type is set to **Standard** by default. This material is a basic material that's not suitable for PBR setup, so we'll need to change the material type to a PBR material. Physical Material is the preferred 3ds Max material for Azure Remote Rendering projects.
+    In the Material Editor, you can choose from a wide selection of material types, depending on your needs. Typically, the material type is set to **Standard** by default. This material is a basic material that's not suitable for PBR setup. So we need to change the material type to a PBR material. Physical Material is the preferred 3ds Max material for Azure Remote Rendering projects.
 
 1. In the Material Editor, select the **Standard** tab. In the **Material/Map Browser**, select **Physical Material**. This action converts the assigned **Standard** material to a PBR Physical Material.
 
@@ -73,12 +74,12 @@ With some objects in our scene, in this case a number of cubes, we can begin the
 
    ![Screenshot that shows the list of textures.](media/3dsmax/textures-list.jpg)
 
-As you can see, there are a wide range of maps and textures that can be added to the material. For this tutorial, we'll use only five texture slots in the material.
+As you can see, there are a wide range of maps and textures that you can add to the material. For this tutorial, we use only five texture slots in the material.
 
 >[!TIP]
 >It's good practice to name your materials appropriately, as shown in the preceding screenshot.
 
-How you generate your textures can vary according to preference or usage. For example, you might want to use tiling textures that can be applied to any asset. Or you might need specific parts of a project or asset to have their own custom sets of textures. You might want to use generic tiling textures that you can get online or create them yourself in apps like Photoshop, Quixel Suite, and Substance Suite.
+How you generate your textures can vary according to preference or usage. For example, you might want to use tiling textures that can be applied to any asset. Or you might need specific parts of a project or asset to have their own custom sets of textures. You might want to use generic tiling textures that you can get online. You can also create them yourself in apps like Photoshop, Quixel Suite, and Substance Suite.
 
 Before we start to assign textures, we'll need to consider the asset's texture coordinates (UVW). It's a best practice when applying any textures to a model to ensure that the model is unwrapped. (Textures won't display properly without proper UV unwrapping.) It's especially important for our purposes because we want to use an Ambient Occlusion (AO) map on our model. Unlike Stingray Shader in Maya, Physical Material in 3ds Max doesn't have a dedicated AO texture slot. So we'll apply the AO map to another slot. To allow it to be used separately from the other textures (tiling textures for example), we'll assign it a UVW map channel of its own. 
 
@@ -94,7 +95,7 @@ The next step is to create a second UV map channel.
 
 1. Close the UV editor if it's open. In the **Channel** section of the **Edit UVs** menu, change the channel number to **2**. Map channel 2 is the expected channel for AO maps. 
 
-1. In the **Channel Change Warning** dialog box, you have the option to either **Move** the existing UVs in channel 1 into the new channel 2 or **Abandon** the existing UVs that will create a new UV unwrap automatically. Select **Abandon** only if you plan to create a new UV unwrap for the AO map that differs from the UVs in map channel 1. (For example, if you want to use tiling textures in channel 1.) In this tutorial, we'll move the UVs from channel one to channel 2 because we don't need to edit the new UV channel.
+1. In the **Channel Change Warning** dialog box, you can either **Move** the existing UVs in channel 1 into the new channel 2 or **Abandon** the existing UVs that will create a new UV unwrap automatically. Select **Abandon** only if you plan to create a new UV unwrap for the AO map that differs from the UVs in map channel 1. (For example, if you want to use tiling textures in channel 1.) In this tutorial, we'll move the UVs from channel one to channel 2 because we don't need to edit the new UV channel.
 
    >[!NOTE]
    >Even if you've copied (moved) the UV unwrap from map channel 1 into map channel 2, you can make any necessary edits to the new channel UVs without affecting the original map channel.
@@ -131,7 +132,7 @@ With the normal map correctly assigned, we can assign the remaining textures to 
 
 ![Screenshot that shows the full set of textures assigned to the material.](media/3dsmax/all-textures.jpg)
 
-Now that the PBR materials are created and set up, it's worth thinking about instancing objects in the scene. Instance similar objects in the scene, like nuts, bolts, screws, and washers. Any objects that are the same can yield significant savings in terms of file size. Instances of a master object can have their own scale, rotation, and transforms, so they can be placed as needed in your scene. In 3ds Max, the process of instancing is simple.
+Now that the PBR materials are created and set up, it's worth thinking about instancing objects in the scene. Instance similar objects in the scene, like nuts, bolts, screws, and washers. Any objects that are the same can yield significant savings in terms of file size. Instances of a master object can have their own scale, rotation, and transforms, so you can place them as needed in your scene. In 3ds Max, the process of instancing is simple.
 
 1. In the main viewport, select the object or objects that you want to export.
 
@@ -141,7 +142,7 @@ Now that the PBR materials are created and set up, it's worth thinking about ins
 
    ![Screenshot of the Clone Options dialog box.](media/3dsmax/instance-object.jpg)
 
-This action creates an instance of your object that can be moved, rotated, or scaled independently of its parent and of other instances of that parent.
+This action creates an instance of your object that you can move, rotate, or scale independently of its parent and of other instances of that parent.
 
 >[!IMPORTANT]
 >Any changes you make to an instance while you're in sub object mode are transmitted to all instances of the object. So if you're working with an instanced object's components, like vertices and polygon faces, be sure that you want any changes you make to affect all of the instances. Remember that any instanced object can be made into a unique object at any time. 
@@ -149,7 +150,7 @@ This action creates an instance of your object that can be moved, rotated, or sc
 >[!TIP]
 >When instancing in your scene, it's a good idea to create instances as you go along. Replacing copies with instanced objects later is difficult. 
 
-One final thing to take into consideration before we move on to the export process is how you might want to package your scene/asset for sharing. Ideally, if you pass the asset on to a client or team member, you'll want them to be able to open and view the asset as it should be seen with a minimum amount of fuss. So it's important to keep your asset's texture paths relative to the scene file. If the texture paths for your asset are pointing to a local drive or absolute path/location, they won't load into the scene if opened on a different computer, even if the .max file is in the same folder as the textures. Making the texture paths relative in 3ds Max solves this problem and is fairly simple.
+One final thing to consider before we move on to the export process is how you might want to package your scene/asset for sharing. Ideally, if you pass the asset on to a client or team member, you'll want them to be able to open and view the asset as it should be seen with a minimum amount of fuss. So it's important to keep your asset's texture paths relative to the scene file. If the texture paths for your asset point to a local drive or absolute path/location, they won't load into the scene if opened on a different computer, even if the .max file is in the same folder as the textures. Making the texture paths relative in 3ds Max solves this problem and is fairly simple.
 
 1. On the main toolbar, go to **File** > **Reference** > **Asset Tracking Toggle**. 
 
@@ -169,10 +170,10 @@ You might notice that not all of your textures are listed in the Asset Tracking 
 
 1. In the **Specify Asset Path** box, select the local path to your textures and replace it with `.\`.  Select **OK**. 
 
-    The Asset Tracking window will update as shown in the following screenshot. This might take a while, depending on how many textures are in your scene and on how large your scene is.
+    The Asset Tracking window will update as shown in the following screenshot. This update might take a while, depending on how many textures are in your scene and on how large your scene is.
 ![Screensthot that shows the updated Asset Tracking window.](media/3dsmax/resolve-textures.jpg)
 
-Notice that the **Full Path** column is now blank. This means that the scene is no longer looking for the relevant textures in a specific (absolute) location but will always find them as long as the .max file or related FBX file is in the same folder as the textures. 
+Notice that the **Full Path** column is now blank. This means that the scene is no longer looking for the relevant textures in a specific (absolute) location. It will always find them as long as the .max file or related FBX file is in the same folder as the textures. 
 
 >[!NOTE]
 >You might have to repeat this process a couple of times to find and resolve all textures and paths. This is nothing to be concerned about. Just repeat the process until all relevant assets are accounted for. In some cases, some files won't be found. In that case, simply select all the assets in the list and then select **Remove Missing Paths**. (See the preceding image.)
@@ -190,13 +191,13 @@ Now that we've made the texture paths relative, we can move on to the FBX export
 
 1. In the **Select File to Export** dialog box, type or select an output file name. In the **Save as type** list, select **Autodesk (*.fbx)**. This action opens the **FBX Export** window.
 
-    >[!IMPORTANT] If you've created instances in your scene, it's important to select **Preserve Instances** in the FBX export settings. 
+   >[!IMPORTANT] If you've created instances in your scene, it's important to select **Preserve Instances** in the FBX export settings. 
 
-    ![Screenshot that shows how to export to FBX.](media/3dsmax/fbx-export.jpg)
+   ![Screenshot that shows how to export to FBX.](media/3dsmax/fbx-export.jpg)
 
     Remember, there are a couple of ways to export the file. If the intention is to share the FBX along with its texture files in a folder/directory, the settings shown in the following screenshot should work well. 
 
-   If you prefer not to share large folders/directories of textures along with the FBX, you can choose to embed the textures in the FBX. If you embed the textures, the entire asset, including textures, are added to a single FBX. Doing so combines your export into a single asset, but the FBX file will be considerably larger as a result.
+   If you prefer not to share large folders/directories of textures along with the FBX, you can choose to embed the textures in the FBX. If you embed the textures, the entire asset, including textures, is added to a single FBX. Doing so combines your export into a single asset, but the FBX file will be considerably larger as a result.
 
    >[!IMPORTANT]
    >If the resulting FBX file is bigger than 2.4 GB, the minimum version specified in the FBX export settings should be 2016 or later. (See the preceding screenshot.) Newer versions have 64 bit support, so they support bigger files.
