@@ -96,9 +96,7 @@ The information in this section helps you complete the offline-backup workflow s
 
 ## Prepare SATA drives and ship to Azure
 
-The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory (in the following path):
-
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent to the nearest Azure datacenter. This utility is available in the Azure Backup agent installation directory (in the following path): `*\Microsoft Azure Recovery Services Agent\Utils\\*`
 
 1. Go to the directory and copy the **AzureOfflineBackupDiskPrep** directory to another computer where the SATA drives are connected. On the computer with the connected SATA drives, ensure:
 
@@ -113,14 +111,14 @@ The *AzureOfflineBackupDiskPrep* utility prepares the SATA drives that are sent 
 
 1. Open an elevated command prompt on the copy computer with the *AzureOfflineBackupDiskPrep* utility directory as the current directory. Run the following command:
 
-        ```cmd
-        .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
-        ```
+    ```console
+    .\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>
+    ```
 
     | Parameter | Description |
     | --- | --- |
     | s:&lt;*Staging Location Path*&gt; |This mandatory input is used to provide the path to the staging location that you entered in the workflow in the "Initiate offline backup" section. |
-    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file that you entered in the workflow in the "Initiate offline backup" section. |
+    | p:&lt;*Path to PublishSettingsFile*&gt; |This optional input is used to provide the path to the Azure publish settings file. |
 
     When you run the command, the utility requests the selection of the Azure Import job that corresponds to the drives that need to be prepared. If only a single import job is associated with the provided staging location, you see a screen like the one that follows.
 

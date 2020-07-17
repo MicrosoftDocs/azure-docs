@@ -56,7 +56,7 @@ The appliance needs access to Azure URLs. [Review](migrate-appliance.md#url-acce
 
 See the following articles for information about data that the Azure Migrate appliance collects on VMs:
 
-- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data. [
+- **VMware VM**: [Review](migrate-appliance.md#collected-data---vmware) collected data.
 - **Hyper-V VM**: [Review](migrate-appliance.md#collected-data---hyper-v) collected data.
 
 ## How is data stored?

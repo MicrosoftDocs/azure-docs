@@ -122,9 +122,8 @@ For Azure, we recommend that you set TCP MSS clamping to 1,350 bytes and tunnel 
 
 Network latency is governed by the speed of light over a fiber optic network. Network throughput of TCP is also effectively governed by the round-trip time (RTT) between two network devices.
 
-| | | | |
-|-|-|-|-|
-|**Route**|**Distance**|**One-way time**|**RTT**|
+| Route | Distance | One-way time | RTT |
+| ----- | -------- | ------------ | --- |
 |New York to San Francisco|4,148 km|21 ms|42 ms|
 |New York to London|5,585 km|28 ms|56 ms|
 |New York to Sydney|15,993 km|80 ms|160 ms|
@@ -133,7 +132,7 @@ This table shows the straight-line distance between two locations. In networks, 
 
 `minimum RTT = 2 * (Distance in kilometers / Speed of propagation)`
 
-You can use 200 for the speed of propagation. This is the distance, in meters, that light travels in 1 millisecond.
+You can use 200 for the speed of propagation. This is the distance, in kilometers, that light travels in 1 millisecond.
 
 Let's take New York to San Francisco as an example. The straight-line distance is 4,148 km. Plugging that value into the equation, we get the following:
 
@@ -159,9 +158,8 @@ Here's the formula for calculating the maximum throughput of a single TCP connec
 
 This table shows the maximum megabytes/per second throughput of a single TCP connection. (For readability, megabytes is used for the unit of measure.)
 
-| | | | |
-|-|-|-|-|
-|**TCP window size (bytes)**|**RTT latency (ms)**|**Maximum megabyte/second throughput**|**Maximum megabit/second throughput**|
+| TCP window size (bytes) | RTT latency (ms) | Maximum megabyte/second throughput | Maximum megabit/second throughput |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65,535|1|65.54|524.29|
 |65,535|30|2.18|17.48|
 |65,535|60|1.09|8.74|
@@ -176,9 +174,8 @@ TCP window scaling is a technique that dynamically increases the TCP window size
 
 This table illustrates those relationships:
 
-| | | | |
-|-|-|-|-|
-|**TCP window size (bytes)**|**RTT latency (ms)**|**Maximum megabyte/second throughput**|**Maximum megabit/second throughput**|
+| TCP window size (bytes) | RTT latency (ms) | Maximum megabyte/second throughput | Maximum megabit/second throughput |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65,535|30|2.18|17.48|
 |131,070|30|4.37|34.95|
 |262,140|30|8.74|69.91|
@@ -218,9 +215,8 @@ Set-NetTCPSetting
 
 These are the effective TCP settings for `AutoTuningLevel`:
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Scaling factor**|**Scaling multiplier**|**Formula to<br/>calculate maximum window size**|
+| AutoTuningLevel | Scaling factor | Scaling multiplier | Formula to<br/>calculate maximum window size |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
 |Disabled|None|None|Window size|
 |Restricted|4|2^4|Window size * (2^4)|
 |Highly restricted|2|2^2|Window size * (2^2)|

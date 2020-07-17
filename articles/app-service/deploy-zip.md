@@ -24,6 +24,9 @@ For more information, see [Kudu documentation](https://github.com/projectkudu/ku
 
 The WAR file deployment deploys your [WAR](https://wikipedia.org/wiki/WAR_(file_format)) file to App Service to run your Java web app. See [Deploy WAR file](#deploy-war-file).
 
+> [!NOTE]
+> When using `ZipDeploy`, files will only be copied if their timestamps don't match what is already deployed. Generating a zip using a build process that caches outputs can result in faster deployments. See [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url), for more information.
+
 ## Prerequisites
 
 To complete the steps in this article, [create an App Service app](/azure/app-service/), or use an app that you created for another tutorial.

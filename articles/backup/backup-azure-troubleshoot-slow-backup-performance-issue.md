@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot slow backup of files and folders
 description: Provides troubleshooting guidance to help you diagnose the cause of Azure Backup performance issues
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ---
@@ -45,13 +44,13 @@ Here are some performance counters and ranges that can be helpful in diagnosing 
 
 | Counter | Status |
 | --- | --- |
-| Logical Disk(Physical Disk)--%idle |* 100% idle to 50% idle = Healthy</br>* 49% idle to 20% idle = Warning or Monitor</br>* 19% idle to 0% idle = Critical or Out of Spec |
-| Logical Disk(Physical Disk)--%Avg. Disk Sec Read or Write |* 0.001 ms to 0.015 ms  = Healthy</br>* 0.015 ms to 0.025 ms = Warning or Monitor</br>* 0.026 ms or longer = Critical or Out of Spec |
+| Logical Disk(Physical Disk)--%idle |<li> 100% idle to 50% idle = Healthy</br><li> 49% idle to 20% idle = Warning or Monitor</br><li> 19% idle to 0% idle = Critical or Out of Spec |
+| Logical Disk(Physical Disk)--%Avg. Disk Sec Read or Write |<li> 0.001 ms to 0.015 ms  = Healthy</br><li> 0.015 ms to 0.025 ms = Warning or Monitor</br><li> 0.026 ms or longer = Critical or Out of Spec |
 | Logical Disk(Physical Disk)--Current Disk Queue Length (for all instances) |80 requests for more than 6 minutes |
-| Memory--Pool Non Paged Bytes |* Less than 60% of pool consumed = Healthy<br>* 61% to 80% of pool consumed = Warning or Monitor</br>* Greater than 80% pool consumed = Critical or Out of Spec |
-| Memory--Pool Paged Bytes |* Less than 60% of pool consumed = Healthy</br>* 61% to 80% of pool consumed = Warning or Monitor</br>* Greater than 80% pool consumed = Critical or Out of Spec |
-| Memory--Available Megabytes |* 50% of free memory available or more = Healthy</br>* 25% of free memory available = Monitor</br>* 10% of free memory available = Warning</br>* Less than 100 MB or 5% of free memory available = Critical or Out of Spec |
-| Processor--\%Processor Time (all instances) |* Less than 60% consumed = Healthy</br>* 61% to 90% consumed = Monitor or Caution</br>* 91% to 100% consumed = Critical |
+| Memory--Pool Non Paged Bytes |<li> Less than 60% of pool consumed = Healthy<br><li> 61% to 80% of pool consumed = Warning or Monitor</br><li> Greater than 80% pool consumed = Critical or Out of Spec |
+| Memory--Pool Paged Bytes |<li> Less than 60% of pool consumed = Healthy</br><li> 61% to 80% of pool consumed = Warning or Monitor</br><li> Greater than 80% pool consumed = Critical or Out of Spec |
+| Memory--Available Megabytes |<li> 50% of free memory available or more = Healthy</br><li> 25% of free memory available = Monitor</br><li>10% of free memory available = Warning</br><li> Less than 100 MB or 5% of free memory available = Critical or Out of Spec |
+| Processor--\%Processor Time (all instances) |<li> Less than 60% consumed = Healthy</br><li> 61% to 90% consumed = Monitor or Caution</br><li> 91% to 100% consumed = Critical |
 
 > [!NOTE]
 > If you determine that the infrastructure is the culprit, we recommend that you defragment the disks regularly for better performance.

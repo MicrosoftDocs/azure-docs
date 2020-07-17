@@ -232,6 +232,8 @@ WorkloadName       Operation            Status                 StartTime        
 testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 PM     11/12/2018 2:16:11 PM     ec7d4f1d-40bd-46a4-9edb-3193c41f6bf6
 ```
 
+For more information on how to get a list of file shares for a storage account, see [this article](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageshare?view=azps-4.3.0).
+
 ## Important notice: Backup item identification
 
 This section outlines an important change in backups of Azure file shares in preparation for general availability.

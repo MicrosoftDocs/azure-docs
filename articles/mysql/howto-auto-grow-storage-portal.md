@@ -4,7 +4,7 @@ description: This article describes how you can enable auto grow storage for Azu
 author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Auto grow storage in Azure Database for MySQL using the Azure portal

@@ -401,9 +401,8 @@ Azure Active Directory (Azure AD) doesn't support service endpoints natively. Co
 ### Are there any limits on how many VNet service endpoints I can set up from my VNet?
 There is no limit on the total number of VNet service endpoints in a virtual network. For an Azure service resource (such as an Azure Storage account), services may enforce limits on the number of subnets used for securing the resource. The following table shows some example limits: 
 
-|||
-|---|---|
 |Azure service|	Limits on VNet rules|
+|---|---|
 |Azure Storage|	100|
 |Azure SQL|	128|
 |Azure SQL Data Warehouse|	128|

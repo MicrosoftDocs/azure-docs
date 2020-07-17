@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid concepts
 description: Describes Azure Event Grid and its concepts. Defines several key components of Event Grid.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Concepts in Azure Event Grid

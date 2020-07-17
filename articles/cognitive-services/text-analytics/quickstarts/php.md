@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 07/10/2020
 ms.author: aahi
 ---
 # Quickstart: Using PHP to call the Text Analytics Cognitive Service
@@ -378,7 +378,7 @@ $path = '/text/analytics/v3.0/entities/recognition/general';
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
-        "Content-Length: " . Length($data) . "\r\n" .
+        "Content-Length: " . strlen($data) . "\r\n" .
         "Ocp-Apim-Subscription-Key: $key\r\n";
     $data = json_encode ($data);
 

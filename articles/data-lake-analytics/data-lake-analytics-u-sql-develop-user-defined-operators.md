@@ -7,7 +7,7 @@ author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/05/2016
 ---
 

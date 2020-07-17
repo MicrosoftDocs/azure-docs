@@ -75,7 +75,6 @@ The subnets:
 The next step is to learn about [private cloud storage concepts](concepts-storage.md).
 
 <!-- LINKS - external -->
-[enable Global Reach]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-set-global-reach
+[enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-

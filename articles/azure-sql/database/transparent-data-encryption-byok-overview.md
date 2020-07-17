@@ -1,8 +1,9 @@
 ---
 title: Customer-managed transparent data encryption (TDE)
 description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption (TDE) with Azure Key Vault for SQL Database and Azure Synapse Analytics. TDE with BYOK overview, benefits, how it works, considerations, and recommendations."
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang:

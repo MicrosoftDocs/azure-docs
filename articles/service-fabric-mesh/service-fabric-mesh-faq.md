@@ -116,7 +116,7 @@ In your local development cluster use `{serviceName}.{applicationName}`. In Azur
 
 Azure Mesh does not currently support DNS resolution across applications.
 
-For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) and [known DNS issues](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+For other known DNS issues with running a Service Fabric development cluster on Windows 10, see: [Debug Windows containers](../service-fabric/service-fabric-how-to-debug-windows-containers.md) and [known DNS issues](../service-fabric/service-fabric-dnsservice.md#known-issues).
 
 ### Networking
 

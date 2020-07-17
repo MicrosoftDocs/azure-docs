@@ -65,19 +65,19 @@
 - name: Reference
   items:
   - name: Form Recognizer API v2.0
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
   - name: Form Recognizer API v1.0
     href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/formrecognizer
+      href: https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/formrecognizer
+      href: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview
     - name: JavaScript
-      href: https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer
+      href: https://docs.microsoft.com/azure/cognitive-services/form-recognizer/
 - name: Resources
   items:
   - name: Pricing and limits

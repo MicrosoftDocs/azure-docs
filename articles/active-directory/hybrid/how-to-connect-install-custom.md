@@ -225,12 +225,7 @@ On a computer that has the Group Policy management tools.
 1.	Open the Group Policy Management tools
 2.	Edit the Group policy that will be applied to all users. For example, the Default Domain Policy.
 3.	Navigate to **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** and select **Site to Zone Assignment List** per the image below.
-4.	Enable the policy, and enter the following item in the dialog box.
-
-		Value: `https://autologon.microsoftazuread-sso.com`  
-		Data: 1  
-
-
+4.	Enable the policy, and enter a value name of `https://autologon.microsoftazuread-sso.com` and value of `1` in the dialog box.
 5.	It should look similar to the following:  
 ![Intranet Zones](./media/how-to-connect-install-custom/sitezone.png)
 

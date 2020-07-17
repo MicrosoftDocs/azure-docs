@@ -1,8 +1,6 @@
 ---
 title: Marketplace Insights - Microsoft commercial marketplace
 description: Access a summary of marketplace web analytics, which enables you to measure customer engagement in Microsoft AppSource and Azure Marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

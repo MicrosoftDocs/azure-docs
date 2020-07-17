@@ -1,13 +1,8 @@
 ---
 title: Metrics supported by Azure Event Grid
 description: This article provides Azure Monitor metrics supported by the Azure Event Grid service. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Metrics supported by Azure Event Grid

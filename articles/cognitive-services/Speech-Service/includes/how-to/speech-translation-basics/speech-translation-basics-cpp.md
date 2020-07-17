@@ -12,7 +12,7 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, follow the instructions under the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> section of the Speech SDK article.
+Before you can do anything, you'll need to install the Speech SDK. Depending on your platform, follow the instructions under the <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/speech-sdk#get-the-speech-sdk" target="_blank">Get the Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> section of the _About the Speech SDK_ article.
 
 ## Import dependencies
 
@@ -91,7 +91,7 @@ The [`SpeechRecognitionLanguage`][recognitionlang] property expects a language-l
 
 ## Add translation language
 
-Another common task of speech translation is to specify target translation languages, at least one is required but multiples are supported. In the following code snippet, both French and German as translation language targets.
+Another common task of speech translation is to specify target translation languages, at least one is required but multiples are supported. The following code snippet sets both French and German as translation language targets.
 
 ```cpp
 void translateSpeech() {

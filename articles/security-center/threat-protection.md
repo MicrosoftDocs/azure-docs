@@ -127,7 +127,7 @@ Advanced Threat Protection for Azure SQL Database detects anomalous activities i
 
 You'll see alerts when there are suspicious database activities, potential vulnerabilities, or SQL injection attacks, and anomalous database access and query patterns.
 
-Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Databases, Azure SQL Database managed instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
+Advanced Threat Protection for Azure SQL Database and SQL is part of the [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) unified package for advanced SQL security capabilities, covering Azure SQL Database, Azure SQL Managed Instances, Azure SQL Data Warehouse databases, and SQL servers on Azure Virtual Machines.
 
 For more information, see:
 
@@ -144,6 +144,7 @@ For more information, see:
 - Release state:
     - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (general availability)
     - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (preview)
+    - [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) (preview)
 - Clouds:<br>
     ✔ Commercial clouds<br>
     ✔ US Gov<br>
@@ -151,9 +152,11 @@ For more information, see:
 
 ### What's protected?
 
-Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) blobs or [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) file shares.
+Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
 
-This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems. 
+This layer of protection allows you to address threats *without* requiring you to be a security expert, and helps you manage your security monitoring systems.
+
+Your storage accounts are protected 
 
 ### What kind of alerts does Threat protection for Azure Storage provide?
 
@@ -235,14 +238,17 @@ For a list of the Azure Resource Manager (Preview) alerts, see the [Reference ta
 >[!NOTE]
 > Several of the preceding analytics are powered by Microsoft Cloud App Security. To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
 >
-> 1. In the **Security Center** blade, select **Security policy**. For the subscription you want to change, select **Edit settings**.
-> 2. Select **Threat detection**.
-> 3. Under **Enable integrations**, clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
+> 1. From Security Center's menu, select **Pricing & settings**.
+> 1. Select the subscription you want to change.
+> 1. Select **Threat detection**.
+> 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
 
 >[!NOTE]
 >Security Center stores security-related customer data in the same geo as its resource. If Microsoft hasn't yet deployed Security Center in the resource's geo, then it stores the data in the United States. When Cloud App Security is enabled, this information is stored in accordance with the geo location rules of Cloud App Security. For more information, see [Data storage for non-regional services](https://azuredatacentermap.azurewebsites.net/).
 
+1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Security Center and that you have read/write permissions on the workspace.
 
+1. Set the standard pricing tier, and select **Save**.
 
 
 
