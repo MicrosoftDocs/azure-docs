@@ -79,6 +79,7 @@ Here is an example of a IoT Plug and Play device twin formatted as a JSON object
 }
 ```
 Below is the corresponding digital twin formatted as JSON object:
+
 ```json
 {
     "$dtId": "sample-device",
@@ -101,7 +102,7 @@ Below is the corresponding digital twin formatted as JSON object:
         }
     },
     "$metadata": {
-        "$model": "",
+        "$model": "dtmi:com:example:TemperatureController;1",
         "serialNumber": {
             "desiredValue": "alwinexlepaho8329-a",
             "desiredVersion": 2,
@@ -110,10 +111,13 @@ Below is the corresponding digital twin formatted as JSON object:
             "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
         }
     }
-}```
-
+}
+```
+**Property**
 Within device twin, the state of the property is split across the desired and reported section. On the other hand, digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is available within `$metadata`.
+
 In this example, `alwinexlepaho8329` is the current value of the `serialNumber` property reported by the device. `alwinexlepaho8329-a` is the desired value set by the solution. The desired value and synchronization state of a root level property is set within root level `$metadata` for a digital twin.
+
 Below is the side-by-side JSON representation of writable property `serialNumber`
 :::row:::
    :::column span="":::
@@ -133,11 +137,11 @@ Below is the side-by-side JSON representation of writable property `serialNumber
               }
           }
         },
-      }
-      ```
+      }```
    :::column-end:::
    :::column span="":::
       **Digital Twin**
+      ```json
         {
           "serialNumber": "alwinexlepaho8329",
           "$metadata": {
@@ -153,16 +157,18 @@ Below is the side-by-side JSON representation of writable property `serialNumber
       ```
    :::column-end:::
 :::row-end:::
+
+**Component**
 Within a device twin, a component is indicated by `{ "__t": "c"}` marker, where as `$metadata` marks a component within a digital twin.
 Below is the side-by-side JSON representation of component `thermostat1`
+
 :::row:::
    :::column span="":::
       **Device Twin**
       ```json
           {             
             "properties": {
-                "desired": {
-                    
+                "desired": {                    
                     "thermostat1": {
                         "__t": "c",
                         "targetTemperature": "72.2"
@@ -204,6 +210,7 @@ Below is the side-by-side JSON representation of component `thermostat1`
    :::column-end:::
    :::column span="":::
       **Digital Twin**
+      ```json
         {
           "thermostat1": {
               "maxTempSinceLastReboot": 67.89,
@@ -275,7 +282,8 @@ content-encoding:utf-8
       "desiredVersion": 4
     }
   }
-]```
+]
+```
 
 Below digital twin event is triggered when the device reported that the change was applied.
 ```json
