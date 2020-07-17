@@ -94,7 +94,7 @@ If the script completes successfully, the final printout will say `Deployment co
 
 Upon script completion, you now have an Azure Digital Twins instance ready to go and permissions set up to manage it.
 
-#### Collect key values
+#### Collect important values
 
 There are two important values from the app registration that will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). 
 
@@ -102,7 +102,7 @@ To find them, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_I
 
 You should see the the app registration you just created in this list. Select it to open up its details:
 
-:::image type="content" source="media/how-to-set-up-instance/app-key-values.png" alt-text="Portal view of the key values for the app registration":::
+:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. If you are not the person who will be writing code for client applications, you'll need to share these values with the person who will be.
 
@@ -166,7 +166,7 @@ If the instance was created successfully, the result in Cloud Shell looks someth
 
 :::image type="content" source="media/how-to-set-up-instance/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
 
-Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* from the output. These are all key values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources.
+Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources.
 
 > [!TIP]
 > You can see these properties, along with all the properties of your instance, at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -262,11 +262,11 @@ Next, select *API permissions* from the menu bar to verify that this app registr
 
 :::image type="content" source="media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Portal view of the API permissions for the AAD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
 
-#### Collect key values
+#### Collect important values
 
 Next, select *Overview* from the menu bar to see the details of the app registration:
 
-:::image type="content" source="media/how-to-set-up-instance/app-key-values.png" alt-text="Portal view of the key values for the app registration":::
+:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
 
