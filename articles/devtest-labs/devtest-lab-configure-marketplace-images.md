@@ -6,10 +6,7 @@ ms.date: 06/26/2020
 ---
 
 # Configure Azure Marketplace image settings in Azure DevTest Labs
-DevTest Labs supports creating VMs based on Azure Marketplace images depending
-on how you have configured Azure Marketplace images to be used in your lab. This article
-shows you how to specify which, if any, Azure Marketplace images can be used when
-creating VMs in a lab. This ensures that your team only has access to the Marketplace images they need. 
+DevTest Labs supports creating VMs based on Azure Marketplace images depending on how you have configured Azure Marketplace images to be used in your lab. This article shows you how to specify which, if any, Azure Marketplace images can be used when creating VMs in a lab. This ensures that your team only has access to the Marketplace images they need. 
 
 ## Select which Azure Marketplace images are allowed when creating a VM
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -34,7 +31,17 @@ creating VMs in a lab. This ensures that your team only has access to the Market
    
      ![You can specify which Azure Marketplace images can be used as base images for VMs](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+## Troubleshoot
+If you aren't able to find a specific image to enable for the lab, follow these steps: 
+
+- Check to see if you are able to view the image while creating a compute VM
+- Certain images are available by sub type only (MSDN). Check with sub admin for sub type
+- Support for Gen 2 images in DevTest Labs is limited. 
+    -  If both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM.
+    - Images with Gen 2 versions only are supported by DevTest Labs. 
+  
+    Workaround is to create a VM using a custom Gen 2 image. 
 
 ## Next steps
 Once you have configured how Azure Marketplace images are allowed when creating a VM, the next step is to [add a VM to your lab](devtest-lab-add-vm.md).
