@@ -15,6 +15,7 @@
     - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
     - name: Create Automation account - ARM template
+      displayName: Resource Manager
       href: quickstart-create-automation-account-template.md
 - name: Tutorials
   items:
