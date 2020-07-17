@@ -19,11 +19,6 @@ This article is a complete list of all platform (that is, automatically collecte
 
 The metrics are organized by resource providers and resource type. For a list of services and the resource providers that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-
-## Guest OS Metrics
-
-Metrics for the guest operating system (guest os) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Instead, guest os performance metrics must be collected through the one or more agents which run on or as part of the guest operating system.  Guest os metrics include performance counters which track guest CPU percentage or memory usage, both of which are  frequently used for auto-scaling or alerting.  Using the [Azure Diagnostics extension](diagnostics-extension-overview.md), you can send guest os performance metrics into the same database where platform metrics are stored. It routes guest os metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest os metrics like platform metrics. For more information, see [Monitoring Agents Overview](agents-overview.md).    
-
 ## Routing platform metrics to other locations
 
 You can use [diagnostics settings](diagnostic-settings.md) to route platform metrics to Azure Storage, Azure Monitor Logs (and thus Log Analytics), and Event hubs.  
@@ -33,6 +28,22 @@ There are some limitations in what can be routed and the form in which they are 
 
 - Sending multi-dimensional metrics to other locations via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
 *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+
+
+## Guest OS Metrics
+> [!WARNING]
+> Metrics for the guest operating system (guest OS) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Guest OS metrics must be collected through the one or more agents which run on or as part of the guest operating system.  Guest OS metrics include performance counters which track guest CPU percentage or memory usage, both of which are  frequently used for auto-scaling or alerting.  
+
+Use the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest os performance metrics into the same database where platform metrics are stored. It routes guest os metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest os metrics like platform metrics. 
+
+Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. 
+
+For additional information, see [Monitoring Agents Overview](agents-overview.md).    
+
+## Table formatting
+
+[!IMPORTANT] This latest update adds a new column and reordered metrics to be alphabetic. The addition information means that the table below may have a horizontal scroll bars at the bottom, depending on the width of your browser window. If you believe you are missing information, use the scroll bar to see the entirety of the table.
+
 
 ## Microsoft.AnalysisServices/servers
 
