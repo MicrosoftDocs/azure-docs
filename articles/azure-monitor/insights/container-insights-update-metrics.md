@@ -28,7 +28,7 @@ Either process assigns the **Monitoring Metrics Publisher** role to the cluster'
 
 ## Prerequisites
 
-Before you start, confirm the following:
+Before you update your cluster, confirm the following:
 
 * Custom metrics are only available in a subset of Azure regions. A list of supported regions is documented [here](../platform/metrics-custom-overview.md#supported-regions).
 
