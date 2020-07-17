@@ -1,5 +1,5 @@
 ---
-title: Copy managed disks to a subscription - PowerShell Sample
+title: Copy managed disks to subscription (Windows) - PowerShell sample
 description: Azure PowerShell Script Sample - Copy or move managed disks to the same or a different subscription
 services: virtual-machines-windows
 documentationcenter: storage
@@ -18,7 +18,7 @@ ms.date: 06/06/2017
 ms.author: ramankum
 ---
 
-# Copy managed disks in the same subscription or different subscription with PowerShell
+# Copy managed disks in the same subscription or different subscription with PowerShell (Windows)
 
 This script creates a copy of an existing managed disk in the same subscription or different subscription. The new disk is created in the same region as the parent managed disk.   
 
@@ -39,8 +39,8 @@ This script uses following commands to create a new managed disk in the target s
 
 | Command | Notes |
 |---|---|
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Creates disk configuration that is used for disk creation. It includes the resource Id of the parent disk and location that is same as the location of parent disk.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Creates a disk using disk configuration, disk name, and resource group name passed as parameters. |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Creates disk configuration that is used for disk creation. It includes the resource Id of the parent disk and location that is same as the location of parent disk.  |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Creates a disk using disk configuration, disk name, and resource group name passed as parameters. |
 
 
 ## Next steps

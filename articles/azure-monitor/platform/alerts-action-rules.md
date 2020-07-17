@@ -128,7 +128,7 @@ Contoso wants to suppress notifications for all log alerts generated for **Compu
 
 ### Scenario 3: Action group defined at a resource group
 
-Contoso has defined [a metric alert at a subscription level](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). But it wants to define the actions that trigger specifically for alerts generated from the resource group **ContosoRG**.
+Contoso has defined [a metric alert at a subscription level](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). But it wants to define the actions that trigger specifically for alerts generated from the resource group **ContosoRG**.
 
 **Solution:** Create an action rule with:
 * Scope = **ContosoRG**
@@ -182,7 +182,7 @@ After you define the target resource for your alert rule, you can see the list o
 
 ### Can I see the alerts that have been suppressed by an action rule?
 
-In the [alerts list page](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-managing-alert-instances), you can choose an additional column called **Suppression Status**. If the notification for an alert instance was suppressed, it would show that status in the list.
+In the [alerts list page](./alerts-managing-alert-instances.md), you can choose an additional column called **Suppression Status**. If the notification for an alert instance was suppressed, it would show that status in the list.
 
 ![Suppressed alert instances](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -216,4 +216,4 @@ For every alert on VM1, action group AG1 would be triggered once. Whenever alert
 
 ## Next steps
 
-- [Learn more about alerts in Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)
+- [Learn more about alerts in Azure](./alerts-overview.md)
