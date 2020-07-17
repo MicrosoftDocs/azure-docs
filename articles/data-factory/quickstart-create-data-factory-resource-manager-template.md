@@ -71,55 +71,67 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
     Unless it is specified, use the default values to create the Azure Data Factory resources.
 
-    - **Subscription**: select an Azure subscription.
-    - **Resource group**: select **Create new**, enter a unique name for the resource group, and then select **OK**.
-    - **Region**: select a location.  For example, **East US**.
-    - **Data Factory Name**: enter a name for the Azure Data Factory service. It must be globally unique.
-    - **Location**: enter a location where you want to create your Azure Data Factory service.
+    - **Subscription**: Select an Azure subscription.
+    - **Resource group**: Select **Create new**, enter a unique name for the resource group, and then select **OK**.
+    - **Region**: Select a location.  For example, *East US*.
+    - **Data Factory Name**: Enter a name for the Azure Data Factory service. It must be globally unique.
+    - **Location**: Enter a location where you want to create your Azure Data Factory service.
     - **Storage Account Name**: The name of the storage account.
     - **Blob Container**: The name of the container created in the storage account.
 
 ## Review deployed resources
 
-1. Login to the [Azure portal](https://portal.azure.com/).
+1. Select **Go to resource group**.
 
-2. Select **All services**, search with the keyword **storage**, and select **Storage accounts**.
-    1. On the **Storage account** page, select the storage account you created.
-        1. The storage account name is in the format - storage<uniqueid>.
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-go-to-resource-group.png" alt-text="Resource Group":::
 
-3. While on the  **Storage accounts** page, select **Containers**.
+2.  Verify your Azure Data Factory is created.
+    1. Your Azure Data Factory name is in the format - datafactory\<uniqueid\>.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-sample-data-factory.png" alt-text="Sample Data Factory":::
+
+2. Verify your storage account is craeted.
+    1. The storage account name is in the format - storage\<uniqueid\>.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-storage-account.png" alt-text="Storage Account":::
+
+3. Select the storage account created and then select **Containers**.
     1. On the **Containers** page, select the blob container you created.
-        1. The storage account name is in the format - blob<uniqueid>.
+        1. The blob container name is in the format - blob\<uniqueid\>.
 
-4. Select **All services**, search with the keyword such as **data fa**, and select **Data factories**.
-    1. On the **Data Factories** page, select the data factory you created.
-        1. data factory name is in the format - datafactory<uniqueid>.
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-blob-container.png" alt-text="Blob container":::
 
 ### Upload a file
 
-1. On the **Upload blob** page, select **Upload**.
+1. On the **Containers** page, select **Upload**.
 
 2. In te right pane, select the **Files** box, and then browse to and select the **emp.txt** file that you created earlier.
 
 3. Expand the **Advanced** heading.
 
-4. In the **Upload to folder** box, enter **input**.
+4. In the **Upload to folder** box, enter *input*.
 
 5. Select the **Upload** button. You should see the **emp.txt** file and the status of the upload in the list.
 
 6. Select the **Close** icon (an **X**) to close the **Upload blob** page.
 
-Keep the container page open. You use it to verify the output at the end of this quickstart.
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-upload-blob-file.png" alt-text="Upload file to input folder":::
+
+Keep the container page open, because you can use it to verify the output at the end of this quickstart.
 
 ### Initiate Trigger
 
-1. While on the Data factory page, select the **Author & Monitor** tile. 
+1. Navigate to the **Data factories** page, and select the data factory you created. 
+
+2. Select the **Author & Monitor** tile. 
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-author-monitor-tile.png" alt-text="Author & Monitor":::
 
 2. Select the **Author** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/adf-author.png" border="false":::.
 
 3. Select the pipeline created - ArmtemplateSampleCopyPipeline.
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-pipelines.png" alt-text="ARM template pipeline":::
 
 4. Select **Add Trigger** > **Trigger Now**.
 
@@ -131,21 +143,21 @@ Keep the container page open. You use it to verify the output at the end of this
 
 1. Select the **Monitor** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/adf-monitor.png" border="false":::.
 
-2. Select the **View Activity Runs** link in the **Actions** column.
+2. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity.
 
-3. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity.
-
-4. Select the **Output** link under Actions column. You see the output from the copy operation in an **Output** window. Select the maximize button to see the full output. You can close the maximized output window or close it.
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-successful-run.png" alt-text="Successful run":::
 
 ### Verify the output file
 
-The pipeline automatically creates the output folder in the blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
+The pipeline automatically creates an output folder in the blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
 
-1. In the Azure portal, on the container page, select **Refresh** to see the output folder. 
+1. In the Azure portal, on the **Containers** page, select **Refresh** to see the output folder. 
 
 2. Select **output** in the folder list.
 
 3. Confirm that the **emp.txt** is copied to the output folder. 
+
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-output.png" alt-text="Output":::
 
 ## Clean up resources
 
