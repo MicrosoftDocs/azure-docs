@@ -90,6 +90,9 @@ Once you sign in with GitHub, then enter the repository information.
 - Select **master** from the _Branch_ drop-down
 - Click the **Next: Build >** button to edit the build configuration
 
+> [!NOTE]
+>  If you don't see any repositories, you may need to authorize Azure App Service in GitHub. Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure App Service**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Next Build button":::
 
 ### Build
