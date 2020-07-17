@@ -67,7 +67,8 @@ As in standard Cloud Shell, a storage account is required while using Cloud Shel
 ## Register resource provider
 The Microsoft.ContainerInstances resource provider needs to be registered in the subscription which holds the virtual network you want to use. Select the appropriate subscription with `Set-AzContext -Subscription {subscriptionName}` then
 
-```PS> Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance | select ResourceTypes,RegistrationState
+```powershell
+PS> Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance | select ResourceTypes,RegistrationState
 
 ResourceTypes                             RegistrationState
 -------------                             -----------------
