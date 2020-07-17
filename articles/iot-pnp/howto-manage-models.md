@@ -14,7 +14,7 @@ ms.author: v-jambra
 
 The Azure IoT Model Repository stores the models defined using [DTDLv2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) language specification. The model repository makes the models discoverable and consumable by device and solution developers.
 
-You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo), the [Azure CLI model repository commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest), or the [Model repository REST API](https://review.docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel?branch=iotpnp) to manage models in the repository.  
+You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo), the [Azure CLI model repository commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest), or the [Model repository REST API](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel) to manage models in the repository.  
 
 ## Public and Private models
 
@@ -103,7 +103,7 @@ To publish a model using the portal:
 
 ## Manage models with the Model repository REST API
 
-To manage models with the Model repository REST API, see the [Model repository REST API documentation](https://review.docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel?branch=iotpnp). When calling the REST APIs to manage private models of a company (or organization) you need to provide an  Authorization token in JWT format for the user or service principal. See the [Additional information](#additional_information) section to learn how to get the jwt token for a user or service principal.
+To manage models with the Model repository REST API, see the [Model repository REST API documentation](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel). When calling the REST APIs to manage private models of a company (or organization) you need to provide an  Authorization token in JWT format for the user or service principal. See the [Additional information](#additional_information) section to learn how to get the jwt token for a user or service principal.
 
 ## Manage models with the Azure CLI
 
