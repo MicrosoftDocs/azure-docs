@@ -20,7 +20,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 > This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
 > In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for PostgreSQL server.
 
-You can also consider using [Private Link](concepts-data-access-security-private-link.md) for connections. Private Link provides a private IP address in your VNet for the Azure Database for PostgreSQL server.
+You can also consider using [Private Link](concepts-data-access-and-security-private-link.md) for connections. Private Link provides a private IP address in your VNet for the Azure Database for PostgreSQL server.
 
 <a name="anch-terminology-and-description-82f"></a>
 ## Terminology and description
