@@ -160,6 +160,10 @@
       items:
       - name: Key Vault
         href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+    - name: Storage
+      items:
+      - name: Storage account
+        href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json 
     - name: Web
       items:
       - name: Notification Hubs
