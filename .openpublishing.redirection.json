@@ -25182,7 +25182,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/linux-isolation.md",
+      "source_path": "articles/virtual-machines/linux/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
     },    {
