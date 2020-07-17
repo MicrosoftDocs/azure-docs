@@ -58,13 +58,17 @@ Once signed in, you can run Azure commands with the Azure CLI to work with resou
 
 ## Clone or download the sample app
 
-# [Git clone](#tab/clone)
+You can obtain the sample for this tutorial via git clone or download.
 
-Clone the sample repository. Be sure to include the `--config core.autocrlf=input` argument to guarantee proper line endings in files that are used inside the Linux container:
+### Clone with git
+
+Clone the sample repository:
 
 ```terminal
 git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
 ```
+
+Be sure to include the `--config core.autocrlf=input` argument to guarantee proper line endings in files that are used inside the Linux container:
 
 Then go into that folder:
 
@@ -72,15 +76,13 @@ Then go into that folder:
 cd docker-django-webapp-linux
 ```
 
-# [Download](#tab/download)
+### Download from GitHub
 
-Visit [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux), select **Clone**, and then select **Download ZIP**. 
+Instead of using git clone, you can visit [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux), select **Clone**, and then select **Download ZIP**. 
 
 Unpack the ZIP file into a folder named *docker-django-webapp-linux*. 
 
 Then open a terminal window in that *docker-django-webapp-linux* folder.
-
----
 
 ## (Optional) Examine the Docker file
 
