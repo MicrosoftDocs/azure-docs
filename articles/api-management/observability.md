@@ -30,10 +30,10 @@ The table below summarizes all the tools supported by API Management to observe 
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- 
 | **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | Always
 | **Built-in Analytics** | Reporting and monitoring | Minutes | Lifetime | 100% | Reports and logs | Always |
-| **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | Reporting and monitoring | Minutes | 93 days (upgrade to extended) | 100% | Metrics | Always |
-| **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extended) | 100% (adjustable) | Logs | Optional |
-| **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extended) | Custom | Logs, metrics | Optional |
-| **[Logging through Azure Event Hub](api-management-howto-log-event-hubs.md)** | Custom scenaros | Seconds | User managed | Custom | Custom | Optional |
+| **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | Reporting and monitoring | Minutes | 93 days (upgrade to extend) | 100% | Metrics | Always |
+| **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs | Optional |
+| **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extend) | Custom | Logs, metrics | Optional |
+| **[Logging through Azure Event Hub](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | Optional |
 
 ### Self-hosted gateway
 
