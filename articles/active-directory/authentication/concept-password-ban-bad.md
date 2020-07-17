@@ -212,5 +212,9 @@ Additional licensing information, including costs, can be found on the [Azure Ac
 
 ## Next steps
 
-- [Configure the custom banned password list](howto-password-ban-bad.md)
-- [Enable Azure AD password protection agents on-premises](howto-password-ban-bad-on-premises-deploy.md)
+To get started with using a custom banned password list, complete the following tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Configure custom banned passwords](tutorial-configure-custom-password-protection.md)
+
+You can also then [enable on-premises Azure AD password protection](howto-password-ban-bad-on-premises-deploy.md).
