@@ -134,28 +134,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Configuration ](./media/cloud-academy-sso-tutorial/config3.PNG)
 
-    1. In the **Entity ID URL** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
+    a. In the **Entity ID URL** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
 
-    1. In the **SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    b. In the **SSO URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
-    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
+    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **Certificate** textbox.
 
-    1. In the **Permanent User ID** textbox, Enter the name of the field that holds the ID your identity provider uses to uniquely identify your users.
-
-    1. In the **First Name** textbox, Enter the IdP field that holds the user's first name.
-
-    1. In the **Last Name** textbox, Enter the IdP field that holds the user's last name.
-
-    1. In the **User Name** textbox, Enter the IdP field that holds the user's user name.
-
-    1. In the **Email** textbox, Enter the IdP field that holds the user's Email.
-
-    1. In the **Name ID Format** textbox, The default value, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
+    d. In the **Name ID Format** textbox, The default value, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`
 
 1. Click on **Save** button.
 
-    >[!NOTE]
-	>About the documentation, if it's possible, we would link our  [Support article](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On) on how to integrate SSO with CA.
+    > [!NOTE]
+	> For more information on how to configure the Cloud Academy - SSO, please refer [Support article](https://support.cloudacademy.com/hc/articles/360043908452-Setting-Up-Single-Sign-On).
 
 ### Create Cloud Academy-SSO test user
 
@@ -169,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser1.PNG)
 
-1. Enter the required fields on click on **Invite**.
+1. Enter the required fields and click on **Invite**.
 
     ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser2.PNG)
 
