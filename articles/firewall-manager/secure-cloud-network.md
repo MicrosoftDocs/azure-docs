@@ -5,7 +5,7 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/16/2020
+ms.date: 07/17/2020
 ms.author: victorh
 ---
 
@@ -23,13 +23,14 @@ In this tutorial, you learn how to:
 > * Create the spoke virtual network
 > * Create a secured virtual hub
 > * Connect the hub and spoke VNets
-> * Create a firewall policy and secure your hub
 > * Route traffic to your hub
+> * Deploy the servers
+> * Create a firewall policy and secure your hub
 > * Test the firewall
 
 ## Create a hub and spoke architecture
 
-First, create a spoke virtual network where you can place your servers.
+First, create spoke virtual networks where you can place your servers.
 
 ### Create two spoke virtual networks and subnets
 
@@ -43,10 +44,10 @@ The two virtual networks will each have a workload server in them and will be pr
 3. For **Region**, select **(US) East US**.
 4. Select **Next: IP Addresses**.
 1. For **Address space**, type **10.1.0.0/16**.
-3. Under **Subnet name**, select **default**.
-4. Change the subnet name to **Workload-01-SN**.
+3. Select **Add subnet**.
+4. Type **Workload-01-SN**.
 5. For **Subnet address range**, type **10.1.1.0/24**.
-6. Select **Save**.
+6. Select **Add**.
 1. Select **Review + create**.
 2. Select **Create**.
 
@@ -54,7 +55,8 @@ Repeat this procedure to create another similar virtual network:
 
 Name: **Spoke-02**<br>
 Address space: **10.2.0.0/16**<br>
-Subnet name: **Workload-02-SN**
+Subnet name: **Workload-02-SN**<br>
+Subnet address range: **10.2.1.0/24**
 
 ### Create the secured virtual hub
 
@@ -185,13 +187,14 @@ Add a DNAT rule so you can connect a remote desktop to the **Srv-Workload-01** v
 4. For **Priority**, type **100**.
 5. For the rule **Name** type **Allow-rdp**.
 6. For the **Source type**, select **IP address**.
-7. For **Protocol**, select **TCP**.
-8. For **Destination Ports**, type **3389**.
-9. For **Destination Type**, select **IP Address**.
-10. For **Destination**, type the firewall public IP address that you noted previously.
-11. For **Translated address**, type the private IP address for **Srv-Workload-01** that you noted previously.
-12. For **Translated port**, type **3389**.
-13. Select **Add**.
+7. For **Source**, type **\***.
+8. For **Protocol**, select **TCP**.
+9. For **Destination Ports**, type **3389**.
+10. For **Destination Type**, select **IP Address**.
+11. For **Destination**, type the firewall public IP address that you noted previously.
+12. For **Translated address**, type the private IP address for **Srv-Workload-01** that you noted previously.
+13. For **Translated port**, type **3389**.
+14. Select **Add**.
 
 Add a network rule so you can can connect a remote desktop from **Srv-Workload-01** to **Srv-Workload-02**.
 
@@ -199,7 +202,7 @@ Add a network rule so you can can connect a remote desktop from **Srv-Workload-0
 2. For **Name**, type **vnet-rdp**.
 3. For **Rule collection type**, select **Network**.
 4. For **Priority**, type **100**.
-5. For the rule **Name** type **Allow-rdp**.
+5. For the rule **Name** type **Allow-vnet**.
 6. For the **Source type**, select **IP address**.
 7. For **Source**, type **\***.
 8. For **Protocol**, select **TCP**.
@@ -218,7 +221,7 @@ This can take about five minutes or more to complete.
 
 ## Route traffic to your hub
 
-Now you must ensure that network traffic gets routed to through your firewall.
+Now you must ensure that network traffic gets routed through your firewall.
 
 1. From Firewall Manager, select **Secured virtual hubs**.
 2. Select **Hub-01**.
@@ -258,7 +261,7 @@ Now test the network rule.
 
 1. Open a remote desktop to the **Srv-Workload-02** private IP address.
 
-A remote desktop should connect to **Srv-Workload-02**.
+   A remote desktop should connect to **Srv-Workload-02**.
 
 So now you've verified that the firewall network rule is working:
 * You can connect a remote desktop to a server located in another virtual network.
