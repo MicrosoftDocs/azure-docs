@@ -113,7 +113,7 @@ Below is the corresponding digital twin formatted as JSON object:
     }
 }
 ```
-**Property**
+##Property
 Within device twin, the state of the property is split across the desired and reported section. On the other hand, digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is available within `$metadata`.
 
 In this example, `alwinexlepaho8329` is the current value of the `serialNumber` property reported by the device. `alwinexlepaho8329-a` is the desired value set by the solution. The desired value and synchronization state of a root level property is set within root level `$metadata` for a digital twin.
@@ -158,7 +158,7 @@ Below is the side-by-side JSON representation of writable property `serialNumber
    :::column-end:::
 :::row-end:::
 
-**Component**
+##Component
 Within a device twin, a component is indicated by `{ "__t": "c"}` marker, where as `$metadata` marks a component within a digital twin.
 Below is the side-by-side JSON representation of component `thermostat1`
 
