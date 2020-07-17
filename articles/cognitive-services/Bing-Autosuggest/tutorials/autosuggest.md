@@ -24,7 +24,7 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-To follow along with the tutorial, you need a subscription key for the Bing Autosuggest API. If you don't have one, [create a Bing Autosuggest resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) in the Azure portal. You can also use a [trial key](https://azure.microsoft.com/try/cognitive-services/).
+To follow along with the tutorial, you need a subscription key for the Bing Autosuggest API. If you don't have one, [create a Bing Autosuggest resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7) in the Azure portal.
 
 ## Create a new Web page
 

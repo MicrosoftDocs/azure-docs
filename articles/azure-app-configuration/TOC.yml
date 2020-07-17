@@ -103,6 +103,8 @@
       href: howto-import-export-data.md
     - name: Route events to a custom endpoint
       href: howto-app-configuration-event.md
+    - name: Backup configuration store automatically
+      href: howto-backup-config-store.md
     - name: Best practices
       href: howto-best-practices.md
 - name: Reference

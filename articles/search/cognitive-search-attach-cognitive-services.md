@@ -108,7 +108,7 @@ When you're defining the skillset programmatically, add a `cognitiveServices` se
 The following example shows this pattern. Notice the `cognitiveServices` section at the end of the definition.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
 api-key: [admin key]
 Content-Type: application/json
 ```

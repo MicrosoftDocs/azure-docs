@@ -110,7 +110,9 @@ Available memory to ML Services can be modified when it's running a MapReduce jo
 
 Available memory to ML Services can be changed by using Hadoop switches in the call to **RxHadoopMR**:
 
-    hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"  
+```r
+hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"
+```
 
 ### Scale your cluster
 

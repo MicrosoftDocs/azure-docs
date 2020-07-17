@@ -11,6 +11,10 @@
     href: ./quickstarts/client-libraries.md
 - name: Tutorials
   items:
+  - name: Launch the Immersive Reader (Android)
+    href: tutorial-android.md
+  - name: Launch the Immersive Reader (iOS)
+    href: tutorial-ios.md
   - name: Launch the Immersive Reader (Python)
     href: tutorial-python.md
   - name: Use multiple Immersive Reader resources

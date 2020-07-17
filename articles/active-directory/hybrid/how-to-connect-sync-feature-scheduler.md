@@ -36,6 +36,14 @@ The scheduler is responsible for two tasks:
 
 The scheduler itself is always running, but it can be configured to only run one or none of these tasks. For example, if you need to have your own synchronization cycle process, you can disable this task in the scheduler but still run the maintenance task.
 
+>[!IMPORTANT]
+>By default every 30 minutes a synchronization cycle is run. If you have modified the synchronization cycley you will need to make sure that a synchronization cycle is run at least once every 7 days. 
+>
+>* A delta sync needs to happen within 7 days from the last delta sync.
+>* A delta sync (following a full sync) needs to happen within 7 days from the time the last full sync completed.
+>
+>Failure to do so may cause synchronization issues which will require you to run a full synchronization to resolve. This also applies to servers in Staging mode.
+
 ## Scheduler configuration
 To see your current configuration settings, go to PowerShell and run `Get-ADSyncScheduler`. It shows you something like this picture:
 

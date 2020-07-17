@@ -144,4 +144,4 @@ nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 * Learn more about [ACR Health](../container-registry/container-registry-check-health.md)
 
 <!-- LINKS - external -->
-[AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[AKS AKS CLI]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

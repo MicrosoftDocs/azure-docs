@@ -16,10 +16,8 @@ ms.collection: M365-identity-device-management
 
 # Define custom attributes for user flows (Preview)
 
-|      |
-| ---- |
-| The custom user attributes feature is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). |
-|      |
+> [!NOTE]
+> The custom user attributes feature is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For each application, you might have different requirements for the information you want to collect during sign-up. Azure AD comes with a built-in set of information stored in attributes, such as Given Name, Surname, City, and Postal Code. With Azure AD, you can extend the set of attributes stored on a guest account when the external user signs up through a user flow.
 

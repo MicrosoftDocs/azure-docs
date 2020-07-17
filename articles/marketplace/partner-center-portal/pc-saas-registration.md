@@ -1,12 +1,10 @@
 ---
 title: Register a SaaS application - Azure Marketplace 
 description: Learn how to use the Azure portal to register a SaaS application and receive an Azure Active Directory security token.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.author: dsindona
 ---
 
 # Register a SaaS application
@@ -15,7 +13,7 @@ This article explains how to register a SaaS application using the Microsoft [Az
 
 Azure Marketplace does not impose any constraints on the authentication method your SaaS service uses for end users. The flow below is required only for authenticating the SaaS Service in Azure Marketplace.
 
-For more information about Azure AD (Active Directory), see [What is authentication](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)?
+For more information about Azure AD (Active Directory), see [What is authentication](../../active-directory/develop/authentication-scenarios.md)?
 
 ## Register an Azure AD-secured app
 
@@ -32,14 +30,14 @@ Any application that wants to use the capabilities of Azure AD must first be reg
     -   **Application type**:  
         
         Select **Web app / API** for
-        [client applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)
-        and [resource/API applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)
+        [client applications](../../active-directory/develop/active-directory-dev-glossary.md#client-application))
+        and [resource/API applications](../../active-directory/develop/active-directory-dev-glossary.md#resource-server))
         that are installed on a secure server. This setting is used for
-        OAuth confidential [web clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)
-        and public [user-agent-based  clients](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+        OAuth confidential [web clients](../../active-directory/develop/active-directory-dev-glossary.md#web-client))
+        and public [user-agent-based  clients](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)).
         The same application can also expose both a client and resource/API.
 
-        For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/).
+        For specific examples of web applications, check out the quickstart guided setups that are available in the [Get Started](../../active-directory/develop/quickstart-create-new-tenant.md) section of the [Azure AD Developers Guide](../../active-directory/develop/index.yml).
 
 5. When finished, click **Register**.  Azure AD assigns a unique *Application ID* to your new application. We recommend registering one app that accesses the API only, and as single tenant.
 
@@ -54,7 +52,7 @@ The **Azure AD app ID** is associated to your publisher ID, so make sure that th
 
 Once you have registered your application, you can programmatically request the publisher's authorization token (Azure AD access token, using Azure AD V1 endpoint). The publisher must use this token when calling the various SaaS Fulfillment APIs. This token is only valid for one hour. 
 
-For more information about these tokens, see [Azure Active Directory access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens).  Note that in the flow below V1 end point token is used.
+For more information about these tokens, see [Azure Active Directory access tokens](../../active-directory/develop/access-tokens.md).  Note that in the flow below V1 end point token is used.
 
 ### Get the token with an HTTP POST
 

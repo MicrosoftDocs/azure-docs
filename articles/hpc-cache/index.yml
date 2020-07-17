@@ -32,7 +32,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure prerequisites for Azure HPC Cache
-            url: hpc-cache-prereqs.md
+            url: hpc-cache-prerequisites.md
           - text: Create the cache
             url: hpc-cache-create.md
           - text: Add storage

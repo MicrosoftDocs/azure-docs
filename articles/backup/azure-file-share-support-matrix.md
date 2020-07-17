@@ -18,7 +18,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 
 ### Supported regions for accidental delete protection
 
-West Central US, Australia South East , Canada Central
+West Central US, Australia South East, Canada Central, West Central US, India South, North Central US, Japan East, Brazil South, South Central US, Australia East, East US, East US 2
 
 ## Supported storage accounts
 

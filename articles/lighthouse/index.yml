@@ -31,7 +31,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Onboard a customer to Azure delegated resource management
+          - text: Onboard a customer to Azure Lighthouse
             url: ./how-to/onboard-customer.md
       - linkListType: concept
         links:
@@ -119,6 +119,6 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Microsoft Q&A for Azure Lighthouse
-            url: https://docs.microsoft.com/answers/topics/azure-lighthouse.html
+            url: /answers/topics/azure-lighthouse.html
           - text: Request product features
             url: https://feedback.azure.com/forums/922753

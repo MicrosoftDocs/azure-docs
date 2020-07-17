@@ -1,13 +1,8 @@
 ---
 title: Authenticate event delivery to event handlers (Azure Event Grid)
 description: This article describes different ways of authenticating delivery to event handlers in Azure Event Grid. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Authenticate event delivery to event handlers (Azure Event Grid)

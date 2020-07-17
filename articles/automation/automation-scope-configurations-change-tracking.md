@@ -9,7 +9,7 @@ ms.custom: mvc
 
 # Limit Change Tracking and Inventory deployment scope
 
-This article describes how to work with scope configurations when using the [Change Tracking and Inventory](change-tracking.md) feature to deploy changes to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
+This article describes how to work with scope configurations when using the [Change Tracking and Inventory](change-tracking.md) feature to deploy changes to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](../azure-monitor/insights/solution-targeting.md). 
 
 ## About scope configurations
 

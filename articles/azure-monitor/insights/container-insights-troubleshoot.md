@@ -11,6 +11,7 @@ ms.date: 10/15/2019
 When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
 
 ## Authorization error during onboarding or update operation
+
 While enabling Azure Monitor for containers or updating a cluster to support collecting metrics, you may receive an error resembling the following - *The client <user’s Identity>' with object id '<user’s objectId>' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope*
 
 During the onboarding or update process, granting the **Monitoring Metrics Publisher** role assignment is attempted on the cluster resource. The user initiating the process to enable Azure Monitor for containers or the update to support the collection of metrics must have access to the **Microsoft.Authorization/roleAssignments/write** permission on the AKS cluster resource scope. Only members of the **Owner** and **User Access Administrator** built-in roles are granted access to this permission. If your security policies require assigning granular level permissions, we recommend you view [custom roles](../../role-based-access-control/custom-roles.md) and assign it to the users who require it.
@@ -25,6 +26,7 @@ You can also manually grant this role from the Azure portal by performing the fo
 4. Select **Save** to finish assigning the role.
 
 ## Azure Monitor for containers is enabled but not reporting any information
+
 If Azure Monitor for containers is successfully enabled and configured, but you cannot view status information or no results are returned from a log query, you diagnose the problem by following these steps:
 
 1. Check the status of the agent by running the command:
@@ -113,7 +115,7 @@ The table below summarizes known errors you may encounter while using Azure Moni
 | Error Message `Error retrieving data` | While Azure Kubernetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted and if it was, you will need to re-enable monitoring of your cluster with Azure Monitor for containers and specify an existing or create a new workspace. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Azure Monitor for containers again. |
 | `Error retrieving data` after adding Azure Monitor for containers through az aks cli | When enable monitoring using `az aks cli`, Azure Monitor for containers may not be properly deployed. Check whether the solution is deployed. To do this, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Azure Monitor for containers](container-insights-onboard.md) |
 
-To help diagnose the problem, we have provided a troubleshooting script available [here](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).
+To help diagnose the problem, we have provided a troubleshooting script available [here](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
 
 ## Azure Monitor for containers agent ReplicaSet Pods are not scheduled on non-Azure Kubernetes cluster
 

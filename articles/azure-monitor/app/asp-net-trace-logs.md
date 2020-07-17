@@ -69,14 +69,18 @@ For examples of using the Application Insights ILogger implementation with conso
 ## Insert diagnostic log calls
 If you use System.Diagnostics.Trace, a typical call would be:
 
-    System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```csharp
+System.Diagnostics.Trace.TraceWarning("Slow response - database01");
+```
 
 If you prefer log4net or NLog, use:
 
+```csharp
     logger.Warn("Slow response - database01");
+```
 
 ## Use EventSource events
-You can configure [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) file.
+You can configure [System.Diagnostics.Tracing.EventSource](/dotnet/api/system.diagnostics.tracing.eventsource?view=netcore-3.1) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EventSourceListener` NuGet package. Then edit the `TelemetryModules` section of the [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) file.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -129,17 +133,21 @@ You can call the Application Insights trace API directly. The logging adapters u
 
 For example:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow response - database01");
+```csharp
+var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+telemetry.TrackTrace("Slow response - database01");
+```
 
 An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
 
 You can also add a severity level to your message. And, like other telemetry, you can add property values to help filter or search for different sets of traces. For example:
 
-    var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
-    telemetry.TrackTrace("Slow database response",
-                   SeverityLevel.Warning,
-                   new Dictionary<string,string> { {"database", db.ID} });
+  ```csharp
+  var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
+  telemetry.TrackTrace("Slow database response",
+                 SeverityLevel.Warning,
+                 new Dictionary<string,string> { {"database", db.ID} });
+  ```
 
 This would enable you to easily filter out in [Search][diagnostic] all the messages of a particular severity level that relate to a particular database.
 
@@ -178,7 +186,7 @@ You can, for example:
 
 ## Troubleshooting
 ### How do I do this for Java?
-In Java codeless instrumentation (recommended) the logs are collected out of the box, use [Java 3.0 agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+In Java codeless instrumentation (recommended) the logs are collected out of the box, use [Java 3.0 agent](./java-in-process-agent.md).
 
 If you are using the Java SDK, use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 
@@ -188,7 +196,7 @@ If you are using the Java SDK, use the [Java log adapters](../../azure-monitor/a
 
 ### There's no log adapter option in the configuration tool
 * Install the logging framework first.
-* If you're using System.Diagnostics.Trace, make sure that you have it [configured in *web.config*](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx).
+* If you're using System.Diagnostics.Trace, make sure that you have it [configured in *web.config*](/dotnet/api/system.diagnostics.eventlogtracelistener?view=dotnet-plat-ext-3.1).
 * Make sure that you have the latest version of Application Insights. In Visual Studio, go to **Tools** > **Extensions and Updates**, and open the **Updates** tab. If **Developer Analytics Tools** is there, select it to update it.
 
 ### <a name="emptykey"></a>I get the "Instrumentation key cannot be empty" error message
@@ -216,5 +224,5 @@ If your application sends voluminous amounts of data and you're using the Applic
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
+[qna]: ../faq.md
 [start]: ../../azure-monitor/app/app-insights-overview.md

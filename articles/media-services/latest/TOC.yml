@@ -1,7 +1,5 @@
 - name: Media Services Documentation
-  href: ./index.yml
-- name: Switch to Live Video Analytics on IoT Edge documentation
-  href: ../live-video-analytics-edge/overview.md  
+  href: ./index.yml  
 - name: Overview
   items:
   - name: About Media Services
@@ -160,7 +158,9 @@
     - name: Streaming policies 
       href: streaming-policy-concept.md          
     - name: Content key policies 
-      href: content-key-policy-concept.md                    
+      href: content-key-policy-concept.md
+    - name: Content protection with Azure AD
+      href: azure-ad-content-protection.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid
@@ -194,7 +194,7 @@
         href: job-error-codes.md
   - name: High availability
     items:
-    - name: Encoding
+    - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-encoding.md
     - name: Streaming

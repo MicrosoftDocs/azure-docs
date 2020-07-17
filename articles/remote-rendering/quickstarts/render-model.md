@@ -11,7 +11,7 @@ ms.topic: quickstart
 
 This quickstart covers how to run a Unity sample that renders a built-in model remotely, using the Azure Remote Rendering (ARR) service.
 
-We won't go into detail about the ARR API itself or how to set up a new Unity project. Those topics are covered in [Tutorial: Setting up a Unity project from scratch](../tutorials/unity/project-setup.md).
+We won't go into detail about the ARR API itself or how to set up a new Unity project. Those topics are covered in [Tutorial: Viewing remotely rendered models](../tutorials/unity/view-remote-models/view-remote-models.md).
 
 In this quickstart you will learn how to:
 > [!div class="checklist"]

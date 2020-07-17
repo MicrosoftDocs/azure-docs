@@ -1,8 +1,6 @@
 ---
 title: Metered billing for managed applications using the marketplace metering service | Azure Marketplace
 description: This documentation is a guide for ISVs publishing Azure applications with flexible billing models. 
-author: qianw211
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
@@ -120,7 +118,7 @@ Follow the steps below to submit your support ticket:
 4. Under "Select a problem that best describes the issue", select **metered billing**.
 5. By selecting the **Next** button, you will be directed to the **Issue details** page, where you can enter more details on your issue.
 
-For more publisher support options, see [support for the commercial marketplace program in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+For more publisher support options, see [support for the commercial marketplace program in Partner Center](support.md).
 
 ## Next steps
 

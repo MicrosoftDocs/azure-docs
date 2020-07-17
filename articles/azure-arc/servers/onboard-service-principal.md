@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 02/04/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
 ---
 # Connect hybrid machines to Azure at scale
@@ -80,7 +80,7 @@ The following are the settings that you configure the `azcmagent` command to use
 * `location` : See [supported Azure regions](overview.md#supported-regions). This location can be the same or different, as the resource group's location.
 * `resource-name` : (*Optional*) Used for the Azure resource representation of your on-premises machine. If you do not specify this value, the machine hostname is used.
 
-You can learn more about the `azcmagent` command-line tool by reviewing the [Azcmagent Reference](azcmagent-reference.md).
+You can learn more about the `azcmagent` command-line tool by reviewing the [Azcmagent Reference](./manage-agent.md).
 
 ### Windows installation script
 
@@ -124,6 +124,9 @@ azcmagent connect \
   --location "{resourceLocation}" \
   --subscription-id "{subscriptionID}"
 ```
+
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 After you install the agent and configure it to connect to Azure Arc for servers (preview), go to the Azure portal to verify that the server has been successfully connected. View your machines in the [Azure portal](https://aka.ms/hybridmachineportal).
 

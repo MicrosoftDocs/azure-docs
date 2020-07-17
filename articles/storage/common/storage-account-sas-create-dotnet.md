@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: dineshm

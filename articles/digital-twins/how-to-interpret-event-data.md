@@ -126,6 +126,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
 ```json
 {
   "$dtId": "device-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "thermostat": {
     "temperature": 80,
     "humidity": 45,
@@ -158,6 +159,7 @@ Here is another example of a digital twin. This one is based on a [model](concep
 ```json
 {
   "$dtId": "logical-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
@@ -195,7 +197,7 @@ Here are the fields in the body of an edge change notification.
 | `specversion` | 1.0 |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
-| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>` |
+| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `traceparent` | A W3C trace context for the event |
 
@@ -226,15 +228,13 @@ Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$relationshipName": "RelationshipName1",
-    "$sourceId": "building11",
-    "$relationshipName": "Contains",
-    "$targetId": "floor11",
-    "ownershipUser": "user1",
-    "ownershipDepartment": "Operations"
+    "$relationshipId": "device_to_device",
+    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
+    "$relationshipName": "Connected",
+    "$targetId": "device2",
+    "connectionType": "WIFI"
 }
 ```
-
 
 ### Digital twin change notifications
 
@@ -301,7 +301,7 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 See how to create endpoints and routes to deliver events:
-* [How-to: Manage endpoints and routes](how-to-manage-routes.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)
 
 Or, learn more about the Azure Digital Twins APIs and SDK options:
-* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
