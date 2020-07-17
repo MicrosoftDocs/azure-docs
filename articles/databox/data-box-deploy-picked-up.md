@@ -33,6 +33,7 @@ This tutorial describes how to return Azure Data Box and verify the data uploade
 In this tutorial, you will learn about topics such as:
 
 > [!div class="checklist"]
+>
 > * Prerequisites
 > * Prepare to ship
 > * Ship Data Box to Microsoft
@@ -75,7 +76,7 @@ Ensure that the data copy to device is complete and **Prepare to ship** run is s
 
 ::: zone-end
 
-## [In US, Canada, Europe](#tab/in-us-canada-europe)
+## [US, Canada, Europe](#tab/in-us-canada-europe)
 
 Take the following steps if returning the device in US, Canada, or Europe.
 
@@ -112,7 +113,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ::: zone-end
 
 
-## [In Australia](#tab/in-australia)
+## [Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps to ship in Australia.
 
@@ -141,7 +142,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
-## [In Japan](#tab/in-japan) 
+## [Japan](#tab/in-japan) 
 
 1. Retain the original box used to ship the device for return shipment.
 2. Power off the device and remove the cables.
@@ -189,7 +190,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
-## [In Singapore](#tab/in-singapore) 
+## [Singapore](#tab/in-singapore) 
 
 1. Retain the original box used to ship the device for return shipment.
 2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
@@ -230,6 +231,53 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ::: zone-end
 
+## [South Africa](#tab/in-sa)
+
+1. Retain the original box used to ship the device for return shipment.
+2. Power off the device and remove the cables.
+3. Spool and securely place the power cord that was provided with the device in the back of the device.
+4. Write your company name and address information on the consignment note as your sender information.
+5. Email Quantium solution using the following email template.
+
+    - If Japan Post Chakubarai consignment note wasn't included or is missing, note that in this email. Quantium Solutions Japan will request Japan Post to bring the consignment note upon pickup.
+    - If you have multiple orders, email to ensure individual pickup.
+
+    ```
+    To: Customerservice.JP@quantiumsolutions.com
+    Subject: Pickup request for Azure Data Box｜Job name： 
+    Body: 
+    - Japan Post Yu-Pack tracking number (reference number)：
+    - Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+    ```
+
+3. Receive an email confirmation from Quantium solutions after you've booked a pickup. The email confirmation also includes information on the Chakubarai consignment note.
+
+If needed, you can contact Quantium Solution Support (Japanese language) at the following information: 
+
+- Email：Customerservice.JP@quantiumsolutions.com 
+- Telephone：03-5755-0150 
+
+::: zone target="chromeless"
+
+## Verify data upload to Azure
+
+[!INCLUDE [data-box-verify-upload](../../includes/data-box-verify-upload.md)]
+
+## Erasure of data from Data Box
+ 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
+
+::: zone-end
+
+::: zone target="docs"
+
+[!INCLUDE [data-box-verify-upload-return](../../includes/data-box-verify-upload-return.md)]
+
+::: zone-end
 
 <!--## [In Korea](#tab/in-korea) 
 
