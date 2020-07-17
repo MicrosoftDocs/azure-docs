@@ -88,7 +88,6 @@ To grant this required permission, run the following script.
 # It can be executed only by a "Global Administrator" or “Privileged Roles Administrator” type of user.
 # To check if the “Directory Readers" permission was granted, execute this script again
 
-Import-Module Azure
 Import-Module AzureAd
 connect-azuread -TenantId "<TenantId>"     #Enter your actual TenantId
  $AssignIdentityName = "<server name>"     #Enter Azure SQL logical server name
