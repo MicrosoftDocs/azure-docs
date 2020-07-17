@@ -145,7 +145,9 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
     > [!TIP]
     > If you use Windows Server nodes, add a node selector to the command to schedule the Debian container on a Linux node:
     >
-    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
+    > ```console
+    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > ```
 
 1. Once the terminal session is connected to the container, install an SSH client using `apt-get`:
 
