@@ -1,5 +1,5 @@
 ---
-title: Create reusable ML environments 
+title: How to use Azure ML environments 
 titleSuffix: Azure Machine Learning
 description: Create and manage environments for model training and deployment. Manage Python packages and other settings for the environment.
 services: machine-learning
@@ -175,6 +175,12 @@ conda_dep.add_pip_package("pillow")
 myenv.python.conda_dependencies=conda_dep
 ```
 
+You can also add environment variables to your environment. These then become available using os.environ.get in your training script.
+
+```python
+myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
+```
+
 >[!IMPORTANT]
 > If you use the same environment definition for another run, the Azure Machine Learning service reuses the cached image of your environment. If you create an environment with an unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed _at the time of environment creation_. Also, any future environment with matching definition will keep using the old version. For more information, see [Environment building, caching, and reuse](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
 
@@ -243,9 +249,9 @@ It is useful to first build images locally using the [`build_local()`](https://d
 
 ## Enable Docker
 
-The [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) of the Azure Machine Learning `Environment` class allows you to finely customize and control the guest operating system on which you run your training. The `arguments` variable can be used to specify extra arguments to pass to the Docker run command.
+Docker container provides an efficient way to encapsulate the dependencies. When you enable Docker, Azure ML builds a Docker image and creates a Python environment within that container, given your specifications. The Docker images are cached and reused: the first run in a new environment typically takes longer as the image is build.
 
-When you enable Docker, the service builds a Docker image. It also creates a Python environment that uses your specifications within that Docker container. This functionality provides additional isolation and reproducibility for your training runs.
+The [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) of the Azure Machine Learning `Environment` class allows you to finely customize and control the guest operating system on which you run your training. The `arguments` variable can be used to specify extra arguments to pass to the Docker run command.
 
 ```python
 # Creates the environment inside a Docker container.
@@ -276,7 +282,7 @@ myenv.docker.base_image = None
 myenv.docker.base_dockerfile = dockerfile
 ```
 
-### Use user-managed dependencies
+### Specify your own Python interpreter
 
 In some situations, your custom base image may already contain a Python environment with packages that you want to use.
 
@@ -391,6 +397,8 @@ service = Model.deploy(
 ## Example notebooks
 
 This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expands upon concepts and methods demonstrated in this article.
+
+This [example notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb) demonstrates how to train a model locally with different types of environments.
 
 [Deploy a model using a custom Docker base image](how-to-deploy-custom-docker-image.md) demonstrates how to deploy a model using a custom Docker base image.
 
