@@ -20,7 +20,7 @@ You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo)
 
 Models can be privately visible to the company (or organization) or publicly available to everyone.
 
-Company models are private and are maintained by your company (or organization). Access to company models is controlled through role-based access control (RBAC) on your repository tenant. Repository tenant roles determine who can create and publish models in your organization. Permissions on models allow the creator of a model which is private to the company (or organization) to share it with a limited audience external to your organization.
+Company models are private and are maintained by your company (or organization). Access to company models is controlled through role-based access control (RBAC) on your repository tenant. Repository tenant roles determine who can create and publish models in your organization. Permissions on models allow the creator of a model, which is private to the company (or organization), to share it with a limited audience external to your organization.
 
 Once a model has been published, it is public. Public models are available anonymously.
 
@@ -28,7 +28,7 @@ For an overview of model repository concepts including RBAC, see [Understand the
 
 ## Set up your model repository tenant and users
 
-Use your _work or school account_ to access the model repository. To learn how to set up an Azure AD tenant and to create a user or service principal in an Azure AD tenant, see the [Additional information](#additional_information) section.
+Use your _work or school account_ to access the model repository. To learn how to set up an Azure AD tenant and how to create a user or service principal in an Azure AD tenant, see the [Additional information](#additional-information) section.
 
 - If you're the first user from your organization to access the model repository or to sign in to the portal, you're granted the _Tenant Administrator_ role. This role allows you to assign roles to other users in your organization's repository (repository tenant).
 - You can be assigned other roles by a _Tenant Administrator_ like _ReadTenantModels_ or _CreateModels_.
@@ -103,7 +103,7 @@ To publish a model using the portal:
 
 ## Manage models with the Model repository REST API
 
-To manage models with the Model repository REST API, see the [Model repository REST API documentation](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel). When calling the REST APIs to manage private models of a company (or organization) you need to provide an  Authorization token in JWT format for the user or service principal. See the [Additional information](#additional_information) section to learn how to get the jwt token for a user or service principal.
+To manage models with the Model repository REST API, see the [Model repository REST API documentation](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel). When calling the REST APIs to manage private models of a company (or organization), you need to provide an  Authorization token in JWT format for the user or service principal. See the [Additional information](#additional-information) section to learn how to get the JWT token for a user or service principal.
 
 ## Manage models with the Azure CLI
 
@@ -113,7 +113,7 @@ To manage models with the Azure CLI, see the documentation for the [az iot pnp c
 
 You may find the following topics helpful when working with Azure Active Directory:
 
-- To create a new Azure AD tenant, see [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant). Note that Most organizations will already have Azure AD tenants.
+- To create a new Azure AD tenant, see [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant). Note that most organizations will already have Azure AD tenants.
 
 - To add users or guest users to an Azure AD tenant, see [Add or delete users using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
 
