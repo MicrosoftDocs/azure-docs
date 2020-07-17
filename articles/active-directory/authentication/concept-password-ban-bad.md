@@ -1,6 +1,6 @@
 ---
 title: Password protection in Azure Active Directory
-description: Learn how to dynamically ban weak passwords from your environment with Azure Active Directory password protection
+description: Learn how to dynamically ban weak passwords from your environment with Azure Active Directory Password Protection
 
 services: active-directory
 ms.service: active-directory
@@ -15,13 +15,13 @@ ms.reviewer: rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Eliminate bad passwords using Azure Active Directory password protection
+# Eliminate bad passwords using Azure Active Directory Password Protection
 
 A lot of security guidance recommends that you don't use the same password in multiple places, to make it complex, and to avoid simple passwords like *Password123*. You can provide your users with [guidance on how to choose passwords](https://www.microsoft.com/research/publication/password-guidance), but weak or insecure passwords are often still used. Azure AD Password Protection detects and blocks known weak passwords and their variants, and can also block additional weak terms that are specific to your organization.
 
 With Azure AD Password Protection, default global banned password lists are automatically applied to all cloud-users. To support your own business and security needs, you can define entries in a custom banned password list. When users change or reset their passwords, these banned password lists are checked to enforce the use of strong passwords.
 
-You should use additional features like [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords. For more information on, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
+You should use additional features like [Azure Multi-Factor Authentication](concept-mfa-howitworks.md), not just rely on strong passwords enforced by Azure AD Password Protection. For more information on using multiple layers of security for your sign-in events, see [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984).
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how Azure AD Password Protection works. If you're an end user already registered for self-service password reset and need to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr).
@@ -30,7 +30,7 @@ You should use additional features like [Azure Multi-Factor Authentication](conc
 
 ## Global banned password list
 
-The Azure AD Identity Protection team constantly analyzes Azure AD security telemetry data looking for commonly used weak or compromised passwords. Specifically, the analysis looks for weak base terms that often are used as the basis for weak passwords. When weak terms are found, they're added to the *global banned password list*. The contents of the global banned password list aren't based on any external data source, but on the results of Azure AD security telemetry and analysis.
+The Azure AD Identity Protection team constantly analyzes Azure AD security telemetry data looking for commonly used weak or compromised passwords. Specifically, the analysis looks for base terms that often are used as the basis for weak passwords. When weak terms are found, they're added to the *global banned password list*. The contents of the global banned password list aren't based on any external data source, but on the results of Azure AD security telemetry and analysis.
 
 When a password is changed or reset for any user in an Azure AD tenant, the current version of the global banned password list is used to validate the strength of the password. This validation check results in stronger passwords for all Azure AD customers.
 
@@ -41,7 +41,7 @@ The global banned password list is automatically applied to all cloud users in a
 
 ## Custom banned password list
 
-Some organizations want to improve security and add their own customizations on top of the global banned password list. To add your entries, you can use the *custom banned password list*. Terms added to the custom banned password list should be focused on organizational-specific terms such as the following examples:
+Some organizations want to improve security and add their own customizations on top of the global banned password list. To add your own entries, you can use the *custom banned password list*. Terms added to the custom banned password list should be focused on organizational-specific terms such as the following examples:
 
 - Brand names
 - Product names
@@ -49,14 +49,16 @@ Some organizations want to improve security and add their own customizations on 
 - Company-specific internal terms
 - Abbreviations that have specific company meaning
 
-When terms are added to the custom banned password list, they're combined with the terms in the global banned password list. Password change or reset events are validated against the combined set of banned passwords.
+When terms are added to the custom banned password list, they're combined with the terms in the global banned password list. Password change or reset events are then validated against the combined set of these banned password lists.
 
 > [!NOTE]
-> The custom banned password list is limited to a maximum of 1000 terms. It's not designed for blocking extremely large lists of passwords. To fully leverage the benefits of the custom banned password list, first review and understand [how are passwords evaluated](#how-are-passwords-evaluated) before you add terms to the custom banned list. This approach lets you efficiently detect and block large numbers of weak passwords and their variants.
+> The custom banned password list is limited to a maximum of 1000 terms. It's not designed for blocking extremely large lists of passwords.
+>
+> To fully leverage the benefits of the custom banned password list, first understand [how are passwords evaluated](#how-are-passwords-evaluated) before you add terms to the custom banned list. This approach lets you efficiently detect and block large numbers of weak passwords and their variants.
 
 ![Modify the custom banned password list under Authentication Methods](./media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png)
 
-For example, consider a customer named *Contoso*. The company is based in London and makes a product named *Widget*. For this example customer, it would be wasteful and less secure to try to block specific variations of these terms such as the following:
+Let's consider a customer named *Contoso*. The company is based in London and makes a product named *Widget*. For this example customer, it would be wasteful and less secure to try to block specific variations of these terms such as the following:
 
 - "Contoso!1"
 - "Contoso@London"
@@ -85,24 +87,24 @@ Instead, the majority of password spray attacks submit only a small number of th
 
 Azure AD Password Protection efficiently blocks all known weak passwords likely to be used in password spray attacks. This protection is based on real-world security telemetry data from Azure AD to build the global banned password list.
 
-There are some third-party websites that enumerate millions of passwords that have been compromised in previous publicly known security breaches. It's common for third-party password validation products to be based on brute-force comparison against those millions of passwords. Those techniques aren't the best way to improve overall password strength given the typical strategies used by password spray attackers.
+There are some third-party websites that enumerate millions of passwords that have been compromised in previous publicly known security breaches. It's common for third-party password validation products to be based on brute-force comparison against those millions of passwords. However, those techniques aren't the best way to improve overall password strength given the typical strategies used by password spray attackers.
 
 > [!NOTE]
-> The global banned password list is not based whatsoever on any third-party data sources, including compromised password lists.
+> The global banned password list isn't based on any third-party data sources, including compromised password lists.
 
 Although the global banned list is small in comparison to some third-party bulk lists, it's sourced from real-world security telemetry on actual password spray attacks. This approach improves the overall security and effectiveness, and the password validation algorithm also uses smart fuzzy-matching techniques. As a result, Azure AD Password Protection efficiently detects and blocks millions of the most common weak passwords from being used in your enterprise.
 
 ## On-premises hybrid scenarios
 
-Many organizations maintain hybrid scenarios including on-premises Active Directory Domain Services (AD DS) environments. To extend the security benefits of Azure AD Password Protection into your AD DS environment, you can install components on your on-premises servers. These agents require password change events in the on-premises AD DS environment to comply with the same password policy as cloud-only users.
+Many organizations have a hybrid identity model that includes on-premises Active Directory Domain Services (AD DS) environments. To extend the security benefits of Azure AD Password Protection into your AD DS environment, you can install components on your on-premises servers. These agents require password change events in the on-premises AD DS environment to comply with the same password policy as cloud-only users.
 
-For more information, see [Enforce Azure AD Password Protection for AD DS](concept-password-ban-bad-on-premises.md)
+For more information, see [Enforce Azure AD Password Protection for AD DS](concept-password-ban-bad-on-premises.md).
 
 ## How are passwords evaluated
 
 When a user changes or resets their password, the new password is checked for strength and complexity by validating it against the combined list of terms from the global and custom banned password lists.
 
-Even if a user's password contains a banned password, the password may be accepted if the overall password is otherwise strong enough. A newly configured password goes through the following steps to assess its overall strength to determine if it should be accepted or rejected.
+Even if a user's password contains a banned password, the password may be accepted if the overall password is otherwise strong enough. A newly configured password goes through the following steps to assess its overall strength to determine if it should be accepted or rejected:
 
 ### Step 1: Normalization
 
@@ -129,6 +131,8 @@ Consider the following example:
 
 ### Step 2: Check if password is considered banned
 
+A password is then examined for other matching behavior, and a score is generated. This final score determines if the password change request is accepted or rejected.
+
 #### Fuzzy matching behavior
 
 Fuzzy matching is used on the normalized password to identify if it contains a password found on either the global or the custom banned password lists. The matching process is based on an edit distance of one (1) comparison.
@@ -142,12 +146,14 @@ Consider the following example:
    * 'abcdefg' - *'g' appended to end*
    * 'abcde' - *trailing 'f' was deleted from end*
 
-* Each of the above passwords doesn't specifically match the banned password "abcdef". Since each example is within an edit distance of 1 of the banned term 'abcdef', they're all considered as a match to "abcdef".
+* Each of the above passwords doesn't specifically match the banned password "abcdef".
+
+    However, since each example is within an edit distance of 1 of the banned term 'abcdef', they're all considered as a match to "abcdef".
 * These passwords would be rejected.
 
 #### Substring matching (on specific terms)
 
-Substring matching is used on the normalized password to check for the user's first and last name as well as the tenant name. Tenant name matching isn't done when validating passwords on an Active Directory domain controller.
+Substring matching is used on the normalized password to check for the user's first and last name as well as the tenant name. Tenant name matching isn't done when validating passwords on an AD DS domain controller for on-premises hybrid scenarios.
 
 > [!IMPORTANT]
 > Substring matching is only enforced for names, and other terms, that are at least four characters long.
@@ -176,7 +182,7 @@ In the following example scenario, a user changes their password to "C0ntos0Blan
 * The matching process finds that this password contains two banned passwords: "contoso" and "blank".
 * This password is then given the following score:
 
-    [contoso] + [blank] + [1] + [2] = 4 points
+    *[contoso] + [blank] + [1] + [2] = 4 points*
 
 * As this password is under five (5) points, it's rejected.
 
@@ -186,12 +192,14 @@ Let's look a slightly different example to show how additional complexity in a p
 * The matching process finds that this password contains two banned passwords: "contoso" and "blank".
 * This password is then given the following score:
 
-    [contoso] + [blank] + [f] + [9] + [!] = 5 points
+    *[contoso] + [blank] + [f] + [9] + [!] = 5 points*
 
 * As this password is at least five (5) points, it's accepted.
 
 > [!IMPORTANT]
-> The banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premises DC agent service, updated algorithms only take effect after the DC agent software is re-installed.
+> The banned password algorithm, along with the global banned password list, can and do change at any time in Azure based on ongoing security analysis and research.
+>
+> For the on-premises DC agent service in hybrid scenarios, updated algorithms only take effect after the DC agent software is re-installed.
 
 ## What do users see
 
@@ -201,12 +209,13 @@ When a user attempts to reset a password to something that would be banned, the 
 
 ## License requirements
 
-| Users | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
+| Users | Azure AD Password Protection with global banned password list | Azure AD Password Protection with custom banned password list|
 |-------------------------------------------|---------------------------|---------------------------|
+| Cloud-only users                          | Azure AD Free             | Azure AD Premium P1 or P2 |
 | Users synchronized from on-premises AD DS | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
 
 > [!NOTE]
-> On-premises AD DS users that aren't synchronized to Azure AD also benefit from Azure AD password protection based on existing licensing for synchronized users.
+> On-premises AD DS users that aren't synchronized to Azure AD also benefit from Azure AD Password Protection based on existing licensing for synchronized users.
 
 Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -217,4 +226,4 @@ To get started with using a custom banned password list, complete the following 
 > [!div class="nextstepaction"]
 > [Tutorial: Configure custom banned passwords](tutorial-configure-custom-password-protection.md)
 
-You can also then [enable on-premises Azure AD password protection](howto-password-ban-bad-on-premises-deploy.md).
+You can also then [enable on-premises Azure AD Password Protection](howto-password-ban-bad-on-premises-deploy.md).
