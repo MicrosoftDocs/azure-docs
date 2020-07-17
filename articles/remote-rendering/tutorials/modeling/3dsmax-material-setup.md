@@ -193,9 +193,9 @@ Now that we've made the texture paths relative, we can move on to the FBX export
 
   >[!IMPORTANT] If you've created instances in your scene, it's important to select **Preserve Instances** in the FBX export settings. 
 
-   ![Screenshot that shows how to export to FBX.](media/3dsmax/fbx-export.jpg)
+  ![Screenshot that shows how to export to FBX.](media/3dsmax/fbx-export.jpg)
 
-    Remember, there are a couple of ways to export the file. If the intention is to share the FBX along with its texture files in a folder/directory, the settings shown in the following screenshot should work well. 
+  Remember, there are a couple of ways to export the file. If the intention is to share the FBX along with its texture files in a folder/directory, the settings shown in the following screenshot should work well. 
 
    If you prefer not to share large folders/directories of textures along with the FBX, you can choose to embed the textures in the FBX. If you embed the textures, the entire asset, including textures, is added to a single FBX. Doing so combines your export into a single asset, but the FBX file will be considerably larger as a result.
 
