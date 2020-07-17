@@ -69,7 +69,7 @@ In the below example whenever the request URL contains */article*, the URL path 
     
     * Enter a regular expression pattern. In this example, we'll use the pattern `.*article/(.*)/(.*)`
     
-        **Note**: ( ) is used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [here](rewrite-http-headers-url#capturing).
+        **Note**: ( ) is used to capture the substring for later use in composing the expression for rewriting the URL path. For more information, see [here](rewrite-http-headers-url.md#capturing).
 
     * Select **OK**.
 
@@ -110,7 +110,7 @@ Observe the below fields in access logs to verify if the URL rewrite happened as
 * **originalRequestUriWithArgs**: This field contains the original request URL
 * **requestUri**: This field contains the URL after the rewrite operation on Application Gateway
 
-For more information on all the fields in the access logs, see [here](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku:).
+For more information on all the fields in the access logs, see [here](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku).
 
 ##  Next steps
 
