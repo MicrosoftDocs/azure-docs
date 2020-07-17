@@ -91,8 +91,8 @@
     items:
     - name: Feature overview
       href: pim-groups-features.md
-    - name: Assign roles
-      href: pim-groups-assign-roles.md
+    - name: Assign member or owner
+      href: pim-groups-assign-member-owner.md
     - name: Invite external users
       href: pim-groups-external-users.md
     - name: Approve requests
@@ -100,9 +100,9 @@
     - name: Extend or renew assignments
       href: pim-groups-renew-extend.md
     - name: Configure role settings
-      href: pim-groups-configure-role-settings.md
+      href: pim-groups-role-settings.md
     - name: Configure alerts
-      href: pim-groups-configure-alerts.md
+      href: pim-groups-alerts.md
     - name: View audit history
       href: pim-groups-audit.md
     - name: Use custom roles
