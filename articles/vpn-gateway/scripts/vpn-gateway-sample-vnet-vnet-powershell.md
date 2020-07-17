@@ -13,7 +13,7 @@ ms.author: alzam
 
 ---
 
-# Configure a VNet-to-VNet VPN gateway connection using PowerShell
+# Use Powershell to configure a VNet-to-VNet VPN gateway connection
 
 This script connects two virtual networks by using the VNet-to-VNet connection type.
 
