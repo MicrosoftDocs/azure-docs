@@ -56,7 +56,21 @@ Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
+
+   ```powershell
+   echo $PSVersionTable.PSVersion.ToString() 
+   ```
+    
+   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
+    
+2. Install **Az.Storage** module.
+
+   ```powershell
+   Install-Module Az.Storage -Repository PSGallery -Force  
+   ```
+
+   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.0.0)
 
 ---
 
@@ -105,7 +119,7 @@ Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a to
 |Role|ACL setting capability|
 |--|--|
 |[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
-|[Storage Blob Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
+|[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
 
 This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using a client ID, a client secret, and a tenant ID.  
 
@@ -133,7 +147,43 @@ Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+Open a Windows PowerShell command window, and then sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+
+```powershell
+Connect-AzAccount
+```
+
+If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want create and manage directories in. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+
+```powershell
+Select-AzSubscription -SubscriptionId <subscription-id>
+```
+
+Next, choose how you want your commands to obtain authorization to the storage account. 
+
+### Option 1: Obtain authorization by using Azure Active Directory (AD)
+
+With this approach, the system ensures that your user account has the appropriate role-based access control (RBAC) assignments and ACL permissions. 
+
+```powershell
+$ctx = New-AzStorageContext -StorageAccountName '<storage-account-name>' -UseConnectedAccount
+```
+
+The following table shows each of the supported roles and their ACL setting capability.
+
+|Role|ACL setting capability|
+|--|--|
+|[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
+|[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
+
+### Option 2: Obtain authorization by using the storage account key
+
+With this approach, the system doesn't check RBAC or ACL permissions.
+
+```powershell
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+$ctx = $storageAccount.Context
+```
 
 ---
 
@@ -187,8 +237,23 @@ Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+Use the `Set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Set-AzDataLakeGen2AclRecursive` cmdlet to commit the ACL recursively.
 
+This example gets and sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+
+```powershell
+$filesystemName = "my-container"
+$dirname = "my-parent-directory/"
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx 
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission r-x -InputObject $acl 
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "---" -InputObject $acl
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission r-x -InputObject $acl 
+
+Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+```
 ---
 
 ## Update ACL recursively
@@ -230,7 +295,20 @@ Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursive** method. 
+
+This example adds write permission to an ACL entry, and then updates the ACL with that entry.
+
+```powershell
+$filesystemName = "my-container"
+$dirname = "my-parent-directory/"
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx
+
+Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+```
 
 ---
 
@@ -270,7 +348,19 @@ Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+Remove ACL entries by calling the **Remove-AzDataLakeGen2AclRecursive** method. 
+
+This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
+
+```powershell
+$filesystemName = "my-container"
+$dirname = "my-parent-directory/"
+$userID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+
+$acl = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID
+
+Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Acl $acl
+```
 
 ---
 
@@ -321,13 +411,29 @@ Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+Return results to the variable. Pipe failed entries to a formatted table.
+
+```powershell
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+$result
+$result.FailedEntries | ft 
+```
+
+Based on the output of the table, you can fix any permission errors, and then resume execution by using the continuation token.
+
+```powershell
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinuationToken $result.ContinuationToken
+$result
+
+```
 
 ---
 
-If you want the process to complete uninterrupted by permission errors, you can pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
+If you want the process to complete uninterrupted by permission errors, you can specify that. 
 
 ### [.NET](#tab/dotnet)
+
+To ensure that the process completes uninterrupted, pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
 
 This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
 
@@ -360,15 +466,29 @@ Put something here.
 
 ### [PowerShell](#tab/azure-powershell)
 
-Put something here.
+To ensure that the process completes uninterrupted, pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
+
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the results (including the number of failures) to the console. 
+
+```powershell
+$ContinueOnFailure = $true
+
+$TotalDirectoriesSuccess = 0
+$TotalFilesSuccess = 0
+$totalFailure = 0
+$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
+
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+
+echo "[Result Summary]"
+echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
+echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
+echo "FailedEntries:"$($result.FailedEntries | ft)
+
+```
 
 ---
-
----
-
-## Questions
-
-1. Will there be a dedicated preview SDK or will this be preview functionality within the latest GA SDK?  This affects where we put guidance. If the later, then we can add snippets to existing content and call out that this functionality is in preview.
 
 ## See also
 
