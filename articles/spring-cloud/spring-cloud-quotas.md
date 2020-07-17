@@ -9,25 +9,21 @@ ms.author: brendm
 ---
 # Quotas and Service Plans for Azure Spring Cloud
 
-All Azure services set default limits and quotas for resources and features.  During the preview period, Azure Spring Cloud offers only one service plan.
+All Azure services set default limits and quotas for resources and features.   Azure Spring Cloud offers two pricing tiers: Basic and Standard. We will detail limits for both tiers in this article.
 
-This article details the service quotas offered during the current preview period.
+## Azure Spring Cloud service tiers and limits
 
-## Azure Spring Cloud service tiers and quotas
+| Resource | Basic | Standard
+------- | ------- | -------
+vCPU | 1 per service instance | 4 per service instance
+Memory | 2 GB per service instance | 8 GB per service instance
+Azure Spring Cloud service instances per region per subscription | 10 | 10
+Total app instances per Azure Spring Cloud service instance | 25 | 500
+Persistent volumes | 1 GB/app x 10 apps | 50 GB/app x 10 apps
 
-During the preview period, Azure Spring Cloud offers only one service tier.
 
-Resource | Amount
-------- | -------
-vCPU | 4 per service instance
-Memory | 8 GBytes per service instance
-Azure Spring Cloud service instances per region per subscription | 10
-Total app instances per Azure Spring Cloud service instance | 500
-Total app instances per Spring application | 20
-Persistent volumes | 10 x 50 GBytes
-
-When you reach a quota, you'll receive a 400 error that reads: "Quota exceeds limit for subscription *your subscription* in region *region where your Azure Spring Cloud service is created*.
+During the preview period, Azure Spring Cloud offers only one service tier.	When you reach a limit, you'll receive a 400 error that reads: "Quota exceeds limit for subscription *your subscription* in region *region where your Azure Spring Cloud service is created*.
 
 ## Next steps
 
-Certain default limits and quotas can be increased. If your resource requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Some default limits can be increased. If your setup requires an increase, [create a support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).

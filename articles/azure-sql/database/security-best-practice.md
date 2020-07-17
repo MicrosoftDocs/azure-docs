@@ -2,7 +2,7 @@
 title: Playbook for addressing common security requirements 
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
 author: VanMSFT
@@ -54,8 +54,6 @@ Unless otherwise stated, we recommend you follow all best practices listed in ea
 - [Microsoft Operational Security Assurance (OSA) practices](https://www.microsoft.com/securityengineering/osa/practices): Practice #1-6 and #9
 - [NIST Special Publication 800-53 Security Controls](https://nvd.nist.gov/800-53): AC-5, AC-6
 - [PCI DSS](https://www.pcisecuritystandards.org/document_library): 6.3.2, 6.4.2
-
-### Feedback
 
 We plan on continuing to update the recommendations and best practices listed here. Provide input or any corrections for this document using the **Feedback** link at the bottom of this article.
 

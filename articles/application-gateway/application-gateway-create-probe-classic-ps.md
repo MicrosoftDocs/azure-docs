@@ -1,10 +1,10 @@
 ---
-title: Create a custom probe using PowerShell - Azure Application Gateway
+title: Create a custom probe using the Classic deployment model - Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using PowerShell in the classic deployment model
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ---

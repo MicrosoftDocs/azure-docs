@@ -1,11 +1,11 @@
 ---
-title: 'Enable MFA for VPN users: Azure AD authentication'
+title: 'Enable MFA for VPN users by using Azure AD authentication'
 description: Enable multi-factor authentication for VPN users
 services: virtual-wan
 author: anzaman
 
 ms.service: virtual-wan
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2020
 ms.author: alzam
 

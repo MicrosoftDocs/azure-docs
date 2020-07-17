@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 06/23/2020
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -42,13 +42,13 @@ The following example finds documents in the index using the Lucene query syntax
 The `searchMode=all` parameter is relevant in this example. Whenever operators are on the query, you should generally set `searchMode=all` to ensure that *all* of the criteria is matched.
 
 ```
-GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2019-05-06&querytype=full
+GET /indexes/hotels/docs?search=category:budget AND \"recently renovated\"^3&searchMode=all&api-version=2020-06-30&querytype=full
 ```
 
  Alternatively, use POST:  
 
 ```
-POST /indexes/hotels/docs/search?api-version=2019-05-06
+POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
   "search": "category:budget AND \"recently renovated\"^3",
   "queryType": "full",
@@ -162,21 +162,23 @@ The following example helps illustrate the differences. Suppose that there's a s
  To boost a term use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. You can also boost phrases. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.20).  
 
 ##  <a name="bkmk_regex"></a> Regular expression search  
- A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).  
+ A regular expression search finds a match based on patterns that are valid under Apache Lucene, as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html). In Azure Cognitive Search, a regular expression is enclosed between forward slashes `/`.
 
  For example, to find documents containing "motel" or "hotel", specify `/[mh]otel/`. Regular expression searches are matched against single words.
 
 Some tools and languages impose additional escape character requirements. For JSON, strings that include a forward slash are escaped with a backward slash: "microsoft.com/azure/" becomes `search=/.*microsoft.com\/azure\/.*/` where `search=/.* <string-placeholder>.*/` sets up the regular expression, and `microsoft.com\/azure\/` is the string with an escaped forward slash.
 
-##  <a name="bkmk_wildcard"></a> Wildcard search  
+##  <a name="bkmk_wildcard"></a> Wildcard search
 
-You can use generally recognized syntax for multiple (*) or single (?) character wildcard searches. Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
+You can use generally recognized syntax for multiple (`*`) or single (`?`) character wildcard searches. For example, a query expression of `search=alpha*` returns "alphanumeric" or "alphabetical". Note the Lucene query parser supports the use of these symbols with a single term, and not a phrase.
 
-Prefix search also uses the asterisk (`*`) character. For example, a query expression of `search=note*` returns "notebook" or "notepad". Full Lucene syntax is not required for prefix search. The simple syntax supports this scenario.
+Full Lucene syntax supports prefix, infix, and suffix matching. However, if all you need is prefix matching, you can use the simple syntax (prefix matching is supported in both).
 
-Suffix search, where `*` or `?` precedes the string, requires full Lucene syntax and a regular expression (you cannot use a * or ? symbol as the first character of a search). Given the term "alphanumeric", a query expression of (`search=/.*numeric.*/`) will find the match.
+Suffix matching, where `*` or `?` precedes the string (as in `search=/.*numeric./`) or infix matching requires full Lucene syntax, as well as the regular expression forward slash `/` delimiters. You cannot use a * or ? symbol as the first character of a term, or within a term, without the `/`. 
 
 > [!NOTE]  
+> As a rule, pattern matching is slow so you might want to explore alternative methods, such as edge n-gram tokenization that creates tokens for sequences of characters in a term. The index will be larger, but queries might execute faster, depending on the pattern construction and the length of strings you are indexing.
+>
 > During query parsing, queries that are formulated as prefix, suffix, wildcard, or regular expressions are passed as-is to the query tree, bypassing [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis). Matches will only be found if the index contains the strings in the format your query specifies. In most cases, you will need an alternative analyzer during indexing that preserves string integrity so that partial term and pattern matching succeeds. For more information, see [Partial term search in Azure Cognitive Search queries](search-query-partial-matching.md).
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring wildcard and regex queries

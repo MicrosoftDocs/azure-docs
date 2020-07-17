@@ -25,7 +25,7 @@ Customer who had active or stopped but allocated IaaS VMs (Classic) in their sub
 
 ## Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
 
-As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). If you cannot use Azure VMs using ARM, please contact support for subscription whitelisting.
+As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). If you cannot use Azure VMs using ARM, please contact support to add your subscription to the allow list.
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 

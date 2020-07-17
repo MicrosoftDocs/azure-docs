@@ -7,7 +7,7 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # Reacting to Blob storage events
@@ -34,7 +34,7 @@ To view in-depth examples of reacting to Blob storage events by using Azure func
 - [Tutorial: Automate resizing uploaded images using Event Grid](https://docs.microsoft.com/azure/event-grid/resize-images-on-storage-blob-upload-event?tabs=dotnet)
 
 >[!NOTE]
-> Only storage accounts of kind **StorageV2 (general purpose v2)**, **BlockBlobStorage**, and **BlobStorage** support event integration. **Storage (genral purpose v1)** does *not* support integration with Event Grid.
+> Only storage accounts of kind **StorageV2 (general purpose v2)**, **BlockBlobStorage**, and **BlobStorage** support event integration. **Storage (general purpose v1)** does *not* support integration with Event Grid.
 
 ## The event model
 

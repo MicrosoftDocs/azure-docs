@@ -48,8 +48,6 @@ Refer to [Configuring stateful Reliable Services](service-fabric-reliable-servic
 ## Example: specifying an HTTP endpoint for your service
 The following service manifest defines one TCP endpoint resource and two HTTP endpoint resources in the &lt;Resources&gt; element.
 
-HTTP endpoints are automatically ACL'd by Service Fabric.
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceManifest Name="Stateful1Pkg"
@@ -153,6 +151,8 @@ Here is an example ApplicationManifest demonstrating the configuration required 
 
 For Linux clusters, the **MY** store defaults to the folder **/var/lib/sfcerts**.
 
+## Port ACLing for HTTP Endpoints
+Service Fabric will automatically ACL HTTP(S) endpoints specified by default. It will **not** perform automatic acling if an endpoint does not have a [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associated with it and Service Fabric is configured to run using an account with Administrator privileges.
 
 ## Overriding Endpoints in ServiceManifest.xml
 

@@ -8,7 +8,7 @@ ms.date: 05/11/2017
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # How to use Queue Storage from C++

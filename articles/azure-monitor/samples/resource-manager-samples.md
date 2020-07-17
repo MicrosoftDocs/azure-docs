@@ -19,7 +19,7 @@ The basic steps to use the samples are:
 2. Modify the parameters for your environment and save as a JSON file.
 4. Deploy the template using [any deployment method for Resource Manager templates](../../azure-resource-manager/templates/deploy-powershell.md). 
 
-For example, use the following commands to deploy the template and parameters file to your subscription using PowerShell or Azure CLI.
+For example, use the following commands to deploy the template and parameters file to a resource group using PowerShell or Azure CLI.
 
 
 ```powershell
@@ -30,7 +30,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 
 ```azurecli
 az login
-az group deployment create \
+az deployment group create \
     --name AlertDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file azure-monitor-deploy.json \

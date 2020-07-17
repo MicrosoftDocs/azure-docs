@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues when using .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/06/2020
+ms.date: 06/16/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -81,7 +81,7 @@ This latency can have multiple causes:
 
 ### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
-If your app is deployed on [Azure Virtual Machines without a public IP address](../load-balancer/load-balancer-outbound-connections.md#defaultsnat), by default [Azure SNAT ports](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). This situation can lead to connection throttling, connection closure, or the above mentioned [Request timeouts](#request-timeouts).
+If your app is deployed on [Azure Virtual Machines without a public IP address](../load-balancer/load-balancer-outbound-connections.md), by default [Azure SNAT ports](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](../load-balancer/load-balancer-outbound-connections.md#preallocatedports). This situation can lead to connection throttling, connection closure, or the above mentioned [Request timeouts](#request-timeouts).
 
  Azure SNAT ports are used only when your VM has a private IP address is connecting to a public IP address. There are two workarounds to avoid Azure SNAT limitation (provided you already are using a single client instance across the entire application):
 
@@ -107,9 +107,11 @@ If you received the following 401 error message: "The MAC signature found in the
 
 1. The key was rotated and did not follow the [best practices](secure-access-to-data.md#key-rotation). This is usually the case. Cosmos DB account key rotation can take anywhere from a few seconds to possibly days depending on the Cosmos DB account size.
    1. 401 MAC signature is seen shortly after a key rotation and eventually stops without any changes. 
-2. The key is misconfigured on the application so the key does not match the account.
+1. The key is misconfigured on the application so the key does not match the account.
    1. 401 MAC signature issue will be consistent and happens for all calls
-3. There is a race condition with container creation. An application instance is trying to access the container before container creation is complete. The most common scenario for this if the application is running, and the container is deleted and recreated with the same name while the application is running. The SDK will attempt to use the new container, but the container creation is still in progress so it does not have the keys.
+1. The application is using the [read-only keys](secure-access-to-data.md#master-keys) for write operations.
+   1. 401 MAC signature issue will only happen when the application is doing write requests, but read requests will succeed.
+1. There is a race condition with container creation. An application instance is trying to access the container before container creation is complete. The most common scenario for this if the application is running, and the container is deleted and recreated with the same name while the application is running. The SDK will attempt to use the new container, but the container creation is still in progress so it does not have the keys.
    1. 401 MAC signature issue is seen shortly after a container creation, and only occur until the container creation is completed.
  
  ### HTTP Error 400. The size of the request headers is too long.

@@ -5,7 +5,7 @@ description: This article provides information on how to troubleshoot the redire
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
 ---

@@ -78,7 +78,9 @@ When a client is connected to the SignalR Service, service runtime will find a s
 
 At this point, the application server receives an event with information from the new client. A logical connection to the client is created in the application server. The data channel is established from client to application server, via SignalR Service.
 
-SignalR service transmits data from the client to the pairing application server. And data from the application server will be sent to the mapped clients.
+SignalR Service transmits data from the client to the pairing application server. And data from the application server will be sent to the mapped clients.
+
+SignalR Service does not save or store customer data, all customer data received is transmitted to target server or clients in real-time.
 
 As you can see, the Azure SignalR Service is essentially a logical transport layer between  application server and clients. All persistent connections are offloaded to SignalR Service.
 Application server only needs to handle the business logic in hub class, without worrying about client connections.

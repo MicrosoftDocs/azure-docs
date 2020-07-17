@@ -1,22 +1,10 @@
 ---
 title: Azure Relay Hybrid Connections - WebSockets in Node
 description: Write a Node.js console application for Azure Relay Hybrid Connections Websockets
-services: service-bus-relay
-documentationcenter: node
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
-ms.service: service-bus-relay
-ms.devlang: tbd
 ms.topic: conceptual
-ms.tgt_pltfrm: node
-ms.workload: na
-ms.date: 11/01/2018
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
+
 # Get started with Relay Hybrid Connections WebSockets in Node.js
 
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]

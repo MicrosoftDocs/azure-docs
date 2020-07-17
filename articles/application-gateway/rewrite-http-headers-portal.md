@@ -4,7 +4,7 @@ description: Learn how to use the Azure portal to configure an Azure Application
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc

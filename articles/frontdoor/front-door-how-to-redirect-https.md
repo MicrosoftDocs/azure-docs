@@ -4,7 +4,7 @@ description: Learn how to create a Front Door with redirected traffic from HTTP 
 services: front-door
 author: sharad4u
 ms.service: frontdoor
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/21/2019
 ms.author: sharadag
 

@@ -126,7 +126,9 @@ To set permissions:
 
 ## Restore an encrypted VM
 
-You restore encrypted VMs as follows:
+Encrypted VMs can only be restored by restoring the VM disk as explained below. **Replace existing** and **Restore VM** aren't supported.
+
+Restore encrypted VMs as follows:
 
 1. [Restore the VM disk](backup-azure-arm-restore-vms.md#restore-disks).
 2. Recreate the virtual machine instance by doing one of the following:

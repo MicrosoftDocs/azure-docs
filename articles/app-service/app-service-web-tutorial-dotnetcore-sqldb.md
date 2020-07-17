@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: ASP.NET Core with SQL Database' 
-description: Learn how to get a .NET Core app working in Azure App Service, with connection to SQL Database.
+description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
 
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/23/2020
+ms.date: 05/27/2020
 ms.custom: mvc, cli-validate, seodec18
 ---
 
@@ -14,15 +14,14 @@ ms.custom: mvc, cli-validate, seodec18
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core app and connect it to SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
+[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service.
 
 ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
->
-> * Create a database in Azure SQL Database
+> * Create a SQL Database in Azure
 > * Connect a .NET Core app to SQL Database
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
@@ -73,25 +72,28 @@ To stop .NET Core at any time, press `Ctrl+C` in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create a database in Azure SQL Database
+## Create production SQL Database
 
-In this step, you create a database in [Azure SQL Database](/azure/sql-database/). When your app is deployed to Azure, it uses this database.
+In this step, you create a SQL Database in Azure. When your app is deployed to Azure, it uses this cloud database.
+
+For SQL Database, this tutorial uses [Azure SQL Database](/azure/sql-database/).
 
 ### Create a resource group
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-no-h.md)]
 
-### Create a server in Azure SQL Database
+### Create a SQL Database logical server
 
-In the Cloud Shell, create a [server](../azure-sql/database/logical-servers.md) in Azure SQL Database with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command. A server is a logical construct that contains a group of databases managed as a group.
+In the Cloud Shell, create a SQL Database logical server with the [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) command.
 
-Replace the *\<server-name>* placeholder with a *unique* name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice.
+Replace the *\<server-name>* placeholder with a *unique* SQL Database name. This name is used as the part of the globally unique SQL Database endpoint, `<server-name>.database.windows.net`. Valid characters are `a`-`z`, `0`-`9`, `-`. Also, replace *\<db-username>* and *\<db-password>* with a username and password of your choice. 
+
 
 ```azurecli-interactive
 az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
-When the server is created, the Azure CLI shows information similar to the following example:
+When the SQL Database logical server is created, the Azure CLI shows information similar to the following example:
 
 <pre>
 {
@@ -113,24 +115,25 @@ When the server is created, the Azure CLI shows information similar to the follo
 
 ### Configure a server firewall rule
 
-Create a [server-level firewall rule](../azure-sql/database/firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources.
+Create an [Azure SQL Database server-level firewall rule](../sql-database/sql-database-firewall-configure.md) using the [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
-> [!TIP]
+> [!TIP] 
 > You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](overview-inbound-outbound-ips.md#find-outbound-ips).
+>
 
 In the Cloud Shell, run the command again to allow access from your local computer by replacing *\<your-ip-address>* with [your local IPv4 IP address](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az sql server firewall-rule create --name AllowLocalClient --server <server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
+az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
-### Create a database in Azure SQL Database
+### Create a database
 
-Create a database with an [S0 performance level](../azure-sql/database/service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
+Create a database with an [S0 performance level](../sql-database/sql-database-service-tiers-dtu.md) in the server using the [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) command.
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
@@ -141,14 +144,14 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 Get the connection string using the [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) command.
 
 ```azurecli-interactive
-az sql db show-connection-string --client ado.net --server <server-name> --name coreDB
+az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
 ```
 
 In the command output, replace *\<username>*, and *\<password>* with the database administrator credentials you used earlier.
 
 This is the connection string for your .NET Core app. Copy it for use later.
 
-### Configure app to connect to the database in Azure
+### Configure app to connect to production database
 
 In your local repository, open Startup.cs and find the following code:
 
@@ -166,10 +169,11 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 > [!IMPORTANT]
 > For production apps that need to scale out, follow the best practices in [Applying migrations in production](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
+> 
 
-### Run database migrations to the database in Azure
+### Run database migrations to the production database
 
-Your app currently connects to a local Sqlite database. Now that you configured an Azure SQL Database, recreate the initial migration to target it.
+Your app currently connects to a local Sqlite database. Now that you configured an Azure SQL Database, recreate the initial migration to target it. 
 
 From the repository root, run the following commands. Replace *\<connection-string>* with the connection string you created earlier.
 
@@ -201,7 +205,7 @@ dotnet run
 
 Navigate to `http://localhost:5000` in a browser. Select the **Create New** link and create a couple _to-do_ items. Your app is now reading and writing data to the production database.
 
-Commit your local changes, then commit it into your Git repository.
+Commit your local changes, then commit it into your Git repository. 
 
 ```bash
 git add .
@@ -224,7 +228,7 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 ### Create a web app
 
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)]
+[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
 ### Configure connection string
 
@@ -236,7 +240,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 In ASP.NET Core, you can use this named connection string (`MyDbConnection`) using the standard pattern, like any connection string specified in *appsettings.json*. In this case, `MyDbConnection` is also defined in your *appsettings.json*. When running in App Service, the connection string defined in App Service takes precedence over the connection string defined in your *appsettings.json*. The code uses the *appsettings.json* value during local development, and the same code uses the App Service value when deployed.
 
-To see how the connection string is referenced in your code, see [Configure app to connect to production database](#configure-app-to-connect-to-the-database-in-azure).
+To see how the connection string is referenced in your code, see [Configure app to connect to production database](#configure-app-to-connect-to-production-database).
 
 ### Push to Azure from Git
 
@@ -380,8 +384,8 @@ While the ASP.NET Core app runs in Azure App Service, you can get the console lo
 
 The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) with two configuration changes:
 
-* Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-* Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
+- Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
 To set the ASP.NET Core [log level](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
 
@@ -391,6 +395,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 
 > [!NOTE]
 > The project's log level is already set to `Information` in *appsettings.json*.
+> 
 
 To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
 
@@ -421,14 +426,12 @@ By default, the portal shows your app's **Overview** page. This page gives you a
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-
 ## Next steps
 
 What you learned:
 
 > [!div class="checklist"]
->
-> * Create a database in Azure SQL Database
+> * Create a SQL Database in Azure
 > * Connect a .NET Core app to SQL Database
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
@@ -439,3 +442,8 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Map custom DNS name to your app](app-service-web-tutorial-custom-domain.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)

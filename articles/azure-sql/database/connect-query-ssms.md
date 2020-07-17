@@ -27,7 +27,7 @@ Completing this quickstart requires the following items:
 
 - A database in Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
+  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -41,7 +41,7 @@ Completing this quickstart requires the following items:
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](connect-query-portal.md).
+If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a database in Azure SQL Database](connect-query-portal.md).
 
 ## Get server connection information
 
@@ -149,7 +149,7 @@ Run this [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL code 
 
 ### Update data
 
-Run this [UPDATE](/sql/t-sql/statements/update-transact-sql) Transact-SQL code to modify your new product.
+Run this [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one that returns the new record created previously:
 

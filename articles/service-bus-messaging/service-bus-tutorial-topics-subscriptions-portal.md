@@ -1,17 +1,11 @@
 ---
 title: Update inventory using Azure portal and topics/subscriptions
 description: In this tutorial, you learn how to send and receive messages from a topic and subscription, and how to add and use filter rules using .NET
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-
 ms.author: spelluru
-ms.date: 01/21/2020
+ms.date: 06/23/2020
 ms.topic: tutorial
-ms.service: service-bus-messaging
-ms.custom: mvc
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
-
 ---
 
 # Tutorial: Update inventory using Azure portal and topics/subscriptions

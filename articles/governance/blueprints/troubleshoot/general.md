@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
-ms.date: 01/15/2020
+ms.date: 06/29/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Blueprints

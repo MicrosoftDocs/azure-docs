@@ -4,7 +4,7 @@ description: This article provides information about how an application gateway 
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
 ---

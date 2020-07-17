@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 05/08/2020
 ---
 
 # Create resources at the tenant level

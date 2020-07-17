@@ -326,7 +326,7 @@ $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType Bas
 
 ### Step 11
 
-Configure the number of instances and size for the Application Gateway. In this example, we are using the [WAF SKU](../application-gateway/application-gateway-webapplicationfirewall-overview.md) for increased security of the API Management resource.
+Configure the number of instances and size for the Application Gateway. In this example, we are using the [WAF SKU](../web-application-firewall/ag/ag-overview.md) for increased security of the API Management resource.
 
 ```powershell
 $sku = New-AzApplicationGatewaySku -Name "WAF_Medium" -Tier "WAF" -Capacity 2
@@ -364,9 +364,9 @@ Azure API Management configured in a VNET provides a single gateway interface fo
 
 ## <a name="next-steps"> </a> Next steps
 * Learn more about Azure Application Gateway
-  * [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
-  * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)
-  * [Application Gateway using Path-based Routing](../application-gateway/application-gateway-create-url-route-arm-ps.md)
+  * [Application Gateway Overview](../application-gateway/overview.md)
+  * [Application Gateway Web Application Firewall](../web-application-firewall/ag/ag-overview.md)
+  * [Application Gateway using Path-based Routing](../application-gateway/tutorial-url-route-powershell.md)
 * Learn more about API Management and VNETs
   * [Using API Management available only within the VNET](api-management-using-with-internal-vnet.md)
   * [Using API Management in VNET](api-management-using-with-vnet.md)

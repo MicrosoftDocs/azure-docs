@@ -9,9 +9,7 @@ ms.date: 06/20/2019
 >[!NOTE]
 > Endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Ink Recognizer using the [Azure portal](../../cognitive-services-apis-create-account.md). 
-
-* You can also get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After signing up, it and an endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Ink Recognizer using the [Azure portal](../../cognitive-services-apis-create-account.md).
 
 After creating a resource, get your endpoint and key by opening your resource on the [Azure portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade), and clicking **Quick start**.
 

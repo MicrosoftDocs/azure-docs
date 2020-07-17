@@ -6,7 +6,7 @@ author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan

@@ -75,7 +75,7 @@ Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run `az --v
    ```output
    {
    "id": "/subscriptions/yourSubscriptionID/providers/Microsoft.NotificationHubs/checkNamespaceAvailability",
-   "isAvailiable": true,
+   "isAvailable": true,
    "location": null,
    "name": "spnhubns",
    "properties": false,

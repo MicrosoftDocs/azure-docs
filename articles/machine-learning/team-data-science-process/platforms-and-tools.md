@@ -106,16 +106,18 @@ The TDSP team from Microsoft has published two end-to-end walkthroughs that show
 
 If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
 
-    iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-    choco install git-credential-manager-for-windows -y
-    
+```powershell
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+choco install git-credential-manager-for-windows -y
+```  
 
 ### Install Git on Linux (CentOS) machines
 
 Run the following bash command to install Git on Linux (CentOS) machines:
 
-    sudo yum install git
-
+```powershell
+sudo yum install git
+```
 
 ### Generate public SSH key on Linux (CentOS) machines
 

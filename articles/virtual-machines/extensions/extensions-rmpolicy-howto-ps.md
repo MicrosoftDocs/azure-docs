@@ -1,5 +1,5 @@
 ---
-title: Use Azure Policy to restrict VM extension installation 
+title: Use Azure Policy to restrict VM extension installation (Windows)
 description: Use Azure Policy to restrict extension deployments.
 services: virtual-machines-linux 
 documentationcenter: ''
@@ -85,7 +85,6 @@ Copy and paste the following .json into the file.
 		"type": "Array",
 		"metadata": {
 			"description": "The list of extensions that will be denied.",
-			"strongType": "type",
 			"displayName": "Denied extension"
 		}
 	}
@@ -96,7 +95,7 @@ When you are done, hit the **Ctrl + O** and then **Enter** to save the file. Hit
 
 ## Create the policy
 
-A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create a policy definition using the [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) cmdlet.
+A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create a policy definition using the [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition) cmdlet.
 
  The policy rules and parameters are the files you created and stored as .json files in your cloud shell.
 
@@ -115,9 +114,9 @@ $definition = New-AzPolicyDefinition `
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access Agent or Custom Script extensions. 
+This example assigns the policy to a resource group using [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). Any VM created in the **myResourceGroup** resource group will not be able to install the VM Access Agent or Custom Script extensions. 
 
-Use the [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet to get your subscription ID to use in place of the one in the example.
+Use the [Get-AzSubscription | Format-Table](/powershell/module/az.accounts/get-azsubscription) cmdlet to get your subscription ID to use in place of the one in the example.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"

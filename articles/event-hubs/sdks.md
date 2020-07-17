@@ -1,16 +1,8 @@
 ---
 title: Azure Event Hubs - Client SDKs | Microsoft Docs
 description: This article provides information about client SDKs for Azure Event Hubs. 
-services: event-hubs
-documentationcenter: na
-author: spelluru
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Azure Event Hubs - Client SDKs

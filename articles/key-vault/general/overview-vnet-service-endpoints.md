@@ -69,7 +69,7 @@ Here's a list of trusted services that are allowed to access a key vault if the 
 |Azure Storage|[Storage Service Encryption using customer-managed keys in Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Encryption of data in Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) with a customer-managed key.|
 |Azure Databricks|[Fast, easy, and collaborative Apache Spark–based analytics service](../../azure-databricks/what-is-azure-databricks.md)|
-|Azure API Management|[Deploy certificates for Custom Domain from Key Vault using MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
+|Azure API Management|[Deploy certificates for Custom Domain from Key Vault using MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Fetch data store credentials in Key Vault from Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
 |Azure Event Hubs|[Allow access to a key vault for customer-managed keys scenario](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
 |Azure Service Bus|[Allow access to a key vault for customer-managed keys scenario](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
