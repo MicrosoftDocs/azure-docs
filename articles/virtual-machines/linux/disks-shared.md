@@ -10,7 +10,7 @@ ms.subservice: disks
 ms.custom: references_regions
 ---
 
-# Azure shared disks
+# Share an Azure managed disk
 
 [!INCLUDE [virtual-machines-disks-shared](../../../includes/virtual-machines-disks-shared.md)]
 
