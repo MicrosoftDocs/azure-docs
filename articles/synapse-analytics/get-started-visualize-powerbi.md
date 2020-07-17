@@ -74,8 +74,8 @@ You can link a Power BI workspace to your Azure Synapse workspace. This allows y
 1. Go to the **Develop** hub.
 1. Hover over **Power BI** and select the refresh the **Power BI reports** node.
 1. Under **Power BI** you should see:
-    1. Under **NYCTaxiWorkspace1** > **Power BI datasets**, a new dataset called **PassengerAnalysis**.
-    1. Under **NYCTaxiWorkspace1** > **Power BI reports**, a new report called **PassengerAnalysis**.
+    * Under **NYCTaxiWorkspace1** > **Power BI datasets**, a new dataset called **PassengerAnalysis**.
+    * Under **NYCTaxiWorkspace1** > **Power BI reports**, a new report called **PassengerAnalysis**.
 1. Select the **PassengerAnalysis** report. The report opens and you can edit it directly within Synapse Studio.
 
 ## Monitor activities
