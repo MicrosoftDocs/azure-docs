@@ -279,7 +279,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Ravnur Inc.](https://www.ravnur.com)|
 |[Razor Technology, LLC](https://www.razor-tech.com)|
 |[Re:discovery Software, Inc.](https://rediscoverysoftware.com)|
-|[REAN Cloud LLC.](https://www.reancloud.com)|
+|[Hitachi Vantara](https://www.hitachivantarafederal.com/rean-cloud/)|
 |[Red Level](https://redlevelgroup.com/)|
 |[Redapt Attunix](https://www.redapt.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
