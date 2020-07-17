@@ -2359,21 +2359,22 @@ For additional information, see [Monitoring Agents Overview](agents-overview.md)
 |TcpSynSent|Yes|TCP Syn Sent|Count|Average|TCP Syn Sent|Instance|
 |TcpTimeWait|Yes|TCP Time Wait|Count|Average|TCP Time Wait|Instance|
 
+## Microsoft.Web/sites (excluding functions) 
 
-## Microsoft.Web/sites
+> [!NOTE]
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
 
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
+> [!IMPORTANT]
+> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
+
 |AppConnections|Yes|Connections|Count|Average|Connections|Instance|
 |AverageMemoryWorkingSet|Yes|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|AverageResponseTime|Yes|Average Response Time|Seconds|Average|Average Response Time|Instance|
+|AverageResponseTime|Yes|Average Response Time **(deprecated)**|Seconds|Average|Average Response Time|Instance|
 |BytesReceived|Yes|Data In|Bytes|Total|Data In|Instance|
 |BytesSent|Yes|Data Out|Bytes|Total|Data Out|Instance|
 |CpuTime|Yes|CPU Time|Seconds|Total|CPU Time|Instance|
 |CurrentAssemblies|Yes|Current Assemblies|Count|Average|Current Assemblies|Instance|
 |FileSystemUsage|Yes|File System Usage|Bytes|Average|File System Usage|No Dimensions|
-|FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
-|FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|Function Execution Units|Instance|
 |Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
 |Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
 |Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
@@ -2381,7 +2382,7 @@ For additional information, see [Monitoring Agents Overview](agents-overview.md)
 |HealthCheckStatus|Yes|Health check status|Count|Average|Health check status|Instance|
 |Http101|Yes|Http 101|Count|Total|Http 101|Instance|
 |Http2xx|Yes|Http 2xx|Count|Total|Http 2xx|Instance|
-|Http3xx|Yes|Http 3xx|Count|Total|Http 3xx|Instance|
+|Http3xx|Http 3xx|Count|Total|Http 3xx|Instance|
 |Http401|Yes|Http 401|Count|Total|Http 401|Instance|
 |Http403|Yes|Http 403|Count|Total|Http 403|Instance|
 |Http404|Yes|Http 404|Count|Total|Http 404|Instance|
@@ -2403,85 +2404,36 @@ For additional information, see [Monitoring Agents Overview](agents-overview.md)
 |TotalAppDomains|Yes|Total App Domains|Count|Average|Total App Domains|Instance|
 |TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
 
-
-## Microsoft.Web/sites (excluding functions) 
-
-> [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
-
-> [!IMPORTANT]
-> **Average Response Time** will be deprecated to avoid confusion with metric aggregations. Use **Response Time** as a replacement.
-
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|CpuTime|CPU Time|Seconds|Total|CPU Time|Instance|
-|Requests|Requests|Count|Total|Requests|Instance|
-|BytesReceived|Data In|Bytes|Total|Data In|Instance|
-|BytesSent|Data Out|Bytes|Total|Data Out|Instance|
-|Http101|Http 101|Count|Total|Http 101|Instance|
-|Http2xx|Http 2xx|Count|Total|Http 2xx|Instance|
-|Http3xx|Http 3xx|Count|Total|Http 3xx|Instance|
-|Http401|Http 401|Count|Total|Http 401|Instance|
-|Http403|Http 403|Count|Total|Http 403|Instance|
-|Http404|Http 404|Count|Total|Http 404|Instance|
-|Http406|Http 406|Count|Total|Http 406|Instance|
-|Http4xx|Http 4xx|Count|Total|Http 4xx|Instance|
-|Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
-|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
-|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|HttpResponseTime|Response Time|Seconds|Total|Response Time|Instance|
-|AverageResponseTime|Average Response Time (deprecated)|Seconds|Average|Average Response Time|Instance|
-|AppConnections|Connections|Count|Average|Connections|Instance|
-|Handles|Handle Count|Count|Average|Handle Count|Instance|
-|Threads|Thread Count|Count|Average|Thread Count|Instance|
-|PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
-|IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
-|IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
-|IoOtherBytesPerSecond|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
-|IoReadOperationsPerSecond|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
-|IoWriteOperationsPerSecond|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
-|IoOtherOperationsPerSecond|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
-|RequestsInApplicationQueue|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
-|CurrentAssemblies|Current Assemblies|Count|Average|Current Assemblies|Instance|
-|TotalAppDomains|Total App Domains|Count|Average|Total App Domains|Instance|
-|TotalAppDomainsUnloaded|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
-|Gen0Collections|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
-|Gen1Collections|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
-|Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
-|HealthCheckStatus|Health check status|Count|Average|Health check status|Instance|
-|FileSystemUsage|File System Usage|Bytes|Average|File System Usage|None|
-
 ## Microsoft.Web/sites (functions)
 
 > [!NOTE]
 > **File System Usage** is a new metric being rolled out globally, no data is expected unless you have been whitelisted for private preview.
 
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
-|BytesReceived|Data In|Bytes|Total|Data In|Instance|
-|BytesSent|Data Out|Bytes|Total|Data Out|Instance|
-|Http5xx|Http Server Errors|Count|Total|Http Server Errors|Instance|
-|MemoryWorkingSet|Memory working set|Bytes|Average|Memory working set|Instance|
-|AverageMemoryWorkingSet|Average memory working set|Bytes|Average|Average memory working set|Instance|
-|FunctionExecutionUnits|Function Execution Units|MB / Milliseconds|Total|[Function Execution Units](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
-|FunctionExecutionCount|Function Execution Count|Count|Total|Function Execution Count|Instance|
-|PrivateBytes|Private Bytes|Bytes|Average|Private Bytes|Instance|
-|IoReadBytesPerSecond|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
-|IoWriteBytesPerSecond|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
-|IoOtherBytesPerSecond|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
-|IoReadOperationsPerSecond|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
-|IoWriteOperationsPerSecond|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
-|IoOtherOperationsPerSecond|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
-|RequestsInApplicationQueue|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
-|CurrentAssemblies|Current Assemblies|Count|Average|Current Assemblies|Instance|
-|TotalAppDomains|Total App Domains|Count|Average|Total App Domains|Instance|
-|TotalAppDomainsUnloaded|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
-|Gen0Collections|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
-|Gen1Collections|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
-|Gen2Collections|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
-|HealthCheckStatus|Health check status|Count|Average|Health check status|Instance|
-|FileSystemUsage|File System Usage|Bytes|Average|File System Usage|None|
-
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|AverageMemoryWorkingSet|Yes|Average memory working set|Bytes|Average|Average memory working set|Instance|
+|BytesReceived|Yes|Data In|Bytes|Total|Data In|Instance|
+|BytesSent|Yes|Data Out|Bytes|Total|Data Out|Instance|
+|CurrentAssemblies|Yes|Current Assemblies|Count|Average|Current Assemblies|Instance|
+|FileSystemUsage|Yes|File System Usage|Bytes|Average|File System Usage|No Dimensions|
+|FunctionExecutionCount|Yes|Function Execution Count|Count|Total|Function Execution Count|Instance|
+|FunctionExecutionUnits|Yes|Function Execution Units|Count|Total|[Function Execution Units](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
+|Gen0Collections|Yes|Gen 0 Garbage Collections|Count|Total|Gen 0 Garbage Collections|Instance|
+|Gen1Collections|Yes|Gen 1 Garbage Collections|Count|Total|Gen 1 Garbage Collections|Instance|
+|Gen2Collections|Yes|Gen 2 Garbage Collections|Count|Total|Gen 2 Garbage Collections|Instance|
+|HealthCheckStatus|Yes|Health check status|Count|Average|Health check status|Instance|
+|Http5xx|Yes|Http Server Errors|Count|Total|Http Server Errors|Instance|
+|IoOtherBytesPerSecond|Yes|IO Other Bytes Per Second|BytesPerSecond|Total|IO Other Bytes Per Second|Instance|
+|IoOtherOperationsPerSecond|Yes|IO Other Operations Per Second|BytesPerSecond|Total|IO Other Operations Per Second|Instance|
+|IoReadBytesPerSecond|Yes|IO Read Bytes Per Second|BytesPerSecond|Total|IO Read Bytes Per Second|Instance|
+|IoReadOperationsPerSecond|Yes|IO Read Operations Per Second|BytesPerSecond|Total|IO Read Operations Per Second|Instance|
+|IoWriteBytesPerSecond|Yes|IO Write Bytes Per Second|BytesPerSecond|Total|IO Write Bytes Per Second|Instance|
+|IoWriteOperationsPerSecond|Yes|IO Write Operations Per Second|BytesPerSecond|Total|IO Write Operations Per Second|Instance|
+|MemoryWorkingSet|Yes|Memory working set|Bytes|Average|Memory working set|Instance|
+|PrivateBytes|Yes|Private Bytes|Bytes|Average|Private Bytes|Instance|
+|RequestsInApplicationQueue|Yes|Requests In Application Queue|Count|Average|Requests In Application Queue|Instance|
+|TotalAppDomains|Yes|Total App Domains|Count|Average|Total App Domains|Instance|
+|TotalAppDomainsUnloaded|Yes|Total App Domains Unloaded|Count|Average|Total App Domains Unloaded|Instance|
 
 ## Microsoft.Web/sites/slots
 
