@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/17/2020
 ---
 
-## Determining Application Type
+# Determining Application Type
 
 Running efficient queries on a Hyperscale (Citus) server group requires that
 tables be properly distributed across servers. The recommended distribution
@@ -19,7 +19,7 @@ There are broadly two kinds of applications that work well on Hyperscale
 (Citus). The first step in data modeling is to identify which of them more
 closely resembles your application.
 
-### At a Glance
+## At a Glance
 
 | Multi-Tenant Applications                                 | Real-Time Applications                                |
 |-----------------------------------------------------------|-------------------------------------------------------|
@@ -28,7 +28,7 @@ closely resembles your application.
 | OLTP workloads for serving web clients                    | High ingest volume of mostly immutable data           |
 | OLAP workloads that serve per-tenant analytical queries   | Often centering around large table of events            |
 
-### Examples and Characteristics
+## Examples and Characteristics
 
 **Multi-Tenant Application**
 
@@ -77,7 +77,7 @@ how to shard your data in the server group. The database administrator\'s
 choice of distribution columns needs to match the access patterns of typical
 queries to ensure performance.
 
-### Next steps
+## Next steps
 
 * Learn about [distributed data](concepts-hyperscale-distributed-data.md)
 * [Choose a distribution column](concepts-hyperscale-choose-distribution-column.md)
