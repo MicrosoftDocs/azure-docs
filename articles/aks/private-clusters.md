@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 6/18/2020
+ms.date: 7/17/2020
 
 ---
 
@@ -12,6 +12,13 @@ ms.date: 6/18/2020
 In a private cluster, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internets](https://tools.ietf.org/html/rfc1918) document. By using a private cluster, you can ensure that network traffic between your API server and your node pools remains on the private network only.
 
 The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the cluster or node pool can communicate with each other through the [Azure Private Link service][private-link-service] in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.
+
+## Region availability
+
+Private cluster is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure China 21Vianet isn't currently supported.
+* US Gov Texas isn't currently supported due to missing Private Link support.
 
 ## Prerequisites
 
