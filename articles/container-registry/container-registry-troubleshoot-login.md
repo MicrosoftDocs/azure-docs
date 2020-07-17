@@ -15,14 +15,14 @@ Symptoms can include:
 * Unable to login to registry and you receive Docker error `unauthorized: authentication required`
 * Unable to login to registry and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to push or pull images and you receive Docker error `unauthorized: authentication required`
-* Unable to push or pull images and you receive  Azure CLI error `Could not connect to the registry login server`
+* Unable to push or pull images and you receive Azure CLI error `Could not connect to the registry login server`
 * Unable to access registry from Azure Kubernetes Service, Azure DevOps, or another Azure service
 * Unable to access registry in Azure portal or manage registry using the Azure CLI
 
 ## Causes
 
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
-* The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
+* The registry credentials aren't valid or are expired - [solution](#confirm-credentials-to-access-registry)
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
@@ -52,6 +52,8 @@ Check the credentials you created for your scenario, or that were provided to yo
 
 * User name - service principal application ID (also called *client ID*)
 * Password - service principal password (also called *client secret*)
+
+If using a [repository-scoped token](container-registry-repository-scoped-permissions.md), ensure that the token is enabled and that the token password isn't expired
 
 If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
 
