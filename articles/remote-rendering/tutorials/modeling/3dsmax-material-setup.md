@@ -191,7 +191,8 @@ Now that we've made the texture paths relative, we can move on to the FBX export
 
 1. In the **Select File to Export** dialog box, type or select an output file name. In the **Save as type** list, select **Autodesk (*.fbx)**. This action opens the FBX Export window.
 
-  >[!IMPORTANT] If you've created instances in your scene, it's important to select **Preserve Instances** in the FBX export settings. 
+  >[!IMPORTANT] 
+  >If you've created instances in your scene, it's important to select **Preserve Instances** in the FBX export settings. 
 
   ![Screenshot that shows how to export to FBX.](media/3dsmax/fbx-export.jpg)
 
