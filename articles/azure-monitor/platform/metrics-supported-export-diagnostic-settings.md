@@ -28,16 +28,16 @@ If you delete a resource group or a specific resource, metric data from the affe
 
 ## Metrics that used to export zero for NULL
 
-> [!NOTE]
-> The metrics below **used to** emit '0's when there was no data. This caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (Nulls), and so the behavior was changes on June 1, 2020. 
+The metrics below **used to** emit '0's when there was no data. Those zeros could then be exported into downstream systems like Log Analytics and Azure storage.  This behavior caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (NULLs), and so the behavior was changed on June 1, 2020.  Since that date, they now emit NULL values just like the rest of the supported platform metrics.
 
-2.	This change occured in all public and private clouds.
-3.	This change did not impact the behavior of any of the following experiences: 
-   - Platform Resource Logs exported via Diagnostic Settings
+The change occured in all public and private clouds.
+
+The change did not impact the behavior of any of the following experiences: 
+   - Platform Resource logs exported via Diagnostic Settings
    - Metrics charting in Metrics Explorer
    - Alerting on platform metrics
  
-The following metrics **used to** emit zeros for NULL when exported to other locations. As of June 1, 2020, they now emit NULL values just like other metrics.
+Following is a list of the metrics whose behavior changed. 
 
 | ResourceType                    | Metric               |  MetricDisplayName  | 
 |---------------------------------|----------------------|---------------------|
