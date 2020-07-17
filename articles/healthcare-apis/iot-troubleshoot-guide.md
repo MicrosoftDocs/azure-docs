@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/16/2020
 ms.author: jasteppe
 ---
 # IoT Connector (preview) troubleshooting guide and how-to
@@ -40,22 +40,22 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 
 1. Select **"IoT Connector (preview)"** on the lower left side of the Azure API for FHIR resource dashboard in the **"Add-ins"** section.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
 2. Select the **"Connector"** that you'll be copying the mapping files from.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 3. Select **"Configure device mapping"**.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 > [!NOTE]
 > This process can also be used for copying/saving the contents of the **"Configure FHIR mapping"** JSON.
 
 4. Select the contents of the JSON and perform a **"Copy"** operation (for example: **Ctrl + c**). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Perform a **"Paste"** operation (for example: **Ctrl + v**) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
 
