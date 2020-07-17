@@ -7,7 +7,7 @@ author: priestlg
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 07/15/2020
+ms.date: 07/17/2020
 ms.author: v-grpr
 ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
@@ -93,8 +93,9 @@ This step takes about 5-7 minutes to complete.
 
 The time to complete this operation depends upon your data size and network speed.
 
-1. If using a Windows host, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. Connect the tool to your device and begin copying data from the storage accounts. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
-2. Connect to the shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box.
+1. If using a Windows client, use an SMB compatible file copy tool such as Robocopy. For NFS host, use `cp` command or `rsync` to copy the data. For more information on how to use Robocopy to copy data, go to [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+2. Connect to the device shares and begin copying data to the host computer.
+<!-- 1. Connect to the device shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box. --> 
 
 ## Ship to Azure
 
