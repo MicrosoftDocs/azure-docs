@@ -259,7 +259,7 @@ So now you've verified that the firewall application rule is working:
 
 Now test the network rule.
 
-1. Open a remote desktop to the **Srv-Workload-02** private IP address.
+- Open a remote desktop to the **Srv-Workload-02** private IP address.
 
    A remote desktop should connect to **Srv-Workload-02**.
 
