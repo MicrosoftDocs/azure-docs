@@ -55,6 +55,7 @@ The [customer-managed keys feature](customer-keys.md) is supported only in these
 * East US
 * South Central US
 * West US 2
+* West Europe
 * US Gov Arizona
 * US Gov Virginia
 
