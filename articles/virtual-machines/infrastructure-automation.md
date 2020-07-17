@@ -1,10 +1,15 @@
 ---
+title: Use infrastructure automation tools
+description: Learn how to use infrastructure automation tools such as Ansible, Chef, Puppet, Terraform, and Packer to create and manage virtual machines in Azure.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: include
-ms.date: 04/11/2019
+ms.topic: article
+ms.workload: infrastructure
+ms.date: 07/17/2020
 ms.author: cynthn
 ---
+
+# Use infrastructure automation tools with virtual machines in Azure
 
 To create and manage Azure virtual machines (VMs) in a consistent manner at scale, some form of automation is typically desired. There are many tools and solutions that allow you to automate the complete Azure infrastructure deployment and management lifecycle. This article introduces some of the infrastructure automation tools that you can use in Azure. These tools commonly fit in to one of the following approaches:
 
@@ -24,9 +29,9 @@ To create and manage Azure virtual machines (VMs) in a consistent manner at scal
 
 Learn how to:
 
-- [Install and configure Ansible on Linux for use with Azure](../articles/ansible/ansible-install-configure.md).
-- [Create a Linux virtual machine](../articles/ansible/ansible-create-vm.md).
-- [Manage a Linux virtual machine](../articles/ansible/ansible-manage-linux-vm.md).
+- [Install and configure Ansible on Linux for use with Azure](../ansible/ansible-install-configure.md).
+- [Create a Linux virtual machine](../ansible/ansible-create-vm.md).
+- [Manage a Linux virtual machine](../ansible/ansible-manage-linux-vm.md).
 
 
 ## Chef
@@ -35,7 +40,7 @@ Learn how to:
 Learn how to:
 
 - [Deploy Chef Automate from the Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview).
-- [Install Chef on Windows and create Azure VMs](../articles/chef/chef-automation.md).
+- [Install Chef on Windows and create Azure VMs](../chef/chef-automation.md).
 
 
 ## Puppet
@@ -54,8 +59,8 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images make your cloud-init deployments and configurations work seamlessly with VMs and virtual machine scale sets.
 Learn more details about cloud-init on Azure:
 
-- [Cloud-init support for Linux virtual machines in Azure](../articles/virtual-machines/linux/using-cloud-init.md)
-- [Try a tutorial on automated VM configuration using cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Cloud-init support for Linux virtual machines in Azure](./linux/using-cloud-init.md)
+- [Try a tutorial on automated VM configuration using cloud-init](./linux/tutorial-automate-vm-deployment.md).
 
 
 ## PowerShell DSC
@@ -71,14 +76,14 @@ Learn how to:
 
 
 ## Azure Custom Script Extension
-The Azure Custom Script Extension for [Linux](../articles/virtual-machines/linux/extensions-customscript.md) or [Windows](../articles/virtual-machines/windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use.
+The Azure Custom Script Extension for [Linux](./linux/extensions-customscript.md) or [Windows](./windows/extensions-customscript.md) downloads and executes scripts on Azure VMs. You can use the extension when you create a VM, or any time after the VM is in use.
 
 Scripts can be downloaded from Azure storage or any public location such as a GitHub repository. With the Custom Script Extension, you can write scripts in any language that runs on the source VM. These scripts can be used to install applications or configure the VM as desired. To secure credentials, sensitive information such as passwords can be stored in a protected configuration. These credentials are only decrypted inside the VM.
 
 Learn how to:
 
-- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
-- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
+- [Create a Linux VM with the Azure CLI and use the Custom Script Extension](./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fcli%2fazure%2ftoc.json).
+- [Create a Windows VM with Azure PowerShell and use the Custom Script Extension](./scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
 
 ## Packer
@@ -86,8 +91,8 @@ Learn how to:
 
 Learn how to:
 
-- [Use Packer to create a Linux VM image in Azure](../articles/virtual-machines/linux/build-image-with-packer.md).
-- [Use Packer to create a Windows VM image in Azure](../articles/virtual-machines/windows/build-image-with-packer.md).
+- [Use Packer to create a Linux VM image in Azure](./linux/build-image-with-packer.md).
+- [Use Packer to create a Windows VM image in Azure](./windows/build-image-with-packer.md).
 
 
 ## Terraform
@@ -106,9 +111,9 @@ Azure Automation also provides a Desired State Configuration (DSC) service that 
 
 Learn how to:
 
-- [Create a PowerShell runbook](../articles/automation/automation-first-runbook-textual-powershell.md).
-- [Use Hybrid Runbook Worker to manage on-premises resources](../articles/automation/automation-hybrid-runbook-worker.md).
-- [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
+- [Create a PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md).
+- [Use Hybrid Runbook Worker to manage on-premises resources](../automation/automation-hybrid-runbook-worker.md).
+- [Use Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 
 
 ## Azure DevOps Services
@@ -124,19 +129,19 @@ Learn more about:
 
 Learn how to:
 
-- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md).
+- [Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker](../jenkins/tutorial-jenkins-github-docker-cicd.md).
 
 
 ## Azure Resource Manager template
-[Azure Resource Manager](../articles/azure-resource-manager/templates/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
+[Azure Resource Manager](../azure-resource-manager/templates/overview.md) is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
 Learn how to:
 
-- [Deploy Spot VMs using a Resource Manager template](../articles/virtual-machines/linux/spot-template.md).
-- [Deploy an Azure Virtual Machine using C# and a Resource Manager template](../articles/virtual-machines/windows/csharp-template.md).
-- [Create a Windows virtual machine from a Resource Manager template](../articles/virtual-machines/windows/ps-template.md).
-- [Download the template for a VM](../articles/virtual-machines/windows/download-template.md).
-- [Create an Azure Image Builder template](../articles/virtual-machines/linux/image-builder-json.md).
+- [Deploy Spot VMs using a Resource Manager template](./linux/spot-template.md).
+- [Create a Windows virtual machine from a Resource Manager template](./windows/ps-template.md).
+- [Download the template for a VM](./windows/download-template.md).
+- [Create an Azure Image Builder template](./linux/image-builder-json.md).
 
 ## Next steps
-There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md) or [Windows](../articles/virtual-machines/windows/tutorial-automate-vm-deployment.md) VM.
+There are many different options to use infrastructure automation tools in Azure. You have the freedom to use the solution that best fits your needs and environment. To get started and try some of the tools built-in to Azure, see how to automate the customization of a [Linux](./linux/tutorial-automate-vm-deployment.md) or [Windows](./windows/tutorial-automate-vm-deployment.md) VM.
+
