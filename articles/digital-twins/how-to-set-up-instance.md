@@ -193,7 +193,7 @@ Owner role required: **Maybe**
 
 By default, you do not have to be an owner on the Azure subscription to run this step. 
 
-However, an admin may globally turn on *Admin Content Required* in AAD for all app registrations within your subscription. If so, you will need to be an admin to complete this step.
+However, an admin may globally turn on *Admin Consent Required* in AAD for all app registrations within your subscription. If so, you will need to be an admin to complete this step.
 
 It is also possible that your organization requires additional action from admins in order to successfully set up an app registration. Here are some potential activities that an admin may need to perform:
 * Grant admin consent for the app registration
