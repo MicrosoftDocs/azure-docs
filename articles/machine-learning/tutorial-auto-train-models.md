@@ -1012,6 +1012,8 @@ print(fitted_model)
 Use the best model to run predictions on the test data set to predict taxi fares. The function `predict` uses the best model and predicts the values of y, **trip cost**, from the `x_test` data set. Print the first 10 predicted cost values from `y_predict`.
 
 ```python
+y_test = x_test.pop("totalAmount")
+
 y_predict = fitted_model.predict(x_test)
 print(y_predict[:10])
 ```
@@ -1022,7 +1024,6 @@ Calculate the `root mean squared error` of the results. Convert the `y_test` dat
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-y_test = x_test.pop("totalAmount")
 y_actual = y_test.values.flatten().tolist()
 rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
