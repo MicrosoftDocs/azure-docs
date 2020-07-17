@@ -37,7 +37,7 @@ The table below summarizes all the tools supported by API Management to observe 
 
 ### Self-hosted gateway
 
-All the tools mentioned above are supported by the managed gateway in the cloud. The [self-hosted gateway](https://docs.microsoft.com/en-us/azure/api-management/self-hosted-gateway-overview) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring cloud metrics and logs for self-hosted gateway](how-to-configure-cloud-metrics-logs.md) and [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md).
+All the tools mentioned above are supported by the managed gateway in the cloud. The [self-hosted gateway](self-hosted-gateway-overview.md) currently does not send diagnostic logs to Azure Monitor. However, it is possible to configure and persist logs locally where the self-hosted gateway is deployed. For more information, please see [configuring cloud metrics and logs for self-hosted gateway](how-to-configure-cloud-metrics-logs.md) and [configuring local metrics and logs for self-hosted gateway](how-to-configure-local-metrics-logs.md).
 
 ## Next Steps
 
