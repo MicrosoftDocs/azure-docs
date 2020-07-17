@@ -378,7 +378,7 @@ SELECT master_create_distributed_table('github_events', 'repo_id', 'hash');
 
  > [!WARNING]
 > This function is deprecated, and replaced by
-> [create_distributed_table](#create-distributed_table)
+> [create_distributed_table](#create_distributed_table)
 
 The master\_create\_worker\_shards() function creates a specified number of
 worker shards with the desired replication factor for a *hash* distributed
