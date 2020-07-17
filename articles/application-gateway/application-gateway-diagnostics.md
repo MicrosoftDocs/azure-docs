@@ -153,7 +153,7 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below. 
 
-#### For Application Gateway Standard and WAF SKU (v1):
+#### For Application Gateway Standard and WAF SKU (v1)
 
 |Value  |Description  |
 |---------|---------|
@@ -197,7 +197,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
-#### For Application Gateway and WAF v2 SKU:
+#### For Application Gateway and WAF v2 SKU
 
 |Value  |Description  |
 |---------|---------|
