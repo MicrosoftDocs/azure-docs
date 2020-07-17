@@ -14,9 +14,9 @@
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
-## Operating system requirements
+## Supported operating systems
 
-[!INCLUDE [virtual-machines-disks-shared-supported-os](virtual-machines-disks-shared-supported-os.md)]
+Shared disks support several operating systems. See the [Windows](../articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 

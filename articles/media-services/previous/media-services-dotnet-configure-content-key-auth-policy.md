@@ -16,7 +16,7 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ---
-# Configure a content key authorization policy
+# Configure a content key authorization policy by using the Media Services .NET SDK
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 

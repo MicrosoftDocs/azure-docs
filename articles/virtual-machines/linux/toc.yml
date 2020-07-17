@@ -429,22 +429,24 @@
       items:
       - name: Generic steps
         href: create-upload-generic.md
-      - name: Ubuntu
-        href: create-upload-ubuntu.md
       - name: CentOS
         href: create-upload-centos.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
       - name: Debian
         href: debian-create-upload-vhd.md
-      - name: SUSE
-        href: suse-create-upload-vhd.md
+      - name: Flatcar Container Linux
+        href: flatcar-create-upload-vhd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
       - name: OpenBSD
         href: create-upload-openbsd.md
-      - name: FreeBSD
-        href: freebsd-intro-on-azure.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
     - name: Use cloud-init
       items:
       - name: Cloud-init overview
