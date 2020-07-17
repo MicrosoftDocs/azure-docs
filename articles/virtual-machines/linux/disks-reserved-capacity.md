@@ -9,5 +9,5 @@ ms.service: virtual-machines
 ms.subservice: disks
 ---
 
-# Reduce costs with Azure Disks Reservation
+# Reduce costs with Azure Disks Reservation on Linux
 [!INCLUDE [disk-reserved-capacity-shared](../../../includes/disk-reserved-capacity-shared.md)]
