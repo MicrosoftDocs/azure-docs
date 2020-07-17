@@ -10,7 +10,7 @@ ms.custom:
 
 Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy to a container instance on-demand when you develop cloud-native apps and you want to switch seamlessly from local development to cloud deployment.
 
-In this quickstart, you use native Docker CLI commands to deploy an isolated Docker container and make its application available in Azure Container Instances. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). A few seconds after you execute a `docker run` command, you can browse to the application running in the container:
+In this quickstart, you use native Docker CLI commands to deploy a Docker container and make its application available in Azure Container Instances. This capability is enabled by [integration between Docker and Azure](https://docs.docker.com/engine/context/aci-integration/) (beta). A few seconds after you execute a `docker run` command, you can browse to the application running in the container:
 
 :::image type="content" source="media/container-instances-quickstart-docker-cli/view-application-running-in-an-azure-container-instance.png" alt-text="App deployed using Azure Container Instances viewed in browser":::
 
@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free account][azure-account] 
 For this quickstart, you need to install Docker Desktop Edge version 2.3.2.0 or later, available for [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) or [macOS](https://desktop.docker.com/mac/edge/Docker.dmg). Or install the [Docker ACI Integration CLI for Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux) (beta). 
 
 > [!IMPORTANT]
-> This feature is currently in preview, and requires beta (preview) features in Docker. Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions). Not all features of Azure Container Instances are supported. Azure previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> This feature is currently in preview, and requires beta (preview) features in Docker. Read more about [Stable and Edge versions of Docker Desktop](https://docs.docker.com/desktop/#stable-and-edge-versions). Not all features of Azure Container Instances are supported. Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
 
 ## Create Azure context
 
@@ -38,7 +38,7 @@ Run `docker context create aci` to create an ACI context. This context associate
 docker context create aci myacicontext
 ```
 
-When prompted, select your Azure subscription ID, then select **create a new resource group**. A group is created with a system-generated name. Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
+When prompted, select your Azure subscription ID, then select an existing resource group or **create a new resource group**. If you choose a new resource group, it's created with a system-generated name. Azure container instances, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
 
 Run `docker context ls` to confirm that you added the ACI context to your Docker contexts:
@@ -57,7 +57,7 @@ First, change to the ACI context. All subsequent Docker commands run in this con
 docker context use myacicontext
 ```
 
-Run the following `docker run` command to create the Azure container instance:
+Run the following `docker run` command to create the Azure container instance with port 80 exposed to the internet:
 
 ```
 docker run -p 80:80 mcr.microsoft.com/azuredocs/aci-helloworld
@@ -121,7 +121,7 @@ docker rm hungry-kirch
 
 ## Next steps
 
-In this quickstart, you created an Azure container instance from a public image by using integration between Docker and Azure. Learn more about integration scenarios in the [Docker documentation](https://docs.docker.com/engine/context/aci-integration/). Provide feedback about the Docker-Azure integration by creating an issue in the [aci-integration-beta](https://github.com/docker/aci-integration-beta) GitHub repository.
+In this quickstart, you created an Azure container instance from a public image by using integration between Docker and Azure. Learn more about integration scenarios in the [Docker documentation](https://docs.docker.com/engine/context/aci-integration/). 
 
 You can also use the [Docker extension](https://aka.ms/VSCodeDocker) for Visual Studio Code for an integrated experience to develop, run, and manage containers, images, and contexts.
 
