@@ -258,7 +258,7 @@ Next, select *Overview* from the menu bar to see the details of the app registra
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
 
-#### Possible additional requirements
+## Possible additional requirements
 
 It is possible that your organization requires additional actions from subscription Owners in order to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
