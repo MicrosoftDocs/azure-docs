@@ -7,6 +7,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ---
+
 # Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL - Single Server
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for PostgreSQL server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for PostgreSQL server.
@@ -18,6 +19,8 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 > [!NOTE]
 > This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
 > In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for PostgreSQL server.
+
+You can also consider using [Private Link](concepts-data-access-security-private-link.md) for connections. Private Link provides a private IP address in your VNet for the Azure Database for PostgreSQL server.
 
 <a name="anch-terminology-and-description-82f"></a>
 ## Terminology and description
@@ -49,10 +52,6 @@ The Azure Database for PostgreSQL firewall allows you to specify IP address rang
 You can salvage the IP option by obtaining a *static* IP address for your VM. For details, see [Configure private IP addresses for a virtual machine by using the Azure portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
 
 However, the static IP approach can become difficult to manage, and it is costly when done at scale. Virtual network rules are easier to establish and to manage.
-
-### C. Cannot have Azure Database for PostgreSQL on a VNet subnet without defining a service endpoint
-
-Azure Database for PostgreSQL - Single Server is not among the services that can be assigned directly to a subnet. Use service endpoints to communicate from your VNet to your Postgres server.
 
 
 <a name="anch-details-about-vnet-rules-38q"></a>
@@ -106,7 +105,7 @@ For Azure Database for PostgreSQL, the virtual network rules feature has the fol
 
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-- If you decide to use [non-VNet firewall rules](concepts-firewall-rules.md) to connect, you have to disable **Microsoft.Sql** for the subnet you are connecting from. If **Microsoft.Sql** is enabled, it indicates that you want to use VNet rules only.
+- If **Microsoft.Sql** is enabled in a subnet, it indicates that you only want to use VNet rules to connect. [Non-VNet firewall rules](concepts-firewall-rules.md) of resources in that subnet will not work.
 
 - On the firewall, IP address ranges do apply to the following networking items, but virtual network rules do not:
     - [Site-to-Site (S2S) virtual private network (VPN)][vpn-gateway-indexmd-608y]
