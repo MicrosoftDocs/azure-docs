@@ -85,6 +85,8 @@ Most Azure resources will write data to the workspace in either **Azure Diagnost
   
    ![Diagnostic Settings mode selector](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
+> [!NOTE]
+> For an example setting the collection mode using a resource manager template, see [Resource Manager template samples for diagnostic settings in Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
 
 You can modify an existing diagnostic setting to resource-specific mode. In this case, data that was already collected will remain in the _AzureDiagnostics_ table until it's removed according to your retention setting for the workspace. New data will be collected in  the dedicated table. Use the [union](/azure/kusto/query/unionoperator) operator to query data across both tables.
