@@ -13,7 +13,7 @@ ms.date: 05/19/2020
 
 # Get Started with Azure Synapse Analytics
 
-This tutorial is a step-by-step guide through the majore feature areas of Azure Synapse Analytics. This is the ideal starting point for someone who wants to guided tour through the key scenarios of Azure Synapse Analytics. After following the steps in the tutorial you will have a fully-functional Synapse workspace in which you can start analyzing data using SQL, SQL on-demand, and Apache Spark.
+This tutorial is a step-by-step guide through the major feature areas of Azure Synapse Analytics. The tutorial is the ideal starting point for someone who wants a guided tour through the key scenarios of Azure Synapse Analytics. After following the steps in the tutorial, you will have a fully functional Synapse workspace in which you can start analyzing data using SQL, SQL on-demand, and Apache Spark.
 
 You will learn to:
 * Provision a Synapse workspace in an Azure subscription
@@ -25,7 +25,7 @@ You will learn to:
 * Load data into SQL tables from Spark dataframes
 * Explore the contents of an ADLSGEN2 account
 * Analyze  parquet datafiles in ADLSGEN2 accounts using Spark and SQL on-demand 
-* Build a simple  data pipeline that automatically runs a Synapse notebook every hour
+* Build a data pipeline that automatically runs a Synapse notebook every hour
 
 Follow the steps *in order* as shown below and you'll take a tour through many of the capabilities and learn how to exercise its core features.
 
