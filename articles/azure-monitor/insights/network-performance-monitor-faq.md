@@ -15,11 +15,11 @@ ms.date: 10/12/2018
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
-[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](../../networking/network-monitoring-overview.md) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. 
 
-More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
+More information on the various capabilities supported by [Network Performance Monitor](../../networking/network-monitoring-overview.md) is available online.
 
 ## Set up and configure agents
 
@@ -146,7 +146,7 @@ NetworkMonitoring
 NPM only identifies the IP and host name of underlying network hops (switches, routers, servers, etc.) between the source and destination IPs. It also identifies the latency between these identified hops. It does not individually monitor these underlying hops.
 
 ### Can NPM be used to monitor network connectivity between Azure and AWS?
-Yes. Refer to the article [Monitor Azure, AWS, and on-premises networks using NPM](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) for details.
+Yes. Refer to the article [Monitor Azure, AWS, and on-premises networks using NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) for details.
 
 ### Is the ExpressRoute bandwidth usage incoming or outgoing?
 Bandwidth usage is the total of incoming and outgoing bandwidth. It is expressed in Bits/sec.
@@ -185,7 +185,7 @@ NPM can monitor connectivity between networks in any part of the world, from a w
 NPM can monitor connectivity to services in any part of the world, from a workspace that is hosted in one of the [supported regions](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### Which regions are supported for NPM's ExpressRoute Monitor?
-NPM can monitor your ExpressRoute circuits located in any Azure region. To onboard to NPM, you will require a Log Analytics workspace that must be hosted in one of the [supported regions](/azure/expressroute/how-to-npm)
+NPM can monitor your ExpressRoute circuits located in any Azure region. To onboard to NPM, you will require a Log Analytics workspace that must be hosted in one of the [supported regions](../../expressroute/how-to-npm.md)
 
 ## Troubleshoot
 
@@ -232,7 +232,7 @@ This can happen if either the host firewall or the intermediate firewall (networ
   Network Performance Monitor -> Configuration -> Nodes. 
   If they are unhealthy, view the instructions and take corrective action. If the nodes are healthy, move to the step b. below.
 * To verify that an intermediate network firewall or Azure NSG is not blocking the communication on the required port, use the third-party PsPing utility using the below instructions:
-  * psping utility is available for download [here](https://technet.microsoft.com/sysinternals/psping.aspx) 
+  * psping utility is available for download [here](/sysinternals/downloads/psping) 
   * Run following command from the source node.
     * psping -n 15 \<destination node IPAddress\>:portNumber 
     By default NPM uses 8084 port. In case you have explicitly changed this by using the EnableRules.ps1 script, enter the custom port number you are using). This is a ping from Azure machine to on-premises

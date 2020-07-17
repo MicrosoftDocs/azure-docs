@@ -124,8 +124,8 @@ Refer to the following example to help you get the aggregate (global) feature im
 
 ```python
 
-# you can use the training data or the test data here
-global_explanation = explainer.explain_global(x_train)
+# you can use the training data or the test data here, but test data would allow you to use Explanation Exploration
+global_explanation = explainer.explain_global(x_test)
 
 # if you used the PFIExplainer in the previous step, use the next line of code instead
 # global_explanation = explainer.explain_global(x_train, true_labels=y_test)
@@ -349,7 +349,7 @@ To load the visualization dashboard, use the following code.
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, x_test)
+ExplanationDashboard(global_explanation, model, dataset=x_test)
 ```
 
 ### Visualization in Azure Machine Learning studio
