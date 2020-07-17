@@ -3,6 +3,7 @@ title: Accidental Delete Protection for Azure file shares
 description: Learn how to soft delete can protect your Azure File Shares from accidental deletion. 
 ms.topic: conceptual
 ms.date: 02/02/2020
+ms.custom: references_regions 
 ---
 
 # Accidental delete protection for Azure file shares using Azure Backup

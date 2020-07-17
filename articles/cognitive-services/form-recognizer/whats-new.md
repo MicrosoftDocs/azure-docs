@@ -23,14 +23,14 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 ## July 2020
 
 ### New features
-* **v2.0 reference available** View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer), and [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
+* **v2.0 reference available** View the [v2.0 API Reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) and the updated SDKs for [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer), [Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer), [Java](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview), and [JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer).
 * **Table enhancements and Extraction enhancements** includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in custom train without labels. 
 * **Currency support** Detection and extraction of global currency symbols.
 * **Azure Gov** Form Recognizer is now also available in Azure Gov.
-*	**Enhanced security features**: 
-    *	**Bring your own key**  Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys (CMK), also known as bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
+*    **Enhanced security features**: 
+    *    **Bring your own key**  Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys (CMK), also known as bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
 ), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
-    *	**Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
+    *    **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 
 ## June 2020
@@ -49,7 +49,7 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 ### New features
 * **SDK support for Form Recognizer API v2.0 Public Preview** This month we expanded our service support to include a preview SDK for Form Recognizer v2.0 (preview) release. Use the links below to get started with your language of choice: 
    * [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer)
-   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/formrecognizer)
+   * [Java SDK](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme-pre?view=azure-java-preview)
    * [Python SDK](https://docs.microsoft.com/python/api/overview/azure/formrecognizer)
    * [JavaScript SDK](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer)
 

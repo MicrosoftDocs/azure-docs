@@ -220,7 +220,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 ## Next steps
 
 * Learn more about deploying a container group using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md).
-* Learn more about [GPU optimized VM sizes](../virtual-machines/linux/sizes-gpu.md) in Azure.
+* Learn more about [GPU optimized VM sizes](../virtual-machines/sizes-gpu.md) in Azure.
 
 
 <!-- IMAGES -->

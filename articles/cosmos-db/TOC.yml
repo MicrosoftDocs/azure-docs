@@ -229,6 +229,15 @@
             - name: GetCurrentTimestamp
               displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
               href: sql-query-getcurrenttimestamp.md
+            - name: DateTimeFromParts
+              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+              href: sql-query-datetimefromparts.md
+            - name: DateTimeAdd
+              displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
+              href: sql-query-datetimeadd.md
+            - name: DateTimeDiff
+              displayName: DateTimeDiff, date time diff, date and time functions, datetime
+              href: sql-query-datetimediff.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions

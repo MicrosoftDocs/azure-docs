@@ -53,7 +53,7 @@ This quickstart shows you how to use the Azure portal to upload, encode, and str
 1. Locate and click on your Media Services account.
 1. Select **Assets (new)**.
 1. Press **Upload** in the top of the window. 
-1. Drag and drop or browse to a file tha you want to upload.
+1. Drag and drop or browse to a file that you want to upload.
 
 If you navigate to your assets window, you will see that a new asset was added to the list:
 
