@@ -274,12 +274,16 @@ For more information about redirection, see:
 - [Redirect traffic to an external site by using PowerShell](redirect-external-site-powershell.md)
 - [Redirect traffic to an external site by using the CLI](redirect-external-site-cli.md)
 
-#### Rewrite the HTTP header setting
+### Rewrite HTTP headers and URL
 
-This setting adds, removes, or updates HTTP request and response headers while the request and response packets move between the client and back-end pools. For more information, see:
+By using rewrite rules, you can add, remove, or update HTTP(S) request and response headers as well as URL path and query string parameters as the request and response packets move between the client and backend pools via the application gateway.
 
- - [Rewrite HTTP headers overview](rewrite-http-headers.md)
+The headers and URL parameters can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
+For more information, see:
+
+ - [Rewrite HTTP headers overview](rewrite-http-headers-url.md)
  - [Configure HTTP header rewrite](rewrite-http-headers-portal.md)
+ - [Configure URL rewrite](rewrite-url-portal.md)
 
 ## HTTP settings
 

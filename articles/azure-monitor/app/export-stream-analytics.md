@@ -134,7 +134,7 @@ GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 
 * export-input is the alias we gave to the stream input
 * pbi-output is the output alias we defined
-* We use [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) because the event name is in a nested JSON array. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) clause groups the elements into time periods of one minute.
+* We use [OUTER APPLY GetElements](/stream-analytics-query/apply-azure-stream-analytics) because the event name is in a nested JSON array. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](/stream-analytics-query/group-by-azure-stream-analytics) clause groups the elements into time periods of one minute.
 
 ### Query to display metric values
 
@@ -208,4 +208,3 @@ Noam Ben Zeev shows how to process exported data using Stream Analytics.
 * [Continuous export](export-telemetry.md)
 * [Detailed data model reference for the property types and values.](export-data-model.md)
 * [Application Insights](../../azure-monitor/app/app-insights-overview.md)
-

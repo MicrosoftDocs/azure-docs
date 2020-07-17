@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 07/15/2020
 ---
 
 # Move resources to a new resource group or subscription
@@ -13,7 +13,7 @@ Both the source group and the target group are locked during the move operation.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
-If you ae using Azure Stack Hub, you cannot move resources between groups.
+If you are using Azure Stack Hub, you cannot move resources between groups.
 
 ## Checklist before moving resources
 

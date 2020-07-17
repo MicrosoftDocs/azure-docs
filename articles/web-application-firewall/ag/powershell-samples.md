@@ -9,7 +9,7 @@ ms.date: 09/30/2019
 ms.author: victorh
 
 ---
-# Azure PowerShell examples for Azure Application Gateway
+# Azure PowerShell script examples for Azure Application Gateway
 
 The following table includes links to Azure PowerShell script examples for Azure Application Gateway.
 
