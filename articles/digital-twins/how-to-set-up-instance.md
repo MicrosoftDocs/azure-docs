@@ -20,12 +20,12 @@ ms.service: digital-twins
 This article walks through the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
 >[!NOTE]
->These operations are intended to be completed by an administrator, with an *Owner* role on the Azure subscription. Some steps can be completed without this level (and are noted as such throughout the article), but administrator cooperation will be required for complete setup. View more information on this in the [*Prerequisites: Required permissions*](#prerequisites-permission-requirements) section below.
+>These operations are intended to be completed by a user with an *Owner* role on the Azure subscription. Although some pieces can be completed without this elevated permission, an owner's cooperation will be required to completely set up a usable instance. View more information on this in the [*Prerequisites: Required permissions*](#prerequisites-permission-requirements) section below.
 
 Full setup for a new Azure Digital Twins instance consists of three parts:
 1. **Creating the instance**
-2. **Setting up your user's access permissions (admin role required)**: Your Azure user needs to have the *Azure Digital Twins Owner (Preview)* role on the instance in order to perform management activities. In this step, you will either assign yourself this role or get an administrator on your subscription to assign it to you.
-3. **Setting up access permissions for client applications (admin role *maybe* required)**: It is common to write a client application that you use to interact with your instance. In order for that client app to access your Azure Digital Twins, you need to set up an *app registration* in [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) that the client application will use to authenticate to the instance.
+2. **Setting up your user's access permissions**: Your Azure user needs to have the *Azure Digital Twins Owner (Preview)* role on the instance in order to perform management activities. In this step, you will either assign yourself this role (if you are an Owner in the Azure subscription), or get an Owner on your subscription to assign it to you.
+3. **Setting up access permissions for client applications**: It is common to write a client application that you use to interact with your instance. In order for that client app to access your Azure Digital Twins, you need to set up an *app registration* in [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) that the client application will use to authenticate to the instance.
 
 This article offers two possible ways to go through these steps. The first is to run an [**automated deployment script** sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. The second is to complete the steps yourself **manually**.
 
@@ -35,7 +35,7 @@ Whichever process you are using, both require an Azure subscription (which you c
 
 ## Prerequisites: Permission requirements
 
-To be able to complete all the steps in this article, you need to be classified as an owner in your Azure subscription. 
+To be able to complete all the steps in this article, you need to be classified as an Owner in your Azure subscription. 
 
 You can check your permission level by running this command in Cloud Shell:
 
@@ -47,22 +47,15 @@ If you are an owner, the `roleDefinitionName` value in the output is *Owner*:
 
 :::image type="content" source="media/how-to-set-up-instance/owner-role.png" alt-text="Cloud Shell window showing output of the az role assignment list command":::
 
-If you find that the value is *Contributor* or something other than *Owner*, you can contact your subscription administrator and proceed in one of the following ways:
-* Request for the administrator to complete all steps in this article on your behalf
-* Complete the steps possible for your role, then request for the administrator to complete the rest on your behalf. Look for the *Permission requirements* section within each step to understand which is which.
-* Request for the administrator to elevate your role on the entire subscription so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
+If you find that the value is *Contributor* or something other than *Owner*, you can contact your subscription Owner and proceed in one of the following ways:
+* Request for the Owner to complete the steps in this article on your behalf
+* Request for the Owner to elevate you to Owner on the subscription as well, so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
 
 ## Option 1: Automated setup with the deployment script
 
 There's an Azure Digital Twins code sample that contains a scripted version of the setup. You can use the scripted deployment sample to set up an Azure Digital Twins instance and permissions in a streamlined way, or as a starting point for writing your own scripted interactions.
 
 The sample script is written in PowerShell. It is part of the [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine to get the code.
-
-### Permission requirements
-
-Owner role required: **Yes**
-
-For the script to complete all steps successfully, you need to be classified as an owner in your Azure subscription.
 
 ### Run the script
 
@@ -111,12 +104,6 @@ This section explains the process for setting up an Azure Digital Twins instance
 
 In this section, you will **create a new instance of Azure Digital Twins**. 
 
-#### Permission requirements
-
-Owner role required: **No**
-
-You do not have to be an owner on the Azure subscription to run this step.
-
 #### Run the creation command
 
 Now you'll create an instance of Azure Digital Twins using the Cloud Shell command. You'll need to provide:
@@ -152,12 +139,6 @@ For Azure Digital Twins, this role is _**Azure Digital Twins Owner (Preview)**_.
 
 This section will show you how to create a role assignment for a user in the Azure Digital Twins instance, through their email associated with the AAD tenant on your Azure subscription. Depending on your role and your permissions on your Azure subscription, you will either set this up for yourself, or set this up on behalf of someone else who will be managing the Azure Digital Twins instance.
 
-#### Permission requirements
-
-Owner role required: **Yes**
-
-For this step, you need to be classified as an owner in your Azure subscription.
-
 #### Assign the role
 
 To assign a user "owner" permissions in an Azure Digital Twins instance, use the following command (must be run by an owner of the Azure subscription):
@@ -186,14 +167,6 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 Once you set up an Azure Digital Twins instance, it is common to interact with that instance through a client application that you create. In order to do this, you'll need to make sure the client app will be able to authenticate against Azure Digital Twins. This is done by setting up an [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration** for your client app to use.
 
 This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
-
-#### Permission requirements
-
-Owner role required: **Maybe**
-
-By default, you do not have to be an owner on the Azure subscription to run this step. 
-
-However, your organization may have settings in place that require additional admin permissions for setting up AAD applications. See the [*Possible admin requirements*](#possible-admin-requirements) section below for additional steps that an admin may be required to perform.
 
 #### Create the registration
 
@@ -253,12 +226,12 @@ Next, select *Overview* from the menu bar to see the details of the app registra
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
 
-#### Possible admin requirements
+#### Possible additional requirements
 
-It is possible that your organization requires additional actions from admins in order to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
+It is possible that your organization requires additional actions from subscription Owners in order to successfully set up an app registration. The steps required may vary depending on your organization's specific settings.
 
-Here are some common potential activities that an admin may need to perform. These and other operations can be performed from the [AAD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
-* Grant admin consent for the app registration: Your organization may have *Admin Consent Required* globally turned on in AAD for all app registrations within your subscription. If this is the case, the admin may need to select this button for your company on the app registration's *API permissions* page in the Azure portal:
+Here are some common potential activities that an Owner may need to perform. These and other operations can be performed from the [AAD App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
+* Grant admin consent for the app registration: Your organization may have *Admin Consent Required* globally turned on in AAD for all app registrations within your subscription. If this is the case, the Owner may need to select this button for your company on the app registration's *API permissions* page in the Azure portal:
 
     :::image type="content" source="media/how-to-set-up-instance/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
   - If this is successful, the entry for Azure Digital Twins should show a *Status* of _Granted for **your company**_
