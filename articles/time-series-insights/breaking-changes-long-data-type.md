@@ -14,48 +14,26 @@ ms.custom: dpalled
 
 # Adding support for long data type
 
-<<<<<<< HEAD:articles/time-series-insights/time-series-insights-long-data-type.md
-These updates apply to Preview pay-as-you-go environments only. If you have a Standard (S) SKU TSI environment, disregard these updates.
-
-We are making updates to how we store and index numeric data in Azure Time Series Insights Preview that might impact you. If you’re impacted by any of the following cases, make the recommended changes as soon as possible.
-=======
 These changes will be applied to Gen2 environments only. If you have a Gen1 environment, you may disregard these changes.
 
 We are making changes to how we store and index numeric data in Azure Time Series Insights Gen2 that might impact you. If you’re impacted by any of the cases below, make the necessary changes as soon as possible. Your data will start being indexed as Long and Double between 29 June and 30 June 2020, depending on your region. If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
->>>>>>> a1c47cce23f396122ec0b588d10cc54c1811d604:articles/time-series-insights/breaking-changes-long-data-type.md
 
 Your data will start being indexed as *Long* and *Double* between 29 June and 30 June 2020, depending on your region. If you have any questions or concerns about this update, submit a support ticket through the Azure portal and mention this communication.
 
-If any of the following cases apply to you, you'll need to make changes to your model. Update the Time Series Expression (TSX) in your variable definition in both Time Series Insights explorer and in any custom client that uses our APIs with the recommended changes.
+This change impacts you in the following cases:
 
-<<<<<<< HEAD:articles/time-series-insights/time-series-insights-long-data-type.md
 - **Case 1**: If you currently use Time Series Model variables and send only integral data types in your telemetry data.
 - **Case 2**: If you currently use Time Series Model variables and send both integral and nonintegral data types in your telemetry data.
 - **Case 3**: If you use categorical variables to map integer values to categories.
 - **Case 4**: If you use the JavaScript SDK to build a custom front-end application.
 - **Case 5**: If you're nearing the 1,000-property name limit in Warm Store and send both integral and nonintegral data, property count can be viewed as a metric in the [Azure portal](https://portal.azure.com/).
 
-Depending on your IoT solution and constraints, you might not have visibility into the data being sent to your TSI pay-as-you-go environment.
-=======
 If any of the above cases apply to you, you'll need to make changes to your model to accommodate this change. Update the Time Series Expression in your variable definition in both Azure Time Series Insights Gen2 Explorer and in any custom client using our APIs with the recommended changes. See below for details.
 
 Depending on your IoT solution and constraints, you might not have visibility into the data being sent to your Azure Time Series Insights Gen2 environment. If you’re unsure if your data is integral only or both integral and nonintegral, you have a few options. You can wait for the feature to be released and then explore your raw events in the explorer UI to understand which properties have been saved in two separate columns. You could preemptively make the changes below for all numeric tags, or temporarily route a subset of events to storage to better understand and explore your schema. To store events, turn on [event capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) for Event Hubs, or [route](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage) from your IoT Hub to Azure Blob Storage. Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events). If you use IoT Hub, see the documentation [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) on how to access the built-in endpoint.
->>>>>>> a1c47cce23f396122ec0b588d10cc54c1811d604:articles/time-series-insights/breaking-changes-long-data-type.md
-
-If you’re unsure if your data is integral only or both integral and nonintegral, you have a few options:
-
-- You can wait for the feature to be released and then explore your raw events in the explorer UI to understand which properties have been saved in two separate columns.
-- You can preemptively make the recommended changes for all numeric tags.
-- You can temporarily route a subset of events to storage to better understand and explore your schema.
-
-To store events, turn on **[event capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)** for Azure Event Hubs, or **[route](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c#azure-storage)** from your IoT Hub to Azure Blob storage.
-
-Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
-
-If you use IoT Hub, go to [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for how to access the built-in endpoint.
 
 > [!NOTE]
-> If you're affected by these updates and are unable to make the recommended changes before the updates go into effect, you might experience a disruption where the impacted Time Series Variables accessed via the query APIs or Time Series Insights Explorer will return *null* (i.e. show no data in the Explorer).
+> If you're affected by these changes and are unable to make them by the above dates, you may experience a disruption where the impacted Time Series Variables accessed via the query APIs or Time Series Insights Explorer will return null (i.e. show no data in the Explorer).
 
 ## Recommended changes
 
@@ -66,7 +44,7 @@ If you currently send integer telemetry data, your data will be divided into two
 - **propertyValue_double**
 - **propertyValue_long**
 
-Your integer data writes to **propertyValue_long**  when the updates go into effect. Previously ingested (and future ingested) numeric data in **propertyValue_double** aren't copied over.
+Your integer data writes to **propertyValue_long**  when the changes go into effect. Previously ingested (and future ingested) numeric data in **propertyValue_double** aren't copied over.
 
 If you want to query data across these two columns for the **propertyValue** property, you need to use the **coalesce()** scalar function in your TSX. The function accepts arguments of the same DataType and returns the first non-null value in the argument list. See [Azure Time Series Insights Gen2 data access concepts](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) for more information.
 
@@ -232,7 +210,7 @@ Categorical variables still require the value to be of an integer type. The Data
 Categorical variables still require the value to be of an integer type. The DataType of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
-> We recommend that you update these variables in all places they might be used (Time Series Model, saved queries, Power BI connector queries).
+> We recommend that you update these variables in all places they might be used. Such as, Time Series Model, saved queries, and Power BI connector queries.
 
 ### Case 4: Using the JavaScript SDK to build a custom front-end application
 
@@ -244,8 +222,4 @@ If you're a Warm Store user with a large number of properties and believe that t
 
 ## Next steps
 
-<<<<<<< HEAD:articles/time-series-insights/time-series-insights-long-data-type.md
 * View the full list of [supported data types](concepts-supported-data-types.md)
-=======
-* See [supported data types](concepts-supported-data-types.md) to view the full list of supported data types.
->>>>>>> a1c47cce23f396122ec0b588d10cc54c1811d604:articles/time-series-insights/breaking-changes-long-data-type.md
