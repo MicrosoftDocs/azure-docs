@@ -19,6 +19,8 @@ Both device and solution developers can continue to use the same set of Device T
 Solution developers can additionally operate on high level constructs like components, properties, commands using Digital Twin API surface.
 This article talks about how components and properties are represented within desired and reported section of device twin. It also describes how these concepts are mapped within the corresponding digital twin.
 
+## Device Twins vs Digital Twins
+
 Here is an example of a IoT Plug and Play device twin formatted as a JSON object:
 ```json
 {
@@ -113,7 +115,7 @@ Below is the corresponding digital twin formatted as JSON object:
     }
 }
 ```
-## Property
+### Property
 Within device twin, the state of the property is split across the desired and reported section. On the other hand, digital twin provides unified view of the current and desired state of the property. The synchronization state of given property is available within `$metadata`.
 
 In this example, `alwinexlepaho8329` is the current value of the `serialNumber` property reported by the device. `alwinexlepaho8329-a` is the desired value set by the solution. The desired value and synchronization state of a root level property is set within root level `$metadata` for a digital twin.
@@ -159,7 +161,7 @@ Below is the side-by-side JSON representation of writable property `serialNumber
    :::column-end:::
 :::row-end:::
 
-## Component
+### Component
 Within a device twin, a component is indicated by `{ "__t": "c"}` marker, where as `$metadata` marks a component within a digital twin.
 Below is the side-by-side JSON representation of component `thermostat1`
 
@@ -286,7 +288,7 @@ content-encoding:utf-8
 ]
 ```
 
-Below digital twin event is triggered when the device reported that the change was applied.
+Below digital twin event is triggered when the device reported that the desired change was applied.
 ```json
 iothub-connection-device-id:sample-device
 iothub-enqueuedtime:7/17/2020 6:11:05 AM
