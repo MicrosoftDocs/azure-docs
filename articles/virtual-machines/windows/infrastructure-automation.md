@@ -7,7 +7,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 07/17/2020
 ms.author: cynthn
 ---
 
