@@ -41,6 +41,9 @@ The preview of Live Video Analytics on IoT Edge went public. For more informatio
 
 Live Video Analytics on IoT Edge is an expansion to the Media Service family. It enables you to analyze live video with AI models of your choice on your own edge devices, and optionally capture and record that video. You can now build apps with real-time video analytics at the edge without worrying about the complexity of building and operating a live video pipeline.
 
+### Live transcriptions
+Live Transcriptions now supports 19 languages and 8 regions.
+
 ## May 2020
 
 Azure Media Services is now generally available in the following regions: "Germany North", "Germany West Central", "Switzerland North", and "Switzerland West". Customers can deploy Media Services to these regions using the Azure portal.
