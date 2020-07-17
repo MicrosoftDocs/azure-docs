@@ -9,7 +9,7 @@ ms.service: iot-hub
 services: iot-hub
 ---
 
-# Summary of customer data request features
+# Customer data request features for Azure IoT Hub devices
 
 The Azure IoT Hub is a REST API-based cloud service targeted at enterprise customers that enables secure, bi-directional communication between millions of devices and a partitioned Azure service.
 

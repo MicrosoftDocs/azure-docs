@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ---
 
-# Datasets in Azure Data Factory
+# Datasets in Azure Data Factory (version 1)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-create-datasets.md)
 > * [Version 2 (current version)](../concepts-datasets-linked-services.md)

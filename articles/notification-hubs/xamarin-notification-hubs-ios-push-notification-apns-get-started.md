@@ -98,30 +98,29 @@ Completing this tutorial is a prerequisite for all other Notification Hubs tutor
 
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
-{
-    if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
     {
-        UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
-                                                                (granted, error) => InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications));
-    }
-    else if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
-    {
-        var pushSettings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
-                new NSSet());
+        if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+        {
+            UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge | UNAuthorizationOptions.Sound,
+                                                                    (granted, error) => InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications));
+        }
+        else if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+        {
+            var pushSettings = UIUserNotificationSettings.GetSettingsForTypes(
+                    UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
+                    new NSSet());
 
-        UIApplication.SharedApplication.RegisterUserNotificationSettings(pushSettings);
-        UIApplication.SharedApplication.RegisterForRemoteNotifications();
-    }
-    else
-    {
-        UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
-        UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
-    }
+            UIApplication.SharedApplication.RegisterUserNotificationSettings(pushSettings);
+            UIApplication.SharedApplication.RegisterForRemoteNotifications();
+        }
+        else
+        {
+            UIRemoteNotificationType notificationTypes = UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound;
+            UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(notificationTypes);
+        }
 
-    return true;
-}
-
+        return true;
+    }
     ```
 
 10. In `AppDelegate.cs`, override the `RegisteredForRemoteNotifications()` method:

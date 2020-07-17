@@ -1,12 +1,12 @@
 ---
 title: Create an Azure virtual machine offer on Azure Marketplace
-description: Learn how to create a virtual machine offer on Azure Marketplace with the required SKU.
+description: Learn how to create a virtual machine offer on Azure Marketplace with the required plan.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
+ms.date: 07/14/2020
 ---
 
 # Create an Azure virtual machine offer on Azure Marketplace
@@ -281,7 +281,7 @@ Select **Save draft** before you proceed to the next section.
 
 ## Plan overview
 
-You can provide a variety of plan options within the same offer in Partner Center. These plans were formerly referred to as SKUs. An offer requires at least one plan, which can vary by monetization audience, Azure region, features, or VM images.
+You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -408,7 +408,6 @@ You can design each plan to be visible to everyone or only to a preselected audi
 >[!Note]
 >Private offers are not supported with Azure subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
 
-
 #### Hide a plan
 
 If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
@@ -448,6 +447,30 @@ For **Disk deployment option**, select the type of disk deployment that your cus
 #### Properties
 
 For **Support Accelerated Networking**, select whether your VM supports [Accelerated Networking](https://go.microsoft.com/fwlink/?linkid=2124513).
+
+#### Generations
+
+Generating a virtual machine defines the virtual hardware it uses. Based on your customer’s needs, you can publish a Generation 1 VM, Generation 2 VM, or both.
+
+1. When creating a new offer, select a **Generation type** and enter the requested image details:
+
+    :::image type="content" source="./media/azure-vm-generations-image-details.png" alt-text="A view of the Generation drop-down box.":::
+
+2. To add another generation to a plan, select **Add generation**:
+
+    :::image type="content" source="./media/azure-vm-generations-add.png" alt-text="A view of the 'Add Generation' link.":::
+
+    Then enter the generation details:
+
+    :::image type="content" source="./media/azure-vm-generations-details.png" alt-text="A view of the generation details window.":::
+
+    The **Generation ID** you choose will be visible to customers in places such as product URLs and ARM templates (if applicable). Use only lowercase, alphanumeric characters, dashes, or underscores; it cannot be modified once published.
+
+3. To update an existing VM that has a Generation 1 already published, simply edit details on the **Technical configuration** page:
+
+    :::image type="content" source="./media/azure-vm-generations-updating.png" alt-text="A view of the plan technical configuration page.":::
+
+To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 
 #### VM images
 
@@ -511,10 +534,10 @@ The **Offer overview** page shows a visual representation of the steps, both com
 
 This page also includes links to help you work with the offer, depending on its status:
 
-- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer))
-- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval))
-- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing))
+- If the offer is a draft: [Delete draft offer](update-existing-offer.md#delete-a-draft-offer)
+- If the offer is live: [Stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- If the offer is in preview: [Go-live](publishing-status.md#publisher-approval)
+- If you haven't completed publisher sign-out: [Cancel publishing](update-existing-offer.md#cancel-publishing)
 
 ## Marketplace examples
 
