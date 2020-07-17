@@ -66,7 +66,7 @@ Create your secured virtual hub using Firewall Manager.
 2. In the search box, type **Firewall Manager** and select **Firewall Manager**.
 3. On the **Firewall Manager** page, select **View secured virtual hubs**.
 4. On the **Firewall Manager | Secured virtual hubs** page, select **Create new secured virtual hub**.
-5. For **Resource group**, select **FW-Manager**.
+5. For **Resource group**, select **fw-manager**.
 7. For **Region**, select **East US**.
 1. For the **Secured virtual hub name**, type **Hub-01**.
 2. For **Hub address space**, type **10.0.0.0/16**.
@@ -90,12 +90,12 @@ Now you can get the firewall public IP address.
 
 Now you can peer the hub and spoke virtual networks.
 
-1. Select the **FW-Manager** resource group, then select the **Vwan-01** virtual WAN.
+1. Select the **fw-manager** resource group, then select the **Vwan-01** virtual WAN.
 2. Under **Connectivity**, select **Virtual network connections**.
 3. Select **Add connection**.
 4. For **Connection name**, type **hub-spoke-01**.
 5. For **Hubs**, select **Hub-01**.
-6. For **Resource group**, select **FW-Manager**.
+6. For **Resource group**, select **fw-manager**.
 7. For **Virtual network**, select **Spoke-01**.
 8. Select **Create**.
 
