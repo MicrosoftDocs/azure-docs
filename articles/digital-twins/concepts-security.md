@@ -74,7 +74,7 @@ The following list describes the levels at which you can scope access to Azure D
 
 ## Next steps
 
-* See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance.md).
+* See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
 
 * See how to interact with these concepts from client application code in [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 

@@ -60,7 +60,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Set up an instance and authentication
-            url: how-to-set-up-instance.md
+            url: how-to-set-up-instance-scripted.md
       - linkListType: how-to-guide
         links:
           - text: Write app authentication code
