@@ -41,11 +41,13 @@ For more information about how to install NuGet packages, see [Install and manag
 Then, add these using statements to the top of your code file.
 
 ```csharp
+using Azure;
+using Azure.Core;
+using Azure.Storage;
 using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
-using Azure.Storage;
-using System.IO;
-using Azure;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 ```
 
 ### [Python](#tab/python)
@@ -92,7 +94,13 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 You can use the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) to authenticate your application with Azure AD.
 
-First, get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [role-based access control (RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
+After you install the package, add this using statement to the top of your code file.
+
+```csharp
+using Azure.Identity;
+```
+
+Get a client ID, a client secret, and a tenant ID. To do this, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [role-based access control (RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
 
 |Role|ACL setting capability|
 |--|--|
@@ -131,36 +139,47 @@ Put something here.
 
 ## Set ACL recursively
 
-This code sets the ACL. Explain what set means.
-
-- The maximum number of ACLs that can be applied to a file/folder is 32 access ACLs and 32 default ACLs. For more information, refer to ADLS Gen2 access control 
+You can set the ACL of a directory recursively. You add up to 32 entries (security principals) to the ACL of a directory or file. 
 
 ### [.NET](#tab/dotnet)
 
-Get the access control list (ACL) of a directory by calling the [DataLakeDirectoryClient.GetAccessControlAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.getaccesscontrolasync) method and set the ACL by calling the [DataLakeDirectoryClient.SetAccessControlList](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.setaccesscontrollist) method.
+Set an ACL recursively by calling the **DataLakeDirectoryClient.SetAccessControlRecursiveAsync** method. Pass this method a [List](/dotnet/api/system.collections.generic.list-1) of [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Each [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) defines an ACL entry.
 
-> [!NOTE]
-> If your application authorizes access by using Azure Active Directory (Azure AD), then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
-
-This example gets and sets the ACL of a directory named `my-directory`. The string `user::rwx,group::r-x,other::rw-` gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read and write permission.
+This example gets and sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
 ```cs
-public async Task SetDirectoryACLRecursive(DataLakeFileSystemClient fileSystemClientD)
+public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 {
     DataLakeDirectoryClient directoryClient =
-        fileSystemClient.GetDirectoryClient("my-directory");
+        serviceClient.GetFileSystemClient("my-container").
+            GetDirectoryClient("my-parent-directory");
 
-    IList<PathAccessControlItem> accessControlList
-        = PathAccessControlExtensions.ParseAccessControlList
-        ("user::rwx,group::r-x,other::rw-");
+    List<PathAccessControlItem> accessControlList = 
+        new List<PathAccessControlItem>() 
+    {
+        new PathAccessControlItem(AccessControlType.User, 
+            RolePermissions.Read | 
+            RolePermissions.Write | 
+            RolePermissions.Execute),
+                    
+        new PathAccessControlItem(AccessControlType.Group, 
+            RolePermissions.Read | 
+            RolePermissions.Execute),
+                    
+        new PathAccessControlItem(AccessControlType.Other, 
+            RolePermissions.None),
 
-    directoryClient.SetAccessControlList(accessControlList);
+        new PathAccessControlItem(AccessControlType.User, 
+            RolePermissions.Read | 
+            RolePermissions.Execute, 
+            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+    };
 
+    await directoryClient.SetAccessControlRecursiveAsync
+        (accessControlList, null);
 }
 
 ```
-
-If you want to set an ACL for an object ID, you'd just use the blah parameter.
 
 ### [Python](#tab/python)
 
@@ -174,13 +193,36 @@ Put something here.
 
 ## Update ACL recursively
 
-This code updates an ACL recursively.
-
-- The maximum number of ACLs that can be applied to a file/folder is 32 access ACLs and 32 default ACLs. For more information, refer to ADLS Gen2 access control
+You can update an existing ACL recursively.
 
 ### [.NET](#tab/dotnet)
 
-Put something here.
+Update an ACL recursively by calling the **DataLakeDirectoryClient.UpdateAccessControlRecursiveAsync** method. 
+
+This example adds write permission to an ACL entry, and then updates the ACL with that entry. 
+
+```cs
+public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
+{
+    DataLakeDirectoryClient directoryClient =
+        serviceClient.GetFileSystemClient("my-container").
+        GetDirectoryClient("my-parent-directory");
+
+    List<PathAccessControlItem> accessControlListUpdate = 
+        new List<PathAccessControlItem>()
+    {
+        new PathAccessControlItem(AccessControlType.User, 
+            RolePermissions.Read |
+            RolePermissions.Write | 
+            RolePermissions.Execute, 
+            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+    };
+
+    await directoryClient.UpdateAccessControlRecursiveAsync
+        (accessControlListUpdate, null);
+
+}
+```
 
 ### [Python](#tab/python)
 
@@ -192,13 +234,35 @@ Put something here.
 
 ---
 
-## Remove ACL recursively
+## Remove ACL entries recursively
 
-This code removes and ACL recursively
+You can remove one or more ACL entries recursively.
 
 ### [.NET](#tab/dotnet)
 
-Put something here.
+Remove ACL entries by calling the **DataLakeDirectoryClient.RemoveAccessControlRecursiveAsync** method. 
+
+This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
+
+```cs
+public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
+{
+    DataLakeDirectoryClient directoryClient =
+        serviceClient.GetFileSystemClient("my-container").
+            GetDirectoryClient("my-parent-directory");
+
+    List<RemovePathAccessControlItem> accessControlListForRemoval = 
+        new List<RemovePathAccessControlItem>()
+        {
+            new RemovePathAccessControlItem(AccessControlType.User, 
+            entityId: "4a9028cf-f779-4032-b09d-970ebe3db258"),
+        };
+
+    await directoryClient.RemoveAccessControlRecursiveAsync
+        (accessControlListForRemoval, null);
+
+}
+```
 
 ### [Python](#tab/python)
 
@@ -210,17 +274,46 @@ Put something here.
 
 ---
 
-## Handle errors
+## Recover from failures
 
-This code keeps track of a continuation token and shows how you would resume operation.
+You application might encounter a run-time error, or a permission error. Permission errors can occur if the security principal that you used to connect to your storage account doesn't have permission to modify the ACL of a directory or file that is in the hierarchy of files being modified.
 
-- Handling run-time errors: If there are run-time errors (such as outage, client machine connectivity etc.), the best practice for recovery is to restart the recursive ACL process. If an ACL has already been applied, re-applying that ACL has no negative impact.
-- 
-- Handling permission errors (403): If you encounter access control exceptions for an intermediate directory/file during the recursive ACL process, the most common reason is the user/SPN does not have sufficient permissions to apply ACLs for that given directory/file. Process stops and a continuation token is provided. Fix permission issue and use continuation token to process the remaining dataset (files/folders that have been successfully processed will not need to be reprocessed) 
+If your application encounters an error, you can address fix the error, and then restart the process. Your application can resume where it left off by using a continuation token. 
+
+You don't have to use this token if you prefer to restart from the very beginning. You can re-apply ACL entries without any negative impact.
 
 ## [.NET](#tab/dotnet)
 
-Put something here.
+This example returns a continuation token in the event of a failure. The application can call this example method again after the error has been addressed, and pass in the continuation token. If this example method is called for the first time, the application can pass in a value of ``null`` for the continuation token parameter. 
+
+```cs
+public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
+    DataLakeDirectoryClient directoryClient,
+    List<PathAccessControlItem> accessControlList, 
+    string continuationToken)
+{
+    try
+    {
+        var accessControlChangeResult =
+            await directoryClient.SetAccessControlRecursiveAsync(
+                accessControlList, null, continuationToken: continuationToken);
+
+        if (accessControlChangeResult.Value.Counters.FailedChangesCount > 0)
+        {
+            continuationToken =
+                accessControlChangeResult.Value.ContinuationToken;
+        }
+
+        return continuationToken;
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.ToString());
+        return continuationToken;
+    }
+
+}
+```
 
 ### [Python](#tab/python)
 
@@ -232,11 +325,34 @@ Put something here.
 
 ---
 
-This code continues execution even if there is a failure.
+If you want the process to complete uninterrupted by permission errors, you can pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
 
 ### [.NET](#tab/dotnet)
 
-Put something here.
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+
+```cs
+public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
+    DataLakeDirectoryClient directoryClient, 
+    List<PathAccessControlItem> accessControlList)
+{
+    var accessControlChangeResult = 
+        await directoryClient.SetAccessControlRecursiveAsync(
+            accessControlList, null, new AccessControlChangeOptions() 
+            { ContinueOnFailure = true });
+
+    var counters = accessControlChangeResult.Value.Counters;
+
+    Console.WriteLine("Number of directories changed: " +
+        counters.ChangedDirectoriesCount.ToString());
+
+    Console.WriteLine("Number of files changed: " +
+        counters.ChangedFilesCount.ToString());
+
+    Console.WriteLine("Number of failures: " +
+        counters.FailedChangesCount.ToString());
+}
+```
 
 ### [Python](#tab/python)
 
@@ -247,60 +363,6 @@ Put something here.
 Put something here.
 
 ---
-
-
-## Example
-
-Here is a PowerShell example:
-
-```powershell
-$accountName = "normestarecursiveaclgen2"
-$accountKey = "xznGsj4h+pYJO+NhzSsif0BSB7zkYbB7u4pqP7xorS97zfNn87Qd/yhTRs7K5fMokPOlfohgMLLw1/RQgkW1Dw=="
-$filesystemName = "priyatestrecursivefs"
-$id = 
-$localSrcFile = "recursivefile.txt"
-
-############################
-
-Add-AzAccount
-
-# create 2 storage credentials for sharedkey and oauth
-$ctx = New-AzStorageContext  $accountName -StorageAccountKey $accountKey 
-$ctx2 = New-AzStorageContext  $accountName
-
-# create file system
-$container1 = New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
-write-output "New container created:" $container1
-
-# prepare the items to set acl recursive
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Directory -Path dir0 
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Directory -Path dir0 
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Directory -Path dir0/dir1
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Directory -Path dir0/dir2
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Path dir0/dir1/file1 -Source $localSrcFile -Force
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Path dir0/dir1/file2 -Source $localSrcFile -Force
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Path dir0/dir1/file3 -Source $localSrcFile -Force
-New-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName -Path dir0/dir2/file3 -Source $localSrcFile -Force
-New-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path dir0/dir2/file4 -Source $localSrcFile -Force 
-
-
-# check the items permission
-Get-AzDataLakeGen2Item -Context $ctx2 -FileSystem $filesystemName
-Get-AzDataLakeGen2ChildItem -Context $ctx2 -FileSystem $filesystemName -Recurse
-
-# create valid ACL for update/set
-$acl1 = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx 
-$acl1 = Set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission r-x -InputObject $acl1 
-$acl1 = Set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission "---" -InputObject $acl1
-$acl1 = Set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $id -Permission rwx -InputObject $acl1 
-$acl1
-
-## Directory
-Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path dir0 -Acl $acl1
-$dirname = "dir0/"
-$dir = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname
-$dir.ACL
-```
 
 ---
 
