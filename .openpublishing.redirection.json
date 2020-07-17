@@ -56878,6 +56878,11 @@
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
+      "redirect_document_id": false
     }
   ]
 }

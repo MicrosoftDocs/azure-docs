@@ -11,6 +11,9 @@ ms.date: 03/27/2019
 
 # Azure Key Vault Analytics solution in Azure Monitor
 
+> [!NOTE]
+> This solution is deprecated. [We now recommend using Azure Monitor for Key Vault](./key-vault-insights-overview).
+
 ![Key Vault symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
