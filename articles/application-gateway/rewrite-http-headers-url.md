@@ -13,7 +13,8 @@ ms.author: surmb
 
  Application Gateway allows you to rewrite selected content of requests and responses. With this feature, you can translate URLs, query string parameters as well as modify request and response headers. It also allows you to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. These conditions are based on the request and response information.
 
-Note: HTTP header and URL rewrite features are only available for the [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md)
+>[!NOTE]
+>HTTP header and URL rewrite features are only available for the [Application Gateway v2 SKU](application-gateway-autoscaling-zone-redundant.md)
 
 ## Rewrite types supported
 
@@ -126,17 +127,17 @@ To configure a rewrite rule, you need to create a rewrite rule set and add the r
 
 A rewrite rule set contains:
 
-1. **Request routing rule association:** The rewrite configuration is associated to the source listener via the routing rule. When you use a basic routing rule, the rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site. You can create multiple rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
+* **Request routing rule association:** The rewrite configuration is associated to the source listener via the routing rule. When you use a basic routing rule, the rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site. You can create multiple rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
 
-2. **Rewrite Condition**: It is an optional configuration. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
+* **Rewrite Condition**: It is an optional configuration. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
 
-3. **Rewrite type**:  There are 3 types of rewrites available:
-   1. Rewriting request headers 
-   2. Rewriting response headers.
-   3. Rewriting URL: URL rewrite type has 3 components
-      1. **URL path**: The value to which the path is to be rewritten to. 
-      2. **URL Query String**: The value to which the query string is to be rewritten to. 
-      3. **Re-evaluate path map**: Used to determine whether the URL path map is to be re-evaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
+* **Rewrite type**:  There are 3 types of rewrites available:
+   * Rewriting request headers 
+   * Rewriting response headers.
+   * Rewriting URL: URL rewrite type has 3 components
+      * **URL path**: The value to which the path is to be rewritten to. 
+      * **URL Query String**: The value to which the query string is to be rewritten to. 
+      * **Re-evaluate path map**: Used to determine whether the URL path map is to be re-evaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be re-evaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
 ### Common scenarios for header rewrite
 
@@ -212,7 +213,8 @@ Now, if the user requests *contoso.com/listing?category=any*, then it will be ma
 
  If the user requests *contoso.com/listing?category=shoes,* then again the default path will be matched. However, in this case the condition in the first rule will match and therefore, the action associated with the condition will be executed which will rewrite the URL path to /*listing1*  and re-evaluate the path-map. When the path-map is re-evaluated, the request will now match the path associated with pattern */listing1* and the request will be routed to the backend associated with this pattern, which is ShoesListBackendPool
 
-**Note:** This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the condition defined and essentially enables you to route requests based on those conditions.
+>[!NOTE]
+>This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the condition defined and essentially enables you to route requests based on those conditions.
 
 #### Rewrite query string parameters based on the URL
 
