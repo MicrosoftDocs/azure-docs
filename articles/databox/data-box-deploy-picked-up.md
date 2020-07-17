@@ -189,7 +189,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ## [Singapore](#tab/in-singapore)
 
 1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 5. Email SingPost Customer Service using the following email template with the tracking number.
@@ -235,14 +235,14 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 4. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device in the back of the device.
 5. Schedule a pickup with DHL if returning the device. To schedule a pickup:
 
-    * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number. 
+    * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number.
     * The call must be made before 2:00 PM to schedule a pick-up.
     * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
-    ```
+    ```output
     To: Priority.Support@dhl.com
     Subject: Pickup request for Microsoft Azure
-    Body:
+    Body: Need pick up for the below shipment
       *  DHL tracking number (reference number/waybill number)
       *  Requested pickup date: yyyy/mm/dd;time:HH MM
     ```

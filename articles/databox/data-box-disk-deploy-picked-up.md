@@ -156,6 +156,35 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 3. Hand over to the courier.
 
+### [South Africa](#tab/in-sa)
+
+Take the following steps if returning the device in South Africa.
+
+1. Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
+
+2. Seal the shipping box and ensure that the return shipping label is visible.
+
+3. Options for booking pickup:
+
+    * Call the customer service contact center on +27(0) 11 9213600, select option 1 and specify waybill number.
+    * You must call before 2:00 PM to schedule a pick-up.  
+    * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) to organize pickup using the following email template:
+
+    ```output
+    To: Priority.Support@dhl.com
+    Subject:Pickup request for Microsoft Azure
+    Body:  Need pick up for the below shipment
+    *  DHL tracking number (reference number/waybill number)
+    *  Requested pickup date：yyyy/mm/dd; time: HH MM
+    ```
+
+    * Alternatively, you can drop off the package at the nearest DHL service point.
+
+   > [!NOTE]
+   > The pick-up cut off time is 2:00 PM South Africa Standard Time (ZA) time.
+
+4. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+
 ### [China](#tab/in-china)
 
 Take the following steps if returning the device in China.
