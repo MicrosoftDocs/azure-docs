@@ -269,9 +269,9 @@ Each of the following sections makes HTTP GET Geofencing API requests using the 
 
 ### Equipment Location 1 (47.638237,-122.132483)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 1*. Select the collection you created in the [Upload geofences section](#upload-geofencing -geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 1*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload geofences section](#upload-geofencing -geojson-data).
+2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -309,9 +309,9 @@ Each of the following sections makes HTTP GET Geofencing API requests using the 
 
 ### Location 2 (47.63800,-122.132531)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 2*. Select the collection you created in the [Upload geofences section](#upload-geofencing -geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 2*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload geofences section](#upload-geofencing -geojson-data).
+2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -349,9 +349,9 @@ Each of the following sections makes HTTP GET Geofencing API requests using the 
 
 ### Location 3 (47.63810783315048,-122.13336020708084)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 3*. Select the collection you created in the [Upload geofences section](#upload-geofencing -geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 3*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload geofences section](#upload-geofencing -geojson-data).
+2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
     ```HTTP
       https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -392,9 +392,9 @@ Each of the following sections makes HTTP GET Geofencing API requests using the 
 
 ### Location 4 (47.637988,-122.1338344)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 4*. Select the collection you created in the [Upload geofences section](#upload-geofencing -geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 4*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}`  with the `udid` you saved in the [Upload geofences section](#upload-geofencing -geojson-data).
+2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}`  with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
     ```HTTP
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
@@ -426,9 +426,9 @@ Each of the following sections makes HTTP GET Geofencing API requests using the 
 
 ### Location 5(47.637988,-122.1338344)
 
-1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 4*. Select the collection you created in the [Upload geofences section](#upload-geofencing -geojson-data), and then select **Save**.
+1. Near the top of the Postman app, select **New**. In the **Create New** window, select **Request**.  Enter a **Request name** for the request. We'll use the name, *Location 4*. Select the collection you created in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data), and then select **Save**.
 
-2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload geofences section](#upload-geofencing -geojson-data).
+2. Select the **GET** HTTP method in the builder tab and enter the following URL Make sure to replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data).
 
     ```HTTP
     https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
