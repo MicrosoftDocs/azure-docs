@@ -49,8 +49,8 @@ When you create a public load balancer, you create a new public IP address that 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and type **myResourceGroupSLB** in the text box.|
-    | Name                   | **myLoadBalancer**                                   |
+    | Resource group         | Select **Create new** and enter **myResourceGroupLB** in the text box.|
+    | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
     | SKU           | Select **Standard** |
@@ -158,17 +158,21 @@ When you create a public load balancer, you create a new public IP address that 
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Subscription               | Select your subscription.    |    
-    | Resource group         | Select **Create new** and type **myResourceGroupSLB** in the text box.|
-    | Name                   | **myLoadBalancer**                                   |
+    | Resource group         | Select **Create new** and type **myResourceGroupLB** in the text box.|
+    | Name                   | Enter **myLoadBalancer**                                   |
     | Region         | Select **West Europe**.                                        |
     | Type          | Select **Public**.                                        |
-    | SKU           | Select **Standard** |
+    | SKU           | Select **Basic** |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
     | Public IP address name | Type **myPublicIP** in the text box.|
-    | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
+    | Assignment | Select **Dynamic** |
     | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
 
+3. Accept the defaults for the remaining settings, and then select **Review + create**.
 
+4. In the **Review + create** tab, select **Create**.   
+
+    ![Create a Basic Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png)
 
 
 
@@ -192,7 +196,7 @@ In this section you'll replace the parameters in the steps with the information 
 
 | Parameter                   | Value                |
 |-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroupSLB |
+| **\<resource-group-name>**  | myResourceGroupLB |
 | **\<virtual-network-name>** | myVNet          |
 | **\<region-name>**          | West Europe      |
 | **\<IPv4-address-space>**   | 10.1.0.0\16          |
@@ -217,7 +221,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     |-----------------------|----------------------------------|
     | **Project Details** |  |
     | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroupSLB** |
+    | Resource Group | Select **myResourceGroupLB** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM1** |
     | Region | Select **West Europe** |
@@ -272,7 +276,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 
 ### Install IIS
 
-1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupSLB** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
 
 2. On the **Overview** page, select **Connect** to download the RDP file for the VM.
 
@@ -315,7 +319,7 @@ To see the load balancer distribute traffic across all three VMs, you can custom
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **myResourceGroupSLB** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **myResourceGroupLB** that contains the resources and then select **Delete**.
 
 ## Next steps
 
