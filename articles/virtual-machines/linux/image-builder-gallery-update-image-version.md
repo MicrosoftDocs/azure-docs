@@ -9,7 +9,7 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
 ---
-# Preview: Create a new VM image version from an existing image version using Azure Image Builder
+# Preview: Create a new VM image version from an existing image version using Azure Image Builder in Linux
 
 This article shows you how to take an existing image version in a [Shared Image Gallery](shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
 
