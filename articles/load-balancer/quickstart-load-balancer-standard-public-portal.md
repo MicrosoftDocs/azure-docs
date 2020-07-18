@@ -29,7 +29,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a publi
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Create a load balancer
+# [Option 1 (default): Create a load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -133,6 +133,41 @@ In this section, you'll create a load balancer rule:
     | Create implicit outbound rules | Select **Yes**. </br> For more information and advanced outbound rule configuration, see: </br> [Outbound connections in Azure](load-balancer-outbound-connections.md) </br> [Configure load balancing and outbound rules in Standard Load Balancer by using the Azure portal](configure-load-balancer-outbound-portal.md)
 
 4. Leave the rest of the defaults and then select **OK**.
+
+
+# [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
+
+In this section, you create a load balancer that load balances virtual machines. 
+
+You can create a public load balancer or an internal load balancer. 
+
+When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
+
+1. On the top left-hand side of the screen, select **Create a resource** > **Networking** > **Load Balancer**.
+
+2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information: 
+
+    | Setting                 | Value                                              |
+    | ---                     | ---                                                |
+    | Subscription               | Select your subscription.    |    
+    | Resource group         | Select **Create new** and type **myResourceGroupSLB** in the text box.|
+    | Name                   | **myLoadBalancer**                                   |
+    | Region         | Select **West Europe**.                                        |
+    | Type          | Select **Public**.                                        |
+    | SKU           | Select **Standard** |
+    | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
+    | Public IP address name | Type **myPublicIP** in the text box.|
+    | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
+    | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
+
+
+
+
+
+
+
+
+
 
 ## Create backend servers
 
