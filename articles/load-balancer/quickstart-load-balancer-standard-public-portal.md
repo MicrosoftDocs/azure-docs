@@ -273,7 +273,7 @@ In this section, you configure:
 * Create a virtual network.
 * Load balancer settings for a backend address pool.
 * A health probe.
-* A load balancer rule and an automatic outbound rule.
+* A load balancer rule.
 
 ## Virtual network and parameters
 
