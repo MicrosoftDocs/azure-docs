@@ -301,6 +301,7 @@ Create the backend address pool **myBackendPool** to include virtual machines fo
 2. Under **Settings**, select **Backend pools**, then select **Add**.
 
 3. In the **Add a backend pool** page, enter or select:
+    
     | Setting | Value |
     | ------- | ----- |
     | Name | Enter **myBackendPool**. |
