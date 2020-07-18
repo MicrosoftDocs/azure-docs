@@ -882,6 +882,13 @@ productDirectory:
         - hybrid
       url: https://docs.microsoft.com/azure-stack/
     # Card
+    - title: Azure Stack HCI solutions
+      summary: Run virtual machines on-premises and easily connect to Azure with a hyperconverged infrastructure (HCI) solution
+      imageSrc: ./media/index/azure-stack-hci.svg
+      azureCategories:
+        - hybrid
+      url: https://docs.microsoft.com/azure-stack/hci/
+    # Card
     - title: Security Center
       summary: Unify security management and enable advanced threat protection across hybrid cloud workloads
       imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
