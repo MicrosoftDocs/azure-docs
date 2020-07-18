@@ -29,7 +29,12 @@ Get started with Azure Load Balancer by using the Azure portal to create a publi
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
+---
+
 # [Option 1 (default): Create a load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
+
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads.  Refer to **[Azure Load Balancer SKUs](skus.md)** for more information.
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -137,6 +142,9 @@ In this section, you'll create a load balancer rule:
 
 # [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
+>[!NOTE]
+>Standard SKU load balancer is recommended for production workloads.  Refer to **[Azure Load Balancer SKUs](skus.md)** for more information.
+
 In this section, you create a load balancer that load balances virtual machines. 
 
 You can create a public load balancer or an internal load balancer. 
@@ -168,8 +176,9 @@ When you create a public load balancer, you create a new public IP address that 
 
 
 
+---
 
-## Create backend servers
+# Create backend servers
 
 In this section, you:
 
