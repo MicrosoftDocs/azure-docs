@@ -16,11 +16,11 @@ ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
 
-# Discover role-assignable groups to manage in Privileged Identity Management
+# Discover privileged access groups to manage in Privileged Identity Management
 
-Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This is helpful to organizations that already use Privileged Identity Management to protect Azure AD roles, and to management group and subscription owners who are looking to secure production resources.
+Using Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can improve the protection of your Azure resources. This helps organizations that already use Privileged Identity Management to protect Azure AD roles and helps management group and subscription owners who are looking to secure access.
 
-When you first set up Privileged Identity Management for Azure resources, you need to discover and select the resources to protect with Privileged Identity Management. There's no limit to the number of resources that you can manage with Privileged Identity Management. However, we recommend starting with your most critical (production) resources.
+Before you can manage an Azure AD role-assignable group as a privileged access group in Privileged Identity Management, you must discover it and bring it under management in PIM.
 
 ## Discover resources
 
