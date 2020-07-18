@@ -6,12 +6,8 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Portal
-    href: quickstart-portal.md
   - name: PowerShell
     href: quickstart-powershell.md
-  - name: CLI
-    href: quickstart-cli.md
 - name: Tutorials
 - name: Samples
   items:
@@ -40,12 +36,4 @@
   - name: Resource Manager template
     href: 
     displayName: ARM
-- name: Resources
-  items:
-  - name: Pricing
-    href: 
-  - name: Region availability
-    href: 
-  - name: Service Level Agreement (SLA)
-    href: 
   
