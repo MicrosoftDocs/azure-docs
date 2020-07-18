@@ -57,9 +57,9 @@ When you create a public load balancer, you create a new public IP address that 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 
 4. In the **Review + create** tab, select **Create**.   
-
-    ![Create a Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
-
+    
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Create a standard load balancer" border="true":::
+ 
 ## Create load balancer resources
 
 In this section, you configure:
