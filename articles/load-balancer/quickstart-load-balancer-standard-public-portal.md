@@ -33,7 +33,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 In this section, you create a load balancer that load balances virtual machines. 
 
-You can create a public load balancer or an internal load Balancer. 
+You can create a public load balancer or an internal load balancer. 
 
 When you create a public load balancer, you create a new public IP address that is configured as the frontend (named as **LoadBalancerFrontend** by default) for the load balancer.
 
@@ -51,7 +51,7 @@ When you create a public load balancer, you create a new public IP address that 
     | SKU           | Select **Standard** |
     | Public IP address | Select **Create new**. If you have an existing Public IP you would like to use, select **Use existing**. |
     | Public IP address name | Type **myPublicIP** in the text box.|
-    | Availability zone | Select **Zone-redundant** to create a resilient Load Balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
+    | Availability zone | Select **Zone-redundant** to create a resilient load balancer. To create a zonal load balancer, select a specific zone from 1, 2, or 3 |
     | Add a public IPv6 address | Select **No**. </br> For more information on IPv6 addresses and load balancer, see [What is IPv6 for Azure Virtual Network?](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)  |
 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
@@ -86,7 +86,7 @@ The load balancer monitors the status of your app with a health probe.
 
 The health probe adds or removes VMs from the load balancer based on their response to health checks. 
 
-Create a health probe **myHealthProbe** to monitor the health of the VMs.
+Create a health probe named **myHealthProbe** to monitor the health of the VMs.
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
 
@@ -136,11 +136,15 @@ In this section, you'll create a load balancer rule:
 
 ## Create backend servers
 
-In this section, you create a virtual network, create three virtual machines for the backend pool of the load balancer, and then install IIS on the virtual machines to help test the load balancer.
+In this section, you:
+
+* Create a virtual network.
+* Create three virtual machines for the backend pool of the load balancer.
+* Install IIS on the virtual machines to help test the load balancer.
 
 ## Virtual network and parameters
 
-In this section you'll need to replace the parameters in the steps with the information below:
+In this section you'll replace the parameters in the steps with the information below:
 
 | Parameter                   | Value                |
 |-----------------------------|----------------------|
@@ -277,6 +281,6 @@ In this quickstart, you:
 * Attached 3 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
-To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md)
+To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
 
 Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
