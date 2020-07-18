@@ -148,9 +148,11 @@ Currently, the Maven archetype generates a pom.xml that targets Java 8. The foll
 
 The following examples show the settings for Java 8 in the relevant sections of the pom.xml file:
 
-:::code language="xml" source="~/functions-quickstart-java/pom.xml" range="12-19" highlight="14":::
+#### `Java.version`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="12-19" highlight="14":::
 
-:::code language="xml" source="~/functions-quickstart-java/pom.xml" range="77-85" highlight="80":::
+#### `JavaVersion`
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="80":::
 
 > [!IMPORTANT]
 > You must have the JAVA_HOME environment variable set correctly to the JDK directory that is used during code compiling using Maven. Make sure that the version of the JDK is at least as high as the `Java.version` setting. 
@@ -160,10 +162,10 @@ The following examples show the settings for Java 8 in the relevant sections of 
 Maven also lets you specify the operating system on which your function app runs in Azure. Use the `os` element to choose the operating system. 
 
 | Element |  Windows | Linux | Docker |
-| ---- | ---- | ---- |
+| ---- | ---- | ---- | --- |
 | **`os`** | windows | linux | docker |
 
-:::code language="xml" source="~/functions-quickstart-java/pom.xml" range="77-85" highlight="79":::
+:::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
  
 ## JDK runtime availability and support 
 
