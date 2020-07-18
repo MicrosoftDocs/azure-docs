@@ -18,7 +18,7 @@ This article explains how to use the popular **Java Message Service (JMS) 2.0** 
 
 This guide assumes that you already have a Service Bus namespace. If you don't, then you can [create the namespace and queue](service-bus-create-namespace-portal.md) using the [Azure portal](https://portal.azure.com). 
 
-For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues through the Azure Portal](service-bus-quickstart-portal.md).
+For more information about how to create Service Bus namespaces and queues, see [Get started with Service Bus queues through the Azure portal](service-bus-quickstart-portal.md).
 
 ## What JMS features are supported?
 
@@ -26,7 +26,7 @@ For more information about how to create Service Bus namespaces and queues, see 
 
 ## Downloading the Java Message Service (JMS) client library
 
-To utilize all the features available on Azure Service Bus Premium tier the below library must be added to the build path of the project.
+To utilize all the features available on Azure Service Bus Premium tier, the below library must be added to the build path of the project.
 
 [Azure-servicebus-jms](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms)
 
@@ -40,7 +40,7 @@ Once the dependencies have been imported, the Java applications can be written i
 
 ### Connecting to Azure Service Bus using JMS
 
-To connect with Azure Service Bus using JMS clients, you need the **ConnectionString** which is available in the 'Shared Access Policies' in the [Azure portal](https://portal.azure.com) under **Primary Connection String**.
+To connect with Azure Service Bus using JMS clients, you need the **ConnectionString** that is available in the 'Shared Access Policies' in the [Azure portal](https://portal.azure.com) under **Primary Connection String**.
 
 1. Instantiate the `ServiceBusJmsConnectionFactorySettings`
 
@@ -69,9 +69,9 @@ To connect with Azure Service Bus using JMS clients, you need the **ConnectionSt
 
 ### Write the JMS application
 
-Once the `Session` or `JMSContext` has been instantiated, your application can leverage the familiar JMS APIs to perform both management and data operations.
+Once the `Session` or `JMSContext` has been instantiated, your application can use the familiar JMS APIs to perform both management and data operations.
 
-Please refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-20.md#what-jms-features-are-supported) to see which APIs are supported as part of this preview.
+Refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-20.md#what-jms-features-are-supported) to see which APIs are supported as part of this preview.
 
 ## Summary
 
@@ -81,8 +81,8 @@ You can also use Service Bus AMQP 1.0 from other languages, including .NET, C, P
 
 ## Next steps
 
-For more information on Azure Service Bus and details about Java Message Service (JMS) entities check out the links below - 
-* [Service Bus - Queues, Topics and Subscriptions](service-bus-queues-topics-subscriptions.md)
+For more information on Azure Service Bus and details about Java Message Service (JMS) entities, check out the links below - 
+* [Service Bus - Queues, Topics, and Subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Service Bus - Java Message Service entities](service-bus-queues-topics-subscriptions.md#java-message-service-jms-20-entities-preview)
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
