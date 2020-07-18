@@ -14,7 +14,11 @@ ms.author: mbaldwin
 
 ## JSON Web Token (JWT)
 
-JSON Web Token (JWT) is an open standard that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
+[JSON Web Token](https://jwt.io/) (JWT) is an open standard [RFC7519](https://tools.ietf.org/html/rfc7519) method for securely transmitting information between parties as a JavaScript Object Notation (JSON) object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret or a public/private key pair.
+
+## JSON Web Key (JWK)
+
+[JSON Web Key](https://tools.ietf.org/html/rfc7517) (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. This specification also defines a JWK Set JSON data structure that represents a set of JWKs.
 
 ## Attestation provider
 
