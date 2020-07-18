@@ -45,7 +45,7 @@ During the off-peak usage time, the job determines how many session host VMs sho
 >[!NOTE]
 >If you manually set the session host VM to drain mode, the job won't manage the session host VM. If the session host VM is running and set to drain mode, it will be treated as unavailable, which will make the job start additional VMs to handle the load. We recommend you tag any Azure VMs before you set them to drain mode. You can name the tag with the *MaintenanceTagName* parameter when you create Azure Logic App Scheduler later. Tags will help you distinguish these VMs from the ones the scaling tool manages. Setting the maintenance tag also prevents the scaling tool from making changes to the VM until you remove the tag.
 
-If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job will allow the session configuration setting in specified group policies to handle signing off user sessions. To see these group policies, go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there are no active sessions i.e only after all sessions are logged off, the job will shut down the session host VM.
+If you set the *LimitSecondsToForceLogOffUser* parameter to zero, the job allows the session configuration setting in specified group policies to handle signing off user sessions. To see these group policies, go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. If there are any active sessions on a session host VM, the job will leave the session host VM running. If there aren't any active sessions, the job will shut down the session host VM.
 
 During any time, the job also takes host pool's *MaxSessionLimit* into account to determine if the current number of sessions is more than 90% of the maximum capacity. If it is, the job will start additional session host VMs.
 
@@ -91,7 +91,7 @@ First, you'll need an Azure Automation Account to run the PowerShell runbook. Be
     ```
     
     >[!NOTE]
-    >Your account must have contributor rights on the Azure subscription that you want to deploy the scaling tool on.
+    >Your account must have contributor rights on the Azure subscription where you want to deploy the scaling tool.
 
 3. Run the following cmdlet to download the script for creating the Azure Automation Account:
 
@@ -120,7 +120,7 @@ First, you'll need an Azure Automation Account to run the PowerShell runbook. Be
 
 5. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
 
-6. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include Log Analytics Workspace ID and its Primary Key. Make sure to keep a record of it because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
+6. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to keep a record of it because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
 
 7. After you've set up your Azure Automation Account, sign in to your Azure subscription and check to make sure your Azure Automation Account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
@@ -129,15 +129,15 @@ First, you'll need an Azure Automation Account to run the PowerShell runbook. Be
 
     To check if your webhook is where it should be, select the name of your runbook. Next, go to your runbook's Resources section and select **Webhooks**.
 
-## Create an Azure Automation Run As Account
+## Create an Azure Automation Run As account
 
-Now that you have an Azure Automation Account, you'll also need to create an Azure Automation Run As Account if you don't have one for the tool to access your Azure resources.
+Now that you have an Azure Automation Account, you'll also need to create an Azure Automation Run As account if you don't have one already. This account will let the tool access your Azure resources.
 
-An [Azure Automation Run As Account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with the Azure cmdlets. When you create a Run As Account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level, the Azure Run As Account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As Account authentication, see [Limit Run As Account permissions](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
+An [Azure Automation Run As account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level. An Azure Run As account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As account authentication, see [Limit Run As account permissions](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As Account by following the next section's instructions.
+Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account by following the next section's instructions.
 
-To create a Run As Account in your Azure Automation Account:
+To create a Run As account in your Azure Automation account:
 
 1. In the Azure portal, select **All services**. In the list of resources, enter and select **Automation Accounts**.
 
@@ -147,9 +147,9 @@ To create a Run As Account in your Azure Automation Account:
 
 4. Select **Azure Run As Account**. When the **Add Azure Run As Account** pane appears, review the overview information, and then select **Create** to start the account creation process.
 
-5. Wait a few minutes for Azure to create the Run As Account. You can track the creation progress in the menu under Notifications.
+5. Wait a few minutes for Azure to create the Run As account. You can track the creation progress in the menu under Notifications.
 
-6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation Account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. Remember the application ID, because you'll use it later.
+6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. Remember the application ID, because you'll use it later.
 
 ### Create a role assignment in Windows Virtual Desktop
 
@@ -163,7 +163,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 Get-RdsTenant
 ```
 
-When you find the tenant with the host pools you want to scale, follow the instructions in [Create an Azure Automation Run As Account](#create-an-azure-automation-run-as-account) to gather the **AzureRunAsConnection** ApplicationID and use the WVD tenant name you got from the previous cmdlet in the following cmdlet to create the role assignment:
+When you find the tenant with the host pools you want to scale, follow the instructions in [Create an Azure Automation Run As account](#create-an-azure-automation-run-as-account) to gather the **AzureRunAsConnection** Application ID and use the Windows Virtual Desktop tenant name you got from the previous cmdlet in the following cmdlet to create the role assignment:
 
 ```powershell
 New-RdsRoleAssignment -RoleDefinitionName "RDS Contributor" -ApplicationId "<applicationid>" -TenantName "<tenantname>"
@@ -197,7 +197,10 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
 
-5. Run the following PowerShell script to create the Azure Logic App and execution schedule for your host pool (Note: You will need to run this for each of the host pools you want to auto scale, but you need only 1 Azure Automation Account).
+5. Run the following PowerShell script to create the Azure Logic App and execution schedule for your host pool 
+
+>[!NOTE]
+>You'll need to run this script for each host pool you want to autoscale, but you need only one Azure Automation account.
 
     ```powershell
     $AADTenantId = (Get-AzContext).Tenant.Id
@@ -275,7 +278,7 @@ Now that you've created your scaling tool, you can access its output. This secti
 
 You can view a summarized status of all runbook jobs or view a more in-depth status of a specific runbook job in the Azure portal.
 
-On the right of your selected Azure Automation Account, under "Job Statistics," you can view a list of summaries of all runbook jobs. Opening the **Jobs** page on the left side of the window shows current job statuses, start times, and completion times.
+On the right of your selected Azure Automation account, under "Job Statistics," you can view a list of summaries of all runbook jobs. Opening the **Jobs** page on the left side of the window shows current job statuses, start times, and completion times.
 
 >[!div class="mx-imgBorder"]
 >![A screenshot of the job status page.](media/jobs-status.png)
@@ -295,7 +298,7 @@ You can check the version of the runbook script by navigating to the runbook in 
 
 ### Reporting issues
 
-When reporting issues, please collect and provide the following information to help troubleshoot the issue
+When you report an issue, you'll need to provide the following information to help us troubleshoot:
 
 - Complete log from the **All Logs** tab by [navigating to the job](#view-logs-and-scaling-tool-output) that caused an issue. Feel free to mask any sensitive information from the log
 - [Version of the runbook script](#check-the-version-of-the-runbook-script)
@@ -307,11 +310,11 @@ When reporting issues, please collect and provide the following information to h
     - Az.Automation
     - OMSIngestionAPI
     - Microsoft.RDInfra.RDPowershell
-- Expiration of the [Run As Account](#create-an-azure-automation-run-as-account). To find this, navigate to your Azure Automation Account and in the pane on the left side of the window, click on **Run As Accounts** under **Account Settings** section. You can check when it expires under **Azure Run As Account**
+- The expiration date for your [Run As account](#create-an-azure-automation-run-as-account). To find this, open your Azure Automation account, then select **Run As Accounts** under **Account Settings** in the pane on the left side of the window. The expiration date should be under **Azure Run As account**.
 
 ### Log Analytics
 
-If you decided to use Log Analytics, you can view all the log data in a custom log named **WVDTenantScale_CL** under **Custom Logs** in the **Logs** view of your Log Analytics Workspace. Below are sample queries that you might find helpful
+If you decided to use Log Analytics, you can view all the log data in a custom log named **WVDTenantScale_CL** under **Custom Logs** in the **Logs** view of your Log Analytics Workspace. We've listed some sample queries you might find helpful.
 
 - All logs for a host pool
 
