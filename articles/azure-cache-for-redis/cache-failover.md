@@ -1,12 +1,11 @@
 ---
 title: Failover and patching - Azure Cache for Redis
 description: Learn about failover, patching, and the update process for Azure Cache for Redis.
-author: asasine
-
+author: yegu-ms
+ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
-ms.author: adsasine
 ---
 
 # Failover and patching for Azure Cache for Redis

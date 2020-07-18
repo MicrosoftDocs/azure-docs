@@ -46,7 +46,7 @@ landingContent:
        - text: Deploy a security partner provider
          url: deploy-trusted-security-partner.md
   # Card
-  - title: Secure you Azure cloud network
+  - title: Secure your Azure cloud network
     linkLists:
       - linkListType: tutorial
         links:
