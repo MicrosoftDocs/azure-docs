@@ -1,24 +1,24 @@
 ---
 title: Azure Standard Load Balancer and Virtual Machine Scale Sets
-titleSuffix: Azure Load Balancer
-description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
+titleSuffix: Azure Standard Load Balancer and Virtual Machine Scale Sets
+description: With this learning path, get started with Azure Standard Load Balancer and Virtual Machine Scale Sets.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: irenehua
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2020
+ms.date: 07/17/2020
 ms.author: irenehua
 ---
 # Azure Load Balancer with Azure virtual machine scale sets
 
 When working with virtual machine scale sets and load balancer, the following guidelines should be considered:
 
-## Multiple virtual machine scale sets can't use the same load balancer**.
+## Multiple virtual machine scale sets can't use the same load balancer
 ## Port Forwarding and inbound NAT rules:
   * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
   * When using the virtual machine scale set in the backend pool of the load balancer, the default inbound NAT rules get created automatically.
