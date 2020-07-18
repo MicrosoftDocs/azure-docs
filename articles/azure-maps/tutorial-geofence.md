@@ -179,7 +179,7 @@ In this tutorial, we'll upload Geofencing GeoJSON data that contains a `FeatureC
     }
     ```
 
-## Create Logic App Workflows
+## Create Logic App workflows
 
 In this section, we'll create two [Logic App](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) endpoints that will trigger an email notification. We'll show you how to create the first trigger that will send email notifications whenever its endpoint is called.
 
