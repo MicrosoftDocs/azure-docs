@@ -124,7 +124,7 @@ Here is the generated corresponding `function.json` by the [azure-functions-mave
 
 _Support for Java 11 is currently in preview_
 
-The version of Java on which your function app runs in Azure is specified in the pom.xml file. The Maven archetype  currently generates a pom.xml for Java 8, which you can change before publishing. The Java version in pom.xml should match the version on which you have locally developed and tested your app. 
+The version of Java used when creating the function app on which functions runs in Azure is specified in the pom.xml file. The Maven archetype currently generates a pom.xml for Java 8, which you can change before publishing. The Java version in pom.xml should match the version on which you have locally developed and tested your app. 
 
 ### Supported versions
 
@@ -164,6 +164,8 @@ Maven also lets you specify the operating system on which your function app runs
 | Element |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
 | **`os`** | windows | linux | docker |
+
+The following example shows the operating system setting in the `runtime` section of the pom.xml file:
 
 :::code language="xml" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="77-85" highlight="79":::
  
