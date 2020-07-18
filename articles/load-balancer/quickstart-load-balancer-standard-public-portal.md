@@ -487,7 +487,7 @@ When no longer needed, delete the resource group, load Balancer, and all related
 
 In this quickstart, you:
 
-* Created an Azure Standard Load Balancer
+* Created an Azure Standard or Basic Load Balancer
 * Attached 3 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
