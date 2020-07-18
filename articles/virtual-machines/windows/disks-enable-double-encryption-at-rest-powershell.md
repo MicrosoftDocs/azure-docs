@@ -45,13 +45,13 @@ Install the latest [Azure PowerShell version](/powershell/azure/install-az-ps), 
 1.  Create a DiskEncryptionSet with encryptionType set as EncryptionAtRestWithPlatformAndCustomerKeys. Use API version **2020-05-01** in the Azure Resource Manager (ARM) template. 
     
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
+    New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
     -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/DoubleEncryption/CreateDiskEncryptionSetForDoubleEncryption.json" `
-    -diskEncryptionSetName "yourDESForDoubleEncryption" `
-    -keyVaultId "subscriptions/dd80b94e-0463-4a65-8d04-c94f403879dc/resourceGroups/yourResourceGroupName/providers/Microsoft.KeyVault/vaults/yourKeyVaultName" `
-    -keyVaultKeyUrl "https://yourKeyVaultName.vault.azure.net/keys/yourKeyName/403445136dee4a57af7068cab08f7d42" `
+    -diskEncryptionSetName $diskEncryptionSetName `
+    -keyVaultId $keyVault.ResourceId `
+    -keyVaultKeyUrl $key.Key.Kid `
     -encryptionType "EncryptionAtRestWithPlatformAndCustomerKeys" `
-    -region "CentralUSEUAP"
+    -region $LocationName
     ```
 
 1. Grant the DiskEncryptionSet resource access to the key vault.
