@@ -178,7 +178,7 @@ When you create a public load balancer, you create a new public IP address that 
 
 ---
 
-# Create backend servers
+## Create backend servers
 
 In this section, you:
 
