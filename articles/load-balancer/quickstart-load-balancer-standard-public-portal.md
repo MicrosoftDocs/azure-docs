@@ -409,7 +409,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Network interface** |  |
     | Virtual network | Select **myVNet** |
     | Subnet | Select **myBackendSubnet** |
-    | Public IP | Select **Create new** </br> Enter **myVM-ip** in name. </br> **Select OK** |
+    | Public IP | Select **Create new** </br> Enter **myVM-ip** in name. </br> Select **OK** |
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Under **Inbound rules**, select **+Add an inbound rule**. </br> Under  **Destination port ranges**, enter **80**. </br> Under **Priority**, enter **100**. </br> In **Name**, enter **myHTTPRule** </br> Select **Add** </br> Select **OK** |
     | **Load balancing**  |
