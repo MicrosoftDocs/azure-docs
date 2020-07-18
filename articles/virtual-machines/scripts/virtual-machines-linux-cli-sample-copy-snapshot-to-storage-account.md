@@ -1,5 +1,5 @@
 ---
-title: Copy a snapshot to a storage account in another region - CLI sample
+title: Copy a snapshot to a storage account in another region - Linux CLI sample
 description: Azure CLI Script Sample - Export/Copy snapshot as VHD to a storage account in same or different region.
 services: virtual-machines-linux
 documentationcenter: storage

@@ -22927,6 +22927,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/msal-js-known-issues-safari-browser.md",
+      "redirect_url": "/azure/active-directory/develop/reference-third-party-cookies-spas",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/quickstart-v2-register-an-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
@@ -49401,6 +49406,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/form-recognizer/tutorial-form-recognizer-with-logic-apps.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -56877,6 +56887,16 @@
     {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-visual-studio.md",
+      "redirect_url": "/visualstudio/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
+      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
       "redirect_document_id": false
     }
   ]
