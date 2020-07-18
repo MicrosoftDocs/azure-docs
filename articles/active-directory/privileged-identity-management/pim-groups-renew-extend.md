@@ -22,15 +22,15 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) provides controls to manage the access and assignment lifecycle for Azure resources. Administrators can assign roles using start and end date-time properties. When the assignment end approaches, Privileged Identity Management sends email notifications to the affected users or groups. It also sends email notifications to administrators of the resource to ensure that appropriate access is maintained. Assignments might be renewed and remain visible in an expired state for up to 30 days, even if access is not extended.
 
-## Who can extend and renew?
+## Who can extend and renew
 
-Only administrators of the resource can extend or renew role assignments. The affected user or group can request to extend roles that are about to expire and request to renew roles that are already expired.
+Only administrators of the resource can extend or renew privileged access group assignments. The affected user or group can request to extend assignments that are about to expire and request to renew assignments that are already expired.
 
-## When are notifications sent?
+## When notifications are sent
 
-Privileged Identity Management sends email notifications to administrators and affected user or groups of roles that are expiring within 14 days and one day prior to expiration. It sends an additional email when an assignment officially expires.
+Privileged Identity Management sends email notifications to administrators and affected users of privileged access group assignments that are expiring within 14 days and one day prior to expiration. It sends an additional email when an assignment officially expires.
 
-Administrators receive notifications when a user or group assigned an expiring or expired role requests to extend or renew. When a specific administrator resolves the request, all other administrators are notified of the resolution decision (approved or denied). Then the requesting user or group is notified of the decision.
+Administrators receive notifications when a user or group requests to extend or renew an expiring or expired assignment. When a specific administrator resolves the request, all other administrators are notified of the resolution decision (approved or denied). Then the requesting user or group is notified of the decision.
 
 ## Extend role assignments
 
@@ -38,19 +38,15 @@ The following steps outline the process for requesting, resolving, or administer
 
 ### Self-extend expiring assignments
 
-Users or groups assigned to a role can extend expiring role assignments directly from the **Eligible** or **Active** tab on the **My roles** page of a resource and from the top level **My roles** page of the Privileged Identity Management portal.Users or groups can request to extend eligible and active (assigned) roles that expire in the next 14 days.
+Users or groups assigned to a role can extend expiring role assignments directly from the **Eligible** or **Active** tab on the **Assignments** page for a privileged access group. Users or groups can request to extend eligible and active (assigned) roles that expire in the next 14 days.
 
 ![Azure resources - My roles page listing eligible roles with an Action column](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 
-When the assignment end date-time is within 14 days, the button to **Extend** becomes an active link in the user interface. In the following example, assume the current date is March 27.
-
-![Action column with links to Activate or Extend](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-within-14.png)
-
-To request an extension of this role assignment, select **Extend** to open the request form.
+When the assignment end date-time is within 14 days, the **Extend** command is available. To request an extension of a role assignment, select **Extend** to open the request form.
 
 ![Extend role assignment pane with a Reason box](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-role-assignment-request.png)
 
-To view information about the original assignment, expand **Assignment details**. Enter a reason for the extension request, and then select **Extend**.
+To view information about the original assignment, open **Assignment details**. Enter a reason for the extension request, and then select **Extend**.
 
 >[!NOTE]
 >We recommend including the details of why the extension is necessary, and for how long the extension should be granted (if you have this information).

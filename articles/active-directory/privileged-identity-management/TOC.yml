@@ -101,8 +101,6 @@
       href: pim-groups-renew-extend.md
     - name: Configure role settings
       href: pim-groups-role-settings.md
-    - name: Configure alerts
-      href: pim-groups-alerts.md
     - name: View audit history
       href: pim-groups-audit.md
     - name: Use custom roles
