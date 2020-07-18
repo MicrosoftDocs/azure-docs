@@ -20,7 +20,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
+Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs and DCsv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
 
 * [B-series](../sizes-b-series-burstable.md)
 * [DCsv2-series](../dcv2-series.md)
@@ -39,7 +39,7 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [ND-series](../nd-series.md)
 * [NVv3-series](../nvv3-series.md)
 
-<sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](../mv2-series.md) for details.
+<sup>1</sup> Mv2-series and DCsv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](../mv2-series.md) and [DCsv2-series documentation](../dcv2-series.md) for details.
 
 ## Generation 2 VM images in Azure Marketplace
 
