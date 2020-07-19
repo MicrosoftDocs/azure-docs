@@ -132,9 +132,9 @@ After creating a policy file, to upload a policy in JWT format, follow the below
 
 3. Upload the JWT and validate the policy. See [policy management](quickstart-powershell.md#policy-management) for more information.
 
-  - If the policy file is free of syntax errors the policy file gets accepted by the service.
+   If the policy file is free of syntax errors the policy file gets accepted by the service.
   
-  - If the policy file contains syntax errors the policy file will be rejected by the service.
+   If the policy file contains syntax errors the policy file will be rejected by the service.
 
 ## Signing the policy
 
