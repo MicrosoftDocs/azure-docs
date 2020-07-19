@@ -24,7 +24,7 @@ There is a high availability design pattern called [Geodes](https://docs.microso
 
 ### Sample
 
-There is a sample available for you to use to become familiar with high availability with Media Services and Video on Demand (VOD). It also goes into more detail about how the services are used for a VOD scenario.  The sample is not intended to be used in production in its current form.  Carefully review the sample code and the readme, particularly the section on [Failure Modes](https://github.com/Azure-Samples/media-services-v3-dotnet/HighAvailabilityEncodingStreaming/) before integrating it into a production application.  A production implementation of high availability for Video on Demand (VOD) should also carefully review their Content Delivery Network (CDN) strategy.  Check out the [code on GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet/HighAvailabilityEncodingStreaming/).
+There is a sample available for you to use to become familiar with high availability with Media Services and Video on Demand (VOD). It also goes into more detail about how the services are used for a VOD scenario.  The sample is not intended to be used in production in its current form.  Carefully review the sample code and the readme, particularly the section on [Failure Modes](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming) before integrating it into a production application.  A production implementation of high availability for Video on Demand (VOD) should also carefully review their Content Delivery Network (CDN) strategy.  Check out the [code on GitHub](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
 ## Overview of services
 

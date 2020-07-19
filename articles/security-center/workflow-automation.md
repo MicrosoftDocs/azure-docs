@@ -37,9 +37,9 @@ This article describes the workflow automation feature of Azure Security Center.
 
         * If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)
 - Clouds: 
-    - ✔ Commercial clouds
-    - ✔ US Gov
-    - ✘ China Gov, Other Gov
+  ✔ Commercial clouds
+  ✔ US Gov
+  ✘ China Gov, Other Gov
 
 
 ## Create a Logic App and define when it should automatically run 
