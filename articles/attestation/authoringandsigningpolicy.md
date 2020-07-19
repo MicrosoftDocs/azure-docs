@@ -12,9 +12,9 @@ ms.author: mbaldwin
 ---
 # Authoring and signing attestation policy for Microsoft Azure Attestation
 
-Attestation provider gets created with a default policy for each TEE type. For default policy content, see [Examples of attestation policy](policy-samples.md). If the default TEE policy of attestation provider meets the requirements, skip this section.
+Attestation provider gets created with a default policy for each TEE type. For default policy content, see [examples of attestation policy](policy-samples.md). If the default TEE policy of attestation provider meets the requirements, skip this section.
 
-Else custom policy can be configured for any of the supported TEE types. The policy can be uploaded in a Azure Attestation specific policy format. Alternatively, an encoded version of the policy, in JWS, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends evidence which Azure Attestation  parses and converts into incoming claims (set of properties, value). Azure Attestation then processes the claims, based on what’s defined in the policy, and returns the computed result.
+Else custom policy can be configured for any of the supported TEE types. The policy can be uploaded in a Azure Attestation specific policy format. Alternatively, an encoded version of the policy, in JWT, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends evidence which Azure Attestation  parses and converts into incoming claims (set of properties, value). Azure Attestation then processes the claims, based on what’s defined in the policy, and returns the computed result.
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. Structure of policy file looks as below:
 
@@ -28,7 +28,6 @@ issuancerules
 {
 };
 ```
-For policy samples, see [Examples of attestation policy](policy-samples.md).
 
 A policy file has 3 segments as seen above:
 - Version
@@ -43,9 +42,12 @@ Version=MajorVersion.MinorVersion
 
 Currently the only version supported is version 1.0.
 
-**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if MAA should proceed to issuancerules. The claim rules apply in the order they are defined.
+**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if Azure Attestation should proceed to issuancerules. The claim rules apply in the order they are defined.
 
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
+
+For policy samples, see [examples of attestation policy](policy-samples.md).
+See [claim and claim rules](claimrulegrammar.md).to understand how to create rules in policy.
 
 ## Drafting the policy file
 1. Create a new file.
@@ -102,13 +104,13 @@ Currently the only version supported is version 1.0.
   [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
   ```
 
-  Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
+  Complex policies can be crafted in a similar manner. 
 6. Save file.
 
-## Creating the policy file in JSON Web Signature format
+## Creating the policy file in JSON Web Token format
 
-After creating a policy file, to upload a policy in JWS format, follow the below steps.
-1. Generate the JWS with policy (utf-8 encoded) as the payload
+After creating a policy file, to upload a policy in JWT format, follow the below steps.
+1. Generate the JWT with policy (utf-8 encoded) as the payload
   - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
   
   ``Sample JWT
@@ -116,20 +118,20 @@ After creating a policy file, to upload a policy in JWS format, follow the below
   Payload: {“AttestationPolicy”:” Base64Url (policy)”}
   Signature: {}
 
-  JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
+  JWT format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
 ``
 
-2. Optionally to sign the policy, currently MAA supports the following algorithms: 
+2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms: 
   a. None – When you don’t want to sign the policy payload
   b. RS256 – Supported algorithm to sign the policy payload
 
-3. Upload the JWS and validate the policy (See “Policy management” section of this document)
+3. Upload the JWT and validate the policy (See “Policy management” section of this document)
   a. If the policy file is free of syntax errors the policy file gets accepted by the service.
   b. If the policy file contains syntax errors the policy file will be rejected by the service.
 
 ## Signing the policy
 
-Below is a sample Python script on how to perform policy signing operation
+Below is a sample Python script on how to perform policy signing operation. See [benefits of polisy signing](basic-concepts.md##Benefits of policy signing) for more information.
 
 ```python
 from OpenSSL import crypto
