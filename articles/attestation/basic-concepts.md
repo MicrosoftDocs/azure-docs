@@ -45,7 +45,7 @@ Policy management is a key feature provided to customers by Azure Attestation. P
 
 See [Examples of attestation policy](policy-samples.md) for default policy content and samples.
 
-## Benefits of policy signing
+## Benefits of policy signing{: #benefits-policysigning }
 
 An attestation policy is what ultimately determines if an attestation token will be issued by Azure Attestation. Policy also determines the claims to be generated in the attestation token. It is thus of utmost importance that the policy evaluated by the service is in fact the policy written by the administrator and it has not been tampered or modified by external entities. 
 
