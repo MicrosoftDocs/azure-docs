@@ -18,11 +18,11 @@ ms.author: mbaldwin
 
 ## JSON Web Key (JWK)
 
-[JSON Web Key](https://tools.ietf.org/html/rfc7517) (JWK) is a JavaScript Object Notation (JSON) data structure that represents a cryptographic key. This specification also defines a JWK Set JSON data structure that represents a set of JWKs.
+[JSON Web Key](https://tools.ietf.org/html/rfc7517) (JWK) is a JSON data structure that represents a cryptographic key. This specification also defines a JWK Set JSON data structure that represents a set of JWKs.
 
 ## Attestation provider
 
-Attestation provider is a service endpoint that provides MAA REST contract.  Each provider honors a specific, discoverable policy.  To configure MAA for attesting enclaves, customers first have to  create an attestation provider. The attestation provider is deployed using Azure Resource Manager (ARM) which supports Role-Based Access Control (RBAC).
+Attestation provider is an Azure ARM based resource that provides access to Microsoft Azure Attestation. Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. Each provider honors a specific, discoverable policy.  To configure Azure Attestation for attesting enclaves, customers first have to  create an attestation provider. The attestation provider is deployed using Azure Resource Manager (ARM) which supports Role-Based Access Control (RBAC).
 
 Example of URI of an attestation provider:  https://tradewinds.us.attest.azure.net
 
@@ -33,44 +33,25 @@ The request object for SGX enclave has two properties:
 - “Quote” – The value of the “Quote” property is a string containing a Base64Url encoded representation of the attestation quote
 - “EnclaveHeldData” – The value of the “EnclaveHeldData” property is a string containing a Base64Url encoded representation of the Enclave Held Data.
 
-MAA will validate the provided “Quote” from TEE, and will then ensure that the SHA256 hash of the provided Enclave Held Data is expressed in the first 32 bytes of the reportData field in the quote. 
+Azure Attestation will validate the provided “Quote” from TEE, and will then ensure that the SHA256 hash of the provided Enclave Held Data is expressed in the first 32 bytes of the reportData field in the quote. 
 
 ## Attestation policy
 
-Attestation policy is used to process the attestation evidence and is configurable by customers. At the core of MAA is a policy engine, which processes claims constituting the evidence. Policies are used to determine whether MAA shall issue an attestation token based on evidence (or not) , and thereby endorse the Attester (or not). Accordingly, failure to pass all the policies will result in no JWT token being issued.
+Attestation policy is used to process the attestation evidence and is configurable by customers. At the core of Azure Attestation is a policy engine, which processes claims constituting the evidence. Policies are used to determine whether Azure Attestation shall issue an attestation token based on evidence (or not) , and thereby endorse the Attester (or not). Accordingly, failure to pass all the policies will result in no JWT token being issued.
 
-Attestation providers get created with a default policy for each TEE type (note that VBS enclave has no default policy). If the default TEE policy in the attestation provider doesn’t meet their needs, customers will be able to create custom policies in any of the regions supported by MAA. Please refer to “Policy management” section of this document for more details.
-Policy management is a key feature provided by MAA. MAA will provide customers with the ability to manage policies. These policies will be TEE-specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
+Attestation providers get created with a default policy for each TEE type (note that VBS enclave has no default policy). If the default TEE policy in the attestation provider doesn’t meet their needs, customers will be able to create custom policies in any of the regions supported by Azure Attestation.
 
-## Default Policy for SGX enclave
-The policy verifies if the SGX quote is valid. 
-
-```json
-Version= 1.0;
-authorizationrules
-{
-	c:[type==”$is-debuggable”] => permit();
-};
-issuancerules
-{
-	c:[type==”$is-debuggable”] => issue(type=”is-debuggable”, value=c.value);
-	c:[type==”$sgx-mrsigner”] => issue(type=”sgx-mrsigner”, value=c.value);
-	c:[type==”$sgx-mrenclave”] => issue(type=”sgx-mrenclave”, value=c.value);
-	c:[type==”$product-id”] => issue(type=”product-id”, value=c.value);
-	c:[type==”$svn”] => issue(type=”svn”, value=c.value);
-	c:[type==”$tee”] => issue(type=”tee”, value=c.value);
-};
-```
+Policy management is a key feature provided to customers by Azure Attestation. Policies will be TEE-specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
 ## Benefits of policy signing
 
-An attestation policy is what ultimately determines if an attestation token will be issued by MAA. Policy also determines the claims to be generated in the attestation token. It is thus of utmost importance that the policy evaluated by the service is in fact the policy written by the administrator and it has not been tampered or modified by external entities. 
-Trust model defines the authorization model of attestation provider to define and update policy.  Two models are supported – one based on Azure AD authorization and one based on possession of customer-managed cryptographic keys (referred as isolated model).  Isolated model will enable MAA to ensure that the customer-submitted policy is not tampered.
-In isolated model, administrator creates an attestation provider specifying a set of trusted signing keys (public portion) in a single certificate file. The administrator can then add a signed policy to the attestation provider. While processing the attestation request, MAA will validate the signature of the policy using the public key represented by either the “jwk” or the “x5c” parameter in the header.  MAA will also verify that the public key in the request header is in list of trusted signing keys associated with the attestation provider. In this way, the relying party (MAA) can now trust any policy signed by the X.509 certificates it knows about. 
+An attestation policy is what ultimately determines if an attestation token will be issued by Azure Attestation. Policy also determines the claims to be generated in the attestation token. It is thus of utmost importance that the policy evaluated by the service is in fact the policy written by the administrator and it has not been tampered or modified by external entities. 
+Trust model defines the authorization model of attestation provider to define and update policy.  Two models are supported – one based on Azure AD authorization and one based on possession of customer-managed cryptographic keys (referred as isolated model).  Isolated model will enable Azure Attestation to ensure that the customer-submitted policy is not tampered.
+In isolated model, administrator creates an attestation provider specifying a set of trusted signing keys (public portion) in a single certificate file. The administrator can then add a signed policy to the attestation provider. While processing the attestation request, Azure Attestation will validate the signature of the policy using the public key represented by either the “jwk” or the “x5c” parameter in the header.  Azure Attestation will also verify that the public key in the request header is in list of trusted signing keys associated with the attestation provider. In this way, the relying party (Azure Attestation) can now trust any policy signed by the X.509 certificates it knows about. 
 
 ## Attestation token
 
-MAA response will be a JSON string whose value contains  JSON Web Token. MAA will package the claims in the JWT token and will sign the token with the tenant signing key. 
+Azure Attestation response will be a JSON string whose value contains  JSON Web Token. MAA will package the claims in the JWT token and will sign the token with the tenant signing key. 
 
 Example of the JSON Web Token for a SGX enclave:
 
