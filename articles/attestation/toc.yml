@@ -9,6 +9,9 @@
   - name: PowerShell
     href: quickstart-powershell.md
 - name: Tutorials
+  items:
+  - name: Sample code for SGX attestation
+    href: tutorials.md
 - name: Samples
   items:
     - name: Examples of attestation policy
