@@ -46,8 +46,9 @@ Currently the only version supported is version 1.0.
 
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
-For policy samples, see [examples of attestation policy](policy-samples.md).
-See [claim and claim rules](claimrulegrammar.md).to learn more about rules in a policy.
+For policy samples, see [examples of attestation policy](policy-samples.md)
+
+See [claim and claim rules](claimrulegrammar.md) to understand claim rule grammar in a policy.
 
 ## Drafting the policy file
 1. Create a new file.
