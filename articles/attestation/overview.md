@@ -97,5 +97,6 @@ Clusters deployed in two regions will serve completely independently under norma
 
 ## Next steps
 - Learn about [Azure Attestation basic concepts](basic-concepts.md)
+- [Authoring and signing attestation policy](authoringandsigningpolicy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
 
