@@ -132,7 +132,7 @@ After creating a policy file, to upload a policy in JWT format, follow the below
 
 ## Signing the policy
 
-Below is a sample Python script on how to perform policy signing operation. See [benefits of policy signing](basic-concepts.md#Benefits of policy signing) for more information.
+Below is a sample Python script on how to perform policy signing operation. See [benefits of policy signing](basic-concepts.md#Benefits-of-policy-signing) for more information.
 
 ```python
 from OpenSSL import crypto
