@@ -71,6 +71,7 @@ See [claim and claim rules](claimrulegrammar.md) to learn how to define claim ru
   ```
  
   The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
+  
 4. Add claim rules to the authorization rules
 
   ```
@@ -85,6 +86,7 @@ See [claim and claim rules](claimrulegrammar.md) to learn how to define claim ru
   ```
 
   If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
+  
 5. Add claim rules to issuancerules
 
   ```
@@ -98,14 +100,9 @@ See [claim and claim rules](claimrulegrammar.md) to learn how to define claim ru
   =>issue(type="SecurityLevelValue", value=100)
   };
   ```
-  
-  The outgoing claim set will contain a claim with:
-
-  ```
-  [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
-  ```
 
   Complex policies can be crafted in a similar manner. 
+  
 6. Save file.
 
 ## Creating the policy file in JSON Web Token format
@@ -126,9 +123,9 @@ After creating a policy file, to upload a policy in JWT format, follow the below
 
 2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms:
 
-  - None – When you don’t want to sign the policy payload
+   None – When you don’t want to sign the policy payload
   
-  - RS256 – Supported algorithm to sign the policy payload
+   RS256 – Supported algorithm to sign the policy payload
 
 3. Upload the JWT and validate the policy. See [policy management](quickstart-powershell.md#policy-management) for more information.
 
