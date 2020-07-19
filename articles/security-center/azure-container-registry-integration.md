@@ -29,7 +29,7 @@ If you're on Azure Security Center's standard tier, you can add the Container Re
 - Supported registries:
     - ✔ Linux-hosted ACR registries that are accessible from the public internet and provide shell access.
     - ✘ Windows-hosted ACR registries.
-    - ✘ 'Private' registries - Security Center requires your registries to be accessible from the public internet. If your registries are protected by a VNet, or if you've limited access by assigning a virtual network private IP addresses to the registry endpoints, Security Center can't currently connect to, or scan, your registry.
+    - ✘ 'Private' registries - Security Center requires your registries to be accessible from the public internet. If you've limited access to your registries with a firewall, a service endpoint, or by using private endpoint (for example, Azure Private Link), Security Center can't currently connect to, or scan, your registry.
     - ✘ Super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.
 - Clouds: 
     - ✔ Commercial clouds
