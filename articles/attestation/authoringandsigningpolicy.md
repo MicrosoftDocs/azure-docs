@@ -126,15 +126,15 @@ After creating a policy file, to upload a policy in JWT format, follow the below
 
 2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms:
 
-  -a. None – When you don’t want to sign the policy payload
+  - None – When you don’t want to sign the policy payload
   
-  -b. RS256 – Supported algorithm to sign the policy payload
+  - RS256 – Supported algorithm to sign the policy payload
 
-3. Upload the JWT and validate the policy (See “Policy management” section of this document)
+3. Upload the JWT and validate the policy. See [policy management](quickstart-powershell#policy-management) for more information.
 
-  -a. If the policy file is free of syntax errors the policy file gets accepted by the service.
+  - If the policy file is free of syntax errors the policy file gets accepted by the service.
   
-  -b. If the policy file contains syntax errors the policy file will be rejected by the service.
+  - If the policy file contains syntax errors the policy file will be rejected by the service.
 
 ## Signing the policy
 
