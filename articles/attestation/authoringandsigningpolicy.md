@@ -54,54 +54,54 @@ See [claim and claim rules](claimrulegrammar.md) to learn how to define claim ru
 1. Create a new file.
 2. Add version to the file.
 
-  ```
-  Version=1.0;
-  ```
+    ```
+    Version=1.0;
+    ```
 3. Add sections for authorizationrules and issuancerules
 
-  ```
-  Version=1.0;
-  
-  authorizationrules={
-  =>deny();
-  };
-  
-  issuancerules={
-  };
-  ```
+    ```
+    Version=1.0;
+
+    authorizationrules={
+    =>deny();
+    };
+
+    issuancerules={
+    };
+    ```
  
-  The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
+    The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can         also contain permit() action to allow processing of issuance rules.
   
 4. Add claim rules to the authorization rules
 
-  ```
-  Version=1.0;
-  
-  authorizationrules={
-  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
-  };
-  
-  issuancerules={
-  };
-  ```
+    ```
+    Version=1.0;
 
-  If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
+    authorizationrules={
+    [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+    };
+
+    issuancerules={
+    };
+    ```
+
+    If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
   
 5. Add claim rules to issuancerules
 
-  ```
-  Version=1.0;
-  
-  authorizationrules={
-  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
-  };
-  
-  issuancerules={
-  =>issue(type="SecurityLevelValue", value=100)
-  };
-  ```
+    ```
+    Version=1.0;
 
-  Complex policies can be crafted in a similar manner. 
+    authorizationrules={
+    [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+    };
+
+    issuancerules={
+    =>issue(type="SecurityLevelValue", value=100)
+    };
+    ```
+
+    Complex policies can be crafted in a similar manner. 
   
 6. Save file.
 
