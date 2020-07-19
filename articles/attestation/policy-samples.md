@@ -30,9 +30,9 @@ issuancerules
 	c:[type==”$tee”] => issue(type=”tee”, value=c.value);
 };
 ```
+</br>
 
-
-**Default policy for VBS enclave with PolicyFormat=Text**
+**Default policy for VBS enclave
 
 There is no default policy for VBS enclave
 
