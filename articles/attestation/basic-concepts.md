@@ -81,3 +81,7 @@ Claims like “exp”, “iat”, “iss”, “nbf” are defined by the [JWT R
 
 ## Next steps
 
+- [Samples of attestation policy](policy-samples.md.md)
+- [Samples of policy signer certificate](policysigner-samples.md)
+- [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
+- [SGX attestation from Linux VM using Open Enclave SDK](tutorials.md)
