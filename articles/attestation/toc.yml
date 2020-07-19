@@ -12,7 +12,7 @@
   items:
   - name: Authoring and signing attestation policy
     href: authoringandsigningpolicy.md
-  - name: Sample code for SGX attestation
+  - name: SGX attestation using Open Enclave SDK
     href: tutorials.md
 - name: Samples
   items:
@@ -36,9 +36,5 @@
   items:
   - name: Azure PowerShell
     href: https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation
-  - name: REST
-    href: /rest/api/
-  - name: Resource Manager template
-    href: 
-    displayName: ARM
+
   
