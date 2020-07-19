@@ -113,9 +113,9 @@ See [claim and claim rules](claimrulegrammar.md) to understand claim rule gramma
 After creating a policy file, to upload a policy in JWT format, follow the below steps.
 1. Generate the JWT with policy (utf-8 encoded) as the payload
 
-  - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
+   The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
   
-  Sample of Base64url decoded version of policy in JWT format
+   Sample of Base64url decoded version of policy in JWT format
 ```
   Header: {"alg":"none"}
   Payload: {“AttestationPolicy”:” Base64Url (policy)”}
