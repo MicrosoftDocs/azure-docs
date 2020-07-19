@@ -47,7 +47,7 @@ Currently the only version supported is version 1.0.
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
 For policy samples, see [examples of attestation policy](policy-samples.md).
-See [claim and claim rules](claimrulegrammar.md).to understand how to create rules in policy.
+See [claim and claim rules](claimrulegrammar.md).to understand how to create rules in a policy.
 
 ## Drafting the policy file
 1. Create a new file.
@@ -111,9 +111,10 @@ See [claim and claim rules](claimrulegrammar.md).to understand how to create rul
 
 After creating a policy file, to upload a policy in JWT format, follow the below steps.
 1. Generate the JWT with policy (utf-8 encoded) as the payload
-  - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
+  a. The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
   
-  ``Sample JWT
+  Sample JWT
+  ``
   Header: {"alg":"none"}
   Payload: {“AttestationPolicy”:” Base64Url (policy)”}
   Signature: {}
@@ -131,7 +132,7 @@ After creating a policy file, to upload a policy in JWT format, follow the below
 
 ## Signing the policy
 
-Below is a sample Python script on how to perform policy signing operation. See [benefits of polisy signing](basic-concepts.md##Benefits of policy signing) for more information.
+Below is a sample Python script on how to perform policy signing operation. See [benefits of policy signing](basic-concepts.md#Benefits of policy signing) for more information.
 
 ```python
 from OpenSSL import crypto
