@@ -48,7 +48,7 @@ Currently the only version supported is version 1.0.
 
 For policy samples, see [examples of attestation policy](policy-samples.md)
 
-See [claim and claim rules](claimrulegrammar.md) to understand claim rule grammar in a policy.
+See [claim and claim rules](claimrulegrammar.md) to learn how to define claim rules in a policy.
 
 ## Drafting the policy file
 1. Create a new file.
