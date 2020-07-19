@@ -17,6 +17,11 @@ ms.date: 06/25/2020
 # Detect data drift (preview) on datasets
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
+> [!IMPORTANT]
+> Detecting data drift on datasets is currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Learn how to monitor data drift and set alerts when drift is high.  
 
 With Azure Machine Learning dataset monitors (preview), you can:

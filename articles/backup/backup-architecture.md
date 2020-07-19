@@ -115,6 +115,17 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - When a vault is created, a "DefaultPolicy" is also created and can be used to back up resources.
 - Any changes made to the retention period of a backup policy will be applied retroactively to all the older recovery points aside from the new ones.
 
+### Additional reference 
+
+-	Azure VM machine: How to [create](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm#back-up-from-azure-vm-settings) and [modify](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#manage-backup-policy-for-a-vm) policy? 
+-	SQL Server database in Azure VM machine: How to [create](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#create-a-backup-policy) and [modify](https://docs.microsoft.com/azure/backup/manage-monitor-sql-database-backup#modify-policy) policy? 
+-	Azure File share: How to [create](https://docs.microsoft.com/azure/backup/backup-afs#discover-file-shares-and-configure-backup) and [modify](https://docs.microsoft.com/azure/backup/manage-afs-backup#modify-policy) policy? 
+-	SAP HANA: How to [create](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database#create-a-backup-policy) and [modify](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#change-policy) policy? 
+-	MARS: How to [create](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) and [modify](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#modify-a-backup-policy) policy? 
+-	[Are there any limitations on scheduling backup based on the type of workload?]( https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#are-there-limits-on-backup-scheduling)
+- [What happens to the existing recovery points if I change the retention policy?](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#what-happens-when-i-change-my-backup-policy)
+
+
 ## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.

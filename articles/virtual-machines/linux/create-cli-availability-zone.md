@@ -183,7 +183,7 @@ The output shows that the IP address is in the same availability zone as the VM:
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.
 
 
 

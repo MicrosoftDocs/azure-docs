@@ -212,7 +212,7 @@ Here is an example how to set the sampling to **10% of all transactions** - plea
 
 ## HTTP Proxy
 
-If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
+If your application is behind a firewall and cannot connect directly to Application Insights (see [IP addresses used by Application Insights](./ip-addresses.md)), you can configure Application Insights Java 3.0 Preview to use an HTTP proxy:
 
 ```json
 {
