@@ -51,5 +51,5 @@ eyAiYWxnIjoiUlMyNTYiLCAieDVjIjogWyJNSUlETERDQ0FoU2dBd0lCQWdJSVpTYW5zQ1djS1RNd0RR
 ```
 ## Next steps
 
+- [Authoring and signing attestation policy](authoringandsigningpolicy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
-- [SGX attestation from Linux VM using Open Enclave SDK](tutorials.md)
