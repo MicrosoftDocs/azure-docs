@@ -18,6 +18,11 @@ Else custom policy can be configured for any of the supported TEE types. The pol
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. Structure of policy file looks as below:
 
+A policy file has 3 segments as seen above:
+- Version
+- Authorizationrules
+- Issuancerules
+
 ```Policy
 version=1.0;
 authizationrules
@@ -28,11 +33,6 @@ issuancerules
 {
 };
 ```
-
-A policy file has 3 segments as seen above:
-- Version
-- Authorizationrules
-- Issuancerules
 
 **Version**: The version is the version number of the grammar that is followed.
 
@@ -47,7 +47,7 @@ Currently the only version supported is version 1.0.
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
 For policy samples, see [examples of attestation policy](policy-samples.md).
-See [claim and claim rules](claimrulegrammar.md).to understand how to create rules in a policy.
+See [claim and claim rules](claimrulegrammar.md).to learn more about rules in a policy.
 
 ## Drafting the policy file
 1. Create a new file.
