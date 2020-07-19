@@ -37,6 +37,7 @@ issuancerules
 There is no default policy for VBS enclave
 
 </br>
+
 **Unsigned Policy for an SGX enclave with PolicyFormat=JWT** 
 
 ```
@@ -44,6 +45,7 @@ eyJhbGciOiJub25lIn0.eyJBdHRlc3RhdGlvblBvbGljeSI6ICJkbVZ5YzJsdmJqMGdNUzR3TzJGMWRH
 ```
 
 </br>
+
 **Signed Policy for an SGX enclave with PolicyFormat=JWT**
 
 ```
