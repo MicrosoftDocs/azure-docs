@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 **Property claims** set is created as an output by Azure Attestation. It contains all the claims that represent properties of the attestation token, such as encoding of the report, validity duration of the report, and so on. 
 
-Below claims that are defined by the JWT RFC and used by MAA in the response object:
+Below claims that are defined by the JWT RFC and used by Azure Attestation in the response object:
 
 - **"iss" (Issuer) Claim**: The "iss" (issuer) claim identifies the principal that issued the JWT. The processing of this claim is generally application specific. The "iss" value is a case-sensitive string containing a StringOrURI value.
 - **"iat" (Issued At) Claim**: The "iat" (issued at) claim identifies the time at which the JWT was issued. This claim can be used to determine the age of the JWT. Its value MUST be a number containing a NumericDate value.
@@ -91,7 +91,7 @@ Currently 1.0.
 - **report_validity_in_minutes**: An integer claim signifying how long the token is valid for
   - **Default value(time)**: one day in minutes
   - **Maximum value(time)**: one year in minutes 
-- **omit_x5c**: A Boolean claim indicating if MAA should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
+- **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
 
 ## Next steps
 - [Authoring and signing attestation policy](authoringandsigningpolicy.md)
