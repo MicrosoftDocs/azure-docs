@@ -196,3 +196,4 @@ For more information on the cmdlets and its parameters, see [Azure Attestation P
 
 ## Next steps
 
+- [SGX attestation from Linux VM using Open Enclave SDK](tutorials.md)
