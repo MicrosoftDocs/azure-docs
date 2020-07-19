@@ -51,13 +51,15 @@ An attestation policy is what ultimately determines if an attestation token will
 
 Trust model defines the authorization model of attestation provider to define and update policy.  Two models are supported – one based on Azure AD authorization and one based on possession of customer-managed cryptographic keys (referred as isolated model).  Isolated model will enable Azure Attestation to ensure that the customer-submitted policy is not tampered.
 
-In isolated model, administrator creates an attestation provider specifying a set of trusted signing keys (public portion) in a single certificate file. The administrator can then add a signed policy to the attestation provider. While processing the attestation request, Azure Attestation will validate the signature of the policy using the public key represented by either the “jwk” or the “x5c” parameter in the header.  Azure Attestation will also verify that the public key in the request header is in list of trusted signing keys associated with the attestation provider. In this way, the relying party (Azure Attestation) can now trust any policy signed by the X.509 certificates it knows about. 
+In isolated model, administrator creates an attestation provider specifying a set of trusted signing X.509 certificates in a file. The administrator can then add a signed policy to the attestation provider. While processing the attestation request, Azure Attestation will validate the signature of the policy using the public key represented by either the “jwk” or the “x5c” parameter in the header.  Azure Attestation will also verify if public key in the request header is in the list of trusted signing certificates associated with the attestation provider. In this way, the relying party (Azure Attestation) can trust a policy signed using the X.509 certificates it knows about. 
 
 See [examples of policy signer certificate](policysigner-samples.md) for samples.
 
 ## Attestation token
 
-Azure Attestation response will be a JSON string whose value contains JWT. Azure Attestation will package the claims and generates a self signed JWT.
+Azure Attestation response will be a JSON string whose value contains JWT. Azure Attestation will package the claims and generates a signed JWT. The signing operation is performed using a self-signed certificate with subject name matching the AttestUri element of the attestation provider.
+
+The Get OpenID Metadata API returns an OpenID Configuration response as specified by the [OpenID Connect Discovery protocol](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig). The API retrieves metadata about the signing certificates in use by Azure Attestation.
 
 Example of JWT generated for an SGX enclave:
 
