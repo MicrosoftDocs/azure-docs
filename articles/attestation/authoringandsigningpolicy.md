@@ -167,4 +167,4 @@ print(encoded.decode('utf-8'))
 
 ## Next steps
 - Quickstart: [Set up Microsoft Azure Attestation using PowerShell](quickstart-powershell.md)
-
+- [SGX attestation from Linux VM using Open Enclave SDK](tutorials.md)
