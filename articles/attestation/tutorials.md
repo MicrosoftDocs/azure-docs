@@ -1,6 +1,6 @@
 # Sample code of SGX attestation from Linux VM using Open Enclave SDK
 ## Overview
-The SGX Attestation sample code demonstrates how to generate a quote in an SGX enclave and then get it validated by the Azure Attestation service. The "enclave held data" for the quote is populated with public key component of a 2048 bit RSA key that's held within the enclave.
+The SGX Attestation sample code demonstrates how to generate a quote in an SGX enclave and then get it validated by the Microsoft Azure Attestation. The "enclave held data" for the quote is populated with public key component of a 2048 bit RSA key that's held within the enclave.
 
 The components used in the sample code are outlined in the following diagram:
 ![Microsoft Azure Attestation SGX Attestation Overview Diagram](./media/maa.sample.diagram.png)
@@ -13,12 +13,12 @@ The flow is:
     1. Persists the remote quote, enclave held data and parsed report fields to a JSON file on disk
 1. ```genquote_enclave``` - This application is an SGX enclave created via the Open Enclave SDK.  It exposes one ecall to retrieve a remote quote and enclave held data.
 1. ```validatequotes.core``` - This application is built on .NET core and runs on any platform.  It consumes the JSON file persisted by the ```genquote_host``` application and performs the following:
-    1. Calls the MAA service for validation, passing it the remote quote and enclave held data found in the JSON file
-    1. Validates that the MAA JWT passes signature validation and is issued by the expected party
-    1. Validates that the MAA JWT claim values match the parsed data in the JSON file for the well known fields like Security Version Number, ProductID, MRSIGNER, MRENCLAVE, etc.
+    1. Calls the Azure Attestation for validation, passing it the remote quote and enclave held data found in the JSON file
+    1. Validates that the Azure Attestation JWT passes signature validation and is issued by the expected party
+    1. Validates that the Azure Attestation JWT claim values match the parsed data in the JSON file for the well known fields like Security Version Number, ProductID, MRSIGNER, MRENCLAVE, etc.
     1. Produces a report in the console with the results
 
-The following diagram depicts the relationship between the different artifacts produced the Microsoft Azure Attestation service for JWT token validation.
+The following diagram depicts the relationship between the different artifacts produced the Azure Attestation for JWT token validation.
 ![JWT Validation Overview Diagram](./media/maa.jwt.validation.overview.png)
 
 ## Remote Quote Generation
@@ -36,9 +36,9 @@ Remote quote generation is performed by the following call to the ```oe_get_repo
         remote_report_buf_size);
 ```
 
-## Remote Quote Validation via MAA Attestation
+## Remote Quote Validation via Azure Attestation
 
-The Azure Attestation service is called to perform attestation by the following call in the [MaaService.cs](./validatequotes.net/MaaService.cs#L32) file:
+The Azure Attestation is called to perform attestation by the following call in the [MaaService.cs](./validatequotes.net/MaaService.cs#L32) file:
 
 ```
     // Send request
