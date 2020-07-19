@@ -55,9 +55,9 @@ In isolated model, administrator creates an attestation provider specifying a se
 
 Azure Attestation response will be a JSON string whose value contains JWT. Azure Attestation will package the claims and generates a self signed JWT.
 
-Example of the JSON Web Token for a SGX enclave:
+Example of Base64 decoded version of JWT generated for an SGX enclave:
 
-```jwt
+```
 {
   “alg”: “RS256”,
   “jku”: “https://tradewinds.us.attest.azure.net/certs”,
