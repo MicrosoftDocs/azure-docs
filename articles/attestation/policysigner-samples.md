@@ -26,3 +26,7 @@ MIIDLDCCAhSgAwIBAgIIZSansCWcKTMwDQYJKoZIhvcNAQELBQAwFzEVMBMGA1UEAwwMTWFhVGVzdENl
 -----END CERTIFICATE-----
 ```
 
+## Next steps
+
+- [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
+- [SGX attestation from Linux VM using Open Enclave SDK](tutorials.md)
