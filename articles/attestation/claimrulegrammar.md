@@ -10,8 +10,8 @@ ms.author: mbaldwin
 
 
 ---
-# Claim Rule grammar
-To understand the rule grammar, it is important to understand about an attestation policy claim.
+# Claim and claim rules
+To understand the claim rule grammar, it is important to understand about an attestation policy claim.
 
 ## Claim
 
