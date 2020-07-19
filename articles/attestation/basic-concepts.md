@@ -43,7 +43,7 @@ Attestation providers get created with a default policy for each TEE type (note 
 
 Policy management is a key feature provided to customers by Azure Attestation. Policies will be TEE-specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
-See [Examples of attestation policy](policy-samples.md) for default policy content and samples.
+See [examples of attestation policy](policy-samples.md) for default policy content and samples.
 
 ## Benefits of policy signing
 
@@ -53,7 +53,7 @@ Trust model defines the authorization model of attestation provider to define an
 
 In isolated model, administrator creates an attestation provider specifying a set of trusted signing keys (public portion) in a single certificate file. The administrator can then add a signed policy to the attestation provider. While processing the attestation request, Azure Attestation will validate the signature of the policy using the public key represented by either the “jwk” or the “x5c” parameter in the header.  Azure Attestation will also verify that the public key in the request header is in list of trusted signing keys associated with the attestation provider. In this way, the relying party (Azure Attestation) can now trust any policy signed by the X.509 certificates it knows about. 
 
-See [Examples of policy signer certificate](policysigner-samples.md) for samples.
+See [examples of policy signer certificate](policysigner-samples.md) for samples.
 
 ## Attestation token
 
