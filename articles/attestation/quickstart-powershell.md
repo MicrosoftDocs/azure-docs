@@ -81,7 +81,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
 Create a resource group for attestation provider. Note that other Azure resources (including a virtual machine with client application instance) can be put in the same resource group.
 
 ```powershell
-$location = "uk south" 
+$location = "uksouth" 
 $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
@@ -99,7 +99,7 @@ $attestationProvider = "<attestation provider name>"
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
 ```
 
-Azure AD is the default trust model for new attestation providers. The isolated trust model will be used for a attestation provider if a filename is specified for the PolicySignerCertificateFile parameter. PolicySignerCertificateFile is a file specifying a set of trusted signing keys.
+PolicySignerCertificateFile is a file specifying a set of trusted signing keys. If a filename is specified for the PolicySignerCertificateFile parameter, only policies in signed JWT format can be configured for an attestation provider. Else policy can be configured in text or an unsigned JWT format.
 
 ```powershell
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
