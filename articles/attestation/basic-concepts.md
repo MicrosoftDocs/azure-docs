@@ -59,7 +59,7 @@ See [examples of policy signer certificate](policysigner-samples.md) for samples
 
 Azure Attestation response will be a JSON string whose value contains JWT. Azure Attestation will package the claims and generates a self signed JWT.
 
-Example of Base64URL decoded version of JWT generated for an SGX enclave:
+Example of JWT generated for an SGX enclave:
 
 ```
 {
