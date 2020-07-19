@@ -58,7 +58,9 @@ Security Center offers enhanced security and threat protection for your hybrid c
 - **Security alerts** - Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Leverage built-in behavioral analytics and machine learning to identify attacks and zero-day exploits. Monitor networks, machines, and cloud services for incoming attacks and post-breach activity. Streamline investigation with interactive tools and contextual threat intelligence.
 - **Vulnerability scanning for virtual machines** - Easily deploy a scanner to all of your virtual machines that provides the industry's most advanced solution for vulnerability management. View, investigate, and remediate the findings directly within Security Center. 
 - **Access and application controls** - Block malware and other unwanted applications by applying machine learning powered whitelisting recommendations adapted to your specific workloads. Reduce the network attack surface with just-in-time, controlled access to management ports on Azure VMs. This drastically reduces exposure to brute force and other network attacks.
-- **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments. When enabling the container registries resource, it may take up to 12hrs until all the features are enabled.
+- **Container security features** - Benefit from vulnerability management and real-time threat protection on your containerized environments. When enabling the container registries resource, it may take up to 12hrs until all the features are enabled. Charges are based on the number of unique container images pushed to your connected registry. After an image has been scanned once, it will not be charged for again unless it's modified and pushed once more. 
+
+
 
 
 ## Next steps

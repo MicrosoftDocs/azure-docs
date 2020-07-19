@@ -4,8 +4,8 @@ description: You can configure IP address ranges for SNAT.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 06/01/2020
+ms.topic: how-to
+ms.date: 06/09/2020
 ms.author: victorh
 ---
 
@@ -30,7 +30,7 @@ For a new firewall, the Azure PowerShell command is:
 `New-AzFirewall -Name $GatewayName -ResourceGroupName $RG -Location $Location -VirtualNetworkName $vnet.Name -PublicIpName $LBPip.Name -PrivateRange @("IANAPrivateRanges","IPRange1", "IPRange2")`
 
 > [!NOTE]
-> IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it.
+> IANAPrivateRanges is expanded to the current defaults on Azure Firewall while the other ranges are added to it. To keep the IANAPrivateRanges default in your private range specification, it must remain in your `PrivateRange` specification as shown in the following examples.
 
 For more information, see [New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall?view=azps-3.3.0).
 

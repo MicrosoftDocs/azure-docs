@@ -5,7 +5,7 @@ description: Azure Active Directory B2B collaboration supports your cross-compan
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 02/12/2020
 
 ms.author: mimart

@@ -1,5 +1,5 @@
 ---
-title: Connect to SQL Server or Azure SQL Database
+title: Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance
 description: Automate tasks for SQL databases on premises or in the cloud by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
@@ -9,7 +9,7 @@ ms.date: 06/06/2020
 tags: connectors
 ---
 
-# Automate workflows for SQL Server or Azure SQL Database by using Azure Logic Apps
+# Automate workflows for a SQL database by using Azure Logic Apps
 
 This article shows how you can access data in your SQL database from inside a logic app with the SQL Server connector. That way, you can automate tasks, processes, or workflows that manage your SQL data and resources by creating logic apps. The SQL Server connector works for [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) as well as [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
@@ -21,9 +21,9 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 * An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An [SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) or [Azure SQL database](../azure-sql/database/single-database-create-quickstart.md)
+* An [SQL Server database](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
-  Your tables must have data so that your logic app can return results when calling operations. If you create an Azure SQL Database, you can use sample databases, which are included.
+  Your tables must have data so that your logic app can return results when calling operations. If you use Azure SQL Database, you can use sample databases, which are included.
 
 * Your SQL server name, database name, your user name, and your password. You need these credentials so that you can authorize your logic to access your SQL server.
 
@@ -60,16 +60,16 @@ Now, continue with these steps:
 
 <a name="connect-azure-sql-db"></a>
 
-### Connect to cloud-based Azure SQL Database or Managed Instance
+### Connect to Azure SQL Database or Managed Instance
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
-1. For **Authentication Type**, select the authentication that's required and enabled on your Azure SQL Database or Managed Instance:
+1. For **Authentication Type**, select the authentication that's required and enabled on your database in Azure SQL Database or Azure SQL Managed Instance:
 
    | Authentication | Description |
    |----------------|-------------|
-   | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid identity in Azure Active Directory (Azure AD) that has access to your Azure SQL database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
-   | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your Azure SQL database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid identity in Azure Active Directory (Azure AD) that has access to your database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
+   | [**SQL Server Authentication**](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    This example continues with **Azure AD Integrated**:
@@ -78,7 +78,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 1. After you select **Azure AD Integrated**, select **Sign In**. Based on whether you use Azure SQL Database or Azure SQL Managed Instance, select your user credentials for authentication.
 
-1. Select these values for your Azure SQL database:
+1. Select these values for your database:
 
    | Property | Required | Description |
    |----------|----------|-------------|
@@ -96,7 +96,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
    This example shows how these values might look:
 
-   ![Create connection to Azure SQL database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Create connection to SQL database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. Now, continue with the steps that you haven't completed yet in either [Add a SQL trigger](#add-sql-trigger) or [Add a SQL action](#add-sql-action).
 

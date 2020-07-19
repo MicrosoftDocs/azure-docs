@@ -41,6 +41,10 @@ landingContent:
             url: app-service-web-get-started-php.md
           - text: First Java app
             url: app-service-web-get-started-java.md
+          - text: First Python app (on Linux)
+            url: containers/quickstart-python.md
+          - text: First Ruby app (on Linux)
+            url: containers/quickstart-ruby.md
   - title: Common tasks
     linkLists:
       - linkListType: tutorial

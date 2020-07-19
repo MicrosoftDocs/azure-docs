@@ -4,7 +4,7 @@ description: This article provides information about the various components in a
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: absha
 ---
@@ -94,13 +94,13 @@ You can choose the redirection target to be another listener (which can help ena
 
 For more information, see [Redirect traffic on your application gateway](redirect-overview.md).
 
-### Rewrite HTTP headers
+### Rewrite HTTP headers and URL
 
-By using the request routing rules, you can add, remove, or update HTTP(S) request and response headers as the request and response packets move between the client and backend pools via the application gateway.
+By using rewrite rules, you can add, remove, or update HTTP(S) request and response headers as well as URL path and query string parameters as the request and response packets move between the client and backend pools via the application gateway.
 
-The headers can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
+The headers and URL parameters can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
 
-For more information, see [Rewrite HTTP headers on your application gateway](rewrite-http-headers.md).
+For more information, see [Rewrite HTTP headers and URL on your application gateway](rewrite-http-headers-url.md).
 
 ## HTTP settings
 
@@ -139,7 +139,7 @@ You can create different backend pools for different types of requests. For exam
 
 By default, an application gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
 
-In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before the backend pool instance is marked as unhealthy. We recommend that you configure custom probes to monitor the health of each backend pool.
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure a custom hostname, URL path, probe interval, and how many failed responses to accept before marking the back-end pool instance as unhealthy, custom status codes and response body match, etc. We recommend that you configure custom probes to monitor the health of each backend pool.
 
 For more information, see [Monitor the health of your application gateway](../application-gateway/application-gateway-probe-overview.md).
 

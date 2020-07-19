@@ -3,7 +3,7 @@ title: Point-in-time restore (PITR)
 titleSuffix: Azure SQL Managed Instance 
 description: Restore a database on Azure SQL Managed Instance to a previous point in time.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 

@@ -1,21 +1,13 @@
 ---
 title: How to use azure/service-bus queues in Node.js
 description: Learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new @azure/service-bus package.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-editor: spelluru
-
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
+ms.author: spelluru
 ---
+
 # Quickstart: How to use Service Bus queues with Node.js and the azure/service-bus package
 In this tutorial, you learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
 

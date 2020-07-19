@@ -1,6 +1,6 @@
 ---
-title: Introduction to security group view in Azure Network Watcher | Microsoft Docs
-description: This page provides an overview of the Network Watcher security view capability
+title: Introduction to Effective security rules view in Azure Network Watcher | Microsoft Docs
+description: This page provides an overview of the Network Watcher - Effective security rules view capability
 services: network-watcher
 documentationcenter: na
 author: damendo

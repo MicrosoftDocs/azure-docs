@@ -4,7 +4,7 @@ description: In this learning path, get started troubleshooting common issues wi
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: rohink
 ---

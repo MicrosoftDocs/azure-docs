@@ -5,7 +5,7 @@ description: Create or modify an Exchange peering with route server by using the
 services: internet-peering
 author: derekolo
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ---

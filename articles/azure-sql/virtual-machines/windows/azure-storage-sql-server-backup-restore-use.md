@@ -4,7 +4,6 @@ description: Learn how to back up SQL Server to Azure Storage. Explains the bene
 services: virtual-machines-windows
 documentationcenter: ''
 author: MikeRayMSFT
-manager: craigg
 tags: azure-service-management
 
 ms.assetid: 0db7667d-ef63-4e2b-bd4d-574802090f8b

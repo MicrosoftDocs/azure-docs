@@ -1,11 +1,10 @@
 ---
 title: Back up Windows system state to Azure
 description: Learn to back up the system state of Windows Server and/or Windows computers to Azure.
-ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
 ---
-# Back up Windows system state in Resource Manager deployment
+# Back up Windows system state to Azure
 
 This article explains how to back up your Windows Server system state to Azure. It's intended to walk you through the basics.
 
@@ -13,49 +12,9 @@ If you want to know more about Azure Backup, read this [overview](backup-overvie
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
 
-## Create a recovery services vault
+[!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-To back up your Windows Server System State, you need to create a Recovery Services vault in the region where you want to store the data. You also need to determine how you want your storage replicated.
-
-### To create a Recovery Services vault
-
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
-2. On the Hub menu, click **All services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
-
-    ![Create Recovery Services Vault step 1](./media/backup-azure-system-state/open-rs-vault-list.png)
-
-    If there are recovery services vaults in the subscription, the vaults are listed.
-3. On the **Recovery Services vaults** menu, click **Add**.
-
-    ![Create Recovery Services Vault step 2](./media/backup-try-azure-backup-in-10-mins/rs-vault-menu.png)
-
-    The Recovery Services vault blade opens, prompting you to provide a **Name**, **Subscription**, **Resource group**, and **Location**.
-
-    ![Create Recovery Services Vault step 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
-
-4. For **Name**, enter a friendly name to identify the vault. The name needs to be unique for the Azure subscription. Type a name that contains between 2 and 50 characters. It must start with a letter, and can contain only letters, numbers, and hyphens.
-
-5. In the **Subscription** section, use the drop-down menu to choose the Azure subscription. If you use only one subscription, that subscription appears and you can skip to the next step. If you are not sure which subscription to use, use the default (or suggested) subscription. There are multiple choices only if your organizational account is associated with multiple Azure subscriptions.
-
-6. In the **Resource group** section:
-
-    * select **Create new** if you want to create a Resource group.
-    Or
-    * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
-
-   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/management/overview.md).
-
-7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
-
-8. At the bottom of the Recovery Services vault blade, click **Create**.
-
-    It can take several minutes for the Recovery Services vault to be created. Monitor the status notifications in the upper right-hand area of the portal. Once your vault is created, it appears in the list of Recovery Services vaults. If after several minutes you don't see your vault, click **Refresh**.
-
-    ![Click Refresh button](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)</br>
-
-    Once you see your vault in the list of Recovery Services vaults, you are ready to set the storage redundancy.
-
-### Set storage redundancy for the vault
+## Set storage redundancy for the vault
 
 When you create a Recovery Services vault, make sure storage redundancy is configured the way you want.
 

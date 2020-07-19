@@ -37,6 +37,7 @@ Continuous access evaluation is implemented by enabling services (resource provi
 
 - User Account is deleted or disabled
 - Password for a user is changed or reset
+- MFA is enabled for the user
 - Admin explicitly revokes all refresh tokens for a user
 - Elevated user risk detected by Azure AD Identity Protection
 

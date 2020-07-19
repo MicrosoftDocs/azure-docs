@@ -25,7 +25,7 @@ $(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
 or you can use the Azure CLI:
 
 ```azurecli-interactive
-az ad user show --upn-or-object-id myuser@consoso.com | jq -r .objectId
+az ad user show --id myuser@consoso.com --query objectId --out tsv
 ```
 
 ## Find service principal object ID
@@ -45,7 +45,7 @@ $(Get-AzureADServicePrincipal -Filter "DisplayName eq 'testapp'").ObjectId
 If you are using the Azure CLI, you can use:
 
 ```azurecli-interactive
-az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX | jq -r .objectId
+az ad sp show --id XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX --query objectId --out tsv
 ```
 
 ## Find a security group object ID
@@ -60,7 +60,7 @@ Where `mygroup` is the name of the group you are interested in.
 If you are using the Azure CLI, you can use:
 
 ```azurecli-interactive
-az ad group show --group "mygroup" | jq -r .objectId
+az ad group show --group "mygroup" --query objectId --out tsv
 ```
 
 ## Next steps

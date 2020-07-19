@@ -4,7 +4,6 @@ description: Extend support for SQL Server 2008 and SQL Server 2008 R2 by migrat
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
-manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 

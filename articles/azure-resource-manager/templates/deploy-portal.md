@@ -81,7 +81,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 1. You see several options for creating a template:
 
     - **Build your own template in editor**: create a template using the portal template editor.  The editor is capable to add a resource template schema.
-    - **Common templates**: There are four common templates for creating a Linux virtual machine, Windows virtual machine, a web application, and an Azure SQL database.
+    - **Common templates**: There are four common templates for creating a Linux virtual machine, Windows virtual machine, a web application, and a database in Azure SQL Database.
     - **Load a GitHub quickstart template**: use an existing [quickstart templates](https://azure.microsoft.com/resources/templates/).
 
    ![View options](./media/deploy-portal/see-options.png)

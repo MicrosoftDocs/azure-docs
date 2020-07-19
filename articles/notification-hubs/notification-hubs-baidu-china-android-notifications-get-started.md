@@ -412,8 +412,8 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
 You can quickly test receiving notifications from the [Azure portal]: use the **Send** button in the notification hub configuration screen, as shown in the following screens:
 
-![](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
-![](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
+![Screenshot of the Azure Portal with the Test Send option outlined in red and a red arrow pointing to it.](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+![Screenshot to the Baidu Test Send page in the Azure portal.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end, you can use the REST API directly to send notification messages.
 
@@ -433,7 +433,7 @@ In this section, we show sending a notification using a .NET console app.
 
 1. Create a new Visual C# console application:
 
-    ![](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
+    ![Screenshot of the New Project dialog box with the Console Application Visual C# option highlighted.](./media/notification-hubs-baidu-get-started/ConsoleProject.png)
 
 2. In the Package Manager Console window, set the **Default project** to your new console application project, and then in the console window, execute the following command:
 
@@ -443,7 +443,7 @@ In this section, we show sending a notification using a .NET console app.
 
     This instruction adds a reference to the Azure Notification Hubs SDK using the [Microsoft.Azure.Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-    ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
+    ![Screenshot of the Package Manager Console dialog box with the Send To Notification Hub option circled in red.](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. Open the file `Program.cs` and add the following using statement:
 

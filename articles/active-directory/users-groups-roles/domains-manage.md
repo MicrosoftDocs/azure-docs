@@ -9,7 +9,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen

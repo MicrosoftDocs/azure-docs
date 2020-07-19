@@ -16,9 +16,9 @@ This article builds on top of the [Getting Started quickstart](get-started-detec
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Visual Studio Code](https://code.visualstudio.com/) on your machine with [Azure IoT Tools extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * If you have not completed the [Getting Started quickstart](get-started-detect-motion-emit-events-quickstart.md) previously, then go through the following steps:
-    * Complete [Setting up Azure resources](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Deploying modules](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
-    * [Configuring Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-azure-iot-tools-extension-in-visual-studio-code)
+    * [Set up Azure resources](get-started-detect-motion-emit-events-quickstart.md#set-up-azure-resources)
+    * [Deploy modules](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
+    * [Configure Visual Studio Code](get-started-detect-motion-emit-events-quickstart.md#configure-the-azure-iot-tools-extension)
 
 ## Review the sample video
 

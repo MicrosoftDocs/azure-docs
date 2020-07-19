@@ -23,7 +23,7 @@ This article covers the following tasks:
 > - Issue a search request with group identifiers filter
 > 
 > [!NOTE]
-> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://aka.ms/search-dotnet-howto). 
+> Sample code snippets in this article are written in C#. You can find the full source code [on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). 
 
 ## Prerequisites
 

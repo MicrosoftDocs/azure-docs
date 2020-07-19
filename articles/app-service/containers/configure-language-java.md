@@ -40,7 +40,7 @@ Performance reports, traffic visualizations, and health checkups are available f
 
 ### Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 For more information, see [Stream logs in Cloud Shell](../troubleshoot-diagnostic-logs.md#in-cloud-shell).
 

@@ -1,13 +1,8 @@
 ---
 title: Configure private endpoints for Azure Event Grid topics or domains
 description: This article describes how to configure private endpoints for Azure Event Grid topics or domain. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 04/22/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Configure private endpoints for Azure Event Grid topics or domains
@@ -480,4 +475,5 @@ Invoke-RestMethod -Method 'Get'
 You can approve the connection even after it's rejected via API. If you use Azure portal, you can't approve an endpoint that has been rejected. 
 
 ## Next steps
-To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md).
+* To learn about how to configure IP firewall settings, see [Configure IP firewall for Azure Event Grid topics or domains](configure-firewall.md).
+* To troubleshoot network connectivity issues, see [Troubleshoot network connectivity issues](troubleshoot-network-connectivity.md)

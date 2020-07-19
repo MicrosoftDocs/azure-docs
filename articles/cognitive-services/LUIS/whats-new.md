@@ -2,7 +2,7 @@
 title: What's New - Language Understanding (LUIS)
 description: This article is regularly updated with news about the Azure Cognitive Services Language Understanding API.
 ms.topic: overview
-ms.date: 05/19/2020
+ms.date: 06/15/2020
 ---
 
 # What's new in Language Understanding
@@ -10,6 +10,20 @@ ms.date: 05/19/2020
 Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## Release notes
+
+### June 2020
+
+* [Preview 3.0 Authoring](luis-migration-authoring-entities.md) SDK -
+    * Version 3.2.0-preview.3 - [.NET - NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)
+    * Version 4.0.0-preview.3 - [JS - NPM](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring)
+* Applying DevOps practices with LUIS
+    * Concepts
+        * [DevOps practices for LUIS](luis-concept-devops-sourcecontrol.md)
+        * [Continuous Integration and Continuous Delivery workflows for LUIS DevOps](luis-concept-devops-automation.md)
+        * [Testing for LUIS DevOps](luis-concept-devops-testing.md)
+    * How-to
+        * [Apply DevOps to LUIS app development using GitHub Actions](luis-how-to-devops-with-github.md)
+    * [Complete code GitHub repo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### May 2020 - //Build
 

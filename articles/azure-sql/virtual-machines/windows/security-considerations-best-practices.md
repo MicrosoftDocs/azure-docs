@@ -4,7 +4,6 @@ description: This topic provides general guidance for securing SQL Server runnin
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 

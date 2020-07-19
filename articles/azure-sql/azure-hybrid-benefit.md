@@ -3,9 +3,9 @@ title: Azure Hybrid Benefit
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: Use existing SQL Server licenses for Azure SQL Database and SQL Managed Instance discounts.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=4
-ms.subservice: service
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
@@ -26,7 +26,11 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 
 With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
-You can choose or change your licensing model by using the Azure portal or by using one of the following APIs:
+You can choose or change your licensing model in the Azure portal: 
+- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to save money.
+- For existing databases, select **Configure** in the **Settings** menu and select the option to save money.
+
+You can also configure a new or existing database by using one of the following APIs:
 
 # [PowerShell](#tab/azure-powershell)
 

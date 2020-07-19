@@ -1,17 +1,17 @@
 ---
-title: View resource properties
+title: Discover resource properties
 description: Describes how to search for resource properties.
 ms.topic: conceptual
-ms.date: 06/05/2020
+ms.date: 06/10/2020
 ---
 
-# View resource properties
+# Discover resource properties
 
 Before creating Resource Manager templates, you need to understand what resource types are available, and what values to use in your template. This article shows some ways you can find the properties to include in your template.
 
 ## Find resource provider namespaces
 
-Resources in an ARM template are defined with a resource provider namespace and resource type. For example, Microsoft.Storage/storageAccounts is the full name of the storage account resource type. Microsoft.Storage is the namespace. If you don't already know the namespaces for the resource types you want to use, see [Resource providers for Azure services](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers).
+Resources in an ARM template are defined with a resource provider namespace and resource type. For example, Microsoft.Storage/storageAccounts is the full name of the storage account resource type. Microsoft.Storage is the namespace. If you don't already know the namespaces for the resource types you want to use, see [Resource providers for Azure services](../management/azure-services-resource-providers.md).
 
 ![Resource Manager resource provider namespace mapping](./media/view-resources/resource-provider-namespace-and-azure-service-mapping.png)
 

@@ -90,29 +90,26 @@ To configure Azure AD single sign-on with ProMaster (by Inlogik), perform the fo
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-    | `https://secure.inlogik.com/<COMPANYNAME>`|
-	| `https://<CUSTOMDOMAIN>/SAMLBASE`|
-	| |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>
+    https://<CUSTOMDOMAIN>/SAMLBASE
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
-	| `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
-	| |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>/saml/acs
+    https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 
-    | |
-	|-|-|
-	| `https://secure.inlogik.com/<COMPANYNAME>`|
-	| `https://<CUSTOMDOMAIN>/SAMLBASE`|
-	| |
+    ```http
+    https://secure.inlogik.com/<COMPANYNAME>
+    https://<CUSTOMDOMAIN>/SAMLBASE
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [ProMaster (by Inlogik) Client support team](https://www.inlogik.com/contact) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

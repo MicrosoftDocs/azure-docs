@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 03/12/2020
+ms.date: 06/11/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ---
@@ -56,7 +56,7 @@ npm init
 Install the `@azure/ai-text-analytics` NPM packages:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.5
+npm install --save @azure/ai-text-analytics@1.0.0
 ```
 
 > [!TIP]

@@ -7,7 +7,7 @@ author: jejiang
 ms.author: jejiang
 
 ms.reviewer: jasonwhowell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/22/2017
 ms.custom: tracking-python
 ---

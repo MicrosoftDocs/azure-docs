@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: tracking-python
 ---
@@ -66,7 +66,7 @@ For a national cloud user, follow these steps to set the Azure environment first
 
 ## Connect to an Azure account
 
-Before you can submit scripts to your clusters from Visual Studio Code, you must either connect to your Azure account or link a cluster. Use Apache Ambari username and password credentials or a domain-joined account. Follow these steps to connect to Azure:
+Before you can submit scripts to your clusters from Visual Studio Code, user can either sign in to Azure subscription, or [link a HDInsight cluster](#link-a-cluster). Use the Ambari username/password or domain joined credential for ESP cluster to connect to your HDInsight cluster. Follow these steps to connect to Azure:
 
 1. From the menu bar, navigate to **View** > **Command Palette...**, and enter **Azure: Sign In**:
 
@@ -244,6 +244,10 @@ The tool also supports the **Spark SQL** query:
    ![run ipynb results](./media/hdinsight-for-vscode/run-ipynb-file-results.png)
 
 
+> [!NOTE]
+>
+>Ms-python >=2020.5.78807 version is not supported on this extention  is a [known issue](#known-issues).
+
 ## Submit PySpark batch job
 
 1. Reopen the **HDexample** folder that you discussed [earlier](#open-a-work-folder), if closed.  
@@ -282,6 +286,21 @@ The tool also supports the **Spark SQL** query:
    ![Submit Python job result output](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
 After you submit a Python job, submission logs appear in the **OUTPUT** window in Visual Studio Code. The Spark UI URL and Yarn UI URL are also shown. You can open the URL in a web browser to track the job status.
+
+## Integrate with HDInsight Identity Broker (HIB)
+
+### Connect to your HDInsight ESP cluster with ID Broker (HIB)
+
+You can follow the normal steps to sign in to Azure subscription to connect to your HDInsight ESP cluster with ID Broker (HIB). After sign-in, you'll see the cluster list in Azure Explorer. For more instructions, see [Connect to your HDInsight cluster](#connect-to-an-azure-account).
+
+### Run a Hive/PySpark job on an HDInsight ESP cluster with ID Broker (HIB)
+
+For run a hive job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive Hive queries and Hive batch scripts](#submit-interactive-hive-queries-and-hive-batch-scripts) for more instructions.
+
+For run a interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive PySpark queries](#submit-interactive-pyspark-queries) for more instructions.
+
+For run a PySpark batch job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit PySpark batch job](#submit-pyspark-batch-job) for more instructions.
+
 
 ## Apache Livy configuration
 
@@ -446,9 +465,9 @@ Submit a job to an HDInsight cluster using Data Lake Storage Gen2. You're prompt
 From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
 ## Known Issues
-### Python on 2020.5.80290 version is not supported on this extention 
+### ms-python >=2020.5.78807 version is not supported on this extention 
 
-"Failed to connect to Jupyter notebook." is a known issue for python version 2020.5.80290. It is recommended that users use the **2020.4.76186** version of ms-python to avoid this issue.
+"Failed to connect to Jupyter notebook." is a known issue for python version >=2020.5.78807. It is recommended that users use the **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** version of ms-python to avoid this issue.
 
 ![known issues](./media/hdinsight-for-vscode/known-issue.png)
 

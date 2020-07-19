@@ -24,7 +24,7 @@ You deploy the topology template before deploying the rollout template.
 
 Additional resources:
 
-- The [Azure Deployment Manager REST API reference](https://docs.microsoft.com/rest/api/deploymentmanager/).
+- The [Azure Deployment Manager REST API reference](/rest/api/deploymentmanager/).
 - [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 - [Tutorial: Use health check in Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 - [An Azure Deployment Manager sample](https://github.com/Azure-Samples/adm-quickstart).
@@ -294,7 +294,7 @@ Your template and parameter file need to know the correct path for getting the v
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "deployPackageUri": {

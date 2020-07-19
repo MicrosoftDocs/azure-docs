@@ -4,7 +4,7 @@ description: Learn how to configure private link for Azure Database for PostgreS
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ---
 
@@ -67,7 +67,7 @@ az vm create \
 Create a Azure Database for PostgreSQL with the az postgres server create command. Remember that the name of your PostgreSQL Server must be unique across Azure, so replace the placeholder value in brackets with your own unique value: 
 
 ```azurecli-interactive
-# Create a logical server in the resource group 
+# Create a server in the resource group 
 az postgres server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
@@ -79,14 +79,15 @@ az postgres server create \
 
 ## Create the Private Endpoint 
 Create a private endpoint for the PostgreSQL server in your Virtual Network: 
+
 ```azurecli-interactive
 az network private-endpoint create \  
     --name myPrivateEndpoint \  
     --resource-group myResourceGroup \  
     --vnet-name myVirtualNetwork  \  
     --subnet mySubnet \  
-    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.DBforPostgreSQL/servers/$Servername" \  
-    --group-ids postgresqlServer \  
+    --private-connection-resource-id $(az resource show -g myResourcegroup -n mydemoserver --resource-type "Microsoft.DBforPostgreSQL/servers" --query "id") \    
+    --group-id postgresqlServer \  
     --connection-name myConnection  
  ```
 
@@ -148,7 +149,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 ## Access the PostgreSQL server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 

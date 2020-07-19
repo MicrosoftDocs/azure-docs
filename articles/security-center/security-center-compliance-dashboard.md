@@ -99,4 +99,4 @@ To learn more see:
 
 -   [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Azure Security Center to help protect your Azure resources.
 
--   [Improve your Secure Score in Azure Security Center](security-center-secure-score.md) - Learn how to prioritize vulnerabilities and security recommendations to most improve your security posture.
+-   [Improve your Secure Score in Azure Security Center](secure-score-security-controls.md) - Learn how to prioritize vulnerabilities and security recommendations to most improve your security posture.
