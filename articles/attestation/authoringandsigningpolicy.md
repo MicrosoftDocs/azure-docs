@@ -113,7 +113,7 @@ See [claim and claim rules](claimrulegrammar.md) to understand claim rule gramma
 After creating a policy file, to upload a policy in JWT format, follow the below steps.
 1. Generate the JWT with policy (utf-8 encoded) as the payload
 
-  -a. The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
+  - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
   
   Sample of Base64url decoded version of policy in JWT format
 ```
@@ -130,7 +130,7 @@ After creating a policy file, to upload a policy in JWT format, follow the below
   
   - RS256 – Supported algorithm to sign the policy payload
 
-3. Upload the JWT and validate the policy. See [policy management](quickstart-powershell#policy-management) for more information.
+3. Upload the JWT and validate the policy. See [policy management](quickstart-powershell.md#policy-management) for more information.
 
   - If the policy file is free of syntax errors the policy file gets accepted by the service.
   
