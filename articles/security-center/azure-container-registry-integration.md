@@ -26,6 +26,10 @@ If you're on Azure Security Center's standard tier, you can add the Container Re
 
 - Release state: **General availability**
 - Required roles: **Security reader** and [Azure Container Registry reader role](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Supported registries:
+    - ✔ Linux-hosted ACR registries that are accessible from the public internet 
+    - ✘ Windows-hosted ACR registries
+    - ✘ 'Private' registries - Security Center requires your registries to be accessible from the public internet. If your registries are protected by a VNet, or if you've limited access by assigning a virtual network private IP addresses to the registry endpoints, Security Center can't currently connect to, or scan, your registry.
 - Clouds: 
     - ✔ Commercial clouds
     - ✘ US Government cloud
