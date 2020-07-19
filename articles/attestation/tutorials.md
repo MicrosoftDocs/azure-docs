@@ -55,11 +55,6 @@ The verification that the Azure Attestation JWT claims match the initial parsed 
     public void CompareToMaaServiceJwtToken(string serviceJwtToken, bool includeDetails)
 ```
 
-If the Azure Attestation is running within an SGX enclave, the validation of the Azure Attestation quote is performed in the [MaaQuoteValidator.cs](./validatequotes.net/MaaQuoteValidator.cs#L41) file:
-```
-    static public void ValidateMaaQuote(string x5c, bool includeDetails)
-```
-
 
 ## Instructions to Build and Run Yourself
 
