@@ -114,14 +114,13 @@ After creating a policy file, to upload a policy in JWT format, follow the below
 1. Generate the JWT with policy (utf-8 encoded) as the payload
   a. The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
   
-  Sample JWT
-  ``
+ ```Sample JWT
   Header: {"alg":"none"}
   Payload: {“AttestationPolicy”:” Base64Url (policy)”}
   Signature: {}
 
   JWT format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
-``
+```
 
 2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms: 
   a. None – When you don’t want to sign the policy payload
