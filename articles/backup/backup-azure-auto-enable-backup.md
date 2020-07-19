@@ -13,7 +13,7 @@ Today, Azure Backup provides a built-in policy (using Azure Policy) that can be 
 
 ## Supported Scenarios
 
-* The built-in policy is currently supported only for Azure VMs. Users must take care to ensure that the retention policy specified during assignment is a VM retention policy. Refer to [this](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) document to see all the VM SKUs supported by this policy.
+* The built-in policy is currently supported only for Azure VMs. Users must take care to ensure that the retention policy specified during assignment is a VM retention policy. Refer to [this](./backup-azure-policy-supported-skus.md) document to see all the VM SKUs supported by this policy.
 
 * The policy can be assigned to a single location and subscription at a time. To enable backup for VMs across locations and subscriptions, multiple instances of the policy assignment need to be created, one for each combination of location and subscription.
 
@@ -43,7 +43,7 @@ To assign the policy to the required scope, please follow the below steps:
 
 > [!NOTE]
 >
-> Azure Policy can also be used on existing VMs, using [remediation](https://docs.microsoft.com/azure/governance/policy/how-to/remediate-resources).
+> Azure Policy can also be used on existing VMs, using [remediation](../governance/policy/how-to/remediate-resources.md).
 
 > [!NOTE]
 >
@@ -51,4 +51,4 @@ To assign the policy to the required scope, please follow the below steps:
 
 ## Next Steps
 
-[Learn more about Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview)
+[Learn more about Azure Policy](../governance/policy/overview.md)
