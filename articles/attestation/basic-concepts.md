@@ -30,7 +30,7 @@ Example of URI of an attestation provider: https://tradewinds.us.attest.azure.ne
 
 Attestation request is a serialized JSON object sent by client application to attestation provider. 
 The request object for SGX enclave has two properties: 
-- “Quote” – The value of the “Quote” property is a string containing a Base64Url encoded representation of the attestation quote
+- “Quote” – The value of the “Quote” property is a string containing a Base64URL encoded representation of the attestation quote
 - “EnclaveHeldData” – The value of the “EnclaveHeldData” property is a string containing a Base64Url encoded representation of the Enclave Held Data.
 
 Azure Attestation will validate the provided “Quote” from TEE, and will then ensure that the SHA256 hash of the provided Enclave Held Data is expressed in the first 32 bytes of the reportData field in the quote. 
@@ -55,7 +55,7 @@ In isolated model, administrator creates an attestation provider specifying a se
 
 Azure Attestation response will be a JSON string whose value contains JWT. Azure Attestation will package the claims and generates a self signed JWT.
 
-Example of Base64 decoded version of JWT generated for an SGX enclave:
+Example of Base64URL decoded version of JWT generated for an SGX enclave:
 
 ```
 {
