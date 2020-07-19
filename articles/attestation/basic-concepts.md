@@ -22,7 +22,7 @@ ms.author: mbaldwin
 
 ## Attestation provider
 
-Attestation provider is an Azure ARM based resource that provides access to Microsoft Azure Attestation. Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. Each provider honors a specific, discoverable policy. The attestation provider is deployed using Azure Resource Manager (ARM) which supports Role-Based Access Control (RBAC).
+Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/overview) (ARM) which supports Role-Based Access Control (RBAC). Each attestation provider honors a specific, discoverable policy. 
 
 Example of URI of an attestation provider: htt<span>ps</span>://tradewinds.us.attest.azure.net
 
