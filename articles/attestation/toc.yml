@@ -10,6 +10,8 @@
     href: quickstart-powershell.md
 - name: Tutorials
   items:
+  - name: Authoring and signing attestation policy
+    href: authoringandsigningpolicy.md
   - name: Sample code for SGX attestation
     href: tutorials.md
 - name: Samples
