@@ -2,21 +2,21 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Arc for Kubernetes
+  - name: About Arc enabled Kubernetes
     href: ./kubernetes/overview.md
-  - name: About Azure Arc for servers
+  - name: About Azure Arc enabled servers
     href: ./servers/overview.md
 - name: Samples
   items:
   - name: Azure Policy built-ins 
     items:
-    - name: Arc for Kubernetes
+    - name: Arc enabled Kubernetes
       href: ./kubernetes/policy-samples.md
-    - name: Arc for servers
+    - name: Arc enabled servers
       href: ./servers/policy-samples.md
 - name: How-to guides
   items:
-  - name: Arc for Kubernetes
+  - name: Arc enabled Kubernetes
     items:
     - name: Connect to Azure Arc
       items:
@@ -37,10 +37,10 @@
       - name: Admission control policies using Azure Policy
         href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
       - name: Deploy IoT workloads
-         href: ./kubernetes/deploy-azure-iot-edge-workloads.md
+        href: ./kubernetes/deploy-azure-iot-edge-workloads.md
     - name: Troubleshooting
       href: ./kubernetes/Troubleshooting.md
-   - name: Arc for servers
+   - name: Arc enabled servers
      items:
      - name: Connect to Azure Arc
        items:

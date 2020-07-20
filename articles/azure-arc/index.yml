@@ -20,11 +20,11 @@ landingContent:
           - text: Learn more about Azure Arc
             url: https://aka.ms/Azure-Arc-Info
   
-  - title: Connect machines to Azure using Azure Arc for servers
+  - title: Connect machines to Azure using Azure Arc enabled servers
     linkLists: 
       - linkListType: overview
         links:
-          - text: What is Azure Arc for servers?
+          - text: What is Azure Arc enabled servers?
             url: ./servers/overview.md 
       - linkListType: quickstart
         links:

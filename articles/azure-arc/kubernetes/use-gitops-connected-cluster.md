@@ -1,5 +1,5 @@
 ---
-title: "Cluster configuration (GitOps) for an Azure Arc enabled Kubernetes cluster (Preview)"
+title: "Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,7 +11,7 @@ description: "Use GitOps for an Azure Arc-enabled cluster configuration (Preview
 keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, containers"
 ---
 
-# Deploy configurations using GitOps (Preview)
+# Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
 
 GitOps is the practice of the declaring the desired state of Kubernetes configuration (deployments, namespaces,...) in a Git repository followed by a polling and pull based deployment of these configurations to the cluster using an operator. This document covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
 
