@@ -70,11 +70,11 @@ When you rename a Windows machine, all currently configured backups are stopped.
 
 ### What is the maximum file path length for backup?
 
-The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
+The MARS agent relies on NTFS, and uses the filepath length specification limited by the [Windows API](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). If the files you want to protect are longer than the allowed value, back up the parent folder or the disk drive.  
 
 ### What characters are allowed in file paths?
 
-The MARS agent relies on NTFS, and allows [supported characters](/windows/desktop/FileIO/naming-a-file#naming-conventions) in file names/paths.
+The MARS agent relies on NTFS, and allows [supported characters](/windows/win32/FileIO/naming-a-file#naming-conventions) in file names/paths.
 
 ### The warning "Azure Backups have not been configured for this server" appears
 

@@ -303,7 +303,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
 ## Add backup storage
 
-The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](/system-center/dpm/add-storage?view=sc-dpm-1801).
+The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](/system-center/dpm/add-storage).
 
 > [!NOTE]
 > You need to add backup storage even if you plan to send data to Azure. In the Azure Backup Server architecture, the Recovery Services vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
@@ -353,7 +353,7 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-The article, [Preparing your environment for DPM](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contains information about supported  Azure Backup Server configurations.
+The article, [Preparing your environment for DPM](/system-center/dpm/prepare-environment-for-dpm), contains information about supported  Azure Backup Server configurations.
 
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
