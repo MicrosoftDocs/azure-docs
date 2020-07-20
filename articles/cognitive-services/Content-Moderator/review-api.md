@@ -24,6 +24,12 @@ In a review, content is uploaded to the Review tool and appears under the **Revi
 
 ![Review tool website open in a browser, on the Review tab](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
+### Manage reviews
+
+Navigate to **Admin** -> **Manage Reviews** to view the new admin screen. Here, you can see a list of all reviews (pending and completed) and can sort the data by a variety of categories. You can also filter by different different criteria.
+
+The three-dot **Actions** button on each review lets you go to the review screen or inspect the history of that review.
+
 See the [Review tool guide](./review-tool-user-guide/review-moderated-images.md) to get started creating reviews, or see the [REST API guide](./try-review-api-review.md) to learn how to do so programmatically.
 
 ## Workflows
