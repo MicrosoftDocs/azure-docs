@@ -53,6 +53,6 @@ To delete a user's app passwords, complete the following steps:
 
 ## Next steps
 
-This article showed you how to configure individual user settings. To configure overall Azure Multi-Factor Authentication service settings, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md)
+This article showed you how to configure individual user settings. To configure overall Azure Multi-Factor Authentication service settings, see [Configure Azure Multi-Factor Authentication settings](howto-mfa-mfasettings.md).
 
 If your users need help, see the [User guide for Azure Multi-Factor Authentication](../user-help/multi-factor-authentication-end-user-first-time.md).
