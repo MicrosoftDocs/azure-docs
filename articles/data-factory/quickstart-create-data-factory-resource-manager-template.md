@@ -171,13 +171,13 @@ You can clean up the resources that you created in the Quickstart in two ways. Y
 
 Deleting a resource group deletes all resources including data factories in it. Run the following command to delete the entire resource group: 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 If you want to delete just the data factory, and not the entire resource group, run the following command: 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
