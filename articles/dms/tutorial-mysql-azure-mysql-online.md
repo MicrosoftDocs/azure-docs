@@ -136,6 +136,10 @@ SET group_concat_max_len = 8192;
 
 Run the drop foreign key (which is the second column) in the query result to drop foreign key.
 
+> [!NOTE]
+> The **CASCADE** [referential action](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table is not supported in Azure DMS. Azure DMS requires the foreign key constraints to be dropped in the target DB server during the initial data load and referential actions cannot be used. If your workload depends on updating a related child table via this referential action, we recommend performing a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore/) instead. 
+
+
 > [!IMPORTANT]
 > If importing data using a backup, remove the CREATE DEFINER commands manually or by using the --skip-definer command when performing a mysqldump. DEFINER requires super privileges to create and is restricted in Azure Database for MySQL.
 

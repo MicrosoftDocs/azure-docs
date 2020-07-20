@@ -128,6 +128,7 @@ When you try to perform an online migration from AWS RDS MySQL to Azure Database
     ```
 
 - In Azure Database Migration Service, the limit of databases to migrate in one single migration activity is four.
+- The **CASCADE** [referential action](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table is not supported in Azure DMS. Azure DMS requires the foreign key constraints to be dropped in the target DB server during the initial data load and referential actions cannot be used. If your workload depends on updating a related child table via this referential action, we recommend performing a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore/) instead. 
 
 - **Error:** Row size too large (> 8126). Changing some columns to TEXT or BLOB may help. In current row format, BLOB prefix of 0 bytes is stored inline.
 
