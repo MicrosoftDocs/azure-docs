@@ -1,5 +1,5 @@
 ---
-title: Enable NFS
+title: Choose a protocol
 description: How to enable nfs
 author: roygara
 ms.service: storage
@@ -61,4 +61,4 @@ Web applications, DevOps, HPC, Log Directories, Video Streaming etc. Basically, 
 |File system features     |Hardlinks support         |Supported         |Not supported         |
 |File system features     |Symbolic links support         |Supported         |Not supported         |
 |File system features     |Deleting or modifying open files         |Supported         |Not supported         |
-|File system features     |Locking         |Byte-range advisory network Lock Manager         |[Supported](https://docs.microsoft.com/en-us/rest/api/storageservices/managing-file-locks)         |
+|File system features     |Locking         |Byte-range advisory network Lock Manager         |[Supported](https://docs.microsoft.com/rest/api/storageservices/managing-file-locks)         |
