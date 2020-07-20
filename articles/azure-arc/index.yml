@@ -53,8 +53,8 @@ landingContent:
           - text: Enforce GitOps using Azure Policy
             url: ./kubernetes/use-azure-policy.md
           - text: Monitor using Azure Monitor for containers
-            url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
+            url: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/toc.json
           - text: Admission control policies using Azure Policy
-            url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
+            url: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/toc.json
           - text: Deploy Azure IoT edge workloads
             url: ./kubernetes/deploy-azure-iot-edge-workloads.md
