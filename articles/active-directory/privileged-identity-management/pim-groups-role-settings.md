@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Configure role-assignable groups settings in Privileged Identity Management
 
-When you configure privileged access group role settings, you define the default settings that are applied to privileged access role assignments in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD). Use the following steps to configure the approval workflow and specify who can approve or deny requests.
+Role settings are the default settings that are applied to group owner and group member privileged access assignments in Privileged Identity Management (PIM). Use the following steps to set up the approval workflow to specify who can approve or deny requests to elevate privilege.
 
 ## Open role settings
 

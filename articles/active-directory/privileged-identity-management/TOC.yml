@@ -87,14 +87,12 @@
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
-  - name: Manage PIM groups
+  - name: Manage group membership in PIM
     items:
-    - name: Feature overview
+    - name: Privileged access overview
       href: pim-groups-features.md
     - name: Assign member or owner
       href: pim-groups-assign-member-owner.md
-    - name: Invite external users
-      href: pim-groups-external-users.md
     - name: Approve requests
       href: pim-groups-approval-workflow.md
     - name: Extend or renew assignments
@@ -103,8 +101,6 @@
       href: pim-groups-role-settings.md
     - name: View audit history
       href: pim-groups-audit.md
-    - name: Use custom roles
-      href: pim-groups-custom-role-policy.md
   - name: Troubleshoot PIM
     href: pim-troubleshoot.md
   - name: Access reviews
