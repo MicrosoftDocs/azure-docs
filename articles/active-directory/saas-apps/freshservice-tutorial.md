@@ -177,7 +177,7 @@ To enable Azure AD users to sign in to FreshService, they must be provisioned in
 
     ![New Requesters](./media/freshservice-tutorial/createuser2.png "New Requesters")
 
-5. In the **New Requester** section, enter the required fieds and click on **Save**.
+5. In the **New Requester** section, enter the required fields and click on **Save**.
     ![New Requester](./media/freshservice-tutorial/createuser3.png "New Requester")  
 
     > [!NOTE]
