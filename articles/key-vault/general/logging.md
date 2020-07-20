@@ -93,7 +93,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 ## <a id="enable"></a>Enable logging using Azure PowerShell
 
-To enable logging for Key Vault, we'll use the **Set-AzDiagnosticSetting** cmdlet, together with the variables that we created for the new storage account and the key vault. We'll also set the **-Enabled** flag to **$true** and set the category to **AuditEvent** (the only category for Key Vault logging):
+To enable logging for Key Vault, we'll use the **Set-AzDiagnosticSetting** cmdlet, together with the variables that we created for the new storage account and the key vault. We'll also set the **-Enabled** flag to **$true** and set the category to `AuditEvent` (the only category for Key Vault logging):
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
@@ -267,7 +267,7 @@ The following table lists the field names and descriptions:
 | **resourceId** |Azure Resource Manager resource ID. For Key Vault logs, this is always the Key Vault resource ID. |
 | **operationName** |Name of the operation, as documented in the next table. |
 | **operationVersion** |REST API version requested by the client. |
-| **category** |Type of result. For Key Vault logs, **AuditEvent** is the single, available value. |
+| **category** |Type of result. For Key Vault logs, `AuditEvent` is the single, available value. |
 | **resultType** |Result of the REST API request. |
 | **resultSignature** |HTTP status. |
 | **resultDescription** |Additional description about the result, when available. |
@@ -275,7 +275,7 @@ The following table lists the field names and descriptions:
 | **callerIpAddress** |IP address of the client that made the request. |
 | **correlationId** |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
 | **identity** |Identity from the token that was presented in the REST API request. This is usually a "user," a "service principal," or the combination "user+appId," as in the case of a request that results from an Azure PowerShell cmdlet. |
-| **properties** |Information that varies based on the operation (**operationName**). In most cases, this field contains client information (the user agent string passed by the client), the exact REST API request URI, and the HTTP status code. In addition, when an object is returned as a result of a request (for example, **KeyCreate** or **VaultGet**), it also contains the key URI (as "id"), vault URI, or secret URI. |
+| **properties** |Information that varies based on the operation (**operationName**). In most cases, this field contains client information (the user agent string passed by the client), the exact REST API request URI, and the HTTP status code. In addition, when an object is returned as a result of a request (for example, **KeyCreate** or **VaultGet**), it also contains the key URI (as `id`), vault URI, or secret URI. |
 
 The **operationName** field values are in *ObjectVerb* format. For example:
 
@@ -317,9 +317,9 @@ The following table lists the **operationName** values and corresponding REST AP
 
 ## <a id="loganalytics"></a>Use Azure Monitor logs
 
-You can use the Key Vault solution in Azure Monitor logs to review Key Vault **AuditEvent** logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
+You can use the Key Vault solution in Azure Monitor logs to review Key Vault `AuditEvent` logs. In Azure Monitor logs, you use log queries to analyze data and get the information you need. 
 
-For more information, including how to set this up, see [Azure Key Vault solution in Azure Monitor logs](../../azure-monitor/insights/azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Azure Monitor logs preview, where you first routed your logs to an Azure storage account and configured Azure Monitor logs to read from there.
+For more information, including how to set this up, see [Azure Key Vault in Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a id="next"></a>Next steps
 
