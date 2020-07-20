@@ -126,8 +126,7 @@ cd iothub_client/samples/pnp/pnp_simple_thermostat/
 
 ```cmd
 REM Windows
-cd iothub_client\samples\pnp\pnp_simple_thermostat\
-pnp_simple_thermostat.exe
+cd  iothub_client\samples\pnp\pnp_simple_thermostat\Debug\pnp_simple_thermostat.exe
 ```
 
 > [!TIP]
