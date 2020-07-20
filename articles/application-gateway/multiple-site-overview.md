@@ -69,7 +69,7 @@ In [Azure CLI](tutorial-multiple-sites-cli.md), you must use `--host-names` inst
 *	The properties “hostname" takes one string as input, where you can mention only one non-wildcard domain name and “hostnames” takes an array of strings as input, where you can mention up to 5 wildcard domain names. But both the properties cannot be used at once.
 *	You cannot create a [redirection](redirect-overview.md) rule with a target listener which uses wildcard or multiple host names.
 
-See [create mutli-site using Azure portal](create-multiple-sites-portal.md) or [using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
+See [create multi-site using Azure portal](create-multiple-sites-portal.md) or [using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on how to configure wildcard host names in a multi-site listener.
 
 ## Host headers and Server Name Indication (SNI)
 
@@ -87,6 +87,6 @@ Application Gateway relies on HTTP 1.1 host headers to host more than one websit
 
 ## Next steps
 
-After learning about multiple site hosting, go to [create mutli-site using Azure portal](create-multiple-sites-portal.md) or [using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on creating an Application Gateway to host multiple websites.
+After learning about multiple site hosting, go to [create multi-site using Azure portal](create-multiple-sites-portal.md) or [using Azure PowerShell](tutorial-multiple-sites-powershell.md) or [using Azure CLI](tutorial-multiple-sites-cli.md) for the step-by-step guide on creating an Application Gateway to host multiple websites.
 
 You can visit [Resource Manager template using multiple site hosting](https://github.com/Azure/azure-quickstart-templates/blob/master/201-application-gateway-multihosting) for an end to end template-based deployment.
