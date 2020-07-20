@@ -65,9 +65,9 @@ To begin the return process, take the following steps.
     
     ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Enter the service tag number of the device. The service tag is located on the bottom right corner of the device (as you face the device). 
+    2. Enter the service tag number which is a five or more character identifier that is unique to your device. The service tag is located on the bottom right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
     
-    <!--![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)--> 
+    ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. From the dropdown list, choose a reason for the return.
 
