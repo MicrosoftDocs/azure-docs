@@ -21,15 +21,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ### Azure Machine Learning SDK for Python v1.10.0
 
-+ **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
-  
-  + **Preview features**
-    + [Contrib features below] 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
-
 + **Bug fixes and improvements**
   + **azureml-automl-core**
     + When using AutoML, if a path is passed into the AutoMLConfig object and it does not already exist, it will be automatically created.
@@ -63,7 +54,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Renamed "backlist_models" input parameter to "blocked_models".
       + Renamed "whitelist_models" input parameter to "allowed_models".
     + The user frequency parameter was provided for the forecasting tasks.
-
 
   
 ## 2020-07-06
