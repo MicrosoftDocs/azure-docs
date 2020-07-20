@@ -968,7 +968,11 @@
     - name: Analyze data with log queries
       href: insights/container-insights-log-search.md
     - name: Alerting
-      href: insights/container-insights-alerts.md
+      items:
+      - name: Create log alert rules
+        href: insights/container-insights-log-alerts.md
+      - name: Create metric alert rules
+        href: insights/container-insights-metric-alerts.md
     - name: Agent management
       href: insights/container-insights-manage-agent.md
     - name: Configure Prometheus metric scraping
@@ -1026,8 +1030,6 @@
         href: insights/capacity-performance.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
-      - name: Key Vault Analytics
-        href: insights/azure-key-vault.md
       - name: Networks
         items:
         - name: Networking Analytics
@@ -1286,6 +1288,8 @@
     - name: Change to blob storage format
       displayname: Diagnostic settings
       href: platform/resource-logs-blob-format.md
+    - name: Key Vault Analytics (deprecated)
+      href: insights/azure-key-vault-deprecated.md
 - name: Resources
   items:
   - name: Azure Roadmap
