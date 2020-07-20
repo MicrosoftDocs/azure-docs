@@ -81,14 +81,14 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
 Create a resource group for attestation provider. Note that other Azure resources (including a virtual machine with client application instance) can be put in the same resource group.
 
 ```powershell
-$location = "uk south" 
+$location = "uksouth" 
 $attestationResourceGroup = "<attestation provider resource group name>"
 New-AzResourceGroup -Name $attestationResourceGroup -Location $location 
 ```
 
 Azure Attestation is currently supported in the following locations:
 - **uksouth** – TEE implementation supporting SGX attestation
-- **eastus2**, **centralus** – non TEE implementations upporting SGX and VBS attestation
+- **eastus2**, **centralus** – non TEE implementation supporting SGX and VBS attestation
 
 ## Create and manage an attestation provider
 
@@ -99,13 +99,13 @@ $attestationProvider = "<attestation provider name>"
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location
 ```
 
-Azure AD is the default trust model for new attestation providers. The isolated trust model will be used for a attestation provider if a filename is specified for the PolicySignerCertificateFile parameter. PolicySignerCertificateFile is a file specifying a set of trusted signing keys.
+PolicySignerCertificateFile is a file specifying a set of trusted signing keys. If a filename is specified for the PolicySignerCertificateFile parameter, attestation provider can be configured only with policies in signed JWT format. Else policy can be configured in text or an unsigned JWT format.
 
 ```powershell
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
-For PolicySignersCertificateFile sample, see [Examples of policy signer certificate](policysigner-samples.md).
+For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policysigner-samples.md).
 
 Get-AzAttestation retrieve attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
@@ -144,9 +144,9 @@ In order to read policies, an Azure AD user requires the following permission fo
 
 This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time) in both Azure AD and Isolated trust models:
+Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
 
-Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays both human readable and JWT encoded version of the policy.
+Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
 
 ```powershell
 $teeType = "<tee Type>"
@@ -155,18 +155,19 @@ Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attesta
 
 Supported TEE types are "sgxenclave" and "vbsenclave".
 
-Set-AttestationPolicy sets a new policy for the specified TEE. The cmdlet accepts either human readable or JWT encoded policy for the Policy parameter, controlled by the value of a parameter named PolicyFormat.
+Set-AttestationPolicy sets a new policy for the specified TEE. The cmdlet accepts policy in either text or JWT format and is controlled by the PolicyFormat parameter. "Text" is the default value for PolicyFormat. 
 
 ```powershell
 $policyFormat = "<policy format>"
 $policy=Get-Content -path "C:\test\policy.txt" -Raw
 Set-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType -Policy $policy -PolicyFormat $policyFormat 
 ```
-Supported policy formats are "Text" and "JWT". Policy format is optional and "Text" is the default format. 
-In Azure AD trust model, policy can be uploaded in Azure Attestation specific policy format (PolicyFormat="Text") or in an unsigned JWT format (PolicyFormat="JWT"). 
-In isolated trust model, policy can be configured only in signed JWT format (PolicyFormat="JWT").
 
-For policy samples, see [Examples of attestation policy](policy-samples.md).
+If PolicySignerCertificateFile is provided during creation of an attestation provider, policies can be configued only in signed JWT format. Else policy can be configured in text or an unsigned JWT format.
+
+Attestation policy in JWT format must contain a claim named "AttestationPolicy". For signed policy, JWT must be signed with private key corresponding to any of the existing policy signer certificates.
+
+For policy samples, see [examples of attestation policy](policy-samples.md).
 
 Reset-AzAttestationPolicy resets the policy to default for the specified TEE.
 
@@ -186,13 +187,14 @@ Add-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $att
 Remove-AzAttestationPolicySigner -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Signer <signer>
 ```
 
-Policy signer certificate is signed JWT with a claim named "maa-policyCertificate". Value of the claim is a JWK which contains the trusted signing key to add. The JWT must be signed with one of the existing policy signer certificates.
+Policy signer certificate is a signed JWT with claim named "maa-policyCertificate". Value of the claim is a JWK which contains the trusted signing key to add. The JWT must be signed with private key corresponding to any of the existing policy signer certificates.
 
 Note that all semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, is is a simple string.
 
-For policy signer certificate sample, see [Examples of policy signer certificate](policysigner-samples.md).
+For policy signer certificate sample, see [examples of policy signer certificate](policysigner-samples.md).
 
 For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
 
 ## Next steps
 
+- [SGX attestation using Open Enclave SDK](tutorials.md)

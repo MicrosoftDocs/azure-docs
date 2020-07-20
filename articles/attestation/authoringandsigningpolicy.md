@@ -12,11 +12,16 @@ ms.author: mbaldwin
 ---
 # Authoring and signing attestation policy for Microsoft Azure Attestation
 
-Attestation provider gets created with a default policy for each TEE type. For default policy content, see [Examples of attestation policy](policy-samples.md). If the default TEE policy of attestation provider meets the requirements, skip this section.
+Attestation provider gets created with a default policy for each TEE type. For default policy content, see [examples of attestation policy](policy-samples.md). If the default TEE policy of attestation provider meets the requirements, skip this section.
 
-Else custom policy can be configured for any of the supported TEE types. The policy can be uploaded in a Azure Attestation specific policy format. Alternatively, an encoded version of the policy, in JWS, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends evidence which Azure Attestation  parses and converts into incoming claims (set of properties, value). Azure Attestation then processes the claims, based on what’s defined in the policy, and returns the computed result.
+Else custom policy can be configured for any of the supported TEE types. The policy can be uploaded in a Azure Attestation specific policy format. Alternatively, an encoded version of the policy, in JWT, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends evidence which Azure Attestation  parses and converts into incoming claims (set of properties, value). Azure Attestation then processes the claims, based on what’s defined in the policy, and returns the computed result.
 
 The policy contains rules that determine the authorization criteria, properties and the contents of the attestation token. Structure of policy file looks as below:
+
+A policy file has 3 segments as seen above:
+- Version
+- Authorizationrules
+- Issuancerules
 
 ```Policy
 version=1.0;
@@ -28,12 +33,6 @@ issuancerules
 {
 };
 ```
-For policy samples, see [Examples of attestation policy](policy-samples.md).
-
-A policy file has 3 segments as seen above:
-- Version
-- Authorizationrules
-- Issuancerules
 
 **Version**: The version is the version number of the grammar that is followed.
 
@@ -43,93 +42,100 @@ Version=MajorVersion.MinorVersion
 
 Currently the only version supported is version 1.0.
 
-**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if MAA should proceed to issuancerules. The claim rules apply in the order they are defined.
+**Authorizationrules**: The authorization rules are a collection of claim rules that will be checked first, to determine if Azure Attestation should proceed to issuancerules. The claim rules apply in the order they are defined.
 
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
+
+For policy samples, see [examples of attestation policy](policy-samples.md)
+
+See [claim and claim rules](claimrulegrammar.md) to learn how to define claim rules in a policy.
 
 ## Drafting the policy file
 1. Create a new file.
 2. Add version to the file.
 
-  ```
-  Version=1.0;
-  ```
+    ```
+    Version=1.0;
+    ```
 3. Add sections for authorizationrules and issuancerules
 
-  ```
-  Version=1.0;
-  
-  authorizationrules={
-  =>deny();
-  };
-  
-  issuancerules={
-  };
-  ```
+    ```
+    Version=1.0;
+
+    authorizationrules={
+    =>deny();
+    };
+
+    issuancerules={
+    };
+    ```
  
-  The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action to allow processing of issuance rules.
+    The authorization rules contains the deny() action without any condition, this is to make sure no issuance rules are processed. Alternatively, the authorization rule can         also contain permit() action to allow processing of issuance rules.
+  
 4. Add claim rules to the authorization rules
 
-  ```
-  Version=1.0;
-  
-  authorizationrules={
-  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
-  };
-  
-  issuancerules={
-  };
-  ```
+    ```
+    Version=1.0;
 
-  If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
+    authorizationrules={
+    [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+    };
+
+    issuancerules={
+    };
+    ```
+
+    If the incoming claim set contains a claim which matches the type, value and issuer, the permit() action will indicate to the policy engine to process the issuancerules.
+  
 5. Add claim rules to issuancerules
 
-  ```
-  Version=1.0;
-  
-  authorizationrules={
-  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
-  };
-  
-  issuancerules={
-  =>issue(type="SecurityLevelValue", value=100)
-  };
-  ```
-  
-  The outgoing claim set will contain a claim with:
+    ```
+    Version=1.0;
 
-  ```
-  [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
-  ```
+    authorizationrules={
+    [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
+    };
 
-  Complex policies can be crafted in a similar manner. For more examples see “Policy templates/samples” section of this document.
+    issuancerules={
+    =>issue(type="SecurityLevelValue", value=100)
+    };
+    ```
+
+    Complex policies can be crafted in a similar manner. 
+  
 6. Save file.
 
-## Creating the policy file in JSON Web Signature format
+## Creating the policy file in JSON Web Token format
 
-After creating a policy file, to upload a policy in JWS format, follow the below steps.
-1. Generate the JWS with policy (utf-8 encoded) as the payload
-  - The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
+After creating a policy file, to upload a policy in JWT format, follow the below steps.
+1. Generate the JWT with policy (utf-8 encoded) as the payload
+
+   The payload identifier for the Base64Url encoded policy should be “AttestationPolicy”.
   
-  ``Sample JWT
+   Sample of Base64url decoded version of policy in JWT format
+```
   Header: {"alg":"none"}
   Payload: {“AttestationPolicy”:” Base64Url (policy)”}
   Signature: {}
 
-  JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
-``
+  JWT format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
+```
 
-2. Optionally to sign the policy, currently MAA supports the following algorithms: 
-  a. None – When you don’t want to sign the policy payload
-  b. RS256 – Supported algorithm to sign the policy payload
+2. Optionally to sign the policy, currently Azure Attestation supports the following algorithms:
 
-3. Upload the JWS and validate the policy (See “Policy management” section of this document)
-  a. If the policy file is free of syntax errors the policy file gets accepted by the service.
-  b. If the policy file contains syntax errors the policy file will be rejected by the service.
+   None – When you don’t want to sign the policy payload
+  
+   RS256 – Supported algorithm to sign the policy payload
+
+3. Upload the JWT and validate the policy. See [policy management](quickstart-powershell.md#policy-management) for more information.
+
+   If the policy file is free of syntax errors the policy file gets accepted by the service.
+  
+   If the policy file contains syntax errors the policy file will be rejected by the service.
 
 ## Signing the policy
 
-Below is a sample Python script on how to perform policy signing operation
+Below is a sample Python script on how to perform policy signing operation. See [benefits of policy signing](basic-concepts.md#Benefits-of-policy-signing) for more information.
 
 ```python
 from OpenSSL import crypto
@@ -164,4 +170,4 @@ print(encoded.decode('utf-8'))
 
 ## Next steps
 - Quickstart: [Set up Microsoft Azure Attestation using PowerShell](quickstart-powershell.md)
-
+- [SGX attestation from Linux VM using Open Enclave SDK](tutorials.md)
