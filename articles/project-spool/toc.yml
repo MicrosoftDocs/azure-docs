@@ -107,7 +107,9 @@
   - name: Networking
     items: 
       - name: Client and Server Architecture
-        href: concepts/client-and-server-architecture.md        
+        href: concepts/networking/client-and-server-architecture.md
+      - name: ICE, STUN, NAT, TURN, and SDP
+        href: concepts/networking/ice-stun-nat-turn-sdp.md
   - name: Telephony and SMS
     items: 
       - name: SMS
@@ -115,21 +117,21 @@
       - name: SMS Flows
         href: concepts/telephony-and-sms/sms-flows.md
       - name: Push Notifications Overview
-        href: concepts/push-notifications-overview.md
+        href: concepts/telephony-and-sms/push-notifications-overview.md
       - name: Registering For Push Notifications
-        href: concepts/notifications-azure-portal-registration.md
+        href: concepts/telephony-and-sms/notifications-azure-portal-registration.md
+      - name: Plan Your Telephony and SMS Solution 
+        href: concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
+      - name: Call Flows
+        href: concepts/telephony-and-sms/call-flows.md
+      - name: SIP, VOIP, and PSTN
+        href: concepts/telephony-and-sms/sip-voip-pstn.md
   - name: Voice and Video Calling
     items:
       - name: About Voice
         href: concepts/voice/voice.md
-      - name: Plan Your Telephony and SMS Solution 
-        href: concepts/voice/plan-your-telephony-and-sms-solution.md
-      - name: Call Flows
-        href: concepts/voice/call-flows.md
       #- name: Phone Numbers
       #  href: concepts/voice/phone-numbers.md
-      - name: SIP, VOIP, and PSTN
-        href: concepts/voice/sip-voip-pstn.md
       #- name: Phone Trees
       #  href: concepts/voice/phone-trees.md
       #- name: Call Detail Records
@@ -142,8 +144,6 @@
         href: concepts/video/video.md
       - name: Introduction to WebRTC
         href: concepts/video/about-webrtc.md
-      - name: ICE, STUN, NAT, TURN, and SDP
-        href: concepts/video/ice-stun-nat-turn-sdp.md
       - name: Calling Client Samples
         href: concepts/voice-and-video-calling/calling-client-samples.md
       #- name: Data Channels
