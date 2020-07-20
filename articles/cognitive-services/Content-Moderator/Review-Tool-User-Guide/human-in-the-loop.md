@@ -18,8 +18,6 @@ ms.author: pafarley
 
 Azure Content Moderator provides services to combine machine learning content moderation with human reviews, and the [Review tool](https://contentmoderator.cognitive.microsoft.com) website is a user-friendly front end that gives detailed access to these services.
 
-![The review tool dashboard in a browser](./images/0-dashboard.png)
-
 ## What it does
 
 The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used in conjunction with the machine-assisted moderation APIs, allows you to accomplish the following tasks in the content moderation process:
@@ -34,13 +32,17 @@ The [Review tool](https://contentmoderator.cognitive.microsoft.com), when used i
 
 ## Review tool dashboard
 
-On the **Dashboard** tab, you can see key metrics for content reviews done within the tool. See the number of total, complete, and pending reviews for image, text, and video content. You can also see the breakdown of users and teams that have completed reviews, as well as the moderation tags that have been applied.
+On the **Dashboard** tab, you can see key metrics for content reviews done within the tool. See the number of total, complete, and pending reviews for image, text, and video content. A table shows the breakdown of users and teams that have pending or completed reviews, as well as the SLA time remaining. You can click the items in the table to go to their reviews.
 
-![View Dashboard](images/0-dashboard.png)
+The search box above the table lets you filter results by team name.
+
+Clicking the text in the upper right corner displays the Daily Personal Metrics, which reports the number of reviews completed for each content type.
+
+![The review tool dashboard in a browser](images/0-dashboard.png)
 
 ## Review tool credentials
 
-When you sign up with the [Review tool](https://contentmoderator.cognitive.microsoft.com), you'll be prompted to select an Azure region for you account. This is because the [Review tool](https://contentmoderator.cognitive.microsoft.com) generates a free trial key for Azure Content Moderator services; you will need this key to access any of the services from a REST call or client SDK. You can view your key and API endpoint URL by selecting **Settings** > **Credentials**.
+When you sign up with the [Review tool](https://contentmoderator.cognitive.microsoft.com), you'll be prompted to select an Azure region for you account. This is because the [Review tool](https://contentmoderator.cognitive.microsoft.com) generates a free trial key for Azure Content Moderator services; you will need this key to access any of the services from a REST call or client SDK. You can view your key and API endpoint URL by selecting **Admin** > **Credentials**.
 
 ![Content Moderator Credentials](images/settings-6-credentials.png)
 
