@@ -1,5 +1,5 @@
 ---
-title: 'ARM Template: Deploy Private Endpoint for Web App with Azure Resource Manager template'
+title: 'With this Azure Resource Manager Template, you will be able to deploy Private Endpoint for Web App.'
 description: Learn how to use ARM Template to deploy Private Endpoint for your Web App
 author: ericgre
 ms.assetid: 49e460d0-7759-4ceb-b5a4-f1357e4fde56
