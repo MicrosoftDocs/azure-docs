@@ -1,5 +1,5 @@
 ---
-title: Understand components in Azure IoT Plug and Play models | Microsoft Docs
+title: Understand components in IoT Plug and Play models | Microsoft Docs
 description: Understand difference between IoT Plug and Play DTDL models that use components and models that don't use components.
 author: ericmitt
 ms.author: ericmitt

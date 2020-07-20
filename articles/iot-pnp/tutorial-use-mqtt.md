@@ -1,5 +1,5 @@
 ---
-title: Use MQTT to create an Azure IoT Plug and Play Preview device client | Microsoft Docs
+title: Use MQTT to create an IoT Plug and Play Preview device client | Microsoft Docs
 description: Use the MQTT protocol directly to create an IoT Plug and Play Preview device client without using the Azure IoT Device SDKs
 author: ericmitt
 ms.author: ericmitt
@@ -148,7 +148,7 @@ For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://
 
 ## Next steps
 
-In this tutorial, you learned how to modify a simple MQTT device client to follow the IoT Plug and Play conventions. To learn more about how Azure IoT Plug and Play, see:
+In this tutorial, you learned how to modify a simple MQTT device client to follow the IoT Plug and Play conventions. To learn more about how IoT Plug and Play, see:
 
 > [!div class="nextstepaction"]
 > [Architecture](concepts-architecture.md)
