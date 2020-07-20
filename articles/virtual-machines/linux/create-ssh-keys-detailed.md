@@ -37,7 +37,7 @@ SSH keys are by default kept in the `~/.ssh` directory.  If you do not have a `~
 
 ### Basic example
 
-The following `ssh-keygen` command generates 2048-bit SSH RSA public and private key files by default in the `~/.ssh` directory. If an SSH key pair exists in the current location, those files are overwritten.
+The following `ssh-keygen` command generates 4096-bit SSH RSA public and private key files by default in the `~/.ssh` directory. If an SSH key pair exists in the current location, those files are overwritten.
 
 ```bash
 ssh-keygen -m PEM -t rsa -b 4096

@@ -29,7 +29,9 @@ For more information on the different endpoints, see [Choose between Azure messa
 Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). They can also be managed through the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
-> Managing event routes through the Azure portal is currently only available to Azure users on corporate-domain accounts. If you are using a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), please use the Azure Digital Twins APIs or CLI to manage event routes, as described within this article.
+> Managing event routes through the Azure portal is currently only available to Azure users on corporate-domain accounts. 
+>
+>If you are using a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), such as an @outlook.com account, please use the Azure Digital Twins APIs or CLI to manage event routes as described within this article.
 
 ## Create an endpoint for Azure Digital Twins
 
@@ -69,7 +71,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ## Manage event routes with APIs
 
-To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [Concepts: Routing Azure Digital Twins events](concepts-route-events.md).
+To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
 The samples in this article use the C# SDK.
 
@@ -175,7 +177,7 @@ When you implement or update a filter, the change may take a few minutes to be r
 
 ## Manage endpoints and routes with CLI
 
-Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Endpoints and routes can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Monitor event routes
 
@@ -190,4 +192,4 @@ From here, you can view the metrics for your instance and create custom views.
 ## Next steps
 
 Read about the different types of event messages you can receive:
-* [How-to: Interpret event data](how-to-interpret-event-data.md)
+* [*How-to: Interpret event data*](how-to-interpret-event-data.md)

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Onboard in Azure Sentinel'
-description: Learn how to collect data in Azure Sentinel by following this Quickstart document.
+description: In this quickstart, learn how to on-board Azure Sentinel by first enabling Sentinel, and then connecting data sources.
 services: sentinel
 author: yelevin
 ms.author: yelevin

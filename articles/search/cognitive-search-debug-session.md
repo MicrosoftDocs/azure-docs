@@ -84,7 +84,7 @@ This window displays all of the errors and warnings the skillset produces as it 
 
 ## Limitations
 
-Debug sesisons work with all generally available data sources amd most preview data sources. The MongoDB API(preview) and Cassandra API(preview) of Cosmos DB are currently not supported.
+Debug sesisons work with all generally available data sources amd most preview data sources. The MongoDB API (preview) and Cassandra API (preview) of Cosmos DB are currently not supported.
 
 ## Next steps
 

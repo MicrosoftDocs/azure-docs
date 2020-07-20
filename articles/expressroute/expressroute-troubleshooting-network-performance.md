@@ -173,9 +173,8 @@ Test setup:
 >
 >
 
-| | | | | | |
-|-|-|-|-|-|-|
-|ExpressRoute<br/>Location|Azure<br/>Region|Estimated<br/>Distance (km)|Latency|1 Session<br/>Bandwidth|Maximum<br/>Bandwidth|
+| ExpressRoute<br/>Location|Azure<br/>Region | Estimated<br/>Distance (km) | Latency|1 Session<br/>Bandwidth | Maximum<br/>Bandwidth |
+| ------------------------------------------ | --------------------------- |  - | - | - | - |
 | Seattle | West US 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec |
 | Seattle | West US          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec |
 | Seattle | Central US       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec |

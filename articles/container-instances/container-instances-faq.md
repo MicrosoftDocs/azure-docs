@@ -22,7 +22,7 @@ The size of your container image impacts how long it takes to deploy, so general
 
 Because one of the main determinants of deployment times is the image size, look for ways to reduce the size. Remove layers you don't need, or reduce the size of layers in the image (by picking a lighter base OS image). For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
 
-You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
+You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/location/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
 
 See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing container startup time.
 

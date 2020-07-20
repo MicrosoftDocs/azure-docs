@@ -30,6 +30,10 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 * Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 * [SAS-based](../common/storage-sas-overview.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
 
+## Pricing
+
+Both types of storage offered with page blobs have their own pricing model. Premium page blobs follow the managed disks pricing model, while standard page blobs are billed on used size and with each transaction. For more information, see the [Azure Page Blobs pricing page](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+
 ## Page blob features
 
 ### REST API
@@ -119,7 +123,7 @@ As soon as a write request for a sequential set of pages succeeds in the blob se
 
 The below diagram shows 2 separate write operations:
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
+![A diagram showing the two separate write options.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
 1.	A Write operation starting at offset 0 of length 1024 bytes 
 2.	A Write operation starting at offset 4096 of length 1024 
@@ -147,7 +151,7 @@ This allows you to download the full blob or range of bytes starting from any of
 
 The following figure shows a Read operation with an offset of 256 and a range size of 4352. Data returned is highlighted in orange. Zeros are returned for NUL pages.
 
-![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
+![A diagram showing a Read operation with an offset of 256 and a range size of 4352](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
 If you have a sparsely populated blob, you may want to just download the valid page regions to avoid paying for egressing of zero bytes and to reduce download latency.  
 

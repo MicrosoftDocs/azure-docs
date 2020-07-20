@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Test Stream Analytics queries locally with sample data using Visual Studio Code

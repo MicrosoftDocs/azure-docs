@@ -134,7 +134,7 @@ Finding a good set of features for creating a predictive model requires experime
 
 Let's build a model that uses a subset of the features in our dataset. You can come back later and select different features, run the experiment again, and see if you get better results. But to start, let's try the following features:
 
-    make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
+> make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
 1. Drag another [Select Columns in Dataset][select-columns] module to the experiment canvas. Connect the left output port of the [Clean Missing Data][clean-missing-data] module to the input of the [Select Columns in Dataset][select-columns] module.
 

@@ -1,6 +1,6 @@
 ---
 title: Connect Cloud App Security data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Cloud App Security data to Azure Sentinel.
+description: Learn to use the Microsoft Cloud App Security (MCAS) connector to stream alerts and Cloud Discovery logs from MCAS into Azure Sentinel. 
 services: sentinel
 documentationcenter: na
 author: yelevin

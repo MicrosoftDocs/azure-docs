@@ -9,39 +9,44 @@ ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/25/2020
 ms.author: allensu
 
 ---
-# Quickstart: Create an Azure CDN profile and endpoint - Resource Manager template
 
-Get started with Azure CDN by using an Azure Resource Manager Template.  This template deploys a profile and endpoint.
+# Quickstart: Create an Azure CDN profile and endpoint - ARM template
+
+Get started with Azure Content Delivery Network (CDN) by using an Azure Resource Manager template (ARM template). The template deploys a profile and an endpoint.
+
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
+
+## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create CDN profile and endpoint
+## Review the template
+
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-cdn-with-custom-origin/).
 
 This template is configured to create a:
 
 * Profile
 * Endpoint
 
-### Review the template
-
-The template used in this quickstart is from [Azure Quickstart templates](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cdn-with-custom-origin/azuredeploy.json)
-
-:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json" range="1-125" highlight="46-117":::
-
+:::code language="json" source="~/quickstart-templates/101-cdn-with-custom-origin/azuredeploy.json" range="1-125" highlight="45-117":::
 
 One Azure resource is defined in the template:
 
-**Microsoft.Cdn**
-
 * **[Microsoft.Cdn/profiles](https://docs.microsoft.com/azure/templates/microsoft.cdn/profiles)**
 
-### Deploy the template
+## Deploy the template
 
-**Azure CLI**
+### Azure CLI
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. eastus): " location
@@ -57,7 +62,7 @@ az group deployment create \
 --template-uri  $templateUri
 ```
 
-**Azure PowerShell**
+### PowerShell
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -69,7 +74,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Azure portal**
+### Portal
 
 [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cdn-with-custom-origin%2Fazuredeploy.json)
 
@@ -87,7 +92,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## Clean up resources
 
-**Azure CLI**
+### Azure CLI
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
@@ -96,7 +101,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
     --name myResourceGroupCDN
 ```
 
-**Azure PowerShell**
+### PowerShell
 
 When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) command to remove the resource group and all resources contained within.
 
@@ -104,7 +109,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.mic
 Remove-AzResourceGroup -Name myResourceGroupCDN
 ```
 
-**Azure portal**
+### Portal
 
 When no longer needed, delete the resource group, CDN profile, and all related resources. Select the resource group **myResourceGroupCDN** that contains the CDN profile and endpoint, and then select **Delete**.
 

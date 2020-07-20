@@ -4,7 +4,7 @@ description: This article explains the different input and output data errors th
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 03/27/2020
 ---
 

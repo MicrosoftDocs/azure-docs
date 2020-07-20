@@ -9,7 +9,7 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 06/30/2020
 ---
 
 # Visually monitor Azure Data Factory
@@ -186,6 +186,10 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
     ![Box for target criteria](media/monitor-visually/add-criteria-1.png)
 
     ![List of criteria](media/monitor-visually/add-criteria-2.png)
+
+    ![List of criteria](media/monitor-visually/add-criteria-3.png)
+
+    You can create alerts on various metrics, including those for ADF entity count/size, activity/pipeline/trigger runs, Integration Runtime (IR) CPU utilization/memory/node count/queue, as well as for SSIS package executions and SSIS IR start/stop operations.
 
 1.  Configure the alert logic. You can create an alert for the selected metric for all pipelines and corresponding activities. You can also select a particular activity type, activity name, pipeline name, or failure type.
 

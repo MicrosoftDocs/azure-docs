@@ -1,12 +1,10 @@
 ---
 title: Microsoft commercial marketplace transact capabilities
 description: This article describes pricing, billing, invoicing, and payout considerations for the commercial marketplace transact option.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.author: dsindona
 
 ---
 # Commercial marketplace transact capabilities
@@ -171,13 +169,13 @@ This section covers transact requirements for different offer types.
 - A Microsoft account and financial information are required for the transact publishing option, regardless of the offer's pricing model.
 - Mandatory financial information includes payout account and tax profile.
 
-For more information on setting up these accounts, see [Manage your commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account)).
+For more information on setting up these accounts, see [Manage your commercial marketplace account in Partner Center](partner-center-portal/manage-account.md).
 
 ### Requirements for specific offer types
 
 The transact publishing option is only available for use with the following marketplace offer types:
 
-- **Virtual machine** – Select from free, bring-your-own-license, or pay-as-you-go-pricing models and present as SKUs defined at the offer level. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
+- **Virtual machine** – Select from free, bring-your-own-license, or pay-as-you-go-pricing models and present as plans defined at the offer level. On the customer's Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
 
 - **Azure application: solution template or managed app** – Must provision one or more virtual machines and pulls through the sum of the virtual machine pricing. For managed apps on a single plan, a flat-rate monthly subscription can be selected as the pricing model instead the virtual machine pricing. In some cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement. However, if you configure a managed app offering for ISV infrastructure charges, the Azure resources are billed to the publisher, and the customer receives a flat fee that includes the cost of infrastructure, software licenses, and management services.
 

@@ -1,7 +1,5 @@
 - name: Live Video Analytics on IoT Edge (preview) documentation 
   href: index.yml
-- name: Switch to Azure Media Services v3 documentation
-  href: ../latest/index.yml
 - name: Overview
   items:
   - name: About Live Video Analytics on IoT Edge

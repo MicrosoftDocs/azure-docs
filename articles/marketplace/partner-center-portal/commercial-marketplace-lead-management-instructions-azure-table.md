@@ -1,12 +1,12 @@
 ---
 title: Lead management with Azure Table storage - Microsoft commercial marketplace
 description: Learn how to use Azure Table storage to configure leads for Microsoft AppSource and Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Use Azure Table storage to manage commercial marketplace leads
@@ -21,11 +21,11 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
     1. Select **+ Create a resource** in the left menu bar. The **New** pane appears to the right.
     1. Select **Storage** in the **New** pane. A **Featured** list appears to the right.
-    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+    1. Select **Storage account** to begin account creation. Follow the instructions in [Create a storage account](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
         ![Steps to create an Azure storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-create.png)
 
-        For more information about storage accounts, see [Quickstart tutorial](https://docs.microsoft.com/azure/storage/). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+        For more information about storage accounts, see [Quickstart tutorial](../../storage/index.yml). For more information about storage pricing, see [Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
 1. Wait until your storage account is provisioned. This process typically takes a few minutes. 
 
@@ -102,7 +102,7 @@ The example creates a flow that automatically sends an email notification when a
 
    After you select **Create**, the **Get entities** window appears. Here, select **Show advanced options**, and provide information for the following boxes:
 
-   * **Table**: Select the name of your table (from [Create a table](#create-a-table-in-your-storage-account)). The following image shows the prompt when "marketplaceleads" table is selected for this example.
+   * **Table**: Select the name of your table (from [Create a table](#create-a-table-in-your-storage-account)). The following image shows the prompt when `marketplaceleads` table is selected for this example.
 
      ![Get entities window](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 

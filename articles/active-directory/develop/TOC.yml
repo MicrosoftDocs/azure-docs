@@ -4,8 +4,6 @@
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
-  - name: Evolution of Microsoft identity platform
-    href: about-microsoft-identity-platform.md
 - name: Quickstarts
   expanded: true
   items:
@@ -345,8 +343,6 @@
           href: msal-js-use-ie-browser.md
         - name: Known issues - IE and Microsoft Edge
           href: msal-js-known-issues-ie-edge-browsers.md
-        - name: Known issues - Safari
-          href: msal-js-known-issues-safari-browser.md
         - name: Handle errors and exceptions
           href: msal-handling-exceptions.md?tabs=javascript
         - name: Logging

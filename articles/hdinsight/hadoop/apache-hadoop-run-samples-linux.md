@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/12/2019
 ---
@@ -102,10 +102,12 @@ The following samples are contained in this archive:
 
     This command concatenates all the output files produced by the job. It displays the output to the console. The output is similar to the following text:
 
-        zum     1
-        zur     1
-        zwanzig 1
-        zweite  1
+    ```output
+    zum     1
+    zur     1
+    zwanzig 1
+    zweite  1
+    ```
 
     Each line represents a word and how many times it occurred in the input data.
 
@@ -119,15 +121,17 @@ The following samples are contained in this archive:
 
 There is a certain way to construct Sudoku puzzles; you can't repeat a number in a column or row. There's an example on the HDInsight cluster that is properly constructed. It is located at `/usr/hdp/*/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples/src/main/java/org/apache/hadoop/examples/dancing/puzzle1.dta` and contains the following text:
 
-    8 5 ? 3 9 ? ? ? ?
-    ? ? 2 ? ? ? ? ? ?
-    ? ? 6 ? 1 ? ? ? 2
-    ? ? 4 ? ? 3 ? 5 9
-    ? ? 8 9 ? 1 4 ? ?
-    3 2 ? 4 ? ? 8 ? ?
-    9 ? ? ? 8 ? 5 ? ?
-    ? ? ? ? ? ? 2 ? ?
-    ? ? ? ? 4 5 ? 7 8
+```output
+8 5 ? 3 9 ? ? ? ?
+? ? 2 ? ? ? ? ? ?
+? ? 6 ? 1 ? ? ? 2
+? ? 4 ? ? 3 ? 5 9
+? ? 8 9 ? 1 4 ? ?
+3 2 ? 4 ? ? 8 ? ?
+9 ? ? ? 8 ? 5 ? ?
+? ? ? ? ? ? 2 ? ?
+? ? ? ? 4 5 ? 7 8
+```
 
 To run this example problem through the Sudoku example, use the following command:
 
@@ -137,15 +141,17 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 The results appear similar to the following text:
 
-    8 5 1 3 9 2 6 4 7
-    4 3 2 6 7 8 1 9 5
-    7 9 6 5 1 4 3 8 2
-    6 1 4 8 2 3 7 5 9
-    5 7 8 9 6 1 4 2 3
-    3 2 9 4 5 7 8 1 6
-    9 4 7 2 8 6 5 3 1
-    1 8 5 7 3 9 2 6 4
-    2 6 3 1 4 5 9 7 8
+```output
+8 5 1 3 9 2 6 4 7
+4 3 2 6 7 8 1 9 5
+7 9 6 5 1 4 3 8 2
+6 1 4 8 2 3 7 5 9
+5 7 8 9 6 1 4 2 3
+3 2 9 4 5 7 8 1 6
+9 4 7 2 8 6 5 3 1
+1 8 5 7 3 9 2 6 4
+2 6 3 1 4 5 9 7 8
+```
 
 ## Pi (π) example
 

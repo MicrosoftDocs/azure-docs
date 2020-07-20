@@ -54,7 +54,7 @@ deployed or updated determine which actions are taken.
     Policy assignments previously deployed are left in place.
   - If the policy assignment artifact is removed from the blueprint, deployed policy assignments are
     left in place.
-- Azure Resource Manager templates
+- Azure Resource Manager templates (ARM templates)
   - The template is processed through Resource Manager as a **PUT**. As each resource type handles
     this action differently, review the documentation for each included resource to determine the
     impact of this action when run by Blueprints.
@@ -63,16 +63,16 @@ deployed or updated determine which actions are taken.
 
 When updating assignments, it's possible to make changes that break when executed. An example is
 changing the location of a resource group after it has already been deployed. Any change that are
-supported by [Azure Resource Manager](../../../azure-resource-manager/management/overview.md)
-can be made, but any change that would result in an error through Azure Resource Manager will also
-result in the failure of the assignment.
+supported by [Resource Manager](../../../azure-resource-manager/management/overview.md) can be made,
+but any change that would result in an error through Resource Manager will also result in the
+failure of the assignment.
 
 There's no limit on how many times an assignment can be updated. If an error occurs, determine the
 error and make another update to the assignment.  Example error scenarios:
 
 - A bad parameter
 - An already existing object
-- A change not supported by Azure Resource Manager
+- A change not supported by Resource Manager
 
 ## Next steps
 

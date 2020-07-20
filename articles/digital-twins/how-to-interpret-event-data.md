@@ -126,6 +126,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
 ```json
 {
   "$dtId": "device-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "thermostat": {
     "temperature": 80,
     "humidity": 45,
@@ -158,6 +159,7 @@ Here is another example of a digital twin. This one is based on a [model](concep
 ```json
 {
   "$dtId": "logical-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
@@ -226,12 +228,11 @@ Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$relationshipId": "building_to_floor",
+    "$relationshipId": "device_to_device",
     "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
-    "$relationshipName": "Contains",
-    "$targetId": "floor11",
-    "ownershipUser": "user1",
-    "ownershipDepartment": "Operations"
+    "$relationshipName": "Connected",
+    "$targetId": "device2",
+    "connectionType": "WIFI"
 }
 ```
 
@@ -300,7 +301,7 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 See how to create endpoints and routes to deliver events:
-* [How-to: Manage endpoints and routes](how-to-manage-routes.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)
 
 Or, learn more about the Azure Digital Twins APIs and SDK options:
-* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)

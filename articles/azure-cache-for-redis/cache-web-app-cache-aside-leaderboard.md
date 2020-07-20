@@ -677,8 +677,8 @@ In this section, you will provision a new database in SQL Database for the app t
 
     | Placeholder | Suggested value |
     | --- | --- |
-    | *{your_username}* | Use the **server admin login** for the database server you just created. |
-    | *{your_password}* | Use the password for the database server you just created. |
+    | *{your_username}* | Use the **server admin login** for the server you just created. |
+    | *{your_password}* | Use the password for the server you just created. |
 
     By adding the username and password as an Application Setting, your username and password are not included in your code. This approach helps protect those credentials.
 

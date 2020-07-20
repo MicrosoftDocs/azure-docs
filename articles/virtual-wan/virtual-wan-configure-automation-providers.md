@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/29/2020
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---

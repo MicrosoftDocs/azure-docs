@@ -38,7 +38,7 @@ The following components make up the Twilio solution:
 
     ![twilio flow](media/partner-twilio/twilio-flow.png)
 
-|      |      |
+| Step | Description |
 |------|------|
 | 1     | The user initiates sign-in or sign-up to the PSD2 Demo app. The user is authenticated via the Azure AD B2C combined sign-in and sign-up policy. A token is returned to the application. At sign-up, the user's phone number is verified using SMS/Phone, and recorded on their Azure AD B2C account.     |
 | 2     | The user initiates a high risk transaction, such as a transfer of $50.00. The user's current access token is evaluated for the PolicyId to determine if the user has already authenticated via a Step-Up custom policy.     |

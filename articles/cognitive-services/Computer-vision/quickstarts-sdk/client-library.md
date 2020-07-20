@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/12/2020
+ms.date: 06/29/2020
 ms.author: pafarley
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-set-one
 
 # Quickstart: Use the Computer Vision client library
 
-Get started with the Computer Vision client library. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides you with access to advanced algorithms for processing images and returning information
+Get started with the Computer Vision client library. Follow these steps to install the package and try out the example code for basic tasks. Computer Vision provides you with access to advanced algorithms for processing images and returning information.
 
 Use the Computer Vision client library to:
 
