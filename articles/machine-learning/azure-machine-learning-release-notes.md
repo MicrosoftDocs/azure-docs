@@ -28,7 +28,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-automl-runtime**
     + When using AutoML, if a path is passed into the AutoMLConfig object and it does not already exist, it will be automatically created.
     + Users can now specify a time series frequency for forecasting tasks by using the `freq` parameter.
-    + AutoML Forecasting now supports rolling evaluation, which applies to the use case that the length of a test/validation set is longer than the input max_horizon and known y_pred value is used as forecasting context. This is mainly to evaluate the model accuracy without accumulating the forecasting errors by using forecasts as next-step forecasting context.
+    + AutoML Forecasting now supports rolling evaluation, which applies to the use case that the length of a test or validation set is longer than the input horizon, and known y_pred value is used as forecasting context.
   + **azureml-core**
     + Warning messages will be printed if no files were downloaded from the datastore in a run.
     + Added documentation for `skip_validation` to the `Datastore.register_azure_sql_database method`.
