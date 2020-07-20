@@ -1,13 +1,13 @@
 ---
-title: Overview | Microsoft Azure Maps
+title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: philmea
-ms.author: philmea
-ms.date: 01/15/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc, references_regions
 #Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
@@ -16,16 +16,17 @@ ms.custom: mvc, references_regions
 
 Azure Maps is a collection of geospatial services that use fresh mapping data to provide geographic context to web and mobile applications. Azure Maps provides:
 
-* REST APIs to render maps in multiple styles and in satellite imagery.''
+* REST APIs to render maps in multiple styles and in satellite imagery.
+* Indoor Map services to create and render maps based on private indoor map data.
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require traffic information.
-* Mobility service to request public transit logistics, plan routes in real time, and  request information for alternative modes of transportation.
+* Mobility service to request public transit logistics, plan routes in real time, and request information for alternative modes of transportation.
 * Time zone and geolocation services and converting a location to time zones.
-* Geofencing service and mapping data storage, with location information hosted in Azure. 
-* Location intelligence through geospatial analytics. 
+* Geofencing service and mapping data storage, with location information hosted in Azure.
+* Location intelligence through geospatial analytics.
 
-Additionally, Azure Maps services are available through the Web SDK or the Android SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions. 
+Additionally, Azure Maps services are available through the Web SDK or the Android SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions.
 
 You can sign up for a free [Azure Maps account](https://azure.microsoft.com/services/azure-maps/) and start developing.
 
@@ -57,6 +58,12 @@ Azure Maps consists of the following nine services that can provide geographic c
 
 Data is imperative for maps. Use Data Service to upload and store geospatial data for use with spatial operations or image composition.  Bringing customer data closer to the Azure Maps service will reduce latency, increase productivity, and create new scenarios in your applications. For details on this service, see the [Data Service API documentation](https://docs.microsoft.com/rest/api/maps/data).
 
+### Geolocation service
+
+Use the Geolocation service to preview the retrieved two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
+
+For more details on the Geolocation service in the REST API, read the [Azure Maps Geolocation API documentation](https://docs.microsoft.com/rest/api/maps/geolocation).
+
 ### Mobility service
 
 The Azure Maps Mobility service allows real-time trip planning. It returns the best possible route options and provides different kinds of travel modes. For metro (city) areas, these modes can include walking, biking, and public transit. You can request transit itinerary, line geometry, lists of stops, scheduled arrivals, real-time arrivals, and service alerts.
@@ -65,13 +72,13 @@ The service also allows searches for specific object types around a location. Us
 
 To learn more about the service, see the [Mobility API documentation](https://docs.microsoft.com/rest/api/maps/mobility).
 
-### Render service
+### Render service V2
 
-The Render service helps developers create web and mobile applications with mapping features. The service uses either high-quality raster graphic images, available in 19 zoom levels, or fully customizable vector format map images.
+The Render service V2 helps developers create web and mobile applications with mapping features. The service uses either high-quality raster graphic images, available in 19 zoom levels, or fully customizable vector format map images.
 
-![Example of a map from the Render service](media/about-azure-maps/intro_map.png)
+![Example of a map from the Render V2 service](media/about-azure-maps/intro_map.png)
 
-The Render service now offers preview APIs to allow developers to work with satellite imagery. For more details, read the [Render API documentation](https://docs.microsoft.com/rest/api/maps/render).
+The Render service V2 now offers preview APIs to allow developers to work with satellite imagery. For more details, read the [Render V2 API documentation](https://docs.microsoft.com/rest/api/maps/renderv2).
 
 ### Route service
 
@@ -79,11 +86,11 @@ The Route service contains robust geometry calculations for real-world infrastru
 
 ![Example of a map from the Route service](media/about-azure-maps/intro_route.png)
 
-The Route service offers a preview of advanced features, such as: 
+The Route service offers a preview of advanced features, such as:
 
 * Batch processing of multiple route requests.
 * Matrices of travel time and distance between a set of origins and destinations.
-* Finding routes or distances that users can travel based on time or fuel requirements. 
+* Finding routes or distances that users can travel based on time or fuel requirements.
 
 For details on the routing capabilities, read the [Route API documentation](https://docs.microsoft.com/rest/api/maps/route).
 
@@ -98,13 +105,13 @@ The Search service also provides advanced features such as:
 * Search along a route.
 * Search inside a wider area.
 * Batch a group of search requests.
-* Search for larger area instead of a location point. 
+* Search for larger area instead of a location point.
 
 APIs for batch and area search are currently in preview. For more details on the search capabilities, read the [Search API documentation](https://docs.microsoft.com/rest/api/maps/search).
 
 ### Spatial Operations service
 
-The Azure Maps Spatial Operations service takes location information. It quickly analyzes location information to help inform customers of ongoing events happening in time and space. It enables near real-time analysis and predictive modeling of events. 
+The Azure Maps Spatial Operations service quickly analyzes location information to help inform customers of ongoing events happening in time and space. It enables near real-time analysis and predictive modeling of events.
 
 The service enables customers to enhance their location intelligence with a library of common geospatial mathematical calculations. Common calculations include closest point, great circle distance, and buffers. To learn more about the service and the various features, read the [Spatial Operations API documentation](https://docs.microsoft.com/rest/api/maps/spatial).
 
@@ -149,11 +156,23 @@ The Traffic service is a suite of web services that developers can use for web o
 
 For more information, see the [Traffic API documentation](https://docs.microsoft.com/rest/api/maps/traffic).
 
-### IP to Location service
+### Weather service
 
-Use the IP to Location service to preview the retrieved two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
+The Weather service offers APIs that developers can use to retrieve weather information for a particular location. The information contains details such as observation date and time, brief description of the weather conditions, weather icon, precipitation indicator flags, and temperature. Additional details such as RealFeel™ Temperature and UV index are also returned. Also, Daily, Hourly,Minute , and Quarter Day forecast data are also available.
 
-For more details on the IP to Location service in the REST API, read the [Azure Maps Geolocation API documentation](https://docs.microsoft.com/rest/api/maps/geolocation).
+Developers can use the [Get Weather along route API](https://docs.microsoft.com/rest/api/maps/weather/getweatheralongroutepreview) to retrieve weather information along a particular route. In addition, the service supports the generation of weather notifications for waypoints that are affected by weather hazards such as flooding or or heavy rain.
+
+### Maps Creator Services
+
+Maps Creator services is a suite of web services that developers can use to create applications with map features based on indoor map data.
+
+Maps Creator provides three core services:
+
+* [Dataset service](https://docs.microsoft.com/rest/api/maps/dataset). Use the Dataset service to create a dataset from a converted Drawing package data. For information on Drawing package requirements, see Drawing package requirements.
+
+* [Tileset service](https://docs.microsoft.com/rest/api/maps/tileset). Use the Tileset service to create a vector-based representation of a dataset. Applications can use a tileset to present a visual tile-based view of the dataset.
+
+* [Feature State service](https://docs.microsoft.com/rest/api/maps/featurestate). Use the Feature State service to support dynamic map styling. Dynamic map styling allows applications to reflect real-time events on spaces provided by IoT systems.
 
 ## Programming model
 
@@ -193,7 +212,7 @@ Try a sample app that showcases Azure Maps:
 > [!div class="nextstepaction"]
 > [Quickstart: Create a web app](quick-demo-map-app.md)
 
-Stay up to date on Azure Maps: 
+Stay up to date on Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Azure Maps blog](https://azure.microsoft.com/blog/topics/azure-maps/)
