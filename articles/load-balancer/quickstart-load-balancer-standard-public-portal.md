@@ -34,7 +34,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 # [Option 1 (default): Create a load balancer (Standard SKU)](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
->Standard SKU load balancer is recommended for production workloads.  Refer to **[Azure Load Balancer SKUs](skus.md)** for more information.
+>Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -149,7 +149,7 @@ In this section, you:
 
 ## Virtual network and parameters
 
-In this section you'll replace the parameters in the steps with the information below:
+In this section, you'll replace the parameters in the steps with the information below:
 
 | Parameter                   | Value                |
 |-----------------------------|----------------------|
@@ -236,7 +236,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
 # [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
->Standard SKU load balancer is recommended for production workloads.  Refer to **[Azure Load Balancer SKUs](skus.md)** for more information.
+>Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. 
 
@@ -278,7 +278,7 @@ In this section, you configure:
 
 ## Virtual network and parameters
 
-In this section you'll replace the parameters in the steps with the information below:
+In this section, you'll replace the parameters in the steps with the information below:
 
 | Parameter                   | Value                |
 |-----------------------------|----------------------|
@@ -301,7 +301,7 @@ Create the backend address pool **myBackendPool** to include virtual machines fo
 
 2. Under **Settings**, select **Backend pools**, then select **Add**.
 
-3. In the **Add a backend pool** page, enter or select:
+3. In the **Add a backend pool** page, enter, or select:
     
     | Setting | Value |
     | ------- | ----- |
@@ -374,7 +374,7 @@ In this section, you:
 
 Public IP SKUs and load balancer SKUs must match. For basic load balancer, use VMs with basic IP addresses in the backend pool. 
 
-In this section, you'll create three VMs (**myVM1**, **myVM2** and **myVM3**) with a basic public IP address.  
+In this section, you'll create three VMs (**myVM1**, **myVM2**, and **myVM3**) with a basic public IP address.  
 
 The three VMs will be added to an availability set named **myAvailabilitySet**.
 
