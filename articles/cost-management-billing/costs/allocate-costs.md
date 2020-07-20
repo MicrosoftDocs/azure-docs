@@ -136,7 +136,7 @@ The limit is a preview limitation to ensure good cost allocation performance and
 
 Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
 
-# Next steps
+## Next steps
 
 - Create or update allocation rules using the [Cost allocation Rest API](https://go.microsoft.com/fwlink/?linkid=2135004)
 - Learn more about [How to optimize your cloud investment with Azure Cost Management](cost-mgt-best-practices.md)
