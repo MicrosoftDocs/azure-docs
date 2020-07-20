@@ -79,7 +79,7 @@
     - name: Problem resolution
       items:
       - name: 403 Forbidden
-      href: troubleshoot-error-403.md
+        href: troubleshoot-error-403.md
 - name: Reference
   items:
   - name: Digital Twins service limits
