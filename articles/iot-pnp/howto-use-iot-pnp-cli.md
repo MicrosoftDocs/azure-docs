@@ -1,13 +1,12 @@
 ---
 title: Use the Azure IoT extension for Azure CLI to interact with IoT Plug and Play Preview devices | Microsoft Docs
 description: Install the Azure IoT extension for Azure CLI and use it to interact with the IoT Plug and Play devices connected to my IoT hub.
-author: Philmea
-ms.author: philmea
-ms.date: 12/26/2019
+author: dominicbetts
+ms.author: dobett
+ms.date: 07/20/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
 
 # As a solution developer, I want to use the Azure IoT extension for the Azure CLI to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
 ---
@@ -32,7 +31,7 @@ This article shows you how to:
 
 ### Step 1 - Install the Azure CLI
 
-Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up the Azure CLI in your environment. To use all the commands below, your Azure CLI version must be version 2.0.73 or above. Use `az -–version` to validate.
+Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up the Azure CLI in your environment. For the best experience, your Azure CLI version should be version 2.9.1 or above. Use `az -–version` to validate.
 
 ### Step 2 - Install IoT extension
 
@@ -62,8 +61,6 @@ To use the Azure IoT extension for the Azure CLI, you need:
     ```azurecli
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
     ```
-
-- Some commands need the connection string for a company model repository. A model repository for your company is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md). A third party might share their model repository connection string with you to give you access to their interfaces and models.
 
 ### Interact with a device
 
@@ -106,7 +103,7 @@ az iot pnp twin invoke-command --cn getMaxMinReport -n {iothub_name} -d {device_
 Monitor all IoT Plug and Play digital twin events from a specific device and interface going to the **$Default** event hub consumer group:
 
 ```azurecli
-az iot hub monitor-events -n {iothub_name} -d {device_id}
+az iot hub monitor-events -n {iothub_name} -d {device_id} -i {interface_id}
 ```
 
 ## Next steps
