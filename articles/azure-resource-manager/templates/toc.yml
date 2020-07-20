@@ -10,6 +10,8 @@
     href: quickstart-create-templates-use-the-portal.md
   - name: Create templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
+  - name: Create & deploy template spec
+    href: quickstart-create-template-specs.md
   - name: Azure services
     items:
     - name: AI+Machine Learning
@@ -201,6 +203,12 @@
     - name: 3 - Create a pipeline
       displayName: Devop
       href: deployment-tutorial-pipeline.md
+  - name: Template Specs
+    items:
+    - name: Create with linked templates
+      href: template-specs-create-linked.md
+    - name: Deploy as linked template
+      href: template-spec-deploy-in-linked.md
   - name: Advanced templates
     items:
     - name: Use template reference
@@ -240,6 +248,8 @@
     href: template-best-practices.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
+  - name: Template Specs
+    href: template-specs.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
   - name: Deployment modes
