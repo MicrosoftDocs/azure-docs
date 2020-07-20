@@ -88,13 +88,13 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 - You can send a [cloud-to-device message](../iot-hub/iot-hub-devguide-messages-c2d.md) on the **Cloud-to-device messages** tab.
 - You can access the [module twin](../iot-hub/iot-hub-devguide-module-twins.md) information.
 
-### Plug and Play Components
+### IoT Plug and Play Components
 
-If the device is connected to hub using a ModelId, the tool will show the tab `IoT Plug and Play components` where users can see the ModelId.
+If the device is connected to the hub using a **Model ID**, the tool shows the **IoT Plug and Play components** tab `` where you can see the **Model ID**.
 
-If the ModelId is available in one of the configured sources - Public Repo or Local Folder, the list of components will be displayed. Selecting a component will show the properties, commands and telemetry available.
+If the **Model ID** is available in one of the configured sources - Public Repo or Local Folder, the list of components is displayed. Selecting a component shows the properties, commands, and telemetry available.
 
-On the **Component** page, you can view the non-writable properties , update writable properties, invoke commands and see the telemetry messages produced by this component,
+On the **Component** page, you can view the non-writable properties, update writable properties, invoke commands, and see the telemetry messages produced by this component.
 
 #### Properties
 

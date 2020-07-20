@@ -29,8 +29,6 @@
         href: quickstart-service-python.md
 - name: Tutorials
   items:
-  - name: Create an end-to-end solution
-    href: tutorial-build-solution.md
   - name: Connect a multiple component device (C#)
     href: tutorial-multiple-components-csharp.md
   - name: Connect a multiple component device (Java)
@@ -49,7 +47,7 @@
     href: concepts-developer-guide.md
   - name: Components
     href: concepts-components.md
-  - name: Message conventions
+  - name: The IoT Plug and Play Convention
     href: concepts-convention.md
   - name: Digital twins
     href: concepts-digital-twin.md
@@ -66,7 +64,9 @@
 - name: How-to guides
   items:
   - name: Install and use IoT explorer
-    href: howto-install-iot-explorer.md
+    href: howto-use-iot-explorer.md
+  - name: Install and use Azure IoT CLI extension
+    href: howto-use-iot-pnp-cli.md
   - name: Manage models in the repository
     href: howto-manage-models.md
 - name: Reference

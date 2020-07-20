@@ -69,7 +69,7 @@ git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
 
 ## Run the sample device
 
-The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *pnp_thermostat.py* file. This sample code implements aan IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
+The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *pnp_thermostat.py* file. This sample code implements an IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
 
 Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 
@@ -103,15 +103,19 @@ Now that you've seen the code, use the following command to run the sample:
 python pnp_thermostat.py
 ```
 
-The sample device sends telemetry messages every eight seconds to your IoT Hub.
+You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates:
 
-You see the following output, which indicates the device is sending telemetry data to the hub, and is now ready to receive commands and property updates.
-
-![Device confirmation messages](media/quickstart-connect-device-node/device-confirmation-node.png)
+```cmd/sh
+Connecting using Connection String HostName=<your hub name>.azure-devices.net;DeviceId=<your device id>;SharedAccessKey=<your device shared access key>
+Listening for command requests and property updates
+Press Q to quit
+Sending telemetry for temperature
+Sent message
+```
 
 Keep the sample running as you complete the next steps.
 
-## Use the Azure IoT explorer to validate the code
+## Use Azure IoT explorer to validate the code
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
