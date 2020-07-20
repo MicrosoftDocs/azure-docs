@@ -183,11 +183,12 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	d. In the **SAML SSO URL** textbox, paste **Login URL** value, which you have copied from the Azure portal.
 
 	e. In the **Signing Options**, select **Only Signed Assertions** from the dropdown.
-    e. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
 
-    f. In the **Security Certificate** textbox, paste **Certificate (Base64)** value, which you have obtained earlier.
+    f. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
+
+    g. In the **Security Certificate** textbox, paste **Certificate (Base64)** value, which you have obtained earlier.
   
-	g. Click **Save**.
+	h. Click **Save**.
 
 ## Create FreshDesk test user
 
