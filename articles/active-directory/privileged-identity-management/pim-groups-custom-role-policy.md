@@ -1,5 +1,5 @@
 ---
-title: Use custom roles forrole-assignable groups role-assignable groups in PIM - Azure AD | Microsoft Docs
+title: Use custom roles for role-assignable groups role-assignable groups in PIM - Azure AD | Microsoft Docs
 description: Learn how to use custom roles for Azure resources in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''

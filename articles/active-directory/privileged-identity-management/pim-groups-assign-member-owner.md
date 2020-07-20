@@ -34,7 +34,7 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Privileged access groups (Preview)**.
+1. Select **Privileged access (Preview)**.
 
 1. You can search for a group name and use the **Group type** to filter the list to select the group you want to manage.
 
@@ -74,7 +74,7 @@ Follow these steps to update or remove an existing role assignment.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Privileged access groups (Preview)**.
+1. Select **Privileged access (Preview)**.
 
 1. You can search for a group name and use the **Group type** to filter the list to select the group you want to manage.
 

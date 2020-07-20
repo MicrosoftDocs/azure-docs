@@ -7,11 +7,11 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/30/2020
+ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -19,53 +19,50 @@ ms.collection: M365-identity-device-management
 
 # Configure role-assignable groups settings in Privileged Identity Management
 
-When you configure Azure resource role settings, you define the default settings that are applied to Azure resource role assignments in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Use the following procedures to configure the approval workflow and specify who can approve or deny requests.
+When you configure privileged access group role settings, you define the default settings that are applied to privileged access role assignments in Privileged Identity Management (PIM) in Azure Active Directory (Azure AD). Use the following steps to configure the approval workflow and specify who can approve or deny requests.
 
 ## Open role settings
 
-Follow these steps to open the settings for an Azure resource role.
+Follow these steps to open the settings for an Azure privileged access group role.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user in the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) role.
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Select **Azure resources**.
+1. Select **Privileged access (Preview)**.
 
-1. Select the resource you want to manage, such as a subscription or management group.
+1. Select the group that you want to manage.
 
-    ![Azure resources page listing resources that can be managed](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Privileged access groups filtered by a group name](./media/pim-groups-role-settings/group-select.png)
 
-1. Select **Role settings**.
+1. Select **Settings**.
 
-    ![Role settings page listing Azure resource roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Settings page listing group settings for the selected group](./media/pim-groups-role-settings/group-settings-select-role.png)
 
-1. Select the role whose settings you want to configure.
+1. Select the Owner or Member role whose settings you want to view or change. You can view the current settings for the role in the **Role setting details** page.
 
-    ![Role setting details page listing several assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Role setting details page listing several assignment and activation settings](./media/pim-groups-role-settings/group-role-setting-details.png)
 
-1. Select **Edit** to open the **Role settings** pane. The first tab allows you to update the configuration for role activation in Privileged Identity Management.
+1. Select **Edit** to open the **Edit role setting** page. The **Activation** tab allows you to change the  role activation settings.
 
-    ![Edit role settings page with Activation tab open](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
+    ![Edit role settings page with Activation tab open](./media/pim-groups-role-settings/role-settings-activation-tab.png)
 
-1. Select the **Assignment** tab or the **Next: Assignment** button at the bottom of the page to open the assignment setting tab. These settings control role assignments made inside the Privileged Identity Management interface.
+1. Select the **Assignment** tab  to open the assignment settings tab. These settings control the Privileged Identity Management assignment settings for this role.
 
-    ![Role Assignment tab in role settings page](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+    ![Role Assignment tab in role settings page](./media/pim-groups-role-settings/role-settings-assignment-tab.png)
 
 1. Use the **Notification** tab or the **Next: Activation** button at the bottom of the page to get to the notification setting tab for this role. These settings control all the email notifications related to this role.
 
-    ![Role Notifications tab in role settings page](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
-
-    In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
-
-    - **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any additional recipients.  
-
-    - **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add additional email addresses as additional recipients. If you want to add more than one email address, separate them using a semicolon (;).
-
-    - **Send emails to both default recipients and additional recipients**<br>You can send emails to both default recipient and additional recipient by selecting the default recipient checkbox and adding email addresses for additional recipients.
-
-    - **Critical emails only**<br>For each type of email, you can select the checkbox to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the configured recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
+    ![Role Notifications tab in role settings page](./media/pim-groups-role-settings/role-settings-notification-tab.png)
 
 1. Select the **Update** button at any time to update the role settings.
+
+In the **Notifications** tab on the role settings page, Privileged Identity Management enables granular control over who receives notifications and which notifications they receive.
+
+- **Turning off an email**<br>You can turn off specific emails by clearing the default recipient check box and deleting any additional recipients.  
+- **Limit emails to specified email addresses**<br>You can turn off emails sent to default recipients by clearing the default recipient checkbox. You can then add additional email addresses as additional recipients. If you want to add more than one email address, separate them usia semicolon (;).
+- **Send emails to both default recipients and additional recipients**<br>You can send emails to both default recipient and additional recipient by selecting the default recipient checkbox and adding email addresses for additional recipients.
+- **Critical emails only**<br>For each type of email, you can select the checkbox to receive critical emails only. What this means is that Privileged Identity Management will continue to send emails to the configured recipients only when the email requires an immediate action. For example, emails asking users to extend their role assignment will not be triggered while an emails requiring admins to approve an extension request will be triggered.
 
 ## Assignment duration
 
@@ -122,7 +119,7 @@ If you want to require approval to activate a role, follow these steps.
 
 1. Select **Select approvers** to open the **Select a member or group** page.
 
-    ![Select a user or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Select a user or group pane to select approvers](./media/pim-groups-role-settings/resources-role-settings-select-approvers.png)
 
 1. Select at least one user or group and then click **Select**. You can add any combination of users and groups. You must select at least one approver. There are no default approvers.
 
@@ -132,5 +129,4 @@ If you want to require approval to activate a role, follow these steps.
 
 ## Next steps
 
-- [Assign Azure resource roles in Privileged Identity Management](pim-resource-roles-assign-roles.md)
-- [Configure security alerts for Azure resource roles in Privileged Identity Management](pim-resource-roles-configure-alerts.md)
+- [Assign privileged access group membership or ownership in PIM](pim-groups-assign-member-owner.md)

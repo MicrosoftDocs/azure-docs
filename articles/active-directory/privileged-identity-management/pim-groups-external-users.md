@@ -19,7 +19,9 @@ ms.collection: M365-identity-device-management
 
 # Invite guest users and assign role-assignable groups in Privileged Identity Management
 
-Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. When you combine B2B collaboration with Azure AD Privileged Identity Management (PIM), you can extend your compliance and governance requirements to guests. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests:
+This article describes how to invite a guest to your organization and manage their access to Azure resources using Privileged Identity Management (PIM).
+
+Azure Active Directory (Azure AD) guest users are part of the business-to-business (B2B) collaboration capabilities within Azure AD so that you can manage external guest users and vendors as guests in Azure AD. With Azure AD Privileged Identity Management (PIM), you can extend your compliance and governance requirements to guests. For example, you can use these Privileged Identity Management features for Azure identity tasks with guests:
 
 - Assign access to specific Azure resources
 - Enable just-in-time access
@@ -28,9 +30,7 @@ Azure Active Directory (Azure AD) guest users are part of the business-to-busine
 - Perform access reviews
 - Utilize alerts and audit logs
 
-This article describes how to invite a guest to your organization and manage their access to Azure resources using Privileged Identity Management.
-
-## When would you invite guests?
+## When to invite guests
 
 Here are a couple examples of when you might invite guests to your organization:
 
@@ -38,7 +38,7 @@ Here are a couple examples of when you might invite guests to your organization:
 - Allow an external partner in a large organization that uses on-premises Active Directory Federation Services to access your expense application.
 - Allow support engineers not in your organization (such as Microsoft support) to temporarily access your Azure resource to troubleshoot issues.
 
-## How does collaboration using B2B guests work?
+## How does collaboration using guests work?
 
 When you use B2B collaboration, you can invite an external user to your organization as a guest. The guest can be managed as a user in your organization, but a guest has to be authenticated in their home organization and not in your Azure AD organization. This means that if the guest no longer has access to their home organization, they also lose access to your organization. For example, if the guest leaves their organization, they automatically lose access to any resources you shared with them in Azure AD without you having to do anything. For more information about B2B collaboration, see [What is guest user access in Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
