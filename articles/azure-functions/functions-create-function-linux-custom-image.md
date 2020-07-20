@@ -153,10 +153,10 @@ Use **Ctrl**-**C** to stop the host.
 
 ## Build the container image and test locally
 
-(Optional) Examine the *Dockerfile" in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+(Optional) Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux.  The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 ::: zone pivot="programming-language-java"  
-If you are running on Java 11 (preview), you must change the `JAVA_VERSION` build argument in the generated Dockerfile to the following: 
+If you are running on Java 11 (preview), change the `JAVA_VERSION` build argument in the generated Dockerfile to the following: 
 
 ```docker
 ARG JAVA_VERSION=11
