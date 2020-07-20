@@ -81,5 +81,4 @@ This high-level diagram shows the architecture of the sample provided to get you
 
 ## Next steps
 
-* [Build video-on-demand cross region streaming](media-services-high-availability-streaming.md)
 * Check out [code samples](/samples/browse/?products=azure-media-services)

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/media-services/latest/media-services-high-availability-streaming.md",
+      "redirect_url": "articles/media-services/latest/media-services-high-availability-encoding.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
       "redirect_document_id": false
