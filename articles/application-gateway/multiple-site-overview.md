@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 Multiple site hosting enables you to configure more than one web application on the same port of an application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
 
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener-(preview)).
+You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener-preview).
 
 :::image type="content" source="./media/multiple-site-overview/multisite.png" alt-text="Multi-site Application Gateway":::
 
