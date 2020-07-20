@@ -40,7 +40,7 @@ Once the dependencies have been imported, the Java applications can be written i
 
 ### Connecting to Azure Service Bus using JMS
 
-To connect with Azure Service Bus using JMS clients, you need the **ConnectionString** that is available in the 'Shared Access Policies' in the [Azure portal](https://portal.azure.com) under **Primary Connection String**.
+To connect with Azure Service Bus using JMS clients, you need the **connection string** that is available in the 'Shared Access Policies' in the [Azure portal](https://portal.azure.com) under **Primary Connection String**.
 
 1. Instantiate the `ServiceBusJmsConnectionFactorySettings`
 

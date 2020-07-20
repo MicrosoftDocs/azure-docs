@@ -7,7 +7,7 @@
   - name: Compare messaging services
     href: ../event-grid/compare-messaging-services.md
     maintainContext: true
-  - name: Use Service Bus with Java Message Service (JMS) 2.0
+  - name: Use Service Bus with Java Message Service (JMS) 2.0 (preview)
     href: service-bus-java-how-to-use-jms-20.md
 - name: Quickstarts
   items:
