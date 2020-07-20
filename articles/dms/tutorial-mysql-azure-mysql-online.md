@@ -137,7 +137,8 @@ SET group_concat_max_len = 8192;
 Run the drop foreign key (which is the second column) in the query result to drop foreign key.
 
 > [!NOTE]
-> The **CASCADE** [referential action](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table is not supported in Azure DMS. Azure DMS requires the foreign key constraints to be dropped in the target DB server during the initial data load and referential actions cannot be used. If your workload depends on updating a related child table via this referential action, we recommend performing a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore/) instead. 
+> Azure DMS does not support the CASCADE referential action, which helps to automatically delete or update a matching row in the child table when a row is deleted or updated in the parent table. For more information, in the MySQL documentation, see the Referential Actions section of the article [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html).
+> Azure DMS requires that you drop foreign key constraints in the target database server during the initial data load, and you cannot use referential actions. If your workload depends on updating a related child table via this referential action, we recommend that you perform a [dump and restore](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) instead. 
 
 
 > [!IMPORTANT]
