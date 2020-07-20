@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a solution developer, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
+# As a solution builder, I want to connect to and interact with an IoT Plug and Play device that's connected to my solution. For example, to collect telemetry from the device or to control the behavior of the device.
 ---
 
 # Quickstart: Interact with an IoT Plug and Play Preview device that's connected to your solution (Node.js)

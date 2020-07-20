@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device developer, I want to understand difference between DTDL models that use components and models that don't use components.
+# As a device builder, I want to understand difference between DTDL models that use components and models that don't use components.
 ---
 
 # IoT Plug and Play components in models

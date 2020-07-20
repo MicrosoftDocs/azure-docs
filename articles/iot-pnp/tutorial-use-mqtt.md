@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device developer, I want to see how I can use the MQTT protocol to create an IoT Plug and Play Preview device client without using the Azure IoT Device SDKs.
+# As a device builder, I want to see how I can use the MQTT protocol to create an IoT Plug and Play Preview device client without using the Azure IoT Device SDKs.
 ---
 
 # Use MQTT to develop an IoT Plug and Play Preview device client

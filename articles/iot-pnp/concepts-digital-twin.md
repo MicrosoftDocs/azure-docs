@@ -14,9 +14,9 @@ services: iot-pnp
 An IoT Plug and Play device implements a model described by [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular twin can have. When an IoT Plug and Play device connects to IoT Hub for the first time, an initial device twin and digital twin are populated.
 
 Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
-Both device and solution developers can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
+Both device and solution builders can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
 
-Solution developers can also use high level constructs such as components, properties, and commands using the Digital Twin APIs.
+Solution builders can also use high level constructs such as components, properties, and commands using the Digital Twin APIs.
 
 This article describes how components and properties are represented in the desired and reported sections of a device twin. It also describes how these concepts are mapped in the corresponding digital twin.
 

@@ -11,7 +11,7 @@ services: iot-pnp
 
 # IoT Plug and Play Preview developer guide
 
-IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
+IoT Plug and Play Preview lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
 This guide describes the basic steps required to create a device that follows the [IoT Plug and Play convention](concepts-convention.md), and the available REST APIs you can use to interact with the device.
 
@@ -52,7 +52,7 @@ The model ID announcement has been added to the next versions of the SDKs
 
 ## Implement telemetry, properties, and commands
 
-As described in [Understand components in IoT Plug and Play models](concepts-components.md), device developers must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
+As described in [Understand components in IoT Plug and Play models](concepts-components.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
 
 ### Telemetry
 

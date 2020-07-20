@@ -59,13 +59,13 @@ A connection string encapsulates the information required to connect to an endpo
 
 A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the set of [interfaces](#interface) implemented by the device. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language](#digital-twins-definition-language) to define a device model.
 
-## Device developer
+## Device builder
 
-A device developer uses a [device model](#device-model), [interfaces](#interface), and an [Azure IoT device SDK](#azure-iot-device-sdk) to implement code to run on an [IoT Plug and Play device](#iot-plug-and-play-device).
+A device builder uses a [device model](#device-model), [interfaces](#interface), and an [Azure IoT device SDK](#azure-iot-device-sdk) to implement code to run on an [IoT Plug and Play device](#iot-plug-and-play-device).
 
 ## Device modeling
 
-A [device developer](#device-developer) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using the model repository. A [solution developer](#solution-developer) can configure an IoT solution from the model.
+A [device builder](#device-builder) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using the model repository. A [solution builder](#solution-builder) can configure an IoT solution from the model.
 
 ## Device Provisioning Service
 
@@ -131,9 +131,9 @@ The Scope ID scope uniquely identifies a [Device Provisioning Service](#device-p
 
 Shared access signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. Shared access signature authentication has two components: a shared access policy and a shared access signature (often called a token). An [IoT Plug and Play device](#iot-plug-and-play-device) uses a shared access signature to authenticate with an [IoT hub](#azure-iot-hub).
 
-## Solution developer
+## Solution builder
 
-A solution developer creates the solution back end. A solution developer typically works with Azure resources such as [IoT Hub](#azure-iot-hub) and  [model repositories](#model-repository).
+A solution builder creates the solution back end. A solution builder typically works with Azure resources such as [IoT Hub](#azure-iot-hub) and [model repositories](#model-repository).
 
 ## Telemetry
 

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a solution developer, I want to use the Azure IoT extension for the Azure CLI to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
+# As a solution builder, I want to use the Azure IoT extension for the Azure CLI to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
 ---
 
 # Install and use the Azure IoT extension for the Azure CLI

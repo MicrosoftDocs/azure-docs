@@ -12,7 +12,7 @@ ms.author: v-jambra
 
 # Manage models in the model repository
 
-The Azure IoT Model Repository stores the models defined using [DTDLv2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) language specification. The model repository makes the models discoverable and consumable by device and solution developers.
+The Azure IoT Model Repository stores the models defined using [DTDLv2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) language specification. The model repository makes the models discoverable and consumable by device and solution builders.
 
 You can use the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo), the [Azure CLI model repository commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest), or the [Model repository REST API](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodel/getmodel) to manage models in the repository.  
 
