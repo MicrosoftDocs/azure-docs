@@ -73,7 +73,7 @@ After you've registered your application, you'll see the **Application (client) 
 
 ![Application ID of the registered application](./media/authenticate-application/application-id.png)
 
-For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 
 ### Create a client secret   
@@ -114,4 +114,3 @@ See the following related articles:
 - [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
 - [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
 - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
-
