@@ -69,7 +69,7 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/deploy-adf-arm-template.png" alt-text="Deploy ADF ARM template":::
 
-    Unless it is specified, use the default values to create the Azure Data Factory resources.
+    Unless it's specified, use the default values to create the Azure Data Factory resources.
 
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Select **Create new**, enter a unique name for the resource group, and then select **OK**.
@@ -90,7 +90,7 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-sample-data-factory.png" alt-text="Sample Data Factory":::
 
-2. Verify your storage account is craeted.
+2. Verify your storage account is created.
     1. The storage account name is in the format - storage\<uniqueid\>.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-storage-account.png" alt-text="Storage Account":::
@@ -119,7 +119,7 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
 Keep the container page open, because you can use it to verify the output at the end of this quickstart.
 
-### Initiate Trigger
+### Start Trigger
 
 1. Navigate to the **Data factories** page, and select the data factory you created. 
 
@@ -143,7 +143,7 @@ Keep the container page open, because you can use it to verify the output at the
 
 1. Select the **Monitor** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/adf-monitor.png" border="false":::.
 
-2. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. Therefore, you see a run for that activity.
+2. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. As such, you see a run for that activity.
 
     :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-successful-run.png" alt-text="Successful run":::
 
