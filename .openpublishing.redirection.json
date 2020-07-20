@@ -4579,9 +4579,25 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-subscription-move-fix.md",
-      "redirect_url": "/azure/key-vault/general/subscription-move-fix",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/keyvault-move-subscription.md",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveregion.md",
+      "redirect_url": "/azure/key-vault/general/move-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveresourcegroup.md",
+      "redirect_url": "/azure/key-vault/general/move-resourcegroup",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/key-vault/managed-identity.md",
       "redirect_url": "/azure/key-vault/general/managed-identity",
