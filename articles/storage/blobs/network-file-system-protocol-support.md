@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/20/2020
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
@@ -49,7 +49,7 @@ To learn more, see [Network security recommendations for Blob storage](security-
 
 ## Supported network connections
 
-A client connect over a public or a [private endpoint](../common/storage-private-endpoints.md), and can connect from any of the following network locations:
+A client can connect over a public or a [private endpoint](../common/storage-private-endpoints.md), and can connect from any of the following network locations:
 
 - The VNet that you configure for your storage account. 
   
@@ -80,8 +80,6 @@ The following Azure Storage features aren't supported when you enable the NFS 3.
   > [!IMPORTANT]
   > Once you've enabled the NFS 3.0 protocol for your storage account, you can only use the NFS 3.0 protocol to access directories and files in the storage account. 
 
-  
-
 ## NFS 3.0 features not yet supported
 
 The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage Gen2.
@@ -96,11 +94,7 @@ The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage
 
 - Listing exports (For example: by using the command `showmount -e`)
 
-- Post-operation attributes
-
-- Weak Cache Consistency
-
-- Mounting a container as read-only
+- Exporting a container as read-only
 
 ## Pricing
 
