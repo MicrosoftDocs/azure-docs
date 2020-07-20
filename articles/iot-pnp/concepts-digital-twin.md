@@ -113,6 +113,7 @@ The following snippet shows the digital twin formatted as a JSON object:
             "desiredVersion": 2,
             "ackVersion": 1,
             "ackCode": 200,
+            "ackDescription": "Successfully executed patch",
             "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
         }
     }
@@ -159,6 +160,7 @@ The following snippets show the side-by-side JSON representation of the `serialN
                   "desiredVersion": 2,
                   "ackVersion": 1,
                   "ackCode": 200,
+                  "ackDescription": "Successfully executed patch",
                   "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
               }
           }
@@ -341,7 +343,7 @@ content-encoding:utf-8
 
 Now that you've learned about digital twins, here are some additional resources:
 
-- [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL)
+- [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL)
 - [Node service SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
 - [Azure IoT explorer](./howto-install-iot-explorer.md)

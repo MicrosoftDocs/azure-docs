@@ -13,7 +13,7 @@ services: iot-pnp
 
 # IoT Plug and Play components in models
 
-In the IoT Plug and Play convention, a device is an IoT Plug and Play device if it presents its digital twins definition language (DTDL) model ID when it connects to an IoT hub.
+In the IoT Plug and Play conventions, a device is an IoT Plug and Play device if it presents its digital twins definition language (DTDL) model ID when it connects to an IoT hub.
 
 The following snippet shows some example model IDs:
 
@@ -24,9 +24,9 @@ The following snippet shows some example model IDs:
 
 ## No components
 
-A simple, or component-less, model doesn't have embedded or cascaded components. It includes header information and a contents section to define telemetry, properties, and commands.
+A simple model doesn't use embedded or cascaded components. It includes header information and a contents section to define telemetry, properties, and commands.
 
-The following example shows part of a simple, component-less model:
+The following example shows part of a simple model that doesn't use components:
 
 ```json
 {
@@ -53,7 +53,7 @@ The following example shows part of a simple, component-less model:
 ...
 ```
 
-Although the model doesn't explicitly define a component, it behaves as if there is a single, default component with all the telemetry, property, and command definitions.
+Although the model doesn't explicitly define a component, it behaves as if there is a single component with all the telemetry, property, and command definitions.
 
 The following screenshot shows how the model displays in the Azure IoT explorer tool:
 
@@ -108,5 +108,5 @@ This model has three components defined in the contents section -  two `Thermost
 
 Now that you've learned about model components, here are some additional resources:
 
-- [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL)
+- [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL)
 - [Model repositories](./concepts-model-repository.md)

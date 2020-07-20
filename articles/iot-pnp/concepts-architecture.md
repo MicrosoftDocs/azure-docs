@@ -15,7 +15,7 @@ manager: philmea
 
 IoT Plug and Play Preview enables solution builders to integrate smart devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that describes a device's capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of interfaces that define:
 
-- _Properties_ that represent the read-only and read/write state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a read/write property.
+- _Properties_ that represent the read-only or writeable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writeable property.
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
 - _Commands_ that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
 
