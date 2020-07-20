@@ -69,7 +69,7 @@ git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
 
 ## Run the sample device
 
-The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *pnp_thermostat.py* file. This sample code implements aan IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
+The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. This quickstart uses the *pnp_thermostat.py* file. This sample code implements an IoT Plug and Play compatible device and uses the Azure IoT Python Device Client Library.
 
 Create an environment variable called **IOTHUB_DEVICE_CONNECTION_STRING** to store the device connection string you made a note of previously.
 

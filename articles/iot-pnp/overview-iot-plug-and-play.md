@@ -9,6 +9,7 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
+ms.custom: references_regions
 
 # As a device builder, I need to know what is PnP, so I can understand how it can help me build and market my IoT devices.
 ---
