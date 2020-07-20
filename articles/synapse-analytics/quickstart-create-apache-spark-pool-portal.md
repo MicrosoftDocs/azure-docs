@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an Apache Spark pool (preview) using the Azure portal'
+title: 'Quickstart: Create an Apache Spark pool using the Azure portal'
 description: Create a new Apache Spark pool using the Azure portal by following the steps in this guide. 
 services: synapse-analytics 
 author: julieMSFT 
@@ -11,7 +11,7 @@ ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Quickstart: Create a new Apache Spark pool (preview) using the Azure portal
+# Quickstart: Create a new Apache Spark pool using the Azure portal
 
 Azure Synapse Analytics offers various analytics engines to help you ingest, transform, model, analyze, and distribute your data. An Apache Spark pool provides open-source big data compute capabilities. After you've created an Apache Spark pool in your Synapse workspace, data can be loaded, modeled, processed, and distributed for faster analytic insight.
 

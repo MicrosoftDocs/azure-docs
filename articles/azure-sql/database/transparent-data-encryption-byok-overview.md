@@ -56,7 +56,7 @@ For server to be able to use TDE protector stored in AKV for encryption of the D
 
 - **unwrapKey** - to be able to unprotect (decrypt) DEK
 
-Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
+Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
 When server is configured to use a TDE protector from AKV, the server sends the DEK of each TDE-enabled database to the key vault for encryption. Key vault returns the encrypted DEK, which is then stored in the user database.
 
