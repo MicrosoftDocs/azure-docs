@@ -64,6 +64,20 @@ As in standard Cloud Shell, a storage account is required while using Cloud Shel
 
 * [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) is not a free service, please view their [pricing](https://azure.microsoft.com/pricing/details/service-bus/). In the Cloud Shell scenario, one hybrid connection is used for each administrator while they are using Cloud Shell. The connection will automatically be shut down after the Cloud Shell session is complete.
 
+## Register the resource provider
+
+The Microsoft.ContainerInstances resource provider needs to be registered in the subscription that holds the virtual network you want to use. Select the appropriate subscription with `Set-AzContext -Subscription {subscriptionName}`, and then run:
+
+```powershell
+PS> Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance | select ResourceTypes,RegistrationState
+
+ResourceTypes                             RegistrationState
+-------------                             -----------------
+{containerGroups}                         Registered
+...
+```
+
+If **RegistrationState** is `Registered`, no action is required. If it is `NotRegistered`, run `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`. 
 
 ## Deploy network resources
  
@@ -79,7 +93,7 @@ In the Azure portal, or using Azure CLI, Azure PowerShell, etc. create a resourc
 Utilize the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template) for creating Cloud Shell resources in a virtual network, and the [Azure Quickstart Template](https://aka.ms/cloudshell/docs/vnet/template/storage) for creating necessary storage. Take note of your resource names, primarily your file share name.
 
 ### Open relay firewall
-Navigate to the relay created using the above template, select "Networking" in settings, allow access from your browser network to the relay.
+Navigate to the relay created using the above template, select "Networking" in settings, allow access from your browser network to the relay. By default the relay is only accessible from the virtual network it has been created in. 
 
 ### Configuring Cloud Shell to use a virtual network.
 > [!NOTE]
@@ -94,7 +108,6 @@ Connect to Cloud Shell, you will be prompted with the first run experience. Sele
 
 
 ![Illustrates the Cloud Shell isolated VNET first experience settings.](media/private-vnet/vnet-settings.png)
-
 
 ## Next steps
 [Learn about Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)

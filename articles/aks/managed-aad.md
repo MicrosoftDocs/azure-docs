@@ -4,7 +4,7 @@ description: Learn how to use Azure AD in Azure Kubernetes Service (AKS)
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/20/2020
 ms.author: thomasge
 ---
 
@@ -136,7 +136,7 @@ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster 
 
 ## Upgrading to AKS-managed Azure AD Integration
 
-If your cluster uses legacy Azure AD integration or is RBAC enabled cluster only, you can upgrade to AKS-managed Azure AD Integration.
+If your cluster uses legacy Azure AD integration, you can upgrade to AKS-managed Azure AD Integration.
 
 ```azurecli-interactive
 az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
