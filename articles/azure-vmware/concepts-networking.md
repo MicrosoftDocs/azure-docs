@@ -11,8 +11,9 @@ Network interconnectivity between your Azure VMware Solution (AVS) private cloud
 
 A useful perspective on interconnectivity is to consider the two types of AVS private cloud implementations:
 
-1. **Basic Azure-only interconnectivity**, described in [Azure virtual network connectivity](#azure-virtual-network-interconnectivity), lets you manage and use your private cloud with only a single virtual network in Azure. This implementation is best suited for AVS evaluations or implementations that don't require access from on-premises environments.
-1. **Full on-premises to private cloud interconnectivity**, described in [On-premises connectivity](#on-premises-interconnectivity), extends the basic Azure-only implementation to include interconnectivity between on-premises and AVS private clouds.
+1. [**Basic Azure-only interconnectivity**](#azure-virtual-network-interconnectivity) lets you manage and use your private cloud with only a single virtual network in Azure. This implementation is best suited for AVS evaluations or implementations that don't require access from on-premises environments.
+
+1. [**Full on-premises to private cloud interconnectivity**](#on-premises-interconnectivity) extends the basic Azure-only implementation to include interconnectivity between on-premises and AVS private clouds.
  
 You can find more information about the requirements and the two types of AVS private cloud interconnectivity implementations described in the sections below.
 
@@ -20,19 +21,19 @@ You can find more information about the requirements and the two types of AVS pr
 
 The use cases for AVS private clouds include:
 - new VMware VM workloads in the cloud
-- VM workload bursting to the cloud
-- VM workload migration to the cloud
-- disaster recovery
+- VM workload bursting to the cloud (on-premises to AVS only)
+- VM workload migration to the cloud (on-premises to AVS only)
+- disaster recovery (AVS to AVS or on-premises to AVS)
 - consumption of Azure services
 
  All use cases for the AVS service are enabled with on-premises to private cloud connectivity. 
 
 ## Virtual network and ExpressRoute circuit requirements
  
-When you create a connection from a virtual network in your subscription, the ExpressRoute circuit gets established through peering, uses an authorization key and a circuit ID  that you request in the Azure portal. The peering is a private, one-to-one connection between your private cloud and the virtual network.
+When you create a connection from a virtual network in your subscription, the ExpressRoute circuit gets established through peering, uses an authorization key and a peering ID  that you request in the Azure portal. The peering is a private, one-to-one connection between your private cloud and the virtual network.
 
 > [!NOTE] 
-> The ExpressRoute circuit is in your subscription but is not part of a private cloud deployment. The on-premises ExpressRoute circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, you can use one of your existing ExpressRoute circuits or purchase one in the Azure portal.
+> The ExpressRoute circuit is not part of a private cloud deployment. The on-premises ExpressRoute circuit is beyond the scope of this document. If you require on-premises connectivity to your private cloud, you can use one of your existing ExpressRoute circuits or purchase one in the Azure portal.
 
 When deploying a private cloud, you receive IP addresses for vCenter and NSX-T Manager. To access those management interfaces, you'll need to create additional resources in a virtual network in your subscription. You can find the procedures for creating those resources and establishing ExpressRoute private peering in the tutorials.
 
