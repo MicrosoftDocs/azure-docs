@@ -31,7 +31,7 @@ box.  Choose which destination(s) should receive the logs.
 
 ![Choose PostgreSQL logs](media/howto-hyperscale-logging/diagnostic-create-setting.png)
 
-## Next steps
+### Next steps
 
 - [Get started with log analytics queries](/azure/azure-monitor/log-query/get-started-portal)
 - Learn about [Azure event hubs](/azure/event-hubs/event-hubs-about)
