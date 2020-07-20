@@ -217,7 +217,7 @@ msal-spa-tutorial/
 
     function showWelcomeMessage(account) {
         // Reconfiguring DOM elements
-        cardDiv.classList.remove('d-none');
+        cardDiv.style.display = 'initial';
         welcomeDiv.innerHTML = `Welcome ${account.username}`;
         signInButton.setAttribute("onclick", "signOut();");
         signInButton.setAttribute('class', "btn btn-success")
