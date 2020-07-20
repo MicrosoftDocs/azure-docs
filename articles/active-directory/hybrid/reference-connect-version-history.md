@@ -43,10 +43,10 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >
 >Please refer to [this article](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) to learn more about how to upgrade Azure AD Connect to the latest version.
 
-## 1.5.39.0
+## 1.5.42.0
 
 ### Release status
-07/08/2020: Released for download
+07/10/2020: Released for download
 
 ### Functional changes
 This release includes a public preview of the functionality to export the configuration of an existing Azure AD Connect server into a .JSON file which can then be used when installing a new Azure AD Connect server to create a copy of the original server.

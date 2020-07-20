@@ -1,5 +1,5 @@
 ---
-title: Customize RDP Properties with PowerShell - Azure
+title: Customize RDP properties with PowerShell Spring 2020 - Azure
 description: How to customize RDP Properties for Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
@@ -10,7 +10,7 @@ ms.date: 06/19/2020
 ms.author: helohr
 manager: lizross
 ---
-# Customize Remote Desktop Protocol properties for a host pool
+# Customize Remote Desktop Protocol (RDP) properties for a host pool
 
 >[!IMPORTANT]
 >This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
@@ -127,7 +127,7 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next how-to guides will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10.md)
 - [Connect with the web client](connect-web.md)
 - [Connect with the Android client](connect-android.md)
 - [Connect with the macOS client](connect-macos.md)

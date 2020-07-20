@@ -72,18 +72,26 @@
       href: how-to-manage-routes.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
+  - name: Troubleshoot
+    items:
+    - name: Known issues
+      href: troubleshoot-known-issues.md
 - name: Reference
   items:
   - name: Digital Twins service limits
     href: reference-service-limits.md
   - name: APIs and SDKs
     items:
+      - name: REST API reference
+        href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
       - name: Control plane
         items:
         - name: Swagger
           href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1
+        - name: .NET (C#) SDK - reference
+          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview  
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
         - name: Java SDK
@@ -104,8 +112,6 @@
           href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins
       - name: Data plane
         items:
-        - name: REST API reference
-          href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
         - name: Swagger
           href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins
         - name: .NET (C#) SDK - NuGet

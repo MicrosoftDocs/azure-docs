@@ -35,7 +35,7 @@ This video provides an overview of Spatial IO module in the Azure Maps Web SDK.
 
 ## Prerequisites
 
-Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) and [get the primary subscription key for your account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Before you can use the Spatial IO module, you'll need to [make an Azure Maps account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) and [get the primary subscription key for your account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
 ## Installing the Spatial IO module
 

@@ -22,9 +22,8 @@ Always run a security vulnerability detection on your image prior to submitting.
 
 ## Open Source-based Images
 
-|||
-|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Category**                                                 | **Check**                                                                                                                                                                                                                                                                              |
+| Category | Check |
+| -------- | ----- |
 | Security                                                     | Install all the latest security patches for the Linux distribution.                                                                                                                                                                                                              |
 | Security                                                     | Follow industry guidelines to secure the VM image for the specific Linux distribution.                                                                                                                                                                                     |
 | Security                                                     | Limit the attack surface by keeping minimal footprint with only necessary Windows Server roles, features, services, and networking ports.                                                                                                                                               |
@@ -45,9 +44,8 @@ Always run a security vulnerability detection on your image prior to submitting.
 
 ## Windows Server-based Images
 
-|||
-|-------------| -------------------------|
-| **Category**                                                     | **Check**                                                                                                                                                                |
+| Category | Check |
+|--------- | ----- |
 | Security                                                         | Use a secure OS base image. The VHD used for the source of any image based on Windows Server must be from the Windows Server OS images provided through Microsoft Azure. |
 | Security                                                         | Install all latest security updates.                                                                                                                                     |
 | Security                                                         | Applications should not depend on restricted user names like administrator, root, or admin.                                                                |

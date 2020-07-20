@@ -53,6 +53,9 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 
 ## Common backup or restore errors
 
+>[!NOTE]
+>Refer to [this document](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) to ensure you have sufficient permissions for performing backup or restore operations.
+
 ### FileShareNotFound- Operation failed as the file share is not found
 
 Error Code: FileShareNotFound
@@ -308,7 +311,7 @@ Error Code: UserErrorBackupAFSInDeleteState
 
 Error Message: Backup failed as the associated Azure File Share is permanently deleted
 
-Check if the backed-up file share is permanently deleted. If yes, stop the backup for the file share to avoid repeated backup failures. To learn how to stop protection see [Stop Protection for Azure file share](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
+Check if the backed-up file share is permanently deleted. If yes, stop the backup for the file share to avoid repeated backup failures. To learn how to stop protection see [Stop Protection for Azure file share](./manage-afs-backup.md#stop-protection-on-a-file-share)
 
 ## Next steps
 
