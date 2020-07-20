@@ -254,7 +254,7 @@ Before you start this task, find and put these values aside for later use:
 
 * The directory ID for your tenant in Azure Active Directory (Azure AD)
 
-  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](/powershell/module/servicemanagement/azure/get-azureaccount) Powershell command. Or, in the Azure portal, follow these steps:
+  To get your tenant's directory ID, you can run the [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) Powershell command. Or, in the Azure portal, follow these steps:
 
   1. In the [Azure portal](https://portal.azure.com), find and select your function app.
 
