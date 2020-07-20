@@ -94,7 +94,6 @@ You can use Azure Machine Learning Compute to distribute the training process ac
 
 Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](/how-to-manage-quotas.md).
 
-You may also choose to use low-priority VMs to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed.  Low-priority VMs have discounted rates compared to normal VMs, see [Plan and manage costs](concept-plan-manage-cost.md).
 
 > [!TIP]
 > Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication. 
@@ -114,8 +113,13 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
     ) for details.
 
     Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
+
+    <a id="low-pri-vm"></a> 
+    **Lower your cost**
+
+    You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
     
-    <a id="low-pri-vm"></a>Use any of these ways to specify a low-priority VM.
+    Use any of these ways to specify a low-priority VM:
         
     * In the studio, choose **Low Priority** when you create a VM.
         
