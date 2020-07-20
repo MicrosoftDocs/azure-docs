@@ -16,7 +16,7 @@ This article covers troubleshooting steps for Live Video Analytics (LVA) on Azur
 
 ### Diagnostics
 
-As part of your Live Video Analytics deployment, you set up Azure resources such as IoT Hub and IoT Edge devices. As a first step to diagnosing problems, always ensure that the edge is properly set up by following these instructions:
+As part of your Live Video Analytics deployment, you set up Azure resources such as IoT Hub and IoT Edge devices. As a first step to diagnosing problems, always ensure that the Edge device is properly set up by following these instructions:
 
 1. [Run the `check` command](../../iot-edge/troubleshoot.md#run-the-check-command).
 1. [Check your IoT Edge version](../../iot-edge/troubleshoot.md#check-your-iot-edge-version).
@@ -258,9 +258,9 @@ Live Video Analytics on IoT Edge provides a direct method-based programming mode
 
 Assembly Initialization method Microsoft.Media.LiveVideoAnalytics.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: Microsoft.Azure.Devices.Common.Exceptions.IotHubException:<br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
 
-We recommend that you not call direct methods in parallel. Call them sequentially (that is, make one direct method call only after the previous one is finished).
+We recommend that you *not* call direct methods in parallel. Call them sequentially (that is, make one direct method call only after the previous one is finished).
 
-### Collecting logs for submitting a support ticket
+### Collect logs for submitting a support ticket
 
 When self-guided troubleshooting steps don't resolve your problem, go the Azure portal and [open a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
