@@ -49,10 +49,6 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
-      - linkListType: tutorial
-        links:
-          - text: Use Form Recognizer with Logic Apps
-            url: tutorial-form-recognizer-with-logic-apps.md
 
   - title: Build a training data set
     linkLists:
@@ -129,8 +125,6 @@ landingContent:
         links:
           - text: Form Recognizer API v2.0
             url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
-          - text: Form Recognizer API v1.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
           - text: .NET SDK
             url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer
           - text: Azure PowerShell

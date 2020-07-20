@@ -16,7 +16,7 @@
 
 ## Supported operating systems
 
-Shared disks offer support for a subset of operating systems. See the [Windows](../articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) sections for the supported operating systems.
+Shared disks support several operating systems. See the [Windows](../articles/virtual-machines/windows/disks-shared.md#windows) and [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) sections of the conceptual article for the supported operating systems.
 
 ## Disk sizes
 
@@ -41,9 +41,9 @@ az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralu
 #### PowerShell
 ```azurepowershell-interactive
 
-$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
 
-New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
 
 ```
 
@@ -111,7 +111,7 @@ az disk show -g rg1 -n clidisk
 #### PowerShell
 ```azurepowershell-interactive
 
-$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1
+$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5
 
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
 
