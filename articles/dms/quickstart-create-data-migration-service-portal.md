@@ -26,6 +26,9 @@ Open your web browser, navigate to the [Microsoft Azure portal](https://portal.a
 
 The default view is your service dashboard.
 
+> [!NOTE]
+> You can create up to 10 instances of DMS per subscription. If you require a greater number of instances, please create a support ticket.
+
 ## Register the resource provider
 
 Register the Microsoft.DataMigration resource provider before you create your first instance of the Database Migration Service.
