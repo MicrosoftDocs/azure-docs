@@ -23,7 +23,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 ## Feature consideration and limitations
 
 * SQL Server backup can be configured in the Azure portal or **PowerShell**. We don't support CLI.
-* The solution is supported on both kinds of [deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) - Azure Resource Manager VMs and classic VMs.
+* The solution is supported on both kinds of [deployments](../azure-resource-manager/management/deployment-models.md) - Azure Resource Manager VMs and classic VMs.
 * VM running SQL Server requires internet connectivity to access Azure public IP addresses.
 * SQL Server **Failover Cluster Instance (FCI)** isn't supported.
 * Back up and restore operations for mirror databases and database snapshots aren't supported.
