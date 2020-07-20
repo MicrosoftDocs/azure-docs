@@ -1,59 +1,51 @@
 ---
-title: #Required; page title displayed in search results. If short enough, include the message, or key words from the message.
-description: #Required; article description that is displayed in search results. Include the complete message that the customer sees.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.topic: troubleshooting #Required
-ms.date: #Required; mm/dd/yyyy format.
+title: "Azure Digital Twins request failed with Status: 403 (Forbidden)"
+description: "Causes and resolutions for 'Service request failed. Status: 403 (Forbidden)' on Azure Digital Twins."
+author: baanders
+ms.author: baanders
+ms.topic: troubleshooting
+ms.date: 7/20/2020
 ---
 
-<!---Recommended: Remove all the comments in this template before you
-sign-off or merge to master.--->
+# Service request failed. Status: 403 (Forbidden)
 
-<!---Problem resolution articles help customers quickly identify the problem or error that they are having with a service or feature, identify the cause of the problem, and find steps that can be performed to resolve the problem.
---->
-
-# <Problem message or key words>
-<!---Required--->
-
-Summary paragraph.
-<!---Required:
-The summary describes the symptom that the customer is experiencing. This summary should also include any prerequisite actions that should be performed before resolving the problem.
---->
+This article describes causes and resolution steps for receiving a 403 error from service requests to Azure Digital Twins. 
 
 ## Symptoms
 
-<!---Required:
-Precisely describe what the customer should be experiencing when encountering the problem. If the title can't contain the complete message, expand on it here. If there is relevant general troubleshooting information available, link to it from here.
---->
+This error may occur on many types of service requests that require authentication. The effect is that the API returns the 403 error, and your request fails.
 
-## Cause
-<!---Required:
-Describe the cause of the symptoms. It is possible that there could be several causes for a problem. List each one as an H3 with **Cause #** where **#** is a successive number of possible causes.
---->
-### Cause #
-<!---Optional:
-Most common cause.
---->
-### Cause #
-<!---Optional:
-Next most common cause.
---->
+## Causes
+
+### Cause #1
+
+Most often, this error indicates that your RBAC permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Owner (Preview)* role on the instance you are trying to manage. 
+
+### Cause #2
+
+If you are using a client app to communicate with Azure Digital Twins, this error may happen because your [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) app registration does not have permissions set up for the Azure Digital Twins service.
+
+In the app registration, you need to configure access permissions to the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
 ## Solution
-<!---Required:
-List the steps that should be taken to resolve the problem. It is possible that there could be several solutions for a problem. If there are multiple solutions, put them in the order of complexity and provide instructions on how to choose from among them. If workaround information is available to temporarily alleviate the symptoms, list them in this section.
---->
-### Solution #
-<!---Optional:
-Most common solution.
---->
-### Solution #
-<!---Optional:
-Next most common solution.
---->
+
+### Solution #1
+
+The first solution is to verify that your Azure user has the *Azure Digital Twins Owner (Preview)* role on the instance you are trying to manage. If you do not have this role, set it up.
+
+For instructions on how to assign yourself this role, follow the [*Assign yourself a role* section of *How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md#assign-yourself-a-role).
+
+### Solution #2
+
+The second solution is to verify that the AAD app registration has permissions configured for the Azure Digital Twins service. If these are not configured, set them up.
+
+For instructions on how to set this up, follow the [*Create an app registration* section of *How-to: Authenticate a client application*](how-to-authenticate-client.md#create-an-app-registration).
 
 ## Next steps
 
-<!--- Optional:
-Include this section if there are 1 -3 concrete, highly relevant next steps the user should take. Delete if there are no next steps. This is not a place for a list of links. If you include links to next steps, make sure to include text to explain why the next steps are relevant or important. --->
+Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
+* [*How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md)
+* [*How-to: Authenticate a client application*](how-to-authenticate-client.md)
+
+Read more about security and permissions on Azure Digital Twins:
+* [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
