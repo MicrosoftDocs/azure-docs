@@ -30,14 +30,14 @@ Application Gateway allows host-based routing using multi-site HTTP(S) listener.
 
 Using a wildcard character in the host name, you can match multiple host names in a single listener. For example, `*.contoso.com` can match with `ecom.contoso.com`, `b2b.contoso.com` as well as `customer1.b2b.contoso.com` and so on. Using an array of host names, you can configure more than one host name for a listener, to route requests to a backend pool. For example, a listener can contain `contoso.com, fabrikam.com` which will accept requests for both the host names.
 
-:::image type="content" source="./media/multiple-site-overview/wildcardlistener-diag.png" alt-text="Wildcard Listener":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Wildcard Listener":::
 
 >[!NOTE]
 > This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended to use this in a production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In [Azure portal](create-multiple-sites-portal.md), you can define them in separate text boxes in the host name field.
 
-:::image type="content" source="./media/multiple-site-overview/wclexample1.png" alt-text="Wildcard Listener example configuration":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example1.png" alt-text="Wildcard Listener example configuration":::
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com,*.fabrikam.com"`
 
