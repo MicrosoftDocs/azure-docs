@@ -286,8 +286,6 @@ myenv.docker.base_dockerfile = dockerfile
 
 In some situations, your custom base image may already contain a Python environment with packages that you want to use.
 
-By default, Azure Machine Learning service will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image. Since the Conda environment is isolated from the custom base image, packages installed elsewhere will not be included.
-
 To use your own installed packages and disable Conda, set the parameter `Environment.python.user_managed_dependencies = True`. Ensure that the base image contains a Python interpreter, and has the packages your training script needs.
 
 For example, to run in a base Miniconda environment that has NumPy package installed, first specify a Dockerfile with a step to install the package. Then set the user-managed dependencies to `True`. 
@@ -305,6 +303,9 @@ myenv.docker.base_dockerfile = dockerfile
 myenv.python.user_managed_dependencies=True
 myenv.python.interpreter_path = "/opt/miniconda/bin/python"
 ```
+
+> [!WARNING]
+> If you install some Python dependencies in your Docker image and forget to set user_managed_dependencies = True, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image.
 
 ## Use environments for training
 
