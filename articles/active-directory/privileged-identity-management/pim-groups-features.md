@@ -10,7 +10,7 @@ ms.assetid:
 ms.service: active-directory
 ms.subservice: pim
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/27/2020
