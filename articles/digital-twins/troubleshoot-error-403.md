@@ -14,7 +14,7 @@ This article describes causes and resolution steps for receiving a 403 error fro
 
 ## Symptoms
 
-This error may occur on many types of service requests that require authentication. The effect is that the API request fails, returning an error code of `403 (Forbidden)`.
+This error may occur on many types of service requests that require authentication. The effect is that the API request fails, returning an error status of `403 (Forbidden)`.
 
 ## Causes
 
