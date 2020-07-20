@@ -4338,6 +4338,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/general/subscription-move-fix.md",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/key-vault-versions.md",
       "redirect_url": "/azure/key-vault",
       "redirect_document_id": false
