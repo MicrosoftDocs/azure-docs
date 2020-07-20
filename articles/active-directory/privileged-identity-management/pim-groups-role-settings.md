@@ -43,7 +43,7 @@ Follow these steps to open the settings for an Azure privileged access group rol
 
     ![Role setting details page listing several assignment and activation settings](./media/pim-groups-role-settings/group-role-setting-details.png)
 
-1. Select **Edit** to open the **Edit role setting** page. The **Activation** tab allows you to change the  role activation settings.
+1. Select **Edit** to open the **Edit role setting** page. The **Activation** tab allows you to change the  role activation settings, including whether to allow permanent eligible and active assignments.
 
     ![Edit role settings page with Activation tab open](./media/pim-groups-role-settings/role-settings-activation-tab.png)
 
