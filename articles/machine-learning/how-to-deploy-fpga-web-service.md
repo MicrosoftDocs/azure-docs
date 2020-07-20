@@ -60,7 +60,7 @@ The following diagram and table show how FPGAs compare to other processors.
 
 ![Diagram of Azure Machine Learning FPGA comparison](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processor||Description|
+|Processor| Abbreviation |Description|
 |---|:-------:|------|
 |Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
 |Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|

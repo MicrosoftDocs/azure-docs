@@ -65,7 +65,7 @@ A private link resource is the destination target of a given private endpoint. T
 |**Azure Kubernetes Service - Kubernetes API** | Microsoft.ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft.Search/searchService| searchService|  
 |**Azure Container Registry** | Microsoft.ContainerRegistry/registries    | registry |
-|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStore |
+|**Azure App Configuration** | Microsoft.Appconfiguration/configurationStores    | configurationStores |
 |**Azure Backup** | Microsoft.RecoveryServices/vaults    | vault |
 |**Azure Event Hub** | Microsoft.EventHub/namespaces    | namespace |
 |**Azure Service Bus** | Microsoft.ServiceBus/namespaces | namespace |

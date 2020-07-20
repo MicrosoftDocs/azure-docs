@@ -29,7 +29,7 @@ OPENROWSET enables users to query external files on Azure storage if they have a
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'http://storage...com/container/file/path/*.csv', format= 'parquet') as rows
+ OPENROWSET(BULK 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/*.parquet', format= 'parquet') as rows
 ```
 
 User can access storage using the following access rules:
@@ -42,10 +42,10 @@ SQL principals can also use OPENROWSET to directly query files protected with SA
 ```sql
 EXECUTE AS somepoweruser
 
-CREATE CREDENTIAL [http://storage.dfs.com/container]
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
 
-GRANT REFERENCES CREDENTIAL::[http://storage.dfs.com/container] TO sqluser
+GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
 If there is no server-level CREDENTIAL that matches URL or SQL user don't have references permission for this credential, the error will be returned. SQL principals cannot impersonate using some Azure AD identity.
@@ -72,7 +72,7 @@ CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
  SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/' ,
  CREDENTIAL = AccessAzureInvoices) ;
 ```
 
@@ -91,7 +91,7 @@ User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference publ
 
 ```sql
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3') ;
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
 ```
 
 ## EXTERNAL TABLE
@@ -119,7 +119,7 @@ CREATE DATABASE SCOPED CREDENTIAL cred
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
- WITH ( LOCATION = 'https://samples.blob.core.windows.net/products' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>' ,
  CREDENTIAL = cred
  ) ;
 ```

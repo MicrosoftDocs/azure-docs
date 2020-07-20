@@ -596,7 +596,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
 **Output:** This query generates a table (with 2,803,538 rows) with pickup and dropoff latitudes and longitudes and the corresponding direct distances in miles. Here are the results for first three rows:
 
-|  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
+| (Row number) | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
 | 1 |40.731804 |-74.001083 |40.736622 |-73.988953 |.7169601222 |
 | 2 |40.715794 |-74,010635 |40.725338 |-74.00399 |.7448343721 |

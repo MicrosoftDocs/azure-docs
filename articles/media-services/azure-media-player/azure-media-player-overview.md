@@ -23,7 +23,7 @@ To request new features, provide ideas or feedback, please submit to [UserVoice 
 
 ## License ##
 
-Azure Media Player is licensed and subject to the terms outlined in the Microsoft Software License Terms for Azure Media Player. See [license file](azure-media-player-license.md) for full terms. See the [Privacy Statement](https://www.microsoft.com/en-us/privacystatement/default.aspx) for more information.
+Azure Media Player is licensed and subject to the terms outlined in the Microsoft Software License Terms for Azure Media Player. See [license file](/legal/azure-media-player/azure-media-player-license) for full terms. See the [Privacy Statement](https://www.microsoft.com/en-us/privacystatement/default.aspx) for more information.
 
 Copyright 2015 Microsoft Corporation.
 

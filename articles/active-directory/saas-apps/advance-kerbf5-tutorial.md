@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with F5 | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on integration with F5 | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and F5.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with F5
+# Tutorial: Azure Active Directory (AD) single sign-on (SSO) integration with F5
 
 In this tutorial, you'll learn how to integrate F5 with Azure Active Directory (Azure AD). When you integrate F5 with Azure AD, you can:
 

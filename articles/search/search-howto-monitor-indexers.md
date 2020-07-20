@@ -9,7 +9,7 @@ ms.author: heidist
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/12/2020
 ---
 
 # How to monitor Azure Cognitive Search indexer status and results
