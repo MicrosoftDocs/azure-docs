@@ -132,9 +132,9 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-1. Use the ![Copy button](./media/create-cassandra-python/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
+1. Use the :::image type="icon" source="./media/create-cassandra-python/copy.png"::: button on the right side of the screen to copy the top value, the CONTACT POINT. 
 
-    :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="View and copy an access user name, password and contact point in the Azure portal, connection string blade":::
+   :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="View and copy an access user name, password and contact point in the Azure portal, connection string blade":::
 
 1. Open the *config.py* file. 
 

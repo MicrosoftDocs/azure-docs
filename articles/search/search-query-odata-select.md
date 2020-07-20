@@ -58,7 +58,9 @@ If you list a complex field without specifying its sub-fields explicitly, all re
 
 Include the `HotelId`, `HotelName`, and `Rating` top-level fields in the results, as well as the `City` sub-field of `Address`:
 
+```odata-filter-expr
     $select=HotelId, HotelName, Rating, Address/City
+```
 
 An example result might look like this:
 
@@ -75,7 +77,9 @@ An example result might look like this:
 
 Include the `HotelName` top-level field in the results, as well as all sub-fields of `Address`, and the `Type` and `BaseRate` sub-fields of each object in the `Rooms` collection:
 
+```odata-filter-expr
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
+```
 
 An example result might look like this:
 

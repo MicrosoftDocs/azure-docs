@@ -96,27 +96,42 @@ For more information about regional availability, see [regions](regions.md#stand
 
 |Locale  | Language            | Gender | Voice name | Style support |
 |--|--|--|--|--|
+| `ar-EG` | Arabic (Egypt)                  | Female | `ar-EG-SalmaNeural`      | General |
+| `ar-SA` | Arabic (Saudi Arabia)           | Female | `ar-SA-ZariyahNeura`     | General |
+| `ca-ES` | Catalan (Spain)                 | Female | `ca-ES-AlbaNeural`       | General |
+| `da-DK` | Danish (Denmark)                | Female | `da-DK-ChristelNeural`   | General |
 | `de-DE` | German (Germany)                | Female | `de-DE-KatjaNeural`      | General |
 | `en-AU` | English (Australia)             | Female | `en-AU-NatashaNeural`    | General |
 | `en-CA` | English (Canada)                | Female | `en-CA-ClaraNeural`      | General |
 | `en-GB` | English (UK)                    | Female | `en-GB-LibbyNeural`      | General |
 |         |                                 | Female | `en-GB-MiaNeural`        | General |
+| `en-IN` | English (India)                 | Female | `en-IN-NeerjaNeural`     | General |
 | `en-US` | English (US)                    | Female | `en-US-AriaNeural`       | General, multiple voice styles available |
 |         |                                 | Male   | `en-US-GuyNeural`        | General |
 | `es-ES` | Spanish (Spain)                 | Female | `es-ES-ElviraNeural`     | General |
 | `es-MX` | Spanish (Mexico)                | Female | `es-MX-DaliaNeural`      | General |
+| `fi-FI` | Finnish (Finland)               | Female | `fi-FI-NooraNeural`      | General |
 | `fr-CA` | French (Canada)                 | Female | `fr-CA-SylvieNeural`     | General |
 | `fr-FR` | French (France)                 | Female | `fr-FR-DeniseNeural`     | General |
+| `hi-IN` | Hindi (India)                   | Female | `hi-IN-SwaraNeural`      | General |
 | `it-IT` | Italian (Italy)                 | Female | `it-IT-ElsaNeural`       | General |
 | `ja-JP` | Japanese                        | Female | `ja-JP-NanamiNeural`     | General |
 | `ko-KR` | Korean                          | Female | `ko-KR-SunHiNeural`      | General |
 | `nb-NO` | Norwegian                       | Female | `nb-NO-IselinNeural`     | General |
-| `pt-BR` | Portuguese (Brazil)             | Female | `pt-BR-FranciscaNeural`  | General |
+| `nl-NL` | Dutch (Netherland)              | Female | `nl-NL-ColetteNeural`    | General |
+| `pl-PL` | Polish (Poland)                 | Female | `pl-PL-ZofiaNeural`      | General |
+| `pt-BR` | Portuguese (Brazil)             | Female | `pt-BR-FranciscaNeural`  | General, multiple voice styles available |
 | `tr-TR` | Turkish                         | Female | `tr-TR-EmelNeural`       | General |
+| `pt-PT` | Portuguese (Portugal)           | Female | `pt-PT-FernandaNeural`   | General |
+| `ru-RU` | Russian (Russia)                | Female | `ru-RU-DariyaNeural`     | General |
+| `sv-SE` | Swedish (Sweden)                | Female | `sv-SE-HilleviNeural`    | General |
+| `th-TH` | Thai (Thailand)                 | Female | `th-TH-AcharaNeural`     | General |
 | `zh-CN` | Chinese (Mandarin, simplified)  | Female | `zh-CN-XiaoxiaoNeural`   | General, multiple voice styles available |
 |         |                                 | Female | `zh-CN-XiaoyouNeural`    | Kid voice, optimized for story narrating |
 |         |                                 | Male   | `zh-CN-YunyangNeural`    | Optimized for news reading,  multiple voice styles available |
 |         |                                 | Male   | `zh-CN-YunyeNeural`      | Optimized for story narrating |
+| `zh-HK` | Chinese (Cantonese, tranditional)   | Female | `zh-HK-HiuGaaiNeural`| General |
+| `zh-TW` | Chinese (Taiwanese Mandarin)   | Female | `zh-TW-HsiaoYuNeural`    | General |
 
 > [!IMPORTANT]
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".

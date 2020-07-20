@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ---
-# Benchmarking a disk
+# Benchmark your application on Azure Disk Storage
 
 Benchmarking is the process of simulating different workloads on your application and measuring the application performance for each workload. Using the steps described in the [designing for high performance article](premium-storage-performance.md). By running benchmarking tools on the VMs hosting the application, you can determine the performance levels that your application can achieve with Premium Storage. In this article, we provide you examples of benchmarking a Standard DS14 VM provisioned with Azure Premium Storage disks.
 

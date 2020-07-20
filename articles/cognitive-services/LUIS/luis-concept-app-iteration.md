@@ -156,4 +156,4 @@ When you are done with an iteration cycle, you can repeat the process. Start wit
 
 ## Next steps
 
-Learn concepts about [collaboration](luis-concept-keys.md).
+Learn concepts about [collaboration](luis-how-to-azure-subscription.md).

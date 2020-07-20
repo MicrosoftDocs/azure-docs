@@ -71,8 +71,10 @@ Choose a syslog daemon to see the appropriate description.
 
         Contents of the `security-config-omsagent.conf` file:
 
-            :rawmsg, regex, "CEF"|"ASA"
-            *.* @@127.0.0.1:25226
+        ```console
+        :rawmsg, regex, "CEF"|"ASA"
+        *.* @@127.0.0.1:25226
+        ```
 
 1. **Restarting the Syslog daemon**
 
@@ -103,9 +105,11 @@ Choose a syslog daemon to see the appropriate description.
 
         Contents of the `security-config-omsagent.conf` file:
 
-            filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
-            destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
-            log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```console
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
 
 1. **Restarting the Syslog daemon**
 

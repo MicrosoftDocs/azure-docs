@@ -35,4 +35,4 @@ Azure Dev Spaces is part of the Azure Development workload and is included in al
 
 ## Next steps
 
-Test out the new tools by creating a new cluster. Try the quickstarts and tutorials at [Azure Dev Spaces](/azure/dev-spaces).
+Test out the new tools by creating a new cluster. Try the quickstarts and tutorials at [Azure Dev Spaces](../index.yml).

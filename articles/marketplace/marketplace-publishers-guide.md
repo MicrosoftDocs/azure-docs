@@ -1,12 +1,12 @@
 ---
 title: Microsoft commercial marketplace publishing guide
 description: An overview of the commercial marketplace for Microsoft partners who want to publish offers to Microsoft AppSource and Azure Marketplace.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 04/12/2020
-ms.author: dsindona
 ---
 
 # Commercial marketplace publishing guide

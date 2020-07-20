@@ -4,12 +4,13 @@ description: Learn about SQL system function GetCurrentTimestamp in Azure Cosmos
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 07/09/2020
 ms.author: girobins
 ms.custom: query-reference
 ---
 # GetCurrentTimestamp (Azure Cosmos DB)
- Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970. 
+
+ Returns the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
   
 ## Syntax
   

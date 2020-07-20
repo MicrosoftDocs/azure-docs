@@ -31,7 +31,7 @@ You can use custom headers to capture several types of information. For example:
 > [!IMPORTANT]
 > Be aware that the information sent in custom headers is stored in a Microsoft internal logging system for 30 days after being available in Azure Log Monitoring. We recommend encrypting any information before adding it to custom headers. You should not pass any PHI information through customer headers.
 
-You must use the following naming convention for your HTTP headers: X-MS-AZUREFHIR-AUDIT-AUDIT-\<name>.
+You must use the following naming convention for your HTTP headers: X-MS-AZUREFHIR-AUDIT-\<name>.
 
 These HTTP headers are included in a property bag that is added to the log. For example:
 

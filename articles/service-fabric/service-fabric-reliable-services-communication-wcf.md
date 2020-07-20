@@ -111,6 +111,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ## Next steps
 * [Remote procedure call with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
-* [Web API with OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)
+* [Web API with OWIN in Reliable Services](./service-fabric-reliable-services-communication-aspnetcore.md)
 * [Securing communication for Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
-

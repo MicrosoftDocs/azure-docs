@@ -430,7 +430,7 @@ If Bing determines that the user may have intended to search for something diffe
 
 Responses from the Bing Web Search API may contain the following headers:
 
-|||
+| Header | Description |
 |-|-|
 |`X-MSEdge-ClientID`|The unique ID that Bing has assigned to the user|
 |`BingAPIs-Market`|The market that was used to fulfill the request|

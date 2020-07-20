@@ -1,12 +1,12 @@
 ---
 title: Offer listing best practices - Microsoft commercial marketplace
 description: Learn about go-to-market listing best practices for your Microsoft AppSource and Azure Marketplace offers.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 07/06/2020
-ms.author: dsindona
 ---
 
 # Offer listing best practices
@@ -26,7 +26,7 @@ The tables in this section provide suggestions for creating and engaging marketp
 
 Categories and industries for a different storefront will be applicable to different offer types.
 
-|  | **Categories <br> by Storefront** |  | **Industries <br> for  AppSource** |
+| Storefront | Categories <br>by Storefront | Categories <br>by Storefront | Industries <br> for  AppSource |
 | :------------------- |:----------------:|:------:|:-------------:|
 | **Offer Type**   |  **Azure Marketplace**  | **AppSource**  |
 | Azure App | X | |
@@ -139,7 +139,7 @@ Select categories and subcategories that best align with your offer and your int
 
 Consult the [guide by offer type](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the storefront where your offer will be published:
 
-| SaaS Offer    |     |          |           |    |    |     | Applicable Storefront |              |
+| SaaS Offer    | SaaS Offer   | SaaS Offer  | SaaS Offer   | SaaS Offer   | SaaS Offer   | SaaS Offer    | Applicable Storefront | Applicable Storefront |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
 | Metered billing | Microsoft 365 add-ins | Contact me | Transact (at least 1 plan) | Private-only plan | Public-only plan | Public & private plans | AppSource | Azure Marketplace |
 |  | X |  |  |  |  |  | X |  |

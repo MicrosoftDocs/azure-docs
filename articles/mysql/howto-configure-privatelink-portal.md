@@ -4,7 +4,7 @@ description: Learn how to configure private link for Azure Database for MySQL fr
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ---
 
@@ -161,7 +161,7 @@ In this section, you will create a MySQL server and add a private endpoint to it
     | ------- | ----- |
     |**NETWORKING**| |
     | Virtual network| Select *MyVirtualNetwork*. |
-    | Subnet | Select *mySubnet*. |
+    | Subnet | Select *mySubnet*. |
     |**PRIVATE DNS INTEGRATION**||
     |Integrate with private DNS zone |Select **Yes**. |
     |Private DNS Zone |Select *(New)privatelink.mysql.database.azure.com* |
@@ -206,7 +206,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 ## Access the MySQL server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter `nslookup  myServer.privatelink.mysql.database.azure.com`. 
 
@@ -243,7 +243,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 ## Clean up resources
 When you're done using the private endpoint, MySQL server, and the VM, delete the resource group and all of the resources it contains:
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
+1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
 2. Select **Delete resource group**.
 3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
 

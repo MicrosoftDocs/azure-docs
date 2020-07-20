@@ -203,7 +203,7 @@ The package format must be a .zip file.
 The .zip package must be stored in a location that is accessible by the managed virtual machines.
 Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to not make the
 package public, you can include a
-[SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
+[SAS token](../../../storage/common/storage-sas-overview.md) in the URL.
 You could also implement
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network, although this configuration applies only to accessing the package
