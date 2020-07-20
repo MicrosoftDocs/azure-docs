@@ -66,7 +66,7 @@ After the Live Video Analytics on IoT Edge module is deployed correctly on the I
 
 ### Post deployment: Diagnose logs for issues during the run 
 
-The container logs for your IoT Edge module should contain diagnostics<!--<todo:add link to diagnostics doc>--> information to help debug your issues during module runtime. You can [check container logs for issues](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue. 
+The container logs for your IoT Edge module should contain diagnostics information to help debug your issues during module runtime. You can [check container logs for issues](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue. 
 
 If you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
 
@@ -218,8 +218,6 @@ Unhandled exception. Microsoft.Azure.Devices.Common.Exceptions.UnauthorizedExcep
         "moduleId" : 
     }
     ```
-
-    ![Screenshot that displays the running status of modules in Azure IoT Hub.](./media/troubleshoot-how-to/iot-hub.png)
 
 1. In the *appsettings.json* file, ensure that you've provided the IoT Hub connection string and *not* the IoT Hub device connection string, because the [connection string formats are different](https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/).
 
