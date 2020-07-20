@@ -4,7 +4,7 @@
 - name: Overview 
   items:
   - name: About Managed HSM
-    href: about-managed-hsm.md
+    href: overview.md
 
 - name: Quickstarts
   expanded: true

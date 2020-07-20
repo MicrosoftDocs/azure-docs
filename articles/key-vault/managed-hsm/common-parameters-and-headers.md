@@ -21,7 +21,7 @@ The following information is common to all operations that you might do related 
 - Replace `{api-version}` with the api-version in the URI.
 - Replace `{subscription-id}` with your subscription identifier in the URI
 - Replace `{resource-group-name}` with the resource group. For more information, see Using Resource groups to manage your Azure resources.
-- Replace `{vault-name}` with your key vault name in the URI.
+- Replace `{vault-name}` with your HSM pool name in the URI.
 - Set the Content-Type header to application/json.
 - Set the Authorization header to a JSON Web Token that you obtain from Azure Active Directory (AAD). For more information, see [Authenticating Azure Resource Manager](authentication-requests-and-responses.md) requests.
 

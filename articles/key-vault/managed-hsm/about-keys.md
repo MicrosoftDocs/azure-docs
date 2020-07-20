@@ -44,7 +44,7 @@ Managed HSM supports RSA, EC and symmetric keys.
 
 |Key Types| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
 | --- | --- | --- |
-|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
+|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
 |AES 128-bit, 256-bit| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
 |EC-P256, EC-P256K, EC-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
 
@@ -73,6 +73,7 @@ Managed HSM supports RSA, EC and symmetric keys.
 
 -   **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] key encryption  
 -   **RSA-OAEP** - RSAES using Optimal Asymmetric Encryption Padding (OAEP) [RFC3447], with the default parameters specified by RFC 3447 in Section A.2.1. Those default parameters are using a hash function of SHA-1 and a mask generation function of MGF1 with SHA-1.  
+-  **RSA-OAEP-256** – RSAES using Optimal Asymmetric Encryption Padding with a hash function of SHA-256 and a mask generation function of MGF1 with SHA-256
 
 #### SIGN/VERIFY
 
@@ -86,10 +87,11 @@ Managed HSM supports RSA, EC and symmetric keys.
 
 
 ###  Symmetric key algorithms
-- **AES-KW** - 
-- **AES-GCM** - 
-- **AES-CBC** - 
+- **AES-KW** - AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
+- **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP800-38d](https://csrc.nist.gov/publications/sp800))
+- **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP800-38a](https://csrc.nist.gov/publications/sp800))
 
+> [!NOTE] Current AES-GCM implementation and the corresponding APIs are experimental. The implementation and the APIs may change substantially in the future iterations. 
 
 ##  Key operations
 
