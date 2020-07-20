@@ -58,7 +58,7 @@ npm install @azure/identity
 
 #### Give the service principal access to your key vault
 
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-access.md)]
+[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
 
 #### Set environmental variables
 

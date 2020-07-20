@@ -12,10 +12,10 @@
   items:
   - name: Azure Virtual Machine
     items:
-    - name: Use Azure Key Vault with a Windows virtual machine in .NET
-      href: tutorial-net-windows-virtual-machine.md
-    - name: Use Azure Key Vault with a Windows virtual machine in Python
-      href: tutorial-python-windows-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in .NET
+      href: tutorial-net-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in Python
+      href: tutorial-python-virtual-machine.md
   - name: Azure Kubernetes Service
     items: 
     - name: Integrate Azure Key Vault with Kubernetes
