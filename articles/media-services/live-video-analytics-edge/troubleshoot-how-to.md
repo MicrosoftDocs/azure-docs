@@ -275,33 +275,8 @@ When you need to gather logs from an IoT Edge device, the easiest way is to use 
 
 - Module logs
 - IoT Edge security manager and container engine logs
-- Iot Edge check JSON output
-- Useful debugging information
-
-#### Use the IoT Edge security manager
- 
-The IoT Edge security manager is responsible for operations such as initializing the IoT Edge system at startup and setting up the devices. If IoT Edge isn't starting, the security manager logs might provide useful information. To view more detailed logs of the IoT Edge security manager:
-
-1. Edit the IoT Edge daemon settings on the IoT Edge device:
-
-    ```
-    sudo systemctl edit iotedge.service
-    ```
-
-1. Update the following lines:
-
-    ```
-    [Service]
-    Environment=IOTEDGE_LOG=edgelet=debug
-    ```
-
-1. Restart the IoT Edge security daemon by running these commands:
-
-    ```
-    sudo systemctl cat iotedge.service
-    sudo systemctl daemon-reload
-    sudo systemctl restart iotedge
-    ```
+- Iotedge check JSON output
+- Useful debug information
 
 1. Run the `support-bundle` command with the --since flag to specify how far into the past you want to reach for your logs. For example, 2h will get logs for the last two hours. You can change the value of this flag to include logs for different periods.
 
@@ -309,11 +284,15 @@ The IoT Edge security manager is responsible for operations such as initializing
     sudo iotedge support-bundle --since 2h
     ```
 
+   This command creates a file named *support_bundle.zip* in the directory where you ran the command. 
+   
+1. Attach the *support_bundle.zip* file to the support ticket.
+
 ### Live Video Analytics debug logs
 
 To configure the Live Video Analytics on IoT Edge module to generate debug logs, do the following:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and go to your IoT hub.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your IoT hub.
 1. On the left pane, select **IoT Edge**.
 1. In the list of devices, select the ID of the target device.
 1. At the top of the pane, select **Set Modules**.
@@ -322,30 +301,52 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
 1. In the **IoT Edge Modules** section, look for and select **lvaEdge**.
 1. Select **Container Create Options**.
-1. In the **Binds** section, to bind the logs folders between the IoT Edge device and the container, add the following command:
+1. In the **Binds** section, add the following command:
 
     `/var/local/mediaservices/logs:/var/lib/azuremediaservices/logs`
 
+    > [!NOTE] 
+    > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:
+   
+    >  `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+
 1. Select **Update**.
-1. Select **Review + Create**. A simple validation takes place, and a successful validation message is posted under a green banner.
+1. Select **Review + Create**. A successful validation message is posted under a green banner.
 1. Select **Create**.
-1. Update the **Module Identity Twin** to point the DebugLogsDirectory parameter, which points to the directory in which the logs are collected:
+1. Update **Module Identity Twin** to point to the DebugLogsDirectory parameter, which points to the directory in which the logs are collected:
 
     a. Under the **Modules** table, select **lvaEdge**.  
 
-    b. At the top of the pane, select **Module Identity Twin**. This opens an editable pane.  
+    b. At the top of the pane, select **Module Identity Twin**. An editable pane opens.  
 
     c. Under **desired key**, add the following key/value pair:  
 
-    `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`  
+    `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
+
+        >[!NOTE] 
+        > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:  
+        
+        `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
 
     d. Select **Save**.
 
 1. Reproduce the issue.
-1. Connect to the virtual machine from the **IoT Hub** page in your portal.
-1. Go to the */var/local/mediaservices/logs* folder, zip the folder's bin content, and share the file with us. These log files are not meant for self-diagnosis. They are meant for Azure engineering to analyze your issues.
+1. Connect to the virtual machine from the **IoT Hub** page in the portal.
+1. Zip the files in the *debugLogs* folder.
 
-1. You can stop log collection by setting that value in **Module Identity Twin** to *null*. Go back to the **Module Identity Twin** page and update the following parameter as:
+  > [!NOTE]
+  > These log files are not meant for self-diagnosis. They are meant for the Azure engineering team to analyze your issues.
+
+    a. In the following command, be sure to replace **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location of the debug logs on the Edge device that you set up earlier.  
+
+    ```
+    sudo apt install zip unzip  
+    zip -r debugLogs.zip $DEBUG_LOG_LOCATION_ON_EDGE_DEVICE 
+    ```
+
+    b. Attach the *debugLogs.zip* file to the support ticket.
+
+1. You can stop log collection by setting the value in **Module Identity Twin** to *null*. Go back to the **Module Identity Twin** page and update the following parameter as:
 
     `"DebugLogsDirectory": ""`
 
