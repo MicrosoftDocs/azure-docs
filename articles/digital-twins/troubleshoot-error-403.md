@@ -33,13 +33,39 @@ In the app registration, you need to configure access permissions to the Azure D
 
 The first solution is to verify that your Azure user has the *Azure Digital Twins Owner (Preview)* role on the instance you are trying to manage. If you do not have this role, set it up.
 
-For instructions on how to assign yourself this role, follow the [*Assign yourself a role* section of *How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md#assign-yourself-a-role).
+#### Check current setup
+
+To check whether you have this role, view the role assignments for the Azure Digital Twins instance in the Azure portal. From your portal page of [Azure Digital Twins instances](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances), select the name of the instance you want to check. Then, view all of its assigned roles under *Access control (IAM) > Role assignments*. If your role assignment has been set up, you will show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
+
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
+
+#### Fix issues 
+
+If you do not have this role assignment, follow the steps to assign it in the [*Assign yourself a role* section of *How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md#assign-yourself-a-role).
+
+If you do have this role assignment already, continue to the next solution.
 
 ### Solution #2
 
-The second solution is to verify that the AAD app registration has permissions configured for the Azure Digital Twins service. If these are not configured, set them up.
+The second solution is to verify that the AAD app registration has permissions configured for the Azure Digital Twins service. If this is not configured, set them up.
 
-For instructions on how to set this up, follow the [*Create an app registration* section of *How-to: Authenticate a client application*](how-to-authenticate-client.md#create-an-app-registration).
+#### Check current setup
+
+To check whether the permissions have been configured correctly, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal. This page shows all the app registrations that have been created in your subscription.
+
+You should recognize an app registration that was created for Azure Digital Twins. Select it to open up its details.
+
+First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
+
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-manifest.png" alt-text="Portal view of the manifest for the AAD app registration":::
+
+Next, select *API permissions* from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
+
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Portal view of the API permissions for the AAD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+
+#### Fix issues
+
+If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Create an app registration* section of *How-to: Authenticate a client application*](how-to-authenticate-client.md#create-an-app-registration).
 
 ## Next steps
 
