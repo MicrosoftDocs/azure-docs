@@ -42,7 +42,7 @@ Security Center’s File Integrity Monitoring validates the integrity of Windows
 Security Center recommends entities to monitor, which you can easily enable FIM on. You can also define your own FIM policies or entities to monitor. This walkthrough shows you how.
 
 > [!NOTE]
-> The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
+> The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on Security Center's standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
 
 FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) for Azure Change Tracking.
 
@@ -104,7 +104,7 @@ The following information is provided for each workspace:
 The following buttons may also be shown for a workspace:
 
 - ![Enable icon][3] Indicates that FIM is not enabled for the workspace. Selecting the workspace lets you enable FIM on all machines under the workspace.
-- ![Upgrade plan icon][4] Indicates that the workspace or subscription is not running under Security Center’s Standard tier. To use the FIM feature, your subscription must be running Standard.  Selecting the workspace enables you to upgrade to Standard. To learn more about the Standard tier and how to upgrade, see [Upgrade to Security Center's Standard tier for enhanced security](security-center-pricing.md).
+- ![Upgrade plan icon][4] Indicates that the workspace or subscription is not running under Security Center’s standard tier. To use the FIM feature, your subscription must be running Standard.  Selecting the workspace enables you to upgrade to Standard. To learn more about the standard tier and how to upgrade, see [Upgrade to Security Center's standard tier for enhanced security](security-center-pricing.md).
 - A blank (there is no button) means that FIM is already enabled on the workspace.
 
 Under **File Integrity Monitoring**, you can select a workspace to enable FIM for that workspace, view the File Integrity Monitoring dashboard for that workspace, or [upgrade](security-center-pricing.md) the workspace to Standard.
