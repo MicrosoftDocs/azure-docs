@@ -605,7 +605,7 @@ servers, relevant only for streaming replication. Default -1
 #### Return Value
 
 The nodeid column from the newly inserted row in
-`pg_dist_node <pg_dist_node>`{.interpreted-text role="ref"}.
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 #### Example
 
@@ -620,8 +620,8 @@ select * from master_add_node('new-node', 12345);
 ### master\_update\_node
 
 The master\_update\_node() function changes the hostname and port for a node
-registered in the Hyperscale (Citus) metadata table `pg_dist_node
-<pg_dist_node>`{.interpreted-text role="ref"}.
+registered in the Hyperscale (Citus) metadata table
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 #### Arguments
 
@@ -645,8 +645,9 @@ select * from master_update_node(123, 'new-address', 5432);
 ### master\_set\_node\_property
 
 The master\_set\_node\_property() function changes properties in the Hyperscale
-(Citus) metadata table `pg_dist_node <pg_dist_node>`{.interpreted-text
-role="ref"}. Currently it can change only the `shouldhaveshards` property.
+(Citus) metadata table
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).  Currently
+it can change only the `shouldhaveshards` property.
 
 #### Arguments
 
@@ -696,7 +697,7 @@ servers, relevant only for streaming replication. Default -1
 #### Return Value
 
 The nodeid column from the newly inserted row in
-`pg_dist_node <pg_dist_node>`{.interpreted-text role="ref"}.
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 #### Example
 
@@ -724,7 +725,7 @@ node.
 #### Return Value
 
 The nodeid column from the newly inserted row in
-`pg_dist_node <pg_dist_node>`{.interpreted-text role="ref"}.
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 #### Example
 
@@ -785,7 +786,7 @@ primary node.
 #### Return Value
 
 The nodeid column for the secondary node, inserted row in
-`pg_dist_node <pg_dist_node>`{.interpreted-text role="ref"}.
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 #### Example
 
@@ -1058,10 +1059,10 @@ pg_size_pretty
 
 ### citus\_stat\_statements\_reset
 
-Removes all rows from `citus_stat_statements
-<citus_stat_statements>`{.interpreted-text role="ref"}. Note that this works
-independently from `pg_stat_statements_reset()`. To reset all stats, call both
-functions.
+Removes all rows from
+[citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table).
+Note that this works independently from `pg_stat_statements_reset()`. To reset
+all stats, call both functions.
 
 #### Arguments
 
@@ -1235,13 +1236,14 @@ command. The possible values are:
 > -   `block_writes`: Use COPY (blocking writes) for tables lacking
 >     primary key or replica identity.
 
-**drain\_only:** (Optional) When true, move shards off worker nodes who
-have `shouldhaveshards` set to false in `pg_dist_node`{.interpreted-text
-role="ref"}; move no other shards.
+**drain\_only:** (Optional) When true, move shards off worker nodes who have
+`shouldhaveshards` set to false in
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table); move no
+other shards.
 
 **rebalance\_strategy:** (Optional) the name of a strategy in
-`pg_dist_rebalance_strategy`{.interpreted-text role="ref"}. If this
-argument is omitted, the function chooses the default strategy, as
+[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
+If this argument is omitted, the function chooses the default strategy, as
 indicated in the table.
 
 #### Return Value
@@ -1340,7 +1342,7 @@ Append a row to the `pg_dist_rebalance_strategy`.
 #### Arguments
 
 For more about these arguments, see the corresponding column values in
-`pg_dist_rebalance_strategy`{.interpreted-text role="ref"}.
+[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
 
 **name:** identifier for the new strategy
 
@@ -1366,9 +1368,10 @@ N/A
 
 ### citus\_set\_default\_rebalance\_strategy
 
-Update the `pg_dist_rebalance_strategy`{.interpreted-text role="ref"}
-table, changing the strategy named by its argument to be the default
-chosen when rebalancing shards.
+Update the
+[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table)
+table, changing the strategy named by its argument to be the default chosen
+when rebalancing shards.
 
 #### Arguments
 
@@ -1410,9 +1413,9 @@ SELECT * from citus_remote_connection_stats();
 
 The master\_drain\_node() function moves shards off the designated node and
 onto other nodes who have `shouldhaveshards` set to true in
-`pg_dist_node`{.interpreted-text role="ref"}. This function is designed to be
-called prior to removing a node from the server group, i.e. turning the node's
-physical server off.
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table). This
+function is designed to be called prior to removing a node from the server
+group, i.e. turning the node's physical server off.
 
 #### Arguments
 
@@ -1434,8 +1437,8 @@ command. The possible values are:
 >     primary key or replica identity.
 
 **rebalance\_strategy:** (Optional) the name of a strategy in
-`pg_dist_rebalance_strategy`{.interpreted-text role="ref"}. If this
-argument is omitted, the function chooses the default strategy, as
+[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md#rebalancer-strategy-table).
+If this argument is omitted, the function chooses the default strategy, as
 indicated in the table.
 
 #### Return Value
@@ -1528,9 +1531,6 @@ This function creates a new shard to hold rows with a specific single value in
 the distribution column. It is especially handy for the multi-tenant Hyperscale
 (Citus) use case, where a large tenant can be placed alone on its own shard and
 ultimately its own physical node.
-
-For a more in-depth discussion, see `tenant_isolation`{.interpreted-text
-role="ref"}.
 
 #### Arguments
 

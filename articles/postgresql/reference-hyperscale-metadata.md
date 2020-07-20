@@ -20,7 +20,7 @@ these shards. In this section, we describe each of these metadata tables and
 their schema. You can view and query these tables using SQL after logging into
 the coordinator node.
 
-### Partition table {#partition_table}
+### Partition table
 
 The pg\_dist\_partition table stores metadata about which tables in the
 database are distributed. For each distributed table, it also stores
@@ -75,7 +75,7 @@ SELECT * from pg_dist_partition;
  (1 row)
 ```
 
-### Shard table {#pg_dist_shard}
+### Shard table
 
 The pg\_dist\_shard table stores metadata about individual shards of a
 table. This includes information about which distributed table the shard
@@ -150,7 +150,7 @@ and their representation is below.
 |         |             | | distributed file\_fdw tables)              |
 +---------+-------------+----------------------------------------------+
 
-### Shard placement table {#placements}
+### Shard placement table
 
 The pg\_dist\_placement table tracks the location of shard replicas on
 worker nodes. Each replica of a shard assigned to a specific node is
@@ -239,7 +239,7 @@ representation is below.
 |         |             | | subsequent background activity.            |
 +---------+-------------+----------------------------------------------+
 
-### Worker node table {#pg_dist_node}
+### Worker node table
 
 The pg\_dist\_node table contains information about the worker nodes in
 the cluster.
@@ -295,7 +295,7 @@ SELECT * from pg_dist_node;
 (3 rows)
 ```
 
-### Distributed object table {#pg_dist_object}
+### Distributed object table
 
 The citus.pg\_dist\_object table contains a list of objects such as
 types and functions that have been created on the coordinator node and
@@ -381,17 +381,17 @@ distribution_argument_index |
 colocationid                |
 ```
 
-### Co-location group table {#colocation_group_table}
+### Co-location group table
 
 The pg\_dist\_colocation table contains information about which tables\' shards
-should be placed together, or `co-located <colocation>`{.interpreted-text
-role="ref"}. When two tables are in the same co-location group, Hyperscale
-(Citus) ensures shards with the same partition values will be placed on the
-same worker nodes. This enables join optimizations, certain distributed
-rollups, and foreign key support. Shard co-location is inferred when the shard
-counts, replication factors, and partition column types all match between two
-tables; however, a custom co-location group may be specified when creating a
-distributed table, if so desired.
+should be placed together, or [co-located](concepts-hyperscale-colocation.md).
+When two tables are in the same co-location group, Hyperscale (Citus) ensures
+shards with the same partition values will be placed on the same worker nodes.
+This enables join optimizations, certain distributed rollups, and foreign key
+support. Shard co-location is inferred when the shard counts, replication
+factors, and partition column types all match between two tables; however, a
+custom co-location group may be specified when creating a distributed table, if
+so desired.
 
 +-------------+------------+-------------------------------------------+
 | Name        | Type       | Description                               |
@@ -418,10 +418,11 @@ SELECT * from pg_dist_colocation;
   (1 row)
 ```
 
-### Rebalancer strategy table {#pg_dist_rebalance_strategy}
+### Rebalancer strategy table
 
-This table defines strategies that `rebalance_table_shards`{.interpreted-text
-role="ref"} can use to determine where to move shards.
+This table defines strategies that
+[rebalance_table_shards](reference-hyperscale-udf.md#rebalance_table_shards)
+can use to determine where to move shards.
 
 +-----------------+-----------+----------------------------------------+
 | Name            | Type      | Description                            |
@@ -429,15 +430,12 @@ role="ref"} can use to determine where to move shards.
 | name            | > name    | | Unique name for the strategy         |
 +-----------------+-----------+----------------------------------------+
 | default\_strate | > boolean | | Whether                              |
-| gy              |           |   `rebalance_table_shards`{.interprete |
-|                 |           | d-text                                 |
-|                 |           |   role="ref"} should choose this       |
-|                 |           |   strategy by                          |
-|                 |           | | default. Use                         |
+| gy              |           |   rebalance_table_shards should choose |
+|                 |           |   this strategy by default.            |
+|                 |           | | Use                                  |
 |                 |           |   `citus_set_default_rebalance_strateg |
-|                 |           | y`{.interpreted-text                   |
-|                 |           |   role="ref"} to update                |
-|                 |           | | this column                          |
+|                 |           | y`                                     |
+|                 |           | | to update this column                |
 +-----------------+-----------+----------------------------------------+
 | shard\_cost\_fu | > regproc | | Identifier for a cost function,      |
 | nction          |           |   which must take a shardid as bigint, |
@@ -501,12 +499,14 @@ to achieve the same disk space on every node. Note the threshold of 0.1
 -- it prevents unnecessary shard movement caused by insigificant
 differences in disk space.
 
-#### Creating custom rebalancer strategies {#custom_rebalancer_strategies}
+#### Creating custom rebalancer strategies
 
-Here are examples of functions that can be used within new shard
-rebalancer strategies, and registered in the
-`pg_dist_rebalance_strategy`{.interpreted-text role="ref"} with the
-`citus_add_rebalance_strategy`{.interpreted-text role="ref"} function.
+Here are examples of functions that can be used within new shard rebalancer
+strategies, and registered in the
+[pg_dist_rebalance_strategy](reference-hyperscale-metadata.md?#rebalancer-strategy-table)
+with the
+[citus_add_rebalance_strategy](reference-hyperscale-udf.md#citus_add_rebalance_strategy)
+function.
 
 -   Setting a node capacity exception by hostname pattern:
 
@@ -519,8 +519,8 @@ rebalancer strategies, and registered in the
         $$ LANGUAGE sql;
     ```
 
--   Rebalancing by number of queries that go to a shard, as measured by
-    the `citus_stat_statements`{.interpreted-text role="ref"}:
+-   Rebalancing by number of queries that go to a shard, as measured by the
+    [citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table):
 
     ```postgresql
     -- example of shard_cost_function
@@ -561,7 +561,7 @@ rebalancer strategies, and registered in the
         $$ LANGUAGE sql;
     ```
 
-### Query statistics table {#citus_stat_statements}
+### Query statistics table
 
 Hyperscale (Citus) provides `citus_stat_statements` for stats about how queries are
 being executed, and for whom. It\'s analogous to (and can be joined
@@ -570,8 +570,7 @@ with) the
 view in PostgreSQL which tracks statistics about query speed.
 
 This view can trace queries to originating tenants in a multi-tenant
-application, which helps for deciding when to do
-`tenant_isolation`{.interpreted-text role="ref"}.
+application, which helps for deciding when to do tenant isolation.
 
   -------------------------------------------------------------------------------------
   Name             Type     Description
@@ -585,9 +584,8 @@ application, which helps for deciding when to do
   query            text     anonymized query string
 
   executor         text     Hyperscale (Citus)
-                            `executor <distributed_query_executor>`{.interpreted-text
-                            role="ref"} used: adaptive, real-time, task-tracker,
-                            router, or insert-select
+							distributed query executor used: adaptive,
+                            real-time, task-tracker, router, or insert-select
 
   partition\_key   text     value of distribution column in router-executed queries,
                             else NULL
@@ -644,24 +642,12 @@ Caveats:
 
 -   The stats data is not replicated, and won\'t survive database
     crashes or failover
--   It\'s a coordinator node feature, with no
-    `Hyperscale (Citus) MX <mx>`{.interpreted-text role="ref"} support
 -   Tracks a limited number of queries, set by the
     `pg_stat_statements.max` GUC (default 5000)
 -   To truncate the table, use the `citus_stat_statements_reset()`
     function
 
 ### Distributed Query Activity
-
-With `mx`{.interpreted-text role="ref"} users can execute distributed
-queries from any node. Examining the standard Postgres
-[pg\_stat\_activity](https://www.postgresql.org/docs/current/static/monitoring-stats.html#PG-STAT-ACTIVITY-VIEW)
-view on the coordinator won\'t include those worker-initiated queries.
-Also queries might get blocked on row-level locks on one of the shards
-on a worker node. If that happens then those queries would not show up
-in
-[pg\_locks](https://www.postgresql.org/docs/current/static/view-pg-locks.html)
-on the Hyperscale (Citus) coordinator node.
 
 Hyperscale (Citus) provides special views to watch queries and locks throughout the
 cluster, including shard-specific queries used internally to build
@@ -816,7 +802,7 @@ with Hyperscale (Citus) MX for instance).
 Hyperscale (Citus) has other informational tables and views which are accessible on
 all nodes, not just the coordinator.
 
-### Connection Credentials Table {#pg_dist_authinfo}
+### Connection Credentials Table
 
 The `pg_dist_authinfo` table holds authentication parameters used by
 Hyperscale (Citus) nodes to connect to one another.
@@ -824,8 +810,9 @@ Hyperscale (Citus) nodes to connect to one another.
   ----------------------------------------------------------------------
   Name       Type      Description
   ---------- --------- -------------------------------------------------
-  nodeid     integer   Node id from `pg_dist_node`{.interpreted-text
-                       role="ref"}, or 0, or -1
+  nodeid     integer   Node id from
+                       [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table),
+                       or 0, or -1
 
   rolename   name      Postgres role
 
@@ -868,24 +855,23 @@ node through a pooler.
 
 If pool information is present, Hyperscale (Citus) will try to use these values
 instead of setting up a direct connection. The pg\_dist\_poolinfo information
-in this case supersedes `pg_dist_node <pg_dist_node>`{.interpreted-text
-role="ref"}.
+in this case supersedes
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
   -----------------------------------------------------------------------
   Name       Type      Description
   ---------- --------- --------------------------------------------------
-  nodeid     integer   Node id from `pg_dist_node`{.interpreted-text
-                       role="ref"}
+  nodeid     integer   Node id from `pg_dist_node`
 
   poolinfo   text      Space-separated parameters: host, port, or dbname
   -----------------------------------------------------------------------
 
 > [!NOTE]
 > In some situations Hyperscale (Citus) ignores the settings in
-> pg\_dist\_poolinfo. For instance `Shard rebalancing
-> <shard_rebalancing>`{.interpreted-text role="ref"} is not compatible with
-> connection poolers such as pgbouncer.  In these scenarios Hyperscale (Citus)
-> will use a direct connection.
+> pg\_dist\_poolinfo. For instance [Shard
+> rebalancing](howto-hyperscale-scaling.md#rebalance-shards) is not compatible
+> with connection poolers such as pgbouncer.  In these scenarios Hyperscale
+> (Citus) will use a direct connection.
 
 ```sql
 -- how to connect to node 1 (as identified in pg_dist_node)

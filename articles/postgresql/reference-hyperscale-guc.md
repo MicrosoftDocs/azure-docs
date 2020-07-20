@@ -44,7 +44,7 @@ at server start and is effective on the coordinator node.
 Sets the policy to use when choosing nodes for SELECT queries. If this
 is set to 'always', then the planner will query only nodes which are
 marked as 'secondary' noderole in
-`pg_dist_node <pg_dist_node>`{.interpreted-text role="ref"}.
+[pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
 The supported values for this enum are:
 
@@ -58,7 +58,7 @@ Informs the coordinator node planner which cluster it coordinates. Once
 cluster\_name is set, the planner will query worker nodes in that
 cluster alone.
 
-### citus.enable\_version\_checks (boolean) {#enable_version_checks}
+### citus.enable\_version\_checks (boolean)
 
 Upgrading Hyperscale (Citus) version requires a server restart (to pick up the
 new shared-library), as well as running an ALTER EXTENSION UPDATE command.  The
@@ -84,7 +84,7 @@ PostgreSQL\'s
 setting. The default value is `2`. A value of `-1` disables distributed
 deadlock detection.
 
-### citus.node\_connection\_timeout (integer) {#node_connection_timeout}
+### citus.node\_connection\_timeout (integer)
 
 The `citus.node_connection_timeout` GUC sets the maximum duration (in
 milliseconds) to wait for connection establishment. Hyperscale (Citus) raises
@@ -102,7 +102,7 @@ ALTER DATABASE foo
 SET citus.node_connection_timeout = 30000;
 ```
 
-### citus.node\_conninfo (text) {#node_conninfo}
+### citus.node\_conninfo (text)
 
 The `citus.node_conninfo` GUC sets non-sensitive [libpq connection
 parameters](https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-PARAMKEYWORDS)
@@ -147,10 +147,10 @@ SELECT pg_reload_conf();
 ### citus.stat\_statements\_purge\_interval (integer)
 
 Sets the frequency at which the maintenance daemon removes records from
-`citus_stat_statements <citus_stat_statements>`{.interpreted-text
-role="ref"} that are unmatched in `pg_stat_statements`. This
-configuration value sets the time interval between purges in seconds,
-with a default value of 10. A value of 0 disables the purges.
+[citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table)
+that are unmatched in `pg_stat_statements`. This configuration value sets the
+time interval between purges in seconds, with a default value of 10. A value of
+0 disables the purges.
 
 ```psql
 SET citus.stat_statements_purge_interval TO 5;
@@ -162,11 +162,11 @@ runtime.
 ### citus.stat\_statements\_max (integer)
 
 The maximum number of rows to store in
-`citus_stat_statements <citus_stat_statements>`{.interpreted-text
-role="ref"}. Defaults to 50000, and may be changed to any value in the
-range 1000 - 10000000. Note that each row requires 140 bytes of storage,
-so setting stat\_statements\_max to its maximum value of 10M would
-consume 1.4GB of memory.
+[citus_stat_statements](reference-hyperscale-metadata.md#query-statistics-table).
+Defaults to 50000, and may be changed to any value in the range 1000 -
+10000000. Note that each row requires 140 bytes of storage, so setting
+stat\_statements\_max to its maximum value of 10M would consume 1.4GB
+of memory.
 
 Changing this GUC will not take effect until PostgreSQL is restarted.
 
@@ -197,7 +197,7 @@ commit protocols:
     placements is committed in a single round. Data may be lost if a
     commit fails after COPY succeeds on all placements (rare).
 
-### citus.shard\_replication\_factor (integer) {#replication_factor}
+### citus.shard\_replication\_factor (integer)
 
 Sets the replication factor for shards i.e. the number of nodes on which
 shards will be placed and defaults to 1. This parameter can be set at
@@ -208,11 +208,11 @@ large clusters and observe node failures on a more frequent basis.
 
 ### citus.shard\_count (integer)
 
-Sets the shard count for hash-partitioned tables and defaults to 32.
-This value is used by the
-`create_distributed_table <create_distributed_table>`{.interpreted-text
-role="ref"} UDF when creating hash-partitioned tables. This parameter
-can be set at run-time and is effective on the coordinator.
+Sets the shard count for hash-partitioned tables and defaults to 32.  This
+value is used by the
+[create_distributed_table](reference-hyperscale-udf.md#create_distributed_table)
+UDF when creating hash-partitioned tables. This parameter can be set at
+run-time and is effective on the coordinator.
 
 ### citus.shard\_max\_size (integer)
 
@@ -222,23 +222,25 @@ staging) for one shard exceeds this configuration value, the database
 ensures that a new shard gets created. This parameter can be set at
 run-time and is effective on the coordinator.
 
-### citus.replicate\_reference\_tables\_on\_activate (boolean) {#replicate_reference_tables_on_activate}
+### citus.replicate\_reference\_tables\_on\_activate (boolean)
 
-Reference table shards must be placed on all nodes which have
-distributed tables. By default, reference table shards are copied to a
-node at node activation time, that is, when such functions as
-`master_add_node`{.interpreted-text role="ref"} or
-`master_activate_node`{.interpreted-text role="ref"} are called. However
-node activation might be an inconvenient time to copy the placements,
-because it can take a long time when there are large reference tables.
+Reference table shards must be placed on all nodes which have distributed
+tables. By default, reference table shards are copied to a node at node
+activation time, that is, when such functions as
+[master_add_node](reference-hyperscale-udf.md#master_add_node) or
+[master_activate_node](reference-hyperscale-udf.md#master_activate_node) are
+called. However node activation might be an inconvenient time to copy the
+placements, because it can take a long time when there are large reference
+tables.
 
 You can defer reference table replication by setting the
-`citus.replicate_reference_tables_on_activate` GUC to \'off\'. Reference
-table replication will then happen we create new shards on the node. For
-instance, when calling `create_distributed_table`{.interpreted-text
-role="ref"}, `create_reference_table`{.interpreted-text role="ref"},
-`upgrade_to_reference_table`{.interpreted-text role="ref"}, or when the
-shard rebalancer moves shards to the new node.
+`citus.replicate_reference_tables_on_activate` GUC to \'off\'. Reference table
+replication will then happen we create new shards on the node. For instance,
+when calling
+[create_distributed_table](reference-hyperscale-udf.md#create_distributed_table),
+[create_reference_table](reference-hyperscale-udf.md#create_reference_table),
+[upgrade_to_reference_table](reference-hyperscale-udf.md#upgrade_to_reference_table),
+or when the shard rebalancer moves shards to the new node.
 
 The default value for this GUC is \'on\'.
 
@@ -267,9 +269,10 @@ and is effective on the coordinator.
 ### citus.task\_assignment\_policy (enum)
 
 > [!NOTE]
-> This GUC is applicable only when `shard_replication_factor
-> <replication_factor>`{.interpreted-text role="ref"} is greater than one, or
-> for queries against `reference_tables`{.interpreted-text role="ref"}.
+> This GUC is applicable only when
+> [shard_replication_factor](reference-hyperscale-guc.md#citusshard_replication_factor-integer)
+> is greater than one, or for queries against
+> [reference_tables](concepts-hyperscale-distributed-data.md#type-2-reference-tables).
 
 Sets the policy to use when assigning tasks to workers. The coordinator
 assigns tasks to workers based on shard locations. This configuration
@@ -328,7 +331,7 @@ message.
 
 ## DDL
 
-### citus.enable\_ddl\_propagation (boolean) {#enable_ddl_prop}
+### citus.enable\_ddl\_propagation (boolean)
 
 Specifies whether to automatically propagate DDL changes from the coordinator
 to all workers. The default value is true. Because some schema changes require
@@ -398,10 +401,7 @@ parameter. The accepted values for this parameter are:
     executor, but is less flexible and can cause more connection
     pressure on worker nodes.
 
-This parameter can be set at run-time and is effective on the
-coordinator. For more details about the executors, you can visit the
-`distributed_query_executor`{.interpreted-text role="ref"} section of
-our documentation.
+This parameter can be set at run-time and is effective on the coordinator.
 
 #### citus.multi\_task\_query\_log\_level (enum) {#multi_task_logging}
 
@@ -446,13 +446,13 @@ The supported values are:
 
 #### citus.enable\_repartition\_joins (boolean)
 
-Ordinarily, attempting to perform `repartition_joins`{.interpreted-text
-role="ref"} with the adaptive executor will fail with an error message.
-However setting `citus.enable_repartition_joins` to true allows Hyperscale (Citus) to
-temporarily switch into the task-tracker executor to perform the join.
-The default value is false.
+Ordinarily, attempting to perform repartition joins with the adaptive executor
+will fail with an error message.  However setting
+`citus.enable_repartition_joins` to true allows Hyperscale (Citus) to
+temporarily switch into the task-tracker executor to perform the join.  The
+default value is false.
 
-#### citus.enable\_repartitioned\_insert\_select (boolean) {#enable_repartitioned_insert_select}
+#### citus.enable\_repartitioned\_insert\_select (boolean)
 
 By default, an INSERT INTO ... SELECT statement that cannot be pushed
 down will attempt to repartition rows from the SELECT statement and
@@ -465,7 +465,7 @@ to false.
 
 ### Adaptive executor configuration
 
-#### citus.max\_shared\_pool\_size (integer) {#max_shared_pool_size}
+#### citus.max\_shared\_pool\_size (integer)
 
 Specifies the maximum number of connections that the coordinator node,
 across all simultaneous sessions, is allowed to make per worker node.
@@ -491,10 +491,10 @@ workers (see the note below). The value -1 disables throttling.
 
 #### citus.max\_adaptive\_executor\_pool\_size (integer)
 
-Whereas `max_shared_pool_size`{.interpreted-text role="ref"} limits
-worker connections across all sessions,
-`max_adaptive_executor_pool_size` limits worker connections from just
-the *current* session. This GUC is useful for:
+Whereas [max_shared_pool_size](#citusmax_shared_pool_size-integer) limits
+worker connections across all sessions, `max_adaptive_executor_pool_size`
+limits worker connections from just the *current* session. This GUC is useful
+for:
 
 -   Preventing a single backend from getting all the worker resources
 -   Providing priority management: designate low priority sessions with
