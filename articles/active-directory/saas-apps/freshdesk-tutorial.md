@@ -87,24 +87,15 @@ To configure and test Azure AD SSO with FreshDesk, complete the following buildi
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. FreshDesk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname** but FreshDesk expects this to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
+1. FreshDesk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname** but FreshDesk expects this to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-7. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+1. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-8. Open **Command Prompt** and run the following commands:
-
-	a. Enter `certutil.exe -dump FreshDesk.cer` value in the command prompt.
-
-	> [!NOTE]
-	> Here **FreshDesk.cer** is the certificate which you have downloaded from the Azure portal.
-
-	b. Copy the **Cert Hash(sha256)** value and paste it into the Notepad. 
-
-9. On the **Set-up FreshDesk** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set-up FreshDesk** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -199,29 +190,17 @@ In the case of FreshDesk, provisioning is a manual task.
 
 1. Log in to your **Freshdesk** tenant.
 
-2. In the menu on the top, click **Admin**.
-
-	![Admin](./media/freshdesk-tutorial/IC776772.png "Admin")
-
-3. In the **General Settings** tab, click **Agents**.
+1. In the menu on the left, click **Admin** and in the **General Settings** tab, click **Agents**.
   
-	![Agents](./media/freshdesk-tutorial/IC776773.png "Agents")
+	![Agents](./media/freshdesk-tutorial/createuser1.png "Agents")
 
-4. Click **New Agent**.
+1. Click **New Agent**.
 
-    ![New Agent](./media/freshdesk-tutorial/IC776774.png "New Agent")
+    ![New Agent](./media/freshdesk-tutorial/createuser2.png "New Agent")
 
-5. On the Agent Information dialog, perform the following steps:
+1. On the Agent Information dialog, enter the required fields and click on **Create agent**.
 
-	![Agent Information](./media/freshdesk-tutorial/IC776775.png "Agent Information")
-
-	a. In the **Email** textbox, type the Azure AD email address of the Azure AD account you want to provision.
-
-	b. In the **Full Name** textbox, type the name of the Azure AD account you want to provision.
-
-	c. In the **Title** textbox, type the title of the Azure AD account you want to provision.
-
-	d. Click **Save**.
+	![Agent Information](./media/freshdesk-tutorial/createuser3.png "Agent Information")
 
 	>[!NOTE]
 	>The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
