@@ -25,7 +25,7 @@ Your backup options depend on where the agent is installed. For more information
 **Installation** | **Details**
 --- | ---
 Download the latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 Install on a backup server | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
@@ -80,7 +80,7 @@ With Microsoft peering, please select the following services/regions and relevan
 - Microsoft Azure Region (according to the location of your Recovery Services vault)
 - Azure Storage (according to the location of your Recovery Services vault)
 
-For more information, see the [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more information, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
 
 >[!NOTE]
 >Public Peering is deprecated for new circuits.

@@ -94,13 +94,13 @@ You can choose the redirection target to be another listener (which can help ena
 
 For more information, see [Redirect traffic on your application gateway](redirect-overview.md).
 
-### Rewrite HTTP headers
+### Rewrite HTTP headers and URL
 
-By using the request routing rules, you can add, remove, or update HTTP(S) request and response headers as the request and response packets move between the client and backend pools via the application gateway.
+By using rewrite rules, you can add, remove, or update HTTP(S) request and response headers as well as URL path and query string parameters as the request and response packets move between the client and backend pools via the application gateway.
 
-The headers can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
+The headers and URL parameters can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
 
-For more information, see [Rewrite HTTP headers on your application gateway](rewrite-http-headers.md).
+For more information, see [Rewrite HTTP headers and URL on your application gateway](rewrite-http-headers-url.md).
 
 ## HTTP settings
 

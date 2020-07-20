@@ -166,7 +166,7 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Managed Virtual network
+  - name: Managed Virtual Network
     href: managed-virtual-network-private-endpoint.md
   - name: Security
     items:
@@ -414,6 +414,8 @@
       href: connector-web-table.md
     - name: Xero
       href: connector-xero.md
+    - name: XML format
+      href: format-xml.md
     - name: Zoho
       href: connector-zoho.md
   - name: Move data
@@ -687,7 +689,7 @@
         href: how-to-fixed-width.md
       - name: Error row handling
         href: how-to-data-flow-error-rows.md
-      - name: Azure SQL DB to CosmosDB
+      - name: Azure SQL DB to Azure Cosmos DB
         href: how-to-sqldb-to-cosmosdb.md
     - name: SSIS migration from on-premises
       items:
