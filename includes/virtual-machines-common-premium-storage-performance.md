@@ -114,10 +114,10 @@ The table below summarizes performance factors and the steps necessary to optimi
 
 For more information on VM sizes and on the IOPS, throughput, and latency available for each type of VM, see [Linux VM sizes](../articles/virtual-machines/linux/sizes.md) or [Windows VM sizes](../articles/virtual-machines/windows/sizes.md).
 
-| &nbsp; | **IOPS** | **Throughput** | **Latency** |
+| | **IOPS** | **Throughput** | **Latency** |
 | --- | --- | --- | --- |
 | **Example Scenario** |Enterprise OLTP application requiring very high transactions per second rate. |Enterprise Data warehousing application processing large amounts of data. |Near real-time applications requiring instant responses to user requests, like online gaming. |
-| Performance factors | &nbsp; | &nbsp; | &nbsp; |
+| **Performance factors** | &nbsp; | &nbsp; | &nbsp; |
 | **IO size** |Smaller IO size yields higher IOPS. |Larger IO size to yields higher Throughput. | &nbsp;|
 | **VM size** |Use a VM size that offers IOPS greater than your application requirement. |Use a VM size with throughput limit greater than your application requirement. |Use a VM size that offers scale limits greater than your application requirement. |
 | **Disk size** |Use a disk size that offers IOPS greater than your application requirement. |Use a disk size with Throughput limit greater than your application requirement. |Use a disk size that offers scale limits greater than your application requirement. |

@@ -129,3 +129,4 @@ Remove-AzImage `
 
 Once you have verified that replication is complete, you can create a VM from the [generalized image](vm-generalized-image-version-powershell.md).
 
+For information about how to supply purchase plan information, see [Supply Azure Marketplace purchase plan information when creating images](marketplace-images.md).

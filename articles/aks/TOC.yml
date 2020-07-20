@@ -257,6 +257,8 @@
       href: private-clusters.md
     - name: BYOK for disks
       href: azure-disk-customer-managed-keys.md
+    - name: Enable host-based encryption
+      href: enable-host-encryption.md
   - name: Monitoring and logging
     items:
     - name: Azure Monitor for containers

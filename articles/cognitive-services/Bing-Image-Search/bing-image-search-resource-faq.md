@@ -20,7 +20,7 @@ Find answers to commonly asked questions about concepts, code, and scenarios rel
 
 The following headers may occur in responses from the Bing Image Search API.
 
-| `Attribute`         | `Description` |
+| Attribute           | Description   |
 | ------------------- | ------------- |
 | `X-MSEdge-ClientID` |The unique ID that Bing has assigned to the user |
 | `BingAPIs-Market`   |The market that was used to fulfill the request |

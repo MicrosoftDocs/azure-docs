@@ -176,7 +176,27 @@ If you are using file share for other workloads, such as data transfer, the re
 |When reviewing images, newly labeled images are not shown.     |   To load all labeled images, choose the **First** button. The **First** button will take you back to the front of the list, but loads all labeled data.      |
 |Pressing Esc key while labeling for object detection creates a zero size label on the top-left corner. Submitting labels in this state fails.     |   Delete the label by clicking on the cross mark next to it.  |
 
-### Data drift monitors
+### <a name="data-drift"></a> Data drift monitors
+
+Limitations and known issues for data drift monitors:
+
+* The time range when analyzing historical data is limited to 31 intervals of the monitor's frequency setting. 
+* Limitation of 200 features, unless a feature list is not specified (all features used).
+* Compute size must be large enough to handle the data.
+* Ensure your dataset has data within the start and end date for a given monitor run.
+* Dataset monitors will only work on datasets that contain 50 rows or more.
+* Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the following table. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our data drift algorithm, but is still profiled. 
+
+    | Feature type | Data type | Condition | Limitations | 
+    | ------------ | --------- | --------- | ----------- |
+    | Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category. | 
+    | Numerical | int, float | The values in the feature are of a numerical data type and do not meet the condition for a categorical feature. | Feature dropped if >15% of values are null. | 
+
+* When you have [created a datadrift monitor](how-to-monitor-datasets.md) but cannot see data on the **Dataset monitors** page in Azure Machine Learning studio, try the following.
+
+    1. Check if you have selected the right date range at the top of the page.  
+    1. On the **Dataset Monitors** tab, select the experiment link to check run status.  This link is on the far right of the table.
+    1. If run completed successfully, check driver logs to see how many metrics has been generated or if there's any warning messages.  Find driver logs in the **Output + logs** tab after you click on an experiment.
 
 * If the SDK `backfill()` function does not generate the expected output, it may be due to an authentication issue.  When you create the compute to pass into this function, do not use `Run.get_context().experiment.workspace.compute_targets`.  Instead, use [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) such as the following to create the compute that you pass into that `backfill()` function: 
 

@@ -316,7 +316,7 @@ This issue can occur if any maintenance activities are being done on the Sentine
 2. Select the **App service**.  
 3. Go to the scale up [App Service pricing page](https://azure.microsoft.com/pricing/details/app-service/windows/), and then select an appropriate pricing tier.
 
-## Weather Data Job Failures
+## Weather data job failures
 
 **Error**: You run Jobs to get weather data but the job fails
 

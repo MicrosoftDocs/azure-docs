@@ -91,7 +91,7 @@ If a hop is red, it signifies that it is part of at-least one unhealthy path. NP
 NPM uses a probabilistic mechanism to assign fault-probabilities to each network path, network segment, and the constituent network hops based on the number of unhealthy paths they are a part of. As the network segments and hops become part of more number of unhealthy paths, the fault-probability associated with them increases. This algorithm works best when you have many nodes with NPM agent connected to each other as this increases the data points for calculating the fault-probabilities.
 
 ### How can I create alerts in NPM?
-Refer to [alerts section in the documentation](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) for step-by-step instructions.
+Creating alerts from NPM UI is currently failing due to a issue. Please create alerts manually.
 
 ### What are the default Log Analytics queries for alerts
 Performance monitor query

@@ -3,7 +3,7 @@ title: Oracle solutions on Microsoft Azure | Microsoft Docs
 description: Learn about options to deploy Oracle Applications and solutions on Microsoft Azure, including running entirely on Azure infrastructure or using cross-cloud connectivity with Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
+author: rgardler
 tags: azure-resource-management
 
 ms.assetid: 
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
-ms.author: borisb
+ms.author: rogardle
 ---
 
 # Overview of Oracle Applications and solutions on Azure

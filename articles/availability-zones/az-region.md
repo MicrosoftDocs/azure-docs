@@ -19,9 +19,8 @@ This section lists the Azure services and regions that support Availability Zone
 
 Services that are available in each region, along with upcoming roadmap for availability, can be found at [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |Americas |              |           |           | Europe |              |          |              | Asia Pacific |                 |                |
+| Service |Americas: Central US|Americas: East US|Americas: East US 2|Americas: West US 2|Europe: France Central|Europe: North Europe|Europe: UK South|Europe: West Europe|Asia Pacific: Japan East|Asia Pacific: Southeast Asia|Asia Pacific: Australia East|
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
-|          |Central US|East US|East US 2|West US 2|France Central|North Europe|UK South|West Europe|Japan East|Southeast Asia|Australia East|
 | **Compute**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Linux Virtual Machines          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |
 | Windows Virtual Machines        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       | &#10003;               |

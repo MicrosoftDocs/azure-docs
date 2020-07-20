@@ -26,6 +26,8 @@
     href: concepts-storage.md
   - name: Access and identity for private clouds
     href: concepts-identity.md
+  - name: Role-based access control
+    href: concepts-rbac.md
   - name: Private cloud upgrades
     href: concepts-upgrades.md
 - name: How-to guides
@@ -36,27 +38,15 @@
     href: manage-dhcp.md
   - name: Disaster recovery
     href: disaster-recovery.md
-  - name: Deploy VM via content library
-    href: deploy-vm-content-library.md
   - name: Azure Backup Server for AVS
     items:
     - name: Set up Azure Backup Server for AVS
       href: set-up-mabs-for-avs.md
     - name: Back up AVS VMs with Azure Backup Server
       href: backup-avs-vms-with-mabs.md
-  - name: Azure native integration
-    items:
-    - name: API Management
-      href: concepts-api-management.md
-    - name: Hub and spoke
-      href: concepts-avs-hub-and-spoke-integration.md
 - name: Reference
   items:
 - name: Resources
-  items:
-  - name: Troubleshooting
-    items:
-    - name: Get help with AVS deployment or provisioning failures
-      href: fix-deployment-provisioning-failures.md  
-  - name: FAQ
-    href: faq.md
+  items: 
+    - name: FAQ
+      href: faq.md

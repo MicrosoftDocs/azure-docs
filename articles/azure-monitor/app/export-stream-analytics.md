@@ -56,7 +56,7 @@ Continuous export always outputs data to an Azure Storage account, so you need t
     And also, the data will export to your storage. 
 2. Inspect the exported data. In Visual Studio, choose **View / Cloud Explorer**, and open Azure / Storage. (If you don't have this menu option, you need to install the Azure SDK: Open the New Project dialog and open Visual C# / Cloud / Get Microsoft Azure SDK for .NET.)
    
-    ![](./media/export-stream-analytics/04-data.png)
+    ![Screenshot showing how to set the event types that you want to see.](./media/export-stream-analytics/04-data.png)
    
     Make a note of the common part of the path name, which is derived from the application name and instrumentation key. 
 
@@ -65,21 +65,21 @@ The events are written to blob files in JSON format. Each file may contain one o
 ## Create an Azure Stream Analytics instance
 From the [Azure portal](https://portal.azure.com/), select the Azure Stream Analytics service, and create a new Stream Analytics job:
 
-![](./media/export-stream-analytics/SA001.png)
+![Screenshot that shows the main page for creating Stream Analytics job in the Azure portal.](./media/export-stream-analytics/SA001.png)
 
-![](./media/export-stream-analytics/SA002.png)
+![Screenshot that shows the details needed when creating a new Stream Analytics job.](./media/export-stream-analytics/SA002.png)
 
 When the new job is created, select **Go to resource**.
 
-![](./media/export-stream-analytics/SA003.png)
+![Screenshot that shows the message received when the new Stream Analytics job deployment is successful.](./media/export-stream-analytics/SA003.png)
 
 ### Add a new input
 
-![](./media/export-stream-analytics/SA004.png)
+![Screenshot that shows how to add inputs to the Stream Analytics job.](./media/export-stream-analytics/SA004.png)
 
 Set it to take input from your Continuous Export blob:
 
-![](./media/export-stream-analytics/SA0005.png)
+![Screenshot that shows configuring the Stream Analytics job to take input from a Continuous Export blob.](./media/export-stream-analytics/SA0005.png)
 
 Now you'll need the Primary Access Key from your Storage Account, which you noted earlier. Set this as the Storage Account Key.
 
@@ -105,7 +105,7 @@ In this example:
 ## Add new output
 Now select your job > **Outputs** > **Add**.
 
-![](./media/export-stream-analytics/SA006.png)
+![Screenshot that shows selecting your Stream Analytics job to add a new output.](./media/export-stream-analytics/SA006.png)
 
 
 ![Select the new channel, click Outputs, Add, Power BI](./media/export-stream-analytics/SA010.png)

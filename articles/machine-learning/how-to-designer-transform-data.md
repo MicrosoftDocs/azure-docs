@@ -1,7 +1,7 @@
 ---
-title: Transform data
+title: Transform data in the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to transform data in Azure Machine Learning designer to create your own datasets.
+description: Learn how to transform data in Azure Machine Learning designer (preview) to create your own datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

@@ -477,6 +477,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-cli.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-cli.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-cli.md 
           - name: Copy from another gallery
@@ -499,6 +501,8 @@
           items:
           - name: From a VM
             href: ../image-version-vm-powershell.md
+          - name: From a VHD or snapshot
+            href: ../image-version-snapshot-powershell.md
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md 
           - name: Copy from another gallery
@@ -511,6 +515,8 @@
             href: ../vm-specialized-image-version-powershell.md
         - name: Update image resources
           href: ../update-image-resources-powershell.md
+        - name: App registration for sharing
+          href: ../windows/share-images-across-tenants.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
       - name: Portal
         items:
         - name: Create a gallery, image and VM
@@ -545,6 +551,8 @@
         href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
+    - name: Purchase plan information
+      href: ../marketplace-images.md
     - name: Capture VM to managed image
       href: capture-image.md
     - name: Build image with Packer

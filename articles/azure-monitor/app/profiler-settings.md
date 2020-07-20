@@ -28,7 +28,7 @@ That opens a page that looks like this:
 
 The **Configure Application Insights Profiler** page has these features:
 
-| | |
+| Feature | Description |
 |-|-|
 Profile Now | Starts profiling sessions for all apps that are linked to this instance of Application Insights.
 Triggers | Allows you to configure triggers that cause the profiler to run. 
@@ -44,7 +44,7 @@ For a user to manually trigger a profiler session, they require at minimum "writ
 
 Clicking the Triggers button on the menu bar opens the trigger settings box. You can set up trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
 
-| | |
+| Setting | Description |
 |-|-|
 On / Off Button | On: profiler can be started by this trigger; Off: profiler won't be started by this trigger.
 Memory threshold | When this percentage of memory is in use, the profiler will be started.
@@ -54,7 +54,7 @@ Cooldown | Sets the length of time the profiler will wait before checking for th
 ## Recent Profiling Sessions
 This section of the page shows information about recent profiling sessions. A profiling session represents the period of time when the profiler agent was taking a profile on one of the machines hosting your application. You can open the profiles from a session by clicking on one of the rows. For each session, we show:
 
-| | |
+| Setting | Description |
 |-|-|
 Triggered by | How the session was started, either by a trigger, Profile Now, or default sampling. 
 App Name | Name of the application that was profiled.

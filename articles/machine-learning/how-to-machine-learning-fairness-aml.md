@@ -1,5 +1,5 @@
 ---
-title: Assess ML models' fairness in Python
+title: Assess ML models' fairness in Python (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to assess the fairness of your models in Azure Machine Learning
 services: machine-learning
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 06/30/2020
+ms.date: 07/09/2020
 ms.custom: tracking-python
 ---
 
-# Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models  
+# Use Azure Machine Learning with the Fairlearn open-source package to assess the fairness of ML models (preview)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

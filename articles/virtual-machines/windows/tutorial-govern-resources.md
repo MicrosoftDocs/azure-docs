@@ -215,6 +215,10 @@ When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.mic
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
+## Manage costs
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## Next steps
 
 In this tutorial, you created a custom VM image. You learned how to:

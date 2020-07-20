@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: how-to
-ms.date: 08/07/2019
+ms.topic: article
+ms.date: 07/20/2020
 ms.author: alkohli
 ---
 
@@ -17,10 +17,14 @@ This article applies to both Azure Data Box and Azure Data Box Heavy. This artic
 
 This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage Data Box device, and track the status of the order as it proceeds to completion.
 
+[!INCLUDE [Data Box feature is in preview](../../includes/data-box-feature-is-preview-info.md)]
+
 
 ## Cancel an order
 
-You may need to cancel an order for various reasons after you have placed the order. You can only cancel the order before the order is processed. Once the order is processed and Data Box device is prepared, it is not possible to cancel the order.
+You may need to cancel an order for various reasons after you have placed the order. 
+
+For both import and export orders, you can only cancel the order before the order is processed. Once the order is processed and Data Box device is prepared, it is not possible to cancel the order.
 
 Perform the following steps to cancel an order.
 
@@ -38,7 +42,10 @@ Perform the following steps to cancel an order.
 
 Cloning is useful in certain situations. For example, a user has used Data Box to transfer some data. As more data is generated, there is a need for another Data Box device to transfer that data into Azure. In this case, the same order can be just cloned over.
 
-Perform the following steps to clone an order.
+> [!IMPORTANT]
+> Cloning is not available for export orders. You can only clone import orders.
+
+Perform the following steps to clone an import order.
 
 1.	Go to **Overview > Clone**. 
 
@@ -118,9 +125,12 @@ Perform the following steps to download the order history.
 
 2. Click **Download order history**. In the downloaded history, you will see a record of carrier tracking logs. There will be two sets of log corresponding to the two nodes on a Data Box Heavy. If you scroll down to the bottom of this log, you can see the links to:
     
-   - **Copy logs** - have the list of files that errored out during the data copy from Data Box to your Azure storage account.
+   - **Copy logs** - have the list of files that errored out during the data copy from Data Box to your Azure storage account (import order) or *vice-versa* (export order).
    - **Audit logs** - contain information on how to power on and access shares on the Data Box when it is outside of Azure datacenter.
-   - **BOM files** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
+   - **BOM files in import order** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
+   - **Verbose logs in export order** - have the list of files with file names, file sizes, and checksum computation when the data was copied from the Azure Storage accounts to the Data Box.
+
+   Here is a sample of an order history from an import order.
 
        ```
        -------------------------------
@@ -193,6 +203,10 @@ You can also view the chain of custody logs that include the audit logs and the 
 
 When the device status changes in portal, you are notified via an email.
 
+### Statuses for import order
+
+Here are the statuses for an import order.
+
 |Order status |Description |
 |---------|---------|
 |Ordered     | Successfully placed an order. <br>If the device is available, Microsoft identifies a device for shipment and prepares the device. <br> If the device is not available immediately, order will be processed when the device becomes available. The order could take several days to a couple months to process. If the order cannot be fulfilled in 90 days, the order is canceled and you are notified.         |
@@ -207,6 +221,42 @@ When the device status changes in portal, you are notified via an email.
 |Completed with warnings| Data copy was completed but your data was modified. The data had non-critical blob or file name errors that were fixed by changing the file or blob names. <br> Review the copy logs using the path provided in the Azure portal. Make a note to the modifications in your data. See [examples of copy logs when upload completed with warnings](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Canceled            |Order is canceled. <br> Either you canceled the order or an error was encountered and the service canceled the order. If the order cannot be fulfilled in 90 days, the order is also canceled and you are notified.     |
 |Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order history is available for download in the Azure portal.|
+
+### Statuses for export order
+
+Here are the statuses for an export order.
+
+|Order status |Description |
+|---------|---------|
+|Ordered     | Successfully placed an export order. <br>If the device is available, Microsoft identifies a device for shipment and prepares the device. <br> If the device is not available immediately, order will be processed when the device becomes available. The order could take several days to a couple months to process. If the order cannot be fulfilled in 90 days, the order is canceled and you are notified.         |
+|Canceled            |Order is canceled. <br> Either you canceled the order (you can cancel only before the order is processed) or an error was encountered and the service canceled the order. If the order cannot be fulfilled in 90 days, the order is also canceled and you are notified.     |
+|Processed     | Order processing is complete. As per your order, the device is prepared for data copy in the datacenter. Device shares are created.         |
+|Data copy in progress     | Data copy from the specified Azure Storage accounts to the device is in progress. Track the copy progress for your order in Azure portal. <br> Wait until the data copy is complete. |
+|Copy completed     | Data copy from the specified Azure Storage accounts to the device is complete. A verbose log file (if the option was enabled in the order) and a copy log are created in your storage account. The verbose log contains the information on all the files (name, path, computation checksum) that are copied to the device. The copy log contains the summary of the copy process including a list of files that could not be copied due to any errors.<br> The storage account data stays as-is. |
+|Copy completed with errors| Data copy was completed but errors occurred during the copy. <br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download completed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Copy completed with warnings| Data copy from Azure Storage account was completed but the data had non-critical errors. <br> Review the copy logs using the path provided in the Azure portal. Make a note of the non-critical errors. See [examples of copy logs when download completed with warnings](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Copy failed with errors| Data copy from Azure Storage account failed and the order is terminated. A device will not be shipped.<br> Review the copy logs in the Azure Storage account using the path provided in the Azure portal. See [examples of copy logs when download failed with errors](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Dispatched     |Order has shipped. Use the tracking ID displayed in your order in the portal to track the shipment.        |
+|Delivered     |Shipment was delivered to the address specified in the order.        |
+|Picked up     |Your return shipment was picked up and scanned by the carrier.         |
+|Received     | Your device is received and scanned at the Azure datacenter. <br> The shipment is inspected.      |
+|Completed           |Order is complete.     |
+|Clean up | The data on the device disks is erased. The device cleanup is considered complete when the order history is available for download in the Azure portal.|
+
+> [!NOTE]
+> If the copy job to export data from Azure Storage accounts to Data Box completes with errors or warnings, the device still ships. Only in case of a copy failure, the order is terminated and the device does not ship out.
+
+
+If using self-managed shipping, then after the copy is complete and before you receive the device, you will see the following states (instead of the ones mentioned in the preceding table):
+
+|Order status |Description |
+|---------|---------|
+|Ready for pickup at Azure datacenter      |The device is ready to be picked up at the Azure datacenter.        |
+|Picked up    |You have picked up the device.         |
+|Ready to receive at Azure datacenter     |The device is ready to be received at the Azure datacenter.        |
+|Received     |The device is received at the Azure datacenter.      |
+
+
 
 
 

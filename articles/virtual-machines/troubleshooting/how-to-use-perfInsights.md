@@ -99,9 +99,8 @@ When you run an advanced performance analysis, you select traces to run in paral
 
 Information about Windows VM, disks or storage pools configuration, performance counters, logs, and various traces are collected. It depends on the performance scenario you are using. The following table provides details:
 
-|Data collected                              |  |  | Performance scenarios |  |  | |
-|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Quick performance analysis | Benchmarking | Performance analysis | Azure Files analysis | Advanced performance analysis |
+| Data collected | Quick performance analysis | Benchmarking | Performance analysis | Azure Files analysis | Advanced performance analysis |
+|----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|
 | Information from event logs       | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | System information                | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |
 | Volume map                        | Yes                        | Yes                                | Yes                      | Yes                  | Yes                  |

@@ -43,3 +43,4 @@ To migrate API Management instances from one Azure region to another, you can us
 ## <a name="next-steps"> </a>Next steps
 * For more information about the backup and restore feature, see [how to implement disaster recovery](api-management-howto-disaster-recovery-backup-restore.md).
 * For information on migration Azure resources, see [Azure cross-region migration guidance](https://github.com/Azure/Azure-Migration-Guidance).
+* [Optimize and save on your cloud spending](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

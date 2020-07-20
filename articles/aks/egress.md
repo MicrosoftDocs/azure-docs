@@ -94,7 +94,7 @@ Create the service and deployment with the `kubectl apply` command.
 kubectl apply -f egress-service.yaml
 ```
 
-This service configures a new frontend IP on the Azure Load Balancer. If you do not have any other IPs configured, then **all** egress traffic should now use this address. When multiple addresses are configured on the Azure Load Balancer, egress uses the first IP on that load balancer.
+This service configures a new frontend IP on the Azure Load Balancer. If you do not have any other IPs configured, then **all** egress traffic should now use this address. When multiple addresses are configured on the Azure Load Balancer, any of these public IP addresses are a candidate for outbound flows, and one is selected at random.
 
 ## Verify egress address
 

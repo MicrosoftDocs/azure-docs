@@ -243,6 +243,9 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
 - Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
 - M-series VMs with Write Accelerator disks.
+- Applying [server-side encryption with customer-managed keys](disk-encryption.md) to a VMs encrypted by ADE, and vice versa.
+- Migrating a VM encrypted with ADE to [server-side encryption with customer-managed keys](disk-encryption.md).
+
 
 ## Next steps
 

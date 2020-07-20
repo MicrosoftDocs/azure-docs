@@ -43,6 +43,10 @@ Learn more about how [Azure compute units (ACU)](../acu.md) can help you compare
 
 Learn more about compute performance for Windows VMs using the [CoreMark benchmark scores](compute-benchmark-scores.md).
 
+## Manage costs
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## Next steps
 
 Learn more about the different VM sizes that are available:

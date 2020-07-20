@@ -78,9 +78,9 @@ In Linux, you receive an error message that resembles the following:
 
 ### Cause
 
-You have reached the upper limit of concurrent open handles that are allowed for a file.
+You have reached the upper limit of concurrent open handles that are allowed for a file or directory.
 
-There is a quota of 2,000 open handles on a single file. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
+There is a quota of 2,000 open handles on a single file or directory. When you have 2,000 open handles, an error message is displayed that says the quota is reached.
 
 ### Solution
 

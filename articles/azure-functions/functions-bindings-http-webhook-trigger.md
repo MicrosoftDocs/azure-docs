@@ -797,7 +797,7 @@ In version 1.x, webhook templates provide additional validation for webhook payl
 
 To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the **webHookType** property to `github`. Then copy its URL and API key into the **Add webhook** page of your GitHub repository. 
 
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+![Screenshot that shows how to add a webhook for your function.](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
 ### Slack webhooks
 
