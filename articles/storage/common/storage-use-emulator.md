@@ -74,7 +74,7 @@ You can use the storage emulator command-line tool to initialize the storage emu
 
    `AzureStorageEmulator.exe init /server .`
 
-   Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
+   Or, you can use the following command, which initializes the database to the default LocalDB instance:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
