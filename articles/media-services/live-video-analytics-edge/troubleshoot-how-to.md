@@ -278,7 +278,7 @@ When you need to gather logs from an IoT Edge device, the easiest way is to use 
 - Iotedge check JSON output
 - Useful debug information
 
-1. Run the `support-bundle` command with the --since flag to specify how far into the past you want to reach for your logs. For example, 2h will get logs for the last two hours. You can change the value of this flag to include logs for different periods.
+1. Run the `support-bundle` command with the *--since* flag to specify how much time you want your logs to cover. For example, 2h will get logs for the last two hours. You can change the value of this flag to include logs for different periods.
 
     ```
     sudo iotedge support-bundle --since 2h
@@ -297,7 +297,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 1. In the list of devices, select the ID of the target device.
 1. At the top of the pane, select **Set Modules**.
 
-  ![Screenshot of the "Set Modules" button in the Azure portal.](media/troubleshoot-how-to/set-modules.png)
+   ![Screenshot of the "Set Modules" button in the Azure portal.](media/troubleshoot-how-to/set-modules.png)
 
 1. In the **IoT Edge Modules** section, look for and select **lvaEdge**.
 1. Select **Container Create Options**.
@@ -307,8 +307,7 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 
     > [!NOTE] 
     > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:
-   
-    >  `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
+    > `/var/$LOG_LOCATION_ON_EDGE_DEVICE:/var/lib/azuremediaservices/logs`
 
 1. Select **Update**.
 1. Select **Review + Create**. A successful validation message is posted under a green banner.
@@ -316,35 +315,31 @@ To configure the Live Video Analytics on IoT Edge module to generate debug logs,
 1. Update **Module Identity Twin** to point to the DebugLogsDirectory parameter, which points to the directory in which the logs are collected:
 
     a. Under the **Modules** table, select **lvaEdge**.  
-
     b. At the top of the pane, select **Module Identity Twin**. An editable pane opens.  
-
     c. Under **desired key**, add the following key/value pair:  
-
     `"DebugLogsDirectory": "/var/lib/azuremediaservices/logs"`
 
-        >[!NOTE] 
-        > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:  
-        
-        `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
+    > [!NOTE] 
+    > This command binds the logs folders between the Edge device and the container. If you want to collect the logs in a different location, use the following command, replacing **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location you want to use:  
+    > `"DebugLogsDirectory": "/var/$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE"`  
 
     d. Select **Save**.
 
 1. Reproduce the issue.
 1. Connect to the virtual machine from the **IoT Hub** page in the portal.
-1. Zip the files in the *debugLogs* folder.
+1. Zip all the files in the *debugLogs* folder.
 
-  > [!NOTE]
-  > These log files are not meant for self-diagnosis. They are meant for the Azure engineering team to analyze your issues.
+   > [!NOTE]
+   > These log files are not meant for self-diagnosis. They are meant for the Azure engineering team to analyze your issues.
 
-    a. In the following command, be sure to replace **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location of the debug logs on the Edge device that you set up earlier.  
+   a. In the following command, be sure to replace **$DEBUG_LOG_LOCATION_ON_EDGE_DEVICE** with the location of the debug logs on the Edge device that you set up earlier.  
 
-    ```
-    sudo apt install zip unzip  
-    zip -r debugLogs.zip $DEBUG_LOG_LOCATION_ON_EDGE_DEVICE 
-    ```
+   ```
+   sudo apt install zip unzip  
+   zip -r debugLogs.zip $DEBUG_LOG_LOCATION_ON_EDGE_DEVICE 
+   ```
 
-    b. Attach the *debugLogs.zip* file to the support ticket.
+   b. Attach the *debugLogs.zip* file to the support ticket.
 
 1. You can stop log collection by setting the value in **Module Identity Twin** to *null*. Go back to the **Module Identity Twin** page and update the following parameter as:
 
