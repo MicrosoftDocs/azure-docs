@@ -35,10 +35,10 @@ The MARS agent supports the following restore scenarios:
 ## Backup process
 
 1. From the Azure portal, create a [Recovery Services vault](install-mars-agent.md#create-a-recovery-services-vault), and choose files, folders, and the system state from the **Backup goals**.
-2. [Download the Recovery Services vault credentials and agent installer](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) to an on-premises machine.
+2. [Download the Recovery Services vault credentials and agent installer](./install-mars-agent.md#download-the-mars-agent) to an on-premises machine.
 
-3. [Install the agent](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) and use the downloaded vault credentials to register the machine to the Recovery Services vault.
-4. From the agent console on the client, [configure the backup](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) to specify what to back up, when to back up (the schedule), how long the backups should be retained in Azure (the retention policy) and start protecting.
+3. [Install the agent](./install-mars-agent.md#install-and-register-the-agent) and use the downloaded vault credentials to register the machine to the Recovery Services vault.
+4. From the agent console on the client, [configure the backup](./backup-windows-with-mars-agent.md#create-a-backup-policy) to specify what to back up, when to back up (the schedule), how long the backups should be retained in Azure (the retention policy) and start protecting.
 
 ![Azure Backup agent diagram](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
@@ -52,12 +52,12 @@ The MARS agent supports the following restore scenarios:
 
 ### Additional scenarios
 
-- **Back up specific files and folders within Azure virtual machines**: The primary method for backing up Azure virtual machines (VMs) is to use an Azure Backup extension on the VM. The extension backs up the entire VM. If you want to back up specific files and folders within a VM, you can install the MARS agent in the Azure VMs. For more information, see [Architecture: Built-in Azure VM Backup](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
+- **Back up specific files and folders within Azure virtual machines**: The primary method for backing up Azure virtual machines (VMs) is to use an Azure Backup extension on the VM. The extension backs up the entire VM. If you want to back up specific files and folders within a VM, you can install the MARS agent in the Azure VMs. For more information, see [Architecture: Built-in Azure VM Backup](./backup-architecture.md#architecture-built-in-azure-vm-backup).
 
 - **Offline seeding**: Initial full backups of data to Azure typically transfer large amounts of data and require more network bandwidth. Subsequent backups transfer only the delta, or incremental, amount of data. Azure Backup compresses the initial backups. Through the process of *offline seeding*, Azure Backup can use disks to upload the compressed initial backup data offline to Azure. For more information, see [Azure Backup offline-backup using Azure Data Box](offline-backup-azure-data-box.md).
 
 ## Next steps
 
-[MARS agent support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)
+[MARS agent support matrix](./backup-support-matrix-mars-agent.md)
 
-[MARS agent FAQ](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq)
+[MARS agent FAQ](./backup-azure-file-folder-backup-faq.md)
