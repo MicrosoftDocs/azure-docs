@@ -111,4 +111,4 @@ If you receive any errors related to your customer-managed key, use the followin
 
 ## Next steps
 
-- [What is Azure Key Vault](../key-vault/general/key-vault-overview.md)?
+- [What is Azure Key Vault](../key-vault/general/overview.md)?
