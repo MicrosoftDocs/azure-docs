@@ -62,9 +62,9 @@ When you create a public load balancer, you create a new public IP address that 
 3. Accept the defaults for the remaining settings, and then select **Review + create**.
 
 4. In the **Review + create** tab, select **Create**.   
-
-     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Create a basic load balancer" border="true":::
-
+    
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Create a standard load balancer" border="true":::
+ 
 ## Create load balancer resources
 
 In this section, you configure:
@@ -214,11 +214,12 @@ These VMs are added to the backend pool of the load balancer that was created ea
 5. Select the **Management** tab, or select **Next** > **Management**.
 
 6. In the **Management** tab, select or enter:
+    
     | Setting | Value |
     |-|-|
-    | **Monitoring** | |
+    | **Monitoring** |  |
     | Boot diagnostics | Select **Off** |
-
+   
 7. Select **Review + create**. 
   
 8. Review the settings, and then select **Create**.
