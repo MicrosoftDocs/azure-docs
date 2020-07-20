@@ -585,7 +585,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -723,7 +723,7 @@ Allowed resource types
 
 **Guidance**: Define and implement standard security configurations for your Recovery Services vault with Azure Policy. Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
