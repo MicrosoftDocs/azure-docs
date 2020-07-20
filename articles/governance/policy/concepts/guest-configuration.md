@@ -199,9 +199,7 @@ machine, even if the Policy assignment uses different parameters.
 The Guest Configuration extension writes log files to the following locations:
 
 Windows: `C:\ProgramData\GuestConfig\gc_agent_logs\gc_agent.log`
-
 Linux: `/var/lib/GuestConfig/gc_agent_logs/gc_agent.log`
-
 Where `<version>` refers to the current version number.
 
 ### Collecting logs remotely
