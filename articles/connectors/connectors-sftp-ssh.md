@@ -6,7 +6,7 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
 ---
 
@@ -18,6 +18,7 @@ To automate tasks that monitor, create, send, and receive files on a [Secure Fil
 > The SFTP-SSH connector currently doesn't support these SFTP servers:
 > 
 > * IBM DataPower
+> * MessageWay
 > * OpenText Secure MFT
 > * OpenText GXS
 
