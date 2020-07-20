@@ -3,7 +3,7 @@ title: 'Azure PowerShell script sample - Configure point-to-site VPN with RADIUS
 description: Configure point-to-site VPN with RADIUS username/password authentication. This article uses PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.devlang: powershell

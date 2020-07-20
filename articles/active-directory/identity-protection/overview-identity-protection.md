@@ -68,7 +68,7 @@ More information can be found in the article, [How To: Investigate risk](howto-i
 
 ## Exporting risk data
 
-Data from Identity Protection can be exported to other tools for archive and further investigation and corelation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md)
+Data from Identity Protection can be exported to other tools for archive and further investigation and correlation. The Microsoft Graph based APIs allow organizations to collect this data for further processing in a tool such as their SIEM. Information about how to access the Identity Protection API can be found in the article, [Get started with Azure Active Directory Identity Protection and Microsoft Graph](howto-identity-protection-graph-api.md)
 
 Information about integrating Identity Protection information with Azure Sentinel can be found in the article, [Connect data from Azure AD Identity Protection](../../sentinel/connect-azure-ad-identity-protection.md).
 
