@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ---
 
 # Azure Active Directory service principal with Azure SQL
@@ -67,7 +67,7 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     - To check if the server identity is assigned to the server, execute the Get-AzSqlServer command.
 
     > [!NOTE]
-    > server identity can be assigned using CLI commands as well. For more information, see [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) and [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
+    > Server identity can be assigned using CLI commands as well. For more information, see [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) and [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
 
 2. Grant the Azure AD [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission to the server identity created or assigned to the server.
     - To grant this permission, follow the description used for SQL Managed Instance that is available in the following article: [Provision Azure AD admin (SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
@@ -83,11 +83,11 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     - `Exception calling "ExecuteNonQuery" with "0" argument(s): "Principal 'myapp' could not be resolved.`
     > [!NOTE]
     > The error messages indicated above will be changed before the feature GA to clearly identify the missing setup requirement for Azure AD application support
-- Setting the Azure AD application as an Azure AD admin for Managed Instance is only supported using the CLI command. For more information, see the [az sql mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create) command. 
+- Setting the Azure AD application as an Azure AD admin for SQL Managed Instance is only supported using the CLI command, and PowerShell command with [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) or higher. For more information, see the [az sql mi ad-admin create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create) and [Set-AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) commands. 
     - A possible workaround is to create an Azure AD group, add the service principal (Azure AD application) to this group, and set this group as an Azure AD admin for the SQL Managed Instance.
     - Setting the service principal (Azure AD application) as an Azure AD admin for SQL Database and Azure Synapse is supported using the Azure portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse), and [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) commands.
 - Using an Azure AD application with service principal from another Azure AD tenant will fail when accessing SQL Database or SQL Managed Instance created in a different tenant. A service principal assigned to this application must be from the same tenant as the SQL logical server or Managed Instance.
-- [Az.Sql 2.7.0](https://www.powershellgallery.com/packages/Az.Sql/2.7.0) module or higher is needed when using PowerShell to set up an individual Azure AD application as Azure AD admin for Azure SQL. Ensure you are upgraded to the latest module.
+- [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module or higher is needed when using PowerShell to set up an individual Azure AD application as Azure AD admin for Azure SQL. Ensure you are upgraded to the latest module.
 
 ## Next steps
 

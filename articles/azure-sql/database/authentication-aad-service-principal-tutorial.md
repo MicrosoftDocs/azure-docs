@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/10/2020
+ms.date: 07/20/2020
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications
@@ -35,13 +35,23 @@ In this tutorial, you learn how to:
 
 - An existing [Azure SQL Database](single-database-create-quickstart.md) or [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) deployment. We assume you have a working SQL Database for this tutorial.
 - Access to an already existing Azure Active Directory.
-- [Az.Sql 2.7.0](https://www.powershellgallery.com/packages/Az.Sql/2.7.0) module or higher is needed when using PowerShell to set up an individual Azure AD application as Azure AD admin for Azure SQL. Ensure you are upgraded to the latest module.
+- [Az.Sql 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) module or higher is needed when using PowerShell to set up an individual Azure AD application as Azure AD admin for Azure SQL. Ensure you are upgraded to the latest module.
 
 ## Assign an identity to the Azure SQL logical server
 
+1. Connect to your Azure Active Directory. You will need to find your Tenant ID. This can be found by going to the [Azure portal](https://portal.azure.com), and going to your **Azure Active Directory** resource. In the **Overview** pane, you should see your **Tenant ID**. Run the following PowerShell command:
+
+    - Replace `<TenantId>` with your **Tenant ID**.
+
+    ```powershell
+    Connect-AzAccount -Tenant <TenantId>
+    ```
+
+    Record the `TenantId` for future use in this tutorial.
+
 1. Generate and assign an Azure AD Identity to the Azure SQL logical server. Execute the following PowerShell command:
 
-    - Replace `<resource group>` and `<server name>` with your resources.
+    - Replace `<resource group>` and `<server name>` with your resources. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
 
     ```powershell
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
@@ -52,20 +62,20 @@ In this tutorial, you learn how to:
     > [!IMPORTANT]
     > If an Azure AD Identity is set up for the Azure SQL logical server, the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission must be granted to the identity. We will walk through this step in following section. **Do not** skip this step as Azure AD authentication will stop working.
 
-    - If you used the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation, you will need to execute the above PowerShell command afterwards as a separate command to enable this property in the Azure fabric.
+    - If you used the [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) command with the parameter `AssignIdentity` for a new SQL server creation in the past, you will need to execute the [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) command afterwards as a separate command to enable this property in the Azure fabric.
 
-2. Check the server identity was successfully assigned. Execute the following PowerShell command:
+1. Check the server identity was successfully assigned. Execute the following PowerShell command:
 
-    - Replace `<resource group>` and `<server name>` with your resources.
+    - Replace `<resource group>` and `<server name>` with your resources. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
     
     ```powershell
     $xyz = Get-AzSqlServer  -ResourceGroupName <resource group> -ServerName <server name>
     $xyz.identity
     ```
 
-    Your output should show you `PrincipalId`, `Type`, and `TenantId`. The identity assigned is the `PrincipalId`. Record the `TenantId` for future use in this tutorial.
+    Your output should show you `PrincipalId`, `Type`, and `TenantId`. The identity assigned is the `PrincipalId`.
 
-3. You can also check the identity by going to the [Azure portal](https://portal.azure.com).
+1. You can also check the identity by going to the [Azure portal](https://portal.azure.com).
 
     - Under the **Azure Active Directory** resource, go to **Enterprise applications**. Type in the name of your SQL logical server. You will see that it has an **Object ID** attached to the resource.
     
@@ -81,7 +91,7 @@ To grant this required permission, run the following script.
 > This script must be executed by an Azure AD `Global Administrator` or a `Privileged Roles Administrator`.
 
 - Replace `<TenantId>` with your `TenantId` gathered earlier.
-- Replace `<server name>` with your SQL logical server name.
+- Replace `<server name>` with your SQL logical server name. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
 
 ```powershell
 # This script grants Azure “Directory Readers” permission to a Service Principal representing the Azure SQL logical server
@@ -137,9 +147,10 @@ else
 {
     Write-Output "Service principal '$($AssignIdentityName)' is already member of 'Directory Readers' role'."
 }
-
-#The output from this script will indicate if the reader permission was granted to the identity 
 ```
+
+> [!NOTE]
+> The output from this above script will indicate if the Directory Readers permission was granted to the identity. You can re-run the script if you are unsure if the permission was granted.
 
 For a similar approach on how to set the **Directory Readers** permission for SQL Managed Instance, see [Provision Azure AD admin (SQL Managed Instance)](authentication-aad-configure.md#powershell).
 
@@ -204,7 +215,7 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     - Replace `<TenantId>` with your `TenantId` gathered earlier.
     - Replace `<ClientId>` with your `ClientId` gathered earlier.
     - Replace `<ClientSecret>` with your client secret created earlier.
-    - Replace `<server name>` with your SQL logical server name.
+    - Replace `<server name>` with your SQL logical server name. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
     - Replace `<database name>` with your SQL Database name.
 
     ```powershell
@@ -215,7 +226,8 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     $clientSecret = "<ClientSecret>"   #  client secret for AppSP 
     $Resource = "https://database.windows.net/"
     
-    $adalPath  = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\5.8.2"
+    $adalPath  = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\5.8.3"
+    # To install the latest Azure.RM.profile version execute  -Install-Module -Name AzureRM.profile
     $adal      = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
     $adalforms = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
     [System.Reflection.Assembly]::LoadFrom($adal) | Out-Null
@@ -254,19 +266,29 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     ``` 
 
     Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user a group in SQL Database.
+
+    > [!NOTE]
+    > If you need to install the module Azure.RM.profile, you will need to open PowerShell as an administrator. You can use the following commands to automatically install the latest Azure.RM.profile version, and set `$adalpath` for the above script:
+    > 
+    > ```powershell
+    > Install-Module AzureRM.profile -force
+    > Import-Module AzureRM.profile
+    > $version = (Get-Module -Name AzureRM.profile).Version.toString()
+    > $adalPath = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\${version}"
+    > ```
     
 2. Check if the user *myapp* exists in the database by executing the following command:
 
     ```sql
-    SELECT name, type, type_desc, sid  from sys.database_principals WHERE name = 'myapp'
+    SELECT name, type, type_desc, CAST(CAST(sid as varbinary(16)) as uniqueidentifier) as appId from sys.database_principals WHERE name = 'myapp'
     GO
     ```
 
     You should see a similar output:
 
     ```output
-    name	type	type_desc	sid
-    myapp	E	EXTERNAL_USER	0x6781C7E48C925E46A59A521A6103EF94
+    name	type	type_desc	appId
+    myapp	E	EXTERNAL_USER	6d228f48-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
 ## Next steps
