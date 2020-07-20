@@ -24,7 +24,7 @@ Before you can manage an Azure AD role-assignable group as a privileged access g
 
 ## Discover resources
 
-1. [Sign in to Azure AD](https://aad.portal.azure.com) with Privileged Role Administrator role permissions. 
+1. [Sign in to Azure AD](https://aad.portal.azure.com) with Privileged Role Administrator role permissions.
 1. Create a role-assignable group In Azure AD. You must be an owner of the group to discover and manage it with PIM.
 1. Open **Privileged Identity Management**.
 1. Select **Privileged access (preview)**.
@@ -38,7 +38,7 @@ Before you can manage an Azure AD role-assignable group as a privileged access g
     ![Discover groups with no resources listed for first time experience](./media/pim-groups-discover-groups/groups-bring-under-management.png)
 
     > [!NOTE]
-    > Once a privileged access group is managed, it can't be unmanaged. This prevents another resource administrator from removing Privileged Identity Management settings.
+    > Once a privileged access group is managed, it can't be taken out of management. This prevents another resource administrator from removing Privileged Identity Management settings.
 
 1. If you see a message to confirm the onboarding of the selected resource for management, select **Yes**.
 

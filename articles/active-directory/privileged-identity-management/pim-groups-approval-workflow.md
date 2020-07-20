@@ -1,6 +1,6 @@
 ---
 title: Approve activation requests for group members and owners in Privileged Identity Management - Azure AD
-description: Learn how to approve or deny requests for role-assignable groupz in Azure AD Privileged Identity Management (PIM).
+description: Learn how to approve or deny requests for role-assignable groups in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -61,12 +61,15 @@ As a delegated approver, you'll receive an email notification when an Azure reso
 
 Here's some information about workflow notifications:
 
-- Approvers are notified by email when a request for a role is pending their review. Email notifications include a direct link to the request, where the approver can approve or deny.
+- Approvers are notified by email when a request for a group assignment is pending their review. Email notifications include a direct link to the request, where the approver can approve or deny.
 - Requests are resolved by the first approver who approves or denies.
 - When an approver responds to the request, all approvers are notified of the action.
 
+>[!Note]
+>An administrator who believes that an approved user should not be active can remove the active group assignment in Privileged Identity Management. Although resource administrators are not notified of pending requests unless they are an approver, they can view and cancel pending requests for all users by viewing pending requests in Privileged Identity Management.
+
 ## Next steps
 
-- [Extend or renew Azure resource roles in Privileged Identity Management](pim-resource-roles-renew-extend.md)
+- [Extend or renew group assignments in Privileged Identity Management](pim-resource-roles-renew-extend.md)
 - [Email notifications in Privileged Identity Management](pim-email-notifications.md)
-- [Approve or deny requests for Azure AD roles in Privileged Identity Management](azure-ad-pim-approval-workflow.md)
+- [Approve or deny requests for group assignments in Privileged Identity Management](azure-ad-pim-approval-workflow.md)

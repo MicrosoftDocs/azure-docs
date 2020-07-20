@@ -79,7 +79,7 @@ If a user assigned to a group doesn't request an extension for the group assignm
 
 To extend a group assignment, browse to the assignment view in Privileged Identity Management. Find the assignment that requires an extension. Then select **Extend** in the action column.
 
-![Assignments page listing eligible group assignments with links to extend](media/pim-groups-renew-extend/aadpim-rbac-extend-admin-extend.png)
+![Assignments page listing eligible group assignments with links to extend](media/pim-groups-renew-extend/group-assignment-extend-admin-approve.png)
 
 ## Renew group assignments
 
