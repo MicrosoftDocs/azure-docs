@@ -57,7 +57,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-c.git -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-csharp.git -b pnp-preview-refresh
 ```
 
 ## Build the code
@@ -74,7 +74,7 @@ To trace the code execution in Visual Studio on Windows, add a break point to th
 
 The device is now ready to receive commands and property updates, and has started sending telemetry data to the hub. Keep the sample running as you complete the next steps.
 
-### Use the Azure IoT explorer to validate the code
+## Use Azure IoT explorer to validate the code
 
 After the device client sample starts, use the Azure IoT explorer tool to verify it's working.
 
