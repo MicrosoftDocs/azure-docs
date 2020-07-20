@@ -27,9 +27,6 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
   Note: A 5-minute leeway is added to the issue time(iat), to account for clock skew.
 - **"nbf" (Not Before) Claim**: The "nbf" (not before) claim identifies the time before which the JWT WILL NOT be accepted for processing. The processing of the "nbf" claim requires that the current date/time MUST be after or equal to the not-before date/time listed in the "nbf" claim.
   Note: A 5-minute leeway is added to the issue time(iat), to account for clock skew.
-- **"jti" (JWT ID) Claim**: The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object.
-
-  Note: Attestation clients provide(use) a unique identifier. 
 
 ## Claims issued by Azure Attestation in SGX enclaves
 
@@ -76,7 +73,9 @@ Below claims that are defined by the JWT RFC and used by Azure Attestation in th
 - **enclaveSvn**:  Integer value containing the security version number of the primary module for the enclave.
 - **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave.
 - **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave.
-
+- **"jti" (JWT ID) Claim**: The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object.
+  Note: Attestation clients provide(use) a unique identifier. 
+  
 ### Outgoing claims
 
 - **policy_hash**:  String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text)))).
