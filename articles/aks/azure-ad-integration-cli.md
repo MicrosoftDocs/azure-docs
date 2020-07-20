@@ -18,7 +18,7 @@ This article shows you how to create the required Azure AD components, then depl
 For the complete sample script used in this article, see [Azure CLI samples - AKS integration with Azure AD][complete-script].
 
 > [!Important]
-> AKS has a new improved [AKS-managed Azure AD][managed-aad-migrate] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
+> AKS has a new improved [AKS-managed Azure AD][managed-aad] experience  that doesn't require you to manage server or client application. If you want to migrate follow the instructions [here][managed-aad-migrate].
 
 ## The following limitations apply:
 
