@@ -14,19 +14,19 @@ This article describes causes and resolution steps for receiving a 403 error fro
 
 ## Symptoms
 
-This error may occur on many types of service requests that require authentication. The effect is that the API returns the 403 error, and your request fails.
+This error may occur on many types of service requests that require authentication. The effect is that the API request fails, returning an error code of `403 (Forbidden)`.
 
 ## Causes
 
 ### Cause #1
 
-Most often, this error indicates that your RBAC permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Owner (Preview)* role on the instance you are trying to manage. 
+Most often, this error indicates that your role-based access control (RBAC) permissions for the service are not set up correctly. Many actions for an Azure Digital Twins instance require you to have the *Azure Digital Twins Owner (Preview)* role on the instance you are trying to manage. 
 
 ### Cause #2
 
 If you are using a client app to communicate with Azure Digital Twins, this error may happen because your [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) app registration does not have permissions set up for the Azure Digital Twins service.
 
-In the app registration, you need to configure access permissions to the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
+The app registration is required to have access permissions configured for the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
 ## Solutions
 
