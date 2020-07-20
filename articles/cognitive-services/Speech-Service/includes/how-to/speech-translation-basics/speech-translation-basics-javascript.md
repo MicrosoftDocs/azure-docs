@@ -33,15 +33,7 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 # [import](#tab/import)
 
 ```javascript
-import {
-    AudioConfig,
-    CancellationDetails,
-    CancellationReason,
-    PhraseListGrammar,
-    ResultReason,
-    SpeechConfig,
-    SpeechRecognizer
-} from "microsoft-cognitiveservices-speech-sdk";
+import * from "microsoft-cognitiveservices-speech-sdk";
 ```
 
 For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
