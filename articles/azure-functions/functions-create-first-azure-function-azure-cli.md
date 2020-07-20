@@ -107,7 +107,7 @@ Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 
-To run on Java 11 in Azure, you must modify the values in the pom.xml file. To learn more, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions). 
+To run on Java 11 in Azure, you must modify the values in the pom.xml file. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
 
 ::: zone-end  
 Navigate into the project folder:
@@ -156,7 +156,7 @@ Settings for the Azure resources created to host your app are defined in the **c
 
 You can change these settings to control how resources are created in Azure, such as by changing `runtime.os` from `windows` to `linux` before initial deployment. For a complete list of settings supported by the Maven plug-in, see the [configuration details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
-If you want to run your function app on Java 11 instead of Java 8, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions). When running on Java 11, make sure that  
+If you want to run your function app on Java 11 instead of Java 8, you must manually update the pom.xml file with Java 11 values. To learn more, see [Java versions](functions-reference-java.md#java-versions). When running on Java 11, make sure that  
 
 #### FunctionTest.java
 

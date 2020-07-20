@@ -102,7 +102,7 @@ Type `Y` or press Enter to confirm.
 
 Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 
-To run on Java 11 in Azure, you must modify the values in the pom.xml file. To learn more, see [Java versions](../articles/azure-functions/functions-reference-java.md#java-versions).
+To run on Java 11 in Azure, you must modify the values in the pom.xml file. To learn more, see [Java versions](functions-reference-java.md#java-versions).
 ::: zone-end
 The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
