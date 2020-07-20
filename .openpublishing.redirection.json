@@ -7,12 +7,12 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/infrastructure-automation.md",
-      "redirect_url": "/azure/virtual-machines/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/infrastructure-automation.md",
-      "redirect_url": "/azure/virtual-machines/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
       "redirect_document_id": false
     },
     {
