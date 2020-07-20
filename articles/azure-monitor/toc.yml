@@ -1289,7 +1289,7 @@
       displayname: Diagnostic settings
       href: platform/resource-logs-blob-format.md
     - name: Key Vault Analytics (deprecated)
-      href: insights/azure-key-vault.md
+      href: insights/azure-key-vault-deprecated.md
 - name: Resources
   items:
   - name: Azure Roadmap
