@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 07/20/20 
+ms.date: 07/20/2020 
 ---
 
 # Analyze data in a storage account
