@@ -9,13 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/20/2020
 ms.author: diberry
 ---
 
 # Entities per culture in your LUIS model
 
-Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity is included in your application, LUIS includes the corresponding entity prediction in the endpoint response. All example utterances are also labeled with the entity. The behavior of prebuilt entities **can't** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
+Language Understanding (LUIS) provides prebuilt entities.
+
+## Entity resolution
+When a prebuilt entity is included in your application, LUIS includes the corresponding entity resolution in the endpoint response. All example utterances are also labeled with the entity.
+
+The behavior of prebuilt entities can't be modified but you can improve resolution by [adding the prebuilt entity as a feature to a machine-learning entity or subentity](luis-concept-entity-types.md#effective-prebuilt-entities).
+
+## Availability
+Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
 |Culture|Subcultures|Notes|
 |--|--|--|

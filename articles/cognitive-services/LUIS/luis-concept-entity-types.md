@@ -73,6 +73,12 @@ To build the machine learned entities effectively:
 * If you have a machine learned entity with subentities, make sure that the different orders and variants of the entity and subentities are presented in the labeled utterances. Labeled example utterances should include all valid forms, and include entities that appear and are absent and also reordered within the utterance.
 * You should avoid overfitting the entities to a very fixed set. **Overfitting** happens when the model doesn't generalize well, and is a common problem in machine learning models. This implies the app would not work on new data adequately. In turn, you should vary the labeled example utterances so the app is able to generalize beyond the limited examples you provide. You should vary the different subentities with enough change for the model to think more of the concept instead of just the examples shown.
 
+## Effective prebuilt entities
+
+To build effective entities that extract common data, such as those provided by the [prebuilt entities](luis-reference-prebuilt-entities.md), we recommend the following process.
+
+Improve the extraction of data by bringing your own data to an entity as a feature. That way all the additional labels from your data will learn the context of where person names exist in your application.
+
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
 <a name="patternany-entity"></a>
