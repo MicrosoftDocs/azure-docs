@@ -43,7 +43,7 @@ For details, see [Scale media processing](media-reserved-units-cli-how-to.md).
 
 ### What is the recommended method to process videos?
 
-Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
+Use [Transforms](/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each Transform describes a recipe, or a workflow of tasks for processing your video or audio files. A [Job](/rest/api/media/jobs) is the actual request to Media Services to apply the Transform to an input video or audio content. After the Transform has been created, you can submit Jobs by using Media Services APIs or any of the published SDKs. For more information, see [Transforms and Jobs](transforms-jobs-concept.md).
 
 ### I uploaded, encoded, and published a video. Why won't the video play when I try to stream it?
 
@@ -156,9 +156,9 @@ Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 
 * Manage [Live Events](live-events-outputs-concept.md) in Media Services v3. 
 * View (not manage) v3 [assets](assets-concept.md). 
-* [Get info about accessing APIs](access-api-portal.md). 
+* [Get info about accessing APIs](./access-api-howto.md). 
 
-For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](https://docs.microsoft.com/rest/api/media/), the [Azure CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
@@ -168,7 +168,7 @@ For more information, see [Migrate to Media Services v3](media-services-v2-vs-v3
 
 ### Where did client-side storage encryption go?
 
-We now recommend that you use server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+We now recommend that you use server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for data at rest](../../storage/common/storage-service-encryption.md).
 
 ## Offline streaming
 

@@ -112,7 +112,7 @@ To implement some of these best practices, see the following articles:
 
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
-[dev-spaces]: ../dev-spaces/how-dev-spaces-works-local-process-kubernetes.md
+[dev-spaces]: /visualstudio/containers/overview-local-process-kubernetes
 [operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
 [resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas
 [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

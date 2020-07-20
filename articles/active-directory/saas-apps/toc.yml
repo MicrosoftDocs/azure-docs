@@ -251,6 +251,8 @@
         href: bynder-tutorial.md
     - name: C
       items:
+      - name: C3M Cloud Control
+        href: c3m-cloud-control-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
       - name: Campus Café
@@ -924,6 +926,8 @@
         href: korn-ferry-360-tutorial.md
       - name: Korn Ferry ALP
         href: korn-ferry-alp-tutorial.md
+      - name: Kpifire
+        href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kudos
@@ -1833,7 +1837,7 @@
         href: 8x8-provisioning-tutorial.md
       - name: 15Five
         href: 15five-provisioning-tutorial.md
-    - name: A - L
+    - name: A - M
       items:
       - name: Airstack
         href: airstack-provisioning-tutorial.md
@@ -1919,6 +1923,8 @@
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
+      - name: LinkedIn Learning
+        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart
