@@ -13,7 +13,7 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contai
 
 # Deploy configurations using GitOps on Arc enabled Kubernetes cluster (Preview)
 
-GitOps is the practice of the declaring the desired state of Kubernetes configuration (deployments, namespaces,...) in a Git repository followed by a polling and pull based deployment of these configurations to the cluster using an operator. This document covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
+GitOps is the practice of the declaring the desired state of Kubernetes configuration (deployments, namespaces and so on) in a Git repository followed by a polling and pull based deployment of these configurations to the cluster using an operator. This document covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
 
 The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted at rest in an Azure Cosmos DB database to ensure data confidentiality.
 
@@ -231,7 +231,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 5. Paste the public key (minus any surrounding quotation marks)
 6. Click **Add key**
 
-See the GitHub docs for more info on how to manage theses keys.
+See the GitHub docs for more info on how to manage these keys.
 
 **If you are using an Azure DevOps repository, add the key to your SSH keys**
 
@@ -291,10 +291,10 @@ kubectl -n itops get all
 
 ## Delete a configuration
 
-You can delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure, but it can take up to 1 hour for full deletion of the associated objects from the cluster (we have a backlog item to shorten this).
+Delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure, but it can take up to 1 hour for full deletion of the associated objects from the cluster (we have a backlog item to shorten this).
 
 > [!NOTE]
-> If the `sourceControlConfiguration` was created with namespace scope, that namespace will not be deleted from the cluster (to avoid breaking any other resources that may have been created in that namespace).
+> After a sourceControlConfiguration with namespace scope is created, it's possible for users with `edit` role binding on namespace to deploy workloads on this namespace. When this `sourceControlConfiguration` with namespace scope gets deleted, the namespace is left intact and will not be deleted to avoid breaking these other workloads.
 > Any changes to the cluster that were the result of deployments from the tracked git repo are not deleted when the `sourceControlConfiguration` is deleted.
 
 ```console
