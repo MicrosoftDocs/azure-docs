@@ -13,16 +13,16 @@ services: iot-pnp
 
 IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
-This guide describes the basic steps required to create a device that follows the [IoT Plug and Play convention](concepts-convention.md), and the available REST APIs you can use to interact with the device.
+This guide describes the basic steps required to create a device that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
 
 To build an IoT Plug and Play device, follow theses steps:
 
 1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
 1. Create a [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL) model to describe your device. To learn more, see [Understand components in Azure IoT Plug and Play models](concepts-components.md).
 1. Update your device to announce the `model-id` as part of the device connection.
-1. Implement telemetry, properties, and commands using the [IoT Plug and Play convention](concepts-convention.md)
+1. Implement telemetry, properties, and commands using the [IoT Plug and Play conventions](concepts-convention.md)
 
-Once your device implementation is ready, use the [Azure IoT explorer](howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play convention.
+Once your device implementation is ready, use the [Azure IoT explorer](howto-use-iot-explorer.md) to validate that the device follows the IoT Plug and Play conventions.
 
 > [!Tip]
 > All code fragments in this article use C#, but the concepts are applicable to any of the available SDKs for C, Python, Node, and Java.
@@ -117,11 +117,11 @@ The device twin is updated with the next reported property:
 
 ### Writable properties
 
-These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient`. To follow the IoT Plug and Play convention, the device must inform the service that the property was successfully received.
+These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
 
 #### Report a writable property
 
-When a device reports a writable property, it must include the `ack` values defined in the convention.
+When a device reports a writable property, it must include the `ack` values defined in the conventions.
 
 To report a writable property without components:
 
