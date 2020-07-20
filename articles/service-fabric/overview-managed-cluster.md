@@ -9,7 +9,7 @@ ms.date: 07/31/2020
 
 Service Fabric Managed clusters are an evolution of the Azure Service Fabric cluster resource model that streamlines your deployment and cluster management experience.
 
-The Azure Resource Model (ARM) template for traditional Service Fabric clusters requires you to define a cluster resource alongside a number of supporting resources, all of which must be "wired up"  correctly (upon deployment and throughout the lifecycle of the cluster) in order for the cluster and your services to function properly. In contrast, the composition model for Service Fabric Managed clusters consists of a single, *Service Fabric Managed cluster* resource. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf.
+The Azure Resource Model (ARM) template for traditional Service Fabric clusters requires you to define a cluster resource alongside a number of supporting resources, all of which must be "wired up"  correctly (upon deployment and throughout the lifecycle of the cluster) in order for the cluster and your services to function properly. In contrast, the encapsulation model for Service Fabric Managed clusters consists of a single, *Service Fabric Managed cluster* resource. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf.
 
 In terms of size and complexity, the ARM template for a Service Fabric Managed cluster is about 100 lines of JSON, versus some 1000 lines required to define a typical Service Fabric cluster:
 
