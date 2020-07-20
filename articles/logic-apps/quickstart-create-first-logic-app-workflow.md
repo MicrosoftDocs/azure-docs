@@ -11,11 +11,11 @@ ms.date: 10/20/2019
 
 # Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal
 
-This quickstart introduces the basic general concepts behind how to build your first workflow by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md), such as creating a blank logic app, adding a trigger and an action, and then testing your logic app. In this quickstart, you build a logic app that regularly checks a website's RSS feed for new items. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
+This quickstart introduces the basic general concepts behind how to build your first workflow by using [Azure Logic Apps](logic-apps-overview.md), such as creating a blank logic app, adding a trigger and an action, and then testing your logic app. In this quickstart, you build a logic app that regularly checks a website's RSS feed for new items. If new items exist, the logic app sends an email for each item. When you're done, your logic app looks like this workflow at a high level:
 
 ![High-level example logic app workflow](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/), an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](/connectors/). In this example, the logic app uses an Office 365 Outlook account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
+For this scenario, you need an Azure subscription or [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F), an email account from a service that's supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email services, [review the connectors list here](/connectors/). In this example, the logic app uses an Office 365 Outlook account. If you use a different email service, the overall general steps are the same, but your user interface might differ slightly.
 
 > [!IMPORTANT]
 > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
@@ -23,13 +23,11 @@ For this scenario, you need an Azure subscription or [sign up for a free Azure a
 > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
 > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
 ## Create your logic app
 
-1. From the Azure home page, in the search box, find and select **Logic Apps**.
+1. Go to the [Azure portal](https://portal.azure.com), and sign in with your Azure account credentials.
+
+1. In the Azure portal search box, enter `logic apps`, and select **Logic Apps**.
 
    ![Find and select "Logic Apps"](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
@@ -37,22 +35,24 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
    ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
-1. On the **Logic App** pane, provide details about your logic app as shown below. After you're done, select **Create**.
+1. On the **Logic App** pane, provide details about your logic app as shown below.
 
    ![Provide details for new logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". <p><p>**Note**: Names for logic apps must be unique across regions. |
+   | **Name** | <*logic-app-name*> | Your logic app's name, which must be unique across regions and can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". |
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md) used to organize related resources. This example uses "My-First-LA-RG". <p><p>**Note**: Names for resource groups must be unique across regions. |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/management/overview.md), which must be unique across regions and is used to organize related resources. This example uses "My-First-LA-RG". |
    | **Location** | <*Azure-region*> | The region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
 
-1. After Azure deploys your app, on the Azure toolbar, select **Notifications** > **Go to resource** for your deployed logic app.
+1. When you're ready, select **Review + Create**. Confirm the details that you provided, and select **Create**.
 
-   ![Go to newly created logic app resource](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
+1. After Azure successfully deploys your app, select **Go to resource**.
+
+   ![Go to new logic app resource](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    Or, you can find and select your logic app by typing the name in the search box.
 
