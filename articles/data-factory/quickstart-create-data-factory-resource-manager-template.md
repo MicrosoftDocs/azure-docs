@@ -67,7 +67,7 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
 2. Select or enter the following values.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/deploy-adf-arm-template.png" alt-text="Deploy ADF ARM template":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-deploy-arm-template.png" alt-text="Deploy ADF ARM template":::
 
     Unless it's specified, use the default values to create the Azure Data Factory resources.
 
@@ -83,23 +83,23 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
 1. Select **Go to resource group**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-go-to-resource-group.png" alt-text="Resource Group":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-go-to-resource-group.png" alt-text="Resource Group":::
 
 2.  Verify your Azure Data Factory is created.
     1. Your Azure Data Factory name is in the format - datafactory\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-sample-data-factory.png" alt-text="Sample Data Factory":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-sample.png" alt-text="Sample Data Factory":::
 
 2. Verify your storage account is created.
     1. The storage account name is in the format - storage\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-storage-account.png" alt-text="Storage Account":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-storage-account.png" alt-text="Storage Account":::
 
 3. Select the storage account created and then select **Containers**.
     1. On the **Containers** page, select the blob container you created.
         1. The blob container name is in the format - blob\<uniqueid\>.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-blob-container.png" alt-text="Blob container":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-blob-container.png" alt-text="Blob container":::
 
 ### Upload a file
 
@@ -115,7 +115,7 @@ More Azure Data Factory template samples can be found in the [quickstart templat
 
 6. Select the **Close** icon (an **X**) to close the **Upload blob** page.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-upload-blob-file.png" alt-text="Upload file to input folder":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-upload-blob-file.png" alt-text="Upload file to input folder":::
 
 Keep the container page open, because you can use it to verify the output at the end of this quickstart.
 
@@ -125,27 +125,27 @@ Keep the container page open, because you can use it to verify the output at the
 
 2. Select the **Author & Monitor** tile. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-author-monitor-tile.png" alt-text="Author & Monitor":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author-monitor-tile.png" alt-text="Author & Monitor":::
 
-2. Select the **Author** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/adf-author.png" border="false":::.
+2. Select the **Author** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-author.png" border="false":::.
 
 3. Select the pipeline created - ArmtemplateSampleCopyPipeline.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-pipelines.png" alt-text="ARM template pipeline":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-pipelines.png" alt-text="ARM template pipeline":::
 
 4. Select **Add Trigger** > **Trigger Now**.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-trigger-now.png" alt-text="Trigger":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-trigger-now.png" alt-text="Trigger":::
 
 5. In the right pane under **Pipeline run**, select **OK**.
 
 ### Monitor the pipeline
 
-1. Select the **Monitor** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/adf-monitor.png" border="false":::.
+1. Select the **Monitor** tab :::image type="icon" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-monitor.png" border="false":::.
 
 2. You see the activity runs associated with the pipeline run. In this quickstart, the pipeline has only one activity of type: Copy. As such, you see a run for that activity.
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-successful-run.png" alt-text="Successful run":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-successful-run.png" alt-text="Successful run":::
 
 ### Verify the output file
 
@@ -157,7 +157,7 @@ The pipeline automatically creates an output folder in the blob container. Then,
 
 3. Confirm that the **emp.txt** is copied to the output folder. 
 
-    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/adf-arm-output.png" alt-text="Output":::
+    :::image type="content" source="media/quickstart-create-data-factory-resource-manager-template/data-factory-arm-template-output.png" alt-text="Output":::
 
 ## Clean up resources
 
