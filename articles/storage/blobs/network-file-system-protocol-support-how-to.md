@@ -128,9 +128,14 @@ Create a container in your storage account by using any of these tools or SDKs:
 
    - Replace the `<container-name>` placeholder with the name of your container.
 
-   If you receive the error "`Access denied by server while mounting`", ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).
+## Resolve common issues
 
-   If you receive the error "`No such file or directory`", make sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered). Also, make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.
+|Issue / error | Resolution|
+|---|---|
+|`Access denied by server while mounting`|Ensure that your client is running within a supported subnet. See the [Supported network locations](network-file-system-protocol-support.md#supported-network-connections).|
+|`No such file or directory`| Ensure sure that the container that you're mounting was created after you verified that the feature was registered. See [Step 2: Verify that the feature is registered](#step-2-verify-that-the-feature-is-registered).Also, make sure to type the mount command and it's parameters directly into the terminal. If you copy and paste any part of this command into the terminal from another application, hidden characters in the pasted information might cause this error to appear.|
+|Files that were uploaded by using non-NFS 3.0 tools aren't visible in the directory. | Un-mount and the mount the container again. |
+
 
 ## See also
 
