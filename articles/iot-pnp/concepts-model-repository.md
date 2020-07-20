@@ -1,6 +1,6 @@
 ---
 title: Understand concepts of the Azure IoT Model Repository | Microsoft Docs
-description: As a developer or an IT professional, learn about the basic concepts of the Azure IoT Model Repository.
+description: As a solution builder or an IT professional, learn about the basic concepts of the Azure IoT Model Repository.
 author: JimacoMS3
 ms.author: v-jambra
 ms.date: 04/10/2020

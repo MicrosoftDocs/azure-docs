@@ -1,5 +1,5 @@
 ---
-title: Use MQTT to create an Azure IoT Plug and Play Preview device client | Microsoft Docs
+title: Use MQTT to create an IoT Plug and Play Preview device client | Microsoft Docs
 description: Use the MQTT protocol directly to create an IoT Plug and Play Preview device client without using the Azure IoT Device SDKs
 author: ericmitt
 ms.author: ericmitt
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
 
-# As a device developer, I want to see how I can use the MQTT protocol to create an IoT Plug and Play Preview device client without using the Azure IoT Device SDKs.
+# As a device builder, I want to see how I can use the MQTT protocol to create an IoT Plug and Play Preview device client without using the Azure IoT Device SDKs.
 ---
 
 # Use MQTT to develop an IoT Plug and Play Preview device client
@@ -76,7 +76,7 @@ Use the following command to download and build the Eclipse Mosquitto library:
 .\vcpkg install mosquitto:x64-windows
 ```
 
-## Migrate the sample to an PnP Device
+## Migrate the sample to IoT Plug and Play
 
 ### Review the non-IoT Plug and Play sample code
 
@@ -97,11 +97,11 @@ Run the application (Ctrl+F5), after couple of seconds you should see something 
 
 :::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
 
-in IotExplorer, you should see, clearly not an PnP device:
+in IotExplorer, you should see, clearly not an IoT Plug and Play device:
 
 :::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
 
-### Make the device a PnP Device
+### Make the device an IoT Plug and Play device 
 
 IoT Plug and Play device must follow a set of simple conventions. If a device sends a **Model ID** when it connects, it becomes an IoT Plug and Play device.
 
@@ -148,7 +148,7 @@ For more information about MQTT, visit the [MQTT Samples for Azure IoT](https://
 
 ## Next steps
 
-In this tutorial, you learned how to modify a simple MQTT device client to follow the IoT Plug and Play conventions. To learn more about how Azure IoT Plug and Play, see:
+In this tutorial, you learned how to modify a simple MQTT device client to follow the IoT Plug and Play conventions. To learn more about how IoT Plug and Play, see:
 
 > [!div class="nextstepaction"]
 > [Architecture](concepts-architecture.md)

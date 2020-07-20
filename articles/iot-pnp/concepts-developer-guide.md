@@ -11,14 +11,14 @@ services: iot-pnp
 
 # IoT Plug and Play Preview developer guide
 
-IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
+IoT Plug and Play Preview lets you build smart devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications.
 
 This guide describes the basic steps required to create a device that follows the [IoT Plug and Play conventions](concepts-convention.md), and the available REST APIs you can use to interact with the device.
 
 To build an IoT Plug and Play device, follow theses steps:
 
 1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
-1. Create a [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL) model to describe your device. To learn more, see [Understand components in Azure IoT Plug and Play models](concepts-components.md).
+1. Create a [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-components.md).
 1. Update your device to announce the `model-id` as part of the device connection.
 1. Implement telemetry, properties, and commands using the [IoT Plug and Play conventions](concepts-convention.md)
 
@@ -52,7 +52,7 @@ The model ID announcement has been added to the next versions of the SDKs
 
 ## Implement telemetry, properties, and commands
 
-As described in [Understand components in Azure IoT Plug and Play models](concepts-components.md), device developers must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
+As described in [Understand components in IoT Plug and Play models](concepts-components.md), device builders must decide if they want to use components to describe their devices. When using components, devices must follow the rules described in this section.
 
 ### Telemetry
 

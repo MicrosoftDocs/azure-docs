@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a solution developer, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
+# As a solution builder, I want to use a GUI tool to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
 ---
 
 # Install and use Azure IoT explorer
@@ -37,7 +37,7 @@ To use the Azure IoT explorer tool, you need:
 Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
 
 >[!Important]
->From version 0.11.0 IoT Explorer only supports the PnP May 2020 preview-release. To use the features available in the previous preview-release from Aug 2019 you must install a 0.10.x version.
+>From version 0.11.0 IoT Explorer only supports the IoT Plug and Play May 2020 preview-release. To use the features available in the previous preview-release from Aug 2019 you must install a 0.10.x version.
 
 ## Use Azure IoT explorer
 

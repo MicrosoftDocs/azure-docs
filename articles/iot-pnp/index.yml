@@ -5,7 +5,7 @@ summary: IoT Plug and Play lets you define a device model that enables cloud sol
 
 metadata:
   title: IoT Plug and Play Preview architecture
-  description: IoT Plug and Play Preview enables solution developers to integrate devices into a solution without manual configuration. This article shows the key architectural elements that make this possible.
+  description: IoT Plug and Play Preview enables solution builders to integrate devices into a solution without manual configuration. This article shows the key architectural elements that make this possible.
   services: iot-pnp
   ms.service: iot-pnp
   ms.topic: landing-page
