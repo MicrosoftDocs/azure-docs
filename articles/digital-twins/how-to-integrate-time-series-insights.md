@@ -89,20 +89,26 @@ namespace SampleFunctionsApp
     public static class ProcessDTUpdatetoTSI
     { 
         [FunctionName("ProcessDTUpdatetoTSI")]
-        public static async Task Run([EventHubTrigger("twins-fx-hub", Connection = "EventHubConnectionAppSetting-Twins")]EventData myEventHubMessage, [EventHub("alkarche-tsi-demo-hub", Connection = "EventHubConnectionAppSetting-TSI")] IAsyncCollector<string> outputEvents, ILogger log)
+        public static async Task Run(
+            [EventHubTrigger("twins-fx-hub", Connection = "EventHubAppSetting-Twins")]EventData myEventHubMessage, 
+            [EventHub("alkarche-tsi-demo-hub", Connection = "EventHubAppSetting-TSI")]IAsyncCollector<string> outputEvents, 
+            ILogger log)
         {
             JObject message = (JObject)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(myEventHubMessage.Body));
             log.LogInformation("Reading event:" + message.ToString());
 
-            // Read properties which values have been changed in each operation
+            // Read values that are replaced or added
             Dictionary<string, object> tsiUpdate = new Dictionary<string, object>();
             foreach (var operation in message["patch"]) {
                 if (operation["op"].ToString() == "replace" || operation["op"].ToString() == "add")
+                    //Convert from JSON patch path to a flattened property for TSI
+                    //Example input: /Front/Temperature
+                    //        output: Front.Temperature
                     string path = operation["path"].ToString().Substring(1);                    
                     path = path.Replace("/", ".");                    
                     tsiUpdate.Add(path, operation["value"]);
             }
-            //Send an update to TSI if the twin has been updated
+            //Send an update if updates exist
             if (tsiUpdate.Count>0){
                 tsiUpdate.Add("$dtId", myEventHubMessage.Properties["cloudEvents:subject"]);
                 await outputEvents.AddAsync(JsonConvert.SerializeObject(tsiUpdate));
@@ -148,7 +154,7 @@ az eventhubs eventhub authorization-rule keys list --resource-group <resource gr
 
 2. In your function app, create an app setting containing your connection string
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubConnectionAppSetting-TSI=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
+az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 ```
 
 #### Set the Twins Event Hub connection string
@@ -160,7 +166,7 @@ az eventhubs eventhub authorization-rule keys list --resource-group <resource gr
 
 2. In your function app, create an app setting containing your connection string
 ```azurecli-interactive
-az functionapp config appsettings set --settings "EventHubConnectionAppSetting-Twins=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
+az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 ```
 
 ## Create and connect a Time Series Insights instance
