@@ -17,7 +17,7 @@ To manage access to Azure resources, you must have the appropriate administrator
 
 This article describes how add or change the administrator role for a user using RBAC at the subscription scope.
 
-Microsoft recommends that you manage access to resources using RBAC. However, if you are still using the classic deployment model and managing the classic resources by using [Azure Service Management PowerShell Module](https://docs.microsoft.com/powershell/module/servicemanagement/azure), you'll need to use a classic administrator.
+Microsoft recommends that you manage access to resources using RBAC. However, if you are still using the classic deployment model and managing the classic resources by using [Azure Service Management PowerShell Module](/powershell/module/servicemanagement/azure.service), you'll need to use a classic administrator.
 
 > [!TIP]
 > If you only use the Azure portal to manage the classic resources, you don't need to use the classic administrator.
