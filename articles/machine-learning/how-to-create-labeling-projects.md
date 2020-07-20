@@ -185,21 +185,52 @@ After the labeling project is initialized, some aspects of the  project are immu
 
 ## Run and monitor the project
 
-After you initialize the project, Azure will begin running it. Select the project on the main **Data Labeling** page to go to **Project details**. The **Dashboard** tab shows the progress of the labeling task.
+After you initialize the project, Azure will begin running it. Select the project on the main **Data Labeling** page to see details of the project
+
+To pause or restart the project, toggle the **Running** status on the top right. You can only label data when the project is running.
+
+### Dashboard
+
+The **Dashboard** tab shows the progress of the labeling task.
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Data labeling dashboard":::
 
-In the middle of the dashboard, you see a status of the tasks left to be performed.  When ML assisted labeling is on, this will show you:
+The progress chart shows how many items have been labeled and how many are not yet done.  Items pending may be:
 
-* Sets of clustered images that will be delivered as tasks
-* Sets of prelabeled images that will be delivered as tasks
-* Links to the experiments run to create the clustered and prelabeled images
+* Not yet added to a task
+* Included in a task that is assigned to a labeler but not yet completed 
+* In the queue of tasks yet to be assigned
+
+The middle section shows the queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows just the number of manual tasks to be assigned.
+
+When ML assisted labeling is on, this will also show you:
+
+* Tasks containing clustered items
+* Tasks containing prelabeled items 
+
+ALso when ML assisted labeling is enabled, a small progress bar shows when the next training run will occur.  The Experiments sections give links for each of the machine learning runs.
+
+* Training - trains a model to predict the labels
+* Validation - determines whether this model's prediction will be used for pre-labeling the items 
+* Inference - prediction run for new items
+* Featurization - clusters items (only for image classification projects)
+
+On the right hand side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
+
+### Data tab
 
 On the **Data** tab, you can see your dataset and review labeled data. If you see incorrectly labeled data, select it and choose **Reject**, which will remove the labels and put the data back into the unlabeled queue.
 
-To pause or restart the project, select the **Pause**/**Start** button. You can only label data when the project is running.
+### Details tab
 
-You can label data directly from the **Project details** page by selecting **Label data**.
+View details of your project.  In this tab you can:
+
+* View project details and input datasets
+* Enable incremental refresh
+* View details of the storage container used to store labeled outputs in your project
+* Add labels to your project
+* Edit instructions you give to your labels
+* Edit details of ML assisted labeling, including enable/disable
 
 ## Add new label class to a project
 
