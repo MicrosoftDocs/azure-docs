@@ -68,7 +68,7 @@ Request Body
 "networkConfiguration": {
           "subnetId": "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/virtualNetworks/<vNetId>/subnets/<subnetId>",
           "publicIPAddressConfiguration": {
-            "provision": usermanaged",
+            "provision": "usermanaged",
             "ipAddressIds": [
               "/subscriptions/<subId>/resourceGroups/<rgId>/providers/Microsoft.Network/publicIPAddresses/<publicIpId>"
           ]
