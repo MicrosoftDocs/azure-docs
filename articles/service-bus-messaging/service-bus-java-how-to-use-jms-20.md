@@ -87,4 +87,5 @@ For more information on Azure Service Bus and details about Java Message Service
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [Java Message Service API](https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html)
 
