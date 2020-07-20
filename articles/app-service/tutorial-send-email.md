@@ -13,7 +13,7 @@ In this tutorial, you learn how to integrate your App Service app with your busi
 
 - Send confirmation email for a transaction
 - Add user to Facebook group
-- Connect to third-party systems like SAP, SalesForce, etc.
+- Connect to third-party systems like SAP, Salesforce, etc.
 - Exchange standard B2B messages
 
 In this tutorial, you send emails with Gmail from your App Service app by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). There are other ways to send emails from a web app, such as SMTP configuration provided by your language framework. However, Logic Apps brings a lot more power to your App Service app without adding complexity to your code. Logic Apps provides a simple configuration interface for the most popular business integrations, and your app can call them anytime with an HTTP request.
