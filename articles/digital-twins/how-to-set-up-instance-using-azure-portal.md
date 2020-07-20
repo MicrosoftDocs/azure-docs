@@ -2,9 +2,9 @@
 # Mandatory fields.
 title: Create an Azure Digital Twins instance using the Azure portal
 titleSuffix: Azure Digital Twins
-description: See how to set up an instance of the Azure Digital Twins service using the Azure portal
-author: lakast
-ms.author: lakast # Microsoft employees only
+description: See how to set up an instance of the Azure Digital Twins service using Azure portal
+author: v-lakast
+ms.author: v-lakast # Microsoft employees only
 ms.date: 7/16/2020
 ms.topic: how-to
 ms.service: digital-twins
