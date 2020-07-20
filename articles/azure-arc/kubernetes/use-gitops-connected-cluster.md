@@ -1,5 +1,5 @@
 ---
-title: "Use GitOps for an Azure Arc-enabled cluster configuration (Preview)"
+title: "Cluster configuration (GitOps) for an Azure Arc enabled Kubernetes cluster (Preview)"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
@@ -11,17 +11,17 @@ description: "Use GitOps for an Azure Arc-enabled cluster configuration (Preview
 keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, containers"
 ---
 
-# Use GitOps for an Azure Arc-enabled  configuration (Preview)
+# Deploy configurations using GitOps (Preview)
 
-This architecture uses a GitOps workflow to configure the cluster and deploy applications. The configuration is described declaratively in .yaml files and stored in Git. An agent watches the Git repo for changes and applies them.  The same agent also periodically assures that the cluster state matches the state declared in the Git repo and returns the cluster to the desired state if any unmanaged changes have occurred.
+GitOps is the practice of the declaring the desired state of Kubernetes configuration (deployments, namespaces,...) in a Git repository followed by a polling and pull based deployment of these configurations to the cluster using an operator. This document covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
 
-The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted at rest in a CosmosDb database to ensure data confidentiality.
+The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted at rest in an Azure CosmosDB database to ensure data confidentiality.
 
-The Azure Arc enabled Kubernetes `config-agent` running in your cluster is responsible for watching for new or updated `sourceControlConfiguration` resources and orchestrates adding, updating, or removing the Git repo links automatically.
-
-The same patterns can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you may have one repository that defines the baseline configuration for your organization and apply that to tens of Kubernetes clusters at once.
+The `config-agent` running in your cluster is responsible for watching for new or updated `sourceControlConfiguration` extension resources on the Azure Arc enabled Kubernetes resource, deploying a GitOps operator to watch the Git repository, and propagating any updates made to the `sourceControlConfiguration`. It is even possible to create multiple `sourceControlConfiguration` resources with `namespace` scope on the same Azure Arc enabled Kubernetes cluster to achieve multi-tenancy. In such a case, each operator can only deploy configurations to its respective namespace.
 
 The Git repository can contain any valid Kubernetes resources, including Namespaces, ConfigMaps, Deployments, DaemonSets, etc.  It may also contain Helm charts for deploying applications. A common set of scenarios includes defining a baseline configuration for your organization, which might include common RBAC roles and bindings, monitoring or logging agents, or cluster-wide services.
+
+The same pattern can be used to manage a larger collection of clusters, which may be deployed across heterogeneous environments. For example, you may have one repository that defines the baseline configuration for your organization and apply that to tens of Kubernetes clusters at once. It is even possible to [automate this by using Azure Policy](use-azure-policy.md) to create a `sourceControlConfiguration` with a specific set of parameters on all Azure Arc enabled Kubernetes resources under a scope (subscription or resource group).
 
 This getting started guide will walk you through applying a set of configurations with cluster-admin scope.
 
@@ -36,11 +36,11 @@ The example repository is structured around the persona of a cluster operator wh
 **ConfigMap:** `team-a/endpoints`
 
 The `config-agent` polls Azure for new or updated `sourceControlConfiguration` every 30 seconds.  This is the maximum time it will take for the `config-agent` to pick up a new or updated configuration.
-If you are associating a private repository, assure that you also complete the steps in [Apply configuration from a private git repository](#apply-configuration-from-a-private-git-repository)
+If you are associating a private repository with the `sourceControlConfiguration`, ensure that you also complete the steps in [Apply configuration from a private git repository](#apply-configuration-from-a-private-git-repository).
 
 ### Using Azure CLI
 
-Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to a [example git repository](https://github.com/Azure/arc-k8s-demo). We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
+Using the Azure CLI extension for `k8sconfiguration`, let's link our connected cluster to an [example git repository](https://github.com/Azure/arc-k8s-demo). We will give this configuration a name `cluster-config`, instruct the agent to deploy the operator in the `cluster-config` namespace, and give the operator `cluster-admin` permissions.
 
 ```console
 az k8sconfiguration create \
@@ -146,6 +146,9 @@ Options supported in  --operator-params
    ```
 
 For more info see [Flux documentation](https://aka.ms/FluxcdReadme).
+
+> [!TIP]
+> It is possible to create a sourceControlConfiguration on the Azure portal as well under the **Configurations** tab of the Azure Arc enabled Kubernetes resource blade.
 
 ## Validate the sourceControlConfiguration
 
@@ -288,9 +291,11 @@ kubectl -n itops get all
 
 ## Delete a configuration
 
-You can delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure, but it can take up to 1 hour for full deletion of the associated objects from the cluster (we have a backlog item to shorten this). If the `sourceControlConfiguration` was created with namespace scope, that namespace will not be deleted from the cluster (to avoid breaking any other resources that may have been created in that namespace).
+You can delete a `sourceControlConfiguration` using the Azure CLI or Azure portal.  After you initiate the delete command, the `sourceControlConfiguration` resource will be deleted immediately in Azure, but it can take up to 1 hour for full deletion of the associated objects from the cluster (we have a backlog item to shorten this).
 
-Note that any changes to the cluster that were the result of deployments from the tracked git repo are not deleted when the `sourceControlConfiguration` is deleted.
+> [!NOTE]
+> If the `sourceControlConfiguration` was created with namespace scope, that namespace will not be deleted from the cluster (to avoid breaking any other resources that may have been created in that namespace).
+> Any changes to the cluster that were the result of deployments from the tracked git repo are not deleted when the `sourceControlConfiguration` is deleted.
 
 ```console
 az k8sconfiguration delete --name '<config name>' -g '<resource group name>' --cluster-name '<cluster name>' --cluster-type connectedClusters

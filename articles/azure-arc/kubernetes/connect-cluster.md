@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Connect an Azure Arc-enabled Kubernetes cluster (Preview)
 
-Connect a Kubernetes cluster to Azure Arc.
+This document cover the process of connecting any Cloud Native Computing Foundation (CNCF) certified Kubernetes cluster (AKS-engine on Azure, AKS-engine on Azure Stack Hub, GKE, EKS, vSphere cluster,...) to Azure Arc.
 
 ## Before you begin
 
@@ -164,6 +164,9 @@ AzureArcTest1  eastus      AzureArcTest
 ```
 
 You can also view this resource on the [Azure portal](https://portal.azure.com/). Once you have the portal open in your browser, navigate to the resource group and the Azure Arc enabled Kubernetes resource based on the resource name and resource group name inputs used earlier in the `az connectedk8s connect` command.
+
+> [!NOTE]
+> After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes) to surface on the overview page of the Azure Arc enabled Kubernetes resource.
 
 Azure Arc enabled Kubernetes deploys a few operators into the `azure-arc` namespace. You can view these deployments and pods here:
 

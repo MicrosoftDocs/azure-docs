@@ -19,6 +19,10 @@ Use Azure Policy to enforce that each `Microsoft.Kubernetes/connectedclusters` r
 
 If you are using multiple Git repos as the sources of truth for each cluster (for instance, one repo for central IT/cluster operator and other repos for application teams), you can enable this by using multiple policy assignments, each policy assignment configured to use a different Git repo.
 
+## Prerequisite
+
+Ensure that you have `Microsoft.Authorization/policyAssignments/write` permissions on the scope (subscription or resource group) where you want to create this policy assignment.
+
 ## Create a policy assignment
 
 1. In the Azure portal, navigate to Policy, and in the **Authoring** section of the sidebar, select **Definitions**.
