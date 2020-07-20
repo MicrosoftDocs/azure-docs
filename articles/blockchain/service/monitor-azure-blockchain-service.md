@@ -69,7 +69,7 @@ This article provides a reference of log and metric data collected to analyze th
 
 ### Resource logs
 
-All resource logs share a top-level common schema with few unique properties specific to the blockchain service. You can refer to the article [Top-level resource logs schema](../../azure-monitor/platform/resource-logs-schema.md#top-level-resource-logs-schema), details of the Azure Blockchain Service specific properties are covered below  
+All resource logs share a top-level common schema with few unique properties specific to the blockchain service. You can refer to the article [Top-level resource logs schema](../../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema), details of the Azure Blockchain Service specific properties are covered below  
 
 The following table lists the properties for Azure Blockchain proxy logs when they're collected in Azure Monitor Logs or Azure Storage.  
 
