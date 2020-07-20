@@ -102,7 +102,7 @@ landingContent:
     - linkListType: learn
       links:
       - text: Start optimizing your costs today
-        url: https://azure.microsoft/overview/cost-optimization/
+        url: https://azure.microsoft.com/overview/cost-optimization/
       - text: Predict costs and optimize spending for Azure
         url: https://docs.microsoft.com/learn/modules/predict-costs-and-optimize-spending/
       - text: Microsoft Azure Well-Architected Framework - Cost optimization

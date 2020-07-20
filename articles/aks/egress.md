@@ -105,7 +105,7 @@ To verify that the static public IP address is being used, you can use DNS look-
 Start and attach to a basic *Debian* pod:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 To access a web site from within the container, use `apt-get` to install `curl` into the container.
