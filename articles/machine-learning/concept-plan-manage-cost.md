@@ -121,5 +121,5 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 
 Learn more about:
 * [Manage and increase resource quotas](how-to-manage-quotas.md)
-* [Managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Managing costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
 * [Azure Machine Learning compute](how-to-set-up-training-targets.md#amlcompute).
