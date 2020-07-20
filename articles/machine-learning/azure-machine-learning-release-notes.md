@@ -17,6 +17,45 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2020-07-20
+
+### Azure Machine Learning SDK for Python v1.10.0
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + When using AutoML, if a path is passed into the AutoMLConfig object and it does not already exist, it will be automatically created.
+    + The user frequency parameter was provided for the forecasting tasks.
+  + **azureml-automl-runtime**
+    + When using AutoML, if a path is passed into the AutoMLConfig object and it does not already exist, it will be automatically created.
+    + The user frequency parameter was provided for the forecasting tasks.
+    + AutoML Forecasting now supports rolling evaluation, which applies to the use case that the length of a test/validation set is longer than the input max_horizon and known y_pred value is used as forecasting context. This is mainly to evaluate the model accuracy without accumulating the forecasting errors by using forecasts as next-step forecasting context.
+  + **azureml-core**
+    + Warning messages will be printed if no files were downloaded from the datastore in a run.
+    + Added documentation for `skip_validation` to the `Datastore.register_azure_sql_database method`.
+    + User need to upgrade their sdk to this version or above to be able to create an auto approved private endpoint with includes Notebook resource usable behind VNet
+    + Expose NotebookInfo in the response of get workspace
+    + Changes to have calls to list compute targets and getting compute target succeed on a remote run. Sdk functions to get compute target and list workspace compute targets will now work in remote runs.
+    + Add deprecation mesages to the class descriptions for azureml.core.image classes
+    + Throw exception and clean up workspace and dependent resources if workspace private endpoint creation fails
+    + Support workspace sku upgrade in workspace update method
+  + **azureml-datadrift**
+    + Update matplotlib version from 3.0.2 to 3.2.1 to support python 3.8.
+  + **azureml-dataprep**
+    + Added support of web url data sources with `Range` or `Head` request. 
+    + Improved stability for file dataset mount and download.
+  + **azureml-train-automl-client**
+    + Fixed issues related to removal of `RequirementParseError` from setuptools.
+    + Use docker instead of conda for local runs submitted using "compute_target='local'"
+    + The iteration duration printed to the console is corrected. Previously, iteration duration was sometimes printed as run end time minus run creation time. It has been corrected to equal run end time minus run start time.
+    + When using AutoML, if a path is passed into the AutoMLConfig object and it does not already exist, it will be automatically created.
+    + The user frequency parameter was provided for the forecasting tasks.
+  + **azureml-train-automl-runtime**
+    + Improved console output when best model explanations fail.
+    + Renamed "backlist_models" input parameter to "blocked_models".
+      + Renamed "whitelist_models" input parameter to "allowed_models".
+    + The user frequency parameter was provided for the forecasting tasks.
+
+  
 ## 2020-07-06
 
 ### Azure Machine Learning SDK for Python v1.9.0

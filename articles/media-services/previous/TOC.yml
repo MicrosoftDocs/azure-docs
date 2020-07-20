@@ -449,7 +449,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.windowsazure.mediaservices.client
   - name: REST
-    href: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
+    href: /rest/api/media/operations/azure-media-services-rest-api-reference
   - name: Specifications
     items:
     - name: Live Ingest - Fragmented MP4 live ingest specification
