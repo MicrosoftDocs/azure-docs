@@ -48786,7 +48786,7 @@
     },
     {
       "source_path": "articles/iot-pnp/howto-install-pnp-cli.md",
-      "redirect_url": "/azure/iot-pnp/howto-install-iot-explorer",
+      "redirect_url": "/azure/iot-pnp/howto-use-pnp-cli",
       "redirect_document_id": false
     },
     {
