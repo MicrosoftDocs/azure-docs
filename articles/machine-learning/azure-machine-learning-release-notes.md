@@ -32,12 +32,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-core**
     + Warning messages will be printed if no files were downloaded from the datastore in a run.
     + Added documentation for `skip_validation` to the `Datastore.register_azure_sql_database method`.
-    + User need to upgrade their sdk to this version or above to be able to create an auto approved private endpoint with includes Notebook resource usable behind VNet
+    + Users are required to upgrade their sdk v1.10.0 or above to create an auto approved private endpoint. This includes the Notebook resource which is usable behind the VNet.
     + Expose NotebookInfo in the response of get workspace
     + Changes to have calls to list compute targets and getting compute target succeed on a remote run. Sdk functions to get compute target and list workspace compute targets will now work in remote runs.
-    + Add deprecation mesages to the class descriptions for azureml.core.image classes
-    + Throw exception and clean up workspace and dependent resources if workspace private endpoint creation fails
-    + Support workspace sku upgrade in workspace update method
+    + Add deprecation mesages to the class descriptions for azureml.core.image classes.
+    + Throw exception and clean up workspace and dependent resources if workspace private endpoint creation fails.
+    + Support workspace sku upgrade in workspace update method.
   + **azureml-datadrift**
     + Update matplotlib version from 3.0.2 to 3.2.1 to support python 3.8.
   + **azureml-dataprep**
@@ -46,7 +46,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl-client**
     + Fixed issues related to removal of `RequirementParseError` from setuptools.
     + Use docker instead of conda for local runs submitted using "compute_target='local'"
-    + The iteration duration printed to the console is corrected. Previously, iteration duration was sometimes printed as run end time minus run creation time. It has been corrected to equal run end time minus run start time.
+    + The iteration duration printed to the console has been corrected. Previously, the iteration duration was sometimes printed as run end time minus run creation time. It has been corrected to equal run end time minus run start time.
     + When using AutoML, if a path is passed into the AutoMLConfig object and it does not already exist, it will be automatically created.
     + Users can now specify a time series frequency for forecasting tasks by using the `freq` parameter.
   + **azureml-train-automl-runtime**
