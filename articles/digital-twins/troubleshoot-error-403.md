@@ -41,7 +41,7 @@ To check whether you have this role, view the role assignments for the Azure Dig
 
 #### Fix issues 
 
-If you do not have this role assignment, follow the steps to assign it in the [*Assign yourself a role* section of *How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md#assign-yourself-a-role).
+If you do not have this role assignment, follow the steps to assign it in the [*Set up your user's access permissions* section of *How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance.md#set-up-your-users-access-permissions).
 
 If you do have this role assignment already, continue to the next solution.
 
@@ -65,13 +65,12 @@ Next, select *API permissions* from the menu bar to verify that this app registr
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Create an app registration* section of *How-to: Authenticate a client application*](how-to-authenticate-client.md#create-an-app-registration).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Set up access permissions for client applications* section of *How-to: Set up an instance and authentication (Manual)*](how-to-authenticate-client.md#set-up-access-permissions-for-client-applications).
 
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [*How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md)
-* [*How-to: Authenticate a client application*](how-to-authenticate-client.md)
+* [*How-to: How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md)
 
 Read more about security and permissions on Azure Digital Twins:
 * [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
