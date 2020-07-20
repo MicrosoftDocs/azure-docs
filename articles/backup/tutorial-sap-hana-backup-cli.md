@@ -115,7 +115,7 @@ saphanadatabase;hxe;hxe        SAPHanaDatabase          HXE           hxehost   
 
 As you can see from the above output, the SID of the SAP HANA system is HXE. In this tutorial, we'll configure backup for the *saphanadatabase;hxe;hxe* database that resides on the *hxehost* server.
 
-To protect and configure backup on a database, one at a time, we use the [az backup protection enable-for-azurewl](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl) cmdlet. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](//cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet. For this tutorial, we'll be using the *sapahanaPolicy* policy.
+To protect and configure backup on a database, one at a time, we use the [az backup protection enable-for-azurewl](/cli/azure/backup/protection?view=azure-cli-latest#az-backup-protection-enable-for-azurewl) cmdlet. Provide the name of the policy that you want to use. To create a policy using CLI, use the [az backup policy create](/cli/azure/backup/policy?view=azure-cli-latest#az-backup-policy-create) cmdlet. For this tutorial, we'll be using the *sapahanaPolicy* policy.
 
 ```azurecli-interactive
 az backup protection enable-for-azurewl --resource-group saphanaResourceGroup \

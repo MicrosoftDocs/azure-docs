@@ -251,6 +251,8 @@
         href: bynder-tutorial.md
     - name: C
       items:
+      - name: C3M Cloud Control
+        href: c3m-cloud-control-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
       - name: Campus Café
@@ -341,6 +343,8 @@
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
         href: cloud-service-picco-tutorial.md
+      - name: CloudSign
+        href: cloudsign-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
@@ -924,6 +928,8 @@
         href: korn-ferry-360-tutorial.md
       - name: Korn Ferry ALP
         href: korn-ferry-alp-tutorial.md
+      - name: Kpifire
+        href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kudos

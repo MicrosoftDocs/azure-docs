@@ -37,4 +37,4 @@ Review [How to build a cross-regional encoding system](media-services-high-avail
 Check out:
 
 * [Tutorial: Encode a remote file based on URL and stream the video](stream-files-dotnet-quickstart.md)
-* [code samples](https://docs.microsoft.com/samples/browse/?products=azure-media-services)
+* [code samples](/samples/browse/?products=azure-media-services)
