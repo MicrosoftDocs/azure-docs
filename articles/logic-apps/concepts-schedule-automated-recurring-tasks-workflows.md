@@ -108,7 +108,7 @@ Here's how this recurrence looks:
 
 So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run always uses the next future start time.
 
-For the Sliding Window trigger, the Logic Apps engine calculates run times based on the start time, honors past run times, uses the start time for the first run, and calculates future runs based on the start time.
+For the Sliding Window trigger, the Logic Apps engine calculates run times based on the start time, honors past run times, uses the start time for the first run, and calculates future runs based on the end time of the window.
 
 Here's how this recurrence looks:
 
@@ -118,6 +118,20 @@ Here's how this recurrence looks:
 ||||
 
 So, no matter how far in the past you specify the start time, for example, 2017-09-**05** at 2:00 PM or 2017-09-**01** at 2:00 PM, your first run always uses the specified start time.
+
+<a name="month-year-sliding-window"></a>
+
+## Monthly sliding window recurrence
+
+When selecting a monthly frequency on a sliding window trigger, caution should be applied when specifying start dates for which the day **do not occur on each month**. 
+Here is how a sliding window trigger with a monthly recurrence can be affected by the date you choose:
+
+| Start time | First run time | Future run times |
+|------------|----------------|------------------|
+| 2020-01-**01** at 2:00 PM | 2020-01-**01** at 2:00 PM | 2020-02-**01** at 2:00 PM </br>2020-03-**01** at 2:00 PM </br>2020-04-**01** at 2:00 PM </br>and so on... |
+| 2019-10-**31** at 2:00 PM | 2019-10-**31** at 2:00 PM | 2019-11-**30** at 2:00 PM</br> 2019-12-**30** at 2:00 PM </br>2020-01-**30** at 2:00 PM </br>2020-02-**29** at 2:00 PM </br>2020-03-**29** at 2:00 PM </br>2020-04-**29** at 2:00 PM </br>and so on... |
+
+> * Use the [Recurrence trigger](../connectors/connectors-native-recurrence.md) If you want your trigger to run on **complexe schedules**.
 
 <a name="example-recurrences"></a>
 
