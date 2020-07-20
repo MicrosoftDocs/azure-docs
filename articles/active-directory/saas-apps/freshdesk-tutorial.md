@@ -42,7 +42,7 @@ To configure Azure AD integration with FreshDesk, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * FreshDesk supports **SP** initiated SSO
-* Once you configure FreshDesk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure FreshDesk you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding FreshDesk from the gallery
 
@@ -72,13 +72,13 @@ To configure and test Azure AD SSO with FreshDesk, complete the following buildi
 
 1. In the [Azure portal](https://portal.azure.com/), on the **FreshDesk** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set-up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+	a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
@@ -87,11 +87,11 @@ To configure and test Azure AD SSO with FreshDesk, complete the following buildi
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. FreshDesk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **Unique User Identifier** is mapped with **user.userprincipalname** but FreshDesk expects this to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
+5. FreshDesk application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, whereas **Unique User Identifier** is mapped with **user.userprincipalname** but FreshDesk expects this to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on Edit icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+7. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -104,7 +104,7 @@ To configure and test Azure AD SSO with FreshDesk, complete the following buildi
 
 	b. Copy the **Cert Hash(sha256)** value and paste it into the Notepad. 
 
-9. On the **Set up FreshDesk** section, copy the appropriate URL(s) as per your requirement.
+9. On the **Set-up FreshDesk** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -194,7 +194,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In order to enable Azure AD users to log into FreshDesk, they must be provisioned into FreshDesk.  
 In the case of FreshDesk, provisioning is a manual task.
 
-**To provision a user accounts, perform the following steps:**
+**To provision a user account, perform the following steps:**
 
 1. Log in to your **Freshdesk** tenant.
 
@@ -232,7 +232,7 @@ In the case of FreshDesk, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the FreshDesk tile in the Access Panel, you should be automatically signed in to the FreshDesk for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the FreshDesk tile in the Access Panel, you should be automatically signed in to the FreshDesk for which you setup SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
