@@ -16,6 +16,8 @@ group. You can ship logs to a storage server, or to an analytics service. The
 logs can be used to identify, troubleshoot, and repair configuration errors and
 suboptimal performance.
 
+## Accessing logs
+
 To access PostgreSQL logs for a Hyperscale (Citus) coordinator or worker node,
 open the node in the Azure portal:
 
@@ -31,7 +33,7 @@ box.  Choose which destination(s) should receive the logs.
 
 ![Choose PostgreSQL logs](media/howto-hyperscale-logging/diagnostic-create-setting.png)
 
-### Next steps
+## Next steps
 
 - [Get started with log analytics queries](/azure/azure-monitor/log-query/get-started-portal)
 - Learn about [Azure event hubs](/azure/event-hubs/event-hubs-about)
