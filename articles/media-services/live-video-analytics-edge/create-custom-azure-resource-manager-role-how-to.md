@@ -19,7 +19,7 @@ Prerequisites for this article are as follows:
 * Azure subscription with owner subscription.
 * An Azure Active Directory with privileges to create an app and assign service principal to a role.
 
-The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+The easiest way to check whether your account has adequate permissions is through the portal. See [Check required permission](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Overview  
 
