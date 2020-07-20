@@ -227,7 +227,7 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     $Resource = "https://database.windows.net/"
     
     $adalPath  = "${env:ProgramFiles}\WindowsPowerShell\Modules\AzureRM.profile\5.8.3"
-    # To install the latest Azure.RM.profile version execute  -Install-Module -Name AzureRM.profile
+    # To install the latest AzureRM.profile version execute  -Install-Module -Name AzureRM.profile
     $adal      = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
     $adalforms = "$adalPath\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
     [System.Reflection.Assembly]::LoadFrom($adal) | Out-Null
@@ -268,7 +268,7 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     Alternatively, you can use the code sample in the blog, [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467). Modify the script to execute a DDL statement `CREATE USER [myapp] FROM EXTERNAL PROVIDER`. The same script can be used to create a regular Azure AD user a group in SQL Database.
 
     > [!NOTE]
-    > If you need to install the module Azure.RM.profile, you will need to open PowerShell as an administrator. You can use the following commands to automatically install the latest Azure.RM.profile version, and set `$adalpath` for the above script:
+    > If you need to install the module AzureRM.profile, you will need to open PowerShell as an administrator. You can use the following commands to automatically install the latest AzureRM.profile version, and set `$adalpath` for the above script:
     > 
     > ```powershell
     > Install-Module AzureRM.profile -force
