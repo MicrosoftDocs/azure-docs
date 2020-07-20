@@ -13,7 +13,7 @@ manager: gwallace
 
 Azure Dev Spaces provides a rapid, iterative Kubernetes development experience for teams in Azure Kubernetes Service (AKS) clusters. Azure Dev Spaces also allows you to debug and test all the components of your application in AKS with minimal development machine setup, without replicating or mocking up dependencies.
 
-![](media/azure-dev-spaces/collaborate-graphic.gif)
+![The diagram shows two versions of an application developed independently. Then they are combined into one in an Azure Dev Spaces development environment.](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## How Azure Dev Spaces simplifies Kubernetes development
 

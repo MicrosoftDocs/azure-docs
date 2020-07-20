@@ -95,7 +95,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable or disable this setting. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
     
-       [![New Time Series Insights environment configuration.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
+    [![New Time Series Insights environment configuration.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
 
 1. Select **Next: Event Source**.
 
