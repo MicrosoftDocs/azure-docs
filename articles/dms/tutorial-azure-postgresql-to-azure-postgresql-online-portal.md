@@ -58,7 +58,7 @@ To complete this tutorial, you need to:
   * max_wal_senders =[number of concurrent tasks] - The max_wal_senders parameter sets the number of concurrent tasks that can run, recommend setting to **10 tasks**
 
 > [!NOTE]
-> The above server parameters are static and will require a reboot of your Azure Database for PostgreSQL instance for them to take effect. For more information on toggling server parameters, see [Configure Azure Database for PostgreSQL Server Parameters] (https://docs.microsoft.com/en-us/azure/postgresql/howto-configure-server-parameters-using-portal)
+> The above server parameters are static and will require a reboot of your Azure Database for PostgreSQL instance for them to take effect. For more information on toggling server parameters, see [Configure Azure Database for PostgreSQL Server Parameters](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal).
 
 > [!IMPORTANT]
 > All tables in your existing database need a primary key to ensure that changes can be synced to the target database.
