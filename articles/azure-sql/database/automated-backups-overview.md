@@ -255,6 +255,8 @@ Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -Instanc
 
 Please note once PITR backup retention has been reduced for deleted databases, it no longer can be increased.
 
+---
+
 ### Change the PITR backup retention period by using the REST API
 
 #### Sample request
