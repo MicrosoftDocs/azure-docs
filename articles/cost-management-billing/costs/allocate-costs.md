@@ -111,27 +111,27 @@ The following items are currently unsupported by the cost allocation public prev
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Power BI Desktop connector](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-## Are costs factored into budgets and forecast views?
+### Are costs factored into budgets and forecast views?
 <a name="budgets-forecast"></a>
 
 Yes. Allocated costs are factored into and supported by budgets and forecasts. Budget and forecast views show costs allocated to them, as configured by cost allocation rules.
 
-## If a cost allocation rule is deleted, what happens?
-<a name="delete-rule">
+### If a cost allocation rule is deleted, what happens?
+<a name="delete-rule"></a>
 
 When a cost allocation rule is deleted, all open and current billing month costs being allocated to the targets are removed. If the cost allocation rule has existed for several months, the historical previous months of allocation data remain as originally set by the allocation rule.
 
-## Why is an enrollment admin or a billing account admin needed to create cost allocation rules?
+### Why is an enrollment admin or a billing account admin needed to create cost allocation rules?
 <a name="why-admin"></a>
 
 Cost allocation rules are created at either the enrollment scope (Enterprise Agreement) or the Billing account scope (Microsoft Customer Agreement). Permissions to make changes at these scopes requires billing administrator privileges.
 
-## Why are sources and targets limited to 25 per rule?
+### Why are sources and targets limited to 25 per rule?
 <a name="source-target-rule-limit"></a>
 
 The limit is a preview limitation to ensure good cost allocation performance and scalability. The limits will likely increase or get removed when cost allocation transitions to general availability (GA).
 
-## What can happen if cost allocation rules (sources/targets) overlap?
+### What can happen if cost allocation rules (sources/targets) overlap?
 <a name="rule-overlap"></a>
 
 Rules that have either overlapping sources or overlapping targets aren't recommended. Cost Allocation rules are applied in order by their creation date, so if any cost allocation rules overlap the allocation rule with the earliest creation date will take precedence.
