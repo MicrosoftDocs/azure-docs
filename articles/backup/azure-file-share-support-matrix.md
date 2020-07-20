@@ -8,7 +8,7 @@ ms.custom: references_regions
 
 # Support matrix for Azure file share backup
 
-You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
+You can use the [Azure Backup service](./backup-overview.md) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
 ## Supported regions
 
