@@ -60,7 +60,7 @@ arc-helm-demo  eastus      k8s-clusters
     └── vote-app.yaml
 ```
 
-In the git repo we have two directories, one containing a Helm chart and one containing the releases config. In the `releases` directory the `vote-app.yaml` contains the HelmRelease config shown below:
+In the git repo we have two directories, one containing a Helm chart and one containing the releases config. In the `releases` directory, the `vote-app.yaml` contains the HelmRelease config shown below:
 
 ```bash
 apiVersion: helm.fluxcd.io/v1
@@ -117,7 +117,7 @@ Using the Azure CLI, validate that the `sourceControlConfiguration` was successf
 az k8sconfiguration show --resource-group $RESOURCE_GROUP --name azure-voting-app --cluster-name $CLUSTER_NAME --cluster-type connectedClusters
 ```
 
-Note that the `sourceControlConfiguration` resource is updated with compliance status, messages, and debugging information.
+The `sourceControlConfiguration` resource is updated with compliance status, messages, and debugging information.
 
 **Output:**
 

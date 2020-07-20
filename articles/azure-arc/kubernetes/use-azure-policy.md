@@ -42,7 +42,7 @@ After the policy assignment is created, for any new `connectedCluster` resource 
 
 ## Verify a policy assignment
 
-1. In the Azure portal, navigate to one of your `connectedCluster` resources, and in the **Settings** section of the sidebar, select **Policies**. (The UX for AKS managed cluster is not implemented yet, but is coming.)
+1. In the Azure portal, navigate to one of your `connectedCluster` resources, and in the **Settings** section of the sidebar, select **Policies**. (The UX for AKS     cluster is not implemented yet, but is coming.)
 2. In the list, you should see the policy assignment that you created above, and the **Compliance state** should be *Compliant*.
 3. In the **Settings** section of the sidebar, select **Configurations**.
 4. In the list, you should see the `sourceControlConfiguration` that the policy assignment created.

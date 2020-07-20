@@ -15,7 +15,7 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, contai
 
 GitOps is the practice of the declaring the desired state of Kubernetes configuration (deployments, namespaces,...) in a Git repository followed by a polling and pull based deployment of these configurations to the cluster using an operator. This document covers the setup of GitOps workflows on Azure Arc enabled Kubernetes clusters.
 
-The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted at rest in an Azure CosmosDB database to ensure data confidentiality.
+The connection between your cluster and one or more Git repositories is tracked in Azure Resource Manager as a `sourceControlConfiguration` extension resource. The `sourceControlConfiguration` resource properties represent where and how Kubernetes resources should flow from Git to your cluster. The `sourceControlConfiguration` data is stored encrypted at rest in an Azure Cosmos DB database to ensure data confidentiality.
 
 The `config-agent` running in your cluster is responsible for watching for new or updated `sourceControlConfiguration` extension resources on the Azure Arc enabled Kubernetes resource, deploying a GitOps operator to watch the Git repository, and propagating any updates made to the `sourceControlConfiguration`. It is even possible to create multiple `sourceControlConfiguration` resources with `namespace` scope on the same Azure Arc enabled Kubernetes cluster to achieve multi-tenancy. In such a case, each operator can only deploy configurations to its respective namespace.
 
@@ -231,7 +231,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 5. Paste the public key (minus any surrounding quotation marks)
 6. Click **Add key**
 
-See the GitHub docs for more info on how to manage deploy keys.
+See the GitHub docs for more info on how to manage theses keys.
 
 **If you are using an Azure DevOps repository, add the key to your SSH keys**
 
