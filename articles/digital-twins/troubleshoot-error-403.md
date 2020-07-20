@@ -40,9 +40,15 @@ The first solution is to verify that your Azure user has the *Azure Digital Twin
 
 #### Fix issues 
 
-If you do not have this role assignment, follow the steps to assign it in the [*Set up your user's access permissions* section of *How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions).
+If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Owner (Preview)* role on the **Azure Digital Twins instance**. If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
 
-If you do have this role assignment already, continue to the next solution.
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
+```
+
+For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section of *How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions).
+
+If you have this role assignment already and still encounter the 403 issue, continue to the next solution.
 
 ### Solution #2
 
