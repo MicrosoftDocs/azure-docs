@@ -42,9 +42,15 @@ To check whether you have this role, view the role assignments for the Azure Dig
 
 #### Fix issues 
 
-If you do not have this role assignment, follow the steps to assign it in the [*Assign yourself a role* section of *How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md#assign-yourself-a-role).
+If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Owner (Preview)* role on the **Azure Digital Twins instance**. If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
 
-If you do have this role assignment already, continue to the next solution.
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
+```
+
+For more details about this role requirement and the assignment process, see the [*Assign yourself a role* section of *How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md#assign-yourself-a-role).
+
+If you have this role assignment already and still encounter the 403 issue, continue to the next solution.
 
 ### Solution #2
 
