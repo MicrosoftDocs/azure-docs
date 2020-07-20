@@ -45,7 +45,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated due to the distributed architecture of the data warehouse.
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated due to the distributed architecture of the data warehouse. The IDENTITY property is designed to scale out across all the distributions in the Synapse SQL pool without affecting load performance. 
 
 The following example is an illustration:
 
