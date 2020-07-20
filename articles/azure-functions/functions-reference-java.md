@@ -141,7 +141,7 @@ The following table shows current supported Java versions for each major version
 
 Currently, the Maven archetype generates a pom.xml that targets Java 8. The following elements in pom.xml need to be updated to create a function app that runs Java 11.
 
-| Element |  Java 8 | Java 11 |
+| Element |  Java 8 value | Java 11 value |
 | ---- | ---- | ---- |
 | **`Java.version`** | 1.8 | 11 |
 | **`JavaVersion`** | 8 | 11 |
@@ -171,7 +171,7 @@ The following example shows the operating system setting in the `runtime` sectio
  
 ## JDK runtime availability and support 
 
-For local development of Java function apps, download and use the [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions uses the Azul Java 8 JDK runtime when you deploy your function apps to the cloud.
+For local development of Java function apps, download and use the appropriate [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/). Azure Functions uses an Azul Java JDK runtime when you deploy your function app to the cloud.
 
 [Azure support](https://azure.microsoft.com/support/) for issues with the JDKs and function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
