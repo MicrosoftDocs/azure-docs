@@ -558,4 +558,4 @@ Contributions and suggestions for Azurite are welcome. Go to the Azurite [GitHub
 ## Next steps
 
 - [Use the Azure storage emulator for development and testing](storage-use-emulator.md) documents the legacy Azure storage emulator, which is being superseded by Azurite.
-- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure STorage connection string.
+- [Configure Azure Storage connection strings](storage-configure-connection-string.md) explains how to assemble a valid Azure Storage connection string.
