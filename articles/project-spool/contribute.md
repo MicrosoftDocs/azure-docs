@@ -6,11 +6,15 @@ The status of ACS Docs is being tracked in [this spreadsheet](https://microsoft.
 
 --------------
 
-## Contribute Content
+## Contribute Conceptual Content
 
-First, ping Mick your **github username** (not email). You'll then be ready to edit docs.
+Conceptual content includes concepts, quickstarts, tutorials, and other non-reference content types.
 
-Click "edit" on any page within our docs (like this page) to add content:
+To begin contributing conceptual content, ping Mick your **github username** (not email). He'll then add you to the ACS docs repository.
+
+There are two ways to contribute to the ACS docs repo: **from the browser** or **with VS Code**.
+
+To edit from the browser, Click "edit" on any page within our docs (like this page) to add content:
 
 ![Edit File](./media/edit-click.png)
 
@@ -18,19 +22,12 @@ Once you're brought to the file on GitHub, click the edit icon:
 
 ![Edit File](./media/edit-file.png) 
 
-Once you've made your changes, click Commit with the "direct" option selected:
+Once you've made your changes, click Commit. Select the "direct" option if you don't need any reviewers:
 
 ![Commit Changes](./media/commit-changes.png)
 
-I'll then be notified, and I'll merge your changes into the docs.
 
-To preview your markdown, you can use Visual Studio Code.
-
-Note that links between docs within our docset should be [relative paths](https://review.docs.microsoft.com/en-us/help/contribute/links-how-to?branch=master#links-to-articles-in-the-same-docset).
-
-For a list of available docs UI components and Markdown features, see [the Docs Markdown Reference](https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference?branch=master).
-
-For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.com/en-us/help/contribute/writing-principles?branch=master) and [this](https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700).
+You can use Visual Studio Code if you'd like to preview your rendered content before pushing it.
 
 
 ### Authorship / Style Guidelines
@@ -38,6 +35,9 @@ For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.
 - **Quickstarts** are for explaining things in less than 10 minutes.
 - **Tutorials** are for more in-depth explanations that explain how to complete a commonly encountered customer task.
 - **Concepts** are for the foundational ideas that developers need to know before diving into the code.
+- Links between docs within our docset should be [relative paths](https://review.docs.microsoft.com/en-us/help/contribute/links-how-to?branch=master#links-to-articles-in-the-same-docset).
+- For a list of available docs UI components and Markdown features, see [the Docs Markdown Reference](https://review.docs.microsoft.com/en-us/help/contribute/markdown-reference?branch=master).
+- For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.com/en-us/help/contribute/writing-principles?branch=master) and [this](https://styleguides.azurewebsites.net/StyleGuide/Read?id=2700).
 - Assume that all developers are under incredible time-pressure to find easy solutions to real problems, and make sure the solutions are ridiculously easy to find by articulating the customer intent in the title and in the first paragraph.
 - Don't assume that developers are familiar with technical terminology or jargon. Use everyday words as much as possible.
 - Try to emphasize the plain-English benefits as much as possible, not the technologies. For example, in an introduction to ACS calling, it might be easier for a new dev to read about "phone calls" than "PSTN integration".
@@ -63,21 +63,20 @@ For Microsoft Docs writing principles, see [this](https://review.docs.microsoft.
 
 The numbers in the above diagram correspond to the following numbered annotations:
 
-1. This is the public repository that public contributors use to submit changes.  The purpose of this repository is to facilitate public contributions.
+1. This is the public repository that public contributors use to submit changes. The purpose of this repository is to facilitate public contributions.
 2. This is the private repository that internal contributors and partners use to submit changes.
 3. **[1]** and **[2]** are synchronized and used to generate the Azure content you see on docs.microsoft.com.
-4. This is the branch that has been created for our project.  We will rename this branch to reflect the branding of our product once it becomes official.  This branch can be viewed [here](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-project-spool).  Note that this repository is locked down as a matter of policy - only members of the PR review team have the ability to approve pull requests here.
-5. I've forked from our org's private repository **[2]** to facilitate contributions from this team.  Since we're working with a small number of people, I've opted to minimize process complexity by using **a single fork** that we all own together.  This means you don't have to submit pull requests - you can just push your commits directly into our branch (**[6]**).
-6. This is our branch.  This is where our changes will be pushed.  We won't ever directly contribute to the "root".  When we push to this branch, changes will automatically be built and staged [here](https://review.docs.microsoft.com/en-us/azure/project-spool/?branch=pr-en-us-104477).
-7. When you clone **[5]**, you're pulling the entire Azure-docs-pr repository down onto your local machine.
-8. This is your local ACS branch, where we'll be making our changes.
-9. When we make changes in our local branch, we'll sync our changes.  This pulls others' changes down from **[6]** to **[8]**, and then pushes our changes from **[8]** to **[6]**.
-10. I've [issued a pull request](https://github.com/MicrosoftDocs/azure-docs-pr/pull/104477) from **[6]** to **[4]**.  This is what enables continuous validation and staging as we commit our changes to **[6]**.  If you view that pull request after pushing to **[4]**, you'll be able to see the validations and staging status.
+4. This is the branch that has been created for our project. This branch can be viewed [here](https://github.com/MicrosoftDocs/azure-docs-pr/tree/release-project-spool). Note that this repository is locked down as a matter of policy - only members of the PR review team have the ability to approve pull requests here. The content that we push here should be ready for public consumption.
+5. I've forked from our org's private repository **[2]** to facilitate content drafting for members of the ACS team. You don't have to submit pull requests - you can just push your commits directly into our branch if you'd like (**[6]**).
+6. This is our project's branch. When we push to this branch, changes will automatically be built and staged [here](https://review.docs.microsoft.com/en-us/azure/project-spool/?branch=pr-en-us-104477).
+7. I've [issued a pull request](https://github.com/MicrosoftDocs/azure-docs-pr/pull/104477) from **[6]** to **[4]**.  This is what enables continuous staging as we commit our drafts to **[6]**.  If you view that pull request after pushing to **[4]**, you'll be able to see the validations and staging status.
 
-*Note: PRs from **[6]** to **[4]** will always be built and validated, but they won't be passed off to the Azure docs editorial team until we sign off on them with a comment that says "#sign-off".  This will tell our merge bot ("PR Merger") to pass the baton along.  We will only do this when our content is mature.*
+*Note: PRs from **[6]** to **[4]** will always be built and validated, but they won't be passed off to the Azure docs publishing services team until we sign off on them with a comment that says "#sign-off". This will tell our merge bot ("PR Merger") to pass the baton along to their team for approval.  We will only do this when our content is mature.*
 
 
 ### Power User Instructions
+
+These instructions are for contributors who would like to contribute using Visual Studio Code.
 
 To begin contributing: 
 
