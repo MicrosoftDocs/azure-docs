@@ -59,11 +59,9 @@ This command opens a browser to gather your credentials. When the command finish
 
 Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
-## Clone or download the sample
+## Clone the sample
 
-# [Git clone](#tab/clone)
-
-Clone the sample repository:
+Clone the sample repository with the following command. ([Install git](https://git-scm.com/downloads) if you don't have git already.)
 
 ```terminal
 git clone https://github.com/Azure-Samples/python-docs-hello-world
@@ -74,16 +72,6 @@ Then go into that folder:
 ```terminal
 cd python-docs-hello-world
 ```
-
-# [Download](#tab/download)
-
-Visit [https://github.com/Azure-Samples/python-docs-hello-world](https://github.com/Azure-Samples/python-docs-hello-world), select **Clone**, and then select **Download ZIP**.
-
-Unpack the ZIP into a folder named *python-docs-hello-world*. 
-
-Then open a terminal window in that *python-docs-hello-world* folder.
-
----
 
 The sample code contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
