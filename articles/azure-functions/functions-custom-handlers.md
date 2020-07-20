@@ -42,10 +42,10 @@ To implement a custom handler, you need the following aspects to your applicatio
 - A *function.json* file for each function (inside a folder that matches the function name)
 - A command, script, or executable, which runs a web server
 
-The following diagram shows how these files look on the file system for a function named "order" and an custom handler executable named *server.exe*.
+The following diagram shows how these files look on the file system for a function named "MyQueueFunction" and an custom handler executable named *server.exe*.
 
 ```bash
-| /order
+| /MyQueueFunction
 |   function.json
 |
 | host.json
@@ -76,7 +76,7 @@ A custom handler is defined by configuring the *host.json* file with details on 
 
 The `customHandler` section points to a target as defined by the `defaultExecutablePath`. The execution target may either be a command, executable, or file where the web server is implemented.
 
-Use the `arguments` array to pass any arguments to the executable. Arguments support expansion of environment variables (application settings) using `%` notation.
+Use the `arguments` array to pass any arguments to the executable. Arguments support expansion of environment variables (application settings) using `%%` notation.
 
 You can also change the working directory used by the executable with `workingDirectory`.
 
@@ -181,7 +181,7 @@ By convention, function responses are formatted as key/value pairs. Supported ke
 
 | <nobr>Payload key</nobr>   | Data type | Remarks                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Holds response values as defined by the `bindings` array the *function.json* file.<br /><br />For instance, if a function is configured with a blob storage output binding named "blob", then `Outputs` contains a key named `blob`, which is set to the blob's value. |
+| `Outputs`     | object    | Holds response values as defined by the `bindings` array the *function.json* file.<br /><br />For instance, if a function is configured with a blob storage output binding named "blob", then `Outputs` contains a key named `blob`, which is set to the blob's value. |
 | `Logs`        | array     | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
 | `ReturnValue` | string    | Used to provide a response when an output is configured as `$return` in the *function.json* file. |
 
@@ -189,7 +189,7 @@ See the [example for a sample payload](#bindings-implementation).
 
 ## Examples
 
-Custom handlers can be implemented in any language that supports HTTP events. The following examples show how to implement a custom handler using the Go programming language.
+Custom handlers can be implemented in any language that supports receiving HTTP events. The following examples show how to implement a custom handler using the Go programming language.
 
 ### Function with bindings
 
@@ -243,7 +243,7 @@ In a folder named *order*, the *function.json* file configures the HTTP-triggere
 
 This function is defined as an [HTTP triggered function](./functions-bindings-http-webhook-trigger.md) that returns an [HTTP response](./functions-bindings-http-webhook-output.md) and outputs a [Queue storage](./functions-bindings-storage-queue-output.md) message.
 
-At the root of the app, the *host.json* file is configured to run an executable file named `server.exe` (`server` in Linux and macOS).
+At the root of the app, the *host.json* file is configured to run an executable file named `server.exe` (`server` in Linux or macOS).
 
 ```json
 {
@@ -279,7 +279,7 @@ By setting `message` equal to the message that came in from the request, and `re
 For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable unsupported languages and runtimes on Azure Functions. While it may be possible to run web applications on Azure Functions using custom handlers, it is not a standard HTTP reverse proxy. Some features that you might expect, such as response streaming, HTTP/2, and WebSockets will not work. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable new languages and runtimes on Azure Functions. While it may be possible to run web applications on Azure Functions using custom handlers, it is not a standard HTTP reverse proxy. Some features that you might expect, such as response streaming, HTTP/2, and WebSockets will not work. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
 > 
 > We recommend you run your web apps on [Azure App Service](../app-service/overview.md).
 
@@ -366,13 +366,16 @@ The route for the order function here `/api/hello`, same as the original request
 
 ## Deploying
 
-A custom handler can be deployed to nearly every Azure Functions hosting option (see [restrictions](#restrictions)). If your handler requires custom dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
+A custom handler can be deployed to every Azure Functions hosting option. If your handler requires custom dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
 
 To deploy a custom handler app using Azure Functions Core Tools, run the following command.
 
 ```bash
 func azure functionapp publish $functionAppName --no-build --force
 ```
+
+> [!NOTE]
+> Ensure all files required to run your custom handler are in the folder and included in the deployment. If your custom handler is a binary executable or has platform-specific dependencies, ensure these files match the target deployment platform.
 
 ## Restrictions
 
@@ -381,3 +384,11 @@ func azure functionapp publish $functionAppName --no-build --force
 ## Samples
 
 Refer to the [custom handler samples GitHub repo](https://github.com/Azure-Samples/functions-custom-handlers) for examples of how to implement functions in a variety of different languages.
+
+## Troubleshooting and support
+
+**TODO**
+
+* startup problems
+* invocation problems
+* specify what we support and what we do not
