@@ -39176,6 +39176,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-create-kws.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-basics",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
       "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
       "redirect_document_id": true
