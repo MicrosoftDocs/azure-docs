@@ -2,7 +2,7 @@
 title: Concepts - Network interconnectivity
 description: Learn about key aspects and use cases of networking and interconnectivity in Azure VMware Solution (AVS)
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/23/2020
 ---
 
 # Azure VMware Solution (AVS) Preview networking and interconnectivity concepts
@@ -40,7 +40,7 @@ The private cloud logical networking comes with pre-provisioned NSX-T. A Tier-0 
 
 ## Routing and subnet requirements
 
-The routing is Border Gateway Protocol (BGP) based, which is automatically provisioned and enabled by default for each private cloud deployment. For AVS private clouds, it’s required to plan private cloud network address spaces with a minimum of /22 prefix length CIDR network address blocks for subnets, shown in the table below. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks are provisioned automatically.
+The routing is Border Gateway Protocol (BGP) based, which is automatically provisioned and enabled by default for each private cloud deployment. For AVS private clouds, you're required to plan private cloud network address spaces with a minimum of /22 prefix length CIDR network address blocks for subnets, shown in the table below. The address block shouldn't overlap with address blocks used in other virtual networks that are in your subscription and on-premises networks. Within this address block, management, provisioning, and vMotion networks are provisioned automatically.
 
 Example `/22` CIDR network address block:  `10.10.0.0/22`
 
