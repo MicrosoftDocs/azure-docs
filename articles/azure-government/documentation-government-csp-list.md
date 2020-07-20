@@ -397,7 +397,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |----------------------------|---------------------------|-----------------------------------|
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
-|Insight Public Sector||800-467-4448|
+|Insight Public Sector|federal@insight.com|800-467-4448|
 |PC Connection|govccollections@govconnection.com|800-998-0009|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
