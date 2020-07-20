@@ -119,7 +119,7 @@ If you want to require approval to activate a role, follow these steps.
 
 1. Select **Select approvers** to open the **Select a member or group** page.
 
-    ![Select a user or group pane to select approvers](./media/pim-groups-role-settings/resources-role-settings-select-approvers.png)
+    ![Select a user or group pane to select approvers](./media/pim-groups-role-settings/group-settings-select-approvers.png)
 
 1. Select at least one user or group and then click **Select**. You can add any combination of users and groups. You must select at least one approver. There are no default approvers.
 
