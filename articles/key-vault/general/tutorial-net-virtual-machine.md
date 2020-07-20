@@ -3,14 +3,14 @@ title: Tutorial - Use Azure Key Vault with a Windows virtual machine in .NET | M
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
-manager: rajvijan
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
+
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
 # Tutorial: Use Azure Key Vault with a Windows virtual machine in .NET
