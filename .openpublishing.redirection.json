@@ -4544,7 +4544,7 @@
     },
     {
       "source_path": "articles/key-vault/keyvault-moveresourcegroup.md",
-      "redirect_url": "/azure/key-vault/general/move-resourcegroup.md",
+      "redirect_url": "/azure/key-vault/general/move-resourcegroup",
       "redirect_document_id": false
     },
 
