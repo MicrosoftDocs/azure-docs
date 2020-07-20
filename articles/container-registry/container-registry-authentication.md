@@ -41,15 +41,11 @@ For registry access, the token used by `az acr login` is valid for **3 hours**, 
 
 Using `az acr login` with Azure identities provides [role-based access](../role-based-access-control/role-assignments-portal.md). For some scenarios, you may want to log in to a registry with your own individual identity in Azure AD, or configure other Azure users with specific [RBAC roles and permissions](container-registry-roles.md). For cross-service scenarios or to handle the needs of a workgroup or a development workflow where you don't want to manage individual access, you can also log in with a [managed identity for Azure resources](container-registry-authentication-managed-identity.md).
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 ### az acr login with --expose-token
 
-In some cases, you might need to authenticate with `az acr login` but the Docker daemon isn't running in your environment. For example, you might need to run `az acr login` in a script in Azure Cloud Shell, which includes the Docker CLI but doesn't run the Docker daemon.
+In some cases, you might need to authenticate with `az acr login` when the Docker daemon isn't running in your environment. For example, you might need to run `az acr login` in a script in Azure Cloud Shell, which provides the Docker CLI but doesn't run the Docker daemon.
 
-You can run `az acr login` first with the `--expose-token` parameter. This option exposes an access token instead of logging in through the Docker CLI.
+For this scenario, run `az acr login` first with the `--expose-token` parameter. This option exposes an access token instead of logging in through the Docker CLI.
 
 ```azurecli
 az acr login -name <acrName> --expose-token
@@ -64,16 +60,11 @@ Output displays the access token, abbreviated here:
 }
 ``` 
 
-<<<<<<< Updated upstream
-Then, run `docker login`, with the username `00000000-0000-0000-0000-000000000000` and using the access token as password:
-=======
 Then, run `docker login`, passing the username `00000000-0000-0000-0000-000000000000` and using the access token as password:
->>>>>>> Stashed changes
 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password eyJhbGciOiJSUzI1NiIs[...]24V7wA
 ```
-
 
 ## Service principal
 
@@ -95,7 +86,7 @@ For CLI scripts to create a service principal for authenticating with an Azure c
 
 Each container registry includes an admin user account, which is disabled by default. You can enable the admin user and manage its credentials in the Azure portal, or by using the Azure CLI or other Azure tools. The admin account has full permissions to the registry.
 
-The admin account is currently required when authenticating to a container registry from certain Azure services. For example, the admin account is needed when you deploy a container image in the portal from a registry directly to [Azure Container Instances](../container-instances/container-instances-using-azure-container-registry.md#deploy-with-azure-portal) or [Azure Web Apps for Containers](container-registry-tutorial-web-app.md).
+The admin account is currently required for some scenarios to deploy an image from a container registry to certain Azure services. For example, the admin account is needed when you deploy a container image in the portal from a registry directly to [Azure Container Instances](../container-instances/container-instances-using-azure-container-registry.md#deploy-with-azure-portal) or [Azure Web Apps for Containers](container-registry-tutorial-deploy-app.md).
 
 > [!IMPORTANT]
 > The admin account is designed for a single user to access the registry, mainly for testing purposes. We do not recommend sharing the admin account credentials among multiple users. All users authenticating with the admin account appear as a single user with push and pull access to the registry. Changing or disabling this account disables registry access for all users who use its credentials. Individual identity is recommended for users and service principals for headless scenarios.
