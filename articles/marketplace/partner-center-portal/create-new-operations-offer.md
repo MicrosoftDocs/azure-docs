@@ -291,6 +291,7 @@ If it's your first time publishing this offer, you can:
     - **Incomplete** – The section has errors that need to be fixed or requires more information to be provided. Go back to the section(s) and update it.
     - **Complete** – The section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
 - In the **Notes for certification** section, provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
+    - For more information on testing instructions and completing a first publish, please see: [AppSource Dynamics 365 Finance and Operations functional validation]( https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation)
 - Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. Return to Partner Center and select **Go-live** for the offer to publish your offer to the public.
 
 ## Next step
