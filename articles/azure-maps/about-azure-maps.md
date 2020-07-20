@@ -158,13 +158,13 @@ For more information, see the [Traffic API documentation](https://docs.microsoft
 
 ### Weather service
 
-The Weather service offers APIs that developers can use to retrieve weather information for a particular location. The information contains details such as observation date and time, brief description of the weather conditions, weather icon, precipitation indicator flags, and temperature. Additional details such as RealFeel™ Temperature and UV index are also returned. Also, Daily, Hourly,Minute , and Quarter Day forecast data are also available.
+The Weather service offers APIs that developers can use to retrieve weather information for a particular location. The information contains details such as observation date and time, brief description of the weather conditions, weather icon, precipitation indicator flags, and temperature. Additional details such as RealFeel™ Temperature and UV index are also returned.
 
-Developers can use the [Get Weather along route API](https://docs.microsoft.com/rest/api/maps/weather/getweatheralongroutepreview) to retrieve weather information along a particular route. In addition, the service supports the generation of weather notifications for waypoints that are affected by weather hazards such as flooding or or heavy rain.
+Developers can use the [Get Weather along route API](https://docs.microsoft.com/rest/api/maps/weather/getweatheralongroutepreview) to retrieve weather information along a particular route. Also, the service supports the generation of weather notifications for waypoints that are affected by weather hazards such as flooding or heavy rain.
 
 ### Maps Creator Services
 
-Maps Creator services is a suite of web services that developers can use to create applications with map features based on indoor map data.
+Maps Creator services are a suite of web services that developers can use to create applications with map features based on indoor map data.
 
 Maps Creator provides three core services:
 
@@ -182,7 +182,7 @@ Also, Azure Maps offers a convenient [JavaScript map control](https://docs.micro
 
 ## Power BI visual
 
-The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
+The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
 
 ![Power BI desktop with the Azure Maps visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
 
@@ -194,7 +194,7 @@ Accessing the Azure Maps services is a matter of going to the [Azure portal](htt
 
 Azure Maps uses a key-based authentication scheme. Your account comes with two keys already generated for you, use either keys. Start integrating these location capabilities in your application and make requests to the Azure Maps services.
 
-Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries are not linked to any customer or end user when shared with TomTom and cannot be used to identify individuals. Microsoft is currently in the process of adding TomTom to the Online Services Subcontractor List. Note that the Mobility and Weather Services, which include integration with Moovit and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. Microsoft is currently in the process of adding TomTom to the Online Services Subcontractor List. The Mobility and Weather Services, which include integration with Moovit and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Supported regions
 
