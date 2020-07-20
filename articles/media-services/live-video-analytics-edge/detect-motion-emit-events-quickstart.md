@@ -31,7 +31,7 @@ This tutorial requires the following Azure resources:
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* Linux VM in Azure, with [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) installed
+* Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) installed
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
@@ -223,7 +223,7 @@ Follow these steps to run the sample code:
 
 ## Interpret results
 
-When you run the media graph, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+When you run the media graph, the results from the motion detector processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window of Visual Studio Code contain a `body` section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Live Video Analytics module defines the application properties and the content of the body.
 
