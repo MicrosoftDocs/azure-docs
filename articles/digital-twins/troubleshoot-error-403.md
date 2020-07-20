@@ -1,6 +1,7 @@
 ---
 title: "Azure Digital Twins request failed with Status: 403 (Forbidden)"
 description: "Causes and resolutions for 'Service request failed. Status: 403 (Forbidden)' on Azure Digital Twins."
+ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
