@@ -12,7 +12,7 @@ ms.date: 04/16/2020
 
 ## Azure environments
 
-Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
+Configure [App Services](../../app-service/configure-language-java.md#set-java-runtime-options).
 
 ## Spring Boot
 

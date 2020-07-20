@@ -75,6 +75,8 @@
       href: enterprise-state-roaming-faqs.md
 - name: Reference
   items:
+  - name: Enforce TLS 1.2
+    href: reference-device-registration-tls-1-2.md
   - name: Enterprise state roaming GPO settings
     href: enterprise-state-roaming-group-policy-settings.md
   - name: Enterprise state roaming Windows settings

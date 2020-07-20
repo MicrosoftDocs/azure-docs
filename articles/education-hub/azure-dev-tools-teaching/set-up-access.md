@@ -4,7 +4,8 @@ description: How to deploy software to students and labs.
 author: rymend	
 ms.author: rymend	
 ms.topic: quickstart	
-ms.prod: azure	
+ms.service: azure-education
+ms.subservice: education-hub
 ms.date: 06/30/2020	
 ---	
 
@@ -28,6 +29,6 @@ Studences access Azure dev tools through the [Education Hub](https://aka.ms/devt
 Students and faculty alike can get access to all the software download benefits through the Education Hub. The Education Hub is built within the Azure portal and it provides your students easy access to the entire catalog of software, as well as access to the entire [Microsoft Learn](https://docs.microsoft.com/learn/) catalog.
 
 ## Next steps
-- [Learn how to manage student accounts](manage-students.md)
+- [Manage student accounts](manage-students.md)
 
 - [Support options](program-support.md)

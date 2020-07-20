@@ -2,7 +2,7 @@
 title: Set up a QnA Maker service - QnA Maker
 description: Before you can create any QnA Maker knowledge bases, you must first set up a QnA Maker service in Azure. Anyone with authorization to create new resources in a subscription can set up a QnA Maker service.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/13/2020
 ---
 # Manage QnA Maker resources
 
@@ -241,11 +241,20 @@ In order to keep the prediction endpoint app loaded even when there is no traffi
 
 Learn more about how to configure the App Service [General settings](../../../app-service/configure-common.md#configure-general-settings).
 
-## Configure App Service Environment to host Qna Maker App Service
+## Configure App Service Environment to host QnA Maker App Service
 The App Service Environment can be used to host QnA Maker app service. If the App Service Environment is internal, then you need to follow these steps:
 1. Create an App service and an Azure search service.
-2. Expose the app service on a public DNS and allow QnA Maker service tag: `CognitiveServicesManagement`, or keep it internet facing.
-3. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
+2. Expose the app service and allow QnA Maker availability as:
+    * Publicly available - default
+    * DNS service tag:
+        * `CognitiveServicesManagement`
+    * IPs associated with QnA Maker are:
+        * 13.91.138.229
+        * 40.88.22.25
+        * 13.86.184.142
+        * 20.185.105.28
+        * 13.86.178.10
+1. Create a QnA Maker cognitive service instance (Microsoft.CognitiveServices/accounts) using Azure Resource Manager, where QnA Maker endpoint should be set to App Service Environment.
 
 ## Business continuity with traffic manager
 

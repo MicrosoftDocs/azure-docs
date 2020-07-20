@@ -3,7 +3,8 @@ title: Frequently asked questions about Azure for Students and Azure Dev Tools f
 description: Find answers to some common questions about Azure for Students, Azure for Students Starter, and Azure Dev Tools for Teaching.	
 author: v-dihans	
 ms.author: rymend	
-ms.prod: azure	
+ms.service: azure-education
+ms.subservice: education-hub
 ms.topic: overview	
 ms.date:  06/30/2020	
 ---	
@@ -14,21 +15,21 @@ This article addresses frequent questions about Azure for Students, Azure for St
 
 ## Azure for Students
 
-### What happens after I use my $100 credit or I’m at the end of 12 months?
+### What happens after I use my $100 credit or I'm at the end of 12 months?
 
 After you exhaust your available credit or reach the end of 12 months, your Azure subscription becomes disabled. To continue using [Azure](https://account.azure.com/), you may upgrade to a pay-as-you-go subscription in the Azure Account portal. To get detailed terms of use for Azure for Students, please visit the [offer terms](https://azure.microsoft.com/offers/ms-azr-0170p/).
 
 ### Can I get Azure for Students again next year?
 
-Thank you for your interest in Azure for Students! We’re glad that you’ve enjoyed using it. At this time, we are not announcing renewals. Check back here for updates.
+Thank you for your interest in Azure for Students! We're glad that you've enjoyed using it. At this time, we are not announcing renewals. Check back here for updates.
 
 ### What are subscriptions, and how do they relate to Azure for Students?
 
-Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months. It includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services at the end of 12 months or after you’ve exhausted your $100 credit, whichever occurs first, you must upgrade to a pay-as-you-go subscription.
+Subscriptions provide access to Azure services. Azure for Students gives you $100 credit for 12 months. It includes access to more than 25 free services, including compute, network, storage, and databases. Any charges incurred during this period are deducted from the credit. To continue using Azure services at the end of 12 months or after you've exhausted your $100 credit, whichever occurs first, you must upgrade to a pay-as-you-go subscription.
 
-### What happens with my Azure services if I don’t upgrade?
+### What happens with my Azure services if I don't upgrade?
 
-If you decide not to upgrade at the end of 12 months or after you’ve exhausted your $100 credit, whichever occurs first, any products you’ve deployed are decommissioned and you won’t be able to access them. You have 90 days from the end of your free subscription to upgrade to a pay-as-you-go subscription.
+If you decide not to upgrade at the end of 12 months or after you've exhausted your $100 credit, whichever occurs first, any products you've deployed are decommissioned and you won't be able to access them. You have 90 days from the end of your free subscription to upgrade to a pay-as-you-go subscription.
 
 ### How do I know how much of the $100 credit I have left?
 
@@ -48,7 +49,7 @@ Azure for Students provides access to all Azure products that are expressly inte
 
 ### Can I apply any of my $100 credit toward Azure Marketplace offers?
 
-No. You can’t apply your credit to Azure Marketplace offers. However, many Azure Marketplace partners offer free trials or free tier plans for their solutions.
+No. You can't apply your credit to Azure Marketplace offers. However, many Azure Marketplace partners offer free trials or free tier plans for their solutions.
 
 ## Azure for Students Starter
 
@@ -71,7 +72,7 @@ Azure for Students Starter is available only to students who meet the following 
 
 - You must affirm that you are age 13 or older if you reside in the United States.
 - You must affirm that you are age 16 or older if you reside in a country other than the United States.
-- You must verify your academic status through your organization’s email address. You can also use Shibboleth if it's supported by your organization.
+- You must verify your academic status through your organization's email address. You can also use Shibboleth if it's supported by your organization.
 
 This offer isn't available for use in a massive open online course (MOOC) or in other professional trainings from for-profit organizations.
 
@@ -217,7 +218,7 @@ Yes. If a faculty member is enrolled in an approved course, they are eligible to
 
 As an administrator of the Azure Dev Tools for Teaching subscription, you can access your Visual Studio Enterprise subscription by requesting access through the [Azure Dev Tools for Teaching Management portal](https://azureforeducation.microsoft.com/account/Subscriptions).
 
-Once approved you will be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem additional benefits.
+Once approved you'll be able to sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem additional benefits.
 
 ### Does Microsoft Azure Dev Tools for Teaching include Microsoft Office?
 
@@ -229,15 +230,15 @@ No, your Microsoft Azure Dev Tools for Teaching subscription doesn't include Azu
 
 ### Do students need an Office 365 or Active Directory account to access Azure Dev Tools for Teaching?
 
-No. Students don’t need an Office 365 account. If students have access to your Active Directory account, they use the same credentials to sign in to the software.
+No. Students don't need an Office 365 account. If students have access to your Active Directory account, they use the same credentials to sign in to the software.
 
-If students don’t use Active Directory, they must create a [Microsoft Account](https://account.microsoft.com/account) (if they don’t already have one) using the same email address that you provide them.
+If students don't use Active Directory, they must create a [Microsoft Account](https://account.microsoft.com/account) (if they don't already have one) using the same email address that you provide them.
 
 ### Why aren't my sign in credentials recognized when I sign in to Azure Dev Tools for Teaching?
 
-Make sure that you’re trying to sign in to Azure Dev Tools for Teaching with your school credentials. It might help to open a private browsing window session.
+Make sure that you're trying to sign in to Azure Dev Tools for Teaching with your school credentials. It might help to open a private browsing window session.
 
-If you’re still unable to sign in, contact your subscription admin. To find your subscription admin, [contact us](https://aka.ms/adt4tsupport).
+If you're still unable to sign in, contact your subscription admin. To find your subscription admin, [contact us](https://aka.ms/adt4tsupport).
 
 ### How do I find my Subscriber ID?
 
@@ -250,7 +251,7 @@ If you need help locating your Subscriber ID, [contact us](https://azureforeduca
 
 ### Are we automatically enrolled in Azure Dev Tools for Teaching if we receive it as part of our academic volume licensing agreement?
 
-No, Microsoft doesn’t automatically enroll you if you have an academic volume licensing agreement. The academic volume license agreement includes:
+No, Microsoft doesn't automatically enroll you if you have an academic volume licensing agreement. The academic volume license agreement includes:
 
 - Enrollment for Education Solutions (EES)
 - Open Value Subscription Agreement for Education Solutions (OVS-ES)
@@ -265,9 +266,9 @@ If you are unable to locate your promotional code, [contact us](https://azurefor
 
 ### How and when do we renew our Azure Dev Tools for Teaching subscription?
 
-Sixty days before your membership expires, you start receiving email reminders to renew your subscription. In a renewal email, select the [renewal link](https://portal.azureforeducation.microsoft.com/).
+Sixty days before your membership expires, you'll start receiving email reminders to renew your subscription. In a renewal email, select the [renewal link](https://portal.azureforeducation.microsoft.com/).
 
-If you don’t receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
+If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
 
 Alternatively, go to the [Azure Dev Tools for Teaching - Renew page](https://portal.azureforeducation.microsoft.com/), and complete the renewal process.
 

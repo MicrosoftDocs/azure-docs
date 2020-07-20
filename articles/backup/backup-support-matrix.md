@@ -3,6 +3,7 @@ title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: conceptual
 ms.date: 02/17/2019
+ms.custom: references_regions 
 ---
 
 # Support matrix for Azure Backup

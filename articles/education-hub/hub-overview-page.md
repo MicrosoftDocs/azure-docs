@@ -1,10 +1,11 @@
 ---
 title: Manage your Academic Grant in the Azure Education Hub
 description: Describes how to view and update the details of your Academic Grant within the Azure Education Hub Overview page.
-author: rymend
+author: v-shmck
 ms.author: rymend
 ms.topic: how-to
-ms.prod: azure
+ms.service: azure-education
+ms.subservice: education-hub
 ms.date: 06/30/2020
 ---
 

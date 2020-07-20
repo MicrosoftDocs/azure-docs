@@ -5,7 +5,8 @@ author: rymend
 ms.author: v-denrea
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.prod: azure
+ms.service: azure-education
+ms.subservice: education-hub
 ---
 
 # Quickstart: Set up a course and create a classroom
@@ -59,4 +60,4 @@ moments to complete.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to create an assignment and allocate credit](create-assignment-allocate-credit.md)
+> [Create an assignment and allocate credit](create-assignment-allocate-credit.md)

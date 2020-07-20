@@ -1,10 +1,11 @@
 ---	
 title: Manage student access in Azure Dev Tools for Teaching	
 description: Learn how to enroll and manage student access to Azure Dev Tools for Teaching.	
-author: rymend	
+author: v-shmck	
 ms.author: rymend	
 ms.topic: overview	
-ms.prod: azure	
+ms.service: azure-education
+ms.subservice: education-hub
 ms.date: 06/30/2020	
 ---	
 

@@ -1,5 +1,5 @@
 ---
-title: Connect to an Azure Synapse workspace using private links
+title: Connect to a Synapse workspace using private links
 description: This article will teach you how to connect to your Azure Synapse workspace using private links
 author: RonyMSFT 
 ms.service: synapse-analytics 

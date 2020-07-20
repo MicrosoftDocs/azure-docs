@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
 ---
 
@@ -42,6 +42,9 @@ The following is an example of the command to enable verbose logging with the Co
 ### Linux
 
 The following is an example of the command to enable verbose logging with the Connected Machine agent for Linux when performing an interactive installation.
+
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 ```
 azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --verbose
