@@ -45,7 +45,7 @@ The notifications include diagnostic information. Here's an example:
 
 ## Configure Email Notifications
 
-Smart Detection notifications are enabled by default and sent to those who have [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) access to the subscription in which the Application Insights resource resides. To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
+Smart Detection notifications are enabled by default and sent to those who have [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) access to the subscription in which the Application Insights resource resides. To change this, either click **Configure** in the email notification, or open Smart Detection settings in Application Insights. 
   
   ![Smart Detection Settings](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -66,12 +66,12 @@ Emails about Smart Detections performance anomalies are limited to one email per
 * *Can I create my own anomaly detection rules or customize existing rules?*
 
   * Not yet, but you can:
-    * [Set up alerts](/azure/azure-monitor/platform/alerts-log) that tell you when a metric crosses a threshold.
+    * [Set up alerts](../platform/alerts-log.md) that tell you when a metric crosses a threshold.
     * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to Power BI](../../azure-monitor/app/export-power-bi.md ), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).
-* *So does this replace [metric alerts](/azure/azure-monitor/platform/alerts-log)?*
+* *So does this replace [metric alerts](../platform/alerts-log.md)?*
   * No.  We don't commit to detecting every behavior that you might consider abnormal.
 
 
@@ -172,9 +172,9 @@ These diagnostic tools help you inspect the telemetry from your app:
 * [Profiler](profiler.md) 
 * [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md)
 * [Analytics](../../azure-monitor/log-query/get-started-portal.md)
-* [Analytics smart diagnostics](../../azure-monitor/app/analytics.md)
+* [Analytics smart diagnostics](../log-query/log-query-overview.md)
 
 Smart detections are completely automatic. But maybe you'd like to set up some more alerts?
 
-* [Manually configured metric alerts](/azure/azure-monitor/platform/alerts-log)
+* [Manually configured metric alerts](../platform/alerts-log.md)
 * [Availability web tests](../../azure-monitor/app/monitor-web-app-availability.md)

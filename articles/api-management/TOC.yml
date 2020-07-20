@@ -73,6 +73,8 @@
         href: api-management-api-import-restrictions.md
       - name: Self-hosted gateway overview
         href: self-hosted-gateway-overview.md
+      - name: Observability
+        href: observability.md
 
 - name: How-to guides
   items:

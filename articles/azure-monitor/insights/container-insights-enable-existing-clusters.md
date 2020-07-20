@@ -8,7 +8,7 @@ ms.custom: devx-track-terraform
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
 
-This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) that have already been deployed in your subscription.
+This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
 
 You can enable monitoring of an AKS cluster that's already deployed using one of the supported methods:
 
@@ -163,7 +163,7 @@ If you are unfamiliar with the concept of deploying resources by using a templat
 
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create and execute a template
 
