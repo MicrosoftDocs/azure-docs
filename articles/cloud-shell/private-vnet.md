@@ -64,8 +64,9 @@ As in standard Cloud Shell, a storage account is required while using Cloud Shel
 
 * [Azure Relay](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) is not a free service, please view their [pricing](https://azure.microsoft.com/pricing/details/service-bus/). In the Cloud Shell scenario, one hybrid connection is used for each administrator while they are using Cloud Shell. The connection will automatically be shut down after the Cloud Shell session is complete.
 
-## Register resource provider
-The Microsoft.ContainerInstances resource provider needs to be registered in the subscription which holds the virtual network you want to use. Select the appropriate subscription with `Set-AzContext -Subscription {subscriptionName}` then
+## Register the resource provider
+
+The Microsoft.ContainerInstances resource provider needs to be registered in the subscription that holds the virtual network you want to use. Select the appropriate subscription with `Set-AzContext -Subscription {subscriptionName}`, and then run:
 
 ```powershell
 PS> Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance | select ResourceTypes,RegistrationState
@@ -76,7 +77,7 @@ ResourceTypes                             RegistrationState
 ...
 ```
 
-If the RegistrationState is `Registered` no action is required. If it is `NotRegistered`, run `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`. 
+If **RegistrationState** is `Registered`, no action is required. If it is `NotRegistered`, run `Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerInstance`. 
 
 ## Deploy network resources
  
