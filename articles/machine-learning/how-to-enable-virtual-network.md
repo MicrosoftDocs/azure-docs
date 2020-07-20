@@ -123,7 +123,7 @@ You can also override the default datastore on a per-module basis. This gives yo
 1. Expand the **Output settings** section.
 1. Select **Override default output settings**.
 1. Select **Set output settings**.
-1. Specify a new datstore.
+1. Specify a new datastore.
 
 ### Azure Data Lake Storage Gen2 access control
 
