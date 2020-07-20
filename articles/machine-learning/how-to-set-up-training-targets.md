@@ -114,35 +114,35 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
 
     Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
 
-    <a id="low-pri-vm"></a> 
-    **Lower your cost**
-
-    You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
-    
-    Use any of these ways to specify a low-priority VM:
-        
-    * In the studio, choose **Low Priority** when you create a VM.
-        
-    * With the Python SDK, set the `vm_priority` attribute in your provisioning configuration.  
-        
-        ```python
-        compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
-                                                                    vm_priority='lowpriority',
-                                                                    max_nodes=4)
-        ```
-        
-    * Using the CLI, set the `vm-priority`:
-        
-        ```azurecli-interactive
-        az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
-        ```
-
-
+   
 1. **Configure**: Create a run configuration for the persistent compute target.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
+
+ ### <a id="low-pri-vm"></a> Lower your compute cluster cost
+
+You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
+
+Use any of these ways to specify a low-priority VM:
+    
+* In the studio, choose **Low Priority** when you create a VM.
+    
+* With the Python SDK, set the `vm_priority` attribute in your provisioning configuration.  
+    
+    ```python
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                vm_priority='lowpriority',
+                                                                max_nodes=4)
+    ```
+    
+* Using the CLI, set the `vm-priority`:
+    
+    ```azurecli-interactive
+    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
+    ```
+
 
 
 ### <a id="instance"></a>Azure Machine Learning compute instance
