@@ -49,7 +49,7 @@ To start, you need three additional items:
 * An [event source connected to Time Series Insights](./concepts-streaming-ingestion-event-sources.md)
 * [Events flowing into the event source](./time-series-insights-send-events.md) that are both mapped to the model and are in valid JSON format
 
-## Review Gen2 limits
+## Review Azure Time Series Insights Gen2 limits
 
 [!INCLUDE [Review Azure Time Series Insights Gen2 limits](../../includes/time-series-insights-preview-limits.md)]
 

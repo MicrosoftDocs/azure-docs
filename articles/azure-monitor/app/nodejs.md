@@ -25,7 +25,7 @@ Complete the following tasks to set up monitoring for an app or service.
 Before you begin, make sure that you have an Azure subscription, or [get a new one for free][azure-free-offer]. If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user] to add you to it.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
-[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
 ### <a name="resource"></a> Set up an Application Insights resource
 
@@ -416,4 +416,4 @@ These properties are client specific, so you can configure `appInsights.defaultC
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
+[FAQ]: ../faq.md

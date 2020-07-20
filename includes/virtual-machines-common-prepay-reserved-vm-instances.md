@@ -3,7 +3,7 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/27/2020
+ms.date: 07/15/2020
 ---
 
 
@@ -98,7 +98,7 @@ If you have an EA agreement, you can use the **Add more option** to quickly add 
 |Region    |The Azure region that's covered by the reservation.|    
 |VM Size     |The size of the VM instances.|
 |Optimize for     |VM instance size flexibility is selected by default. Click **Advanced settings** to change the instance size flexibility value to apply the reservation discount to other VMs in the same [VM size group](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). Capacity priority prioritizes data center capacity for your deployments. It offers additional confidence in your ability to launch the VM instances when you need them. Capacity priority is only available when the reservation scope is single subscription. |
-|Term        |One year or three years.|
+|Term        |One year or three years. There's also a 5-year term available only for HBv2 VMs.|
 |Quantity    |The number of instances being purchased within the reservation. The quantity is the number of running VM instances that can get the billing discount. For example, if you are running 10 Standard_D2 VMs in the East US, then you would specify quantity as 10 to maximize the benefit for all running VMs. |
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]

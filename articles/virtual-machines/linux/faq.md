@@ -26,7 +26,7 @@ Azure storage accounts can also provide storage for the operating system disk an
 Establish a remote connection to sign on to the virtual machine, using Secure Shell (SSH). See the instructions on how to connect [from Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or
 [from Linux and Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). By default, SSH allows a maximum of 10 concurrent connections. You can increase this number by editing the configuration file.
 
-If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you’re having problems, check out [Troubleshoot Secure Shell (SSH) connections](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).
 
 ## Can I use the temporary disk (/dev/sdb1) to store data?
 Don't use the temporary disk (/dev/sdb1) to store data. It is only there for temporary storage. You risk losing data that can’t be recovered.

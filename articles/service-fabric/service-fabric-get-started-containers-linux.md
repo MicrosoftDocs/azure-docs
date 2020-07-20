@@ -23,6 +23,8 @@ Running an existing application in a Linux container on a Service Fabric cluster
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
   * [Service Fabric CLI](service-fabric-cli.md)
 
+* A Linux cluster with three or more nodes.
+
 * A registry in Azure Container Registry - [Create a container registry](../container-registry/container-registry-get-started-portal.md) in your Azure subscription. 
 
 ## Define the Docker container
