@@ -109,7 +109,7 @@ The connection between your ExpressRoute circuit and your Virtual Network is cre
 
 ## Locate the URLs for vCenter and NSX Manager
 
-To sign in to vVenter and NSX manager you'll need the URLs to the vCenter web client and the NSX-T manager site. 
+To sign in to vCenter and NSX manager you'll need the URLs to the vCenter web client and the NSX-T manager site. 
 
 Navigate to your AVS private cloud, under **Manage**, select **Identity**, here you'll find the information needed.
 
