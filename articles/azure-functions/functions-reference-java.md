@@ -141,10 +141,10 @@ The following table shows current supported Java versions for each major version
 
 Currently, the Maven archetype generates a pom.xml that targets Java 8. The following elements in pom.xml need to be updated to create a function app that runs Java 11.
 
-| Element |  Java 8 value | Java 11 value |
-| ---- | ---- | ---- |
-| **`Java.version`** | 1.8 | 11 |
-| **`JavaVersion`** | 8 | 11 |
+| Element |  Java 8 value | Java 11 value | Description |
+| ---- | ---- | ---- | --- |
+| **`Java.version`** | 1.8 | 11 | Version of Java used by the maven-compiler-plugin. |
+| **`JavaVersion`** | 8 | 11 | Java version hosted by the function app. |
 
 The following examples show the settings for Java 8 in the relevant sections of the pom.xml file:
 
