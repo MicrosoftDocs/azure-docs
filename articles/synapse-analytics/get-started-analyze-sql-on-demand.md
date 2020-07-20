@@ -32,4 +32,6 @@ Tables in Spark databases are automatically visible, and they can be queried by 
 
 
 ## Next steps
-Learn how to [analyze data using Spark](get-started-analyze-spark.md) or [analyze data with SQL pool](get-started-analyze-sql-pool.md).
+
+> [!div class="nextstepaction"]
+> [Analyze using spark](get-started-analyze-spark.md)

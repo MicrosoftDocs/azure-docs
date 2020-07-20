@@ -48,5 +48,6 @@ ms.date: 07/20/2020
 
 ## Next steps
 
-Learn more about analyzing data [using Spark](get-started-analyze-spark.md) or [with SQL on-demand](get-started-analyze-sql-on-demand.md).
+> [!div class="nextstepaction"]
+> [Analyze using spark](get-started-analyze-spark.md)
 

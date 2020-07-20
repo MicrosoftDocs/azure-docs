@@ -117,4 +117,5 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
 
 ## Next steps
 
-Learn more about [analyzing data with SQL pool](get-started-analyze-sql-pool.md).
+> [!div class="nextstepaction"]
+> [Analyze using a SQL pool](get-started-analyze-sql-pool.md)

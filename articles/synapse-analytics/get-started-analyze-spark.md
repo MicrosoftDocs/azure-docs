@@ -97,9 +97,9 @@ val df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ```
 
-
-
 ## Next steps
 
-Learn how to [analyze data in Storage](get-started-analyze-storage.md).
+> [!div class="nextstepaction"]
+> [Analyze data in Storage](get-started-analyze-storage.md)
+
 

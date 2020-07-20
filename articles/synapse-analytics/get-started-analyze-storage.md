@@ -65,4 +65,5 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 
 ## Next steps
 
-Learn how to [orchestrate activities with pipelines](get-started-pipelines.md).
+> [!div class="nextstepaction"]
+> [Orchestrate activities with pipelines](get-started-pipelines.md)
