@@ -40,4 +40,4 @@ If a Media Services account or an associated Azure Storage account become "disco
 
 ## Next steps
 
-[Create an account](create-account-cli-quickstart.md)
+[Create an account](./create-account-howto.md)

@@ -234,9 +234,16 @@ Limitations and known issues for data drift monitors:
 
 ## Azure Machine Learning designer
 
-Known issues:
+* **Long compute preparation time:**
 
-* **Long compute preparation time**: It may be a few minutes or even longer when you first connect to or create a compute target. 
+It may be a few minutes or even longer when you first connect to or create a compute target. 
+
+From the Model Data Collector, it can take up to (but usually less than) 10 minutes for data to arrive in your blob storage account. Wait 10 minutes to ensure cells below will run.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## Train models
 
