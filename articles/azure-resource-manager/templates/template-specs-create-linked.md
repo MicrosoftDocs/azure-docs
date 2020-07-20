@@ -195,4 +195,4 @@ New-AzResourceGroupDeployment `
 
 ## Next steps
 
-To learn about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-in-linked.md).
+To learn about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).

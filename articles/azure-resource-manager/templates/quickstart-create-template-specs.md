@@ -22,7 +22,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 ## Create template spec
 
-The template spec is a new resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell or an ARM template. Azure CLI and the portal will be added shortly. In all options, you need an ARM template that is packaged within the template spec.
+The template spec is a new resource type named **Microsoft.Resources/templateSpecs**. To create your template spec, you can use Azure PowerShell or an ARM template. In all options, you need an ARM template that is packaged within the template spec.
 
 With PowerShell, the ARM template is passed in as a parameter to the command. With ARM template, the ARM template to package within the template spec is embedded within the template spec definition.
 

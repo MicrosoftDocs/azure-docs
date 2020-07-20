@@ -1,12 +1,12 @@
 ---
-title: Template Specs
+title: Template specs overview
 description: Describes how to create template specs and share them with other users in your organization. 
 ms.topic: conceptual
 ms.date: 07/20/2020
 ms.author: tomfitz
 author: tfitzmac
 ---
-# Azure Resource Manager Template Specs (Preview)
+# Azure Resource Manager template specs (Preview)
 
 A template spec is a new resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. This resource type enables you to share ARM templates with other users in your organization. Just like any other Azure resource, you can use role-based access control (RBAC) to share the template spec. Users only need read access to the template spec to deploy its template, so you can share the template without allowing others to modify it.
 
@@ -138,10 +138,6 @@ The following example consists of a main template with two linked templates. The
 
 When the PowerShell or CLI command to create the template spec is executed for the preceding example, the command finds three files - the main template, the web app template (`webapp.json`), and the database template (`database.json`) - and packages them into the template spec.
 
-The following image shows the workflow for creating a template spec from an ARM template and its linked templates.
-
-:::image type="content" source="./media/template-specs/create.svg" alt-text="create template spec":::
-
 For more information, see [Tutorial: Create a template spec with linked templates](template-specs-create-linked.md).
 
 ## Deploy template spec as a linked template
@@ -186,7 +182,7 @@ The following example is similar to the earlier example, but you use the `id` pr
 }
 ```
 
-For more information about linking template specs, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-in-linked.md).
+For more information about linking template specs, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).
 
 ## Versioning
 
@@ -198,4 +194,4 @@ When you create a template spec, you provide a version number for it. As you ite
 
 * For more information about linking templates in template specs, see [Tutorial: Create a template spec with linked templates](template-specs-create-linked.md).
 
-* For more information about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-in-linked.md).
+* For more information about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).

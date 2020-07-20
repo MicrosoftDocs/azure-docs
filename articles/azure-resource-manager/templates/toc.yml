@@ -208,7 +208,7 @@
     - name: Create with linked templates
       href: template-specs-create-linked.md
     - name: Deploy as linked template
-      href: template-specs-deploy-in-linked.md
+      href: template-specs-deploy-linked-template.md
   - name: Advanced templates
     items:
     - name: Use template reference
