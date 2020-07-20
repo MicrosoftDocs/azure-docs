@@ -73,6 +73,52 @@ Once the `Session` or `JMSContext` has been instantiated, your application can u
 
 Refer to the list of [supported JMS features](service-bus-java-how-to-use-jms-20.md#what-jms-features-are-supported) to see which APIs are supported as part of this preview.
 
+Below are some sample code snippets to get started with JMS -
+
+#### Sending messages to a queue and topic
+
+```java
+// Create the queue and topic
+Queue queue = jmsContext.createQueue("basicQueue");
+Topic topic = jmsContext.createTopic("basicTopic");
+// Create the message
+Message msg = jmsContext.createMessage();
+
+// Create the JMS message producer
+JMSProducer producer = jmsContext.createProducer();
+
+// send the message to the queue
+producer.send(queue, msg);
+// send the message to the topic
+producer.send(topic, msg);
+```
+
+#### Receiving messages from a queue
+
+```java
+// Create the queue
+Queue queue = jmsContext.createQueue("basicQueue");
+
+// Create the message consumer
+JMSConsumer consumer = jmsContext.createConsumer(queue);
+
+// Receive the message
+Message msg = (Message) consumer.receive();
+```
+
+#### Receiving messages from a shared durable subscription on a topic
+
+```java
+// Create the topic
+Topic topic = jmsContext.createTopic("basicTopic");
+
+// Create a shared durable subscriber on the topic
+JMSConsumer sharedDurableConsumer = jmsContext.createSharedDurableConsumer(topic, "sharedDurableConsumer");
+
+// Receive the message
+Message msg = (Message) sharedDurableConsumer.receive();
+```
+
 ## Summary
 
 This guide showcased how Java client applications using Java Message Service (JMS) over AMQP 1.0 can interact with Azure Service Bus.
@@ -87,5 +133,5 @@ For more information on Azure Service Bus and details about Java Message Service
 * [AMQP 1.0 support in Azure Service Bus](service-bus-amqp-overview.md)
 * [Service Bus AMQP 1.0 Developer's Guide](service-bus-amqp-dotnet.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [Java Message Service API](https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html)
-
+* [Java Message Service API(external Oracle doc)](https://docs.oracle.com/javaee/7/api/javax/jms/package-summary.html)
+* [Learn how to migrate from ActiveMQ to Service Bus](migrate-jms-activemq-to-servicebus.md)
