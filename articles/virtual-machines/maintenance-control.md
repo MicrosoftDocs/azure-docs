@@ -24,7 +24,7 @@ With maintenance control, you can:
 
 ## Limitations
 
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
+- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](isolation.md).
 - After 35 days, an update will automatically be applied.
 - User must have **Resource Contributor** access.
 
@@ -35,6 +35,8 @@ You can create and manage maintenance configurations using any of the following 
 - [Azure CLI](maintenance-control-cli.md)
 - [Azure PowerShell](maintenance-control-powershell.md)
 - [Azure portal](maintenance-control-portal.md)
+
+For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Control and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Overview of Service Fabric and containers
 description: An overview of Service Fabric and the use of containers to deploy microservice applications. This article provides an overview of how containers can be used and the available capabilities in Service Fabric.
 
 ms.topic: conceptual
-ms.date: 8/8/2018
+ms.date: 7/9/2020
 ---
 
 # Service Fabric and containers
@@ -49,7 +49,7 @@ For a Linux-based tutorial, see [Create your first Service Fabric container appl
 
 #### Windows Server containers
 
-Windows Server 2016 provides two different types of containers that differ by level of isolation. Windows Server containers and Docker containers are similar because both have namespace and file system isolation, while sharing the kernel with the host they are running on. On Linux, this isolation has traditionally been provided by cgroups and namespaces, and Windows Server containers behave similarly.
+Windows Server 2016 and later provide two different types of containers that differ by level of isolation. Windows Server containers and Docker containers are similar because both have namespace and file system isolation, while sharing the kernel with the host they are running on. On Linux, this isolation has traditionally been provided by cgroups and namespaces, and Windows Server containers behave similarly.
 
 Windows containers with Hyper-V support provide more isolation and security because no container shares the operating system kernel with any other container, or with the host. With this higher level of security isolation, Hyper-V enabled containers are targeted at potentially hostile, multi-tenant scenarios.
 For a Windows-based tutorial, see [Create your first Service Fabric container application on Windows](service-fabric-get-started-containers.md).
@@ -69,7 +69,10 @@ Here are typical examples where a container is a good choice:
 
 ## Service Fabric support for containers
 
-Service Fabric supports the deployment of Docker containers on Linux, and Windows Server containers on Windows Server 2016, along with support for Hyper-V isolation mode. 
+Service Fabric supports the deployment of Docker containers on Linux, and Windows Server containers on Windows Server 2016 and later, along with support for Hyper-V isolation mode.
+
+> [!NOTE]
+> Containers are not supported on local single node Service Fabric clusters (neither Linux clusters on OneBox, nor Windows clusters on local Service Fabric installations).
 
 Service Fabric provides an [application model](service-fabric-application-model.md) in which a container represents an application host in which multiple service replicas are placed. Service Fabric also supports a [guest executable scenario](service-fabric-guest-executables-introduction.md) in which you don't use the built-in Service Fabric programming models but instead package an existing application, written using any language or framework, inside a container. This scenario is the common use-case for containers.
 

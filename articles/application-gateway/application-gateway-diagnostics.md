@@ -151,7 +151,9 @@ Azure generates the activity log by default. The logs are preserved for 90 days 
 
 ### Access log
 
-The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format, as shown in the following example for v1:
+The access log is generated only if you've enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. Each access of Application Gateway is logged in JSON format as shown below. 
+
+#### For Application Gateway Standard and WAF SKU (v1)
 
 |Value  |Description  |
 |---------|---------|
@@ -195,7 +197,7 @@ The access log is generated only if you've enabled it on each Application Gatewa
     }
 }
 ```
-For Application Gateway and WAF v2, the logs show a little more information:
+#### For Application Gateway and WAF v2 SKU
 
 |Value  |Description  |
 |---------|---------|
@@ -216,7 +218,10 @@ For Application Gateway and WAF v2, the logs show a little more information:
 |serverRouted| The backend server that application gateway routes the request to.|
 |serverStatus| HTTP status code of the backend server.|
 |serverResponseLatency| Latency of the response from the backend server.|
-|host| Address listed in the host header of the request.|
+|host| Address listed in the host header of the request. If rewritten, this field contains the updated host name|
+|originalRequestUriWithArgs| This field contains the original request URL |
+|requestUri| This field contains the URL after the rewrite operation on Application Gateway |
+|originalHost| This field contains the original request host name
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
