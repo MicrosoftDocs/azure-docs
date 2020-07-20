@@ -49406,6 +49406,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/form-recognizer/tutorial-form-recognizer-with-logic-apps.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -56892,6 +56897,11 @@
     {
       "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
       "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
     }
   ]

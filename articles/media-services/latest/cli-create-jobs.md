@@ -23,7 +23,7 @@ In Media Services v3, when you submit Jobs to process your videos, you have to t
 
 ## Prerequisites 
 
-[Create a Media Services account](create-account-cli-how-to.md).
+[Create a Media Services account](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 
@@ -83,4 +83,4 @@ You get a response similar to this:
 
 ## Next steps
 
-[az ams job (CLI)](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+[az ams job (CLI)](/cli/azure/ams/job?view=azure-cli-latest)
