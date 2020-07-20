@@ -63,10 +63,7 @@ The diagram below shows the basic network interconnectivity established at the t
 * Outbound access from VMs to Azure services. 
 * Inbound access and consumption of workloads running a private cloud.
 
-
-![Basic virtual network -to- private cloud connectivity](./media/concepts/adjacency-overview-drawing-single.png)
-
-
+:::image type="content" source="media/concepts/adjacency-overview-drawing-single.png" alt-text="Basic virtual network to private cloud connectivity" border="false":::
 
 ## On-premises interconnectivity
 
@@ -76,7 +73,7 @@ The diagram below shows the on-premises to private cloud interconnectivity, whic
 * Hot/Cold Cross-vCenter vMotion
 * On-Premise to AVS private cloud management access
 
-![virtual network and on-premises full private cloud connectivity](./media/concepts/adjacency-overview-drawing-double.png)
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Virtual network and on-premises full private cloud connectivity" border="false":::
 
 For full interconnectivity to your private cloud, enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. The authorization key and peering ID are used to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your new private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments to your private cloud.  See the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-er-global-reach-private-cloud.md) for the procedures to request and use the authorization key and peering ID.
 
