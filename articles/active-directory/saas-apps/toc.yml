@@ -513,6 +513,8 @@
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
         href: egnyte-tutorial.md
+      - name: Egress
+        href: egress-tutorial.md
       - name: Ekarda
         href: ekarda-tutorial.md
       - name: eKincare
