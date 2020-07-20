@@ -249,7 +249,7 @@ Here you can view the backed-up disks during restore, when you select the recove
 
 ![View backed-up disks during restore](./media/selective-disk-backup-restore/during-restore.png)
 
-Configuring the selective disks backup experience for a VM through the Azure portal isn't limited to  the **Backup OS Disk only** option. To use selective disks backup on already a backed-up VM or for advanced inclusion or exclusion of specific data disks of a VM, use PowerShell or Azure CLI.
+Configuring the selective disks backup experience for a VM through the Azure portal is limited to  the **Backup OS Disk only** option. To use selective disks backup on already a backed-up VM or for advanced inclusion or exclusion of specific data disks of a VM, use PowerShell or Azure CLI.
 
 >[!NOTE]
 >If data spans across disks, make sure all the dependent disks are included in the backup. If you don’t backup all the dependent disks in a volume, during restore the volume comprising of some non-backed up disks will not be created.
