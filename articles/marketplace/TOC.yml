@@ -60,6 +60,8 @@
     - name: Your marketplace benefits
       href: ./gtm-your-marketplace-benefits.md
       items:
+      - name: Azure consumption commitment benefit
+        href: ./azure-consumption-commitment-benefit.md
       - name: Co-sell partner engagement
         href: ./marketplace-co-sell.md
       - name: Preferred solutions

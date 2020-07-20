@@ -72,7 +72,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
     In the following example, job data is being returned from a Human Resources database: 
 
-    ![The dialog box titled "Get row (Preview)" has two text boxes: "Table name", which contains "HRJOBS" and has a drop-down list, and "Row id", which contains "SA_REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![The dialog box titled "Get row (Preview)" has two text boxes: "Table name", which contains "H R JOBS" and has a drop-down list, and "Row i d", which contains "S A _ REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
 7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such as Office 365 Outlook. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
 

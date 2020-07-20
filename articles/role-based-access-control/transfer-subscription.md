@@ -210,7 +210,7 @@ Managed identities do not get updated when a subscription is transferred to anot
 
 ### List key vaults
 
-When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/keyvault-move-subscription.md).
+When you create a key vault, it is automatically tied to the default Azure Active Directory tenant ID for the subscription in which it is created. All access policy entries are also tied to this tenant ID. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > If you are using encryption at rest for a resource, such as a storage account or a SQL database, that has a dependency on a key vault that is NOT in the same subscription that is being transferred, it can lead to an unrecoverable scenario. If you have this situation, you should take steps to use a different key vault or temporarily disable customer-managed keys to avoid this unrecoverable scenario.
@@ -334,7 +334,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Update key vaults
 
-This section describes the basic steps to update your key vaults. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/keyvault-move-subscription.md).
+This section describes the basic steps to update your key vaults. For more information, see [Moving an Azure Key Vault to another subscription](../key-vault/general/move-subscription.md).
 
 1. Update the tenant ID associated with all existing key vaults in the subscription to the target directory.
 
