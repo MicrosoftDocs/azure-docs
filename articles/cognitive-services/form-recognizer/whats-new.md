@@ -27,10 +27,9 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 * **Table enhancements and Extraction enhancements** includes accuracy improvements and table extractions enhancements, specifically, the capability to learn tables headers and structures in custom train without labels. 
 * **Currency support** Detection and extraction of global currency symbols.
 * **Azure Gov** Form Recognizer is now also available in Azure Gov.
-*    **Enhanced security features**: 
-    *    **Bring your own key**  Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys (CMK), also known as bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest
-), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
-    *    **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
+* **Enhanced security features**: 
+   * **Bring your own key**  Form Recognizer automatically encrypts your data when persisted to the cloud to protect it and to help you to meet your organizational security and compliance commitments. By default, your subscription uses Microsoft-managed encryption keys. You can now also manage your subscription with your own encryption keys. [Customer-managed keys (CMK), also known as bring your own key (BYOK)](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest), offer greater flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data.  
+   * **Private endpoints** – Enables you on a virtual network (VNet) to [securely access data over a Private Link. ](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 
 ## June 2020

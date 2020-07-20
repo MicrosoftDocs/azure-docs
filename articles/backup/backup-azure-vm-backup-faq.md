@@ -7,7 +7,7 @@ ms.date: 09/17/2019
 ---
 # Frequently asked questions-Back up Azure VMs
 
-This article answers common questions about backing up Azure VMs with the [Azure Backup](backup-introduction-to-azure-backup.md) service.
+This article answers common questions about backing up Azure VMs with the [Azure Backup](./backup-overview.md) service.
 
 ## Backup
 
@@ -77,7 +77,7 @@ Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup servi
 
 Azure Backup can't back up the WA-enabled disk but can exclude it from backup. However, the backup won't provide database consistency because information on the WA-enabled disk isn't backed up. You can back up disks with this configuration if you want operating system disk backup, and backup of disks that aren't WA-enabled.
 
-Azure Backup provides a streaming backup solution for SAP HANA databases with an RPO of 15 minutes. It's Backint certified by SAP to provide a native backup support leveraging SAP HANA’s native APIs. Learn more [about backing up SAP HANA databases in Azure VMs](https://docs.microsoft.com/azure/backup/sap-hana-db-about).
+Azure Backup provides a streaming backup solution for SAP HANA databases with an RPO of 15 minutes. It's Backint certified by SAP to provide a native backup support leveraging SAP HANA’s native APIs. Learn more [about backing up SAP HANA databases in Azure VMs](./sap-hana-db-about.md).
 
 ### What is the maximum delay I can expect in backup start time from the scheduled backup time I have set in my VM backup policy?
 
@@ -123,7 +123,11 @@ The restore process remains the same. If the recovery point is of a point-in-tim
 
 [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 
-### Can I restore the VM that's been deleted?
+### If the restore fails to create the VM, what happens to the disks included in the restore?
+
+In the event of a managed VM restore, even if the VM creation fails, the disks will still be restored.
+
+### Can I restore a VM that's been deleted?
 
 Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and restore from a recovery point.
 
@@ -137,13 +141,13 @@ For Managed Disk Azure VMs, restoring to the availability sets is enabled by pro
 
 ### What happens when we change the key vault settings for the encrypted VM?
 
-After you change the key vault settings for the encrypted VM, backups will continue to work with the new set of details. However, after the restore from a recovery point before the change, you'll have to restore the secrets in a key vault before you can create the VM from it. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret).
+After you change the key vault settings for the encrypted VM, backups will continue to work with the new set of details. However, after the restore from a recovery point before the change, you'll have to restore the secrets in a key vault before you can create the VM from it. For more information, see this [article](./backup-azure-restore-key-secret.md).
 
-Operations like secret/key roll-over don't require this step and the same KeyVault can be used after restore.
+Operations like secret/key roll-over don't require this step and the same key vault can be used after restore.
 
 ### Can I access the VM once restored due to a VM having broken relationship with domain controller?
 
-Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
 ## Manage VM backups
 

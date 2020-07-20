@@ -198,8 +198,8 @@ Here is an example of a relationship formatted as a JSON object:
 ## Next steps
 
 See how to manage graph elements with Azure Digital Twin APIs:
-* [How-to: Manage digital twins](how-to-manage-twin.md)
-* [How-to: Manage the twin graph with relationships](how-to-manage-graph.md)
+* [*How-to: Manage digital twins*](how-to-manage-twin.md)
+* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)
 
 Or, learn about querying the Azure Digital Twins twin graph for information:
-* [Concepts: Query language](concepts-query-language.md)
+* [*Concepts: Query language*](concepts-query-language.md)

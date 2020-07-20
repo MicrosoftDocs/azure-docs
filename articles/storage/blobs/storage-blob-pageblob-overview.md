@@ -30,6 +30,10 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 * Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 * [SAS-based](../common/storage-sas-overview.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
 
+## Pricing
+
+Both types of storage offered with page blobs have their own pricing model. Premium page blobs follow the managed disks pricing model, while standard page blobs are billed on used size and with each transaction. For more information, see the [Azure Page Blobs pricing page](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+
 ## Page blob features
 
 ### REST API

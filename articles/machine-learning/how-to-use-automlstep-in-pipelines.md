@@ -264,7 +264,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Comparing the two techniques:
 
-| Technique |  | 
+| Technique | Benefits and drawbacks | 
 |-|-|
 |`PipelineOutputTabularDataset`| Higher performance | 
 || Natural route from `PipelineData` | 

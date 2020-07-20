@@ -12,7 +12,7 @@ ms.custom: seo-lt-2019
 ms.date: 07/16/2020
 ---
 
-# Create predictive pipelines using Azure Machine Learning Studio (classic) and Azure Data Factory
+# Create a predictive pipeline using Azure Machine Learning Studio (classic) and Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-ml-batch-execution-activity.md)
