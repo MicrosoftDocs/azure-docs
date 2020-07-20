@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 05/19/2020 
+ms.date: 07/20/20 
 ---
 
 # Visualize data with Power BI
@@ -19,7 +19,7 @@ From the NYC Taxi data, we created aggregated datasets in two tables:
 - **nyctaxi.passengercountstats**
 - **SQLDB1.dbo.PassengerCountStats**
 
-You can link a Power BI workspace to your Azure Synapse workspace. This allows you to easily get data into your Power BI workspace. You can edit your Power BI reports directly in your Azure Synapse workspace.
+You can link a Power BI workspace to your Azure Synapse workspace. This capability allows you to easily get data into your Power BI workspace. You can edit your Power BI reports directly in your Azure Synapse workspace.
 
 ### Create a Power BI workspace
 
