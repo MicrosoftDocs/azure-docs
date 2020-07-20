@@ -22,11 +22,11 @@ Setting an instance in Azure Digital Twins using Azure portal in two steps.
 2. Assigning yourself [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to manage the instance
 
 ### Create the Azure Digital Twins instance
-Instances/resources are part of resource groups that can build connected solutions that model the real world. Instances are deployed in [ADT (Azure Digital Twins) enabled locations](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=digital-twins) to organize and manage the resources.
+Instances/resources are part of resource groups that can build connected solutions that model the real world. Instances are deployed in [ADT (Azure Digital Twins) enabled locations](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins). to organize and manage the resources.
 
 **Prerequisites**: 
 * Azure account \
-    If you are a new user, you can create your Azure account [here](https://azure.microsoft.com/en-us/account/)
+    If you are a new user, you can create your Azure account [here](https://azure.microsoft.com/account/)
 * Azure subscription \
     If you need a subscription or have any questions on your existing subscription, please contact your subscription administrator.
 
@@ -63,7 +63,7 @@ This article walks you through the process of creating a new resource group. You
 Assign Azure Active Directory permissions
 Azure Digital Twins uses Azure Active Directory (AAD) for role-based access control (RBAC). This means that you'll need to assign yourself a role to make calls to your ADT instance.
 
-In order to use Azure Digital Twins with a client application, you'll also need to make sure your client app can authenticate against Azure Digital Twins. This is done by setting up an Azure Active Directory (AAD) app registration, which you can read about in [*How-to: Authenticate a client application*]((how-to-authenticate-client.md))
+In order to use Azure Digital Twins with a client application, you'll also need to make sure your client app can authenticate against Azure Digital Twins. This is done by setting up an Azure Active Directory (AAD) app registration, which you can read about in [*How-to: Authenticate a client application*](how-to-authenticate-client.md)
 
 ###### Assign yourself a role
 
