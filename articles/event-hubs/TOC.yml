@@ -290,7 +290,7 @@
   - name: Quotas
     href: event-hubs-quotas.md
   - name: Apache Kafka configurations
-    href: kafka-configurations.md
+    href: apache-kafka-configurations.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

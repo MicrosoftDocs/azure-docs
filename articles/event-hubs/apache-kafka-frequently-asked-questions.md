@@ -36,5 +36,5 @@ To learn more about Event Hubs and Event Hubs for Kafka, see the following artic
 - [Apache Kafka developer guide for Event Hubs](apache-kafka-developer-guide.md)
 - [Apache Kafka migration guide for Event Hubs](apache-kafka-migration-guide.md)
 - [Apache Kafka troubleshooting guide for Event Hubs](apache-kafka-troubleshooting-guide.md)
-- [Recommended configurations](kafka-configurations.md)
+- [Recommended configurations](apache-kafka-configurations.md)
 
