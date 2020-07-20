@@ -22,7 +22,7 @@ Setting an instance in Azure Digital Twins using Azure portal in two steps.
 2. Assigning yourself [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) permissions to manage the instance
 
 ### Create the Azure Digital Twins instance
-Instances/resources are part of resource groups that can build connected solutions that model the real world. Instances are deployed in [ADT (Azure Digital Twins) enabled locations](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins). to organize and manage the resources.
+Instances/resources are part of resource groups that can build connected solutions that model the real world. Instances are deployed in [ADT (Azure Digital Twins) enabled locations](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins) to organize and manage the resources.
 
 **Prerequisites**: 
 * Azure account \
@@ -31,22 +31,22 @@ Instances/resources are part of resource groups that can build connected solutio
     If you need a subscription or have any questions on your existing subscription, please contact your subscription administrator.
 
  Login to [Azure portal](https://ms.portal.azure.com/) with your credentials. 
-Select 'Create a resource' in the Azure Services menu, then type 'Azure Digital Twins' in the search box to search for the service in the Azure Services market place and select 'create' button.
+Select _Create a resource_ in the Azure Services menu, then type 'Azure Digital Twins' in the search box to search for the service in the Azure Services market place and select _create_ button.
 
 :::image type="content" source= "media/how-to-set-up-instance/azure-portal-home-page.png" alt-text="Alt text here.":::
 
 To create an instance, you'll need the following values:
 * Subscription: select your existing _Azure-Subscription_ from the dropdown menu
-* Resource Group: create a new _resource-group_by selecting 'create new' link and choose your desired name for the resource group
+* Resource Group: create a new _resource-group_ by selecting _create new_ link and choose your desired name for the resource group
 * Location: choose a _location_ for your resources from the dropdown
 * Resource Name: choose a desired name for your resource
 
 :::image type="content" source="media/how-to-set-up-instance/create-new-resource.png" alt-text="Alt text here.":::
 
 > [!IMPORTANT]
->Make a note of resource_name and resource_group to search and view its details later.
+>Make a note of resource-name and resource-group to search and view its details later.
 
-Review your instance details and create your instance by selecting _'Review + create'_ button. Status of deployment of your instance can be seen under notifications. If deployment succeeds, you can view your resource details by selecting _Go to resource_ button as shown below.
+Review your instance details and create your instance by selecting _Review + create_ button. Status of deployment of your instance can be seen under notifications. If deployment succeeds, you can view your resource details by selecting _Go to resource_ button as shown below.
  
 If deployment fails, please contact your subscription administrator to resolve the issue.
 
@@ -76,16 +76,16 @@ You can check your role by searching with your email address in _check access_ t
 :::image type="content" source="media/how-to-set-up-instance/check-role-owner.png" alt-text="Alt text here.":::
 
 >[!NOTE]
-> If you find that the value is _Contributor_ or something other than _Owner_, please contact your subscription administrator with the power to grant permissions in your subscription. They can either elevate your role on the entire subscription so that you can run the following command, or an owner can run the following command on your behalf to set up your Azure Digital Twins permissions for you.
+> If you find that _role_ is _Contributor_ or something other than _Owner_, please contact your subscription administrator with the power to grant permissions in your subscription. They can either elevate your role on the entire subscription so that you can run the following command, or an owner can run the following command on your behalf to set up your Azure Digital Twins permissions for you.
 
-You can now add your role assignment by selecting 'Add' button under 'Add a role assignment". Following values can be used:
+You can now add your role assignment by selecting _Add_ button under _Add a role assignment_. Following values can be used:
 * _role_ is required to be 'Azure Digital Twins Owner (Preview)'
 * _Assign access to_ 'Azure AD user, group or service principal'
 * _select_ your name or email address associated to your Azure account and save your details.
 
 :::image type="content" source="media/how-to-set-up-instance/access-control-role-assignment.png" alt-text="Alt text here.":::
 
-You can verify your role assignments under 'Role assignments' tab by searching with your email address or name.
+You can verify your role assignments under _Role assignments_ tab by searching with your email address or name.
 
 >[!TIP]
 >You can search for your resource/resource_group anytime in the top search bar on [Azure portal](https://ms.portal.azure.com/)
