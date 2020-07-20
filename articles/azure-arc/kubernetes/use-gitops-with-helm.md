@@ -127,19 +127,24 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "complianceStatus": {
     "complianceState": "Installed",
     "lastConfigApplied": "2019-12-05T05:34:41.481000",
-    "message": "...",
+    "message": "{\"OperatorMessage\":null,\"ClusterState\":null}",
     "messageLevel": "3"
   },
-  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cluster-config",
-  "name": "azure-vote-app",
-  "operatorInstanceName": "cluster-config",
-  "operatorNamespace": "prod",
-  "operatorParams": "--git-readonly --git-path=releases/prod",
+  "enableHelmOperator": "True",
+  "helmOperatorProperties": {
+    "chartValues": "--set helm.versions=v3",
+    "chartVersion": "0.6.0"
+  },
+  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/azure-voting-app",
+  "name": "azure-voting-app",
+  "operatorInstanceName": "flux",
+  "operatorNamespace": "arc-k8s-demo",
+  "operatorParams": "--git-readonly --git-path=releases",
   "operatorScope": "namespace",
   "operatorType": "Flux",
   "provisioningState": "Succeeded",
-  "repositoryPublicKey": "...",
-  "repositoryUrl": "git://github.com/Azure/arc-helm-demo.git",
+  "repositoryPublicKey": "",
+  "repositoryUrl": "https://github.com/Azure/arc-helm-demo.git",
   "resourceGroup": "AzureArcTest",
   "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
 }

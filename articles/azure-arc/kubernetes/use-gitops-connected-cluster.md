@@ -121,7 +121,7 @@ To customize the creation of configuration, here are a few additional parameters
 
 `--operator-namespace` : *Optional* name for the operator namespace. Default: 'default'
 
-`--operator-params` : *Optional* parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --git-path=releases/prod' ```
+`--operator-params` : *Optional* parameters for operator. Must be given within single quotes. For example, ```--operator-params='--git-readonly --git-path=releases' ```
 
 Options supported in  --operator-params
 
