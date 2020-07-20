@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Set up an Azure Digital Twins instance using Azure Portal
+# TEST Set up an Azure Digital Twins instance using Azure Portal
 The Azure portal is a web-based, unified console that provides an alternative to command-line tools. 
 Setting an instance in Azure Digital Twins using Azure portal in two steps.
 1. Create the Azure Digital Twins Instance.
