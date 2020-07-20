@@ -24,7 +24,7 @@
         href: ./kubernetes/connect-cluster.md
       - name: Onboarding service principal
         href: ./kubernetes/create-onboarding-service-principal.md
-    - name: Management
+    - name: Manage
       items:
       - name: Deploy configurations using GitOps
         href: ./kubernetes/use-gitops-connected-cluster.md
