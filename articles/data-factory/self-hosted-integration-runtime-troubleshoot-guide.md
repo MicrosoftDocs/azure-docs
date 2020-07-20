@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 06/24/2020
+ms.date: 07/19/2020
 ms.author: abnarain
 ---
 
@@ -14,6 +14,32 @@ ms.author: abnarain
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for self-hosted integration runtime in Azure Data Factory.
+
+## Gather self-hosted integration runtime logs from Azure Data Factory
+
+For failed activities running on Self-hosted IR / Shared IR, Azure Data Factory supports viewing and uploading error logs. You can follow below steps to get the error report ID, and then input the report ID to locate related known issues.
+
+1. Go to **Activity runs** page.
+
+1. Under the **ERROR** column, click below button.
+
+    ![Activity runs page](media/self-hosted-integration-runtime-troubleshoot-guide/activity-runs-page.png)
+
+1. You will see related logs for the failed activity run. Click **Send logs** button for further assistance.
+
+    ![Send logs](media/self-hosted-integration-runtime-troubleshoot-guide/send-logs.png)
+
+1. You can choose logs you want to send. For *Self-hosted IR*, you can upload logs related to failed activity or all logs on Self-hosted IR node. For *Shared IR*, you can only upload logs related to failed activity.
+
+    ![Choose logs](media/self-hosted-integration-runtime-troubleshoot-guide/choose-logs.png)
+
+1. When the logs are uploading, keep a record of the Report ID if you need further assistance to solve the issue.
+
+    ![Upload logs](media/self-hosted-integration-runtime-troubleshoot-guide/upload-logs.png)
+
+> [!NOTE]
+> Log viewing and uploading requests will be executed on all online Self-hosted IR instances. Please make sure that all Self-hosted IR instances are online in case any missing logs. 
+
 
 ## Common errors and resolutions
 

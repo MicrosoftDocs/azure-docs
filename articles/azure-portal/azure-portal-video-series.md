@@ -25,10 +25,9 @@ In this featured video, we show you how to connect to a storage account using Az
 
 Catch up on these recent videos you may have missed:
 
-|   |   |   |
+| [The new Azure Functions experience](https://www.youtube.com/watch?v=0bdT_9uOqkg)  | [Deploying your web app using GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Using service information cards](https://www.youtube.com/watch?v=u00TU531qsQ)  |
 | ------| ------ | ------ |
 | [![Image of YouTube video about the new Azure Functions experience](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Image of YouTube video deploying your web app using GitHub Actions](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Image of YouTube video about using service information cards](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
-| [The new Azure Functions experience](https://www.youtube.com/watch?v=0bdT_9uOqkg) | [Deploying your web app using GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA) | [Using service information cards](https://www.youtube.com/watch?v=u00TU531qsQ) |
 
 ## Video playlist
 

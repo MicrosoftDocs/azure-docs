@@ -17,7 +17,7 @@ ms.author: guybo
 ---
 # Endorsed Linux distributions on Azure
 
-Partners provide Linux images in the Azure Marketplace. Microsoft works with various Linux communities to add even more flavors to the Endorsed Distribution list. For distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
+Partners provide Linux images in the Azure Marketplace. Microsoft works with various Linux communities to add even more flavors to the Endorsed Distribution list. For distributions that are not available from the Marketplace, you can always bring your own Linux by following the guidelines at [Create and upload a virtual hard disk that contains the Linux operating system](./create-upload-generic.md).
 
 ## Supported distributions and versions
 
@@ -41,7 +41,7 @@ The Azure Linux Agent is already pre-installed on the Azure Marketplace images a
 
 ## Image update cadence
 
-Azure requires that the publishers of the endorsed Linux distributions regularly update their images in the Azure Marketplace with the latest patches and security fixes, at a quarterly or faster cadence. Updated images in the Azure Marketplace are available automatically to customers as new versions of an image SKU. More information about how to find Linux images: [Find Linux VM images in the Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/linux/cli-ps-findimage).
+Azure requires that the publishers of the endorsed Linux distributions regularly update their images in the Azure Marketplace with the latest patches and security fixes, at a quarterly or faster cadence. Updated images in the Azure Marketplace are available automatically to customers as new versions of an image SKU. More information about how to find Linux images: [Find Linux VM images in the Azure Marketplace](./cli-ps-findimage.md).
 
 ## Azure-tuned kernels
 
