@@ -71,6 +71,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/storage/common/storage-migration-faq.md",
+      "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/index.yml",
       "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
       "redirect_document_id": false
