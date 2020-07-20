@@ -122,7 +122,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 -	Azure File share: How to [create](./backup-afs.md#discover-file-shares-and-configure-backup) and [modify](./manage-afs-backup.md#modify-policy) policy? 
 -	SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy? 
 -	MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy? 
--	[Are there any limitations on scheduling backup based on the type of workload?]( https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#are-there-limits-on-backup-scheduling)
+-	[Are there any limitations on scheduling backup based on the type of workload?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
 - [What happens to the existing recovery points if I change the retention policy?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
 
 
