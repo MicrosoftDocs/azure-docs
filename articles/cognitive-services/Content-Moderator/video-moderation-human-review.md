@@ -75,12 +75,13 @@ After you've submitted a review, the video is moved to the **Limbo** category, w
 
 Once the videos expire from limbo, they are marked as competed.
 
+---
+
 ## Video-trained classifier
 
 Machine-assisted video classification is either achieved with image trained models or video trained models. Unlike image-trained video classifiers, Microsoft's adult and racy video classifier is trained with videos. This method results in better match quality.
 
 
----
 
 ## Key frame detection
 
