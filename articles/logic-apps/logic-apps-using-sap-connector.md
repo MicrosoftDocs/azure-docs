@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/20/2020
 tags: connectors
 ---
 
@@ -781,7 +781,7 @@ The following example gets a list of banks using the BAPI method `GETLIST`. This
 The following example creates a bank object using the `CREATE` method. This example uses the same business object as the previous example, `BUS1011`. When you use the `CREATE` method to create a bank, be sure to commit your changes because this method isn't committed by default.
 
 > [!TIP]
-> Be sure that your XML schema follows any validation rules configured in your SAP system. For example, in this sample schema, the bank key (`<BANK_KEY>`) needs to be a bank routing number, also known as an ABA number, in the USA.
+> Be sure that your XML document follows any validation rules configured in your SAP system. For example, in this sample document, the bank key (`<BANK_KEY>`) needs to be a bank routing number, also known as an ABA number, in the USA.
 
 ```xml
 
