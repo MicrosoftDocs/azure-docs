@@ -237,9 +237,6 @@ Get-AzSqlInstanceDatabase -ResourceGroupName resourceGroup -InstanceName testser
 ```
 
 To change the PITR backup retention for an **individual deleted** SQL Managed Instance database, use the following PowerShell example.
-
-Zero (0) days retention would denote that backup is immediately deleted and no longer kept for a deleted database.
-Once PITR backup retention has been reduced for a deleted database, it no longer can be increased.
  
 ```powershell
 # SET new PITR backup retention on an individual deleted database
@@ -254,6 +251,9 @@ To change the PITR backup retention for **all deleted** SQL Managed Instance dat
 # Valid backup retention must be between 0 (no retention) and 35 days. Valid retention rate can only be lower than the period of the retention period when database was active, or remaining backup days of a deleted database
 Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName resourceGroup -InstanceName testserver | Set-AzSqlInstanceDatabaseBackupShortTermRetentionPolicy -RetentionDays 0
 ```
+
+Zero (0) days retention would denote that backup is immediately deleted and no longer kept for a deleted database.
+Once PITR backup retention has been reduced for a deleted database, it no longer can be increased.
 
 ---
 
