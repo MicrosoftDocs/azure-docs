@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
@@ -90,6 +90,10 @@ To configure the minimum TLS version for a storage account with the Azure portal
 1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account, as shown in the following image.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal":::
+
+# [PowerShell](#tab/powershell)
+
+To configure the minimum TLS version for a storage account with PowerShell, 
 
 # [Azure CLI](#tab/azure-cli)
 
