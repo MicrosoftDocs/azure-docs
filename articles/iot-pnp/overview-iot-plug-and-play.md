@@ -5,7 +5,6 @@ author: rido-min
 ms.author: rmpablos
 ms.date: 07/06/2020
 ms.topic: overview
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
@@ -18,7 +17,7 @@ ms.custom: references_regions
 
 IoT Plug and Play Preview enables solution developers to integrate devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device _model_ that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application. This model is structured as a set of elements that define:
 
-- _Properties_ that represent the read-only and read/write state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a read/write property.
+- _Properties_ that represent the read-only or writeable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writeable property.
 - _Telemetry_ that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
 - _Commands_ that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
 
@@ -53,7 +52,7 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 1. Define the device model. You author a set of JSON files that define your device's capabilities using the [DTDL](https://aka.ms/DTDL). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
 
-1. Author device software or firmware in a way that their telemetry, properties, and commands follow the IoT Plug and Play convention.
+1. Author device software or firmware in a way that their telemetry, properties, and commands follow the IoT Plug and Play conventions.
 
 1. The device announces the model ID as part of the MQTT connection. The Azure IoT SDK includes new constructs to provide the model ID at connection time.
 

@@ -36,12 +36,11 @@ To work with DTDL v1, you need to use the previous version of the SDK and Azure 
 
 Simple devices using a few telemetry, commands, or properties can be described in a single interface without using components. Any existing device can become an IoT Plug and Play by announcing the **Model ID** without any changes to the existing device implementation.
 
-More complex device might require to group telemetry, commands, and properties on different interfaces to manage complexity and enable reuse across devices. These devices must be updated to follow a set of simple rules defined in the [IoT Plug and Play Preview message conventions](concepts-convention.md).
+More complex devices might group telemetry, commands, and properties on different interfaces to manage complexity and enable reuse across devices. These devices must be updated to follow a set of simple rules defined in the [IoT Plug and Play Preview message conventions](concepts-convention.md).
 
 ## Registration and discovery
 
-In this release, devices announce their **Model ID** with IoT Hub on every connection. IoT Hub caches the **Model ID** enabling backend solutions to retrieve the **Model ID** using the device twin `modelId` property. 
-
+In this release, devices announce their **Model ID** with IoT Hub on every connection. IoT Hub caches the **Model ID** enabling backend solutions to retrieve the **Model ID** using the device twin `modelId` property. The **Model ID** can also be retrieved from  `$metadata.$model` in the digital twin.
 
 ## Microsoft defined interfaces
 
@@ -57,7 +56,7 @@ The following interface is published in the new model repository: `dtmi:azure:De
 
 The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events) has changed to use the **JSON-Patch** format. This change is a breaking change with no backward compatibility support.
 
-The **SystemProperties** collection in a digital twin change event now includes a **dt-schema** property that stores the **Model ID** reported by the device.
+The **SystemProperties** collection in a digital twin change event now includes a **dt-dataschema** property that stores the **Model ID** reported by the device.
 
 ## Device and service SDKs
 

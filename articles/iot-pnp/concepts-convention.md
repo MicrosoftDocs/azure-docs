@@ -1,5 +1,5 @@
 ---
-title: The IoT Plug and Play Conventions | Microsoft Docs
+title: IoT Plug and Play conventions | Microsoft Docs
 description: Description of the conventions IoT Plug and Play expects devices to use when they send telemetry and properties, and handle commands and property updates.
 author: rido-min
 ms.author: rmpablos
@@ -9,11 +9,11 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# The IoT Plug and Play Convention
+# IoT Plug and Play conventions
 
 IoT Plug and Play Preview devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play Preview devices use the MQTT protocol to communicate with IoT Hub.
 
-You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language (DTDL) v2](https://aka.ms/DTDL) _model_. There are two types of model referred to in this article:
+You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL) _model_. There are two types of model referred to in this article:
 
 - **No component** - A model with no components. The model declares telemetry, properties, and commands as top-level properties in the contents section of the main interface.
 - **Multiple components** - A model composed of two or more interfaces. A main interface with telemetry, properties, and commands. One or more interfaces declared as components with additional telemetry, properties, and commands.
@@ -27,12 +27,12 @@ To announce the model it implements, an IoT Plug and Play device includes the mo
 To discover the model that a device implements, a service can get the model ID from:
 
 - The device twin `modelId` field.
-- The Digital Twins `$metadata.$model` field.
-- A Digital Twins change notification.
+- The digital twin `$metadata.$model` field.
+- A digital twin change notification.
 
 ## Telemetry
 
-Telemetry sent from a no component device doesn't require any extra metadata.
+Telemetry sent from a no component device doesn't require any extra metadata. The system adds the `dt-dataschema` property.
 
 Telemetry sent from a multiple component device must add `$.sub` as a message property. The system adds the `dt-subject` and `dt-dataschema` properties.
 
@@ -73,7 +73,7 @@ A device can send any valid JSON that follows the DTDL v2 rules.
 
 ### Sample multiple components read-only property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property. The marker isn't required if the device updates a property.
+The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
 :::row:::
    :::column span="":::
@@ -122,10 +122,10 @@ The device must add the `{"__t": "c"}` marker to indicate that the element refer
 
 The device should confirm that it received the property by sending a reported property. The reported property should include:
 
+- `value` - the value that the device received.
 - `ac` - an acknowledgment code that uses an HTTP status code.
 - `av` - an acknowledgment version that refers to the `$version` of the desired property.
 - `ad` - an optional acknowledgment description.
--
 
 ### Sample no component writeable property
 
@@ -178,9 +178,9 @@ A device can send any valid JSON that follows the DTDL v2 rules:
 
 ### Sample multiple components writeable property
 
-The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component. This marker is only required when the device creates the property, it is not required if the device updates a property.
+The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
-There's no guarantee that a desired property update includes the marker `{"__t": "c"}`, so devices mustn't check for the flag.
+The marker is sent only for component level updates, so devices mustn't check for this flag.
 
 The device should confirm that it received the property by sending a reported property:
 
@@ -250,9 +250,7 @@ The device should confirm that it received the property by sending a reported pr
 
 No component interfaces use the command name without a prefix.
 
-Multiple component interfaces use command names with the following format: `componentName*commandName`.
-
-Command payloads are sent as-is without an envelope.
+On a device, multiple component interfaces use command names with the following format: `componentName*commandName`.
 
 ## Next steps
 
