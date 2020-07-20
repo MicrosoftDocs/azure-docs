@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
 ---
@@ -57,7 +57,6 @@ After you've created an edge node, you can connect to the edge node using SSH, a
 > Custom components that are installed on the edge node receive commercially reasonable support from Microsoft. This might result in resolving problems you encounter. Or, you may be referred to community resources for further assistance. The following are some of the most active sites for getting help from the community:
 >
 > * [Microsoft Q&A question page for HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html
-
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > If you are using an Apache technology, you may be able to find assistance through the Apache project sites on [https://apache.org](https://apache.org), such as the [Apache Hadoop](https://hadoop.apache.org/) site.
@@ -138,11 +137,15 @@ The edge node appears as an application on the Azure portal.  The portal gives y
 
 2. After you've connected to the edge node using SSH, use the following command to open the Hive console:
 
-        hive
+    ```console
+    hive
+    ```
 
 3. Run the following command to show Hive tables in the cluster:
 
-        show tables;
+    ```hiveql
+    show tables;
+    ```
 
 ## Delete an edge node
 

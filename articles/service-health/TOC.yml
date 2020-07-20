@@ -11,6 +11,7 @@
     - name: Azure portal
       href: alerts-activity-log-service-notifications-portal.md
     - name: ARM template
+      displayName: Resource Manager
       href: alerts-activity-log-service-notifications-arm.md
 - name: Concepts
   items:
@@ -23,7 +24,7 @@
 - name: How To
   items:
   - name: Configure alerts for service health events
-    href: alerts-activity-log-service-notifications.md
+    href: ./alerts-activity-log-service-notifications-portal.md
   - name: View service health notifications by using the Azure portal
     href: service-notifications.md
   - name: Send alerts to outside systems via webhook
@@ -54,4 +55,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Notification Pricing
     href: https://azure.microsoft.com/pricing/details/monitor/
-  

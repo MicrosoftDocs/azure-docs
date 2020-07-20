@@ -15,6 +15,12 @@ ms.author: cherylmc
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In this NVA scenario, the goal is to route traffic through an NVA (Network Virtual Appliance) for branch to VNet and VNet to branch. For information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 
+> [!NOTE]
+> Some of the routing capabilities may still be rolling out. If the rollout has not yet happened in your region, please use the steps in these versions of the articles in the meantime:
+>* [Azure portal article](virtual-wan-route-table-nva-portal.md)
+>* [PowerShell article](virtual-wan-route-table-nva.md)
+>
+
 ## <a name="architecture"></a>Scenario architecture
 
 In **Figure 1**, there are two hubs; **Hub 1** and **Hub 2**.
@@ -41,14 +47,17 @@ To set up routing via NVA, here are the steps to consider:
    * From VNET 5 and 6 to VNET 2 NVA IP
    * From VNET 7 and 8 to VNET 4 NVA IP 
    
-   You do not need to connect VNET 5,6,7,8 to the virtual hubs directly.
+   You do not need to connect VNET 5,6,7,8 to the virtual hubs directly. Ensure that NSGs in VNETs 5,6,7,8 allow traffic for branch (VPN/ER/P2S) or VNETs connected to theire remote VNETs. For example, VNET 5,6 must ensure NSGs allow traffic for on-premise address prefixes and VNETs 7,8 that are connected to the remote hub 2. 
 
-2. Add an aggregated static route entry for VNETs 2,5,6 to Hub 1’s default route table. Configure a static route for VNETs 5,6 in VNET 2’s virtual network connection. To set up routing configuration for a virtual network connection, see [virtual hub routing](how-to-virtual-hub-routing.md#routing-configuration).
+2. Add an aggregated static route entry for VNETs 2,5,6 to Hub 1’s default route table. 
 
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Example":::
 
-3. Add an aggregated static route entry for VNETs 4,7,8 to Hub 1’s default route table.
-4. Repeat steps 2 and 3 for Hub 2’s default route table.
+3. Configure a static route for VNETs 5,6 in VNET 2’s virtual network connection. To set up routing configuration for a virtual network connection, see [virtual hub routing](how-to-virtual-hub-routing.md#routing-configuration).
+
+4. Add an aggregated static route entry for VNETs 4,7,8 to Hub 1’s default route table.
+
+5. Repeat steps 2, 3 and 4 for Hub 2’s default route table.
 
 This will result in the routing configuration changes as seen the figure below
 

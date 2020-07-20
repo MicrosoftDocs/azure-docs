@@ -78,7 +78,7 @@ Blob-level tiering allows you to upload data to the access tier of your choice u
 The time of the last blob tier change is exposed via the **Access Tier Change Time** blob property. When overwriting a blob in the hot or cool tier, the newly created blob inherits the tier of the blob that was overwritten unless the new blob access tier is explicitly set on creation. If a blob is in the archive tier, it can't be overwritten, so uploading the same blob isn't permitted in this scenario. 
 
 > [!NOTE]
-> Archive storage and blob-level tiering only support block blobs. You also cannot currently change the tier of a block blob that has snapshots.
+> Archive storage and blob-level tiering only support block blobs.
 
 ### Blob lifecycle management
 
@@ -244,7 +244,7 @@ The hot and cool access tiers along with blob-level tiering are available in all
 
 Blobs in the hot access tier have the same latency as blobs in GPv1, GPv2, and Blob storage accounts. Blobs in the cool access tier have a similar latency (in milliseconds) as blobs in GPv1, GPv2, and Blob storage accounts. Blobs in the archive access tier have several hours of latency in GPv1, GPv2, and Blob storage accounts.
 
-Blobs in the cool access tier have a slightly lower availability service level (SLA) than the blobs stored in the hot access tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+Blobs in the cool access tier have a slightly lower availability service level (SLA) than the blobs stored in the hot access tier. For more information, see [SLA for storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 **Are the operations among the hot, cool, and archive tiers the same?**
 

@@ -16,7 +16,7 @@ ms.author: aahi
 
 The Bing Entity Search API lets you search the Web for information about *entities* and *places.* You may request either kind of result, or both, in a given query. The definitions of places and entities are provided below.
 
-|||
+| Result | Description |
 |-|-|
 |Entities|Well-known people, places, and things that you find by name|
 |Places|Restaurants, hotels, and other local businesses that you find by name *or* by type (Italian restaurants)|
@@ -136,7 +136,7 @@ The HTML `<body>` tag includes an `onload` attribute that calls `getSearchSubscr
 
 The HTML form includes the following controls:
 
-| | |
+| Control | Description |
 |-|-|
 |`where`|A drop-down menu for selecting the market (location and language) used for the search.|
 |`query`|The text field in which to enter the search terms.|
@@ -406,7 +406,7 @@ Finally. `sidebar` refers to auxiliary search results. They may be displayed in 
 
 Each item in a `rankingResponse` collection refers to the actual search result items in two different, but equivalent, ways.
 
-| | |
+| Item | Description |
 |-|-|
 |`id`|The `id` looks like a URL, but should not be used for links. The `id` type of a ranking result matches the `id` of either a search result item in an answer collection, *or* an entire answer collection (such as `Entities`).
 |`answerType`<br>`resultIndex`|The `answerType` refers to the top-level answer collection that contains the result (for example, `Entities`). The `resultIndex` refers to the result's index within that collection. If `resultIndex` is omitted, the ranking result refers to the entire collection.
@@ -447,7 +447,7 @@ searchItemRenderers = {
 
 A renderer function may accept the following parameters:
 
-| | |
+| Parameter | Description |
 |-|-|
 |`item`|The JavaScript object containing the item's properties, such as its URL and its description.|
 |`index`|The index of the result item within its collection.|
@@ -535,15 +535,18 @@ For development purposes, you can make the Bing Web Search API request through a
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Web Search endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Next, change the Bing Web Search endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 

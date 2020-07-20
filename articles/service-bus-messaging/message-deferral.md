@@ -3,6 +3,7 @@ title: Azure Service Bus - message deferral
 description: This article explains how to defer delivery of Azure Service Bus messages. The message remains in the queue or subscription, but it is set aside.
 ms.topic: article
 ms.date: 06/23/2020
+ms.custom: fasttrack-edit
 ---
 
 # Message deferral
@@ -14,6 +15,9 @@ Deferral is a feature specifically created for workflow processing scenarios. Wo
 A simple illustrative example is an order processing sequence in which a payment notification from an external payment provider appears in a system before the matching purchase order has been propagated from the store front to the fulfillment system. In that case, the fulfillment system might defer processing the payment notification until there is an order with which to associate it. In rendezvous scenarios, where messages from different sources drive a workflow forward, the real-time execution order may indeed be correct, but the messages reflecting the outcomes may arrive out of order.
 
 Ultimately, deferral aids in reordering messages from the arrival order into an order in which they can be processed, while leaving those messages safely in the message store for which processing needs to be postponed.
+
+> [!NOTE]
+> Deferred messages will not be automatically moved to the dead-letter queue [after they expire](./service-bus-dead-letter-queues.md#exceeding-timetolive). This behaviour is by design.
 
 ## Message deferral APIs
 

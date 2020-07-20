@@ -1,13 +1,8 @@
 ---
 title: Get access key for an Event Grid resource
 description: This article describes how to get access key for an Event Grid topic or domain
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Get access keys for Event Grid resources (topics or domains)

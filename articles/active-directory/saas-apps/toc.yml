@@ -251,6 +251,8 @@
         href: bynder-tutorial.md
     - name: C
       items:
+      - name: C3M Cloud Control
+        href: c3m-cloud-control-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
       - name: Campus Café
@@ -333,18 +335,24 @@
         href: clickup-productivity-platform-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
+      - name: CloudCords
+        href: cloudcords-tutorial.md
       - name: Cloudmore
         href: cloudmore-tutorial.md
       - name: CloudPassage
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
         href: cloud-service-picco-tutorial.md
+      - name: CloudSign
+        href: cloudsign-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
         href: coda-tutorial.md
       - name: Code42
         href: code42-tutorial.md
+      - name: Coggle
+        href: coggle-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -920,6 +928,8 @@
         href: korn-ferry-360-tutorial.md
       - name: Korn Ferry ALP
         href: korn-ferry-alp-tutorial.md
+      - name: Kpifire
+        href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kudos
@@ -946,6 +956,8 @@
         href: learnupon-tutorial.md
       - name: Lecorpio
         href: lecorpio-tutorial.md
+      - name: Lenses.io
+        href: lensesio-tutorial.md
       - name: Lesson.ly
         href: lessonly-tutorial.md
       - name: Lifesize Cloud
@@ -1058,6 +1070,8 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
+      - name: MVISION Cloud Azure AD SSO Configuration
+        href: skyhighnetworks-tutorial.md
       - name: MyAryaka
         href: myaryaka-tutorial.md
       - name: My Award Points Top Sub/Top Team
@@ -1410,6 +1424,8 @@
         href: segment-tutorial.md
       - name: Seismic
         href: seismic-tutorial.md
+      - name: SendSafely
+        href: sendsafely-tutorial.md
       - name: SensoScientific Wireless Temperature Monitoring System
         href: sensoscientific-tutorial.md
       - name: Sequr
@@ -1452,6 +1468,8 @@
         href: simple-sign-tutorial.md
       - name: SiteIntel
         href: siteintel-tutorial.md
+      - name: Skedda
+        href: skedda-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -1464,8 +1482,6 @@
         href: skills-workflow-tutorial.md
       - name: SkyDesk Email
         href: skydeskemail-tutorial.md
-      - name: Skyhigh Networks
-        href: skyhighnetworks-tutorial.md
       - name: SKYSITE
         href: skysite-tutorial.md
       - name: Single Sign-on for Skytap
@@ -1668,6 +1684,8 @@
         href: veritas-tutorial.md
       - name: Verkada Command
         href: verkada-command-tutorial.md
+      - name: Verme
+        href: verme-tutorial.md
       - name: Versal
         href: versal-tutorial.md
       - name: Viareport (Europe)
@@ -1718,6 +1736,8 @@
         href: whitesource-tutorial.md
       - name: WhosOffice
         href: whosoffice-tutorial.md
+      - name: WhosOnLocation
+        href: whos-on-location-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
@@ -1819,7 +1839,7 @@
         href: 8x8-provisioning-tutorial.md
       - name: 15Five
         href: 15five-provisioning-tutorial.md
-    - name: A - L
+    - name: A - M
       items:
       - name: Airstack
         href: airstack-provisioning-tutorial.md
@@ -1905,6 +1925,8 @@
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
+      - name: LinkedIn Learning
+        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart

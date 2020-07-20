@@ -31,6 +31,8 @@
       href: data-box-gateway-use-cases.md
   - name: How to
     items:
+    - name: Update
+      href: data-box-gateway-apply-updates.md
     - name: Manage
       items:
         - name: Shares
@@ -51,7 +53,9 @@
       href: azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
-      - name: 1911 - Current
+      - name: 2007 - Current
+        href: data-box-gateway-2007-release-notes.md
+      - name: 1911
         href: data-box-gateway-1911-release-notes.md
       - name: 1906
         href: data-box-gateway-1906-release-notes.md
@@ -123,7 +127,9 @@
       href: azure-stack-edge-return-device.md
   - name: Release notes
     items:
-    - name: 1911 - Current
+    - name: 2007 - Current
+      href: data-box-gateway-2007-release-notes.md
+    - name: 1911
       href: data-box-gateway-1911-release-notes.md
     - name: 1906
       href: data-box-gateway-1906-release-notes.md

@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Azure Resource Manager overview
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
 ms.topic: overview
 ms.date: 04/21/2020
@@ -62,7 +62,7 @@ You can deploy templates to tenants, management groups, subscriptions, or resour
 
 There are some important factors to consider when defining your resource group:
 
-* All the resources in your group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a database server, needs to exist on a different deployment cycle it should be in another resource group.
+* All the resources in your group should share the same lifecycle. You deploy, update, and delete them together. If one resource, such as a server, needs to exist on a different deployment cycle it should be in another resource group.
 
 * Each resource can only exist in one resource group.
 
