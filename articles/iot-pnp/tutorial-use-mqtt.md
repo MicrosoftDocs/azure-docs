@@ -76,7 +76,7 @@ Use the following command to download and build the Eclipse Mosquitto library:
 .\vcpkg install mosquitto:x64-windows
 ```
 
-## Migrate the sample to an PnP Device
+## Migrate the sample to IoT Plug and Play
 
 ### Review the non-IoT Plug and Play sample code
 
@@ -97,11 +97,11 @@ Run the application (Ctrl+F5), after couple of seconds you should see something 
 
 :::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
 
-in IotExplorer, you should see, clearly not an PnP device:
+in IotExplorer, you should see, clearly not an IoT Plug and Play device:
 
 :::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
 
-### Make the device a PnP Device
+### Make the device an IoT Plug and Play device 
 
 IoT Plug and Play device must follow a set of simple conventions. If a device sends a **Model ID** when it connects, it becomes an IoT Plug and Play device.
 

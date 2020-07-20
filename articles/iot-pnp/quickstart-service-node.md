@@ -30,7 +30,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-Install the [Node service SDK with PnP support](https://www.npmjs.com/package/azure-iot-digitaltwins-service) by running the following command:
+Install the [Node service SDK with IoT Plug and Play support](https://www.npmjs.com/package/azure-iot-digitaltwins-service) by running the following command:
 
 ```cmd/sh
 npm i azure-iot-digitaltwins-service
