@@ -37,15 +37,10 @@ Next, create a review team. In a working scenario, this will be the group of peo
 > [!div class="mx-imgBorder"]
 > ![Invite team member](images/create-team.png)
 
-If you choose to encrypt data using a customer-managed key (CMK), you'll be prompted for the **Resource ID** for your Content Moderator resource in the E0 pricing tier. The resource you provide must be new. 
+If you choose to encrypt data using a customer-managed key (CMK), you'll be prompted for the **Resource ID** for your Content Moderator resource in the E0 pricing tier. The resource you provide must be unique to this team. 
 
 > [!div class="mx-imgBorder"]
 > ![Invite team member with CMK](images/create-team-cmk.png)
-
-If you try to reuse a Content Moderator resource, you'll see this warning: 
-
-> [!div class="mx-imgBorder"]
-> ![CMK failure](images/create-team-cmk-fail.png)
 
 ## Upload sample content
 
