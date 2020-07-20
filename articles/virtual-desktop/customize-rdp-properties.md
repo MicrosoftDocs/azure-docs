@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 07/14/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
 ---
