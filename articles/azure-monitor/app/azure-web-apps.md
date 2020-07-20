@@ -16,14 +16,15 @@ Enabling monitoring on your ASP.NET and ASP.NET Core based web applications runn
 
 There are two ways to enable application monitoring for Azure App Services hosted applications:
 
-* **Agent-based application monitoring** (ApplicationInsightsAgent).  
-    * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
+* **Agent-based application monitoring** (ApplicationInsightsAgent).
+
+  * This method is the easiest to enable, and no advanced configuration is required. It is often referred to as "runtime" monitoring. For Azure App Services we recommend at a minimum enabling this level of monitoring, and then based on your specific scenario you can evaluate whether more advanced monitoring through manual instrumentation is needed.
 
 * **Manually instrumenting the application through code** by installing the Application Insights SDK.
 
-    * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This method, also means you have to manage the updates to the latest version of the packages yourself.
+  * This approach is much more customizable, but it requires [adding a dependency on the Application Insights SDK NuGet packages](https://docs.microsoft.com/azure/azure-monitor/app/asp-net). This method, also means you have to manage the updates to the latest version of the packages yourself.
 
-    * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more. This is also currently the only supported option for Linux based workloads.
+  * If you need to make custom API calls to track events/dependencies not captured by default with agent-based monitoring, you would need to use this method. Check out the [API for custom events and metrics article](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) to learn more. This is also currently the only supported option for Linux based workloads.
 
 > [!NOTE]
 > If both agent-based monitoring and manual SDK-based instrumentation is detected, only the manual instrumentation settings will be honored. This is to prevent duplicate data from being sent. To learn more about this, check out the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) below.
@@ -35,33 +36,32 @@ There are two ways to enable application monitoring for Azure App Services hoste
 > [!NOTE]
 > The combination of APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported. For more info see the explanation in the [troubleshooting section](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-
 1. **Select Application Insights** in the Azure control panel for your app service.
 
     ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+   * Choose to create a new resource, unless you already set up an Application Insights resource for this application.
 
      > [!NOTE]
-     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**.
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
 2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application. ASP.NET app monitoring is on-by-default with two different levels of collection.
 
     ![Choose options per platform](./media/azure-web-apps/choose-options-new.png)
- 
- Below is a summary of data collected for each route:
-        
-|  | .NET Basic Collection | .NET Recommended collection |
-| --- | --- | --- |
-| Adds CPU, memory, and I/O usage trends |Yes |Yes |
-| Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
-| Collects exceptions unhandled by the host process | Yes |Yes |
-| Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
-| Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
+  
+    Below is a summary of data collected for each route:
+  
+    |  | .NET Basic Collection | .NET Recommended collection |
+    | --- | --- | --- |
+    | Adds CPU, memory, and I/O usage trends |Yes |Yes |
+    | Collects usage trends, and enables correlation from availability results to transactions | Yes |Yes |
+    | Collects exceptions unhandled by the host process | Yes |Yes |
+    | Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
+    | Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
 
-3. To configure settings like sampling, which you could previously control via the applicationinsights.config file you can now interact with those same settings via Application settings with a corresponding prefix. 
+3. To configure settings like sampling, which you could previously control via the applicationinsights.config file you can now interact with those same settings via Application settings with a corresponding prefix.
 
     * For example, to change the initial sampling percentage, you can create an Application setting of: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
 
@@ -77,10 +77,10 @@ Targeting the full framework from .NET Core, self-contained deployment, and Linu
 
     ![Under Settings, choose Application Insights](./media/azure-web-apps/settings-app-insights-01.png)
 
-   * Choose to create a new resource, unless you already set up an Application Insights resource for this application. 
+   * Choose to create a new resource, unless you already set up an Application Insights resource for this application.
 
      > [!NOTE]
-     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
+     > When you click **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**.
 
      ![Instrument your web app](./media/azure-web-apps/create-resource-01.png)
 
@@ -108,14 +108,15 @@ Python App Service based web applications do not currently support automatic age
 
 Client-side monitoring is opt-in for ASP.NET. To enable client-side monitoring:
 
-* Select **Settings** >** **Application settings****
+* Select **Settings** > **Application settings**.
+
    * Under Application settings, add a new **app setting name** and **value**:
 
      Name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `true`
 
-   * **Save** the settings and **Restart** your app.
+  * **Save** the settings and **Restart** your app.
 
 ![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-enabled.png)
 
@@ -128,13 +129,14 @@ Client-side monitoring is **enabled by default** for .NET Core apps with **Recom
 If for some reason you would like to disable client-side monitoring:
 
 * Select **Settings** > **Application settings**
-   * Under Application settings, add a new **app setting name** and **value**:
+
+  * Under Application settings, add a new **app setting name** and **value**:
 
      name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Value: `false`
 
-   * **Save** the settings and **Restart** your app.
+  * **Save** the settings and **Restart** your app.
 
 ![Screenshot of application settings UI](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
@@ -195,7 +197,7 @@ The basic structure of the application settings JSON for an app service is below
 
 For an example of an Azure Resource Manager template with Application settings configured for Application Insights, this [template](https://github.com/Andrew-MSFT/BasicImageGallery) can be helpful, specifically the section starting on [line 238](https://github.com/Andrew-MSFT/BasicImageGallery/blob/c55ada54519e13ce2559823c16ca4f97ddc5c7a4/CoreImageGallery/Deploy/CoreImageGalleryARM/azuredeploy.json#L238).
 
-### Automate the creation of an Application Insights resource and link to your newly created App Service.
+### Automate the creation of an Application Insights resource and link to your newly created App Service
 
 To create an Azure Resource Manager template with all the default Application Insights settings configured, begin the process as if you were going to create a new Web App with Application Insights enabled.
 
@@ -351,8 +353,11 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 > Java applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
+
     * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
+
 2. Ensure that the application meets the requirements to be monitored.
+
     * Browse to `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
     ![Screenshot of https://yoursitename.scm.azurewebsites/applicationinsights results page](./media/azure-web-apps/app-insights-sdk-status.png)
@@ -382,10 +387,10 @@ The table below provides a more detailed explanation of what these values mean, 
 
 ### APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported
 
-If you use APPINSIGHTS_JAVASCRIPT_ENABLED=true in cases where content is encoded, you might get errors like: 
+If you use APPINSIGHTS_JAVASCRIPT_ENABLED=true in cases where content is encoded, you might get errors like:
 
 - 500 URL rewrite error
-- 500.53 URL rewrite module error with message Outbound rewrite rules cannot be applied when the content of the HTTP response is encoded ('gzip'). 
+- 500.53 URL rewrite module error with message Outbound rewrite rules cannot be applied when the content of the HTTP response is encoded ('gzip').
 
 This is due to the APPINSIGHTS_JAVASCRIPT_ENABLED application setting being set to true and content-encoding being present at the same time. This scenario is not supported yet. The workaround is to remove APPINSIGHTS_JAVASCRIPT_ENABLED from your application settings. Unfortunately this means that if client/browser-side JavaScript instrumentation is still required, manual SDK references are needed for your webpages. Please follow the [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) for manual instrumentation with the JavaScript SDK.
 
@@ -400,6 +405,7 @@ PHP and WordPress sites are not supported. There is currently no officially supp
 When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
 
 ## Next steps
+
 * [Run the profiler on your live app](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](../platform/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
