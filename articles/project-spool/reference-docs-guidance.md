@@ -28,65 +28,8 @@ The reference documentation types we need for ACS are outlined in [this spreadsh
 
 ## FAQ
 
-**Q:** How do we deliver SDKs to Robert's team?
+The reference doc FAQ has been moved to the "Road To Public Preview" document located [here](https://microsoft.sharepoint-df.com/:w:/t/IC3SDK/EU8pxUSrztRPi_WtbP1dIkABUa21fCpELoHVort-4x4vQw?e=6kU1KK).
 
-**A:** (Robert) For non-released SDKs, we suggest using an unauthenticated (very important) MyGet feed for .NET and a NPM feed for JS/TS.
-
-~
-
-**Q:** Would it be possible to send the Ref Docs Automation team partially-completed SDKs to "flush the pipes"?
-
-**A:** (Robert) Yes, we can start working with incomplete content, as long as its available in a feed. This is actually a great way to train your team on how to trigger new doc builds and manage the configuration yourself.
-
-~
-
-**Q:** How is hosting managed? Who owns it? How are our docs updated? 
-
-**A:** (Robert) Hosting is automatically configured and updates are handled via Azure DevOps. Once we have your packages, docs are generated into a github repo that holds the files we generate. When you have an update, you go into the Azure devops repo and kick off a job that generates a preview link. Upon your approval, those changes can then be published to customers.
-
-~
-
-**Q:** Can we stage stuff during private preview?
-
-**A:** (Robert) Yes! Then for public preview, we press publish.
-
-~
-
-**Q:** What exactly are we responsible for managing?
-
-**A:** (Robert) We build the house for you, and then give you ownership of the keys and management. So after we set up the infrastructure and generate your content, you're responsible for maintaining the repository and managing releases through our devops pipeline.
-
-~
-
-**Q:** How will we update our reference docs?
-
-**A:** (Robert) It'll be through ops.microsoft.com / the docs portal. We offer training for this when you're ready. In short - updates are pushed by you, not pulled by us.
-
-~
-
-**Q:** We have a lot of different SDKs. How should these be organized across repositories?
-
-**A:** (Robert) We recommend separating repositories by language.
-
-~
-
-**Q:** How can we make our ref docs consumable through the API explorer?
-
-**A:** (Robert) Let's worry about that once your content is published.
-
-~
-
-**Q:** What are the pros/cons of using your pipeline vs managing our own repos?
-
-**A:** (Robert) Your team can generate their own docs, but the automated infrastructure is durable. Once you set things up, it just works. We have a strong preference for auto-gen docs… it's the best way to ensure docs that don't get out of date since updating them takes a click of a button as opposed to merging.
-
-~
-
-**Q:** What if your team doesn't support the language?
-
-**A:** (Robert) You have to manage generation, hosting, updates. An example for objective-c: https://docs.microsoft.com/en-us/objectivec/cognitive-services/speech/ and https://github.com/MicrosoftDocs/azure-docs-objective-c-cognitive-services-pr
-
-~
 
 
 ## SDK Preparation Instructions
