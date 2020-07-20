@@ -1162,7 +1162,7 @@ Here is an example that shows this pattern:
 
 #### Avoid sending duplicate IDocs
 
-If you experience an issue with duplicate IDocs being sent to SAP from your logic app, follow these steps to create a string variable to serve as your IDoc transaction identifier. Creating this transaction identifier helps prevent duplicate network transmissions when there are issues such as temporary outages, network issues, or lost acknowledgements.
+If you experience an issue with duplicate IDocs being sent to SAP from your logic app, follow these steps to create a string variable to serve as your IDoc transaction identifier. Creating this transaction identifier helps prevent duplicate network transmissions when there are issues such as temporary outages, network issues, or lost acknowledgments.
 
 > [!NOTE]
 > SAP systems forget a transaction identifier after a specified time, or 24 hours by default. As a result, SAP never fails to confirm a transaction identifier if the ID or GUID is unknown.
