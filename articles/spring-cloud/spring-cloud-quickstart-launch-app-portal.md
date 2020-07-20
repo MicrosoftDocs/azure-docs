@@ -127,11 +127,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-5. Create the `gateway` application and deploy the JAR file.  The following steps require the Spring Cloud extension. If you didn't install it with prerequisites, run the following command:
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. Create the `gateway` application and deploy the JAR file.
 
     Using the Spring Cloud extension, create the app:
 

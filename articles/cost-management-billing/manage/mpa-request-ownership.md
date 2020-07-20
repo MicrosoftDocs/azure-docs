@@ -154,6 +154,12 @@ The directory of the Azure subscriptions that are transferred must match the dir
 
 If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
+### EA subscription in the non-orgnization directory
+
+The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name "[domain name]. onmicrosoft.com" or a verified, non-federated custom domain name such as "contoso.com."  
+
+To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the AAD directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+
 ## Check access to a Microsoft Partner Agreement
 
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]

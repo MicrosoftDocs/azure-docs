@@ -39,7 +39,7 @@ We will create a basic user interface for the application. Edit the layout for y
 
 The text and graphical representation of your UI should now look like this:
 
-![](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
+![Screenshot of how your UI should look.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/text-to-speech/app/src/main/res/layout/activity_main.xml)]
 

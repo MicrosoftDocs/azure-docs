@@ -18,12 +18,12 @@ This article covers troubleshooting steps for Live Video Analytics (LVA) on Azur
 
 As part of your Live Video Analytics deployment, you set up Azure resources such as IoT Hub and IoT Edge devices. As a first step to diagnosing problems, always ensure that the edge is properly set up by following these instructions:
 
-1. [Run the `check` command](https://docs.microsoft.com/azure/iot-edge/troubleshoot#run-the-check-command).
-1. [Check your IoT Edge version](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-your-iot-edge-version).
-1. [Check the status of the IoT Edge security manager and its logs](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-the-status-of-the-iot-edge-security-manager-and-its-logs).
-1. [View the messages that are going through the IoT Edge hub](https://docs.microsoft.com/azure/iot-edge/troubleshoot#view-the-messages-going-through-the-iot-edge-hub).
-1. [Restart containers](https://docs.microsoft.com/azure/iot-edge/troubleshoot#restart-containers).
-1. [Check your firewall and port configuration rules](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-your-firewall-and-port-configuration-rules).
+1. [Run the `check` command](../../iot-edge/troubleshoot.md#run-the-check-command).
+1. [Check your IoT Edge version](../../iot-edge/troubleshoot.md#check-your-iot-edge-version).
+1. [Check the status of the IoT Edge security manager and its logs](../../iot-edge/troubleshoot.md#check-the-status-of-the-iot-edge-security-manager-and-its-logs).
+1. [View the messages that are going through the IoT Edge hub](../../iot-edge/troubleshoot.md#view-the-messages-going-through-the-iot-edge-hub).
+1. [Restart containers](../../iot-edge/troubleshoot.md#restart-containers).
+1. [Check your firewall and port configuration rules](../../iot-edge/troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### Pre-deployment issues
 
@@ -47,49 +47,46 @@ After the Live Video Analytics on IoT Edge module is deployed correctly on the I
 
 1. In the list of Edge devices, select the device that you want to diagnose.  
          
-      ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot-how-to/lva-sample-device.png)
+    ![Screenshot of the Azure portal displaying a list of Edge devices](./media/troubleshoot-how-to/lva-sample-device.png)
 
-1. Check to see whether the response code is *200-OK*. Other response codes for the [IoT Edge runtime](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) include:
+1. Check to see whether the response code is *200-OK*. Other response codes for the [IoT Edge runtime](../../iot-edge/iot-edge-runtime.md) include:
     * 400 - The deployment configuration is malformed or invalid.
     * 417 - The device doesn't have a deployment configuration set.
     * 412 - The schema version in the deployment configuration is invalid.
     * 406 - The IoT Edge device is offline or not sending status reports.
     * 500 - An error occurred in the IoT Edge runtime.
 
-1. Selecting the device should also display a list of expected IoT Edge modules that have been deployed, along with their status.
+1. If you get a status 501 code, check to ensure that the direct method name is accurate. If the method name and request payload are accurate, you should get results along with success code =200. If the request payload is inaccurate, you will get a status =400 and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
+    * Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. 
+    * Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as GraphTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Live Video Analytics IoT Edge module is functionally OK.
+        
+       ![Screenshot of the "Direct method" pane for the IoT Edge module.](./media/troubleshoot-how-to/direct-method.png) 
 
 1. If the **Specified in deployment** and **Reported by device** columns indicate *Yes*, you can invoke direct methods on the Live Video Analytics on IoT Edge module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following: 
 
-    * Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device. 
-    * Use the [Direct methods](direct-methods.md) guide to call a few methods, especially simple ones such as GraphTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Live Video Analytics IoT Edge module is functionally OK.
-    
-      ![Screenshot of the "Direct method" pane for the IoT Edge module.](./media/troubleshoot-how-to/direct-method.png) 
-
-1. If you get a status *501* code, check to see whether the direct method name is accurate. 
-    * If the method name and request payload are accurate, you receive a success code of *=200*. 
-    * If the request payload is inaccurate, you receive a status of *=400*. You also get a response payload with an error code and message that should help with diagnosing the issue. 
-
 ### Post deployment: Diagnose logs for issues during the run 
 
-The container logs for your IoT Edge module should contain diagnostics<!--<todo:add link to diagnostics doc>--> information to help debug your issues during module runtime. You can [check container logs for issues](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) and self-diagnose the issue. However, if you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
+The container logs for your IoT Edge module should contain diagnostics<!--<todo:add link to diagnostics doc>--> information to help debug your issues during module runtime. You can [check container logs for issues](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) and self-diagnose the issue. 
+
+If you've run all the preceding checks and are still encountering issues, gather logs from the IoT Edge device [with the `support bundle` command](../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command) for further analysis by the Azure team. You can [contact us](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) for support and to submit the collected logs.
 
 ## Common error resolutions
 
 Live Video Analytics is deployed as an IoT Edge module on the IoT Edge device, and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll encounter with the Live Video Analytics deployment are caused by issues with the underlying IoT infrastructure. The errors include:
 
-* [The IoT Edge agent stops after about a minute](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-agent-stops-after-about-a-minute).
-* [The IoT Edge agent can't access a module's image (403)](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-agent-cant-access-a-modules-image-403).
-* [The IoT Edge agent module reports "empty config file" and no modules start on the device](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device).
-* [The IoT Edge hub fails to start](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-hub-fails-to-start).
-* [The IoT Edge security daemon fails with an invalid hostname](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-security-daemon-fails-with-an-invalid-hostname).
-* [The Live Video Analytics or any other custom IoT Edge module fails to send a message to the edge hub with 404 error](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
-* [The IoT Edge module is deployed successfully and then disappears from the device](https://docs.microsoft.com/azure/iot-edge/troubleshoot-common-errors#iot-edge-module-deploys-successfully-then-disappears-from-device).
+* [The IoT Edge agent stops after about a minute](../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-stops-after-about-a-minute).
+* [The IoT Edge agent can't access a module's image (403)](../../iot-edge/troubleshoot-common-errors.md#iot-edge-agent-cant-access-a-modules-image-403).
+* [The IoT Edge agent module reports "empty config file" and no modules start on the device](../../iot-edge/troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device).
+* [The IoT Edge hub fails to start](../../iot-edge/troubleshoot-common-errors.md#iot-edge-hub-fails-to-start).
+* [The IoT Edge security daemon fails with an invalid hostname](../../iot-edge/troubleshoot-common-errors.md#iot-edge-security-daemon-fails-with-an-invalid-hostname).
+* [The Live Video Analytics or any other custom IoT Edge module fails to send a message to the edge hub with 404 error](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-fails-to-send-a-message-to-edgehub-with-404-error).
+* [The IoT Edge module is deployed successfully and then disappears from the device](../../iot-edge/troubleshoot-common-errors.md#iot-edge-module-deploys-successfully-then-disappears-from-device).
 
 ### Edge setup script issues
 
 As part of our documentation, we've provided a [setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy edge and cloud resources and get you started with Live Video Analytics Edge. This section presents some script errors that you might encounter, along with solutions for debugging them.
 
-Issue: The script runs partly creating few resources but fails with the following message:
+Issue: The script runs, partly creating few resources, but it fails with the following message:
 
 ```
 registering device...
@@ -203,7 +200,7 @@ Unhandled exception. Microsoft.Azure.Devices.Common.Exceptions.UnauthorizedExcep
 
     b. If the preceding approach also fails, try rebooting your virtual machine or computer.
 
-    c. If all approaches fail, run the following command to obtain a zipped file with all [relevant logs](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command), and attach it to a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+    c. If all approaches fail, run the following command to obtain a zipped file with all [relevant logs](../../iot-edge/troubleshoot.md#gather-debug-information-with-support-bundle-command), and attach it to a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
     ```
     sudo iotedge support-bundle --since 2h
@@ -265,7 +262,7 @@ We recommend that you not call direct methods in parallel. Call them sequentiall
 
 ### Collecting logs for submitting a support ticket
 
-When self-guided troubleshooting steps don't resolve your problem, go the Azure portal and [open a support ticket](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+When self-guided troubleshooting steps don't resolve your problem, go the Azure portal and [open a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 To gather the relevant logs that should be added to the ticket, follow the instructions in the next sections. You can upload the log files on the **Details** pane of the support request.
 

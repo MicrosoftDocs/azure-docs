@@ -33,7 +33,7 @@ If you don't have an active Azure subscription, create a [free account](https://
 
 You use the Azure CLI to complete many of the steps in this quickstart. Azure IoT has an extension to enable additional functionality.
 
-Add the Azure IoT extension to the cloud shell instance.
+Add the Azure IoT extension to the Cloud Shell instance.
 
    ```azurecli-interactive
    az extension add --name azure-iot
@@ -80,7 +80,7 @@ Start the quickstart by creating an IoT hub with Azure CLI.
 
 The free level of IoT Hub works for this quickstart. If you've used IoT Hub in the past and already have a hub created, you can use that IoT hub.
 
-The following code creates a free **F1** hub in the resource group `IoTEdgeResources`. Replace `{hub_name}` with a unique name for your IoT hub.
+The following code creates a free **F1** hub in the resource group `IoTEdgeResources`. Replace `{hub_name}` with a unique name for your IoT hub. It might take a few minutes to create an IoT Hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 --partition-count 2
@@ -97,13 +97,13 @@ Create a device identity for your simulated device so that it can communicate wi
 
 Since IoT Edge devices behave and can be managed differently than typical IoT devices, declare this identity to be for an IoT Edge device with the `--edge-enabled` flag.
 
-1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
+1. In the Azure Cloud Shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
    ```azurecli-interactive
    az iot hub device-identity create --device-id myEdgeDevice --edge-enabled --hub-name {hub_name}
    ```
 
-   If you get an error about iothubowner policy keys, make sure that your cloud shell is running the latest version of the azure-iot extension.
+   If you get an error about iothubowner policy keys, make sure that your Cloud Shell is running the latest version of the azure-iot extension.
 
 2. View the connection string for your device, which links your physical device with its identity in IoT Hub. It contains the name of your IoT hub, the name of your device, and then a shared key that authenticates connections between the two.
 
@@ -120,7 +120,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
 Install the Azure IoT Edge runtime on your IoT Edge device and configure it with a device connection string.
 ![Diagram - Start the runtime on device](./media/quickstart/start-runtime.png)
 
-The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The **IoT Edge security daemon** starts each time an IoT Edge device boots and bootstraps the device by starting the IoT Edge agent. The **IoT Edge agent** manages deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The **IoT Edge hub** handles communications between modules on the IoT Edge device, and between the device and IoT Hub.
+The IoT Edge runtime is deployed on all IoT Edge devices. It has three components. The *IoT Edge security daemon* starts each time an IoT Edge device boots and bootstraps the device by starting the IoT Edge agent. The *IoT Edge agent* manages deployment and monitoring of modules on the IoT Edge device, including the IoT Edge hub. The *IoT Edge hub* handles communications between modules on the IoT Edge device, and between the device and IoT Hub.
 
 The installation script also includes a container engine called Moby that manages the container images on your IoT Edge device.
 
@@ -232,10 +232,19 @@ If you want to continue on to the IoT Edge tutorials, you can use the device tha
 
 If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. Double check the contents of the resource group to make sure that there's nothing you want to keep. If you don't want to delete the whole group, you can delete individual resources instead.
 
-Remove the **IoTEdgeResources** group.
+> [!IMPORTANT]
+> Deleting a resource group is irreversible.
+
+Remove the **IoTEdgeResources** group. It might take a few minutes to delete a resource group.
 
 ```azurecli-interactive
 az group delete --name IoTEdgeResources
+```
+
+You can confirm the resource group is removed by viewing the list of resource groups.
+
+```azurecli-interactive
+az group list
 ```
 
 ## Next steps

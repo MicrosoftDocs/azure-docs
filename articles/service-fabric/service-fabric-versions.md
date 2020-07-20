@@ -36,8 +36,8 @@ The following table lists the versions of Service Fabric and their support end d
 | 7.0.466.* | 6.5.* |Less than or equal to version  4.0|August 1, 2020 |
 | 7.0.470.* | 7.0.466.* |Less than or equal to version  4.0 |August 1, 2020  |
 | 7.0.472.* | 7.0.466.* |Less than or equal to version  4.0 |August 1, 2020  |
-| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.0 |Current version, so no end date |
-| 7.1.417.* | 7.0.466.* |Less than or equal to version  4.0 |Current version, so no end date |
+| 7.1.409.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
+| 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
 
 ## Supported operating systems
 

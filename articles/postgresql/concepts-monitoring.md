@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 07/10/2020
 ---
 
 # Monitor and tune Azure Database for PostgreSQL - Single Server
@@ -29,7 +29,7 @@ These metrics are available for Azure Database for PostgreSQL:
 |serverlog_storage_usage|Server Log storage used|Bytes|The amount of server log storage in use.|
 |serverlog_storage_limit|Server Log storage limit|Bytes|The maximum server log storage for this server.|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
-|connections_failed|Failed Connections|Count|The number of failed connections to the server.|
+|connections_failed|Failed Connections|Count|The number of established connections that failed.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
