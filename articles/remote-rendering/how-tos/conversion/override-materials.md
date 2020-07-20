@@ -33,7 +33,7 @@ In this case, a `box_materials_override.json` file can be created as follows:
 ]
 ```
 
-The `box_materials_override.json` file is placed in the input container, and a `ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
+The `box_materials_override.json` file is placed in the input container, and a `box.ConversionSettings.json` is added beside `box.fbx`, which tells conversion where to find the override file (see [Configuring the model conversion](configure-model-conversion.md)):
 
 ```json
 {
