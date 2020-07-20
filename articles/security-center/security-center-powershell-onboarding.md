@@ -24,7 +24,7 @@ Onboarding Azure Security Center using PowerShell enables you to programmaticall
 
 This article provides a sample PowerShell script that can be modified and used in your environment to roll out Security Center across your subscriptions. 
 
-In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by implementing the Standard tier of Security Center, which provides advanced threat protection and detection capabilities:
+In this example, we will enable Security Center on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by implementing the standard tier of Security Center, which provides advanced threat protection and detection capabilities:
 
 1. Set the [Security Center standard level of protection](https://azure.microsoft.com/pricing/details/security-center/). 
  
