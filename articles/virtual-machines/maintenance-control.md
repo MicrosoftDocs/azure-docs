@@ -36,6 +36,8 @@ You can create and manage maintenance configurations using any of the following 
 - [Azure PowerShell](maintenance-control-powershell.md)
 - [Azure portal](maintenance-control-portal.md)
 
+For an Azure Functions sample, see [Scheduling Maintenance Updates with Maintenance Control and Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
+
 ## Next steps
 
 To learn more, see [Maintenance and updates](maintenance-and-updates.md).

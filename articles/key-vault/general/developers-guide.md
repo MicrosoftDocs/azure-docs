@@ -34,7 +34,7 @@ Before working with keys, secrets or certificates in your key vault, you'll crea
 
 - [Create and manage Key Vaults with CLI](../secrets/quick-create-cli.md)
 - [Create and manage Key Vaults with PowerShell](../secrets/quick-create-powershell.md)
-- [Create and manage Key Vaults with the Azure port](../secrets/quick-create-portal.md)
+- [Create and manage Key Vaults with the Azure portal](../secrets/quick-create-portal.md)
 - [Create and manage Key Vaults with Python](../secrets/quick-create-python.md)
 - [Create and manage Key Vaults with Java](../secrets/quick-create-java.md)
 - [Create and manage Key Vaults with Node.js](../secrets/quick-create-node.md)

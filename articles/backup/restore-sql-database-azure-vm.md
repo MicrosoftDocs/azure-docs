@@ -23,7 +23,7 @@ Before you restore a database, note the following:
 
 - You can restore the database to an instance of a SQL Server in the same Azure region.
 - The destination server must be registered to the same vault as the source.
-- To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+- To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
   - The value for **-m** is the name of the client.
   - Only the specified client name can open the connection.
