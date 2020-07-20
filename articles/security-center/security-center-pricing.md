@@ -15,7 +15,7 @@ ms.date: 04/28/2020
 ms.author: memildin
 ---
 
-# Upgrade to Standard tier for enhanced security
+# Upgrade to standard tier for enhanced security
 
 Azure Security Center provides unified security management and advanced threat protection for workloads running in Azure, on-premises, and in other clouds. It delivers visibility and control over hybrid cloud workloads, active defenses that reduce your exposure to threats, and intelligent detection to help you keep pace with rapidly evolving cyber attacks.
 
@@ -64,7 +64,7 @@ Security Center offers enhanced security and threat protection for your hybrid c
 
 
 ## Next steps
-In this article, you were introduced to pricing for Security Center. To learn more about the Standard tier's enhanced security and advanced threat protection, see:
+In this article, you were introduced to pricing for Security Center. To learn more about the standard tier's enhanced security and advanced threat protection, see:
 
 - [Threat protection in Azure Security Center](threat-protection.md)
 - [Just-in-time VM access control](security-center-just-in-time.md)
