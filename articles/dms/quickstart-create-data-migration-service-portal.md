@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: quickstart
-ms.date: 01/08/2020
+ms.date: 07/21/2020
 ---
 
 # Quickstart: Create an instance of the Azure Database Migration Service by using the Azure portal
