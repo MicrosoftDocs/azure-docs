@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign eligibility for a role-assignable group in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help you manage the eligibility and activation of assignments to privileged access groups in Azure AD. You can assign elegibility to members or owners of the group. For more information about role-assignable groups in Azure AD, see [Assign Azure AD built-in roles to cloud groups](../users-groups-roles/roles-groups-concept.md).
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help you manage the eligibility and activation of assignments to privileged access groups in Azure AD. You can assign elegibility to members or owners of the group.
 
 >[!NOTE]
 >Every user who is eligible for membership in or ownership of a role-assignable group must have an Azure AD Premium P2 license. For more information, see [License requirements to use Privileged Identity Management](subscription-requirements.md).
