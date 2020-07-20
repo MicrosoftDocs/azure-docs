@@ -13,8 +13,8 @@ This chapter documents the options for the model conversion.
 
 ## Settings file
 
-If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it is used to provide additional configuration for the model conversion process.
-For example, when converting `box.gltf`, `box.glb` or `box.fbx`, the settings in `box.ConversionSettings.json` will be used if present.
+If a file called `<modelName>.ConversionSettings.json` is found in the input container beside the input model `<modelName>.<ext>`, then it will be used to provide additional configuration for the model conversion process.
+For example, `box.ConversionSettings.json` would be used when converting `box.gltf`.
 
 The contents of the file should satisfy the following json schema:
 
