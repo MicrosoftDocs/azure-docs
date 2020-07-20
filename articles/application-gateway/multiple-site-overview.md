@@ -37,7 +37,7 @@ Using a wildcard character in the host name, you can match multiple host names i
 
 In [Azure portal](create-multiple-sites-portal.md), you can define them in separate text boxes in the host name field.
 
-:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example1.png" alt-text="Wildcard Listener example configuration":::
+:::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener example configuration":::
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com,*.fabrikam.com"`
 

@@ -127,7 +127,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pools you 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 7. Select **Add a rule** and add a similar rule, listener, backend target, and HTTP setting for Fabrikam.
 
-     :::image type="content" source="./media/create-multiple-sites-portal/fabrikamRule.png" alt-text="Fabrikam rule":::
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Fabrikam rule":::
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
