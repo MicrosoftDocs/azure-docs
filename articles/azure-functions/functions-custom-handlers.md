@@ -279,7 +279,7 @@ By setting `message` equal to the message that came in from the request, and `re
 For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable new languages and runtimes on Azure Functions. While it may be possible to run web applications on Azure Functions using custom handlers, it is not a standard HTTP reverse proxy. Some features that you might expect, such as response streaming, HTTP/2, and WebSockets will not work. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications on Azure Functions using custom handlers, it is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets will not work. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
 > 
 > We recommend you run your web apps on [Azure App Service](../app-service/overview.md).
 
