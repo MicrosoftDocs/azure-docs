@@ -185,7 +185,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	e. In the **Signing Options**, select **Only Signed Assertions** from the dropdown.
     e. In the **Logout URL** textbox, paste **Logout URL** value, which you have copied from the Azure portal.
 
-    f. In the **Security Certificate** textbox, paste **Certificate (Base64)** value which you have obtained earlier.
+    f. In the **Security Certificate** textbox, paste **Certificate (Base64)** value, which you have obtained earlier.
   
 	g. Click **Save**.
 
@@ -232,7 +232,7 @@ In the case of FreshDesk, provisioning is a manual task.
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the FreshDesk tile in the Access Panel, you should be automatically signed in to the FreshDesk for which you setup SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the FreshDesk tile in the Access Panel, you should be automatically signed in to the FreshDesk for which you set-up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
