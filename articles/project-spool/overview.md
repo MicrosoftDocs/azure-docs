@@ -6,7 +6,7 @@ manager: jken
 services: azure-project-spool
 
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-project-spool
 
@@ -17,7 +17,7 @@ ms.service: azure-project-spool
 
 Azure Communication Services (ACS) allows you to easily add real-time communications features to your applications.
 
-When you use ACS, you're building on top of the same infrastructure that powers Microsoft Teams and the consumer Skype experiance. These Azure native services seamlessly auto-scale for global deployments of any size. You can use ACS for voice, video, text, and data communication in a variety of scenarios:
+When you use ACS, you're building on top of the same infrastructure that powers Microsoft Teams and the consumer Skype experience. These Azure native services seamlessly auto-scale for global deployments of any size. You can use ACS for voice, video, text, and data communication in a variety of scenarios:
 
 - Browser-to-browser, browser-to-app, and app-to-app communication
 - Humans engaging bots or other services
@@ -88,7 +88,7 @@ You want to make sure that activity is reliably delivered and valid. Integration
 ## Relationship to other Microsoft communication products
 There are two other Microsoft communication products you may consider leveraging that are not directly interoperable with ACS at this time.
 
-[Microsoft Graph Cloud Communication APIs](https://docs.microsoft.com/graph/cloud-communications-concept-overview) allow organizations to build communication experiances tied to Azure Active Directory users with M365 licenses. This is ideal for applications tied to AAD or where you want to extend productivity experiances in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](https://docs.microsoft.com/en-us/microsoftteams/platform/?view=msteams-client-js-latest)
+[Microsoft Graph Cloud Communication APIs](https://docs.microsoft.com/graph/cloud-communications-concept-overview) allow organizations to build communication experiences tied to Azure Active Directory users with M365 licenses. This is ideal for applications tied to AAD or where you want to extend productivity experiences in Microsoft Teams. There are also APIs to build applications and customization within the [Teams experience.](https://docs.microsoft.com/en-us/microsoftteams/platform/?view=msteams-client-js-latest)
 
 [Azure PlayFab Party](https://docs.microsoft.com/en-us/gaming/playfab/features/multiplayer/networking/) simplifies adding low-latency chat and data communication to games. While you can power gaming chat and networking systems with ACS, PlayFab is a tailored option and free on Xbox.
       
