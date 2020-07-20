@@ -27,7 +27,7 @@ If you are using a client app to communicate with Azure Digital Twins, this erro
 
 In the app registration, you need to configure access permissions to the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
-## Solution
+## Solutions
 
 ### Solution #1
 
