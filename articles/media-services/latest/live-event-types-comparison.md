@@ -18,13 +18,13 @@ ms.author: juliako
 ---
 # Live Event types comparison
 
-In Azure Media Services, a  [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). 
+In Azure Media Services, a  [Live Event](/rest/api/media/liveevents) can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). 
 
 This articles compares features of the live event types.
 
 ## Types comparison 
 
-The following table compares features of the Live Event types. The types are set during creation using [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+The following table compares features of the Live Event types. The types are set during creation using [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType.None** - An on-premises live encoder sends a multiple bitrate stream. The ingested streams passes through the Live Event without any further processing. Also referred to as a pass-through Live Event.
 * **LiveEventEncodingType.Standard** - An on-premises live encoder sends a single bitrate stream to the Live Event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrate pairs (details follow later in the article).
@@ -61,7 +61,7 @@ The following table compares features of the Live Event types. The types are set
 
 ## System presets
 
-The resolutions and bitrates contained in the output from the live encoder are determined by the [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of 6 resolution/bitrate pairs described below. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifies the output set of resolution/bitrate pairs.
+The resolutions and bitrates contained in the output from the live encoder are determined by the [presetName](/rest/api/media/liveevents/create#liveeventencoding). If using a **Standard** live encoder (LiveEventEncodingType.Standard), then the *Default720p* preset specifies a set of 6 resolution/bitrate pairs described below. Otherwise, if using a **Premium1080p** live encoder (LiveEventEncodingType.Premium1080p), then the *Default1080p* preset specifies the output set of resolution/bitrate pairs.
 
 > [!NOTE]
 > You cannot apply the Default1080p preset to a Live Event if it has been setup for Standard live encoding - you will get an error. You will also get an error if you try to apply the Default720p preset to a Premium1080p live encoder.

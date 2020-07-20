@@ -41,6 +41,10 @@ For registry access, the token used by `az acr login` is valid for **3 hours**, 
 
 Using `az acr login` with Azure identities provides [role-based access](../role-based-access-control/role-assignments-portal.md). For some scenarios, you may want to log in to a registry with your own individual identity in Azure AD, or configure other Azure users with specific [RBAC roles and permissions](container-registry-roles.md). For cross-service scenarios or to handle the needs of a workgroup or a development workflow where you don't want to manage individual access, you can also log in with a [managed identity for Azure resources](container-registry-authentication-managed-identity.md).
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 ### az acr login with --expose-token
 
 In some cases, you might need to authenticate with `az acr login` but the Docker daemon isn't running in your environment. For example, you might need to run `az acr login` in a script in Azure Cloud Shell, which includes the Docker CLI but doesn't run the Docker daemon.
@@ -60,7 +64,11 @@ Output displays the access token, abbreviated here:
 }
 ``` 
 
+<<<<<<< Updated upstream
 Then, run `docker login`, with the username `00000000-0000-0000-0000-000000000000` and using the access token as password:
+=======
+Then, run `docker login`, passing the username `00000000-0000-0000-0000-000000000000` and using the access token as password:
+>>>>>>> Stashed changes
 
 ```console
 docker login myregistry.azurecr.io --username 00000000-0000-0000-0000-000000000000 --password eyJhbGciOiJSUzI1NiIs[...]24V7wA
