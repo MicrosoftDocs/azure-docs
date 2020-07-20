@@ -14,11 +14,11 @@ ms.custom: dpalled
 
 # Adding support for long data type
 
-These changes will be applied to Gen2 environments only. If you have a Gen1 environment, you may disregard these changes.
+These changes apply to to Gen2 environments only. If you have a Gen1 environment, you can disregard these changes.
 
 We are making changes to how we store and index numeric data in Azure Time Series Insights Gen2 that might impact you. If you’re impacted by any of the following cases, make the necessary changes as soon as possible.
 
-Your data will start being indexed as ********Long** and **Double** between 29 June and 30 June 2020, depending on your region. If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
+Beginning June 29 or June 30, 2020, depending on your region, your data will be indexed as **Long** and **Double**  If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
 
 This change impacts you in the following cases:
 
@@ -26,16 +26,16 @@ This change impacts you in the following cases:
 - **Case 2**: If you currently use Time Series Model variables and send both integral and nonintegral data types in your telemetry data.
 - **Case 3**: If you use categorical variables to map integer values to categories.
 - **Case 4**: If you use the JavaScript SDK to build a custom front-end application.
-- **Case 5**: If you're nearing the 1,000-property name limit in Warm Store and send both integral and nonintegral data, the property count can be viewed as a metric in the [Azure portal](https://portal.azure.com/).
+- **Case 5**: If you're nearing the 1,000-property name limit in Warm Store and send both integral and nonintegral data. The property count can be viewed as a metric in the [Azure portal](https://portal.azure.com/).
 
-If any of the cases apply to you, you need to make changes to your model. Update the Time Series Expression (TSX) in your variable definition with the recommended changes. Update both:
+If any of the cases apply to you, make changes to your model. Update the Time Series Expression (TSX) in your variable definition with the recommended changes. Update both:
 
 - Azure Time Series Insights Gen2 explorer
 - Any custom client that uses our APIs
 
-Depending on your IoT solution and constraints, you might not have visibility into the data being sent to your Azure Time Series Insights Gen2 environment. If you’re unsure if your data is integral only or both integral and nonintegral, you have a few options:
+Depending on your IoT solution and constraints, you might not have visibility into the data that's sent to your Azure Time Series Insights Gen2 environment. If you’re unsure if your data is integral only or both integral and nonintegral, you have a few options:
 
-- You can wait for the feature to be released and then explore your raw events in the explorer UI to understand which properties have been saved in two separate columns.
+- You can wait for the feature to be released. Then, explore your raw events in the explorer UI to understand which properties are saved in two separate columns.
 - You can preemptively make the recommended changes for all numeric tags.
 - You can temporarily route a subset of events to storage to better understand and explore your schema.
 
@@ -43,10 +43,10 @@ To store events, turn on [event capture](https://docs.microsoft.com/azure/event-
 
 Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send#receive-events).
 
-If you use IoT Hub, see [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for how to access the built-in endpoint.
+If you use IoT Hub, go to [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for how to access the built-in endpoint.
 
 > [!NOTE]
-> If you're unable to make the recommended changes by the indicated dates, you might experience a disruption. The impacted Time Series variables accessed via the query APIs or Time Series Insights Explorer will return **null** (i.e. show no data in the Explorer).
+> You might experience a disruption if you do not make the recommended changes. The impacted Time Series Insights variables accessed via the query APIs or Time Series Insights Explorer will return **null** (i.e. show no data in the Explorer).
 
 ## Recommended changes
 
@@ -59,7 +59,7 @@ If you currently send integer telemetry data, your data will be divided into two
 
 Your integer data writes to **propertyValue_long**  when the changes go into effect. Previously ingested (and future ingested) numeric data in **propertyValue_double** aren't copied over.
 
-If you want to query data across these two columns for the **propertyValue** property, you need to use the **coalesce()** scalar function in your TSX. The function accepts arguments of the same DataType and returns the first non-null value in the argument list. See [Azure Time Series Insights Gen2 data access concepts](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) for more information.
+If you want to query data across these two columns for the **propertyValue** property, you need to use the **coalesce()** scalar function in your TSX. The function accepts arguments of the same **DataType** and returns the first non-null value in the argument list. For more information, see [Azure Time Series Insights Gen2 data access concepts](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) for more information.
 
 #### Variable definition in TSX - numeric
 
@@ -126,7 +126,7 @@ You can also use **coalesce($event.propertyValue.Double, toDouble($event.propert
 
 ### Case 3: Using categorical variables to map integer values to categories
 
-If you currently use categorical variables that map integer values to categories, you're likely using the **toLong** function to convert data from **Double** type to **Long** type. Just like Cases 1 and 2, you need to coalesce the **Double** and **Long** DataType columns.
+If you currently use categorical variables that map integer values to categories, you're likely using the **toLong** function to convert data from **Double** type to **Long** type. Just like Cases 1 and 2, you need to coalesce the **Double** and **Long** **DataType** columns.
 
 #### Variable definition in Time Series Explorer - categorical
 
@@ -140,7 +140,7 @@ If you currently use categorical variables that map integer values to categories
 
 You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
-Categorical variables still require the value to be of an integer type. The DataType of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
+Categorical variables still require the value to be of an integer type. The **DataType** of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression.](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax)
 
 #### Inline variable definition using TSX query APIs - categorical
 
@@ -220,7 +220,7 @@ Categorical variables still require the value to be of an integer type. The Data
 }
 ```
 
-Categorical variables still require the value to be of an integer type. The DataType of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
+Categorical variables still require the value to be of an integer type. The **DataType** of all the arguments in **coalesce()** must be of type **Long** in the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 > [!NOTE]
 > We recommend that you update these variables in all places they might be used. Such as, Time Series Model, saved queries, and Power BI connector queries.
@@ -235,4 +235,4 @@ If you're a Warm Store user with a large number of properties and believe that t
 
 ## Next steps
 
-* View the full list of [supported data types](concepts-supported-data-types.md)
+- View the full list of [supported data types](concepts-supported-data-types.md)
