@@ -84,9 +84,9 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 What this means is that both compute and storage powering this service are in these regions. That said, there are no restrictions on where your clients are located. 
 
-**Q: Do you charge for Azure Spatial Anchors? Will you ever charge?**
+**Q: Do you charge for Azure Spatial Anchors?**
 
-**A:** You can find details about pricing during Preview on our [pricing page](https://azure.microsoft.com/pricing/details/spatial-anchors/).
+**A:** You can find details about pricing on our [pricing page](https://azure.microsoft.com/pricing/details/spatial-anchors/).
 
 ## Technical FAQs
 

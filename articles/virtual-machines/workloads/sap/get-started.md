@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/04/2020
+ms.date: 07/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -103,6 +103,7 @@ For information on integration of Azure services into SAP components, see:
 
 ## Change Log
 
+- 07/16/2020: Describe how to use Azure PowerShell to install new VM Extension for SAP in the [Deployment Guide](deployment-guide.md)
 - 7/04/2020: Release of  [Azure monitor for SAP solutions(preview)](./azure-monitor-overview.md)
 - 07/01/2020: Suggesting less expensive storage configuration based on Azure premium storage burst functionality in document [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md) 
 - 06/24/2020: Change in [Setting up Pacemaker on SLES in Azure](./high-availability-guide-suse-pacemaker.md) to release new improved Azure Fence Agent and more resilient STONITH configuration for devices, based on Azure Fence Agent 
