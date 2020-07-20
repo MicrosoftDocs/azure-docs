@@ -135,9 +135,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![ExpenseIn configuration](./media/expenseIn-tutorial/config02.png)
 
-	a. In the **Provider Name** text box, type the name like ex:Azure.
+	a. In the **Provider Name** text box, type the name; for example, Azure.
 
-	b. Select **Yes** as **Allow Provider Intitated Sign-On**.
+	b. Select **Yes** for **Allow Provider Intitiated Sign-On**.
 
 	c. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
