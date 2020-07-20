@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with Azure Synapse Analytics - Create a Synapse workspace' 
+title: 'Tutorial: Get started create a Synapse workspace' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 05/19/2020 
+ms.date: 07/20/2020 
 ---
 
 # Create a Synapse workspace
@@ -43,7 +43,7 @@ In the following step, you'll configure your Azure Synapse workspace to use this
 
     |Tab|Setting | Suggested value | Description |
     |---|---|---|---|
-    |Basics|**Workspace name**|You can call it anything.| In this document, we'll use **myworkspace**.|
+    |Basics|**Workspace name**|You can name it anything.| In this document, we'll use **myworkspace**.|
     |Basics|**Region**|Match the region of the storage account.|
 
 1. Under **Select Data Lake Storage Gen 2**, select the account and container you previously created.
@@ -116,5 +116,6 @@ Unlike the other kinds of pools, billing for SQL on-demand is based on the amoun
 * A workspace always has exactly one SQL on-demand pool named **SQL on-demand**.
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Analyze using a SQL pool](get-started-analyze-sql-pool.md)

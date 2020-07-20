@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with Azure Synapse Analytics - Analyze data with SQL on-demand' 
+title: 'Tutorial: Get started analyze data with SQL on-demand' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 05/19/2020 
+ms.date: 07/20/2020 
 ---
 
 # Analyze data with SQL on-demand
@@ -32,5 +32,6 @@ Tables in Spark databases are automatically visible, and they can be queried by 
 
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Analyze using spark](get-started-analyze-spark.md)

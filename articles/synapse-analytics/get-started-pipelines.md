@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with Azure Synapse Analytics - Orchestrate activities with pipelines' 
+title: 'Tutorial: Get started orchestrate activities with pipelines' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 05/19/2020 
+ms.date: 07/20/2020 
 ---
 
 
@@ -31,5 +31,6 @@ You can orchestrate a wide variety of tasks in Azure Synapse.
 
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Visualize data with Power BI](get-started-visualize-powerbi.md)
+> [Visualize data with Power BI](get-started-visualize-powerbi.md

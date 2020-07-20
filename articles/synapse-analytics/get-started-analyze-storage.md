@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with Azure Synapse Analytics - Analyze data in Storage accounts' 
+title: 'Tutorial: Get started analyze data in Storage accounts' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 05/19/2020 
+ms.date: 07/20/2020 
 ---
 
 # Analyze data in a storage account
@@ -37,7 +37,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. In Synapse Studio, go to the **Data** hub, and then select **Linked**.
 1. Go to **Storage accounts** > **myworkspace (Primary - contosolake)**.
 1. Select **users (Primary)"**. You should see the **NYCTaxi** folder. Inside you should see two folders called **PassengerCountStats.csv** and **PassengerCountStats.parquet**.
-1. Open the **PassengerCountStats.parquet** folder. Inside you'll see a parquet file with a name like *part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet*.
+1. Open the **PassengerCountStats.parquet** folder. Inside, you'll see a parquet file with a name like *part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet*.
 1. Right-click **.parquet**, and then select **new notebook**. It creates a notebook that has a cell like this:
 
     ```py
@@ -64,5 +64,6 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Orchestrate activities with pipelines](get-started-pipelines.md)

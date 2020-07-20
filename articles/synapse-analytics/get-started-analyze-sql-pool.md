@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with Azure Synapse Analytics - Analyze data with SQL pools' 
+title: 'Tutorial: Get started analyze data with SQL pool' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
 services: synapse-analytics
 author: saveenr
@@ -8,7 +8,7 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 05/19/2020 
+ms.date: 07/20/2020 
 ---
 
 
@@ -16,7 +16,7 @@ ms.date: 05/19/2020
 
 ## Load the NYC Taxi sample data into the SQLDB1 database
 
-1. In Synapse Studio, on the top-most blue menu, select the **?** icon.
+1. In Synapse Studio, on the top-most blue menu, select the question mark (**?**) icon.
 1. Select **Getting started** > **Getting started hub**.
 1. On the card labeled **Query sample data**, select the SQL pool named **SQLDB1**.
 1. Select **Query data**. A "Loading sample data" notification briefly appears. A light-blue status bar near the top of Synapse Studio indicates that data is being loaded into SQLDB1.
@@ -47,6 +47,7 @@ ms.date: 05/19/2020
 
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Analyze using spark](get-started-analyze-spark.md)
 
