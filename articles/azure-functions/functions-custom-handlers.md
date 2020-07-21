@@ -195,17 +195,6 @@ Custom handlers can be implemented in any language that supports receiving HTTP 
 
 The scenario implemented in this example features a function named `order` that accepts a `POST` with a payload representing a product order. As an order is posted to the function, a Queue Storage message is created and an HTTP response is returned.
 
-```http
-POST http://127.0.0.1:7071/api/order HTTP/1.1
-Content-Type: application/json
-
-{
-  "id": 1005,
-  "quantity": 2,
-  "color": "black"
-}
-```
-
 <a id="bindings-implementation" name="bindings-implementation"></a>
 
 #### Implementation
@@ -258,6 +247,48 @@ At the root of the app, the *host.json* file is configured to run an executable 
   }
 }
 ```
+
+This is the HTTP request sent to the Functions runtime.
+
+```http
+POST http://127.0.0.1:7071/api/order HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": 1005,
+  "quantity": 2,
+  "color": "black"
+}
+```
+
+The Functions runtime will then send the following HTTP request to the custom handler:
+
+```http
+POST http://127.0.0.1:<FUNCTIONS_CUSTOMHANDLER_PORT>/order HTTP/1.1
+Content-Type: application/json
+
+{
+  "Data": {
+    "req": {
+      "Url": "http://localhost:7071/api/order",
+      "Method": "POST",
+      "Query": "{}",
+      "Headers": {
+        "Content-Type": [
+          "application/json"
+        ]
+      },
+      "Params": {},
+      "Body": "{\"hello\":\"world\"}"
+    }
+  },
+  "Metadata": {
+  }
+}
+```
+
+> [!NOTE]
+> Some portions of the payload were removed for brevity.
 
 *server.exe* is the compiled Go custom handler program that runs a web server and responds to function invocation requests from the Functions host.
 
@@ -318,13 +349,13 @@ func main() {
 }
 ```
 
-In this example, the custom handler runs a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`.
+In this example, the custom handler runs a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_CUSTOMHANDLER_PORT`.
 
 Even though the Functions host received original HTTP request at `/api/order`, it invokes the custom handler using the function name (its folder name). In this example, the function is defined at the path of `/order`. The host sends the custom handler an HTTP request at the path of `/order`.
 
-As `POST` requests are sent to this function, the trigger data and function metadata are available via the HTTP request body. The original HTTP request body can be accessed at `Data.req.Body`.
+As `POST` requests are sent to this function, the trigger data and function metadata are available via the HTTP request body. The original HTTP request body can be accessed in the payload's `Data.req.Body`.
 
-The function's response is formatted into a key/value pair where the `Outputs` member holds a JSON value where the keys match the outputs as defined in the *function.json* file.
+The function's response is formatted into key/value pairs where the `Outputs` member holds a JSON value where the keys match the outputs as defined in the *function.json* file.
 
 By setting `message` equal to the message that came in from the request, and `res` to the expected HTTP response, this function outputs a message to Queue Storage and returns an HTTP response.
 
@@ -337,18 +368,7 @@ For HTTP-triggered functions with no additional bindings or outputs, you may wan
 > 
 > We recommend you run your web apps on [Azure App Service](../app-service/overview.md).
 
-The following example demonstrates how to configure an HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `http` that accepts a `GET` or `POST` .
-
-The following snippet represents how a request to the function is composed.
-
-```http
-POST http://127.0.0.1:7071/api/hello HTTP/1.1
-Content-Type: application/json
-
-{
-  "message": "Hello World!"
-}
-```
+The following example demonstrates how to configure an HTTP-triggered function with no additional bindings or outputs. The scenario implemented in this example features a function named `hello` that accepts a `GET` or `POST` .
 
 <a id="hello-implementation" name="hello-implementation"></a>
 
@@ -361,6 +381,7 @@ In a folder named *hello*, the *function.json* file configures the HTTP-triggere
   "bindings": [
     {
       "type": "httpTrigger",
+      "authLevel": "anonymous",
       "direction": "in",
       "name": "req",
       "methods": ["get", "post"]
@@ -396,27 +417,60 @@ When `enableForwardingHttpRequest` is `true`, the behavior of HTTP-only function
 * The Functions host invokes the handler with the same path as the original request including any query string parameters.
 * The Functions host returns a copy of the handler's HTTP response as the response to the original request.
 
+The following is a POST request to the Functions host. The Functions host then sends a copy of the request to the custom handler at the same path.
+
+```http
+POST http://127.0.0.1:7071/api/hello HTTP/1.1
+Content-Type: application/json
+
+{
+  "message": "Hello World!"
+}
+```
+
 The file *server.go* file implements a web server and HTTP function.
 
 ```go
+package main
 
-// go code goes here
+import (
+	"fmt"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"os"
+)
 
+func helloHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	if r.Method == "GET" {
+		w.Write([]byte("hello world"))
+	} else {
+		body, _ := ioutil.ReadAll(r.Body)
+		w.Write(body)
+	}
+}
+
+func main() {
+	customHandlerPort, exists := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT")
+	if !exists {
+		customHandlerPort = "8080"
+	}
+	mux := http.NewServeMux()
+	mux.HandleFunc("/api/hello", helloHandler)
+	fmt.Println("Go server Listening on: ", customHandlerPort)
+	log.Fatal(http.ListenAndServe(":"+customHandlerPort, mux))
+}
 ```
 
-In this example, the custom handler creates a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`.
+In this example, the custom handler creates a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_CUSTOMHANDLER_PORT`.
 
-`GET` requests are handled by returning a simple JSON object, and `POST` requests have access to the request body.
+`GET` requests are handled by returning a string, and `POST` requests have access to the request body.
 
-The route for the order function here `/api/hello`, same as the original request.
+The route for the order function here is `/api/hello`, same as the original request.
 
 >[!NOTE]
->The `FUNCTIONS_HTTPWORKER_PORT` is not the public facing port used to call the function. This port is used by the Functions host to call the custom handler.
-
-## Debugging
-
-**TODO**
-- Describe how to start web server and send it mock requests
+>The `FUNCTIONS_CUSTOMHANDLER_PORT` is not the public facing port used to call the function. This port is used by the Functions host to call the custom handler.
 
 ## Deploying
 
@@ -430,6 +484,12 @@ func azure functionapp publish $functionAppName --no-build --force
 
 > [!NOTE]
 > Ensure all files required to run your custom handler are in the folder and included in the deployment. If your custom handler is a binary executable or has platform-specific dependencies, ensure these files match the target deployment platform.
+
+Set the `FUNCTIONS_WORKER_RUNTIME` to `Custom` using the Azure CLI.
+
+```bash
+az functionapp config appsettings set -n $functionAppName -g $groupName --settings FUNCTIONS_WORKER_RUNTIME=Custom
+```
 
 ## Restrictions
 
