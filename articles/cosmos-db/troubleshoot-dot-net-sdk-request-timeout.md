@@ -33,7 +33,7 @@ If you use an HTTP proxy, make sure it can support the number of connections con
 Otherwise, you face connection issues.
 
 ### 3. Creating multiple Client instances
-Creating multiple client instance might lead to connection contention and timeout issues.
+Creating multiple client instances might lead to connection contention and timeout issues.
 
 #### Solution:
 Follow the [performance tips](https://docs.microsoft.com/azure/cosmos-db/performance-tips), and use a single CosmosClient instance across an entire process.
