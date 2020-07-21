@@ -43,7 +43,7 @@ You can get to the **My Account** portal (https://myaccount.microsoft.com), from
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md)
 
-- Change your [language settings](my-account-portal-language-settings.md)
+- Change your [My Account portal settings](my-account-portal-settings.md)
 
 ## Related Microsoft Office content
 

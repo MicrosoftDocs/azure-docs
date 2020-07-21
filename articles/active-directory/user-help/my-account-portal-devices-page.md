@@ -72,6 +72,8 @@ After viewing your connected devices, you can:
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
 
+- Change your [My Account portal settings](my-account-portal-settings.md)
+
 ## Related Office content
 
 - [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)

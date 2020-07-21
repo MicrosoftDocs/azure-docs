@@ -68,8 +68,8 @@
     href: my-account-portal-privacy-page.md
   - name: View your recent sign-in activity
     href: my-account-portal-sign-ins-page.md
-  - name: Change your language settings
-    href: my-account-portal-language-settings.md
+  - name: Change your portal settings
+    href: my-account-portal-settings.md
 - name: Security info help
   items:
   - name: Add security info during sign-in

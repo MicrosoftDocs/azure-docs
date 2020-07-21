@@ -50,3 +50,5 @@ After changing your password, you can:
 - View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
 - View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+
+- - Change your [My Account portal settings](my-account-portal-settings.md)

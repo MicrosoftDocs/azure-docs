@@ -22,7 +22,7 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
-2. Select **Privacy** from the left navigation pane or select the **Review privacy** link from the **Privacy** block.
+2. Select **Settings & Privacy** from the left navigation pane or select the **View Settings And Privacy** link from the **Settings & Privacy** block.
 
     ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
 
@@ -43,5 +43,7 @@ After viewing how your organization uses your data, you can:
 - View or manage your [organizations](my-account-portal-organizations-page.md).
 
 - View your [sign-in activity](my-account-portal-sign-ins-page.md).
+
+- Change your [My Account portal settings](my-account-portal-settings.md)
 
 - You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).
