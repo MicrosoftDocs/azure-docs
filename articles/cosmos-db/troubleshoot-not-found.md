@@ -24,7 +24,7 @@ There are multiple SDK client instances and the read happened before the write.
 
 #### Solution:
 1. The default account consistency for Cosmos DB is Session consistency. When an item is created or updated, the response will return a session token that can be passed between SDK instances to guarantee that the read request is reading from a replica with that change.
-2. Change the [consistency level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-choosing) to a [stronger level](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs)
+2. Change the [consistency level](consistency-levels-choosing.md) to a [stronger level](consistency-levels-tradeoffs.md)
 
 ### 2. Invalid Partition Key and ID combination
 The partition key and ID combination are not valid.
