@@ -28,6 +28,15 @@ Before you begin this tutorial:
 * [Install the Service Fabric SDK](service-fabric-get-started.md)
 
 
+## Upgrade a Managed Service Fabric cluster
+
+In many instances, Service Fabric clusters are automatically upgraded. For more information see the [Service Fabric Application Upgrade](service-fabric-application-upgrade) overview.
+
+
+```powershell
+
+```
+
 ## Cleaning Up
 
 Congratulations! You've upgraded a Managed Service Fabric cluster. When no longer needed, simply delete the cluster resource or the resource group.
