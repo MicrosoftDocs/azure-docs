@@ -1156,6 +1156,8 @@
         href: opal-tutorial.md
       - name: OpenAthens
         href: openathens-tutorial.md
+      - name: OpenText Directory Services
+        href: opentext-directory-services-tutorial.md
       - name: OpsGenie
         href: opsgenie-tutorial.md
       - name: Optimizely
