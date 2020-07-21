@@ -27,4 +27,4 @@ Check the [Azure Status](https://status.azure.com/status) to see if there is an 
 Follow the [SNAT Port Exhaustion guide](troubleshoot-dot-net-sdk.md#snat).
 
 ### 3. The required ports are being blocked
-Verify that all the [required ports](https://docs.microsoft.com/azure/cosmos-db/performance-tips#networking) are enabled.
+Verify that all the [required ports](performance-tips-dotnet-sdk-v3-sql.md#networking) are enabled.
