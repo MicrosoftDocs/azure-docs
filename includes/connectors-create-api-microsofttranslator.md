@@ -17,7 +17,6 @@ Here are the steps to authorize your Logic app to connect to your MicrosoftTrans
 1. To create a connection to MicrosoftTranslator, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *MicrosoftTranslator* in the search box. Select the trigger or action you'll like to use:  
    ![Screenshot of Logic Apps Designer, showing Microsoft Translator API actions and triggers in steps editor.](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
 2. If you haven't created any connections to MicrosoftTranslator before, you'll get prompted to provide your MicrosoftTranslator credentials. These credentials will be used to authorize your Logic app to connect to, and access your MicrosoftTranslator account's data:  
-   ![Screenshot of Logic Apps Designer, showing login prompt for Microsoft Translator API.](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
+   ![Screenshot of Logic Apps Designer, showing sign-in prompt for Microsoft Translator API.](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
 3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
    ![Screenshot of Logic Apps Designer, showing Microsoft Translator text to speech action with API connection listed.](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
-

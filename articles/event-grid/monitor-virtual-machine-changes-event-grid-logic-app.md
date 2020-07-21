@@ -58,7 +58,7 @@ In this tutorial, you learn how to:
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
-   ![Screenshot of Azure Portal, showing button to create a logic app resource.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
+   ![Screenshot of Azure portal, showing button to create a logic app resource.](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
 1. Under **Logic App**, provide information about your logic app resource. When you're done, select **Create**.
 
@@ -90,7 +90,7 @@ Now add the Event Grid trigger, which you use to monitor the resource group for 
 
 1. When prompted, sign in to Azure Event Grid with your Azure account credentials. In the **Tenant** list, which shows the Azure Active Directory tenant that's associated with your Azure subscription, check that the correct tenant appears, for example:
 
-   ![Screenshot of Logic Apps designer, showing Azure login prompt to connect to Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
+   ![Screenshot of Logic Apps Designer, showing Azure sign-in prompt to connect to Event Grid.](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
    > If you're signed in with a personal Microsoft account, such as @outlook.com or @hotmail.com, 
@@ -162,7 +162,7 @@ If you want to your logic app to run only when a specific event or operation hap
 
    Your finished condition now looks like this example:
 
-   ![Screenshot of Logic Apps designer, showing a condition that compares the operation.](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
+   ![Screenshot of Logic Apps Designer, showing a condition that compares the operation.](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
    If you switch from design view to code view and back to design view, the expression that you specified in the condition resolves to the **data.operationName** token:
 
@@ -176,7 +176,7 @@ Now add an [*action*](../logic-apps/logic-apps-overview.md#logic-app-concepts) s
 
 1. In the condition's **If true** box, select **Add an action**.
 
-   ![Screenshot of Logic Apps designer condition editor, showing button to add an action when condition is true.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
+   ![Screenshot of Logic Apps Designer condition editor, showing button to add an action when condition is true.](./media/monitor-virtual-machine-changes-event-grid-logic-app/condition-true-add-action.png)
 
 1. Under **Choose an action**, in the search box, enter `send an email` as your filter. Based on your email provider, find and select the matching connector. Then select the "send email" action for your connector. For example:
 

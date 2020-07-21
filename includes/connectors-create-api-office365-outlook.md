@@ -20,9 +20,8 @@ Authorize your logic app to connect to your work or school account using the fol
 2. If you haven't previously created any connections to Office 365, you are prompted to sign in using your work or school credentials:  
     ![Screenshot of Logic Apps Designer, showing prompt for Office 365 Outlook API login.](./media/connectors-create-api-office365-outlook/office365-signin.png)  
 3. Select **Sign in**, and enter your user name and password. Select **Sign in**:  
-    ![Screenshot of Office 365 login screen, showing sign in prompt.](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
+    ![Screenshot of Office 365 sign-in screen, showing sign-in prompt.](./media/connectors-create-api-office365-outlook/office365-usernamepassword.png)
    
     These credentials are used to authorize your logic app to connect to, and access your work or school account. 
 4. Notice the connection has been created. Now, proceed with the other steps in your logic app:   
     ![Screenshot of Logic Apps Designer, showing Office 365 action with API connection listed.](./media/connectors-create-api-office365-outlook/office365-sendemailproperties.png)  
-

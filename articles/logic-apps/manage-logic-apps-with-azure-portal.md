@@ -125,7 +125,7 @@ Disabling your logic app affects your workflow instances and runs in these ways:
 
 1. In the checkbox column, select the logic apps that you want to disable or enable. On the toolbar, select **Disable** or **Enable**.
 
-   ![Screenshot of Azure Portal Logic Apps page, showing enable and disable buttons for multiple logic apps.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
+   ![Screenshot of Azure portal Logic Apps page, showing enable and disable buttons for multiple logic apps.](./media/manage-logic-apps-with-azure-portal/enable-disable-multiple-logic-apps.png)
 
 1. When the confirmation box appears, select **Yes** to continue.
 
@@ -191,7 +191,7 @@ You can use the Azure portal for version control of your logic apps. You can fin
 
 1. In your logic app's menu, under **Development Tools**, select **Versions**.
 
-   ![Screenshot of logic app in Azure Portal, showing selection of Versions page under development tools.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
+   ![Screenshot of logic app in Azure portal, showing selection of Versions page under development tools.](./media/manage-logic-apps-with-azure-portal/logic-apps-menu-versions.png)
 
 1. Select the **Version** of your logic app to manage from the list. You can enter the **Version** identifier in the search bar to filter the list.
 
