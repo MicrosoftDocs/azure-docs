@@ -19,5 +19,5 @@ ms.reviewer: sngun
 2. Switch the database or container to [Autoscale](provision-throughput-autoscale.md).
 
 ## Related documentation
-* [Provision throughput on containers and databases](https://docs.microsoft.com/azure/cosmos-db/set-throughput)
+* [Provision throughput on containers and databases](set-throughput.md)
 * [Request units in Azure Cosmos DB](request-units.md)
