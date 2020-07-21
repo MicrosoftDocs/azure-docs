@@ -90,7 +90,7 @@ The following table lists partners that can help with migration as well:
 
 |  | |  |
 |---------|---------|---------|
-|:::image type="content" source="../../media/migration-partners/Blitzz_logo_84.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/blueprint_logo.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/Cognizant-220.1.png" alt-text="Row1":::|
+|[:::image type="content" source="../../media/migration-partners/Blitzz_logo_84.png" alt-text="Row1":::](https://www.blitzz.io/product)|:::image type="content" source="../../media/migration-partners/blueprint_logo.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/Cognizant-220.1.png" alt-text="Row1":::|
 |:::image type="content" source="../../media/migration-partners/commvault-220.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/DataSunrise_database_security_logo.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/DXC_logo_cropped.png" alt-text="Row1":::|
 |:::image type="content" source="../../media/migration-partners/fujitsu-logo-220.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/InfosysLogo.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/nayatech_migVisor_logo_small.png" alt-text="Row1":::|
 |:::image type="content" source="../../media/migration-partners/querysurge_logo-84.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/quest_logo_cropped1.png" alt-text="Row1":::|:::image type="content" source="../../media/migration-partners/scalability-experts-logo3.png" alt-text="Row1":::|
