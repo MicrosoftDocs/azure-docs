@@ -28,7 +28,7 @@ Get started with Azure Load Balancer by using Azure CLI to create a public load 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running a version of the Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this quickstart requires Azure CLI version 2.0.28 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -82,7 +82,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer
 
-Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+Create a public load balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
 
 * Named **myLoadBalancer**.
 * A frontend pool named **myFrontEnd**.
@@ -101,7 +101,9 @@ Create a public Azure Load Balancer with [az network lb create](https://docs.mic
 
 ### Create the health probe
 
-A health probe checks all virtual machine instances to ensure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. 
+A health probe checks all virtual machine instances to ensure they can send network traffic. 
+
+A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
 Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
 
@@ -150,7 +152,7 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --disable-outbound-snat false 
 ```
 > [!NOTE]
-> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For more advanced outbound connectivity configuration, omit the **--disable-outbound-snat false** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
+> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For more advanced outbound connectivity configuration, omit ***--disable-outbound-snat false** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
 
 
 ## Configure virtual network
@@ -176,7 +178,7 @@ Create a virtual network using [az network vnet create](https://docs.microsoft.c
 
 ### Create a network security group
 
-For a standard load balancer, the VMs in the backend address for are required to have NICs that belong to a network ecurity group. 
+For a standard load balancer, the VMs in the backend address for are required to have NICs that belong to a network security group. 
 
 Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
 
@@ -292,7 +294,7 @@ To verify that the load balancer was successfully created, you install NGINX on 
 
 Use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. 
 
-In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the shell. Ensure that you copy the whole cloud-init file correctly, especially the first line:
+In your current shell, create a file named cloud-init.txt. Copy and paste the following configuration into the shell. Ensure that you copy the whole cloud-init file correctly, especially the first line:
 
 ```yaml
 #cloud-config
