@@ -55,7 +55,7 @@ Checking the [portal metrics](monitor-accounts.md) will help determine if it's a
 | 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Conflict (Only for Create/Replace/Upsert)  |
 | 410 | Gone exceptions (Transient failure that should not violate SLA) |
-| 413 | [Request Entity Too Large](https://docs.microsoft.com/azure/cosmos-db/concepts-limits#per-item-limits) |
+| 413 | [Request Entity Too Large](concepts-limits.md#per-item-limits) |
 | 429 | [Too many requests](troubleshoot-request-rate-too-large.md) |
 | 500 | Azure Cosmos DB failure (Contact Azure Support if SLA is violated: https://aka.ms/azure-support) |
 | 503 | [Service unavailable](troubleshoot-service-unavailable.md) | 
