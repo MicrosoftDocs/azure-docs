@@ -18,7 +18,7 @@ Soft delete for blobs protects your data from being accidentally or erroneously 
 
 If there is a possibility that your data may accidentally be modified or deleted by an application or another storage account user, Microsoft recommends turning on soft delete. For more information about enabling soft delete, see [Enable and manage soft delete for blobs](soft-delete-enable.md).
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## About soft delete for blobs
 

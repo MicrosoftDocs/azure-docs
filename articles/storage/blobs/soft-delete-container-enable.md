@@ -29,12 +29,12 @@ You can enable or disable container soft delete for the storage account at any t
 To enable container soft delete for your storage account by using Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
-1. Locate the **Data Protection** option under **Blob service**.
-1. Set the **Blob soft delete** property to *Enabled*.
-1. Under **Retention policies**, specify how long soft-deleted blobs are retained by Azure Storage.
+1. Locate the **Data Protection** settings under **Blob service**.
+1. Set the **Container soft delete** property to *Enabled*.
+1. Under **Retention policies**, specify how long soft-deleted containers are retained by Azure Storage.
 1. Save your changes.
 
-:::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal.png" alt-text="Screenshot showing how to enable container soft delete in Azure portal":::
+:::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-configure.png" alt-text="Screenshot showing how to enable container soft delete in Azure portal":::
 
 # [Template](#tab/template)
 
@@ -52,7 +52,7 @@ To enable container soft delete with an Azure Resource Manager template, create 
       "parameters": {},
       "variables": {},
       "resources": [
-          { 
+          {
               "type": "Microsoft.Storage/storageAccounts/blobServices",
               "apiVersion": "2019-06-01",
               "name": "<account-name>/default",
@@ -69,7 +69,18 @@ To enable container soft delete with an Azure Resource Manager template, create 
 
 1. Specify the retention period. The default value is 7.
 1. Save the template.
-1. Specify the resource group of the account, and then choose the **Purchase** button to deploy the template and enable blob versioning.
+1. Specify the resource group of the account, and then choose the **Review + create** button to deploy the template and enable container soft delete.
+
+## View soft-deleted containers
+
+When soft delete is enabled, you can view soft-deleted containers in the Azure portal. Soft-deleted containers are visible during the specified retention period. After the retention period expires, a soft-deleted container is permanently deleted and is no longer visible.
+
+To view soft-deleted containers in the Azure portal, follow these steps:
+
+1. Navigate to your storage account in the Azure portal and view the list of your containers.
+1. Toggle the Show deleted containers switch to include deleted containers in the list.
+
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft deleted containers in the Azure portal":::
 
 ## Next steps
 
