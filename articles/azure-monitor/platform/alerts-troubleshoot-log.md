@@ -12,7 +12,7 @@ ms.date: 10/29/2018
 
 This article shows you how to resolve common issues with log alerts in Azure Monitor. It also provides solutions to common problems with the functionality and configuration of log alerts.
 
-The term *log alerts* describes rules that fire based on a log query in an [Azure Log Analytics workspace](../learn/tutorial-viewdata.md) or in [Azure Application Insights](../../azure-monitor/app/analytics.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
+The term *log alerts* describes rules that fire based on a log query in an [Azure Log Analytics workspace](../log-query/get-started-portal.md) or in [Azure Application Insights](../log-query/log-query-overview.md). Learn more about functionality, terminology, and types in [Log alerts in Azure Monitor](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > This article doesn't consider cases where the Azure portal shows an alert rule triggered and a notification is not performed by an associated action group. For such cases, see the details in [Create and manage action groups in the Azure portal](../platform/action-groups.md).
@@ -23,7 +23,7 @@ Here are some common reasons why the state for a configured [log alert rule in A
 
 ### Data ingestion time for logs
 
-A log alert periodically runs your query based on [Log Analytics](../learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/analytics.md). Because Azure Monitor processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to varying time delays. For more information, see [Data ingestion time in Azure Monitor logs](../platform/data-ingestion-time.md).
+A log alert periodically runs your query based on [Log Analytics](../log-query/get-started-portal.md) or [Application Insights](../log-query/log-query-overview.md). Because Azure Monitor processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to varying time delays. For more information, see [Data ingestion time in Azure Monitor logs](../platform/data-ingestion-time.md).
 
 To mitigate delays, the system waits and retries the alert query multiple times if it finds the needed data is not yet ingested. The system has an exponentially increasing wait time set. The log alert is triggered only after the data is available, so the delay might be due to slow ingestion of log data.
 
@@ -95,7 +95,7 @@ You provide the logic for log alerts in an analytics query. The analytics query 
 
 ![Query to be executed](media/alert-log-troubleshoot/LogAlertPreview.png)
 
-The **Query to be executed** box is what the log alert service runs. If you want to understand what the alert query output might be before you create the alert, you can run the stated query and the timespan via the [Analytics portal](../log-query/portals.md) or the [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/).
+The **Query to be executed** box is what the log alert service runs. If you want to understand what the alert query output might be before you create the alert, you can run the stated query and the timespan via the [Analytics portal](../log-query/log-query-overview.md) or the [Analytics API](/rest/api/loganalytics/).
 
 ## Log alert was disabled
 
@@ -177,7 +177,7 @@ Each log alert rule created in Azure Monitor as part of its configuration must s
 - The query is written to [run across multiple resources](../log-query/cross-workspace-query.md). And one or more of the specified resources no longer exist.
 - [Metric measurement type log alert](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) configured has an alert query doesn't comply with the syntax norms
 - There has been no data flow to the analytics platform. The [query execution gives an error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) because there's no data for the provided query.
-- Changes in [query language](https://docs.microsoft.com/azure/kusto/query/) include a revised format for commands and functions. So the query provided earlier in an alert rule is no longer valid.
+- Changes in [query language](/azure/kusto/query/) include a revised format for commands and functions. So the query provided earlier in an alert rule is no longer valid.
 
 [Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. A recommendation is added for the specific log alert rule on Azure Advisor, under the category of High Availability with medium impact and a description of "Repair your log alert rule to ensure monitoring".
 
@@ -220,5 +220,5 @@ If you have reached the quota limit, the following steps may help resolve the is
 ## Next steps
 
 - Learn about [log alerts in Azure](../platform/alerts-unified-log.md).
-- Learn more about [Application Insights](../../azure-monitor/app/analytics.md).
+- Learn more about [Application Insights](../log-query/log-query-overview.md).
 - Learn more about [log queries](../log-query/log-query-overview.md).

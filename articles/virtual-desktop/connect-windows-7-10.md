@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -17,7 +17,7 @@ manager: lizross
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (Classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
-You can access Windows Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client.
+You can access Windows Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client. The client doesn't support Window 8 or Windows 8.1.
 
 >[!NOTE]
 >The Windows client automatically defaults to Windows Virtual Desktop (Classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.

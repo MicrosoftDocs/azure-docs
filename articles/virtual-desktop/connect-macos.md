@@ -10,7 +10,7 @@ ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the macOS client
+# Connect to Windows Virtual Desktop with the macOS client
 
 > Applies to: macOS 10.12 or later
 

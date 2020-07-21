@@ -10,7 +10,7 @@ ms.date: 12/04/2018
 ---
 
 # Parse text data in Azure Monitor logs
-Some log data collected by Azure Monitor will include multiple pieces of information in a single property. Parsing this data into multiple properties make it easier to use in queries. A common example is a [custom log](../../log-analytics/log-analytics-data-sources-custom-logs.md) that collects an entire log entry with multiple values into a single property. By creating separate properties for the different values, you can search and aggregate on each.
+Some log data collected by Azure Monitor will include multiple pieces of information in a single property. Parsing this data into multiple properties make it easier to use in queries. A common example is a [custom log](../platform/data-sources-custom-logs.md) that collects an entire log entry with multiple values into a single property. By creating separate properties for the different values, you can search and aggregate on each.
 
 This article describes different options for parsing log data in Azure Monitor when the data is ingested and when it's retrieved in a query, comparing the relative advantages for each.
 
@@ -19,7 +19,7 @@ This article describes different options for parsing log data in Azure Monitor w
 You can parse data either at ingestion time when the data is collected or at query time when analyzing the data with a query. Each strategy has unique advantages as described below.
 
 ### Parse data at collection time
-When you parse data at collection time, you configure [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) that create new properties in the table. Queries don't have to include any parsing logic and simply use these properties as any other field in the table.
+When you parse data at collection time, you configure [Custom Fields](../platform/custom-fields.md) that create new properties in the table. Queries don't have to include any parsing logic and simply use these properties as any other field in the table.
 
 Advantages to this method include the following:
 

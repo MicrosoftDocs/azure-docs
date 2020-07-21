@@ -10,7 +10,7 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ---
-# Troubleshooting overview, feedback, and support
+# Troubleshooting overview, feedback, and support for Windows Virtual Desktop
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (Classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).

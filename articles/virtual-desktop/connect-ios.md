@@ -10,7 +10,7 @@ ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the iOS client
+# Connect to Windows Virtual Desktop with the iOS client
 
 > Applies to: iOS 13.0 or later. Compatible with iPhone, iPad, and iPod touch.
 

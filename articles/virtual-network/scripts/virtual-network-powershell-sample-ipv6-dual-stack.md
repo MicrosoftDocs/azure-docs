@@ -14,7 +14,7 @@ ms.date: 07/15/2019
 ms.author: kumud
 ---
 
-# Configure IPv6 endpoints in virtual network script sample (preview)
+# Configure IPv6 endpoints in virtual network with Azure PowerShell script sample (preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 

@@ -349,7 +349,7 @@
   - name: Scale sets
     href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Infrastructure automation
-    href: infrastructure-automation.md
+    href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Security
     items:
     - name: Security and policy
@@ -429,22 +429,24 @@
       items:
       - name: Generic steps
         href: create-upload-generic.md
-      - name: Ubuntu
-        href: create-upload-ubuntu.md
       - name: CentOS
         href: create-upload-centos.md
-      - name: Red Hat
-        href: redhat-create-upload-vhd.md
       - name: Debian
         href: debian-create-upload-vhd.md
-      - name: SUSE
-        href: suse-create-upload-vhd.md
+      - name: Flatcar Container Linux
+        href: flatcar-create-upload-vhd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
       - name: Oracle Linux
         href: oracle-create-upload-vhd.md
       - name: OpenBSD
         href: create-upload-openbsd.md
-      - name: FreeBSD
-        href: freebsd-intro-on-azure.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
     - name: Use cloud-init
       items:
       - name: Cloud-init overview
@@ -728,7 +730,6 @@
     - name: Scheduled events
       href: scheduled-events.md
   - name: Monitor VMs
-    href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     items:
     - name: Agents
       items:
@@ -939,6 +940,10 @@
       href: disks-shared-enable.md
     - name: Upload a vhd to a disk - CLI
       href: disks-upload-vhd-to-managed-disk-cli.md
+    - name: Securely import/export a disk - CLI
+      href: disks-export-import-private-links-cli.md
+    - name: Securely import/export a disk - Portal
+      href: ../disks-enable-private-links-for-import-export-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Resize a disk
       href: expand-disks.md
     - name: Use Storage Explorer to manage disks

@@ -10,7 +10,7 @@ ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Identify and diagnose issues
+# Identify and diagnose Windows Virtual Desktop issues
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (Classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-role-service-2019.md).

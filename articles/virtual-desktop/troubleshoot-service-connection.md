@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot service connection Windows Virtual Desktop - Azure
+title: Troubleshoot service connection Windows Virtual Desktop Spring 2020 - Azure
 description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: Heidilohr

@@ -10,7 +10,7 @@ ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
 ---
-# Customize feed for Windows Virtual Desktop users
+# Customize the feed for Windows Virtual Desktop users
 
 >[!IMPORTANT]
 >This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (Classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-feed-virtual-desktop-users-2019.md).
