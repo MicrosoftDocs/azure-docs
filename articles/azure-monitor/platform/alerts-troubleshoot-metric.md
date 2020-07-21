@@ -214,7 +214,7 @@ To create a metric alert rule, you’ll need to have the following permissions:
 
 ## Naming restrictions for metric alert rules
 
-Note the following restrictions for metric alert rule names:
+Consider the following restrictions for metric alert rule names:
 
 - Metric alert rule names can’t be changed (renamed) once created
 - Metric alert rule names must be unique within a resource group
@@ -226,10 +226,10 @@ Note the following restrictions for metric alert rule names:
 
 Metric alerts support alerting on multi-dimensional metrics as well as support defining multiple conditions (up to 5 conditions per alert rule).
 
-Note the following constraints when using dimensions in an alert rule that contains multiple conditions:
-1. You can only select one value per dimension within each condition.
-2. You can't use the option to "Select all current and future values" (Select \*).
-3. When metrics that are configured in different conditions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant conditions).
+Consider the following constraints when using dimensions in an alert rule that contains multiple conditions:
+- You can only select one value per dimension within each condition.
+- You can't use the option to "Select all current and future values" (Select \*).
+- When metrics that are configured in different conditions support the same dimension, then a configured dimension value must be explicitly set in the same way for all of those metrics (in the relevant conditions).
 For example:
 	- Consider a metric alert rule that is defined on a storage account and monitors two conditions:
 		* Total **Transactions** > 5
