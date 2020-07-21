@@ -53,7 +53,7 @@ Before you begin, make sure that:
 
 * Install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.67 or later. Alternatively, you may [install using MSI](https://aka.ms/installazurecliwindows).
 
-<ins>Sign in to Azure</ins>
+**Sign in to Azure**
 
 Open up a Windows PowerShell command window and sign in to Azure with the [az login](/cli/azure/reference-index#az-login) command:
 
@@ -83,7 +83,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 ]
 ```
 
-<ins>Install the Azure Data Box CLI extension</ins>
+**Install the Azure Data Box CLI extension**
 
 Before you can use the Azure Data Box CLI commands, you need to install the extension. Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
@@ -138,7 +138,7 @@ Before you begin, make sure that you:
 
 #### Install Azure PowerShell and modules locally
 
-<ins>Install or upgrade Windows PowerShell</ins>
+**Install or upgrade Windows PowerShell**
 
 You will need to have Windows PowerShell version 6.2.4 or higher installed. To find out what version of PowerShell you have installed, run: `$PSVersionTable`.
 
@@ -162,7 +162,7 @@ You will see the following output:
 
 If your version is lower than 6.2.4, you need to upgrade your version of Windows PowerShell. To install the latest version of Windows PowerShell, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7).
 
-<ins>Install Azure PowerShell and Data Box modules</ins>
+**Install Azure PowerShell and Data Box modules**
 
 You will need to install the Azure PowerShell modules to use Azure PowerShell to order an Azure Data Box. To install the Azure PowerShell modules:
 
@@ -295,7 +295,7 @@ Do the following steps using Azure CLI to order a device:
    |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
    |verbose| Include verbose logging. | --verbose |
 
-2. In your command-prompt of choice or terminal, use the [az databox job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) to create your Azure Data Box order.
+2. In your command-prompt of choice or terminal, use the [az data box job create](https://docs.microsoft.com/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) to create your Azure Data Box order.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -709,7 +709,7 @@ The following table shows the parameter information for `Stop-AzDataBoxJob`:
 
 | Parameter | Description |  Sample value |
 |---|---|---|
-|ResourceGroup [Required]| The name of the resource group associated with the order to be cancelled. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+|ResourceGroup [Required]| The name of the resource group associated with the order to be canceled. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
 |Name [Required]| The name of the order to be deleted. | "mydataboxorder"|
 |Reason [Required]| The reason for canceling the order. | "I entered erroneous information and needed to cancel the order." |
 |Force | Forces the cmdlet to run without user confirmation. | -Force |
