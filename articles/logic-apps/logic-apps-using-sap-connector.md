@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 07/20/2020
+ms.date: 07/21/2020
 tags: connectors
 ---
 
@@ -455,7 +455,7 @@ If you can't send IDoc packets from SAP to your logic app's trigger, see the Tra
 
 <a name="find-extended-error-logs"></a>
 
-#### Find extended error logs
+## Find extended error logs
 
 For full error messages, check your SAP adapter's extended logs. 
 
