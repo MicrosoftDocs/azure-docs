@@ -109,7 +109,8 @@ To retrieve additional attributes, follow the steps listed below:
 * Scroll down and click **Show advanced options**.
 * Click on **Edit attribute list for SuccessFactors**. 
 
->[!NOTE] If the **Edit attribute list for SuccessFactors** option does not show in the Azure portal, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page
+> [!NOTE] 
+> If the **Edit attribute list for SuccessFactors** option does not show in the Azure portal, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page. 
 
 * The **API expression** column in this view displays the JSONPath expressions used by the connector.
   >[!div class="mx-imgBorder"] 
