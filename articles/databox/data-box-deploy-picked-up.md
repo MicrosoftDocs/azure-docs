@@ -276,7 +276,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 3. Download the shipping label that is available on the local user interface of the Data Box and paste it on the packaged box.   -->
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
 3. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
-4. Quote Microsoft Azure pickup and the Reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
+4. Quote Microsoft Azure pickup and the reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
 5. You will get a verbal confirmation for the pickup schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
 6. Upon booking a pickup with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 

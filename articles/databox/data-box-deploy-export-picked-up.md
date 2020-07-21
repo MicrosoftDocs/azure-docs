@@ -154,7 +154,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 3. Download and print shipping label that is available on the local web UI of the device and affix it on the shipment package.
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
 5. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
-6. Quote Microsoft Azure pickup and the Reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
+6. Quote Microsoft Azure pickup and the reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
 7. You will get a verbal confirmation for the pickup schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
 8. Upon booking a pickup with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 
