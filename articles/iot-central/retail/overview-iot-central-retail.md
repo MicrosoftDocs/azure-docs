@@ -46,7 +46,7 @@ To learn more, see the [Deploy and walk through a connected logistics applicatio
 
 As manufacturers and retailers establish worldwide presences, their supply chains branch out and become more complex. Consumers now expect large selections of products to be available, and for those goods to arrive within one or two days of purchase. Distribution centers must adapt to these trends while overcoming existing inefficiencies.
 
-Today, a reliance on manual labor means that picking and packing accounts for 55-65% of distribution center costs. Manual picking and packing are also typically slower than automated systems, and rapidly fluctuating staffing needs make it even harder to meet shipping volumes. This seasonal fluctuation results in high staff turnover and increase the likelihood of costly errors.
+Today, reliance on manual labor means that picking and packing accounts for 55-65% of distribution center costs. Manual picking and packing are also typically slower than automated systems, and rapidly fluctuating staffing needs make it even harder to meet shipping volumes. This seasonal fluctuation results in high staff turnover and increase the likelihood of costly errors.
 
 Solutions based on IoT enabled cameras can deliver transformational benefits by enabling a digital feedback loop. Data from across the distribution center leads to actionable insights that, in turn, results in better data.
 
@@ -71,8 +71,8 @@ As a solution builder, you can use the IoT Central in-store analytics condition 
 
 Use the application template to:
 
-* Connect a variety of IoT sensors to an IoT Central application instance.
-* Monitor and manage the health of the sensor network as well as any gateway devices in the environment.
+* Connect different kinds of IoT sensors to an IoT Central application instance.
+* Monitor and manage the health of the sensor network and any gateway devices in the environment.
 * Create custom rules around the environmental conditions within a store to trigger  alerts for store managers.
 * Transform the environmental conditions within your store into insights that the retail store team can use to improve the customer experience.
 * Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.
@@ -93,8 +93,8 @@ As a solution builder, you can use the IoT Central in-store analytics checkout a
 
 Use the application template to:
 
-* Connect a variety of IoT sensors to an IoT Central application instance.
-* Monitor and manage the health of the sensor network as well as any gateway devices in the environment.
+* Connect different kinds of IoT sensors to an IoT Central application instance.
+* Monitor and manage the health of the sensor network and any gateway devices in the environment.
 * Create custom rules around the checkout condition within a store to trigger alerts for retail staff.
 * Transform the checkout conditions within the store into insights that the retail store team can use to improve the customer experience.
 * Export the aggregated insights into existing or new business applications to provide useful and timely information to retail staff.

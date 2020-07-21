@@ -11,8 +11,6 @@ ms.date: 07/01/2020
 ---
 # Tutorial: Monitor and manage a video analytics - security and safety application
 
-<!-- TODO - make sure to summarize the key learning steps of this tutorial -->
-
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Add object and motion detection cameras to your IoT Central application.
@@ -30,17 +28,17 @@ You should have [Docker](https://www.docker.com/products/docker-desktop) install
 
 ## Add an object detection camera
 
-In your IoT Central application, navigate to the **LVA Gateway 100** device you created previously. Then select the **Commands** tab.
+In your IoT Central application, navigate to the **LVA Gateway 001** device you created previously. Then select the **Commands** tab.
 
 Use the values in the following table as the parameter values for the **Add Camera Request** command. The values shown in the table assume you're using the simulated camera in the Azure VM, adjust the values appropriately if you're using a real camera:
 
 | Field| Description| Sample value|
 |---------|---------|---------|
-| Camera Id      | Device ID for provisioning | camera-100 |
+| Camera ID      | Device ID for provisioning | camera-001 |
 | Camera Name    | Friendly name           | Object detection camera |
-| Rtsp Url       | Address of the stream   | rtsp://10.0.0.4:554/media/camera-300s.mkv|
-| Rtsp Username  |                         | user    |
-| Rtsp Password  |                         | password    |
+| RTSP Url       | Address of the stream   | RTSP://10.0.0.4:554/media/camera-300s.mkv|
+| RTSP Username  |                         | user    |
+| RTSP Password  |                         | password    |
 | Detection Type | Dropdown                | Object Detection       |
 
 Select **Run** to add the camera device.
@@ -52,7 +50,7 @@ Select **Run** to add the camera device.
 
 ## Add a motion detection camera (optional)
 
-If you have two cameras connected to your IoT Edge gateway device, repeat the previous steps to add a motion detection camera to the application. Use different values for the **Camera Id**, **Camera Name**, and **Rtsp Url** parameters.
+If you have two cameras connected to your IoT Edge gateway device, repeat the previous steps to add a motion detection camera to the application. Use different values for the **Camera ID**, **Camera Name**, and **RTSP Url** parameters.
 
 ## View the downstream devices
 
@@ -64,7 +62,7 @@ The camera devices also appear in the list on the **Devices** page in the applic
 
 ## Configure and manage the camera
 
-Navigate to the **camera-100** device and select the **Manage** tab.
+Navigate to the **camera-001** device and select the **Manage** tab.
 
 Use the default values, or modify if you need to customize the device properties:
 
@@ -79,7 +77,7 @@ Use the default values, or modify if you need to customize the device properties
 | Property | Description | Suggested Value |
 |-|-|-|
 | Confidence Threshold | Qualification percentage to determine if the object detection is valid | 70 |
-| Detection Classes | Strings, delimited by commas, with the detection tags. For more information, see the [list of supported tags](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/yolov3-onnx/tags.txt) | truck,bus |
+| Detection Classes | Strings, delimited by commas, with the detection tags. For more information, see the [list of supported tags](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/yolov3-onnx/tags.txt) | truck, bus |
 | Inference Frame Sample Rate (fps) | [Description Here] | [Default Here] |
 
 **LVA Operations and Diagnostics**
@@ -88,7 +86,7 @@ Use the default values, or modify if you need to customize the device properties
 |-|-|-|
 | Auto Start | Start the Object detection when the LVA Gateway restarts | Checked |
 | Debug Telemetry | Event Traces | Optional |
-|Inference Timeout (sec)| he amount of time used to determine that inferences have stopped | 20 |
+|Inference Timeout (sec)| The amount of time used to determine that inferences have stopped | 20 |
 
 Select **Save**.
 
@@ -98,7 +96,7 @@ After a few seconds you see the **synced** confirmation message for each setting
 
 ## Start LVA processing
 
-Navigate to the **camera-100** device and select the **Commands** tab.
+Navigate to the **camera-001** device and select the **Commands** tab.
 
 Run the **Start LVA Processing** command
 
@@ -110,7 +108,7 @@ Make sure the command worked
 
 Navigate to the **camera-100** device select the **Dashboard** tab.
 
-The **Detection Count** tile shows the average detection count for each of the selected detection classes objects during a one second detection interval.
+The **Detection Count** tile shows the average detection count for each of the selected detection classes objects during a one-second detection interval.
 
 The **Inference** pie chart shows the count percentage by detection class type.
 
@@ -118,7 +116,7 @@ The **Inference Event Video** is a list of links to the assets in Azure Media Se
 
 ## Start the streaming endpoint
 
-You need to start the endpoint to deliver content directly to your client Media Player application
+Start the endpoint to deliver content directly to your client Media Player application:
 
 * In the Azure portal, navigate to the **lva-rg** resource group.
 * Click on the **Streaming Endpoint** resource.
@@ -135,7 +133,7 @@ The IoT Central application stores the video in Azure Media Services from where 
 
 <!-- Can't it just run at a command prompt? Otherwise we need to add VS Code as a prereq -->
 
-Open a command prompt and use the following command to run the video player in a Docker container on your local machine. Replace the placeholders in the command with the values you made a note of previously. You made a note of the `amsAadClientId`, `amsAadSecret`, `amsAadTenantId`, `amsSubscriptionId`, and `amsAccountName` when you created the service principal for your Media Services account:
+Open a command prompt and use the following command to run the video player in a Docker container on your local machine. Replace the placeholders in the command with the values you made a note of previously in the *scratchpad.txt* file. You made a note of the `amsAadClientId`, `amsAadSecret`, `amsAadTenantId`, `amsSubscriptionId`, and `amsAccountName` when you created the service principal for your Media Services account:
 
 <!--You have to log into docker if this is not a public repo-->
 
@@ -158,9 +156,9 @@ Navigate to the **Monitor** dashboard in your application. Then click one of the
 
 ## Change the simulated devices in Application Dashboard
 
-The application dashboards are originally populated with telemetry and properties generated from the IoT Central simulated devices. To configure the tiles to telemetry from real cameras or the Live555 simulator follow these steps:
+The application dashboards are originally populated with telemetry and properties generated from the IoT Central simulated devices. To configure the tiles to telemetry from real cameras or the Live555 simulator, follow these steps:
 
-1. Navigate to the **Real Cameras** dashboard.
+1. Navigate to the **Real Camera Monitor** dashboard.
 1. Select **Edit**.
 1. On the **Detection Count** tile, select the configure icon.
 1. In the **Configure Chart** section, select one or more real cameras in the **LVA Edge Object Detector** device group.

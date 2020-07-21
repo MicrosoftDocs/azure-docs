@@ -28,11 +28,11 @@ For more information, see [Live Video Analytics](https://github.com/Azure/live-v
 
 The IoT Edge LVA gateway module instantiates cameras as new devices and connects them directly to IoT Central using the Device Client SDK.
 
-In this reference implementation, devices connect to the solution using symmetric keys from the edge. For more information about device device connectivity, see [Get connected to Azure IoT Central](../core/concepts-get-connected.md)
+In this reference implementation, devices connect to the solution using symmetric keys from the edge. For more information about device connectivity, see [Get connected to Azure IoT Central](../core/concepts-get-connected.md)
 
 ## Media graph
 
-Media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You configure media graph by connecting components, or nodes, in the desired manner. For more information, see [Media Graph](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph) on GitHub.
+Media graph lets you define where to capture the media from, how to process it, and where to deliver the results. You configure media graph by connecting components, or nodes, in the desired manner. For more information, see [Media Graph](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph) on GitHub.
 
 ## Next steps
 

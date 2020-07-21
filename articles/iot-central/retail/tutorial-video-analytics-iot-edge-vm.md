@@ -17,7 +17,7 @@ Azure IoT Edge is a fully managed service that delivers cloud intelligence local
 * Azure services
 * Artificial intelligence
 
-In IoT Edge, these services run directly on cross-platform IoT devices. This enables you to run your IoT solution securely and at scale in the cloud or offline.
+In IoT Edge, these services run directly on cross-platform IoT devices, enabling you to run your IoT solution securely and at scale in the cloud or offline.
 
 This tutorial shows you how to prepare an IoT Edge device in an Azure VM. The IoT Edge instance runs the live video analytics modules that the Azure IoT Central video analytics - security and safety application template uses.
 
@@ -49,13 +49,13 @@ Use the information in the following table to complete the **Custom deployment**
 | Region       | *East US* |
 | DNS Label Prefix | Choose a unique DNS prefix for the VM. |
 | Admin Username | *AzureUser* |
-| Admin Password | Enter a password. Make a note of the password, you use it later. |
-| Scope ID | The **Scope ID** you made a note of in the previous tutorial when you added the gateway device. |
+| Admin Password | Enter a password. Make a note of the password in the *scratchpad.txt* file, you use it later. |
+| Scope ID | The **Scope ID** you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
 | Device ID | *lva-gateway-001* - the gateway device you created in the previous tutorial. |
-| Device Key | The device primary key you made a note of in the previous tutorial when you added the gateway device. |
-| Iot Central App Host | The **Application URL** you made a note of in the previous tutorial. For example, *traders.azureiotcentral.com*. |
+| Device Key | The device primary key you made a note of in the *scratchpad.txt* file in the previous tutorial when you added the gateway device. |
+| Iot Central App Host | The **Application URL** you made a note of in the *scratchpad.txt* file in the previous tutorial. For example, *traders.azureiotcentral.com*. |
 | Iot Central App Api Token | The operator API token you made a note of in the previous tutorial. |
-| Iot Central Device Provisioning Key | The primary group shared access signature token you made a note of in the previous tutorial. |
+| Iot Central Device Provisioning Key | The primary group shared access signature token you made a note of in the *scratchpad.txt* file in the previous tutorial. |
 | VM Size | *Standard_DS1_v2* |
 | Ubuntu OS Version | *18.04-LTS* |
 | Location | *[resourceGroup().location]* |
@@ -66,7 +66,7 @@ Select **Review + create**. When the validation is complete, select **Create**. 
 
 In the Azure portal, navigate to the **lva-rg** resource group and select the virtual machine. Then, in the **Support + troubleshooting** section, select **Serial console**.
 
-Press **Enter** to get a `login:` prompt. Use **AzureUser** as the username and the password you chose when you created the VM.
+Press **Enter** to get a `login:` prompt. Use *AzureUser* as the username and the password you chose when you created the VM.
 
 Run the following command to check the version of the IoT Edge runtime. At the time of writing, the version is 1.0.9:
 
@@ -96,15 +96,15 @@ To troubleshoot the IoT Edge device, see [Troubleshoot your IoT Edge device](htt
 
 If you don't have real camera devices to connect to your IoT Edge device, you can use the two simulated camera devices in the video analytics - security and safety application template. This section shows you how to use a simulated video stream in your IoT Edge device.
 
-These instructions show you how to use the [Live555 Media Server](http://www.live555.com/mediaServer/) as a RTSP simulator in a docker container.
+These instructions show you how to use the [Live555 Media Server](http://www.live555.com/mediaServer/) as an RTSP simulator in a docker container.
 
 > [!NOTE]
-> References to third-party software in this repo are for informational and convenience purposes only. Microsoft does not endorse nor provide rights for the third-party software. For more information on third-party software please see [Live555 Media Server](http://www.live555.com/mediaServer/).
+> References to third-party software in this repo are for informational and convenience purposes only. Microsoft does not endorse nor provide rights for the third-party software. For more information, see [Live555 Media Server](http://www.live555.com/mediaServer/).
 
 Use the following command to run the **rtspvideo** utility in a docker container on your IoT Edge VM. The docker container creates a background RTSP stream.
 
 ```bash
-sudo docker run -d --name live555 --rm -p 554:554 mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2
+sudo docker run -d --name live555 --rm -p 554:554 mcr.microsoft.com/lvautilities/rtspsim-live555:1.2
 ```
 
 Use the following command to list the docker containers:
@@ -117,7 +117,7 @@ The list includes a container called **live555**.
 
 ## Next steps
 
-You have now deployed the IoT Edge runtime, the LVA modules and the live555 simulation stream in a Linux VM running on Azure.
+You've now deployed the IoT Edge runtime, the LVA modules, and the live555 simulation stream in a Linux VM running on Azure.
 
 To manage the cameras, follow the next tutorial
 
