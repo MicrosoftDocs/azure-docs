@@ -159,7 +159,7 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --disable-outbound-snat false 
 ```
 > [!NOTE]
-> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, omit **--disable-outbound-snat false** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
+> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, omit **(--disable-outbound-snat false)** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
 
 
 ## Configure virtual network
