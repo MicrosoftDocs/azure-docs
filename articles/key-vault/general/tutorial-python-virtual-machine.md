@@ -1,20 +1,21 @@
 ---
-title: Tutorial - Use Azure Key Vault with a Windows virtual machine in Python | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in Python | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 05/11/2020
-ms.author: sudbalas
+ms.date: 07/20/2020
+ms.author: mbaldwin
 ms.custom: mvc, tracking-python
-#Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
+
+# Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
+
 ---
 
-# Tutorial: Use Azure Key Vault with a Windows virtual machine in Python
+# Tutorial: Use Azure Key Vault with a virtual machine in Python
 
 Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
 
@@ -40,16 +41,6 @@ For Windows, Mac, and Linux:
   * [Git](https://git-scm.com/downloads)
   * This tutorial requires that you run the Azure CLI locally. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli).
 
-## About Managed Service Identity
-
-Azure Key Vault stores credentials securely, so they're not displayed in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
-
-When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](basic-concepts.md). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
-
-![MSI](../media/MSI.png)
-
-Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. To authenticate to an Azure Key Vault service, your code uses the access token that it gets from the local MSI endpoint. 
-
 ## Log in to Azure
 
 To log in to Azure by using the Azure CLI, enter:
@@ -58,33 +49,9 @@ To log in to Azure by using the Azure CLI, enter:
 az login
 ```
 
-## Create a resource group
+### Create a resource group and key vault
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed.
-
-Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
-
-Select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
-
-```azurecli
-# To list locations: az account list-locations --output table
-az group create --name "<YourResourceGroupName>" --location "West US"
-```
-
-You use your newly created resource group throughout this tutorial.
-
-## Create a key vault
-
-To create a key vault in the resource group that you created in the preceding step, provide the following information:
-
-* Key vault name: a string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
-* Resource group name
-* Location: **West US**
-
-```azurecli
-az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
-```
-At this point, your Azure account is the only one that's authorized to perform operations on this new key vault.
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 ## Add a secret to the key vault
 
