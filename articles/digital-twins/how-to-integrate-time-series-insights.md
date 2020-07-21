@@ -17,11 +17,9 @@ ms.service: digital-twins
 
 # Integrate Digital Twins with Azure Time Series Insights
 
-## Intro
-
 In this reference, you will learn how to integrate Azure Digital Twins with Time Series Insights. This solution will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
 
-## Solution Architecture
+## Solution architecture
 
 You will be attaching Time Series insights to Azure Digital Twins through the path below.
 
@@ -120,11 +118,11 @@ namespace SampleFunctionsApp
 
 
 
-## Send telemetry to an Event Hub
+## Send telemetry to an event hub
 
 You will now create an second event hub and configure your function to stream its output to that event hub.
 
-### Create an Event Hub. 
+### Create an event hub
 
 You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment).
 
@@ -145,7 +143,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --resource-
 
 You'll need to set one environment variable in your function app containing your event hub connection string
 
-#### Set the Time Series Insights Event Hub connection string
+#### Set the Time Series Insights event hub connection string
 
 1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for the time series insights hub
 ```azurecli-interactive
@@ -157,7 +155,7 @@ az eventhubs eventhub authorization-rule keys list --resource-group <resource gr
 az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-event-hub-connection-string> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 ```
 
-#### Set the Twins Event Hub connection string
+#### Set the Twins event hub connection string
 
 1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for both the twins hub
 ```azurecli-interactive
@@ -208,7 +206,7 @@ Now data should be flowing into your Time Series Insights instance, ready to be 
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-day-data.png" alt-text="Temperature data for each twin is graphed in three parallel lines of different colors.":::
 
-## Next Steps
+## Next steps
 
 The Twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more read: 
 
