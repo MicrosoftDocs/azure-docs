@@ -121,7 +121,7 @@ To restore the backup data as .bak files instead of a database, choose **Restore
     >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Verify access with `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Kick off a restore as files from the Backup Vault to `\\<storageacct>.file.core.windows.net\<filesharename>` as the path<BR>
-    You can download Psexec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
+    You can Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page.
 
 1. Select **OK**.
 
