@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 # Diagnose and troubleshoot Azure Cosmos DB .NET SDK 408 (Request Timeout)
 
-The SDK was not able to connect to the Azure Cosmos DB service.
+This error occurs if the SDK was not able to connect to the Azure Cosmos DB service.
 
 ## Troubleshooting steps
 The following list contains known causes for request timeout exceptions.
