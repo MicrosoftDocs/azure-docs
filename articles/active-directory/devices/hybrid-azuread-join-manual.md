@@ -62,6 +62,10 @@ If your organization plans to use Seamless SSO, the following URL needs to be re
 
 * `https://autologon.microsoftazuread-sso.com`
 
+> [!NOTE]
+> If you use TLS break-and-inspect proxies that intercept SSL traffic, for scenarios such as Data Loss Prevention (DLP) inspection or Azure Active Directory Tenant Restrictions, ensure that traffic to https://device.login.microsoftonline.com is excluded from TLS break-and-inspect as it may interfere with Client Certificate authentication, which may cause issues with device registration and device-based Conditional Access.
+
+
 Also, the following setting should be enabled in the user's intranet zone: "Allow status bar updates via script."
 
 If your organization uses managed (non-federated) setup with on-premises Active Directory and does not use Active Directory Federation Services (AD FS) to federate with Azure AD, then hybrid Azure AD join on Windows 10 relies on the computer objects in Active Directory to be synced to Azure AD. Make sure that any OUs that contain the computer objects that need to be hybrid Azure AD joined are enabled for sync in the Azure AD Connect sync configuration.
