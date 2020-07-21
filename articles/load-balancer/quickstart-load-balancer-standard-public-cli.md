@@ -58,7 +58,7 @@ Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/p
   az network public-ip create \
     --resource-group myResourceGroupLB \
     --name myPublicIP \
-    --sku standard
+    --sku Standard
 ```
 
 To create a zonal redundant public IP address in Zone 1:
@@ -67,7 +67,7 @@ To create a zonal redundant public IP address in Zone 1:
   az network public-ip create \
     --resource-group myResourceGroupLB \
     --name myPublicIP \
-    --sku standard \
+    --sku Standard \
     --zone 1
 ```
 
@@ -152,7 +152,7 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --disable-outbound-snat false 
 ```
 > [!NOTE]
-> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For more advanced outbound connectivity configuration, omit ***--disable-outbound-snat false** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
+> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, omit ***--disable-outbound-snat false** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
 
 
 ## Configure virtual network
@@ -221,7 +221,7 @@ Create a network security group rule using [az network nsg rule create](https://
     --priority 200
 ```
 
-### Create NICs for virtual machines
+### Create network interfaces for the virtual machines
 
 Create three network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
 
@@ -347,6 +347,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 * Attached to network interface **myNicVM1**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
+* In **Zone 1**.
 
 ```azurecli-interactive
   az vm create \
@@ -356,7 +357,9 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
     --image UbuntuLTS \
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
+    --zone 1 \
     --no-wait
+    
 ```
 #### VM2
 * Named **myVM2**.
@@ -364,6 +367,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 * Attached to network interface **myNicVM2**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
+* In **Zone 2**.
 
 ```azurecli-interactive
   az vm create \
@@ -373,6 +377,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
     --image UbuntuLTS \
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
+    --zone 2 \
     --no-wait
 ```
 
@@ -382,6 +387,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
 * Attached to network interface **myNicVM3**.
 * Virtual machine image **UbuntuLTS**.
 * Configuration file **cloud-init.txt** you created in step above.
+* In **Zone 3**.
 
 ```azurecli-interactive
    az vm create \
@@ -391,6 +397,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
     --image UbuntuLTS \
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
+    --zone 3 \
     --no-wait
 ```
 It may take a few minutes for the VMs to get deployed.
