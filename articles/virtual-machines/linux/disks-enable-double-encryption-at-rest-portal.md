@@ -1,6 +1,6 @@
 ---
-title: Enable double encryption at rest - Azure CLI - managed disks
-description: Enable double encryption at rest for your managed disk data using the Azure CLI.
+title: Enable double encryption at rest - Azure portal - managed disks
+description: Enable double encryption at rest for your managed disk data using the Azure portal.
 author: roygara
 
 ms.date: 07/10/2020
