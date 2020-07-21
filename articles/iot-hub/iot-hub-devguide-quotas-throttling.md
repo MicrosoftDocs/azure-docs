@@ -23,7 +23,7 @@ The tier also determines the throttling limits that IoT Hub enforces on all oper
 
 ## IoT Plug and Play
 
-IoT Plug and Play devices send at least one telemetry message for each interface,  including the root, which may increase the number of messages counted towards your message quota.
+IoT Plug and Play devices send at least one telemetry message for each interface, including the root, which may increase the number of messages counted towards your message quota.
 
 ## Operation throttles
 
