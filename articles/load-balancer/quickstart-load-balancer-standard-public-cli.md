@@ -17,7 +17,7 @@ ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
 ---
-# Quickstart: Create a load balancer to load balance VMs using Azure CLI
+# Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
 Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
 
