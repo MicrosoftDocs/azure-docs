@@ -163,10 +163,10 @@ Before you deploy VMs and test your load balancer, create the supporting virtual
 
 Create a virtual network using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
 
-* Named **myVNet**
-* Subnet named **myBackendSubnet**
+* Named **myVNet**.
+* Subnet named **myBackendSubnet**.
 * In the **myResourceGroupLB** resource group.
-* Location of **eastus**
+* Location of **eastus**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -416,7 +416,7 @@ Copy the public IP address, and then paste it into the address bar of your brows
     --output tsv
 ```
 
-    :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Test the load balancer" border="true":::
+:::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Test the load balancer" border="true":::
 
 ## Clean up resources
 
