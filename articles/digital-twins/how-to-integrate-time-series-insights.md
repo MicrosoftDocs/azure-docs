@@ -34,7 +34,7 @@ You will be attaching Time Series insights to Azure Digital Twins through the pa
 
 Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. 
 
-This pattern reads from the twins directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for without needing to update our time series insights logic.
+This pattern reads from the twins directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for without needing to update our Time Series Insights logic.
 
 1. Create an event hub namespace, which will receive events from our Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment).
 ```azurecli-interactive
@@ -145,7 +145,7 @@ You'll need to set one environment variable in your function app containing your
 
 #### Set the Time Series Insights event hub connection string
 
-1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for the time series insights hub
+1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for the Time Series Insights hub
 ```azurecli-interactive
 az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <twins event hub name> --name <twins auth rule>
 ```
