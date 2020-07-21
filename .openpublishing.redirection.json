@@ -6,6 +6,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups",
       "redirect_document_id": false
@@ -68,6 +78,11 @@
     {
       "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-migration-faq.md",
+      "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
       "redirect_document_id": false
     },
     {
@@ -4564,9 +4579,25 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-subscription-move-fix.md",
-      "redirect_url": "/azure/key-vault/general/subscription-move-fix",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/keyvault-move-subscription.md",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveregion.md",
+      "redirect_url": "/azure/key-vault/general/move-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveresourcegroup.md",
+      "redirect_url": "/azure/key-vault/general/move-resourcegroup",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/key-vault/managed-identity.md",
       "redirect_url": "/azure/key-vault/general/managed-identity",
@@ -49406,6 +49437,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/form-recognizer/tutorial-form-recognizer-with-logic-apps.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -56882,6 +56918,21 @@
     {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-visual-studio.md",
+      "redirect_url": "/visualstudio/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
+      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
     }
   ]

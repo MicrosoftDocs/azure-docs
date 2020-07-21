@@ -7,7 +7,7 @@ ms.date: 05/07/2020
 
 # Private Endpoints for Azure Backup
 
-Azure Backup allows you to securely back up and restore your data from your Recovery Services vaults using [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Private endpoints use one or more private IP addresses from your VNet, effectively bringing the service into your VNet.
+Azure Backup allows you to securely back up and restore your data from your Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your VNet, effectively bringing the service into your VNet.
 
 This article will help you understand the process of creating private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 
@@ -40,7 +40,7 @@ This section talks about the steps involved in creating and using private endpoi
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) to learn how to create a vault using the Azure Resource Manager client. This creates a vault with its managed identity already enabled. Learn more about Recovery Services vaults [here](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) to learn how to create a vault using the Azure Resource Manager client. This creates a vault with its managed identity already enabled. Learn more about Recovery Services vaults [here](./backup-azure-recovery-services-vault-overview.md).
 
 ## Enable Managed Identity for your vault
 
@@ -106,9 +106,9 @@ Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06
 
 For URL naming conventions in national regions:
 
-- [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### Linking private DNS zones with your virtual network
 
