@@ -23,7 +23,13 @@ In this reference, you will learn how to integrate Azure Digital Twins with [Azu
 
 You will be attaching Time Series insights to Azure Digital Twins through the path below.
 
-:::image type="content" source="media/how-to-integrate-time-series-insights/twins-tsi-diagram-simple.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-time-series-insights/twins-tsi-diagram.png":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/twins-tsi-diagram-simple.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-time-series-insights/twins-tsi-diagram.png":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 ## Prerequisites
 
