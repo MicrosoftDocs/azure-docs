@@ -27,45 +27,13 @@ database are distributed. For each distributed table, it also stores
 information about the distribution method and detailed information about
 the distribution column.
 
-+---------+-------------+----------------------------------------------+
-| Name    | Type        | Description                                  |
-+=========+=============+==============================================+
-| logical | > regclass  | | Distributed table to which this row        |
-| relid   |             |   corresponds. This value references         |
-|         |             | | the relfilenode column in the pg\_class    |
-|         |             |   system catalog table.                      |
-+---------+-------------+----------------------------------------------+
-| > partm | > char      | | The method used for partitioning /         |
-| ethod   |             |   distribution. The values of this           |
-|         |             | | column corresponding to different          |
-|         |             |   distribution methods are :-                |
-|         |             | | append: \'a\'                              |
-|         |             | | hash: \'h\'                                |
-|         |             | | reference table: \'n\'                     |
-+---------+-------------+----------------------------------------------+
-| > partk | > text      | | Detailed information about the             |
-| ey      |             |   distribution column including column       |
-|         |             | | number, type and other relevant            |
-|         |             |   information.                               |
-+---------+-------------+----------------------------------------------+
-| > coloc | > integer   | | Co-location group to which this table      |
-| ationid |             |   belongs. Tables in the same group          |
-|         |             | | allow co-located joins and distributed     |
-|         |             |   rollups among other                        |
-|         |             | | optimizations. This value references the   |
-|         |             |   colocationid column in the                 |
-|         |             | | pg\_dist\_colocation table.                |
-+---------+-------------+----------------------------------------------+
-| > repmo | > char      | | The method used for data replication. The  |
-| del     |             |   values of this column                      |
-|         |             | | corresponding to different replication     |
-|         |             |   methods are :-                             |
-|         |             | | \* citus statement-based replication:      |
-|         |             |   \'c\'                                      |
-|         |             | | \* postgresql streaming replication: \'s\' |
-|         |             | | \* two-phase commit (for reference         |
-|         |             |   tables): \'t\'                             |
-+---------+-------------+----------------------------------------------+
+| Name         | Type     | Description                                                                                                                                                                                                                                           |
+|--------------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| logicalrelid | regclass | Distributed table to which this row corresponds. This value references the relfilenode column in the pg_class system catalog table.                                                                                                                   |
+| partmethod   | char     | The method used for partitioning / distribution. The values of this column corresponding to different distribution methods are :- append: ‘a’ hash: ‘h’ reference table: ‘n’                                                                          |
+| partkey      | text     | Detailed information about the distribution column including column number, type and other relevant information.                                                                                                                                      |
+| colocationid | integer  | Co-location group to which this table belongs. Tables in the same group allow co-located joins and distributed rollups among other optimizations. This value references the colocationid column in the pg_dist_colocation table.                      |
+| repmodel     | char     | The method used for data replication. The values of this column corresponding to different replication methods are :- * citus statement-based replication: ‘c’ * postgresql streaming replication: ‘s’ * two-phase commit (for reference tables): ‘t’ |
 
 ```
 SELECT * from pg_dist_partition;
@@ -85,35 +53,13 @@ values of the distribution column. In case of hash distributed tables,
 they are hash token ranges assigned to that shard. These statistics are
 used for pruning away unrelated shards during SELECT queries.
 
-+---------+-------------+----------------------------------------------+
-| Name    | Type        | Description                                  |
-+=========+=============+==============================================+
-| logical | > regclass  | | Distributed table to which this shard      |
-| relid   |             |   belongs. This value references the         |
-|         |             | | relfilenode column in the pg\_class system |
-|         |             |   catalog table.                             |
-+---------+-------------+----------------------------------------------+
-| > shard | > bigint    | | Globally unique identifier assigned to     |
-| id      |             |   this shard.                                |
-+---------+-------------+----------------------------------------------+
-| shardst | > char      | | Type of storage used for this shard.       |
-| orage   |             |   Different storage types are                |
-|         |             | | discussed in the table below.              |
-+---------+-------------+----------------------------------------------+
-| shardmi | > text      | | For append distributed tables, minimum     |
-| nvalue  |             |   value of the distribution column           |
-|         |             | | in this shard (inclusive).                 |
-|         |             | | For hash distributed tables, minimum hash  |
-|         |             |   token value assigned to that               |
-|         |             | | shard (inclusive).                         |
-+---------+-------------+----------------------------------------------+
-| shardma | > text      | | For append distributed tables, maximum     |
-| xvalue  |             |   value of the distribution column           |
-|         |             | | in this shard (inclusive).                 |
-|         |             | | For hash distributed tables, maximum hash  |
-|         |             |   token value assigned to that               |
-|         |             | | shard (inclusive).                         |
-+---------+-------------+----------------------------------------------+
+| Name          | Type     | Description                                                                                                                                                                                  |
+|---------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| logicalrelid  | regclass | Distributed table to which this row corresponds. This value references the relfilenode column in the pg_class system catalog table.                                                          |
+| shardid       | bigint   | Globally unique identifier assigned to this shard.                                                                                                                                           |
+| shardstorage  | char     | Type of storage used for this shard. Different storage types are discussed in the table below.                                                                                               |
+| shardminvalue | text     | For append distributed tables, minimum value of the distribution column in this shard (inclusive). For hash distributed tables, minimum hash token value assigned to that shard (inclusive). |
+| shardmaxvalue | text     | For append distributed tables, maximum value of the distribution column in this shard (inclusive). For hash distributed tables, maximum hash token value assigned to that shard (inclusive). |
 
 ```
 SELECT * from pg_dist_shard;
@@ -132,23 +78,11 @@ The shardstorage column in pg\_dist\_shard indicates the type of storage
 used for the shard. A brief overview of different shard storage types
 and their representation is below.
 
-+---------+-------------+----------------------------------------------+
-| Storage | Shardstorag | Description                                  |
-| Type    | e           |                                              |
-|         | value       |                                              |
-+=========+=============+==============================================+
-| > TABLE | > \'t\'     | | Indicates that shard stores data belonging |
-|         |             |   to a regular                               |
-|         |             | | distributed table.                         |
-+---------+-------------+----------------------------------------------+
-| > COLUM | > \'c\'     | | Indicates that shard stores columnar data. |
-| NAR     |             |   (Used by                                   |
-|         |             | | distributed cstore\_fdw tables)            |
-+---------+-------------+----------------------------------------------+
-| > FOREI | > \'f\'     | | Indicates that shard stores foreign data.  |
-| GN      |             |   (Used by                                   |
-|         |             | | distributed file\_fdw tables)              |
-+---------+-------------+----------------------------------------------+
+| Storage Type | Shardstorage value | Description                                                                        |
+|--------------|--------------------|------------------------------------------------------------------------------------|
+| TABLE        | 't'                | Indicates that shard stores data belonging to a regular distributed table.         |
+| COLUMNAR     | 'c'                | Indicates that shard stores columnar data. (Used by distributed cstore_fdw tables) |
+| FOREIGN      | 'f'                | Indicates that shard stores foreign data. (Used by distributed file_fdw tables)    |
 
 ### Shard placement table
 
@@ -157,31 +91,13 @@ worker nodes. Each replica of a shard assigned to a specific node is
 called a shard placement. This table stores information about the health
 and location of each shard placement.
 
-+---------+-------------+----------------------------------------------+
-| Name    | Type        | Description                                  |
-+=========+=============+==============================================+
-| shardid | > bigint    | | Shard identifier associated with this      |
-|         |             |   placement. This value references           |
-|         |             | | the shardid column in the pg\_dist\_shard  |
-|         |             |   catalog table.                             |
-+---------+-------------+----------------------------------------------+
-| shardst | > int       | | Describes the state of this placement.     |
-| ate     |             |   Different shard states are                 |
-|         |             | | discussed in the section below.            |
-+---------+-------------+----------------------------------------------+
-| shardle | > bigint    | | For append distributed tables, the size of |
-| ngth    |             |   the shard placement on the                 |
-|         |             | | worker node in bytes.                      |
-|         |             | | For hash distributed tables, zero.         |
-+---------+-------------+----------------------------------------------+
-| placeme | > bigint    | | Unique auto-generated identifier for each  |
-| ntid    |             |   individual placement.                      |
-+---------+-------------+----------------------------------------------+
-| groupid | > int       | | Identifier used to denote a group of one   |
-|         |             |   primary server and zero or more            |
-|         |             | | secondary servers, when the streaming      |
-|         |             |   replication model is used.                 |
-+---------+-------------+----------------------------------------------+
+| Name        | Type   | Description                                                                                                                               |
+|-------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| shardid     | bigint | Shard identifier associated with this placement. This value references the shardid column in the pg_dist_shard catalog table.             |
+| shardstate  | int    | Describes the state of this placement. Different shard states are discussed in the section below.                                         |
+| shardlength | bigint | For append distributed tables, the size of the shard placement on the worker node in bytes. For hash distributed tables, zero.            |
+| placementid | bigint | Unique auto-generated identifier for each individual placement.                                                                           |
+| groupid     | int    | Identifier used to denote a group of one primary server and zero or more secondary servers, when the streaming replication model is used. |
 
 ```
 SELECT * from pg_dist_placement;
@@ -205,85 +121,29 @@ in the pg\_dist\_placement table is used to store the state of shard
 placements. A brief overview of different shard placement states and their
 representation is below.
 
-+---------+-------------+----------------------------------------------+
-| State   | Shardstate  | Description                                  |
-| name    | value       |                                              |
-+=========+=============+==============================================+
-| > FINAL | > 1         | | This is the state new shards are created   |
-| IZED    |             |   in. Shard placements                       |
-|         |             | | in this state are considered up-to-date    |
-|         |             |   and are used in query                      |
-|         |             | | planning and execution.                    |
-+---------+-------------+----------------------------------------------+
-| > INACT | > 3         | | Shard placements in this state are         |
-| IVE     |             |   considered inactive due to                 |
-|         |             | | being out-of-sync with other replicas of   |
-|         |             |   the same shard. This                       |
-|         |             | | can occur when an append, modification     |
-|         |             |   (INSERT, UPDATE or                         |
-|         |             | | DELETE ) or a DDL operation fails for this |
-|         |             |   placement. The query                       |
-|         |             | | planner will ignore placements in this     |
-|         |             |   state during planning and                  |
-|         |             | | execution. Users can synchronize the data  |
-|         |             |   in these shards with                       |
-|         |             | | a finalized replica as a background        |
-|         |             |   activity.                                  |
-+---------+-------------+----------------------------------------------+
-| > TO\_D | > 4         | | If Hyperscale (Citus) attempts to drop a shard          |
-| ELETE   |             |   placement in response to a                 |
-|         |             | | master\_apply\_delete\_command call and    |
-|         |             |   fails, the placement is                    |
-|         |             | | moved to this state. Users can then delete |
-|         |             |   these shards as a                          |
-|         |             | | subsequent background activity.            |
-+---------+-------------+----------------------------------------------+
+| State name | Shardstate value | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+|------------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| FINALIZED  | 1                | This is the state new shards are created in. Shard placements in this state are considered up-to-date and are used in query planning and execution.                                                                                                                                                                                                                                                                                 |
+| INACTIVE   | 3                | Shard placements in this state are considered inactive due to being out-of-sync with other replicas of the same shard. This can occur when an append, modification (INSERT, UPDATE or DELETE ) or a DDL operation fails for this placement. The query planner will ignore placements in this state during planning and execution. Users can synchronize the data in these shards with a finalized replica as a background activity. |
+| TO_DELETE  | 4                | If Citus attempts to drop a shard placement in response to a master_apply_delete_command call and fails, the placement is moved to this state. Users can then delete these shards as a subsequent background activity.                                                                                                                                                                                                              |
 
 ### Worker node table
 
 The pg\_dist\_node table contains information about the worker nodes in
 the cluster.
 
-+----------+-------------+---------------------------------------------+
-| Name     | Type        | Description                                 |
-+==========+=============+=============================================+
-| nodeid   | > int       | | Auto-generated identifier for an          |
-|          |             |   individual node.                          |
-+----------+-------------+---------------------------------------------+
-| groupid  | > int       | | Identifier used to denote a group of one  |
-|          |             |   primary server and zero or more           |
-|          |             | | secondary servers, when the streaming     |
-|          |             |   replication model is used. By             |
-|          |             | | default it is the same as the nodeid.     |
-+----------+-------------+---------------------------------------------+
-| nodename | > text      | | Host Name or IP Address of the PostgreSQL |
-|          |             |   worker node.                              |
-+----------+-------------+---------------------------------------------+
-| nodeport | > int       | | Port number on which the PostgreSQL       |
-|          |             |   worker node is listening.                 |
-+----------+-------------+---------------------------------------------+
-| noderack | > text      | | (Optional) Rack placement information for |
-|          |             |   the worker node.                          |
-+----------+-------------+---------------------------------------------+
-| hasmetad | > boolean   | | Reserved for internal use.                |
-| ata      |             |                                             |
-+----------+-------------+---------------------------------------------+
-| isactive | > boolean   | | Whether the node is active accepting      |
-|          |             |   shard placements.                         |
-+----------+-------------+---------------------------------------------+
-| noderole | > text      | | Whether the node is a primary or          |
-|          |             |   secondary                                 |
-+----------+-------------+---------------------------------------------+
-| nodeclus | > text      | | The name of the cluster containing this   |
-| ter      |             |   node                                      |
-+----------+-------------+---------------------------------------------+
-| shouldha | > boolean   | | If false, shards will be moved off node   |
-| veshards |             |   (drained) when rebalancing,               |
-|          |             | | nor will shards from new distributed      |
-|          |             |   tables be placed on the node,             |
-|          |             | | unless they are colocated with shards     |
-|          |             |   already there                             |
-+----------+-------------+---------------------------------------------+
+| Name             | Type    | Description                                                                                                                                                                                |
+|------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| nodeid           | int     | Auto-generated identifier for an individual node.                                                                                                                                          |
+| groupid          | int     | Identifier used to denote a group of one primary server and zero or more secondary servers, when the streaming replication model is used. By default it is the same as the nodeid.         |
+| nodename         | text    | Host Name or IP Address of the PostgreSQL worker node.                                                                                                                                     |
+| nodeport         | int     | Port number on which the PostgreSQL worker node is listening.                                                                                                                              |
+| noderack         | text    | (Optional) Rack placement information for the worker node.                                                                                                                                 |
+| hasmetadata      | boolean | Reserved for internal use.                                                                                                                                                                 |
+| isactive         | boolean | Whether the node is active accepting shard placements.                                                                                                                                     |
+| noderole         | text    | Whether the node is a primary or secondary                                                                                                                                                 |
+| nodecluster      | text    | The name of the cluster containing this node                                                                                                                                               |
+| shouldhaveshards | boolean | If false, shards will be moved off node (drained) when rebalancing, nor will shards from new distributed tables be placed on the node, unless they are colocated with shards already there |
 
 ```
 SELECT * from pg_dist_node;
@@ -304,31 +164,16 @@ to the cluster, Hyperscale (Citus) automatically creates copies of the distribut
 objects on the new nodes (in the correct order to satisfy object
 dependencies).
 
-  ------------------------------------------------------------------------------------
-  Name                            Type       Description
-  ------------------------------- ---------- -----------------------------------------
-  classid                         oid        Class of the distributed object
-
-  objid                           oid        Object id of the distributed object
-
-  objsubid                        integer    Object sub id of the distributed object,
-                                             e.g. attnum
-
-  type                            text       Part of the stable address used during pg
-                                             upgrades
-
-  object\_names                   text\[\]   Part of the stable address used during pg
-                                             upgrades
-
-  object\_args                    text\[\]   Part of the stable address used during pg
-                                             upgrades
-
-  distribution\_argument\_index   integer    Only valid for distributed
-                                             functions/procedures
-
-  colocationid                    integer    Only valid for distributed
-                                             functions/procedures
-  ------------------------------------------------------------------------------------
+| Name                        | Type    | Description                                          |
+|-----------------------------|---------|------------------------------------------------------|
+| classid                     | oid     | Class of the distributed object                      |
+| objid                       | oid     | Object id of the distributed object                  |
+| objsubid                    | integer | Object sub id of the distributed object, e.g. attnum |
+| type                        | text    | Part of the stable address used during pg upgrades   |
+| object_names                | text[]  | Part of the stable address used during pg upgrades   |
+| object_args                 | text[]  | Part of the stable address used during pg upgrades   |
+| distribution_argument_index | integer | Only valid for distributed functions/procedures      |
+| colocationid                | integer | Only valid for distributed functions/procedures      |
 
 \"Stable addresses\" uniquely identify objects independently of a
 specific server. Hyperscale (Citus) tracks objects during a PostgreSQL upgrade using
@@ -393,22 +238,12 @@ factors, and partition column types all match between two tables; however, a
 custom co-location group may be specified when creating a distributed table, if
 so desired.
 
-+-------------+------------+-------------------------------------------+
-| Name        | Type       | Description                               |
-+=============+============+===========================================+
-| colocationi | > int      | | Unique identifier for the co-location   |
-| d           |            |   group this row corresponds to.          |
-+-------------+------------+-------------------------------------------+
-| shardcount  | > int      | | Shard count for all tables in this      |
-|             |            |   co-location group                       |
-+-------------+------------+-------------------------------------------+
-| replication | > int      | | Replication factor for all tables in    |
-| factor      |            |   this co-location group.                 |
-+-------------+------------+-------------------------------------------+
-| distributio | > oid      | | The type of the distribution column for |
-| ncolumntype |            |   all tables in this                      |
-|             |            | | co-location group.                      |
-+-------------+------------+-------------------------------------------+
+| Name                   | Type | Description                                                                   |
+|------------------------|------|-------------------------------------------------------------------------------|
+| colocationid           | int  | Unique identifier for the co-location group this row corresponds to.          |
+| shardcount             | int  | Shard count for all tables in this co-location group                          |
+| replicationfactor      | int  | Replication factor for all tables in this co-location group.                  |
+| distributioncolumntype | oid  | The type of the distribution column for all tables in this co-location group. |
 
 ```
 SELECT * from pg_dist_colocation;
@@ -424,45 +259,14 @@ This table defines strategies that
 [rebalance_table_shards](reference-hyperscale-udf.md#rebalance_table_shards)
 can use to determine where to move shards.
 
-+-----------------+-----------+----------------------------------------+
-| Name            | Type      | Description                            |
-+=================+===========+========================================+
-| name            | > name    | | Unique name for the strategy         |
-+-----------------+-----------+----------------------------------------+
-| default\_strate | > boolean | | Whether                              |
-| gy              |           |   rebalance_table_shards should choose |
-|                 |           |   this strategy by default.            |
-|                 |           | | Use                                  |
-|                 |           |   `citus_set_default_rebalance_strateg |
-|                 |           | y`                                     |
-|                 |           | | to update this column                |
-+-----------------+-----------+----------------------------------------+
-| shard\_cost\_fu | > regproc | | Identifier for a cost function,      |
-| nction          |           |   which must take a shardid as bigint, |
-|                 |           | | and return its notion of a cost, as  |
-|                 |           |   type real                            |
-+-----------------+-----------+----------------------------------------+
-| node\_capacity\ | > regproc | | Identifier for a capacity function,  |
-| _function       |           |   which must take a nodeid as int,     |
-|                 |           | | and return its notion of node        |
-|                 |           |   capacity as type real                |
-+-----------------+-----------+----------------------------------------+
-| shard\_allowed\ | > regproc | | Identifier for a function that given |
-| _on\_node\_func |           |   shardid bigint, and nodeidarg int,   |
-| tion            |           | | returns boolean for whether the      |
-|                 |           |   shard is allowed to be stored on the |
-|                 |           | | node                                 |
-+-----------------+-----------+----------------------------------------+
-| default\_thresh | > float4  | | Threshold for deeming a node too     |
-| old             |           |   full or too empty, which determines  |
-|                 |           | | when the rebalance\_table\_shards    |
-|                 |           |   should try to move shards            |
-+-----------------+-----------+----------------------------------------+
-| minimum\_thresh | > float4  | | A safeguard to prevent the threshold |
-| old             |           |   argument of                          |
-|                 |           | | rebalance\_table\_shards() from      |
-|                 |           |   being set too low                    |
-+-----------------+-----------+----------------------------------------+
+| Name                           | Type    | Description                                                                                                                                       |
+|--------------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| default_strategy               | boolean | Whether rebalance_table_shards should choose this strategy by default. Use citus_set_default_rebalance_strategy to update this column             |
+| shard_cost_function            | regproc | Identifier for a cost function, which must take a shardid as bigint, and return its notion of a cost, as type real                                |
+| node_capacity_function         | regproc | Identifier for a capacity function, which must take a nodeid as int, and return its notion of node capacity as type real                          |
+| shard_allowed_on_node_function | regproc | Identifier for a function that given shardid bigint, and nodeidarg int, returns boolean for whether the shard is allowed to be stored on the node |
+| default_threshold              | float4  | Threshold for deeming a node too full or too empty, which determines when the rebalance_table_shards should try to move shards                    |
+| minimum_threshold              | float4  | A safeguard to prevent the threshold argument of rebalance_table_shards() from being set too low                                                  |
 
 A Hyperscale (Citus) installation ships with these strategies in the table:
 
@@ -572,26 +376,15 @@ view in PostgreSQL which tracks statistics about query speed.
 This view can trace queries to originating tenants in a multi-tenant
 application, which helps for deciding when to do tenant isolation.
 
-  -------------------------------------------------------------------------------------
-  Name             Type     Description
-  ---------------- -------- -----------------------------------------------------------
-  queryid          bigint   identifier (good for pg\_stat\_statements joins)
-
-  userid           oid      user who ran the query
-
-  dbid             oid      database instance of coordinator
-
-  query            text     anonymized query string
-
-  executor         text     Hyperscale (Citus)
-							distributed query executor used: adaptive,
-                            real-time, task-tracker, router, or insert-select
-
-  partition\_key   text     value of distribution column in router-executed queries,
-                            else NULL
-
-  calls            bigint   number of times the query was run
-  -------------------------------------------------------------------------------------
+| Name          | Type   | Description                                                                      |
+|---------------|--------|----------------------------------------------------------------------------------|
+| queryid       | bigint | identifier (good for pg_stat_statements joins)                                   |
+| userid        | oid    | user who ran the query                                                           |
+| dbid          | oid    | database instance of coordinator                                                 |
+| query         | text   | anonymized query string                                                          |
+| executor      | text   | Citus executor used: adaptive, real-time, task-tracker, router, or insert-select |
+| partition_key | text   | value of distribution column in router-executed queries, else NULL               |
+| calls         | bigint | number of times the query was run                                                |
 
 ```sql
 -- create and populate distributed table
@@ -807,17 +600,11 @@ all nodes, not just the coordinator.
 The `pg_dist_authinfo` table holds authentication parameters used by
 Hyperscale (Citus) nodes to connect to one another.
 
-  ----------------------------------------------------------------------
-  Name       Type      Description
-  ---------- --------- -------------------------------------------------
-  nodeid     integer   Node id from
-                       [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table),
-                       or 0, or -1
-
-  rolename   name      Postgres role
-
-  authinfo   text      Space-separated libpq connection parameters
-  ----------------------------------------------------------------------
+| Name     | Type    | Description                                 |
+|----------|---------|---------------------------------------------|
+| nodeid   | integer | Node id from Worker node table, or 0, or -1 |
+| rolename | name    | Postgres role                               |
+| authinfo | text    | Space-separated libpq connection parameters |
 
 Upon beginning a connection, a node consults the table to see whether a row
 with the destination `nodeid` and desired `rolename` exists. If so, the node
@@ -858,13 +645,10 @@ instead of setting up a direct connection. The pg\_dist\_poolinfo information
 in this case supersedes
 [pg_dist_node](reference-hyperscale-metadata.md#worker-node-table).
 
-  -----------------------------------------------------------------------
-  Name       Type      Description
-  ---------- --------- --------------------------------------------------
-  nodeid     integer   Node id from `pg_dist_node`
-
-  poolinfo   text      Space-separated parameters: host, port, or dbname
-  -----------------------------------------------------------------------
+| Name     | Type    | Description                                       |
+|----------|---------|---------------------------------------------------|
+| nodeid   | integer | Node id from Worker node table                    |
+| poolinfo | text    | Space-separated parameters: host, port, or dbname |
 
 > [!NOTE]
 > In some situations Hyperscale (Citus) ignores the settings in
