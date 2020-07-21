@@ -9,7 +9,7 @@ ms.custom: mvc,subject-armqs
 
 # Quickstart: Back up a virtual machine in Azure with an ARM template
 
-[Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with an Azure Resource Manager template (ARM template) and Azure PowerShell. This quickstart focuses on the process of deploying an ARM template to create a Recover Services vault. For more information on developing ARM templates, see the [Azure Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) backs up on-premises machines and apps, and Azure VMs. This article shows you how to back up an Azure VM with an Azure Resource Manager template (ARM template) and Azure PowerShell. This quickstart focuses on the process of deploying an ARM template to create a Recover Services vault. For more information on developing ARM templates, see the [Azure Resource Manager documentation](../azure-resource-manager/index.yml) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
