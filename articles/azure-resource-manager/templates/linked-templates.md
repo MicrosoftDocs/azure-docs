@@ -313,7 +313,7 @@ When referencing a linked template, the value of `uri` must not be a local file 
 
 Resource Manager must be able to access the template. One option is to place your linked template in a storage account, and use the URI for that item.
 
-[Template specs](./template-specs.md) (currently in private preview) allows you to share ARM templates with other users in your organization. Templates specs can also be used  package a main template and its linked templates. For more information, see:
+[Template specs](./template-specs.md) (currently in private preview) allows you to share ARM templates with other users in your organization. Templates specs can also be used to package a main template and its linked templates. For more information, see:
 
 - [Tutorial: Create a template spec with linked templates](./template-specs-create-linked.md).
 - [Tutorial: Deploy a template spec as a linked template](./template-specs-deploy-linked-template.md).
