@@ -68,19 +68,19 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 1. In the **Logic App Designer**, under the search box, select **All**.
 
-1. In the search box, enter `rss` to find the RSS connector. From the triggers list, select the **When a feed item is published** trigger.
+1. To find the RSS connector, in the search box, enter `rss`. From the triggers list, select the RSS trigger, **When a feed item is published**.
 
    ![Select "When a feed item is published" trigger](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
-1. Provide the information for your trigger as described in the table:
+1. Provide the information for your trigger as described in this step:
 
    ![Set up trigger with RSS feed, frequency, and interval](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Property | Value | Description |
    |----------|-------|-------------|
-   | **The RSS feed URL** | <*RSS-feed-URL*> | The link for the RSS feed that you want to monitor. This example uses `http://feeds.reuters.com/reuters/topNews`. |
+   | **The RSS feed URL** | <*RSS-feed-URL*> | The link for the RSS feed that you want to monitor. This example uses the Wall Street Journal's RSS feed at `https://feeds.a.dj.com/rss/RSSWorldNews.xml`, but you can use your own URL, if you want. |
    | **Interval** | 1 | The number of intervals to wait between checks |
-   | **Frequency** | Minute | The unit of time for each interval between checks  |
+   | **Frequency** | Minute | The unit of time for each interval between checks |
    ||||
 
    Together, the interval and frequency define the schedule for your logic app's trigger. This logic app checks the feed every minute.
@@ -103,14 +103,15 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
 1. Under **Choose an action** and the search box, select **All**.
 
-1. In the search box, enter `send an email` to find connectors that offer this action. From the actions list, select the "send an email" action for the email service that you want to use. This example uses the Office 365 Outlook connector, which has the **Send an email** action.
+1. In the search box, enter `send an email` so that you can find connectors that offer this action. To filter the actions list to a specific app or service, you can select that app or service first.
 
-   ![Select the "Send an email" action for Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   For example, if you're using a Microsoft work or school account and want to use Office 365 Outlook, select **Office 365 Outlook**. Or, if you're using a personal Microsoft account, you can select Outlook.com. This example continues with Office 365 Outlook:
 
-   To filter the actions list to a specific app or service, you can select that app or service first:
+   ![Select the Office 365 Outlook connector](./media/quickstart-create-first-logic-app-workflow/select-connector.png)
 
-   * For Azure work or school accounts, select Office 365 Outlook.
-   * For personal Microsoft accounts, select Outlook.com.
+   You can now more easily find and select the action that you want to use, for example, `send an email`:
+
+   ![Screenshot showing filtered actions list](./media/quickstart-create-first-logic-app-workflow/filtered-actions-list.png)
 
 1. If your selected email connector prompts you to authenticate your identity, complete that step now to create a connection between your logic app and your email service.
 
@@ -133,21 +134,21 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
    1. In the **Subject** box, enter this text with a trailing blank space: `New RSS item: `
 
-      ![In the "Subject" property, enter your email subject](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
+      ![In the "Subject" property, enter your email subject](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
 
    1. From the **Add dynamic content** list, select **Feed title** to include the RSS item title.
 
-      ![From dynamic content list, select "Feed title" property](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
+      ![From dynamic content list, select "Feed title" property](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
 
       When you're done, the email subject looks like this example:
 
-      ![Finished email subject example for added feed title](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
+      ![Finished email subject example for added feed title](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
       If a "For each" loop appears on the designer, then you selected a token for an array, for example, the **categories-Item** token. For these kinds of tokens, the designer automatically adds this loop around the action that references that token. That way, your logic app performs the same action on each array item. To remove the loop, select the **ellipses** (**...**) on the loop's title bar, then select **Delete**.
 
    1. In the **Body** box, enter this text, and select these tokens for the email body. To add blank lines in an edit box, press Shift + Enter.
 
-      ![Select properties for email body content](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
+      ![Select properties for email body content](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
       | Property | Description |
       |----------|-------------|
