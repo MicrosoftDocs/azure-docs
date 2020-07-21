@@ -80,7 +80,7 @@ When the analysis has finished, select the thumbnail to open the field selection
 
 On the field selection page, you choose the fields that matter to you:
 
-1. To select a field, click on a rectangle that indicates a detected field in the document, or select it in the right-side pane.
+1. To select a field, click on a rectangle that indicates a detected field in the document, or select multiple fields by clicking and dragging. You can also select fields from the right-side pane.
 1. Click the name of the selected field if you want to rename it to align with your needs or normalize the extracted labels.
 
     When you click on a detected field, the following information appears:
@@ -90,6 +90,10 @@ On the field selection page, you choose the fields that matter to you:
 
 > [!div class="mx-imgBorder"]
 > ![add documents page](./media/tutorial-aibuilder/select-fields-page.png)
+
+### Label undetected fields
+
+If the field you want to label wasn't detected automatically by the model, you can draw a rectangle around its value and type a label name in the dialog that appears.
 
 ## Train your model
 
