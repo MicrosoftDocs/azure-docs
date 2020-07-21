@@ -1,13 +1,11 @@
 ---
 title: Azure Cache for Redis with Azure Private Link
-description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. 
-
-In this article, you will learn how to create an Azure Cache, an Azure virtual network, and a Private Endpoint using the Azure portal.  
-author: curibe
-ms.author: curibeg
+description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. In this article, you will learn how to create an Azure Cache, an Azure virtual network, and a Private Endpoint using the Azure portal.  
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/21/2020
 ---
 
 # Azure Cache for Redis with Azure Private Link
@@ -40,7 +38,7 @@ In this article, you'll learn how to create an Azure Cache, an Azure virtual net
    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
-   | **Pricing tier** | Drop down and select a [Pricing tier](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](../articles/azure-cache-for-redis/cache-overview.md). |
+   | **Pricing tier** | Drop down and select a [Pricing tier](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
    
 1. Select **Create**. 
    
