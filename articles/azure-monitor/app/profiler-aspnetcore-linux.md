@@ -102,7 +102,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
     ![Set up the Git repository](./media/profiler-aspnetcore-linux/setup-git-repo.png)
 
-For more deployment options, see [this article](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type).
+For more deployment options, see [this article](../../app-service/containers/choose-deployment-type.md).
 
 ## Deploy your project
 

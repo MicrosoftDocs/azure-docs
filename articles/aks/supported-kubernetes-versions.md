@@ -130,7 +130,7 @@ For the past release history, see [here](https://en.wikipedia.org/wiki/Kubernete
 | 1.17  | Dec-09-19  | Jan 19   | Jul 20  | 1.20 GA | 
 | 1.18  | Mar-23-20  | May 20   | Aug 20  | 1.21 GA | 
 | 1.19  | Aug-04-20  | Aug 20   | Nov 20  | 1.22 GA | 
-| 1.20  | *Nov 20    | *Dec 21   | *Jan 21  | 1.23 GA | 
+| 1.20  | *Nov 20    | *Dec 20   | *Jan 21  | 1.23 GA | 
 
 \* Pending Upstream release date confirmation.
 
@@ -180,4 +180,4 @@ For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions
-[preview-terms]: /support/legal/preview-supplemental-terms
+[preview-terms]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

@@ -37,11 +37,11 @@ This script uses following commands to create a new managed disk in the target s
 
 | Command | Notes |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk) | Gets all the properties of a managed disk using the name and resource group properties of the managed disk. Id property is used to copy the managed disk to different subscription.  |
-| [az disk create](https://docs.microsoft.com/cli/azure/disk) | Copies a managed disk by creating a new managed disk in different subscription using Id and name the parent managed disk.  |
+| [az disk show](/cli/azure/disk) | Gets all the properties of a managed disk using the name and resource group properties of the managed disk. Id property is used to copy the managed disk to different subscription.  |
+| [az disk create](/cli/azure/disk) | Copies a managed disk by creating a new managed disk in different subscription using Id and name the parent managed disk.  |
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Windows VM documentation](../windows/cli-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

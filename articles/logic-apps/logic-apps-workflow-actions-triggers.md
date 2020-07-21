@@ -10,7 +10,7 @@ ms.date: 06/10/2020
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
 
-This reference describes the general types used for identifying triggers and actions in your logic app's underlying workflow definition, which is described and validated by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). To find specific connector triggers and actions that you can use in your logic apps, see the list under the [Connectors overview](https://docs.microsoft.com/connectors/).
+This reference describes the general types used for identifying triggers and actions in your logic app's underlying workflow definition, which is described and validated by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). To find specific connector triggers and actions that you can use in your logic apps, see the list under the [Connectors overview](/connectors/).
 
 <a name="triggers-overview"></a>
 
@@ -565,7 +565,7 @@ For more information plus examples for this trigger, see [Create and schedule re
 
 This trigger makes your logic app callable by creating an endpoint that can accept incoming requests. For this trigger, provide a JSON schema that describes and validates the payload or inputs that the trigger receives from the incoming request. The schema also makes trigger properties easier to reference from later actions in the workflow.
 
-To call this trigger, you must use the `listCallbackUrl` API, which is described in the [Workflow Service REST API](https://docs.microsoft.com/rest/api/logic/workflows). To learn how to use this trigger as an HTTP endpoint, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
+To call this trigger, you must use the `listCallbackUrl` API, which is described in the [Workflow Service REST API](/rest/api/logic/workflows). To learn how to use this trigger as an HTTP endpoint, see [Call, trigger, or nest workflows with HTTP endpoints](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
 "manual": {
@@ -2670,7 +2670,7 @@ For more information, see [Runtime configuration settings](#runtime-config-optio
 
 ### Run actions in a synchronous operation pattern
 
-By default, the HTTP action and APIConnection actions in Azure Logic Apps follow the standard [*asynchronous operation pattern*](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. The asynchronous pattern specifies that after an action calls or sends a request to the specified endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to continually poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. For more information, see [Asynchronous microservice integration enforces microservice autonomy](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+By default, the HTTP action and APIConnection actions in Azure Logic Apps follow the standard [*asynchronous operation pattern*](/azure/architecture/patterns/async-request-reply), while the Response action follows the *synchronous operation pattern*. The asynchronous pattern specifies that after an action calls or sends a request to the specified endpoint, service, system, or API, the receiver immediately returns a ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3) response. This code confirms that the receiver accepted the request but hasn't finished processing. The response can include a `location` header that specifies the URL and a refresh ID that the caller can use to continually poll or check the status for the asynchronous request until the receiver stops processing and returns a ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) success response or other non-202 response. For more information, see [Asynchronous microservice integration enforces microservice autonomy](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * In the Logic App Designer, the HTTP action, APIConnection actions, and Response action have the **Asynchronous Pattern** setting. When enabled, this setting specifies that the caller doesn't wait for processing to finish and can move on to the next action but continues checking the status until processing stops. If disabled, this setting specifies that the caller waits for processing to finish before moving on to the next action. To find this setting, follow these steps:
 

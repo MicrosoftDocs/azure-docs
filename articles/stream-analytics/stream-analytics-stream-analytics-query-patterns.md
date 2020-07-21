@@ -78,7 +78,7 @@ FROM Input
 ```
 ## Data aggregation over time
 
-To compute information over a time window, data can be aggregated together. In this example, a count is computed over the last 10 minutes of time for every specific car make.
+To compute information over a time window, data can be aggregated together. In this example, a count is computed over the last 10 seconds of time for every specific car make.
 
 **Input**:
 

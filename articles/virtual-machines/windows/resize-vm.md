@@ -121,5 +121,4 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## Next steps
 
-For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
+For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).
