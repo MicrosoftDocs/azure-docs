@@ -7,7 +7,7 @@ ms.date: 6/09/2020
 
 # Set up dependency visualization
 
-This article describes how to set up agentless dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
+This article describes how to set up agent-based dependency analysis in Azure Migrate:Server Assessment. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across machines you want to assess and migrate to Azure.
 
 ## Before you start
 
