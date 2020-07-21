@@ -14,17 +14,19 @@ ms.service: azure-project-spool
 
 # Spool Group Calling Sample
 
+### You can find the hero sample and documentation to run it here: [Sample Calling App](https://skype.visualstudio.com/SCC/_git/internal_service_spool-e2e?version=GBalkwa%2Fprivate-preview-group)
+
 This is a sample application to show how the ACS Calling Web SDK can be used to build a group calling experience. The client-side application is a React based user interface which uses Redux for handling complex state while leveraging Microsoft Fluent UI for how things look. Powering this front-end is a C# web application powered by ASP.net Core to connect this application with Azure. 
 
-![Homepage](/media/homepage.png)
+![Homepage](../media/homepage-sample-calling.png)
 
 The app allows users to place a call. When you press the button, the react app calls on the backend service to retrieve the user access token that will be used to connect to Azure Communication Services.
 
-![Start Call](/media/startCall.png)
+![Start Call](../media/startCall-calling-sample.png)
 
 As with most online calling applications, you have the ability to specify the camera and microphone you want to use. You can also add/remove camera and mute/unmute your microphone.
 
-![Settings](/media/settingPage.png)
+![Settings](../media/settingPage-calling-sample.png)
 
 Once you start the call, you will see the URL of your page now has a **groupId** as a parameter. That **groupId** is used to define the call session that you started. **To invite other people to join, you can share that URL with them**. 
 
@@ -32,15 +34,13 @@ Once on the call, you will see a couple of different components:
 
 1. **Header**: Home of the controls for the call such as mute/unmute, add/remove camera, settings and leave meeting. The header itself is a react component in this project which can be modified as well as the buttons in it.
 
-![Header](/media/header.png)
+![Header](../media/header-calling-sample.png)
 
 2. **Media Gallery**: Main stage where participants are shown and where if they have their cameras on, video feed is shown.
 
-![Gallery](/media/mediaGallery.png)
+![Gallery](../media/mediaGallery-calling-sample.png)
 
 Feel free to test the sample around. Open multiple windows and try adding yourself into the call to see more participants. Below you will find links to download the sample, pre-requisites, steps to set up and some excercises to familarize yourself with it.
-
-### You can find the hero sample and documentation to run it here: [Sample Calling App](https://skype.visualstudio.com/SCC/_git/internal_service_spool-e2e?version=GBalkwa%2Fprivate-preview-group)
 
 # Locally deploying the service & client app
 
@@ -88,7 +88,7 @@ from the browser, it will use the locally deployed ClientApp for the user experi
 3. Before publish, add your connection string with `Edit App Service Settings`, and fill in `ResourceConnectionString` as key and connection string (copy from appsettings.json) as value
 
 
-# Try it out!
+# How To
 If you want to dive deeper into the sample, here are a couple of walkthroughs with the objective of helping you familiarize yourself with the ACS libraries and the apps components.
 
 1. **Changing the Media Gallery:** First lets start by modifying the media gallery component to change the behavior with which tiles are generated. To do this lets go to the components folder and look for MediaGallery. Lets try the following:
