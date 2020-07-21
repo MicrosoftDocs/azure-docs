@@ -300,7 +300,7 @@ You can check which version of the runbook script you're using by opening the ru
 
 When you report an issue, you'll need to provide the following information to help us troubleshoot:
 
-- Complete log from the **All Logs** tab by [navigating to the job](#view-logs-and-scaling-tool-output) that caused an issue. Feel free to mask any sensitive information from the log
+- A complete log from the **All Logs** tab in the job that caused the issue. To learn how to get the log, follow the instructions in [View logs and scaling tool output](#view-logs-and-scaling-tool-output). If there's any sensitive or private information in the log, you can remove it before submitting the issue to us.
 
 - The version of the runbook script you're using. To find out how to get the version number, see [Check the runbook script version number](#check-the-runbook-script-version-number)
 
