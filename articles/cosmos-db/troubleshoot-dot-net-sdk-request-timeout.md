@@ -17,7 +17,7 @@ This error occurs if the SDK was not able to connect to the Azure Cosmos DB serv
 The following list contains known causes for request timeout exceptions.
 
 ### 1. High CPU utilization (most common case)
-For optimal latency, it is recommended that CPU usage should be roughly 40%. It is recommended to use 10 seconds as the interval to monitor CPU utilization. If the interval is larger, then CPU spikes can be missed by getting averaged in with lower values. CPU spikes are more common with cross partition queries where it might do multiple connections for a single query.
+For optimal latency, it is recommended that CPU usage should be roughly 40%. It is recommended to use 10 seconds as the interval to monitor max (not average) CPU utilization. CPU spikes are more common with cross partition queries where it might do multiple connections for a single query.
 
 #### Solution:
 The client application that uses the SDK should be scaled up/out.
