@@ -6,7 +6,7 @@ ms.date: 07/20/2020
 ---
 
 # Recommended configurations for Apache Kafka clients
-
+Here are the recommended configurations for using Azure Event Hubs from Apache Kafka client applications. 
 
 ## Java client configuration properties
 
@@ -36,7 +36,7 @@ Consumer configs can be found [here](https://kafka.apache.org/documentation/#con
 
 Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
-`heartbeat.interval.ms` | 3000 | | This is default value and shouldn't be changed.
+`heartbeat.interval.ms` | 3000 | | 3000 is the default value and shouldn't be changed.
 `session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.
 
 
@@ -64,7 +64,7 @@ Property | Recommended Values | Permitted Range | Notes
 
 Property | Recommended Values | Permitted Range | Notes
 ---|---:|-----:|---
-`heartbeat.interval.ms` | 3000 || This is default value and shouldn't be changed.
+`heartbeat.interval.ms` | 3000 || 3000 is the default value and shouldn't be changed.
 `session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.
 
 
