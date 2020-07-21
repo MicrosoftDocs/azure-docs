@@ -83,9 +83,9 @@ The Azure Backup Server virtual machine must be joined to a domain. A domain use
 
 ## Using an IaaS VM in Azure Stack
 
-When choosing a server for Azure Backup Server, start with a Windows Server 2012 R2 Datacenter or Windows Server 2016 Datacenter gallery image. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5-GB RAM.
+When choosing a server for Azure Backup Server, start with a Windows Server 2012 R2 Datacenter or Windows Server 2016 Datacenter gallery image. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5-GB RAM.
 
-Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) helps explain these nuances. Before deploying the machine, read this article completely.
+Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](./backup-mabs-protection-matrix.md) helps explain these nuances. Before deploying the machine, read this article completely.
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose virtual machine. You cannot install Azure Backup Server on:
@@ -101,7 +101,7 @@ Always join Azure Backup Server to a domain. If you need to move Azure Backup Se
 
 ### Set Storage Replication
 
-The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that is less durable. Read more about [geo-redundant](../storage/common/storage-redundancy-grs.md) and [locally redundant](../storage/common/storage-redundancy-lrs.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
+The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that is less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
 To edit the storage replication setting:
 
@@ -237,7 +237,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    The scratch location is required to back up to Azure. Ensure the size of the scratch location is equivalent to at least 5% of the data planned to be backed up to Azure. For disk protection, separate disks need to be configured once the installation completes. For more information regarding storage pools, see [Prepare data storage](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
 
 6. On the **Security Settings** screen, provide a strong password for restricted local user accounts and click **Next**.
 
@@ -303,7 +303,7 @@ Azure Backup Server shares code with Data Protection Manager. You will see refer
 
 ## Add backup storage
 
-The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
+The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Add Modern Backup storage](/system-center/dpm/add-storage).
 
 > [!NOTE]
 > You need to add backup storage even if you plan to send data to Azure. In the Azure Backup Server architecture, the Recovery Services vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
@@ -353,10 +353,10 @@ You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
 
-The article, [Preparing your environment for DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), contains information about supported  Azure Backup Server configurations.
+The article, [Preparing your environment for DPM](/system-center/dpm/prepare-environment-for-dpm), contains information about supported  Azure Backup Server configurations.
 
 You can use the following articles to gain a deeper understanding of workload protection using Microsoft Azure Backup Server.
 
-- [SQL Server backup](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
-- [SharePoint server backup](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server backup](./backup-mabs-sql-azure-stack.md)
+- [SharePoint server backup](./backup-mabs-sharepoint-azure-stack.md)
 - [Alternate server backup](backup-azure-alternate-dpm-server.md)

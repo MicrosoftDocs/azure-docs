@@ -112,7 +112,9 @@
         href: concepts-data-access-and-security-private-link.md
       - name: Data Encryption
         href: concepts-data-encryption-postgresql.md
-      - name: Security baseline
+      - name: Infrastructure double encryption
+        href: concepts-infrastructure-double-encryption.md        
+      - name: Security baseline for Azure Security Benchmark
         href: security-baseline.md
     - name: Business continuity
       items:
@@ -181,6 +183,8 @@
         href: concepts-hyperscale-firewall-rules.md
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
+      - name: Security baseline for Azure Security Benchmark
+        href: postgresql-hyperscale-security-baseline.md
     - name: Business continuity
       items:
       - name: Backup and restore
@@ -307,6 +311,10 @@
         href: howto-data-encryption-cli.md
       - name: Data encryption validation
         href: howto-data-encryption-validation.md
+    - name: Infrastructure double encryption
+      items:
+      - name: Configure infrastructure double encryption
+        href: howto-double-encryption.md
     - name: Restart server
       items:
       - name: Azure portal
@@ -343,6 +351,8 @@
       items:
       - name: Create alerts on metrics
         href: howto-hyperscale-alert-on-metric.md
+      - name: Access database logs
+        href: howto-hyperscale-logging.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot connection errors

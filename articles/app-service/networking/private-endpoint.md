@@ -1,10 +1,10 @@
 ---
-title: Connect privately to a Web App using Azure Private Endpoint
+title: Connect privately to an Azure Web App using  Private Endpoint
 description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 07/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -107,8 +107,6 @@ For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted
 | mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
-> [!TIP]
-> These two records are automatically populated if you have a private DNS zone named privatelink.azurewebsites.net linked to the VNet where you create the Private Endpoint.
 
 
 ## Pricing
@@ -125,9 +123,10 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 
 ## Next steps
 
-To deploy Private endpoint for your Web App through the portal, see [How to connect privately to a Web App][howtoguide]
-
-
+- To deploy Private Endpoint for your Web App through the portal, see [How to connect privately to a Web App with the Portal][howtoguide1]
+- To deploy Private Endpoint for your Web App using Azure CLI, see [How to connect privately to a Web App with Azure CLI][howtoguide2]
+- To deploy Private Endpoint for your Web App using PowerShell, see [How to connect privately to a Web App with PowerShell][howtoguide3]
+- To deploy Private Endpoint for your Web App using Azure template, see [How to connect privately to a Web App with Azure template][howtoguide4]
 
 
 <!--Links-->
@@ -140,4 +139,7 @@ To deploy Private endpoint for your Web App through the portal, see [How to conn
 [dnsvalidation]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain
 [pllimitations]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview#limitations
 [pricing]: https://azure.microsoft.com/pricing/details/private-link/
-[howtoguide]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
+[howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
+[howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
+[howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint

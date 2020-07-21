@@ -1,14 +1,10 @@
 ---
 title: 'Quickstart: Send custom events to Azure Function - Event Grid'
 description: 'Quickstart: Use Azure Event Grid and Azure CLI or portal to publish a topic, and subscribe to that event. An Azure Function is used for the endpoint.' 
-services: event-grid 
-keywords: 
-author: femila
-ms.author: femila
-ms.date: 11/15/2019
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
 ---
+
 # Quickstart: Route custom events to an Azure Function with Event Grid
 
 Azure Event Grid is an eventing service for the cloud. Azure Functions is one of the supported event handlers. In this article, you use the Azure portal to create a custom topic, subscribe to the custom topic, and trigger the event to view the result. You send the events to an Azure Function.

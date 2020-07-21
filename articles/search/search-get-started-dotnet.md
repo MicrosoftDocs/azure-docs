@@ -563,3 +563,8 @@ The sample code and index are expanded versions of this one. The next sample add
 
 > [!div class="nextstepaction"]
 > [How to develop in .NET](search-howto-dotnet-sdk.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

@@ -2,8 +2,6 @@
 title: Tax details for Microsoft commercial marketplace
 Description: To understand your tax considerations for price selection, payout implications, and tax responsibility, see your countries/regions of distribution in the tables below.
 ms.topic: conceptual
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.date: 05/04/2020
 ---

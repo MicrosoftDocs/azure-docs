@@ -1,5 +1,5 @@
 ---
-title: Set up service alerts for Windows Virtual Desktop - Azure
+title: Set up service alerts for Windows Virtual Desktop – Fall 2019 – Azure
 description: How to set up Azure Service Health to receive service notifications for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -10,7 +10,7 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tutorial: Set up service alerts
+# Tutorial: Set up service alerts - Fall 2019
 
 >[!IMPORTANT]
 >This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../set-up-service-alerts.md).
@@ -56,4 +56,4 @@ To configure service alerts:
 In this tutorial, you learned how to set up and use Azure Service Health to monitor service issues and health advisories for Windows Virtual Desktop. To learn about how to sign in to Windows Virtual Desktop, continue to the Connect to Windows Virtual Desktop How-tos.
 
 > [!div class="nextstepaction"]
-> [Connect to the Remote Desktop client on Windows 7 and Windows 10](../connect-windows-7-and-10.md)
+> [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-10-2019.md)

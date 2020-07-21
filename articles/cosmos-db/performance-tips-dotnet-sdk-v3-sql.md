@@ -244,9 +244,11 @@ The request charge returned in this header is a fraction of your provisioned thr
 
 When a client attempts to exceed the reserved throughput for an account, there's no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429). It will return an [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) header that indicates the amount of time, in milliseconds, that the user must wait before attempting the request again.
 
+```xml
     HTTP Status 429,
     Status Line: RequestRateTooLarge
     x-ms-retry-after-ms :100
+```
 
 The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 

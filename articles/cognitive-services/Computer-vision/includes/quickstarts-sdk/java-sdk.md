@@ -205,7 +205,7 @@ Computer Vision can read visible text in an image and convert it to a character 
 
 ### Call the Recognize API
 
-First, use the following code to call the **recognizePrintedTextInStream** method for the given image. When you add this code to your project, you need to replace the value of `localTextImagePath` with the path to your local image. 
+First, use the following code to call the **recognizePrintedTextInStream** method for the given image. When you add this code to your project, you need to replace the value of `localTextImagePath` with the path to your local image. You can download a [sample image](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) to use here.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 

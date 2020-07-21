@@ -141,7 +141,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### Custom events in Analytics
 
-The telemetry is available in the `customEvents` table in [Application Insights Analytics](analytics.md). Each row represents a call to `trackEvent(..)` in your app.
+The telemetry is available in the `customEvents` table in [Application Insights Analytics](../log-query/log-query-overview.md). Each row represents a call to `trackEvent(..)` in your app.
 
 If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should therefore use code such as `customEvents | summarize sum(itemCount)`.
 
@@ -199,7 +199,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### Custom metrics in Analytics
 
-The telemetry is available in the `customMetrics` table in [Application Insights Analytics](analytics.md). Each row represents a call to `trackMetric(..)` in your app.
+The telemetry is available in the `customMetrics` table in [Application Insights Analytics](../log-query/log-query-overview.md). Each row represents a call to `trackMetric(..)` in your app.
 
 * `valueSum` - This is the sum of the measurements. To get the mean value, divide by `valueCount`.
 * `valueCount` - The number of measurements that were aggregated into this `trackMetric(..)` call.
@@ -269,7 +269,7 @@ The resulting page load durations displayed in Metrics Explorer are derived from
 
 ### Page telemetry in Analytics
 
-In [Analytics](analytics.md) two tables show data from browser operations:
+In [Analytics](../log-query/log-query-overview.md) two tables show data from browser operations:
 
 * The `pageViews` table contains data about the URL and page title
 * The `browserTimings` table contains data about client performance, such as the time taken to process the incoming data
@@ -305,7 +305,7 @@ However, the recommended way to send request telemetry is where the request acts
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../azure-monitor/app/diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation ID.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../azure-monitor/app/diagnostic-search.md) and [Analytics](../log-query/log-query-overview.md), you can easily find any events associated with the request using its operation ID.
 
 See [Telemetry correlation in Application Insights](../../azure-monitor/app/correlation.md) for more details on correlation.
 
@@ -343,7 +343,7 @@ See [Track custom operations with Application Insights .NET SDK](../../azure-mon
 
 ### Requests in Analytics
 
-In [Application Insights Analytics](analytics.md), requests show up in the `requests` table.
+In [Application Insights Analytics](../log-query/log-query-overview.md), requests show up in the `requests` table.
 
 If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
 
@@ -425,7 +425,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 ### Exceptions in Analytics
 
-In [Application Insights Analytics](analytics.md), exceptions show up in the `exceptions` table.
+In [Application Insights Analytics](../log-query/log-query-overview.md), exceptions show up in the `exceptions` table.
 
 If [sampling](../../azure-monitor/app/sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
 
@@ -489,7 +489,7 @@ Log a diagnostic event such as entering or leaving a method.
  Parameter | Description
 ---|---
 `message` | Diagnostic data. Can be much longer than a name.
-`properties` | Map of string to string: Additional data used to [filter exceptions](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) in the portal. Defaults to empty.
+`properties` | Map of string to string: Additional data used to [filter exceptions](#properties) in the portal. Defaults to empty.
 `severityLevel` | Supported values: [SeverityLevel.ts](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 You can search on message content, but (unlike property values) you can't filter on it.
@@ -520,7 +520,7 @@ In [Search](../../azure-monitor/app/diagnostic-search.md), you can then easily f
 
 ### Traces in Analytics
 
-In [Application Insights Analytics](analytics.md), calls to TrackTrace show up in the `traces` table.
+In [Application Insights Analytics](../log-query/log-query-overview.md), calls to TrackTrace show up in the `traces` table.
 
 If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to `trackTrace()`, the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore code such as `traces | summarize sum(itemCount)`.
 
@@ -599,7 +599,7 @@ To turn off the standard dependency-tracking module in C#, edit [ApplicationInsi
 
 ### Dependencies in Analytics
 
-In [Application Insights Analytics](analytics.md), trackDependency calls show up in the `dependencies` table.
+In [Application Insights Analytics](../log-query/log-query-overview.md), trackDependency calls show up in the `dependencies` table.
 
 If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
 
@@ -808,7 +808,7 @@ telemetry.TrackEvent(event);
 
 ### Custom measurements and properties in Analytics
 
-In [Analytics](analytics.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
+In [Analytics](../log-query/log-query-overview.md), custom metrics and properties show in the `customMeasurements` and `customDimensions` attributes of each telemetry record.
 
 For example, if you have added a property named "game" to your request telemetry, this query counts the occurrences of different values of "game", and show the average of the custom metric "score":
 
@@ -1090,8 +1090,8 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
 
 ## Reference docs
 
-* [ASP.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Java reference](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [ASP.NET reference](/dotnet/api/overview/azure/insights?view=azure-dotnet)
+* [Java reference](/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [JavaScript reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## SDK code
@@ -1115,4 +1115,4 @@ To determine how long data is kept, see [Data retention and privacy](../../azure
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
-* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)
+* [Troubleshooting](../faq.md)

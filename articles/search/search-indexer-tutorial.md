@@ -250,4 +250,4 @@ You can find and manage resources in the portal, using the All resources or Reso
 Now that you're familiar with the basics of SQL Database indexing, let's take a closer look at indexer configuration.
 
 > [!div class="nextstepaction"]
-> [Configure a SQL database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+> [Configure a SQL Database indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

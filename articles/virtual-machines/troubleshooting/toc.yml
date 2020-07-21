@@ -201,6 +201,8 @@
     href: storage-resource-deletion-errors.md
   - name: Errors when deleting classic storage resources
     href: storage-classic-cannot-delete-storage-account-container-vhd.md
+  - name: VHD is not supported when you create a VM in Azure
+    href: vhd-not-supported-vm-azure.md
   - name: Use nested virtualization
     href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: VM Performance issues

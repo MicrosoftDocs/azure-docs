@@ -66,9 +66,8 @@ For top-level resource logs schema, see [Supported services, schemas, and catego
 
 The following table includes logs schema specific to the Azure Traffic Manager profile resource.
 
-|||||
+|Field Name|Field Type|Definition|Example|
 |----|----|---|---|
-|**Field Name**|**Field Type**|**Definition**|**Example**|
 |EndpointName|String|The name of the Traffic Manager endpoint whose health status is being recorded.|*myPrimaryEndpoint*|
 |Status|String|The health status of the Traffic Manager endpoint that was probed. The status can either be **Up** or **Down**.|**Up**|
 |||||

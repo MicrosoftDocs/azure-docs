@@ -3,7 +3,7 @@ title: Configure Azure Active Directory authentication
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
 description: Learn how to connect to SQL Database, SQL Managed Instance, and Azure Synapse Analytics by using Azure Active Directory authentication, after you configure Azure AD.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: 

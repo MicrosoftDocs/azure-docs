@@ -27,7 +27,7 @@ With media optimization for Microsoft Teams, the Windows Desktop client handles 
 Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do these things:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
-- Install the [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Install the [Windows Desktop client](connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
 - Install the Teams desktop app on the host using per-machine installation. Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 

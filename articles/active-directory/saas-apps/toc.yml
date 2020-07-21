@@ -251,6 +251,8 @@
         href: bynder-tutorial.md
     - name: C
       items:
+      - name: C3M Cloud Control
+        href: c3m-cloud-control-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
       - name: Campus Café
@@ -341,12 +343,16 @@
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
         href: cloud-service-picco-tutorial.md
+      - name: CloudSign
+        href: cloudsign-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
         href: coda-tutorial.md
       - name: Code42
         href: code42-tutorial.md
+      - name: Coggle
+        href: coggle-tutorial.md
       - name: Cognidox
         href: cognidox-tutorial.md
       - name: Collaborative Innovation
@@ -359,6 +365,8 @@
         href: comm100livechat-tutorial.md
       - name: Communifire
         href: communifire-tutorial.md
+      - name: Community Spark
+        href: community-spark-tutorial.md
       - name: CompetencyIQ
         href: competencyiq-tutorial.md
       - name: Compliance ELF
@@ -505,6 +513,8 @@
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
         href: egnyte-tutorial.md
+      - name: Egress
+        href: egress-tutorial.md
       - name: Ekarda
         href: ekarda-tutorial.md
       - name: eKincare
@@ -818,6 +828,8 @@
         href: intime-tutorial.md
       - name: Intralinks
         href: intralinks-tutorial.md
+      - name: IntSights
+        href: intsights-tutorial.md
       - name: IP Platform
         href: ip-platform-tutorial.md
       - name: iPass SmartConnect
@@ -922,6 +934,8 @@
         href: korn-ferry-360-tutorial.md
       - name: Korn Ferry ALP
         href: korn-ferry-alp-tutorial.md
+      - name: Kpifire
+        href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kudos
@@ -948,6 +962,8 @@
         href: learnupon-tutorial.md
       - name: Lecorpio
         href: lecorpio-tutorial.md
+      - name: Lenses.io
+        href: lensesio-tutorial.md
       - name: Lesson.ly
         href: lessonly-tutorial.md
       - name: Lifesize Cloud
@@ -1458,6 +1474,8 @@
         href: simple-sign-tutorial.md
       - name: SiteIntel
         href: siteintel-tutorial.md
+      - name: Skedda
+        href: skedda-tutorial.md
       - name: Skilljar
         href: skilljar-tutorial.md
       - name: Skillport
@@ -1588,6 +1606,8 @@
         href: terraform-enterprise-tutorial.md
       - name: TextExpander
         href: textexpander-tutorial.md
+      - name: Textline
+        href: textline-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
@@ -1724,6 +1744,8 @@
         href: whitesource-tutorial.md
       - name: WhosOffice
         href: whosoffice-tutorial.md
+      - name: WhosOnLocation
+        href: whos-on-location-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
@@ -1825,7 +1847,7 @@
         href: 8x8-provisioning-tutorial.md
       - name: 15Five
         href: 15five-provisioning-tutorial.md
-    - name: A - L
+    - name: A - M
       items:
       - name: Airstack
         href: airstack-provisioning-tutorial.md
@@ -1911,6 +1933,8 @@
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
       - name: LinkedIn Elevate
         href: linkedinelevate-provisioning-tutorial.md
+      - name: LinkedIn Learning
+        href: linkedin-learning-provisioning-tutorial.md
       - name: LinkedIn Sales Navigator
         href: linkedinsalesnavigator-provisioning-tutorial.md
       - name: Lucidchart

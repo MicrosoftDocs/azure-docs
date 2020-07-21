@@ -36,7 +36,7 @@ In addition to the two master keys for the Cosmos DB account, there are two read
 
 Primary, secondary, read only, and read-write master keys can be retrieved and regenerated using the Azure portal. For instructions, see [View, copy, and regenerate access keys](manage-with-cli.md#regenerate-account-key).
 
-![Access control (IAM) in the Azure portal - demonstrating NoSQL database security](./media/secure-access-to-data/nosql-database-security-master-key-portal.png)
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Access control (IAM) in the Azure portal - demonstrating NoSQL database security":::
 
 ### Key rotation<a id="key-rotation"></a>
 

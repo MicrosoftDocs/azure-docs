@@ -48,7 +48,7 @@ You can list secret names using the [`list_secrets()`](https://docs.microsoft.co
 
 ## Get secrets
 
-In your local code, you can use the[`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) method to get the secret value by name.
+In your local code, you can use the [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.keyvault.keyvault?view=azure-ml-py#get-secret-name-) method to get the secret value by name.
 
 For runs submitted the [`Experiment.submit`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py#submit-config--tags-none----kwargs-)  , use the [`get_secret()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-secret-name-) method with the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) class. Because a submitted run is aware of its workspace, this method shortcuts the Workspace instantiation and returns the secret value directly.
 

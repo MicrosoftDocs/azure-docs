@@ -44,6 +44,8 @@ Before proceeding ensure that the following prerequisites are met:
 
 ### Set up a private endpoint for IoT Hub ingress
 
+Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) as well as service APIs (like creating and updating devices).
+
 1. In Azure portal, select **Networking**, **Private endpoint connections**, and click the **+ Private endpoint**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub":::
@@ -65,8 +67,8 @@ The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-buil
 IoT Hub's [IP filter](iot-hub-ip-filtering.md) also doesn't control public access to the built-in endpoint. To completely block public network access to your IoT hub, you must: 
 
 1. Configure private endpoint access for IoT Hub
-1. Turn off public network access by using IP filter to block all IP
-1. Turn off the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
+1. [Turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP
+1. Stop using the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
 1. Turn off the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Configure egress to other Azure resources using [trusted Microsoft service](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 

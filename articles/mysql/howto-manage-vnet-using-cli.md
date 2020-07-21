@@ -5,7 +5,7 @@ author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 3/18/2020
 ---
 # Create and manage Azure Database for MySQL VNet service endpoints using Azure CLI

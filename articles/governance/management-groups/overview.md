@@ -1,10 +1,10 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them. 
-ms.date: 04/15/2020
+ms.date: 07/06/2020
 ms.topic: overview
 ---
-# Organize your resources with Azure management groups
+# What are Azure management groups?
 
 If your organization has many subscriptions, you may need a way to efficiently manage access,
 policies, and compliance for those subscriptions. Azure management groups provide a level of scope
@@ -296,6 +296,4 @@ To learn more about management groups, see:
 
 - [Create management groups to organize Azure resources](./create.md)
 - [How to change, delete, or manage your management groups](./manage.md)
-- [Review management groups in Azure PowerShell Resources Module](/powershell/module/az.resources#resources)
-- [Review management groups in REST API](/rest/api/resources/managementgroups)
-- [Review management groups in Azure CLI](/cli/azure/account/management-group)
+- See options for [How to protect your resource hierarchy](./how-to/protect-resource-hierarchy.md)

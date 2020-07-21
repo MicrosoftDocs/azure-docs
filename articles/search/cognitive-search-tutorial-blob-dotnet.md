@@ -556,10 +556,13 @@ In this section, you define the index schema by specifying which fields to inclu
 
 This exercise uses the following fields and field types:
 
-| field-names: | `id`       | content   | languageCode | keyPhrases         | organizations     |
-|--------------|----------|-------|----------|--------------------|-------------------|
-| field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
-
+| Field names | Field types |
+| --- | --- |
+| id | Edm.String |
+| content | Edm.String |
+| languageCode | Edm.String |
+| keyPhrases | List<Edm.String> |
+| organizations | List<Edm.String> |
 
 #### Create DemoIndex Class
 

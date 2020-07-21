@@ -18,7 +18,7 @@ This article steps through enabling Hyper-V on an Azure VM and configuring Inter
 
 ## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
+Create a new Windows Server 2016 Azure VM. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](../acu.md).
 
 Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
 
@@ -26,7 +26,7 @@ You can view the regional availability of Dv3 or Ev3 series virtual machines [he
 
 >[!NOTE]
 >
->For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>For detailed instructions on creating a new virtual machine, see [Create and Manage Windows VMs with the Azure PowerShell module](./tutorial-manage-vm.md)
     
 ## Connect to your Azure VM
 
@@ -178,6 +178,4 @@ In this example you will use an address in the 192.168.0.0/24 range.
 In the guest virtual machine, open your browser and navigate to a web page.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-## Set up intranet connectivity for the guest virtual machine
-
-For instructions on how to enable transparent connectivity between Guest VMs and Azure VMs, please reference [this document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).
+For instructions on how to enable transparent connectivity between Guest VMs and Azure VMs, please reference [this document](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
