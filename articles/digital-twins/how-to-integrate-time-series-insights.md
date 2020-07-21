@@ -66,9 +66,9 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --resource-
 
 ## Create an Azure function 
 
-You're going to create an Event Hub-triggered function inside a new function app, our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from JSON patch documents to JSON objects containing only updated and added values from your twins. The function will then send those JSON objects to a second event hub, which we will connect to Time Series Insights.
+You're going to create an Event Hubs-triggered function inside a new function app, our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from JSON patch documents to JSON objects containing only updated and added values from your twins. The function will then send those JSON objects to a second event hub, which we will connect to Time Series Insights.
 
-See the following document for reference info: [Azure Event Hub trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hub-trigger).
+See the following document for reference info: [Azure Event Hubs trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hub-trigger).
 
 Replace the function code with the following code.
 
@@ -175,7 +175,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your
     
         :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is $dtId":::
 
-2. Select **Next: Event Source** and select your Event Hub information from above. You will also need to create a new Event Hub consumer group.
+2. Select **Next: Event Source** and select your Event Hubs information from above. You will also need to create a new Event Hubs consumer group.
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group.":::
 
