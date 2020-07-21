@@ -52,7 +52,20 @@ using System.Threading.Tasks;
 
 ### [Python](#tab/python)
 
-Put something here.
+Install the Azure Data Lake Storage client library for Python by using [pip](https://pypi.org/project/pip/).
+
+```
+pip install azure-storage-file-datalake
+```
+
+Add these import statements to the top of your code file.
+
+```python
+import os, uuid, sys
+from azure.storage.filedatalake import DataLakeServiceClient
+from azure.core._match_conditions import MatchConditions
+from azure.storage.filedatalake._models import ContentSettings
+```
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -143,7 +156,52 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 ### [Python](#tab/python)
 
-Put something here.
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
+
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
+
+This example creates a **DataLakeServiceClient** instance by using an account key.
+
+```python
+try:  
+    global service_client
+        
+    service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
+        "https", storage_account_name), credential=storage_account_key)
+    
+except Exception as e:
+    print(e)
+```
+ 
+- Replace the `storage_account_name` placeholder value with the name of your storage account.
+
+- Replace the `storage_account_key` placeholder value with your storage account access key.
+
+### Connect by using Azure Active Directory (AD)
+
+You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
+
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+```python
+def initialize_storage_account_ad(storage_account_name, client_id, client_secret, tenant_id):
+    
+    try:  
+        global service_client
+
+        credential = ClientSecretCredential(tenant_id, client_id, client_secret)
+
+        service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
+            "https", storage_account_name), credential=credential)
+    
+    except Exception as e:
+        print(e)
+```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -195,7 +253,7 @@ You can set the ACL of a directory recursively. You add up to 32 entries (securi
 
 Set an ACL recursively by calling the **DataLakeDirectoryClient.SetAccessControlRecursiveAsync** method. Pass this method a [List](/dotnet/api/system.collections.generic.list-1) of [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Each [PathAccessControlItems](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) defines an ACL entry.
 
-This example gets and sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
 ```cs
 public async void SetACLRecursively(DataLakeServiceClient serviceClient)
@@ -233,13 +291,31 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient)
 
 ### [Python](#tab/python)
 
-Put something here.
+Set an ACL recursively by calling the **DataLakeDirectoryClient.set_access_control_recursive** method.
+
+This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id ""xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+
+```python
+def set_permission_recursively():
+    
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-container")
+
+        directory_client = file_system_client.get_directory_client("my-parent-directory")
+              
+        acl = 'user::rwx,group::rwx,other::rwx,user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x'
+
+        directory_client.set_access_control_recursive(acl=acl)
+        
+    except Exception as e:
+     print(e)
+```
 
 ### [PowerShell](#tab/azure-powershell)
 
 Use the `Set-AzDataLakeGen2ItemAclObject` cmdlet to create an ACL for the owning user, owning group, or other users. Then, use the `Set-AzDataLakeGen2AclRecursive` cmdlet to commit the ACL recursively.
 
-This example gets and sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
+This example sets the ACL of a directory named `my-parent-directory`. These entries give the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others no access. The last ACL entry in this example gives a specific user with the object id "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" read and execute permissions.
 
 ```powershell
 $filesystemName = "my-container"
@@ -291,7 +367,29 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### [Python](#tab/python)
 
-Put something here.
+Update an ACL recursively by calling the **DataLakeDirectoryClient.update_access_control_recursive** method. 
+
+This example adds write permission to an ACL entry, and then updates the ACL with that entry. 
+
+```python
+def update_permission_recursively():
+    
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-container")
+
+        directory_client = file_system_client.get_directory_client("my-parent-directory")
+              
+        acl = 'user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:rwx'
+
+        directory_client.update_access_control_recursive(acl=acl)
+
+        acl_props = directory_client.get_access_control()
+        
+        print(acl_props['permissions'])
+
+    except Exception as e:
+     print(e)
+```
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -333,7 +431,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
         new List<RemovePathAccessControlItem>()
         {
             new RemovePathAccessControlItem(AccessControlType.User, 
-            entityId: "4a9028cf-f779-4032-b09d-970ebe3db258"),
+            entityId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
         };
 
     await directoryClient.RemoveAccessControlRecursiveAsync
@@ -344,7 +442,25 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient)
 
 ### [Python](#tab/python)
 
-Put something here.
+Remove ACL entries by calling the **DataLakeDirectoryClient.remove_access_control_recursive** method. 
+
+This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
+
+```python
+def remove_permission_recursively():
+    
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-container")
+
+        directory_client = file_system_client.get_directory_client("my-parent-directory")
+              
+        acl = 'user:4a9028cf-f779-4032-b09d-970ebe3db258'
+
+        directory_client.remove_access_control_recursive(acl=acl)
+
+    except Exception as e:
+     print(e)
+```
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -407,7 +523,28 @@ public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
 
 ### [Python](#tab/python)
 
-Put something here.
+This example returns a continuation token in the event of a failure. The application can call this example method again after the error has been addressed, and pass in the continuation token. If this example method is called for the first time, the application can pass in a value of ``None`` for the continuation token parameter. 
+
+```python
+def resume_set_acl_recursive(continuation_token):
+    
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-container")
+
+        directory_client = file_system_client.get_directory_client("my-parent-directory")
+              
+        acl = 'user::rwx,group::rwx,other::rwx,user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x'
+
+        acl_change_result = directory_client.set_access_control_recursive(acl=acl, continuation=continuation_token)
+
+        continuation_token = acl_change_result.continuation
+
+        return continuation_token
+        
+    except Exception as e:
+     print(e) 
+     return continuation_token
+```
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -462,7 +599,29 @@ public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
 
 ### [Python](#tab/python)
 
-Put something here.
+To ensure that the process completes uninterrupted, Put parameter information here.
+
+This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the number of failures to the console. 
+
+```python
+def continue_on_failure():
+    
+    try:
+        file_system_client = service_client.get_file_system_client(file_system="my-container")
+
+        directory_client = file_system_client.get_directory_client("my-parent-directory")
+              
+        acl = 'user::rwx,group::rwx,other::rwx,user:4a9028cf-f779-4032-b09d-970ebe3db258:r--'
+
+        acl_change_result = directory_client.set_access_control_recursive(acl=acl)
+
+        print("Summary: {} directories and {} files were updated successfully, {} failures were counted."
+          .format(acl_change_result.counters.directories_successful, acl_change_result.counters.files_successful,
+                  acl_change_result.counters.failure_count))
+        
+    except Exception as e:
+     print(e)
+```
 
 ### [PowerShell](#tab/azure-powershell)
 
