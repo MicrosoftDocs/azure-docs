@@ -186,8 +186,8 @@ The following snippets show the side-by-side JSON representation of the `serialN
 ### Components
 
 In a device twin, a component is identified by the `{ "__t": "c"}` marker. In a digital twin, `$metadata` marks a component.
-In this example, `thermostat1` is a component with two properties. `maxTempSinceLastReboot` is read-only property.
-`targetTemperature` is a writable property that has been successfully synced by the device.
+
+In this example, `thermostat1` is a component with two properties. `maxTempSinceLastReboot` is read-only property. `targetTemperature` is a writable property that has been successfully synced by the device.
 
 The following snippets show the side-by-side JSON representation of the `thermostat1` component:
 
