@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 04/29/2020
+ms.date: 07/20/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
 ---
@@ -826,7 +826,7 @@ HTTP Status Code | Reason
 1. I am getting the error `400 Bad Request, Required metadata header not specified`. What does this mean?
    * The Instance Metadata Service requires the header `Metadata: true` to be passed in the request. Passing this header in the REST call allows access to the Instance Metadata Service.
 1. Why am I not getting compute information for my VM?
-   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for  Cloud Service VMs might be added.
+   * Currently the Instance Metadata Service only supports instances created with Azure Resource Manager. In the future, support for Cloud Service VMs might be added.
 1. I created my Virtual Machine through Azure Resource Manager a while back. Why am I not see compute metadata information?
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
 1. I am not seeing all data populated for new version
@@ -837,6 +837,8 @@ HTTP Status Code | Reason
    * Yes Metadata service is available for Scale Set instances.
 1. I updated my tags in Virtual Machine Scale Sets but they don't appear in the instances unlike single instance VMs?
    * Currently tags for Scale Sets only show to the VM on a reboot, reimage, or disk change to the instance.
+1. Why is the SKU value not populated in my instance/compute response for Custom images?
+   * Azure platform does not retain the source VM Image SKU details when a user creates a custom image from a VM. Custom Image resource is a top level resource in Azure which can be created from many other top level source resources (like VM, Snapshots, Disks) and each of these resource have different metadata. Hence primarily the image resource ensures it captures the contents from these sources and then models them as appropriate OS and Data disks as specified in the customer input in order to provide a concise and consistent view of Image resource.
 1. I get request timed out for my call to the service?
    * Metadata calls must be made from the primary IP address assigned to the primary network card of the VM. Additionally in the case you have changed your routes, there must be a route for the 169.254.169.254/32 address in your VM's local routing table.
    * <details>
