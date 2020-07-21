@@ -23888,6 +23888,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/network-overview.md",
+      "redirect_url": "/azure/virtual-machines/network-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/network-overview.md",
+      "redirect_url": "/azure/virtual-machines/network-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/virtual-machines-linux-cli-deploy-templates.md",
       "redirect_url": "/azure/virtual-machines/linux/cli-deploy-templates",
       "redirect_document_id": false
