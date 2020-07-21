@@ -2244,12 +2244,12 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-iot.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
       "redirect_document_id": false
     },
     {
@@ -2269,7 +2269,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
+      "redirect_url": "/azure/machine-learning/how-to-configure-environment",
       "redirect_document_id": false
     },
     {
@@ -3614,17 +3614,17 @@
     },
     {
       "source_path": "articles/machine-learning/service/quickstart-get-started-with-cli.md",
-      "redirect_url": "/azure/machine-learning/service/reference-azure-machine-learning-cli",
+      "redirect_url": "/azure/machine-learning/reference-azure-machine-learning-cli",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-improve-accuracy-for-computer-vision-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/reference-python-package-overview.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
@@ -3634,22 +3634,22 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-image-classification-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-image-similarity-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-object-detection-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-text-classification-models.md",
-      "redirect_url": "/azure/machine-learning/service",
+      "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
     },
     {
@@ -3704,7 +3704,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-vscode-train-deploy.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-vscode-tools",
+      "redirect_url": "/azure/machine-learning/how-to-vscode-tools",
       "redirect_document_id": true
     },
     {
@@ -39899,7 +39899,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/machine-learning-interpretability-explainability.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-machine-learning-interpretability",
+      "redirect_url": "/azure/machine-learning/how-to-machine-learning-interpretability",
       "redirect_document_id": true
     },
     {
@@ -41044,7 +41044,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-build-deploy-onnx.md",
-      "redirect_url": "/azure/machine-learning/service/concept-onnx",
+      "redirect_url": "/azure/machine-learning/concept-onnx",
       "redirect_document_id": false
     },
     {
@@ -43839,7 +43839,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
-      "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
+      "redirect_url": "/azure/machine-learning/concept-automated-ml",
       "redirect_document_id": true
     },
     {
@@ -44124,7 +44124,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/concept-data-drift.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
+      "redirect_url": "/azure/machine-learning/how-to-monitor-data-drift",
       "redirect_document_id": false
     },
     {
@@ -50493,7 +50493,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/tutorial-data-prep.md",
-      "redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
+      "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": false
     },
     {
@@ -50993,52 +50993,52 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-churn.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-churn",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-churn",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-basic.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-predict-income",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-predict-income",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-credit-risk-cost-sensitive",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-classification-flight-delay",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-flight-delay",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-basic.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-compare-algorithms",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-regression-automobile-price-compare-algorithms",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-text-classification.md",
-      "redirect_url": "/azure/machine-learning/service/how-to-designer-sample-text-classification",
+      "redirect_url": "/azure/machine-learning/how-to-designer-sample-text-classification",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-deploy.md",
-      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-deploy",
+      "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-deploy",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-train-score.md",
-      "redirect_url": "/azure/machine-learning/service/tutorial-designer-automobile-price-train-score",
+      "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-train-score",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-concept-visual-interface.md",
-      "redirect_url": "/azure/machine-learning/service/concept-designer",
+      "redirect_url": "/azure/machine-learning/concept-designer",
       "redirect_document_id": true
     },
     {
@@ -51328,7 +51328,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/publish-a-machine-learning-web-service.md",
-      "redirect_url": "/azure/machine-learning/service/deploy-a-machine-learning-web-service",
+      "redirect_url": "/azure/machine-learning/deploy-a-machine-learning-web-service",
       "redirect_document_id": false
     },
     {
