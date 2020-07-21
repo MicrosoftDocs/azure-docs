@@ -53,7 +53,7 @@ On the following *Create Resource* page, fill in the values given below:
 
 :::image type="content" source= "media/how-to-set-up-instance/create-new-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
-Review your instance details and create your instance by selecting _Review + create_ button. After this, you can view the status of your instance deployment in your Azure notifications along the portal icon bar. Once deployment succeeds, you can view your resource details by selecting the _Go to resource_ button as shown below:
+Create your instance by selecting _Review + create_ button. Then in the summary page, review your instance details and select _create_ button. You can now view the status of your instance deployment in your Azure notifications along the portal icon bar. Once deployment succeeds, you can view your resource details by selecting the _Go to resource_ button as shown below:
 
 :::image type="content" source="media/how-to-set-up-instance/notifications-for-resource-deployment.png" alt-text="View of Azure notifications showing a successful deployment and highlighting the 'Go to resource' button":::
 
@@ -69,20 +69,18 @@ In order to use Azure Digital Twins with a client application, you'll also need 
 
 Create a role assignment for yourself in the Azure Digital Twins instance, using your email associated with the AAD tenant on your Azure subscription. 
 
-To be able to do this, you need to be classified as an owner in your Azure subscription. You can check this by viewing your [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. Look for the subscription name you are using, and view your role under the *My role* column.
+To be able to do this, you need to be classified as an _owner_ in your Azure subscription. You can check this by viewing your [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. Look for the subscription name you are using, and view your role under the *My role* column.
 
 :::image type="content" source="media/how-to-set-up-instance/check-role-owner-in-subscriptions.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner":::
 
-If you find that _My role_ is _Contributor_ or something other than _Owner_, please contact your subscription administrator with the power to grant permissions in your subscription.
+If you find that _My role_ is _Contributor_ or something other than _Owner_, contact your subscription administrator with the power to grant permissions in your subscription.
 
-To assign your user "owner" permissions in your Azure Digital Twins instance, go to the instance in the Azure portal. You can do this by searching with the resource name you  created earlier in the article in the portal search bar at the top of the Azure portal home page.
+To assign your user "owner" permissions in your Azure Digital Twins instance, go to your resource in the Azure portal. You can do this by searching with the resource name at the top of the Azure portal home page search bar, then select *Access control (IAM)* from the instance's menu, and choose the  _Add_ button under _Add a role assignment_.
 
-Select *Access control (IAM)* from the instance's menu, and choose the  _Add_ button under _Add a role assignment_.
-
-On the following *Add role assignment* page, fill in the following values:
-* Role: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
-* Assign access to: Select *Azure AD user, group or service principal*
-* Select: Enter the name or email address associated with your Azure account
+On the following *Add role assignment* page, fill in the values:
+* _Role_: Select Azure Digital Twins Owner (Preview) from the dropdown menu
+* _Assign access to_: Select Azure AD user, group or service principal from the dropdown menu
+* _Select_: Enter the name or email address associated with your Azure account
 
 When you're finished entering your details, hit the *Save* button.
 
@@ -91,7 +89,7 @@ When you're finished entering your details, hit the *Save* button.
 You now have an Azure Digital Twins instance ready to go, and permissions to manage it. You can verify your role assignments in the _Role assignments_ tab for your instance by searching with your email address or name.
 
 >[!TIP]
->You can search for your resource or resource group details at anytime in the top search bar on [Azure portal](https://ms.portal.azure.com/)
+>You can search for your resource or resource group details at any time in the top search bar on [Azure portal](https://ms.portal.azure.com/)
 
 ## Next steps
 
