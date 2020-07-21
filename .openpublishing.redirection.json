@@ -1,8 +1,23 @@
 {
   "redirections": [
     {
+      "source_path": "articles/media-services/latest/media-services-high-availability-streaming.md",
+      "redirect_url": "articles/media-services/latest/media-services-high-availability-encoding",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
       "redirect_document_id": false
     },
     {
@@ -68,6 +83,11 @@
     {
       "source_path": "articles/storage/common/storage-e2e-troubleshooting.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-migration-faq.md",
+      "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
       "redirect_document_id": false
     },
     {
@@ -4564,9 +4584,25 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-subscription-move-fix.md",
-      "redirect_url": "/azure/key-vault/general/subscription-move-fix",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/keyvault-move-subscription.md",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveregion.md",
+      "redirect_url": "/azure/key-vault/general/move-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveresourcegroup.md",
+      "redirect_url": "/azure/key-vault/general/move-resourcegroup",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/key-vault/managed-identity.md",
       "redirect_url": "/azure/key-vault/general/managed-identity",
@@ -4664,7 +4700,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-net-windows-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/general/tutorial-net-windows-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/tutorial-net-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -4674,7 +4715,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-python-windows-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/general/tutorial-python-windows-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/tutorial-python-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -39173,6 +39219,11 @@
     {
       "source_path": "articles/cognitive-services/LUIS/Train-Test.md",
       "redirect_url": "/azure/cognitive-services/LUIS/interactive-test",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-create-kws.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-basics",
       "redirect_document_id": true
     },
     {

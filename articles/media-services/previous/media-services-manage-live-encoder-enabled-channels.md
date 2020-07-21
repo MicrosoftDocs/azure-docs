@@ -358,11 +358,10 @@ Review Media Services learning paths.
 
 [Create channels that perform live encoding from a singe bitrate to adaptive bitrate stream with .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Manage channels with REST API](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Manage channels with REST API](/rest/api/media/operations/channel)
 
 [Media Services Concepts](media-services-concepts.md)
 
 [Azure Media Services Fragmented MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

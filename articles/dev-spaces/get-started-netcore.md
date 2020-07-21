@@ -149,7 +149,7 @@ Identify the public URL for the service in the output from the `up` command. It 
 
 To see your web app, open the public URL in a browser. Also, notice `stdout` and `stderr` output is streamed to the *azds trace* terminal window as you interact with your web app. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
 
-![azds trace terminal window](media/get-started-netcore/azds-trace.png)
+![a z d s trace terminal window](media/get-started-netcore/azds-trace.png)
 
 > [!NOTE]
 > In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
@@ -236,7 +236,7 @@ public IActionResult About()
 
 Save the file, and in the **Debug actions pane**, click the **Restart** button. 
 
-![The Debug actions pane is a small pane at the top center of the page (just below the page title). The Restart button, a circular arrow, is highlighted.The hover image for the button is "Restart (Ctrl+Shift+F5)".](media/common/debug-action-refresh.png)
+![The Debug actions pane is a small pane at the top center of the page (just below the page title). The Restart button, a circular arrow, is highlighted.The hover image for the button is "Restart (control + shift + F 5)".](media/common/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
 
