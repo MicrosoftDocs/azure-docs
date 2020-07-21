@@ -18,9 +18,9 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 
 ## July 2020
 
-Model version `2020-07-01` which adds:
+Model version `2020-07-01` for the v3 `/keyphrases`, `/pii` and `/languages` endpoints, which adds:
 * Additional [language support](language-support.md?tabs=key-phrase-extraction) for key phrase extraction. 
-* Additional government and country specific identification entities for Named Entity Recognition
+* Additional government and country specific entity categories for Named Entity Recognition
 
 ### Text Analytics for Health Container Public gated preview
 
