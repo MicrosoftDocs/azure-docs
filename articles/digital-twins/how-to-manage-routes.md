@@ -28,9 +28,6 @@ For more information on the different endpoints, see [Choose between Azure messa
 
 Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). They can also be managed through the [Azure portal](https://portal.azure.com).
 
-> [!NOTE]
-> Managing event routes through the Azure portal is now available to Azure users on both corporate-domain accounts **and** those using personal [Microsoft accounts (MSA)](https://account.microsoft.com/account/Account) (such as accounts ending in _@outlook.com_).
-
 ## Create an endpoint for Azure Digital Twins
 
 To link an endpoint to Azure Digital Twins, the Event Hub, event grid topic, or Service Bus that you're using for the endpoint needs to exist already. 
