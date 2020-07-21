@@ -50,9 +50,12 @@ Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and
 
 From a development standpoint, this means a few things:
 
-1. Do not register multiple reply URIs where only the port differs.  The login server wil pick one arbitrarily, and use the behavior assoiated with that reply URI (for example, whether it is a `web`, `native`, and `spa` -type redirect. 
+1. Do not register multiple reply URIs where only the port differs.  The login server wil pick one arbitrarily, and use the behavior associated with that reply URI (for example, whether it is a `web`, `native`, and `spa` -type redirect. 
 1. If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI.  `http://127.0.0.1/MyWebApp` does not match `http://127.0.0.1/MyNativeApp`.  
 1. Per RFC guidance, you should not use `localhost` in the redirect URI.  Instead, use the actual loopback IP address - `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces. 
+
+>[NOTE]
+> At this time, IPv6 loopback (`[::1]`) is not supported at this time.  This will added at a later date. 
 
 ## Restrictions using a wildcard in URIs
 
