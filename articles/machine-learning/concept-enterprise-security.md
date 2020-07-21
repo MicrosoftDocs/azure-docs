@@ -123,6 +123,8 @@ The `hbi_workspace` flag controls the amount of data Microsoft collects for diag
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
 
+> [!WARNING]
+> The `hbi_workspace` flag can only be set when a workspace is created. It cannot be changed for an existing workspace.
 
 For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 

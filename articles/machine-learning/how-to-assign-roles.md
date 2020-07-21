@@ -114,7 +114,7 @@ After deployment, this role becomes available in the specified workspace. Now yo
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
+For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 ## Frequently asked questions
 

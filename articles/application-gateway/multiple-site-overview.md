@@ -33,11 +33,14 @@ Using a wildcard character in the host name, you can match multiple host names i
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Wildcard Listener":::
 
 >[!NOTE]
-> This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended to use this in a production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In [Azure portal](create-multiple-sites-portal.md), you can define them in separate text boxes in the host name field.
+In [Azure portal](create-multiple-sites-portal.md), you can define them in separate text boxes as shown in the screenshot below.
 
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-example.png" alt-text="Wildcard Listener example configuration":::
+
+>[!NOTE]
+>If you are creating a new multi-site listener or adding more than one host names to your existing multi-site listener from the Azure portal, it will by default be added to the `HostNames` parameter of the listener configuration, which adds more capability to the existing `HostName` parameter in the configuration.
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com,*.fabrikam.com"`
 

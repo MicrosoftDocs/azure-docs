@@ -53,7 +53,7 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 > [!TIP]
 > The Azure Digital Twins Reader (Preview) role now also supports browsing relationships.
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
 * via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
@@ -71,6 +71,10 @@ The following list describes the levels at which you can scope access to Azure D
 * Digital Twin: The actions for this resource provide control over CRUD operations on [digital twins](concepts-twins-graph.md) in the twin graph.
 * Digital Twin relationship: The actions for this resource define control over CRUD operations on [relationships](concepts-twins-graph.md) between digital twins in the twin graph.
 * Event route: The actions for this resource determine permissions to [route events](concepts-route-events.md) from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
+
+## Troubleshooting
+
+If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
 
 ## Next steps
 
