@@ -4695,7 +4695,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-net-windows-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/general/tutorial-net-windows-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/tutorial-net-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -4705,7 +4710,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-python-windows-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/general/tutorial-python-windows-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/tutorial-python-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
       "redirect_document_id": false
     },
     {
