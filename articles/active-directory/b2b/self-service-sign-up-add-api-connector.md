@@ -72,7 +72,7 @@ POST <API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "identities": [ //Sent for Google and Facebook identity providers
      {
      "signInType":"federated",
@@ -95,7 +95,7 @@ If a claim to send does not have a value at the time the API endpoint is called,
 Custom attributes can be created for the user using the **extension_\<extensions-app-id>_AttributeName** format. Your API should expect to receive claims in this same serialized format. Your API can return claims with or without the `<extensions-app-id>`. For more information about custom attributes, see [define custom attributes for self-service sign-up flows](user-flow-add-custom-attributes.md).
 
 > [!TIP] 
-> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email_address')** claims can be used to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with a Google or Facebook and 'email_address' is always sent.
+> [**identities ('identities')**](https://docs.microsoft.com/graph/api/resources/objectidentity?view=graph-rest-1.0) and the **Email Address ('email')** claims can be used to identify a user before they have an account in your tenant. The 'identities' claim is sent when a user authenticates with a Google or Facebook and 'email' is always sent.
 
 ## Expected response types from the web API
 
