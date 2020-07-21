@@ -112,5 +112,5 @@ This model has three components defined in the contents section -  two `Thermost
 
 Now that you've learned about model components, here are some additional resources:
 
-- [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL)
+- [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Model repositories](./concepts-model-repository.md)

@@ -17,7 +17,7 @@ This article describes the key changes in the SDKS, libraries, tools, and servic
 
 ## Digital Twins Definition Language (DTDL)
 
-This release adds support for [DTDL v2](https://aka.ms/dtdl-v2) and deprecates [DTDL v1](https://aka.ms/dtdl-v1).
+This release adds support for [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl) and deprecates [DTDL v1](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL/v1-preview).
 
 The following list shows the key differences between DTDL v1 and DTDL v2. In DTDL v2:
 
