@@ -415,7 +415,6 @@ Copy the public IP address, and then paste it into the address bar of your brows
     --query [ipAddress] \
     --output tsv
 ```
-
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Test the load balancer" border="true":::
 
 ## Clean up resources
