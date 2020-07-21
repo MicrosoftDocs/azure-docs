@@ -3,7 +3,7 @@ title: Choose a protocol
 description: How to enable nfs
 author: roygara
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
