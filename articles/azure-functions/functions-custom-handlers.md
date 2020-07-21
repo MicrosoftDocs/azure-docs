@@ -119,14 +119,6 @@ For custom handlers, set `FUNCTIONS_WORKER_RUNTIME` to `Custom` in *local.settin
 
 When used with a custom handler, the *function.json* contents are no different from how you would define a function under any other context. The only requirement is that *function.json* files must be in a folder named to match the function name.
 
-### Request payload
-
-The following code represents a sample request payload. The payload includes a JSON structure with two members: `Data` and `Metadata`.
-
-The `Data` member includes keys that match input and trigger names as defined in the bindings array in the *function.json* file.
-
-The `Metadata` member includes [metadata generated from the event source](./functions-bindings-expressions-patterns.md#trigger-metadata).
-
 The following *function.json* configures a function that has a queue trigger and a queue output binding. Because it's in a folder named *MyQueueFunction*, it defines a function named *MyQueueFunction*.
 
 **MyQueueFunction/function.json**
@@ -152,7 +144,15 @@ The following *function.json* configures a function that has a queue trigger and
 }
 ```
 
-When a queue message is received, the Functions host sends an HTTP request to the custom handler with a payload in the body like this example:
+### Request payload
+
+When a queue message is received, the Functions host sends an HTTP request to the custom handler with a payload in the body.
+
+The following code represents a sample request payload. The payload includes a JSON structure with two members: `Data` and `Metadata`.
+
+The `Data` member includes keys that match input and trigger names as defined in the bindings array in the *function.json* file.
+
+The `Metadata` member includes [metadata generated from the event source](./functions-bindings-expressions-patterns.md#trigger-metadata).
 
 ```json
 {
@@ -185,7 +185,22 @@ By convention, function responses are formatted as key/value pairs. Supported ke
 | `Logs`        | array     | Messages appear in the Functions invocation logs.<br /><br />When running in Azure, messages appear in Application Insights. |
 | `ReturnValue` | string    | Used to provide a response when an output is configured as `$return` in the *function.json* file. |
 
-See the [example for a sample payload](#bindings-implementation).
+This is an example of a response payload.
+
+```json
+{
+  "Outputs": {
+    "res": {
+      "body": "Message enqueued"
+    }
+  },
+  "Logs": [
+    "Log message 1",
+    "Log message 2"
+  ],
+  "ReturnValue": "{\"hello\":\"world\"}"
+}
+```
 
 ## Examples
 
@@ -279,7 +294,7 @@ Content-Type: application/json
         ]
       },
       "Params": {},
-      "Body": "{\"hello\":\"world\"}"
+      "Body": "{\"id\":1005,\"quantity\":2,\"color\":\"black\"}"
     }
   },
   "Metadata": {
@@ -327,7 +342,7 @@ func orderHandler(w http.ResponseWriter, r *http.Request) {
 	outputs["message"] = reqData["Body"]
 
 	resData := make(map[string]interface{})
-	resData["body"] = "Message enqueued"
+	resData["body"] = "Order enqueued"
 	outputs["res"] = resData
 	invokeResponse := InvokeResponse{outputs, nil, nil}
 
@@ -357,7 +372,22 @@ As `POST` requests are sent to this function, the trigger data and function meta
 
 The function's response is formatted into key/value pairs where the `Outputs` member holds a JSON value where the keys match the outputs as defined in the *function.json* file.
 
-By setting `message` equal to the message that came in from the request, and `res` to the expected HTTP response, this function outputs a message to Queue Storage and returns an HTTP response.
+This is an example payload that this handler returns to the Functions host.
+
+```json
+{
+  "Outputs": {
+    "message": "{\"id\":1005,\"quantity\":2,\"color\":\"black\"}",
+    "res": {
+      "body": "Order enqueued"
+    }
+  },
+  "Logs": null,
+  "ReturnValue": null
+}
+```
+
+By setting the `message` output equal to the order data that came in from the request, the function outputs that order data to the configured queue. The Functions host also returns the HTTP response configured in `res` to the caller.
 
 ### HTTP-only function
 
@@ -375,6 +405,8 @@ The following example demonstrates how to configure an HTTP-triggered function w
 #### Implementation
 
 In a folder named *hello*, the *function.json* file configures the HTTP-triggered function.
+
+**hello/function.json**
 
 ```json
 {
