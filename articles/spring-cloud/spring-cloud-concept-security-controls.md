@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
+ms.custom: devx-track-java
 ---
 
 # Security controls for Azure Spring Cloud Service

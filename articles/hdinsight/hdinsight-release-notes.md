@@ -56,4 +56,4 @@ There was an issue for Hive Warehouse connector usability in previous release. T
 Zeppelin was incorrectly truncating leading zeros in the table output for String format. We've fixed this issue in this release.
 
 ## Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
