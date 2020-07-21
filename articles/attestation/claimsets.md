@@ -18,7 +18,7 @@ ms.author: mbaldwin
 
 **Property claims** set is created as an output by Azure Attestation. It contains all the claims that represent properties of the attestation token, such as encoding of the report, validity duration of the report, and so on. 
 
-Below claims that are defined by the JWT RFC and used by MAA in the response object:
+Below claims that are defined by the JWT RFC and used by Azure Attestation in the response object:
 
 - **"iss" (Issuer) Claim**: The "iss" (issuer) claim identifies the principal that issued the JWT. The processing of this claim is generally application specific. The "iss" value is a case-sensitive string containing a StringOrURI value.
 - **"iat" (Issued At) Claim**: The "iat" (issued at) claim identifies the time at which the JWT was issued. This claim can be used to determine the age of the JWT. Its value MUST be a number containing a NumericDate value.
@@ -27,9 +27,6 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
   Note: A 5-minute leeway is added to the issue time(iat), to account for clock skew.
 - **"nbf" (Not Before) Claim**: The "nbf" (not before) claim identifies the time before which the JWT WILL NOT be accepted for processing. The processing of the "nbf" claim requires that the current date/time MUST be after or equal to the not-before date/time listed in the "nbf" claim.
   Note: A 5-minute leeway is added to the issue time(iat), to account for clock skew.
-- **"jti" (JWT ID) Claim**: The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object.
-
-  Note: Attestation clients provide(use) a unique identifier. 
 
 ## Claims issued by Azure Attestation in SGX enclaves
 
@@ -76,7 +73,9 @@ Below claims that are defined by the JWT RFC and used by MAA in the response obj
 - **enclaveSvn**:  Integer value containing the security version number of the primary module for the enclave.
 - **enclavePlatformSvn**:  Integer value containing the security version number of the platform that hosts the enclave.
 - **enclaveFlags**:  The enclaveFlags claim is an Integer value containing Flags that describe the runtime policy for the enclave.
-
+- **"jti" (JWT ID) Claim**: The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value is assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object.
+  Note: Attestation clients provide(use) a unique identifier. 
+  
 ### Outgoing claims
 
 - **policy_hash**:  String value containing SHA256 hash of the policy text computed by BASE64URL(SHA256(BASE64URL(UTF8(Policy text)))).
@@ -91,4 +90,8 @@ Currently 1.0.
 - **report_validity_in_minutes**: An integer claim signifying how long the token is valid for
   - **Default value(time)**: one day in minutes
   - **Maximum value(time)**: one year in minutes 
-- **omit_x5c**: A Boolean claim indicating if MAA should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
+- **omit_x5c**: A Boolean claim indicating if Azure Attestation should omit the cert used to provide proof of service authenticity. If true, x5t will be added to the attestation token. If false(default), x5c will be added to the attestation token.
+
+## Next steps
+- [Authoring and signing attestation policy](authoringandsigningpolicy.md)
+- [Set up Azure Attestation using PowerShell](quickstart-powershell.md)

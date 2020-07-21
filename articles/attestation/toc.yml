@@ -6,19 +6,20 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Portal
-    href: quickstart-portal.md
   - name: PowerShell
     href: quickstart-powershell.md
-  - name: CLI
-    href: quickstart-cli.md
 - name: Tutorials
+  items:
+  - name: Authoring and signing attestation policy
+    href: authoringandsigningpolicy.md
+  - name: SGX attestation using Open Enclave SDK
+    href: tutorials.md
 - name: Samples
   items:
     - name: Examples of attestation policy
-    - href: policy-samples.md
+      href: policy-samples.md
     - name: Examples of policy signer certificate
-    - href: policysigner-samples.md
+      href: policysigner-samples.md
 - name: Concepts
   items:
   - name: Basic concepts
@@ -35,17 +36,5 @@
   items:
   - name: Azure PowerShell
     href: https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation
-  - name: REST
-    href: /rest/api/
-  - name: Resource Manager template
-    href: 
-    displayName: ARM
-- name: Resources
-  items:
-  - name: Pricing
-    href: 
-  - name: Region availability
-    href: 
-  - name: Service Level Agreement (SLA)
-    href: 
+
   
