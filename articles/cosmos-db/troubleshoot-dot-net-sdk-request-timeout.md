@@ -32,7 +32,7 @@ Follow the [SNAT Port Exhaustion guide](troubleshoot-dot-net-sdk.md#snat).
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
 Otherwise, you face connection issues.
 
-### 3. Creating multiple Client instances
+### 3. Creating multiple client instances
 Creating multiple client instances might lead to connection contention and timeout issues.
 
 #### Solution:
