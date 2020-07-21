@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 07/21/2020
 ms.author: tamram
 ms.subservice: blobs
 ---

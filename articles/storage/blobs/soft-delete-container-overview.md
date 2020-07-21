@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/21/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -25,8 +25,6 @@ For end to end protection for your blob data, Microsoft recommends enabling the 
 
 > [!IMPORTANT]
 > To prevent accidental deletion of a storage account, configure a **CannotDelete** lock on the storage account resource. For more information on locking Azure resources, see [Lock resources to prevent unexpected changes](../../azure-resource-manager/management/lock-resources.md).
-
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## How container soft delete works
 
@@ -69,7 +67,7 @@ To enroll in the preview for container soft delete, use PowerShell or Azure CLI 
 
 # [PowerShell](#tab/powershell)
 
-To register with PowerShell, call the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
+To register with PowerShell, call the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
 
 ```powershell
 # Register for container soft delete (preview)
