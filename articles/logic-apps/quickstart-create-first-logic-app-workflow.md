@@ -87,7 +87,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 1. To collapse the trigger details for now, click inside the trigger's title bar.
 
-   ![Collapse logic app shape to hide details](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
+   ![Screenshot showing Logic Apps Designer with collapsed logic app shape](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
@@ -99,7 +99,7 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
 1. Under the **When a feed item is published** trigger, select **New step**.
 
-   ![Under trigger, select "New step"](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
+   ![Screenshot showing Logic Apps Designer with "New step"](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
 1. Under **Choose an action** and the search box, select **All**.
 
@@ -107,11 +107,11 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
 
    For example, if you're using a Microsoft work or school account and want to use Office 365 Outlook, select **Office 365 Outlook**. Or, if you're using a personal Microsoft account, you can select Outlook.com. This example continues with Office 365 Outlook:
 
-   ![Select the Office 365 Outlook connector](./media/quickstart-create-first-logic-app-workflow/select-connector.png)
+   ![Screenshot showing Logic Apps Designer and selected Office 365 Outlook connector](./media/quickstart-create-first-logic-app-workflow/select-connector.png)
 
    You can now more easily find and select the action that you want to use, for example, `send an email`:
 
-   ![Screenshot showing filtered actions list](./media/quickstart-create-first-logic-app-workflow/filtered-actions-list.png)
+   ![Screenshot showing Logic Apps Designer and list with filtered actions](./media/quickstart-create-first-logic-app-workflow/filtered-actions-list.png)
 
 1. If your selected email connector prompts you to authenticate your identity, complete that step now to create a connection between your logic app and your email service.
 
@@ -126,29 +126,35 @@ Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) tha
    > * [Authenticate access with managed identities](../logic-apps/create-managed-service-identity.md)
    > * [Authenticate connections for logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
-1. In the **Send an email** action, specify the data that you want the email to include.
+1. In the **Send an email** action, specify the information to include in the email.
 
    1. In the **To** box, enter the recipient's email address. For testing purposes, you can use your email address.
 
-      For now, ignore the **Add dynamic content** list that appears. When you click inside some edit boxes, this list appears and shows any available parameters from the previous step that you can include as inputs in your workflow.
+      For now, ignore the **Add dynamic content** list that appears. When you click inside some edit boxes, this list appears and shows any available outputs from the previous step that you can use as inputs for the current action.
 
    1. In the **Subject** box, enter this text with a trailing blank space: `New RSS item: `
 
-      ![In the "Subject" property, enter your email subject](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
+      ![Screenshot showing Logic Apps Designer with "Send an email" action and cursor inside the "Subject" property box](./media/quickstart-create-first-logic-app-workflow/send-email-subject.png)
 
-   1. From the **Add dynamic content** list, select **Feed title** to include the RSS item title.
+   1. From the **Add dynamic content** list, select **Feed title**, which is output from the trigger, "When a feed item is published", that makes the RSS item title available for you to use.
 
-      ![From dynamic content list, select "Feed title" property](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
+      ![Screenshot showing Logic Apps Designer with "Send an email" action and cursor inside the "Subject" property box with an open dynamic content list and selected output, "Feed title"](./media/quickstart-create-first-logic-app-workflow/send-email-subject-dynamic-content.png)
+
+      > [!TIP]
+      > In the dynamic content list, if no outputs appear from the "When a feed item is published" trigger, 
+      > next to the action's header, select **See more**.
+      > 
+      > ![Screenshot showing Logic Apps Designer with opened dynamic content list and "See more" selected for the trigger](./media/quickstart-create-first-logic-app-workflow/dynamic-content-list-see-more-actions.png)
 
       When you're done, the email subject looks like this example:
 
-      ![Finished email subject example for added feed title](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
+      ![Screenshot showing Logic Apps Designer with "Send an email" action and an example email subject with the included "Feed title" property](./media/quickstart-create-first-logic-app-workflow/send-email-feed-title.png)
 
       If a "For each" loop appears on the designer, then you selected a token for an array, for example, the **categories-Item** token. For these kinds of tokens, the designer automatically adds this loop around the action that references that token. That way, your logic app performs the same action on each array item. To remove the loop, select the **ellipses** (**...**) on the loop's title bar, then select **Delete**.
 
    1. In the **Body** box, enter this text, and select these tokens for the email body. To add blank lines in an edit box, press Shift + Enter.
 
-      ![Select properties for email body content](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
+      ![Screenshot showing Logic Apps Designer with "Send an email" action and selected properties inside the "Body" box](./media/quickstart-create-first-logic-app-workflow/send-email-body.png)
 
       | Property | Description |
       |----------|-------------|
@@ -167,7 +173,7 @@ To manually start your logic app, on the designer toolbar bar, select **Run**. O
 
 For example, here is a sample email that this logic app sends.
 
-![Sample email sent when new RSS feed item appears](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
+![Screenshot showing sample email received when new RSS feed item appears](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
 Technically, when the trigger checks the RSS feed and finds new items, the trigger fires, and the Azure Logic Apps engine creates an instance of your logic app workflow that runs the actions in the workflow. If the trigger doesn't find new items, the trigger doesn't fire and "skips" instantiating the workflow.
 
@@ -177,19 +183,21 @@ Congratulations, you've now successfully built and run your first logic app with
 
 When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
-1. On the main Azure menu, select **Resource groups**, and then select your logic app's resource group. On the **Overview** pane, select **Delete resource group**.
+1. In the Azure search box, enter `resource groups`, and then select **Resource groups**.
 
-   ![Find, select, and delete resource group](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+   ![Screenshot showing Azure portal search box with the search term, "resource groups"](./media/quickstart-create-first-logic-app-workflow/find-resource-groups.png)
+
+1. Find and select your logic app's resource group. On the **Overview** pane, select **Delete resource group**.
+
+   ![Screenshot showing Azure portal with selected resource group and button for "Delete resource group"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
 1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 
-   ![To confirm deletion, select "Delete"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+   ![Screenshot showing Azure portal with confirmation pane and entered resource group name to delete](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 > [!NOTE]
-> When you delete a logic app, no new runs are instantiated. 
-> All in-progress and pending runs are canceled. 
-> If you have thousands of runs, cancellation might 
-> take significant time to complete.
+> When you delete a logic app, no new runs are instantiated. All in-progress and pending runs are canceled. 
+> If you have thousands of runs, cancellation might take significant time to complete.
 
 ## Next steps
 
