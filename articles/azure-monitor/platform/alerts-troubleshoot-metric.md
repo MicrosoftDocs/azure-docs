@@ -100,6 +100,29 @@ Metric alerts are stateful by default, and therefore additional alerts are not f
 > [!NOTE] 
 > Making a metric alert rule stateless prevents fired alerts from becoming resolved, so even after the condition isn’t met anymore, the fired alerts will remain in a fired state until the 30 days retention period.
 
+## Define an alert rule on a custom metric that isn't emitted yet
+
+When creating a metric alert rule, the metric name is validated against the [Metric Definitions API](https://docs.microsoft.com/rest/api/monitor/metricdefinitions/list) to make sure it exists. In some cases, you'd like to create an alert rule on a custom metric even before it’s emitted. For example, when creating (using an ARM template) an Application Insights resource that will emit a custom metric, along with an alert rule that monitors that metric.
+
+To avoid having the deployment fail when trying to validate the custom metric’s definitions, you can use the *skipMetricValidation* parameter in the criteria section of the alert rule, which will cause the metric validation to be skipped. See the example below for how to use this parameter in an ARM template (for complete ARM template samples for creating metric alert rules, see [here]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)).
+
+```json
+"criteria": {
+	"odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+        "allOf": [
+        	{
+                	"name" : "condition1",
+                        "metricName": "myCustomMetric",
+	           	"metricNamespace": "myCustomMetricNamespace",
+                        "dimensions":[],
+                        "operator": "GreaterThan",
+                        "threshold" : 10,
+                        "timeAggregation": "Average",
+	             	"skipMetricValidation": true
+		}
+              ]
+	    }
+```
 
 ## Metric alert rules quota too small
 
