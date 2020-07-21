@@ -76,6 +76,10 @@
     items:
     - name: Known issues
       href: troubleshoot-known-issues.md
+    - name: Problem resolution
+      items:
+      - name: 403 (Forbidden)
+        href: troubleshoot-error-403.md
 - name: Reference
   items:
   - name: Digital Twins service limits
