@@ -1,5 +1,5 @@
 ---
-title: Azure Cache for Redis with Azure Private Link
+title: Azure Cache for Redis with Azure Private Link (Preview)
 description: Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. In this article, you will learn how to create an Azure Cache, an Azure virtual network, and a Private Endpoint using the Azure portal.  
 author: curib
 ms.author: cauribeg
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 07/21/2020
 ---
 
-# Azure Cache for Redis with Azure Private Link
+# Azure Cache for Redis with Azure Private Link (Preview)
 Azure Private Endpoint is a network interface that connects you privately and securely to Azure Cache for Redis powered by Azure Private Link. 
 
 In this article, you'll learn how to create an Azure Cache, an Azure virtual network, and a Private Endpoint using the Azure portal.  
