@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: trbye
-author: trevorbye
+ms.author: larryfr
+author: BlackMist
 ms.date: 07/08/2020
 ---
 
