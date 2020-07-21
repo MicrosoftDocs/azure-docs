@@ -1,7 +1,6 @@
 ---
 author: msmbaldwin
 ms.service: key-vault
-ms.subservice: B2C
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
@@ -10,7 +9,7 @@ ms.author: msmbaldwin
 
 ---
 
-The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. Set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step using the `export VARNAME=VALUE` format. (This method only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/environment ` file.) 
+The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. Set these variables to the clientId, clientSecret, and tenantId values that were returned in the "Create a service principal" step using the `export VARNAME=VALUE` format. (This method only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/environment ` file.) 
 
 You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
 

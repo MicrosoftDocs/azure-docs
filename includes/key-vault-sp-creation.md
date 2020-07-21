@@ -1,7 +1,6 @@
 ---
 author: msmbaldwin
 ms.service: key-vault
-ms.subservice: B2C
 ms.topic: include
 ms.date: 07/20/2020
 ms.author: msmbaldwin
@@ -10,7 +9,7 @@ ms.author: msmbaldwin
 
 ---
 
-The simplest way to authenticate a cloud-based Python application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. 
+The simplest way to authenticate a cloud-based Python application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](/azure/key-vault/general/managed-identity) for details. 
 
 For the sake of simplicity however, this quickstart creates a desktop application, which requires the use of a service principal and an access control policy. Your service principal requires a unique name in the format "http://&lt;my-unique-service-principal-name&gt;".
 
@@ -20,7 +19,7 @@ Create a service principal using the Azure CLI [az ad sp create-for-rbac](/cli/a
 az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
 ```
 
-This operation will return a series of key / value pairs. 
+This operation will return a series of key / value pairs.
 
 ```console
 {
@@ -35,6 +34,3 @@ This operation will return a series of key / value pairs.
   "managementEndpointUrl": "https://management.core.windows.net/"
 }
 ```
-
-Take note of the clientId and clientSecret, as we will use them in the [Set environmental variable](#set-environmental-variables) step below.
-
