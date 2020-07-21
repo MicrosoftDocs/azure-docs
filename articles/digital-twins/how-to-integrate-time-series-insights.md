@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Integrate Digital Twins with Azure Time Series Insights
 
-In this reference, you will learn how to integrate Azure Digital Twins with [Azure Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This solution will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
+In this reference, you will learn how to integrate Azure Digital Twins with [Azure Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md). This solution will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
 
 ## Solution architecture
 
@@ -175,7 +175,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your
 
 ## Create and connect a Time Series Insights instance
 
-1. Create a preview PAYG environment. [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md)
+1. Create a preview pay-as-you-go (PAYG) environment. [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md)
     1. Select the **PAYG(Preview)** pricing tier.
     2. You will need to choose a time series ID for this environment. Your time series ID can be up to three values that you will use to search for your data in time series insights. For this tutorial you can use **$dtId**. Read more in [*Best practices for choosing a Time Series ID*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid)
     
