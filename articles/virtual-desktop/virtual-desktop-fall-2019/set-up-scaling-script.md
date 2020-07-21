@@ -55,7 +55,7 @@ However, the tool also has the following limitations:
 
 - This solution applies only to pooled multi-session session host VMs.
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account and Azure Logic App.
-- Max runtime of a job in the runbook is 3 hours. In case starting/stopping of VMs in a host pool takes longer than that, the job would fail. [More details](../../automation/automation-runbook-execution.md#fair-share)
+- The maximum runtime of a job in the runbook is 3 hours. If starting or stopping the VMs in the host pool takes longer than that, the job will fail. For more details, see [Shared resources](../../automation/automation-runbook-execution.md#fair-share)
 
 >[!NOTE]
 >The scaling tool controls the load balancing mode of the host pool it is scaling. It sets it to breadth-first load balancing for both peak and off-peak hours.
@@ -78,7 +78,7 @@ If you have everything ready, then let's get started.
 ## Create or update an Azure Automation account
 
 >[!NOTE]
->If you already have an existing Azure Automation account with a runbook running an older version of the script, you can re-run just this step to update it to latest.
+>If you already have an Azure Automation account with a runbook running an older version of the script, all you need to do is re-run just this script to make sure it's updated.
 
 First, you'll need an Azure Automation account to run the PowerShell runbook. Below procedure is valid even if you have an existing Azure Automation account which you would like to use to set up the PowerShell runbook. Here's how to set it up:
 
@@ -199,8 +199,8 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
 5. Run the following PowerShell script to create the Azure Logic App and execution schedule for your host pool 
 
->[!NOTE]
->You'll need to run this script for each host pool you want to autoscale, but you need only one Azure Automation account.
+    >[!NOTE]
+    >You'll need to run this script for each host pool you want to autoscale, but you need only one Azure Automation account.
 
     ```powershell
     $AADTenantId = (Get-AzContext).Tenant.Id
@@ -292,31 +292,33 @@ Navigate to the runbook in your resource group hosting the Azure Automation acco
 >[!div class="mx-imgBorder"]
 >![An image of the output window for the scaling tool.](media/tool-output.png)
 
-### Check the version of the runbook script
+### Check the runbook script version number
 
-You can check the version of the runbook script by navigating to the runbook in your Azure Automation account and clicking on **View**. The script will appear from the right. The version in the form "**v#.#.#**" will be within first few lines of the script under the SYNOPSIS section. Latest version of the script can be found [here](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/wvd-scaling-script/basicScale.ps1#L1). If you don't see any version in your runbook script, its running a very old version of the script.
+You can check which version of the runbook script you're using by opening the runbook file in your Azure Automation account and selecting **View**. A script for the runbook will appear on the right side of the screen. In the script, you'll see the version number in the format `v#.#.#` under the `SYNOPSIS` section. You can find the latest version number [here](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/wvd-scaling-script/basicScale.ps1#L1). If you don't see a version number in your runbook script, that means you're running an earlier version of the script and you should update it right away. If you need to update your runbook script, follow the instructions in [Create or update an Azure Automation account](#create-or-update-an-azure-automation-account).
 
 ### Reporting issues
 
 When you report an issue, you'll need to provide the following information to help us troubleshoot:
 
 - Complete log from the **All Logs** tab by [navigating to the job](#view-logs-and-scaling-tool-output) that caused an issue. Feel free to mask any sensitive information from the log
-- [Version of the runbook script](#check-the-version-of-the-runbook-script)
-- Mention that this is a non-ARM based runbook
-- Version of each of the following PowerShell modules installed in the Azure Automation account. To find these modules, navigate to your Azure Automation account and in the pane on the left side of the window, click on **Modules** under **Shared Resources** section. You can search for module by its name
+
+- The version of the runbook script you're using. To find out how to get the version number, see [Check the runbook script version number](#check-the-runbook-script-version-number)
+
+- The version number of each of the following PowerShell modules installed in your Azure Automation account. To find these modules, open Azure Automation account, select **Modules** under the **Shared Resources** section in the pane on the left side of the window, and then search for the module's name.
     - Az.Accounts
     - Az.Compute
     - Az.Resources
     - Az.Automation
     - OMSIngestionAPI
     - Microsoft.RDInfra.RDPowershell
+
 - The expiration date for your [Run As account](#create-an-azure-automation-run-as-account). To find this, open your Azure Automation account, then select **Run As accounts** under **Account Settings** in the pane on the left side of the window. The expiration date should be under **Azure Run As account**.
 
 ### Log Analytics
 
 If you decided to use Log Analytics, you can view all the log data in a custom log named **WVDTenantScale_CL** under **Custom Logs** in the **Logs** view of your Log Analytics Workspace. We've listed some sample queries you might find helpful.
 
-- All logs for a host pool
+- To see all logs for a host pool, enter the following query
 
     ```Kusto
     WVDTenantScale_CL
@@ -324,7 +326,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- Total number of session host VMs running and total number of user sessions in a host pool at a point of time
+- To view the total number of currently running session host VMs and active user sessions in your host pool, enter the following query
 
     ```Kusto
     WVDTenantScale_CL
@@ -335,7 +337,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- Status of all session host VMs in a host pool at a point of time
+- To view the status of all session host VMs in a host pool, enter the following query
 
     ```Kusto
     WVDTenantScale_CL
@@ -344,7 +346,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- Errors and warnings
+- To view any errors and warnings, enter the following query
 
     ```Kusto
     WVDTenantScale_CL
