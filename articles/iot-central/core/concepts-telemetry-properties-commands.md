@@ -463,6 +463,9 @@ A device client should send the state as JSON that looks like the following exam
 
 ## Properties
 
+> [!NOTE]
+> The payload formats for properties applies to applications created on or after 07/14/2020.
+
 ### Primitive types
 
 This section shows examples of primitive property types that a device sends to an IoT Central application.
