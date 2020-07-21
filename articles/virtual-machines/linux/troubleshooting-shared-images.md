@@ -11,7 +11,7 @@ ms.author: cynthn
 ms.reviewer: akjosh
 ---
 
-# Troubleshooting shared image galleries
+# Troubleshooting shared image galleries (Linux)
 
 
 [!INCLUDE [virtual-machines-common-shared-image-troubleshooting](../../../includes/virtual-machines-common-shared-image-troubleshooting.md)]

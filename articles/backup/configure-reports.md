@@ -12,7 +12,7 @@ A common requirement for backup admins is to obtain insights on backups based on
 - Auditing of backups and restores.
 - Identifying key trends at different levels of granularity.
 
-Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) and [Azure workbooks](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
+Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/log-query/get-started-portal.md) and [Azure workbooks](../azure-monitor/platform/workbooks-overview.md). These resources help you get rich insights on your backups across your entire backup estate. This article explains how to configure and view Azure Backup reports.
 
 ## Supported scenarios
 
@@ -20,7 +20,7 @@ Today, Azure Backup provides a reporting solution that uses [Azure Monitor logs]
 - For DPM workloads, Backup reports are supported for DPM Version 5.1.363.0 and above and Agent Version 2.0.9127.0 and above.
 - For MABS workloads, Backup reports are supported for MABS Version 13.0.415.0 and above and Agent Version 2.0.9170.0 and above.
 - Backup reports can be viewed across all backup items, vaults, subscriptions, and regions as long as their data is being sent to a Log Analytics workspace that the user has access to. To view reports for a set of vaults, you only need to have reader access to the Log Analytics workspace to which the vaults are sending their data. You don't need to have access to the individual vaults.
-- If you're an [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
+- If you're an [Azure Lighthouse](../lighthouse/index.yml) user with delegated access to your customers' subscriptions, you can use these reports with Azure Lighthouse to view reports across all your tenants.
 - Currently, data can be viewed in Backup Reports across a maximum of 100 Log Analytics Workspaces (across tenants).
 - Data for log backup jobs currently isn't displayed in the reports.
 
@@ -32,22 +32,22 @@ Follow these steps to start using the reports.
 
 Set up one or more Log Analytics workspaces to store your Backup reporting data. The location and subscription where this Log Analytics workspace can be created is independent of the location and subscription where your vaults exist.
 
-To set up a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+To set up a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../azure-monitor/learn/quick-create-workspace.md).
 
-By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage).
+By default, the data in a Log Analytics workspace is retained for 30 days. To see data for a longer time horizon, change the retention period of the Log Analytics workspace. To change the retention period, see [Manage usage and costs with Azure Monitor logs](../azure-monitor/platform/manage-cost-storage.md).
 
 ### 2. Configure diagnostics settings for your vaults
 
 Azure Resource Manager resources, such as Recovery Services vaults, record information about scheduled operations and user-triggered operations as diagnostics data.
 
-In the monitoring section of your Recovery Services vault, select **Diagnostics settings** and specify the target for the Recovery Services vault's diagnostic data. To learn more about using diagnostic events, see [Use diagnostics settings for Recovery Services vaults](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
+In the monitoring section of your Recovery Services vault, select **Diagnostics settings** and specify the target for the Recovery Services vault's diagnostic data. To learn more about using diagnostic events, see [Use diagnostics settings for Recovery Services vaults](./backup-azure-diagnostic-events.md).
 
 ![Diagnostics settings pane](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics).
+Azure Backup also provides a built-in Azure Policy definition, which automates the configuration of diagnostics settings for all vaults in a given scope. To learn how to use this policy, see [Configure vault diagnostics settings at scale](./azure-policy-configure-diagnostics.md).
 
 > [!NOTE]
-> After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. For more information, see [Conventions used in Backup reports](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports). We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
+> After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. For more information, see [Conventions used in Backup reports](#conventions-used-in-backup-reports). We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
 
 #### 3. View reports in the Azure portal
 
@@ -97,7 +97,7 @@ Select the pin button at the top of each widget to pin the widget to your Azure 
 
 ## Cross-tenant reports
 
-If you use [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multitenanted reports.
+If you use [Azure Lighthouse](../lighthouse/index.yml) with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. Select the filter button in the upper-right corner of the Azure portal to choose all the subscriptions for which you want to see data. Doing so lets you select Log Analytics workspaces across your tenants to view multitenanted reports.
 
 ## Conventions used in Backup reports
 
@@ -125,8 +125,8 @@ The widgets in the Backup report are powered by Kusto queries, which run on the 
 
 - The earlier Power BI template app for reporting, which sourced data from an Azure storage account, is on a deprecation path. We recommend that you start sending vault diagnostic data to Log Analytics to view reports.
 
-- In addition, the [V1 schema](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
+- In addition, the [V1 schema](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) of sending diagnostics data to a storage account or an LA Workspace is also on a deprecation path. This means that if you have written any custom queries or automations based on the V1 schema, you are advised to update these queries to use the currently supported V2 schema.
 
 ## Next steps
 
-[Learn more about monitoring and reporting with Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-monitor-alert-faq)
+[Learn more about monitoring and reporting with Azure Backup](./backup-azure-monitor-alert-faq.md)
