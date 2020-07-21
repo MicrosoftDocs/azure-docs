@@ -41,9 +41,9 @@ After you are logged into [Azure portal](https://ms.portal.azure.com/), you can 
 
 :::image type="content" source= "media/how-to-set-up-instance/azure-portal-home-page.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
-:::image type="content" source= "media/how-to-set-up-instance/digital-twins-create.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
+:::image type="content" source= "media/how-to-set-up-instance/create-new-resource-ADT.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 
-On the following *Create Resource* page, fill in the following values:
+On the following *Create Resource* page, fill in the values given below:
 * _Subscription_: select your existing Azure subscription from the dropdown menu
   - _Resource group_: Create a new resource group by selecting the _Create new_ link and entering your desired name for the resource group
 * _Location_: Choose a location for your resource from the dropdown menu
@@ -73,9 +73,9 @@ To be able to do this, you need to be classified as an owner in your Azure subsc
 
 :::image type="content" source="media/how-to-set-up-instance/check-role-owner-in-subscriptions.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner":::
 
-If you find that _My role_ is _Contributor_ or something other than _Owner_, please contact your subscription administrator with the power to grant permissions in your subscription. They can either elevate your role on the entire subscription so that you can run the following command, or an owner can run the following command on your behalf to set up your Azure Digital Twins permissions for you.
+If you find that _My role_ is _Contributor_ or something other than _Owner_, please contact your subscription administrator with the power to grant permissions in your subscription.
 
-To assign your user "owner" permissions in your Azure Digital Twins instance, go to the instance in the Azure portal. You can do this by searching for the instance's name in the portal search bar.
+To assign your user "owner" permissions in your Azure Digital Twins instance, go to the instance in the Azure portal. You can do this by searching with the resource name you  created earlier in the article in the portal search bar at the top of the Azure portal home page.
 
 Select *Access control (IAM)* from the instance's menu, and choose the  _Add_ button under _Add a role assignment_.
 
