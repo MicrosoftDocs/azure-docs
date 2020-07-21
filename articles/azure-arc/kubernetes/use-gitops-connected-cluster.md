@@ -309,5 +309,5 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 ## Next steps
 
-- [Use GitOps with Helm for cluster configuration](./use-gitops-with-helm.md)
+- [Use Helm with source control configuration](./use-gitops-with-helm.md)
 - [Use Azure Policy to govern cluster configuration](./use-azure-policy.md)
