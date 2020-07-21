@@ -3,7 +3,7 @@ title: Search for a location using Azure Maps Search services
 description: In this article, you'll learn how to search for a location using the Microsoft Azure Maps Search APIs for geocoding, reverse geocoding, fuzzy search, and reverse cross street search.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/17/2020
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,15 +12,14 @@ manager: philmea
 
 # Search for a location using Azure Maps Search services
 
-The [Azure Maps Search Service](https://docs.microsoft.com/rest/api/maps/search) is a set of  APIs for searching addresses by name, category, and other geographic information. In addition, search services can also reverse geocode addresses and cross streets based on latitudes and longitudes. The returned latitude and longitude values can then be used as parameters in other Azure Maps services, such as [Route](https://docs.microsoft.com/rest/api/maps/route) and [Weather](https://docs.microsoft.com/rest/api/maps/weather) services.
+The [Azure Maps Search Service](https://docs.microsoft.com/rest/api/maps/search) is a set of  RESTful APIs designed to help developers search addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route](https://docs.microsoft.com/rest/api/maps/route) and [Weather](https://docs.microsoft.com/rest/api/maps/weather) services.
 
 In this article, you'll learn how to:
 
 * Request latitude and longitude coordinates for an address (geocode address location) by using the [Search Address API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress).
 * Search for an address or Point of Interest (POI) using the [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
-* Search for an address, its properties, and coordinates.
 * Make a [Reverse Address Search](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) to translate coordinate location to street address.
-* Translate coordinate location into a human understandable cross street by using [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).
+* Translate coordinate location into a human understandable cross street by using [Search Address Reverse Cross Street API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet).  Most often, this is needed in tracking applications where you receive a GPS feed from the device or asset and wish to know what address where the coordinate is located.
 
 ## Prerequisites
 
@@ -31,7 +30,7 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 ## Request latitude and longitude for an address (geocoding)
 
-In this example, we'll use the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, and county/state/country region information.
+In this example, we'll use the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, municipality, and country/region information.
 
 >[!IMPORTANT]
 >To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search](how-to-use-best-practices-for-search.md#geobiased-search-results).
@@ -53,24 +52,24 @@ In this example, we'll use the Azure Maps [Get Search Address API](https://docs.
 
 4. Click the blue **Send** button. The response body will contain data for a single location.
 
-5. Now, we'll search an address that has more than one possible locations. In the **Params** section, change the `query` key to `400 Broad, Seattle`.  Also, add the `typeahead` key, and set its value to `true`. The `typeahead` flag tells the Address Search API to treat the query as a partial input and to return an array of predictive values. Click the blue **Send** button.
+5. Now, we'll search an address that has more than one possible locations. In the **Params** section, change the `query` key to `400 Broad, Seattle`. Click the blue **Send** button.
 
     :::image type="content" source="./media/how-to-search-for-address/search-address.png" alt-text="Search for address":::
 
 6. Next, try setting the `query` key to `400 Broa`.
 
-7. Click the **Send** button.
+7. Click the **Send** button.  You can now see that the response includes responses from multiple countries. To learn how to geobias results to the relevant area for your users, always add as many location details as possible to geobias your results. Please see our article Best Practices for Search to learn more.
 
 ## Using Fuzzy Search API
 
-The Azure Maps [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) supports standard single line and free-form searches. The API supports search strings that contain any combination of Point of Interest (POI) tokens and geocoding. Furthermore, the query search results can be weighted by coordinate pairs, or constrained by a coordinate and radius.
+The Azure Maps [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) supports standard single line and free-form searches. We recommend that you use the Azure Maps Search Fuzzy API when you don't know your user input type for a search request.  The query input can be a full or partial address, or a Point of Interest (POI) token, like a name of POI, POI category or name of brand. Furthermore, to improve the relevance of your search results, the query results can be constrained by a coordinate location and radius, or by defining a bounding box.
 
 >[!TIP]
 >Most Search queries default to maxFuzzyLevel=1 to gain performance and reduce unusual results. You can adjust fuzziness levels by using the `maxFuzzyLevel` or `minFuzzyLevel` parameters. For more information on `maxFuzzyLevel` and a complete list of all optional parameters, see [Fuzzy Search URI Parameters](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy#uri-parameters)
 
 ### Search for an address using Fuzzy Search
 
-In this example, we'll use Fuzzy Search to search the entire world for `pizza`.  Then, we'll show you how to search over the scope of a specific country. Finally, we'll show you how you can use a coordinate pair to scope a search over a specific area.
+In this example, we'll use Fuzzy Search to search the entire world for `pizza`.  Then, we'll show you how to search over the scope of a specific country. Finally, we'll show you how you can use a coordinate location, and radius to scope a search over a specific area and limit the numbers of returned results.
 
 >[!IMPORTANT]
 >To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search](how-to-use-best-practices-for-search.md#geobiased-search-results).
@@ -88,16 +87,17 @@ In this example, we'll use Fuzzy Search to search the entire world for `pizza`. 
 
 3. Click **Send** and review the response body.
 
-    The ambiguous query string for "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result returns a street address, latitude and longitude values, view port, and entry points for the location.
+    The ambiguous query string for "pizza" returned 10 [point of interest result](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) in both the "pizza" and "restaurant" categories. Each result includes details such as street address, latitude and longitude values, view port, and entry points for the location. The results are now varied for this query, and are not tied to any reference location.
   
-    In the next step, we'll use the `countrySet` parameter to specify only the countries/regions for which your application needs coverage. For a complete list of supported countries, see [Search Coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
+    In the next step, we'll use the `countrySet` parameter to specify only the countries/regions for which your application needs coverage. For a complete list of supported countries/regions, see [Search Coverage](https://docs.microsoft.com/azure/azure-maps/geocoding-coverage).
 
-4. Next, we'll search for `pizza` only the United States. Add the `countrySet` key to the **Params** section, and set its value to `US`.
-Setting the `countrySet` key to `US` will bound the results to the United States.
+4. The default behavior is to search the entire world, potentially returning unnecessary results. Next, we’ll search for pizza only the United States. Add the `countrySet` key to the **Params** section, and set its value to `US`. Setting the `countrySet` key to `US` will bound the results to the United States.
 
     :::image type="content" source="./media/how-to-search-for-address/search-fuzzy-country.png" alt-text="Search for pizza in the United States":::
 
-5. To get an even more targeted search, you can search over the scope of a lat./lon. coordinate pair. In this example, we'll use the lat./lon. of the Seattle Space Needle. Since we only want to return results within a 400-meters radius, we'll  add the `radius` key. Also, we'll add the `limit` key to limit the results to the five closest pizza places.
+    The results are now bounded by the country code and the query returns pizza restaurants in the United States.
+
+5. To get an even more targeted search, you can search over the scope of a lat./lon. coordinate pair. In this example, we'll use the lat./lon. of the Seattle Space Needle. Since we only want to return results within a 400-meters radius, we'll  add the `radius` parameter. Also, we'll add the `limit` parameter to limit the results to the five closest pizza places.
 
     In the **Params** section, add the following key/value pairs:
 
@@ -108,7 +108,7 @@ Setting the `countrySet` key to `US` will bound the results to the United States
     | radius | 400 |
     | limit | 5|
 
-6. Click **Send**. The response should return  results for pizza restaurants near the Seattle Space Needle.
+6. Click **Send**. The response includes results for pizza restaurants near the Seattle Space Needle.
 
 ## Search for a street address using Reverse Address Search
 
@@ -146,7 +146,7 @@ In this example, we'll be making reverse searches using a few of the optional pa
 
     :::image type="content" source="./media/how-to-search-for-address/search-reverse-entitytype.png" alt-text="Search reverse entityType.":::
 
-7. Click **Send**. Compare the results to the results returned in step 5.
+7. Click **Send**. Compare the results to the results returned in step 5.  Because the requested entity type is now `municipality`, the response does not include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
 >[!TIP]
 >To get more information on these parameters, as well as to learn about others, see the [Reverse Search Parameters section](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#uri-parameters).
@@ -162,6 +162,8 @@ In this example, we'll search for a cross street based on the coordinates of an 
     ```http
    https://atlas.microsoft.com/search/address/reverse/crossstreet/json?&api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&language=en-US&query=47.591180,-122.332700
     ```
+
+    :::image type="content" source="./media/how-to-search-for-address/search-address-cross.png" alt-text="Search cross street.":::
   
 3. Click **Send**, and review the response body. You'll notice that the response contains a `crossStreet` value of `Occidental Avenue South`.
 
