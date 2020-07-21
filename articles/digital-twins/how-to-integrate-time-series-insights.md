@@ -34,9 +34,9 @@ You will be attaching Time Series insights to Azure Digital Twins through the pa
 
 Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. 
 
-This pattern reads from the twins directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for without needing to update our Time Series Insights logic.
+This pattern reads from the twins directly, rather than the IoT device, which gives you the flexibility to change the underlying data source for without needing to update your Time Series Insights logic.
 
-1. Create an event hub namespace, which will receive events from our Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment).
+1. Create an event hub namespace, which will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment).
 ```azurecli-interactive
 # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
 az eventhubs namespace create --name <Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
@@ -66,7 +66,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --resource-
 
 ## Create an Azure function 
 
-You're going to create an Event Hubs-triggered function inside a new function app, our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from JSON patch documents to JSON objects containing only updated and added values from your twins. The function will then send those JSON objects to a second event hub, which we will connect to Time Series Insights.
+You're going to create an Event Hubs-triggered function inside a new function app, your function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from JSON patch documents to JSON objects containing only updated and added values from your twins. The function will then send those JSON objects to a second event hub, which you will connect to Time Series Insights.
 
 See the following document for reference info: [Azure Event Hubs trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hub-trigger).
 
@@ -131,12 +131,12 @@ You can either use the Azure CLI instructions below, or use the Azure portal: [Q
 2. Create an event hub
 ```azurecli-interactive
 # Create an event hub. Specify a name for the event hub. 
-az eventhubs eventhub create --name <tsi event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
+az eventhubs eventhub create --name <TSI event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
 ```
 3. Create an [authorization rule](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions
 ```azurecli-interactive
 # Create an authorization rule. Specify a name for the rule.
-az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <event hub name> --name <tsi auth rule>
+az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <event hub name> --name <TSI auth rule>
 ```
 
 ### Configure your function
@@ -159,7 +159,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-TSI=<your-e
 
 1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for both the twins hub
 ```azurecli-interactive
-az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <tsi event hub name> --name <tsi auth rule>
+az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
 ```
 
 2. In your function app, create an app setting containing your connection string
