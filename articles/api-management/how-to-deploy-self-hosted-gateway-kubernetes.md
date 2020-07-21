@@ -29,7 +29,7 @@ This article describes the steps for deploying the self-hosted gateway component
 3. Select **Deployment**.
 4. An access token in the **Token** text box was auto-generated for you, based on the default **Expiry** and **Secret key** values. If needed, choose values in either or both controls to generate a new token.
 5. Select the **Kubernetes** tab under **Deployment scripts**.
-6. Select the **<gateway-name>.yml** file link and download the YAML file.
+6. Select the **\<gateway-name\>.yml** file link and download the YAML file.
 7. Select the **copy** icon at the lower-right corner of the **Deploy** text box to save the `kubectl` commands to the clipboard.
 8. Paste commands to the terminal (or command) window. The first command creates a Kubernetes secret that contains the access token generated in step 4. The second command applies the configuration file downloaded in step 6 to the Kubernetes cluster and expects the file to be in the current directory.
 9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/sputnik/dhub) downloaded from the Microsoft Container Registry.
@@ -103,9 +103,9 @@ To learn about name resolution in Kubernetes, see the [Kubernetes website](https
 
 ### Custom domain names and SSL certificates
 
-If custom domain names are used for the API Management endpoints, especially if a custom domain name is used for the Management endpoint, you might need to update the value of `config.service.endpoint` in the `<gateway-name>.yaml` to replace the default domain name to the custom one. You need to make sure the Management endpoint can be accessed from the pod of the self-hosted gateway in the Kubernetes cluster.
+If you use custom domain names for the API Management endpoints, especially if you use a custom domain name for the Management endpoint, you might need to update the value of `config.service.endpoint` in the **\<gateway-name\>.yaml** file to replace the default domain name with the custom domain name. Make sure that the Management endpoint can be accessed from the pod of the self-hosted gateway in the Kubernetes cluster.
 
-If the SSL certificate used by the Management endpoint is not signed by a well-known CA certificate, you would have to make sure the CA certificate is trusted by the pod of the self-hosted gateway.
+In this scenario, if the SSL certificate that's used by the Management endpoint isn't signed by a well-known CA certificate, you must make sure that the CA certificate is trusted by the pod of the self-hosted gateway.
 
 ### Configuration backup
 To learn about self-hosted gateway behavior in the presence of a temporary Azure connectivity outage, see [Self-hosted gateway overview](self-hosted-gateway-overview.md#connectivity-to-azure).
