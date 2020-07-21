@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
-zone_pivot_groups: programming-languages-set-twelve
+zone_pivot_groups: programming-languages-set-twenty-two
 ---
 
 # Use codec compressed audio input with the Speech SDK
