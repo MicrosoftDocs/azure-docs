@@ -20,7 +20,7 @@ The deployment enables:
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud
 
 ## Prerequisites
-You must Register Azure Spring Cloud resource provider `Microsoft.AppPlatform` according to instructions [Register Resource Provider on Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) or by running the following az cli command:
+You must Register Azure Spring Cloud resource provider `Microsoft.AppPlatform` according to instructions [Register Resource Provider on Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) or by running the following az CLI command:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -88,7 +88,7 @@ Select the virtual network *azure-spring-cloud-vnet* you created.
 
 1. Select **Access control (IAM)**, then select **Add > Add role assignment**.
 
-    ![Access control for v-net](./media/v-net-injection/access-control-for-vnet.png)
+    ![Access control for v-net](./media/v-net-injection/access-control.png)
 
 2. In **Add role assignment**, enter or select this information:
 
