@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -160,14 +160,14 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 Take the following steps if returning the device in South Africa.
 
-1. Attach the shipping label provided and paste it on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
+1. Attach the provided shipping label on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
 
 2. Seal the shipping box and ensure that the return shipping label is visible.
 
-3. Options for booking pickup:
+3. To book a pickup with DHL:
 
     * Call the customer service contact center on +27(0) 11 9213600, select option 1 and specify waybill number.
-    * You must call before 2:00 PM to schedule a pick-up.  
+    * You must call before 2:00 PM South Africa Standard Time (ZA) to schedule a pick-up.  
     * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) to organize pickup using the following email template:
 
     ```output
@@ -179,9 +179,6 @@ Take the following steps if returning the device in South Africa.
     ```
 
     * Alternatively, you can drop off the package at the nearest DHL service point.
-
-   > [!NOTE]
-   > The pick-up cut off time is 2:00 PM South Africa Standard Time (ZA) time.
 
 4. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
@@ -260,7 +257,3 @@ Advance to the next how-to to learn how to verify data upload from Data Box Disk
 > [Verify data upload from Azure Data Box Disk](./data-box-disk-deploy-upload-verify.md)
 
 ::: zone-end
-
-
-
-

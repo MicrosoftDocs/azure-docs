@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
@@ -101,11 +101,10 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 * Email：Customerservice.JP@quantiumsolutions.com
 * Telephone：03-5755-0150
 
-
-## [Singapore](#tab/in-singapore) 
+## [Singapore](#tab/in-singapore)
 
 1. Retain the original box used to ship the device for return shipment.
-2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box. 
+2. Note down the tracking number (shown as reference number on the Prepare to Ship page of the Data Box local web UI). This is available after the prepare to ship step successfully completes. Download the shipping label from this page and paste on the packing box.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device. 
 5. Email SingPost Customer Service using the following email template with the tracking number.
@@ -129,13 +128,11 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 ## [South Africa](#tab/in-sa)
 
 1. Retain the original box used to pack the device for return shipment.
-2. Make sure that the data copy to device is complete and Prepare to ship run is successful. Note down the reference number (waybill number) shown on the device local user interface.
-3. Download the shipping label that is available for download on the local user interface of the Data Box and paste it on the packaged box.  
-4. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Schedule a pickup with DHL if returning the device. To schedule a pickup:
+2. Note down the reference number (waybill number) shown on the local web UI of the device. This number is displayed after the **Prepare to ship run** is successful.
+3. Download and print shipping label that is available on the local web UI of the device and affix it on the shipment package.
+4. To book a pickup with DHL, choose one of the following options:
 
-    * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number.
-    * The call must be made before 2:00 PM to schedule a pick-up.
+    * Call the customer service contact center before 2:00 pm on **+27(0) 11 9213600**, select option 1, and then specify the waybill number.
     * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
     ```output
@@ -152,14 +149,14 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
 ## [Hong Kong](#tab/in-hk)
 
-1. Retain the original box used to ship the device for return shipment.
-2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful. Note down the reference number (tracking number for reverse shipment) shown on the device local user interface.
-3. Download the shipping label that is available on the local user interface of the Data Box and paste it on the packaged box.  
-4. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device in the back of the device.
+1. Pack the device for return shipment in the original box.
+2. Note down the reference number (tracking number for reverse shipment) shown on the local web UI of the device. This number is displayed after the **Prepare to ship run** is successful.
+3. Download and print shipping label that is available on the local web UI of the device and affix it on the shipment package.
+4. Spool and securely place the power cord that was provided with the device in the back of the device.
 5. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
 6. Quote Microsoft Azure pickup and the Reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
 7. You will get a verbal confirmation for the pick-up schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
-8. Upon booking a pick-up with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
+8. Upon booking a pickup with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 
     ```output
     To: adbo@microsoft.com
@@ -173,11 +170,11 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
        * Pick-up time:
     ```
 
-Should you encounter any issues, kindly reach out to Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing Job name in Subject header and the issue encountered.
+Should you encounter any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing the job name in subject header and the issue encountered.
 
-## [Self-Managed](#tab/in-selfmanaged) 
+## [Self-Managed](#tab/in-selfmanaged)
 
-If you are using Data Box in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions. 
+If you are using Data Box in Japan, Singapore, Korea, and West Europe and have selected the self-managed shipping option during order creation, follow these instructions.
 
 1. Note down the Authorization code shown on the Prepare to Ship page of the Data Box local web UI after this step successfully completes.
 2. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device at the back of the device.
@@ -191,6 +188,7 @@ If you are using Data Box in Japan, Singapore, Korea, and West Europe and have s
         2. Authorization code available after Prepare to Ship has completed [Yes/No]  
         3. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
     ```
+
 ---
 
 ## Erasure of data from Data Box

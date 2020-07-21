@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 07/17/2020
+ms.date: 07/21/2020
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -229,11 +229,11 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## [South Africa](#tab/in-sa)
 
-1. Retain the original box used to pack the device for return shipment.
-2. Make sure that the data copy to device is complete and Prepare to ship run is successful. Note down the reference number (waybill number) shown on the device local user interface.
-3. Download the shipping label that is available for download on the local user interface of the Data Box and paste it on the packaged box.  
-4. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Schedule a pickup with DHL if returning the device. To schedule a pickup:
+1. Pack the device for return shipment in the original box.
+<!-- 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful. Note down the reference number (waybill number) shown on the device local user interface.
+3. Download the shipping label that is available for download on the local user interface of the Data Box and paste it on the packaged box.   -->
+2. Spool and securely place the power cord that was provided with the device in the back of the device.
+3. To book a pickup with DHL:
 
     * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number.
     * The call must be made before 2:00 PM to schedule a pick-up.
@@ -271,14 +271,14 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## [Hong Kong](#tab/in-hk)
 
-1. Retain the original box used to ship the device for return shipment.
-2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful. Note down the reference number (tracking number for reverse shipment) shown on the device local user interface.
-3. Download the shipping label that is available on the local user interface of the Data Box and paste it on the packaged box.  
-4. Power off the device and remove the cables. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
-6. Quote Microsoft Azure pickup and the Reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
-7. You will get a verbal confirmation for the pick-up schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
-8. Upon booking a pick-up with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
+1. Pack the device for return shipment in the original box.
+<!-- 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful. Note down the reference number (tracking number for reverse shipment) shown on the device local user interface.
+3. Download the shipping label that is available on the local user interface of the Data Box and paste it on the packaged box.   -->
+2. Spool and securely place the power cord that was provided with the device in the back of the device.
+3. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
+4. Quote Microsoft Azure pickup and the Reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
+5. You will get a verbal confirmation for the pickup schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
+6. Upon booking a pickup with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 
     ```output
     To: adbo@microsoft.com
@@ -292,7 +292,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
        * Pick-up time:
     ```
 
-Should you encounter any issues, kindly reach out to Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing Job name in Subject header and the issue encountered.
+Should you encounter any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing job name in subject header and the issue encountered.
 
 ::: zone target="chromeless"
 
@@ -305,6 +305,8 @@ Should you encounter any issues, kindly reach out to Data Box Operations Asia [a
 Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ::: zone-end
+
+---
 
 ::: zone target="docs"
 
