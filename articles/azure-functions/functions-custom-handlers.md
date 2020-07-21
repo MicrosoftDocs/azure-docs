@@ -394,7 +394,7 @@ By setting the `message` output equal to the order data that came in from the re
 For HTTP-triggered functions with no additional bindings or outputs, you may want your handler to work directly with the HTTP request and response instead of the custom handler [request](#request-payload) and [response](#response-payload) payloads. This behavior can be configured in *host.json* using the `enableForwardingHttpRequest` setting.
 
 > [!IMPORTANT]
-> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications on Azure Functions using custom handlers, it is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets will not work. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
+> The primary purpose of the custom handlers feature is to enable languages and runtimes that do not currently have first-class support on Azure Functions. While it may be possible to run web applications using custom handlers, Azure Functions is not a standard reverse proxy. Some features such as response streaming, HTTP/2, and WebSockets are not available. Some components of the HTTP request such as certain headers and routes may be restricted. Your application may also experience excessive [cold start](functions-scale.md#cold-start).
 > 
 > We recommend you run your web apps on [Azure App Service](../app-service/overview.md).
 
@@ -506,7 +506,9 @@ The route for the order function here is `/api/hello`, same as the original requ
 
 ## Deploying
 
-A custom handler can be deployed to every Azure Functions hosting option. If your handler requires custom dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
+A custom handler can be deployed to every Azure Functions hosting option. If your handler requires operating system or platform dependencies (such as a language runtime), you may need to use a [custom container](./functions-create-function-linux-custom-image.md).
+
+When creating a function app in Azure for custom handlers, we recommend you select .NET Core as the stack. A "Custom" stack for custom handlers will be added in the future.
 
 To deploy a custom handler app using Azure Functions Core Tools, run the following command.
 
@@ -514,14 +516,10 @@ To deploy a custom handler app using Azure Functions Core Tools, run the followi
 func azure functionapp publish $functionAppName --no-build --force
 ```
 
+This command currently configures `FUNCTIONS_WORKER_RUNTIME` to `None`. This is valid. In the future, the command will be updated to set it to the correct value of `Custom`.
+
 > [!NOTE]
 > Ensure all files required to run your custom handler are in the folder and included in the deployment. If your custom handler is a binary executable or has platform-specific dependencies, ensure these files match the target deployment platform.
-
-Set the `FUNCTIONS_WORKER_RUNTIME` to `Custom` using the Azure CLI.
-
-```bash
-az functionapp config appsettings set -n $functionAppName -g $groupName --settings FUNCTIONS_WORKER_RUNTIME=Custom
-```
 
 ## Restrictions
 
