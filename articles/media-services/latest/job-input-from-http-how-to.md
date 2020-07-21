@@ -29,7 +29,7 @@ The following code shows how to create a job with an HTTPS URL input.
 
 ## Job error codes
 
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+See [Error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ## Next steps
 

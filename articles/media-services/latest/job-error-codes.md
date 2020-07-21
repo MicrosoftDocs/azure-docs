@@ -23,7 +23,7 @@ This topic links to a REST reference document for detailed description of [Job](
 
 ## Job error codes
 
-The following REST document gives detailed explanations about [Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+The following REST document gives detailed explanations about [Job error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ## Ask questions, give feedback, get updates
 

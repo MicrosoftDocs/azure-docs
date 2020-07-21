@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
+ms.custom: devx-track-java
 ---
 
 # Set up a Spring Cloud Config Server instance for your service
