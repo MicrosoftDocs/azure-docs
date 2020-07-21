@@ -23,21 +23,22 @@ The following example shows the schema for this control:
 
 ```json
 {
-  "name": "testApi",
-  "type": "Microsoft.Solutions.ArmApiControl",
-  "request": {
-    "method": "{HTTP-method}",
-    "path": "{path-for-the-URL}",
-    "body": {
-      "key1": "val1",
-      "key2": "val2"
-  }
+    "name": "testApi",
+    "type": "Microsoft.Solutions.ArmApiControl",
+    "request": {
+        "method": "{HTTP-method}",
+        "path": "{path-for-the-URL}",
+        "body": {
+            "key1": "val1",
+            "key2": "val2"
+        }
+    }
 }
 ```
 
 ## Sample output
 
-Typically, you don't use the output of the control. Instead, use the results of the operation in other controls. You get the results by using the `.value` notation on the control.
+The control's output is not displayed to the user. Instead, the result of the operation is used in other controls.
 
 ## Remarks
 
@@ -50,8 +51,6 @@ Typically, you don't use the output of the control. Instead, use the results of 
 In the following example, the `providersApi` element calls an API to get an array of provider objects.
 
 The `allowedValues` property of the `providersDropDown` element is configured to get the names of the providers. It displays them in the dropdown list.
-
-The `allowedValues` property of the `peeringLocationDropdown` element is configured to filter the API response to match the provider selected in `providersDropDown`. It displays the locations supported by that provider.
 
 ```json
 {
@@ -72,21 +71,10 @@ The `allowedValues` property of the `peeringLocationDropdown` element is configu
       "required": true
     },
     "visible": true
-},
-{
-    "name": "peeringLocationDropdown",
-    "type": "Microsoft.Common.DropDown",
-    "label": "Peering locations",
-    "toolTip": "The location where the provider will provision the connection",
-    "constraints": {
-      "allowedValues": "[map(first(map(filter(steps('settings').providersApi.value, (entry)=> equals(entry.name, steps('settings').providerDropDown)), (item) => item.properties.peeringLocations)), (plocation) => parse(concat('{\"label\":\"', plocation, '\",\"value\":\"', plocation, '\"}')))]",
-      "required": true
-    },
-    "visible": true
 }
 ```
 
-For an example of using the ArmApiControl to check the availability of a resource name, see [Microsoft.Common.Textbox](microsoft-common-textbox.md).
+For an example of using the ArmApiControl to check the availability of a resource name, see [Microsoft.Common.TextBox](microsoft-common-textbox.md).
 
 ## Next steps
 

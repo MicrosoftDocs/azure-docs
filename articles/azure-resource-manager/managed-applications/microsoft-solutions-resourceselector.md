@@ -37,11 +37,9 @@ ResourceSelector lets users select an existing resource from a subscription.
 ## Sample output
 
 ```json
-"value": {
-    "name": "{resource-name}",
-    "id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}",
-    "location": "{deployed-location}"
-}
+"name": "{resource-name}",
+"id": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}",
+"location": "{deployed-location}"
 ```
 
 ## Remarks

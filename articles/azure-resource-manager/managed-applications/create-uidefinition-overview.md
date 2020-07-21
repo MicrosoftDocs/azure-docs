@@ -75,40 +75,40 @@ You specify the config element when you need to override the default behavior fo
 ```json
 "config": {  
     "basics": {  
-      "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
-      "subscription": {
-        "constraints": {
-          "validations": [
-            {
-              "isValid": "[expression for checking]",
-              "message": "Please select a valid subscription."
-            },
-            {
-              "permission": "<Resource Provider>/<Action>",
-              "message": "Must have correct permission to complete this step."
-            }
-          ]
-        },
-        "resourceProviders": [ "<Resource Provider>" ]
-      },
-      "resourceGroup": {
-        "constraints": {
-          "validations": [
-            {
-              "isValid": "[expression for checking]",
-              "message": "Please select a valid resource group."
-            }
-          ]
-        },
-        "allowExisting": true
-      },
-      "location": {  
-        "label": "Custom label for location",  
-        "toolTip": "provide a useful tooltip",  
-        "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
-        "allowedValues": [ "eastus", "westus2" ],  
-        "visible": true  
-      }  
+        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+        "subscription": {
+            "constraints": {
+                "validations": [
+                  {
+                      "isValid": "[expression for checking]",
+                      "message": "Please select a valid subscription."
+                  },
+                  {
+                      "permission": "<Resource Provider>/<Action>",
+                      "message": "Must have correct permission to complete this step."
+                  }
+                ]
+            },
+            "resourceProviders": [ "<Resource Provider>" ]
+        },
+        "resourceGroup": {
+            "constraints": {
+                "validations": [
+                  {
+                      "isValid": "[expression for checking]",
+                      "message": "Please select a valid resource group."
+                  }
+                ]
+            },
+            "allowExisting": true
+        },
+        "location": {  
+            "label": "Custom label for location",  
+            "toolTip": "provide a useful tooltip",  
+            "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
+            "allowedValues": [ "eastus", "westus2" ],  
+            "visible": true  
+        }  
     }  
 },  
 ```
