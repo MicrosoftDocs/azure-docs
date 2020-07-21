@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Integrate Digital Twins with Azure Time Series Insights
 
-In this reference, you will learn how to integrate Azure Digital Twins with Time Series Insights. This solution will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
+In this reference, you will learn how to integrate Azure Digital Twins with [Azure Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This solution will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
 
 ## Solution architecture
 
@@ -36,7 +36,7 @@ Azure Digital Twins instances can emit twin update events whenever a twin's stat
 
 This pattern reads from the twins directly, rather than the IoT device, which gives you the flexibility to change the underlying data source for without needing to update your Time Series Insights logic.
 
-1. Create an event hub namespace, which will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment).
+1. Create an event hub namespace, which will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md).
 ```azurecli-interactive
 # Create an Event Hubs namespace. Specify a name for the Event Hubs namespace.
 az eventhubs namespace create --name <Event Hubs namespace> --resource-group <resource group name> -l <region, for example: East US>
@@ -68,7 +68,7 @@ az eventhubs eventhub authorization-rule create --rights Listen Send --resource-
 
 You're going to create an Event Hubs-triggered function inside a new function app, your function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from JSON patch documents to JSON objects containing only updated and added values from your twins. The function will then send those JSON objects to a second event hub, which you will connect to Time Series Insights.
 
-See the following document for reference info: [*Azure Event Hubs trigger for Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-hub-trigger).
+See the following document for reference info: [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
 Replace the function code with the following code.
 
@@ -124,7 +124,7 @@ You will now create an second event hub and configure your function to stream it
 
 ### Create an event hub
 
-You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment).
+You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md).
 
 1. Prepare your event hub namespace and resource group name from earlier 
 
@@ -169,7 +169,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your
 
 ## Create and connect a Time Series Insights instance
 
-1. Create a preview PAYG environment. [*Tutorial: Create a Preview PAYG environment*](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment#create-a-preview-payg-environment)
+1. Create a preview PAYG environment. [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md)
     1. Select the **PAYG(Preview)** pricing tier.
     2. You will need to choose a time series ID for this environment. Your time series ID can be up to three values that you will use to search for your data in time series insights. For this tutorial you can use **$dtId**. Read more in [*Best practices for choosing a Time Series ID*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid)
     
@@ -184,7 +184,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your
 To begin sending data to Time Series Insights you will need to start changing twin values. Use the [az dt twin update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) command.
 If you are following the end to end tutorial, follow the steps below:
 
-1. Begin sending simulated IoT data by running the `DeviceSimulator` project from the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). The instructions are in the [*Configure and run the simulation*](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
+1. Begin sending simulated IoT data by running the `DeviceSimulator` project from the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). The instructions are in the [*Configure and run the simulation*](tutorial-end-to-end.md#configure-and-run-the-simulation) section.
 
 ## Visualize your data in Time Series Insights
 
@@ -210,7 +210,7 @@ Now data should be flowing into your Time Series Insights instance, ready to be 
 
 The Twins are stored by default as a flat hierarchy in Time Series Insights, but they can be enriched with model information and a multi-level hierarchy for organization. To learn more read: 
 
-* [*Tutorial: Define and apply a model*](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment#define-and-apply-a-model) 
+* [*Tutorial: Define and apply a model*](../time-series-insights/tutorials-set-up-tsi-environment.md#define-and-apply-a-model) 
 
 You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
