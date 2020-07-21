@@ -1,5 +1,5 @@
 ---
-title: SAP SuccessFactors integration reference
+title: Azure Active Directory and SAP SuccessFactors integration reference
 description: Technical deep dive into SAP SuccessFactors-HR driven provisioning 
 services: active-directory
 author: kenwith
@@ -12,7 +12,7 @@ ms.date: 07/20/2020
 ms.author: chmutali
 ---
 
-# How Azure AD provisioning service integrates with SAP SuccessFactors Employee Central 
+# How Azure Active Directory provisioning integrates with SAP SuccessFactors 
 
 [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three pre-built integrations: 
 
@@ -27,9 +27,12 @@ Azure AD provisioning engine uses basic authentication to connect to Employee Ce
 
 To further secure the connectivity between Azure AD provisioning service and SuccessFactors, you can add the Azure AD IP ranges in the SuccessFactors IP allow-list using the steps described below:
 
-* Download the [latest IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for the Azure Public Cloud 
+* Download the [latest IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure Public Cloud 
 * Open the file and search for tags **AzureActiveDirectory** and **AzureActiveDirectoryDomainServices** 
-  ![Azure AD IP range](media/sap-successfactors-integration-reference/azure-ad-ip-range.png)
+
+  >[!div class="mx-imgBorder"] 
+  >![Azure AD IP range](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)
+
 * Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address restriction list.
 * Translate the CIDR values to IP ranges.  
 * Log in to SuccessFactors admin portal to add IP ranges to the allow-list. Refer to SAP [support note 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
