@@ -81,7 +81,7 @@ The item had the [Time To Live (TTL)](https://docs.microsoft.com/azure/cosmos-db
 Change the Time To Live to prevent the item from getting purged.
 
 ### 5. Lazy indexing
-The [lazy indexing](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) has not caught up.
+The [lazy indexing](index-policy.md#indexing-mode) has not caught up.
 
 #### Solution:
 Wait for the indexing to catch up or change the indexing policy
