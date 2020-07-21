@@ -37,6 +37,10 @@ Streaming compressed input audio is currently supported for C#, C++, Java and Py
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/prerequisites.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/prerequisites.md)]
+::: zone-end
+
 ## Example code using codec compressed audio input
 
 ::: zone pivot="programming-language-csharp"
@@ -49,6 +53,10 @@ Streaming compressed input audio is currently supported for C#, C++, Java and Py
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/java/examples.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/python/examples.md)]
 ::: zone-end
 
 ## Next steps
