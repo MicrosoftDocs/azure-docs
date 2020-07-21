@@ -1,26 +1,30 @@
 ---
-title: Quickstart:Create a public Load Balancer - Azure CLI
+title: "Quickstart: Create a public load balancer - Azure CLI"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: KumudD
 tags: azure-resource-manager
-Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
-ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
+Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2019
+ms.date: 07/20/2020
 ms.author: allensu
 ms.custom: mvc
 ---
-# Quickstart: Create a Standard Load Balancer to load balance VMs using Azure CLI
+# Quickstart: Create a load balancer to load balance VMs using Azure CLI
 
-This quickstart shows you how to create a public Load Balancer. To test the load balancer, you deploy two virtual machines (VMs) running Ubuntu server and load balance a web app between the two VMs.
+Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure CLI installed locally or Azure Cloud Shell
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -28,67 +32,87 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group
 
-Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-The following example creates a resource group named *myResourceGroupSLB* in the *eastus* location:
+Create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create):
+
+* Named **myResourceGroupLB**. 
+* In the **eastus** location.
 
 ```azurecli-interactive
   az group create \
-    --name myResourceGroupSLB \
+    --name myResourceGroupLB \
     --location eastus
 ```
 
 ## Create a public IP address
 
-To access your web app on the Internet, you need a public IP address for the load balancer. Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) to create a Standard zone redundant Public IP address named *myPublicIP* in *myResourceGroupSLB*.
+To access your web app on the Internet, you need a public IP address for the load balancer. 
+
+Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
+
+* Create a standard zone redundant public IP address named **myPublicIP**.
+* In **myResourceGroupLB**.
 
 ```azurecli-interactive
-  az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku standard
 ```
 
-To create a zonal Public IP address in zone 1 use:
+To create a zonal redundant public IP address in Zone 1:
 
 ```azurecli-interactive
-  az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIP \
+    --sku standard \
+    --zone 1
 ```
-
-Use `-SKU Basic` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.
-
-> [!IMPORTANT]
-> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
 
 ## Create Azure Load balancer
 
 This section details how you can create and configure the following components of the load balancer:
-  - a frontend IP pool that receives the incoming network traffic on the load balancer.
-  - a backend IP pool where the frontend pool sends the load balanced network traffic.
-  - a health probe that determines health of the backend VM instances.
-  - a load balancer rule that defines how traffic is distributed to the VMs.
+
+  * A frontend IP pool that receives the incoming network traffic on the load balancer.
+  * A backend IP pool where the frontend pool sends the load balanced network traffic.
+  * A health probe that determines health of the backend VM instances.
+  * A load balancer rule that defines how traffic is distributed to the VMs.
 
 ### Create the load balancer
 
-Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend pool named **myFrontEnd**, a backend pool named **myBackEndPool** that is associated with the public IP address **myPublicIP** that you created in the preceding step. Use `--sku basic` to create a Basic Load Balancer. Microsoft recommends Standard SKU for production workloads.
+Create a public Azure Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#az-network-lb-create):
+
+* Named **myLoadBalancer**.
+* A frontend pool named **myFrontEnd**.
+* A backend pool named **myBackEndPool**.
+* Associated with the public IP address **myPublicIP** that you created in the preceding step. 
 
 ```azurecli-interactive
   az network lb create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myLoadBalancer \
-    --sku standard \
+    --sku Standard \
     --public-ip-address myPublicIP \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
 ```
 
-> [!IMPORTANT]
-> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
-
 ### Create the health probe
 
-A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) to monitor the health of the virtual machines. 
+A health probe checks all virtual machine instances to ensure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. 
+
+Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
+
+* Monitor the health of the virtual machines.
+* Named **myHealthProbe**.
+* Protocol **TCP**.
+* Monitoring **port 80**.
 
 ```azurecli-interactive
   az network lb probe create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --lb-name myLoadBalancer \
     --name myHealthProbe \
     --protocol tcp \
@@ -97,11 +121,24 @@ A health probe checks all virtual machine instances to make sure they can send n
 
 ### Create the load balancer rule
 
-A load balancer rule defines the frontend IP configuration for the incoming traffic and the backend IP pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myLoadBalancerRuleWeb* with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) for listening to port 80 in the frontend pool *myFrontEnd* and sending load-balanced network traffic to the backend address pool *myBackEndPool* also using port 80. 
+A load balancer rule defines:
+
+* Frontend IP configuration for the incoming traffic.
+* The backend IP pool to receive the traffic.
+* The required source and destination port. 
+
+Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
+
+* Named **myHTTPRule**
+* Listening on **port 80** in the frontend pool **myFrontEnd**.
+* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **port 80**. 
+* Using health probe **myHealthProbe**.
+* Protocol **TCP**.
+* Enable outbound source network address translation (SNAT) using the frontend IP address.
 
 ```azurecli-interactive
   az network lb rule create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --lb-name myLoadBalancer \
     --name myHTTPRule \
     --protocol tcp \
@@ -109,44 +146,69 @@ A load balancer rule defines the frontend IP configuration for the incoming traf
     --backend-port 80 \
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
-    --probe-name myHealthProbe  
+    --probe-name myHealthProbe \
+    --disable-outbound-snat false 
 ```
+> [!NOTE]
+> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For more advanced outbound connectivity configuration, omit the **--disable-outbound-snat false** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
+
 
 ## Configure virtual network
 
-Before you deploy some VMs and can test your load balancer, create the supporting virtual network resources.
+Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
 ### Create a virtual network
 
-Create a virtual network named *myVnet* with a subnet named *mySubnet* in the *myResourceGroup* using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Create a virtual network using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt):
+
+* Named **myVNet**
+* Subnet named **myBackendSubnet**
+* In the **myResourceGroupLB** resource group.
+* Location of **eastus**
 
 ```azurecli-interactive
   az network vnet create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --location eastus \
-    --name myVnet \
-    --subnet-name mySubnet
+    --name myVNet \
+    --subnet-name myBackendSubnet
 ```
 
 ### Create a network security group
 
-For a Standard Load Balancer, the VMs in the backend address for are required to have NICs that belong to a Network Security group. Create network security group to define inbound connections to your virtual network.
+For a standard load balancer, the VMs in the backend address for are required to have NICs that belong to a network ecurity group. 
+
+Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
+
+* Named **myNSG**.
+* In resource group **myResourceGroupLB**.
 
 ```azurecli-interactive
   az network nsg create \
-    --resource-group myResourceGroupSLB \
-    --name myNetworkSecurityGroup
+    --resource-group myResourceGroupLB \
+    --name myNSG
 ```
 
 ### Create a network security group rule
 
-Create a network security group rule to allow inbound connections through port 80.
+Create a network security group rule using [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create):
+
+* Named **myNSGRuleHTTP**.
+* In the network security group you created in the previous step, **myNSG**.
+* In resource group **myResourceGroupLB**.
+* Protocol **TCP**.
+* Direction **Inbound**.
+* Source **(*)**.
+* Destination **(*)**.
+* Destination port **Port 80**.
+* Access **Allow**.
+* Priority **200**.
 
 ```azurecli-interactive
   az network nsg rule create \
-    --resource-group myResourceGroupSLB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
+    --resource-group myResourceGroupLB \
+    --nsg-name myNSG \
+    --name myNSGRuleHTTP \
     --protocol tcp \
     --direction inbound \
     --source-address-prefix '*' \
@@ -157,50 +219,80 @@ Create a network security group rule to allow inbound connections through port 8
     --priority 200
 ```
 
-### Create NICs
+### Create NICs for virtual machines
 
-Create three network interfaces with [az network nic create](/cli/azure/network/nic#az-network-nic-create) and associate them with the Public IP address and the network security group. 
+Create three network interfaces with [az network nic create](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-create):
+
+#### VM1
+
+* Named **myNicVM1**.
+* In resource group **myResourceGroupLB**.
+* In virtual network **myVNet**.
+* In subnet **myBackendSubnet**.
+* In network security group **myNSG**.
+* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
 
 ```azurecli-interactive
 
   az network nic create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myNicVM1 \
-    --vnet-name myVnet \
-    --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
+    --vnet-name myVNet \
+    --subnet myBackEndSubnet \
+    --network-security-group myNSG \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
+```
+#### VM2
 
+* Named **myNicVM2**.
+* In resource group **myResourceGroupLB**.
+* In virtual network **myVNet**.
+* In subnet **myBackendSubnet**.
+* In network security group **myNSG**.
+* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
+
+```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myNicVM2 \
     --vnet-name myVnet \
-    --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
+    --subnet myBackEndSubnet \
+    --network-security-group myNSG \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
-  
+```
+#### VM3
+
+* Named **myNicVM3**.
+* In resource group **myResourceGroupLB**.
+* In virtual network **myVNet**.
+* In subnet **myBackendSubnet**.
+* In network security group **myNSG**.
+* Attached to load balancer **myLoadBalancer** in **myBackEndPool**.
+
+```azurecli-interactive
   az network nic create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myNicVM3 \
     --vnet-name myVnet \
-    --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
+    --subnet myBackEndSubnet \
+    --network-security-group myNSG \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
-
 ```
 
 ## Create backend servers
 
-In this example, you create three virtual machines to be used as backend servers for the load balancer. To verify that the load balancer was successfully created, you also install NGINX on the virtual machines.
+In this section, you create three virtual machines to be used as backend servers for the load balancer. 
 
-If you're creating a Basic Load Balancer with a Basic Public IP, you will need to create an Availability Set using ([az vm availabilityset create](/cli/azure/network/nic) to add your virtual machines into. Standard Load Balancers do not require this additional step. Microsoft recommends using Standard.
+To verify that the load balancer was successfully created, you install NGINX on the virtual machines.
 
-### Create three virtual machines
+### Create cloud-init configuration file
 
-You can use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the shell. Make sure that you copy the whole cloud-init file correctly, especially the first line:
+Use a cloud-init configuration file to install NGINX and run a 'Hello World' Node.js app on a Linux virtual machine. 
+
+In your current shell, create a file named cloud-init.txt and copy and paste the following configuration into the shell. Ensure that you copy the whole cloud-init file correctly, especially the first line:
 
 ```yaml
 #cloud-config
@@ -243,52 +335,73 @@ runcmd:
   - npm install express -y
   - nodejs index.js
 ```
+### Create virtual machines
 
-Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
+Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create):
+
+#### VM1
+* Named **myVM1**.
+* In resource group **myResourceGroupLB**.
+* Attached to network interface **myNicVM1**.
+* Virtual machine image **UbuntuLTS**.
+* Configuration file **cloud-init.txt** you created in step above.
 
 ```azurecli-interactive
-
   az vm create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myVM1 \
-    --availability-set myAvailabilitySet \
     --nics myNicVM1 \
     --image UbuntuLTS \
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
     --no-wait
-   
+```
+#### VM2
+* Named **myVM2**.
+* In resource group **myResourceGroupLB**.
+* Attached to network interface **myNicVM2**.
+* Virtual machine image **UbuntuLTS**.
+* Configuration file **cloud-init.txt** you created in step above.
+
+```azurecli-interactive
   az vm create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myVM2 \
-    --availability-set myAvailabilitySet \
     --nics myNicVM2 \
     --image UbuntuLTS \
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
     --no-wait
+```
 
+#### VM3
+* Named **myVM3**.
+* In resource group **myResourceGroupLB**.
+* Attached to network interface **myNicVM3**.
+* Virtual machine image **UbuntuLTS**.
+* Configuration file **cloud-init.txt** you created in step above.
+
+```azurecli-interactive
    az vm create \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myVM3 \
-    --availability-set myAvailabilitySet \
     --nics myNicVM3 \
     --image UbuntuLTS \
     --generate-ssh-keys \
     --custom-data cloud-init.txt \
     --no-wait
-
 ```
-
 It may take a few minutes for the VMs to get deployed.
 
 ## Test the load balancer
 
-To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Copy the public IP address, and then paste it into the address bar of your browser.
+To get the public IP address of the load balancer, use [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show). 
+
+Copy the public IP address, and then paste it into the address bar of your browser.
 
 ```azurecli-interactive
   az network public-ip show \
-    --resource-group myResourceGroupSLB \
+    --resource-group myResourceGroupLB \
     --name myPublicIP \
     --query [ipAddress] \
     --output tsv
@@ -298,13 +411,21 @@ To get the public IP address of the load balancer, use [az network public-ip sho
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive
-  az group delete --name myResourceGroupSLB
+  az group delete 
+    --name myResourceGroupLB
 ```
 
 ## Next steps
-In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the Load Balancer traffic rule, health probe, and then tested the Load Balancer. To learn more about Azure Load Balancer, continue to [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+In this quickstart
+
+* You created a standard public load balancer
+* Attached virtual machines. 
+* Configured the load balancer traffic rule and health probe.
+* Tested the load balancer.
+
+To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
 
 Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
