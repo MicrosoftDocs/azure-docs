@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
+ms.custom: devx-track-java
 ---
 
 # How to enable system-assigned managed identity for Azure Spring Cloud application

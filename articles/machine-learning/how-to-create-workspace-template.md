@@ -152,6 +152,9 @@ The following example template demonstrates how to create a workspace with three
 * Enable encryption for the workspace
 * Uses an existing Azure Key Vault to retrieve customer-managed keys
 
+> [!IMPORTANT]
+> Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
+
 For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
 > [!IMPORTANT]
@@ -350,6 +353,9 @@ An additional configuration you can provide for your data is to set the **confid
 * Cleans up the local scratch disk between runs.
 * Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
+
+    > [!IMPORTANT]
+    > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
   For more information, see [encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
