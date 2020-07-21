@@ -48,7 +48,7 @@ Most tasks and services can be performed on delegated resources across managed t
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
   - Use Azure Security Center to monitor compliance across customers' hybrid environments
-- Manage hybrid Kubernetes clusters at scale - [Azure Arc for Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
+- Manage hybrid Kubernetes clusters at scale - [Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
   - [Connect a Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
   - [Use GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) for connected clusters
   - Enforce policies across connected clusters

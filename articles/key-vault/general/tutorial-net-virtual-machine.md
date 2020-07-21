@@ -1,19 +1,19 @@
 ---
-title: Tutorial - Use Azure Key Vault with a Windows virtual machine in .NET | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in .NET | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
-manager: rajvijan
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc
+
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
-# Tutorial: Use Azure Key Vault with a Windows virtual machine in .NET
+# Tutorial: Use Azure Key Vault with a virtual machine in .NET
 
 Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
 
@@ -53,49 +53,28 @@ To sign in to Azure by using the Azure CLI, enter:
 az login
 ```
 
-### Create a resource group
+### Create a resource group and key vault
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-This example creates a resource group in the West US location:
+### Populate your key vault with a secret
 
-```azurecli
-# To list locations: az account list-locations --output table
-az group create --name "<YourResourceGroupName>" --location "West US"
-```
-
-Your newly created resource group will be used throughout this tutorial.
-
-### Create a key vault and populate it with a secret
-
-Create a key vault in your resource group by providing the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command with the following information:
-
-* Key vault name: a string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
-* Resource group name
-* Location: **West US**
+Now add a secret to your key vault using the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. To create a secret in the key vault called **mySecret**, enter the following command:
 
 ```azurecli
-az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
-```
-At this point, your Azure account is the only one that's authorized to perform operations on this new key vault.
-
-Now add a secret to your key vault using the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command
-
-
-To create a secret in the key vault called **AppSecret**, enter the following command:
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
+az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
 ```
 
 This secret stores the value **MySecret**.
 
 ### Create a virtual machine
-Create a virtual machine by using one of the following methods:
+Create a Windows or Linux virtual machine using one of the following methods:
 
-* [The Azure CLI](../../virtual-machines/windows/quick-create-cli.md)
-* [PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-* [The Azure portal](../../virtual-machines/windows/quick-create-portal.md)
+| Windows | Linux |
+|--|--|
+| [Azure CLI](../../virtual-machines/windows/quick-create-cli.md) | [Azure CLI](../../virtual-machines/linux/quick-create-cli.md) |  
+| [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
+| [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ### Assign an identity to the VM
 Create a system-assigned identity for the virtual machine with the [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
@@ -117,12 +96,12 @@ Note the system-assigned identity that's displayed in the following code. The ou
 Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
+az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
 ### Sign in to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux/login-using-aad.md).
 
 ## Set up the console app
 
@@ -220,8 +199,6 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
         }
     }
 ```
-
-The preceding code shows you how to do operations with Azure Key Vault in a Windows virtual machine.
 
 ## Clean up resources
 
