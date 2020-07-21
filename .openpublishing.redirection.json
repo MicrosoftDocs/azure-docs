@@ -16260,12 +16260,12 @@
     {
       "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md",
       "redirect_url": "/azure/machine-learning/samples-designer",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-flight-delay.md",
       "redirect_url": "/azure/machine-learning/samples-designer",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-designer-sample-classification-predict-income.md",
@@ -51004,7 +51004,7 @@
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
       "redirect_url": "/azure/machine-learning/samples-designer",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
@@ -51014,7 +51014,7 @@
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-basic.md",
       "redirect_url": "/azure/machine-learning/samples-designer",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md",
@@ -51029,17 +51029,17 @@
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-deploy.md",
       "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-deploy",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-train-score.md",
       "redirect_url": "/azure/machine-learning/tutorial-designer-automobile-price-train-score",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/ui-concept-visual-interface.md",
       "redirect_url": "/azure/machine-learning/concept-designer",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/terraform/terrafom-quickstart.md",
