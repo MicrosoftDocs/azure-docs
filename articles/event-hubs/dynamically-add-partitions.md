@@ -79,7 +79,7 @@ Event Hubs provides direct receivers and an easy consumer library called the [Ev
 ## Apache Kafka clients
 This section describes how Apache Kafka clients that use the Kafka endpoint of Azure Event Hubs behave when the partition count is updated for an event hub. 
 
-Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases. For a list of configurations, see [Apache Kafka configurations for Event Hubs](apache-kafka-configurations.md)
+Kafka clients that use Event Hubs with the Apache Kafka protocol behave differently from event hub clients that use AMQP protocol. Kafka clients update their metadata once every `metadata.max.age.ms` milliseconds. You specify this value in the client configurations. The `librdkafka` libraries also use the same configuration. Metadata updates inform the clients of service changes including the partition count increases. For a list of configurations, see [Apache Kafka configurations for Event Hubs](apache-kafka-configurations.md).
 
 ### Sender/producer clients
 Producers always dictate that send requests contain the partition destination for each set of produced records. So, all produce partitioning is done on client-side with producer’s view of broker's metadata. Once the new partitions are added to the producer’s metadata view, they'll be available for producer requests.
