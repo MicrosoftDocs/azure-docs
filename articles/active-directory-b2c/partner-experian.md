@@ -50,7 +50,7 @@ The Experian integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-![screenshot for experian-architecture-diagram](.\media\partner-experian\experian-architecture-diagram.png)
+![screenshot for experian-architecture-diagram](media/partner-experian/experian-architecture-diagram.png)
 
 |Step | Description |
 |:-----| :-----------|
