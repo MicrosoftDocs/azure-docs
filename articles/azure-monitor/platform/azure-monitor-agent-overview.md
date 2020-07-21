@@ -10,8 +10,10 @@ ms.date: 06/11/2020
 ---
 
 # Azure Monitor agent overview (preview)
-The Azure Monitor Agent (AMA) is installed on virtual machines in Azure, other clouds, or on-premises to collect guest operating system and workload data into Azure Monitor. This articles describes the Azure Monitor Agent including how to install it and how to create data collection rules to define data that should be collected.
+The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of virtual machines and sends it to multiple locations in Azure Monitor. This articles provides an overview of the Azure Monitor agent including how to install it and how to configure data collection.
 
+> [!NOTE]
+> The Azure Monitor agent currently doesn't support Azure Arc for servers.
 
 ## Relationship to other agents
 The Azure Monitor Agent replaces the following agents that are currently used by Azure Monitor to collect guest data from virtual machines:
@@ -22,10 +24,10 @@ The Azure Monitor Agent replaces the following agents that are currently used by
 
 In addition to consolidating this functionality into a single agent, the Azure Monitor Agent provides the following benefits over the existing agents:
 
-- Scoping. Collect different sets of data from different scopes of VMs.  
-- Linux multi-homing. Send data from Linux VMs to multiple workspaces.
-- Windows event filtering. Use XPATH queries to define which Windows events are collected.
-- Improved extension management. The new agent uses a new method of handling extensibility that is more transparent and controllable than the management of Management Packs and Linux plug-ins in the current Log Analytics agents.
+- Scope of monitoring: Collect different sets of data from different sets of VMs.  
+- Linux multi-homing: Send data from Linux VMs to multiple workspaces.
+- Windows event filtering: Use XPATH queries to filter which Windows events are collected.
+- Improved extension management: Azure Monitor agent uses a new method of handling extensibility that is more transparent and controllable than the management of Management Packs and Linux plug-ins in the current Log Analytics agents.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different, and each have challenges that are addressed with AMA.
@@ -37,9 +39,11 @@ The methods for defining data collection for the existing agents are distinctly 
 AMA uses Data Collection Rules (DCR) to configure data to collect from each agent. DCRs enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the VM which allows them to be defined once and reused across machines and environments.
 
 
+
 ## Current limitations
 The following limitations apply during public preview of the Azure Monitor Agent:
 
+- The Azure Monitor agent does not support solutions and insights such as Azure Monitor for VMs and Azure Security Center. The only scenario currently supported is collecting data using the data collection rules that you configure. 
 - The Data Collection Rule and any Log Analytics workspace used as a destination must be in the same region.
 - Only Azure virtual machines are supported. On-premises virtual machines, virtual machine scale sets, Arc for Servers, Azure Kubernetes Service, and other compute resource types are not currently supported.
 - The virtual machine must have access to the following HTTPS endpoints:
@@ -47,6 +51,11 @@ The following limitations apply during public preview of the Azure Monitor Agent
   - *.ingest.monitor.azure.com
   - *.control.monitor.azure.com
 
+
+## Coexistence with other agents
+The Azure Monitor agent can coexist with the existing agents so that you can continue to use their existing functionality. This is particularly important because of the limitations in public preview in supporting existing solutions. You should be careful though in collecting duplicate data since this could skew your query results and result in additional charges for data ingestion and retention.
+
+For example, Azure Monitor for VMs uses the Log Analytics agent to collect performance data to the *InsightsMetrics* table in a Log Analytics workspace. You may also have configured the workspace to collect Windows events and Syslog events from agents. If you install the Azure Monitor agent and create a data collection rule for these same events and performance data, it will result in duplicate data.
 
 
 ## Costs
