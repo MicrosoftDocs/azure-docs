@@ -9,9 +9,8 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Azure Cosmos DB 404 (Not Found)
-
-This status code represents that the resource no longer exists. 
+# Diagnose and troubleshoot Azure Cosmos DB not found
+The HTTP status code 404 represents that the resource no longer exists.
 
 ## Expected behavior
 There are many valid scenarios where an application is expecting a 404, and correctly handles the scenario.

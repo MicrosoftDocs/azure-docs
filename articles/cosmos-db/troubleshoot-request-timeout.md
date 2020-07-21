@@ -9,8 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Azure Cosmos DB 408 (Request Timeout) from the service
-
+# Diagnose and troubleshoot Azure Cosmos DB request timeout
 Cosmos DB returned a 408 request timeout
 
 ## Troubleshooting steps

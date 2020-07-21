@@ -53,11 +53,13 @@ Checking the [portal metrics](monitor-accounts.md) will help determine if it's a
 | 401 | [Not authorized](troubleshoot-unauthorized.md) | 
 | 404 | [Resource is not found](troubleshoot-not-found.md) |
 | 408 | [Request timed out](troubleshoot-dot-net-sdk-request-timeout.md) |
-| 409 | Conflict (Only for Create/Replace/Upsert)  |
+| 409 | Conflict failure is when the ID provided for a resource on a write operation has been taken by an existing resource. Use another ID for the resource to resolve this issue as ID must be unique within all documents with the same partition key value. |
 | 410 | Gone exceptions (Transient failure that should not violate SLA) |
+| 412 | Precondition failure is where the operation specified an eTag that is different from the version available at the server. It's optimistic concurrency error. Retry the request after reading the latest version of the resource and updating the eTag on the request.
 | 413 | [Request Entity Too Large](concepts-limits.md#per-item-limits) |
 | 429 | [Too many requests](troubleshoot-request-rate-too-large.md) |
-| 500 | Azure Cosmos DB failure (Contact Azure Support if SLA is violated: https://aka.ms/azure-support) |
+| 449 | Transient error that only occurs on write operaitons, and is safe to retry |
+| 500 | The operation failed due to an unexpected service error. Contact support. See Filing an [Azure support issue](https://aka.ms/azure-support). |
 | 503 | [Service unavailable](troubleshoot-service-unavailable.md) | 
 
 ### <a name="snat"></a>Azure SNAT (PAT) port exhaustion

@@ -9,11 +9,11 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Azure Cosmos DB 503 (Service Unavailable)
-
+# Diagnose and troubleshoot Azure Cosmos DB service unavailable
 The SDK was not able to connect to the Azure Cosmos DB service.
 
-## If a new application or service is getting 503
+## Troubleshooting steps
+The following list contains known causes and solutions for service unavailable exceptions.
 
 ### 1. The required ports are not enabled.
 Verify that all the [required ports](performance-tips-dotnet-sdk-v3-sql.md#networking) are enabled.

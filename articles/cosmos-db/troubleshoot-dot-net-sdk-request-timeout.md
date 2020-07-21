@@ -9,12 +9,11 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Azure Cosmos DB .NET SDK 408 (Request Timeout)
-
-This error occurs if the SDK was not able to connect to the Azure Cosmos DB service.
+# Diagnose and troubleshoot Azure Cosmos DB .NET SDK request timeout
+The HTTP 408 error occurs if the SDK was not able to complete the request before the timeout limit occurs.
 
 ## Troubleshooting steps
-The following list contains known causes for request timeout exceptions.
+The following list contains known causes and solutions for request timeout exceptions.
 
 ### 1. High CPU utilization (most common case)
 For optimal latency, it is recommended that CPU usage should be roughly 40%. It is recommended to use 10 seconds as the interval to monitor max (not average) CPU utilization. CPU spikes are more common with cross partition queries where it might do multiple connections for a single query.
