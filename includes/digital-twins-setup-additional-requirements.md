@@ -17,13 +17,9 @@ Here are some common potential activities that an Owner may need to perform. The
    
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/granted-admin-consent.png" alt-text="Portal view of the admin consent granted for the company under API permissions":::
   - The Owner may prefer to do this for every app registration that is created, or to do it once and establish a single shared app registration for all Azure Digital Twins instances in the subscription to use. In the second scenario, the Owner should share the *client ID* and *tenant ID* for the app registration with the developers who'll need to use the app registration. (This is how it's done within Microsoft's own tenant).
-* Grant *Owner* role in the app registration to any users who will be calling the API. You can do this on the *Owners* page in the Azure portal:
-
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/add-owners.png" alt-text="Portal view of the 'Add owners' button under Owners":::
 * Activate public client access
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
-* If users will be using personal [**Microsoft accounts (MSAs)**](https://account.microsoft.com/account/Account), such as *@outlook.com* accounts, for this Azure subscription, you may need to set the *signInAudience* on the app registration to support personal accounts.
 
 For more information about app registration and its different options, see [*Register an application with the Microsoft identity platform*](https://docs.microsoft.com/graph/auth-register-app-v2).
 
