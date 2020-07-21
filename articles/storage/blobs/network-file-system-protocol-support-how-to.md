@@ -16,7 +16,7 @@ ms.custom: references_regions
 You can mount a container in Blob storage from a Linux-based Azure Virtual Machine (VM) or a Linux system that runs on-premises by using the NFS 3.0 protocol. This article provides step-by-step guidance. To learn more about NFS 3.0 protocol support in Blob storage, see [Network File System (NFS) 3.0 protocol support in Azure Blob storage (preview)](network-file-system-protocol-support.md).
 
 > [!NOTE]
-> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast.
+> NFS 3.0 protocol support in Azure Blob storage is in public preview and is available in the following regions: US East, US Central, and Canada Central.
 
 ## Step 1: Register the NFS 3.0 protocol feature with your subscription
 
@@ -87,7 +87,7 @@ As you configure the account, choose these values:
 
 |Setting | Value|
 |----|---|
-|Location|One of the following regions: US East, US Central, US West Central, UK West, Korea South, Korea Central, EU North, Canada Central, and Australia Southeast |
+|Location|One of the following regions: US East, US Central, and Canada Central |
 |Performance|Premium|
 |Account kind|BlockBlobStorage|
 |Replication|Locally-redundant storage (LRS)|
@@ -121,7 +121,7 @@ Create a container in your storage account by using any of these tools or SDKs:
 2. Mount a container by using the following command.
 
    ```
-   mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /mnt/test
+   mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net://<storage-account-name>/<container-name>  /mnt/test
    ```
 
    - Replace the `<storage-account-name>` placeholder that appears in this command with the name of your storage account.  
