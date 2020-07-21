@@ -197,9 +197,6 @@
     - name: Video on Demand
       displayName: failover, bcdr, HA, high availability
       href: media-services-high-availability-encoding.md
-    - name: Streaming
-      displayName: failover, bcdr, HA, high availability
-      href: media-services-high-availability-streaming.md
   - name: Troubleshooting
     items:
     - name: Frequently asked questions
