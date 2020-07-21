@@ -34,10 +34,10 @@ This article shows how to use REST APIs to create, update, and delete filters.
 ## Types used to create filters
 The following types are used when creating filters:  
 
-* [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* [FilterTrackSelect and FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* [Filter](/rest/api/media/operations/filter)
+* [AssetFilter](/rest/api/media/operations/assetfilter)
+* [PresentationTimeRange](/rest/api/media/operations/presentationtimerange)
+* [FilterTrackSelect and FilterTrackPropertyCondition](/rest/api/media/operations/filtertrackselect)
 
 > [!NOTE]
 > 
@@ -213,7 +213,7 @@ x-ms-client-request-id: 00000000
 ```
 
 ## Update filters
-Use PATCH, PUT, or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Use PATCH, PUT, or MERGE to update a filter with new property values.  For more information about these operations, see [PATCH, PUT, MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Clear the cache after updating the filter. If this option is not possible, consider using a different filter.  
 
@@ -367,4 +367,3 @@ The following examples show how to add filters to your streaming URLs.
 
 ## See Also
 [Dynamic manifests overview](media-services-dynamic-manifest-overview.md)
-

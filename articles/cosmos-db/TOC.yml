@@ -611,6 +611,8 @@
           href: create-cassandra-nodejs.md
         - name: Python
           href: create-cassandra-python.md
+        - name: Golang
+          href: create-cassandra-go.md
       - name: Tutorials
         items:
         - name: 1 - Create and manage data
@@ -1110,6 +1112,8 @@
         items:
         - name: Azure Monitor for Cosmos (preview)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Scenarios to monitor 
+          href: use-metrics.md
         - name: Monitor server-side latency
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
@@ -1122,8 +1126,8 @@
           href: cosmosdb-monitor-resource-logs.md
         - name: Audit control plane logs
           href: audit-control-plane-logs.md
-      - name: View metrics from Cosmos DB account
-        href: use-metrics.md
+      - name: Configure alerts
+        href: create-alerts.md
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
       - name: Application logging with Logic Apps
