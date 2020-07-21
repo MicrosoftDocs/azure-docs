@@ -13,7 +13,7 @@ ms.reviewer: sngun
 
 ## Issue
 
-The SDK was not able to connect to the Azure Cosmos DB service.
+This error occurs if the SDK was not able to connect to the Azure Cosmos DB service.
 
 ## Troubleshooting steps
 The following list contains known causes for request timeout exceptions.
