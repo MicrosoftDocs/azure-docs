@@ -400,7 +400,7 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
     --zone 3 \
     --no-wait
 ```
-It may take a few minutes for the VMs to get deployed.
+It may take a few minutes for the VMs to deploy.
 
 ## Test the load balancer
 
