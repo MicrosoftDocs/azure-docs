@@ -341,7 +341,7 @@
     items:
     - name: Create users
       href: howto-hyperscale-create-users.md
-    - name: Scale
+    - name: Server group size
       href: howto-hyperscale-scaling.md
     - name: Manage firewall
       items:
