@@ -2,11 +2,11 @@
 title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
 description: You can use P2S VPN to connect to your VNet using Azure AD authentication
 services: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 03/27/2020
+ms.topic: how-to
+ms.date: 06/26/2020
 ms.author: alzam
 
 ---
@@ -202,6 +202,26 @@ You can modify the downloaded profile XML file and add the **\<includeroutes>\<r
 	<includeroutes>
 		<route>
 			<destination>x.x.x.x</destination><mask>24</mask>
+		</route>
+	</includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+### How do I direct all traffic to the VPN tunnel (force tunnel)?
+
+You can modify the downloaded profile XML file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags
+
+```
+<azvpnprofile>
+<clientconfig>
+
+	<includeroutes>
+		<route>
+			<destination>0.0.0.0</destination><mask>1</mask>
+		</route>
+		<route>
+			<destination>128.0.0.0</destination><mask>1</mask>
 		</route>
 	</includeroutes>
     

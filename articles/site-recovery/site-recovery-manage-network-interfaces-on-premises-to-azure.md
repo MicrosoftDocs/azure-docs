@@ -21,7 +21,7 @@ By default, Azure Site Recovery creates as many network interfaces on an Azure v
 
 ## Select the target network
 
-For VMware and physical machines, and for Hyper-V (without System Center Virtual Machine Manager) virtual machines, you can specify the target virtual network for individual virtual machines. For Hyper-V virtual machines managed with Virtual Machine Manager, use [network mapping](site-recovery-network-mapping.md) to map VM networks on a source Virtual Machine Manager server and target Azure networks.
+For VMware and physical machines, and for Hyper-V (without System Center Virtual Machine Manager) virtual machines, you can specify the target virtual network for individual virtual machines. For Hyper-V virtual machines managed with Virtual Machine Manager, use [network mapping](./hyper-v-vmm-network-mapping.md) to map VM networks on a source Virtual Machine Manager server and target Azure networks.
 
 1. Under **Replicated items** in a Recovery Services vault, select any replicated item to access the settings for that replicated item.
 

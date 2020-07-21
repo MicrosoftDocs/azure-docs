@@ -1,12 +1,12 @@
 ---
 title: Lead management with an HTTPS endpoint - Microsoft commercial marketplace
 description: Learn how to use Power Automate and an HTTPS endpoint to manage leads from Microsoft AppSource and Azure Marketplace.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Use an HTTPS endpoint to manage commercial marketplace leads

@@ -123,7 +123,7 @@
         href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
         href: partition-data.md
-      - name: Create a synthetic partition key
+      - name: Synthetic partition key
         href: synthetic-partition-keys.md
     - name: Provisioned throughput
       items:
@@ -229,6 +229,15 @@
             - name: GetCurrentTimestamp
               displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
               href: sql-query-getcurrenttimestamp.md
+            - name: DateTimeFromParts
+              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+              href: sql-query-datetimefromparts.md
+            - name: DateTimeAdd
+              displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
+              href: sql-query-datetimeadd.md
+            - name: DateTimeDiff
+              displayName: DateTimeDiff, date time diff, date and time functions, datetime
+              href: sql-query-datetimediff.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions
@@ -602,6 +611,8 @@
           href: create-cassandra-nodejs.md
         - name: Python
           href: create-cassandra-python.md
+        - name: Golang
+          href: create-cassandra-go.md
       - name: Tutorials
         items:
         - name: 1 - Create and manage data
@@ -1005,7 +1016,7 @@
           href: performance-tips-async-java.md          
         - name: Sync Java SDK v2
           href: performance-tips-java.md
-        - name: Async Java SDK v2
+        - name: Troubleshoot- Async Java SDK v2
           href: troubleshoot-java-async-sdk.md
       - name: Performance test - sample app
         href: performance-testing.md
@@ -1155,6 +1166,8 @@
         href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Azure Stream Analytics
         href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Azure Data Explorer
+        href: https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter

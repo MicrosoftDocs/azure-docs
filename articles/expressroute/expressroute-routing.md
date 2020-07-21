@@ -150,59 +150,59 @@ Refer to the [ExpressRoute partners and peering locations](expressroute-location
 
 You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the Microsoft peering and public peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
 
-| **Microsoft Azure region** | **Regional BGP community** | **Storage BGP community** | **SQL BGP community** | **Cosmos DB BGP community** |
-| --- | --- | --- | --- | --- |
+| **Microsoft Azure region** | **Regional BGP community** | **Storage BGP community** | **SQL BGP community** | **Cosmos DB BGP community** | **Backup BGP community** |
+| --- | --- | --- | --- | --- | --- |
 | **North America** | |
-| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
-| East US 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
-| West US | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
-| West US 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| West Central US | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
-| North Central US | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| South Central US | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
-| Central US | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
-| Canada Central | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
-| Canada East | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
+| East US | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
+| East US 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
+| West US | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
+| West US 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| West Central US | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
+| North Central US | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
+| South Central US | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
+| Central US | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 | 12076:55009 |
+| Canada Central | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 | 12076:55020 |
+| Canada East | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 | 12076:55021 |
 | **South America** | |
-| Brazil South | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
+| Brazil South | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 | 12076:55014 |
 | **Europe** | |
-| North Europe | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| West Europe | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
-| UK South | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
-| UK West | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
-| France Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
-| France South | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
-| Switzerland North | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
-| Switzerland West | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
-| Germany North | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
-| Germany West Central | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
-| Norway East | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
-| Norway West | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
+| North Europe | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 | 12076:55003 |
+| West Europe | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 | 12076:55002 |
+| UK South | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 | 12076:55024 |
+| UK West | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 | 12076:55025 |
+| France Central | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 | 12076:55030 |
+| France South | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 | 12076:55031 |
+| Switzerland North | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 12076:55038 |
+| Switzerland West | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 12076:55039 | 
+| Germany North | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 12076:55040 | 
+| Germany West Central | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 12076:55041 | 
+| Norway East | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 12076:55042 | 
+| Norway West | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 12076:55043 | 
 | **Asia Pacific** | |
-| East Asia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
-| Southeast Asia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
+| East Asia | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 | 12076:55010 |
+| Southeast Asia | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 | 12076:55011 |
 | **Japan** | |
-| Japan East | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
-| Japan West | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
+| Japan East | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 | 12076:55012 |
+| Japan West | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Australia** | |
-| Australia East | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
-| Australia Southeast | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
+| Australia East | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
+| Australia Southeast | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
 | **Australia Government** | |
-| Australia Central | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
-| Australia Central 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
+| Australia Central | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 | 12076:55032 |
+| Australia Central 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 | 12076:55033 |
 | **India** | |
-| India South | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
-| India West | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
-| India Central | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
+| India South | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 | 12076:55019 |
+| India West | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 | 12076:55018 |
+| India Central | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 | 12076:55017 |
 | **Korea** | |
-| Korea South | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
-| Korea Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
+| Korea South | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 | 12076:55028 |
+| Korea Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 | 12076:55029 |
 | **South Africa**| |
-| South Africa North | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| South Africa West | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| South Africa North | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 | 12076:55034 |
+| South Africa West | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 | 12076:55035 |
 | **UAE**| |
-| UAE North | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| UAE Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| UAE North | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 | 12076:55036 |
+| UAE Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 | 12076:55037 |
 
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
@@ -223,6 +223,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | CRM Online\*\*\*\* |12076:5040 |
 | Azure Global Services\* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
+| Azure Resource Manager |12076:5070 |
 | Other Office 365 Online services** | 12076:5100 |
 
 \* Azure Global Services includes only Azure DevOps at this time.\

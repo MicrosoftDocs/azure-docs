@@ -8,7 +8,7 @@ ms.author: saveenr
 
 ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: tracking-python
 ---
@@ -35,7 +35,7 @@ Install the following modules:
 
 First, ensure you have the latest `pip` by running the following command:
 
-```
+```console
 python -m pip install --upgrade pip
 ```
 
@@ -43,7 +43,7 @@ This document was written using `pip version 9.0.1`.
 
 Use the following `pip` commands to install the modules from the commandline:
 
-```
+```console
 pip install azure-mgmt-resource
 pip install azure-datalake-store
 pip install azure-mgmt-datalake-store

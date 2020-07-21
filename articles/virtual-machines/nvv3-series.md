@@ -3,7 +3,7 @@ title: NVv3-series - Azure Virtual Machines
 description: Specifications for the NVv3-series VMs.
 services: virtual-machines
 ms.subservice: sizes
-author: vikancha
+author: vikancha-MSFT
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020

@@ -5,7 +5,7 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/03/2020
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
 ---
@@ -32,6 +32,7 @@ The following table outlines the regions ultra disks are available in, as well a
 |West Europe     |Three zones          |
 |UK South     |Three zones          |
 |Japan East     |Two zones         |
+|France Central    |Two zones        |
 
 
 - Are only supported on the following VM series:

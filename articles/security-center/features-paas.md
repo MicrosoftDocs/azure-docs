@@ -40,7 +40,8 @@ The table below shows the availability of Azure Security Center features for the
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |Azure Logic Apps|✔|-|-|
-|Azure SQL Databases|✔|✔|✔|
+|Azure SQL Database|✔|✔|✔|
+|Azure SQL Managed Instance|✔|✔|✔|
 |Azure Service Bus namespace|✔|-|-|
 |Azure Service Fabric account|✔|-|-|
 |Azure Storage accounts|✔|-|-|

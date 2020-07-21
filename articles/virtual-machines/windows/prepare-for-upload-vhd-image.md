@@ -67,7 +67,7 @@ Use one of the methods in this section to convert and resize your virtual disk t
 ### Use PowerShell to convert the disk
 
 You can convert a virtual disk using the [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
-cmdlet in PowerShell. If you need information about installing this cmdlet click [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+cmdlet in PowerShell. If you need information about installing this cmdlet click [here](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 The following example converts the disk from VHDX to VHD. It also converts the disk from a
 dynamically expanding disk to a fixed-size disk.
@@ -99,7 +99,7 @@ to convert it to VHD format. For more information, see
 ### Use PowerShell to resize the disk
 
 You can resize a virtual disk using the [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
-cmdlet in PowerShell. If you need information about installing this cmdlet click [here](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
+cmdlet in PowerShell. If you need information about installing this cmdlet click [here](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
 The following example resizes the disk from 100.5 MiB to 101 MiB to meet the Azure alignment requirement.
 
@@ -156,7 +156,7 @@ After the SFC scan completes, install Windows Updates and restart the computer.
    ```
 
     If the VM needs to work with a specific proxy, add a proxy exception for the Azure IP address
-    ([168.63.129.16](/azure/virtual-network/what-is-ip-address-168-63-129-16))
+    ([168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md))
     so the VM can connect to Azure:
 
     ```
@@ -525,7 +525,7 @@ To create only one VM from one disk, you don't have to use Sysprep. Instead, you
 from a *specialized image*. For information about how to create a VM from a specialized disk, see:
 
 - [Create a VM from a specialized disk](create-vm-specialized.md)
-- [Create a VM from a specialized VHD disk](/azure/virtual-machines/windows/create-vm-specialized-portal)
+- [Create a VM from a specialized VHD disk](./create-vm-specialized-portal.md)
 
 To create a generalized image, you need to run Sysprep. For more information, see
 [How to use Sysprep: An introduction](/previous-versions/windows/it-pro/windows-xp/bb457073(v=technet.10)).
@@ -534,6 +534,9 @@ Not every role or application that's installed on a Windows-based computer suppo
 images. Before you use this procedure, make sure Sysprep supports the role of the computer. For more
 information, see
 [Sysprep support for server roles](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
+
+In particular, Sysprep requires the drives to be fully decrypted before execution. If you have enabled encryption on your VM, disable it before running Sysprep.
+
 
 ### Generalize a VHD
 
@@ -594,4 +597,4 @@ configured them.
 ## Next steps
 
 - [Upload a Windows VM image to Azure for Resource Manager deployments](upload-generalized-managed.md)
-- [Troubleshoot Azure Windows VM activation problems](troubleshoot-activation-problems.md)
+- [Troubleshoot Azure Windows VM activation problems](../troubleshooting/troubleshoot-activation-problems.md)

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 06/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -34,6 +34,10 @@ The following command installs Az.Storage [2.0.1-preview](https://www.powershell
 Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
 ```
 
+The above command requires Version 2.2.4.1 or greater of PowerShellGet to install. To determine what version you currently have loaded:
+```powershell
+Get-Module PowerShellGet
+```
 For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
 ## Enable and configure point-in-time restore
@@ -79,7 +83,7 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## Perform a restore operation
 
-To initiate a restore operation, call the **Restore-AzStorageBlobRange** command, specifying the restore point as a UTC **DateTime** value. You can specify lexicographical ranges of blobs to restore, or omit a range to restore all blobs in all containers in the storage account. Up to 10 lexicographical ranges are supported per restore operation. The restore operation may take several minutes to complete.
+To initiate a restore operation, call the **Restore-AzStorageBlobRange** command, specifying the restore point as a UTC **DateTime** value. You can specify lexicographical ranges of blobs to restore, or omit a range to restore all blobs in all containers in the storage account. Up to 10 lexicographical ranges are supported per restore operation. Page blobs and append blobs are not included in the restore. The restore operation may take several minutes to complete.
 
 Keep in mind the following rules when specifying a range of blobs to restore:
 
@@ -161,6 +165,15 @@ $job = Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 # Check the state of the job.
 $job.State
 ```
+
+To wait on the completion of the restore operation after it is running, call the [Wait-Job](/powershell/module/microsoft.powershell.core/wait-job) command, as shown in the following example:
+
+```powershell
+$job | Wait-Job
+```
+
+## Known issues
+- For a subset of restores where append blobs are present, the restore will fail. For now, please do not perform restores if append blobs are present in the account.
 
 ## Next steps
 

@@ -104,43 +104,43 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    |  |
-	| ----|
-	| `https://<subdomain>.<region>.au.deputy.com` |
-	| `https://<subdomain>.<region>.ent-au.deputy.com` |
-	| `https://<subdomain>.<region>.na.deputy.com`|
-	| `https://<subdomain>.<region>.ent-na.deputy.com`|
-	| `https://<subdomain>.<region>.eu.deputy.com` |
-	| `https://<subdomain>.<region>.ent-eu.deputy.com` |
-	| `https://<subdomain>.<region>.as.deputy.com` |
-	| `https://<subdomain>.<region>.ent-as.deputy.com` |
-	| `https://<subdomain>.<region>.la.deputy.com` |
-	| `https://<subdomain>.<region>.ent-la.deputy.com` |
-	| `https://<subdomain>.<region>.af.deputy.com` |
-	| `https://<subdomain>.<region>.ent-af.deputy.com` |
-	| `https://<subdomain>.<region>.an.deputy.com` |
-	| `https://<subdomain>.<region>.ent-an.deputy.com` |
-	| `https://<subdomain>.<region>.deputy.com` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com
+    https://<subdomain>.<region>.ent-au.deputy.com
+    https://<subdomain>.<region>.na.deputy.com
+    https://<subdomain>.<region>.ent-na.deputy.com
+    https://<subdomain>.<region>.eu.deputy.com
+    https://<subdomain>.<region>.ent-eu.deputy.com
+    https://<subdomain>.<region>.as.deputy.com
+    https://<subdomain>.<region>.ent-as.deputy.com
+    https://<subdomain>.<region>.la.deputy.com
+    https://<subdomain>.<region>.ent-la.deputy.com
+    https://<subdomain>.<region>.af.deputy.com
+    https://<subdomain>.<region>.ent-af.deputy.com
+    https://<subdomain>.<region>.an.deputy.com
+    https://<subdomain>.<region>.ent-an.deputy.com
+    https://<subdomain>.<region>.deputy.com
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 	
-    | |
-	|----|
-	| `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.` |
-	| `https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.
+    https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 

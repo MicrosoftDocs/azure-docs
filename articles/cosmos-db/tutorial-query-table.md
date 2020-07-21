@@ -12,7 +12,7 @@ ms.reviewer: sngun
 
 # Tutorial: Query Azure Cosmos DB by using the Table API
 
-The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
+The Azure Cosmos DB [Table API](table-introduction.md) supports OData and [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) queries against key/value (table) data.  
 
 This article covers the following tasks:
 
@@ -27,7 +27,7 @@ The queries in this article use the following sample `People` table:
 | Smith | Ben | Ben@contoso.com| 425-555-0102 |
 | Smith | Jeff | Jeff@contoso.com| 425-555-0104 |
 
-See [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API.
+See [Querying Tables and Entities](/rest/api/storageservices/fileservices/querying-tables-and-entities) for details on how to query by using the Table API.
 
 For more information on the premium capabilities that Azure Cosmos DB offers, see [Azure Cosmos DB Table API](table-introduction.md) and [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md).
 
@@ -60,7 +60,7 @@ When you're constructing a filter string, keep these rules in mind:
 * Use the logical operators defined by the OData Protocol Specification to compare a property to a value. Note that you can't compare a property to a dynamic value. One side of the expression must be a constant.
 * The property name, operator, and constant value must be separated by URL-encoded spaces. A space is URL-encoded as `%20`.
 * All parts of the filter string are case-sensitive.
-* The constant value must be of the same data type as the property in order for the filter to return valid results. For more information about supported property types, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model).
+* The constant value must be of the same data type as the property in order for the filter to return valid results. For more information about supported property types, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 Here's an example query that shows how to filter by the PartitionKey and Email properties by using an OData `$filter`.
 
@@ -70,7 +70,7 @@ Here's an example query that shows how to filter by the PartitionKey and Email p
 https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and%20Email%20eq%20'Ben@contoso.com'
 ```
 
-For more information on how to construct filter expressions for various data types, see [Querying Tables and Entities](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities).
+For more information on how to construct filter expressions for various data types, see [Querying Tables and Entities](/rest/api/storageservices/querying-tables-and-entities).
 
 **Results**
 

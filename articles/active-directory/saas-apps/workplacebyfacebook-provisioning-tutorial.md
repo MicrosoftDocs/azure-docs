@@ -23,24 +23,6 @@ ms.collection: M365-identity-device-management
 
 This tutorial describes the steps you need to perform in both Workplace by Facebook and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Workplace by Facebook](https://work.workplace.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## Migrating to the new Workplace by Facebook application
-If you have an existing integration with Workplace by Facebook, please see the below section about changes coming. If you are setting up Workplace by Facebook for the first time you can skip this section and move to the capabilities supported. 
-
-#### What's changing?
-* Changes on the Azure AD side: The authorization method to provision users in Workplace has historically been a long lived secret token. Soon you will see the authorization method changed to the OAuth authorization grant. 
-* Changes on the Workplace side: Previously the Azure AD app was a custom integration in Workplace by Facebook. Now you will see Azure AD in the Workplace integrations directory as a third party application. 
-
-#### What do I need to do to migrate my existing custom integration to the new application?
-If you have an existing Workplace integration with a valid token, no action is required. **As of 04/28/2020 we have automatically migrated all applications that are not in quarantine due to invalid credentials.**
- 
-#### How can I tell if my application has been migrated? 
-* In the Azure Portal: When your application is migrated, the banner in the authorization section about upcoming changes will be removed and the secret token field will be replaced with a blue authorize button. 
-* In the Workplace by Facebook portal: Review the Azure AD app to ensure that it is approved.  
-
-#### The admin credentials section is greyed out on my application and I can't save. Why?
-We have locked down the admin credentials section for Workplace customers that have not migrated. Please use the following URL if the admin credentials section is greyed out and you need to authorize access again. **?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true** (https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)
-
-
 ## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Workplace by Facebook

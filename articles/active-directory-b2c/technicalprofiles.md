@@ -20,7 +20,7 @@ ms.subservice: B2C
 
 A **TechnicalProfiles** element contains a set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Display name</DisplayName>
   <TechnicalProfiles>
@@ -306,7 +306,7 @@ Using **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** or **OnI
 
 The following technical profile is executed only if the **identityProviders** string collection contains the value of `facebook.com`:
 
-```XML
+```xml
 <TechnicalProfile Id="UnLink-Facebook-OAUTH">
   <DisplayName>Unlink Facebook</DisplayName>
 ...

@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 06/18/2017
 ---
 # Get started with Azure Data Lake Analytics using Azure CLI
+
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-This article describes how to use the Azure CLI command-line interface to create Azure Data Lake Analytics accounts, submit USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file. 
+This article describes how to use the Azure CLI command-line interface to create Azure Data Lake Analytics accounts, submit USQL jobs, and catalogs. The job reads a tab separated values (TSV) file and converts it into a comma-separated values (CSV) file.
 
 ## Prerequisites
+
 Before you begin, you need the following items:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* This article requires that you are running the Azure CLI version 2.0 or later. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
-
-
+* This article requires that you are running the Azure CLI version 2.0 or later. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Sign in to Azure
 
@@ -40,6 +40,7 @@ az account set --subscription <subscription id>
 ```
 
 ## Create Data Lake Analytics account
+
 You need a Data Lake Analytics account before you can run any jobs. To create a Data Lake Analytics account, you must specify the following items:
 
 * **Azure Resource Group**. A Data Lake Analytics account must be created within an Azure Resource group. [Azure Resource Manager](../azure-resource-manager/management/overview.md) enables you to work with the resources in your application as a group. You can deploy, update, or delete all of the resources for your application in a single, coordinated operation.  
@@ -82,10 +83,11 @@ After creating an account, you can use the following commands to list the accoun
 
 ```azurecli
 az dla account list
-az dla account show --account "<Data Lake Analytics Account Name>"            
+az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## Upload data to Data Lake Store
+
 In this tutorial, you process some search logs.  The search log can be stored in either Data Lake store or Azure Blob storage.
 
 The Azure portal provides a user interface for copying some sample data files to the default Data Lake Store account, which include a search log file. See [Prepare source data](data-lake-analytics-get-started-portal.md) to upload the data to the default Data Lake Store account.
@@ -100,19 +102,20 @@ az dls fs list --account "<Data Lake Store Account Name>" --path "<Path>"
 Data Lake Analytics can also access Azure Blob storage.  For uploading data to Azure Blob storage, see [Using the Azure CLI with Azure Storage](../storage/common/storage-azure-cli.md).
 
 ## Submit Data Lake Analytics jobs
+
 The Data Lake Analytics jobs are written in the U-SQL language. To learn more about U-SQL, see [Get started with U-SQL language](data-lake-analytics-u-sql-get-started.md) and [U-SQL language reference](https://docs.microsoft.com/u-sql/).
 
-**To create a Data Lake Analytics job script**
+### To create a Data Lake Analytics job script
 
 Create a text file with following U-SQL script, and save the text file to your workstation:
 
-```
-@a  = 
-    SELECT * FROM 
+```usql
+@a  =
+    SELECT * FROM
         (VALUES
             ("Contoso", 1500.0),
             ("Woodgrove", 2700.0)
-        ) AS 
+        ) AS
               D( customer, amount );
 OUTPUT @a
     TO "/data.csv"
@@ -125,22 +128,22 @@ Don't modify the two paths unless you copy the source file into a different loca
 
 It is simpler to use relative paths for files stored in default Data Lake Store accounts. You can also use absolute paths.  For example:
 
-```
+```usql
 adl://<Data LakeStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
 ```
 
 You must use absolute paths to access files in linked Storage accounts.  The syntax for files stored in linked Azure Storage account is:
 
-```
+```usql
 wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 ```
 
 > [!NOTE]
-> Azure Blob container with public blobs are not supported.      
-> Azure Blob container with public containers are not supported.      
+> Azure Blob container with public blobs are not supported.
+> Azure Blob container with public containers are not supported.
 >
 
-**To submit jobs**
+### To submit jobs
 
 Use the following syntax to submit a job.
 
@@ -154,14 +157,14 @@ For example:
 az dla job submit --account "myadlaaccount" --job-name "myadlajob" --script @"C:\DLA\myscript.txt"
 ```
 
-**To list jobs and show job details**
+### To list jobs and show job details
 
 ```azurecli
 az dla job list --account "<Data Lake Analytics Account Name>"
 az dla job show --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"
 ```
 
-**To cancel jobs**
+### To cancel jobs
 
 ```azurecli
 az dla job cancel --account "<Data Lake Analytics Account Name>" --job-identity "<Job Id>"

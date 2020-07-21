@@ -4,7 +4,7 @@ description: Threat Protection detects anomalous database activities indicating 
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 5/6/2019
 ---
 # Advanced Threat Protection for Azure Database for PostgreSQL - Single Server

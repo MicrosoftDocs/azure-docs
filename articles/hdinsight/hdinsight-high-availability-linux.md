@@ -240,8 +240,10 @@ Similar to using an SSH client, when connecting to the cluster you must provide 
 
 Once connected, you're presented with a `sftp>` prompt. From this prompt, you can change directories, upload, and download files. For example, the following commands change directories to the **/var/log/hadoop/hdfs** directory and then download all files in the directory.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
 For a list of available commands, enter `help` at the `sftp>` prompt.
 

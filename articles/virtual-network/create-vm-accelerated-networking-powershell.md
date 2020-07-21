@@ -63,6 +63,10 @@ On instances that support hyperthreading, accelerated networking is supported on
 
 For more information on VM instances, see [Sizes for Windows virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### Custom images
+
+If you're using a custom image and your image supports Accelerated Networking, be sure that you have the required drivers that work with Mellanox ConnectX-3 and ConnectX-4 Lx NICs on Azure.
+
 ### Regions
 
 Accelerated networking is available in all global Azure regions and Azure Government Cloud.

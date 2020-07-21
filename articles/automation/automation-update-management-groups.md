@@ -17,7 +17,7 @@ Update Management allows you to target a dynamic group of Azure or non-Azure VMs
 You can define dynamic groups for Azure or non-Azure machines from **Update management** in the Azure portal. See 
 [Manage updates for multiple Azure virtual machines](manage-update-multi.md).
 
-A dynamic group is defined by a query that Azure Automation evaluates at deployment time. Even if a dynamic group query retrieves a large number of machines, Azure Automation can process only a maximum of 1000 machines at a time. See [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#update-management). 
+A dynamic group is defined by a query that Azure Automation evaluates at deployment time. Even if a dynamic group query retrieves a large number of machines, Azure Automation can process only a maximum of 1000 machines at a time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#update-management). 
 
 > [!NOTE]
 > If you expect to update more than 1000 machines, we recommend that you split up the updates among multiple update schedules. 

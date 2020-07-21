@@ -78,4 +78,4 @@ Get the API key for your web service. Where you perform this action depends on w
 ## Sharing Your Workbook
 If you save your workbook, then the API/Primary key for the web services you have added is also saved. That means you should only share the workbook with individuals you trust.
 
-Ask any questions in the following comment section or on our [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Ask any questions in the following comment section or on our [forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).

@@ -2,7 +2,7 @@
 title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/20/2020
 ---
 # Azure Resource Manager deployment modes
 
@@ -15,6 +15,9 @@ The default mode is incremental.
 ## Complete mode
 
 In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template.
+
+> [!NOTE]
+> Always use the [what-if operation](template-deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
 
 If your template includes a resource that isn't deployed because [condition](conditional-resource-deployment.md) evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource.
 

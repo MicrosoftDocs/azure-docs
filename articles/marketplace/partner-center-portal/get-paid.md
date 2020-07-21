@@ -1,8 +1,6 @@
 ---
 title: Getting paid in Microsoft commercial marketplace 
 description: Learn about receiving payments for your earnings in the Microsoft commercial marketplace.
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/09/2020
