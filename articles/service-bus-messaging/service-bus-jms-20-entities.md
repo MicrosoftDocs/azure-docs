@@ -125,7 +125,7 @@ An unshared non-durable subscription is used when the client application needs t
 
 Since the subscription is not durable, it is not persisted. Messages are not received by this subscription when there is no active consumer on it.
 
-To create an unshared non-durable subscription, create a `JMSConsumer` as shown in the below methods from the `JMSContext class - 
+To create an unshared non-durable subscription, create a `JMSConsumer` as shown in the below methods from the `JMSContext` class -
 
 ```java
 JMSConsumer createConsumer(Destination destination)
