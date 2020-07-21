@@ -9,14 +9,13 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB 400 bad request with mesage "request header too large"
+# Diagnose and troubleshoot Azure Cosmos DB 400 (Bad Request) with mesage "request header too large"
 
-## Description
 The size of the header has grown too large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version 3.x or 2.x, which adds header size tracing to the exception message.
 
 ## Troubleshooting steps
 
-### 1. Session Token too large
+### 1. Session token too large
 
 #### Cause:
 The 400 bad request is happening on point operations where the continuation token is not being used. The exception started without making any changes to the application. The session token grows as the number of partitions increase in the container. The numbers of partition increase as the amount of data increase or if the throughput is increased.

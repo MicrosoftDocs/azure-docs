@@ -9,9 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB 503 (Service Unavailable)
-
-## Issue
+# Diagnose and troubleshoot Azure Cosmos DB 503 (Service Unavailable)
 
 The SDK was not able to connect to the Azure Cosmos DB service.
 

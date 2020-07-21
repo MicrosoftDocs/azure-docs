@@ -9,9 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB .NET SDK 408 (Request Timeout)
-
-## Issue
+# Diagnose and troubleshoot Azure Cosmos DB .NET SDK 408 (Request Timeout)
 
 The SDK was not able to connect to the Azure Cosmos DB service.
 

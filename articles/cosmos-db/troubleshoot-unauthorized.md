@@ -9,9 +9,8 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Cosmos DB 401 (Unauthorized)
+# Diagnose and troubleshoot Azure Cosmos DB request header too large message
 
-## Description
 HTTP 401: The MAC signature found in the HTTP request is not the same as the computed signature
 If you received the following 401 error message: "The MAC signature found in the HTTP request is not the same as the computed signature." it can be caused by the following scenarios.
 
