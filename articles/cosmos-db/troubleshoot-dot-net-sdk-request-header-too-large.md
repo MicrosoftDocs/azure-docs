@@ -22,7 +22,7 @@ The request header too large message is thrown with an HTTP error code 400. This
 The 400 bad request is happening on point operations where the continuation token is not being used. The exception started without making any changes to the application. The session token grows as the number of partitions increase in the container. The numbers of partition increase as the amount of data increase or if the throughput is increased.
 
 #### Temporary mitigation: 
-Restart the application will reset all the session tokens. This session token will eventually grow back to the previous size that causes the issue.
+Restart your client application to reset all the session tokens. The session token will eventually grow back to the previous size that caused the issue. So use the solution in the next section to avoid this issue completely.
 
 #### Solution:
 1. Follow the guidance in [performance tips](performance-tips-dotnet-sdk-v3-sql.md) article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. Make sure to use the latest version of SDK, which has a fix for query operations when the service interop is not available.
