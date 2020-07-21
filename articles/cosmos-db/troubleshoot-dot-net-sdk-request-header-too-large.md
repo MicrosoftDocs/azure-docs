@@ -27,7 +27,7 @@ The request header too large message occurs if the session or the continuation t
 Restart your client application to reset all the session tokens. The session token will eventually grow back to the previous size that caused the issue. So use the solution in the next section to avoid this issue completely.
 
 #### Solution:
-1. Follow the guidance in [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET V2](performance-tips-dotnet-sdk-v2-sql.md) performance tips article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. Make sure to use the latest version of SDK, which has a fix for query operations when the service interop is not available.
+1. Follow the guidance in [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET V2](performance-tips.md) performance tips article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. Make sure to use the latest version of SDK, which has a fix for query operations when the service interop is not available.
 2. If Direct connection mode with TCP protocol is not an option for your workload, mitigate it by changing the [client consistency level](how-to-manage-consistency.md). The session token is only used for session consistency, which is the default consistency level for Azure Cosmos DB. Other consistency levels don't not use the session token.
 
 ### 2. Continuation token too large
@@ -36,5 +36,5 @@ Restart your client application to reset all the session tokens. The session tok
 The 400 bad request is happening on query operations where the continuation token is used. If the continuation token has grown too large or if different queries have different continuation token sizes.
     
 #### Solution:
-1. Follow the guidance in [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET V2](performance-tips-dotnet-sdk-v2-sql.md) performance tips article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. 
+1. Follow the guidance in [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET V2](performance-tips.md) performance tips article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. 
 3. If Direct connection mode with TCP protocol is not an option for your workload, then try setting the `ResponseContinuationTokenLimitInKb` option. You can find this option in the `FeedOptions` for v2 or the `QueryRequestOptions` in v3.
