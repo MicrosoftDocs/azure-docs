@@ -14,7 +14,7 @@ ms.date: 7/20/2020
 
 # Migration guide: SQL Server to SQL Server on Azure VMs
 
-This migration guide migrate your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) using the [Database Migration Assistant (DMA)](/sql/dma/dma-overview). 
+This migration guide teaches you to migrate your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) using the [Database Migration Assistant (DMA)](/sql/dma/dma-overview). 
 
 
 You can migrate SQL Server running on-premises or on:
@@ -40,24 +40,16 @@ The Database Migration Assistant supports the following target and source SQL Se
 
 |Supported sources   |Supported targets |
 |---------|---------|
-|SQL Server 2005|SQL Server 2008 R2|
-|SQL Server 2008|SQL Server 2012 |
-|SQL Server 2008 R2|SQL Server 2014|
-|SQL Server 2012|SQL Server 2016|
-|SQL Server 2014|SQL Server 2017 on Windows and Linux|
-|SQL Server 2016|SQL Server 2019 on Windows and Linux|
-|SQL Server 2017 on Windows||
-
-|Supported sources   |Supported targets |
-|---------|---------|
 |SQL Server 2005 <br/> SQL Server 2008 R2 <br/> SQL Server 2008<br/>SQL Server 2012 <br/>SQL Server 2014 <br/>SQL Server 2016 <br/> SQL Server 2017 on Windows<br/> <br/> | SQL Server 2008 R2<br/>SQL Server 2012 <br/> SQL Server 2014<br/>SQL Server 2016 <br/>SQL Server 2017 on Windows and Linux <br/> SQL Server 2019 on Windows and Linux|
 
 
 ## Pre-migration
 
-After verifying that your source environment is supported and ensuring that you have addressed any prerequisites, you are ready to start the Pre-migration stage. This part of the process involves conducting an inventory of the databases that you need to migrate, assessing those databases for potential migration issues or blockers, and then resolving any items you might have uncovered.
+Before you start the migration, conduct an inventory of databases that you plan to migrate, assess them for potential migration issues or blockers, and resolve any items you uncover. 
 
 ### Discover
+
+Identify existing data sources and deatils 
 
 The goal of the Discover phase is to identify existing data sources and details about the features that are being used to get a better understanding of and plan for the migration. This process involves scanning the network to identify all your organizations SQL Server instances together with the version and features in use.
 

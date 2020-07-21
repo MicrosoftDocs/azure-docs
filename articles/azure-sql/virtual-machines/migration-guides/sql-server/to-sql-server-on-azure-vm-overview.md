@@ -111,7 +111,7 @@ To start migrating your SQL Server on SQL Server on Azure VMs, see the [Database
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
 
 
-- To learn more about the framework and adoption cycle for Cloud migration, see
+- To learn more about the framework and adoption cycle for Cloud migrations, see
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale).
    -  [Best practices for costing and sizing](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) workloads migrate to Azure
 
