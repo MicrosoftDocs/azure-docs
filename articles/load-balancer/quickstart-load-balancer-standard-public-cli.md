@@ -178,7 +178,7 @@ Create a virtual network using [az network vnet create](https://docs.microsoft.c
 
 ### Create a network security group
 
-For a standard load balancer, the VMs in the backend address for are required to have NICs that belong to a network security group. 
+For a standard load balancer, the VMs in the backend address for are required to have network interfaces that belong to a network security group. 
 
 Create a network security group using [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create):
 
