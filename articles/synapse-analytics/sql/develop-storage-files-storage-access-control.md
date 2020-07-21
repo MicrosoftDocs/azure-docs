@@ -84,6 +84,11 @@ You can use the following combinations of authorization and Azure Storage types:
 | *Managed  Identity* | Supported      | Supported        | Supported     |
 | *User  Identity*    | Supported      | Supported        | Supported     |
 
+
+> [!IMPORTANT]
+> When accessing storage that is protected with the firewall, only Managed Identity is can be used. You need to [Allow trusted Microsoft services... setting](../../storage/common/storage-network-security.md#trusted-microsoft-services) and explicitly [assign an RBAC role](../../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for that resource instance. In this case, the scope of access for the instance corresponds to the RBAC role assigned to the managed identity.
+>
+
 ## Credentials
 
 To query a file located in Azure Storage, your SQL on-demand end point needs a credential that contains the authentication information. Two types of credentials are used:
