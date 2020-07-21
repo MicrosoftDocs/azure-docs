@@ -30,7 +30,8 @@ Memory Preserving Updates: Not Supported
 
 <sup>1</sup> 1 GPU = one-half M60 card.
 
-<sup>2</sup> At this time Accelerated Networking is not supported on this VM family, so real-world network performance may be lower than peak theoretical numbers captured here. 
+<sup>2</sup> At this time Accelerated Networking is not supported on this VM family, so real-world network performance may be lower than peak theoretical numbers captured here.
+
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Supported operating systems and drivers
