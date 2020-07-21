@@ -197,7 +197,7 @@ The scenario implemented in this example features a function named `order` that 
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
-content-type: application/json
+Content-Type: application/json
 
 {
   "id": 1005,
@@ -219,7 +219,7 @@ In a folder named *order*, the *function.json* file configures the HTTP-triggere
   "bindings": [
     {
       "type": "httpTrigger",
-      "authLevel": "function",
+      "authLevel": "anonymous",
       "direction": "in",
       "name": "req",
       "methods": ["post"]
@@ -238,7 +238,6 @@ In a folder named *order*, the *function.json* file configures the HTTP-triggere
     }
   ]
 }
-
 ```
 
 This function is defined as an [HTTP triggered function](./functions-bindings-http-webhook-trigger.md) that returns an [HTTP response](./functions-bindings-http-webhook-output.md) and outputs a [Queue storage](./functions-bindings-storage-queue-output.md) message.
@@ -252,6 +251,10 @@ At the root of the app, the *host.json* file is configured to run an executable 
     "description": {
       "defaultExecutablePath": "server.exe"
     }
+  },
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[1.*, 2.0.0)"
   }
 }
 ```
@@ -259,16 +262,67 @@ At the root of the app, the *host.json* file is configured to run an executable 
 *server.exe* is the compiled Go custom handler program that runs a web server and responds to function invocation requests from the Functions host.
 
 ```go
+package main
 
-// go server code goes here
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+)
 
+type InvokeRequest struct {
+	Data     map[string]json.RawMessage
+	Metadata map[string]interface{}
+}
+
+type InvokeResponse struct {
+	Outputs     map[string]interface{}
+	Logs        []string
+	ReturnValue interface{}
+}
+
+func orderHandler(w http.ResponseWriter, r *http.Request) {
+	var invokeRequest InvokeRequest
+
+	d := json.NewDecoder(r.Body)
+	d.Decode(&invokeRequest)
+
+	var reqData map[string]interface{}
+	json.Unmarshal(invokeRequest.Data["req"], &reqData)
+
+	outputs := make(map[string]interface{})
+	outputs["message"] = reqData["Body"]
+
+	resData := make(map[string]interface{})
+	resData["body"] = "Message enqueued"
+	outputs["res"] = resData
+	invokeResponse := InvokeResponse{outputs, nil, nil}
+
+	responseJson, _ := json.Marshal(invokeResponse)
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(responseJson)
+}
+
+func main() {
+	customHandlerPort, exists := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT")
+	if !exists {
+		customHandlerPort = "8080"
+	}
+	mux := http.NewServeMux()
+	mux.HandleFunc("/order", orderHandler)
+	fmt.Println("Go server Listening on: ", customHandlerPort)
+	log.Fatal(http.ListenAndServe(":"+customHandlerPort, mux))
+}
 ```
 
 In this example, the custom handler runs a web server to handle HTTP events and is set to listen for requests via the `FUNCTIONS_HTTPWORKER_PORT`.
 
 Even though the Functions host received original HTTP request at `/api/order`, it invokes the custom handler using the function name (its folder name). In this example, the function is defined at the path of `/order`. The host sends the custom handler an HTTP request at the path of `/order`.
 
-As `POST` requests are sent to this function, the trigger data and function metadata are available via the request body.
+As `POST` requests are sent to this function, the trigger data and function metadata are available via the HTTP request body. The original HTTP request body can be accessed at `Data.req.Body`.
 
 The function's response is formatted into a key/value pair where the `Outputs` member holds a JSON value where the keys match the outputs as defined in the *function.json* file.
 
@@ -289,7 +343,7 @@ The following snippet represents how a request to the function is composed.
 
 ```http
 POST http://127.0.0.1:7071/api/hello HTTP/1.1
-content-type: application/json
+Content-Type: application/json
 
 {
   "message": "Hello World!"
