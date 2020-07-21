@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration). Experian provides a variety of solutions, which you can find [here](https://www.experian.com/).
 
-In this sample, Experain's integrated digital identity and fraud risk platform **CrossCore** is used. CrossCore is an ID verification service that is used to verify user identification. It does risk analysis based on several pieces of information provided by the user during sign-up flow. CrossCore is used to determine whether the user should be allowed to continue to log in or not. The following attributes can be used in CrossCore risk analysis:
+In this sample, Experian's integrated digital identity and fraud risk platform **CrossCore** is used. CrossCore is an ID verification service that is used to verify user identification. It does risk analysis based on several pieces of information provided by the user during sign-up flow. CrossCore is used to determine whether the user should be allowed to continue to log in or not. The following attributes can be used in CrossCore risk analysis:
 
 - Email
 - IP Address
@@ -50,7 +50,7 @@ The Experian integration includes the following components:
 
 The following architecture diagram shows the implementation.
 
-![screenshot for experian-architecture-diagram](media/partner-experian/experian-architecture-diagram.png)
+![screenshot for experian-architecture-diagram](.\media\partner-experian\experian-architecture-diagram.png)
 
 |Step | Description |
 |:-----| :-----------|
