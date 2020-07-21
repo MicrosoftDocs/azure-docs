@@ -2,23 +2,14 @@
 title: "Quickstart: [Product name] client library for .NET | Microsoft Docs"
 description: Get started with the [Product Name] client library for .NET...
 services: cognitive-services
-author: 
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice:  
 ms.topic: quickstart
 ms.date: 
-ms.author: 
+ms.author: aahi
 ---
-
-<!-- 
-You can find more guidance for formatting these quickstarts at: 
-https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187
-
-
-Title: 
-    The H1 of your Quickstart should be in the format: # Quickstart: [Product Name] client library for [Language]
--->
 
 # Quickstart: [Product Name] client library for .NET
 
@@ -55,12 +46,6 @@ Use the [Product Name] client library for .NET to:
 
 
 ## Setting up
-
-<!--
-    Walk the reader through preparing their environment for working with the client library. Include instructions for creating the Azure resources required to make calls to the service, obtaining credentials, and setting up their local development environment.
-
-    See the "setting up" section for more details: 
-    https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart-v2?branch=pr-en-us-2187#setting-up -->
 
 ### Create a new C# application
 
