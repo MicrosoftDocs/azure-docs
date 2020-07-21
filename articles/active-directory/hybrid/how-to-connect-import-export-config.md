@@ -96,12 +96,6 @@ Known limitations include the following:
 - **Configuring the Provisioning Hierarchy** – this advanced feature of the Synchronization Service Manager is not supported via synchronization settings and must be manually reconfigured after completing the initial deployment. 
 - **AD FS and PingFederate Authentication** – the sign-on methods associated with these authentication features will be automatically pre-selected, however you must interactively supply all other required configuration parameters. 
 
-## Known limitations 
-
-Known limitations include the following:
-
-- Synchronization Rules – the precedence for a custom rule must be in the reserved range of 0-99 to avoid conflicts with Microsoft’s standard rules. Placing a custom rule outside the reserved range may result in your custom rule being shifted around as standard rules are added to the configuration. A similar issue will occur if your configuration contains modified standard rules. Modifying a standard rule is strongly discouraged and rule placement is likely to be incorrect.
-
  ## Next Steps
 
 - [Hardware and prerequisites](how-to-connect-install-prerequisites.md) 
