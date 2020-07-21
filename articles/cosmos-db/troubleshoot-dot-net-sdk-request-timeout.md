@@ -36,7 +36,7 @@ Otherwise, you face connection issues.
 Creating multiple client instances might lead to connection contention and timeout issues.
 
 #### Solution:
-Follow the [performance tips](https://docs.microsoft.com/azure/cosmos-db/performance-tips), and use a single CosmosClient instance across an entire process.
+Follow the [performance tips](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage), and use a single CosmosClient instance across an entire process.
 
 ### 4. Hot partition key
 Azure Cosmos DB distributes the overall provisioned throughput evenly across physical partitions. When there is a hot partition, one or more logical partition keys on a physical partition are consuming all the physical partition's RU/s, while the RU/s on other physical partitions go unused. As a symptom, the total RU/s consumed will be less than the overall provisioned RU/s at the database or container, but you will still see throttling (429s) on the requests against the hot logical partition key. Use the [Normalized RU Consumption metric](monitor-normalized-request-units.md) to see if the workload is encountering a hot partition. 
