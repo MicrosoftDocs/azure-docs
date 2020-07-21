@@ -107,10 +107,10 @@ A virtual machine with a failed probe check is removed from the load balancer. T
 
 Create a health probe with [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#az-network-lb-probe-create):
 
-* Monitor the health of the virtual machines.
+* Monitors the health of the virtual machines.
 * Named **myHealthProbe**.
 * Protocol **TCP**.
-* Monitoring **port 80**.
+* Monitoring **Port 80**.
 
 ```azurecli-interactive
   az network lb probe create \
@@ -132,8 +132,8 @@ A load balancer rule defines:
 Create a load balancer rule with [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create):
 
 * Named **myHTTPRule**
-* Listening on **port 80** in the frontend pool **myFrontEnd**.
-* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **port 80**. 
+* Listening on **Port 80** in the frontend pool **myFrontEnd**.
+* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
 * Using health probe **myHealthProbe**.
 * Protocol **TCP**.
 * Enable outbound source network address translation (SNAT) using the frontend IP address.
