@@ -44,4 +44,4 @@ If you're using the default Redirect connection policy setting, you may need to 
 
 Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
 
-Create an Azure Synapse workspace with a [Managed workspace VNet](./synapse-workspace-managed-vnet.md)
+Create an Azure Synapse workspace with a [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)

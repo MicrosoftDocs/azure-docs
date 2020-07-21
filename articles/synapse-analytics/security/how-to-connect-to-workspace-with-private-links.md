@@ -42,7 +42,7 @@ Select **Next: Configuration>** to advance to the next part of the setup.
 
 In the **Configuration** tab, select the **Virtual network** and the **Subnet** in which the private endpoint should be created. You also need to create a DNS record that maps to the private endpoint.
 
-Select **Yes** for **Integrate with private DNS zone** to integrate your private endpoint with a private DNS zone. If you don't have a private DNS zone associated with your VNet, then a new private DNS zone is created. Select **Review + create** when done.
+Select **Yes** for **Integrate with private DNS zone** to integrate your private endpoint with a private DNS zone. If you don't have a private DNS zone associated with your Microsoft Azure Virtual Network, then a new private DNS zone is created. Select **Review + create** when done.
 
 ![Select subscription and region details](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
