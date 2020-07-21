@@ -9,7 +9,7 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# Manage digital twins
+# Manage IoT Plug and Play digital twins
 
 IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
 
@@ -21,7 +21,7 @@ An IoT Plug and Play device implements a model described by [Digital Twins Defin
 
 The IoT Plug and Play device used as an example in this article implements the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
-The following snippet shows the response to a **Get digital twin** request formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin#digital-twin-json-format):
+The following snippet shows the response to a **Get digital twin** request formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin.md#digital-twin-json-format):
 
 ```json
 {
@@ -185,9 +185,9 @@ During public preview, the update digital twin API throws the following generic 
 
 Make sure the update patch follows the [rules for setting desired value of a digital twin property](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
-When you update a component, make sure that the [empty object $metadata marker](#add,-replace-or-remove-a-component) is set.
+When you update a component, make sure that the [empty object $metadata marker](#add-replace-or-remove-a-component) is set.
 
-Updates can fail if a device's reported values don't conform to the [IoT plug and play conventions](./concepts-convention#Writeable-properties).
+Updates can fail if a device's reported values don't conform to the [IoT plug and play conventions](./concepts-convention.md#writeable-properties).
 
 ## Next steps
 

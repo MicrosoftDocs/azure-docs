@@ -256,7 +256,7 @@ The Azure Digital Twins APIs include **Get Digital Twin**, **Update Digital Twin
 
 When digital twin change event is enabled, an event is triggered whenever the current or desired value of the component or property changes. Corresponding events are generated in the device twin format if twin change events are enabled. Digital twin change events are generated in [JSON Patch](http://jsonpatch.com/) format.
 
-To learn how to enable routing for device and digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c#non-telemetry-events). To understand messaging format, see [Create and read IoT Hub messages](../iot-hub/iot-hub-devguide-messages-construct)
+To learn how to enable routing for device and digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). To understand messaging format, see [Create and read IoT Hub messages](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 For example, the following digital twin change event is triggered when `targetTemperature` is set by the solution:
 
