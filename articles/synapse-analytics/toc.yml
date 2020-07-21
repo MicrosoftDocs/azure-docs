@@ -23,7 +23,7 @@
     - name: STEP 6 - Orchestrate with pipelines
       href: get-started-pipelines.md
     - name: STEP 7 - Visualize data with Power BI
-      href: get-started-visualize-powerbi.md
+      href: get-started-visualize-power-bi.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
