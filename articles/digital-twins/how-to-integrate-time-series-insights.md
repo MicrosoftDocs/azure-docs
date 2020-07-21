@@ -19,17 +19,17 @@ ms.service: digital-twins
 
 ## Intro
 
-In this reference, you will learn how to integrate Azure Digital Twins with Time Series Insights. This solution will allow you to gather and analyze historical data about your IoT solution. Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
+In this reference, you will learn how to integrate Azure Digital Twins with Time Series Insights. This solution will allow you to gather and analyze historical data about your IoT solution. Azure Digital Twins is a great fit for feeding data into Time Series Insights as it allows you to correlate multiple data streams and standardize your information before sending it to Time Series Insights. 
 
 ## Solution Architecture
 
-You will be attaching Time Series insights to Digital Twins through the path below.
+You will be attaching Time Series insights to Azure Digital Twins through the path below.
 
 :::image type="content" source="media/how-to-integrate-time-series-insights/twins-tsi-diagram-simple.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting the Indoor Maps Integration piece" lightbox="media/how-to-integrate-time-series-insights/twins-tsi-diagram.png":::
 
 ## Prerequisites
 
-* You will need to create a digital Twins instance and be ready to update twin information. 
+* You will need to create an Azure Digital Twins instance and be ready to update twin information. 
     * The Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) provides this environment, but you can use any other Twins instance.
 
 ## Create a route and filter to twin update notifications
@@ -181,7 +181,7 @@ az functionapp config appsettings set --settings "EventHubAppSetting-Twins=<your
     
     :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group.":::
 
-## Begin sending IoT data to Digital Twins
+## Begin sending IoT data to Azure Digital Twins
 
 To begin sending data to Time Series Insights you will need to start changing twin values. Use the [az dt twin update](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt/twin?view=azure-cli-latest#ext-azure-iot-az-dt-twin-update) command.
 If you are following the end to end tutorial, follow the steps below:
@@ -214,7 +214,7 @@ The Twins are stored by default as a flat hierarchy in Time Series Insights, but
 
 * [Tutorial - Define and apply a model](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-create-environment#define-and-apply-a-model) 
 
-You can write custom logic to automatically provide this information using the model and graph data already stored in Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
+You can write custom logic to automatically provide this information using the model and graph data already stored in Azure Digital Twins. To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
 * [How-to: Manage a digital twin](./how-to-manage-twin.md)
 * [How-to: Query the twin graph](./how-to-query-graph.md)
