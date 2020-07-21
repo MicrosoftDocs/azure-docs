@@ -118,7 +118,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Book a pick-up online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
+5. Book a pickup online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ::: zone target="chromeless"
 
@@ -196,7 +196,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - OrderName 
+    Subject: Microsoft Azure Pickup - OrderName 
     Body: 
         1. Requestor name  
         2. Requestor contact number
@@ -236,7 +236,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 3. To book a pickup with DHL:
 
     * Call the customer service contact centre on +27(0) 11 9213600, select option 1, and then specify the waybill number.
-    * The call must be made before 2:00 PM to schedule a pick-up.
+    * The call must be made before 2:00 PM to schedule a pickup.
     * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) using the following template:
 
     ```output
@@ -284,12 +284,12 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
     To: adbo@microsoft.com
     Subject: Microsoft Data Box Job: [order name] has completed copy
     Body:
-    We have confirmed the pick-up details with Quantium.
+    We have confirmed the pickup details with Quantium.
 
        * Requestor name:
        * Requestor contact number:
-       * Pick-up Date:  
-       * Pick-up time:
+       * Pickup Date:  
+       * Pickup time:
     ```
 
 Should you encounter any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing job name in subject header and the issue encountered.

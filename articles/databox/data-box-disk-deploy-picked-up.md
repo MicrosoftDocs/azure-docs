@@ -85,7 +85,7 @@ Azure datacenters in Australia have an additional security notification. All the
 
 1. Use the provided return ship label and make sure that the TAU code (reference number) is written on it. If the provided shipping label is missing or you have any other issues, email [Data Box Asia Operations](mailto:adbo@microsoft.com). Provide the order name in subject header and details of the issue you are facing.
 2. Affix the label on the box.
-3. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
+3. Book a pickup online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference.
 
 ### [Japan](#tab/in-japan)
 
@@ -138,7 +138,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - XZ00001234567
+    Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
      b.    Requestor contact number
@@ -167,7 +167,7 @@ Take the following steps if returning the device in South Africa.
 3. To book a pickup with DHL:
 
     * Call the customer service contact center on +27(0) 11 9213600, select option 1 and specify waybill number.
-    * You must call before 2:00 PM South Africa Standard Time (ZA) to schedule a pick-up.  
+    * You must call before 2:00 PM South Africa Standard Time (ZA) to schedule a pickup.  
     * Send an email to [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) to organize pickup using the following email template:
 
     ```output

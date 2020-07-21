@@ -69,7 +69,7 @@ Azure datacenters in Australia have an additional security notification. All the
 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful.
 3. Power off the device and remove the cables.
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
-5. Book a pick-up online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
+5. Book a pickup online at the [DHL Link](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference).
 
 ## [Japan](#tab/in-japan)
 
@@ -111,7 +111,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
     ```
     To: kadcustcare@singpost.com
-    Subject: Microsoft Azure Pick-up - OrderName 
+    Subject: Microsoft Azure Pickup - OrderName 
     Body: 
         1. Requestor name  
         2. Requestor contact number
@@ -155,19 +155,19 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 4. Spool and securely place the power cord that was provided with the device in the back of the device.
 5. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
 6. Quote Microsoft Azure pickup and the Reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
-7. You will get a verbal confirmation for the pick-up schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
+7. You will get a verbal confirmation for the pickup schedule. If the courier does not arrive for collection, call Quantium Solutions hotline for alternate arrangements.
 8. Upon booking a pickup with Quantium, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
 
     ```output
     To: adbo@microsoft.com
     Subject: Microsoft Data Box Job: [order name] has completed copy
     Body:
-    We have confirmed the pick-up details with Quantium.
+    We have confirmed the pickup details with Quantium.
 
        * Requestor name:
        * Requestor contact number:
-       * Pick-up Date:  
-       * Pick-up time:
+       * Pickup Date:  
+       * Pickup time:
     ```
 
 Should you encounter any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) providing the job name in subject header and the issue encountered.
