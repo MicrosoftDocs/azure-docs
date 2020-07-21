@@ -611,6 +611,8 @@
           href: create-cassandra-nodejs.md
         - name: Python
           href: create-cassandra-python.md
+        - name: Golang
+          href: create-cassandra-go.md
       - name: Tutorials
         items:
         - name: 1 - Create and manage data

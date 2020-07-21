@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 07/19/2020
 ms.author: memildin
 
 ---
@@ -26,6 +26,11 @@ If you're on Azure Security Center's standard tier, you can add the Container Re
 
 - Release state: **General availability**
 - Required roles: **Security reader** and [Azure Container Registry reader role](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Supported registries:
+    - ✔ Linux-hosted ACR registries that are accessible from the public internet and provide shell access.
+    - ✘ Windows-hosted ACR registries.
+    - ✘ 'Private' registries - Security Center requires your registries to be accessible from the public internet. If you've limited access to your registries with a firewall, a service endpoint, or by using private endpoint (for example, Azure Private Link), Security Center can't currently connect to, or scan, your registry.
+    - ✘ Super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS.
 - Clouds: 
     - ✔ Commercial clouds
     - ✘ US Government cloud
@@ -36,7 +41,7 @@ If you're on Azure Security Center's standard tier, you can add the Container Re
 
 Whenever an image is pushed to your registry, Security Center automatically scans that image. To trigger the scan of an image, push it to your repository.
 
-When the scan completes (typically after approximately 10 minutes, but can be up to 40 minutes), findings are available as Security Center recommendations like this:
+When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations like this:
 
 [![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -54,11 +59,6 @@ Security Center identifies ARM-based ACR registries in your subscription and sea
 
 
 ## ACR with Security Center FAQ
-
-### What types of images can Azure Security Center scan?
-Security Center scans Linux OS based images that provide shell access. 
-
-The Qualys scanner doesn't support super minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain your application and its runtime dependencies without a package manager, shell, or OS.
 
 ### How does Azure Security Center scan an image?
 The image is pulled from the registry. It's then run in an isolated sandbox with the Qualys scanner that extracts a list of known vulnerabilities.

@@ -1,6 +1,6 @@
 ---
-title: Introduction to security group view in Azure Network Watcher | Microsoft Docs
-description: This page provides an overview of the Network Watcher security view capability
+title: Introduction to Effective security rules view in Azure Network Watcher | Microsoft Docs
+description: This page provides an overview of the Network Watcher - Effective security rules view capability
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -28,6 +28,11 @@ Rules can be selected and a new blade opens up to show the Network Security Grou
 ![drilldown][2]
 
 ### Next steps
+
+You can also use the *Effective Security Groups* feature through other methods listed below:
+* [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/network/nic?view=azure-cli-latest#az-network-nic-list-effective-nsg)
 
 Learn how to audit your Network Security Group settings by visiting [Audit Network Security Group settings with PowerShell](network-watcher-nsg-auditing-powershell.md)
 

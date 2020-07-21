@@ -106,5 +106,5 @@ Update-AzCosmosDBAccount -ResourceGroupName [ResourceGroupName] -Name [CosmosDBA
 ## Next steps
 
 - [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)
-- [Custom roles for Azure resources](../role-based-access-control/custom-roles.md)
+- [Azure custom roles](../role-based-access-control/custom-roles.md)
 - [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)

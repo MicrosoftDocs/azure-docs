@@ -142,9 +142,9 @@ When using Azure AD, you need two Azure AD application registrations: one for th
 
 - To configure registration for the API, use the [App Service Authentication/Authorization](../app-service/configure-authentication-provider-aad.md) feature.
 
-- To configure registration for the connector, follow the steps in [Adding an Azure AD application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- To configure registration for the connector, follow the steps in [Adding an Azure AD application](../active-directory/develop/quickstart-register-app.md). The registration must have delegated access to your API and a reply URL of `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
-For more information, see the Azure AD registration examples for [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) and [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication). These examples use Azure Resource Manager as the API; substitute your API if you follow the steps.
+For more information, see the Azure AD registration examples for [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) and [Microsoft Flow](/connectors/custom-connectors/azure-active-directory-authentication). These examples use Azure Resource Manager as the API; substitute your API if you follow the steps.
 
 The following configuration values are required:
 - **Client ID** - the client ID of your connector Azure AD registration
@@ -165,5 +165,3 @@ The following configuration values are required:
 - **Authorization URL** - the OAuth 2.0 authorization URL
 - **Token URL** - the OAuth 2.0 token URL
 - **Refresh URL** - the OAuth 2.0 refresh URL
-
-
