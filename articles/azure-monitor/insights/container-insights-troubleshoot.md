@@ -33,18 +33,18 @@ If Azure Monitor for containers is successfully enabled and configured, but you 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    The output should resemble the following, which indicates that it was deployed properly:
+    The output should resemble the following example, which indicates that it was deployed properly:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
     NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
     omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
     ```
-2. If you have Windows Server nodes then check the status of the agent by running the command:
+2. If you have Windows Server nodes, then check the status of the agent by running the command:
 
     `kubectl get ds omsagent-win --namespace=kube-system`
 
-    The output should resemble the following, which indicates that it was deployed properly:
+    The output should resemble the following example, which indicates that it was deployed properly:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
@@ -86,7 +86,7 @@ The table below summarizes known errors you may encounter while using Azure Moni
 | ---- | --- |
 | Error Message `No data for selected filters`  | It may take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster. |
 | Error Message `Error retrieving data` | While Azure Kubernetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted and if it was, you will need to re-enable monitoring of your cluster with Azure Monitor for containers and specify an existing or create a new workspace. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Azure Monitor for containers again. |
-| `Error retrieving data` after adding Azure Monitor for containers through az aks cli | When enable monitoring using `az aks cli`, Azure Monitor for containers may not be properly deployed. Check whether the solution is deployed. To do this, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Azure Monitor for containers](container-insights-onboard.md) |
+| `Error retrieving data` after adding Azure Monitor for containers through az aks cli | When enable monitoring using `az aks cli`, Azure Monitor for containers may not be properly deployed. Check whether the solution is deployed. To verify, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Azure Monitor for containers](container-insights-onboard.md) |
 
 To help diagnose the problem, we have provided a troubleshooting script available [here](https://raw.githubusercontent.com/microsoft/Docker-Provider/ci_dev/scripts/troubleshoot/TroubleshootError_nonAzureK8s.ps1).
 
