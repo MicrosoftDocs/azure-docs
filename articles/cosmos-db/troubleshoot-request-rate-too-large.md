@@ -16,7 +16,7 @@ ms.reviewer: sngun
 ## Solution:
 
 1. Use the portal or the SDK to increase the provisioned throughput.
-2. Switch the database or container to [Autoscale](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale)
+2. Switch the database or container to [Autoscale](provision-throughput-autoscale.md).
 
 ## Related documentation
 * [Provision throughput on containers and databases](https://docs.microsoft.com/azure/cosmos-db/set-throughput)
