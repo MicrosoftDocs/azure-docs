@@ -12,7 +12,7 @@ ms.reviewer: sngun
 # Diagnose and troubleshoot Cosmos DB 400 bad request with mesage "request header too large"
 
 ## Description
-The size of the header has grown too large and is exceeding the maximum allowed size. It's always recommended to use the latest SDK. Make sure to use at least version 3.x or 2.x, which adds header size tracing to the exception message.
+The request header too large message is thrown with an HTTP error code 400. This error occurs if the size of the request header has grown too large and is exceeding the maximum allowed size. We recommend you to use the latest version of the SDK. Make sure to use at least version 3.x or 2.x, because these versions add header size tracing to the exception message.
 
 ## Troubleshooting steps
 
