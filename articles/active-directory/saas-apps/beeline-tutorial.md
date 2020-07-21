@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Beeline, perform the following steps:
 
 7. In the [Azure portal](https://portal.azure.com/), on the **Beeline** application integration page, select **Properties** and copy the User Access URL.
 
-	![Copy User Access URL](common/client-access-url-screenshot.png)
+	![Copy User Access URL](media/beeline-tutorial/client-access-url.png)
 
 
 ### Configure Beeline Single Sign-On
