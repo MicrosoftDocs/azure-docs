@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/09/2020
+ms.date: 07/21/2020
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -334,29 +334,55 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ## General purpose - provisioned compute - Fsv2-series
 
-### Fsv2-series compute generation (preview)
+### Fsv2-series compute generation (part 1)
 
-|Compute size (service objective)|GP_Fsv2_72|
-|:--- | --: |
-|Compute generation|Fsv2-series|
-|vCores|72|
-|Memory (GB)|136.2|
-|Columnstore support|Yes|
-|In-memory OLTP storage (GB)|N/A|
-|Max data size (GB)|4096|
-|Max log size (GB)|1024|
-|TempDB max data size (GB)|333|
-|Storage type|Remote SSD|
-|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS *|12,800|
-|Max log rate (MBps)|30|
-|Max concurrent workers (requests)|3600|
-|Max concurrent logins|3600|
-|Max concurrent sessions|30,000|
-|Number of replicas|1|
-|Multi-AZ|N/A|
-|Read Scale-out|N/A|
-|Included backup storage|1X DB size|
+|Compute size (service objective)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Compute generation|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|
+|vCores|8|10|12|14|16|
+|Memory (GB)|15.1|18.9|22.7|26.5|30.2|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
+|Max data size (GB)|1024|1024|1024|1024|1536|
+|Max log size (GB)|336|336|336|336|512|
+|TempDB max data size (GB)|333|333|333|333|333|
+|Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data IOPS *|2560|3200|3840|4480|5120|
+|Max log rate (MBps)|30|30|30|30|30|
+|Max concurrent workers (requests)|400|500|600|700|800|
+|Max concurrent logins|800|1000|1200|1400|1600|
+|Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
+|Number of replicas|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
+
+### Fsv2-series compute generation (part 2)
+
+|Compute size (service objective)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Compute generation|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|Fsv2-series|
+|vCores|18|20|24|32|36|72|
+|Memory (GB)|34.0|37.8|45.4|60.5|68.0|136.0|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|Max data size (GB)|1536|1536|1536|3072|3072|4096|
+|Max log size (GB)|512|512|512|1024|1024|1024|
+|TempDB max data size (GB)|83.25|92.5|111|148|166.5|333|
+|Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data IOPS *|5760|6400|7680|10240|11520|23040|
+|Max log rate (MBps)|30|30|30|30|30|30|
+|Max concurrent workers (requests)|900|1000|1200|1600|1800|3600|
+|Max concurrent logins|1800|2000|2400|3200|3600|7200|
+|Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
+|Number of replicas|1|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
 \* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
 
@@ -473,34 +499,65 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ## Business critical - provisioned compute - M-series
 
-### M-series compute generation (preview)
+### M-series compute generation (part 1)
 
-|Compute size (service objective)|BC_M_128|
-|:--- | --: |
-|Compute generation|M-series|
-|vCores|128|
-|Memory (GB)|3767.1|
-|Columnstore support|Yes|
-|In-memory OLTP storage (GB)|1768|
-|Max data size (GB)|4096|
-|Max log size (GB)|2048|
-|TempDB max data size (GB)|4096|
-|Storage type|Local SSD|
-|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|Max data IOPS *|160,000|
-|Max log rate (MBps)|264|
-|Max concurrent workers (requests)|12,800|
-|Max concurrent logins|12,800|
-|Max concurrent sessions|30000|
-|Number of replicas|4|
-|Multi-AZ|Yes|
-|Read Scale-out|Yes|
-|Included backup storage|1X DB size|
+|Compute size (service objective)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Compute generation|M-series|M-series|M-series|M-series|M-series|M-series|
+|vCores|8|10|12|14|16|18|
+|Memory (GB)|235.4|294.3|353.2|412.0|470.9|529.7|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|64|80|96|112|128|150|
+|Max data size (GB)|512|640|768|896|1024|1152|
+|Max log size (GB)|171|213|256|299|341|384|
+|TempDB max data size (GB)|256|320|384|448|512|576|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
+|Max data IOPS *|12,499|15,624|18,748|21,873|24,998|28,123|
+|Max log rate (MBps)|48|60|72|84|96|108|
+|Max concurrent workers (requests)|800|1,000|1,200|1,400|1,600|1,800|
+|Max concurrent logins|800|1,000|1,200|1,400|1,600|1,800|
+|Max concurrent sessions|30000|30000|30000|30000|30000|30000|
+|Number of replicas|4|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
 \* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
+
+### M-series compute generation (part 2)
+
+|Compute size (service objective)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Compute generation|M-series|M-series|M-series|M-series|M-series|
+|vCores|20|24|32|64|128|
+|Memory (GB)|588.6|706.3|941.8|1883.5|3767.0|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|172|216|304|704|1768|
+|Max data size (GB)|1280|1536|2048|4096|4096|
+|Max log size (GB)|427|512|683|1024|1024|
+|TempDB max data size (GB)|4096|2048|1024|768|640|
+|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
+|IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
+|Max data IOPS *|31,248|37,497|49,996|99,993|160,000|
+|Max log rate (MBps)|120|144|192|264|264|
+|Max concurrent workers (requests)|2,000|2,400|3,200|6,400|12,800|
+|Max concurrent logins|2,000|2,400|3,200|6,400|12,800|
+|Max concurrent sessions|30000|30000|30000|30000|30000|
+|Number of replicas|4|4|4|4|4|
+|Multi-AZ|Yes|Yes|Yes|Yes|Yes|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
+
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
+
+
 
 ## Next steps
 
