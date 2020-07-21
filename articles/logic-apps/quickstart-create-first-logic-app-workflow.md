@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/20/2019
+ms.date: 07/23/2020
 ---
 
 # Quickstart: Create your first workflow by using Azure Logic Apps - Azure portal
@@ -169,7 +169,11 @@ Next, test your logic app.
 
 ## Run your logic app
 
-To manually start your logic app, on the designer toolbar bar, select **Run**. Or, wait for your logic app to check the RSS feed based on your specified schedule (every minute). If the RSS feed has new items, your logic app sends an email for each new item. Otherwise, your logic app waits until the next interval before checking again. If you don't get any emails, check your junk email folder.
+To manually start your logic app, on the designer toolbar bar, select **Run**. Or, wait for your logic app to check the RSS feed based on your specified schedule (every minute).
+
+![Screenshot showing Logic Apps Designer with the "Run" button selected on the designer toolbar](./media/quickstart-create-first-logic-app-workflow/run-logic-app-test.png)
+
+If the RSS feed has new items, your logic app sends an email for each new item. Otherwise, your logic app waits until the next interval before checking again. If you don't get any emails, check your junk email folder.
 
 For example, here is a sample email that this logic app sends.
 
