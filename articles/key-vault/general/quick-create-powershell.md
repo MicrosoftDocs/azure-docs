@@ -1,6 +1,6 @@
 ﻿---
-title: "Quickstart: Set & retrieve a secret from Key Vault using PowerShell"
-description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure Key Vault using Azure PowerShell.
+title: Quickstart - Create an Azure Key Vault with Azure PowerShell
+description: Quickstart showing how to create an Azure Key Vault using Azure PowerShell
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -15,9 +15,9 @@ ms.author: mbaldwin
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 
 ---
-# Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell
+# Quickstart: Create a key vault using PowerShell
 
-Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates).
+Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

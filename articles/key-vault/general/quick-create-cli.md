@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Set and retrieve a secret from Azure Key Vault'
-description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
+title: Quickstart - Create an Azure Key Vault with the Azure CLI
+description: Quickstart showing how to create an Azure Key Vault using the Azure CLI
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.author: mbaldwin
 ---
 # Quickstart: Create a key vault using the Azure CLI
 
-Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates).
+Azure Key Vault is a cloud service that provides a secure store for [keys](../keys/index.yml), [secrets](../secrets/index.yml), and [certificates](../certificates/index.yml). For more information on Key Vault, see [About Azure Key Vault](overview.md); for more information on what can be stored in a key vault, see [About keys, secrets, and certificates](about-keys-secrets-certificates.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

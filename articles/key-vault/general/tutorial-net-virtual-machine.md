@@ -53,18 +53,9 @@ To sign in to Azure by using the Azure CLI, enter:
 az login
 ```
 
-### Create a resource group
+### Create a resource group and key vault
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
-
-This example creates a resource group in the West US location:
-
-```azurecli
-# To list locations: az account list-locations --output table
-az group create --name "<YourResourceGroupName>" --location "West US"
-```
-
-Your newly created resource group will be used throughout this tutorial.
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
 ### Create a key vault and populate it with a secret
 
