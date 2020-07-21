@@ -324,7 +324,7 @@ To add a blockchain application to Blockchain Workbench, you upload the configur
 Deployment of the blockchain application takes a few minutes. When deployment is finished, the new application is displayed in **Applications**. 
 
 > [!NOTE]
-> You can also create blockchain applications by using the [Azure Blockchain Workbench REST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+> You can also create blockchain applications by using the [Azure Blockchain Workbench REST API](/rest/api/azure-blockchain-workbench).
 
 ## Add blockchain application members
 

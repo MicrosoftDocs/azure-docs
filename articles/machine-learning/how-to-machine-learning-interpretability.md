@@ -39,7 +39,7 @@ The interpretability classes are made available through multiple SDK packages: (
 
 * `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
 
-Use `pip install azureml-interpret` and `pip install azureml-contrib-interpret` for general use. AutoML requires `pip install azureml-contrib-interpret` to get the interpretability packages.
+Use `pip install azureml-interpret` and `pip install azureml-contrib-interpret` for general use.
 
 
 > [!IMPORTANT]
