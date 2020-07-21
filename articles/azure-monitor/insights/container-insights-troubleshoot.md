@@ -2,7 +2,7 @@
 title: How to Troubleshoot Azure Monitor for containers | Microsoft Docs
 description: This article describes how you can troubleshoot and resolve issues with Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 07/21/2020
 
 ---
 
@@ -76,33 +76,6 @@ If Azure Monitor for containers is successfully enabled and configured, but you 
     omsagent-484hw                      1/1       Running   0          1d
     omsagent-fkq7g                      1/1       Running   0          1d
     omsagent-win-6drwq                  1/1       Running   0          1d
-    ```
-
-5. Check the agent logs. When the containerized agent gets deployed, it runs a quick check by running OMI commands and displays the version of the agent and provider.
-
-6. To verify that the agent has been deployed successfully, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`
-
-    The status should resemble the following example:
-
-    ```
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-	:
-	:
-	instance of Container_HostInventory
-	{
-	    [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-	    Computer=aks-nodepool1-39773055-0
-	    DockerVersion=1.13.1
-	    OperatingSystem=Ubuntu 16.04.3 LTS
-	    Volume=local
-	    Network=bridge host macvlan null overlay
-	    NodeRole=Not Orchestrated
-	    OrchestratorType=Kubernetes
-	}
-	Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-	omi 1.4.2.2
-	omsagent 1.6.0.23
-	docker-cimprov 1.0.0.31
     ```
 
 ## Error messages
