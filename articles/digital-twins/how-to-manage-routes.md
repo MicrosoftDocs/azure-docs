@@ -73,6 +73,13 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
+You can proceed to creating an event route once your endpoints are finished setting up.
+
+>[!NOTE]
+>If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. Otherwise, if you attempt to create an event route using endpoints that are not yet ready, the route deployment will fail. Wait a few minutes and try again.
+>
+> (If you are scripting this flow, you may want to build in some wait time between endpoint and route setup to account for this.)
+
 The samples in this article use the C# SDK.
 
 Event routes are defined using data plane APIs. A route definition can contain these elements:
