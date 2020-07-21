@@ -51,7 +51,7 @@ On the following *Create Resource* page, fill in the values given below:
 > [!IMPORTANT]
 > Make a note of the resource group and resource name. These are important values that you will need as you continue working with your Azure Digital Twins instance.
 
-:::image type="content" source= "media/how-to-set-up-instance/create-new-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
+:::image type="content" source= "media/how-to-set-up-instance/review+create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
 Create your instance by selecting _Review + create_ button. Then in the summary page, review your instance details and select _create_ button. You can now view the status of your instance deployment in your Azure notifications along the portal icon bar. Once deployment succeeds, you can view your resource details by selecting the _Go to resource_ button as shown below:
 
