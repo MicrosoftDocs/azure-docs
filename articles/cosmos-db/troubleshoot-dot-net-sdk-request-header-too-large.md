@@ -35,4 +35,4 @@ The 400 bad request is happening on query operations where the continuation toke
     
 #### Solution:
 1. Follow the guidance in [performance tips](performance-tips-dotnet-sdk-v3-sql.md) article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. 
-3. If Direct + TCP is not an option then try setting the ResponseContinuationTokenLimitInKb option. The option can be found in the FeedOptions for v2 or the QueryRequestOptions in v3.
+3. If Direct connection mode with TCP protocol is not an option for your workload, then try setting the `ResponseContinuationTokenLimitInKb` option. You can find this option in the `FeedOptions` for v2 or the `QueryRequestOptions` in v3.
