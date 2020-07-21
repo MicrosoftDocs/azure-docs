@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Get started analyze data with SQL pool' 
-description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
+description: In this tutorial, you'll use the NYC Taxi sample data to explore SQL pool's analytic capabilities.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -11,8 +11,9 @@ ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
 
-
 # Analyze data with SQL pools
+
+Azure Synapse Analytics provides you with the capability to analyze data with SQL pool. In this tutorial, you'll use the NYC Taxi sample data to explore SQL pool's analytic capabilities.
 
 ## Load the NYC Taxi sample data into the SQLDB1 database
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Get started orchestrate activities with pipelines' 
-description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
+description: In this tutorial, you'll learn how orchestrate pipelines and activities using Synapse Studio.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -11,8 +11,9 @@ ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
 
-
 # Orchestrate activities with pipelines
+
+In this tutorial, you'll learn how orchestrate pipelines and activities using Synapse Studio. 
 
 ## Overview
 

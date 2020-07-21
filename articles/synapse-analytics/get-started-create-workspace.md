@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Get started create a Synapse workspace' 
-description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
+description: In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -12,6 +12,8 @@ ms.date: 07/20/2020
 ---
 
 # Create a Synapse workspace
+
+In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
 
 ## Prepare a storage account
 
