@@ -126,6 +126,8 @@
       items:
       - name: Queues, topics, and subscriptions
         href: service-bus-queues-topics-subscriptions.md
+      - name: Java message service (JMS) 2.0 entities
+        href: service-bus-jms-20-entities.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
       - name: Message transfers, locks, and settlement
