@@ -103,7 +103,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Be
     Invoke-WebRequest -Uri $Uri -OutFile ".\CreateOrUpdateAzAutoAccount.ps1"
     ```
 
-4. Run the following cmdlet to execute the script and create the Azure Automation account:
+4. Run the following cmdlet to execute the script and create the Azure Automation account. You can either fill in values for the parameters or comment them to use their defaults.
 
     ```powershell
     $Params = @{
@@ -111,7 +111,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Be
          "SubscriptionId"        = "<Azure_subscription_ID>"              # Optional. If not specified, it will use the current Azure context
          "ResourceGroupName"     = "<Resource_group_name>"                # Optional. Default: "WVDAutoScaleResourceGroup"
          "AutomationAccountName" = "<Automation_account_name>"            # Optional. Default: "WVDAutoScaleAutomationAccount"
-         "Location"              = "<Azure_region_for_deployment>"        # Optional. Default: "West US2"
+         "Location"              = "<Azure_region_for_deployment>"
          "WorkspaceName"         = "<Log_analytics_workspace_name>"       # Optional. If specified, Log Analytics will be used to configure the custom log table that the runbook PowerShell script can send logs to
     }
     
@@ -149,7 +149,7 @@ To create a Run As account in your Azure Automation account:
 
 5. Wait a few minutes for Azure to create the Run As account. You can track the creation progress in the menu under Notifications.
 
-6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. Remember the application ID, because you'll use it later.
+6. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. Remember the application ID, because you'll use it later.
 
 ### Create a role assignment in Windows Virtual Desktop
 
@@ -159,6 +159,9 @@ First, download and import the [Windows Virtual Desktop PowerShell module](/powe
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+
+# If your tenant is not in "Default Tenant Group", uncomment the following line and specify the name of your tenant group
+# Set-RdsContext -TenantGroupName "<Tenant_Group_Name>"
 
 Get-RdsTenant
 ```
@@ -195,6 +198,9 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+
+    # If your tenant is not in "Default Tenant Group", uncomment the following line and specify the name of your tenant group
+    # Set-RdsContext -TenantGroupName "<Tenant_Group_Name>"
     ```
 
 5. Run the following PowerShell script to create the Azure Logic App and execution schedule for your host pool 
@@ -214,8 +220,8 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     $WVDTenant = Get-RdsTenant | Out-GridView -OutputMode:Single -Title "Select your WVD tenant"
     $WVDHostPool = Get-RdsHostPool -TenantName $WVDTenant.TenantName | Out-GridView -OutputMode:Single -Title "Select the host pool you'd like to scale"
     
-    $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account"
-    $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account"
+    $LogAnalyticsWorkspaceId = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Workspace ID returned by when you created the Azure Automation account, otherwise leave it blank"
+    $LogAnalyticsPrimaryKey = Read-Host -Prompt "If you want to use Log Analytics, enter the Log Analytics Primary Key returned by when you created the Azure Automation account, otherwise leave it blank"
     $RecurrenceInterval = Read-Host -Prompt "Enter how often you'd like the job to run in minutes, e.g. '15'"
     $BeginPeakTime = Read-Host -Prompt "Enter the start time for peak hours in local time, e.g. 9:00"
     $EndPeakTime = Read-Host -Prompt "Enter the end time for peak hours in local time, e.g. 18:00"
