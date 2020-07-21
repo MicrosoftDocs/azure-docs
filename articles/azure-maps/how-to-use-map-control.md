@@ -50,7 +50,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
     > [!NOTE]
     > Typescript definitions can be imported into your application by adding the following code:
     >
-    > ```JAVASCRIPT
+    > ```javascript
     > import * as atlas from 'azure-maps-control';
     > ```
 
@@ -102,7 +102,7 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
 
       ```HTML
     <script type="text/javascript">
-    function InitMap()
+        function InitMap()
         {
             var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],
