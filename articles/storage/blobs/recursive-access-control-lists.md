@@ -12,7 +12,7 @@ ms.reviewer: prishet
 
 # Set access control lists (ACLs) recursively in Azure Data Lake Storage Gen2
 
-The recursive ACL process provides the ability to add, update or remove ACL entries for folders/files within a parent directory for ADLS Gen2. This helps with propagation of permission updates from parent directory to existing child folders/files. 
+You can apply the ACL of a parent directory to all child directories and files that exist beneath the parent directory.  This means that if you want to apply the same ACL entries to a hierarchy of directories and files, you can do that without having to modify the ACL of each one individually. Instead, you can apply them recursively.
 
 To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
 
@@ -27,10 +27,10 @@ To learn more about how ACL permissions are applied and the effects of changing 
 
 ## Set up your project
 
-Some sort of intro comment
+First, install the necessary libraries.
 
 > [!NOTE] 
-> To help lower latency for access to the ADLS Gen2 storage account, we recommend running the recursive ACL process in an Azure VM that is in the same region as your ADLS Gen2 storage account.
+> For optimal performance, we recommend that you run processes that set ACLs recursively in an Azure VM that is located in the same region as your storage account.
 
 ### [.NET](#tab/dotnet)
 
@@ -89,33 +89,11 @@ from azure.storage.filedatalake._models import ContentSettings
 
 ## Connect to your account
 
-- Credentials: As best practice, we recommend provisioning an AAD service principal assigned with the Storage Blob Data Owner role scoped to the target account or container. 
-
-- A provisioned AAD Service Principal or user that has been assigned Storage Blob Data Owner role on the target account or container OR Owning user for target container/directory on which recursive ACL process is to be executed. (Note: owning user must have permissions for all child items for this target container/directory) 
+You can connect by using Azure Active Directory (AD) or by using an account key. 
 
 ### [.NET](#tab/dotnet)
 
-To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. 
-
-#### Connect by using an account key
-
-This is the easiest way to connect to an account. 
-
-This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using an account key.
-
-```cs
-public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
-    string accountName, string accountKey)
-{
-    StorageSharedKeyCredential sharedKeyCredential =
-        new StorageSharedKeyCredential(accountName, accountKey);
-
-    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
-
-    dataLakeServiceClient = new DataLakeServiceClient
-        (new Uri(dfsUri), sharedKeyCredential);
-}
-```
+To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account.
 
 #### Connect by using Azure Active Directory (AD)
 
@@ -149,6 +127,26 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
     dataLakeServiceClient = new DataLakeServiceClient(new Uri(dfsUri), credential);
 }
 
+``` 
+
+#### Connect by using an account key
+
+This is the easiest way to connect to an account. 
+
+This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using an account key.
+
+```cs
+public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
+    string accountName, string accountKey)
+{
+    StorageSharedKeyCredential sharedKeyCredential =
+        new StorageSharedKeyCredential(accountName, accountKey);
+
+    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
+
+    dataLakeServiceClient = new DataLakeServiceClient
+        (new Uri(dfsUri), sharedKeyCredential);
+}
 ```
 
 > [!NOTE]
@@ -157,6 +155,35 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 ### [Python](#tab/python)
 
 To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
+
+### Connect by using Azure Active Directory (AD)
+
+You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
+
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md). As part of that process, you'll have to assign one of the following [role-based access control (RBAC)](../../role-based-access-control/overview.md) roles to your security principal. 
+
+|Role|ACL setting capability|
+|--|--|
+|[Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)|All directories and files in the account.|
+|[Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)|Only directories and files owned by the security principal.|
+
+```python
+def initialize_storage_account_ad(storage_account_name, client_id, client_secret, tenant_id):
+    
+    try:  
+        global service_client
+
+        credential = ClientSecretCredential(tenant_id, client_id, client_secret)
+
+        service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
+            "https", storage_account_name), credential=credential)
+    
+    except Exception as e:
+        print(e)
+```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
 
 ### Connect by using an account key
 
@@ -179,29 +206,7 @@ except Exception as e:
 
 - Replace the `storage_account_key` placeholder value with your storage account access key.
 
-### Connect by using Azure Active Directory (AD)
 
-You can use the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) to authenticate your application with Azure AD.
-
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
-
-```python
-def initialize_storage_account_ad(storage_account_name, client_id, client_secret, tenant_id):
-    
-    try:  
-        global service_client
-
-        credential = ClientSecretCredential(tenant_id, client_id, client_secret)
-
-        service_client = DataLakeServiceClient(account_url="{}://{}.dfs.core.windows.net".format(
-            "https", storage_account_name), credential=credential)
-    
-    except Exception as e:
-        print(e)
-```
-
-> [!NOTE]
-> For more examples, see the [Azure identity client library for Python](https://pypi.org/project/azure-identity/) documentation.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -393,7 +398,7 @@ def update_permission_recursively():
 
 ### [PowerShell](#tab/azure-powershell)
 
-Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursive** method. 
+Update an ACL recursively by using the  **Update-AzDataLakeGen2AclRecursiv** cmdlet. 
 
 This example adds write permission to an ACL entry, and then updates the ACL with that entry.
 
@@ -464,7 +469,7 @@ def remove_permission_recursively():
 
 ### [PowerShell](#tab/azure-powershell)
 
-Remove ACL entries by calling the **Remove-AzDataLakeGen2AclRecursive** method. 
+Remove ACL entries by calling the **Remove-AzDataLakeGen2AclRecursive** cmdlet. 
 
 This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. 
 
@@ -624,8 +629,6 @@ def continue_on_failure():
 ```
 
 ### [PowerShell](#tab/azure-powershell)
-
-To ensure that the process completes uninterrupted, pass in an **AccessControlChangedOptions** object and set the **ContinueOnFailure** property of that object to ``true``.
 
 This example sets ACL entries recursively. If this code encounters a permission error, it records that failure and continues execution. This example prints the results (including the number of failures) to the console. 
 
