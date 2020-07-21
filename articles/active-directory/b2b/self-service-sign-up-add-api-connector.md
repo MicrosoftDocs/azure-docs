@@ -31,7 +31,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 6. Provide the **Endpoint URL** for the API call.
 7. Provide the authentication information for the API.
 
-   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** ( for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
+   - Only Basic Authentication is currently supported. If you wish to use an API without Basic Authentication for development purposes, simply enter a dummy **Username** and **Password** that your API can ignore. For use with an Azure Function with an API key, you can include the code as a query parameter in the **Endpoint URL** (for example, https[]()://contoso.azurewebsites.net/api/endpoint<b>?code=0123456789</b>).
 
    ![Add a new API connector](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
@@ -134,13 +134,13 @@ Content-type: application/json
 | version                                            | String            | Yes      | The version of the API.                                                                                                                                                                                                                                                                |
 | action                                             | String            | Yes      | Value must be `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | No       | Values can be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attributes** for a user flow. Values can be returned in the token if selected as an **Application claim**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The returned claim can optionally not contain `_<extensions-app-id>_`. Values are be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attribute** for a user flow. Custom attributes cannot be sent back in the token. |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | The returned claim does not need to contain `_<extensions-app-id>_`. Values are be stored in the directory if they selected as a **Claim to receive** in the API connector configuration and **User attribute** for a user flow. Custom attributes cannot be sent back in the token. |
 
 ### Blocking Response
 
 A blocking response exits the user flow. It can be purposely issued by the API to stop the continuation of the user flow by displaying a block page to the user. The block page displays the `userMessage` provided by the API.
 
-The following is an example of the blocking response:
+Example of the blocking response:
 
 ```http
 HTTP/1.1 200 OK
@@ -162,7 +162,7 @@ Content-type: application/json
 | userMessage | String | Yes      | Message to display to the user.                                            |
 | code        | String | No       | Error code. Can be used for debugging purposes. Not displayed to the user. |
 
-#### End user experience with a blocking response
+#### End-user experience with a blocking response
 
 ![Example  block page](./media/api-connectors-overview/blocking-page-response.png)
 
@@ -193,7 +193,7 @@ Content-type: application/json
 | userMessage | String  | Yes      | Message to display to the user.                                            |
 | code        | String  | No       | Error code. Can be used for debugging purposes. Not displayed to the user. |
 
-#### End user experience with a validation-error response
+#### End-user experience with a validation-error response
 
 ![Example  validation page](./media/api-connectors-overview/validation-error-postal-code.png)
 
