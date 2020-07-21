@@ -1,5 +1,5 @@
 ---
-title: Data locations for Windows Virtual Desktop Spring 2020 - Azure
+title: Data locations for Windows Virtual Desktop - Azure
 description: A brief overview of which locations Windows Virtual Desktop's data and metadata are stored in.
 services: virtual-desktop
 author: Heidilohr
