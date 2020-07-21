@@ -26,7 +26,7 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 | Maximum size of a command name | 64 chars ||
 | Device twin size | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
 
-## Model Repository
+## Model repository
 
 The following limits and quotas apply to a model repository:
 
