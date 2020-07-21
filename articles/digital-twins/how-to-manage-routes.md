@@ -78,7 +78,7 @@ You can proceed to creating an event route once your endpoints are finished sett
 >[!NOTE]
 >If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
 >
-> If you are scripting this flow, you may want to account for this by building in some wait time for the endpoint service to finish deploying before moving on to route setup.
+> If you are scripting this flow, you may want to account for this by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
 
 The samples in this article use the C# SDK.
 
