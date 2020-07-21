@@ -88,7 +88,7 @@ Select the virtual network *azure-spring-cloud-vnet* you created.
 
 1. Select **Access control (IAM)**, then select **Add > Add role assignment**.
 
-    ![](images/manage-virtual-network/select-access-control-for-vnet.png)
+    ![Access control for v-net](./media/v-net-injection/access-control-for-vnet.png)
 
 2. In **Add role assignment**, enter or select this information:
 
@@ -99,7 +99,7 @@ Select the virtual network *azure-spring-cloud-vnet* you created.
 
     Then select *Azure Spring Cloud Resource Provider*, and select **Save**.
 
-    ![Grant azure spring cloud resource provider to v-net](.media/v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    ![Grant azure spring cloud resource provider to v-net](./media/v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
 
 You can also achieve this by running the following az CLI command
 
