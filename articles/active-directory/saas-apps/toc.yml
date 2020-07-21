@@ -365,6 +365,8 @@
         href: comm100livechat-tutorial.md
       - name: Communifire
         href: communifire-tutorial.md
+      - name: Community Spark
+        href: community-spark-tutorial.md
       - name: CompetencyIQ
         href: competencyiq-tutorial.md
       - name: Compliance ELF
@@ -511,6 +513,8 @@
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
         href: egnyte-tutorial.md
+      - name: Egress
+        href: egress-tutorial.md
       - name: Ekarda
         href: ekarda-tutorial.md
       - name: eKincare
@@ -824,6 +828,8 @@
         href: intime-tutorial.md
       - name: Intralinks
         href: intralinks-tutorial.md
+      - name: IntSights
+        href: intsights-tutorial.md
       - name: IP Platform
         href: ip-platform-tutorial.md
       - name: iPass SmartConnect
@@ -1600,6 +1606,8 @@
         href: terraform-enterprise-tutorial.md
       - name: TextExpander
         href: textexpander-tutorial.md
+      - name: Textline
+        href: textline-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal

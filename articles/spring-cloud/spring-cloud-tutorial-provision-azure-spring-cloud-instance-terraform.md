@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
+ms.custom: devx-track-java
 ---
 
 # Tutorial: Provision an Azure Spring Cloud instance with Terraform
