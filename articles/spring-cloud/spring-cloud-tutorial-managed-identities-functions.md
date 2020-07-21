@@ -155,7 +155,6 @@ This sample will invoke the Http triggered function by first requesting an acces
 
 5. Access the public endpoint or test endpoint to test your app. 
 
-    First, get the value of your secret that you set in Azure Key Vault. 
     ```azurecli
     curl https://mymsispringcloud-msiapp.azuremicroservices.io/func/springcloud
     ```
