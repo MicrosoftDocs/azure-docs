@@ -57,6 +57,9 @@ Private offers will also appear in search results. Just look for the **Private**
 >[!Note]
 >Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider (CSP) program.
 
+>[!Note]
+>An offer that contains only private plans will not be visible in the public Azure Marketplace or AppSource.
+
 <!---
 ## Next steps
 
