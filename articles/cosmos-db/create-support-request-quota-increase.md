@@ -45,10 +45,10 @@ To request a quota increase, you must create a new support request with your wor
         * Subscription ID
         * New throughput limit
 
-     **Database account limit requests** If your request corresponds to increasing the quota for the number of databases in an Azure Cosmos account, make sure to provide the following values:
+     **Database account limit requests** If your request corresponds to increasing the quota for the number of database accounts in a subscription, make sure to provide the following values:
 
        * Subscription ID
-       * New database limit
+       * New database account limit
 
    * **File upload**: Upload the diagnostic files or any other files that you think are relevant to the support request. To learn more on the file upload guidance, see the [Azure support]( ../azure-portal/supportability/how-to-manage-azure-support-request.md#upload-files) article.
 
