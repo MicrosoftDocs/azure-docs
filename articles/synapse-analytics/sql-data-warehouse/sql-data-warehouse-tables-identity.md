@@ -6,7 +6,7 @@ author:  XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 04/30/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
@@ -15,7 +15,7 @@ ms.custom: seo-lt-2019, azure-synapse
 
 # Using IDENTITY to create surrogate keys in Synapse SQL pool
 
-Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
+In this article, you'll find recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Synapse SQL pool.
 
 ## What is a surrogate key
 

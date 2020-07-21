@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 05/27/2020
+ms.date: 06/29/2020
 ms.author: pafarley
 
 #As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.

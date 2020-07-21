@@ -8,7 +8,7 @@ ms.date: 04/16/2020
 
 # Set up an appliance in Azure Government 
 
-Follow this article to deploy an [Azure Migrate appliance](deploy-appliance.md) for VMware VMs, Hyper-V VMs, and physical servers, in an Azure Government cloud. You run a script to create the appliance, and verify that it can connect to Azure. If you want to set up  an appliance in the public cloud, follow [this article](deploy-appliance-script.md).
+Follow this article to deploy an [Azure Migrate appliance](./migrate-appliance-architecture.md) for VMware VMs, Hyper-V VMs, and physical servers, in an Azure Government cloud. You run a script to create the appliance, and verify that it can connect to Azure. If you want to set up  an appliance in the public cloud, follow [this article](deploy-appliance-script.md).
 
 
 > [!NOTE]
@@ -41,7 +41,7 @@ Check that the zipped file is secure, before you deploy it.
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip MD5```
+    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMWare-USGov.zip SHA256```
 
 3. Verify the latest appliance version and hash value:
 
@@ -93,7 +93,7 @@ Check that the zipped file is secure, before you deploy it.
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip MD5```
+    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-HyperV-USGov.zip SHA256```
 
 3. Verify the latest appliance version and hash value:
 
@@ -146,7 +146,7 @@ Check that the zipped file is secure, before you deploy it.
 1. On the machine to which you downloaded the file, open an administrator command window.
 2. Run the following command to generate the hash for the zipped file
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5```
+    - Example: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip SHA256```
 
 3. Verify the latest appliance version and hash value:
 

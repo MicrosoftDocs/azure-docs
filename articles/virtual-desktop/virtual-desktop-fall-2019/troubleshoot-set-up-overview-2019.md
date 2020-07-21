@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop troubleshooting overview - Azure
+title: Windows Virtual Desktop troubleshooting overview — Fall 2019 — Azure
 description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: Heidilohr

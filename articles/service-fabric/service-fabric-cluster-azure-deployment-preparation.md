@@ -23,7 +23,7 @@ For any production deployment, capacity planning is an important step. Here are 
 * The reliability and durability characteristics of the cluster
 
 ### Select the initial number of node types
-First, you need to figure out what the cluster you are creating is going to be used for. What kinds of applications you are planning to deploy into this cluster? Does your application have multiple services, and do any of them need to be public or internet facing? Do your services (that make up your application) have different infrastructure needs such as greater RAM or higher CPU cycles? A Service Fabric cluster can consist of more than one node type: a primary node type and one or more non-primary node types. Each node type is mapped to a virtual machine scale set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. [Node properties and placement constraints][placementconstraints] can be set up to constrain specific services to specific node types.  For more information, read [The number of node types your cluster needs to start out with](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+First, you need to figure out what the cluster you are creating is going to be used for. What kinds of applications you are planning to deploy into this cluster? Does your application have multiple services, and do any of them need to be public or internet facing? Do your services (that make up your application) have different infrastructure needs such as greater RAM or higher CPU cycles? A Service Fabric cluster can consist of more than one node type: a primary node type and one or more non-primary node types. Each node type is mapped to a virtual machine scale set. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. [Node properties and placement constraints][placementconstraints] can be set up to constrain specific services to specific node types.  For more information, see [Service Fabric cluster capacity planning](service-fabric-cluster-capacity.md).
 
 ### Select node properties for each node type
 Node types define the VM SKU, number, and properties of the VMs in the associated scale set.
@@ -32,7 +32,7 @@ The minimum size of VMs for each node type is determined by the [durability tier
 
 The minimum number of VMs for the primary node type is determined by the [reliability tier][reliability] you choose.
 
-See the minimum recommendations for [primary node types](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [stateful workloads on non-primary node types](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads), and [stateless workloads on non-primary node types](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
+See the minimum recommendations for [primary node types](service-fabric-cluster-capacity.md#primary-node-type), [stateful workloads on non-primary node types](service-fabric-cluster-capacity.md#stateful-workloads), and [stateless workloads on non-primary node types](service-fabric-cluster-capacity.md#stateless-workloads).
 
 Any more than the minimum number of nodes should be based on the number of replicas of the application/services that you want to run in this node type.  [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md) helps you estimate the resources you need to run your applications. You can always scale the cluster up or down later to adjust for changing application workload. 
 
@@ -118,5 +118,5 @@ Is your application and cluster ready to take production traffic? Before deployi
 * [Create a Service Fabric cluster running Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
-[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
-[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[durability]: service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster

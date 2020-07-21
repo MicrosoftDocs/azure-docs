@@ -29,13 +29,13 @@ Azure Government services operate the same way as the corresponding services in 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
 |**AI + Machine Learning**|Azure Bot Service|*.botframework.com|*.botframework.azure.us||
-||Computer Vision|See [Computer Vision docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)|[Endpoint URL](https://virginia.api.cognitive.microsoft.us/vision/v2.0/)||
-||	Custom Vision|See [Training](https://go.microsoft.com/fwlink/?linkid=865445) and [Prediction](https://go.microsoft.com/fwlink/?linkid=865446) API references|[Endpoint URL](https://virginia.api.cognitive.microsoft.us/customvision/v3.0/)</br>[Portal](https://www.customvision.azure.us/)||
-||Content Moderator|See [Content Moderator docs](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)|[Endpoint URL](https://virginia.api.cognitive.microsoft.us/contentmoderator)||
-||Face|See [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)|[Endpoint URL](https://virginia.api.cognitive.microsoft.us/face/v1.0/)||
-||Language Understanding|See [LUIS REST API docs](https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource)|[Endpoint URL](https://virginia.api.cognitive.microsoft.us/luis/v2.0)</br>[Portal](https://luis.azure.us/)||
-||QnA Maker|See [QnA Maker docs](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)|[QnA Maker endpoint](https://virginia.api.cognitive.microsoft.us/qnamaker/v4.0)||
-||Speech Service|See [STT API docs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#regions-and-endpoints)|[Endpoint URL](https://virginia.stt.speech.azure.us/)</br>[Auth token service](https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken)</br>[Custom Speech Portal](https://virginia.cris.azure.us/Home/CustomSpeech)||
+||Computer Vision|See [Computer Vision docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)|Endpoint URL||
+||	Custom Vision|See [Training](https://go.microsoft.com/fwlink/?linkid=865445) and [Prediction](https://go.microsoft.com/fwlink/?linkid=865446) API references|[Portal](https://www.customvision.azure.us/)||
+||Content Moderator|See [Content Moderator docs](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)|Endpoint URL||
+||Face|See [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)|Endpoint URL||
+||Language Understanding|See [LUIS REST API docs](https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource)|[Portal](https://luis.azure.us/)||
+||QnA Maker|See [QnA Maker docs](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)|QnA Maker endpoint||
+||Speech Service|See [STT API docs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#regions-and-endpoints)|[Custom Speech Portal](https://virginia.cris.azure.us/Home/CustomSpeech)||
 ||Translator Text|See [Translator API docs](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference#base-urls)|[Endpoint URL](https://api.cognitive.microsofttranslator.us/)||
 |**Analytics**|HDInsight|*.azurehdinsight.net| *.azurehdinsight.us||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|

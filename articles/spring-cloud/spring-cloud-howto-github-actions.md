@@ -6,7 +6,9 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
+ms.custom: devx-track-java
 ---
+
 # Azure Spring Cloud CI/CD with GitHub Actions
 
 GitHub Actions support an automated software development lifecycle workflow. With GitHub Actions for Azure Spring Cloud you can create workflows in your repository to build, test, package, release, and deploy to Azure. 
@@ -15,7 +17,7 @@ GitHub Actions support an automated software development lifecycle workflow. Wit
 This example requires the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Set up GitHub repository and authenticate
-You need an Azure service principle credential to authorize Azure login action. To get an Azure credential, execute the following commands on your local machine:
+You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands on your local machine:
 ```
 az login
 az ad sp create-for-rbac --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID> --sdk-auth 

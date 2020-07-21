@@ -33,13 +33,15 @@ The service response includes the following information:
 
 If the API detects any profane terms in any of the [supported languages](Text-Moderation-API-Languages.md), those terms are included in the response. The response also contains their location (`Index`) in the original text. The `ListId` in the following sample JSON refers to terms found in [custom term lists](try-terms-list-api.md) if available.
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
         "Term": "crap"
     }
+```
 
 > [!NOTE]
 > For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
@@ -52,18 +54,20 @@ Content Moderator's machine-assisted **text classification feature** supports **
 
 The following extract in the JSON extract shows an example output:
 
-    "Classification": {
-        "ReviewRecommended": true,
-        "Category1": {
-              "Score": 1.5113095059859916E-06
-            },
-        "Category2": {
-              "Score": 0.12747249007225037
-            },
-        "Category3": {
-              "Score": 0.98799997568130493
-        }
+```json
+"Classification": {
+    "ReviewRecommended": true,
+    "Category1": {
+        "Score": 1.5113095059859916E-06
+    },
+    "Category2": {
+        "Score": 0.12747249007225037
+    },
+    "Category3": {
+        "Score": 0.98799997568130493
     }
+}
+```
 
 ### Explanation
 
@@ -124,11 +128,11 @@ The following example shows a sample response:
 
 Suppose the input text is (the 'lzay' and 'f0x' are intentional):
 
-    The qu!ck brown f0x jumps over the lzay dog.
+> The qu!ck brown f0x jumps over the lzay dog.
 
 If you ask for auto-correction, the response contains the corrected version of the text:
 
-    The quick brown fox jumps over the lazy dog.
+> The quick brown fox jumps over the lazy dog.
 
 ## Creating and managing your custom lists of terms
 
@@ -140,13 +144,15 @@ While the default, global list of terms works great for most cases, you may want
 
 The following example shows the matching List ID:
 
-    "Terms": [
+```json
+"Terms": [
     {
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
         "Term": "crap"
     }
+```
 
 The Content Moderator provides a [Term List API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) with operations for managing custom term lists. Start with the [Term Lists API Console](try-terms-list-api.md) and use the REST API code samples. Also check out the [Term Lists .NET quickstart](term-lists-quickstart-dotnet.md) if you are familiar with Visual Studio and C#.
 

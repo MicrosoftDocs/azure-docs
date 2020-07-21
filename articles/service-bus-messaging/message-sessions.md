@@ -1,20 +1,8 @@
 ---
 title: Azure Service Bus message sessions | Microsoft Docs
 description: This article explains how to use sessions to enable joint and ordered handling of unbounded sequences of related messages.
-services: service-bus-messaging
-documentationcenter: ''
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Message sessions
@@ -38,7 +26,7 @@ The session feature in Service Bus enables a specific receive operation, in the 
 
 In the portal, set the flag with the following check box:
 
-![][2]
+![Screenshot of the Create queue dialog box with the Enable sessions option selected and outlined in red.][2]
 
 > [!NOTE]
 > When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by receiving the session.
@@ -49,7 +37,7 @@ The APIs for sessions exist on queue and subscription clients. There's an impera
 
 Sessions provide concurrent de-multiplexing of interleaved message streams while preserving and guaranteeing ordered delivery.
 
-![][1]
+![A diagram showing how the Sessions feature preserves ordered delivery.][1]
 
 A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) receiver is created by the client accepting a session. The client calls [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) or [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In the reactive callback model, it registers a session handler.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Swift - Speech service'
+title: 'Quickstart: Synthesize speech in Swift on iOS - Speech service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to synthesize speech in Swift on iOS using the Speech SDK
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 06/25/2020
 ms.author: yulili
 ---
 

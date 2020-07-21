@@ -11,7 +11,7 @@ ms.date: 05/06/2020
 ms.author: pafarley
 ---
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
+[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/src) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.FormRecognizer) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md)
 
 ## Prerequisites
 
@@ -58,6 +58,7 @@ From the project directory, open the *Program.cs* file in your preferred editor 
 ```csharp
 using Azure.AI.FormRecognizer;
 using Azure.AI.FormRecognizer.Models;
+using Azure.AI.FormRecognizer.Training;
 
 using System;
 using System.IO;
@@ -80,7 +81,7 @@ static void Main(string[] args)
 Within the application directory, install the Form Recognizer client library for .NET with the following command:
 
 ```console
-dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.1
+dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.3
 ```
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
@@ -129,7 +130,7 @@ You'll also need to add references to the URLs for your training and testing dat
 * Use the above method to get the URL of a receipt image as well, or use the sample image URL provided.
 
 > [!NOTE]
-> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview).
+> The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme-pre).
 
 ```csharp
     string trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
@@ -165,7 +166,7 @@ To recognize the content of a file at a given URI, use the **StartRecognizeConte
 private static async Task<Guid> GetContent(
     FormRecognizerClient recognizerClient, string invoiceUri)
 {
-    Response<IReadOnlyList<FormPage>> formPages = await recognizerClient
+    Response<FormPageCollection> formPages = await recognizerClient
         .StartRecognizeContentFromUri(new Uri(invoiceUri))
         .WaitForCompletionAsync();
 ```
@@ -193,7 +194,7 @@ The returned value is a collection of **FormPage** objects: one for each page in
                 $" {table.ColumnCount} columns.");
             foreach (FormTableCell cell in table.Cells)
             {
-                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})"
+                Console.WriteLine($"    Cell ({cell.RowIndex}, {cell.ColumnIndex})" +
                     $" contains text: '{cell.Text}'.");
             }
         }
@@ -211,48 +212,89 @@ To recognize receipts from a URI, use the **StartRecognizeReceiptsFromUri** meth
 private static async Task<Guid> AnalyzeReceipt(
     FormRecognizerClient recognizerClient, string receiptUri)
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await recognizerClient
-        .StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
-    foreach (var receipt in receipts.Value)
+    RecognizedReceiptCollection receipts = await recognizerClient.StartRecognizeReceiptsFromUri(new Uri(receiptUri))
+    .WaitForCompletionAsync();
+
+    foreach (RecognizedReceipt receipt in receipts)
     {
-        USReceipt usReceipt = receipt.AsUSReceipt();
-    
-        string merchantName = usReceipt.MerchantName?.Value ?? default;
-        DateTime transactionDate = usReceipt.TransactionDate?.Value ?? default;
-        IReadOnlyList<USReceiptItem> items = usReceipt.Items ?? default;
-    
-        Console.WriteLine($"Recognized USReceipt fields:");
-        Console.WriteLine($"    Merchant Name: '{merchantName}', with confidence " +
-            $"{usReceipt.MerchantName.Confidence}");
-        Console.WriteLine($"    Transaction Date: '{transactionDate}', with" +
-            $" confidence {usReceipt.TransactionDate.Confidence}");
+    FormField merchantNameField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("MerchantName", out merchantNameField))
+    {
+        if (merchantNameField.Value.Type == FieldValueType.String)
+        {
+            string merchantName = merchantNameField.Value.AsString();
+
+            Console.WriteLine($"Merchant Name: '{merchantName}', with confidence {merchantNameField.Confidence}");
+        }
+    }
+
+    FormField transactionDateField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("TransactionDate", out transactionDateField))
+    {
+        if (transactionDateField.Value.Type == FieldValueType.Date)
+        {
+            DateTime transactionDate = transactionDateField.Value.AsDate();
+
+            Console.WriteLine($"Transaction Date: '{transactionDate}', with confidence {transactionDateField.Confidence}");
+        }
+    }
 ```
 
 The next block of code iterates through the individual items detected on the receipt and prints their details to the console.
 
 ```csharp
-        for (int i = 0; i < items.Count; i++)
+    FormField itemsField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Items", out itemsField))
+    {
+        if (itemsField.Value.Type == FieldValueType.List)
         {
-            USReceiptItem item = usReceipt.Items[i];
-            Console.WriteLine($"    Item {i}:  Name: '{item.Name.Value}'," +
-                $" Quantity: '{item.Quantity?.Value}', Price: '{item.Price?.Value}'");
-            Console.WriteLine($"    TotalPrice: '{item.TotalPrice.Value}'");
+            foreach (FormField itemField in itemsField.Value.AsList())
+            {
+                Console.WriteLine("Item:");
+
+                if (itemField.Value.Type == FieldValueType.Dictionary)
+                {
+                    IReadOnlyDictionary<string, FormField> itemFields = itemField.Value.AsDictionary();
+
+                    FormField itemNameField;
+                    if (itemFields.TryGetValue("Name", out itemNameField))
+                    {
+                        if (itemNameField.Value.Type == FieldValueType.String)
+                        {
+                            string itemName = itemNameField.Value.AsString();
+
+                            Console.WriteLine($"    Name: '{itemName}', with confidence {itemNameField.Confidence}");
+                        }
+                    }
+
+                    FormField itemTotalPriceField;
+                    if (itemFields.TryGetValue("TotalPrice", out itemTotalPriceField))
+                    {
+                        if (itemTotalPriceField.Value.Type == FieldValueType.Float)
+                        {
+                            float itemTotalPrice = itemTotalPriceField.Value.AsFloat();
+
+                            Console.WriteLine($"    Total Price: '{itemTotalPrice}', with confidence {itemTotalPriceField.Confidence}");
+                        }
+                    }
+                }
+            }
         }
+    }
 ```
 
-Finally, the last block of code prints the rest of the major receipt details.
+Finally, the last block of code prints the total value on the receipt.
 
 ```csharp
-        float subtotal = usReceipt.Subtotal?.Value ?? default;
-        float tax = usReceipt.Tax?.Value ?? default;
-        float tip = usReceipt.Tip?.Value ?? default;
-        float total = usReceipt.Total?.Value ?? default;
-    
-        Console.WriteLine($"    Subtotal: '{subtotal}', with confidence" +
-            $" '{usReceipt.Subtotal.Confidence}'");
-        Console.WriteLine($"    Tax: '{tax}', with confidence '{usReceipt.Tax.Confidence}'");
-        Console.WriteLine($"    Tip: '{tip}', with confidence '{usReceipt.Tip?.Confidence ?? 0.0f}'");
-        Console.WriteLine($"    Total: '{total}', with confidence '{usReceipt.Total.Confidence}'");
+    FormField totalField;
+    if (receipt.RecognizedForm.Fields.TryGetValue("Total", out totalField))
+    {
+        if (totalField.Value.Type == FieldValueType.Float)
+        {
+            float total = totalField.Value.AsFloat();
+
+            Console.WriteLine($"Total: '{total}', with confidence '{totalField.Confidence}'");
+        }
     }
 }
 ```
@@ -275,22 +317,22 @@ private static async Task<Guid> TrainModel(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
     CustomFormModel model = await trainingClient
-        .StartTrainingAsync(new Uri(trainingDataUrl)).WaitForCompletionAsync();
+        .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: false).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 The returned **CustomFormModel** object contains information on the form types the model can recognize and the fields it can extract from each form type. The following code block prints this information to the console.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Label != null)
@@ -317,23 +359,23 @@ You can also train custom models by manually labeling the training documents. Tr
 private static async Task<Guid> TrainModelWithLabelsAsync(
     FormRecognizerClient trainingClient, string trainingDataUrl)
 {
-    CustomFormModel model = await trainingClient.StartTrainingAsync(
-        new Uri(trainingDataUrl), useLabels: true).WaitForCompletionAsync();
+    CustomFormModel model = await trainingClient
+    .StartTrainingAsync(new Uri(trainingFileUrl), useTrainingLabels: true).WaitForCompletionAsync();
     
     Console.WriteLine($"Custom Model Info:");
     Console.WriteLine($"    Model Id: {model.ModelId}");
     Console.WriteLine($"    Model Status: {model.Status}");
-    Console.WriteLine($"    Created On: {model.CreatedOn}");
-    Console.WriteLine($"    Last Modified: {model.LastModified}");
+    Console.WriteLine($"    Requested on: {model.RequestedOn}");
+    Console.WriteLine($"    Completed on: {model.CompletedOn}");
 ```
 
 The returned **CustomFormModel** indicates the fields the model can extract, along with its estimated accuracy in each field. The following code block prints this information to the console.
 
 ```csharp
-    foreach (CustomFormSubModel subModel in model.Models)
+    foreach (CustomFormSubmodel submodel in model.Submodels)
     {
-        Console.WriteLine($"SubModel Form Type: {subModel.FormType}");
-        foreach (CustomFormModelField field in subModel.Fields.Values)
+        Console.WriteLine($"Submodel Form Type: {submodel.FormType}");
+        foreach (CustomFormModelField field in submodel.Fields.Values)
         {
             Console.Write($"    FieldName: {field.Name}");
             if (field.Accuracy != null)
@@ -493,9 +535,8 @@ For example, if you submit a receipt image with an invalid URI, a `400` error is
 ```csharp Snippet:FormRecognizerBadRequest
 try
 {
-    Response<IReadOnlyList<RecognizedReceipt>> receipts = await client
-    .StartRecognizeReceiptsFromUri(new Uri("http://invalid.uri"))
-    .WaitForCompletionAsync();
+    RecognizedReceiptCollection receipts = await client.StartRecognizeReceiptsFromUri(new Uri(receiptUri)).WaitForCompletionAsync();
+
 }
 catch (RequestFailedException e)
 {

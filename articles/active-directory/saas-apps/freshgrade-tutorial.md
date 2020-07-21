@@ -103,17 +103,17 @@ To configure Azure AD single sign-on with FreshGrade, perform the following step
 
      a. In the **Sign-on URL** textbox, type a URL using the following patterns:
 
-	  | |
-	  |--|
-	  | `https://<subdomain>.freshgrade.com/login` |
-	  | `https://<subdomain>.onboarding.freshgrade.com/login` |
+    ```http       
+    https://<subdomain>.freshgrade.com/login
+    https://<subdomain>.onboarding.freshgrade.com/login
+    ```
 
 	b. In the **Identifier (Entity ID)** textbox, type a URL using the following patterns:
 	
-	  | |
-	  |--|
-	  | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
-	  | `https://login.freshgrade.com:443/saml/metadata/alias/<instancename>` |
+    ```http
+    https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>
+    https://login.freshgrade.com:443/saml/metadata/alias/<instancename>
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FreshGrade Client support team](mailto:support@freshgrade.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

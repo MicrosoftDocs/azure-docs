@@ -8,7 +8,7 @@ ms.date: 03/18/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: overview
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # What are Azure queues?

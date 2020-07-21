@@ -21,6 +21,8 @@
     href: front-door-tutorial-geo-filtering.md
   - name: Set up a Rules Engine 
     href: front-door-tutorial-rules-engine.md
+  - name: Add Security headers with Rules Engine
+    href: front-door-security-headers.md
   - name: Web Application Firewall and Front Door
     href: front-door-waf.md
 - name: Samples

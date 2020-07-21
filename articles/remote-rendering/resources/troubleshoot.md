@@ -100,7 +100,7 @@ If these two steps did not help, it is required to find out whether video frames
 
 **The model exceeds the limits of the selected VM, specifically the maximum number of polygons:**
 
-See specific [VM size limitations](../reference/limits.md#overall-number-of-polygons).
+See specific [VM size limits](../reference/limits.md#overall-number-of-polygons).
 
 **The model is not inside the camera frustum:**
 
@@ -141,9 +141,15 @@ Azure Remote Rendering hooks into the Unity render pipeline to do the frame comp
 
 ![Unity frame debugger](./media/troubleshoot-unity-pipeline.png)
 
+## Checkerboard pattern is rendered after model loading
+
+If the rendered image looks like this:
+![Checkerboard](../reference/media/checkerboard.png)
+then the renderer hits the [polygon limits for the standard VM size](../reference/vm-sizes.md). To mitigate, either switch to **premium VM** size or reduce the number of visible polygons.
+
 ## The rendered image in Unity is upside-down
 
-Make sure to follow the [project setup guide](../tutorials/unity/project-setup.md) exactly. An upside down image indicates that Unity is required to create an off-screen render target. This behavior is currently not supported and creates a huge performance impact on HoloLens 2.
+Make sure to follow the [Unity Tutorial: View remote models](../tutorials/unity/view-remote-models/view-remote-models.md) exactly. An upside down image indicates that Unity is required to create an off-screen render target. This behavior is currently not supported and creates a huge performance impact on HoloLens 2.
 
 Reasons for this issue could be MSAA, HDR, or enabling post processing. Make sure that the low-quality profile is selected and set as default in the Unity. To do so go to *Edit > Project Settings... > Quality*.
 
@@ -163,6 +169,10 @@ We have seen spurious failures when trying to compile Unity samples (quickstart,
     reg.exe ADD "HKLM\SOFTWARE\Policies\Microsoft\Windows Advanced Threat Protection" /v groupIds /t REG_SZ /d "Unity”
     ```
     
+### Arm64 builds for Unity projects fail because AudioPluginMsHRTF.dll is missing
+
+The `AudioPluginMsHRTF.dll` for Arm64 was added to the *Windows Mixed Reality* package *(com.unity.xr.windowsmr.metro)* in version 3.0.1. Ensure that you have version 3.0.1 or later installed via the Unity Package Manager. From the Unity menu bar, navigate to *Window > Package Manager* and look for the *Windows Mixed Reality* package.
+
 ## Unstable Holograms
 
 In case rendered objects seem to be moving along with head movements, you might be encountering issues with *Late Stage Reprojection* (LSR). Refer to the section on [Late Stage Reprojection](../overview/features/late-stage-reprojection.md) for guidance on how to approach such a situation.

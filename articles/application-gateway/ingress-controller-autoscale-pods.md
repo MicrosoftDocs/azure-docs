@@ -4,7 +4,7 @@ description: This article provides instructions on how to scale your AKS backend
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ---
@@ -34,7 +34,7 @@ We are going to use following two components:
 
     ```bash
     kubectl create namespace custom-metrics
-    # use values from service principle created above to create secret
+    # use values from service principal created above to create secret
     kubectl create secret generic azure-k8s-metrics-adapter -n custom-metrics \
         --from-literal=azure-tenant-id=<tenantid> \
         --from-literal=azure-client-id=<clientid> \

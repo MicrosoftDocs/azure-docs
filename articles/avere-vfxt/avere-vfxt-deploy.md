@@ -3,7 +3,7 @@ title: Deploy Avere vFXT for Azure
 description: Steps to deploy the Avere vFXT cluster in Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
 ---

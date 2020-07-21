@@ -27,7 +27,7 @@ az group create --name "myResourceGroup" --location "eastus"
 
 ## Create a virtual machine
 
-Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*.
+Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*.
 
 ```azurecli-interactive
 az vm create \

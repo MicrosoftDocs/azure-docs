@@ -1,22 +1,11 @@
 ---
 title: Use AMQP with Java Message Service API & Azure Service Bus
 description: How to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protocol (AMQP) 1.0.
-services: service-bus-messaging
-documentationcenter: java
-author: axisc
-editor: spelluru
-
-ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
-ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: Java
 ms.topic: article
-ms.date: 10/22/2019
-ms.author: aschhab
+ms.date: 06/23/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-
 ---
+
 # Use the Java Message Service (JMS) with Azure Service Bus and AMQP 1.0
 This article explains how to use Azure Service Bus messaging features (queues and publish/subscribe topics) from Java applications using the popular Java Message Service (JMS) API standard. There is a [companion article](service-bus-amqp-dotnet.md) that explains how to do the same using the Azure Service Bus .NET API. You can use these two guides together to learn about cross-platform messaging using AMQP 1.0.
 

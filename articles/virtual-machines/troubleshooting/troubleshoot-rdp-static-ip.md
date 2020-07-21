@@ -53,18 +53,27 @@ To resolve this issue, use Serial control to enable DHCP or [reset network inter
 ). If the Serial Console is not enabled on your VM, see [Reset network interface](reset-network-interface.md).
 2. Check if the DHCP is disabled on the network interface:
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
+
 3. If the DHCP is disabled, revert the configuration of your network interface to use DHCP:
 
-        netsh interface ip set address name="<NIC Name>" source=dhc
+    ```console
+    netsh interface ip set address name="<NIC Name>" source=dhc
+    ```
 
     For example, if the interwork interface names "Ethernet 2", run the following command:
 
-        netsh interface ip set address name="Ethernet 2" source=dhc
+    ```console
+    netsh interface ip set address name="Ethernet 2" source=dhc
+    ```
 
 4. Query the IP configuration again to make sure that the network interface is now correctly set up. The new IP address should match the one that’s provided by the Azure.
 
-        netsh interface ip show config
+    ```console
+    netsh interface ip show config
+    ```
 
     You don't have to restart the VM at this point. The VM will be back reachable.
 

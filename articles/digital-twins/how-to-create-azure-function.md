@@ -8,7 +8,6 @@ ms.author: cschorm # Microsoft employees only
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Connect Azure Functions apps for processing data
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 During preview, updating digital twins based on data is handled using [**event routes**](concepts-route-events.md) through compute resources, such as [Azure Functions](../azure-functions/functions-overview.md). An Azure function might be used to update a digital twin in response to:
 * device telemetry data coming from IoT Hub
@@ -167,7 +164,7 @@ Use the *principalId* value in the following command to assign the function app'
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-For more information on managed identity, please see [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md).
+For more information on managed identity, please see [*How to use managed identities for App Service and Azure Functions*](../app-service/overview-managed-identity.md).
 
 Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
@@ -213,7 +210,7 @@ Also note the **object ID** shown on this page, as it will be used in the next s
 
 ### Assign access roles
 
-Because Azure Digital Twins uses role-based access control to manage access (see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
+Because Azure Digital Twins uses role-based access control to manage access (see [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md) for more information on this), you also need to add a role for each function app that you want to allow to access Azure Digital Twins.
 
 To assign a role, you need the **resource ID** of the Azure Digital Twins instance you have created. If you did not record it earlier when you created your instance, you can retrieve it using this command:
 
@@ -236,4 +233,4 @@ In this article, you followed the steps to set up an Azure function for use with
 * An Event Grid endpoint receiving messages from other services
 
 Next, see how to build on your basic Azure function to ingest IoT Hub data into Azure Digital Twins:
-* [How-to: Ingest telemetry from IoT Hub](how-to-ingest-iot-hub-data.md)
+* [*How-to: Ingest telemetry from IoT Hub*](how-to-ingest-iot-hub-data.md)

@@ -128,4 +128,4 @@ The samples at [C# Samples](https://github.com/Azure-Samples/service-fabric-dotn
 
 ## Next steps
 The same tracing code added to your application also works with the diagnostics of your application on an Azure cluster. Check out these articles that discuss the different options for the tools and describe how to set them up.
-* [How to collect logs with Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
+* [How to collect logs with Azure Diagnostics](./service-fabric-diagnostics-event-aggregation-lad.md)

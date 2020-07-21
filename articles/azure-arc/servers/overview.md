@@ -11,7 +11,7 @@ ms.date: 03/24/2020
 ms.topic: overview
 ---
 
-# What is Azure Arc for servers (preview)
+# What is Azure Arc for servers (preview)?
 
 Azure Arc for servers (preview) allows you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud provider, similarly to how you manage native Azure virtual machines. When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID, is managed as part of a resource group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and applying tags.
 

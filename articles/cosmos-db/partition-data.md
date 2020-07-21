@@ -36,7 +36,7 @@ Throughput provisioned for a container is divided evenly among physical partitio
 
 You can see your container's physical partitions in the **Storage** section of the **Metrics blade** of the Azure portal:
 
-[![Viewing number of physical partitions](./media/partition-data/view-partitions-zoomed-out.png) ](./media/partition-data/view-partitions-zoomed-in.png#lightbox)
+:::image type="content" source="./media/partition-data/view-partitions-zoomed-out.png" alt-text="Viewing number of physical partitions" lightbox="./media/partition-data/view-partitions-zoomed-in.png" ::: 
 
 In this example container where we have chosen `/foodGroup` as our partition key, each of the three rectangles represents a physical partition. In the image, **partition key range** is the same as a physical partition. The selected physical partition contains three logical partitions: `Beef Products`, `Vegetable and Vegetable Products`, and `Soups, Sauces, and Gravies`.
 
@@ -50,7 +50,7 @@ Most small Cosmos containers only require a single physical partition but will s
 
 The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
 
-![An image that demonstrates Azure Cosmos DB partitioning](./media/partition-data/logical-partitions.png)
+:::image type="content" source="./media/partition-data/logical-partitions.png" alt-text="An image that demonstrates Azure Cosmos DB partitioning" border="false":::
 
 ## Next steps
 

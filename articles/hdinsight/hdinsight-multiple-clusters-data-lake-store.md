@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ---
@@ -39,7 +39,7 @@ In the table,
 - **Service principal** is the Azure Active Directory (AAD) service principal associated with the account.
 - **FINGRP** is a user group created in AAD that contains users from the Finance organization.
 
-For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Some key points to consider.
 
@@ -74,7 +74,9 @@ When a new Azure Data Lake Storage account is created, the root directory is aut
 
 These settings are known to affect one specific HDInsight use-case captured in [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247). Job submissions could fail with an error message similar to this:
 
-    Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```output
+Resource XXXX is not publicly accessible and as such cannot be part of the public cache.
+```
 
 As stated in the YARN JIRA linked earlier, while localizing public resources, the localizer validates that all the requested resources are indeed public by checking their permissions on the remote file-system. Any LocalResource that doesn't fit that condition is rejected for localization. The check for permissions, includes read-access to the file for "others". This scenario doesn't work out-of-the-box when hosting HDInsight clusters on Azure Data Lake, since Azure Data Lake denies all access to "others" at root folder level.
 

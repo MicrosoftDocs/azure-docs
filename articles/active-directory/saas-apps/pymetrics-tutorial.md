@@ -98,11 +98,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. The pymetrics application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following table shows the list of default attributes. These attributes are prepopulated but you can review them as per your requirements.
 	
-	| Name |  |  Source attribute|
-	| ---------------| --------------- | --------- |
-	| UserFirstName | | user.givenname |
-	| UserLastName | | user.surname |
-	| UserEmail | | user.userprincipalname |
+	| Name | Source Attribute|
+	| --------------- | --------- |
+	| UserFirstName | user.givenname |
+	| UserLastName | user.surname |
+	| UserEmail | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 

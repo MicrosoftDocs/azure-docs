@@ -3,7 +3,7 @@ title: Configure a failover group
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: Learn how to configure an auto-failover group for an Azure SQL Database (both single and pooled) and SQL Managed Instance, using the Azure portal, the Azure CLI, and PowerShell. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
@@ -289,7 +289,7 @@ Fail your failover group over to the secondary server, and then fail back using 
 1. Select **Failover** from the task pane to fail over your failover group containing your elastic pool.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
-   ![Fail over your failover group containing your SQL database](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Fail over your failover group containing your database](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Review which server is primary, which server is secondary. If failover succeeded, the two servers should have swapped roles.
 1. Select **Failover** again to fail the failover group back to the original settings.

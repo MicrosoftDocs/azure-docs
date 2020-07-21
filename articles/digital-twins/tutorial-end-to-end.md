@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Build out an end-to-end solution
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
@@ -30,6 +27,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -138,6 +136,8 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 > You may see a popup like this: 
 > :::image type="content" source="media/tutorial-end-to-end/publish-azure-function-7.png" alt-text="Publish Azure function in Visual Studio: publish credentials" border="false":::
 > If so, select **Attempt to retrieve credentials from Azure** and **Save**.
+>
+> If you see a warning that *Your version of the functions runtime does not match the version running in Azure*, follow the prompts to upgrade to the latest Azure Functions runtime version. This issue might occur if you're using an older version of Visual Studio than the one recommended in the *Prerequisites* section at the start of this tutorial.
 
 ### Assign permissions to the function app
 
@@ -208,8 +208,9 @@ This will bring up the *Create Event Subscription* page.
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-2.png" alt-text="Azure portal: create event subscription":::
 
-Fill in the fields as follows:
+Fill in the fields as follows (fields filled by default are not mentioned):
 * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
+* *TOPIC DETAILS* > **System Topic Name**: Give a name to use for the system topic. 
 * *EVENT TYPES* > **Filter to Event Types**: Select *Device Telemetry* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint**: Hit the *Select an endpoint* link. This will open a *Select Azure Function* window:
@@ -365,11 +366,9 @@ In the [Azure portal](https://portal.azure.com/), navigate to your event grid to
 
 :::image type="content" source="media/tutorial-end-to-end/event-subscription-1b.png" alt-text="Azure portal: Event Grid event subscription":::
 
-The steps to create this event subscription are similar to when you subscribed the first Azure function to IoT Hub earlier in this tutorial. The difference is that this time you don't need to specify *Device Telemetry* as the event type to listen for, and you'll connect to a different Azure function.
+The steps to create this event subscription are similar to when you subscribed the first Azure function to IoT Hub earlier in this tutorial. This time, you don't need to specify *Device Telemetry* as the event type to listen for, and you'll connect to a different Azure function.
 
-Here are the subscription steps again:
-
-On the *Create Event Subscription* page, fill in the fields as follows:
+On the *Create Event Subscription* page, fill in the fields as follows (fields filled by default are not mentioned):
 * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint**: Hit the *Select an endpoint* link. This will open a *Select Azure Function* window:
@@ -438,7 +437,7 @@ Finally, delete the project sample folder you downloaded from your local machine
 In this tutorial, you created an end-to-end scenario that shows Azure Digital Twins being driven by live device data.
 
 Next, start looking at the concept documentation to learn more about elements you worked with in the tutorial:
-* [Concepts: Custom models](concepts-models.md)
+* [*Concepts: Custom models*](concepts-models.md)
 
 Or, go more in-depth on the processes in this tutorial by starting the how-to articles:
-* [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)

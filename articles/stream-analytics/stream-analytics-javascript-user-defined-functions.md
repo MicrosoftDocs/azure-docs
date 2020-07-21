@@ -7,7 +7,7 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
-ms.date: 03/23/2020
+ms.date: 06/16/2020
 
 #Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
 ---

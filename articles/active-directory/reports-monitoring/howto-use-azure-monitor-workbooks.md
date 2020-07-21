@@ -8,7 +8,7 @@ manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor

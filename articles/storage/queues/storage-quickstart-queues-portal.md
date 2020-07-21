@@ -8,7 +8,7 @@ ms.date: 03/06/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ---
 
 # Quickstart: Create a queue and add a message with the Azure portal

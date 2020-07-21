@@ -30,9 +30,9 @@
   - name: Automation with service principals
     href: analysis-services-service-principal.md
   - name: Client libraries
-    href: analysis-services-data-providers.md
+    href: https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current
   - name: Compatibility level
-    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services
+    href: https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services?view=azure-analysis-services-current
   - name: Connecting to on-premises data sources
     href: analysis-services-gateway.md
   - name: Connecting to servers
@@ -112,9 +112,9 @@
   - name: Power Query M
     href: https://docs.microsoft.com/powerquery-m/power-query-m-reference
   - name: Tabular Model Scripting Language (TMSL)
-    href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
+    href: https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference?view=asallproducts-allversions
   - name: Tabular Object Model (TOM)
-    href: https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
+    href: https://docs.microsoft.com/analysis-services/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo?view=asallproducts-allversions
   - name: Resource and object limits
     href: analysis-services-capacity-limits.md
 - name: Resources

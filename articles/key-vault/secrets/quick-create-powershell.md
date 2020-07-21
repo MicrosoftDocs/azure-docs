@@ -62,6 +62,13 @@ After vault creation your Azure account is the only account allowed to do anythi
 
 ![Output after Key Vault creation command completes](../media/quick-create-powershell/output-after-creating-keyvault.png)
 
+## Give your user account permissions to manage secrets in Key Vault
+
+Use the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet to update the Key Vault access policy and grant secret permissions to your user account.
+```azurepowershell-interactive
+Set-AzKeyVaultAccessPolicy -VaultName 'Contoso-Vault2' -UserPrincipalName 'user@domain.com' -PermissionsToSecrets get,set,delete
+```
+
 ## Adding a secret to Key Vault
 
 To add a secret to the vault, you just need to take a couple of steps. In this case, you add a password that could be used by an application. The password is called **ExamplePassword** and stores the value of **hVFkk965BuUv** in it.

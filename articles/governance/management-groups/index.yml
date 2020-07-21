@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/26/2019
+  ms.date: 06/29/2020
 
 landingContent:
   - title: About Azure Governance
@@ -36,3 +36,20 @@ landingContent:
             url: ./create.md
           - text: Manage your resources
             url: ./manage.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/account/management-group
+          - text: Azure PowerShell
+            url: /powershell/module/az.resources/#resources
+          - text: Azure SDK for .NET
+            url: /dotnet/api/overview/azure/managementgroups
+          - text: Azure SDK for JavaScript
+            url: /javascript/api/@azure/arm-managementgroups/managementgroups
+          - text: REST
+            url: /rest/api/resources/managementgroups
+          - text: Resource Manager templates
+            url: /azure/templates/microsoft.management/managementgroups

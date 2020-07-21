@@ -27,9 +27,9 @@ There are three general steps to set up a successful transparent gateway connect
 2. Create a device identity for the downstream device so that it can authenticate with IoT Hub. Configure the downstream device to send messages through the gateway device. For more information, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. Connect the downstream device to the gateway device and start sending messages. For more information, see [Connect a downstream device to an Azure IoT Edge gateway](how-to-connect-downstream-device.md).
 
-For a device to function as a gateway, it needs to be able to securely connect to its downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the gateway device. This identity check prevents your devices from connecting to potentially malicious gateways.
+For a device to act as a gateway, it needs to securely connect to its downstream devices. Azure IoT Edge allows you to use a public key infrastructure (PKI) to set up secure connections between devices. In this case, we're allowing a downstream device to connect to an IoT Edge device acting as a transparent gateway. To maintain reasonable security, the downstream device should confirm the identity of the gateway device. This identity check prevents your devices from connecting to potentially malicious gateways.
 
-A downstream device in a transparent gateway scenario can be any application or platform that has an identity created with the [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). For all practical purposes, a downstream device could even be an application running on the IoT Edge gateway device itself. However, an IoT Edge device cannot be downstream of an IoT Edge gateway.
+A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) cloud service. These applications often use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself. However, an IoT Edge device cannot be downstream of an IoT Edge gateway.
 
 You can create any certificate infrastructure that enables the trust required for your device-gateway topology. In this article, we assume the same certificate setup that you would use to enable [X.509 CA security](../iot-hub/iot-hub-x509ca-overview.md) in IoT Hub, which involves an X.509 CA certificate associated to a specific IoT hub (the IoT hub root CA), a series of certificates signed with this CA, and a CA for the IoT Edge device.
 
@@ -65,7 +65,7 @@ For production scenarios, you should generate these files with your own certific
    1. [Create root CA certificate](how-to-create-test-certificates.md#create-root-ca-certificate). At the end of these instructions, you'll have a root CA certificate file:
       * `<path>/certs/azure-iot-test-only.root.ca.cert.pem`.
 
-   2. [Create IoT Edge device CA certificate](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). At the end of these instructions you'll have two files, a device CA certificate and its private key:
+   2. [Create IoT Edge device CA certificate](how-to-create-test-certificates.md#create-iot-edge-device-ca-certificates). At the end of these instructions, you'll have two files, a device CA certificate and its private key:
       * `<path>/certs/iot-edge-device-<cert name>-full-chain.cert.pem` and
       * `<path>/private/iot-edge-device-<cert name>.key.pem`
 
@@ -88,7 +88,7 @@ For production scenarios, you should generate these files with your own certific
 
 ## Deploy edgeHub to the gateway
 
-When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment more a device, the second system module, the IoT Edge hub, is started as well.
+When you first install IoT Edge on a device, only one system module starts automatically: the IoT Edge agent. Once you create the first deployment for a device, the second system module, the IoT Edge hub, is started as well.
 
 The IoT Edge hub is responsible for receiving incoming messages from downstream devices and routing them to the next destination. If the **edgeHub** module isn't running on your device, create an initial deployment for your device. The deployment will look empty because you don't add any modules, but it will make sure that both system modules are running.
 

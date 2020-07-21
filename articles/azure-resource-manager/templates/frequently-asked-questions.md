@@ -123,7 +123,7 @@ This article answers frequently asked questions about Azure Resource Manager (AR
 
 * **Can I still use custom script extensions and desired state configuration (DSC)?**
 
-  Those options are still available and haven't changed. Deployment scripts are designed to perform actions that are not related to the VM guest. If you need to run a script on a host operating system in a VM, then the customer script extension and/or DSC would be a better choice. However, deployment scripts have advantages, such as setting the timeout duration.
+  Those options are still available and haven't changed. Deployment scripts are designed to perform actions that are not related to the VM guest. If you need to run a script on a host operating system in a VM, then the custom script extension and/or DSC would be a better choice. However, deployment scripts have advantages, such as setting the timeout duration.
 
 * **Are deployment scripts supported in Azure Government?**
 

@@ -313,6 +313,7 @@ Translating multiple strings at once is simply a matter of specifying an array o
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
+The response contains the translation of all pieces of text in the exact same order as in the request.
 The response body is:
 
 ```

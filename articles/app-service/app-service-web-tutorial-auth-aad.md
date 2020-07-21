@@ -263,7 +263,7 @@ In the **Request API permissions** page for the back-end app, select **Delegated
 
 The front-end app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
-In your front-end app's left menu, select **Resource explorer** under **Development Tools**, then select **Go**.
+Navigate to [Azure Resource Explorer](https://resources.azure.com) and using the resource tree, locate your front-end web app.
 
 The [Azure Resource Explorer](https://resources.azure.com) is now opened with your front-end app selected in the resource tree. At the top of the page, click **Read/Write** to enable editing of your Azure resources.
 

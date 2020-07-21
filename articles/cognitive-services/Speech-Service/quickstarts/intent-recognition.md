@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 06/25/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two-with-js
 ---
