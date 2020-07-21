@@ -64,7 +64,7 @@ pip install azure-iot-device
 Clone the Python SDK IoT repository and check out **master**:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-python
 ```
 
 ## Run the sample device

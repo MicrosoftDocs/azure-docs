@@ -57,7 +57,7 @@ In this tutorial, you prepare a development environment you can use to clone and
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT C# SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-c.git -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-c.git
 ```
 
 ## Build the code

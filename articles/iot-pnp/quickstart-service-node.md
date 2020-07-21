@@ -57,7 +57,7 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 1. Open a terminal window in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+    git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
 1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the */azure-iot-sdk-node/device/samples/pnp* folder. Install all the dependencies by running the following command:
