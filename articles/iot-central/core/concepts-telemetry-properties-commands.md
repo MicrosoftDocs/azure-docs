@@ -35,8 +35,11 @@ IoT Central lets you view the raw data that a device sends to an application. Th
 
 1. Navigate to the device from the **Devices** page.
 
-1. Select the **Raw data** tab.
+1. Select the **Raw data** tab:
 
+    :::image type="content" source="media/concepts-telemetry-properties-commands/raw-data.png" alt-text="Raw data view":::
+    
+    On this view, you can select the columns to display and set a time range to view. The **Unmodeled data** column shows data from the device that doesn't match any property or telemetry definitions in the device template.
 
 
 ## Telemetry
@@ -607,11 +610,9 @@ A device client should send a JSON payload that looks like the following example
 ```json
 {
   "GeopointProperty": {
-    "value" : {
-      "lat": 47.64263,
-      "lon": -122.13035,
-      "alt": 0
-    }
+    "lat": 47.64263,
+    "lon": -122.13035,
+    "alt": 0
   }
 }
 ```
@@ -672,7 +673,7 @@ A device client should send a JSON payload that looks like the following example
 { "EnumProperty": 1 }
 ```
 
-The following snippet from a DCM shows the definition of an `Object` property type. This object has three fields with types `string` and `integer`:
+The following snippet from a DCM shows the definition of an `Object` property type. This object has two fields with types `string` and `integer`:
 
 ```json
 {
@@ -717,10 +718,8 @@ A device client should send a JSON payload that looks like the following example
 ```json
 {
   "ObjectProperty": {
-    "value" : {
-      "Field1": 37,
-      "Field2": "A string value"
-    }
+    "Field1": 37,
+    "Field2": "A string value"
   }
 }
 ```
@@ -744,11 +743,9 @@ A device client should send a JSON payload that looks like the following example
 ```json
 {
   "VectorProperty": {
-    "value" : {
-      "x": 74.72395045538597,
-      "y": 74.72395045538597,
-      "z": 74.72395045538597
-    }
+    "x": 74.72395045538597,
+    "y": 74.72395045538597,
+    "z": 74.72395045538597
   }
 }
 ```
@@ -776,8 +773,7 @@ The device receives the following payload from IoT Central:
 
 ```json
 {  
-  "StringPropertyWritable": { "value": "A string from IoT Central" },
-  "$version": 7
+  "StringPropertyWritable": "A string from IoT Central", "$version": 7
 }
 ```
 
@@ -787,9 +783,9 @@ The device should send the following JSON payload to IoT Central after it proces
 {
   "StringPropertyWritable": {
     "value": "A string from IoT Central",
-    "statusCode": 200,
-    "status": "completed",
-    "desiredVersion": 7
+    "ac": 200,
+    "ad": "completed",
+    "av": 7
   }
 }
 ```
@@ -849,8 +845,7 @@ The device receives the following payload from IoT Central:
 
 ```json
 {  
-  "EnumPropertyWritable": { "value": 1 },
-  "$version": 10
+  "EnumPropertyWritable":  1 , "$version": 10
 }
 ```
 
@@ -860,9 +855,9 @@ The device should send the following JSON payload to IoT Central after it proces
 {
   "EnumPropertyWritable": {
     "value": 1,
-    "statusCode": 200,
-    "status": "completed",
-    "desiredVersion": 10
+    "ac": 200,
+    "ad": "completed",
+    "av": 10
   }
 }
 ```
