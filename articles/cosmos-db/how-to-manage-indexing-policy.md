@@ -3,9 +3,10 @@ title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies, include or exclude a property from indexing, how to define indexing using different Azure Cosmos DB SDKs
 author: timsander1
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ms.author: tisande
+ms.custom: tracking-python
 ---
 
 # Manage indexing policies in Azure Cosmos DB
@@ -356,7 +357,7 @@ Azure Cosmos containers store their indexing policy as a JSON document that the 
 
 1. Click **Save** when you are done.
 
-![Manage Indexing using Azure portal](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+:::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Manage Indexing using Azure portal":::
 
 ## Use the Azure CLI
 

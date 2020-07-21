@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
+ms.custom: aaddev, identityplatformtop40, tracking-python, scenarios:getting-started, languages:Python
 #Customer intent: As an application developer, I want to learn how my Python app can get an access token and call an API that's protected by an Microsoft identity platform endpoint using client credentials flow.
 ---
 
@@ -186,7 +186,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Where: ||
+> | Where: |Description |
 > |---------|---------|
 > | `config["secret"]` | Is the client secret created for the application in Azure Portal. |
 > | `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
@@ -207,7 +207,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Where:| |
+> |Where:| Description |
 > |---------|---------|
 > | `config["scope"]` | Contains the scopes requested. For confidential clients, this should use the format similar to `{Application ID URI}/.default` to indicate that the scopes being requested are the ones statically defined in the app object set in the Azure Portal (for Microsoft Graph, `{Application ID URI}` points to `https://graph.microsoft.com`). For custom web APIs, `{Application ID URI}` is defined under **Expose an API** section in Azure Portal's Application Registration (Preview). |
 

@@ -17,12 +17,12 @@ Yes. You can create up to 500 Recovery Services vaults, per supported region of 
 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
 
-You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MARS agents per vault. And you can register 50 MABS servers/DPM servers to a vault.
+You can register up to 1000 Azure Virtual machines per vault. If you're using the Microsoft Azure Backup Agent, you can register up to 50 MARS agents per vault. And you can register 50 MABS servers/DPM servers to a vault.
 
 ### How many datasources/items can be protected in a vault?
 
 You can protect up to 2000 datasources/items across all workloads (IaaS VM, SQL, AFS, etc.) in a vault.
-For example, if you have already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
+For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
 
 ### How many policies can I create per vault?
 
@@ -42,12 +42,16 @@ No. Backup data stored in a vault can't be moved to a different vault.
 
 ### Can I change from GRS to LRS after a backup?
 
-No. A Recovery Services vault can only change storage options before any backups have been stored.
+The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is disabled and can't be changed.
+
+![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
-- ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
+- ILR isn't supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
 
 ## Azure Backup agent
 
@@ -102,7 +106,7 @@ Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | See the [support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+Azure VM | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### How is the data source size determined?
 
@@ -111,14 +115,14 @@ The following table explains how each data source size is determined.
 **Data source** | **Details**
 --- | ---
 Volume |The amount of data being backed up from single volume VM being backed up.
-SQL Server database |Size of single SQL database size being backed up.
+SQL Server database |Size of single database size being backed up.
 SharePoint | Sum of the content and configuration databases within a SharePoint farm being backed up.
 Exchange |Sum of all Exchange databases in an Exchange server being backed up.
 BMR/System state |Each individual copy of BMR or system state of the machine being backed up.
 
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
 
-There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](./backup-support-matrix.md#vault-support).
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
 

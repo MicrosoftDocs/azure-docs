@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: reference
 ms.date: 05/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
@@ -35,7 +35,7 @@ Disable application proxy | Application administrator |
 Download connector service | Application administrator | 
 Read all configuration | Application administrator | 
 
-## B2C
+## External Identities/B2C
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -44,11 +44,11 @@ Create B2C applications | Global Administrator |
 Create enterprise applications | Cloud Application Administrator | Application Administrator
 Create, read, update, and delete B2C policies | B2C IEF Policy Administrator | 
 Create, read, update, and delete identity providers | External Identity Provider Administrator | 
-Create, read, update, and delete password reset user flows | B2C User Flow Administrator | 
-Create, read, update, and delete profile editing user flows | B2C User Flow Administrator | 
-Create, read, update, and delete sign-in user flows | B2C User Flow Administrator | 
-Create, read, update, and delete sign-up user flow |B2C User Flow Administrator | 
-Create, read, update, and delete user attributes | B2C User Flow Attribute Administrator | 
+Create, read, update, and delete password reset user flows | External ID User Flow Administrator | 
+Create, read, update, and delete profile editing user flows | External ID User Flow Administrator | 
+Create, read, update, and delete sign-in user flows | External ID User Flow Administrator | 
+Create, read, update, and delete sign-up user flow |External ID User Flow Administrator | 
+Create, read, update, and delete user attributes | External ID User Flow Attribute Administrator | 
 Create, read, update, and delete users | User Administrator
 Read all configuration | Global reader | 
 Read B2C audit logs | Global reader ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
@@ -70,6 +70,14 @@ Task | Least privileged role | Additional roles
 Configure company properties | Global Administrator | 
 
 ## Connect
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Passthrough authentication | Global Administrator  | 
+Read all configuration | Global reader | Global Administrator  |
+Seamless single sign-on | Global Administrator  | 
+
+## Cloud Provisioning
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -106,7 +114,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices

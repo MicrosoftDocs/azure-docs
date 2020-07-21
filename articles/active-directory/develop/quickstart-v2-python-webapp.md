@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev, scenarios:getting-started, languages:Python
+ms.custom: aaddev, tracking-python, scenarios:getting-started, languages:Python
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Python web app

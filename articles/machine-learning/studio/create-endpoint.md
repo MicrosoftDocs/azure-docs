@@ -5,7 +5,7 @@ description: Create web service endpoints in Azure Machine Learning Studio (clas
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/12/2020
+ms.date: 06/04/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -100,7 +100,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| ------------- | --------- |
 	| sv.svid |  < `svid number` > |
 	| sv.firstname | user.givenname |
-	| user.lastname | user.surname |
+	| sv.lastname | user.surname |
 	| sv.email | user.userprincipalname |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.

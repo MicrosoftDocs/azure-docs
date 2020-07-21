@@ -1,12 +1,12 @@
 ---
- title: Mv2-series - Azure Virtual Machines
- description: Specifications for the Mv2-series VMs.
- services: virtual-machines
- author: ayshakeen
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 04/07/2020
- ms.author: lahugh
+title: Mv2-series - Azure Virtual Machines
+description: Specifications for the Mv2-series VMs.
+author: ayshakeen
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 04/07/2020
+ms.author: jushiman
 ---
 
 # Mv2-series
@@ -23,7 +23,7 @@ Live Migration: Not Supported
 
 Memory Preserving Updates: Not Supported
 
-Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Write Accelerator: [Supported](./windows/how-to-enable-write-accelerator.md)
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|

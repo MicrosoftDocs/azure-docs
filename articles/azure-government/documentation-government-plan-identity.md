@@ -4,17 +4,13 @@ description: Microsoft Azure Government provides the same ways to build applicat
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: bernie-msft
-manager: zakramer
 
-ms.assetid: 1f222624-872b-4fe7-9c65-796deae03306
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/20/2017
-ms.author: beellis
 
 ---
 # Planning identity for Azure Government applications
@@ -178,7 +174,7 @@ Here’s a way to find out using your browser of choice:
      }
      ```
      
-   - If the **tenant_region_scope** attribute’s value is **USG** as shown, you have yourself an Azure Government tenant.
+   - If the **tenant_region_scope** attribute’s value is **USG** as shown or **USGov**, you have yourself an Azure Government tenant.
      - The result is a JSON file that’s natively rendered by more modern browsers such as Microsoft Edge, Mozilla Firefox, and Google Chrome. Internet Explorer doesn’t natively render the JSON format so instead prompts you to open or save the file. If you must use Internet Explorer, choose the save option and open it with another browser or plain text reader.
      - The tenant_region_scope property is exactly how it sounds, regional. If you have a tenant in Azure Public in North America, the value would be **NA**.
 

@@ -98,6 +98,8 @@ az keyvault set-policy --name $vaultName --key-permissions create, get, list, si
 az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
+---
+
 ## Connect with SSMS
 
 Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
@@ -584,8 +586,9 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
    ```
 
-     You can now see the plaintext data in the encrypted columns.
-     ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
+   You can now see the plaintext data in the encrypted columns.
+   
+   ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
 ## Next steps
 

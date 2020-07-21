@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 07/01/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -12,7 +12,7 @@ To simplify the management of resources, you can deploy resources at the level o
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
 
-To deploy templates at the subscription level, use Azure CLI, PowerShell, or REST API. The Azure portal doesn't support deployment in the subscription level.
+To deploy templates at the subscription level, use Azure CLI, PowerShell, or REST API.
 
 ## Supported resources
 
@@ -204,8 +204,8 @@ The following example creates a resource group, and deploys a storage account to
     {
       "type": "Microsoft.Resources/resourceGroups",
       "apiVersion": "2019-10-01",
-      "location": "[parameters('rgLocation')]",
       "name": "[parameters('rgName')]",
+      "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
@@ -219,7 +219,7 @@ The following example creates a resource group, and deploys a storage account to
       "properties": {
         "mode": "Incremental",
         "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {},
           "variables": {},

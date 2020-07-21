@@ -2,7 +2,7 @@
 title: Test app in LUIS portal
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/02/2020
 ---
 
 # Test your LUIS app in the LUIS portal
@@ -60,9 +60,25 @@ From the inspection panel, you can add the test utterance to an intent by select
 
 ## Disable required features
 
-Select this toggle to see the what the prediction would be if the entity’s feature was not required.
+This toggle helps you determine if the trained app is correctly predicting your entities based on required features. The default setting is to apply the feature as required during prediction. Select this toggle to see what the prediction would be if the subentity’s feature was not required.
 
-This toggle helps you determine if the trained app is correctly predicting your entities based on required features. The trained app may mispredict a machine learned entity based on either incorrect labeling of example utterances or the required feature doesn't match the text.
+### When to disable required features
+
+The trained app may mispredict a machine-learned entity based on one of the following:
+* Incorrect labeling of example utterances.
+* The required feature doesn't match the text.
+
+An example is a machine-learned entity with a subentity of a person's name.
+
+:::image type="content" source="media/luis-how-to-interactive-test/disable-required-feature.png" alt-text="Screenshot of LUIS portal machine-learned entity schema with required feature":::
+
+An example utterance for this machine-learned entity is: `Assign Bob Jones to work on the new security feature`.
+
+The extraction should be `security feature` as the ticket description and `Bob Jones` as the engineer, two subentities of `Assign ticket` entity.
+
+In order to help the subentity successfully predict, add the prebuilt entity [PersonName](luis-reference-prebuilt-person.md) aa a feature to the `engineer` subentity. If you make the feature required, that means the subentity will only be extracted if the PersonName prebuilt entity is predicted for the text. This means that any name in the text that doesn't predict with PersonName subentity, will not be returned as a labeled subentity, `engineer`.
+
+When you use the interactive test pane, and see a subentity, with a required feature, isn't predicting, toggle this setting, to see if the subentity would be predicted without the feature being required. The subentity may be able to be correctly predicted without the feature as required due to correct labeling of example utterances.
 
 ## View sentiment results
 

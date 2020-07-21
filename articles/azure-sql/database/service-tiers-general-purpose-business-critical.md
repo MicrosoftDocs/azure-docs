@@ -3,8 +3,8 @@ title: General purpose and business critical service tiers
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: The article discusses the general purpose and business critical service tiers in the vCore-based purchasing model used by Azure SQL Database and Azure SQL Managed Instance. 
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
@@ -31,7 +31,7 @@ This article discusses differences between the service tiers, storage and backup
 
 The following table describes the key differences between service tiers for the latest generation (Gen5). Note that service tier characteristics might be different in SQL Database and SQL Managed Instance.
 
-| | Resource type | General Purpose |  Hyperscale | Business Critical |
+|-| Resource type | General Purpose |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Best for** | |  Offers budget oriented balanced compute and storage options. | Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore. | OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 |  **Available in resource type:** ||SQL Database / SQL Managed Instance | Single Azure SQL Database | SQL Database / SQL Managed Instance |
@@ -88,7 +88,7 @@ To monitor the current total size of your MDF and LDF files, use [sp_spaceused](
 Storage for database backups is allocated to support the point-in-time restore (PITR) and [long-term retention (LTR)](long-term-retention-overview.md) capabilities of SQL Database and SQL Managed Instance. This storage is allocated separately for each database and billed as two separate per-database charges.
 
 - **PITR**: Individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../../storage/common/geo-redundant-design.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by weekly full backups, daily differential backups, and transaction log backups, which are copied every 5 minutes. The storage consumption depends on the rate of change of the database and the retention period for backups. You can configure a separate retention period for each database between 7 and 35 days. A minimum storage amount equal to 100 percent (1x) of the database size is provided at no extra charge. For most databases, this amount is enough to store 7 days of backups.
-- **LTR**: You also have the option to configure long-term retention of full backups for up to 10 years (this feature is in [limited public preview for SQL Managed Instance](long-term-retention-overview.md#managed-instance-support). If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. To estimate the cost of LTR storage, you can use the LTR pricing calculator. For more information, see [SQL Database long-term retention](long-term-retention-overview.md).
+- **LTR**: You also have the option to configure long-term retention of full backups for up to 10 years (this feature is in [limited public preview for SQL Managed Instance](long-term-retention-overview.md#sql-managed-instance-support). If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. To estimate the cost of LTR storage, you can use the LTR pricing calculator. For more information, see [SQL Database long-term retention](long-term-retention-overview.md).
 
 ## Next steps
 

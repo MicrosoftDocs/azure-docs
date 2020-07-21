@@ -1,15 +1,10 @@
 ---
 title: 'Quickstart: Send Blob storage events to web endpoint - portal'
 description: 'Quickstart: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.'
-services: event-grid 
-keywords: 
-author: spelluru
-ms.author: spelluru
-ms.date: 06/02/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
-ms.service: event-grid
-ms.custom: seodec18
 ---
+
 # Quickstart: Route Blob storage events to web endpoint with the Azure portal
 
 Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure portal to create a Blob storage account, subscribe to events for that blob storage, and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
@@ -86,12 +81,9 @@ You subscribe to a topic to tell Event Grid which events you want to track, and 
    ![Select web hook](./media/blob-event-quickstart-portal/select-web-hook.png)
 3. On the **Create Event Subscription** page, do the following steps: 
     1. Enter a **name** for the event subscription.
-    2. Enter a **name** for the **system topic**. 
+    2. Enter a **name** for the **system topic**. To learn about system topics, see [Overview of system topics](system-topics.md).
 
        ![Enter names for event subscription and system topic](./media/blob-event-quickstart-portal/event-subscription-name-system-topic.png)
-
-       > [!NOTE]
-       > Earlier, when you created a subscription for an event raised by Azure sources, the Event Grid service automatically created a system topic with a randomly generated name. Now, you can specify a name for the system topic using this text box. You can use this system topic resource to discover metrics and diagnostic logs.
     2. Select **Web Hook** for **Endpoint type**. 
 
        ![Select web hook endpoint type](./media/blob-event-quickstart-portal/select-web-hook-end-point-type.png)

@@ -87,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.anyonehome.com/webroot/files/simplesamlphp/www/module.php/saml/sp/saml2-acs.php/<Anyone_Home_Provided_Unique_Value>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Anyone Home CRM Client support team](mailto:lightson@anyonehome.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Anyone Home CRM Client support team](mailto:support@anyonehome.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -125,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Anyone Home CRM SSO
 
-To configure single sign-on on **Anyone Home CRM** side, you need to send the **App Federation Metadata Url** to [Anyone Home CRM support team](mailto:lightson@anyonehome.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Anyone Home CRM** side, you need to send the **App Federation Metadata Url** to [Anyone Home CRM support team](mailto:support@anyonehome.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Anyone Home CRM test user
 
-In this section, you create a user called Britta Simon in Anyone Home CRM. Work with [Anyone Home CRM support team](mailto:lightson@anyonehome.com) to add the users in the Anyone Home CRM platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Anyone Home CRM. Work with [Anyone Home CRM support team](mailto:support@anyonehome.com) to add the users in the Anyone Home CRM platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 

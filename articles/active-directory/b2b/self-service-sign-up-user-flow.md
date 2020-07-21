@@ -1,26 +1,22 @@
 ---
 title: Add a self-service sign-up user flow - Azure AD
 description: Federate with Facebook to enable external users (guests) to sign in to your Azure AD apps with their own Facebook accounts.
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
 
 # Add a self-service sign-up user flow to an app (Preview)
-|     |
-| --- |
-| Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+> [!NOTE]
+> Self-service sign-up is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 You can create user flows for apps that are built by your organization. Associating your user flow with an application allows you to enable sign-up on that app. You can choose more than one application to be associated with the user flow. Once you associate the user flow with one or more applications, users who visit that app will be able to sign up and gain a guest account using the options configured in the user flow.
 
@@ -106,3 +102,5 @@ Now you can associate applications with the user flow.
 
 - [Add Google to your list of social identity providers](google-federation.md)
 - [Add Facebook to your list of social identity providers](facebook-federation.md)
+- [Use API connectors to customize and extend your user flows via web APIs](api-connectors-overview.md)
+- [Add custom approval workflow to your user flow](self-service-sign-up-add-approvals.md)

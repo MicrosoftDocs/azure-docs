@@ -4,7 +4,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 description: Learn about how Azure SQL Database, SQL Managed Instance, and Azure Synapse authenticate users for access using logins and user accounts. Also learn how to grant database roles and explicit permissions to authorize logins and users to perform actions and query data.
 keywords: sql database security,database security management,login security,database security,database access
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=3
 ms.devlang: 
@@ -79,13 +79,13 @@ At this point, your server or managed instance is only configured for access usi
 
   - Create an additional SQL login in the master database.
   - Add the login to the [sysadmin fixed server role](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement. This login will have full administrative permissions.
-  - Alternatively, create an [Azure AD login](authentication-aad-configure.md)#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
+  - Alternatively, create an [Azure AD login](authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance) using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax.
 
 - **In SQL Database, create SQL logins with limited administrative permissions**
 
   - Create an additional SQL login in the master database.
   - Create a user account in the master database associated with this new login.
-  - Add the user account to the `dbmanager`, the `loginmanager` role, or both in the `master` database using the [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) statement (for Azure Synapse, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement).
+  - Add the user account to the `dbmanager`, the `loginmanager` role, or both in the `master` database using the [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) statement (for Azure Synapse, use the [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) statement).
 
   > [!NOTE]
   > `dbmanager` and `loginmanager` roles do **not** pertain to SQL Managed Instance deployments.
@@ -149,7 +149,7 @@ After creating a user account in a database, either based on a login or as a con
 
 Efficient access management uses permissions assigned to Active Directory security groups and fixed or custom roles instead of to individual users.
 
-- When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory security group. Create a contained database user for the group. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
+- When using Azure Active Directory authentication, put Azure Active Directory users into an Azure Active Directory security group. Create a contained database user for the group. Add one or more database users as a member to custom or builtin database roles with the specific permissions appropriate to that group of users.
 
 - When using SQL authentication, create contained database users in the database. Place one or more database users into a custom database role with specific permissions appropriate to that group of users.
 

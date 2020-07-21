@@ -1,7 +1,7 @@
 ---
 title: Migrate knowledge bases - QnA Maker
 description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020
 ---
 # Migrate a knowledge base using export-import

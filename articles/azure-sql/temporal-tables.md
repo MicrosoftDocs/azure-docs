@@ -1,8 +1,8 @@
 ---
-title: Getting Started with temporal tables
+title: Getting started with temporal tables
 description: Learn how to get started with using temporal tables in Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang: 
@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 06/26/2019
 ---
-# Getting Started with temporal tables in Azure SQL Database and Azure SQL Managed Instance
+# Getting started with temporal tables in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 Temporal tables are a programmability feature of Azure SQL Database and Azure SQL Managed Instance that allows you to track and analyze the full history of changes in your data, without the need for custom coding. Temporal tables keep data closely related to time context so that stored facts can be interpreted as valid only within the specific period. This property of temporal tables allows for efficient time-based analysis and getting insights from data evolution.
 
-## Temporal Scenario
+## Temporal scenario
 
 This article illustrates the steps to utilize temporal tables in an application scenario. Suppose that you want to track user activity on a new website that is being developed from scratch or on an existing website that you want to extend with user activity analytics. In this simplified example, we assume that the number of visited web pages during a period of time is an indicator that needs to be captured and monitored in the website database that is hosted on Azure SQL Database or Azure SQL Managed Instance. The goal of the historical analysis of user activity is to get inputs to redesign website and provide better experience for the visitors.
 

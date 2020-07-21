@@ -1,6 +1,6 @@
 ---
 title: Connect Windows firewall data to Azure Sentinel| Microsoft Docs
-description: Learn how to connect Windows firewall data to Azure Sentinel.
+description: Enable the Windows firewall connector in Azure Sentinel to easily stream firewall events from Windows machines that have Log Analytics agents installed.
 services: sentinel
 documentationcenter: na
 author: yelevin

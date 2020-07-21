@@ -27,20 +27,27 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Account Level
 
+This table shows [account-level metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccounts).
+
 | Metric | Description |
 | ------------------- | ----------------- |
 | UsedCapacity | The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 #### Blob storage
 
+This table shows [Blob storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsblobservices).
+
 | Metric | Description |
 | ------------------- | ----------------- |
 | BlobCapacity | The total of Blob storage used in the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimensions: **BlobType**, and **BlobTier** ([Definition](#metrics-dimensions)) |
 | BlobCount    | The number of blob objects stored in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 <br/> Dimensions: **BlobType**, and **BlobTier** ([Definition](#metrics-dimensions)) |
+| BlobProvisionedSize | The amount of storage provisioned in the storage account. This metric is applicable to premium storage accounts only. <br/><br/> Unit: bytes <br/> Aggregation Type: Average |
 | ContainerCount    | The number of containers in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | IndexCapacity     | The amount of storage used by ADLS Gen2 Hierarchical Index <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 #### Table storage
+
+This table shows [Table storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountstableservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
@@ -50,19 +57,24 @@ Azure Storage provides the following capacity metrics in Azure Monitor.
 
 #### Queue storage
 
+This table shows [Queue storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsfileservices).
+
 | Metric | Description |
 | ------------------- | ----------------- |
 | QueueCapacity | The amount of Queue storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | QueueCount   | The number of queues in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
-| QueueMessageCount | The number of unexpired queue messages in the storage account. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| QueueMessageCount | The approximate number of queue messages in the storage account's Queue service. <br/><br/>Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 
 #### File storage
+
+This table shows [File storage metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftstoragestorageaccountsqueueservices).
 
 | Metric | Description |
 | ------------------- | ----------------- |
 | FileCapacity | The amount of File storage used by the storage account. <br/><br/> Unit: Bytes <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | FileCount   | The number of files in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
 | FileShareCount | The number of file shares in the storage account. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Value example: 1024 |
+| FileShareProvisionedIOPS | The number of provisioned IOPS on a file share. This metric is applicable to premium file storage only. <br/><br/> Unit: bytes <br/> Aggregation Type: Average |
 
 ### Transaction metrics
 

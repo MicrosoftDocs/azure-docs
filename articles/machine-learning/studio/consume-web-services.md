@@ -5,11 +5,11 @@ description: Once a machine learning service is deployed from Azure Machine Lear
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
 ---
 # How to consume an Azure Machine Learning Studio (classic) web service

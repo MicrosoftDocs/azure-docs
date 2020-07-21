@@ -195,7 +195,7 @@ You can create a share snapshot for a share by using the `Snapshot` method on Po
 
 ```azurepowershell-interactive
 $share = Get-AzStorageShare -Context $storageAcct.Context -Name $shareName
-$snapshot = $share.Snapshot()
+$snapshot = $share.CloudFileShare.Snapshot()
 ```
 
 ### Browse share snapshots

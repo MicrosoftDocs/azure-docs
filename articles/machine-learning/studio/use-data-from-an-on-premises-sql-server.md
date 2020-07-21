@@ -5,7 +5,7 @@ description: Use data from a SQL Server database to perform advanced analytics w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

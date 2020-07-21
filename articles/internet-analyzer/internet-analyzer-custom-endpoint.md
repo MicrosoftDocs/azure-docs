@@ -5,7 +5,7 @@ services: internet-analyzer
 author: mattcalder
 
 ms.service: internet-analyzer
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
 # Customer intent: (1) As someone interested in migrating to Azure from on-prem/ other cloud, I want to configure a custom endpoint to measure. (2) As someone interested in comparing my custom Azure configuration to on-prem/other cloud/ Azure, I want to configure a custom endpoint to measure. 

@@ -4,7 +4,7 @@ description: This article shows you the steps to move your public peering to Mic
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: cherylmc
 

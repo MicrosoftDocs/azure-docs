@@ -72,7 +72,7 @@ Reports the [response time and result code](../../azure-monitor/app/asp-net.md) 
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web) NuGet package
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - tracks [unobserved task exceptions](https://blogs.msdn.com/b/pfxteam/archive/2011/09/28/task-exception-handling-in-net-4-5.aspx).
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` - tracks unobserved task exceptions
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - tracks unhandled exceptions for worker roles, windows services, and console applications.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) NuGet package.
 
@@ -89,7 +89,7 @@ Reports the [response time and result code](../../azure-monitor/app/asp-net.md) 
 * [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector) 
 
 ### Microsoft.ApplicationInsights
-The Microsoft.ApplicationInsights package provides the [core API](https://msdn.microsoft.com/library/mt420197.aspx) of the SDK. The other Telemetry Modules use this, and you can also [use it to define your own telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
+The Microsoft.ApplicationInsights package provides the [core API](/dotnet/api/microsoft.applicationinsights?view=azure-dotnet) of the SDK. The other Telemetry Modules use this, and you can also [use it to define your own telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
 
 * No entry in ApplicationInsights.config.
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you just install this NuGet, no .config file is generated.

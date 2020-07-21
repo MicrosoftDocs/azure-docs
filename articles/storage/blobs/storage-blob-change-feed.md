@@ -4,7 +4,7 @@ description: Learn about change feed logs in Azure Blob Storage and how to use t
 author: normesta
 ms.author: normesta
 ms.date: 11/04/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
@@ -66,7 +66,7 @@ Enable change feed on your storage account by using Azure portal:
 
 4. Choose the **Save** button to confirm your **Data Protection** settings.
 
-    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Screenshot that shows the data protection settings.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### [PowerShell](#tab/azure-powershell)
 

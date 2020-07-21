@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 6b395e8f-fa3c-4e55-be54-392dd303c472
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -52,6 +52,10 @@ If your Connect installation does not upgrade itself as expected, then follow th
 First, you should not expect the automatic upgrade to be attempted the first day a new version is released. There is an intentional randomness before an upgrade is attempted so don't be alarmed if your installation isn't upgraded immediately.
 
 If you think something is not right, then first run `Get-ADSyncAutoUpgrade` to ensure automatic upgrade is enabled.
+
+If the state is suspended, you can use the `Get-ADSyncAutoUpgrade -Detail` to view the reason.  The suspension reason can contain any string value but will usually contain the string value of the UpgradeResult, that is, `UpgradeNotSupportedNonLocalDbInstall` or `UpgradeAbortedAdSyncExeInUse`.  A compound value may also be returned, such as `UpgradeFailedRollbackSuccess-GetPasswordHashSyncStateFailed`.
+
+It is also possible to get a result that is not an UpgradeResult i.e. 'AADHealthEndpointNotDefined' or 'DirSyncInPlaceUpgradeNonLocalDb'.
 
 Then, make sure you have opened the required URLs in your proxy or firewall. Automatic update is using Azure AD Connect Health as described in the [overview](#overview). If you use a proxy, make sure Health has been configured to use a [proxy server](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Also test the [Health connectivity](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to Azure AD.
 

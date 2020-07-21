@@ -3,6 +3,7 @@ title: Submit a large number of tasks
 description: How to efficiently submit a very large number of tasks in a single Azure Batch job
 ms.topic: how-to
 ms.date: 08/24/2018
+ms.custom: tracking-python
 ---
 # Submit a large number of tasks to a Batch job
 

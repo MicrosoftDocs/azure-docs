@@ -3,7 +3,7 @@ title: 'Azure PowerShell script sample - Configure a Site-to-Site VPN | Microsof
 description: Configure Site-to-Site VPN.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.devlang: powershell

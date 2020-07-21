@@ -5,7 +5,7 @@ description: Using the Azure AD Conditional Access insights and reporting workbo
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2020
 
 ms.author: joflore

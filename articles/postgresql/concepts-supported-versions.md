@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 06/17/2020
 ms.custom: fasttrack-edit
 ---
 # Supported PostgreSQL major versions
@@ -14,16 +14,16 @@ Microsoft aims to support n-2 versions of the PostgreSQL engine in Azure Databas
 Azure Database for PostgreSQL currently supports the following major versions:
 
 ## PostgreSQL version 11
-The current minor release is 11.5. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/11/static/release-11-5.html) to learn more about improvements and fixes in this minor release.
+The current minor release is 11.6. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/11/static/release-11-6.html) to learn more about improvements and fixes in this minor release.
 
 ## PostgreSQL version 10
-The current minor release is 10.10. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-10.html) to learn more about improvements and fixes in this minor release.
+The current minor release is 10.11. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-11.html) to learn more about improvements and fixes in this minor release.
 
 ## PostgreSQL version 9.6
-The current minor release is 9.6.15. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/release-9-6-15.html) to learn more about improvements and fixes in this minor release.
+The current minor release is 9.6.16. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/release-9-6-16.html) to learn more about improvements and fixes in this minor release.
 
 ## PostgreSQL version 9.5
-The current minor release is 9.5.19. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-19.html) to learn about improvements and fixes in this minor release.
+The current minor release is 9.5.20. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-20.html) to learn about improvements and fixes in this minor release.
 
 ## Managing upgrades
 The PostgreSQL project regularly issues minor releases to fix reported bugs. Azure Database for PostgreSQL automatically patches servers with minor releases during the service's monthly deployments. 

@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: cshoe
+ms.custom: tracking-python
 ---
 
 # Continuous delivery by using GitHub Action

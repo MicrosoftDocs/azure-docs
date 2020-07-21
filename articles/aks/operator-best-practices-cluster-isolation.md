@@ -26,7 +26,7 @@ Kubernetes provides features that let you logically isolate teams and workloads 
   * More advanced scheduler features include taints and tolerations, node selectors, and node and pod affinity or anti-affinity. For more information about these features, see [Best practices for advanced scheduler features in AKS][aks-best-practices-advanced-scheduler].
 * **Networking** includes the use of network policies to control the flow of traffic in and out of pods.
 * **Authentication and authorization** include the user of role-based access control (RBAC) and Azure Active Directory (AD) integration, pod identities, and secrets in Azure Key Vault. For more information about these features, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
-* **Containers** include pod security policies, pod security contexts, scanning images and runtimes for vulnerabilities. Also involves using App Armor or Seccomp (Secure Computing) to restrict container access to the underlying node.
+* **Containers** includes the Azure Policy Add-on for AKS to enforce pod security, the use of pod security contexts, and scanning both images and the runtime for vulnerabilities. Also involves using App Armor or Seccomp (Secure Computing) to restrict container access to the underlying node.
 
 ## Logically isolate clusters
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-ms.date: 03/12/2019
+ms.date: 06/06/2020
 ---
 # Event File target code for extended events in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,6 @@ This topic presents a two-phase code sample:
 
 - PowerShell, to create an Azure Storage container in the cloud.
 - Transact-SQL:
-  
   - To assign the Azure Storage container to an Event File target.
   - To create and start the event session, and so on.
 
@@ -65,7 +64,7 @@ The script starts with commands to clean up after a possible previous run, and i
 
    - If you rerun the script without disrupting your session, you have the convenient option of commenting out the **Add-AzureAccount** command.
 
-![PowerShell ISE, with Azure module installed, ready to run script.][30_powershell_ise]
+![PowerShell ISE, with Azure module installed, ready to run script.](./media/xevent-code-event-file/event-file-powershell-ise-b30.png)
 
 ### PowerShell code
 
@@ -226,6 +225,15 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 ```
 
 Take note of the few named values that the PowerShell script prints when it ends. You must edit those values into the Transact-SQL script that follows as phase 2.
+
+<!--
+TODO:   Consider whether the preceding PowerShell code example deserves to be updated to the latest package (AzureRM.SQL?).
+2020/June/06   Adding the !NOTE below about "ADLS Gen2 storage accounts".
+Related to   https://github.com/MicrosoftDocs/azure-docs/issues/56520
+-->
+
+> [!NOTE]
+> In the preceding PowerShell code example, SQL extended events are not compatible with the ADLS Gen2 storage accounts.
 
 ## Phase 2: Transact-SQL code that uses Azure Storage container
 
@@ -508,6 +516,3 @@ For more info about accounts and containers in the Azure Storage service, see:
 - [Lesson 1: Create a stored access policy and a shared access signature on an Azure container](https://msdn.microsoft.com/library/dn466430.aspx)
   - [Lesson 2: Create a SQL Server credential using a shared access signature](https://msdn.microsoft.com/library/dn466435.aspx)
 - [Extended Events for Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
-
-<!-- Image references. -->
-[30_powershell_ise]: ./media/xevent-code-event-file/event-file-powershell-ise-b30.png

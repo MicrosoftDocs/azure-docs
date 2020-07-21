@@ -1,8 +1,8 @@
 ---
 title: Deploy a policy that can be remediated
-description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant.
-ms.date: 10/11/2019
-ms.topic: conceptual
+description: To deploy policies that use a remediation task via Azure Lighthouse, you'll need to create a managed identity in the customer tenant.
+ms.date: 07/07/2020
+ms.topic: how-to
 ---
 
 # Deploy a policy that can be remediated within a delegated subscription
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 ## Create a user who can assign roles to a managed identity in the customer tenant
 
-When you onboard a customer for Azure delegated resource management, you use an [Azure Resource Manager template](onboard-customer.md#create-an-azure-resource-manager-template) along with a parameters file that defines the users, user groups, and service principals in your managing tenant that will be able to access the delegated resources in the customer tenant. In your parameters file, each of these users (**principalId**) is assigned a [built-in role](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) that defines the level of access.
+When you onboard a customer to Azure Lighthouse, you use an [Azure Resource Manager template](onboard-customer.md#create-an-azure-resource-manager-template) along with a parameters file that defines the users, user groups, and service principals in your managing tenant that will be able to access the delegated resources in the customer tenant. In your parameters file, each of these users (**principalId**) is assigned a [built-in role](../../role-based-access-control/built-in-roles.md) (**roleDefinitionId**) that defines the level of access.
 
 To allow a **principalId** to create a managed identity in the customer tenant, you must set its **roleDefinitionId** to **User Access Administrator**. While this role is not generally supported, it can be used in this specific scenario, allowing the users with this permission to assign one or more specific built-in roles to managed identities. These roles are defined in the **delegatedRoleDefinitionIds** property. You can include any built-in role here except for User Access Administrator or Owner.
 
@@ -33,11 +33,11 @@ The example below shows a **principalId** who will have the User Access Administ
 
 ## Deploy policies that can be remediated
 
-Once you have created the user with the necessary permissions as described above, that user can deploy policies in the customer tenant that use remediation tasks.
+Once you have created the user with the necessary permissions as described above, the user can deploy policies that use remediation tasks within the customer tenant.
 
 For example, let's say you wanted to enable diagnostics on Azure Key Vault resources in the customer tenant, as illustrated in this [sample](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-enforce-keyvault-monitoring). A user in the managing tenant with the appropriate permissions (as described above) would deploy an [Azure Resource Manager template](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/policy-enforce-keyvault-monitoring/enforceAzureMonitoredKeyVault.json) to enable this scenario.
 
-Note that creating the policy assignment to use with a delegated subscription must currently be done through APIs, not in the Azure portal. When doing so, the **apiVersion** must be set to **2019-04-01-preview**, which includes the new **delegatedManagedIdentityResourceId** property. This property allows you to include a managed identity that resides in the customer tenant (in a subscription or resource group which has been onboarded to Azure delegated resource management).
+Note that creating the policy assignment to use with a delegated subscription must currently be done through APIs, not in the Azure portal. When doing so, the **apiVersion** must be set to **2019-04-01-preview**, which includes the new **delegatedManagedIdentityResourceId** property. This property allows you to include a managed identity that resides in the customer tenant (in a subscription or resource group which has been onboarded to Azure Lighthouse).
 
 The following example shows a role assignment with a **delegatedManagedIdentityResourceId**.
 

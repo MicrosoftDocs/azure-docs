@@ -4,7 +4,6 @@ description: Learn to perform an offline migration from SQLite to Azure SQL Data
 services: sql-database
 author: joplum
 ms.author: joplum
-manager: prda
 ms.service: sql-database
 ms.workload: data-services
 ms.topic: article

@@ -7,10 +7,10 @@ ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: MightyPen
-ms.author: genemi
-ms.reviewer: sstein
-ms.date: 04/03/2019
+author: stevestein
+ms.author: sstein
+ms.reviewer: genemi
+ms.date: 06/11/2020
 ---
 # Ports beyond 1433 for ADO.NET 4.5
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,7 +46,7 @@ Ensure that the port ranges of 11000-11999 on your Azure client machine are left
 * In particular, ports in the range must be free of any other outbound blockers.
 * On your Azure VM, the **Windows Firewall with Advanced Security** controls the port settings.
   
-  * You can use the [firewall's user interface](https://msdn.microsoft.com/library/cc646023.aspx) to add a rule for which you specify the **TCP** protocol along with a port range with the syntax like **11000-11999**.
+  * You can use the [firewall's user interface](/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access) to add a rule for which you specify the **TCP** protocol along with a port range with the syntax like **11000-11999**.
 
 ## Version clarifications
 
@@ -77,6 +77,6 @@ https://www.microsoft.com/download/details.aspx?id=56567
 * Connect to Azure SQL Database V12 via Redirection
 https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [TDS protocol version list](https://www.freetds.org/userguide/tdshistory.htm)
+* [TDS protocol version list](https://www.freetds.org/)
 * [SQL Database Development Overview](develop-overview.md)
 * [Azure SQL Database firewall](firewall-configure.md)

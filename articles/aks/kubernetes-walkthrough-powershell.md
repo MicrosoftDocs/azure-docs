@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy an Azure Kubernetes Service cluster'
+title: 'Quickstart: Deploy an AKS cluster by using PowerShell'
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using PowerShell.
 services: container-service
 ms.topic: quickstart
@@ -47,7 +47,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## Create a resource group
 
-An [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+An [Azure resource group](../azure-resource-manager/management/overview.md)
 is a logical group in which Azure resources are deployed and managed. When you create a resource
 group, you are asked to specify a location. This location is where resource group metadata is
 stored, it is also where your resources run in Azure if you don't specify another region during
@@ -62,7 +62,7 @@ New-AzResourceGroup -Name myResourceGroup -Location eastus
 
 The following example output shows the resource group created successfully:
 
-```Output
+```plaintext
 ResourceGroupName : myResourceGroup
 Location          : eastus
 ProvisioningState : Succeeded
@@ -73,7 +73,7 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 ## Create AKS cluster
 
 Use the `ssh-keygen` command-line utility to generate an SSH key pair. For more details, see
-[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
+[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 Use the [New-AzAks][new-azaks] cmdlet to create an AKS cluster. The
 following example creates a cluster named **myAKSCluster** with one node. Azure Monitor for
@@ -82,7 +82,7 @@ containers is also enabled by default. This takes several minutes to complete.
 > [!NOTE]
 > When creating an AKS cluster, a second resource group is automatically created to store the AKS
 > resources. For more information, see
-> [Why are two resource groups created with AKS?](https://docs.microsoft.com/azure/aks/faq#why-are-two-resource-groups-created-with-aks)
+> [Why are two resource groups created with AKS?](./faq.md#why-are-two-resource-groups-created-with-aks)
 
 ```azurepowershell-interactive
 New-AzAks -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 1
@@ -118,7 +118,7 @@ list of the cluster nodes.
 The following example output shows the single node created in the previous steps. Make sure that the
 status of the node is **Ready**:
 
-```Output
+```plaintext
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.15.10
 ```
@@ -236,7 +236,7 @@ YAML manifest:
 
 The following example output shows the Deployments and Services created successfully:
 
-```Output
+```plaintext
 deployment.apps/azure-vote-back created
 service/azure-vote-back created
 deployment.apps/azure-vote-front created
@@ -256,7 +256,7 @@ To monitor progress, use the [kubectl get service][kubectl-get] command with the
 
 Initially the **EXTERNAL-IP** for the **azure-vote-front** service is shown as **pending**.
 
-```Output
+```plaintext
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
@@ -265,7 +265,7 @@ When the **EXTERNAL-IP** address changes from **pending** to an actual public IP
 to stop the `kubectl` watch process. The following example output shows a valid public IP address
 assigned to the service:
 
-```Output
+```plaintext
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -315,7 +315,7 @@ Kubernetes cluster tutorial.
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[azure-dev-spaces]: ../dev-spaces/index.yml
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 

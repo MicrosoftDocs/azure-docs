@@ -10,7 +10,7 @@ ms.date: 02/04/2020
 ---
 
 # Log Analytics agent overview
-The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/), and [Azure Automation](../../automation/automation-intro.md).
+The Azure Log Analytics agent was developed for comprehensive management across virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](/system-center/scom/). The Windows and Linux agents send collected data from different sources to your Log Analytics workspace in Azure Monitor, as well as any unique logs or metrics as defined in a monitoring solution. The Log Analytics agent also supports insights and other services in Azure Monitor such as [Azure Monitor for VMs](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml), and [Azure Automation](../../automation/automation-intro.md).
 
 This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
@@ -27,7 +27,7 @@ The key differences to consider are:
 
 - Azure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.
 - Azure Diagnostics extension sends data to Azure Storage, [Azure Monitor Metrics](data-platform-metrics.md) (Windows only) and Event Hubs. The Log Analytics agent collects data to [Azure Monitor Logs](data-platform-logs.md).
-- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMs](../insights/vminsights-overview.md), and other services such as [Azure Security Center](/azure/security-center/).
+- The Log Analytics agent is required for [solutions](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor for VMs](../insights/vminsights-overview.md), and other services such as [Azure Security Center](../../security-center/index.yml).
 
 ## Costs
 There is no cost for Log Analytics agent, but you may incur charges for the data ingested. Check [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for detailed information on the pricing for data collected in a Log Analytics workspace.
@@ -55,7 +55,7 @@ When using the Log Analytics agents to collect data, you need to understand the 
 
 * To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
 * The Linux agent does not support multi-homing and can only report to a single workspace.
-* The Windows agent supports the [FIPS 140 standard](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), while the Linux agent does not support it.  
+* The Windows agent supports the [FIPS 140 standard](/windows/security/threat-protection/fips-140-validation), while the Linux agent does not support it.  
 
 If you are using System Center Operations Manager 2012 R2 or later:
 
@@ -109,6 +109,24 @@ Starting with versions released after August 2018, we are making the following c
 
 >[!NOTE]
 >If you are using a distro or version that is not currently supported and doesn't align to our support model, we recommend that you fork this repo, acknowledging that Microsoft support will not provide assistance with forked agent versions.
+
+
+### Python 2 requirement
+ The Log Analytics agent requires Python 2. If your virtual machine is using a distro that doesn't include Python 2 by default then you must install it. The following sample commands will install Python 2 on different distros.
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+The python2 executable must be aliased to "python" using the following command:
+
+```
+alternatives --set python `which python2`
+```
+
+### Supported distros
+
+The following versions of the Linux operating system are officially supported for the Linux agent:
 
 * Amazon Linux 2017.09 (x64)
 * CentOS Linux 6 (x64) and 7 (x64)  
@@ -171,7 +189,7 @@ The following table lists the proxy and firewall configuration information that'
 |*.blob.core.windows.net |Port 443 |Outbound|Yes |
 |*.azure-automation.net |Port 443 |Outbound|Yes |
 
-For firewall information required for Azure Government, see [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
+For firewall information required for Azure Government, see [Azure Government management](../../azure-government/compare-azure-government-global-azure.md#azure-monitor-logs). 
 
 If you plan to use the Azure Automation Hybrid Runbook Worker to connect to and register with the Automation service to use runbooks or management solutions in your environment, it must have access to the port number and the URLs described in [Configure your network for the Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
@@ -207,4 +225,3 @@ For example:
 * Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
-

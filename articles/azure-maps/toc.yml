@@ -59,6 +59,8 @@
       href: drawing-conversion-error-codes.md  
   - name: Coverage
     items:
+    - name: Coverage
+      href: geographic-coverage.md
     - name: Geocoding coverage
       href: geocoding-coverage.md
     - name: Traffic coverage
@@ -89,6 +91,17 @@
       href: how-to-manage-account-keys.md
     - name: Manage authentication
       href: how-to-manage-authentication.md
+      items:
+        - name: How to secure a daemon application
+          href: how-to-secure-daemon-app.md
+        - name: How to secure interactive sign-in single page application
+          href: how-to-secure-spa-users.md
+        - name: How to secure web application
+          href: how-to-secure-webapp-users.md
+        - name: How to secure non-interactive sign-in single page application
+          href: how-to-secure-spa-app.md
+        - name: How to secure input constrained application
+          href: how-to-secure-device-code.md
     - name: Manage pricing tier
       href: how-to-manage-pricing-tier.md
     - name: Manage Creator
@@ -177,6 +190,14 @@
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
+    - name: Indoor Maps module
+      items:
+      - name: Indoor Maps module
+        href: how-to-use-indoor-module.md
+      - name: Dynamic styling for indoor maps
+        href: indoor-map-dynamic-styling.md
+      - name: Drawing error visualizer
+        href: drawing-error-visualizer.md
     - name: Spatial IO module 
       items:
       - name: Use the spatial IO module
@@ -211,14 +232,24 @@
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
-  - name: Develop with Creator Indoor maps
-    items:
-    - name: Indoor Maps module
-      href: how-to-use-indoor-module.md
-    - name: Dynamic styling for indoor maps
-      href: indoor-map-dynamic-styling.md
-    - name: Drawing error visualizer
-      href: drawing-error-visualizer.md
+  - name: Use Azure Maps in Power BI
+    items: 
+    - name: Getting started
+      href: power-bi-visual-getting-started.md
+    - name: Understanding layers
+      href: power-bi-visual-understanding-layers.md
+    - name: Add a bubble layer
+      href: power-bi-visual-add-bubble-layer.md
+    - name: Add a bar chart layer
+      href: power-bi-visual-add-bar-chart-layer.md
+    - name: Add a reference layer
+      href: power-bi-visual-add-reference-layer.md
+    - name: Add a tile layer
+      href: power-bi-visual-add-tile-layer.md
+    - name: Show real-time traffic
+      href: power-bi-visual-show-real-time-traffic.md
+    - name: Manage access
+      href: power-bi-visual-manage-access.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference
@@ -227,9 +258,11 @@
     items:
     - name: Drawing package requirements
       href: drawing-requirements.md
+    - name: Dynamic maps StylesObject
+      href: schema-stateset-stylesobject.md
     - name: Vehicle consumption model
       href: consumption-model.md
-    - name: Extend GeoJSON format
+    - name: Extended GeoJSON format
       href: extend-geojson.md
     - name: Geofence GEOJSON format
       href: geofence-geojson.md
@@ -325,10 +358,6 @@
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-maps.html
   - name: Azure Maps videos
     href: https://aka.ms/AzureMapsVideos
   - name: Open source projects

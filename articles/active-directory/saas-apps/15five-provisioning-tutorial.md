@@ -20,35 +20,35 @@ ms.author: zhchia
 
 # Tutorial: Configure 15Five for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in 15Five and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to 15Five.
+The objective of this tutorial is to demonstrate the steps to be performed in 15Five and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to [15Five](https://www.15five.com/pricing/). For important details on what this service does, how it works, and frequently asked questions, see Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
->
 > This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+
+## Capabilities supported
+> [!div class="checklist"]
+> * Create users in 15Five
+> * Remove users in 15Five when they do not require access anymore
+> * Keep user attributes synchronized between Azure AD and 15Five
+> * Provision groups and group memberships in 15Five
+> * [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/15five-tutorial) to 15Five (recommended)
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
-* An Azure AD tenant.
+* [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) .
+* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * [A 15Five tenant](https://www.15five.com/pricing/).
 * A user account in 15Five with Admin permissions.
 
-## Assigning users to 15Five
+## Step 1. Plan your provisioning deployment
+1. Learn about [how the provisioning service works](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine who will be in [scope for provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Determine what data to [map between Azure AD and 15Five](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
-
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to 15Five. Once decided, you can assign these users and/or groups to 15Five by following the instructions here:
-* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
-
-## Important tips for assigning users to 15Five
-
-* It is recommended that a single Azure AD user is assigned to 15Five to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
-
-* When assigning a user to 15Five, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
-
-## Setup 15Five for provisioning
+## Step 2. Configure 15Five to support provisioning with Azure AD
 
 Before configuring 15Five for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on 15Five.
 
@@ -68,34 +68,21 @@ Before configuring 15Five for automatic user provisioning with Azure AD, you wil
 	
 	![15Five Add SCIM](media/15five-provisioning-tutorial/image03.png)
 
-## Add 15Five from the gallery
+## Step 3. Add 15Five from the Azure AD application gallery
 
-To configure 15Five for automatic user provisioning with Azure AD, you need to add 15Five from the Azure AD application gallery to your list of managed SaaS applications.
+Add 15Five from the Azure AD application gallery to start managing provisioning to 15Five. If you have previously setup 15Five for SSO you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-**To add 15Five from the Azure AD application gallery, perform the following steps:**
+## Step 4. Define who will be in scope for provisioning 
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
+The Azure AD provisioning service allows you to scope who will be provisioned based on assignment to the application and or based on attributes of the user / group. If you choose to scope who will be provisioned to your app based on assignment, you can use the following [steps](../manage-apps/assign-user-or-group-access-portal.md) to assign users and groups to the application. If you choose to scope who will be provisioned based solely on attributes of the user or group, you can use a scoping filter as described [here](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-	![The Azure Active Directory button](common/select-azuread.png)
+* When assigning users and groups to 15Five, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) to add additional roles. 
 
-2. Go to **Enterprise applications**, and then select **All applications**.
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
-
-3. To add a new application, select the **New application** button at the top of the pane.
-
-	![The New application button](common/add-new-app.png)
-
-4. In the search box, enter **15Five**, select **15Five** in the results panel, and then click the **Add** button to add the application.
-
-	![15Five in the results list](common/search-new-app.png)
-
-## Configuring automatic user provisioning to 15Five 
+## Step 5. Configure automatic user provisioning to 15Five 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in 15Five based on user and/or group assignments in Azure AD.
-
-> [!TIP]
-> You may also choose to enable SAML-based single sign-on for 15Five , following the instructions provided in the [15Five Single sign-on tutorial](15five-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for 15Five in Azure AD:
 
@@ -115,7 +102,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5.	Under the Admin Credentials section, input the **SCIM 2.0 base URL and Access Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to 15Five. If the connection fails, ensure your 15Five account has Admin permissions and try again.
+5.	Under the Admin Credentials section, input the **SCIM 2.0 base URL and Access Token** values retrieved earlier in the **Tenant URL** and **Secret Token** fields respectively. Click **Test Connection** to ensure Azure AD can connect to 15Five. If the connection fails, ensure your 15Five account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -127,19 +114,32 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to 15Five**.
 
-	![15Five User Mappings](media/15five-provisioning-tutorial/usermapping.png)
-
 9. Review the user attributes that are synchronized from Azure AD to 15Five in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in 15Five for update operations. Select the **Save** button to commit any changes.
 
-	![15Five User Attributes](media/15five-provisioning-tutorial/userattribute.png)
+
+   |Attribute|Type|
+   |---|---|
+   |active|Boolean|
+   |title|String|
+   |emails[type eq "work"].value|String|
+   |userName|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |externalId|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+   |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:location|String|
+   |urn:ietf:params:scim:schemas:extension:15Five:2.0:User:startDate|String|
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to 15Five**.
 
-	![15Five Group Mappings](media/15five-provisioning-tutorial/groupmapping.png)
-
 11. Review the group attributes that are synchronized from Azure AD to 15Five in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the groups in 15Five for update operations. Select the **Save** button to commit any changes.
 
-	![15Five Group Attributes](media/15five-provisioning-tutorial/groupattribute.png)
+      |Attribute|Type|
+      |---|---|
+      |externalId|String|
+      |displayName|String|
+      |members|Reference|
 
 12. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -155,13 +155,22 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-	This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on 15Five.
+	This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running.
 
-	For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md)
+## Step 6. Monitor your deployment
+Once you've configured provisioning, use the following resources to monitor your deployment:
+
+1. Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
+2. Check the [progress bar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
+3. If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
 	
 ## Connector limitations
 
-* 15Five does not support hard deletes for users.
+* 15Five does not support soft deletes for users.
+
+## Change log
+
+* 06/16/2020 - Added support for enterprise extension attribute "Manager" and custom attributes "Location" and "Start Date" for users.
 
 ## Additional resources
 

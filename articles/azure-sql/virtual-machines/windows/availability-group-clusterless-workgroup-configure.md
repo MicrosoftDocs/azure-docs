@@ -1,6 +1,6 @@
 ---
 title: Configure a domain-independent workgroup availability group 
-description: Learn how to configure an Active Directory Domain-independent workgroup Always On availability group on a SQL Server virtual machine in Azure. 
+description: Learn how to configure an Active Directory domain-independent workgroup Always On availability group on a SQL Server virtual machine in Azure. 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -39,17 +39,17 @@ For reference, the following parameters are used in this article, but can be mod
 | **Node2**   | AGNode2 (10.0.0.5) |
 | **Cluster name** | AGWGAG (10.0.0.6) |
 | **Listener** | AGListener (10.0.0.7) | 
-| **DNS Suffix** | ag.wgcluster.example.com | 
+| **DNS suffix** | ag.wgcluster.example.com | 
 | **Work group name** | AGWorkgroup | 
 | &nbsp; | &nbsp; |
 
-## Set DNS suffix 
+## Set a DNS suffix 
 
 In this step, configure the DNS suffix for both servers. For example, `ag.wgcluster.example.com`. This allows you to use the name of the object you want to connect to as a fully qualified address within your network, such as `AGNode1.ag.wgcluster.example.com`. 
 
 To configure the DNS suffix, follow these steps:
 
-1. RDP into your first node and open Server Manager. 
+1. RDP in to your first node and open Server Manager. 
 1. Select **Local Server** and then select the name of your virtual machine under **Computer name**. 
 1. Select **Change...** under **To rename this computer...**. 
 1. Change the name of the workgroup name to be something meaningful, such as `AGWORKGROUP`: 
@@ -68,13 +68,13 @@ To configure the DNS suffix, follow these steps:
 1. Reboot the server when you are prompted to do so. 
 1. Repeat these steps on any other nodes to be used for the availability group. 
 
-## Edit host file
+## Edit a host file
 
 Since there is no active directory, there is no way to authenticate windows connections. As such, assign trust by editing the host file with a text editor. 
 
 To edit the host file, follow these steps:
 
-1. RDP into your virtual machine. 
+1. RDP in to your virtual machine. 
 1. Use **File Explorer** to go to `c:\windows\system32\drivers\etc`. 
 1. Right-click the **hosts** file and open the file with **Notepad** (or any other text editor).
 1. At the end of the file, add an entry for each node, the availability group, and the listener in the form of `IP Address, DNS Suffix #comment` like: 
@@ -101,7 +101,7 @@ new-itemproperty -path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\
 
 ## Create the failover cluster
 
-In this step, you will create the failover cluster. If you're unfamiliar with these steps, you can follow them from the [failover cluster tutorial](failover-cluster-instance-storage-spaces-direct-manually-configure.md#step-2-configure-the-windows-server-failover-cluster-with-storage-spaces-direct).
+In this step, you will create the failover cluster. If you're unfamiliar with these steps, you can follow them from the [failover cluster tutorial](failover-cluster-instance-storage-spaces-direct-manually-configure.md).
 
 Notable differences between the tutorial and what should be done for a workgroup cluster:
 - Uncheck **Storage**, and **Storage Spaces Direct** when running the cluster validation. 
@@ -127,13 +127,13 @@ Once the cluster has been created, assign a static Cluster IP address. To do so,
 
 ## Create a cloud witness 
 
-In this step, configure a cloud share witness. If you're unfamiliar with the steps, see the [failover cluster tutorial](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-a-cloud-witness). 
+In this step, configure a cloud share witness. If you're unfamiliar with the steps, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness). 
 
-## Enable availability group feature 
+## Enable the availability group feature 
 
 In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
 
-## Create keys and certificate
+## Create keys and certificates
 
 In this step, create certificates that a SQL login uses on the encrypted endpoint. Create a folder on each node to hold the certificate backups, such as `c:\certs`. 
 
@@ -274,19 +274,19 @@ GO
 
 If there are any other nodes in the cluster, repeat these steps there also, modifying the respective certificate and user names. 
 
-## Configure availability group
+## Configure an availability group
 
 In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
 
    > [!NOTE]
    > If there is a failure during the synchronization process, you may need to grant `NT AUTHORITY\SYSTEM` sysadmin rights to create cluster resources on the first node, such as `AGNode1` temporarily. 
 
-## Configure load balancer
+## Configure a load balancer
 
-In this final step, configure the load balancer using either the [Azure portal](availability-group-load-balancer-portal-configure.md) or [PowerShell](availability-group-listener-powershell-configure.md)
+In this final step, configure the load balancer using either the [Azure portal](availability-group-load-balancer-portal-configure.md) or [PowerShell](availability-group-listener-powershell-configure.md).
 
 
-## Next Steps
+## Next steps
 
 You can also use [Az SQL VM CLI](availability-group-az-cli-configure.md) to configure an availability group. 
 

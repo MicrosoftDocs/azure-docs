@@ -21,7 +21,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 ## Sample log
 
-You may see an error message similar to:
+You may see an error message similar to the following in yarn logs (/var/log/hadoop-yarn/yarn/yarn-yarn*.log on the headnodes):
 
 ```output
 2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
@@ -110,6 +110,7 @@ Node count: 133212
 
 ## CancelledKeyException in the zookeeper server log doesn't require snapshot cleanup
 
+* This exception will be seen on the zookeeper servers (/var/log/zookeeper/zookeeper-zookeeper-* or /var/log/hdinsight-zookeeper/zookeeper* files)
 * This exception usually means that the client is no longer active and the server is unable to send a message
 * This exception also indicates that the zookeeper client is ending sessions prematurely
 * Look for the other symptoms outlined in this document

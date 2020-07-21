@@ -2,7 +2,7 @@
 title: Deploy resources with REST API and template
 description: Use Azure Resource Manager and Resource Manager REST API to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 06/04/2020
 ---
 # Deploy resources with ARM templates and Resource Manager REST API
 
@@ -67,7 +67,7 @@ The examples in this article use resource group deployments.
    }
    ```
 
-1. Validate your deployment before executing it by running the [Validate a template deployment](/rest/api/resources/deployments/validate) operation. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
+1. Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
 
 1. To deploy a template, provide your subscription ID, the name of the resource group, the name of the deployment in the request URI.
 
@@ -127,7 +127,7 @@ The examples in this article use resource group deployments.
       "properties": {
       "mode": "Incremental",
       "template": {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
           "storageAccountType": {

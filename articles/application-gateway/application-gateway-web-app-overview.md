@@ -6,7 +6,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 06/09/2020
 ms.author: victorh
 
 ---
@@ -38,7 +38,7 @@ With this capability, customers specify the options in the HTTP settings and cus
 
 ### TLS termination and end to end TLS with multi-tenant services
 
-Both TLS termination and end to end TLS encryption is supported with multi-tenant services. For TLS termination at the application gateway, TLS certificate continues to be required to be added to the application gateway listener. However, in case of end to end TLS, trusted Azure services such as Azure App service web apps do not require whitelisting the backends in the application gateway. Therefore, there is no need to add any authentication certificates. 
+Both TLS termination and end to end TLS encryption is supported with multi-tenant services. For TLS termination at the application gateway, TLS certificate continues to be required to be added to the application gateway listener. However, in case of end to end TLS, trusted Azure services such as Azure App service web apps do not require allowing the backends in the application gateway. Therefore, there is no need to add any authentication certificates. 
 
 ![end  to end TLS](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

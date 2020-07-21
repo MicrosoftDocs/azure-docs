@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with JIRA SAML SSO by Microsoft | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft.
 services: active-directory
@@ -54,6 +54,9 @@ To get started, you need the following items:
 
 * Do not use your production environment, unless it is necessary.
 * JIRA SAML SSO by Microsoft single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Supported versions of JIRA
 

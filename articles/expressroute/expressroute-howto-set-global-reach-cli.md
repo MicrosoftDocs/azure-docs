@@ -5,7 +5,7 @@ services: expressroute
 author: jaredr80
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2018
 ms.author: jaredro
 

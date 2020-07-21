@@ -1,19 +1,17 @@
 ---
-title: Azure Firewall Manager Preview deployment overview
-description: Learn the high-level deployment steps required for Azure Firewall Manager Preview
+title: Azure Firewall Manager deployment overview
+description: Learn the high-level deployment steps required for Azure Firewall Manager
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 02/18/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Azure Firewall Manager Preview deployment overview
+# Azure Firewall Manager deployment overview
 
-[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
-
-There's more than one way to deploy Azure Firewall Manager Preview, but the following general process is recommended.
+There's more than one way to deploy Azure Firewall Manager, but the following general process is recommended.
 
 ## General deployment process
 
@@ -65,4 +63,4 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
 
 ## Next steps
 
-- [Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal](secure-cloud-network.md)
+- [Tutorial: Secure your cloud network with Azure Firewall Manager using the Azure portal](secure-cloud-network.md)

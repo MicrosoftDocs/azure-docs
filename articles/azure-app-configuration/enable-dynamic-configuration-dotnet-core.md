@@ -97,23 +97,33 @@ The `ConfigureRefresh` method is used to specify the settings used to update the
 
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use Windows PowerShell, run the following command:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use macOS or Linux, run the following command:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 1. Run the following command to build the console app:
 
-        dotnet build
+    ```console
+     dotnet build
+    ```
 
 1. After the build successfully completes, run the following command to run the app locally:
 
-        dotnet run
+    ```console
+     dotnet run
+    ```
 
     ![Quickstart app launch local](./media/quickstarts/dotnet-core-app-run.png)
 

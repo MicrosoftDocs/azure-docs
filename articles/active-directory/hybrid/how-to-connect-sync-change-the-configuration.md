@@ -7,7 +7,7 @@ manager: daveba
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -238,7 +238,7 @@ Not all Azure AD attributes are imported into the on-premises AD Connector Space
  5. Click **OK** to save.
 ![Add source attribute to on-premises AD Connector schema](./media/how-to-connect-sync-change-the-configuration/usertype1.png)
 
-### Step 3: Add the UserType to the Azure AD Connector schema
+### Step 3: Add the UserType attribute to the Azure AD Connector schema
 By default, the UserType attribute is not imported into the Azure AD Connect Space. To add the UserType attribute to the list of imported attributes:
 
  1. Go to the **Connectors** tab in the Synchronization Service Manager.
@@ -335,7 +335,7 @@ You can use the following steps to verify the changes while manually running the
 
 1. Run a **Full import** on the **on-premises AD Connector**:
 
-   1. Go to the **Operations** tab in the Synchronization Service Manager.
+   1. Go to the **Connectors** tab in the Synchronization Service Manager.
    2. Right-click the **on-premises AD Connector** and select **Run**.
    3. In the pop-up dialog box, select **Full Import** and then click **OK**.
    4. Wait for the operation to finish.

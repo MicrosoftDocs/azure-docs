@@ -193,3 +193,6 @@ Once deployment has completed, return to the browser window that opened during t
 
 > [!div class="nextstepaction"]
 > [PHP with MySQL](app-service-web-tutorial-php-mysql.md)
+
+> [!div class="nextstepaction"]
+> [Configure PHP app](configure-language-php.md)

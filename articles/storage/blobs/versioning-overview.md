@@ -174,8 +174,8 @@ The following table shows which RBAC actions support deleting a blob or a blob v
 
 | Description | Blob service operation | RBAC data action required | RBAC built-in role support |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
-| Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete/actionDeleting** | Storage Blob Data Contributor |
-| Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/** | Storage Blob Data Owner |
+| Deleting the current version of the blob | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete** | Storage Blob Data Contributor |
+| Deleting a version | Delete Blob | **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action** | Storage Blob Data Owner |
 
 ### Shared access signature (SAS) parameters
 
@@ -191,6 +191,10 @@ The following table shows the permission required on a SAS to delete a blob vers
 
 Blob versioning is available in preview in the following regions:
 
+- East US 2
+- Central US
+- North Europe
+- West Europe
 - France Central
 - Canada East
 - Canada Central

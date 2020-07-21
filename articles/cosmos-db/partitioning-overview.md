@@ -31,6 +31,14 @@ You can learn more about [how Azure Cosmos DB manages partitions](partition-data
 
 ## <a id="choose-partitionkey"></a>Choosing a partition key
 
+A partition key has two components: **partition key path** and the **partition key value**. For example, consider an item { "userId" : "Andrew", "worksFor": "Microsoft" } if you choose "userId" as the partition key, the following are the two partition key components:
+
+* The partition key path (For example: "/userId"). The partition key path accepts alphanumeric and underscore(_) characters. You can also use nested objects by using the standard path notation(/).
+
+* The partition key value (For example: "Andrew"). The partition key value can be of string or numeric types.
+
+To learn about the limits on throughput, storage, and length of the partition key, see the [Azure Cosmos DB service quotas](concepts-limits.md) article.
+
 Selecting your partition key is a simple but important design choice in Azure Cosmos DB. Once you select your partition key, it is not possible to change it in-place. If you need to change your partition key, you should move your data to a new container with your new desired partition key.
 
 For **all** containers, your partition key should:

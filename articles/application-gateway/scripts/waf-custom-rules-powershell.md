@@ -8,7 +8,7 @@ ms.date: 6/7/2019
 ms.author: victorh
 ---
 
-# Create WAF custom rules with Azure PowerShell
+# Create Web Application Firewall (WAF) custom rules with Azure PowerShell
 
 This script creates an Application Gateway Web Application Firewall that uses custom rules. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
 

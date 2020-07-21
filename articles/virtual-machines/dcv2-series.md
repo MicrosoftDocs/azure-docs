@@ -1,12 +1,12 @@
 ---
- title: DC-series - Azure Virtual Machines
- description: Specifications for the DC-series VMs.
- services: virtual-machines
- author: susaxen
- ms.service: virtual-machines
- ms.topic: article
- ms.date: 02/20/2020
- ms.author: lahugh
+title: DC-series - Azure Virtual Machines
+description: Specifications for the DC-series VMs.
+author: susaxen
+ms.service: virtual-machines
+ms.subservice: sizes
+ms.topic: article
+ms.date: 02/20/2020
+ms.author: jushiman
 ---
 
 # DCsv2-series
@@ -36,7 +36,7 @@ Memory Preserving Updates: Not Supported
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
 - DCsv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
-- Currently available in UK South, Canada Central, and US East only.
+- Currently available in the regions listed [here](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
 - Previous generation of Confidential Compute VMs: [DC series](sizes-previous-gen.md#preview-dc-series)
 - Create DCsv2 VMs using the [Azure portal](./linux/quick-create-portal.md) or [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)
 

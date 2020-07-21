@@ -4,8 +4,8 @@ description: Describes how to troubleshoot backend health issues for Azure Appli
 services: application-gateway
 author: surajmb
 ms.service: application-gateway
-ms.topic: article
-ms.date: 08/30/2019
+ms.topic: troubleshooting
+ms.date: 06/09/2020
 ms.author: surmb
 ---
 
@@ -243,7 +243,7 @@ Learn more about [Application Gateway probe matching](https://docs.microsoft.com
 #### Backend server certificate invalid CA
 
 **Message:** The server certificate used by the backend is not signed by
-a well-known Certificate Authority (CA). Whitelist the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
+a well-known Certificate Authority (CA). Allow the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
 
 **Cause:** End-to-end SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server Healthy.
