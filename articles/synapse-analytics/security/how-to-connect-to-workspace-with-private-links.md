@@ -52,7 +52,7 @@ When the deployment is complete, open your Azure Synapse workspace in Azure port
 
 ## Next steps
 
-Learn more about [Managed workspace VNet](./synapse-workspace-managed-vnet.md)
+Learn more about [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)
 
 Learn more about [Managed private endpoints](./synapse-workspace-managed-private-endpoints.md)
 
