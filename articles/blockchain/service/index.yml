@@ -36,6 +36,8 @@ landingContent:
             url: create-member.md
           - text: Create a blockchain member - CLI
             url: create-member-cli.md
+          - text: Create using ARM template
+            url: create-member-template.md
       - linkListType: quickstart
         links:
           - text: Use Visual Studio Code to connect to a consortium network

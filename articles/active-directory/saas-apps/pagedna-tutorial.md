@@ -107,21 +107,19 @@ To configure Azure AD single sign-on with PageDNA, take the following steps:
 
     1. In the **Sign on URL** box, enter a URL by using one of the following patterns:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>` |
-        | `https://<your domain>` |
-        | `https://<your domain>/<your site>` |
-        | `https://www.nationsprint.com/<your site>` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>
+        https://<your domain>
+        https://<your domain>/<your site>
+        https://www.nationsprint.com/<your site>
+        ```
 
     1. In the **Identifier (Entity ID)** box, enter a URL by using one of the following patterns:
 
-        ||
-        |--|
-        | `https://stores.pagedna.com/<your site>/saml2ep.cgi` |
-        | `https://www.nationsprint.com/<your site>/saml2ep.cgi` |
-        | |
+        ```https
+        https://stores.pagedna.com/<your site>/saml2ep.cgi
+        https://www.nationsprint.com/<your site>/saml2ep.cgi
+        ```
 
     > [!NOTE]
     > These values aren't real. Update these values with the actual sign-on URL and identifier. To get these values, contact the [PageDNA support team](mailto:success@pagedna.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.

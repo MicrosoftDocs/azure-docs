@@ -1,6 +1,6 @@
 ---
 title: Microsoft identity platform Java web app quickstart | Azure
-description: Learn how to implement Microsoft Sign-In on a Java Web App using OpenID Connect
+description: Learn how to implement Microsoft Sign-In on a Java web app using OpenID Connect
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -32,27 +32,27 @@ To run this sample you will need:
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaQuickstartPage/sourceType/docs) quickstart experience.
 > 1. Enter a name for your application and select **Register**.
-> 1. Follow the instructions to download and automatically configure your new application.
+> 1. Follow the instructions in the portal's quickstart experience to download the automatically configured application code.
 >
 > ### Option 2: Register and manually configure your application and code sample
 >
 > #### Step 1: Register your application
 >
-> To register your application and manually add the app's registration information to your solution, follow these steps:
+> To register your application and manually add the app's registration information to your application, follow these steps:
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
 >
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](/azure/active-directory/develop/) page.
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-webapp`.
->    - Leave **Redirect URI** blank for now, and select **Register**.
+>    - Select **Register**.
 > 1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
 > 1. Select the **Authentication** from the menu, and then add the following information:
->    - In **Redirect URIs**, add `https://localhost:8080/msal4jsample/secure/aad` and `https://localhost:8080/msal4jsample/graph/me`.
+>    - Add the **Web** platform configuration.  Add these `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me` as **Redirect URIs**..
 >    - Select **Save**.
 > 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
 >
@@ -66,7 +66,7 @@ To run this sample you will need:
 >
 > For the code sample for this quickstart to work, you need to:
 >
-> 1. Add reply URLs as `https://localhost:8080/msal4jsample/secure/aad` and `https://localhost:8080/msal4jsample/graph/me`.
+> 1. Add reply URLs as `https://localhost:8443/msal4jsample/secure/aad` and `https://localhost:8443/msal4jsample/graph/me`
 > 1. Create a Client Secret.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make these changes for me]()
@@ -80,22 +80,26 @@ To run this sample you will need:
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Download the project and extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
-> 
+>
 > To use https with localhost, fill in the server.ssl.key properties. To generate a self-signed certificate, use the keytool utility (included in JRE).
 >
 >  ```
 >   Example:
 >   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 >
->   server.ssl.key-store-type=PKCS12  
->   server.ssl.key-store=classpath:keystore.p12  
->   server.ssl.key-store-password=password  
+>   server.ssl.key-store-type=PKCS12
+>   server.ssl.key-store=classpath:keystore.p12
+>   server.ssl.key-store-password=password
 >   server.ssl.key-alias=testCert
 >   ```
 >   Put the generated keystore file in the "resources" folder.
-   
+
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
 > #### Step 3: Configure the code sample
@@ -107,8 +111,8 @@ To run this sample you will need:
 >    aad.clientId=Enter_the_Application_Id_here
 >    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 >    aad.secretKey=Enter_the_Client_Secret_Here
->    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
->    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+>    aad.redirectUriSignin=https://localhost:8443/msal4jsample/secure/aad
+>    aad.redirectUriGraph=https://localhost:8443/msal4jsample/graph/me
 >    aad.msGraphEndpointHost="https://graph.microsoft.com/"
 >    ```
 > Where:
@@ -122,9 +126,9 @@ To run this sample you will need:
 >   Example:
 >   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 >
->   server.ssl.key-store-type=PKCS12  
->   server.ssl.key-store=classpath:keystore.p12  
->   server.ssl.key-store-password=password  
+>   server.ssl.key-store-type=PKCS12
+>   server.ssl.key-store=classpath:keystore.p12
+>   server.ssl.key-store-password=password
 >   server.ssl.key-alias=testCert
 >   ```
 >   Put the generated keystore file in the "resources" folder.
@@ -141,16 +145,68 @@ Run it directly from your IDE by using the embedded spring boot server or packag
 
 ##### Running from IDE
 
-If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8080.
+If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is https://localhost:8443
 
 1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
 
-1. After the user is authenticated, they are redirected to *https://localhost:8080/msal4jsample/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
+1. After the user is authenticated, they are redirected to *https://localhost:8443/msal4jsample/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
     - *Sign Out*: Signs the current user out of the application and redirects them to the home page.
     - *Show User Info*: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request containing the token, which returns basic information about the signed-in user.
 
+##### Running from Tomcat
 
-   
+If you would like to deploy the web sample to Tomcat, you will need to make a couple of changes to the source code.
+
+1. Open ms-identity-java-webapp/pom.xml
+    - Under `<name>msal-web-sample</name>` add `<packaging>war</packaging>`
+
+2. Open ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication
+
+    - Delete all source code and replace with the following:
+
+   ```Java
+    package com.microsoft.azure.msalwebsample;
+
+    import org.springframework.boot.SpringApplication;
+    import org.springframework.boot.autoconfigure.SpringBootApplication;
+    import org.springframework.boot.builder.SpringApplicationBuilder;
+    import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+
+    @SpringBootApplication
+    public class MsalWebSampleApplication extends SpringBootServletInitializer {
+
+     public static void main(String[] args) {
+      SpringApplication.run(MsalWebSampleApplication.class, args);
+     }
+
+     @Override
+     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+      return builder.sources(MsalWebSampleApplication.class);
+     }
+    }
+   ```
+
+3.   Tomcat's default HTTP port is 8080, though an HTTPS connection over port 8443 is needed. To configure this:
+        - Go to tomcat/conf/server.xml
+        - Search for the `<connector>` tag, and replace the existing connector with:
+        ```
+        <Connector
+                   protocol="org.apache.coyote.http11.Http11NioProtocol"
+                   port="8443" maxThreads="200"
+                   scheme="https" secure="true" SSLEnabled="true"
+                   keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
+                   clientAuth="false" sslProtocol="TLS"/>
+        ``` 
+       
+4. Open a command prompt, go to the root folder of this sample (where the pom.xml file is located), and run `mvn package` to build the project
+    - This will generate a `msal-web-sample-0.1.0.war` file in your /targets directory.
+    - Rename this file to `msal4jsample.war`
+    - Deploy this war file using Tomcat or any other J2EE container solution.
+        - To deploy, copy the msal4jsample.war file to the `/webapps/` directory in your Tomcat installation, and then start the Tomcat server.
+
+5. Once deployed, go to https://localhost:8443/msal4jsample in your browser
+
+
 > [!IMPORTANT]
 > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
@@ -165,6 +221,8 @@ MSAL for Java (MSAL4J) is the Java library used to sign in users and request tok
 
 Add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the application's pom.xml (Maven) or build.gradle (Gradle) file.
 
+In pom.xml:
+
 ```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
@@ -172,6 +230,8 @@ Add MSAL4J to your application by using Maven or Gradle to manage your dependenc
     <version>1.0.0</version>
 </dependency>
 ```
+
+In build.gradle:
 
 ```$xslt
 compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
@@ -196,10 +256,5 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 authorizat
 
 > [!div class="nextstepaction"]
 > [Authorization Code Oauth flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
-
-Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
-
-> [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

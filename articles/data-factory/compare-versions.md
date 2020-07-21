@@ -16,6 +16,9 @@ ms.author: makromer
 
 ---
 # Compare Azure Data Factory with Data Factory version 1
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article compares Data Factory with Data Factory version 1. For an introduction to Data Factory, see [Introduction to Data Factory](introduction.md).For an introduction to Data Factory version 1, see [Introduction to Azure Data Factory](v1/data-factory-introduction.md). 
 
 ## Feature comparison
@@ -23,7 +26,7 @@ The following table compares the features of Data Factory with the features of D
 
 | Feature | Version 1 | Current version | 
 | ------- | --------- | --------- | 
-| Datasets | A named view of data that references the data that you want to use in your activities as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Azure Blob storage from which the activity should read the data.<br/><br/>**Availability** defines the processing window slicing model for the dataset (for example, hourly, daily, and so on). | Datasets are the same in the current version. However, you do not need to define **availability** schedules for datasets. You can define a trigger resource that can schedule pipelines from a clock scheduler paradigm. For more information, see [Triggers](concepts-pipeline-execution-triggers.md#triggers) and [Datasets](concepts-datasets-linked-services.md). | 
+| Datasets | A named view of data that references the data that you want to use in your activities as inputs and outputs. Datasets identify data within different data stores, such as tables, files, folders, and documents. For example, an Azure Blob dataset specifies the blob container and folder in Azure Blob storage from which the activity should read the data.<br/><br/>**Availability** defines the processing window slicing model for the dataset (for example, hourly, daily, and so on). | Datasets are the same in the current version. However, you do not need to define **availability** schedules for datasets. You can define a trigger resource that can schedule pipelines from a clock scheduler paradigm. For more information, see [Triggers](concepts-pipeline-execution-triggers.md#trigger-execution) and [Datasets](concepts-datasets-linked-services.md). | 
 | Linked services | Linked services are much like connection strings, which define the connection information that's necessary for Data Factory to connect to external resources. | Linked services are the same as in Data Factory V1, but with a new **connectVia** property to utilize the Integration Runtime compute environment of the current version of Data Factory. For more information, see [Integration runtime in Azure Data Factory](concepts-integration-runtime.md) and [Linked service properties for Azure Blob storage](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipelines | A data factory can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. You use startTime, endTime, and isPaused to schedule and run pipelines. | Pipelines are groups of activities that are performed on data. However, the scheduling of activities in the pipeline has been separated into new trigger resources. You can think of pipelines in the current version of Data Factory more as “workflow units” that you schedule separately via triggers. <br/><br/>Pipelines do not have “windows” of time execution in the current version of Data Factory. The Data Factory V1 concepts of startTime, endTime, and isPaused are no longer present in the current version of Data Factory. For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md) and [Pipelines and activities](concepts-pipelines-activities.md). |
 | Activities | Activities define actions to perform on your data within a pipeline. Data movement (copy activity) and data transformation activities (such as Hive, Pig, and MapReduce) are supported. | In the current version of Data Factory, activities still are defined actions within a pipeline. The current version of Data Factory introduces new [control flow activities](concepts-pipelines-activities.md#control-flow-activities). You use these activities in a control flow (looping and branching). Data movement and data transformation activities that were supported in V1 are supported in the current version. You can define transformation activities without using datasets in the current version. |
@@ -125,14 +128,14 @@ The SDKs that are updated in the current version are not backward-compatible wit
 
 ## Authoring experience
 
-| &nbsp; | V2 | V1 |
+| | Version 2 | Version 1 |
 | ------ | -- | -- | 
-| Azure portal | [Yes](quickstart-create-data-factory-portal.md) | No |
-| Azure PowerShell | [Yes](quickstart-create-data-factory-powershell.md) | [Yes](data-factory-build-your-first-pipeline-using-powershell.md) |
-| .NET SDK | [Yes](quickstart-create-data-factory-dot-net.md) | [Yes](data-factory-build-your-first-pipeline-using-vs.md) |
-| REST API | [Yes](quickstart-create-data-factory-rest-api.md) | [Yes](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| Python SDK | [Yes](quickstart-create-data-factory-python.md) | No |
-| Resource Manager template | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
+| **Azure portal** | [Yes](quickstart-create-data-factory-portal.md) | No |
+| **Azure PowerShell** | [Yes](quickstart-create-data-factory-powershell.md) | [Yes](data-factory-build-your-first-pipeline-using-powershell.md) |
+| **.NET SDK** | [Yes](quickstart-create-data-factory-dot-net.md) | [Yes](data-factory-build-your-first-pipeline-using-vs.md) |
+| **REST API** | [Yes](quickstart-create-data-factory-rest-api.md) | [Yes](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| **Python SDK** | [Yes](quickstart-create-data-factory-python.md) | No |
+| **Resource Manager template** | [Yes](quickstart-create-data-factory-resource-manager-template.md) | [Yes](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## Roles and permissions
 

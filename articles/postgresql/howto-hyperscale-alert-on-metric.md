@@ -4,7 +4,8 @@ description: This article describes how to configure and access metric alerts fo
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
-ms.topic: conceptual
+ms.subservice: hyperscale-citus
+ms.topic: how-to
 ms.date: 3/16/2020
 ---
 

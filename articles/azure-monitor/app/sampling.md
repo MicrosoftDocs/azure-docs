@@ -16,8 +16,8 @@ When metric counts are presented in the portal, they are renormalized to take in
 ## Brief summary
 
 * There are three different types of sampling: adaptive sampling, fixed-rate sampling, and ingestion sampling.
-* Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
-* Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java, and Python.
+* Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by [Azure Functions](../../azure-functions/functions-overview.md).
+* Fixed-rate sampling is available in recent versions of the Application Insights SDKs for ASP.NET, ASP.NET Core, Java (both the agent and the SDK), and Python.
 * Ingestion sampling works on the Application Insights service endpoint. It only applies when no other sampling is in effect. If the SDK samples your telemetry, ingestion sampling is disabled.
 * For web applications, if you log custom events and need to ensure that a set of events is retained or discarded together, the events must have the same `OperationId` value.
 * If you write Analytics queries, you should [take account of sampling](../../azure-monitor/log-query/aggregations.md). In particular, instead of simply counting records, you should use `summarize sum(itemCount)`.
@@ -31,6 +31,7 @@ The following table summarizes the sampling types available for each SDK and typ
 | ASP.NET Core | [Yes (on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Yes](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Only if no other sampling is in effect |
 | Azure Functions | [Yes (on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Only if no other sampling is in effect |
 | Java | No | [Yes](#configuring-fixed-rate-sampling-for-java-applications) | Only if no other sampling is in effect |
+| Node.JS | No | [Yes](./nodejs.md#sampling) | Only if no other sampling is in effect
 | Python | No | [Yes](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Only if no other sampling is in effect |
 | All others | No | No | [Yes](#ingestion-sampling) |
 
@@ -204,7 +205,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### Configuring adaptive sampling for Azure Functions
 
-Follow instructions from [this page](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
+Follow instructions from [this page](../../azure-functions/functions-monitoring.md#configure-sampling) to configure adaptive sampling for apps running in Azure Functions.
 
 ## Fixed-rate sampling
 
@@ -239,7 +240,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
     </TelemetryProcessors>
     ```
 
-	  Alternatively, instead of setting the sampling parameter in the `ApplicationInsights.config` file, you can programmatically set these values:
+      Alternatively, instead of setting the sampling parameter in the `ApplicationInsights.config` file, you can programmatically set these values:
 
     ```csharp
     using Microsoft.ApplicationInsights.Extensibility;
@@ -301,7 +302,29 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 ### Configuring fixed-rate sampling for Java applications
 
-By default no sampling is enabled in the Java SDK. Currently it only supports fixed rate sampling. Adaptive sampling is not supported in the Java SDK.
+By default no sampling is enabled in the Java agent and SDK. Currently it only supports fixed rate sampling. Adaptive sampling is not supported in Java.
+
+#### Configuring Java Agent
+
+1. Download [applicationinsights-agent-3.0.0-PREVIEW.5.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.5/applicationinsights-agent-3.0.0-PREVIEW.5.jar)
+
+1. To enable sampling add the following to your `ApplicationInsights.json` file:
+
+```json
+{
+  "instrumentationSettings": {
+    "preview": {
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10 //this is just an example that shows you how to enable only only 10% of transaction 
+        }
+      }
+    }
+  }
+}
+```
+
+#### Configuring Java SDK
 
 1. Download and configure your web application with the latest [Application Insights Java SDK](../../azure-monitor/app/java-get-started.md).
 
@@ -361,7 +384,7 @@ tracer = Tracer(
 You can configure fixed-rate sampling for `AzureLogHandler` by modifying the `logging_sampling_rate` optional argument. If no argument is supplied, a sampling rate of 1.0 will be used. A sampling rate of 1.0 represents 100%, meaning all of your requests will be sent as telemetry to Application Insights.
 
 ```python
-exporter = metrics_exporter.new_metrics_exporter(
+handler = AzureLogHandler(
     instrumentation_key='00000000-0000-0000-0000-000000000000',
     logging_sampling_rate=0.5,
 )
@@ -454,7 +477,7 @@ If the conditions to use the other forms of sampling do not apply, we recommend 
 
 ## Knowing whether sampling is in operation
 
-To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../../azure-monitor/app/analytics.md) such as this:
+To discover the actual sampling rate no matter where it has been applied, use an [Analytics query](../log-query/log-query-overview.md) such as this:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces
@@ -530,7 +553,7 @@ The accuracy of the approximation largely depends on the configured sampling per
 
 * Ingestion sampling can occur automatically for any telemetry above a certain volume, if the SDK is not performing sampling. This configuration would work, for example, if you are using an older version of the ASP.NET SDK or Java SDK.
 * If you're using the current ASP.NET or ASP.NET Core SDKs (hosted either in Azure or on your own server), you get adaptive sampling by default, but you can switch to fixed-rate as described above. With fixed-rate sampling, the browser SDK automatically synchronizes to sample related events. 
-* If you're using the current Java SDK, you can configure `ApplicationInsights.xml` to turn on fixed-rate sampling. Sampling is turned off by default. With fixed-rate sampling, the browser SDK and the server automatically synchronize to sample related events.
+* If you're using the current Java agent, you can configure `ApplicationInsights.json` (for Java SDK, configure `ApplicationInsights.xml`) to turn on fixed-rate sampling. Sampling is turned off by default. With fixed-rate sampling, the browser SDK and the server automatically synchronize to sample related events.
 
 *There are certain rare events I always want to see. How can I get them past the sampling module?*
 
@@ -560,4 +583,4 @@ Prior to v2.5.0-beta2 of the ASP.NET SDK, and v2.2.0-beta3 of ASP.NET Core SDK, 
 ## Next steps
 
 * [Filtering](../../azure-monitor/app/api-filtering-sampling.md) can provide more strict control of what your SDK sends.
-* Read the Developer Network article [Optimize Telemetry with Application Insights](https://msdn.microsoft.com/magazine/mt808502.aspx).
+* Read the Developer Network article [Optimize Telemetry with Application Insights](/archive/msdn-magazine/2017/may/devops-optimize-telemetry-with-application-insights).

@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 04/22/2020
 ---
 
 # Two-Class Neural Network module
@@ -70,9 +70,19 @@ To compute the output of the network for a particular input, a value is calculat
   
      Specifying a seed value is useful when you want to ensure repeatability across runs of the same pipeline.  Otherwise, a system clock value is used as the seed, which can cause slightly  different results each time you run the pipeline.
   
-13. Add a tagged dataset to the pipeline, and connect one of the [training modules](module-reference.md).  
+13. Add a labeled dataset to the pipeline, and train the model:
+
+    + If you set **Create trainer mode** to **Single Parameter**, connect a tagged dataset and the [Train Model](train-model.md) module.  
   
-    -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.  
+    + If you set **Create trainer mode** to **Parameter Range**, connect a tagged dataset and train the model by using [Tune Model Hyperparameters](tune-model-hyperparameters.md).  
+  
+    > [!NOTE]
+    > 
+    > If you pass a parameter range to [Train Model](train-model.md), it uses only the default value in the single parameter list.  
+    > 
+    > If you pass a single set of parameter values to the [Tune Model Hyperparameters](tune-model-hyperparameters.md) module, when it expects a range of settings for each parameter, it ignores the values, and uses the default values for the learner.  
+    > 
+    > If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.  
   
 14. Submit the pipeline.
 

@@ -24,4 +24,4 @@ Windows Virtual Desktop uses the Azure Traffic Manager, which checks the locatio
 
 - To check the best location for optimal latency, see the [Windows Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - For pricing plans, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- To get started with your Windows Virtual Desktop deployment, check out [our tutorial](tenant-setup-azure-active-directory.md).
+- To get started with your Windows Virtual Desktop deployment, check out [our tutorial](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

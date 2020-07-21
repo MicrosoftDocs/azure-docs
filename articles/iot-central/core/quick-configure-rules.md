@@ -19,7 +19,7 @@ In this quickstart, you create a rule that sends an email when the temperature r
 
 ## Prerequisites
 
-Before you begin, you should complete the two previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device.md) to create the **MXChip IoT DevKit** device template to work with.
+Before you begin, you should complete the two previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central.md) and [Add a simulated device to your IoT Central application](./quick-create-simulated-device.md) to create the **MXChip IoT DevKit** device template to work with.
 
 ## Create a telemetry-based rule
 

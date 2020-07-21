@@ -3,18 +3,17 @@ title: How to configure self-service application assignment | Microsoft Docs
 description: Enable self-service application access to allow users to find their own applications
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/23/2018
-ms.author: mimart
-
+ms.topic: how-to
+ms.date: 04/20/2020
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 
@@ -37,6 +36,9 @@ Using this feature, you can:
 -   Optionally allow a business approver to set the passwords those users can use to sign in to the application, right from the business approver’s [Application Access Panel](https://myapps.microsoft.com/).
 
 -   Optionally automatically assign self-service assigned users to an application role directly.
+
+> [!NOTE]
+> An Azure Active Directory Premium (P1 or P2) license is required for users to request to join a self-service app and for owners to approve or deny requests. Without an Azure Active Directory Premium license, users cannot add self-service apps.
 
 ## Enable self-service application access to allow users to find their own applications
 

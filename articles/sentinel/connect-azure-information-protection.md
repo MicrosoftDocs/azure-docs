@@ -1,6 +1,6 @@
 ---
 title: Connect Azure Information Protection to Azure Sentinel
-description: Learn how to connect Azure Information Protection data in Azure Sentinel.
+description: Stream logging information from Azure Information Protection into Azure Sentinel by configuring the Azure Information Protection data connector. 
 services: sentinel
 author: yelevin
 manager: rkarlin

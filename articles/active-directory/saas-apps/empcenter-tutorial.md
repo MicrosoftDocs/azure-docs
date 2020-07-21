@@ -104,10 +104,10 @@ To configure Azure AD single sign-on with EmpCenter, perform the following steps
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
 	
-    | |
-	|--|
-	| `https://<subdomain>.EmpCenter.com/<instancename>` |
-	| `https://<subdomain>.workforcehosting.com/<instancename>` |
+    ```https
+    https://<subdomain>.EmpCenter.com/<instancename>
+    https://<subdomain>.workforcehosting.com/<instancename>
+    ```
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [EmpCenter Client support team](https://www.workforcesoftware.com/services/customer-support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

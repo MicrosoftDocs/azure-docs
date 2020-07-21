@@ -4,7 +4,7 @@ description: This quickstart helps you configure a firewall for an Azure Analysi
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to secure my server by configuring a server firewall and create open IP address ranges for client computers in my organization.

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 03/19/2020
+ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -17,7 +17,7 @@ Windows Virtual Desktop is a desktop and app virtualization service that runs on
 Here's what you can do when you run Windows Virtual Desktop on Azure:
 
 * Set up a multi-session Windows 10 deployment that delivers a full Windows 10 with scalability
-* Virtualize Office 365 ProPlus and optimize it to run in multi-user virtual scenarios
+* Virtualize Microsoft 365 Apps for enterprise and optimize it to run in multi-user virtual scenarios
 * Provide Windows 7 virtual desktops with free Extended Security Updates
 * Bring your existing Remote Desktop Services (RDS) and Windows Server desktops and apps to any computer
 * Virtualize both desktops and apps
@@ -62,8 +62,8 @@ We plan to add support for the following OSes, so make sure you have the [approp
 
 |OS|Required license|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
@@ -82,29 +82,7 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
-The Azure virtual machines you create for Windows Virtual Desktop must have access to the following URLs:
-
-|Address|Outbound port|Purpose|
-|---|---|---|
-|*.wvd.microsoft.com|TCP port 443|Service traffic|
-|*.blob.core.windows.net|TCP port 443|Agent, SXS stack updates, and Agent traffic|
-|*.core.windows.net|TCP port 443|Agent traffic|
-|*.servicebus.windows.net|TCP port 443|Agent traffic|
-|prod.warmpath.msftcloudes.com|TCP port 443|Agent traffic|
-|catalogartifact.azureedge.net|TCP port 443|Azure Marketplace|
-|kms.core.windows.net|TCP port 1688|Windows 10 activation|
-
->[!IMPORTANT]
->Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and don't include URLs for other services like Azure Active Directory.
-
->[!NOTE]
->Windows Virtual Desktop currently doesn't have a list of IP address ranges that you can whitelist to allow network traffic. We only support whitelisting specific URLs at this time.
->
->You must use the wildcard character (*) for URLs involving service traffic. If you prefer to not use * for agent-related traffic, here's how to find the URLs without wildcards:
->
->1. Register your virtual machines to the Windows Virtual Desktop host pool.
->2. Open **Event viewer** and navigate to **Windows logs** > **Application** > **WVD-Agent** and look for Event ID 3702.
->3. Whitelist the URLs that you find under Event ID 3702. The URLs under Event ID 3702 are region-specific. You'll need to repeat the whitelisting process with the relevant URLs for each region you want to deploy your virtual machines in.
+For a list of URLs you should unblock for your Windows Virtual Desktop deployment to work as intended, see our [Safe URL list](safe-url-list.md).
 
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. Desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States. This may result in data transfer to the United States.
 
@@ -118,7 +96,7 @@ For optimal performance, make sure your network meets the following requirements
 
 The following Remote Desktop clients support Windows Virtual Desktop:
 
-* [Windows Desktop](connect-windows-7-and-10.md)
+* [Windows Desktop](connect-windows-7-10.md)
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
@@ -130,20 +108,7 @@ The following Remote Desktop clients support Windows Virtual Desktop:
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't currently support the Remote Desktop client from the Windows Store. Support for this client will be added in a future release.
 
-The Remote Desktop clients must have access to the following URLs:
-
-|Address|Outbound port|Purpose|Client(s)|
-|---|---|---|---|
-|*.wvd.microsoft.com|TCP port 443|Service traffic|All|
-|*.servicebus.windows.net|TCP port 443|Troubleshooting data|All|
-|go.microsoft.com|TCP port 443|Microsoft FWLinks|All|
-|aka.ms|TCP port 443|Microsoft URL shortener|All|
-|docs.microsoft.com|TCP port 443|Documentation|All|
-|privacy.microsoft.com|TCP port 443|Privacy statement|All|
-|query.prod.cms.rt.microsoft.com|TCP port 443|Client updates|Windows Desktop|
-
->[!IMPORTANT]
->Opening these URLs is essential for a reliable client experience. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to the client sites and resources, and don't include URLs for other services like Azure Active Directory.
+To learn more about URLs you must unblock to use the Remote Clients, see the [Safe URL list](safe-url-list.md).
 
 ## Supported virtual machine OS images
 
@@ -160,20 +125,22 @@ Windows Virtual Desktop does not support x86 (32-bit), Windows 10 Enterprise N, 
 
 Available automation and deployment options depend on which OS and version you choose, as shown in the following table: 
 
-|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|Windows Virtual Desktop Agent updates|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 multi-session, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|Automatic|
-|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|Automatic|
-|Windows 7 Enterprise|Yes|Yes|No|No|Manual|
-|Windows Server 2019|Yes|Yes|No|No|Automatic|
-|Windows Server 2016|Yes|Yes|Yes|Yes|Automatic|
-|Windows Server 2012 R2|Yes|Yes|No|No|Automatic|
+|Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 multi-session, version 1809|Yes|Yes|No|No|
+|Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 Enterprise, version 1809|Yes|Yes|No|No|
+|Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2019|Yes|Yes|No|No|
+|Windows Server 2016|Yes|Yes|Yes|Yes|
+|Windows Server 2012 R2|Yes|Yes|No|No|
 
 ## Next steps
 
-To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
+If you're using the Windows Virtual Desktop Fall 2019 release, you can get started with our tutorial at [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+If you're using the Windows Virtual Desktop Spring 2020 release, you'll need to create a host pool instead. Head to the following tutorial to get started.
 
 > [!div class="nextstepaction"]
-> [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md)

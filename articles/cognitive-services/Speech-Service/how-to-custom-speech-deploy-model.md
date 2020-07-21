@@ -34,10 +34,12 @@ After your endpoint is deployed, the endpoint name appears as a link. Click the 
 ## View logging data
 
 Logging data is available for download under **Endpoint > Details**.
+> [!NOTE]
+>The logging data is available for 30 days on Microsoft owned storage and will be removed afterwards. In case a customer owned storage account is linked to the cognitive services subscription, the logging data will not be automatically deleted.
 
 ## Next steps
 
-* Use your custom endpoint with the [Speech SDK](speech-sdk.md)
+* Learn how to use your custom model [here](how-to-specify-source-language.md).
 
 ## Additional resources
 

@@ -5,18 +5,18 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/11/2020
+ms.date: 05/12/2020
 
 #As a developer, I want to understand what Azure Cache for Redis is and how it can improve performance in my application.
 ---
 
-# Azure Cache for Redis description
+# Azure Cache for Redis
 
-Azure Cache for Redis provides an in-memory data store based on the open-source software [Redis](https://redis.io/). When used as a cache, Redis improves the performance and scalability of systems that rely heavily on backend data-stores. Performance is improved by copying frequently accessed data to fast storage located close to the application. With Azure Cache for Redis, this fast storage is located in-memory instead of being loaded from disk by a database.
+Azure Cache for Redis provides an in-memory data store based on the open-source software [Redis](https://redis.io/). When used as a cache, Redis improves the performance and scalability of systems that rely heavily on backend data stores. Performance is improved by copying frequently accessed data to fast storage located close to the application. With Azure Cache for Redis, this fast storage is located in-memory instead of being loaded from disk by a database.
 
-Azure Cache for Redis can be used as an in-memory data structure store, a distributed non-relational database, and a message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
+Azure Cache for Redis can be used as a distributed data cache, a session store, and a message broker. Application performance is improved by taking advantage of the low-latency, high-throughput performance of the Redis engine.
 
-Azure Cache for Redis provides access to a secure, dedicated Redis cache. Azure Cache for Redis is managed by Microsoft, hosted within Azure, and accessible to any application within or outside of Azure.
+Azure Cache for Redis offers access to a secure, dedicated Redis cache. It is managed by Microsoft, hosted on Azure, and accessible to any application within or outside of Azure.
 
 ## Using Azure Cache for Redis
 
@@ -37,7 +37,7 @@ Azure Cache for Redis is available in the following tiers:
 | Tier | Description |
 |---|---|
 Basic | A single node cache. This tier supports multiple memory sizes (250 MB - 53 GB)and is ideal for development/test and non-critical workloads. The Basic tier has no service-level agreement (SLA) |
-| Standard | A replicated cache in a two-node, primary/secondary, configuration managed by Azure with a high-availability SLA (99.9%) |
+| Standard | A replicated cache in a two-node, primary/replica, configuration managed by Azure with a high-availability SLA (99.9%) |
 | Premium | The Premium tier is the Enterprise-ready tier. Premium tier Caches support more features and have higher throughput with lower latencies. Caches in the Premium tier are deployed on more powerful hardware providing better performance compared to the Basic or Standard Tier. This advantage means the throughput for a cache of the same size will be higher in Premium compared to Standard tier. |
 
 > [!TIP]

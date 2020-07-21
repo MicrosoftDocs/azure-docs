@@ -4,6 +4,7 @@ description: The purpose of this document is to help a user validate the network
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
+manager: dcscontentpm
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: philmea
-ms.custom: mvc
+ms.custom:  [mvc, amqp, mqtt]
 #Customer intent: As a new IoT developer, I want simulate a TPM device using the C SDK so that I can learn how secure provisioning works.
 ---
 
@@ -218,7 +218,7 @@ If you plan to continue working on and exploring the device client sample, do no
 
 ## Next steps
 
-In this quickstart, you’ve created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
+In this quickstart, you've created a TPM simulated device on your machine and provisioned it to your IoT hub using the IoT Hub Device Provisioning Service. To learn how to enroll your TPM device programmatically, continue to the quickstart for programmatic enrollment of a TPM device. 
 
 > [!div class="nextstepaction"]
 > [Azure quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-java.md)

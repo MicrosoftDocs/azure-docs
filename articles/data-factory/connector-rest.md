@@ -14,6 +14,7 @@ ms.date: 11/20/2019
 ms.author: jingwang
 ---
 # Copy data from a REST endpoint by using Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
@@ -55,7 +56,7 @@ The following properties are supported for the REST linked service:
 |:--- |:--- |:--- |
 | type | The **type** property must be set to **RestService**. | Yes |
 | url | The base URL of the REST service. | Yes |
-| enableServerCertificateValidation | Whether to validate server-side SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
+| enableServerCertificateValidation | Whether to validate server-side TLS/SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal** and **ManagedServiceIdentity**. Refer to corresponding sections below on more properties and examples respectively. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 

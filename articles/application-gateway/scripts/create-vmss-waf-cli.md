@@ -5,7 +5,7 @@ services: application-gateway
 documentationcenter: networking
 author: vhorne
 
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.service: application-gateway

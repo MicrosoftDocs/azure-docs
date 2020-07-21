@@ -1,7 +1,7 @@
 ---
-title: Data in Azure Machine Learning
+title: Secure data access in the cloud
 titleSuffix: Azure Machine Learning
-description: Learn how Azure Machine Learning securely connects to your data, and uses that data for machine learning tasks.
+description: Learn how to securely connect to your data from Azure Machine Learning, and how to use datasets and datastores for ML tasks. Datastores can store data from an Azure Blob, Azure Data Lake Gen 1 & 2, SQL db, Databricks,...
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 03/20/2020
+ms.date: 04/24/2020
+ms.custom: tracking-python
 
 # Customer intent: As an experienced Python developer, I need to securely access my data in my Azure storage solutions and use it to accomplish my machine learning tasks.
 ---
 
-# Data access in Azure Machine Learning
+# Secure data access in Azure Machine Learning
 
 Azure Machine Learning makes it easy to connect to your data in the cloud.  It provides an abstraction layer over the underlying storage service, so you can securely access and work with your data without having to write code specific to your storage type. Azure Machine Learning also provides the following data capabilities:
 
@@ -70,7 +71,7 @@ Datasets can be created from local files, public urls, [Azure Open Datasets](htt
 We support 2 types of datasets: 
 + A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. You can load a TabularDataset into a Pandas or Spark DataFrame for further manipulation and cleansing. For a complete list of data formats you can create TabularDatasets from, see the [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
 
-+ A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. You can [download or mount files](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) referenced by FileDatasets to your compute target.
++ A [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public URLs. You can [download or mount files](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenced by FileDatasets to your compute target.
 
 Additional datasets capabilities can be found in the following documentation:
 

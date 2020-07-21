@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 05/24/2018
+ms.date: 05/12/2020
 
 ---
 
@@ -35,7 +35,7 @@ Ensure the following prerequisites are met:
 - The Service Manager Web application (Web app) is deployed and configured. Information on Web app is [here](#create-and-deploy-service-manager-web-app-service).
 - Hybrid connection created and configured. More information: [Configure the hybrid Connection](#configure-the-hybrid-connection).
 - Supported versions of Service Manager:  2012 R2 or 2016.
-- User role:  [Advanced operator](https://technet.microsoft.com/library/ff461054.aspx).
+- User role:  [Advanced operator](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
 
 ### Connection procedure
 
@@ -190,7 +190,20 @@ Ensure the following prerequisites are met:
     - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Helsinki](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
-
+> [!NOTE]
+> As a part of the definition of the “Set up OAuth” we would recommend:
+>
+> 1) **Update the refresh token lifespan to 90 days (7,776,000 seconds):**
+> As a part of the [Set up OAuth](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_SettingUpOAuth.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696739125&sdata=Q7mF6Ej8MCupKaEJpabTM56EDZ1T8vFVyihhoM594aA%3D&reserved=0) in phase 2: [Create an endpoint for clients to access the instance](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.servicenow.com%2Fbundle%2Fnewyork-platform-administration%2Fpage%2Fadminister%2Fsecurity%2Ftask%2Ft_CreateEndpointforExternalClients.html&data=02%7C01%7CNoga.Lavi%40microsoft.com%7C2c6812e429a549e71cdd08d7d1b148d8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637208431696749123&sdata=hoAJHJAFgUeszYCX1Q%2FXr4N%2FAKiFcm5WV7mwR2UqeWA%3D&reserved=0)
+> After the definition of the endpoint, In ServiceNow blade search for System OAuth than select Application Registry. Pick the name of the OAuth that was defined and update the field of Refresh token Lifespan to 7,776,000 (90 days in seconds).
+> At the end click update.
+> 2) **We recommend to establish an internal procedure to ensure the connection remains alive:**
+> According to the Refresh Token Lifespan to refresh the token. Please make sure to perform the following operations prior refresh token expected expiration time (Couple of days before the Refresh Token Lifespan expires we recommend):
+>
+> 1. [Complete a manual sync process for ITSM connector configuration](./itsmc-resync-servicenow.md)
+> 2. Revoke to the old refresh token as it is not recommended to keep old keys from for security reasons. In ServiceNow blade search for System OAuth than select Manage Tokens. Pick the old token from the list according to the OAuth name and expiration date.
+> ![SNOW system OAuth definition](media/itsmc-connections/snow-system-oauth.png)
+> 3. Click on Revoke Access and than on Revoke.
 
 - Install the User App for Microsoft Log Analytics integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
@@ -234,6 +247,11 @@ Use the following procedure to create a ServiceNow connection:
 - You can create incidents from Log Analytics alerts or from log records, or from Azure alerts in this ServiceNow instance.
 
 Learn more: [Create ITSM work items from Azure alerts](../../azure-monitor/platform/itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+
+
+> [!NOTE]
+> In ServiceNow there is a rate limit for requests per hour. 
+> In order to configure the limit use this by defining "Inbound REST API rate limiting" in the ServiceNow instance.
 
 ### Create integration user role in ServiceNow app
 

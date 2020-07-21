@@ -99,7 +99,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-The above example will work fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fallback to "black". To modify the fallback color, use a `case` expression in combination with the `has` expression to check if the property exists. If the property doesn’t exist, return a fallback color.
+The above example will work fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fallback to "black". To modify the fallback color, use a `case` expression in combination with the `has` expression to check if the property exists. If the property doesn't exist, return a fallback color.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -405,7 +405,7 @@ Type expressions provide tools for testing and converting different data types l
 | `['typeof', value]` | string | Returns a string describing the type of the given value. |
 
 > [!TIP]
-> If an error message similar to `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console, then it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
+> If an error message similar to `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console, then it means that there is an expression somewhere in your code that has an array that doesn't have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -742,7 +742,7 @@ This layer will render the point feature as shown in the image below:
 
 ### Number format expression
 
-The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript’s [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function and supports the following set of options.
+The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript's [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function and supports the following set of options.
 
  * `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) into this option.
  * `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes](https://en.wikipedia.org/wiki/ISO_4217), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
@@ -774,7 +774,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
         textField: [
             'number-format', 
             ['get', 'revenue'], 
-            { ‘currency’: 'USD' }
+            { ‘currency': 'USD' }
         ],
 
         offset: [0, 0.75]
@@ -832,7 +832,7 @@ A `zoom` expression is used to retrieve the current zoom level of the map at ren
 
 **Example**
 
-By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, will create a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression as shown below. 
+By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, will create a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression, with the pixel radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `2 * Math.pow(2, minZoom - maxZoom)` as shown below.
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -844,8 +844,8 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         //For zoom level 1 set the radius to 2 pixels.
         10, 2,
 
-        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 10,000 pixels.
-        19, 10000
+        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
+        19, 2 * Math.pow(2, 19 - 1)
     ]
 };
 ```
@@ -923,4 +923,4 @@ Learn more about the layer options that support expressions:
 > [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest) 
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)

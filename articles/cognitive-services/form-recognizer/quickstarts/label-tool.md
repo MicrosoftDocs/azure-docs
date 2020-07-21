@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 04/14/2020
 ms.author: pafarley
 ---
 
@@ -33,7 +33,7 @@ To complete this quickstart, you must have:
 You'll use the Docker engine to run the sample labeling tool. Follow these steps to set up the Docker container. For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a web application built using React + Redux, and is written in TypeScript. To learn more or contribute, see [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> The OCR Form Labeling Tool is also available as an open source project on GitHub. The tool is a TypeScript web application built using React + Redux. To learn more or contribute, see the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) repo. To try out the tool online, go to the [FOTT website](https://fott.azurewebsites.net/).   
 
 1. First, install Docker on a host computer. This guide will show you how to use local computer as a host. If you want to use a Docker hosting service in Azure, see the [Deploy the sample labeling tool](../deploy-label-tool.md) how-to guide. 
 
@@ -57,7 +57,7 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
-   This command will make the sample labeling tool available through a web browser. Go to [http://localhost:3000](http://localhost:3000).
+   This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
 > [!NOTE]
 > You can also label documents and train models using the Form Recognizer REST API. To train and Analyze with the REST API, see [Train with labels using the REST API and Python](./python-labeled-data.md).
@@ -100,7 +100,7 @@ Fill in the fields with the following values:
 In the sample labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
 
 * **Display Name** - the project display name
-* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by clicking the gear icon in the lower corner of the left navigation bar.
+* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by clicking the gear icon at the bottom of the left navigation bar.
 * **Source Connection** - The Azure Blob Storage connection you created in the previous step that you would like to use for this project.
 * **Folder Path** - Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
@@ -126,9 +126,9 @@ Click **Run OCR on all files** on the left pane to get the text layout informati
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
 
 1. First, use the tags editor pane to create the tags you'd like to identify.
-  1. Click **+** to create a new tag.
-  1. Enter the tag name.
-  1. Press Enter to save the tag.
+   1. Click **+** to create a new tag.
+   1. Enter the tag name.
+   1. Press Enter to save the tag.
 1. In the main editor, click and drag to select one or multiple words from the highlighted text elements.
 1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
     > [!Tip]
@@ -139,16 +139,54 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
     > * Don't include keys in your tagged fields&mdash;only the values.
     > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
-
-
-Follow the above steps to label five of your forms, and then move on to the next step.
+    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
+    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
 
 ![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
 
+Follow the steps above to label at least five of your forms.
+
+### Specify tag value types
+
+Optionally, you can set the expected data type for each tag. Open the context menu to the right of a tag and select a type from the menu. This feature allows the detection algorithm to make certain assumptions that will improve the text-detection accuracy. It also ensures that the detected values will be returned in a standardized format in the final JSON output. 
+
+> [!div class="mx-imgBorder"]
+> ![Value type selection with sample labeling tool](../media/whats-new/formre-value-type.png)
+
+The following value types and variations are currently supported:
+* `string`
+    * default, `no-whitespaces`, `alphanumeric`
+* `number`
+    * default, `currency`
+* `date` 
+    * default, `dmy`, `mdy`, `ymd`
+* `time`
+* `integer`
+
+> [!NOTE]
+> See these rules for date formatting:
+> 
+> The following characters can be used as DMY date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+> * 01,01,2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> The day and month can each be written as one or two digits, and the year can be two or four digits:
+> * 1-1-2020
+> * 1-01-20
+>
+> If a DMY date string has eight digits, the delimiter is optional:
+> * 01012020
+> * 01 01 2020
+>
+> The month can also be written as its full or short name. If the name is used, delimiter characters are optional:
+> * 01/Jan/2020
+> * 01Jan2020
+> * 01 Jan 2020
 
 ## Train a custom model
 
-Click the Train icon (the train car) on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
+Click the Train icon on the left pane to open the Training page. Then click the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the REST API.
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
@@ -163,7 +201,7 @@ After training finishes, examine the **Average Accuracy** value. If it's low, yo
 
 ## Analyze a form
 
-Click on the Predict (rectangles) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
+Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
 > [!TIP]
 > You can also run the Analyze API with a REST call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).

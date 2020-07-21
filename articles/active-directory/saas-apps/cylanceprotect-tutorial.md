@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/10/2020
+ms.date: 04/27/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -145,7 +145,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CylancePROTECT SSO
 
-To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CylancePROTECT support team](mailto:Ibrahim.nafea@toyota.com). They set this setting to have the SAML SSO connection set properly on both sides. For more information, use Cylance documentation: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
+To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CylancePROTECT support team](https://www.cylance.com/en-us/resources/support/support-overview.html). They set this setting to have the SAML SSO connection set properly on both sides. For more information, use Cylance documentation: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
 
 ### Create CylancePROTECT test user
 

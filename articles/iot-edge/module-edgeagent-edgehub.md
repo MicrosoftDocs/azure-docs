@@ -50,6 +50,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 | modules.{moduleId}.status | {"running" \| "stopped"} | Yes |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failure" \| "on-unhealthy" \| "always"} | Yes |
 | modules.{moduleId}.imagePullPolicy | {"on-create" \| "never"} | No |
+| modules.{moduleId}.env | A list of environment variables to pass to the module. Takes the format `"<name>": {"value": "<value>"}` | No |
 | modules.{moduleId}.settings.image | The URI to the module image. | Yes |
 | modules.{moduleId}.settings.createOptions | A stringified JSON containing the options for the creation of the module container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
 | modules.{moduleId}.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |

@@ -18,7 +18,7 @@ The [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) c
 
 When extending **RoleEntryPoint**, you should be aware of the following behaviors of the methods:
 
-* The [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) and [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) methods return a boolean value, so it is possible to return **false** from these methods.
+* The [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) method returns a boolean value, so it is possible to return **false** from this method.
   
    If your code returns **false**, the role process is abruptly terminated, without running any shutdown sequence you may have in place. In general, you should avoid returning **false** from the **OnStart** method.
 * Any uncaught exception within an overload of a **RoleEntryPoint** method is treated as an unhandled exception.

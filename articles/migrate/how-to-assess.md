@@ -1,27 +1,17 @@
 ---
 title: Add assessment tools in Azure Migrate 
 description: Learn how to add assessment tools in Azure Migrate. 
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
+ms.topic: how-to
+ms.date: 04/26/2020
 ---
 
 
 # Add assessment tools
 
-This article describes how to add assessment tools in [Azure Migrate](migrate-overview.md).
+This article describes how to add assessment tools in [Azure Migrate](./migrate-services-overview.md). 
 
-Azure Migrate provides a hub of tools for assessment and migration to Azure. It includes Azure Migrate tools, as well as other tools and independent software vendor (ISV) offerings.
-
-If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
-
-## Select a tool
-
-If you choose a non-Azure Migrate tool for assessment, start by obtaining a license, or signing up for a free trial, in accordance with the tool policy. Tools have an option to connect to Azure Migrate. Follow the instructions and documentation, to connect the tool to Azure Migrate. [Learn more](migrate-services-overview.md) about tools.
-
+- If you want to add an assessment tool and you don't yet have an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).-
+- If you've added an ISV tool, or Movere, for assessment, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
 
 ## Select an assessment scenario
 
@@ -29,7 +19,7 @@ If you choose a non-Azure Migrate tool for assessment, start by obtaining a lice
 2. Select the assessment scenario you want to use:
 
     - To discover and assess machines and workloads for migration to Azure, select **Assess and migrate servers**.
-    - To assess on-premises SQL machines, select **Assess and migrate databases**.
+    - To assess on-premises SQL Server databases, select **Assess and migrate databases**.
     - To assess on-premises web apps, select **Assess and migrate web apps**.
 
     ![Assessment scenario](./media/how-to-assess/assess-scenario.png)

@@ -72,7 +72,7 @@ az deployment group create \
 
 ---
 
-In the output for the deployment command, you'll see an object similar to:
+In the output for the deployment command, you'll see an object similar to the following example only if the output is in JSON format:
 
 ```json
 {
@@ -84,6 +84,9 @@ In the output for the deployment command, you'll see an object similar to:
     "file": "https://storeluktbfkpjjrkm.file.core.windows.net/"
 }
 ```
+
+> [!NOTE]
+> If the deployment failed, use the **debug** switch with the deployment command to show the debug logs.  You can also use the **verbose** switch to show the full debug logs.
 
 ## Review your work
 

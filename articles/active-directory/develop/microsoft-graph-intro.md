@@ -1,5 +1,5 @@
 ---
-title: Microsoft Graph API | Microsoft Docs
+title: Microsoft Graph API
 description: The Microsoft Graph API is a RESTful web API that enables you to access Microsoft Cloud service resources.
 author: davidmu1
 services: active-directory
@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 02/13/2020
 ms.author: davidmu

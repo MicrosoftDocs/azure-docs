@@ -15,6 +15,8 @@ ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
 You take the following steps in this tutorial:
@@ -34,10 +36,10 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 ## Prerequisites
 
 * *Azure Storage account*. You use the blob storage as *source* data store. If you don't have an Azure storage account, see [Create a general-purpose storage account](../storage/common/storage-account-create.md).
-* *Azure SQL Database*. You use the database as *sink* data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-single-database-get-started.md).
+* *Azure SQL Database*. You use the database as *sink* data store. If you don't have a database in Azure SQL Database, see the [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * *Visual Studio*. The walkthrough in this article uses Visual Studio 2019.
 * *[Azure SDK for .NET](/dotnet/azure/dotnet-tools)*.
-* *Azure Active Directory application*. If you don't have an Azure Active Directory application, see the [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) section of [How to: Use the portal to create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md). Copy the following values for use in later steps: **Application (client) ID**, **authentication key**, and **Directory (tenant) ID**. Assign the application to the **Contributor** role by following the instructions in the same article.
+* *Azure Active Directory application*. If you don't have an Azure Active Directory application, see the [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) section of [How to: Use the portal to create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md). Copy the following values for use in later steps: **Application (client) ID**, **authentication key**, and **Directory (tenant) ID**. Assign the application to the **Contributor** role by following the instructions in the same article.
 
 ### Create a blob and a SQL table
 
@@ -74,7 +76,7 @@ Next, create a sink SQL table:
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL server. Ensure that you allow access to Azure services in your Azure SQL server so that the Data Factory service can write data to your Azure SQL server. To verify and turn on this setting, do the following steps:
+2. Allow Azure services to access SQL Database. Ensure that you allow access to Azure services in your server so that the Data Factory service can write data to SQL Database. To verify and turn on this setting, do the following steps:
 
     1. Go to the [Azure portal](https://portal.azure.com) to manage your SQL server. Search for and select **SQL servers**.
 

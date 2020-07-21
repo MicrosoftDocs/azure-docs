@@ -32,7 +32,7 @@ landingContent:
         - text: Connect a sample device to IoT Hub
           url: quickstart-connect-pnp-device-c-windows.md
         - text: Connect a sample device to IoT Central
-          url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          url: ../iot-central/core/tutorial-connect-pnp-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - text: Use a device capability model to create a device
           url: quickstart-create-pnp-device-windows.md
     - linkListType: tutorial

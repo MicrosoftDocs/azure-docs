@@ -1,17 +1,8 @@
 ---
 title: Azure Batch task start event
 description: Reference information for Batch task start event. This event is emitted once a task has been scheduled to start on a compute node by the scheduler.
-services: batch
-author: LauraBrenner
-manager: evansma
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: reference
 ms.date: 04/20/2017
-ms.author: labrenne
 ---
 
 # Task start event
@@ -50,7 +41,7 @@ ms.author: labrenne
 |`taskType`|String|The type of the task. This can either be 'JobManager' indicating it is a job manager task or 'User' indicating it is not a job manager task.|
 |`systemTaskVersion`|Int32|This is the internal retry counter on a task. Internally the Batch service can retry a task to account for transient issues. These issues can include internal scheduling errors or attempts to recover from compute nodes in a bad state.|
 |[`nodeInfo`](#nodeInfo)|Complex Type|Contains information about the compute node on which the task ran.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Complex Type|Specifies that the task  is Multi-Instance Task requiring multiple compute nodes.  See [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) for details.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Complex Type|Specifies that the task  is Multi-Instance Task requiring multiple compute nodes.  See [multiInstanceSettings](/rest/api/batchservice/get-information-about-a-task) for details.|
 |[`constraints`](#constraints)|Complex Type|The execution constraints that apply to this task.|
 |[`executionInfo`](#executionInfo)|Complex Type|Contains information about the execution of the task.|
 

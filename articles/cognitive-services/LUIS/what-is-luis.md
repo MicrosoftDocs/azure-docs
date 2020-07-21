@@ -2,7 +2,7 @@
 title: What is Language Understanding (LUIS)?
 description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 ms.topic: overview
-ms.date: 02/23/2020
+ms.date: 05/05/2020
 ---
 
 # What is Language Understanding (LUIS)?
@@ -41,7 +41,7 @@ Your LUIS app contains a domain-specific natural language model. You can start t
 
 * **Prebuilt model** LUIS has many prebuilt domain models including intents, utterances, and prebuilt entities. You can use the prebuilt entities without having to use the intents and utterances of the prebuilt model. [Prebuilt domain models](luis-how-to-use-prebuilt-domains.md) include the entire design for you and are a great way to start using LUIS quickly.
 
-* **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
+* **Custom model** LUIS gives you several ways to identify your own custom models including intents, and entities. Entities include machine-learning entities, specific or literal entities, and a combination of machine-learning and literal.
 
 ## Build the LUIS model
 Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs or with the [LUIS portal](https://www.luis.ai).
@@ -50,13 +50,13 @@ The LUIS model begins with categories of user intentions called **[intents](luis
 
 |Example user utterance|Intent|Extracted data|
 |-----------|-----------|-----------|
-|`Book a flight to __Seattle__?`|BookFlight|Seattle|
-|`When does your store __open__?`|StoreHoursAndLocation|open|
-|`Schedule a meeting at __1pm__ with __Bob__ in Distribution`|ScheduleMeeting|1pm, Bob|
+|`Book a flight to Seattle?`|BookFlight|Seattle|
+|`When does your store open?`|StoreHoursAndLocation|open|
+|`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting|1pm, Bob|
 
 ## Query prediction endpoint
 
-After your app is trained and published to the endpoint, the client application sends utterances to the prediction [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API. The API applies the app to the utterance for analysis and responds with the prediction results in a JSON format.
+After your app is trained and published to the endpoint, the client application sends utterances to the prediction [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API. The API applies the model to the utterance for analysis and responds with the prediction results in a JSON format.
 
 The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the following **Contact Type** entity and overall sentiment.
 

@@ -70,8 +70,11 @@ landingContent:
         links:
           - text: Secure and isolate access to Azure resources
             url: https://docs.microsoft.com/learn/modules/secure-and-isolate-with-nsg-and-service-endpoints    
-
-         
+      - linkListType: video
+        links:
+          - text: Securely access your Azure PaaS resources with Azure Private Link
+            url: https://www.youtube.com/watch?v=PWKM5KXjWno        
+       
   # Card
   - title: Connect virtual networks
     linkLists:
@@ -189,9 +192,6 @@ landingContent:
             url: /powershell/module/az.network
           - text: REST
             url: /rest/api/virtual-network      
-          
-    
-
 
 
 

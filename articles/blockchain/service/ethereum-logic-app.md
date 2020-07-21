@@ -2,7 +2,7 @@
 title: Use Ethereum Blockchain connector with Azure Logic Apps - Azure Blockchain Service
 description: Use the Ethereum Blockchain connector with Azure Logic Apps to trigger smart contract functions and respond to smart contract events.
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: chrisseg
 #Customer intent: As a developer, I want to use Azure Logic Apps and Azure Blockchain Service so that I can trigger smart contract functions and respond to smart contract events.
 ---

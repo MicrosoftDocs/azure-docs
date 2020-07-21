@@ -8,7 +8,7 @@ ms.author: mhopkins
 ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Manage blob properties and metadata with .NET
@@ -20,6 +20,11 @@ In addition to the data they contain, blobs support system properties and user-d
 - **System properties**: System properties exist on each Blob storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure Storage client library for .NET maintains these properties for you.
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
+
+> [!NOTE]
+> Blob Index tags also provide the ability to store arbitrary user-defined key/value attributes alongside a Blob storage resource. While similar to metadata, only Blob Index tags are automatically indexed and made queryable by the native blob service. Metadata cannot be natively indexed and queried unless you utilize a separate service such as Azure Search.
+>
+> To learn more about this feature, see [Manage and find data on Azure Blob Storage with Blob Index (Preview)](storage-manage-find-blobs.md).
 
 Retrieving metadata and property values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the `FetchAttributes` or `FetchAttributesAsync` method. The exception to this rule is that the `Exists` and `ExistsAsync` methods call the appropriate `FetchAttributes` method under the covers. When you call one of these methods, you don't need to also call `FetchAttributes`.
 

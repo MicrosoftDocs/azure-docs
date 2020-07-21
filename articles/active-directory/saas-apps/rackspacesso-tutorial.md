@@ -184,7 +184,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Set up Attribute Mapping in the Rackspace control panel
 
-Rackspace uses an **Attribute Mapping Policy** to assign Rackspace roles and groups to your single sign-on users. The **Attribute Mapping Policy** translates Azure AD SAML claims into the user configuration fields Rackspace requires. More documentation can be found in the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/). Some considerations:
+Rackspace uses an **Attribute Mapping Policy** to assign Rackspace roles and groups to your single sign-on users. The **Attribute Mapping Policy** translates Azure AD SAML claims into the user configuration fields Rackspace requires. More documentation can be found in the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/). Some considerations:
 
 * If you want to assign varying levels of Rackspace access using Azure AD groups, you will need to enable the Groups claim in the Azure **Rackspace SSO** Single Sign-on settings. The **Attribute Mapping Policy** will then be used to match those groups to desired Rackspace roles and groups:
 
@@ -223,7 +223,7 @@ mapping:
 > [!TIP]
 > Ensure that you use a text editor that validates YAML syntax when editing your policy file.
 
-See the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/attribmapping-basics/) for more examples.
+See the Rackspace [Attribute Mapping Basics documentation](https://developer.rackspace.com/docs/rackspace-federation/appendix/map/) for more examples.
 
 ### Test single sign-on
 

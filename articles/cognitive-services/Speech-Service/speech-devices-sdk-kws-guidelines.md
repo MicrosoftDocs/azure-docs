@@ -3,13 +3,13 @@ title: Keyword naming guidelines - Speech service
 titleSuffix: Azure Cognitive Services
 description: Creating an effective keyword is vital to ensuring your device will consistently and accurately respond.
 services: cognitive-services
-author: IEvangelist
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 # Guidelines for creating an effective keyword

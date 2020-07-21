@@ -1,16 +1,16 @@
 ---
-title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
+title: 'VPN Gateway: VPN client for P2S OpenVPN protocol connections: Azure AD authentication'
 description: You can use P2S VPN to connect to your VNet using Azure AD authentication
 services: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/28/2020
+ms.date: 06/25/2020
 ms.author: alzam
 
 ---
-# Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication
+# Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections
 
 This article helps you configure a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. Before you can connect and authenticate using Azure AD, you must first configure your Azure AD tenant. For more information, see [Configure an Azure AD tenant](openvpn-azure-ad-tenant.md).
 
@@ -226,6 +226,16 @@ You can modify the downloaded profile XML file and add the **\<excluderoutes>\<r
 </clientconfig>
 </azvpnprofile>
 ```
+
+### Can I import the profile from a command line prompt?
+
+You can import the profile from a command line prompt by placing the downloaded **azurevpnconfig.xml** file in the **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** folder and running the following command:
+
+```
+azurevpn -i azurevpnconfig.xml 
+```
+to force the import use the **-f** switch as well
+
 
 ## Next steps
 

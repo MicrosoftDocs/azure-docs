@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/26/2020
@@ -107,7 +107,7 @@ Below are two examples of complete templates to set up NSG Flow Logs.
 ```
 
 > [!NOTE]
-> * The name of resource has the format "Parent Resource>/Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_<RegionName>. Example: NetworkWatcher_centraluseuap)
+> * The name of resource has the format "Parent Resource_Child resource". Here, the parent resource is the regional Network Watcher instance (Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centraluseuap)
 > * targetResourceId is the resource ID of the target NSG
 > * storageId is the resource ID of the destination storage account
 
@@ -157,15 +157,22 @@ You can save any of the above example templates locally as `azuredeploy.json`. U
 
 To deploy the template, run the following command in PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
+
+> [!NOTE]
+> The above commands are deploying a resource to the NetworkWatcherRG resource group and not the resource group containing the NSG
 
 
 ## Verifying your deployment
 
 There are a couple of ways to check if your deployment has Succeeded. Your PowerShell console should show "ProvisioningState" as "Succeeded". Additionally, you can visit the [NSG Flow Logs portal page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes. If there were issues with the deployment, take a look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/templates/common-deployment-errors).
 
+## Deleting your resource
+Azure enables resource deletion through the "Complete" deployment mode. To delete a Flow Logs resource, specify a deployment in Complete mode without including the resource you wish to delete. Read more about the [Complete deployment mode](https://docs.microsoft.com/azure/azure-resource-manager/templates/deployment-modes#complete-mode)
 
 ## Next steps
 

@@ -1,5 +1,6 @@
 ---
-title: Use a static IP address and DNS label with the Azure Kubernetes Service (AKS) load balancer
+title: Use static IP with load balancer
+titleSuffix: Azure Kubernetes Service
 description: Learn how to create and use a static IP address with the Azure Kubernetes Service (AKS) load balancer.
 services: container-service
 ms.topic: article
@@ -170,4 +171,4 @@ For additional control over the network traffic to your applications, you may wa
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
-[ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku
+[ip-sku]: ../virtual-network/public-ip-addresses.md#sku

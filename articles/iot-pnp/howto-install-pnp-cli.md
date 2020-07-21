@@ -1,8 +1,8 @@
 ---
 title: Use the Azure IoT extension for Azure CLI to interact with IoT Plug and Play Preview devices | Microsoft Docs
 description: Install the Azure IoT extension for Azure CLI and use it to interact with the IoT Plug and Play devices connected to my IoT hub.
-author: ChrisGMsft
-ms.author: chrisgre
+author: Philmea
+ms.author: philmea
 ms.date: 12/26/2019
 ms.topic: how-to
 ms.service: iot-pnp

@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
@@ -46,7 +46,7 @@ Add your Google account by turning on two-factor verification and then adding th
 
 ### Add your Google account to the app
 
-1. On the Google page on your computer, go to the **Set up alternative second step** section, choose **Set up** from the **Authenticator app** section.
+1. On the Google account security page on your computer (https://myaccount.google.com/security), go to the **Add more second steps to verify it's you** section, choose **Set up** from the **Authenticator app** section.
 
 2. On the **Get codes from the Authenticator app** page, select either **Android** or **iPhone** based on your phone type, and then select **Next**.
 

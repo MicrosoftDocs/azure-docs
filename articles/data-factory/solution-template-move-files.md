@@ -15,7 +15,11 @@ ms.date: 7/12/2019
 
 # Move files with Azure Data Factory
 
-This article describes a solution template that you can use to move files from one folder to another between file-based stores. One of the common scenarios of using this template: Files are continually dropped to a landing folder of your source store. By creating a schedule trigger, ADF pipeline can periodically move those files from the source to the destination store.  The way that ADF pipeline achieves "moving files" is getting the files from the landing folder, copying each of them to another folder on the destination store and then deleting the same files from the landing folder on the source store.
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+ADF copy activity has built-in support on “move” scenario when copying binary files between storage stores.  The way to enable it is to set “deleteFilesAfterCompletion” as true in copy activity. By doing so, copy activity will delete files from data source store after job completion. 
+
+This article describes a solution template as another approach leveraging ADF flexible control flow plus copy activity and delete activity to achieve the same scenario. One of the common scenarios of using this template: Files are continually dropped to a landing folder of your source store. By creating a schedule trigger, ADF pipeline can periodically move those files from the source to the destination store.  The way that ADF pipeline achieves "moving files" is getting the files from the landing folder, copying each of them to another folder on the destination store and then deleting the same files from the landing folder on the source store.
 
 > [!NOTE]
 > Be aware that this template is designed to move files rather than moving folders.  If you want to move the folder by changing the dataset to make it contain a folder path only, and then using the copy activity and delete activity to reference to the same dataset representing a folder, you need to be very careful. It is because you have to make sure that there will NOT be new files arriving into the folder between copying operation and deleting operation. If there are new files arriving at the folder at the moment when your copy activity just completed the copy job but the Delete activity has not been stared, it is possible that the Delete activity will delete this new arriving file which has NOT been copied to the destination yet by deleting the entire folder.

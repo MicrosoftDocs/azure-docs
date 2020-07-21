@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and Amazon S3 buckets
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: normesta
 ms.subservice: common
@@ -122,7 +122,7 @@ Also, as AzCopy copies over files, it checks for naming collisions and attempts 
 
 AWS S3 and Azure allow different sets of characters in the names of object keys. You can read about the characters that AWS S3 uses [here](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). On the Azure side, blob object keys adhere to the naming rules for [C# identifiers](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-invalid-metadata-handle` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
+As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-handle-invalid-metadata` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
 
 | Flag value | Description  |
 |--------|-----------|
@@ -130,7 +130,7 @@ As part of an AzCopy `copy` command, you can provide a value for optional the `s
 | **FailIfInvalid** | Objects aren't copied. AzCopy logs an error and includes that error in the failed count that appears in the transfer summary.  |
 | **RenameIfInvalid**  | AzCopy resolves the invalid metadata key, and copies the object to Azure using the resolved metadata key value pair. To learn exactly what steps AzCopy takes to rename object keys, see the [How AzCopy renames object keys](#rename-logic) section below. If AzCopy is unable to rename the key, then the object won't be copied. |
 
-<a id="rename-logic" />
+<a id="rename-logic"></a>
 
 ### How AzCopy renames object keys
 

@@ -8,10 +8,12 @@
   items:
   - name: High availability for Azure applications
     href: https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications
+  - name: Regions and Availability Zones
+    href: az-overview.md
   - name: Availability Zones Documentation
     items:
-    - name: What are Availability Zones?
-      href: az-overview.md
+    - name: Regions that support Availability Zones
+      href: az-region.md
     - name: Virtual machines
       items:
       - name: Create a Linux VM in an Availability Zone with CLI
@@ -85,6 +87,10 @@
       items:
       - name: Create an Azure Active Directory Domain Services instance
         href: ../active-directory-domain-services/tutorial-create-instance.md
+  - name: Edge Zones Documentation
+    items:
+    - name: What are Edge Zones?
+      href: ../networking/edge-zones-overview.md
 - name: Disaster Recovery
   items:
   - name: Use Azure Site Recovery

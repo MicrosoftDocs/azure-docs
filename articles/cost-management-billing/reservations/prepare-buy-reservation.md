@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/04/2020
 ms.author: banders
 ---
 
@@ -39,8 +39,6 @@ While applying reservation discounts on your usage, Azure processes the reservat
 2. Single scope reservations
 3. Shared scope reservations
 
-A single resource group can get reservation discounts from multiple reservations, depending on how you scope your reservations.
-
 You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ![Example showing a reservation scope change](./media/prepare-buy-reservation/rescope-reservation-resource-group.png)
@@ -64,13 +62,16 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Databricks](prepay-databricks-reserved-capacity.md)
-- [Data Explorer](../../data-explorer/pricing-reserved-capacity.md)
+- [Data Explorer](/azure/data-explorer/pricing-reserved-capacity)
 - [Disk Storage](../../virtual-machines/linux/disks-reserved-capacity.md)
 - [Dedicated Host](../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md)
 - [Software plans](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Storage](../../storage/blobs/storage-blob-reserved-capacity.md)
-- [SQL Database](../../sql-database/sql-database-reserved-capacity.md)
-- [SQL Data Warehouse](prepay-sql-data-warehouse-charges.md)
+- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
+- [Azure Database for PostgreSQL](../../postgresql/concept-reserved-pricing.md)
+- [Azure Database for MySQL](../../mysql/concept-reserved-pricing.md)
+- [Azure Database for MariaDB](../../mariadb/concept-reserved-pricing.md)
+- [Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md)
 - [Virtual machines](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 
 ## Buy reservations with monthly payments
@@ -79,17 +80,7 @@ You can pay for reservations with monthly payments. Unlike an up-front purchase 
 
 If reservation is purchased using Microsoft customer agreement (MCA), your monthly payment amount may vary, depending on the current month's market exchange rate for your local currency.
 
-Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Compute.
-
-Purchase reservations in the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Docs).
-
-![Example showing reservation purchase](./media/prepare-buy-reservation/purchase-reservation.png)
-
-While making a reservation purchase, you can view the payment schedule. Click **View full payment schedule**.
-
-![Example showing reservation payment schedule](./media/prepare-buy-reservation/prepurchase-schedule.png)
-
-To view the payments schedule after purchase, select a reservation, click the **Reservation order ID**, and then click the **Payments** tab.
+Monthly payments are not available for: Databricks, SUSE Linux reservations, Red Hat Plans and Azure Red Hat OpenShift Licenses.
 
 ### View payments made
 
@@ -98,10 +89,6 @@ You can view payments that were made using APIs, usage data, and in cost analysi
 Cost analysis shows monthly purchases in the default view. Apply the **purchase** filter to **Charge type** and **recurring** for **Frequency** to see all purchases. To view only reservations, apply a filter for **Reservation**.
 
 ![Example showing reservation purchase costs in cost analysis](./media/prepare-buy-reservation/cost-analysis.png)
-
-### Switch to monthly payments at renewal
-
-When you renew a reservation, you can change the billing frequency to monthly.
 
 ### Exchange and refunds
 
@@ -126,8 +113,7 @@ Depending on how you pay for your Azure subscription, email reservation notifica
 
 For customers with EA subscriptions:
 
-- A purchase notification is sent to the EA notification contacts.
-- Other reservation lifecycle notifications are sent only to the EA notification contacts.
+- Notifications are sent only to the EA notification contacts.
 - Users added to a reservation using RBAC (IAM) permission don't receive any email notifications.
 
 For customers with individual subscriptions:

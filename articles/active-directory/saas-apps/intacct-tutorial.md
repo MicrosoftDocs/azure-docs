@@ -86,13 +86,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/edit-attribute.png)
 
-1. In addition to above, Sage Intacct application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, Sage Intacct application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-	| Name  |  Source Attribute|
+	| Attribute Name  |  Source Attribute|
 	| ---------------| --------------- |
 	| Company Name | **Sage Intacct Company ID** |
 	| name | Value should be same as the Sage Intacct **User ID**, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | Value should be same as the Sage Intacct **Federated SSO User ID**, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -102,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	d. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+	e. From the **Source attribute** list, type or select the attribute value shown for that row.
 
 	f. Click **Ok**
 

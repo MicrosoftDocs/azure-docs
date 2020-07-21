@@ -49,7 +49,7 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 >
 >For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Sign into your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
+1. Sign in to your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
 
    For this article, we created a repository called **IoTEdgeRepo**. That repository contains **IoTEdgeSolution** which has the code for a module named **filtermodule**.
 
@@ -95,6 +95,13 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
    * **Default platform**: Select the appropriate platform for your modules based on your target IoT Edge device.
    * **Output variables**: The output variables include a reference name that you can use to configure the file path where your deployment.json file will be generated. Set the reference name to something memorable like **edge**.
 
+
+   These configurations use the image repository and tag that are defined in the `module.json` file to name and tag the module image. **Build module images** also helps replace the variables with the exact value you define in the `module.json` file. In Visual Studio or Visual Studio Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value on the **Pipeline Variables** tab. Select the **Variables** tab and configure the name and value as following:
+
+    * **ACR_ADDRESS**: Your Azure Container Registry address. 
+
+    If you have other variables in your project, you can specify the name and value on this tab. **Build module images** recognizes only variables that are in `${VARIABLE}` format. Make sure you use this format in your `**/module.json` files.
+    
 7. Select the second **Azure IoT Edge** task to edit it. This task pushes all module images to the container registry that you select.
 
    * **Display name**: The display name is automatically updated when the action field changes.
@@ -221,4 +228,4 @@ To trigger a build job, you can either push a commit to source code repository o
 
 * IoT Edge DevOps best practices sample in [Azure DevOps Project for IoT Edge](how-to-devops-project.md)
 * Understand the IoT Edge deployment in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md)
-* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-monitor.md).
+* Walk through the steps to create, update, or delete a deployment in [Deploy and monitor IoT Edge modules at scale](how-to-deploy-at-scale.md).

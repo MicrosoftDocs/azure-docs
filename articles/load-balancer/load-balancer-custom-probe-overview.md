@@ -8,7 +8,7 @@ author: asudbring
 manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -24,8 +24,8 @@ Health probes support multiple protocols. The availability of a specific health 
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
-| [Probe types](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
+| **[Probe types](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Probe down behavior](#probedown)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 
 >[!IMPORTANT]
@@ -71,7 +71,10 @@ For this example, once detection has occurred, the platform will then take a sma
 3. when the detection has been communicated across the platform 
 
 you can assume the reaction to a time-out probe response will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance illustrated in this example.
- 
+
+>[!NOTE]
+>The health probe will probe all running instances in the backend pool. If an instance is stopped it will not be probed until it has been started again.
+
 ## <a name="types"></a>Probe types
 
 The protocol used by the health probe can be configured to one of the following:
@@ -84,8 +87,8 @@ The available protocols depend on the Load Balancer SKU used:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
-| Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
+| **Standard SKU** | 	&#9989; | 	&#9989; | 	&#9989; |
+| **Basic SKU** | 	&#9989; | 	&#9989; | &#10060; |
 
 ### <a name="tcpprobe"></a> TCP probe
 

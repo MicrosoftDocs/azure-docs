@@ -1,11 +1,11 @@
 ---
-title: Copy a snapshot to a storage account in another region - CLI sample
+title: Copy a snapshot to a storage account in another region - Linux CLI sample
 description: Azure CLI Script Sample - Export/Copy snapshot as VHD to a storage account in same or different region.
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -39,8 +39,8 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 | Command | Notes |
 |---|---|
-| [az snapshot grant-access](https://docs.microsoft.com/cli/azure/snapshot) | Generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
-| [az storage blob copy start](https://docs.microsoft.com/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
+| [az snapshot grant-access](/cli/azure/snapshot) | Generates read-only SAS that is used to copy underlying VHD file to a storage account or download it to on-premises  |
+| [az storage blob copy start](/cli/azure/storage/blob/copy) | Copies a blob asynchronously from one storage account to another |
 
 ## Next steps
 
@@ -48,6 +48,6 @@ This script uses following commands to generate SAS URI for a managed snapshot a
 
 [Create a virtual machine from a managed disk](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional virtual machine and managed disks CLI script samples can be found in the [Azure Linux VM documentation](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

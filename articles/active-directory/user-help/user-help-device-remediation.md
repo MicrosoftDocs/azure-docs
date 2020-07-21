@@ -9,7 +9,7 @@ ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/10/2018
 ms.author: curtand
 ms.reviewer: jairoc

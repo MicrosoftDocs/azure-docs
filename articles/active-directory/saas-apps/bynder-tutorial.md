@@ -82,15 +82,30 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
+    
+    For a Default Domain: 
     `https://<company name>.getbynder.com`
+    
+    For a Custom Domain: 
+    `https;//<subdomain>.<domain>.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+    
+     For a Default Domain: 
     `https://<company name>.getbynder.com/sso/SAML/authenticate/`
+    
+    For a Custom Domain: 
+    `https://<subdomain>.<domain>.com/sso/SAML/authenticate/`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+    
+     For a Default Domain: 
     `https://<company name>.getbynder.com/login/`
+    
+     For a Custom Domain: 
+    ` https://<subdomain>.<domain>.com/login/`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Bynder Client support team](https://www.bynder.com/en/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

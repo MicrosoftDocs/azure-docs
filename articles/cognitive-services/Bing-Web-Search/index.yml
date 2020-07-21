@@ -169,16 +169,16 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-c-sharp.md
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-csharp
         - text: Use Java
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-java.md
-        - text: Use Node.js
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-java
+        - text: Use JavaScript
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-node.md
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-javascript
         - text: Use Python
           itemType: quickstart
-          url: ../bing-visual-search/visual-search-sdk-python.md
+          url: ../bing-visual-search/quickstarts/client-libraries.md?pivots=programming-language-python
         - text: Crop and search an area of an image
           itemType: tutorial
           url: ../bing-visual-search/tutorial-visual-search-crop-area-results.md
@@ -190,7 +190,10 @@ conceptualContent:
       links:
         - text: Use C#
           itemType: quickstart
-          url: ../Bing-Autosuggest/quickstarts/csharp.md
+          url: ../bing-autosuggest/quickstarts/client-libraries.md?pivots=programming-language-csharp
+        - text: Use Go
+          itemType: quickstart
+          url: ../Bing-Autosuggest/quickstarts/client-libraries.md?pivots=programming-language-go
         - text: Use Java
           itemType: quickstart
           url: ../Bing-Autosuggest/quickstarts/java.md

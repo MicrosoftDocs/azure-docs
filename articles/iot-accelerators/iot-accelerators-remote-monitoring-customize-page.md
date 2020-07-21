@@ -139,7 +139,7 @@ npm install
 npm start
 ```
 
-The previous command runs the UI locally at [http://localhost:3000/dashboard](http://localhost:3000/dashboard).
+The previous command runs the UI locally at `http://localhost:3000/dashboard`.
 
 Without connecting your local instance of the web UI to a deployed instance of the solution accelerator, you see errors on the dashboard. These errors don't affect your ability to test your new page.
 

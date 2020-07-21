@@ -88,7 +88,7 @@ On-Premises user object:
 - mailNickName		: &lt;not set&gt;
 - proxyAddresses		: {SMTP:us1@contoso.com}
 - mail			: us2@contoso.com
-- userPrincipalName	: us3@contoso.com`
+- userPrincipalName	: us3@contoso.com
 
 Synchronized the user object to Azure AD Tenant for the first time
 - Set Azure AD MailNickName attribute to primary SMTP address prefix.

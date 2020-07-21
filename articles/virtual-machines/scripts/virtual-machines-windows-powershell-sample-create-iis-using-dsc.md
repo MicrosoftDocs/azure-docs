@@ -5,7 +5,7 @@ services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -18,7 +18,7 @@ ms.date: 12/12/2017
 ms.author: cynthn
 ---
 
-# Create an IIS VM with PowerShell
+# Use an Azure PowerShell sample script to create an IIS VM
 
 This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine DSC Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 
@@ -46,10 +46,10 @@ This script uses the following commands to create the deployment. Each item in t
 
 | Command | Notes |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also opens port 80 and sets the administrative credentials. |
-| [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) | Add a VM extension to the virtual machine. In this sample, the DSC extension is used to install IIS. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Creates the virtual machine and connects it to the network card, virtual network, subnet, and network security group. This command also opens port 80 and sets the administrative credentials. |
+| [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) | Add a VM extension to the virtual machine. In this sample, the DSC extension is used to install IIS. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
 ## Next steps
 

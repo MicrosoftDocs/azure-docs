@@ -39,6 +39,7 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
+| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -82,7 +83,7 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
@@ -199,7 +200,7 @@ Extension execution output is logged to the following file:
 
 | Error Code | Meaning | Possible Action |
 | :---: | --- | --- |
-| 9 | Enable called prematurely | [Update the Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) to the latest available version. |
+| 9 | Enable called prematurely | [Update the Azure Linux Agent](./update-linux-agent.md) to the latest available version. |
 | 10 | VM is already connected to a Log Analytics workspace | To connect the VM to the workspace specified in the extension schema, set stopOnMultipleConnections to false in public settings or remove this property. This VM gets billed once for each workspace it is connected to. |
 | 11 | Invalid config provided to the extension | Follow the preceding examples to set all property values necessary for deployment. |
 | 17 | Log Analytics package installation failure | 

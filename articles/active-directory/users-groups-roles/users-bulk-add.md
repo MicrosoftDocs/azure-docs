@@ -1,12 +1,12 @@
 ---
-title: Bulk create users (preview) in the Azure Active Directory portal | Microsoft Docs
+title: Bulk create users in the Azure Active Directory portal | Microsoft Docs
 description: Add users in bulk in the Azure AD admin center in Azure Active Directory
 services: active-directory 
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 08/30/2019
-ms.topic: article
+ms.date: 04/27/2020
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -15,13 +15,34 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk create users (preview) in Azure Active Directory
+# Bulk create users in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD) supports bulk user create and delete operations and supports downloading lists of users. Just fill out comma-separated values (CSV) template you can download from the Azure AD portal.
 
 ## Required permissions
 
 In order to bulk create users in the administration portal, you must be signed in as a Global administrator or User administrator.
+
+## Understand the CSV template
+
+Download and fill in the bulk upload CSV template to help you successfully create Azure AD users in bulk. The CSV template you download might look like this example:
+
+![Spreadsheet for upload and call-outs explaining the purpose and values for each row and column](./media/users-bulk-add/create-template-example.png)
+
+### CSV template structure
+
+The rows in a downloaded CSV template are as follows:
+
+- **Version number**: The first row containing the version number must be included in the upload CSV.
+- **Column headings**: The format of the column headings is &lt;*Item name*&gt; [PropertyName] &lt;*Required or blank*&gt;. For example, `Name [displayName] Required`. Some older versions of the template might have slight variations.
+- **Examples row**: We have included in the template a row of examples of acceptable values for each column. You must remove the examples row and replace it with your own entries.
+
+### Additional guidance
+
+- The first two rows of the upload template must not be removed or modified, or the upload can't be processed.
+- The required columns are listed first.
+- We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
+- We recommend that you download the latest version of the CSV template as often as possible.
 
 ## To create users in bulk
 
@@ -33,20 +54,20 @@ In order to bulk create users in the administration portal, you must be signed i
 
 1. Open the CSV file and add a line for each user you want to create. The only required values are **Name**, **User principal name**, **Initial password** and **Block sign in (Yes/No)**. Then save the file.
 
-   ![The CSV file contains names and IDs of the users to create](./media/users-bulk-add/add-csv-file.png)
+   [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
 
-1. On the **Bulk create user (Preview)** page, under Upload your CSV file, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
+1. On the **Bulk create user** page, under Upload your CSV file, browse to the file. When you select the file and click **Submit**, validation of the CSV file starts.
 1. After the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 1. When your file passes validation, select **Submit** to start the Azure bulk operation that imports the new users.
 1. When the import operation completes, you'll see a notification of the bulk operation job status.
 
-If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
+If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error. The file submission must match the provided template and include the exact column names.
 
 ## Check status
 
-You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
+You can see the status of all of your pending bulk requests in the **Bulk operation results** page.
 
-   ![Check upload status in the Bulk Operations Results page](./media/users-bulk-add/bulk-center.png)
+   [![](media/users-bulk-add/bulk-center.png "Check create status in the Bulk Operations Results page")](media/users-bulk-add/bulk-center.png#lightbox)
 
 Next, you can check to see that the users you created exist in the Azure AD organization either in the Azure portal or by using PowerShell.
 

@@ -58,12 +58,15 @@ The queries in this article use the following sample document.
 Given the sample family document above, the following query returns the documents where the id field matches `WakefieldFamily`.
 
 **Query**
-    
-    db.families.find({ id: "WakefieldFamily"})
+
+```bash
+db.families.find({ id: "WakefieldFamily"})
+```
 
 **Results**
 
-    {
+```json
+{
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
     "id": "WakefieldFamily",
     "parents": [
@@ -101,19 +104,23 @@ Given the sample family document above, the following query returns the document
     },
     "creationDate": 1431620462,
     "isRegistered": false
-    }
+}
+```
 
 ## <a id="examplequery2"></a>Example query 2 
 
 The next query returns all the children in the family. 
 
 **Query**
-    
-    db.families.find( { id: "WakefieldFamily" }, { children: true } )
+
+```bash 
+db.families.find( { id: "WakefieldFamily" }, { children: true } )
+``` 
 
 **Results**
 
-    {
+```json
+{
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
     "children": [
       {
@@ -133,29 +140,37 @@ The next query returns all the children in the family.
         "grade": 8
       }
     ]
-    }
-
+}
+```
 
 ## <a id="examplequery3"></a>Example query 3 
 
 The next query returns all the families that are registered. 
 
 **Query**
-    
-    db.families.find( { "isRegistered" : true })
+
+```bash
+db.families.find( { "isRegistered" : true })
+``` 
+
 **Results**
-	No document will be returned. 
+
+No document will be returned. 
 
 ## <a id="examplequery4"></a>Example query 4
 
 The next query returns all the families that are not registered. 
 
 **Query**
-    
-    db.families.find( { "isRegistered" : false })
+
+```bash
+db.families.find( { "isRegistered" : false })
+``` 
+
 **Results**
 
-	 {
+```json
+{
 	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
 	"id": "WakefieldFamily",
 	"parents": [{
@@ -189,18 +204,22 @@ The next query returns all the families that are not registered.
 	"creationDate": 1431620462,
 	"isRegistered": false
 }
+```
 
 ## <a id="examplequery5"></a>Example query 5
 
 The next query returns all the families that are not registered and state is NY. 
 
 **Query**
-    
-     db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+
+```bash
+db.families.find( { "isRegistered" : false, "address.state" : "NY" })
+``` 
 
 **Results**
 
-	 {
+```json
+{
 	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
 	"id": "WakefieldFamily",
 	"parents": [{
@@ -234,19 +253,22 @@ The next query returns all the families that are not registered and state is NY.
 	"creationDate": 1431620462,
 	"isRegistered": false
 }
-
+```
 
 ## <a id="examplequery6"></a>Example query 6
 
 The next query returns all the families where children grades are 8.
 
 **Query**
-  
-     db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+
+```bash
+db.families.find( { children : { $elemMatch: { grade : 8 }} } )
+```
 
 **Results**
 
-	 {
+```json
+{
 	"_id": ObjectId("58f65e1198f3a12c7090e68c"),
 	"id": "WakefieldFamily",
 	"parents": [{
@@ -280,14 +302,17 @@ The next query returns all the families where children grades are 8.
 	"creationDate": 1431620462,
 	"isRegistered": false
 }
+```
 
 ## <a id="examplequery7"></a>Example query 7
 
 The next query returns all the families where size of children array is 3.
 
 **Query**
-  
-      db.Family.find( {children: { $size:3} } )
+
+```bash
+db.Family.find( {children: { $size:3} } )
+```
 
 **Results**
 

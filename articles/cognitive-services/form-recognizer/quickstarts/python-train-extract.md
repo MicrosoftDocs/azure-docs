@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
+ms.custom: tracking-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
 ---
 
@@ -25,6 +26,10 @@ To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
 - A set of at least five forms of the same type. You will use this data to train the model. Your forms can be of different file types but must be the same type of document. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in an Azure Storage account.
 
+> [!NOTE]
+> This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
+
+
 ## Create a Form Recognizer resource
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
@@ -36,7 +41,7 @@ First, you'll need a set of training data in an Azure Storage blob container. Yo
 > [!NOTE]
 > You can use the labeled data feature to manually label some or all of your training data beforehand. This is a more complex process but results in a better trained model. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more.
 
-To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** API by running the following python code. Before you run the code, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **[Train Custom Model](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
@@ -51,7 +56,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
     
     # Endpoint URL
     endpoint = r"<endpoint>"
-    post_url = endpoint + r"/formrecognizer/v2.0-preview/custom/models"
+    post_url = endpoint + r"/formrecognizer/v2.0/custom/models"
     source = r"<SAS URL>"
     prefix = "<Blob folder name>"
     includeSubFolders = False
@@ -63,7 +68,7 @@ To train a Form Recognizer model with the documents in your Azure blob container
         'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
     
-    body = 	{
+    body =     {
         "source": source,
         "sourceFilter": {
             "prefix": prefix,
@@ -453,4 +458,4 @@ When the process is completed, you'll receive a `200 (Success)` response with JS
 In this quickstart, you used the Form Recognizer REST API with Python to train a model and run it in a sample scenario. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm)
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm)

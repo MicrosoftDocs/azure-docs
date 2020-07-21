@@ -5,7 +5,7 @@ description: Direct peering walkthrough
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2019
 ms.author: prmitiki
 ---

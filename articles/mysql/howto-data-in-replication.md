@@ -4,17 +4,23 @@ description: This article describes how to set up Data-in Replication for Azure 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
-ms.date: 3/27/2020
+ms.topic: how-to
+ms.date: 6/11/2020
 ---
 
 # How to configure Azure Database for MySQL Data-in Replication
 
-In this article, you will learn how to set up Data-in Replication in the Azure Database for MySQL service by configuring the master and replica servers. Data-in Replication allows you to synchronize data from a master MySQL server running on-premises, in virtual machines, or database services hosted by other cloud providers into a replica in the Azure Database for MySQL service. 
+This article describes how to set up [Data-in Replication](concepts-data-in-replication.md) in Azure Database for MySQL by configuring the master and replica servers. This article assumes that you have some prior experience with MySQL servers and databases.
 
-This article assumes that you have at least some prior experience with MySQL servers and databases.
+> [!NOTE]
+> Bias-free communication
+>
+> Microsoft supports a diverse and inclusionary environment. This article contains references to the word _slave_. The Microsoft [style guide for bias-free communication](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) recognizes this as an exclusionary word. The word is used in this article for consistency because it's currently the word that appears in the software. When the software is updated to remove the word, this article will be updated to be in alignment.
+>
 
-Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication prior to performing the steps in this article.
+To create a replica in the Azure Database for MySQL service, [Data-in Replication](concepts-data-in-replication.md)  synchronizes data from a master MySQL server on-premises, in virtual machines (VMs), or in cloud database services. Data-in Replication is based on the binary log (binlog) file position-based replication native to MySQL. To learn more about binlog replication, see the [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+
+Review the [limitations and requirements](concepts-data-in-replication.md#limitations-and-considerations) of Data-in replication before performing the steps in this article.
 
 ## Create a MySQL server to be used as replica
 
@@ -42,7 +48,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
    For example, ensure the master server allows both inbound and outbound traffic on port 3306 and that the master server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN). 
    
-   Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal 
+   Test connectivity to the master server by attempting to connect from a tool such as the MySQL command-line hosted on another machine or from the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) available in the Azure portal.
 
 2. Turn on binary logging
 
@@ -66,7 +72,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
 
 4. Create a new replication role and set up permission
 
-   Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) on your master server. 
+   Create a user account on the master server that is configured with replication privileges. This can be done through SQL commands or a tool like MySQL Workbench. Consider whether you plan on replicating with SSL as this will need to be specified when creating the user. Refer to the MySQL documentation to understand how to [add user accounts](https://dev.mysql.com/doc/refman/5.7/en/user-names.html) on your master server. 
 
    In the commands below, the new replication role created is able to access the master from any machine, not just the machine that hosts the master itself. This is done by specifying "syncuser@'%'" in the create user command. See the MySQL documentation to learn more about [specifying account names](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 

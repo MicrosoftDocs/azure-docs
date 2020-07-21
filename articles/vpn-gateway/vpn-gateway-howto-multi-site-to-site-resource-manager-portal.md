@@ -6,7 +6,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc

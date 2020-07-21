@@ -90,7 +90,7 @@ If the response contains web pages, images, news, or videos, the first result fo
     subscription_key = "YOUR_SUBSCRIPTION_KEY"
 
     # Instantiate the client and replace with your endpoint.
-    client = WebSearchClient(endpoint="YOUR_ENDPOINT", CognitiveServicesCredentials(subscription_key))
+    client = WebSearchClient(endpoint="YOUR_ENDPOINT", credentials=CognitiveServicesCredentials(subscription_key))
 
     # Make a request. Replace Yosemite if you'd like.
     web_data = client.web.search(query="Yosemite")
@@ -162,7 +162,7 @@ If the response contains web pages, images, news, or videos, the first result fo
 
 1. Replace `SUBSCRIPTION_KEY` with a valid subscription key.
 
-1. Replace `YOUR_ENDPOINT` with your endpoint url in portal.
+1. Replace `YOUR_ENDPOINT` with your endpoint url in portal and remove the "bing/v7.0" section from the endpoint.
 
 1. Run the program. For example: `python your_program.py`.
 

@@ -9,7 +9,7 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/11/2020
 ms.custom: fasttrack-edit
 ---
 
@@ -29,7 +29,7 @@ You can set up an Azure Blob Storage indexer using:
 
 * [Azure portal](https://ms.portal.azure.com)
 * Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](https://aka.ms/search-sdk)
+* Azure Cognitive Search [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
 
 > [!NOTE]
 > Some features (for example, field mappings) are not yet available in the portal, and have to be used programmatically.
@@ -49,7 +49,8 @@ For blob indexing, the data source must have the following required properties:
 
 To create a data source:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -59,6 +60,7 @@ To create a data source:
         "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional-virtual-directory-name>" }
     }   
+```
 
 For more on the Create Datasource API, see [Create Datasource](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
 
@@ -84,7 +86,8 @@ The index specifies the fields in a document, attributes, and other constructs t
 
 Here's how to create an index with a searchable `content` field to store the text extracted from blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -95,6 +98,7 @@ Here's how to create an index with a searchable `content` field to store the tex
             { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false, "sortable": false, "facetable": false }
           ]
     }
+```
 
 For more on creating indexes, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
@@ -103,7 +107,8 @@ An indexer connects a data source with a target search index, and provides a sch
 
 Once the index and data source have been created, you're ready to create the indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
+```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -113,6 +118,7 @@ Once the index and data source have been created, you're ready to create the ind
       "targetIndexName" : "my-target-index",
       "schedule" : { "interval" : "PT2H" }
     }
+```
 
 This indexer will run every two hours (schedule interval is set to "PT2H"). To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is 5 minutes. The schedule is optional - if omitted, an indexer runs only once when it's created. However, you can run an indexer on-demand at any time.   
 
@@ -129,7 +135,7 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
 > [!NOTE]
 > By default, blobs with structured content such as JSON or CSV are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) for more information.
 >
-> A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
+> A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field.
 
 * The textual content of the document is extracted into a string field named `content`.
 
@@ -173,14 +179,17 @@ You should carefully consider which extracted field should map to the key field 
 
 For this example, let's pick the `metadata_storage_name` field as the document key. Let's also assume your index has a key field named `key` and a field `fileSize` for storing the document size. To wire things up as desired, specify the following field mappings when creating or updating your indexer:
 
+```http
     "fieldMappings" : [
       { "sourceFieldName" : "metadata_storage_name", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
       { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
     ]
+```
 
 To bring this all together, here's how you can add field mappings and enable base-64 encoding of keys for an existing indexer:
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -193,12 +202,32 @@ To bring this all together, here's how you can add field mappings and enable bas
         { "sourceFieldName" : "metadata_storage_size", "targetFieldName" : "fileSize" }
       ]
     }
+```
 
 > [!NOTE]
 > To learn more about field mappings, see [this article](search-indexer-field-mappings.md).
 >
 >
 
+#### What if you need to encode a field to use it as a key, but you also want to search it?
+
+There are times when you need to use an encoded version of a field like metadata_storage_path as the key, but you also need that field to be searchable (without encoding). In order to resolve this issue, you can map it into two fields; one that will be used for the key, and another one that will be used for search purposes. In the example below the *key* field contains the encoded path, while the *path* field is not encoded and will be used as the searchable field in the index.
+
+```http
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "dataSourceName" : " blob-datasource ",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "fieldMappings" : [
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
+      ]
+    }
+```
 <a name="WhichBlobsAreIndexed"></a>
 ## Controlling which blobs are indexed
 You can control which blobs are indexed, and which are skipped.
@@ -206,7 +235,8 @@ You can control which blobs are indexed, and which are skipped.
 ### Index only the blobs with specific file extensions
 You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -214,11 +244,13 @@ You can index only the blobs with the file name extensions you specify by using 
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
     }
+```
 
 ### Exclude blobs with specific file extensions
 You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -226,6 +258,7 @@ You can exclude blobs with specific file name extensions from indexing by using 
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
     }
+```
 
 If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Cognitive Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
 
@@ -240,7 +273,8 @@ You can control which parts of the blobs are indexed using the `dataToExtract` c
 
 For example, to index only the storage metadata, use:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -248,6 +282,7 @@ For example, to index only the storage metadata, use:
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
     }
+```
 
 ### Using blob metadata to control how blobs are indexed
 
@@ -263,7 +298,8 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 
 By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -271,21 +307,28 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     }
+```
 
 For some blobs, Azure Cognitive Search is unable to determine the content type, or unable to process a document of otherwise supported content type. To ignore this failure mode, set the `failOnUnprocessableDocument` configuration parameter to false:
 
+```http
       "parameters" : { "configuration" : { "failOnUnprocessableDocument" : false } }
+```
 
 Azure Cognitive Search limits the size of blobs that are indexed. These limits are documented in [Service Limits in Azure Cognitive Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity). Oversized blobs are treated as errors by default. However, you can still index storage metadata of oversized blobs if you set `indexStorageMetadataOnlyForOversizedDocuments` configuration parameter to true: 
 
+```http
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
+```
 
 You can also continue indexing if errors happen at any point of processing, either while parsing blobs or while adding documents to an index. To ignore a specific number of errors, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to the desired values. For example:
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
     }
+```
 
 ## Incremental indexing and deletion detection
 
@@ -301,7 +344,7 @@ There are two ways to implement the soft delete approach. Both are described bel
 ### Native blob soft delete (preview)
 
 > [!IMPORTANT]
-> Support for native blob soft delete is in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2019-05-06-Preview](https://docs.microsoft.com/azure/search/search-api-preview) provides this feature. There is currently no portal or .NET SDK support.
+> Support for native blob soft delete is in preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [REST API version 2020-06-30-Preview](https://docs.microsoft.com/azure/search/search-api-preview) provides this feature. There is currently no portal or .NET SDK support.
 
 > [!NOTE]
 > When using the native blob soft delete policy the document keys for the documents in your index must either be a blob property or blob metadata.
@@ -314,7 +357,7 @@ Use the following steps:
 1. Run the indexer or set the indexer to run on a schedule. When the indexer runs and processes the blob the document will be removed from the index.
 
     ```
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06-Preview
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30-Preview
     Content-Type: application/json
     api-key: [admin key]
     {
@@ -344,7 +387,8 @@ Use the following steps:
 
 For example, the following policy considers a blob to be deleted if it has a metadata property `IsDeleted` with the value `true`:
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -359,6 +403,7 @@ For example, the following policy considers a blob to be deleted if it has a met
             "softDeleteMarkerValue" : "true"
         }
     }
+```
 
 #### Reindexing undeleted blobs
 
@@ -395,7 +440,8 @@ For this to work, all indexers and other components need to agree on the documen
 
 If all your blobs contain plain text in the same encoding, you can significantly improve indexing performance by using **text parsing mode**. To use text parsing mode, set the `parsingMode` configuration property to `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
+```http
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30
     Content-Type: application/json
     api-key: [admin key]
 
@@ -403,14 +449,16 @@ If all your blobs contain plain text in the same encoding, you can significantly
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text" } }
     }
+```
 
 By default, the `UTF-8` encoding is assumed. To specify a different encoding, use the `encoding` configuration property: 
 
+```http
     {
       ... other parts of indexer definition
       "parameters" : { "configuration" : { "parsingMode" : "text", "encoding" : "windows-1252" } }
     }
-
+```
 
 <a name="ContentSpecificMetadata"></a>
 ## Content type-specific metadata properties
@@ -431,7 +479,7 @@ The following table summarizes processing done for each document format, and des
 | PPTX (application/vnd.openxmlformats-officedocument.presentationml.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extract text, including embedded documents |
 | PPT (application/vnd.ms-powerpoint) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extract text, including embedded documents |
 | PPTM (application/vnd.ms-powerpoint.presentation.macroenabled.12) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_slide_count`<br/>`metadata_title` |Extract text, including embedded documents |
-| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extract text, including attachments. `metadata_message_to_email`, `metadata_message_cc_email` and `metadata_message_bcc_email` are string collections, the rest of the fields are strings.|
+| MSG (application/vnd.ms-outlook) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_from_email`<br/>`metadata_message_to`<br/>`metadata_message_to_email`<br/>`metadata_message_cc`<br/>`metadata_message_cc_email`<br/>`metadata_message_bcc`<br/>`metadata_message_bcc_email`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_subject` |Extract text, including text extracted from attachments. `metadata_message_to_email`, `metadata_message_cc_email` and `metadata_message_bcc_email` are string collections, the rest of the fields are strings.|
 | ODT (application/vnd.oasis.opendocument.text) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`metadata_page_count`<br/>`metadata_word_count` |Extract text, including embedded documents |
 | ODS (application/vnd.oasis.opendocument.spreadsheet) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified` |Extract text, including embedded documents |
 | ODP (application/vnd.oasis.opendocument.presentation) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_creation_date`<br/>`metadata_last_modified`<br/>`title` |Extract text, including embedded documents |

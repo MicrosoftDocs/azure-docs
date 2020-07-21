@@ -1,7 +1,7 @@
 ---
 title: DoD Impact Level 4 blueprint sample controls
 description: Control mapping of the DoD Impact Level 4 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 03/06/2020
+ms.date: 06/30/2020
 ms.topic: sample
 ---
 # Control mapping of the DoD Impact Level 4 blueprint sample
@@ -28,7 +28,7 @@ directly to a specific control mapping. Many of the mapped controls are implemen
 > in Azure Policy is only a partial view of your overall compliance status. The associations between
 > controls and Azure Policy definitions for this compliance blueprint sample may change over time.
 > To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/DoDIL4/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
 
 ## AC-2 Account Management
 
@@ -191,12 +191,12 @@ Analytics agent on Azure virtual machines.
 ## AU-6 (5) Audit Review, Analysis, and Reporting | Integration / Scanning and Monitoring Capabilities
 
 This blueprint provides policy definitions that audit records with analysis of vulnerability
-assessment on virtual machines, virtual machine scale sets, SQL managed instances and SQL servers.
-These policy definitions also audit configuration of diagnostic logs to provide insight into
-operations that are performed within Azure resources. These insights provide real-time information
-about the security state of your deployed resources and can help you prioritize remediation actions.
-For detailed vulnerability scanning and monitoring, we recommend you leverage Azure Sentinel and
-Azure Security Center as well.
+assessment on virtual machines, virtual machine scale sets, SQL Database servers, and SQL Managed
+Instance servers. These policy definitions also audit configuration of diagnostic logs to provide
+insight into operations that are performed within Azure resources. These insights provide real-time
+information about the security state of your deployed resources and can help you prioritize
+remediation actions. For detailed vulnerability scanning and monitoring, we recommend you leverage
+Azure Sentinel and Azure Security Center as well.
 
 - \[Preview\]: Vulnerability Assessment should be enabled on Virtual Machines
 - Vulnerability assessment should be enabled on your SQL servers
@@ -245,34 +245,34 @@ settings are enabled or not.
 ## CM-7 (2) Least Functionality | Prevent Program Execution
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control can run in an enforcement mode that prohibits non-approved
 application from running. This blueprint assigns an Azure Policy definition that helps you monitor
-virtual machines where an application whitelist is recommended but has not yet been configured.
+virtual machines where an application allow list is recommended but has not yet been configured.
 
-- Adaptive Application Controls should be enabled on virtual machines
+- Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control helps you create approved application lists for your virtual
 machines. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that
-helps you monitor virtual machines where an application whitelist is recommended but has not yet
+helps you monitor virtual machines where an application allow list is recommended but has not yet
 been configured.
 
-- Adaptive Application Controls should be enabled on virtual machines
+- Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application whitelisting solution that can block or prevent specific software from running on your
+application allow list solution that can block or prevent specific software from running on your
 virtual machines. Application control can help you enforce and monitor compliance with software
 restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application whitelist is recommended but
+definition that helps you monitor virtual machines where an application allow list is recommended but
 has not yet been configured.
 
-- Adaptive Application Controls should be enabled on virtual machines
+- Adaptive application controls for defining safe applications should be enabled on your machines
 
 ## CP-7 Alternate Processing Site
 
@@ -598,7 +598,7 @@ articles to learn about the blueprint and how to deploy this sample:
 > [DoD Impact Level 4 blueprint - Overview](./index.md)
 > [DoD Impact Level 4 blueprint - Deploy steps](./deploy.md)
 
-Addition articles about blueprints and how to use them:
+Additional articles about blueprints and how to use them:
 
 - Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).

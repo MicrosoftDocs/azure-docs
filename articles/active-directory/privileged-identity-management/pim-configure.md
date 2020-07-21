@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 07/01/2020
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -44,9 +44,7 @@ Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**
 
 ## Who can do what?
 
-If you're the first person to use Privileged Identity Management, you are automatically assigned the [Security Administrator](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) and [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roles in the directory.
-
-For Azure AD roles in Privileged Identity Management, only a user who is in the Privileged Role Administrator role can manage assignments for other administrators. You can [grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md). Global Administrators, Security Administrators, Global readers, and Security Readers can also view assignments to Azure AD roles in Privileged Identity Management.
+For Azure AD roles in Privileged Identity Management, only a user who is in the Privileged role administrator or Global administrator role can manage assignments for other administrators. You can [grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md). Global Administrators, Security Administrators, Global readers, and Security Readers can also view assignments to Azure AD roles in Privileged Identity Management.
 
 For Azure resource roles in Privileged Identity Management, only a subscription administrator, a resource Owner, or a resource User Access administrator can manage assignments for other administrators. Users who are Privileged Role Administrators, Security Administrators, or Security Readers do not by default have access to view assignments to Azure resource roles in Privileged Identity Management.
 

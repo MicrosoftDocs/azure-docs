@@ -3,10 +3,8 @@ title: Optimize performance on Azure Lsv2-series virtual machines - Storage
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines.
 services: virtual-machines-linux
 author: laurenhughes
-manager: gwallace
-
 ms.service: virtual-machines-linux
-
+ms-subservice: sizes
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -107,4 +105,4 @@ To learn more about options for backing up data in local storage, see [Backup an
    
 ## Next steps
 
-* See specifications for all [VMs optimized for storage performance](sizes-storage.md) on Azure
+* See specifications for all [VMs optimized for storage performance](../sizes-storage.md) on Azure

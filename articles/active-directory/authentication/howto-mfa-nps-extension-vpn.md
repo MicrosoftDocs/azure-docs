@@ -5,7 +5,7 @@ description: Integrate your VPN infrastructure with Azure MFA by using the Netwo
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/21/2019
 
 ms.author: iainfou
@@ -64,7 +64,7 @@ When the NPS extension for Azure is integrated with the NPS, a successful authen
 2. Acting as a RADIUS client, the VPN server converts the request to a RADIUS *Access-Request* message and sends it (with an encrypted password) to the RADIUS server where the NPS extension is installed.
 3. The username and password combination is verified in Active Directory. If either the username or password is incorrect, the RADIUS Server sends an *Access-Reject* message.
 4. If all conditions, as specified in the NPS Connection Request and Network Policies, are met (for example, time of day or group membership restrictions), the NPS extension triggers a request for secondary authentication with Azure Multi-Factor Authentication.
-5. Azure Multi-Factor Authentication communicates with Azure Active Directory, retrieves the user’s details, and performs the secondary authentication by using the method that's configured by the user (cell phone call, text message, or mobile app).
+5. Azure Multi-Factor Authentication communicates with Azure Active Directory, retrieves the user's details, and performs the secondary authentication by using the method that's configured by the user (cell phone call, text message, or mobile app).
 6. When the MFA challenge is successful, Azure Multi-Factor Authentication communicates the result to the NPS extension.
 7. After the connection attempt is both authenticated and authorized, the NPS where the extension is installed sends a RADIUS *Access-Accept* message to the VPN server (RADIUS client).
 8. The user is granted access to the virtual port on the VPN server and establishes an encrypted VPN tunnel.
@@ -105,8 +105,8 @@ The NPS extension requires Windows Server 2008 R2 SP1 or later, with the Network
 
 The following libraries are installed automatically with the NPS extension:
 
--	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
+-    [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-    [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
 If the Microsoft Azure Active Directory PowerShell Module is not already present, it is installed with a configuration script that you run as part of the setup process. There is no need to install the module ahead of time if it is not already installed.
 
@@ -242,9 +242,9 @@ In this section, you configure your VPN server to use RADIUS authentication. The
     b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
     c. In the **Time-out (seconds)** box, enter a value of **30**.  
-    The timeout value is necessary to allow enough time to complete the second authentication factor.
+    The timeout value is necessary to allow enough time to complete the second authentication factor. Some VPNs or regions require time-out settings greater than 30 seconds to prevent users from receiving multiple phone calls. If users do experience this issue, increase the **Time-out (seconds)** value in increments of 30 seconds until the issue doesn't reoccur.
 
-    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Select **OK**.
 
@@ -317,19 +317,15 @@ Create a new string value named _REQUIRE_USER_MATCH in HKLM\SOFTWARE\Microsoft\A
 
 If the value is set to *True* or is blank, all authentication requests are subject to an MFA challenge. If the value is set to *False*, MFA challenges are issued only to users who are enrolled in Azure Multi-Factor Authentication. Use the *False* setting only in testing or in production environments during an onboarding period.
 
-### Obtain the Azure Active Directory GUID ID
+### Obtain the Azure Active Directory tenant ID
 
-As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. Obtain the ID by doing the following:
+As part of the configuration of the NPS extension, you must supply administrator credentials and the ID of your Azure AD tenant. To get the tenant ID, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
+1. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
+1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
 
-2. In the Azure portal menu, select **Azure Active Directory**, or search for and select **Azure Active Directory** from any page.
-
-3. Select **Properties**.
-
-4. To copy your Azure AD ID, select the **Copy** button.
-
-    ![Azure AD Directory ID in the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-id-in-azure-portal.png)
+   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension-vpn/azure-active-directory-tenant-id-portal.png)
 
 ### Install the NPS extension
 
@@ -358,12 +354,12 @@ The script performs the following actions:
 * Creates a self-signed certificate.
 * Associates the public key of the certificate to the service principal on Azure AD.
 * Stores the certificate in the local machine store.
-* Grants the network user access to the certificate’s private key.
+* Grants the network user access to the certificate's private key.
 * Restarts the NPS service.
 
 If you want to use your own certificates, you must associate the public key of your certificate with the service principal on Azure AD, and so on.
 
-To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. Run the script on each NPS server where you install the NPS extension.
+To use the script, provide the extension with your Azure Active Directory administrative credentials and the Azure Active Directory tenant ID that you copied earlier. The account must be in the same Azure AD tenant as you wish to enable the extension for. Run the script on each NPS server where you install the NPS extension.
 
 1. Run Windows PowerShell as an administrator.
 
@@ -373,6 +369,8 @@ To use the script, provide the extension with your Azure Active Directory admini
 
     ![Running the AzureMfsNpsExtnConfigSetup.ps1 configuration script](./media/howto-mfa-nps-extension-vpn/image38.png)
 
+    If you get a security error due to TLS, enable TLS 1.2 using the `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` command from your PowerShell prompt.
+    
     After the script verifies the installation of the PowerShell module, it displays the Azure Active Directory PowerShell module sign-in window.
 
 4. Enter your Azure AD administrator credentials and password, and then select **Sign in**.
@@ -381,7 +379,7 @@ To use the script, provide the extension with your Azure Active Directory admini
 
 5. At the command prompt, paste the tenant ID that you copied earlier, and then select Enter.
 
-    ![Input the Azure AD Directory ID copied before](./media/howto-mfa-nps-extension-vpn/image40.png)
+    ![Input the Azure AD Tenant ID copied before](./media/howto-mfa-nps-extension-vpn/image40.png)
 
     The script creates a self-signed certificate and performs other configuration changes. The output is like that in the following image:
 
@@ -407,7 +405,9 @@ After you've successfully authenticated by using the secondary method, you are g
 
 To view successful sign-in events in the Windows Event Viewer logs query the Windows Security log, on the NPS server, by entering the following PowerShell command:
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![PowerShell security Event Viewer](./media/howto-mfa-nps-extension-vpn/image44.png)
 
@@ -417,7 +417,9 @@ You can also view the security log or the Network Policy and Access Services cus
 
 On the server where you installed the NPS extension for Azure Multi-Factor Authentication, you can find Event Viewer application logs that are specific to the extension at *Application and Services Logs\Microsoft\AzureMfa*.
 
-    `Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL`
+```powershell
+Get-WinEvent -Logname Security | where {$_.ID -eq '6272'} | FL
+```
 
 ![Example Event Viewer AuthZ logs pane](./media/howto-mfa-nps-extension-vpn/image46.png)
 

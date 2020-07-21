@@ -1,18 +1,11 @@
 ---
 title: OpenShift Container Platform 3.11 in Azure prerequisites 
 description: Prerequisites to deploy OpenShift Container Platform 3.11 in Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: haroldwongms
 manager: mdotson
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-linux
-
+ms.subservice: workloads
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
@@ -86,7 +79,7 @@ ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 > [!NOTE]
 > Your SSH key pair can't have a password / passphrase.
 
-For more information on SSH keys on Windows, see [How to create SSH keys on Windows](/azure/virtual-machines/linux/ssh-from-windows). Be sure to export the private key in OpenSSH format.
+For more information on SSH keys on Windows, see [How to create SSH keys on Windows](./ssh-from-windows.md). Be sure to export the private key in OpenSSH format.
 
 ## Store the SSH private key in Azure Key Vault
 The OpenShift deployment uses the SSH key you created to secure access to the OpenShift master. To enable the deployment to securely retrieve the SSH key, store the key in Key Vault by using the following command:
@@ -136,19 +129,19 @@ Take note of the appId property and password returned from the command:
  > [!WARNING] 
  > Be sure to write down the secure password as it will not be possible to retrieve this password again.
 
-For more information on service principals, see [Create an Azure service principal with Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+For more information on service principals, see [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## Prerequisites applicable only to Resource Manager template
 
-Secrets will need to be created for the SSH private key (**sshPrivateKey**), Azure AD client secret (**aadClientSecret**), OpenShift admin password (**openshiftPassword**), and Red Hat Subscription Manager password or activation key (**rhsmPasswordOrActivationKey**).  Additionally, if custom SSL certificates are used, then six additional secrets will need to be created - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, and **masterkeyfile**.  These parameters will be explained in more detail.
+Secrets will need to be created for the SSH private key (**sshPrivateKey**), Azure AD client secret (**aadClientSecret**), OpenShift admin password (**openshiftPassword**), and Red Hat Subscription Manager password or activation key (**rhsmPasswordOrActivationKey**).  Additionally, if custom TLS/SSL certificates are used, then six additional secrets will need to be created - **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**, and **masterkeyfile**.  These parameters will be explained in more detail.
 
 The template references specific secret names so you **must** use the bolded names listed above (case sensitive).
 
 ### Custom Certificates
 
-By default, the template will deploy an OpenShift cluster using self-signed certificates for the OpenShift web console and the routing domain. If you want to use custom SSL certificates, set 'routingCertType' to 'custom' and 'masterCertType' to 'custom'.  You'll need the CA, Cert, and Key files in .pem format for the certificates.  It is possible to use custom certificates for one but not the other.
+By default, the template will deploy an OpenShift cluster using self-signed certificates for the OpenShift web console and the routing domain. If you want to use custom TLS/SSL certificates, set 'routingCertType' to 'custom' and 'masterCertType' to 'custom'.  You'll need the CA, Cert, and Key files in .pem format for the certificates.  It is possible to use custom certificates for one but not the other.
 
-You'll need to store these files in Key Vault secrets.  Use the same Key Vault as the one used for the private key.  Rather than require 6 additional inputs for the secret names, the template is hard-coded to use specific secret names for each of the SSL certificate files.  Store the certificate data using the information from the following table.
+You'll need to store these files in Key Vault secrets.  Use the same Key Vault as the one used for the private key.  Rather than require 6 additional inputs for the secret names, the template is hard-coded to use specific secret names for each of the TLS/SSL certificate files.  Store the certificate data using the information from the following table.
 
 | Secret Name      | Certificate file   |
 |------------------|--------------------|

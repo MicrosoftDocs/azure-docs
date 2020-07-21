@@ -7,9 +7,9 @@ author: msmimart
 manager: celestedg
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 03/24/2020
+ms.date: 04/05/2020
 ms.author: mimart
 ms.subservice: B2C
 
@@ -128,6 +128,7 @@ Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pac
         <InputClaim ClaimTypeReferenceId="PolicyId" PartnerClaimType="{property:Policy}" DefaultValue="{Policy:PolicyId}" />
         <InputClaim ClaimTypeReferenceId="CorrelationId" PartnerClaimType="{property:CorrelationId}" DefaultValue="{Context:CorrelationId}" />
         <InputClaim ClaimTypeReferenceId="Culture" PartnerClaimType="{property:Culture}" DefaultValue="{Culture:RFC5646}" />
+      </InputClaims>
     </TechnicalProfile>
 
     <TechnicalProfile Id="AppInsights-SignInRequest">
@@ -166,7 +167,7 @@ Call `AppInsights-SignInRequest` as orchestration step 2 to track that a sign-in
 
 ```xml
 <!-- Track that we have received a sign in request -->
-<OrchestrationStep Order="1" Type="ClaimsExchange">
+<OrchestrationStep Order="2" Type="ClaimsExchange">
   <ClaimsExchanges>
     <ClaimsExchange Id="TrackSignInRequest" TechnicalProfileReferenceId="AppInsights-SignInRequest" />
   </ClaimsExchanges>
@@ -228,7 +229,7 @@ Add claim types and events to your user journey to fit your needs. You can use [
 - **PartnerClaimType** is the name of the property that appears in Azure Insights. Use the syntax of `{property:NAME}`, where `NAME` is property being added to the event.
 - **DefaultValue** use any string value or the claim resolver.
 
-```XML
+```xml
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
 <InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 <InputClaim ClaimTypeReferenceId="language" PartnerClaimType="{property:language}" DefaultValue="{Culture:RFC5646}" />

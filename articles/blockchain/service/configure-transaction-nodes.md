@@ -2,7 +2,7 @@
 title: Configure Azure Blockchain Service transaction nodes
 description: How to configure Azure Blockchain Service transaction nodes
 ms.date: 11/20/2019
-ms.topic: article
+ms.topic: how-to
 ms.reviewer: janders
 #Customer intent: As a network operator, I want to use the Azure portal to create and configure transaction nodes.
 ---
@@ -50,7 +50,7 @@ To view a transaction node's endpoint details:
 
     ![Endpoints](./media/configure-transaction-nodes/endpoints.png)
 
-Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over SSL.
+Transaction node endpoints are secure and require authentication. You can connect to a transaction endpoint using Azure AD authentication, HTTPS basic authentication, and using an access key over HTTPS or Websocket over TLS.
 
 ### Azure Active Directory access control
 

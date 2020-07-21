@@ -19,7 +19,7 @@
         href: quickstarts/local-quickstart.md 
       - name: Using Java 
         href: quickstarts/local-search-java-quickstart.md 
-      - name: Using Node 
+      - name: Using Node.js 
         href: quickstarts/local-search-node-quickstart.md 
       - name: Using Python 
         href: quickstarts/local-search-python-quickstart.md 

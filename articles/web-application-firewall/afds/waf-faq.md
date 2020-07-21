@@ -1,18 +1,18 @@
 ---
-title: Azure Web Application Firewall - Frequently Asked Questions
+title: Azure Web Application Firewall on Azure Front Door Service - frequently asked questions
 description: This article provides answers to frequently asked questions about Web Application Firewall on Azure Front Door
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 05/05/2020
 ms.author: victorh
 ---
 
 # Frequently asked questions for Azure Web Application Firewall on Azure Front Door Service
 
-This article answers common questions about Azure web application firewall (WAF) features and functionality. 
+This article answers common questions about Azure Web Application Firewall (WAF) on Azure Front Door Service features and functionality. 
 
 ## What is Azure WAF?
 
@@ -26,7 +26,7 @@ Azure Front Door is a highly scalable, globally distributed application and cont
 
 ## Does Azure WAF support HTTPS?
 
-Front Door offers SSL offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
+Front Door offers TLS offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
 
 ## Does Azure WAF support IPv6?
 

@@ -43,7 +43,7 @@ For descriptions and syntax for all App Service web apps cmdlets, see [Az.Websit
 
 To view your web app's event logs:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. In the menu, select **Debug Console** > **CMD**.
 3. Select the **LogFiles** folder.
 4. To view event logs, select the pencil icon next to **eventlog.xml**.
@@ -53,7 +53,7 @@ To view your web app's event logs:
 
 To capture a user-mode memory dump of your web app:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. Select the **Process Explorer** menu.
 3. Right-click the **w3wp.exe** process or your WebJob process.
 4. Select **Download Memory Dump** > **Full Dump**.
@@ -66,7 +66,7 @@ You have two options for viewing process-level information for your web app:
     1. Open the **Process Explorer** for the web app.
     2. To see the details, select the **w3wp.exe** process.
 *   In the Kudu console:
-    1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+    1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
     2. Select the **Process Explorer** menu.
     3. For the **w3wp.exe** process, select **Properties**.
 

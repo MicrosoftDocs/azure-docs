@@ -132,9 +132,9 @@ You can reference a Swagger file that's not hosted or that doesn't meet the secu
 
 1. [Upload the Swagger file to the blob container](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), either through the [Azure portal](https://portal.azure.com) or [Azure Storage Explorer](https://storageexplorer.com/).
 
-1. To reference the file in the blob container, use an HTTPS link that follows this format, which is case-sensitive:
+1. To reference the file in the blob container, get the HTTPS URL that follows this format, which is case-sensitive, from Azure Storage Explorer:
 
-   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<complete-swagger-file-name>?<query-parameters>`
 
 ## Connector reference
 

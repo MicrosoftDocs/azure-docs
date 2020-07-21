@@ -57,8 +57,8 @@ specify these additional elements in the request body.
 
 | Element | Required | Description |
 |---------|----------|-------------|
-| **authentication** (parent element) | The authentication object for using an SSL client certificate |
-| **type** | Yes | The authentication type. For SSL client certificates, the value is `ClientCertificate`. |
+| **authentication** (parent element) | The authentication object for using an SSL/TLS client certificate |
+| **type** | Yes | The authentication type. For SSL/TLS client certificates, the value is `ClientCertificate`. |
 | **pfx** | Yes | The base64-encoded contents of the PFX file |
 | **password** | Yes | The password for accessing the PFX file |
 ||| 
@@ -70,8 +70,8 @@ the response contains these authentication elements.
 
 | Element | Description | 
 |---------|-------------| 
-| **authentication** (parent element) | The authentication object for using an SSL client certificate |
-| **type** | The authentication type. For SSL client certificates, the value is `ClientCertificate`. |
+| **authentication** (parent element) | The authentication object for using an SSL/TLS client certificate |
+| **type** | The authentication type. For SSL/TLS client certificates, the value is `ClientCertificate`. |
 | **certificateThumbprint** |The certificate's thumbprint |
 | **certificateSubjectName** |The certificate subject distinguished name |
 | **certificateExpiration** | The certificate's expiration date |

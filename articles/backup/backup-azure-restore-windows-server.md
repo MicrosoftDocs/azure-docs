@@ -1,11 +1,11 @@
 ---
-title: Restore data in Azure to a Windows server
+title: Restore files to Windows Server using the MARS Agent
 description: In this article, learn how to restore data stored in Azure to a Windows server or Windows computer with the Microsoft Azure Recovery Services (MARS) Agent.
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 09/07/2018
 ---
-# Restore files to Windows by using the Azure Resource Manager deployment model
+# Restore files to Windows Server using the MARS Agent
 
 This article explains how to restore data from a backup vault. To restore data, you use the Recover Data wizard in the Microsoft Azure Recovery Services (MARS) Agent. You can:
 
@@ -44,9 +44,9 @@ If you accidentally deleted a file and want to restore it to the same machine (f
     ![Screenshot of Recover Data Wizard Select Recovery Mode page](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
    > The option to restore individual files and folders requires .NET Framework 4.5.2 or later. If you do not see the **Individual files and folders** option, you must upgrade .NET Framework to version 4.5.2 or later, and try again.
- 
+
    > [!TIP]
-   > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 60 MBps), which is ideal for recovering large-sized data or entire volumes.
+   > The **Individual files and folders** option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totaling not more than 80 GB, and offers transfer or copy speeds up to 6 MBps during recovery. The **Volume** option recovers all backed up data in a specified volume. This option provides faster transfer speeds (up to 40 MBps), which is ideal for recovering large-sized data or entire volumes.
 
 5. On the **Select Volume and Date** page, select the volume that contains the files and folders you want to restore.
 

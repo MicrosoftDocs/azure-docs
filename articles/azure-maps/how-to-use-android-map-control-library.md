@@ -19,7 +19,7 @@ The Azure Maps Android SDK is a vector map library for Android. This article gui
 
 ### Create an Azure Maps account
 
-To complete the procedures in this article, you first need to [Create an Azure Maps account](quick-demo-map-app.md#create-an-account-with-azure-maps) in the S1 pricing tier and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) for your account.
+To complete the procedures in this article, you first need to [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account) in the S1 pricing tier and [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) for your account.
 
 For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
@@ -75,7 +75,7 @@ The next step in building your application is to install the Azure Maps Android 
     3. Update your dependencies block and add a new implementation dependency line for the latest Azure Maps Android SDK:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
@@ -262,6 +262,29 @@ Here is an example of Azure Maps with the language set to "fr-FR" and regional v
 </center>
 
 A complete list of supported languages and regional views is documented [here](supported-languages.md).
+
+## Navigating the map
+
+There are several different ways in which the map can be zoomed, panned, rotated, and pitched. The following details all the different ways to navigate the map.
+
+**Zoom the map**
+
+- Touch the map with two fingers and pinch together to zoom out or spread the fingers apart to zoom in.
+- Double tap the map to zoom in one level.
+- Double tap with two fingers to zoom the map out one level.
+- Tap twice; on second tap, hold your finger on the map and drag up to zoom in, or down to zoom out.
+
+**Pan the map**
+
+- Touch the map and drag in any direction.
+
+**Rotate the map**
+
+- Touch the map with two fingers and rotate.
+
+**Pitch the map**
+
+- Touch the map with two fingers and drag them up or down together.
 
 ## Next steps
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Box | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Box.
 services: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 03/24/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -35,6 +35,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Box single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -86,6 +89,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
     `box.net`
+
+    c. In the **Reply URL** text box, type a URL:
+    `https://sso.services.box.net/sp/ACS.saml2`
 
 	> [!NOTE]
 	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [Box Client support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
