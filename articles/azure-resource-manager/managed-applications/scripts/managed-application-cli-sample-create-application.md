@@ -29,10 +29,10 @@ This script uses the following command to deploy the managed application. Each c
 
 | Command | Notes |
 |---|---|
-| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-create) | Create a managed application. Provide the definition ID and parameters for the template. |
+| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Create a managed application. Provide the definition ID and parameters for the template. |
 
 
 ## Next steps
 
 * For an introduction to managed applications, see [Azure Managed Application overview](../overview.md).
-* For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
+* For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

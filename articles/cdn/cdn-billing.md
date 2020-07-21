@@ -110,7 +110,8 @@ If you use one of the following Azure services as your CDN origin, you will not 
 - Azure Cosmos DB
 - Azure Data Lake Store
 - Azure Machine Learning 
-- Azure SQL database
+- Azure SQL Database
+- Azure SQL Managed Instance
 - Azure Cache for Redis
 
 ## How do I manage my costs most effectively?

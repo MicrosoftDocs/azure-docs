@@ -5,7 +5,7 @@ description: Shows how to give cloud B2B users access to on premises apps with A
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/10/2018
 
 ms.author: mimart

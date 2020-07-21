@@ -50,7 +50,7 @@ To create a key vault, use the [az keyvault create](/cli/azure/keyvault?view=azu
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Make a note of the returned `vaultUri`, which will be in the format"https://<your-keyvault-name>.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
+Make a note of the returned `vaultUri`, which will be in the format "https://&lt;your-keyvault-name&gt;.vault.azure.net/". It will be used in the [Update the code](#update-the-code) step.
 
 You can now place a secret in your key vault with the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. Set the name of your secret to "MySecret" and the value to "Success!".
 
@@ -278,6 +278,7 @@ Add these two lines to the header:
 ```csharp
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
+using Azure.Core;
 ```
 
 Add these lines before the `app.UseEndpoints` call, updating the URI to reflect the `vaultUri` of your key vault. Below code is using  ['DefaultAzureCredential()'](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) for authentication to key vault, which is using token from application managed identity to authenticate. It is also using exponential backoff for retries in case of key vault is being throttled.

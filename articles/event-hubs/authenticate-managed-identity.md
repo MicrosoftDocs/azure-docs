@@ -1,16 +1,8 @@
 ---
 title: Authentication a managed identity with Azure Active Directory
 description: This article provides information about authenticating a managed identity with Azure Active Directory to access Azure Event Hubs resources
-services: event-hubs
-ms.service: event-hubs
-documentationcenter: ''
-author: spelluru
-manager: 
-
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 # Authenticate a managed identity with Azure Active Directory to access Event Hubs Resources
 Azure Event Hubs supports Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to Event Hubs resources using Azure AD credentials from applications running in Azure Virtual Machines (VMs), Function apps, Virtual Machine Scale Sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.
@@ -20,7 +12,7 @@ This article shows how to authorize access to an event hub by using a managed id
 ## Enable managed identities on a VM
 Before you can use managed identities for Azure Resources to authorize Event Hubs resources from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
-- [Azure portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure portal](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager template](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)

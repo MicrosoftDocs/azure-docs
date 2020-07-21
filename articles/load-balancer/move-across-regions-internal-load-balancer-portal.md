@@ -3,7 +3,7 @@ title: Move Azure internal Load Balancer to another Azure region using the Azure
 description: Use Azure Resource Manager template to move Azure internal Load Balancer from one Azure region to another using the Azure portal
 author: asudbring
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/18/2019
 ms.author: allensu
 ---

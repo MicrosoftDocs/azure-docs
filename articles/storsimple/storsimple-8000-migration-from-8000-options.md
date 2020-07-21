@@ -5,7 +5,7 @@ services: storsimple
 author: priestlg
 
 ms.service: storsimple
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/25/2020 
 ms.author: v-grpr
 

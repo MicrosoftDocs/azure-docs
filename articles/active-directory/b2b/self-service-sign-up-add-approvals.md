@@ -1,20 +1,19 @@
 ---
-title: API connectors for custom approval workflows in External Identities self-service sign-up - Azure AD
+title: Add custom approvals to self-service sign-up flows - Azure AD
 description: Add API connectors for custom approval workflows in External Identities self-service sign-up - Azure Active Directory (Azure AD)
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 06/16/2020
 
 ms.author: mimart
 author: msmimart
 manager: celestedg
-ms.reviewer: mal
+ms.custom: "it-pro"
 ms.collection: M365-identity-device-management
 ---
- 
+
 # Add a custom approval workflow to self-service sign-up
 
 With [API connectors](api-connectors-overview.md), you can integrate with your own custom approval workflows with self-service sign-up so you can manage which guest user accounts are created in your tenant.
@@ -31,7 +30,7 @@ You need to register your approval system as an application in your Azure AD ten
 1. Sign in to the [Azure portal](https://portal.azure.com) as an Azure AD administrator.
 2. Under **Azure services**, select **Azure Active Directory**.
 3. In the left menu, select **App registrations**, and then select **New registration**.
-4. Enter a **Name** for the application, for example, *Sign-up Approvals*.
+4. Enter a **Name** for the application, for example, _Sign-up Approvals_.
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
@@ -43,11 +42,11 @@ You need to register your approval system as an application in your Azure AD ten
 7. On the **Request API permissions** page, select **Microsoft Graph**, and then select **Application permissions**.
 8. Under **Select permissions**, expand **User**, and then select the **User.ReadWrite.All** check box. This permission allows the approval system to create the user upon approval. Then select **Add permissions**.
 
-    ![Register an application page](media/self-service-sign-up-add-approvals/request-api-permissions.png)
+   ![Register an application page](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
 9. On the **API permissions** page, select **Grant admin consent for (your tenant name)**, and then select **Yes**.
 10. Under **Manage** in the left menu, select **Certificates & secrets**, and then select **New client secret**.
-11. Enter a **Description** for the secret, for example *Approvals client secret*, and select the duration for when the client secret **Expires**. Then select **Add**.
+11. Enter a **Description** for the secret, for example _Approvals client secret_, and select the duration for when the client secret **Expires**. Then select **Add**.
 12. Copy the value of the client secret.
 
     ![Copy the client secret for use in the approval system](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -58,13 +57,13 @@ You need to register your approval system as an application in your Azure AD ten
 
 Next you'll [create the API connectors](self-service-sign-up-add-api-connector.md#create-an-api-connector) for your self-service sign-up user flow. Your approval system API needs two connectors and corresponding endpoints, like the examples shown below. These API connectors do the following:
 
-- **Check approval status**. Send a call to the approval system immediately after a user signs-in with an identity provider to check if the user has an existing approval request or has already been denied. If your approval system only does automatic approval decisions, this API connector may not be needed. The following is an example of a "Check approval status" API connector.
+- **Check approval status**. Send a call to the approval system immediately after a user signs-in with an identity provider to check if the user has an existing approval request or has already been denied. If your approval system only does automatic approval decisions, this API connector may not be needed. Example of a "Check approval status" API connector.
 
-   ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
+  ![Check approval status  API connector configuration](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
-- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. The following is an example of a "Request approval" API connector. Select any **Claims to send** that the approval system needs to make an approval decision.
+- **Request approval** - Send a call to the approval system after a user completes the attribute collection page, but before the user account is created, to request approval. The approval request can be automatically granted or manually reviewed. Example of a "Request approval" API connector. Select any **Claims to send** that the approval system needs to make an approval decision.
 
-   ![Request approval API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
+  ![Request approval API connector configuration](./media/self-service-sign-up-add-approvals/create-approval-request-api-connector-config-alt.png)
 
 To create these connectors, follow the steps in [create an API connector](self-service-sign-up-add-api-connector.md#create-an-api-connector).
 
@@ -77,8 +76,9 @@ Now you'll add the API connectors to a self-service sign-up user flow with these
 3. In the left menu, select **External Identities**.
 4. Select **User flows (Preview)**, and then select the user flow you want to enable the API connector for.
 5. Select **API connectors**, and then select the API endpoints you want to invoke at the following steps in the user flow:
-   - **After signing in with an identity provider**: Select your approval status API connector, for example *Check approval status*.
-   - **Before creating the user**: Select your approval request API connector, for example *Request approval*.
+
+   - **After signing in with an identity provider**: Select your approval status API connector, for example _Check approval status_.
+   - **Before creating the user**: Select your approval request API connector, for example _Request approval_.
 
    ![Add APIs to the user flow](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
@@ -90,14 +90,14 @@ Your approval system can use the [API response types](self-service-sign-up-add-a
 
 ### Request and responses for the "Check approval status" API connector
 
-The following is an example of the request received by the API from the "Check approval status" API connector:
+Example of the request received by the API from the "Check approval status" API connector:
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -115,7 +115,7 @@ The **Check approval status** API endpoint should return a continuation response
 
 - The user has not previously requested an approval.
 
-The following is an example of the continuation response:
+Example of the continuation response:
 
 ```http
 HTTP/1.1 200 OK
@@ -162,14 +162,14 @@ Content-type: application/json
 
 ### Request and responses for the "Request approval" API connector
 
-The following is an example of an HTTP request received by the API from the "Request approval" API connector:
+Example of an HTTP request received by the API from the "Request approval" API connector:
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -179,7 +179,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -188,9 +188,9 @@ Content-type: application/json
 
 The **Request approval** API endpoint should return a continuation response if:
 
-- The user can be ***automatically approved***.
+- The user can be **_automatically approved_**.
 
-The following is an example of the continuation response:
+Example of the continuation response:
 
 ```http
 HTTP/1.1 200 OK
@@ -244,7 +244,7 @@ The `userMessage` in the response is displayed to the user, for example:
 
 ## User account creation after manual approval
 
-After obtaining manual approval, the custom approval system creates a [user](https://docs.microsoft.com/graph/azuread-users-concept-overview) account by using  [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). The way your approval system provisions the user account depends on the identity provider that was used by the user.
+After obtaining manual approval, the custom approval system creates a [user](https://docs.microsoft.com/graph/azuread-users-concept-overview) account by using [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). The way your approval system provisions the user account depends on the identity provider that was used by the user.
 
 ### For a federated Google or Facebook user
 
@@ -253,14 +253,14 @@ After obtaining manual approval, the custom approval system creates a [user](htt
 
 If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. The approval system uses receives the HTTP request from the user flow.
+1. The approval system receives the HTTP request from the user flow.
 
 ```http
 POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@outlook.com",
+ "email": "johnsmith@outlook.com",
  "identities": [
      {
      "signInType":"federated",
@@ -270,7 +270,7 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
@@ -295,23 +295,23 @@ Content-type: application/json
  ],
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value"
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value"
 }
 ```
 
-| Parameter  | Required | Description |
-|---|---|---|
-| userPrincipalName | Yes | Can be generated by taking the `email_address` claim sent to the API, replacing the `@`character with `_`, and pre-pending it to `#EXT@<tenant-name>.onmicrosoft.com`. |
-| accountEnabled  | Yes  | Must be set to `true`.  |
-| mail  | Yes | Equivalent to the `email_address` claim sent to the API. |
-| userType | Yes | Must be `Guest`. Designates this user as a guest user. |
-| identities  | Yes  | The federated identity information. |
-| \<otherBuiltInAttribute>  | No  | Other built-in attributes like `displayName`, `city`, and others. Parameter names are the same as the parameters sent by the API connector.|
-| \<extension_\<aad-extensions-app-id>\_CustomAttribute> | No | Custom attributes about the user. Parameter names are the same as the parameters sent by the API connector. |
+| Parameter                                           | Required | Description                                                                                                                                                            |
+| --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| userPrincipalName                                   | Yes      | Can be generated by taking the `email` claim sent to the API, replacing the `@`character with `_`, and pre-pending it to `#EXT@<tenant-name>.onmicrosoft.com`. |
+| accountEnabled                                      | Yes      | Must be set to `true`.                                                                                                                                                 |
+| mail                                                | Yes      | Equivalent to the `email` claim sent to the API.                                                                                                               |
+| userType                                            | Yes      | Must be `Guest`. Designates this user as a guest user.                                                                                                                 |
+| identities                                          | Yes      | The federated identity information.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | No       | Other built-in attributes like `displayName`, `city`, and others. Parameter names are the same as the parameters sent by the API connector.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Custom attributes about the user. Parameter names are the same as the parameters sent by the API connector.                                                            |
 
 ### For a federated Azure Active Directory user
 
-If a user signs in with a federated Azure Active Directory account,  you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
+If a user signs in with a federated Azure Active Directory account, you must use the [invitation API](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) to create the user and then optionally the [user update API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) to assign more attributes to the user.
 
 1. The approval system receives the HTTP request from the user flow.
 
@@ -320,27 +320,27 @@ POST <Approvals-API-endpoint>
 Content-type: application/json
 
 {
- "email_address": "johnsmith@fabrikam.onmicrosoft.com",
+ "email": "johnsmith@fabrikam.onmicrosoft.com",
  "displayName": "John Smith",
  "city": "Redmond",
- "extension_<aad-extensions-app-id>_CustomAttribute": "custom attribute value",
+ "extension_<extensions-app-id>_CustomAttribute": "custom attribute value",
  "ui_locales":"en-US"
 }
 ```
 
-2. The approval system creates the invitation using the `email_address` provided by the API connector.
+2. The approval system creates the invitation using the `email` provided by the API connector.
 
 ```http
-POST https://graph.microsoft.com/v1.0/invitations 
+POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com", 
+    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
     "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
-The following is an example of the response:
+Example of the response:
 
 ```http
 HTTP/1.1 201 OK
@@ -363,11 +363,11 @@ Content-type: application/json
 {
     "displayName": "John Smith",
     "city": "Redmond",
-    "extension_<aad-extensions-app-id>_AttributeName": "custom attribute value"
+    "extension_<extensions-app-id>_AttributeName": "custom attribute value"
 }
 ```
 
-<!-- ## Next steps -->
-<!-- - See an example approval system with the [Woodgrove self-service sign-up for guest users sample](code-samples-self-service-sign-up.md#custom-approval-system).  -->
-<!--TODO: link to sample-->
+## Next steps
 
+- Get started with our [Azure Function quickstart samples](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
+- Checkout the [self-service sign-up for guest users with manual approval sample](code-samples-self-service-sign-up.md#custom-approval-workflows). 

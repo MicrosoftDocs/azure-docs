@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/28/2020
+ms.date: 06/20/2020
 ---
 
 # Tutorial: Index from multiple data sources using the .NET SDK
@@ -17,7 +17,7 @@ Azure Cognitive Search can import, analyze, and index data from multiple data so
 
 This tutorial describes how to index hotel data from an Azure Cosmos DB data source and merge that with hotel room details drawn from Azure Blob Storage documents. The result will be a combined hotel search index containing complex data types.
 
-This tutorial uses C# and the [.NET SDK](https://aka.ms/search-sdk). In this tutorial, you'll perform the following tasks:
+This tutorial uses C# and the [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). In this tutorial, you'll perform the following tasks:
 
 > [!div class="checklist"]
 > * Upload sample data and create data sources

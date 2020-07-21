@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<tenantname>.fieldid.com/fieldid`
 
    b. In the **Reply URL** text box, type a URL that uses the following pattern:
-    `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/tmna`
+    `https://<tenantname>.fieldid.com/fieldid/saml/SSO/alias/<Tenant Name>`
 
 	> [!NOTE]
 	> These values aren't real. Update these values with the actual Identifier and Reply URL. Contact the [Field iD support team](mailto:support@ecompliance.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

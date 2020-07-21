@@ -30,7 +30,7 @@ With Azure Cosmos DB, not only your data, but also the backups of your data are 
 
 The following image shows how an Azure Cosmos container with all the three primary physical partitions in West US is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
 
-![Periodic full backups of all Cosmos DB entities in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
+:::image type="content" source="./media/online-backup-and-restore/automatic-backup.png" alt-text="Periodic full backups of all Cosmos DB entities in GRS Azure Storage" border="false":::
 
 ## Options to manage your own backups
 

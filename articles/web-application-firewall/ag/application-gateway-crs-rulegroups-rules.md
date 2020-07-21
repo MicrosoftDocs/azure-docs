@@ -35,6 +35,9 @@ The WAF protects against the following web vulnerabilities:
 
 CRS 3.1 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
+> [!NOTE]
+> CRS 3.1 is only available on the WAF_v2 SKU.
+
 |Rule group|Description|
 |---|---|
 |**[General](#general-31)**|General group|

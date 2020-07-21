@@ -7,11 +7,11 @@ ms.date: 12/04/2018
 
 # Install packages from within Azure Notebooks Preview
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 Although you can configure the [environment for your notebook on the project level](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), you may want to install packages directly within an individual notebook.
 
 Packages installed from the notebook apply only to the current server session. Package installations aren't persisted once the server is shut down.
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## Python
 

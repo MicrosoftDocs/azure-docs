@@ -3,7 +3,7 @@ title: Create a container in Azure Cosmos DB
 description: Learn how to create a container in Azure Cosmos DB by using Azure portal, .Net, Java, Python, Node.js and other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: mjbrown
 ---
@@ -31,7 +31,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of Data Explorer pane, with New Container highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-sql.png" alt-text="Screenshot of Data Explorer pane, with New Container highlighted":::
 
 ### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
@@ -47,7 +47,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of Azure Cosmos DB API for MongoDB, Add Container dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot of Azure Cosmos DB API for MongoDB, Add Container dialog box":::
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
@@ -63,7 +63,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of Cassandra API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot of Cassandra API, Add Table dialog box":::
 
 > [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
@@ -83,7 +83,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of Gremlin API, Add Graph dialog box](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot of Gremlin API, Add Graph dialog box":::
 
 ### <a id="portal-table"></a>Table API
 
@@ -97,7 +97,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of Table API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-table.png)
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Screenshot of Table API, Add Table dialog box":::
 
 > [!Note]
 > For Table API, the partition key is specified each time you add a new row.
@@ -127,6 +127,8 @@ For a listing of all Azure CLI samples across all Azure Cosmos DB APIs see, [SQL
 * [Create a Table API table with Powershell](./scripts/powershell/table/ps-table-create.md)
 
 ## Create a container using .NET SDK
+
+If you encounter timeout exception when creating a collection, do a read operation to validate if the collection was created successfully. The read operation throws an exception until the collection create operation is successful. For the list of status codes supported by the create operation see the [HTTP Status Codes for Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) article.
 
 ### <a id="dotnet-sql-graph"></a>SQL API and Gremlin API
 

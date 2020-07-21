@@ -5,8 +5,8 @@ description: Learn how to require app protection policy for cloud app access wit
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/08/2020
+ms.topic: how-to
+ms.date: 07/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,10 +27,11 @@ This article presents three scenarios to configure Conditional Access policies f
 
 In the Conditional Access, these client apps are known to be protected with an app protection policy. More information about app protection policies can be found in the article, [App protection policies overview](/intune/apps/app-protection-policy)
 
-For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md).
+> [!WARNING]
+> Not all applications are supported as approved applications or support application protection policies. For a list of eligible client apps, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
->    The or clause is used within the policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md).
+> "Require one of the selected controls" under grant controls is like an OR clause. This is used within policy to enable users to utilize apps that support either the **Require app protection policy** or **Require approved client app** grant controls. **Require app protection policy** is enforced if an app is supported in both policies. For more information on which apps support the **Require app protection policy** grant control, see [App protection policy requirement](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## Scenario 1: Office 365 apps require approved apps with app protection policies
 

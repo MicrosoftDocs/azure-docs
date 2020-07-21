@@ -164,7 +164,7 @@ Following are options and benefits for enabling two-step verification:
 * Require MFA challenge via Microsoft Authenticator for all users
 * Restrict legacy authentication protocols.
 
-This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information In Azure AD Security Defaults
+This method is available to all licensing tiers but is not able to be mixed with existing Conditional Access policies. You can find more information in [Azure AD Security Defaults](/azure/active-directory/fundamentals/concept-fundamentals-security-defaults)
 
 **Option 2**: [Enable Multi-Factor Authentication by changing user state](../../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](/azure/active-directory/authentication/concept-mfa-whichversion). Using this method requires users to perform two-step verification every time they sign in and overrides Conditional Access policies.
@@ -186,7 +186,7 @@ This is the most flexible way to enable two-step verification for your users. En
 This method uses the Azure AD Identity Protection risk evaluation to determine if two-step verification is required based on user and sign-in risk for all cloud applications. This method requires Azure Active Directory P2 licensing. You can find more information on this method in [Azure Active Directory Identity Protection](/azure/active-directory/identity-protection/overview).
 
 > [!Note]
-> Option 1, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 2 and 3 use Conditional Access policies, you cannot use option 1 with them.
+> Option 2, enabling Multi-Factor Authentication by changing the user state, overrides Conditional Access policies. Because options 3 and 4 use Conditional Access policies, you cannot use option 2 with them.
 
 Organizations that don’t add extra layers of identity protection, such as two-step verification, are more susceptible for credential theft attack. A credential theft attack can lead to data compromise.
 
@@ -213,7 +213,7 @@ You can use [RBAC](/azure/role-based-access-control/overview) to assign permissi
 * **Segment management group** for teams with limited scope (commonly because of regulatory or other organizational boundaries)
 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
-**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [custom roles for Azure resources](/azure/role-based-access-control/custom-roles). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
+**Detail**: Review the RBAC built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](/azure/role-based-access-control/custom-roles). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
 **Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
 **Detail**: Add security teams with these needs to the RBAC [Security Admin](/azure/role-based-access-control/built-in-roles#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.

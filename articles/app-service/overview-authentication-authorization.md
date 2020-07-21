@@ -3,15 +3,11 @@ title: Authentication and authorization
 description: Find out about the built-in authentication and authorization support in Azure App Service and Azure Functions, and how it can help secure your app against unauthorized access.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
-ms.date: 04/15/2020
+ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
 ---
 # Authentication and authorization in Azure App Service and Azure Functions
-
-> [!NOTE]
-> At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature.
->
 
 Azure App Service provides built-in authentication and authorization support, so you can sign in users and access data by writing minimal or no code in your web app, RESTful API, and mobile back end, and also [Azure Functions](../azure-functions/functions-overview.md). This article describes how App Service helps simplify authentication and authorization for your app.
 
@@ -23,13 +19,16 @@ Secure authentication and authorization require deep understanding of security, 
 > The ASP.NET Core 2.1 and above versions hosted by App Service are already patched for this breaking change and handle Chrome 80 and older browsers appropriately. In addition, the same patch for ASP.NET Framework 4.7.2 is being deployed on the App Service instances throughout January 2020. For more information, including how to know if your app has received the patch, see [Azure App Service SameSite cookie update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
+> [!NOTE]
+> The Authentication/Authorization feature is also sometimes referred to as "Easy Auth".
+
 For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
 ## How it works
 
 The authentication and authorization module runs in the same sandbox as your application code. When it's enabled, every incoming HTTP request passes through it before being handled by your application code.
 
-![](media/app-service-authentication-overview/architecture.png)
+![An architecture diagram showing requests being intercepted by a process in the site sandbox which interacts with identity providers before allowing traffic to the deployed site](media/app-service-authentication-overview/architecture.png)
 
 This module handles several things for your app:
 
@@ -48,6 +47,10 @@ For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipa
 
 For more information, see [Access user claims](app-service-authentication-how-to.md#access-user-claims).
 
+> [!NOTE]
+> At this time, ASP.NET Core does not currently support populating the current user with the Authentication/Authorization feature. However, some [3rd party, open source middleware components](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) do exist to help fill this gap.
+>
+
 ### Token store
 
 App Service provides a built-in token store, which is a repository of tokens that are associated with the users of your web apps, APIs, or native mobile apps. When you enable authentication with any provider, this token store is immediately available to your app. If your application code needs to access data from these providers on the user's behalf, such as: 
@@ -57,7 +60,7 @@ App Service provides a built-in token store, which is a repository of tokens tha
 
 You typically must write code to collect, store, and refresh these tokens in your application. With the token store, you just [retrieve the tokens](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) when you need them and [tell App Service to refresh them](app-service-authentication-how-to.md#refresh-identity-provider-tokens) when they become invalid. 
 
-The id tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
+The ID tokens, access tokens, and refresh tokens are cached for the authenticated session, and they're accessible only by the associated user.  
 
 If you don't need to work with tokens in your app, you can disable the token store.
 
@@ -76,8 +79,11 @@ App Service uses [federated identity](https://en.wikipedia.org/wiki/Federated_id
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
+| Any [OpenID Connect](https://openid.net/connect/) provider (preview) | `/.auth/login/<providerName>` |
 
-When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options with ease. You can also integrate another identity provider or [your own custom identity solution][custom-auth].
+When you enable authentication and authorization with one of these providers, its sign-in endpoint is available for user authentication and for validation of authentication tokens from the provider. You can provide your users with any number of these sign-in options with ease.
+
+A [legacy extensibility path][custom-auth] exists for integrating with other identity providers or a custom auth solution, but this is not recommended. Instead, consider using the OpenID Connect support.
 
 ## Authentication flow
 
@@ -107,7 +113,7 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors when incoming request is not authenticated.
 
-![](media/app-service-authentication-overview/authorization-flow.png)
+![A screenshot showing the "Action to take when request is not authenticated" dropdown](media/app-service-authentication-overview/authorization-flow.png)
 
 The following headings describe the options.
 
@@ -126,10 +132,6 @@ With this option, you don't need to write any authentication code in your app. F
 > [!CAUTION]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
 
-> [!NOTE]
-> Authentication/Authorization was previously known as Easy Auth.
->
-
 ## More resources
 
 [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
@@ -145,13 +147,14 @@ Provider-specific how-to guides:
 * [How to configure your app to use Google login][Google]
 * [How to configure your app to use Microsoft Account login][MSA]
 * [How to configure your app to use Twitter login][Twitter]
-* [How to: Use custom authentication for your application][custom-auth]
+* [How to configure your app to use an OpenID Connect provider for login (preview)][OIDC]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md
 [Google]: configure-authentication-provider-google.md
 [MSA]: configure-authentication-provider-microsoft.md
 [Twitter]: configure-authentication-provider-twitter.md
+[OIDC]: configure-authentication-provider-openid-connect.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 

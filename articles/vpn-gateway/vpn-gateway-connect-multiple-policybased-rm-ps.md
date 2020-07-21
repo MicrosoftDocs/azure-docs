@@ -5,7 +5,7 @@ services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
 
@@ -32,8 +32,8 @@ The following diagrams highlight the two models:
 ### Azure support for policy-based VPN
 Currently, Azure supports both modes of VPN gateways: route-based VPN gateways and policy-based VPN gateways. They are built on different internal platforms, which result in different specifications:
 
-|                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**       |**RouteBased VPN Gateway**                          |
-| ---                      | ---                         | ---                              |---                                                 |
+| Category | PolicyBased VPN Gateway | RouteBased VPN Gateway | RouteBased VPN Gateway |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **Azure Gateway SKU**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **IKE version**          | IKEv1                       | IKEv2                            | IKEv1 and IKEv2                         |
 | **Max. S2S connections** | **1**                       | 10                               | 30                     |

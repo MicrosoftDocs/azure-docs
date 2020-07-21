@@ -2,21 +2,10 @@
 title: Azure Relay metrics in Azure Monitor  | Microsoft Docs
 description: This article provides information on how you can use Azure Monitor to monitor to state of Azure Relay. 
 services: service-bus-relay
-documentationcenter: .NET
-author: spelluru
-manager: timlt
-editor: ''
-
-ms.assetid: 
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
+
 # Azure Relay metrics in Azure Monitor 
 Azure Relay metrics give you the state of resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your Relay resources, not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of Azure Relay. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
@@ -35,7 +24,7 @@ Metrics are enabled by default, and you can access the most recent 30 days of da
 
 You can monitor metrics over time in the [Azure portal](https://portal.azure.com). The following example shows how to view successful requests and incoming requests at the account level:
 
-![][1]
+![A page titled "Monitor - Metrics (preview)" shows a line graph of memory usage for the last 30 days.][1]
 
 You can also access metrics directly via the namespace. To do so, select your namespace and then click **Metrics **. 
 

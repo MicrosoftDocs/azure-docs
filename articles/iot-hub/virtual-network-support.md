@@ -5,7 +5,7 @@
  author: jlian
  ms.service: iot-fundamentals
  ms.topic: conceptual
- ms.date: 05/25/2020
+ ms.date: 06/16/2020
  ms.author: jlian
 ---
 
@@ -44,6 +44,8 @@ Before proceeding ensure that the following prerequisites are met:
 
 ### Set up a private endpoint for IoT Hub ingress
 
+Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) as well as service APIs (like creating and updating devices).
+
 1. In Azure portal, select **Networking**, **Private endpoint connections**, and click the **+ Private endpoint**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub":::
@@ -65,8 +67,8 @@ The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-buil
 IoT Hub's [IP filter](iot-hub-ip-filtering.md) also doesn't control public access to the built-in endpoint. To completely block public network access to your IoT hub, you must: 
 
 1. Configure private endpoint access for IoT Hub
-1. Turn off public network access by using IP filter to block all IP
-1. Turn off the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
+1. [Turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP
+1. Stop using the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
 1. Turn off the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route)
 1. Configure egress to other Azure resources using [trusted Microsoft service](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
@@ -87,6 +89,76 @@ To allow other services to find your IoT hub as a trusted Microsoft service, it 
 1. Under **Status**, select **On**, then click **Save**.
 
     :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot showing how to turn on managed identity for IoT Hub":::
+
+### Assign managed identity to your IoT Hub at creation time using ARM template
+
+To assign managed identity to your IoT hub at resource provisioning time, use the ARM template below:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "sku": {
+                "name": "<your-hubs-SKU-name>",
+                "tier": "<your-hubs-SKU-tier>",
+                "capacity": 1
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+After substituting the values for your resource `name`, `location`, `SKU.name` and `SKU.tier`, you can use Azure CLI to deploy the resource in an existing resource group using:
+
+```azurecli-interactive
+az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
+```
+
+After the resource is created, you can retrieve the managed service identity assigned to your hub using Azure CLI:
+
+```azurecli-interactive
+az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
+```
 
 ### Pricing for managed identity
 

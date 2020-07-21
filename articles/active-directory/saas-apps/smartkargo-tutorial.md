@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/02/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -80,7 +80,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<CUSTOMER_NAME>.smartkargo.com/`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
@@ -90,15 +90,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<CUSTOMER_NAME>.smartkargo.com/SamlResponse.aspx`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL,Reply URL and Identifier. Contact [SmartKargo Client support team](https://www.smartkargo.com/company/contact-2/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-on URL, Reply URL and Identifier. Contact [SmartKargo Client support team](https://www.smartkargo.com/company/contact-2/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![Edit SAML Signing Certificate](common/edit-certificate.png)
-
-1. In the **SAML Signing Certificate** section, copy the **Thumbprint Value** and save it on your computer.
-
-    ![Copy Thumbprint value](common/copy-thumbprint.png)
+	![The Certificate download link](common/metadataxml.png)
 
 1. On the **Set up SmartKargo** section, copy the appropriate URL(s) based on your requirement.
 
@@ -136,7 +132,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure SmartKargo SSO
 
-To configure single sign-on on **SmartKargo** side, you need to send the **Thumbprint Value** and appropriate copied URLs from Azure portal to [SmartKargo platform support team](https://www.smartkargo.com/company/contact-2/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **SmartKargo** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [SmartKargo platform support team](https://www.smartkargo.com/company/contact-2/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create SmartKargo test user
 

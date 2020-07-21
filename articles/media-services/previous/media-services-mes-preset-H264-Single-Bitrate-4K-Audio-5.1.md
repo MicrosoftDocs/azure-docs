@@ -26,7 +26,7 @@ ms.author: juliako
  This preset produces a single MP4 file with a bitrate of 18000 kbps, and AAC 5.1 audio. For detailed information about profile, bitrate, sampling rate, etc. of this preset, examine the XML or JSON defined below. For explanations of what each element means, and the valid values for each element, see the [Media Encoder Standard schema](media-services-mes-schema.md).  
   
 > [!NOTE]
->  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  You should get the Premium reserved unit type with 4K encodes. For more information, see [How to Scale Encoding](./media-services-scale-media-processing-overview.md).  
   
  XML  
   

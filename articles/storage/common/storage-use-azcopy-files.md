@@ -3,7 +3,7 @@ title: Transfer data to or from Azure Files by using AzCopy v10 | Microsoft Docs
 description: Transfer data with AzCopy and file storage.
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
@@ -112,7 +112,7 @@ You can also exclude files by using the `--exclude-path` option. To learn more, 
 
 #### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolon (`;`).
 
 |    |     |
 |--------|-----------|
@@ -183,7 +183,7 @@ You can specify complete file names, or use partial names with wildcard characte
 
 #### Specify multiple complete file names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
 
 |    |     |
 |--------|-----------|
@@ -196,7 +196,7 @@ You can also exclude files by using the `--exclude-path` option. To learn more, 
 
 #### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolon (`;`).
 
 |    |     |
 |--------|-----------|

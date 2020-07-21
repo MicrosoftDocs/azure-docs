@@ -5,7 +5,7 @@ description: Learn how conditions are used in Azure Active Directory Conditional
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2020
 
 ms.author: joflore

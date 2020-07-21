@@ -24,66 +24,14 @@ Use the Face service client library for Go to:
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * The latest version of [Go](https://golang.org/dl/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* After you get a key and endpoint, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint, named `FACE_SUBSCRIPTION_KEY` and `FACE_ENDPOINT`, respectively.
 
-## Set up
-
-### Create a Face Azure resource 
-
-Begin using the Face service by creating an Azure resource. Choose the resource type that's right for you:
-
-* A [trial resource](https://azure.microsoft.com/try/cognitive-services/#decision) (no Azure subscription needed): 
-    * Valid for seven days, for free. After signing up, a trial key and endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/). 
-    * This is a great option if you want to try Face service, but don’t have an Azure subscription.
-* A [ Face service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace):
-    * Available through the Azure portal until you delete the resource.
-    * Use the free pricing tier to try the service, and upgrade later to a paid tier for production.
-* A [Multi-Service resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Available through the Azure portal until you delete the resource.  
-    * Use the same key and endpoint for your applications, across multiple Cognitive Services.
-
-### Create an environment variable
-
->[!NOTE]
-> The endpoints for non-trial resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
-
-Using your key and endpoint from the resource you created, create two environment variables for authentication:
-* `FACE_SUBSCRIPTION_KEY` - The resource key for authenticating your requests.
-* `FACE_ENDPOINT` - The resource endpoint for sending API requests. It will look like this: 
-  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
-
-Use the instructions for your operating system.
-<!-- replace the below endpoint and key examples -->
-#### [Windows](#tab/windows)
-
-```console
-setx FACE_SUBSCRIPTION_KEY <replace-with-your-product-name-key>
-setx FACE_ENDPOINT <replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, restart the console window.
-
-#### [Linux](#tab/linux)
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/unix)
-
-Edit your `.bash_profile`, and add the environment variable:
-
-```bash
-export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
-export FACE_ENDPOINT=<replace-with-your-product-name-endpoint>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-***
+## Setting up
 
 ### Create a Go project directory
 
@@ -295,13 +243,13 @@ The following code compares each of the source images to the target image and pr
 
 ## Take a snapshot for data migration
 
-The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You might use this feature if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
+The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You might use this feature if, for example, you've created a **PersonGroup** object using a free subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
 
 In this example, you'll migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
 
 ### Set up target subscription
 
-First, you must have a second Azure subscription with a Face resource; you can do this by repeating the steps in the [Set up](#set-up) section. 
+First, you must have a second Azure subscription with a Face resource; you can do this by repeating the steps in the [Set up](#setting-up) section. 
 
 Then, create the following variables near the top of your **main** method. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account.
 

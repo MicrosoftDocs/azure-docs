@@ -120,7 +120,7 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
-[aks-aad]: ./azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
@@ -128,14 +128,14 @@ Learn more about deploying and managing AKS with the Azure CLI quickstart.
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
+[azure-dev-spaces]: ../dev-spaces/index.yml
+[azure-devops]: ../devops-project/overview.md
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
-[container-health]: ../monitoring/monitoring-container-health.md
+[container-health]: ../azure-monitor/insights/container-insights-overview.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
-[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-controls-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md

@@ -1,15 +1,8 @@
 ---
 title: Use Azure Service Bus Explorer to perform data operations on Service Bus (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
-
 ms.topic: conceptual
-ms.date: 03/04/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Use Service Bus Explorer to perform data operations on Service Bus (Preview)

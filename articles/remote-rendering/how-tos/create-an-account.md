@@ -23,20 +23,24 @@ The following steps are needed to create an account for the Azure Remote Renderi
     1. Set 'Resource Name' to the name of the account
     1. Update 'Subscription' if needed
     1. Set 'Resource group' to a resource group of your choice
+    1. Select a region from the 'Location' dropdown where this resource should be created in. See remarks on [account regions](create-an-account.md#account-regions) below.
 1. Once the account is created, navigate to it and:
     1. In the *Overview* tab, note the 'Account ID'
     1. In the *Settings > Access Keys* tab, note the 'Primary key' - this is the account's secret account key
+
+### Account regions
+The location that is specified during account creation time of an account determines which region the account resource is assigned to. This cannot be changed after creation. However, the account can be used to connect to a Remote Rendering session in any [supported region](./../reference/regions.md), regardless of the account's location.
 
 ### Retrieve the account information
 
 The samples and tutorials require that you provide the account ID and a key. For instance in the **arrconfig.json** file that is used for the PowerShell sample scripts:
 
 ```json
-    "accountSettings": {
-        "arrAccountId": "<fill in the account ID from the Azure portal>",
-        "arrAccountKey": "<fill in the account key from the Azure portal>",
-        "region": "<select from available regions>"
-    },
+"accountSettings": {
+    "arrAccountId": "<fill in the account ID from the Azure portal>",
+    "arrAccountKey": "<fill in the account key from the Azure portal>",
+    "region": "<select from available regions>"
+},
 ```
 
 See the [list of available regions](../reference/regions.md) for filling out the *region* option.
@@ -84,6 +88,7 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 > In case your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Repeat adding new roles two more times for the respective selections from the **Role** dropdown:
+
 * **Storage Account Contributor**
 * **Storage Blob Data Contributor**
 

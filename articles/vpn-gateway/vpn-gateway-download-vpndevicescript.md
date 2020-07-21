@@ -7,7 +7,7 @@ author: yushwang
 manager: rossort
 
 ms.service: vpn-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: yushwang
 

@@ -3,7 +3,7 @@ title: Manage Azure Cosmos DB resources using Azure CLI
 description: Use Azure CLI to manage your Azure Cosmos DB account, database and containers. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/03/2020
 ms.author: mjbrown
 
@@ -269,7 +269,7 @@ az cosmosdb sql database throughput update \
 
 ### Manage lock on a database
 
-Put a delete lock on a database. To learn more about how to enable this see, [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Put a delete lock on a database. To learn more about how to enable this see, [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -428,7 +428,7 @@ az cosmosdb sql container throughput update \
 
 ### Manage lock on a container
 
-Put a delete lock on a container. To learn more about how to enable this see, [Preventing changes from SDKs](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Put a delete lock on a container. To learn more about how to enable this see, [Preventing changes from SDKs](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'

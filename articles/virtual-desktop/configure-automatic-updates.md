@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/12/2020
 ms.author: helohr
 ms.reviewer: v-cawood; clemr

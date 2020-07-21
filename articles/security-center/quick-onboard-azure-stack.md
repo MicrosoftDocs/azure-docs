@@ -3,8 +3,8 @@ title: Onboard Azure Stack virtual machines to Azure Security Center
 description: This quickstart shows you how to provision the Azure Monitor, Update and Configuration Management virtual machine extension on a Azure Stack virtual machines.
 services: security-center
 documentationcenter: na
-author: pipposera
-manager: dsavage
+author: memildin
+manager: rkarlin
 
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
 ms.service: security-center
@@ -14,7 +14,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: fiseraci
+ms.author: memildin
 
 ---
 # Quickstart: Onboard your Azure Stack virtual machines to Security Center
@@ -25,7 +25,7 @@ This quickstart shows you how to add the **Azure Monitor, Update and Configurati
 ## Prerequisites
 To get started with Security Center, you must have a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 
-You must have an Azure subscription on Security Center’s Standard tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center Standard tier at no cost for 30 days. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+You must have an Azure subscription on Security Center’s standard tier before starting this quickstart. See [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) for upgrade instructions. You can try Security Center standard tier at no cost for 30 days. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Select your workspace in Azure Security Center
 

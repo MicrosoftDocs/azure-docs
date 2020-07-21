@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: roygara
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
@@ -51,6 +51,10 @@ Before you enable Azure AD over SMB for Azure file shares, make sure you have co
 1.  **Verify Azure Files connectivity by mounting Azure file shares using your storage account key.**
 
     To verify that your VM and file share are properly configured, try mounting the file share using your storage account key. For more information, see [Mount an Azure file share and access the share in Windows](storage-how-to-use-files-windows.md).
+
+## Regional availability
+
+Azure Files authentication with Azure AD DS is available in [all Azure Public regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## Overview of the workflow
 

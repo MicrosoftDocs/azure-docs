@@ -59,10 +59,10 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 #### Step 2: Download your ASP.NET Core project
 
 > [!div renderon="docs"]
-> [Download the Visual Studio 2019 solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+> [Download the ASP.NET Core solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Run the project using Visual Studio 2019.
+> Run the project.
 > [!div renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
@@ -73,9 +73,9 @@ In this quickstart, you use a code sample to learn how an ASP.NET Core web app c
 > > [!NOTE]
 > > `Enter_the_Supported_Account_Info_Here`
 > [!div renderon="docs"]
-> #### Step 3: Run your Visual Studio project
+> #### Step 3: Run your ASP.NET Core project
 > 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
-> 1. Open the solution in Visual Studio
+> 1. Open the solution in your IDE
 > 1. Edit the **appsettings.json** file. Find `ClientId` and update the value of `ClientId` with the **Application (client) ID** value of the application you registered.
 >
 >    ```json
@@ -142,7 +142,7 @@ The method `AddAuthentication` configures the service to add cookie-based authen
 
 The line containing `.AddAzureAd` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint.
 
-> |Where  |  |
+> |Where | Description |
 > |---------|---------|
 > | ClientId  | Application (client) ID from the application registered in the Azure portal. |
 > | Authority | The STS endpoint for the user to authenticate. Usually, this is <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant or your tenant ID, or *common* for a reference to the common endpoint (used for multi-tenant applications) |

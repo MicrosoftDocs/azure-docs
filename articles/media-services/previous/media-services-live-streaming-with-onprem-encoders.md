@@ -221,7 +221,8 @@ Here are other considerations related to working with channels and related compo
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## Feedback
+## Suggestions and Feedback
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics

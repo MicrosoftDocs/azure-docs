@@ -57,15 +57,19 @@ For a filter to have any effect, you must modify any queries in the view to filt
 
 The syntax for using a filter value in a query is: 
 
-    where ${filter name}  
+`where ${filter name}`  
 
 For example, if your view has a query that returns events and uses a filter called _Computers_, you could use the following query.
 
-    Event | where ${Computers} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | summarize count() by EventLevelName
+```
 
 If you added another filter called Severity, you could use the following query to use both filters.
 
-    Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```
 
 ## Next steps
 * Learn more about the [Visualization Parts](view-designer-parts.md) you can add to your custom view.

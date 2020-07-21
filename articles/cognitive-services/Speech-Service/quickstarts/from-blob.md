@@ -8,8 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 02/10/2020
-ms.author: dapine
+ms.date: 06/25/2020
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two-with-js
 ---
 

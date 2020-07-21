@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
