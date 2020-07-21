@@ -20,4 +20,4 @@ ms.reviewer: sngun
 
 ## Related documentation
 * [Provision throughput on containers and databases](https://docs.microsoft.com/azure/cosmos-db/set-throughput)
-* [Request units in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)
+* [Request units in Azure Cosmos DB](request-units.md)
