@@ -31,12 +31,10 @@ By Time
 
 | Metric name | Definition | Notes |
 |-----|:------------:| :------------:|
-| Total calling minutes |  |  |
-| Total calls |  | Group calls count as one call |
-| Call Drop Failure Rate | The drop failure rate, otherwise known as the Total Call Dropped Failure Percentage measurement in CQD, is the percentage of successfully established streams where the media path didn’t terminate normally. |  |
-| Packet Loss Rate | Average packet loss rate for stream. |  |
-| Round Trip Time | Average round-trip network propagation time, computed in milliseconds. |  |
-| Call Setup Failure Rate |  | The setup failure rate, otherwise known as the Total Call Setup Failure Percentage measurement in CQD, is the number of streams where the media path couldn’t be established between the endpoints at the start of the call. |
+| Total calling minutes |  
+| Packet Loss Rate | Average packet loss rate for stream. | Average packet loss per stream. Values grouped by range (for example minutes) | 
+| Round Trip Time | Average round-trip network propagation time, computed in milliseconds. |  
+| Call Jitter |  Average jitter for stream in milliseconds. Jitter measures the variation of in the delay of received packets. While seder sends the packets at the continuous rate, the network can prevent getting the packets in the consistent rate on the receiver side. |  
 
 todo: [Use this CQD template to assess your quality](https://docs.microsoft.com/en-us/MicrosoftTeams/quality-of-experience-review-guide)
 
