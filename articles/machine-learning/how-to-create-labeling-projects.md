@@ -201,14 +201,12 @@ The progress chart shows how many items have been labeled and how many are not y
 * Included in a task that is assigned to a labeler but not yet completed 
 * In the queue of tasks yet to be assigned
 
-The middle section shows the queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows just the number of manual tasks to be assigned.
+The middle section shows the queue of tasks yet to be assigned. When ML assisted labeling is off, this section shows the number of manual tasks to be assigned. When ML assisted labeling is on, this will also show:
 
-When ML assisted labeling is on, this will also show you:
+* Tasks containing clustered items in the queue
+* Tasks containing prelabeled items in the queue
 
-* Tasks containing clustered items
-* Tasks containing prelabeled items 
-
-ALso when ML assisted labeling is enabled, a small progress bar shows when the next training run will occur.  The Experiments sections give links for each of the machine learning runs.
+Additionally, when ML assisted labeling is enabled, a small progress bar shows when the next training run will occur.  The Experiments sections give links for each of the machine learning runs.
 
 * Training - trains a model to predict the labels
 * Validation - determines whether this model's prediction will be used for pre-labeling the items 
@@ -239,7 +237,7 @@ During the labeling process, you may find that additional labels are needed to c
 Use these steps to add one or more labels to a project:
 
 1. Select the project on the main **Data Labeling** page.
-1. At the top of the page, select **Pause** to stop labelers from their activity.
+1. At the top right of the page, toggle **Running** to **Paused** to stop labelers from their activity.
 1. Select the **Details** tab.
 1. In the list on the left, select **Label classes**.
 1. At the top of the list, select **+ Add Labels**
@@ -249,7 +247,7 @@ Use these steps to add one or more labels to a project:
     * Start over, keeping all existing labels.  Choose this option to mark all data as unlabeled, but keep the existing labels as a default tag for images that were previously labeled.
     * Continue, keeping all existing labels. Choose this option to keep all data already labeled as is, and start using the new label for data not yet labeled.
 1. Modify your instructions page as necessary for the new label(s).
-1. Once you have added all new labels, at the top of the page select **Start**  to restart the project.  
+1. Once you have added all new labels, at the top right of the page toggle **Paused** to **Running** to restart the project.  
 
 ## Export the labels
 
