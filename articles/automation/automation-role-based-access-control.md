@@ -1,10 +1,10 @@
 ---
 title: Manage role permissions and security in Azure Automation
-description: This article tells how to use role-based access control (RBAC), which enables access management for Azure resources.
+description: This article describes how to use role-based access control (RBAC), which enables access management for Azure resources.
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
 ---
 # Manage role permissions and security
@@ -90,7 +90,9 @@ An Automation Operator is able to create and manage jobs, and read runbook names
 
 ### Automation Job Operator
 
-An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. The following table shows the permissions granted for the role:
+An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. If the Job Operator role is granted read permissions on the resource group containing the Automation account, members of the role have the ability to start runbooks. However, they do not have the ability to create, edit, or delete them.
+
+The following table shows the permissions granted for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -105,6 +107,8 @@ An Automation Job Operator role is granted at the Automation account scope. Th
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
+
+
 
 ### Automation Runbook Operator
 
