@@ -54,7 +54,7 @@ The following configuration is required to enable tenant restrictions through yo
 
 #### Prerequisites
 
-- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs. Note that such inspection is only possible in TLS 1.2 and below.
+- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
 
 - Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
 

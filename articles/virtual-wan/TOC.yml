@@ -38,6 +38,8 @@
       href: virtual-wan-configure-automation-providers.md
   - name: Pricing concepts
     href: pricing-concepts.md
+  - name: About NVA in a virtual hub
+    href: about-nva-hub.md
   - name: Routing
     items:
     - name: About virtual hub routing
@@ -70,6 +72,8 @@
   items:
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
+  - name: Create NVA in a virtual hub (Preview)
+    href: How-to-nva-hub.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
