@@ -57,36 +57,24 @@ az login
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### Create a key vault and populate it with a secret
+### Populate your key vault with a secret
 
-Create a key vault in your resource group by providing the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command with the following information:
-
-* Key vault name: a string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
-* Resource group name
-* Location: **West US**
+Now add a secret to your key vault using the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command. To create a secret in the key vault called **mySecret**, enter the following command:
 
 ```azurecli
-az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
-```
-At this point, your Azure account is the only one that's authorized to perform operations on this new key vault.
-
-Now add a secret to your key vault using the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command
-
-
-To create a secret in the key vault called **AppSecret**, enter the following command:
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
+az keyvault secret set --vault-name "<your-unique-key-vault-name>" --name "mySecret" --value "MySecret"
 ```
 
 This secret stores the value **MySecret**.
 
 ### Create a virtual machine
-Create a virtual machine by using one of the following methods:
+Create a Windows or Linux virtual machine using one of the following methods:
 
-* [The Azure CLI](../../virtual-machines/windows/quick-create-cli.md)
-* [PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-* [The Azure portal](../../virtual-machines/windows/quick-create-portal.md)
+| Windows | Linux |
+|--|--|
+| [Azure CLI](../../virtual-machines/windows/quick-create-cli.md) | [Azure CLI](../../virtual-machines/linux/quick-create-cli.md) |  
+| [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) |
+| [Azure portal](../../virtual-machines/windows/quick-create-portal.md) | [Azure portal](../../virtual-machines/linux/quick-create-portal.md) |
 
 ### Assign an identity to the VM
 Create a system-assigned identity for the virtual machine with the [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
@@ -113,7 +101,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ### Sign in to the virtual machine
 
-To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md) or [Connect and sign in to an Azure virtual machine running Linux](../../virtual-machines/linux/login-using-aad.md).
 
 ## Set up the console app
 
