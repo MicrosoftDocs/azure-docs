@@ -11,4 +11,4 @@ ms.date: 03/20/2020
 ms.author: travisw
 ---
 
-If you prefer to jump right in, view or download all [Speech SDK C# Samples](https://aka.ms/speech/github-csharp) on GitHub. Otherwise, let's get started.
+You can view or download all [Speech SDK C# Samples](https://aka.ms/speech/github-csharp) on GitHub. 

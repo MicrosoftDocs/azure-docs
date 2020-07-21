@@ -9,5 +9,5 @@
   ms.subservice: disks
 ---
 
-# Backup and disaster recovery for Azure IaaS disks on Linux VMs
+# Backup and disaster recovery for Azure IaaS disks
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]

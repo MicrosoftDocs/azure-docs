@@ -650,7 +650,7 @@ The graph instance that you created and activated above uses the motion detectio
 
 Note the following properties in the above messages
 
-* Each message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* Each message contains a "body" section and an "applicationProperties" section. To understand what these sections represent, read the article [Create and Read IoT Hub message](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * The first message is a Diagnostics event, MediaSessionEstablished, saying that the RTSP Source node (subject) was able to establish connection with the RTSP simulator, and begin to receive a (simulated) live feed.
 * The "subject" in applicationProperties references the node in the graph topology from which the message was generated. In this case, the message is originating from the RTSP source node.
 * "eventType" in applicationProperties indicates that this is a Diagnostics event.
