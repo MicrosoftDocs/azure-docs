@@ -23,7 +23,8 @@
     href: quickstart-create-data-factory-python.md
   - name: Create data factory - REST
     href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Resource Manager template
+  - name: Create data factory - ARM template
+    displayName: Resource Manager
     href: quickstart-create-data-factory-resource-manager-template.md
   - name: Security - Enable Customer Managed Key Encryption
     href: enable-customer-managed-key.md
@@ -477,12 +478,12 @@
       href: transform-data-using-spark.md
     - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: Machine Learning Batch Execution Activity
-      href: transform-data-using-machine-learning.md
-    - name: Machine Learning Update Resource Activity
-      href: update-machine-learning-models.md
     - name: Machine Learning Execute Pipeline Activity
-      href: transform-data-machine-learning-service.md
+      href: transform-data-machine-learning-service.md      
+    - name: Machine Learning Studio (classic) Batch Execution Activity
+      href: transform-data-using-machine-learning.md
+    - name: Machine Learning Studio (classic) Update Resource Activity
+      href: update-machine-learning-models.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services

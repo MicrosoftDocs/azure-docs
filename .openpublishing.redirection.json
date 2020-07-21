@@ -1,8 +1,23 @@
 {
   "redirections": [
     {
+      "source_path": "articles/media-services/latest/media-services-high-availability-streaming.md",
+      "redirect_url": "articles/media-services/latest/media-services-high-availability-encoding",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/azure-cli-arm-commands.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/azure-cli-arm-commands",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/infrastructure-automation.md",
+      "redirect_url": "/azure/virtual-machines/infrastructure-automation",
       "redirect_document_id": false
     },
     {
@@ -70,7 +85,17 @@
       "redirect_url": "/previous-versions/azure/storage/common/storage-e2e-troubleshooting",
       "redirect_document_id": false
     },
-     {
+    {
+      "source_path": "articles/storage/common/storage-migration-faq.md",
+      "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-service/index.yml",
+      "redirect_url": "/previous-versions/azure/container-service/dcos-swarm/container-service-intro",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/container-service/kubernetes/index.yml",
       "redirect_url": "/previous-versions/azure/container-service/kubernetes/container-service-intro-kubernetes",
       "redirect_document_id": false
@@ -4559,9 +4584,25 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-subscription-move-fix.md",
-      "redirect_url": "/azure/key-vault/general/subscription-move-fix",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/key-vault/keyvault-move-subscription.md",
+      "redirect_url": "/azure/key-vault/general/move-subscription",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveregion.md",
+      "redirect_url": "/azure/key-vault/general/move-region",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/keyvault-moveresourcegroup.md",
+      "redirect_url": "/azure/key-vault/general/move-resourcegroup",
+      "redirect_document_id": false
+    },
+
     {
       "source_path": "articles/key-vault/managed-identity.md",
       "redirect_url": "/azure/key-vault/general/managed-identity",
@@ -4659,7 +4700,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-net-windows-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/general/tutorial-net-windows-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/tutorial-net-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-net-virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -4669,7 +4715,12 @@
     },
     {
       "source_path": "articles/key-vault/tutorial-python-windows-virtual-machine.md",
-      "redirect_url": "/azure/key-vault/general/tutorial-python-windows-virtual-machine",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/general/tutorial-python-windows-virtual-machine.md",
+      "redirect_url": "/azure/key-vault/general/tutorial-python-virtual-machine",
       "redirect_document_id": false
     },
     {
@@ -22922,6 +22973,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/develop/msal-js-known-issues-safari-browser.md",
+      "redirect_url": "/azure/active-directory/develop/reference-third-party-cookies-spas",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/quickstart-v2-register-an-app.md",
       "redirect_url": "/azure/active-directory/develop/quickstart-register-app",
       "redirect_document_id": false
@@ -25182,10 +25238,11 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/virtual-machines/linux-isolation.md",
+      "source_path": "articles/virtual-machines/linux/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
-    },    {
+    },
+    {
       "source_path": "articles/virtual-machines/windows/isolation.md",
       "redirect_url": "/azure/virtual-machines/isolation",
       "redirect_document_id": false
@@ -26094,7 +26151,7 @@
       "source_path": "articles/virtual-machines/windows/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/virtual-machines/linux/availability.md",
       "redirect_url": "/azure/virtual-machines/availability",
@@ -39165,6 +39222,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Speech-Service/speech-devices-sdk-create-kws.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-keyword-basics",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
       "redirect_url": "/azure/active-directory/application-access-assignment-how-to-add-assignment",
       "redirect_document_id": true
@@ -49395,6 +49457,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/form-recognizer/tutorial-form-recognizer-with-logic-apps.md",
+      "redirect_url": "/azure/cognitive-services/form-recognizer/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -54274,6 +54341,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-az-cli-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-commandline-configure",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
       "redirect_document_id": false
@@ -56866,6 +56938,21 @@
     {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-visual-studio.md",
+      "redirect_url": "/visualstudio/containers/local-process-kubernetes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
+      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
+      "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
     }
   ]
