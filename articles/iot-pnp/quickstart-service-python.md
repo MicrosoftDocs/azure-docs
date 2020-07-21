@@ -55,7 +55,7 @@ In this quickstart, you use a sample thermostat device, written in Python, as th
 1. Open a terminal window in a folder of your choice. Run the following command to clone the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python -b pnp-preview-refresh
+    git clone https://github.com/Azure/azure-iot-sdk-python
     ```
 
 1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the */azure-iot-sdk-python/azure-iot-device/samples/pnp* folder.

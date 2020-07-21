@@ -54,7 +54,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Azure IoT Java SDKs and Libraries](https://github.com/Azure/azure-iot-sdk-java) GitHub repository into this location:
 
 ```cmd
-git clone https://github.com/Azure/azure-iot-sdk-java.git -b pnp-preview-refresh
+git clone https://github.com/Azure/azure-iot-sdk-java.git
 ```
 
 [!INCLUDE [iot-pnp-download-models.md](../../includes/iot-pnp-download-models.md)]
