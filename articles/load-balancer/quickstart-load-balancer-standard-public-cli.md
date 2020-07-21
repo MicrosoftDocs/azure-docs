@@ -801,7 +801,7 @@ Copy the public IP address, and then paste it into the address bar of your brows
 When no longer needed, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive
-  az group delete 
+  az group delete \
     --name myResourceGroupLB
 ```
 
