@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To configure Azure AD integration with Beeline, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* BeeLine single sign-on enabled subscription
+* Beeline single sign-on enabled subscription
 
 ## Scenario description
 
@@ -64,7 +64,7 @@ To configure the integration of Beeline into Azure AD, you need to add Beeline f
 
 4. In the search box, type **Beeline**, select **Beeline** from result panel then click **Add** button to add the application.
 
-	 ![BeeLine in the results list](common/search-new-app.png)
+	 ![Beeline in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with Beeline, perform the following steps:
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Beeline Client support team](https://www.beeline.com/support-beeline/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Beeline application expects the SAML assertions in a specific format. Please work with [Beeline support team](https://www.beeline.com/support-beeline/) first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from [Beeline support team](https://www.beeline.com/support-beeline/) about the attribute which they want to use for this mapping. You can manage the value of this attribute from the **User Attributes** tab of the application. The following screenshot shows an example for this. Here we have mapped the **User Identifier** claim with the **userprincipalname** attribute, which provides unique user ID, which will be sent to the Beeline application in the every successful SAML Response.
+5. The Beeline application expects the SAML assertions in a specific format. Please work with [Beeline support team](https://www.beeline.com/support-beeline/) first to identify the correct user identifier which will be mapped into the application. Also please take the guidance from [Beeline support team](https://www.beeline.com/support-beeline/) about the attribute which they want to use for this mapping. You can manage the value of this attribute from the **User Attributes** tab of the application. The following screenshot shows an example for this. Here we have mapped the **User Identifier** claim with the **userprincipalname** attribute, which provides unique user ID, which will be sent to the Beeline application in every successful SAML response.
 
 	![image](common/edit-attribute.png)
 
@@ -166,7 +166,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Beeline**.
 
-	![The BeeLine link in the Applications list](common/all-applications.png)
+	![The Beeline link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
