@@ -26,7 +26,7 @@ Restart your client application to reset all the session tokens. The session tok
 
 #### Solution:
 1. Follow the guidance in [performance tips](performance-tips-dotnet-sdk-v3-sql.md) article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. Make sure to use the latest version of SDK, which has a fix for query operations when the service interop is not available.
-2. If Direct + TCP is not an option then mitigation can be done by changing the [client consistency level](how-to-manage-consistency.md). The session token is only used for session consistency, which is the default for Cosmos DB. Any other consistency level will not use the session token.
+2. If Direct connection mode with TCP protocol is not an option for your workload, mitigate it by changing the [client consistency level](how-to-manage-consistency.md). The session token is only used for session consistency, which is the default consistency level for Azure Cosmos DB. Other consistency levels don't not use the session token.
 
 ### 2. Continuation token too large
 
