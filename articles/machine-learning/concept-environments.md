@@ -32,11 +32,11 @@ The environment, compute target and training script together form the run config
 
 Environments can broadly be divided into three categories: *curated*, *user-managed*, and *system-managed*.
 
-Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks. These pre-created environments also allow for faster deployment time. For a full list, see the [curated environments article](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments).
+Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks. These pre-created environments also allow for faster deployment time. For a full list, see the [curated environments article](resource-curated-environments.md).
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Conda doesn't check your environment or install anything for you. If you're defining your own environment, you must list `azureml-defaults` with version `>= 1.0.45` as a pip dependency. This package contains the functionality that's needed to host the model as a web service.
 
-You use system-managed environments when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A new conda environment is built based on the conda dependencies object. The Azure ML service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.
+You use system-managed environments when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A new conda environment is built based on the conda dependencies object. The Azure Machine Learning service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.
 
 ## Create and manage environments
 
@@ -59,7 +59,7 @@ For code samples, see the "Manage environments" section of [How to use environme
 
 ## Environment building, caching, and reuse
 
-The Azure Machine Learning service builds environment definitions into Docker images and conda environments. It also caches the environments so they can be reused in subsequent training runs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image whereas a local run can use a Conda environment directly. 
+The Azure Machine Learning service builds environment definitions into Docker images and conda environments. It also caches the environments so they can be reused in subsequent training runs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image whereas, a local run can use a Conda environment directly. 
 
 ### Submitting a run using an environment
 
@@ -74,7 +74,7 @@ If the environment definition doesn't already exist in the workspace ACR, a new 
  1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
 
-The second step is omitted if you specify [user-managed dependencies](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image])https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image.
+The second step is omitted if you specify [user-managed dependencies](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py). In this case you're responsible for installing any Python packages, by including them in your base image, or specifying custom Docker steps within the first step. You're also responsible for specifying the correct location for the Python executable. It is also possible to use a [custom Docker base image](how-to-deploy-custom-docker-image.md).
 
 ### Image caching and reuse
 
