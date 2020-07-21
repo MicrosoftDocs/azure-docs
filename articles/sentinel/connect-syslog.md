@@ -42,7 +42,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 
 1. Install the Linux agent. Under **Choose where to install the agent:**
     
-    **If your Linux virtual machine is in Azure**
+    **For an Azure Linux VM:**
       
     1. Select **Install agent on Azure Linux virtual machine**.
     
@@ -50,7 +50,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
     
     1. In the **Virtual machines** blade, click a virtual machine to install the agent on, and then click **Connect**. Repeat this step for each VM you wish to connect.
     
-    **If your Linux machine isn't in Azure**
+    **For any other Linux machine:**
 
     1. Select **Install agent on a non-Azure Linux Machine**
 
