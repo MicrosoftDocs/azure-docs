@@ -71,6 +71,9 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 
 If your organization requires access to the internet via an outbound proxy, you can use [implementing Web Proxy Auto-Discovery (WPAD)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)). In Windows 10 devices prior to 1709 update, WPAD is the only available option to configure a proxy to work with Hybrid Azure AD join. 
 
+> [!NOTE]
+> If you use TLS break-and-inspect proxies that intercept SSL traffic, for scenarios such as Data Loss Prevention (DLP) inspection or Azure Active Directory Tenant Restrictions, ensure that traffic to https://device.login.microsoftonline.com is excluded from TLS break-and-inspect as it may interfere with Client Certificate authentication, which may cause issues with device registration and device-based Conditional Access.
+
 If you don't use WPAD, you can configure WinHTTP proxy settings on your computer beginning with Windows 10 1709. For more information, see [WinHTTP Proxy Settings deployed by GPO](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
 
 > [!NOTE]
