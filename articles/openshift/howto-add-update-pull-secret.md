@@ -1,5 +1,5 @@
 ---
-title: Add or update your Red Hat pull secret
+title: Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cluster
 description: Add or update your Red Hat pull secret on existing 4.x ARO clusters
 author: sakthi-vetrivel
 ms.author: suvetriv
@@ -10,7 +10,7 @@ keywords: pull secret, aro, openshift, red hat
 #Customer intent: As a customer, I want to add or update my pull secret on an existing 4.x ARO cluster.
 ---
 
-# Add or update your Red Hat pull secret
+# Add or update your Red Hat pull secret on an Azure Red Hat OpenShift 4 cluster
 
 This guide covers adding or updating your Red Hat pull secret for an existing Azure Red Hat OpenShift 4.x cluster.
 
@@ -27,108 +27,108 @@ This section walks through updating that pull secret with additional values from
 
 1. Fetch the secret named `pull-secret` in the openshift-config namespace and save it to a separate file by running the following command: 
 
-```console
-oc get secrets pull-secret -n openshift-config -o template='{{index .data ".dockerconfigjson"}}' | base64 -d > pull-secret.json
-```
+    ```console
+    oc get secrets pull-secret -n openshift-config -o template='{{index .data ".dockerconfigjson"}}' | base64 -d > pull-secret.json
+    ```
 
-Your output should be similar to the following (note that the actual secret value has been removed):
+    Your output should be similar to the following (note that the actual secret value has been removed):
 
-```json
-{
-    "auths": {
-        "arosvc.azurecr.io": {
-            "auth": "<my-aroscv.azurecr.io-secret>"
+    ```json
+    {
+        "auths": {
+            "arosvc.azurecr.io": {
+                "auth": "<my-aroscv.azurecr.io-secret>"
+            }
         }
     }
-}
-```
+    ```
 
 2. Navigate to your [Red Hat OpenShift cluster manager portal](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) and click **Click Download pull secret.** Your Red Hat pull secret will look like the following (note that the actual secret values have been removed):
 
-```json
-{
-    "auths": {
-        "cloud.openshift.com": {
-            "auth": "<my-crc-secret>",
-            "email": "klamenzo@redhat.com"
-        },
-        "quay.io": {
-            "auth": "<my-quayio-secret>",
-            "email": "klamenzo@redhat.com"
-        },
-        "registry.connect.redhat.com": {
-            "auth": "<my-registry.connect.redhat.com-secret>",
-            "email": "klamenzo@redhat.com"
-        },
-        "registry.redhat.io": {
-            "auth": "<my-registry.redhat.io-secret>",
-            "email": "klamenzo@redhat.com"
+    ```json
+    {
+        "auths": {
+            "cloud.openshift.com": {
+                "auth": "<my-crc-secret>",
+                "email": "klamenzo@redhat.com"
+            },
+            "quay.io": {
+                "auth": "<my-quayio-secret>",
+                "email": "klamenzo@redhat.com"
+            },
+            "registry.connect.redhat.com": {
+                "auth": "<my-registry.connect.redhat.com-secret>",
+                "email": "klamenzo@redhat.com"
+            },
+            "registry.redhat.io": {
+                "auth": "<my-registry.redhat.io-secret>",
+                "email": "klamenzo@redhat.com"
+            }
         }
     }
-}
-```
+    ```
 
 3. Edit the pull secret file you got from your cluster by adding in the entries found in your Red Hat pull secret. 
 
-> [!IMPORTANT]
-> Including the the `cloud.openshift.com` entry from your Red Hat pull secret will cause your cluster to start sending telemetry data to Red Hat. Only include this section if you would like to send telemetry data. Otherwise, leave the following section out.
-> ```
-> {
->         "cloud.openshift.com": {
->             "auth": "<my-crc-secret>",
->             "email": "klamenzo@redhat.com"
->         }
-> ```
+    > [!IMPORTANT]
+    > Including the the `cloud.openshift.com` entry from your Red Hat pull secret will cause your cluster to start sending telemetry data to Red Hat. Only include this section if you would like to send telemetry data. Otherwise, leave the following section out.
+    > ```json
+    > {
+    >         "cloud.openshift.com": {
+    >             "auth": "<my-crc-secret>",
+    >             "email": "klamenzo@redhat.com"
+    >         }
+    > ```
 
-> [!CAUTION]
-> Do not remove or alter your the `arosvc.azurecr.io` entry from your pull secret. This section is needed for your cluster to function properly.
-```
-"arosvc.azurecr.io": {
-            "auth": "<my-aroscv.azurecr.io-secret>"
-        }
-```
+    > [!CAUTION]
+    > Do not remove or alter your the `arosvc.azurecr.io` entry from your pull secret. This section is needed for your cluster to function properly.
+    ```json
+    "arosvc.azurecr.io": {
+                "auth": "<my-aroscv.azurecr.io-secret>"
+            }
+    ```
 
-Your final file should look like the following (note that the actual secret values have been removed):
+    Your final file should look like the following (note that the actual secret values have been removed):
 
-```json
-{
-    "auths": {
-        "cloud.openshift.com": {
-            "auth": "<my-crc-secret>",
-            "email": "klamenzo@redhat.com"
-        },
-        "quay.io": {
-            "auth": "<my-quayio-secret>",
-            "email": "klamenzo@redhat.com"
-        },
-        "registry.connect.redhat.com": {
-            "auth": "<my-registry.connect.redhat.com-secret>",
-            "email": "klamenzo@redhat.com"
-        },
-        "registry.redhat.io": {
-            "auth": "<my-registry.redhat.io-secret>",
-            "email": "klamenzo@redhat.com"
-        },
-        "arosvc.azurecr.io": {
-            "auth": "<my-aroscv.azurecr.io-secret>"
+    ```json
+    {
+        "auths": {
+            "cloud.openshift.com": {
+                "auth": "<my-crc-secret>",
+                "email": "klamenzo@redhat.com"
+            },
+            "quay.io": {
+                "auth": "<my-quayio-secret>",
+                "email": "klamenzo@redhat.com"
+            },
+            "registry.connect.redhat.com": {
+                "auth": "<my-registry.connect.redhat.com-secret>",
+                "email": "klamenzo@redhat.com"
+            },
+            "registry.redhat.io": {
+                "auth": "<my-registry.redhat.io-secret>",
+                "email": "klamenzo@redhat.com"
+            },
+            "arosvc.azurecr.io": {
+                "auth": "<my-aroscv.azurecr.io-secret>"
+            }
         }
     }
-}
-```
+    ```
 
-1. Ensure the file is valid json. There are many ways to validate your json. The following example uses jq:
-```json
-cat pull-secret.json | jq
-```
+4. Ensure the file is valid json. There are many ways to validate your json. The following example uses jq:
+    ```json
+    cat pull-secret.json | jq
+    ```
 
-> NOTE
-> If an error is in the file it can be seen `parse error`.
+    > [!NOTE]
+    > If an error is in the file it can be seen `parse error`.
 
 ## Add your pull secret to your cluster
 
 Run the following command to update your pull secret:
 
-> NOTE
+> [!NOTE]
 > Running this command will cause your cluster nodes to restart one by one as they update. 
 
 ```console
@@ -223,3 +223,8 @@ openshift-marketplace   redhat-operators      Red Hat Operators     grpc   Red H
 If you don't see the Certified Operators and Red Hat Operators, wait a few minutes and try again.
 
 To ensure your pull secret has been updated and is working correctly, open OperatorHub and check for any Red Hat verified operator. For example, check to see if the OpenShift Container Storage operator is available, and see if you have permissions to install.
+
+## Next steps
+To learn more about Red Hat pull secrets, see [Using image pull secrets](https://docs.openshift.com/container-platform/4.5/openshift_images/managing_images/using-image-pull-secrets.html).
+
+To learn more about Red Hat OpenShift 4, see [Azure Red Hat OpenShift 4](https://docs.openshift.com/aro/4/welcome/index.html).
