@@ -253,7 +253,7 @@ After obtaining manual approval, the custom approval system creates a [user](htt
 
 If your user signed in with a Google or Facebook account, you can use the [User creation API](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
 
-1. The approval system uses receives the HTTP request from the user flow.
+1. The approval system receives the HTTP request from the user flow.
 
 ```http
 POST <Approvals-API-endpoint>
