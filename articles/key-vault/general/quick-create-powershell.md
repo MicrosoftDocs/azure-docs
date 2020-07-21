@@ -34,40 +34,40 @@ Login-AzAccount
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed. 
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name ContosoResourceGroup -Location EastUS
+New-AzResourceGroup -Name 'myResourceGroup" -Location "EastUS"
 ```
 
-## Create a Key Vault
+## Create a key vault
 
-Next you create a Key Vault. When doing this step, you need some information:
+Create a Key Vault in the resource group from the previous step. You will need to provide some information:
 
-Although we use "Contoso KeyVault2" as the name for our Key Vault throughout this quickstart, you must use a unique name.
+- Key vault name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
-- **Vault name** Contoso-Vault2.
-- **Resource group name** ContosoResourceGroup.
-- **Location** East US.
+  > [!Important]
+  > Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+
+- Resource group name: **myResourceGroup**.
+- The location: **EastUS**.
 
 ```azurepowershell-interactive
-New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
+New-AzKeyVault -Name "&lt;your-unique-key-vault-name&gt; -ResourceGroupName "myResourceGroup" -Location "East US"
 ```
 
 The output of this cmdlet shows properties of the newly created key vault. Take note of the two properties listed below:
 
-* **Vault Name**: In the example that is **Contoso-Vault2**. You will use this name for other Key Vault cmdlets.
-* **Vault URI**: In this example that is https://Contoso-Vault2.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
+- **Vault Name**: The name you provided to the --name parameter above.
+- **Vault URI**: In the example, this is https://&lt;your-unique-keyvault-name&gt;.vault.azure.net/. Applications that use your vault through its REST API must use this URI.
 
-After vault creation your Azure account is the only account allowed to do anything on this new vault.
-
-![Output after Key Vault creation command completes](../media/quick-create-powershell/output-after-creating-keyvault.png)
+At this point, your Azure account is the only one authorized to perform any operations on this new vault.
 
 ## Clean up resources
 
- Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with other quickstarts and tutorials, you may want to leave these resources in place.
+Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with other quickstarts and tutorials, you may want to leave these resources in place.
 
-When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, Key Vault, and all related resources.
+When no longer needed, you can use the Azure PowerShell [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group and all related resources.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name ContosoResourceGroup
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 ## Next steps
