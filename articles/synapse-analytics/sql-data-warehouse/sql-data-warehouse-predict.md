@@ -23,7 +23,7 @@ The functionality requires that the model is trained outside of Synapse SQL. Onc
 
 ![predictoverview](./media/sql-data-warehouse-predict/datawarehouse-overview.png)
 
-## Model training
+## Training the Model
 
 Synapse SQL expects a pre-trained model. This section covers factors to keep in mind for training a machine learning model that is used for performing predictions in Synapse SQL.
 
@@ -80,6 +80,7 @@ Once the model and data are loaded, use the [T-SQL Predict keyword](https://docs
 SELECT d.*, p.Score
 FROM PREDICT(MODEL = (SELECT Model FROM Models WHERE Id = 1),
 DATA = dbo.mytable AS d) WITH (Score float) AS p;
+```
 
 ## Next steps
 
