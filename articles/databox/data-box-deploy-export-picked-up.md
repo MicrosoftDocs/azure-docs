@@ -145,7 +145,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 
     * Alternatively, you can drop off the package at the nearest DHL service point.
 
-6. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+5. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
 ## [Hong Kong](#tab/in-hk)
 

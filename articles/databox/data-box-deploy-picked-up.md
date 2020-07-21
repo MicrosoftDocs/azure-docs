@@ -230,8 +230,6 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ## [South Africa](#tab/in-sa)
 
 1. Pack the device for return shipment in the original box.
-<!-- 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful. Note down the reference number (waybill number) shown on the device local user interface.
-3. Download the shipping label that is available for download on the local user interface of the Data Box and paste it on the packaged box.   -->
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
 3. To book a pickup with DHL:
 
@@ -249,7 +247,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
     * Alternatively, you can drop off the package at the nearest DHL service point.
 
-6. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
+4. If you encounter any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s) you encountered and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
 ::: zone target="chromeless"
 
@@ -272,8 +270,6 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 ## [Hong Kong](#tab/in-hk)
 
 1. Pack the device for return shipment in the original box.
-<!-- 2. Make sure that the data copy to device is complete and **Prepare to ship run** is successful. Note down the reference number (tracking number for reverse shipment) shown on the device local user interface.
-3. Download the shipping label that is available on the local user interface of the Data Box and paste it on the packaged box.   -->
 2. Spool and securely place the power cord that was provided with the device in the back of the device.
 3. Call **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
 4. Quote Microsoft Azure pickup and the reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
