@@ -15,8 +15,8 @@ Custom handlers are lightweight web servers that receive events from the Functio
 
 Custom handlers are best suited for situations where you want to:
 
-- Implement a function app in a language that's not officially supported.
-- Implement a function app in a runtime that's not supported by default.
+- Implement a function app in a language that's not currently supported, such as Go and Rust.
+- Implement a function app in a runtime that's not currently supported, such as Deno.
 
 With custom handlers, you can use [triggers and input and output bindings](./functions-triggers-bindings.md) via [extension bundles](./functions-bindings-register.md).
 
