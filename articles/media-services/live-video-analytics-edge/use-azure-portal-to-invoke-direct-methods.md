@@ -12,7 +12,7 @@ ms.subservice:
 ms.workload: 
 ms.topic: tutorial
 ms.custom: 
-ms.date: 07/16/2020
+ms.date: 07/21/2020
 ms.author: inhenkel
 ---
 
@@ -48,9 +48,9 @@ Each of the [direct methods](https://docs.microsoft.com/en-us/azure/media-servic
     }
     ```
 1. Click on the **Invoke Method** button at the top of the page.
-    ![](media/image4.png)
+    ![placeholder text](media/image4.png)
 1. You should see a status 200 message in the **Result** area.
-    ![](media/image5.png)
+    ![placeholder text](media/image5.png)
 
 ## Responses
 
@@ -62,7 +62,7 @@ Each of the [direct methods](https://docs.microsoft.com/en-us/azure/media-servic
 
 ## Next steps
 
-You can find additional [direct methods](https://docs.microsoft.com/en-us/azure/media-services/live-video-analytics-edge/direct-methods)
+You can find additional [direct methods](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/direct-methods)
 that can be called on the LVA module and use the above steps to invoke them.
 
 > [!Note]
