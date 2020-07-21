@@ -87,7 +87,7 @@
       href: azure-pim-resource-rbac.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
-  - name: Manage group members and owners
+  - name: Manage Privileged access groups (Preview)
     items:
     - name: Privileged access overview
       href: pim-groups-features.md
