@@ -15,6 +15,36 @@ ms.custom: seodec18
 
 # Speech Service release notes
 
+## Speech SDK 1.13.0: 2020-July release
+
+**Note**: The Speech SDK on Windows depends on the shared Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019. Download and install it from [here](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
+
+**New features**
+- **C#**: Added support for asynchronous conversation transcription. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-async-conversation-transcription).  
+- **JavaScript**: Added Speaker Recognition support for both [browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/browser/speaker-recognition) and [node.js](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition).
+- **JavaScript**: Added support for automatic language detection/language ID. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-javascript).
+- **Objective-C**: Added support for multi-device conversation and conversation transcription. 
+- **Python**: Added compressed audio support for Python on Windows and Linux. See documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
+
+**Bug fixes**
+- **All**: Fixed an issue that caused the KeywordRecognizer to not move forward the streams after a recognition.
+- **All**: Fixed an issue that caused the stream obtained from a KeywordRecognitionResult to not contain the keyword.
+- **All**: Fixed an issue that the SendMessageAsync does not really send the message over the wire after the users finish waiting for it.
+- **All**: Fixed a crash in Speaker Recognition APIs when users launch multiple  VoiceProfileClient::SpeakerRecEnrollProfileAsync and did not wait for them to finish.
+- **All**: Fixed enable file logging in VoiceProfileClient and SpeakerRecognizer classes.
+- **JavaScript**: Fixed an [issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/74) with throttling when browser is minimized.
+- **JavaScript**: Fixed an [issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) with a memory leak on streams.
+- **JavaScript**: Added caching for OCSP responses from NodeJS.
+- **Java**: Fixed an issue that was causing BigInteger fields to always return 0.
+- **iOS**: Fixed and [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) with publishing Speech SDK based apps in the iOS App Store.
+
+**Samples**
+- **C++**: Added sample code for Speaker Recognition [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
+
+**COVID-19 abridged testing:**
+Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Stay healthy!
+
 ## Text-to-speech 2020-July release
 
 ### New features
