@@ -240,13 +240,13 @@ On the **Connection Managers** tab of Execute SSIS Package activity, complete th
 
    1. If your Azure-SSIS IR is running, **SSISDB** is selected as your package location, and the **Manual entries** check box on the **Settings** tab is cleared, the existing connection managers in your selected project and package from SSISDB are displayed for you to assign values to their properties. Otherwise, you can enter them one by one to assign values to their properties manually. Make sure that they exist and are correctly entered for your package execution to succeed. 
    
-      You can obtain the correct **SCOPE**, **NAME**, and **PROPERTY** names for any connection manager by opening the package that contains it on SSDT. After the package is opened, select the relevant connection manager to show the names and values for all of its properties on the **Properties** window of SSDT. With this info, you can overwrite the values of any connection manager properties at run-time. 
+      You can obtain the correct **SCOPE**, **NAME**, and **PROPERTY** names for any connection manager by opening the package that contains it on SSDT. After the package is opened, select the relevant connection manager to show the names and values for all of its properties on the **Properties** window of SSDT. With this info, you can override the values of any connection manager properties at run-time. 
 
       ![Get connection manager properties from SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
 
-      For example, without modifying your original package on SSDT, you can convert its on-premises-to-on-premises data flows running on SQL Server into on-premises-to-cloud data flows running on SSIS IR in ADF by overwriting the values of **ConnectByProxy**, **ConnectionString**, and **ConnectUsingManagedIdentity** properties in existing connection managers at run-time.
+      For example, without modifying your original package on SSDT, you can convert its on-premises-to-on-premises data flows running on SQL Server into on-premises-to-cloud data flows running on SSIS IR in ADF by overriding the values of **ConnectByProxy**, **ConnectionString**, and **ConnectUsingManagedIdentity** properties in existing connection managers at run-time.
       
-      These run-time overwrites can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Azure Active Directory (AAD) authentication with ADF managed identity, see [Configuring AAD authentication with ADF managed identity for OLEDB connections](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+      These run-time overrides can enable Self-Hosted IR (SHIR) as a proxy for SSIS IR when accessing data on premises, see [Configuring SHIR as a proxy for SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), and Azure SQL Database/Managed Instance connections using the latest MSOLEDBSQL driver that in turn enables Azure Active Directory (AAD) authentication with ADF managed identity, see [Configuring AAD authentication with ADF managed identity for OLEDB connections](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
 
       ![Set properties from SSDT on the Connection Managers tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
    
@@ -274,7 +274,7 @@ On the **Property Overrides** tab of Execute SSIS Package activity, complete the
 
       ![Get package properties from SSDT - Configurations organizer](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
 
-      Finally, select the package properties whose path you want and the **Next >** button.  You can now see, copy & paste the package property paths you want and save them in your configuration file. With this info, you can overwrite the values of any package properties at run-time. 
+      Finally, select the package properties whose path you want and the **Next >** button.  You can now see, copy & paste the package property paths you want and save them in your configuration file. With this info, you can override the values of any package properties at run-time. 
 
       ![Get package properties from SSDT - Configuration wizard](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
