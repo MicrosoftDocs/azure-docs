@@ -85,7 +85,7 @@ When an [IoT Plug and Play device](#iot-plug-and-play-device) is connected to an
 
 ## Digital Twins Definition Language
 
-A language for describing models and interfaces for [IoT Plug and Play devices](#iot-plug-and-play-device). Use the [Digital Twins Definition Language](https://aka.ms/DTDL) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to leverage the semantics of the entity.
+A language for describing models and interfaces for [IoT Plug and Play devices](#iot-plug-and-play-device). Use the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to leverage the semantics of the entity.
 
 ## Digital twin route
 

@@ -13,7 +13,7 @@ services: iot-pnp
 
 IoT Plug and Play Preview devices should follow a set of conventions when they exchange messages with an IoT hub. IoT Plug and Play Preview devices use the MQTT protocol to communicate with IoT Hub.
 
-You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL) _model_. There are two types of model referred to in this article:
+You describe the telemetry, properties, and commands that an IoT Plug and Play device implements with a [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) _model_. There are two types of model referred to in this article:
 
 - **No component** - A model with no components. The model declares telemetry, properties, and commands as top-level properties in the contents section of the main interface.
 - **Multiple components** - A model composed of two or more interfaces. A main interface with telemetry, properties, and commands. One or more interfaces declared as components with additional telemetry, properties, and commands.
@@ -256,7 +256,7 @@ On a device, multiple component interfaces use command names with the following 
 
 Now that you've learned about IoT Plug and Play conventions, here are some additional resources:
 
-- [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL)
+- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
 - [Model components](./concepts-components.md)

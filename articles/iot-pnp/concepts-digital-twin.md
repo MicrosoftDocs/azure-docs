@@ -11,7 +11,7 @@ services: iot-pnp
 
 # Understand IoT Plug and Play digital twins
 
-An IoT Plug and Play device implements a model described by [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular twin can have. When an IoT Plug and Play device connects to IoT Hub for the first time, an initial device twin and digital twin are populated.
+An IoT Plug and Play device implements a model described by [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular twin can have. When an IoT Plug and Play device connects to IoT Hub for the first time, an initial device twin and digital twin are populated.
 
 Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-operations).
 Both device and solution builders can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
@@ -343,7 +343,7 @@ content-encoding:utf-8
 
 Now that you've learned about digital twins, here are some additional resources:
 
-- [Digital Twins Definition Language v2 (DTDL)](https://aka.ms/DTDL)
+- [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Node service SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
 - [Azure IoT explorer](./howto-install-iot-explorer.md)

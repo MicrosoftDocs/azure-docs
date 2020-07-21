@@ -27,7 +27,7 @@ The following diagram shows the key elements of an IoT Plug and Play solution:
 
 ## Model repository
 
-The [model repository](./concepts-model-repository.md) is a store for model and interface definitions. You define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL).
+The [model repository](./concepts-model-repository.md) is a store for model and interface definitions. You define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl).
 
 The web UI lets you manage the models and interfaces.
 
