@@ -87,7 +87,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 >
 >    Having already set up [data collection from your CEF sources](connect-common-event-format.md), and having configured the Log Analytics agent as above:
 >
-> 1. On each machine that sends logs in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/platform/data-sources-syslog#configure-syslog-on-linux-agent.md) for detailed instructions on how to do this.
+> 1. On each machine that sends logs in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
 >
 > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Azure Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
