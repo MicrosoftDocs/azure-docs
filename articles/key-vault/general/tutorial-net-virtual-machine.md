@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Azure Key Vault with a Windows virtual machine in .NET | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with a virtual machine in .NET | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
 author: msmbaldwin
@@ -13,7 +13,7 @@ ms.custom: mvc
 
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
-# Tutorial: Use Azure Key Vault with a Windows virtual machine in .NET
+# Tutorial: Use Azure Key Vault with a virtual machine in .NET
 
 Azure Key Vault helps you to protect secrets such as API keys, the database connection strings you need to access your applications, services, and IT resources.
 
@@ -96,7 +96,7 @@ Note the system-assigned identity that's displayed in the following code. The ou
 Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
+az keyvault set-policy --name '<your-unique-key-vault-name>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
 ### Sign in to the virtual machine
@@ -199,8 +199,6 @@ Add these lines, updating the URI to reflect the `vaultUri` of your key vault. B
         }
     }
 ```
-
-The preceding code shows you how to do operations with Azure Key Vault in a Windows virtual machine.
 
 ## Clean up resources
 
