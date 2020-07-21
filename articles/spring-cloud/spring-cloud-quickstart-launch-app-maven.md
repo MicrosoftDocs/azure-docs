@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Quickstart: Launch an Azure Spring Cloud app using the Maven plug-in

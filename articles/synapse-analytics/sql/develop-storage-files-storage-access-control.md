@@ -106,11 +106,7 @@ To use the credential, a user must have `REFERENCES` permission on a specific cr
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-To ensure a smooth Azure AD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential. This is achieved by an automatic execution of the following statement upon Azure Synapse workspace provisioning:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+To ensure a smooth Azure AD pass-through experience, all users will, by default, have a right to use the `UserIdentity` credential.
 
 ## Server-scoped credential
 
