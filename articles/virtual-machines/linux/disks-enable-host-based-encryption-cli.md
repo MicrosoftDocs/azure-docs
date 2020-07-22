@@ -38,12 +38,6 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a Disk
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 
-## Enable encryption at host for disks attached to VM and virtual machine scale sets using Rest API
-
-You can enable encryption at host by setting a new property EncryptionAtHost under securityProfile of VMs or virtual machine scale sets using the API version **2020-06-01** and above.
-
-`"securityProfile": { "encryptionAtHost": "true" }`
-
 ## Examples
 
 ### Create a VM by enabling encryption at host to encrypt cache of OS/data disks with customer-managed keys and temp disks with platform-managed keys. 
