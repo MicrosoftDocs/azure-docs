@@ -23,7 +23,6 @@ Live Migration: Supported
 
 Memory Preserving Updates: Supported
 
-Pricing Calculator and Region Availability Information : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Pricing Calculator</a>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
@@ -37,7 +36,7 @@ Pricing Calculator and Region Availability Information : <a href="https://azure.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -45,6 +44,11 @@ Pricing Calculator and Region Availability Information : <a href="https://azure.
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator and Region Availability Information : <a href="https://azure.microsoft.com/en-us/pricing/calculator/">Pricing Calculator</a>
+
+More information on Disks Types : <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/">Disk Types</a>
+
 
 ## Next steps
 
