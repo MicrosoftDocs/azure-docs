@@ -42,7 +42,7 @@ Subscription | Your subscription | Select the Azure subscription that you want t
 Resource group | *myresourcegroup* | Provide a new or existing resource group name. Resource group can be used organize your dependencies that belong to single project.
 Server name | Unique server name | Enter a unique name that identifies your Azure Database for MySQL server. For example, 'mysqldbserver'.The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
 Data source |*None* | Select *None* to create a new server from scratch. (You would select *Backup* if you were creating a server from a geo-backup of an existing Azure Database for MySQL server).
-Server admin login | myadmin | Enter a username for your server adminsitrator. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
+Server admin login | myadmin | Enter a username for your server administrator. You cannot use **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public** as the admin username.
 Password | *Your choice* | Provide a new password for the server admin account. Password must be 8 to 128 characters in length with a combination of uppercase or lowercase letters, numbers, and non-alphanumeric characters (!, $, #, %, and so on).
 Confirm password | *Your choice*| Confirm the admin account password.
 Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
