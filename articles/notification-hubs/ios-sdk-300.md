@@ -350,7 +350,7 @@ For more information, see the following articles:
 - [Registration management](notification-hubs-push-notification-registration-management.md)
 - [Working with tags](notification-hubs-tags-segment-push-message.md)
 - [Working with custom templates](notification-hubs-templates-cross-platform-push-messages.md)
-- [Service Bus access control with shared access signatures](/azure/service-bus-messaging/service-bus-sas)
+- [Service Bus access control with shared access signatures](../service-bus-messaging/service-bus-sas.md)
 - [Programmatically generate SAS tokens](/rest/api/eventhub/generate-sas-token)
 - [Apple security: common crypto](https://developer.apple.com/security/)
 - [UNIX Epoch time](https://en.wikipedia.org/wiki/Unix_time)

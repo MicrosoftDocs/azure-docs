@@ -27,13 +27,13 @@ The cmdlets in the following table create and manage Automation schedules with P
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Retrieves a schedule. |
-| [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Retrieves scheduled runbooks. |
-| [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Creates a new schedule. |
-| [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associates a runbook with a schedule. |
-| [Remove-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Removes a schedule. |
-| [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Sets the properties for an existing schedule. |
-| [Unregister-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissociates a runbook from a schedule. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Retrieves a schedule. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Retrieves scheduled runbooks. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Creates a new schedule. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associates a runbook with a schedule. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Removes a schedule. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Sets the properties for an existing schedule. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Dissociates a runbook from a schedule. |
 
 ## Create a schedule
 
@@ -60,7 +60,7 @@ You can create a new schedule for your runbooks in the Azure portal or with Powe
 
 ### Create a new schedule with PowerShell
 
-Use the [New-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet to create schedules. You specify the start time for the schedule and the frequency it should run. The following examples show how to create many different schedule scenarios.
+Use the [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) cmdlet to create schedules. You specify the start time for the schedule and the frequency it should run. The following examples show how to create many different schedule scenarios.
 
 #### Create a one-time schedule
 
@@ -123,7 +123,7 @@ A runbook can be linked to multiple schedules, and a schedule can have multiple 
 
 ### Link a schedule to a runbook with PowerShell
 
-Use the [Register-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) cmdlet to link a schedule. You can specify values for the runbook’s parameters with the Parameters parameter. For more information on how to specify parameter values, see [Starting a Runbook in Azure Automation](../automation-starting-a-runbook.md).
+Use the [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) cmdlet to link a schedule. You can specify values for the runbook’s parameters with the Parameters parameter. For more information on how to specify parameter values, see [Starting a Runbook in Azure Automation](../start-runbooks.md).
 The following example shows how to link a schedule to a runbook by using an Azure Resource Manager cmdlet with parameters.
 
 ```azurepowershell-interactive
@@ -159,7 +159,7 @@ When you disable a schedule, any runbook linked to it no longer runs on that sch
 
 ### Disable a schedule with PowerShell
 
-Use the [Set-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) cmdlet to change the properties of an existing schedule. To disable the schedule, specify False for the `IsEnabled` parameter.
+Use the [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) cmdlet to change the properties of an existing schedule. To disable the schedule, specify False for the `IsEnabled` parameter.
 
 The following example shows how to disable a schedule for a runbook by using an Azure Resource Manager cmdlet.
 

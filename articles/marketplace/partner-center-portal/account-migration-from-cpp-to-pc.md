@@ -1,11 +1,11 @@
 ---
 title: Migrate accounts from Cloud Partner Portal to Microsoft commercial marketplace
 description: Learn how to migrate your account from Cloud Partner Portal to Partner Center in Microsoft commercial marketplace for Azure
-author: dsindona
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: parthpandyaMSFT
+ms.author: parthp
 ms.date: 09/23/2019
 ---
 
@@ -22,7 +22,7 @@ If you're a user with the Owner role in CPP for a given account, a yellow banner
 
 ### Your account has been migrated to Partner Center
 
-For all accounts that have completed migration from the CPP to Partner Center, account management will happen in Partner Center. Changes such as user addition/deletion will be synced back to CPP.
+You now manage your account in Partner Center. Changes such as user addition/deletion will be synced back to CPP.
 
 ### You have not yet migrated your account to Partner Center
 
@@ -40,7 +40,7 @@ Click on the banner to start your account migration process. You're expected to 
 
 ## Publishers moving from CPP
 
-If your account has been migrated from the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com), you do not need to create a new Partner Center account. You should have received a customized link to your new Partner Center account in email, and in a banner notification after logging in to your existing CPP account.
+If your account was migrated from the CPP, you don't need to create a new Partner Center account. You should have received a customized link to your new Partner Center account in email and in a banner notification after logging in to your existing CPP account.
 
 Once you've enabled your new Partner Center account by visiting this customized link, you can return to your account by visiting the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center.
 

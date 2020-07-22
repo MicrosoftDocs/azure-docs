@@ -94,14 +94,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, My IBISWorld application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |   |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| department |  | user.department |
-	| language |  | user.preferredlanguage |
-	| phone |  | user.telephonenumber |
-	| title |  | user.jobtitle |
-    | userid |  | user.employeeid |
-    | country |  | user.country |
+	| Name | Source Attribute|
+	| --------------- | --------- |
+	| department | user.department |
+	| language | user.preferredlanguage |
+	| phone | user.telephonenumber |
+	| title | user.jobtitle |
+    | userid | user.employeeid |
+    | country | user.country |
 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 

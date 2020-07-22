@@ -97,7 +97,7 @@ Taints and tolerations are used to logically isolate resources with a hard cut-o
 Let's look at an example of nodes with a high amount of memory. These nodes can give preference to pods that request a high amount of memory. To make sure that the resources don't sit idle, they also allow other pods to run.
 
 ```console
-kubectl label node aks-nodepool1 hardware:highmem
+kubectl label node aks-nodepool1 hardware=highmem
 ```
 
 A pod specification then adds the `nodeSelector` property to define a node selector that matches the label set on a node:

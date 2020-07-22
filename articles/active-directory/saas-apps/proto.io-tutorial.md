@@ -101,11 +101,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In addition to above, Proto.io application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
 	
-	| Name |  |  Source Attribute|
-	| ---------------| --------------- | --------- |
-	| email | | user.mail |
-	| fname | | user.givenname |
-	| lname | | user.surname |
+	| Name | Source Attribute|
+	| --------------- | --------- |
+	| email | user.mail |
+	| fname | user.givenname |
+	| lname | user.surname |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 

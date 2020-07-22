@@ -7,7 +7,7 @@ ms.topic: conceptual
 # Understand Azure Policy's Guest Configuration
 
 Azure Policy can audit settings inside a machine, both for machines running in Azure and
-[Arc Connected Machines](https://docs.microsoft.com/azure/azure-arc/servers/overview).
+[Arc Connected Machines](../../../azure-arc/servers/overview.md).
 The validation is performed by the Guest Configuration
 extension and client. The extension, through the client, validates settings such as:
 
@@ -44,10 +44,9 @@ Guest Configuration service. The extension isn't required for Arc Connected Mach
 in the Arc Connected Machine agent.
 
 > [!IMPORTANT]
-> The Guest Configuration extension is required to perform audits in Azure virtual machines. To
-> deploy the extension at scale, assign the following policy definitions: 
->  - [Deploy prerequisites to enable Guest Configuration Policy on Windows VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->  - [Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> The Guest Configuration extension and a managed identity is required to audit Azure virtual machines. To	> The Guest Configuration extension is required to perform audits in Azure virtual machines. To
+> deploy the extension at scale, assign the following policy initiative: 	> deploy the extension at scale, assign the following policy definitions: 
+>  - [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### Limits set on the extension
 
@@ -91,7 +90,7 @@ The following table shows a list of supported operating systems on Azure images:
 |Microsoft|Windows Server|2012 and later|
 |Microsoft|Windows Client|Windows 10|
 |OpenLogic|CentOS|7.3 and later|
-|Red Hat|Red Hat Enterprise Linux|7.4 and later|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8, 9.0 and later|
 |Suse|SLES|12 SP3 and later|
 
 Custom virtual machine images are supported by Guest Configuration policies as long as they're one
@@ -108,13 +107,15 @@ used to reference the Guest Configuration service.
 
 ## Managed identity requirements
 
-The **DeployIfNotExists** policies that add the extension to virtual machines also enable a system
-assigned managed identity, if one doesn't exist.
+Policies in the initiative [Deploy prerequisites to enable Guest Configuration policies on virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) enable a system-assigned managed identity, if one doesn't exist. There are two policy definitions
+in the initiative that manage identity creation. The IF conditions in the policy definitions ensure the correct
+behavior based on the current state of the machine resource in Azure.
 
-> [!WARNING]
-> Avoid enabling user assigned managed identity to virtual machines in scope
-> for policies that enable system assigned managed identity. The user assigned
-> identity is replaced and could machine become unresponsive.
+If the machine doesn't currently have any managed identities, the effective policy will be:
+[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with no identities](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+
+If the machine currently has a user-assigned system identity, the effective policy will be:
+[\[Preview\]: Add system-assigned managed identity to enable Guest Configuration assignments on virtual machines with a user-assigned identity](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## Guest Configuration definition requirements
 
@@ -169,9 +170,9 @@ Some parameters support an integer value range. For example, the Maximum Passwor
 audit the effective Group Policy setting. A "1,70" range would confirm that users are required to
 change their passwords at least every 70 days, but no less than one day.
 
-If you assign the policy using an Azure Resource Manager deployment template, use a parameters file
-to manage exceptions. Check in the files to a version control system such as Git. Comments about
-file changes provide evidence why an assignment is an exception to the expected value.
+If you assign the policy using an Azure Resource Manager template (ARM template), use a parameters
+file to manage exceptions. Check in the files to a version control system such as Git. Comments
+about file changes provide evidence why an assignment is an exception to the expected value.
 
 #### Applying configurations using Guest Configuration
 

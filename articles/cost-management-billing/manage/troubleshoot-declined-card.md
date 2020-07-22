@@ -4,8 +4,8 @@ description: Resolve declined credit card at Azure sign-up in the Azure portal o
 author: v-miegge
 ms.reviewer: judupont
 ms.service: cost-management-billing
-ms.topic: conceptual 
-ms.date: 02/13/2020
+ms.topic: troubleshooting 
+ms.date: 06/05/2020
 ms.author: banders
 ---
 

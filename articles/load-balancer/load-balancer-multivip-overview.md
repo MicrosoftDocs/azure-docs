@@ -97,20 +97,31 @@ For each VM in the backend pool, run the following commands at a Windows Command
 
 To get the list of interface names you have on your VM, type this command:
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 For the VM NIC (Azure managed), type this command:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (replace interfacename with the name of this interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(replace interfacename with the name of this interface)
 
 For each loopback interface you added, repeat these commands:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (replace interfacename with the name of this loopback interface)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (replace interfacename with the name of this loopback interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(replace interfacename with the name of this loopback interface)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(replace interfacename with the name of this loopback interface)
 
 > [!IMPORTANT]
 > The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the loopback interface representing the DSR Frontend. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the loopback interface representing the DSR Frontend.

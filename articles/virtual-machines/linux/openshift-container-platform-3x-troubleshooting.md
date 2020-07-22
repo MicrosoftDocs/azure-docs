@@ -10,6 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
+ms.custom: devx-track-ansible
 ---
 
 # Troubleshoot OpenShift Container Platform 3.11 deployment in Azure

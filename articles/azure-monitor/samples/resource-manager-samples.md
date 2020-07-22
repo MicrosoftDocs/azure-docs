@@ -31,7 +31,7 @@ New-AzResourceGroupDeployment -Name AzureMonitorDeployment -ResourceGroupName my
 ```azurecli
 az login
 az deployment group create \
-    --name AlertDeployment \
+    --name AzureMonitorDeployment \
     --resource-group ResourceGroupofTargetResource \
     --template-file azure-monitor-deploy.json \
     --parameters azure-monitor-deploy.parameters.json

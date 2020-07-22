@@ -4,7 +4,7 @@ description: Learn how to configure private link for Azure Database for MariaDB 
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/09/2020
 ---
 
@@ -204,7 +204,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 ## Access the MariaDB server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
 

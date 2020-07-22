@@ -84,18 +84,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier (Entity ID)** text box, type a URL using one of the following pattern:
 
-        ```https
-        https://<TENANT>-imrpool.icescape365.com:PORT/identity
-        https://<TENANT>-imrpool.icescape.com:PORT/identity
-        https://<TENANT>-imrpool.iceuc.com:PORT/identity
-        ```
+    ```http
+    https://<TENANT>-imrpool.icescape365.com:PORT/identity
+    https://<TENANT>-imrpool.icescape.com:PORT/identity
+    https://<TENANT>-imrpool.iceuc.com:PORT/identity
+    ```
 
     c. In the **Reply URL** textbox, type a URL using one of the following pattern:
 
-        ```https
-        https://<TENANT>-imrpool.icescape365.com:PORT/identity
-        https://<TENANT>-imrpool.icescape.com:PORT/identity
-        https://<TENANT>-imrpool.iceuc.com:PORT/identity
+    ```http
+    https://<TENANT>-imrpool.icescape365.com:PORT/identity
+    https://<TENANT>-imrpool.icescape.com:PORT/identity
+    https://<TENANT>-imrpool.iceuc.com:PORT/identity
     ```
 
 	> [!NOTE]

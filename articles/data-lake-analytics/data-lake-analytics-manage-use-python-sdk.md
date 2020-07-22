@@ -8,7 +8,7 @@ ms.author: saveenr
 
 ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2018
 ms.custom: tracking-python
 ---

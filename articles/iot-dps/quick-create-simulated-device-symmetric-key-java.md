@@ -12,7 +12,7 @@ ms.custom: mvc
 #Customer intent: As a new IoT developer, I want simulate a device using Java so that I can learn how secure provisioning works with symmetric keys.
 ---
 
-# Quickstart: Provision a simulated device with symmetric keys
+# Quickstart: Provision a simulated device to IoT Hub with symmetric keys
 
 In this quickstart, you will learn how to create and run a device simulator on a Windows development machine. You will configure this simulated device to use a symmetric key to authenticate with a Device Provisioning Service (DPS) instance and be assigned to an IoT hub. Sample code from the [Microsoft Azure IoT SDKs for Java](https://github.com/Azure/azure-iot-sdk-java) will be used to simulate a boot sequence for the device that initiates provisioning. The device will be recognized based on an individual enrollment with a DPS service instance and assigned to an IoT hub.
 

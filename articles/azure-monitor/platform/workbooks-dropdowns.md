@@ -44,7 +44,9 @@ The easiest way to specify a drop-down is by providing a static list in the para
     ![Image showing the creation of a static drown down](./media/workbook-dropdowns/dropdown-create.png)
 
 ## Creating a static dropdown with groups of items
+
 If your query result/json contains a "group" field, the dropdown will display groups of values. Follow the above sample, but use the following json instead:
+
 ```json
 [
     { "value":"dev", "label":"Development", "group":"Development" },
@@ -55,7 +57,8 @@ If your query result/json contains a "group" field, the dropdown will display gr
     { "value":"prod2", "label":"Prod 2", "group":"Production" }
 ]
 ```
-    ![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
+
+![Image showing an example of a grouped dropdown](./media/workbook-dropdowns/grouped-dropDown.png)
 
 
 ## Creating a dynamic drop-down parameter
@@ -82,6 +85,7 @@ If your query result/json contains a "group" field, the dropdown will display gr
     ![Image showing the creation of a dynamic drop-down](./media/workbook-dropdowns/dropdown-dynamic.png)
 
 ## Referencing drop down parameter
+
 ### In KQL
 1. Add a query control to the workbook and select an Application Insights resource.
 2. In the KQL editor, enter this snippet
@@ -118,7 +122,8 @@ dependencies
 | serialize Rank = row_number()
 | project value = name, label = strcat('🌐 ', name), selected = iff(Rank == 1, true, false), group = operation_Name
 ```
-    ![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
+
+![Image showing a drop-down parameter using value, label, selection and group options](./media/workbook-dropdowns/dropdown-more-options.png)
 
 
 ## Drop down parameter options

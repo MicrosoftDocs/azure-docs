@@ -4,7 +4,7 @@ description: Learn how to deploy an Azure Firewall Manager security partner prov
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ---

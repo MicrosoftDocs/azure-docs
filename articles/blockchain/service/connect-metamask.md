@@ -124,9 +124,9 @@ Remix is a browser-based Solidity development environment. Using MetaMask and Re
 
 The debug pane of Remix shows details about the transactions on the blockchain:
 
-    ![Debug history](./media/connect-metamask/debug.png)
+![Debug history](./media/connect-metamask/debug.png)
 
-    You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
+You can see the **simple** contract creation, transaction for **simple.add**, and call to **simple.get**.
 
 To see transaction history in MetaMask, open the MetaMask browser extension and look in the **History** section for a log of the deployed contract and transactions.
 
