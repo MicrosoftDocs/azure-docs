@@ -47,3 +47,5 @@
 1. select save.
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="example text":::
+
+You have now enabled double encryption at rest on your managed disk.
