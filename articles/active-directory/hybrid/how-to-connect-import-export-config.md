@@ -1,6 +1,6 @@
 ---
 title: How to import and export Azure AD Connect configuration settings
-description: This document describes frequently asked questions for cloud provisioning.
+description: This article describes frequently asked questions for cloud provisioning.
 services: active-directory
 author: billmath
 manager: daveba
@@ -50,7 +50,7 @@ Here are the only changes that can be made during the installation experience. A
 - **Azure Active Directory credentials**: The account name for the Azure Global Administrator used to configure the original server is suggested by default. It *must* be changed if you want to synchronize information to a new directory.
 - **User sign-in**: The sign-on options configured for your original server are selected by default and automatically prompt for credentials or other information that's needed during configuration. In rare cases, there might be a need to set up a server with different options to avoid changing the behavior of the active server. Otherwise, select **Next** to use the same settings.
 - **On-premises directory credentials**: For each on-premises directory included in your synchronization settings, you must provide credentials to create a synchronization account or supply a pre-created custom synchronization account. This procedure is identical to the clean install experience with the exception that you can't add or remove directories.
-- **Configuration options**: As with a clean install, you might choose to configure the initial settings for whether to start automatic synchronization or enable staging mode. The main difference is that Staging mode is intentionally enabled by default to allow comparison of the configuration and synchronization results prior to actively exporting the results to Azure.
+- **Configuration options**: As with a clean install, you might choose to configure the initial settings for whether to start automatic synchronization or enable Staging mode. The main difference is that Staging mode is intentionally enabled by default to allow comparison of the configuration and synchronization results prior to actively exporting the results to Azure.
 
 ![Screenshot that shows the Connect your directories screen](media/how-to-connect-import-export-config/import2.png)
 
@@ -77,7 +77,7 @@ To migrate the settings:
    ![Screenshot that shows script in Windows PowerShell.](media/how-to-connect-import-export-config/migrate2.png)
    ![Screenshot that shows copying the Exported-ServerConfiguration-* folder.](media/how-to-connect-import-export-config/migrate3.png)
 
-1. Start **Azure AD Connect** by double-clicking the icon on the desktop. Accept the EULA, and on the next page, select **Customize**.
+1. Start **Azure AD Connect** by double-clicking the icon on the desktop. Accept the Microsoft Software License Terms, and on the next page, select **Customize**.
 1. Select the **Import synchronization settings** check box. Select **Browse** to browse the copied-over Exported-ServerConfiguration-* folder. Select the MigratedPolicy.json to import the migrated settings.
 
    ![Screenshot that shows the Import synchronization settings option.](media/how-to-connect-import-export-config/migrate4.png)
@@ -94,7 +94,7 @@ Here are known limitations:
 - **Synchronized object types**: Although it's possible to constrain the list of synchronized object types (such as users, contacts, and groups) by using the Synchronization Service Manager, this feature isn't currently supported via synchronization settings. After you finish the installation, you must manually reapply the advanced configuration.
 - **Custom run profiles**: Although it's possible to modify the default set of run profiles by using the Synchronization Service Manager, this feature isn't currently supported via synchronization settings. After you finish the installation, you must manually reapply the advanced configuration.
 - **Configuring the provisioning hierarchy**: This advanced feature of the Synchronization Service Manager isn't supported via synchronization settings. It must be manually reconfigured after you finish the initial deployment.
-- **Active Directory Federation Services (AD FS) and PingFederate authentication**: The sign-on methods associated with these authentication features are automatically pre-selected. You must interactively supply all other required configuration parameters.
+- **Active Directory Federation Services (AD FS) and PingFederate authentication**: The sign-on methods associated with these authentication features are automatically preselected. You must interactively supply all other required configuration parameters.
 - **A disabled custom synchronization rule will be imported as enabled**: A disabled custom synchronization rule is imported as enabled. Make sure to disable it on the new server too.
 
  ## Next steps
