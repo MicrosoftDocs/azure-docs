@@ -86,7 +86,7 @@ Obtain the connection `connectionstring` value from the [Azure portal] by perfor
 ![Azure portal - Notification Hubs](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azureps-cmdlets-docs) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-classic-cli).
+> You can also retrieve the connection string using the **Get-AzureSbNamespace** cmdlet provided by [Azure PowerShell](/powershell/azure/) or the **azure sb namespace show** command with the [Azure Command-Line Interface (Azure CLI)](/cli/azure/install-classic-cli).
 
 ## General architecture
 
