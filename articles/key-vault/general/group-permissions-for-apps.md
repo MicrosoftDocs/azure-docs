@@ -35,7 +35,7 @@ For full details on Key Vault access control, see [Azure Key Vault security: Ide
    - [Create a key vault with the Azure CLI](../secrets/quick-create-cli.md)
    - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
-- The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview). Alternatively, you can use the [Azure portal](https://portal.azure.com).
+- The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/). Alternatively, you can use the [Azure portal](https://portal.azure.com).
 
 ## Grant access to your key vault
 

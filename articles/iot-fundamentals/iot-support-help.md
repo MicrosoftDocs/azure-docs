@@ -73,7 +73,7 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
 
 | Service                       | Azure Feedback URL |
 |-------------------------------|---------------|
-| Azure IoT Hub                    | https://feedback.azure.com/forums/321918-azure-iot |
+| Azure IoT (Hub, DPS, SDKs)                    | https://feedback.azure.com/forums/321918-azure-iot |
 | Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
 | Azure IoT Device Catalog      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
 | Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |

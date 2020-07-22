@@ -154,7 +154,7 @@ The following template demonstrates how template expressions are resolved accord
 
 The value of `exampleVar` changes depending on the value of the `scope` property in `expressionEvaluationOptions`. The following table shows the results for both scopes.
 
-| `expressionEvaluationOptions` `scope` | Output |
+| `expressionEvaluationOptions` scope | Output |
 | ----- | ------ |
 | inner | from nested template |
 | outer (or default) | from parent template |

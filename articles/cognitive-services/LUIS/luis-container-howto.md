@@ -48,7 +48,7 @@ Authoring APIs for packaged apps:
 
 ### Container requirements and recommendations
 
-This container supports minimum and recommended values for the settings:
+The below table lists minimum and recommended values for the container host. Your requirements may change depending on traffic volume.
 
 |Container| Minimum | Recommended | TPS<br>(Minimum, Maximum)|
 |-----------|---------|-------------|--|

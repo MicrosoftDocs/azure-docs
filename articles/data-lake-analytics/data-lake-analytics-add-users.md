@@ -37,7 +37,7 @@ Grant "R-X" or "RWX", as needed, on folders containing input data and output dat
 
 ## Adding a user using PowerShell
 
-1. Follow the instructions in this guide: [How to install and configure Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+1. Follow the instructions in this guide: [How to install and configure Azure PowerShell](/powershell/azure/).
 2. Download the [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) PowerShell script.
 3. Run the PowerShell script. 
 

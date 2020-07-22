@@ -1,5 +1,5 @@
 ---
-title: Access files on storage using SQL on-demand (preview) within Synapse SQL
+title: Access files on storage in SQL on-demand (preview)
 description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -29,7 +29,7 @@ OPENROWSET enables users to query external files on Azure storage if they have a
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'http://storage...com/container/file/path/*.csv', format= 'parquet') as rows
+ OPENROWSET(BULK 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/*.parquet', format= 'parquet') as rows
 ```
 
 User can access storage using the following access rules:
@@ -37,15 +37,15 @@ User can access storage using the following access rules:
 - Azure AD user - OPENROWSET will use Azure AD identity of caller to access Azure Storage or access storage with anonymous access.
 - SQL user – OPENROWSET will access storage with anonymous access.
 
-SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace. If a SQL user executes this function, a power user with ALTER ANY CREDENTIAL permission must create a server-scoped credential that matches URL in the function (using storage name and container) and granted REFERENCES permission for this credential to the caller of OPENROWSET function:
+SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace. If a SQL user executes this function, a power user with `ALTER ANY CREDENTIAL` permission must create a server-scoped credential that matches URL in the function (using storage name and container) and granted REFERENCES permission for this credential to the caller of OPENROWSET function:
 
 ```sql
 EXECUTE AS somepoweruser
 
-CREATE CREDENTIAL [http://storage.dfs.com/container]
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
 
-GRANT REFERENCES CREDENTIAL::[http://storage.dfs.com/container] TO sqluser
+GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
 If there is no server-level CREDENTIAL that matches URL or SQL user don't have references permission for this credential, the error will be returned. SQL principals cannot impersonate using some Azure AD identity.
@@ -72,7 +72,7 @@ CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
  SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/' ,
  CREDENTIAL = AccessAzureInvoices) ;
 ```
 
@@ -81,8 +81,8 @@ DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data 
 Caller must have one of the following permissions to execute OPENROWSET function:
 
 - One of the permissions to execute OPENROWSET:
-  - ADMINISTER BULK OPERATION enables login to execute OPENROWSET function.
-  - ADMINISTER DATABASE BULK OPERATION enables database scoped user to execute OPENROWSET function.
+  - `ADMINISTER BULK OPERATIONS` enables login to execute OPENROWSET function.
+  - `ADMINISTER DATABASE BULK OPERATIONS` enables database scoped user to execute OPENROWSET function.
 - REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
 
 #### Accessing anonymous data sources
@@ -91,7 +91,7 @@ User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference publ
 
 ```sql
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3') ;
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
 ```
 
 ## EXTERNAL TABLE
@@ -119,7 +119,7 @@ CREATE DATABASE SCOPED CREDENTIAL cred
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
- WITH ( LOCATION = 'https://samples.blob.core.windows.net/products' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>' ,
  CREDENTIAL = cred
  ) ;
 ```
@@ -145,13 +145,13 @@ The following table lists required permissions for the operations listed above.
 
 | Query | Required permissions|
 | --- | --- |
-| OPENROWSET(BULK) without datasource | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN`, or SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
-| OPENROWSET(BULK) with datasource without credential | `ADMINISTER BULK ADMIN` or `ADMINISTER DATABASE BULK ADMIN`, |
-| OPENROWSET(BULK) with datasource with credential | `ADMINISTER BULK ADMIN`, `ADMINISTER DATABASE BULK ADMIN`, or `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| OPENROWSET(BULK) without datasource | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS`, or SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
+| OPENROWSET(BULK) with datasource without credential | `ADMINISTER BULK OPERATIONS` or `ADMINISTER DATABASE BULK OPERATIONS`, |
+| OPENROWSET(BULK) with datasource with credential | `REFERENCES DATABASE SCOPED CREDENTIAL` and one of `ADMINISTER BULK OPERATIONS` or `ADMINISTER DATABASE BULK OPERATIONS` |
 | CREATE EXTERNAL DATA SOURCE | `ALTER ANY EXTERNAL DATA SOURCE` and `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CREATE EXTERNAL TABLE | `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY EXTERNAL FILE FORMAT`, and `ALTER ANY EXTERNAL DATA SOURCE` |
 | SELECT FROM EXTERNAL TABLE | `SELECT TABLE` and `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CETAS | To create table - `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE`, and `ALTER ANY EXTERNAL FILE FORMAT`. To read data: `ADMIN BULK OPERATIONS` or `REFERENCES CREDENTIAL` or `SELECT TABLE` per each table/view/function in query + R/W permission on storage |
+| CETAS | To create table - `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE`, and `ALTER ANY EXTERNAL FILE FORMAT`. To read data: `ADMINISTER BULK OPERATIONS` or `REFERENCES CREDENTIAL` or `SELECT TABLE` per each table/view/function in query + R/W permission on storage |
 
 ## Next steps
 
