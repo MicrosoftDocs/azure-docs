@@ -51,7 +51,7 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 
 <div id="blob-container-ACL"><sup>2</sup> You can set ACLs on the root folder of the container but not the container itself.</div><br>
 
-<div id="preview-form"><sup>3</sup>To use snapshots, immutable storage, or static websites with Data Lake Storage Gen2, you need to enroll in the preview by completing this [form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).  </div>
+<div id="preview-form"><sup>3</sup>To use snapshots, immutable storage, or static websites with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
 
 ## See also
 
