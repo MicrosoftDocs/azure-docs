@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 # Diagnose and troubleshoot Azure Cosmos DB unauthorized exception
 
-HTTP 401: The MAC signature found in the HTTP request is not the same as the computed signature
+HTTP 401: The MAC signature found in the HTTP request is not the same as the computed signature.
 If you received the following 401 error message: "The MAC signature found in the HTTP request is not the same as the computed signature." it can be caused by the following scenarios.
 
 Older SDKs the exception can appear as an invalid json exception instead of the correct 401 unauthorized exception. Newer SDKs properly handle this scenario and give a valid error message.
@@ -19,7 +19,7 @@ Older SDKs the exception can appear as an invalid json exception instead of the 
 ## Troubleshooting steps
 The following list contains known causes and solutions for unauthorized exception.
 
-### 1. Key was not properly rotated. This is the most common scenario.
+### 1. Key was not properly rotated is the most common scenario.
 401 MAC signature is seen shortly after a key rotation and eventually stops without any changes. 
 
 #### Solution:
@@ -32,7 +32,7 @@ The key was rotated and did not follow the [best practices](secure-access-to-dat
 The key is misconfigured on the application, and is using the wrong key for the account or entire key was not copied.
 
 ### 3. The application is using the read-only keys for write operations
-401 MAC signature issue is only occuring for write operations like create or replace, but read request succeed.
+401 MAC signature issue is only occurring for write operations like create or replace, but read request succeed.
 
 #### Solution:
 Switch the application to use a read/write key to allow the operations to complete successfully.
