@@ -485,6 +485,7 @@
       items:
       - name: Action rules (Preview)
         href: platform/alerts-action-rules.md
+        displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: platform/action-groups.md
       - name: Common alert schema
@@ -1018,6 +1019,7 @@
     items:
     - name: Overview
       href: insights/solutions.md
+      displayName: Azure CLI, az monitor log-analytics
     - name: Target solutions
       href: insights/solution-targeting.md
     - name: Available solutions
