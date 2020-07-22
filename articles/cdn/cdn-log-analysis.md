@@ -27,7 +27,7 @@ With a Standard Microsoft profile, you can enable raw logs and select to stream 
 
 With Azure Log Analytics you can view monitoring metrics, and set up alerts. 
 
-For more information refer to [Azure CDN HTTP raw logs](enable-raw-logs.md).
+For more information, see [Azure CDN HTTP raw logs](enable-raw-logs.md).
 
 
 ## Core analytics via Azure diagnostic logs
