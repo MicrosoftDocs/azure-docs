@@ -14,19 +14,19 @@ ms.custom: dpalled
 
 # Adding support for long data type
 
-These changes apply to to Gen2 environments only. If you have a Gen1 environment, you can disregard these changes.
+The changes described in this article only apply to Azure Time Series Insights Gen2 environments. If you have a Gen1 environment, you can disregard these changes.
 
-We are making changes to how we store and index numeric data in Azure Time Series Insights Gen2 that might impact you. If you’re impacted by any of the following cases, make the necessary changes as soon as possible.
+The addition of support for long data type affects how we store and index numeric data in Azure Time Series Insights Gen2. If you’re affected by any of the following cases, make the recommended changes.
 
-Beginning June 29 or June 30, 2020, depending on your region, your data will be indexed as **Long** and **Double**  If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
+Beginning June 29 or June 30, 2020, depending on your region, your data will be indexed as **Long** and **Double**.  If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
 
 This change impacts you in the following cases:
 
-- **Case 1**: If you currently use Time Series Model variables and send only integral data types in your telemetry data.
-- **Case 2**: If you currently use Time Series Model variables and send both integral and nonintegral data types in your telemetry data.
-- **Case 3**: If you use categorical variables to map integer values to categories.
-- **Case 4**: If you use the JavaScript SDK to build a custom front-end application.
-- **Case 5**: If you're nearing the 1,000-property name limit in Warm Store and send both integral and nonintegral data. The property count can be viewed as a metric in the [Azure portal](https://portal.azure.com/).
+- **Case 1**: You currently use Time Series Model variables and send only integral data types in your telemetry data.
+- **Case 2**: You currently use Time Series Model variables and send both integral and nonintegral data types in your telemetry data.
+- **Case 3**: You use categorical variables to map integer values to categories.
+- **Case 4**: You use the JavaScript SDK to build a custom front-end application.
+- **Case 5**: You're nearing the 1,000-property name limit in Warm Store and send both integral and nonintegral data. The property count can be viewed as a metric in the [Azure portal](https://portal.azure.com/).
 
 If any of the cases apply to you, make changes to your model. Update the Time Series Expression (TSX) in your variable definition with the recommended changes. Update both:
 
@@ -46,7 +46,7 @@ Data can also be observed through the [Event Hub Explorer](https://marketplace.v
 If you use IoT Hub, go to [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for how to access the built-in endpoint.
 
 > [!NOTE]
-> You might experience a disruption if you do not make the recommended changes. The impacted Time Series Insights variables accessed via the query APIs or Time Series Insights Explorer will return **null** (i.e. show no data in the Explorer).
+> You might experience a disruption if you do not make the recommended changes. The affected Time Series Insights variables that are accessed via the query APIs or Time Series Insights explorer will return **null** (i.e. show no data in the explorer).
 
 ## Recommended changes
 
@@ -57,9 +57,9 @@ If you currently send integer telemetry data, your data will be divided into two
 - **propertyValue_double**
 - **propertyValue_long**
 
-Your integer data writes to **propertyValue_long**  when the changes go into effect. Previously ingested (and future ingested) numeric data in **propertyValue_double** aren't copied over.
+Your integer data writes to **propertyValue_long**. Previously ingested (and future ingested) numeric data in **propertyValue_double** isn't copied over.
 
-If you want to query data across these two columns for the **propertyValue** property, you need to use the **coalesce()** scalar function in your TSX. The function accepts arguments of the same **DataType** and returns the first non-null value in the argument list. For more information, see [Azure Time Series Insights Gen2 data access concepts](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) for more information.
+If you want to query data across these two columns for the **propertyValue** property, you need to use the **coalesce()** scalar function in your TSX. The function accepts arguments of the same **DataType** and returns the first non-null value in the argument list. For more information, see [Azure Time Series Insights Gen2 data access concepts](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions).
 
 #### Variable definition in TSX - numeric
 
@@ -227,7 +227,7 @@ Categorical variables still require the value to be of an integer type. The **Da
 
 ### Case 4: Using the JavaScript SDK to build a custom front-end application
 
-If you're impacted by Cases 1 through 3 and build custom applications, you need to update your queries to use the **coalesce()** function, as demonstrated in the previous examples.
+If you're affected by Cases 1 through 3 and build custom applications, you need to update your queries to use the **coalesce()** function, as demonstrated in the previous examples.
 
 ### Case 5: Nearing Warm Store 1,000 property limit
 
@@ -235,4 +235,4 @@ If you're a Warm Store user with a large number of properties and believe that t
 
 ## Next steps
 
-- View the full list of [supported data types](concepts-supported-data-types.md)
+- View the full list of [supported data types](concepts-supported-data-types.md).
