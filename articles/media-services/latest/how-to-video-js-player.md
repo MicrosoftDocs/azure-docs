@@ -136,7 +136,7 @@ In order to support DRM protection, you must add the [videojs-contrib-eme](https
 In order to acquire the license URL, you can:
 
 - Consult your DRM provider configuration
-- or, consult the `output.json` document generated when you previously ran the [setup-vod.ps1](../../setup#setup-vodps1) for VODs, or [start-live.ps1](../../setup#start-liveps1) for live streams. You'll also find the KIDs inside this file.
+- or, if you are using the sample, consult the `output.json` document generated when you ran the *setup-vod.ps1* PowerShell scirpt for VODs, or the *start-live.ps1* script for live streams. You'll also find the KIDs inside this file.
 
 #### Using tokenized DRM
 
