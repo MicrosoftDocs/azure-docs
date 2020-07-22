@@ -128,7 +128,11 @@
   - name: Reference
     items:
     - name: Azure PowerShell
-      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge  
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+    - name: REST API
+      href: https://docs.microsoft.com/en-us/rest/api/databoxedgegateway
+    - name: .NET SDK
+      href: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet
   - name: Release notes
     items:
     - name: 2007 - Current
