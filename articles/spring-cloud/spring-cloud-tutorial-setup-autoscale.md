@@ -23,23 +23,29 @@ To follow these procedures, you need:
 ## Navigate to the Autoscale page in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Go to your Azure Spring Cloud **Overview** page.
+2. Go to the Azure Spring Cloud **Overview** page.
 3. Select the resource group that contains your service.
-4. Select the **Apps** tab under **Settings** in the menu on the left side of the page.
-5. Select the application you want to set up Autoscale. In this example, select the application named **demo**. You should then see the application's **Overview** page.
-6. Go to the **Scale out (preview)** tab under **Settings** in the menu on the left side of the page.
+4. Select the **Apps** tab under **Settings** in the menu on the left navigation pane.
+5. Select the application for which you want to set up Autoscale. In this example, select the application named **demo**. You should then see the application's **Overview** page.
+6. Go to the **Scale out** tab under **Settings** in the menu on the left navigation pane.
 7. Select the deployment you want to set up Autoscale. You should see options for Autoscale shown in the following section.
+
 
 ![Autoscale menu](./media/spring-cloud-autoscale/autoscale-menu.png)
 
 ## Set up Autoscale settings for your application in the Azure portal
 
-* Manual scale: Maintain a fixed instance count. In the Standard tier, you can scale out to a maximum of 500 instances. This value changes the number of separate running instances of the microservice application.
-* Custom autoscale: Scale on any schedule, based on any metrics.
+There are two options for Autoscale demand management:
+
+* Manual scale: Maintains a fixed instance count. In the Standard tier, you can scale out to a maximum of 500 instances. This value changes the number of separate running instances of the microservice application.
+* Custom autoscale: Scales on any schedule, based on any metrics.
+
+In the Azure portal, choose how you want to scale.  The following figure shows the **Custom autoscale** option and mode settings.
 
 ![Custom autoscale](./media/spring-cloud-autoscale/custom-autoscale.png)
 
 ## Set up Autoscale settings for your application in Azure CLI
+You can also set Autoscale modes using the Azure CLI.  The following commands create an Autoscale setting and and Autoscale rule.
 
 * Create Autoscale setting
   ```
