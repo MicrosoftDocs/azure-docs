@@ -160,7 +160,7 @@ Tags                :
 
 ### Enable key regeneration
 
-If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet to set a regeneration period. In this example, we set a regeneration period of three days. After three days, Key Vault will regenerate 'key2' and swap the active key from 'key2' to 'key1' (replace with 'primary' and 'secondary' for Classic Storage Accounts).
+If you want Key Vault to regenerate your storage account keys periodically, you can use the Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) cmdlet to set a regeneration period. In this example, we set a regeneration period of three days. When it is time to rotate, Key Vault regenerates the key that is not active, and then sets the newly created key as active. Only one of the keys are used to issue SAS tokens at any one time. This is the active key.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
