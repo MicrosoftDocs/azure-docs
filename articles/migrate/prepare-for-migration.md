@@ -123,6 +123,8 @@ For other versions, prepare machines as summarized in the table.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
 
+The following table summarizes the steps performed automatically for the operating systems listed above.
+
 | Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Install Hyper\-V Linux Integration Services | Yes                           | Yes                        | Not needed |
