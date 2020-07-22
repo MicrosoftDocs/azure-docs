@@ -44,6 +44,11 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 The following example creates a container asynchronously:
 
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="snippet_CreateSampleContainerAsync":::
+
+# [\.NET v11](#tab/dotnetv11)
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
 {
@@ -84,6 +89,12 @@ You can reference a blob stored in the root container without including the root
 `https://myaccount.blob.core.windows.net/default.html`
 
 The following example creates the root container synchronously:
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="snippet_CreateRootContainer":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 ```csharp
 private static void CreateRootContainer(CloudBlobClient blobClient)
@@ -128,6 +139,12 @@ After you delete a container, you cannot create a container with the same name f
 
 The following example deletes the specified container, and handles the exception if the container does not exist:
 
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="DeleteSampleContainerAsync":::
+
+# [\.NET v11](#tab/dotnetv11)
+
 ```csharp
 private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient, string containerName)
 {
@@ -150,6 +167,12 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 ```
 
 The following example shows how to delete all of the containers that start with a specified prefix. The example breaks the lease if there is an existing lease on the container.
+
+# [\.NET v12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="snippet_DeleteContainersWithPrefixAsync":::
+
+# [\.NET v11](#tab/dotnetv11)
 
 ```csharp
 private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobClient, string prefix)
