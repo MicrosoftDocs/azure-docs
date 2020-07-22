@@ -32,9 +32,6 @@ This tutorial uses the [Postman](https://www.postman.com/) application, but you 
 
 In this example, we'll use the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to convert an address into latitude and longitude coordinates. This process is also called *geocoding*. In addition to returning the coordinates, the response will also return detailed address properties such as street, postal code, municipality, and country/region information.
 
->[!IMPORTANT]
->To geobias results to the relevant area for your users, always add as many location details as possible. To learn more, see [Best Practices for Search](how-to-use-best-practices-for-search.md#geobiased-search-results).
-
 >[!TIP]
 >If you have a set of addresses to geocode, you can use the [Post Search Address Batch API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) to send a batch of queries in a single API call.
 
@@ -58,7 +55,7 @@ In this example, we'll use the Azure Maps [Get Search Address API](https://docs.
 
 6. Next, try setting the `query` key to `400 Broa`.
 
-7. Click the **Send** button.  You can now see that the response includes responses from multiple countries.
+7. Click the **Send** button.  You can now see that the response includes responses from multiple countries. To geobias results to the relevant area for your users, always add as many location details as possible to the request.
 
 ## Using Fuzzy Search API
 
