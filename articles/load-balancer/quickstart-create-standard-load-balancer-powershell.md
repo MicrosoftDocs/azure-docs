@@ -20,7 +20,7 @@ ms:custom: seodec18
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
 
-Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
+Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and three virtual machines.
 
 ## Prerequisites
 
@@ -103,10 +103,10 @@ Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/modu
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$fe='myFrontEnd'
-$rg='MyResourceGroupLB'
-$loc='eastus'
-$pubIP='myPublicIP'
+$fe = 'myFrontEnd'
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$pubIP = 'myPublicIP'
 
 $publicIp = 
 Get-AzPublicIpAddress -Name $pubIP -ResourceGroupName $rg
@@ -182,10 +182,10 @@ $port = '80'
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool --DisableOutboundSNAT $false
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
 ```
 > [!NOTE]
-> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, omit **(-DisableOutboundSNAT $false)** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
+> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
 
 
 ### Create load balancer resource
@@ -203,10 +203,10 @@ $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sku = 'Standard'
 
-## $feip, $bepool, $probe, $rule, $natrule1, $natrule2, and $natrule3 are variables with configuration information from previous steps. ##
+## $feip, $bepool, $probe, $rule are variables with configuration information from previous steps. ##
 
 $lb = 
-New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule -InboundNatRule $natrule1,$natrule2,$natrule3
+New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule
 ```
 
 ## Configure virtual network
@@ -228,7 +228,7 @@ Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.netwo
 $rg = 'myResourceGroupLB'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
-$spfx = '10.0.0./24'
+$spfx = '10.0.0.0/24'
 $vnm = 'myVNet'
 $vpfx = '10.0.0.0/16'
 
@@ -263,7 +263,7 @@ $sku = 'Standard'
 $all = 'static'
 
 $RdpPubIP1 = 
-New-AzPublicIpAddress -Name $ip1 -ResourceGroupName $rg -Location $loc-SKU $sku -AllocationMethod $all
+New-AzPublicIpAddress -Name $ip1 -ResourceGroupName $rg -Location $loc -SKU $sku -AllocationMethod $all
 ```
 
 #### VM2
@@ -283,7 +283,7 @@ $sku = 'Standard'
 $all = 'static'
 
 $RdpPubIP2 = 
-New-AzPublicIpAddress -Name $ip2 -ResourceGroupName $rg -Location $loc-SKU $sku -AllocationMethod $all
+New-AzPublicIpAddress -Name $ip2 -ResourceGroupName $rg -Location $loc -SKU $sku -AllocationMethod $all
 ```
 
 #### VM3
@@ -303,7 +303,7 @@ $sku = 'Standard'
 $all = 'static'
 
 $RdpPubIP2 = 
-New-AzPublicIpAddress -Name $ip3 -ResourceGroupName $rg -Location $loc-SKU $sku -AllocationMethod $all
+New-AzPublicIpAddress -Name $ip3 -ResourceGroupName $rg -Location $loc -SKU $sku -AllocationMethod $all
 ```
 
 ### Create network security group
@@ -424,9 +424,9 @@ Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
 $pub1 = 
 Get-AzPublicIPAddress -Name $ip1 -ResourceGroupName $rg
 
-## Command to get load balancer configuration ##
+## Command to get load balancer configuration
 $bepool = 
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $rg -LoadBalancerName $lb
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Command to get network security group configuration ##
 $nsg = 
@@ -465,9 +465,9 @@ Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
 $pub2 = 
 Get-AzPublicIPAddress -Name $ip2 -ResourceGroupName $rg
 
-## Command to get load balancer configuration ##
+## Command to get load balancer configuration
 $bepool = 
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $rg -LoadBalancerName $lb
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Command to get network security group configuration ##
 $nsg = 
@@ -504,11 +504,11 @@ Get-AzVirtualNetwork -Name $vnt -ResourceGroupName $rg
 
 ## Command to get public ip address for VM3 ##
 $pub3 = 
-Get-AzPublicIPAddress -Name $ip1 -ResourceGroupName $rg
+Get-AzPublicIPAddress -Name $ip3 -ResourceGroupName $rg
 
-## Command to get load balancer configuration ##
+## Command to get load balancer configuration
 $bepool = 
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $rg -LoadBalancerName $lb
+Get-AzLoadBalancer -Name $lb -ResourceGroupName $rg | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Command to get network security group configuration ##
 $nsg = 
@@ -526,7 +526,13 @@ Set an administrator username and password for the VMs with [Get-Credential](htt
 $cred = Get-Credential
 ```
 
-Create the virtual machines with [New-AzVM](/powershell/module/az.compute/new-azvm):
+Create the virtual machines with:
+
+* [New-AzVM](/powershell/module/az.compute/new-azvm)
+* [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)
+* [Set-AzVMOperatingSystem](/powershell/module/az.compute/set-azvmoperatingsystem)
+* [Set-AzVMSourceImage](/powershell/module/az.compute/set-azvmsourceimage)
+* [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
 
 #### VM1
@@ -556,7 +562,6 @@ $vmConfig =
 New-AzVMConfig -VMName $vm -VMSize $siz | Set-AzVMOperatingSystem -Windows -ComputerName $vm -Credential $cred | Set-AzVMSourceImage -PublisherName $pub -Offer WindowsServer -Skus $sku -Version $ver | Add-AzVMNetworkInterface -Id $nicVM1.Id
 
 ## Create the virtual machine ##
-$vm1 = 
 New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 ```
 
@@ -588,7 +593,6 @@ $vmConfig =
 New-AzVMConfig -VMName $vm -VMSize $siz | Set-AzVMOperatingSystem -Windows -ComputerName $vm -Credential $cred | Set-AzVMSourceImage -PublisherName $pub -Offer WindowsServer -Skus $sku -Version $ver | Add-AzVMNetworkInterface -Id $nicVM2.Id
 
 ## Create the virtual machine ##
-$vm2 = 
 New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 ```
 
@@ -619,7 +623,6 @@ $vmConfig =
 New-AzVMConfig -VMName $vm -VMSize $siz | Set-AzVMOperatingSystem -Windows -ComputerName $vm -Credential $cred | Set-AzVMSourceImage -PublisherName $pub -Offer WindowsServer -Skus $sku -Version $ver | Add-AzVMNetworkInterface -Id $nicVM3.Id
 
 ## Create the virtual machine ##
-$vm3 = 
 New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 ```
 
@@ -629,7 +632,7 @@ It takes a few minutes to create and configure the three VMs.
 
 Install IIS with a custom web page on both back-end VMs as follows:
 
-1. Get the public IP addresses of the three VMs using `Get-AzPublicIPAddress`.
+1. Get the public IP addresses of the three VMs using [Get-AzPublicIPAddress](/powershell/module/az.compute/get-azpublicipaddress).
 
 ```azurepowershell-interactive
 ## Variables for commands. ##
@@ -639,24 +642,15 @@ $ip2 = 'myVMPubIP2'
 $ip3 = 'myVMPubIP3'
 
 ## VM1 ##
-$vm1rdpip = 
 (Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip1).IpAddress
 
 ## VM2 ##
-$vm2rdpip = 
 (Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip2).IpAddress
 
 ## VM3 ##
-$vm3rdpip = 
 (Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip3).IpAddress
 ```
-2. Create remote desktop connections with **myVM1**, **myVM2**, and **myVM3** using the public IP addresses of the VMs: 
-
-```cmd   
-mstsc /v:$vm1rdpip
-mstsc /v:$vm2rdpip
-mstsc /v:$vm2rdpip
-```
+2. Create remote desktop connections with **myVM1**, **myVM2**, and **myVM3** using the public IP addresses of the VMs.
 
 3. Enter the credentials for each VM to start the RDP session.
 
