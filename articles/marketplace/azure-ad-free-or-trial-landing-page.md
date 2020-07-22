@@ -66,7 +66,7 @@ Microsoft has provided several sample apps that implement a simple website with 
 
 ***Figure 1: Quickstart blade in the Azure portal***
 
-:::image type="content" source="partner-center-portal/media/azure-ad-quickstart-blade.png" alt-text="Illustrates the Quickstart blade in the Azure portal.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Illustrates the Quickstart blade in the Azure portal.":::
 
 After you download the code and set up your development environment, change the configuration settings in the app to reflect the Application ID, tenant ID, and client secret you recorded in the previous procedure. Note that the exact steps will differ depending on which sample you are using.
 

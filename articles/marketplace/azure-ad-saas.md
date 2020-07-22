@@ -32,7 +32,7 @@ As shown in Figure 1, when a buyer selects your offer, they kick off a chain of 
 
 ***Figure 1: Using Azure AD for SaaS offers in the commercial marketplace***
 
-:::image type="content" source="./media/azure-ad-saas-flow.png" alt-text="Illustrates the purchase management, subscription management, and optional user management process steps.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow.png" alt-text="Illustrates the purchase management, subscription management, and optional user management process steps.":::
 
 The following sections provide details about the requirements for each process step.
 
@@ -40,7 +40,7 @@ The following sections provide details about the requirements for each process s
 
 This figure shows the four process steps for purchase management.
 
-:::image type="content" source="media/azure-ad-saas-flow-1-4.png" alt-text="Illustrates the four process steps for purchase management.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Illustrates the four process steps for purchase management.":::
 
 This table provides details for the purchase management process steps.
 
@@ -56,7 +56,7 @@ This table provides details for the purchase management process steps.
 
 This figure shows the two process steps for subscription management.
 
-:::image type="content" source="media/azure-ad-saas-flow-5-6.png" alt-text="Illustrates the two process steps for subscription management.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Illustrates the two process steps for subscription management.":::
 
 This table describes the details about the subscription management process steps.
 
@@ -70,7 +70,7 @@ This table describes the details about the subscription management process steps
 
 This figure shows the three process steps for user management.
 
-:::image type="content" source="media/azure-ad-saas-flow-7-9.png" alt-text="Illustrates the three optional process steps for user management.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Illustrates the three optional process steps for user management.":::
 
 Process steps 7 through 9 are optional user management process steps. They provide additional benefits for publishers who support Azure AD single sign-on (SSO). This table describes the details about the user management process steps.
 

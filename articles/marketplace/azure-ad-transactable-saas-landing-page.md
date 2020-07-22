@@ -69,7 +69,7 @@ We’ve provided several sample apps that implement a simple website with Azure 
 
 ***Figure 1: Quickstart blade in the Azure portal***
 
-:::image type="content" source="partner-center-portal/media/azure-ad-quickstart-blade.png" alt-text="Illustrates the quickstart blade in the Azure portal.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Illustrates the quickstart blade in the Azure portal.":::
 
 After youe download the code and set up your development environment, change the configuration settings in the app to reflect the Application ID, tenant ID, and client secret you recorded in the previous procedure. Note that the exact steps will differ depending on which sample you are using.
 
@@ -145,7 +145,7 @@ This enables the solution to work in scenarios that observe the [separation of c
 
 ***Figure 2: Improving security by using a separate application to communicate to the SaaS fulfillment APIs***
 
-:::image type="content" source="partner-center-portal/media/azure-ad-improving-security-separate-app.png" alt-text="Illustrates how you can improve security by using a separate application to communicate to the SaaS fulfillment APIs.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-improving-security-separate-app.png" alt-text="Illustrates how you can improve security by using a separate application to communicate to the SaaS fulfillment APIs.":::
 
 ## Next steps
 
