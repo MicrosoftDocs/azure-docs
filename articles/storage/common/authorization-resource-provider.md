@@ -53,7 +53,7 @@ The third column in the table indicates whether the built-in role supports the *
 
 ### Custom roles for management operations
 
-Azure also supports defining custom RBAC roles for access to management resources. For more information about custom roles, see [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md).
+Azure also supports defining custom RBAC roles for access to management resources. For more information about custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 ## Code samples
 
