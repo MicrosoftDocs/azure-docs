@@ -94,11 +94,11 @@ recall_score_micro|Recall is the percent of correctly labeled elements of a cert
 recall_score_weighted|Recall is the percent of correctly labeled elements of a certain class. Weighted is the arithmetic mean of recall for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|Weighted accuracy is accuracy where the weight given to each example is equal to the proportion of true instances in that example's true class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is a vector equal to the proportion of that class for each element in the target|
 
-### Note on binary vs multiclass metrics:
+### Binary vs. multiclass metrics
 
-AutoML does not differentiate between binary and multiclass metrics. The same validation metrics are reported whether the dataset being used has two classes or more than two classes. However, some of these metrics are intended for multiclass classification and when applied to a binary dataset will not treat any class as the `true` class as you might expect. Metrics clearly meant for multiclass will all be suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
+AutoML doesn't differentiate between binary and multiclass metrics. The same validation metrics are reported whether a dataset has two classes or more than two classes. However, some metrics are intended for multiclass classification. When applied to a binary dataset, these metrics won't treat any class as the `true` class, as you might expect. Metrics that are clearly meant for multiclass are suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
 
-A concrete example makes this distinction clearer. Instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately and then taking the average of the two.
+A concrete example makes this distinction clearer: Instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately and then taking the average of the two.
 
 <a name="confusion-matrix"></a>
 
