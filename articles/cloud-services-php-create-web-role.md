@@ -27,7 +27,7 @@ For more information about these options, see [Compute hosting options provided 
 
 ## Download the Azure SDK for PHP
 
-The [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+The [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) consists of several components. This article will use two of them: Azure PowerShell and the Azure emulators. These two components can be installed via the Microsoft Web Platform Installer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Create a Cloud Services project
 
@@ -177,7 +177,7 @@ PS C:\MyProject> Stop-AzureEmulator
 
 ## Publish your application
 
-To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure.service/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure.service/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To publish your application, you need to first import your publish settings by using the [Import-AzurePublishSettingsFile](/powershell/module/servicemanagement/azure.service/import-azurepublishsettingsfile) cmdlet. Then you can publish your application by using the [Publish-AzureServiceProject](/powershell/module/servicemanagement/azure.service/publish-azureserviceproject) cmdlet. For information about signing in, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Next steps
 
