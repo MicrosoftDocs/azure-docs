@@ -1,17 +1,3 @@
----
-title: Experian with Azure Active Directory B2C
-titleSuffix: Azure AD B2C
-description: Learn how to integrate Azure AD B2C authentication with Experian to help with Identity verification and proofing based on user attributes.
-author: gargi-sinha
-manager: martinco
-
-ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 07/21/2020
-ms.author: gasinh
-ms.subservice: B2C
----
 # Tutorial for configuring Experian with Azure Active Directory B2C
 
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration). Experian provides a variety of solutions, which you can find [here](https://www.experian.com/).
@@ -107,9 +93,9 @@ Application settings can be [configured in the App service in Azure](https://doc
 Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/secure-rest-api#add-rest-api-username-and-password-policy-keys) and create two policy keys – one for the API username, and one for the API password that you defined above for HTTP basic authentication.
 
 >[!NOTE]
->Save the names of these keys. You'll need them for configuring the policies later.
+>You'll need the keys for configuring the policies later.
 
-### Part 5- Replace the configuration values
+### Part 5 - Replace the configuration values
 
 In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance
 
@@ -127,14 +113,14 @@ In the provided custom policies, find the following placeholders and replace wit
 
 ### Part 6 - Configure the Azure AD B2C policy
 
-For instructions on how to set up your Azure AD B2C tenant and configure policies, follow this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack).
+Refer to this [document](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications#custom-policy-starter-pack) for instructions on how to set up your Azure AD B2C tenant and configure policies.
 
 >[!NOTE]
 >This sample policy is based on [Local Accounts starter
 pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts).
 
 >[!NOTE]
-> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be sent to third-party services for Identity verification.
+> As a best practice, we recommend that customers add consent notification in the attribute collection page. Notify users that information will be send to third-party services for Identity verification.
 
 ## Test the user flow
 
