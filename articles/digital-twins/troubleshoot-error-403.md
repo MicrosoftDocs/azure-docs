@@ -36,9 +36,7 @@ The first solution is to verify that your Azure user has the *Azure Digital Twin
 
 #### Check current setup
 
-To check whether you have this role, view the role assignments for the Azure Digital Twins instance in the Azure portal. From your portal page of [Azure Digital Twins instances](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances), select the name of the instance you want to check. Then, view all of its assigned roles under *Access control (IAM) > Role assignments*. If your role assignment has been set up, you will show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
-
-:::image type="content" source="media/how-to-set-up-instance/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
+[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
 #### Fix issues 
 
@@ -48,7 +46,7 @@ If you do not have this role assignment, someone with an Owner role in your **Az
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-For more details about this role requirement and the assignment process, see the [*Assign yourself a role* section of *How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md#assign-yourself-a-role).
+For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section of *How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions).
 
 If you have this role assignment already and still encounter the 403 issue, continue to the next solution.
 
@@ -58,27 +56,16 @@ The second solution is to verify that the AAD app registration has permissions c
 
 #### Check current setup
 
-To check whether the permissions have been configured correctly, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal. This page shows all the app registrations that have been created in your subscription.
-
-You should recognize an app registration that was created for Azure Digital Twins. Select it to open up its details.
-
-First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
-
-:::image type="content" source="media/how-to-set-up-instance/verify-manifest.png" alt-text="Portal view of the manifest for the AAD app registration":::
-
-Next, select *API permissions* from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
-
-:::image type="content" source="media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Portal view of the API permissions for the AAD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+[!INCLUDE [digital-twins-setup-verify-app-registration.md](../../includes/digital-twins-setup-verify-app-registration.md)]
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Create an app registration* section of *How-to: Authenticate a client application*](how-to-authenticate-client.md#create-an-app-registration).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Set up access permissions for client applications* section of *How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications).
 
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [*How-to: Create an Azure Digital Twins instance*](how-to-set-up-instance.md)
-* [*How-to: Authenticate a client application*](how-to-authenticate-client.md)
+* [*How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md)
 
 Read more about security and permissions on Azure Digital Twins:
 * [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)
