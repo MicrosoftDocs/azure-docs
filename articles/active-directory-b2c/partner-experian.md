@@ -1,3 +1,18 @@
+---
+title: Tutorial to configure Azure Active Directory B2C with Experian
+titleSuffix: Azure AD B2C
+description: Learn how to integrate Azure AD B2C authentication with Experian for Identification verification and proofing based on user attributes to prevent fraud.
+services: active-directory-b2c
+author: gargi-sinha
+manager: martinco
+
+ms.service: active-directory
+ms.workload: identity
+ms.topic: how-to
+ms.date: 07/22/2020
+ms.author: gasinh
+ms.subservice: B2C
+---
 # Tutorial for configuring Experian with Azure Active Directory B2C
 
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [Experian](https://www.experian.com/decision-analytics/account-opening-fraud/microsoft-integration). Experian provides a variety of solutions, which you can find [here](https://www.experian.com/).
