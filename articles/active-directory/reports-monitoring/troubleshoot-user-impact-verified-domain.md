@@ -67,6 +67,6 @@ ProxyCalc does not cause changes to certain objects that:
 
 Additionally, in most cases, there are no changes to users as their UserPrincipalName and Proxy Addresses are consistent, so we are working to display in Audit Logs only those updates that caused an actual change to the object. This will prevent noise in the audit logs and help admins correlate the remaining user changes to verified domain change event as explained above. 
 
-# Next Steps
+## Next Steps
 
 [Azure AD Connect sync service shadow attributes](../hybrid/how-to-connect-syncservice-shadow-attributes.md)
