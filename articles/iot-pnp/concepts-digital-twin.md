@@ -24,7 +24,7 @@ The IoT plug and play device in this article that implements [Temperature Contro
 
 Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). Both device and solution developers can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
 
-Digital Twin APIs operates on high level constructs of Digital Twins Definition Language (DTDL) such as components, properties, and commands. Hence solution developers can build solutions more easily by leveraging the Digital Twin APIs.
+Digital Twin APIs operates on high level constructs of Digital Twins Definition Language (DTDL) such as components, properties, and commands. Hence solution developers can build IoT Plug and Play solutions more easily by leveraging the Digital Twin APIs.
 
 In a device twin, the state of a writable property is split across the desired and reported section. All read-only properties are available within the reported section. A digital twin on the other hand, provides unified view of the current and desired state of the property. The synchronization state of given property is stored in the corresponding root-level or component `$metadata` section.
 
@@ -182,21 +182,21 @@ Let's say device also had the following writable property at root-level:
       **Device twin**
 
 ```json
-    {
-    "properties": {
-        "desired": {
-            "fanSpeed": 2.0,
-        },
-        "reported": {
-            "fanSpeed": {
-                "value": 3.0,
-                "ac": 200,
-                "av": 1,
-                "ad": "Successfully executed patch version 1"
-            }
-        }
+{
+"properties": {
+    "desired": {
+        "fanSpeed": 2.0,
     },
+    "reported": {
+        "fanSpeed": {
+            "value": 3.0,
+            "ac": 200,
+            "av": 1,
+            "ad": "Successfully executed patch version 1"
+        }
     }
+},
+}
 ```
 
    :::column-end:::
@@ -204,19 +204,19 @@ Let's say device also had the following writable property at root-level:
       **Digital twin**
 
 ```json
-    {
-        "fanSpeed": 3.0,
-        "$metadata": {
-            "fanSpeed": {
-                "desiredValue": 2.0,
-                "desiredVersion": 2,
-                "ackVersion": 1,
-                "ackCode": 200,
-                "ackDescription": "Successfully executed patch version 1",
-                "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
-            }
+{
+    "fanSpeed": 3.0,
+    "$metadata": {
+        "fanSpeed": {
+            "desiredValue": 2.0,
+            "desiredVersion": 2,
+            "ackVersion": 1,
+            "ackCode": 200,
+            "ackDescription": "Successfully executed patch version 1",
+            "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
         }
     }
+}
 ```
 
    :::column-end:::
@@ -298,7 +298,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** for managing device digital twin.You can either use the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
+Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** for managing device digital twin. You can either use the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
 
 ## Digital twin change events
 
@@ -372,4 +372,4 @@ Now that you've learned about digital twins, here are some additional resources:
 - [How to use IoT Plug and Play digital twin APIs](./howto-manage-digital-twin)
 - [Interact with a device from your solution](./quickstart-service-node)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](./howto-install-iot-explorer.md)
+- [Azure IoT explorer](./howto-use-iot-explorer.md)
