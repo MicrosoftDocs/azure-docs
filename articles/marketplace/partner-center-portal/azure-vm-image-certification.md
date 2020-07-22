@@ -19,7 +19,7 @@ Complete these steps to generate a compatibility report, which certifies your VH
 2. Deploy an Azure VM from your generalized VHD image created in [Create Azure VM technical asset](create-azure-vm-technical-asset.md).
 3. Run tests on the deployed VM to ensure the VHD image is ready to be published and used to deploy VMs.
 
-### Running scripts
+## Running scripts
 
 This article contains three scripts to be run in PowerShell. The desktop PowerShell works best, however, the Azure Cloud Shell can also be used with the PowerShell option selected (top left of window).
 
@@ -647,14 +647,9 @@ New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgNa
 
 ## Run tests on the deployed VM
 
-There are two ways to run tests on the deployed image:
-
-- Use Certification Test Tool for Azure Certified
-- Use the self-test API
-
 ### Download and run the certification test tool
 
-The Certification Test Tool for Azure Certified runs on a local Windows machine but tests an Azure-based Windows or Linux VM. It certifies that your user VM image can be used with Microsoft Azure and that the guidance and requirements around preparing your VHD have been met. The output of the tool is a compatibility report that you will upload to the Partner Center portal to request VM certification.
+The Certification Test Tool for Azure Certified is a self-test tool that runs on a local Windows machine but tests an Azure-based Windows or Linux VM. It certifies that your user VM image can be used with Microsoft Azure and that the guidance and requirements around preparing your VHD have been met. This is a self-test tool that ensures your VM is ready to publish per Azure Marketplace requirements.”
 
 1. Download and install the most recent [Certification Test Tool for Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
 2. Open the certification tool, then select **Start New Test**.
@@ -664,9 +659,9 @@ The Certification Test Tool for Azure Certified runs on a local Windows machine 
 
 ### Connect the certification tool to a VM image
 
-The tool connects to Windows-based VMs with [Azure PowerShell](https://docs.microsoft.com/powershell/) and connects to Linux VMs through [SSH.Net](https://www.ssh.com/ssh/protocol/).
+The tool connects to Windows-based VMs with [Azure PowerShell](https://docs.microsoft.com/powershell/) and connects to Linux VMs through [SSH.Net](https://www.ssh.com/ssh/protocol/). Chose one of the following two options, either Linux or Windows.
 
-### Connect the certification tool to a Linux VM image
+#### Option 1: Connect the certification tool to a Linux VM image
 
 1. Select the **SSH Authentication** mode: Password Authentication or Key File Authentication.
 2. If using password-­based authentication, enter values for the **VM DNS Name**, **User name**, and **Password**. You can also change the default **SSH Port** number.
@@ -675,7 +670,7 @@ The tool connects to Windows-based VMs with [Azure PowerShell](https://docs.micr
 
 3. If using key file-based authentication, enter values for the **VM DNS Name**, **User name**, and **Private key** location. You can also include a **Passphrase** or change the default **SSH Port** number.
 
-### **Connect the certification tool to a Windows-based VM image**
+#### Option 2: Connect the certification tool to a Windows-based VM image
 
 1. Enter the fully qualified **VM DNS name** (for example, MyVMName.Cloudapp.net).
 2. Enter values for the **User Name** and **Password**.
