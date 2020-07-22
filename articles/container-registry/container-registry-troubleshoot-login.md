@@ -2,7 +2,7 @@
 title: Troubleshoot login to registry
 description: Symptoms, causes, and resolution of common problems when logging into an Azure container registry
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/22/2020
 ---
 
 # Troubleshoot registry login
@@ -22,7 +22,7 @@ Symptoms can include:
 ## Causes
 
 * The registry doesn't exist or the name is incorrect - [solution](#specify-correct-registry-name)
-* The registry credentials aren't valid or are expired - [solution](#confirm-credentials-to-access-registry)
+* The registry credentials aren't valid - [solution](#confirm-credentials-to-access-registry)
 * The credentials aren't authorized for push, pull, or Azure Resource Manager operations - [solution](#confirm-credentials-are-authorized-to-access-registry)
 * The credentials are expired - [solution](#check-that-credentials-arent-expired)
 
@@ -50,11 +50,9 @@ Related links:
 
 Check that the credentials you use for your scenario, or that were provided to you by a registry owner, are valid. Some possible issues:
 
-* If using an individual AD identity for registry login, the AD token expires after 3 hours. Log in again to the registry. 
 * If using an Active Directory service principal, ensure you use the correct credentials:
   * User name - service principal application ID (also called *client ID*)
   * Password - service principal password (also called *client secret*)
-* If using a [repository-scoped token](container-registry-repository-scoped-permissions.md), ensure that the token is enabled and that the token password isn't expired
 * If using an Azure service such as Azure Kubernetes Service or Azure DevOps to access the registry, confirm the registry configuration for your service.
 
 Related links:
@@ -86,6 +84,10 @@ Related links:
 ### Check that credentials aren't expired
 
 Tokens and Active Directory credentials may expire after defined periods, preventing registry access. To enable access, you or a registry owner might need to reset or regenerate credentials.
+
+* If using an individual AD identity, a managed identity, or service principal for registry login, the AD token expires after 3 hours. Log in again to the registry.  
+* If using an AD service principal with an expired client secret, a subscription owner or account administrator might need to rest credentials
+* If using a [repository-scoped token](container-registry-repository-scoped-permissions.md), a registry owner might need to reset crecentials
 
 Related links:
 
