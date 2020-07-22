@@ -1111,7 +1111,7 @@
   - name: Azure CLI
     href: /cli/azure/vm
   - name: PowerShell
-    href: /powershell/azureps-cmdlets-docs
+    href: /powershell/azure/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.compute
   - name: Java
