@@ -1,6 +1,6 @@
 ---
-title: How to manage IoT Plug and Play digital twin
-description: How to manage IoT Plug and Play digital twin
+title: How to manage IoT Plug and Play digital twins
+description: How to manage IoT Plug and Play Preview device using digital twin APIs
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
@@ -9,19 +9,19 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# Manage Digital Twin
+# Manage IoT Plug and Play digital twins
 
-IoT plug and Play comes equipped with **Get Digital** and **Update Digital Twin** for managing digital twin. You can either use the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) directly or use the [Service SDK](./libraries-sdks.md).
+IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
 
-The most current digital twin API version for public preview is _**2020-05-31-preview**_.
+At the time of writing, the digital twin API version for public preview is `2020-05-31-preview`.
 
-## Update Digital Twin
+## Update a digital twin
 
-An IoT Plug and Play device implements a model described by Digital Twins Definition Language (DTDL). IoT Plug and Play uses [DTDL *version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Solution developers can leverage **Update Digital Twin API** to update the state of component and/or properties of the digital twin.
+An IoT Plug and Play device implements a model described by [Digital Twins Definition Language v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). Solution developers can use the **Update Digital Twin API** to update the state of component and the properties of the digital twin.
 
-The IoT plug and play device in this article that implements [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) component.
+The IoT Plug and Play device used as an example in this article implements the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
-The following snippet shows the Get digital twin response formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin#digital-twin-json-format)
+The following snippet shows the response to a **Get digital twin** request formatted as a JSON object. To learn more about the digital twin format, see [Understand IoT Plug and Play digital twins](./concepts-digital-twin.md#digital-twin-json-format):
 
 ```json
 {
@@ -53,9 +53,9 @@ The following snippet shows the Get digital twin response formatted as a JSON ob
 }
 ```
 
-Digital twin for a device allows updating an entire Component or Property using [JSON Patch](http://jsonpatch.com/).
+Digital twins let you update an entire component or property using a [JSON Patch](http://jsonpatch.com/).
 
-For example, `targetTemperature` property can be updated as follows:
+For example, you can update the `targetTemperature` property as follows:
 
 ```json
 [
@@ -67,7 +67,7 @@ For example, `targetTemperature` property can be updated as follows:
 ]
 ```
 
-The above update results in the desired value of a property is set within corresponding root-level or component level `$metadata` as follows. IoT Hub updates the desired version of the property.
+The previous update sets the desired value of a property in the corresponding root-level or component-level `$metadata` as shown in the following snippet. IoT Hub updates the desired version of the property:
 
 ```json
 "thermostat1": {
@@ -85,14 +85,15 @@ The above update results in the desired value of a property is set within corres
 }
 ```
 
-### Add, replace or remove a component
+### Add, replace, or remove a component
 
-Component level operations requires empty object $metadata marker within value.
-Add or replace component sets the desired values of all properties provided. It also clears desired values for any writable properties not provided within the update.
+Component level operations require an empty object `$metadata` marker within the value.
 
-Removing a component clears the desired values of all writable properties present. Device can eventually synchronize this removal and stop reporting the individual properties. Post that component is removed from Digital Twin.
+An add or replace component operation sets the desired values of all the provided properties. It also clears desired values for any writable properties not provided with the update.
 
-Below JSON Patch sample enumerates how to add, replace or remove a component.
+Removing a component clears the desired values of all writable properties present. A device eventually synchronizes this removal and stops reporting the individual properties. The component is then removed from the digital twin.
+
+The following JSON Patch sample shows how to add, replace, or remove a component:
 
 ```json
 [
@@ -106,6 +107,7 @@ Below JSON Patch sample enumerates how to add, replace or remove a component.
         }
     },
     {
+        // Clears desired value of "anotherWritableProperty" if it was set.
         "op": "replace",
         "path": "/thermostat1",
         "value": {
@@ -114,19 +116,19 @@ Below JSON Patch sample enumerates how to add, replace or remove a component.
         }
     },
     {
-        "op": "remove",
+        "op": "remove", // Clears desired value of "targetTemperature", "anotherWritableProperty"
         "path": "/thermostat1"
     }
 ]
 ```
 
-### Add, replace or remove a property
+### Add, replace, or remove a property
 
-Add or replace sets the desired value of the property. The device can synchronize state and report an update of the value along with ack code, version and description.
+An add or replace operation sets the desired value of a property. The device can synchronize state and report an update of the value along with an `ack` code, version, and description.
 
-Removing a property clears the desired value of property if it is set. Device can then stop reporting this property and it is removed from the root-level or from the component. If this is the last property within the component, then the component is removed as well.
+Removing a property clears the desired value of property if it's set. The device can then stop reporting this property and it's removed from the root-level or the component. If this property is the last one in the component, then the component is removed as well.
 
-Below JSON Patch sample enumerates how to add, replace or remove a property within a component.
+The following JSON Patch sample shows how to add, replace, or remove a property within a component:
 
 ```json
 [
@@ -141,52 +143,52 @@ Below JSON Patch sample enumerates how to add, replace or remove a property with
         "value": 21.4
     },
     {
-        "op": "remove",
+        "op": "remove", // Clears the desired value of "targetTemperature"
         "path": "/thermostat1/targetTemperature",
     }
 ]
 ```
 
-## Rules for setting desired value of a digital twin property
+### Rules for setting the desired value of a digital twin property
 
-### **Name**
+**Name**
 
-Name of a component or property must be valid DTDL v2 name.
+The name of a component or property must be valid DTDL v2 name.
 
-Allowed characters are a-z, A-Z, 0-9 (not as the first character), and underscore(not as the first or last character).
+Allowed characters are a-z, A-Z, 0-9 (not as the first character), and underscore (not as the first or last character).
 
-Name can be 1-64 characters long.
+A name can be 1-64 characters long.
 
-### **Property value**
+**Property value**
 
-Value must be valid [DTDL v2 Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property).
+The value must be a valid [DTDL v2 Property](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property).
 
-All primitive types are supported. Within complex types enum, maps and objects are supported. To learn more, see [DTDL v2 Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+All primitive types are supported. Within complex types, enums, maps, and objects are supported. To learn more, see [DTDL v2 Schemas](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
 
-Properties do not support array or any complex schema with array.
+Properties don't support array or any complex schema with an array.
 
-Maximum depth of a 5 levels is supported for a complex object.
+A maximum depth of a five levels is supported for a complex object.
 
-All field names within complex object should be valid DTDL v2 name.
+All field names within complex object should be valid DTDL v2 names.
 
-All map keys should be valid DTDL v2 name.
+All map keys should be valid DTDL v2 names.
 
-## Troubleshooting Update Digital Twin API Errors
+## Troubleshoot update digital twin API errors
 
-Update Digital Twin API throws the below generic error message within preview. The next version of the API will have more actionable error messages.
+During public preview, the update digital twin API throws the following generic error message:
 
-_**ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.**_
+`ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Please make sure the update patch follows the [rules for setting desired value of a digital twin property](./howto-manage-digital-twin#Rules-for-setting-desired-value-of-a-digital-twin-property)
+Make sure the update patch follows the [rules for setting desired value of a digital twin property](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
-When updating a component, please make sure that the [empty object $metadata marker](./howto-manage-digital-twin#Add,-replace-or-remove-a-component) is set.
+When you update a component, make sure that the [empty object $metadata marker](#add-replace-or-remove-a-component) is set.
 
-Updates may also fail if device reported values are not conforming to [IoT plug and play conventions](./concepts-convention#writable-properties).
+Updates can fail if a device's reported values don't conform to the [IoT plug and play conventions](./concepts-convention.md#writeable-properties).
 
 ## Next steps
 
 Now that you've learned about digital twins, here are some additional resources:
 
-- [Interact with a device from your solution](./quickstart-service-node)
+- [Interact with a device from your solution](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](./howto-install-iot-explorer.md)
+- [Azure IoT explorer](howto-use-iot-explorer.md)
