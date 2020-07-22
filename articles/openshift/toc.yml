@@ -69,13 +69,10 @@
               href: cluster-administration-cluster-admin-role.md
             - name: 2 - Managing security context constraints in Azure Red Hat OpenShift 3.11
               href: cluster-administration-security-context-constraints.md
-<<<<<<< HEAD
-=======
 - name: Concepts
   items:
-    - name: Networking in Azure Red Hat on OpenShift 4
+    - name: Networking in Azure Red Hat OpenShift 4 clusters
       href: concepts-networking.md
->>>>>>> 58a7a724b61470ee6a3f000931884df57cdec46f
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
