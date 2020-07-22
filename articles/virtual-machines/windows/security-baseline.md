@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Machines security baseline for Azure Security Benchmark
+title: Azure security baseline for Linux Virtual Machines Windows Virtual Machines
 description: The Windows Virtual Machines security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: virtual-machines-windows
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Windows Virtual Machines security baseline for Azure Security Benchmark
+# Azure security baseline for Linux Virtual Machines Windows Virtual Machines
 
 The Azure Security Baseline for Windows Virtual Machines contains recommendations that will help you improve the security posture of your deployment.
 
