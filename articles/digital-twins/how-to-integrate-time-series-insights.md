@@ -33,14 +33,14 @@ You will be attaching Time Series insights to Azure Digital Twins through the pa
 
 ## Prerequisites
 
-* You will need to create a digital Twins instance and be ready to update twin information. 
-    * The Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) provides this environment, but you can use any other Twins instance.
+* You need an Azure Digital Twins instance which you can update twin information a few times in order to see that data tracked in Time Series Insights. 
+    * If you do not have one, follow the The Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) to set up an Azure Digital Twins instance and a virtual IoT device to generate twin changes.
 
 ## Create a route and filter to twin update notifications
 
-Azure Digital Twins instances can emit [twin update events](how-to-interpret-event-data.md) whenever a twin's state is updated. The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. 
+Azure Digital Twins instances can emit [twin update events](how-to-interpret-event-data.md) whenever a twin's state is updated. You will be creating a route that will direct these update events to an event hub for further processing.
 
-This pattern reads from the twins directly, rather than the IoT device, which gives you the flexibility to change the underlying data source without needing to update your Time Series Insights logic.
+The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. This pattern uses the twin updates, rather than forwarding telemetry from an IoT device, which gives you the flexibility to change the underlying data source without needing to update your Time Series Insights logic.
 
 1. Create an event hub namespace, which will receive events from your Azure Digital Twins instance. You can either use the Azure CLI instructions below, or use the Azure portal: [*Quickstart: Create an event hub using Azure portal*](../event-hubs/event-hubs-create.md).
 
