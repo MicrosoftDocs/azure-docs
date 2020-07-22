@@ -15,7 +15,11 @@
 
 ## Getting started
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://aka.ms/diskencryptionupdates).
+
+> [!IMPORTANT]
+> You must access the Azure portal using the [provided link](https://aka.ms/diskencryptionupdates), since double encryption at rest is not currently available in the public Azure portal.
+
 1. Search for and select Disk Encryption Sets
 
 :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="example text":::
