@@ -16,18 +16,18 @@ The template is as follows
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-   "handler": "Microsoft.Azure.CreateUIDef",
-   "version": "0.1.2-preview",
-   "parameters": {
-      "config": {
-        "basics": { }
-      },
-      "basics": [ ],
-      "steps": [ ],
-      "outputs": { },
-      "resourceTypes": [ ]
-   }
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "config": {
+            "basics": { }
+        },
+        "basics": [ ],
+        "steps": [ ],
+        "outputs": { },
+        "resourceTypes": [ ]
+    }
 }
 ```
 
@@ -57,14 +57,14 @@ The following example shows a text box that has been added to the default elemen
 
 ```json
 "basics": [
-  {
-    "name": "textBox1",
-    "type": "Microsoft.Common.TextBox",
-    "label": "Textbox on basics",
-    "defaultValue": "my text value",
-    "toolTip": "",
-    "visible": true
-  }
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
 ]
 ```
 
@@ -79,14 +79,14 @@ You specify the config element when you need to override the default behavior fo
         "subscription": {
             "constraints": {
                 "validations": [
-                  {
-                      "isValid": "[expression for checking]",
-                      "message": "Please select a valid subscription."
-                  },
-                  {
-                      "permission": "<Resource Provider>/<Action>",
-                      "message": "Must have correct permission to complete this step."
-                  }
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid subscription."
+                    },
+                    {
+                        "permission": "<Resource Provider>/<Action>",
+                        "message": "Must have correct permission to complete this step."
+                    }
                 ]
             },
             "resourceProviders": [ "<Resource Provider>" ]
@@ -94,10 +94,10 @@ You specify the config element when you need to override the default behavior fo
         "resourceGroup": {
             "constraints": {
                 "validations": [
-                  {
-                      "isValid": "[expression for checking]",
-                      "message": "Please select a valid resource group."
-                  }
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid resource group."
+                    }
                 ]
             },
             "allowExisting": true
@@ -165,9 +165,9 @@ To filter the available locations to only those locations that support the resou
     "handler": "Microsoft.Azure.CreateUIDef",
     "version": "0.1.2-preview",
     "parameters": {
-      "resourceTypes": ["Microsoft.Compute/disks"],
-      "basics": [
-        ...
+        "resourceTypes": ["Microsoft.Compute/disks"],
+        "basics": [
+          ...
 ```  
 
 ## Functions

@@ -57,8 +57,8 @@ The `allowedValues` property of the `providersDropDown` element is configured to
     "name": "providersApi",
     "type": "Microsoft.Solutions.ArmApiControl",
     "request": {
-      "method": "GET",
-      "path": "[concat(subscription().id, '/providers/Microsoft.Network/expressRouteServiceProviders?api-version=2019-02-01')]"
+        "method": "GET",
+        "path": "[concat(subscription().id, '/providers/Microsoft.Network/expressRouteServiceProviders?api-version=2019-02-01')]"
     }
 },
 {
@@ -67,8 +67,8 @@ The `allowedValues` property of the `providersDropDown` element is configured to
     "label": "Provider",
     "toolTip": "The provider that offers the express route connection.",
     "constraints": {
-      "allowedValues": "[map(steps('settings').providersApi.value, (item) => parse(concat('{\"label\":\"', item.name, '\",\"value\":\"', item.name, '\"}')))]",
-      "required": true
+        "allowedValues": "[map(steps('settings').providersApi.value, (item) => parse(concat('{\"label\":\"', item.name, '\",\"value\":\"', item.name, '\"}')))]",
+        "required": true
     },
     "visible": true
 }

@@ -21,25 +21,25 @@ A control that can be used to edit unformatted text.
 
 ```json
 {
-  "name": "nameInstance",
-  "type": "Microsoft.Common.TextBox",
-  "label": "Name",
-  "defaultValue": "contoso123",
-  "toolTip": "Use only allowed characters",
-  "constraints": {
-    "required": true,
-    "validations": [
-      {
-        "regex": "^[a-z0-9A-Z]{1,30}$",
-        "message": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
-      },
-      {
-        "isValid": "[startsWith(steps('resourceConfig').nameInstance, 'contoso')]",
-        "message": "Must start with 'contoso'."
-      }
-    ]
-  },
-  "visible": true
+    "name": "nameInstance",
+    "type": "Microsoft.Common.TextBox",
+    "label": "Name",
+    "defaultValue": "contoso123",
+    "toolTip": "Use only allowed characters",
+    "constraints": {
+        "required": true,
+        "validations": [
+            {
+                "regex": "^[a-z0-9A-Z]{1,30}$",
+                "message": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+            },
+            {
+                "isValid": "[startsWith(steps('resourceConfig').nameInstance, 'contoso')]",
+                "message": "Must start with 'contoso'."
+            }
+        ]
+    },
+    "visible": true
 }
 ```
 

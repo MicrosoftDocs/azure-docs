@@ -54,16 +54,16 @@ When filtering is enabled, the control includes a text box for adding the filter
     "defaultDescription": "A value for selection",  
     "constraints": {
         "allowedValues": [
-          {
-              "label": "Value one",
-              "description": "The value to select for option 1.",
-              "value": "one"
-          },
-          {
-              "label": "Value two",
-              "description": "The value to select for option 2.",
-              "value": "two"
-          }
+            {
+                "label": "Value one",
+                "description": "The value to select for option 1.",
+                "value": "one"
+            },
+            {
+                "label": "Value two",
+                "description": "The value to select for option 2.",
+                "value": "two"
+            }
         ],
         "required": true
     },
