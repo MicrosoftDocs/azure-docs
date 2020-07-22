@@ -31,9 +31,8 @@ AKS-managed Azure Active Directory integration is available in public regions wh
 * non-RBAC enabled clusters aren't supported for AKS-managed AAD integration
 * Changing the Azure AD tenant associated with AKS-managed AAD integration isn't supported
 
-> [!IMPORTANT]	## Prerequisites
+> [!IMPORTANT]
 > AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:	
->	
 > - [AKS Support Policies](support-policies.md)	
 > - [Azure Support FAQ](faq.md)
 
