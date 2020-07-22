@@ -36,13 +36,13 @@ As Isolated VM sizes are hardware bound sizes, Azure will provide reminders 12 m
 | Standard_DS15_v2<sup>1</sup> | May 15, 2020 |
 | Standard_D15_v2<sup>1</sup>  | May 15, 2020 |
 
-<sup>1</sup>  For details on Standard_DS15_v2 and Standard_D15_v2 isolation retirment program please see FAQs
+<sup>1</sup>  For details on Standard_DS15_v2 and Standard_D15_v2 isolation retirement program see FAQs
 
 
 ## FAQ
 ### Q: Is the size going to get retired or only "isolation" feature is?
-**A**: If the virtual machine size does not have the "i" subscript then only "isolation" feature will be retired. If isolation is not needed, there is no action to be taken and the VM will continue to work as expected. Examples include Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. 
-If the virtual machine size includes "i" subscript then the size is going to get retired.
+**A**: If the virtual machine size does not have the "i" subscript, then only "isolation" feature will be retired. If isolation is not needed, there is no action to be taken and the VM will continue to work as expected. Examples include Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. 
+If the virtual machine size includes "i" subscript, then the size is going to get retired.
 
 ### Q: Is there a downtime when my vm lands on a non-isolated hardware?
 **A**: If there is no need of isolation, no action is needed and there will be no downtime.
@@ -51,7 +51,7 @@ If the virtual machine size includes "i" subscript then the size is going to get
 **A**: No
 
 ### Q: When are the other isolated sizes going to retire?
-**A**: We will provide reminders 12 months in advance of the official deprecation of the isolted size.
+**A**: We will provide reminders 12 months in advance of the official deprecation of the isolated size.
 
 ### Q: I'm an Azure Service Fabric Customer relying on the Silver or Gold Durability Tiers. Does this change impact me?
 **A**: No. The guarantees provided by Service Fabric's [Durability Tiers](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) will continue to function even after this change. If you require physical hardware isolation for other reasons, you may still need to take one of the actions described above. 
