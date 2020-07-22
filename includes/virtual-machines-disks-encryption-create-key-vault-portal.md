@@ -48,6 +48,10 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 1. Select your resource group, name your encryption set, and select the same region as your key vault.
 1. For **Encryption type** select **Encryption at-rest with a customer-managed key**.
+
+    > [!NOTE]
+    > Once you create a disk encryption set with a particular encryption type, it cannot be changed. If you want to use a different encryption type, you must create a new disk encryption set.
+
 1. Select **Click to select a key**.
 1. Select the key vault and key you created previously, as well as the version.
 1. Press **Select**.
