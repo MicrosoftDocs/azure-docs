@@ -11,7 +11,9 @@ ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
 
-# Analyze data with Spark
+# Analyze data with Apache Spark for Azure Synapse
+
+In this tutorial, you'll learn the basic steps to load and analyze data with Apache Spark for Azure Synapse.
 
 ## Load the NYC Taxi data into the Spark nyctaxi database
 

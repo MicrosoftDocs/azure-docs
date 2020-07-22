@@ -140,7 +140,7 @@ To complete these steps, you will need:
 
 ### Save custom roles
 
-1. Use the [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) to list your custom roles. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
+1. Use the [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) to list your custom roles. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -286,7 +286,7 @@ In this step, you transfer the billing ownership of the subscription from the so
 
 ### Create custom roles
         
-- Use [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) to create each custom role from the files you created earlier. For more information, see [Create or update custom roles for Azure resources using Azure CLI](custom-roles-cli.md).
+- Use [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) to create each custom role from the files you created earlier. For more information, see [Create or update Azure custom roles using Azure CLI](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>

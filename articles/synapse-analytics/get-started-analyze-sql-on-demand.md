@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Get started analyze data with SQL on-demand' 
-description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
+description: In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -12,6 +12,8 @@ ms.date: 07/20/2020
 ---
 
 # Analyze data with SQL on-demand
+
+In this tutorial, you'll learn how to analyze data with SQL on-demand using data located in Spark databases. 
 
 ## Analyze NYC Taxi data in Spark databases using SQL on-demand
 
