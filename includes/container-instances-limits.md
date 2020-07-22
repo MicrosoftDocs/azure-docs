@@ -7,9 +7,8 @@ ms.author: danlep
 ---
 | Resource | Limit |
 | --- | :--- |
-| 
 | Standard sku container groups per region per subscription | 100<sup>1</sup> |
-| Dedicated sku container groups per region per subscription( | 0<sup>1</sup> |
+| Dedicated sku container groups per region per subscription | 0<sup>1</sup> |
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
 | Standard sku cores (CPUs) per region per subscription | 10<sup>1,2</sup> | 
