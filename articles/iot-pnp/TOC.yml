@@ -67,6 +67,8 @@
     href: howto-use-iot-explorer.md
   - name: Install and use Azure IoT CLI extension
     href: howto-use-iot-pnp-cli.md
+  - name: Manage digital twins
+    href: howto-manage-digital-twin.md
   - name: Manage models in the repository
     href: howto-manage-models.md
 - name: Reference

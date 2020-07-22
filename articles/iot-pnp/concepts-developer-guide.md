@@ -18,7 +18,7 @@ This guide describes the basic steps required to create a device that follows th
 To build an IoT Plug and Play device, follow theses steps:
 
 1. Ensure your device is using either the MQTT or MQTT over WebSockets protocol to connect to Azure IoT Hub.
-1. Create a [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-components.md).
+1. Create a [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) model to describe your device. To learn more, see [Understand components in IoT Plug and Play models](concepts-components.md).
 1. Update your device to announce the `model-id` as part of the device connection.
 1. Implement telemetry, properties, and commands using the [IoT Plug and Play conventions](concepts-convention.md)
 
@@ -413,7 +413,7 @@ More generally, commands can be called through this REST API template:
 
 Now that you've learned about device modeling, here are some additional resources:
 
-- [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL)
+- [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
 - [Model components](./concepts-components.md)

@@ -23,7 +23,7 @@ IoT Plug and Play Preview enables solution builders to integrate smart devices w
 
 You can group these elements in interfaces to reuse across models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work with [Azure Digital Twins](../digital-twins/about-digital-twins.md), you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
+To make IoT Plug and Play work with [Azure Digital Twins](../digital-twins/about-digital-twins.md), you define models and interfaces using the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enables easier adoption across services and tooling.
 
 There's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md) and other Azure services remain the same.
 
@@ -50,7 +50,7 @@ When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azu
 
 As a device builder, you can develop an IoT hardware product that supports IoT Plug and Play. The process includes three key steps:
 
-1. Define the device model. You author a set of JSON files that define your device's capabilities using the [DTDL](https://aka.ms/DTDL). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
+1. Define the device model. You author a set of JSON files that define your device's capabilities using the [DTDL](https://github.com/Azure/opendigitaltwins-dtdl). A model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different models.
 
 1. Author device software or firmware in a way that their telemetry, properties, and commands follow the IoT Plug and Play conventions.
 

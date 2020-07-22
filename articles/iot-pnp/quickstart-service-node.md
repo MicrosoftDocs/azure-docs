@@ -57,7 +57,7 @@ In this quickstart, you can use a sample thermostat device that's written in Nod
 1. Open a terminal window in a folder of your choice. Run the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-node -b pnp-preview-refresh
+    git clone https://github.com/Azure/azure-iot-sdk-node
     ```
 
 1. This terminal window is used as your **device** terminal. Go to the folder of your cloned repository, and navigate to the */azure-iot-sdk-node/device/samples/pnp* folder. Install all the dependencies by running the following command:
@@ -120,16 +120,15 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 1. In the **service** terminal output, notice the response of the digital twin. You see the device's model ID and associated properties reported:
 
-    ```JSON
-    {
-    '$dtId': 'mySimpleThermostat',
-    serialNumber: '123abc',
-    maxTempSinceLastReboot: 51.96167432818655,
-    '$metadata': {
-      '$model': 'dtmi:com:example:Thermostat;1',
-      serialNumber: { lastUpdateTime: '2020-07-09T14:04:00.6845182Z' },
-      maxTempSinceLastReboot: { lastUpdateTime: '2020-07-09T14:04:00.6845182Z' }
-    },
+    ```json
+    "$dtId": "mySimpleThermostat",
+    "serialNumber": "123abc",
+    "maxTempSinceLastReboot": 51.96167432818655,
+    "$metadata": {
+      "$model": "dtmi:com:example:Thermostat;1",
+      "serialNumber": { "lastUpdateTime": "2020-07-09T14:04:00.6845182Z" },
+      "maxTempSinceLastReboot": { "lastUpdateTime": "2020-07-09T14:04:00.6845182" }
+    }
     ```
 
 1. The following snippet shows the code in *get_digital_twin.js* that retrieves the device twin's model ID:
@@ -205,15 +204,15 @@ In this scenario, it outputs `Model Id: dtmi:com:example:Thermostat;1`.
 1. In the **service** terminal output, in the digital twin response under the `thermostat1` component, you see the updated target temperature reported. It might take a while for the device to finish the update. Repeat this step until the device has processed the property update:
 
     ```json
-    '$model': 'dtmi:com:example:Thermostat;1',
-    targetTemperature: {
-      desiredValue: '42',
-      desiredVersion: 4,
-      ackVersion: 4,
-      ackCode: 200,
-      ackDescription: 'Successfully executed patch for targetTemperature',
-      lastUpdateTime: '2020-07-09T13:55:30.5062641Z'
-    },
+    "$model": "dtmi:com:example:Thermostat;1",
+    "targetTemperature": {
+      "desiredValue": 42,
+      "desiredVersion": 4,
+      "ackVersion": 4,
+      "ackCode": 200,
+      "ackDescription": "Successfully executed patch for targetTemperature",
+      "lastUpdateTime": "2020-07-09T13:55:30.5062641Z"
+    }
     ```
 
 ### Invoke a command
