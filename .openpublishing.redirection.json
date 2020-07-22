@@ -3704,7 +3704,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-vscode-train-deploy.md",
-      "redirect_url": "/azure/machine-learning/how-to-vscode-tools",
+      "redirect_url": "/azure/machine-learning/tutorial-setup-vscode-extension",
       "redirect_document_id": false
     },
     {
@@ -50993,12 +50993,12 @@
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-churn.md",
-      "redirect_url": "/azure/machine-learning/how-to-designer-sample-classification-churn",
+      "redirect_url": "/azure/machine-learning/samples-designer",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-basic.md",
-      "redirect_url": "/azure/machine-learning//azure/machine-learning/samples-designer",
+      "redirect_url": "/azure/machine-learning/azure/machine-learning/samples-designer",
       "redirect_document_id": false
     },
     {
@@ -51328,7 +51328,7 @@
     },
     {
       "source_path": "articles/machine-learning/service/publish-a-machine-learning-web-service.md",
-      "redirect_url": "/azure/machine-learning/deploy-a-machine-learning-web-service",
+      "redirect_url": "/azure/machine-learning/how-to-deploy-and-where",
       "redirect_document_id": false
     },
     {
