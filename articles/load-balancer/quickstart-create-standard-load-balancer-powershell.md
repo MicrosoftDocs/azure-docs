@@ -1,26 +1,31 @@
 ---
-title: 'Quickstart: Create a Load Balancer - Azure PowerShell'
+title: 'Quickstart: Create a public load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a Load Balancer using Azure PowerShell
+description: This quickstart shows how to create a load balancer using Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
-Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
+manager: KumudD
+Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/27/2020
+ms.date: 07/21/2020
 ms.author: allensu
 ms:custom: seodec18
 ---
 
-# Quickstart: Create a Load Balancer using Azure PowerShell
+# Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
 
-This quickstart shows you how to create a Standard Load Balancer using Azure PowerShell. To test the load balancer, you deploy three virtual machines (VMs) running Windows server and load balance a web app between the VMs. To learn more about Standard Load Balancer, see [What is Standard Load Balancer](load-balancer-standard-overview.md).
+Get started with Azure Load Balancer by using Azure CLI to create a public load balancer and three virtual machines.
+
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure PowerShell installed locally or Azure Cloud Shell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -30,144 +35,243 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ## Create a resource group
 
-Before you can create your load balancer, you must create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroupSLB* in the *EastUS* location:
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-```azurepowershell
-$rgName='MyResourceGroupSLB'
-$location='eastus'
-New-AzResourceGroup -Name $rgName -Location $location
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
+
+* Named **myResourceGroupLB**.
+* In the **eastus** location.
+
+```azurepowershell-interactive
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+
+New-AzResourceGroup -Name $rg -Location $loc
 ```
 
 ## Create a public IP address
 
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). The following example creates a zone redundant public IP address named *myPublicIP* in the *myResourceGroupSLB* resource group:
+To access your web app on the Internet, you need a public IP address for the load balancer. 
 
-```azurepowershell
-$publicIp = New-AzPublicIpAddress `
- -ResourceGroupName $rgName `
- -Name 'myPublicIP' `
- -Location $location `
- -AllocationMethod static `
- -SKU Standard
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
+
+* Create a standard zone redundant public IP address named **myPublicIP**.
+* In **myResourceGroupLB**.
+
+```azurepowershell-interactive
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$pubIP = 'myPublicIP'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku
 ```
 
-To create a zonal Public IP address in zone 1, use the following:
+To create a zonal public IP address in zone 1, use the following:
 
-```azurepowershell
-$publicIp = New-AzPublicIpAddress `
- -ResourceGroupName $rgName `
- -Name 'myPublicIP' `
- -Location $location `
- -AllocationMethod static `
- -SKU Standard `
- -zone 1
+```azurepowershell-interactive
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$pubIP = 'myPublicIP'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -zone 1
 ```
 
-Use ```-SKU Basic``` to create a Basic Public IP. Basic Public IPs are not compatible with **Standard** load balancer. Microsoft recommends using **Standard** for production workloads.
+## Create standard load balancer
 
-> [!IMPORTANT]
-> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+This section details how you can create and configure the following components of the load balancer:
 
-## Create Load Balancer
-
-In this section, you configure the front-end IP and the back-end address pool for the load balancer and then create the Standard Load Balancer.
+  * A frontend IP pool that receives the incoming network traffic on the load balancer.
+  * A backend IP pool where the frontend pool sends the load balanced network traffic.
+  * A health probe that determines health of the backend VM instances.
+  * A load balancer rule that defines how traffic is distributed to the VMs.
 
 ### Create frontend IP
 
-Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). The following example creates a front-end IP configuration named *myFrontEnd* and attaches the *myPublicIP* address:
+Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
-```azurepowershell
-$feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddress $publicIp
+* Named **myFrontEnd**.
+* Attached to public IP **myPublicIP**.
+
+```azurepowershell-interactive
+$fe='myFrontEnd'
+$rg='MyResourceGroupLB'
+$loc='eastus'
+$pubIP='myPublicIP'
+
+$publicIp = 
+Get-AzPublicIpAddress -Name $pubIP -ResourceGroupName $rg
+
+$feip = 
+New-AzLoadBalancerFrontendIpConfig -Name $fe -PublicIpAddress $publicIp
 ```
 
 ### Configure back-end address pool
 
-Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig). The VMs attach to this back-end pool in the remaining steps. The following example creates a back-end address pool named *myBackEndPool*:
+Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig): 
+
+* Named **myBackEndPool**.
+* The VMs attach to this back-end pool in the remaining steps.
 
 ```azurepowershell-interactive
-$bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
+$be = 'myBackEndPool'
+
+$bepool = 
+New-AzLoadBalancerBackendAddressPoolConfig -Name $be
 ```
 
-### Create a health probe
-To allow the load balancer to monitor the status of your app, you use a health probe. The health probe dynamically adds or removes VMs from the load balancer rotation based on their response to health checks. By default, a VM is removed from the load balancer distribution after two consecutive failures at 15-second intervals. You create a health probe based on a protocol or a specific health check page for your app.
+### Create the health probe
 
-The following example creates a TCP probe. You can also create custom HTTP probes for more fine grained health checks. When using a custom HTTP probe, you must create the health check page, such as *healthcheck.aspx*. The probe must return an **HTTP 200 OK** response for the load balancer to keep the host in rotation.
+A health probe checks all virtual machine instances to ensure they can send network traffic. 
 
-To create a TCP health probe, you use [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig). The following example creates a health probe named *myHealthProbe* that monitors each VM on *HTTP* port *80*:
+A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-```azurepowershell
-$probe = New-AzLoadBalancerProbeConfig `
- -Name 'myHealthProbe' `
- -Protocol Http -Port 80 `
- -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
+Create a health probe with [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig):
+
+* Monitors the health of the virtual machines.
+* Named **myHealthProbe**.
+* Protocol **TCP**.
+* Monitoring **Port 80**.
+
+```azurepowershell-interactive
+$hp = 'myHealthProbe'
+$pro = 'http'
+$port = '80'
+$int = '360'
+$cnt = '5'
+
+$probe = 
+New-AzLoadBalancerProbeConfig -Name $hp -Protocol $pro -Port $port -RequestPath / -IntervalInSeconds $int -ProbeCount $cnt
 ```
 
-### Create a load balancer rule
-A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you also define the health probe to use.
+### Create the load balancer rule
 
-Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig). The following example creates a load balancer rule named *myLoadBalancerRule* and balances traffic on *TCP* port *80*:
+A load balancer rule defines:
 
-```azurepowershell
-$rule = New-AzLoadBalancerRuleConfig `
-  -Name 'myLoadBalancerRuleWeb' -Protocol Tcp `
-  -Probe $probe -FrontendPort 80 -BackendPort 80 `
-  -FrontendIpConfiguration $feip `
-  -BackendAddressPool $bePool
+* Frontend IP configuration for the incoming traffic.
+* The backend IP pool to receive the traffic.
+* The required source and destination port. 
+
+Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig): 
+
+* Named **myHTTPRule**
+* Listening on **Port 80** in the frontend pool **myFrontEnd**.
+* Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
+* Using health probe **myHealthProbe**.
+* Protocol **TCP**.
+* Enable outbound source network address translation (SNAT) using the frontend IP address.
+
+
+```azurepowershell-interactive
+$lbr = 'myHTTPRule'
+$pro = 'tcp'
+$port = '80'
+
+
+## $feip and $bePool are the variables from previous steps. ##
+
+$rule = New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool --DisableOutboundSNAT $false
 ```
+> [!NOTE]
+> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, omit **(-DisableOutboundSNAT $false)** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
 
 ### Create the NAT rules
 
-Create NAT rules with [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). The following example creates NAT rules named *myLoadBalancerRDP1* and *myLoadBalancerRDP2* to allow RDP connections to the back-end servers with port 4221 and 4222:
+Create NAT rules with [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) to allow RDP connections to the backend servers: 
 
-```azurepowershell
-$natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
-  -Name 'myLoadBalancerRDP1' `
-  -FrontendIpConfiguration $feip `
-  -Protocol tcp -FrontendPort 4221 `
-  -BackendPort 3389
+### VM1 
 
-$natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
-  -Name 'myLoadBalancerRDP2' `
-  -FrontendIpConfiguration $feip `
-  -Protocol tcp `
-  -FrontendPort 4222 `
-  -BackendPort 3389
+* Named **myLBrdp1**
+* Protocol **TCP**.
+* Frontend port **Port 4221**.
+* Backend port **Port 3389**.
 
-$natrule3 = New-AzLoadBalancerInboundNatRuleConfig `
-  -Name 'myLoadBalancerRDP3' `
-  -FrontendIpConfiguration $feip `
-  -Protocol tcp `
-  -FrontendPort 4223 `
-  -BackendPort 3389
+```azurepowershell-interactive
+$nat = 'myLBrdp1'
+$pro = 'tcp'
+$fe = '4221'
+$be = '3389'
+
+## $feip is the public IP variable from the previous step. ##
+
+$natrule1 = 
+New-AzLoadBalancerInboundNatRuleConfig -Name $nat -FrontendIpConfiguration $feip -Protocol $pro -FrontendPort $fe -BackendPort $be
 ```
 
-### Create load balancer
+### VM2 
 
-Create the Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load-balancing rule, and NAT rules that you created in the preceding steps:
+* Named **myLBrdp2**
+* Protocol **TCP**.
+* Frontend port **Port 4222**.
+* Backend port **Port 3389**.
 
-```azurepowershell
-$lb = New-AzLoadBalancer `
-  -ResourceGroupName $rgName `
-  -Name 'MyLoadBalancer' `
-  -SKU Standard `
-  -Location $location `
-  -FrontendIpConfiguration $feip `
-  -BackendAddressPool $bepool `
-  -Probe $probe `
-  -LoadBalancingRule $rule `
-  -InboundNatRule $natrule1,$natrule2,$natrule3
+```azurecli-interactive
+$nat = 'myLBrdp2'
+$pro = 'tcp'
+$fe = '4222'
+$be = '3389'
+
+$natrule2 = 
+New-AzLoadBalancerInboundNatRuleConfig -Name $nat -FrontendIpConfiguration $feip -Protocol $pro -FrontendPort $fe -BackendPort $be
 ```
 
-Use ```-SKU Basic``` to create a Basic Load Balancer. Microsoft recommends using Standard for production workloads.
+### VM3 
 
-> [!IMPORTANT]
-> The rest of this quickstart assumes that **Standard** SKU is chosen during the SKU selection process above.
+* Named **myLBrdp3**
+* Protocol **TCP**.
+* Frontend port **Port 4223**.
+* Backend port **Port 3389**.
 
-## Create network resources
-Before you deploy some VMs and can test your balancer, you must create supporting network resources - virtual network and virtual NICs. 
+```azurecli-interactive
+$nat = 'myLBrdp3'
+$pro = 'tcp'
+$fe = '4223'
+$be = '3389'
+
+$natrule3 = 
+New-AzLoadBalancerInboundNatRuleConfig -Name $nat -FrontendIpConfiguration $feip -Protocol $pro -FrontendPort $fe -BackendPort $be
+```
+
+### Create load balancer resource
+
+Create a public load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
+
+* Named **myLoadBalancer**
+* In **eastus**.
+* In resource group **myResourceGroupLB**.
+
+The following example creates a public Standard Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load-balancing rule, and NAT rules that you created in the preceding steps:
+
+```azurepowershell-interactive
+$lbn = 'myLoadBalancer'
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$sku = 'Standard'
+
+## $feip, $bepool, $probe, $rule, $natrule1, $natrule2, and $natrule3 are variables with configuration information from previous steps. ##
+
+$lb = 
+New-AzLoadBalancer -ResourceGroupName $rg -Name $lbn -SKU $sku -Location $loc -FrontendIpConfiguration $feip -BackendAddressPool $bepool -Probe $probe -LoadBalancingRule $rule -InboundNatRule $natrule1,$natrule2,$natrule3
+```
+
+## Configure virtual network
+
+Before you deploy VMs and test your load balancer, create the supporting virtual network resources.
 
 ### Create a virtual network
-Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). The following example creates a virtual network named *myVnet* with *mySubnet*:
+
+Create a virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
+
+* Named **myVNet**.
+* In resource group **myResourceGroupLB**.
+* Subnet named **myBackendSubnet**.
+* Virtual network **10.0.0.0/16**.
+* Subnet **10.0.0.0/24**.
 
 ```azurepowershell
 # Create subnet config
