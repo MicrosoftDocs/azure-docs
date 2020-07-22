@@ -45,7 +45,7 @@ In the Azure portal, choose how you want to scale.  The following figure shows t
 ![Custom autoscale](./media/spring-cloud-autoscale/custom-autoscale.png)
 
 ## Set up Autoscale settings for your application in Azure CLI
-You can also set Autoscale modes using the Azure CLI.  The following commands create an Autoscale setting and and Autoscale rule.
+You can also set Autoscale modes using the Azure CLI.  The following commands create an Autoscale setting and an Autoscale rule.
 
 * Create Autoscale setting
   ```
