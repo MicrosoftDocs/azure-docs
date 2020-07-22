@@ -125,6 +125,10 @@
       href: azure-stack-edge-monitor.md
     - name: Return or replace device
       href: azure-stack-edge-return-device.md
+  - name: Reference
+    items:
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge  
   - name: Release notes
     items:
     - name: 2007 - Current
