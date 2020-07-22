@@ -120,3 +120,11 @@ Get all entities that are small but not red:
 ```sql
 select * from digitaltwins where not is_defined(tags.red) and tags.size = 'small' 
 ```
+
+## Next steps
+
+Read more about designing and managing digital twin models:
+* [*How-to: Manage custom models*](how-to-manage-model.md)
+
+Read more about querying the twin graph:
+* [*How-to: Query the twin graph*](how-to-query-graph.md)
