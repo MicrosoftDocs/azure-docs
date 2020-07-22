@@ -23,13 +23,13 @@ Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for
 
 You can access the Cloud Shell in three ways:
 
-1. Open a browser to [https://shell.azure.com](https://shell.azure.com).
+- **Direct link**: Open a browser to [https://shell.azure.com](https://shell.azure.com).
 
-1. Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
+- **Azure portal**: Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
     ![Icon to launch the Cloud Shell from the Azure portal](media/overview/portal-launch-icon.png)
 
-1. On [docs.microsoft.com](https://docs.microsoft.com) and [Microsoft Learn](https://docs.microsoft.com/learn/), select the **Try It** button in a code snippet like the example below.
+- **Code snippets**: On [docs.microsoft.com](https://docs.microsoft.com) and [Microsoft Learn](https://docs.microsoft.com/learn/), select the **Try It** button that appears with code snippet:
 
     ```azurecli-interactive
     az account show
