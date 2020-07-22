@@ -61,7 +61,7 @@ Use the `GraphTopologyList` method call to retrieve a list of all the graph topo
 |-----------------------|-------------|---------------------|
 | Success               | 200         | N/A                 |
 | General user errors   | 400 range   |                     |
-| General server errors |   range     |                     |
+| General server errors | 500 range   |                     |
 
 ## Next steps
 
