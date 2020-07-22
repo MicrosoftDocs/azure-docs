@@ -7,7 +7,7 @@ ms.date: 02/17/2020
 
 # Manage Azure File share backup with REST API
 
-This article explains how to perform tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+This article explains how to perform tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](./backup-overview.md).
 
 ## Monitor jobs
 
@@ -33,7 +33,7 @@ For example, the final response of a [trigger backup REST API](backup-azure-file
 }
 ```
 
-The Azure file share backup job is identified by the **jobId** field and can be tracked as mentioned [here](https://docs.microsoft.com/rest/api/backup/jobdetails/) using a GET request.
+The Azure file share backup job is identified by the **jobId** field and can be tracked as mentioned [here](/rest/api/backup/jobdetails/) using a GET request.
 
 ### Tracking the job
 
@@ -185,7 +185,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## Stop protection and delete data
 
-To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

@@ -164,7 +164,7 @@ To deploy a vSphere cluster on your Private Cloud, follow this process:
 
 vSAN policies define the failures to tolerate and disk striping for the data stored on the VM disks.  The storage policy created must be applied on the VM disks while creating the VM.
 
-1. [Sign in to the vSphere client](https://docs.microsoft.com/azure/vmware-cloudsimple/vcenter-access) of your Private Cloud.
+1. [Sign in to the vSphere client](./vcenter-access.md) of your Private Cloud.
 2. From the top menu, select **Policies and Profiles**.
 3. From the left menu, select **VM Storage Policies** and then select **Create a VM storage Policy**.
 4. Enter a meaningful name for the policy and click **NEXT**.

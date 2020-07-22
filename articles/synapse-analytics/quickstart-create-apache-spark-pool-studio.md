@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create an Apache Spark pool (preview) using Synapse Studio
+title: 'Quickstart: Create an Apache Spark pool (preview) using Synapse Studio'
 description: Create a new Apache Spark pool using Synapse Studio by following the steps in this guide.  
 services: synapse-analytics 
 author: julieMSFT  

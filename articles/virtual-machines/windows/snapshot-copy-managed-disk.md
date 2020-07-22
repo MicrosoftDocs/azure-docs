@@ -32,7 +32,7 @@ To create a snapshot, complete the following steps:
 
 ## Use PowerShell
 
-The following steps show how to copy the VHD disk and create the snapshot configuration. You can then take a snapshot of the disk by using the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+The following steps show how to copy the VHD disk and create the snapshot configuration. You can then take a snapshot of the disk by using the [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
  
 
@@ -48,18 +48,18 @@ The following steps show how to copy the VHD disk and create the snapshot config
 2. Get the VM:
 
    ```azurepowershell-interactive
-   $vm = get-azvm `
-   -ResourceGroupName $resourceGroupName 
-   -Name $vmName
+   $vm = Get-AzVM `
+       -ResourceGroupName $resourceGroupName `
+       -Name $vmName
    ```
 
 3. Create the snapshot configuration. For this example, the snapshot is of the OS disk:
 
    ```azurepowershell-interactive
-   $snapshot =  New-AzSnapshotConfig 
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
-   -Location $location 
-   -CreateOption copy
+   $snapshot =  New-AzSnapshotConfig `
+       -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Location $location `
+       -CreateOption copy
    ```
    
    > [!NOTE]
@@ -68,10 +68,10 @@ The following steps show how to copy the VHD disk and create the snapshot config
 4. Take the snapshot:
 
    ```azurepowershell-interactive
-   New-AzSnapshot 
-   -Snapshot $snapshot 
-   -SnapshotName $snapshotName 
-   -ResourceGroupName $resourceGroupName 
+   New-AzSnapshot `
+       -Snapshot $snapshot `
+       -SnapshotName $snapshotName `
+       -ResourceGroupName $resourceGroupName 
    ```
 
 

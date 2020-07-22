@@ -78,4 +78,4 @@ landingContent:
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
-            url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
+            url: /azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration

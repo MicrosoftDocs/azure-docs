@@ -27,7 +27,7 @@ If you don't know how to deploy resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Copy and paste the following JSON syntax into your file:
 
@@ -118,7 +118,7 @@ If you don't know how to deploy resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Download templates
 
@@ -174,7 +174,7 @@ To enable Azure Monitor for VMs for multiple VMs or virtual machine scale sets, 
 
 For each VM or virtual machine scale set, the script verifies whether the VM extension is already installed. If the VM extension is installed, the script tries to reinstall it. If the VM extension isn't installed, the script installs the Log Analytics and Dependency agent VM extensions.
 
-Verify you are using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+Verify you are using Azure PowerShell module Az version 1.0.0 or later with `Enable-AzureRM` compatibility aliases enabled. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 To get a list of the script's argument details and example usage, run `Get-Help`.
 

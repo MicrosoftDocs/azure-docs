@@ -42,10 +42,10 @@ landingContent:
         links:
           - text: Key Vault from a web application
             url: tutorial-net-create-vault-azure-web-app.md
-          - text: Key Vault with Azure Windows Virtual Machine
-            url: tutorial-net-windows-virtual-machine.md
-          - text: Key Vault with Python - Windows
-            url: tutorial-python-windows-virtual-machine.md
+          - text: Key Vault with a virtual machine in .NET
+            url: tutorial-net-virtual-machine.md
+          - text: Key Vault with a virtual machine in Python
+            url: tutorial-python-virtual-machine.md
 
   # Card
   - title: Security

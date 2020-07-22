@@ -90,7 +90,7 @@ The schema for a certificate authority looks as follows:
     }
 ```
 
-For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0):
+For the configuration, you can use the [Azure Active Directory PowerShell Version 2](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
 
 1. Start Windows PowerShell with administrator privileges.
 2. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.
@@ -119,7 +119,7 @@ To retrieve the trusted certificate authorities that are defined in your directo
 
 ### Add
 
-To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet and set the **crlDistributionPoint** attribute to a correct value:
+To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) cmdlet and set the **crlDistributionPoint** attribute to a correct value:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

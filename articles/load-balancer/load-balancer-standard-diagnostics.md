@@ -41,6 +41,9 @@ The various Standard Load Balancer configurations provide the following metrics:
 | Byte counters |  Public and internal load balancer | Standard Load Balancer reports the data processed per front end. You may notice that the bytes are not distributed equally across the backend instances. This is expected as Azure's Load Balancer algorithm is based on flows | Average |
 | Packet counters |  Public and internal load balancer | Standard Load Balancer reports the packets processed per front end.| Average |
 
+  >[!NOTE]
+  >When using distributing traffic from an internal load balancer through an NVA or firewall Syn Packet, Byte Counter, and Packet Counter metrics are not be available and will show as zero. 
+  
 ### View your load balancer metrics in the Azure portal
 
 The Azure portal exposes the load balancer metrics via the Metrics page, which is available on both the load balancer resource page for a particular resource and the Azure Monitor page. 

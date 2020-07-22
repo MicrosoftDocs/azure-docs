@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/15/2020
+ms.date: 07/09/2020
 ---
 
 # Copy data from and to Snowflake by using Azure Data Factory
@@ -55,7 +55,7 @@ The following properties are supported for a Snowflake-linked service.
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>(optional)"
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -73,7 +73,7 @@ The following properties are supported for a Snowflake-linked service.
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>(optional)",
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": { 
@@ -151,15 +151,20 @@ If your sink data store and format meet the criteria described in this section, 
 
 - The **sink linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication.
 
-- The **sink data format** is of **Parquet** or **delimited text**, with the following configurations:
+- The **sink data format** is of **Parquet**, **delimited text**, or **JSON** with the following configurations:
 
-   - For **Parquet** format, the compression codec is **None**, **Snappy**, or **Lzo**.
-   - For **delimited text** format:
-     - `rowDelimiter` is **\r\n**, or any single character.
-     - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
-     - `encodingName` is left as default or set to **utf-8**.
-     - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
-- In the Copy activity source, `additionalColumns` is not specified.
+    - For **Parquet** format, the compression codec is **None**, **Snappy**, or **Lzo**.
+    - For **delimited text** format:
+        - `rowDelimiter` is **\r\n**, or any single character.
+        - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
+        - `encodingName` is left as default or set to **utf-8**.
+        - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
+    - For **JSON** format, direct copy only supports the case that source Snowflake table or query result only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
+        - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
+        - `encodingName` is left as default or set to **utf-8**.
+        - `filePattern` in copy activity sink is left as default or set to **setOfObjects**.
+
+- In copy activity source, `additionalColumns` is not specified.
 - Column mapping is not specified.
 
 **Example:**
@@ -277,15 +282,19 @@ If your source data store and format meet the criteria described in this section
 
 - The **source linked service** is [**Azure Blob storage**](connector-azure-blob-storage.md) with **shared access signature** authentication.
 
-- The **source data format** is **Parquet** or **Delimited text**, with the following configurations:
+- The **source data format** is **Parquet**, **Delimited text**, or **JSON** with the following configurations:
 
-   - For **Parquet** format, the compression codec is **None** or **Snappy**.
+    - For **Parquet** format, the compression codec is **None**, or **Snappy**.
 
-   - For **delimited text** format:
-     - `rowDelimiter` is **\r\n**, or any single character. If row delimiter is not “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` is not specified.
-     - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
-     - `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-     - `quoteChar` is **double quote**, **single quote**, or **empty string** (no quote char).
+    - For **delimited text** format:
+        - `rowDelimiter` is **\r\n**, or any single character. If row delimiter is not “\r\n”, `firstRowAsHeader` need to be **false**, and `skipLineCount` is not specified.
+        - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
+        - `encodingName` is left as default or set to "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar` is **double quote**, **single quote** or **empty string** (no quote char).
+    - For **JSON** format, direct copy only supports the case that sink Snowflake table only has single column and the data type of this column is **VARIANT**, **OBJECT**, or **ARRAY**.
+        - `compression` can be **no compression**, **gzip**, **bzip2**, or **deflate**.
+        - `encodingName` is left as default or set to **utf-8**.
+        - Column mapping is not specified.
 
 - In the Copy activity source: 
 
