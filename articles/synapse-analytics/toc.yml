@@ -10,19 +10,19 @@
     items: 
     - name: Introduction
       href: get-started.md
-    - name: Step 1 Create a Synapse workspace
+    - name: 1 Create a Synapse workspace
       href: get-started-create-workspace.md
-    - name: Step 2 Analyze using a SQL Pool
+    - name: 2 Analyze using a SQL Pool
       href: get-started-analyze-sql-pool.md
-    - name: Step 3 Analyze using Spark
+    - name: 3 Analyze using Spark
       href: get-started-analyze-spark.md
-    - name: Step 4 Analyze using SQL on-demand
+    - name: 4 Analyze using SQL on-demand
       href: get-started-analyze-sql-on-demand.md
-    - name: Step 5 Analyze data in a storage account
+    - name: 5 Analyze data in a storage account
       href: get-started-analyze-storage.md
-    - name: Step 6 - Orchestrate with pipelines
+    - name: 6 Orchestrate with pipelines
       href: get-started-pipelines.md
-    - name: Step 7 - Visualize with Power BI
+    - name: 7 Visualize with Power BI
       href: get-started-visualize-power-bi.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
