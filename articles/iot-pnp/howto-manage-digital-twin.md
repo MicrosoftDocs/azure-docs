@@ -1,6 +1,6 @@
 ---
 title: How to manage IoT Plug and Play digital twin
-description: How to manage IoT Plug and Play Preview device using digital twin
+description: How to manage IoT Plug and Play digital twin
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
@@ -47,10 +47,6 @@ The following snippet shows the Get digital twin response formatted as a JSON ob
     "$metadata": {
         "$model": "dtmi:com:example:TemperatureController;1",
         "serialNumber": {
-            "desiredValue": "alwinexlepaho8329-a",
-            "desiredVersion": 2,
-            "ackVersion": 1,
-            "ackCode": 200,
             "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
         }
     }

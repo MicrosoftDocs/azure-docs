@@ -28,7 +28,7 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 
 ## Parser library
 
-The parser library follows the limits that apply to the [Digital Twins Definition Language](https://aka.ms/DTDL).
+The parser library follows the limits that apply to the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl).
 
 ## Next steps
 

@@ -11,7 +11,7 @@ services: iot-pnp
 
 # Understand IoT Plug and Play digital twins
 
-An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL)](https://aka.ms/DTDL) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have. When an IoT Plug and Play device connects to IoT Hub for the first time, a device twin and a digital twin are initialized.
+An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have. When an IoT Plug and Play device connects to IoT Hub for the first time, a device twin and a digital twin are initialized.
 
 IoT Plug and Play uses DTDL *version 2*. For more information about this version of DTDL, see its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). DTDL is not exclusive to IoT Plug and Play, it is also used to represent entire environment like buildings, energy networks and more in other IoT services such as [Azure Digital Twins](https://docs.microsoft.com/en-us/azure/digital-twins/overview).
 To learn more, see [Understand twin models in Azure Digital Twins](../digital-twins/concepts-models.md).
@@ -369,7 +369,7 @@ content-encoding:utf-8
 
 Now that you've learned about digital twins, here are some additional resources:
 
-- [How to use IoT Plug and Play digital twin APIs](./howto-manage-digital-twin)
-- [Interact with a device from your solution](./quickstart-service-node)
+- [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin)
+- [Interact with a device from your solution](quickstart-service-node)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](./howto-use-iot-explorer.md)
+- [Azure IoT explorer](howto-use-iot-explorer.md)
