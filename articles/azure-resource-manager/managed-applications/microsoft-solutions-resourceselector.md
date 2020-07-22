@@ -15,7 +15,7 @@ ResourceSelector lets users select an existing resource from a subscription.
 
 ## UI sample
 
-![Microsoft.Solutions.ResourceSelector](./media/managed-application-elements/microsoft.solutions.resourceselector.png)
+![Microsoft.Solutions.ResourceSelector](./media/managed-application-elements/microsoft-solutions-resourceselector.png)
 
 ## Schema
 

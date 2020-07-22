@@ -35,7 +35,7 @@ Descriptions can be included with multi-select enabled.
 
 When filtering is enabled, the control includes a text box for adding the filtering value.
 
-:::image type="content" source="./media/managed-application-elements/microsoft.common.dropdown-5.png" alt-text="Microsoft.Common.DropDown multi-select with descriptions":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-dropdown-5.png" alt-text="Microsoft.Common.DropDown multi-select with descriptions":::
 
 ## Schema
 

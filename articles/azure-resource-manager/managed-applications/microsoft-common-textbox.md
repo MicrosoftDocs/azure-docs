@@ -15,7 +15,7 @@ A control that can be used to edit unformatted text.
 
 ## UI sample
 
-![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
+![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft-common-textbox.png)
 
 ## Schema
 

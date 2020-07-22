@@ -14,7 +14,7 @@ A control that groups one or more elements under a heading.
 
 ## UI sample
 
-![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
+![Microsoft.Common.Section](./media/managed-application-elements/microsoft-common-section.png)
 
 ## Schema
 
