@@ -24,9 +24,9 @@ You can view how your organization uses your data from the **Privacy** page of t
 
 2. Select **Settings & Privacy** from the left navigation pane or select the **View Settings And Privacy** link from the **Settings & Privacy** block.
 
-    ![My Account page, showing highlighted Privacy links](media/my-account-portal/my-account-portal-privacy.png)
+    ![My Account page, showing highlighted Settings & Privacy link](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Review the information, including:
+3. Select **Privacy**, then review the information, including:
 
     - **Services.** A list of online services you're connected to using your work or school account.
 
