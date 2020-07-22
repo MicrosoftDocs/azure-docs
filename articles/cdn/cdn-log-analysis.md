@@ -9,7 +9,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/09/2020
+ms.date: 7/22/2020
 ms.author: allensu
 ---
 
@@ -18,7 +18,7 @@ ms.author: allensu
 
 After you enable CDN for your application, you can monitor CDN usage, check the health of your delivery, and troubleshoot potential issues. Azure CDN provides these capabilities in the following ways: 
 
-## Analyze Azure CDN usage patterns
+## Raw logs for Azure CDN from Microsoft
 With a Standard Microsoft profile, you can enable raw logs and select to stream logs to:
 
 * Azure Storage
@@ -27,7 +27,8 @@ With a Standard Microsoft profile, you can enable raw logs and select to stream 
 
 With Azure Log Analytics you can view monitoring metrics, and set up alerts. 
 
-To stream logs to Azure Data explorer, follow the steps in [Monitoring Metrics and Raw Logs for Azure CDN from Microsoft](enable-raw-logs.md).
+To stream logs to Azure Data explorer, follow the steps in [Azure CDN HTTP raw logs](enable-raw-logs.md).
+
 
 ## Core analytics via Azure diagnostic logs
 
@@ -54,6 +55,6 @@ In this article, you learned about the different options for analysis reports fo
 For more information on Azure CDN and the other Azure services mentioned in this article, see:
 
 * [What is Azure CDN?](cdn-overview.md)
-* [Monitoring Metrics and Raw Logs for Azure CDN from Microsoft](enable-raw-logs.md)
+* [Azure CDN HTTP raw logs](enable-raw-logs.md)
 
 
