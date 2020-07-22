@@ -40,7 +40,7 @@
     - name: Disk Storage
       href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SAP HANA Large Instances
-      href: prepay-hana-large-instances-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+      href: prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Software plans
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
