@@ -55,6 +55,10 @@ Users can choose between Bash or PowerShell.
 
     ![Choose either Bash or PowerShell](media/overview/overview-choices.png)
 
+    After first launch, you can use the shell type drop-down control to switch between Bash and PowerShell:
+
+    ![Drop-down control to select Bash or PowerShell](media/overview/select-shell-drop-down.png)
+
 ### Authenticated and configured Azure workstation
 
 Cloud Shell is managed by Microsoft so it comes with popular command-line tools and language support. Cloud Shell also securely authenticates automatically for instant access to your resources through the Azure CLI or Azure PowerShell cmdlets.
