@@ -26,7 +26,7 @@ Our partner network extends our solution capabilities to help you build seamless
 | Partner | Description and integration walkthroughs  |
 | :--- | :--- |
 | ![logo](./media/partner-gallery/arkose-logo.png) | [Arkose Labs](./partner-arkose-labs.md) is a fraud prevention solution provider that helps organizations protect against bot attacks, account takeover attacks, and fraudulent account openings.
-| ![logo](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an Identity verification and proofing provider that performs risk assessments based on user attributes, which helps to prevent fraud.|
+| ![logo](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) is an Identity verification and proofing provider that performs risk assessments based on user attributes to prevent fraud.|
 | ![logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) is an Identity verification and proofing provider with ID verification solutions, Fraud prevention solutions, Compliance solutions, and others.|
 | ![logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 | ![logo](./media/partner-gallery/trusona-logo.png) | [Trusona](./partner-trusona.md) integration helps you sign in securely and enables passwordless authentication, multi-factor authentication, and digital license scanning.|
