@@ -35,7 +35,7 @@ You can access the Cloud Shell in three ways:
     az account show
     ```
 
-    The **Try It** button opens the Cloud Shell but does not automatically paste the command. To run the command, use **Copy** in the code snippet, use **Ctrl**+**Shift**+**V** (Windows/Linux) or **Cmd**+**Shift**+**V** (macOS) to paste the command, and then press **Enter**.
+    The **Try It** button opens the Cloud Shell directly alongside the documentation but doesn't run the command automatically. To run the command, use **Copy** in the code snippet, use **Ctrl**+**Shift**+**V** (Windows/Linux) or **Cmd**+**Shift**+**V** (macOS) to paste the command, and then press **Enter**.
 
 ## Features
 
