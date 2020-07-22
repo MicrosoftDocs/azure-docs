@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/digital-twins/how-to-set-up-instance.md",
+      "redirect_url": "/azure/digital-twins/how-to-set-up-instance-scripted",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/latest/media-services-high-availability-streaming.md",
       "redirect_url": "articles/media-services/latest/media-services-high-availability-encoding",
       "redirect_document_id": false
