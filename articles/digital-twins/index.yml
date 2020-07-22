@@ -59,11 +59,11 @@ landingContent:
             url: how-to-use-cli.md
       - linkListType: how-to-guide
         links:
-          - text: Create an Azure Digital Twins instance
-            url: how-to-set-up-instance.md
+          - text: Set up an instance and authentication
+            url: how-to-set-up-instance-scripted.md
       - linkListType: how-to-guide
         links:
-          - text: Authenticate a client application
+          - text: Write app authentication code
             url: how-to-authenticate-client.md
             
   - title: API reference

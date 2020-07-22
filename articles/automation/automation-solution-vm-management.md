@@ -43,7 +43,7 @@ You don't need to configure permissions if you're a Contributor on the subscript
 
 ### Permissions for pre-existing Automation account and Log Analytics workspace
 
-To enable VMs for the Start/Stop VMs during off-hours feature using an existing Automation account and Log Analytics workspace, you need the following permissions on the Resource Group scope. To learn more about roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+To enable VMs for the Start/Stop VMs during off-hours feature using an existing Automation account and Log Analytics workspace, you need the following permissions on the Resource Group scope. To learn more about roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 | Permission | Scope|
 | --- | --- |

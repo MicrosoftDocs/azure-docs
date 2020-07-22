@@ -42,6 +42,11 @@ This operation requires the certificates/import permission. Navigate to where th
 	
 Certificate name should be unique. Certificate with the same name might be in soft-deleted state, also, as per the [composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) in Azure key vault, if there is another Key or Secret in the Key Vault with the same name you are trying to specify for your certificate, it will fail and you will need to either remove that key or secret or use a different name for your certificate. [view deleted certificate](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate)
 
+### Why am I getting the 'Error type: char length is too long'?
+	
+* Certificate Subject name length has a character limit of 200 char
+* Certificate password length has a character limit of 200 char
+
 ### Can I import an expired certificate in Azure Key vault?
 	
 No, the expired PFX certificates won't get imported to Azure Key Vault.

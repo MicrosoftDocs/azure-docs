@@ -81,8 +81,8 @@ In this example scenario:
 ## Next steps
 
 - You can use the [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) to query both the application and service principal objects.
-- You can access an application's application object using the Microsoft Graph API, the [Azure portal's][AZURE-Portal] application manifest editor, or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [Application entity][MS-Graph-App-Entity].
-- You can access an application's service principal object through the Microsoft Graph API or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), as represented by its OData [ServicePrincipal entity][MS-Graph-Sp-Entity].
+- You can access an application's application object using the Microsoft Graph API, the [Azure portal's][AZURE-Portal] application manifest editor, or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), as represented by its OData [Application entity][MS-Graph-App-Entity].
+- You can access an application's service principal object through the Microsoft Graph API or [Azure AD PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/?view=azureadps-2.0), as represented by its OData [ServicePrincipal entity][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 

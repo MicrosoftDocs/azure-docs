@@ -41,7 +41,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## Assign permissions
 
-After creating the new Service Principal, assign the "Azure Arc for Kubernetes Onboarding" role to the newly created principal. This is a built-in Azure role with limited permissions, which only allows the principal to register clusters to Azure. The principal cannot update, delete, or modify any other clusters or resources within the subscription.
+After creating the new Service Principal, assign the "Kubernetes Cluster - Azure Arc Onboarding" role to the newly created principal. This is a built-in Azure role with limited permissions, which only allows the principal to register clusters to Azure. The principal cannot update, delete, or modify any other clusters or resources within the subscription.
 
 Given the limited abilities, customers can easily re-use this principal to onboard multiple clusters.
 

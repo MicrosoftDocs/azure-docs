@@ -1104,6 +1104,8 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
+      - name: Request quota increase
+        href: create-support-request-quota-increase.md
     - name : Monitor
       items:
       - name: Monitor Cosmos DB
@@ -1112,6 +1114,8 @@
         items:
         - name: Azure Monitor for Cosmos (preview)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Scenarios to monitor 
+          href: use-metrics.md
         - name: Monitor server-side latency
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
@@ -1124,8 +1128,8 @@
           href: cosmosdb-monitor-resource-logs.md
         - name: Audit control plane logs
           href: audit-control-plane-logs.md
-      - name: View metrics from Cosmos DB account
-        href: use-metrics.md
+      - name: Configure alerts
+        href: create-alerts.md
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
       - name: Application logging with Logic Apps

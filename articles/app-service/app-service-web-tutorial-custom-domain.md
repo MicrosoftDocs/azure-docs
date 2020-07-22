@@ -325,7 +325,7 @@ Once the operation completes, your app should return the right page at the root 
 
 ## Automate with scripts
 
-You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview). 
+You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/). 
 
 ### Azure CLI 
 
