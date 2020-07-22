@@ -31,7 +31,7 @@ Get started with Azure Load Balancer by using Azure CLI to create a public load 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -71,7 +71,7 @@ $publicIp =
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku
 ```
 
-To create a zonal public IP address in zone 1, use the following:
+To create a zonal public IP address in zone 1, use the following command:
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -196,8 +196,6 @@ Create a public load Balancer with [New-AzLoadBalancer](/powershell/module/az.ne
 * In **eastus**.
 * In resource group **myResourceGroupLB**.
 
-The following example creates a public Standard Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load-balancing rule, and NAT rules that you created in the preceding steps:
-
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
@@ -244,7 +242,7 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 ```
 ### Create public IP addresses for the VMs
 
-To access your VMs using a RDP connection, you need public IP addresses for the VMs. 
+To access your VMs using an RDP connection, you need public IP addresses for the VMs. 
 
 Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to create standard public IP addresses for:
 
@@ -528,7 +526,7 @@ Set an administrator username and password for the VMs with [Get-Credential](htt
 $cred = Get-Credential
 ```
 
-Create the virtual machines with with [New-AzVM](/powershell/module/az.compute/new-azvm):
+Create the virtual machines with [New-AzVM](/powershell/module/az.compute/new-azvm):
 
 
 #### VM1
@@ -718,4 +716,4 @@ In this quickstart
 
 To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
 
-Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md)..
+Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
