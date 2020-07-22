@@ -47,12 +47,13 @@ Setting up customer-managed keys for your disks will require you to create resou
     ![Screenshot of the disk encryption portal main screen. Highlighting the Add button](media/virtual-machines-disk-encryption-portal/sever-side-encryption-create-disk-encryption-set.png)
 
 1. Select your resource group, name your encryption set, and select the same region as your key vault.
-1. Select **Key vault and key**.
+1. For **Encryption type** select **Encryption at-rest with a customer-managed key**.
+1. Select **Click to select a key**.
 1. Select the key vault and key you created previously, as well as the version.
 1. Press **Select**.
 1. Select **Review + Create** and then **Create**.
 
-    ![Screenshot of the disk encryption creation blade. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector.](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-blade-key.png)
+    ![Screenshot of the disk encryption creation blade. Showing the subscription, resource group, disk encryption set name, region, and key vault + key selector.](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-set-blade.png)
 
 1. Open the disk encryption set once it finishes creating and select the alert that pops up.
 
