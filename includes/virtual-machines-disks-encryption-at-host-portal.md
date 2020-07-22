@@ -31,9 +31,9 @@ Sign in to the Azure portal using the [provided link](https://aka.ms/diskencrypt
 > [!IMPORTANT]
 > You must use the [provided link](https://aka.ms/diskencryptionupdates) to access the Azure portal. Encryption at host is not currently visible in the public Azure portal without using the link.
 
-### Create an Azure Key Vault and DiskEncryptionSet
+### Create an Azure Key Vault and disk encryption set
 
-Once the feature is enabled, you'll need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
+Once the feature is enabled, you'll need to set up an Azure Key Vault and a disk encryption set, if you haven't already.
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-portal](virtual-machines-disks-encryption-create-key-vault-portal.md)]
 

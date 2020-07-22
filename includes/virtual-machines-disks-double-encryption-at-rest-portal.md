@@ -32,7 +32,10 @@
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="example text":::
 
-1. Select an Azure Key Vault and key
+1. Select an Azure Key Vault and key, or create a new one if necessary
+
+    > [!NOTE]
+    > If you create a Key Vault instance, you must enable soft delete and purge protection. These settings are mandatory when using a Key Vault for encrypting managed disks, and protect you from losing data due to accidental deletion.
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="example text":::
 
