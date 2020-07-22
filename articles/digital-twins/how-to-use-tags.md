@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Adding tags to digital twins 
+# Add tags to digital twins 
 
 You can use the concept of tags to further identify and categorize your digital twins. In particular, users may want to replicate tags from existing systems, such as [Haystack Tags](https://project-haystack.org/doc/TagModel), within their Azure Digital Twins instances. 
 
@@ -27,7 +27,7 @@ Tags are first added as properties within the [model](concepts-models.md) that d
 
 A **marker tag** is a simple string that is used to mark or categorize a digital twin, such as "blue" or "red". This string is the tag's name, and marker tags have no meaningful value—the tag is significant just by its presence (or absence). 
 
-### Model 
+### Add marker tags to model 
 
 Marker tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) Map from `string` to `boolean`. The boolean `mapValue` is ignored, as the presence of the tag is all that's important. 
 
@@ -51,7 +51,7 @@ Here is an excerpt from a twin model implementing a marker tag as a property:
 }
 ```
 
-### Digital twin 
+### Add marker tags to digital twins
 
 Once the `tags` property is part of a digital twin's model, you can set the marker tag in the digital twin by setting the value of this property. 
 
@@ -63,7 +63,7 @@ entity-02: "tags": { "blue": true, "round": true }
 entity-03: "tags": { "red": true, "large": true } 
 ```
 
-### Queries 
+### Query with marker tags
 
 Once tags have been added to digital twins, the tags can be used to filter the twins in queries. 
 
@@ -83,7 +83,7 @@ select * from digitaltwins where not is_defined(tags.red) and is_defined(tags.ro
 
 A **value tag** is a key-value pair that is used to give each tag a value, such as `"color": "blue"` or `"color": "red"`. Once a value tag is created, it can also be used as a marker tag by ignoring the tag's value. 
 
-### Model 
+### Add value tags to model 
 
 Value tags are modeled as a [DTDL](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) Map from `string` to `string`. Both the `mapKey` and the `mapValue` are significant. 
 
@@ -107,7 +107,7 @@ Here is an excerpt from a twin model implementing a value tag as a property:
 } 
 ```
 
-### Digital twin 
+### Add value tags to digital twins
 
 As with marker tags, you can set the value tag in a digital twin by setting the value of this `tags` property from the model. To use a value tag as a marker tag, you can set the `tagValue` field to the empty string value (`""`). 
 
@@ -121,7 +121,7 @@ entity-03: "tags": { "red": "", "size": "small" }
 
 Note that `red` and `purple` are used as marker tags in this example.
 
-### Queries 
+### Query with value tags
 
 As with marker tags, you can use value tags to filter the twins in queries. You can also use value tags and marker tags together.
 
