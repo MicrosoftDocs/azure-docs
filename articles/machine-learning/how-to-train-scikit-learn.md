@@ -55,7 +55,7 @@ ws = Workspace.from_config()
 
 ### Prepare scripts
 
-In this tutorial, the training script **train_iris.py** is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
+In this tutorial, the training script **train_iris.py** is already provided for you [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py). In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
 
 To use the Azure ML tracking and metrics capabilities, add a small amount of Azure ML code inside your training script.  The training script **train_iris.py** shows how to log some metrics to your Azure ML run using the `Run` object within the script.
 
@@ -69,13 +69,27 @@ shutil.copy('./train_iris.py', 'training')
 ```
 
 ### Create an Environment
+
+Author your conda environment (sklearn-env.yml).
+```yaml
+name: sklearn-training-env
+dependencies:
+  - python=3.6.2
+  - scikit-learn
+  - numpy
+  - pip:
+    - azureml-defaults
+```
+
+Create an Azure ML environment from this Conda environment specification. The Environment will be packaged into a docker container at runtime.
 ```python
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 
-myenv = Environment("myenv")
-myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklearn-env.yml")
 ```
+
+#### Use a curated environment
 
 ### Create a ScriptRunConfig
 
@@ -83,7 +97,7 @@ myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scik
 ```python
 from azureml.core import ScriptRunConfig
 
-src = ScriptRunConfig(source_directory='', script='train.py')
+src = ScriptRunConfig(source_directory='training', script='train.py')
 src.run_config.environment = myenv
 ```
 
