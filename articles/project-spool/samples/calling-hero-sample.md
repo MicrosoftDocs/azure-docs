@@ -57,7 +57,7 @@ from the browser, it will use the locally deployed ClientApp for the user experi
 ## Before running the sample for the first time
 1. `git clone` the repo
 2. Go to the ClientApp folder and run `npm install`
-3. Get the primaryConnectionString using steps provided in [Qickstart-SpoolResource.md](./Quickstart-SpoolResource.md) or visit [How to create a spool resource](https://skype.visualstudio.com/SCC/_wiki/wikis/SCC.wiki/9198/Dogfooding). Once you get the Connection String you will append at the end the resourceId (found on the Azure portal, in the Azure overview page) in the following format: {connectionString} + ";issuer=" + {ResourceId}
+3. Get the primaryConnectionString using steps provided in [Quickstart-SpoolResource.md](./Quickstart-SpoolResource.md) or visit [How to create a spool resource](https://skype.visualstudio.com/SCC/_wiki/wikis/SCC.wiki/9198/Dogfooding). Once you get the Connection String you will append at the end the resourceId (found on the Azure portal, in the Azure overview page) in the following format: {connectionString} + ";issuer=" + {ResourceId}
 
 ## Local run
 1. Go to the ClientApp folder
