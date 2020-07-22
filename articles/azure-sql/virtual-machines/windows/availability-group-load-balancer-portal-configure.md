@@ -68,8 +68,8 @@ First, create the load balancer.
    | --- | --- |
    | **Name** |A text name representing the load balancer. For example, **sqlLB**. |
    | **Type** |**Internal**: Most implementations use an internal load balancer, which allows applications within the same virtual network to connect to the availability group.  </br> **External**: Allows applications to connect to the availability group through a public Internet connection. |
-   | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
    | **SKU** |**Standard**: Required if your SQL instances are in a different Avalibility set to the loadbalancer. </br> **Basic**: Default option. |
+   | **Virtual network** |Select the virtual network that the SQL Server instances are in. |
    | **Subnet** |Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |
    | **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script, later in this article, use this address for the `$ILBIP` variable. |
