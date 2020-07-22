@@ -1,6 +1,6 @@
 ---
 title: How to manage IoT Plug and Play digital twins
-description: How to manage IoT Plug and Play Preview device using digital twins
+description: How to manage IoT Plug and Play Preview device using digital twin APIs
 author: prashmo
 ms.author: prashmo
 ms.date: 07/20/2020
@@ -47,10 +47,6 @@ The following snippet shows the response to a **Get digital twin** request forma
     "$metadata": {
         "$model": "dtmi:com:example:TemperatureController;1",
         "serialNumber": {
-            "desiredValue": "alwinexlepaho8329-a",
-            "desiredVersion": 2,
-            "ackVersion": 1,
-            "ackCode": 200,
             "lastUpdateTime": "2020-07-17T06:10:31.9609233Z"
         }
     }
@@ -187,7 +183,7 @@ Make sure the update patch follows the [rules for setting desired value of a dig
 
 When you update a component, make sure that the [empty object $metadata marker](#add-replace-or-remove-a-component) is set.
 
-Updates can fail if a device's reported values don't conform to the [IoT plug and play conventions](./concepts-convention.md#writeable-properties).
+Updates can fail if a device's reported values don't conform to the [IoT plug and play conventions](./concepts-convention.md#writable-properties).
 
 ## Next steps
 
@@ -195,4 +191,4 @@ Now that you've learned about digital twins, here are some additional resources:
 
 - [Interact with a device from your solution](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](./howto-install-iot-explorer.md)
+- [Azure IoT explorer](howto-use-iot-explorer.md)

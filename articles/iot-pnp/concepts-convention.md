@@ -118,7 +118,7 @@ The device must add the `{"__t": "c"}` marker to indicate that the element refer
    :::column-end:::
 :::row-end:::
 
-## Writeable properties
+## Writable properties
 
 The device should confirm that it received the property by sending a reported property. The reported property should include:
 
@@ -127,7 +127,7 @@ The device should confirm that it received the property by sending a reported pr
 - `av` - an acknowledgment version that refers to the `$version` of the desired property.
 - `ad` - an optional acknowledgment description.
 
-### Sample no component writeable property
+### Sample no component writable property
 
 A device can send any valid JSON that follows the DTDL v2 rules:
 
@@ -176,7 +176,7 @@ A device can send any valid JSON that follows the DTDL v2 rules:
    :::column-end:::
 :::row-end:::
 
-### Sample multiple components writeable property
+### Sample multiple components writable property
 
 The device must add the `{"__t": "c"}` marker to indicate that the element refers to a component.
 
