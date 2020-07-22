@@ -174,7 +174,7 @@
   - name: Player clients
     items:
     - name: Azure Media Player
-      href: ../azure-media-player/azure-media-player-overview.md
+      href: https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview
   - name: Developing with v3 APIs
     items:
     - name: Overview
