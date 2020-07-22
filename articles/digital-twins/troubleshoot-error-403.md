@@ -60,7 +60,7 @@ The second solution is to verify that the AAD app registration has permissions c
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Set up access permissions for client applications* section of *How-to: Set up an instance and authentication (Manual)*](how-to-authenticate-client.md#set-up-access-permissions-for-client-applications).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in the [*Set up access permissions for client applications* section of *How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md#set-up-access-permissions-for-client-applications).
 
 ## Next steps
 
