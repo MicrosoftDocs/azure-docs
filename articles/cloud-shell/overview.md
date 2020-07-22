@@ -21,17 +21,21 @@ ms.author: damaerte
 
 Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources. It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell.
 
-Try from shell.azure.com by selecting the following button below:
+You can access the Cloud Shell in three ways:
 
-[![Embedded Cloud Shell launch button](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. Open a browser to [https://shell.azure.com](https://shell.azure.com).
 
-Try from Azure portal using the Cloud Shell icon:
+1. Select the Cloud Shell icon on the [Azure portal](https://portal.azure.com):
 
-![Icon to launch the Cloud Shell from the Azure portal](media/overview/portal-launch-icon.png)
+    ![Icon to launch the Cloud Shell from the Azure portal](media/overview/portal-launch-icon.png)
 
-On [docs.microsoft.com](https://docs.microsoft.com) and [Microsoft Learn](https://docs.microsoft.com/learn/), use the **Try It** button in a code snippet to open the Cloud Shell:
+1. On [docs.microsoft.com](https://docs.microsoft.com) and [Microsoft Learn](https://docs.microsoft.com/learn/), select the **Try It** button in a code snippet like the example below.
 
-![Portal launch](media/overview/cli-try-it-button.png)
+    ```azurecli-interactive
+    az account show
+    ```
+
+    The **Try It** button opens the Cloud Shell but does not automatically paste the command. To run the command, use **Copy** in the code snippet, use **Ctrl**+**Shift**+**V** (Windows/Linux) or **Cmd**+**Shift**+**V** (macOS) to paste the command, and then press **Enter**.
 
 ## Features
 
