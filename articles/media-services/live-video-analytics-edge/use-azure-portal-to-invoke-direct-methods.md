@@ -34,9 +34,9 @@ Use the `GraphTopologyList` method call to retrieve a list of all the graph topo
 1. Log into Azure Portal
 1. **<TODO steps to get to the edge module?**
 1. Select the Live Video Analytics on IoT Edge module to bring up its configuration page.
-    ![Select the Live Video Analytics on IoT Edge module to bring up its configuration page](media/image1.png)
+    ![Select the Live Video Analytics on IoT Edge module to bring up its configuration page](media/use-azure-portal-to-invoke-directs-methods/modules.png)
 1. Click on the Direct method menu option.
-    ![Click on the Direct method menu option](media/image2.png)
+    ![Click on the Direct method menu option](media/use-azure-portal-to-invoke-directs-methods/module-details.png)
     > [!NOTE]
     > You might need to add a value in the Connection string sections as you can see on the current page. You do not need to hide or change anything in the Setting name section. It is ok to let it be public.
 
@@ -48,9 +48,9 @@ Use the `GraphTopologyList` method call to retrieve a list of all the graph topo
     }
     ```
 1. Click on the **Invoke Method** button at the top of the page.
-    ![placeholder text](media/image4.png)
+    ![invoke method button](media/use-azure-portal-to-invoke-directs-methods/direct-method.png)
 1. You should see a status 200 message in the **Result** area.
-    ![placeholder text](media/image5.png)
+    ![connection timeout](media/use-azure-portal-to-invoke-directs-methods/connection-timeout.png)
 
 ## Responses
 
