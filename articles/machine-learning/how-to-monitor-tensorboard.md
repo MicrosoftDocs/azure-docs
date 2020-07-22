@@ -110,7 +110,7 @@ os.environ["TEST_TMPDIR"] = data_dir
 
 # Writing logs to ./logs results in their being uploaded to Artifact Service,
 # and thus, made accessible to our TensorBoard instance.
-arguments_list = ["--log_dir", logs_dir]
+script_params = ["--log_dir", logs_dir]
 
 # Create an experiment
 exp = Experiment(ws, experiment_name)
@@ -152,7 +152,6 @@ The TensorFlow estimator provides a simple way of launching a TensorFlow trainin
 
 ```Python
 from azureml.train.dnn import TensorFlow
-script_params = {"--log_dir": "./logs"}
 
 tf_estimator = TensorFlow(source_directory=exp_dir,
                           compute_target=compute_target,

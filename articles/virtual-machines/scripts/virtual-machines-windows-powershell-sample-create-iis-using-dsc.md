@@ -18,7 +18,7 @@ ms.date: 12/12/2017
 ms.author: cynthn
 ---
 
-# Create an IIS VM with PowerShell
+# Use an Azure PowerShell sample script to create an IIS VM
 
 This script creates an Azure Virtual Machine running Windows Server 2016, and then uses the Azure Virtual Machine DSC Extension to install IIS. After running the script, you can access the default IIS website on the public IP address of the virtual machine.
 
