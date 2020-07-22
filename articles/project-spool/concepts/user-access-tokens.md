@@ -66,7 +66,7 @@ app.post('/token', (req, res) => {
     // Scopes: chat, vpoid, pstn, joinroom
     // createToken method also accepts an identiy, but that should only be passed after
     // the user has already been assigned one to recreate their token.
-    const tokenResponse = userTokenClient.issueToken(USER_SCOPES[]);
+    const tokenResponse = await userTokenClient.issueToken(USER_SCOPES[]);
     
     // return the access token to the client
     res.json({ 
@@ -96,10 +96,10 @@ Read the [Identity Model concept page to learn more](identity-model.md).
 ```js
 
     // create a user access token and implicitly create a new ACS identity
-    const tokenResponse = UserTokenClient.issueToken([ "chat", "pstn" ], null)
+    const tokenResponse = await userTokenClient.issueToken([ "chat", "pstn" ])
     
     const identity = tokenResponse.identity;
-    tokenResponse = UserTokenClient.issueToken([ "chat", "pstn" ], identity)
+    tokenResponse = await userTokenClient.issueToken([ "chat", "pstn" ], { identity })
 
 ```
 --- 
@@ -124,12 +124,12 @@ var tokenResult = await userClient.IssueAsync(
 #### [Javascript](#tab/javascript)
 ```javascript
 // create a user access token that enables  voip calling
-// Only pass username if you have already generated an id,
+// Only pass identity if you have already generated an id,
 // if not omit, to generate a user id for the specific user
 
-var tokenResult = await UserTokenClient.issueToken(
-    username,
-    ['chat']
+var tokenResult = await userTokenClient.issueToken(
+    ['chat'],
+    { identity: ACS_ID }
 );
 
 ```
