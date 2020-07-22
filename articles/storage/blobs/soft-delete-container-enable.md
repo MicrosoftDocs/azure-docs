@@ -67,6 +67,8 @@ To enable container soft delete with an Azure Resource Manager template, create 
     }
     ```
 
+---
+
 1. Specify the retention period. The default value is 7.
 1. Save the template.
 1. Specify the resource group of the account, and then choose the **Review + create** button to deploy the template and enable container soft delete.
