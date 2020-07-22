@@ -48,16 +48,16 @@ Azure Private Link provides the following benefits:
 |  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions     | Supported for General Purpose and Meomry Optimized pricing tiers | GA <br/> [Learn more](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
 |  Azure Database for MySQL         | All public regions<br/> All Government regions      |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
 |  Azure Database for MariaDB         | All public regions<br/> All Government regions     |  | GA <br/> [Learn more](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  Azure Key Vault         | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |Azure Kubernetes Service - Kubernetes API | All public regions      |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|Azure Search | All public regions |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
-|Azure Container Registry | All public regions      | Supported with premium tier of container registry [Click for tiers](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| GA   <br/> [Learn more](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
+|Azure Search | All public regions <br/> All Government regions | Supported with service in Private Mode | GA   <br/> [Learn more](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
+|Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Click for tiers](https://docs.microsoft.com/azure/container-registry/container-registry-skus)| GA   <br/> [Learn more](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
 |Azure App Configuration | All public regions      |  | Preview   |
-|Azure Backup | All public regions     |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/backup/private-endpoints)   |
-|Azure Event Hub | All public regions      |   | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
-|Azure Service Bus | All public regions  | Supported with premium tier of Azure Service Bus. [Click for tiers](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
+|Azure Backup | All public regions<br/> All Government regions   |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/backup/private-endpoints)   |
+|Azure Event Hub | All public regions<br/>All Government regions      |   | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
+|Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Click for tiers](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-premium-messaging) | GA   <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
 |Azure Relay | All public regions      |  | Preview <br/> [Learn more](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
-|Azure Event Grid| All public regions       |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
+|Azure Event Grid| All public regions<br/> All Government regions       |  | GA   <br/> [Learn more](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Azure Web Apps | All public regions      | Supported with PremiumV2 Windows and Linux and Elastic Premium Functions  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
 |Azure Machine Learning | EAST US, WEST US 2, SOUTH CENTRAL US      |  | Preview   <br/> [Learn more](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Azure Automation  | All public regions |  | Preview | |

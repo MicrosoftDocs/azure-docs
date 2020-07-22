@@ -188,7 +188,7 @@ Here's an example of a custom role definition:
 }
 ```
 
-For more general information on creating a custom role, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+For more general information on creating a custom role, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ### Get the tenant ID for your Azure Active Directory
 

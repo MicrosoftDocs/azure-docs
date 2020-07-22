@@ -1104,6 +1104,8 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
+      - name: Request quota increase
+        href: create-support-request-quota-increase.md
     - name : Monitor
       items:
       - name: Monitor Cosmos DB
