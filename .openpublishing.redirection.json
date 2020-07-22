@@ -8049,6 +8049,66 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/connectors/connectors-create-api-office365-video",
+      "redirect_url": "/connectors/office365video/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-mailchimp",
+      "redirect_url": "/connectors/mailchimp/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-trello",
+      "redirect_url": "/connectors/trello/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-projectonline",
+      "redirect_url": "/connectors/projectonline/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-microsofttranslator",
+      "redirect_url": "/connectors/microsofttranslator/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-facebook",
+      "redirect_url": "/connectors/facebook/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-box",
+      "redirect_url": "/connectors/box/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-office365-users",
+      "redirect_url": "/connectors/office365users/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-yammer",
+      "redirect_url": "/connectors/yammer/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-dropbox",
+      "redirect_url": "/connectors/dropbox/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-rss",
+      "redirect_url": "/connectors/rss/",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/connectors/connectors-create-api-twitter",
+      "redirect_url": "/connectors/twitterconnector/",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/logic-apps/create-logic-apps-visual-studio-code.md",
       "redirect_url": "/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code",
       "redirect_document_id": true
