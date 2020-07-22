@@ -17,7 +17,7 @@ ms.subservice: common
 
 Communication between a client application and an Azure Storage account is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
-Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. TLS 1.2 is the most secure version of TLS. Azure Storage uses TLS 1.2 on public HTTPs endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. TLS 1.2 is the most secure version of TLS. Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
 By default, Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an earlier version will fail.
 
@@ -55,7 +55,7 @@ For a reference of fields available in Azure Storage logs in Azure Monitor, see 
 
 Azure Storage logs in Azure Monitor include the TLS version used to send a request to a storage account. Use the **TlsVersion** property to check the TLS version of a logged request.
 
-To retrieve logs for the last 7 days and determine how many requests were made against Blob storage with each version of TLS, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
+To retrieve logs for the last seven days and determine how many requests were made against Blob storage with each version of TLS, open your Log Analytics workspace. Next, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
 
 ```kusto
 StorageBlobLogs
@@ -71,7 +71,7 @@ The results show the count of the number of requests made with each version of T
 
 Azure Storage logs in Azure Monitor also include the caller IP address and user agent header to help you to evaluate which client applications accessed the storage account. You can analyze these values to decide whether client applications must be updated to use a newer version of TLS, or whether it's acceptable to fail a client's request if it is not sent with the minimum TLS version.
 
-To retrieve logs for the last 7 days and determine which clients made requests with a version of TLS prior to TLS 1.2, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
+To retrieve logs for the last seven days and determine which clients made requests with a version of TLS prior to TLS 1.2, paste the following query into a new log query and run it. Remember to replace the placeholder values in brackets with your own values:
 
 ```kusto
 StorageBlobLogs
@@ -102,7 +102,7 @@ To configure the minimum TLS version for a storage account with the Azure portal
 
 # [PowerShell](#tab/powershell)
 
-To configure the minimum TLS version for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **MinimumTLSVersion** property for a new or existing storage account. Valid values for **MinimumTlsVersion** are `TLS1_0`, `TLS1_1` and `TLS1_2`.
+To configure the minimum TLS version for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **MinimumTLSVersion** property for a new or existing storage account. Valid values for **MinimumTlsVersion** are `TLS1_0`, `TLS1_1`, and `TLS1_2`.
 
 The following example creates a storage account and sets the **MinimumTLSVersion** to TLS 1.1, then updates the account and sets the **MinimumTLSVersion** to TLS 1.2. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
 
@@ -124,9 +124,9 @@ Set-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -Minim
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure the minimum TLS version for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **minimumTlsVersion** property for a new or existing storage account. Valid values for **minimumTlsVersion** are `TLS1_0`, `TLS1_1` and `TLS1_2`.
+To configure the minimum TLS version for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **minimumTlsVersion** property for a new or existing storage account. Valid values for **minimumTlsVersion** are `TLS1_0`, `TLS1_1`, and `TLS1_2`.
 
-The following example creates a storage account and sets the **minimumTLSVersion** to TLS 1.1, then updates the account and sets the **minimumTLSVersion** property to TLS 1.2. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
+The following example creates a storage account and sets the **minimumTLSVersion** to TLS 1.1. It then updates the account and sets the **minimumTLSVersion** property to TLS 1.2. The example also retrieves the property value in each case. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage account create \
@@ -158,7 +158,7 @@ az resource show \
 
 # [Template](#tab/template)
 
-To configure the minimum TLS version for a storage account with a template, create a template with the **MinimumTLSVersion** property set to `TLS1_0`, `TLS1_1` or `TLS1_2`. The following steps describe how to create a template in the Azure portal.
+To configure the minimum TLS version for a storage account with a template, create a template with the **MinimumTLSVersion** property set to `TLS1_0`, `TLS1_1`, or `TLS1_2`. The following steps describe how to create a template in the Azure portal.
 
 1. In the Azure portal, choose **Create a resource**.
 1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
