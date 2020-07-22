@@ -44,7 +44,7 @@ Learn more about [threat protection for Azure Storage](threat-protection.md#thre
 
 ### Container security improvements - faster registry scanning and refreshed documentation
 
-As part of the continuous investments in the container security domain, we are happy to share a significant performance improvement in the Security Center's dynamic scans of Azure Container Registry based container images. Scans now typically complete in approximately two minutes. In some cases, they might take up to 15 minutes.
+As part of the continuous investments in the container security domain, we are happy to share a significant performance improvement in Security Center's dynamic scans of container images stored in Azure Container Registry. Scans now typically complete in approximately two minutes. In some cases, they might take up to 15 minutes.
 
 To improve the clarity and guidance regarding Azure Security Center's container security capabilities, we've also refreshed the container security documentation pages. 
 
