@@ -18,7 +18,7 @@ This article explains how to migrate ExpressRoute-associated virtual networks fr
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Verify that you have the latest versions of the Azure PowerShell modules. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). To install the PowerShell Service Management module (which is needed for the classic deployment model), see [Installing the Azure PowerShell Service Management Module](/powershell/azure/servicemanagement/install-azure-ps).
+* Verify that you have the latest versions of the Azure PowerShell modules. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/). To install the PowerShell Service Management module (which is needed for the classic deployment model), see [Installing the Azure PowerShell Service Management Module](/powershell/azure/servicemanagement/install-azure-ps).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * Review the information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md). Make sure that you fully understand the limits and limitations.
 * Verify that the circuit is fully operational in the classic deployment model.
