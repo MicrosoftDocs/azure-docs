@@ -23,8 +23,8 @@ ms.author: danlep
 | Container deletes per 5 minutes | 100<sup>1</sup> |
 
 
-<sup>1</sup>To request a limit increase, create an [Azure Support request][azure-support].<br />
-<sup>2</sup>Default limit for [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. Limit is lower for certain category types, including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/). Free subscriptions aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br/>
+<sup>1</sup>To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
+<sup>2</sup>Default limit for [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription. Limit differs for other category types.<br/>
 <sup>3</sup>GPU resource supports up to 6 CPUs per GPU.
 
 <!-- LINKS - External -->
