@@ -345,7 +345,7 @@
     - name: Ephemeral OS disks
       href: ephemeral-os-disks.md
   - name: Networking
-    href: network-overview.md
+    href: ../network-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Scale sets
     href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
   - name: Infrastructure automation
