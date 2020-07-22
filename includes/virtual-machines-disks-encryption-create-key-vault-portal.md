@@ -13,7 +13,7 @@ Setting up customer-managed keys for your disks will require you to create resou
 
 ## Set up your Azure Key Vault
 
-1. Sign into the [Azure portal](https://portal.azure.com/).
+1. Sign into the [Azure portal](https://aka.ms/diskencryptionupdates).
 1. Search for and select **Key Vaults**.
 
     [ ![server-side-encryption-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/server-side-encryption-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sever-side-encryption-key-vault-portal-search-expanded.png#lightbox)
@@ -63,6 +63,6 @@ Setting up customer-managed keys for your disks will require you to create resou
 
     ![Screenshot of alert popup: 'To associate a disk, image, or snapshot with a disk encryption set, you must grant permissions to the key vault'. Select this alert to continue](media/virtual-machines-disk-encryption-portal/server-side-encryption-disk-encryption-set-alert-fix.png)
 
-Two notifications should pop up and succeed. Doing this will allow you to use the disk encryption set with your key vault.
+    Two notifications should pop up and succeed. This allows you to use the disk encryption set with your key vault.
 
-![Screenshot of successful permission and role assignment for your key vault.](media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
+    ![Screenshot of successful permission and role assignment for your key vault.](media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
