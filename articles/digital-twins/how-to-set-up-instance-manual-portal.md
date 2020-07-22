@@ -86,7 +86,9 @@ From the instance's *Overview* page, note its *hostName*, *name*, and *resourceG
 
 You now have an Azure Digital Twins instance ready to go. Next, you'll give the appropriate Azure user permissions to manage it.
 
-[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+## Set up your user's access permissions
+
+[!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
 First, open the details page for your Azure Digital Twins instance in the Azure portal. From the instance menu, select *Access control (IAM)*. Hit the  _Add_ button under _Add a role assignment_.
 
@@ -106,6 +108,60 @@ You can view the role assignment you've set up under *Access control (IAM) > Rol
 :::image type="content" source="media/how-to-set-up-instance/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
 
 You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it. Next, you'll set up permissions for a client app to access it.
+
+## Set up access permissions for client applications
+
+[!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+
+In your working directory, open a new file and enter the following JSON snippet to configure these details: 
+
+```json
+[{
+    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
+    "resourceAccess": [
+     {
+       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
+       "type": "Scope"
+     }
+    ]
+}]
+``` 
+
+Save this file as *manifest.json*.
+
+> [!NOTE] 
+> There are some places where a "friendly," human-readable string `https://digitaltwins.azure.net` can be used for the Azure Digital Twins resource app ID instead of the GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. For instance, many examples throughout this documentation set use authentication with the MSAL library, and the friendly string can be used for that. However, during this step of creating the app registration, the GUID form of the ID is required as it is shown above. 
+
+In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
+
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
+Navigate to the *manifest.json* you just created and hit "Open."
+
+Next, run the following command to create an app registration (replacing placeholders as needed):
+
+```azurecli
+az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
+```
+
+Here is an excerpt of the output from this command, showing information about the registration you've created:
+
+:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
+
+### Verify success
+
+[!INCLUDE [digital-twins-setup-verify-app-registration.md](../../includes/digital-twins-setup-verify-app-registration.md)]
+
+### Collect important values
+
+Next, select *Overview* from the menu bar to see the details of the app registration:
+
+:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
+
+Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
+
+### Other possible steps for your organization
+
+[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
 
 ## Next steps
 
