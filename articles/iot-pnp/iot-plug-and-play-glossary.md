@@ -3,21 +3,15 @@ title: Glossary of terms - IoT Plug and Play Preview | Microsoft Docs
 description: Concepts - a glossary of common terms relating to IoT Plug and Play Preview.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/23/2019
+ms.date: 07/22/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
 ---
 
 # Glossary of terms for IoT Plug and Play Preview
 
 Definitions of common terms as used in the IoT Plug and Play articles.
-
-## Azure IoT Tools extension
-
-Azure IoT Tools is a a collection of extensions in [Visual Studio code](#visual-studio-code) that help you interact with IoT Hub and develop IoT devices. For IoT Plug and Play device development, it helps you to author [device models](#device-model) and [interfaces](#interface)..
 
 ## Azure IoT explorer tool
 
@@ -25,6 +19,7 @@ The Azure IoT explorer is a graphical tool you can use to interact with and test
 
 - View the devices connected to your [IoT hub](#azure-iot-hub).
 - Connect to an IoT Plug and Play device.
+- View the device [components](#components).
 - View the [telemetry](#telemetry) the device sends.
 - Work with device [properties](#properties).
 - Call device [commands](#commands).
@@ -44,9 +39,9 @@ There are device SDKs for multiple languages that you can use to build IoT Plug 
 
 Commands defined in an [interface](#interface) represent methods that can be executed on the [digital twin](#digital-twin). For example, a command to reboot a device.
 
-## Common interface
+## Component
 
-All [IoT Plug and Play devices](#iot-plug-and-play-device) are expected to implement some common [interfaces](#interface). For example, the device information interface defines hardware and operating system information about the device. You can retrieve common interface definitions from the public model repository.
+A DTDL model can combine multiple [interfaces](#interface) as components. For example, a model might include a switch component and thermostat component. Multiple components in a model can also use the same interface type. For example a model might include two thermostat components.
 
 ## Connection string
 
@@ -57,7 +52,7 @@ A connection string encapsulates the information required to connect to an endpo
 
 ## Device model
 
-A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the set of [interfaces](#interface) implemented by the device. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language](#digital-twins-definition-language) to define a device model.
+A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the [components](#components) that make up the device. A simple device model has no separate components and contains a definition for a single root-level interface. A more complex device model includes multiple components. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language](#digital-twins-definition-language) to define a device model.
 
 ## Device builder
 
@@ -65,15 +60,7 @@ A device builder uses a [device model](#device-model), [interfaces](#interface),
 
 ## Device modeling
 
-A [device builder](#device-builder) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using the model repository. A [solution builder](#solution-builder) can configure an IoT solution from the model.
-
-## Device Provisioning Service
-
-Azure IoT Central uses the Device Provisioning Service to manage all device registration and connection. For more information, see [Device connectivity in Azure IoT Central](../iot-central/core/concepts-get-connected.md). You can also use the Device Provisioning Service to manage device registration and connection to your IoT Hub-based IoT solution. For more information, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
-
-## Device registration
-
-Before an [IoT Plug and Play device](#iot-plug-and-play-device) can connect to an IoT solution, it must be registered with the solution. Azure IoT Central uses the [Device Provisioning Service](#device-provisioning-service) to manage device registration. In a custom IoT solution, you can register devices with your IoT hub in the Azure portal or programmatically.
+A [device builder](#device-builder) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using a model repository. A [solution builder](#solution-builder) can configure an IoT solution from the model.
 
 ## Digital twin
 
@@ -93,7 +80,7 @@ A route set up in an [IoT hub](#azure-iot-hub) to deliver [digital twin change e
 
 ## Interface
 
-An interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model).
+An interface describes related capabilities that are implemented by a [IoT Plug and Play device](#iot-plug-and-play-device) or [digital twin](#digital-twin). You can reuse interfaces across different [device models](#device-model). When an interface is used in a device model, it defines a [component](#component) of the device.
 
 ## IoT Hub query language
 
@@ -103,13 +90,21 @@ The IoT Hub query language is used for multiple purposes. For example, you can u
 
 An IoT Plug and Play device is typically a small-scale, standalone computing device that collects data or controls other devices, and that runs software or firmware that implements a [device model](#device-model).  For example, an IoT Plug and Play device might be an environmental monitoring device, or a controller for a smart-agriculture irrigation system. You can write a cloud-hosted IoT solution to command, control, and receive data from IoT Plug and Play devices.
 
+## IoT Plug and Play conventions
+
+IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a set of [conventions](concepts-convention.md) when they exchange data with a solution.
+
 ## Model discovery
 
-When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device model](#device-model). A device can send its model to the solution, or the solution can find a device model in the [model repository](#model-repository).
+When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device model](#device-model). The solution can find a device model in a [model repository](#model-repository).
+
+## Model ID
+
+When an IoT Plug and Play device connects to an IoT Hub it sends the **Model ID** of the [DTDL](#digital-twins-definition-language) model it implements. This enables the solution to find the device model.
 
 ## Model repository
 
-The model repository stores [device models](#device-model) and [interfaces](#interface). Organizations can store their own models and interfaces in the repository and manage access with RBAC.
+A model repository stores [device models](#device-model) and [interfaces](#interface).
 
 ## Model repository REST API
 
@@ -118,14 +113,6 @@ An API for managing and interacting with the model repository. For example, you 
 ## Properties
 
 Properties are data fields defined in an [interface](#interface) that represent some state of a digital twin. You can declare properties as read-only or writable. Read-only properties, such as serial number, are set by code running on the [IoT Plug and Play device](#iot-plug-and-play-device) itself.  Writable properties, such as an alarm threshold, are typically set from the cloud-based IoT solution.
-
-## Registration ID
-
-A registration ID uniquely identifies a device in the [Device Provisioning Service](#device-provisioning-service). This ID isn't the same as the device ID that's a unique identifier for a device in an [IoT hub](#azure-iot-hub).
-
-## Scope ID
-
-The Scope ID scope uniquely identifies a [Device Provisioning Service](#device-provisioning-service) instance.
 
 ## Shared access signature
 
@@ -138,7 +125,3 @@ A solution builder creates the solution back end. A solution builder typically w
 ## Telemetry
 
 Telemetry fields defined in an [interface](#interface) represent measurements. These measurements are typically values such as sensor readings that are sent by the [IoT Plug and Play device](#iot-plug-and-play-device) as a stream of data.
-
-## Visual Studio code
-
-Visual Studio code is a modern code editor available for multiple platforms. Extensions, such as those in the [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pack, enable you to customize the editor to support a wide range of development scenarios.
