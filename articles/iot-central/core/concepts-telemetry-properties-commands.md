@@ -757,6 +757,21 @@ A device client should send a JSON payload that looks like the following example
 
 This section shows examples of writeable property types that a device receives from an IoT Central application.
 
+IoT Central expects a response from the device to writeable property updates. The response message should include the `ac` and `av` fields. The `ad` field is optional. See the following snippets for examples.
+
+`ac` is a numeric field that uses the values in the following table:
+
+| Value | Label | Description |
+| ----- | ----- | ----------- |
+| `'ac': 200` | Completed | The property change operation was successfully completed. |
+| `'ac': 202`  or `'ac': 201` | Pending | The property change operation is pending or in progress |
+| `'ac': 4xx` | Error | The requested property change was not valid or had an error |
+| `'ac': 5xx` | Error | The device experienced an unexpected error when processing the requested change. |
+
+`av` is the version number sent to the device.
+
+`ad` is an option string description.
+
 The following snippet from a DCM shows the definition of a writeable `string` property type:
 
 ```json
