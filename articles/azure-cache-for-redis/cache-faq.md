@@ -36,7 +36,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [In what region should I locate my cache?](#in-what-region-should-i-locate-my-cache)
 * [Where do my cached data reside?](#where-do-my-cached-data-reside)
 * [How am I billed for Azure Cache for Redis?](#how-am-i-billed-for-azure-cache-for-redis)
-* [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China 21Vianet Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany)
+* [Can I use Azure Cache for Redis with Azure Government Cloud, Azure China 21Vianet Cloud, or Microsoft Azure Germany?](#can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-21vianet-cloud-or-microsoft-azure-germany)
 
 ## Development FAQs
 * [What do the StackExchange.Redis configuration options do?](#what-do-the-stackexchangeredis-configuration-options-do)
