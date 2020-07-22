@@ -1,5 +1,5 @@
 ---
-title: Automatically scale Azure Synapse Apache Spark instances
+title: Automatically scale Apache Spark instances
 description: Use the Azure Synapse Autoscale feature to automatically scale Apache Spark Instances
 author: euangMS
 ms.author: euang
