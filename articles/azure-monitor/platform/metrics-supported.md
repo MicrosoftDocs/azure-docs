@@ -19,30 +19,37 @@ This article is a complete list of all platform (that is, automatically collecte
 
 The metrics are organized by resource providers and resource type. For a list of services and the resource providers that belong to them, see [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-## Routing platform metrics to other locations
+## Exporting platform metrics to other locations
 
-You can use [diagnostics settings](diagnostic-settings.md) to route platform metrics to Azure Storage, Azure Monitor Logs (and thus Log Analytics), and Event hubs.  
+You can export the platform metrics from the Azure monitor pipeline to other locations in one of two ways.
+1. Use the [metrics REST API](/rest/api/monitor/metrics/list)
+2. Use [diagnostics settings](diagnostic-settings.md) to route platform metrics to 
+    - Azure Storage
+    - Azure Monitor Logs (and thus Log Analytics)
+    - Event hubs, which is how you get them to non-Microsoft systems 
 
-There are some limitations in what can be routed and the form in which they are stored. 
-- Not all metrics are exportable to other locations. For a list of platform metrics exportable via diagnostic settings, see [this article](metrics-supported-export-diagnostic-settings.md).
+Using diagnostic settings is the easiest way to route the metrics, but there are some limitations: 
 
-- Sending multi-dimensional metrics to other locations via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.
-*For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
+- **Some not exportable** - All metrics are exportable using the REST API, but some cannot be exported using Diagnostic Settings because of intricacies in the Azure Monitor backend. The column *Exportable via Diagnostic Settings* in the tables below list which metrics can be exported in this way.  
 
+- **Multi-dimensional metrics** - Sending multi-dimensional metrics to other locations via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values. *For example*: The 'Incoming Messages' metric on an Event Hub can be explored and charted on a per queue level. However, when exported via diagnostic settings the metric will be represented as all incoming messages across all queues in the Event Hub.
 
-## Guest OS Metrics
+## Guest OS and Host OS Metrics
+
 > [!WARNING]
-> Metrics for the guest operating system (guest OS) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Guest OS metrics must be collected through the one or more agents which run on or as part of the guest operating system.  Guest OS metrics include performance counters which track guest CPU percentage or memory usage, both of which are  frequently used for auto-scaling or alerting.  
+> Metrics for the guest operating system (guest OS) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Guest OS metrics must be collected through the one or more agents which run on or as part of the guest operating system.  Guest OS metrics include performance counters which track guest CPU percentage or memory usage, both of which are  frequently used for auto-scaling or alerting. 
+> Host OS metrics ARE available and listed below. They are not the same. The Host OS metrics relate to the Hyper-V session hosting your Guest OS session. 
 
-Use the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest os performance metrics into the same database where platform metrics are stored. It routes guest os metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest os metrics like platform metrics. 
+> [!TIP]
+> Best practice is to use the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest os performance metrics into the same Azure Monitor metric database where platform metrics are stored. The extension routes guest os metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest os metrics like platform metrics. 
+> Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. There you can query on them in combination with non-metric data. 
 
-Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. 
-
-For additional information, see [Monitoring Agents Overview](agents-overview.md).    
+For important additional information, see [Monitoring Agents Overview](agents-overview.md).    
 
 ## Table formatting
 
-[!IMPORTANT] This latest update adds a new column and reordered metrics to be alphabetic. The addition information means that the table below may have a horizontal scroll bars at the bottom, depending on the width of your browser window. If you believe you are missing information, use the scroll bar to see the entirety of the table.
+> [!IMPORTANT] 
+> This latest update adds a new and reordered metrics to be alphabetic. The addition information means that the table below may have a horizontal scroll bars at the bottom, depending on the width of your browser window. If you believe you are missing information, use the scroll bar to see the entirety of the table.
 
 
 ## Microsoft.AnalysisServices/servers
