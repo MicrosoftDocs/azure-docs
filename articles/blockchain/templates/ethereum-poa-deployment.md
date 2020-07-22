@@ -20,9 +20,9 @@ Before choosing to use the Ethereum proof-of-authority consortium solution templ
 
 Option | Service model | Common use case
 -------|---------------|-----------------
-Solution templates | IaaS | Solution templates are Azure Resource Manager templates you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a given blockchain network type. Solution templates are provided without a service level agreement. Use the [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) for support.
+Solution templates | IaaS | Solution templates are Azure Resource Manager templates you can use to provision a fully configured blockchain network topology. The templates deploy and configure Microsoft Azure compute, networking, and storage services for a given blockchain network type. Solution templates are provided without a service level agreement. Use the [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html) for support.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifies the formation, management, and governance of consortium blockchain networks. Use Azure Blockchain Service for solutions requiring PaaS, consortium management, or contract and transaction privacy.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a blockchain application proof of concept. Azure Blockchain Workbench is provided without a service level agreement. Use the [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) for support.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS and PaaS | Azure Blockchain Workbench Preview is a collection of Azure services and capabilities designed to help you create and deploy blockchain applications to share business processes and data with other organizations. Use Azure Blockchain Workbench for prototyping a blockchain solution or a blockchain application proof of concept. Azure Blockchain Workbench is provided without a service level agreement. Use the [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html) for support.
 
 ## Solution architecture
 
@@ -731,10 +731,10 @@ To provide product feedback or to request new features, post or vote for an idea
 
 Engage with Microsoft engineers and Azure Blockchain community experts.
 
-* [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). Engineering support for blockchain templates is limited to deployment issues.
+* [Microsoft Q&A question page](/answers/topics/azure-blockchain-workbench.html). Engineering support for blockchain templates is limited to deployment issues.
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 
 ## Next steps
 
-For more Azure Blockchain solutions, see the [Azure Blockchain documentation](https://docs.microsoft.com/azure/blockchain/).
+For more Azure Blockchain solutions, see the [Azure Blockchain documentation](../index.yml).
