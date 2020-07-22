@@ -61,7 +61,7 @@ ProxyCalc does not cause changes to certain objects that:
 
 - do not have an active Exchange license 
 - have **MSExchRemoteRecipientType** set to Null 
-- are not considered a shared resource. Shared Resource is when **CloudMSExchRecipientDisplayType** contains one of the following values: **MailboxUser (shared)**, **ublicFolder**, **ConferenceRoomMailbox**, **EquipmentMailbox**, **ArbitrationMailbox**, **RoomList**, **TeamMailboxUser**, **Group mailbox**, **Scheduling mailbox**, **ACLableMailboxUser**, **ACLableTeamMailboxUser** 
+- are not considered a shared resource. Shared Resource is when **CloudMSExchRecipientDisplayType** contains one of the following values: **MailboxUser (shared)**, **PublicFolder**, **ConferenceRoomMailbox**, **EquipmentMailbox**, **ArbitrationMailbox**, **RoomList**, **TeamMailboxUser**, **Group mailbox**, **Scheduling mailbox**, **ACLableMailboxUser**, **ACLableTeamMailboxUser** 
   
  In order to build more correlation between these two disparate events, Microsoft is working on updating the **Actor** info in the audit logs to identify these changes as triggered by a verified domain change. This will help check when the verified domain change event took place and started to mass update the objects in their tenant. 
 
