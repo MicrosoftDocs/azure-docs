@@ -3,8 +3,8 @@ title: Secure Azure Data Lake Analytics for multiple users
 description: Learn how to configure multiple users to run jobs in Azure Data Lake Analytics.
 ms.service: data-lake-analytics
 services: data-lake-analytics
-author: matt1883
-ms.author: mahi
+author: xujxu
+ms.author: xujiang1
 
 ms.reviewer: jasonwhowell
 ms.topic: how-to

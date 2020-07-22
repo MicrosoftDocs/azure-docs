@@ -1,8 +1,8 @@
 ---
 title: Understand Apache Spark data formats for Azure Data Lake Analytics U-SQL developers.
 description: This article describes Apache Spark concepts to help U_SQL developers understand differences between U-SQL and Spark data formats.
-author: guyhay
-ms.author: guyhay
+author: xujxu
+ms.author: xujiang1
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to

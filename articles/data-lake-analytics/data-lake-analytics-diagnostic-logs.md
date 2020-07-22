@@ -3,8 +3,8 @@ title: Enable and view diagnostic logs for Azure Data Lake Analytics
 description: Understand how to set up and access diagnostic logs for Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: xujxu
+ms.author: xujiang1
 ms.topic: how-to
 ms.date: 02/12/2018
 ---

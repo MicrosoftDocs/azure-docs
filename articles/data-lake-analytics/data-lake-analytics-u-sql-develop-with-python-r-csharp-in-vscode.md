@@ -3,8 +3,8 @@ title: Run U-SQL jobs in Python, R, and C# - Azure Data Lake Analytics
 description: Learn how to use code behind with Python, R and C# to submit job in Azure Data Lake.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: jejiang
-ms.author: jejiang
+author: xujxu
+ms.author: xujiang1
 
 ms.reviewer: jasonwhowell
 ms.topic: how-to

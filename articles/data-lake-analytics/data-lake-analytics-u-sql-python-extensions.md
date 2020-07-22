@@ -3,8 +3,8 @@ title: Extend U-SQL scripts with Python in Azure Data Lake Analytics
 description: Learn how to run Python code in U-SQL scripts using Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
+author: xujxu
+ms.author: xujiang1
 ms.reviewer: jasonwhowell
 ms.topic: how-to
 ms.date: 06/20/2017

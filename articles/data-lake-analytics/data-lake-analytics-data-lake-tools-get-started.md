@@ -3,8 +3,8 @@ title: Query Azure Data Lake Analytics - Visual Studio
 description: Learn how to install Data Lake Tools for Visual Studio, and how to develop and test U-SQL scripts. 
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
+author: xujxu
+ms.author: xujiang1
 ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: how-to

@@ -3,8 +3,8 @@ title: Manage Azure Data Lake Analytics using Azure PowerShell
 description: This article describes how to use Azure PowerShell to manage Data Lake Analytics accounts, data sources, users, & jobs.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: matt1883
-ms.author: mahi
+author: xujxu
+ms.author: xujiang1
 
 ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
