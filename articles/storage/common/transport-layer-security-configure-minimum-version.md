@@ -226,12 +226,12 @@ If you have a large number of storage accounts, you may want to perform an audit
 
 ### Create an audit policy
 
-To create an audit policy for the minimum TLS version, follow these steps:
+To create an audit policy for the minimum TLS version with the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the Azure Policy service.
 1. Under the **Authoring** section, select **Definitions**.
 1. Select **Add policy definition** to create a new policy definition.
-1. For the **Definition location** field, select the **More** button to specify the scope for the audit policy.
+1. For the **Definition location** field, select the **More** button to specify where the audit policy resource is located.
 1. Specify a name for the policy. You can optionally specify a description and category.
 1. Under **Policy rule**, add the following policy definition to the policyRule section.
 
@@ -261,17 +261,31 @@ To create an audit policy for the minimum TLS version, follow these steps:
 
 ### Assign the policy
 
-Next, assign the policy.
+Next, assign the policy to a resource. The scope of the policy corresponds to that resource and any resources beneath it.
 
-To assign the policy, follow these steps:
+To assign the policy with the Azure portal, follow these steps:
 
 1. In the Azure portal, navigate to the Azure Policy service.
 1. Under the **Authoring** section, select **Assignments**.
 1. Select **Assign policy** to create a new policy assignment.
 1. For the **Scope** field, select the scope of the policy assignment.
-1. For the **Policy definition** field, select the policy you defined in the previous section.
-1. Provide a name for the policy assignment.
+1. For the **Policy definition** field, select the **More** button, then select the policy you defined in the previous section from the list.
+1. Provide a name for the policy assignment. The description is optional.
+1. Leave **Policy enforcement** set to *Enabled*. This setting has no effect on the audit policy.
+1. Select **Review + create** to create the assignment.
 
+### View compliance report
+
+After you've assigned the policy, you can view the compliance report. It may take several minutes for the compliance report to become available after the policy assignment is created.
+
+To view the compliance report in the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to the Azure Policy service.
+1. Select **Compliance**.
+1. Filter the results for the name of the policy assignment that you created in the previous step. The report shows how many resources are not in compliance with the policy.
+1. You can drill down into the report for additional details, including the names of storage accounts are not in compliance.
+
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot showing compliance report for audit policy for minimum TLS version":::
 
 ## Use Azure Policy to enforce the minimum TLS version
 
