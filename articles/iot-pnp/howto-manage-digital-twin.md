@@ -183,7 +183,7 @@ Make sure the update patch follows the [rules for setting desired value of a dig
 
 When you update a component, make sure that the [empty object $metadata marker](#add-replace-or-remove-a-component) is set.
 
-Updates can fail if a device's reported values don't conform to the [IoT plug and play conventions](./concepts-convention.md#writeable-properties).
+Updates can fail if a device's reported values don't conform to the [IoT plug and play conventions](./concepts-convention.md#writable-properties).
 
 ## Next steps
 
