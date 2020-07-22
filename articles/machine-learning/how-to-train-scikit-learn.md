@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: maxluk
-author: maxluk
+ms.author: jordane
+author: jpe316
 ms.date: 03/09/2020
 ms.custom: seodec18, tracking-python
 
@@ -17,7 +17,7 @@ ms.custom: seodec18, tracking-python
 # Build scikit-learn models at scale with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, learn how to run your scikit-learn training scripts at enterprise scale by using the Azure Machine Learning [SKlearn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class. 
+In this article, learn how to run your scikit-learn training scripts with Azure Machine Learning.
 
 The example scripts in this article are used to classify iris flower images to build a machine learning model based on scikit-learn's [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris).
 
@@ -96,53 +96,33 @@ Copy the training script **train_iris.py** into your project directory.
 import shutil
 shutil.copy('./train_iris.py', project_folder)
 ```
+## Create a ScriptRunConfig
 
-## Create or get a compute target
 
-Create a compute target for your scikit-learn job to run on. Scikit-learn only supports single node, CPU computing.
-
-The following code, creates an Azure Machine Learning managed compute (AmlCompute) for your remote training compute resource. Creation of AmlCompute takes approximately 5 minutes. If the AmlCompute with that name is already in your workspace, this code will skip the creation process.
-
-```Python
-cluster_name = "cpu-cluster"
-
-try:
-    compute_target = ComputeTarget(workspace=ws, name=cluster_name)
-    print('Found existing compute target')
-except ComputeTargetException:
-    print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2', 
-                                                           max_nodes=4)
-
-    compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
-
-    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-```
-
-[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
-
-For more information on compute targets, see the [what is a compute target](concept-compute-target.md) article.
-
-## Create a scikit-learn estimator
-
-The [scikit-learn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) provides a simple way of launching a scikit-learn training job on a compute target. It is implemented through the [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class, which can be used to support single-node CPU training.
 
 If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
 
 ```Python
-from azureml.train.sklearn import SKLearn
 
-script_params = {
-    '--kernel': 'linear',
-    '--penalty': 1.0,
-}
+from azureml.core import Environment
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core import ScriptRunConfig
 
-estimator = SKLearn(source_directory=project_folder, 
-                    script_params=script_params,
-                    compute_target=compute_target,
-                    entry_script='train_iris.py',
-                    pip_packages=['joblib']
-                   )
+myenv = Environment("myenv")
+myenv.python.conda_dependncies = CondaDependencies.create(conda_packages=['scikit-learn'])
+
+
+
+src = ScriptRunConfig(source_directory='', script='train.py')
+
+# Set compute target to your compute instance or local
+src.run_config.target = instance
+
+# Set environment
+src.run_config.environment = myenv
+ 
+run = experiment.submit(config=src)
+
 ```
 
 > [!WARNING]
