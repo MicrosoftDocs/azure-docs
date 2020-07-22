@@ -68,8 +68,10 @@ After setting up RDS and Azure AD Application Proxy for your environment, follow
    - Translate URL headers: No
 2. Assign users to the published RD application. Make sure they all have access to RDS, too.
 3. Leave the single sign-on method for the application as **Azure AD single sign-on disabled**.
->[!Note]
->Your users are asked to authenticate once to Azure AD and once to RD Web, but have single sign-on to RD Gateway.
+
+   >[!Note]
+   >Your users are asked to authenticate once to Azure AD and once to RD Web, but they have single sign-on to RD Gateway.
+
 4. Select **Azure Active Directory**, and then **App Registrations**. Choose your app from the list.
 5. Under **Manage**, select **Branding**.
 6. Update the **Home page URL** field to point to your RD Web endpoint (like `https://\<rdhost\>.com/RDWeb`).
