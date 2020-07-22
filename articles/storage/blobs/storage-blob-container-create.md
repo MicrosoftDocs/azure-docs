@@ -31,10 +31,20 @@ The URI for a container is in this format:
 
 To create a container, call one of the following methods:
 
+# [\.NET v12](#tab/dotnet)
+
+- [Create](/dotnet/api/azure.storage.blobs.blobcontainerclient.create)
+- [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync)
+- [CreateIfNotExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexists)
+- [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync)
+
+# [\.NET v11](#tab/dotnetv11)
+
 - [Create](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.create)
 - [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync)
 - [CreateIfNotExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists)
 - [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync)
+---
 
 The **Create** and **CreateAsync** methods throw an exception if a container with the same name already exists.
 
@@ -49,6 +59,7 @@ The following example creates a container asynchronously:
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="CreateSampleContainerAsync":::
 
 # [\.NET v11](#tab/dotnetv11)
+
 ```csharp
 private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBlobClient blobClient)
 {
@@ -128,10 +139,20 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
 
 To delete a container in .NET, use one of the following methods:
 
+# [\.NET v12](#tab/dotnet)
+
+- [Delete](/dotnet/api/azure.storage.blobs.blobcontainerclient.delete)
+- [DeleteAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteasync)
+- [DeleteIfExists](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexists)
+- [DeleteIfExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.deleteifexistsasync)
+
+# [\.NET v11](#tab/dotnetv11)
+
 - [Delete](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.delete)
 - [DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync)
 - [DeleteIfExists](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexists)
 - [DeleteIfExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteifexistsasync)
+---
 
 The **Delete** and **DeleteAsync** methods throw an exception if the container doesn't exist.
 
