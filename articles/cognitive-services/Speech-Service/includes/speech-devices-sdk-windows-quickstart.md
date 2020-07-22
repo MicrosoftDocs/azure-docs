@@ -69,7 +69,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.12.1</version>
+             <version>1.13.0</version>
         </dependency>
     </dependencies>
    ```
