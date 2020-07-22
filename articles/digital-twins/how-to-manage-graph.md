@@ -109,7 +109,7 @@ Azure Digital Twins also has an API to find all incoming relationships to a give
 
 The previous code sample focused on finding outgoing relationships. The following example is similar, but finds incoming relationships instead. It also deletes them once they are found.
 
-Note that the IncomingRelationship calls do not return the full
+Note that the `IncomingRelationship` calls do not return the full body of the relationship.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)

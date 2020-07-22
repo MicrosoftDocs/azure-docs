@@ -65,7 +65,7 @@ If any of this appears differently than described, follow the instructions on ho
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [*How-to: How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md)
+* [*How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md)
 
 Read more about security and permissions on Azure Digital Twins:
 * [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md)

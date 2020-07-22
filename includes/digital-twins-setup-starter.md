@@ -3,7 +3,7 @@ author: baanders
 description: include file for starter info in Azure Digital Twins setup
 ms.service: digital-twins
 ms.topic: include
-ms.date: 7/17/2020
+ms.date: 7/22/2020
 ms.author: baanders
 ---
 

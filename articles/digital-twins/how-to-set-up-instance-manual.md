@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service, including the proper authentication. Manual version.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/22/2020
+ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 
