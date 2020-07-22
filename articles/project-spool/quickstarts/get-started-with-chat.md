@@ -27,16 +27,14 @@ Before you get started, make sure to:
 
 
 
-## Installing the Acs web chat SDK
-Unzip the web chat sdk content on a local folder, and install each of the packages in the following order
+## Installing local npm tarballs
+For this quickstart you will need the tarballs for packages: chat, configuration, common
 
+After you've downloaded and unzipped a Release from the communication-preview repo ([here](https://github.com/Azure/communication-preview/releases)) you need to install the contained packages. Run `npm install <package>.tgz` to install a package.
 
-```bash
-npm install "C:\yourfolder\ic3-communicationservices-client-0.1.147.tgz"
-npm install "C:\yourfolder\ic3-communicationservices-signaling-0.1.147.tgz"
-npm install "C:\yourfolder\ic3-communicationservices-chat-0.1.147.tgz"
-```
+Install `@azure/communication-common ` first because packages need to be installed in dependency order in order to succeed.
 
+Navigate to the installed package in your `node_modules` folder to find a **README.md** for each package that explains usage with examples.
 
 ## User Access Tokens
 User access tokens enable you to build client applications that directly authenticate to Azure Communication Services. You generate these tokens on your server, pass them back to a client device, and then use them to initialize the Communication Services SDKs. Lear how to generate user access tokens from [User Access Tokens](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/user-access-tokens?branch=pr-en-us-104477).
@@ -45,10 +43,12 @@ User access tokens enable you to build client applications that directly authent
 ## Create the chat client
 
 ```Javascript
-import { ChatClient } from "@ic3/communicationservices-chat";
+import { ChatClient } from '@azure/communicationservices-chat';
+
 // Your unique Azure Communication service endpoint
 let endpointUrl = 'https://<RESOURCE_NAME>.communcationservices.azure.com';
 let chatClient = new ChatClient(endpointUrl, userAccessToken);
+
 ```
 For the generation of  the userAccessToken, refer to  [User Access Tokens](https://review.docs.microsoft.com/en-us/azure/project-spool/concepts/user-access-tokens?branch=pr-en-us-104477).
 
