@@ -145,15 +145,13 @@ Depending on the goal of the business problem, the ideal precision-recall curve 
 ### ROC chart
 
 #### What is a ROC chart?
-Receiver operating characteristic (or ROC) is a plot of the correctly classified labels vs. the incorrectly classified labels for a particular model. The ROC curve can be less informative when training models on datasets with high bias, as it will not show the false positive labels.
+The receiver operating characteristic (or ROC) is a plot of the correctly classified labels vs. the incorrectly classified labels for a particular model. The ROC curve can be less informative when training models on datasets with high class imbalance, as the majority class can drown out contribution from minority classes.
 
 #### What does automated ML do with the ROC chart?
-Automated ML generates Macro Average Precision-Recall, Micro Average Precision-Recall, and the precision-recall associated with all classes for a model. 
-
-Macro-average will compute the metric independently of each class and then take the average, treating all classes equally. However, micro-average will aggregate the contributions of all the classes to compute the average. Micro-average is preferable if there is class imbalance present in the dataset.
+You can visualize the area under the ROC chart as the proportion of correctly classified samples. An advanced user of the ROC chart might look beyond the area under the curve and get an intuition for the true positive and false positive rates as a function of the classification threshold or decision boundary.
 
 #### What does a good model look like?
-Ideally, the model will have closer to 100% true positive rate and closer to 0% false positive rate. 
+An ROC curve that approaches the top left corner with 100% true positive rate and 0% false positive rate will be the best model. A random model would display as a flat line from the bottom left to the top right corner. Worse than random would dip below the y=x line.
 
 ##### Example 1: A classification model with low true labels and high false labels
 ![Classification model with low true labels and high false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
@@ -163,7 +161,8 @@ Ideally, the model will have closer to 100% true positive rate and closer to 0% 
 <a name="lift-curve"></a>
 ### Lift chart
 #### What is a lift chart?
-Lift charts are used to evaluate the performance of a classification model. It shows how much better you can expect to do with the generated model compared to without a model in terms of accuracy.
+Lift charts are used to evaluate the performance of classification models. A lift chart shows how many times better a model performs compared to a random model. This gives you a relative performance that takes into account the fact that classification gets harder as you increase the number of classes. A random model will incorrectly predict a higher fraction of samples from a dataset with ten classes compared to a dataset with two classes.
+
 #### What does automated ML do with the lift chart?
 You can compare the lift of the model built automatically with Azure Machine Learning to the baseline in order to view the value gain of that particular model.
 #### What does a good model look like?
@@ -173,10 +172,10 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 ##### Example 2: A classification model that performs better than a random selection model
 ![A classification model that performs better](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 <a name="gains-curve"></a>
-### Gains chart
-#### What is a gains chart?
+### Cumulative gains chart
+#### What is a cumulative gains chart?
 
-A gains chart evaluates the performance of a classification model by each portion of the data. It shows for each percentile of the data set, how much better you can expect to perform compared against a random selection model.
+A cumulative gains chart evaluates the performance of a classification model by each portion of the data. For each percentile of the data set, the chart shows how many more samples have been accurately classified.
 
 #### What does automated ML do with the gains chart?
 Use the cumulative gains chart to help you choose the classification cutoff using a percentage that corresponds to a desired gain from the model. This information provides another way of looking at the results in the accompanying lift chart.
@@ -197,7 +196,7 @@ For all classification problems, you can review the calibration line for micro-a
 
 Macro-average will compute the metric independently of each class and then take the average, treating all classes equally. However, micro-average will aggregate the contributions of all the classes to compute the average. 
 #### What does a good model look like?
- A well-calibrated model aligns with the y=x line, where it correctly predicts the probability that samples belong to each class. An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample.
+A well-calibrated model aligns with the y=x line, where it correctly predicts the probability that samples belong to each class. An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample.
 
 
 ##### Example 1: A well-calibrated model
