@@ -48,7 +48,7 @@ Learn more about compute performance for Windows VMs using the [SPECInt benchmar
 
 ## Manage costs
 
-[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+[!INCLUDE [cost-management-horizontal](../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 
