@@ -41,7 +41,7 @@ An Availability Zone in an Azure region is a combination of a **fault domain** a
 
 With Availability Zones, Azure offers industry best 99.99% VM uptime SLA. By architecting your solutions to use replicated VMs in zones, you can protect your applications and data from the loss of a datacenter. If one zone is compromised, then replicated apps and data are instantly available in another zone.
 
-![Availability zones](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+![Availability zones](./media/virtual-machines-common-manage-availability/three-zones-per-region.png)
 
 Learn more about deploying a [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) or [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM in an Availability Zone.
 

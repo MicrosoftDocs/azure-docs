@@ -71,7 +71,7 @@ To provide product feedback or to request new features, post or vote for an idea
 
 Engage with Microsoft engineers and Azure Blockchain community experts.
 
-* [Microsoft Q&A question page for Azure Blockchain Service](https://docs.microsoft.com/answers/topics/azure-blockchain-service.html)
+* [Microsoft Q&A question page for Azure Blockchain Service](/answers/topics/azure-blockchain-service.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/AzureBlockchainService)
 

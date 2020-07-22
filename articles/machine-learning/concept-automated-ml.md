@@ -288,7 +288,7 @@ How to articles provide additional detail into what functionality AutoML offers.
 
 ### Jupyter notebook samples 
 
-Review detailed code examples and use cases in the [Github notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
+Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
 ### Python SDK reference 
 

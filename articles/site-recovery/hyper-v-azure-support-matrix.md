@@ -5,17 +5,17 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.author: raynew
 ---
 
 
 # Support matrix for disaster recovery of on-premises Hyper-V VMs to Azure
 
-
 This article summarizes the supported components and settings for disaster recovery of on-premises Hyper-V VMs to Azure by using [Azure Site Recovery](site-recovery-overview.md).
 
-
+>[!NOTE]
+> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been setup for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## Supported scenarios
 
@@ -69,6 +69,7 @@ Guest VM network: Static IP (Windows) | Yes | Yes
 Guest VM network: Static IP (Linux) | No | No
 Guest VM network: Multi-NIC | Yes | Yes
 Https Proxy | No | No
+Private link access to Site Recovery service | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Learn more](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
