@@ -180,7 +180,7 @@ In the [Configure Python scripts](#configure-python-scripts) section, two new ar
 step1 = PythonScriptStep(name="train_step",
                          script_name="train.py",
                          arguments=['--remote_debug', '--remote_debug_connection_timeout', 300],
-                         compute_target=aml_compute, 
+                         compute_target=aml_compute,
                          source_directory=source_directory,
                          runconfig=run_config,
                          allow_reuse=False)
