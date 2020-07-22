@@ -1,3 +1,17 @@
+---
+title: Tutorial to configure Azure Active Directory B2C with LexisNexis
+titleSuffix: Azure AD B2C
+description: Learn how to integrate Azure AD B2C authentication with LexisNexis which is a profiling and identity validation service and is used to verify user identification and provide comprehensive risk assessments based on the user's device.
+author: gargi-sinha
+manager: martinco
+
+ms.service: active-directory
+ms.workload: identity
+ms.topic: how-to
+ms.date: 07/22/2020
+ms.author: gasinh
+ms.subservice: B2C
+---
 # Tutorial for configuring LexisNexis with Azure Active Directory B2C
 
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [LexisNexis](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). LexisNexis provides a variety of solutions, you can find them [here](https://risk.lexisnexis.com/products/threatmetrix/?utm_source=bingads&utm_medium=ppc&utm_campaign=SEM%7CLNRS%7CUS%7CEN%7CTMX%7CBR%7CBing&utm_term=threat%20metrix&utm_network=o&utm_device=c&msclkid=1e85e32ec18c1ae9bbc1bc2998e026bd). In this sample tutorial, we'll cover the **ThreatMetrix** solution from LexisNexis. ThreatMetrix is a profiling and identity validation service. It's used to verify user identification and provide comprehensive risk assessments based on the user's device.
@@ -50,7 +64,7 @@ The following architecture diagram shows the implementation.
 
 Once an account is created, you'll receive the information you need for API configuration. The following sections describe the process.
 
-## Configuring Azure AD B2C with LexisNexis
+## Configure Azure AD B2C with LexisNexis
 
 ### Part 1 - Deploy the API
 
