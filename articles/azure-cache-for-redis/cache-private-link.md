@@ -23,12 +23,12 @@ In this article, you'll learn how to create an Azure Cache, an Azure virtual net
 
 ## Create a cache
 1. To create a cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. 
-   
-   > ![Select Create a resource](media/cache-private-link/1-create-resource.png)
+
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Select Create a resource.":::
    
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
-   
-   > ![Select Azure Cache for Redis](media/cache-private-link/2-select-cache.png)
+
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
    
 1. On the **New Redis Cache** page, configure the settings for your new cache.
    
@@ -42,11 +42,11 @@ In this article, you'll learn how to create an Azure Cache, an Azure virtual net
    
 1. Select **Create**. 
    
-   > ![Create Azure Cache for Redis](media/cache-private-link/3-new-cache.png) 
+    :::image type="content" source="media/cache-private-link/3-new-cache.png" alt-text="Create Azure Cache for Redis.":::
    
    It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
-   
-   > ![Azure Cache for Redis created](media/cache-private-link/4-status.png)
+    
+    :::image type="content" source="media/cache-private-link/4-status.png" alt-text="Azure Cache for Redis created.":::
 
 ## Create a virtual network
 
@@ -54,11 +54,11 @@ In this section, you'll create a virtual network and subnet.
 
 1. Select **Create a resource**.
 
-    > ![Select Create a resource](media/cache-private-link/1-create-resource.png)
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Select Create a resource.":::
 
 2. On the **New** page, select **Networking** and then select **Virtual network**.
 
-    > ![Create a virtual net](media/cache-private-link/5-select-vnet.png) 
+    :::image type="content" source="media/cache-private-link/5-select-vnet.png" alt-text="Create a virtual net.":::
 
 3. In **Create virtual network**, enter or select this information in the **Basics** tab:
 
@@ -101,15 +101,15 @@ In this section, you'll create a private endpoint and connect it to the cache yo
 
 1. Search for **Private Link** and press enter or select it from the search suggestions.
 
-    > ![Search for a private link](media/cache-private-link/7-create-private-link.png) 
+    :::image type="content" source="media/cache-private-link/7-create-private-link.png" alt-text="Search for a private link.":::
 
 2. On the left side of the screen, select **Private endpoints**.
 
-    > ![Select private link](media/cache-private-link/8-select-private-endpoint.png) 
+    :::image type="content" source="media/cache-private-link/8-select-private-endpoint.png" alt-text="Select private link.":::
 
 3. Select the **+ Add** button to create your private endpoint. 
 
-    > ![Add a private link](media/cache-private-link/9-add-private-endpoint.png) 
+    :::image type="content" source="media/cache-private-link/9-add-private-endpoint.png" alt-text="Add a private link.":::
 
 4. On the **Create a private endpoint page**, configure the settings for your private endpoint.
 
@@ -127,19 +127,19 @@ In this section, you'll create a private endpoint and connect it to the cache yo
 
 6. In the **Resource** tab, select your subscription, choose the resource type as Microsoft.Cache/Redis, and then select the cache you made in the previous section.
 
-    > ![Resources for private link](media/cache-private-link/10-resource-private-endpoint.png) 
+    :::image type="content" source="media/cache-private-link/10-resource-private-endpoint.png" alt-text="Resources for private link.":::
 
 7. Select the **Next: Configuration** button at the bottom of the page.
 
 8. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
 
-    > ![Configuration for private link](media/cache-private-link/11-configuration-private-endpoint.png) 
+    :::image type="content" source="media/cache-private-link/11-configuration-private-endpoint.png" alt-text="Configuration for private link.":::
 
 9. Select the **Next: Tags** button at the bottom of the page.
 
 10. In the **Tags** tab, enter the name and value if you wish to categorize the resource. This step is optional.
 
-    > ![Tags for private link](media/cache-private-link/12-tags-private-endpoint.png) 
+    :::image type="content" source="media/cache-private-link/12-tags-private-endpoint.png" alt-text="Tags for private link.":::
 
 11. Select **Review + create**. You're taken to the **Review + create** tab where Azure validates your configuration.
 
