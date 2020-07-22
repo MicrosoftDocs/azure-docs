@@ -16,7 +16,7 @@ ms.service: azure-project-spool
 
 #### You can find the hero sample and documentation to run it here: [Sample Calling App](https://skype.visualstudio.com/SCC/_git/internal_service_spool-e2e?version=GBalkwa%2Fprivate-preview-group)
 
-This is a sample application to show how the ACS Calling Web SDK can be used to build a group calling experience. The client-side application is a React based user interface which uses Redux for handling complex state while leveraging Microsoft Fluent UI for how things look. Powering this front-end is a C# web application powered by ASP.net Core to connect this application with Azure. 
+This is a sample application to show how the ACS Calling Web SDK can be used to build a group calling experience. The client-side application is a React based user interface which uses Redux for handling complex state while leveraging Microsoft Fluent UI for how things look. Powering this front-end is a C# web application powered by ASP.net Core to connect this application with Azure.  
 
 ![Homepage](../media/homepage-sample-calling.png)
 
