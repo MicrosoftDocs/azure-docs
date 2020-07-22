@@ -53,7 +53,7 @@ Here's what this tutorial covers:
 Here's what you'll need to complete this tutorial:
 
 - A Windows 10 PC with a working microphone and speakers (or headphones)
-- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or higher
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or higher, with the **ASP.NET and web development** workload installed
 - [.NET Framework Runtime 4.6.1](https://dotnet.microsoft.com/download) or higher
 - An Azure account. [Sign up for free](https://azure.microsoft.com/free/ai/).
 - A [GitHub](https://github.com/) account
@@ -159,7 +159,7 @@ If a browser does not launch, navigate to the web address you see in the termina
 
 ### Test the bot sample with the Bot Framework Emulator
 
-The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop app that allows bot developers to test and debug their bots locally or remotely through a tunnel. The Emulator supports typed text as the input (not voice). The bot will response with text. Follow these steps to use the Bot Framework Emulator to test your Echo Bot running locally, with text input and text output. After we deploy the bot to Azure we will test it with voice input and voice output.
+The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) is a desktop app that lets bot developers test and debug their bots locally (or remotely through a tunnel). The Emulator accepts typed text as the input (not voice). The bot will also respond with text. Follow these steps to use the Bot Framework Emulator to test your Echo Bot running locally, with text input and text output. After we deploy the bot to Azure we will test it with voice input and voice output.
 
 1. Install the [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) version 4.3.0 or greater
 2. Launch the Bot Framework Emulator and open your bot:
@@ -167,7 +167,7 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
 3. Enter the URL for your bot. For example:
 
    ```
-   http://localhost:3978/api/messages
+   http://localhost:5000/api/messages
    ```
    and press "Connect".
 4. The bot should immediately greet you with "Hello and welcome!" message. Type in any text message and confirm you get a response from the bot.
@@ -180,6 +180,9 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 
 > [!NOTE]
 > Alternatively, you can deploy a bot using the [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot).
+
+> [!NOTE]
+> If Publish... doesn't appear as you perform the following steps, use Visual Studio Installer to add the **ASP.NET and web development** workload.
 
 1. From Visual Studio, open the Echo Bot that's been configured for use with Direct Line Speech channel:
 
