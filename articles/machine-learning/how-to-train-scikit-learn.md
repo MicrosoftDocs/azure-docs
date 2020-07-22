@@ -74,7 +74,7 @@ from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 
 myenv = Environment("myenv")
-myenv.python.conda_dependncies = CondaDependencies.create(conda_packages=['scikit-learn'])
+myenv.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
 
 ### Create a ScriptRunConfig
