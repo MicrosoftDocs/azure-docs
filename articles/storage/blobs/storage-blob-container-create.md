@@ -169,7 +169,7 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
 ```
 ---
 
-The following example shows how to delete all of the containers that start with a specified prefix. The example breaks the lease if there's an existing lease on the container.
+The following example shows how to delete all of the containers that start with a specified prefix.
 
 # [\.NET v12](#tab/dotnet)
 
@@ -186,12 +186,6 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
         foreach (var container in blobClient.ListContainers(prefix))
         {
             Console.WriteLine("\tContainer:" + container.Name);
-
-            if (container.Properties.LeaseState == LeaseState.Leased)
-            {
-                await container.BreakLeaseAsync(null);
-            }
-
             await container.DeleteAsync();
         }
 
