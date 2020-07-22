@@ -83,7 +83,7 @@ Replace `<accountId>` in the DNS record with the registration key of your Automa
 
 ![Automation account primary key page](./media/automation-region-dns-records/automation-account-keys.png)
 
-`<accountId>` is the value of the Primary access key field on the **Keys** page.
+Registration key is the value of the **Primary access key** field found on the **Keys** page.
 
 We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the JSON file from the Microsoft Download Center for the following cloud environments:
 
