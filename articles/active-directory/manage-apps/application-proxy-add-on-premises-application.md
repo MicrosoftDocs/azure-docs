@@ -90,6 +90,9 @@ To enable TLS 1.2:
 
 Start by enabling communication to Azure data centers to prepare your environment for Azure AD Application Proxy. If there's a firewall in the path, make sure it's open. An open firewall allows the connector to make HTTPS (TCP) requests to the Application Proxy.
 
+> [!IMPORTANT]
+> If you are installing the connector for Azure Government cloud follow the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) and [installation steps](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
+
 ### Open ports
 
 Open the following ports to **outbound** traffic.
@@ -116,6 +119,7 @@ You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if 
 ## Install and register a connector
 
 To use Application Proxy, install a connector on each Windows server you're using with the Application Proxy service. The connector is an agent that manages the outbound connection from the on-premises application servers to Application Proxy in Azure AD. You can install a connector on servers that also have other authentication agents installed such as Azure AD Connect.
+
 
 To install the connector:
 
