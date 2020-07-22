@@ -36,29 +36,44 @@ To complete this tutorial series, you need:
 
 ## Initial setup
 
-In these tutorials, you collect and use configuration data such as secrets and keys from the resources you deploy. To save this configuration data in a convenient place, download and use the [scratchpad.txt](link to scratch pad) text file from the [LVA-gateway](https://hyperlink_to_the_public_facing_repo) GitHub repository.
+In these tutorials, you update and use several configuration files. Initial versions of these files are available in the [LVA-gateway](https://github.com/sseiber/lva-gateway/tree/uk/bi8100) GitHub repository. The repository includes a scratchpad text file you can download and use to record configuration values from the services you deploy.
+
+Create a folder called *lva-configuration* on your local machine to store these files. Then right-click on each of the following links and choose **Save as** to save the file into the *lva-configuration* folder:
+
+- [Scratchpad.txt](https://raw.githubusercontent.com/sseiber/lva-gateway/uk/bi8100/setup/Scratchpad.txt)
+- [deployment.amd64.json](https://raw.githubusercontent.com/sseiber/lva-gateway/uk/bi8100/setup/deployment.amd64.json)
+- [LvaEdgeGatewayDcm.json](https://raw.githubusercontent.com/sseiber/lva-gateway/uk/bi8100/setup/LvaEdgeGatewayDcm.json)
+- [state.json](https://raw.githubusercontent.com/sseiber/lva-gateway/uk/bi8100/setup/state.json)
+
+> [!NOTE]
+> The GitHub repository also includes the source code for the **LvaEdgeGatewayModule** and **lvaYolov3** IoT Edge modules. For more information about working with the source code, see the [Build the LVA Gateway Modules](tutorial-video-analytics-build-module.md).
 
 ## Deploy and configure Azure Media Services
 
 The solution uses an Azure Media Services account to store the object detection video clips made by the IoT Edge gateway device.
 
-You can create a [Media Services account in the Azure portal](https://portal.azure.com/?r=1#create/Microsoft.MediaService).
+When you create the Media Services account:
 
-When you create the Media Services account, you need to provide an account name, an Azure subscription, a location, a resource group, and a storage account. Choose the **East US** region for the location.
+- You need to provide an account name, an Azure subscription, a location, a resource group, and a storage account. Create a new storage account using the default settings while you're creating the Media Services account.
 
-Create a new resource group called *lva-rg*  in the **East US** region for the Media Services and storage accounts. When you finish the tutorials, it's easy to remove all the resources by deleting the *lva-rg* resource group.
+- Choose the **East US** region for the location.
+
+- Create a new resource group called *lva-rg* in the **East US** region for the Media Services and storage accounts. When you finish the tutorials, it's easy to remove all the resources by deleting the *lva-rg* resource group.
+
+Create the [Media Services account in the Azure portal](https://portal.azure.com/?r=1#create/Microsoft.MediaService).
 
 > [!TIP]
 > These tutorials use the **East US** region in all the examples. You can use your closest region if you prefer.
 
+Make a note of your **Media Services** account name in the *scratchpad.txt* file.
+
 When the deployment is complete, navigate to the **Properties** page for your **Media Services** account. Make a note of the **Resource ID** in the *scratchpad.txt* file, you use this value later when you configure the IoT Edge module.
 
-Next, configure an Azure Active Directory service principal for your Media Services resource. Select **API access** and then **Service principal authentication**. Create a new AAD app with the same name as your Media Services resource, and create a secret with a description *IoT Edge Access*.
+Next, configure an Azure Active Directory service principal for your Media Services resource. Select **API access** and then **Service principal authentication**. Create a new Azure Active Directory app with the same name as your Media Services resource, and create a secret with a description *IoT Edge Access*.
 
-<!-- Need to update this image-->
 :::image type="content" source="./media/tutorial-video-analytics-create-app/ams-aad.png" alt-text="Configure AAD app for AMS":::
 
-When the secret is generated, scroll down to the  **Copy your credentials to connect your service principal application** section. Then select **JSON**. You can copy all the credential information from here in one go. Make a note of this information in the *scratchpad.txt* file, you use it later when you configure the IoT Edge device.
+When the secret is generated, scroll down to the **Copy your credentials to connect your service principal application** section. Then select **JSON**. You can copy all the credential information from here in one go. Make a note of this information in the *scratchpad.txt* file, you use it later when you configure the IoT Edge device.
 
 > [!WARNING]
 > This is your only chance to view and save the secret. If you lose it, you have to generate another secret.
@@ -75,7 +90,7 @@ To create a new Azure IoT Central application:
 
 1. To start creating a new Azure IoT Central application, select **New Application** on the **Build** page.
 
-1. Select **Retail**.  The retail page displays several retail application templates.
+1. Select **Retail**. The retail page displays several retail application templates.
 
 To create a new live video analytics application:  
 
@@ -100,7 +115,6 @@ To create a new live video analytics application:
 
 Later in this tutorial when you configure the IoT Edge gateway, you need some configuration data from the IoT Central application. The IoT Edge device needs this information to register with, and connect to, the application.
 
-<!-- I don't think we use the Application ID anywhere - we could remove it from here -->
 In the **Administration** section, select **Your application** and make a note of the **Application URL** and the **Application ID** in the *scratchpad.txt* file:
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administration":::
@@ -109,45 +123,28 @@ Select **API Tokens** and generate a new token called **LVAEdgeToken** for the *
 
 :::image type="content" source="./media/tutorial-video-analytics-create-app/token.png" alt-text="Generate Token":::
 
-> [!TIP]
-> When the token is generated, make a note of it in the *scratchpad.txt* file for later. After the dialog closes you can't view the token again.
+Make a note of the token in the *scratchpad.txt* file for later. After the dialog closes you can't view the token again.
 
 In the **Administration** section, select **Device connection**, and then select **SAS-IoT-Devices**.
 
 Make a note of the **Primary key** for devices in the *scratchpad.txt* file. You use this *primary group shared access signature token* later when you configure the IoT Edge device.
 
-## Copy files from the LVA gateway repository
-
-The [LVA-gateway](https://hyperlink_to_the_public_facing_repo) GitHub repository contains the sample IoT Edge deployment manifest for the LVA gateway device and the device capability models for the camera devices.
-
-> [!NOTE]
-> The repository also includes the source code for the **LvaEdgeGatewayModule** and **lvaYolov3** IoT Edge modules. For more information about working with the source code, see the [Build the LVA Gateway Modules](tutorial-video-analytics-build-module.md).
-
-Navigate [Here] and copy the files your local machine
-
-## Create the configuration file
-
-Edit the gateway device IoT Edge deployment manifest file called *deployment.amd64.json*. Copy this file to the *storage* folder before you make any changes:
-
-1. Create a folder called *storage* in the local copy of the **lva-gateway** repository. This folder is ignored by Git so as to prevent you accidentally checking in any confidential information.
-
-1. Copy the file *deployment.amd64.json* from the *setup* folder to the *storage* folder.
-
-### Edit the deployment manifest
+## Edit the deployment manifest
 
 You deploy an IoT Edge module using a deployment manifest. In IoT Central you can import the manifest as a device template, and then let IoT Central manage the module deployment.
 
 To prepare the deployment manifest:
 
-1. Open the *deployment.amd64.json* file in the *storage* folder using a text editor.
+1. Open the *deployment.amd64.json* file, which you saved in the *lva-configuration* folder, using a text editor.
+
+<!--
+Not required if following the tutorial - maybe relevant if you're customizing modules in tutorial 4.
 
 1. If you are creating custom modules follow this step, otherwise skip to step 3.
 
     1. Locate the `\$edgeAgent` object.
 
     1. Modify the registry credentials only if you're building custom modules.
-
-    <!-- If you're just deploying the prebuilt modules - is this step necessary. If not, remove it. -->
 
     ```json
     {
@@ -172,8 +169,6 @@ To prepare the deployment manifest:
     }
     ```
 
-    <!-- If you're just deploying the prebuilt modules - is the next step necessary? If not, remove it. -->
-
     1. For each of the modules listed under `modules` update the image element with the correct version:
 
     | Module name | Image | Description |
@@ -181,8 +176,9 @@ To prepare the deployment manifest:
     |LvaEdgeGatewayModule|   meshams.azurecr.io/lva-edge-gateway:latest-amd64 | Bridge to connect the device twins to IoT central|
     |lvaYolov3|              mcr.microsoft.com/lva-utilities/yolov3-onnx:1.0| Models to detect inference classes using object graphs |
     |lvaEdge|                mcr.microsoft.com/media/live-video-analytics:1| Pipe to route the Video Analytics with Yolo3 | 
+-->
 
-1. Add the name of your Media Services account in the `env` node:
+1. Add the name of your Media Services account in the `env` node in the `LvaEdgeGatewayModule` section. You made a note of this account name in the *scratchpad.txt* file:
 
     ```json
     "env": {
@@ -206,10 +202,10 @@ To prepare the deployment manifest:
         "lvaEdge":{
         "properties.desired": {
             "applicationDataDirectory": "/var/lib/azuremediaservices",
-            "azureMediaServicesArmId": "[Resource ID]",
-            "aadTenantId": "[AAD Tenant ID]",
-            "aadServicePrincipalAppId": "[AAD Client ID]",
-            "aadServicePrincipalSecret": "[AAD secret]",
+            "azureMediaServicesArmId": "[Resource ID from scratchpad]",
+            "aadTenantId": "[AADTenantID from scratchpad]",
+            "aadServicePrincipalAppId": "[AadClientId from scratchpad]",
+            "aadServicePrincipalSecret": "[AadSecret from scratchpad]",
             "aadEndpoint": "https://login.microsoftonline.com",
             "aadResourceId": "https://management.core.windows.net/",
             "armEndpoint": "https://management.azure.com/",
@@ -223,18 +219,11 @@ To prepare the deployment manifest:
     }
     ```
 
-    |JSON Desire Property| AMS API access (copy JSON) |
-    |-|-|
-    |azureMediaServicesArmId| Under AMS Properties, Copy RESOURCE ID |
-    |aadTenantId| AadTenantId|
-    |aadServicePrincipalAppId| AadClientId |
-    |aadServicePrincipalSecret| AadSecret |
-
 1. Save the changes.
 
 ## Create the Azure IoT Edge gateway device
 
-The video analytics - security and safety application includes an LVA Edge Object Detector** device template and an LVA Edge Motion Detection** device template. In this section, you create a gateway device template using the deployment manifest, and add the gateway device to your IoT Central application.
+The video analytics - security and safety application includes an **LVA Edge Object Detector** device template and an **LVA Edge Motion Detection** device template. In this section, you create a gateway device template using the deployment manifest, and add the gateway device to your IoT Central application.
 
 ### Create a device template for the LVA Edge Gateway
 
