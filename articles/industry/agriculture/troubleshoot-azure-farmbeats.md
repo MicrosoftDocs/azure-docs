@@ -7,7 +7,7 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ---
 
-# Troubleshoot
+# Troubleshoot Azure FarmBeats
 
 This article provides solutions to common Azure FarmBeats issues. For additional help, contact our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) or email us at farmbeatssupport@microsoft.com.
 
@@ -53,8 +53,8 @@ Contact us with the following details:
 
 **Corrective action**
 
-1. Go to your FarmBeats Datahub resource group.
-2. Select the **Event Hub** (DatafeedEventHubNamespace), and then check for the number of incoming messages.
+1. Go to your FarmBeats resource group.
+2. Select the **Event Hub** namespace ("sensor-partner-eh-namespace-xxxx"), click on "Event Hubs" and then check for the number of incoming messages in the event hub that is assigned to the partner
 3. Do either of the following:
 
    - If there are *no incoming messages*, contact your device partner.  

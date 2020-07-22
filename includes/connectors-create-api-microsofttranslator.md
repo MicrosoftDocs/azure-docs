@@ -3,21 +3,23 @@ ms.service: logic-apps
 ms.topic: include
 author: ecfan
 ms.author: estfan
-ms.date: 11/03/2016
+ms.date: 07/21/2020
 ---
 
 ## Prerequisites
 
-* A [MicrosoftTranslator](https://www.microsoft.com/translator) account  
+* A [Microsoft Translator](https://www.microsoft.com/translator) account  
 
-Before you can use your MicrosoftTranslator account in a Logic app, you must authorize the Logic app to connect to your MicrosoftTranslator account.Fortunately, you can do this easily from within your Logic app on the Azure Portal.  
+Before you can use your Microsoft Translator account with Logic Apps, you must authorize Logic Apps to connect to your Microsoft Translator account in the Azure portal.
 
-Here are the steps to authorize your Logic app to connect to your MicrosoftTranslator account:  
+Follow these steps to authorize Logic Apps to connect to your Microsoft Translator account:  
 
-1. To create a connection to MicrosoftTranslator, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *MicrosoftTranslator* in the search box. Select the trigger or action you'll like to use:  
-   ![MicrosoftTranslator connection creation step](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
-2. If you haven't created any connections to MicrosoftTranslator before, you'll get prompted to provide your MicrosoftTranslator credentials. These credentials will be used to authorize your Logic app to connect to, and access your MicrosoftTranslator account's data:  
-   ![MicrosoftTranslator connection creation step](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
-3. Notice the connection has been created and you are now free to proceed with the other steps in your Logic app:  
-   ![MicrosoftTranslator connection creation step](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  
-
+1. Sign in to the Azure portal. 
+1. Under **Azure services**, select **Logic Apps**. Then, select the name of your logic app from the list.
+1. On your logic app's menu, select **Logic app designer** under **Development Tools**.
+1. In the Logic Apps Designer, select **Show Microsoft managed APIs** in the drop-down list, then enter *MicrosoftTranslator* in the search box. Select the trigger or action to use:
+   ![Screenshot of Logic Apps Designer, showing Microsoft Translator API actions and triggers in steps editor.](./media/connectors-create-api-microsofttranslator/microsofttranslator-1.png)  
+2. If you haven't created any connections to Microsoft Translator before, follow the prompt to provide your Microsoft Translator credentials. These credentials are used to authorize your Logic app to access your Microsoft Translator account's data:  
+   ![Screenshot of Logic Apps Designer, showing sign-in prompt for Microsoft Translator API.](./media/connectors-create-api-microsofttranslator/microsofttranslator-2.png)  
+3. The connection is now listed in the step. Select save, then continue creating your logic app.  
+   ![Screenshot of Logic Apps Designer, showing Microsoft Translator text to speech action with API connection listed.](./media/connectors-create-api-microsofttranslator/microsofttranslator-3.png)  

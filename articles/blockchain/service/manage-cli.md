@@ -11,7 +11,7 @@ ms.reviewer: janders
 
 In addition to the Azure portal, you can use Azure CLI to manage blockchain members and transaction nodes for your Azure Blockchain Service.
 
-Make sure that you have installed the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and logged in to an Azure account in with `az login`.
+Make sure that you have installed the latest [Azure CLI](/cli/azure/install-azure-cli) and logged in to an Azure account in with `az login`.
 
 In the following examples, replace example `<parameter names>` with your own values.
 

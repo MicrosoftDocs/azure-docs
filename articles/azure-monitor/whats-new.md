@@ -61,21 +61,21 @@ This article provides lists Azure Monitor articles that are either new or have b
 - [Send Azure Activity log to Log Analytics workspace using Azure Resource Manager template](learn/quick-collect-activity-log-arm.md) - New article.
 
 #### New and updated articles from restructure and consolidation of platform log content
-- [Archive Azure resource logs to storage account](platform/resource-logs-collect-storage.md)
+- [Archive Azure resource logs to storage account](./platform/resource-logs.md#send-to-azure-storage)
 - [Azure Activity Log event schema](platform/activity-log-schema.md)
 - [Azure Activity log](platform/activity-log.md)
 - [Azure Monitor CLI samples](samples/cli-samples.md)
 - [Azure Monitor PowerShell samples](samples/powershell-samples.md)
 - [Azure Monitoring REST API walkthrough](platform/rest-api-walkthrough.md)
-- [Azure Resource Logs supported services and schemas](platform/diagnostic-logs-schema.md)
+- [Azure Resource Logs supported services and schemas](./platform/resource-logs-schema.md)
 - [Azure resource logs](platform/resource-logs.md)
-- [Collect and analyze Azure activity log in Azure Monitor](platform/activity-log-collect.md)
-- [Collect Azure resource logs in Log Analytics workspace](platform/resource-logs-collect-workspace.md)
+- [Collect and analyze Azure activity log in Azure Monitor](./platform/activity-log.md)
+- [Collect Azure resource logs in Log Analytics workspace](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md)
-- [Export the Azure Activity Log](platform/activity-log-export.md)
+- [Export the Azure Activity Log](./platform/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](platform/platform-logs-overview.md)
-- [Stream Azure platform logs to an event hub](platform/resource-logs-stream-event-hubs.md)
-- [View Azure Activity log events in Azure Monitor](platform/activity-log-view.md)
+- [Stream Azure platform logs to an event hub](./platform/resource-logs.md#send-to-azure-event-hubs)
+- [View Azure Activity log events in Azure Monitor](./platform/activity-log.md#view-the-activity-log)
 
 ### Virtual machines
 - [Enable Azure Monitor for VMs in the Azure portal](insights/vminsights-enable-single-vm.md) - Updated to include Azure Arc.
@@ -149,7 +149,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Insights
 - [Azure Monitor for Azure Cache for Redis (preview)](insights/redis-cache-insights-overview.md) - New article.
-- [Monitor Key Vault with Azure Monitor for Key Vault (preview)](insights/key-vaults-insights-overview.md) - New article.
+- [Monitor Key Vault with Azure Monitor for Key Vault (preview)](./insights/key-vault-insights-overview.md) - New article.
 
 ### Logs
 - [Create & configure Log Analytics with PowerShell](platform/powershell-workspace-configuration.md) - Added troubleshooting section.
@@ -274,7 +274,7 @@ This article provides lists Azure Monitor articles that are either new or have b
 
 ### Platform logs
 
-- [Collect and analyze Azure activity log in Azure Monitor](platform/activity-log-collect.md) - Rewrite to better explain collecting Activity log with diagnostic settings.
+- [Collect and analyze Azure activity log in Azure Monitor](./platform/activity-log.md) - Rewrite to better explain collecting Activity log with diagnostic settings.
 
 ### Virtual machines
 
@@ -320,7 +320,7 @@ Multiple updates as part of rewrite of diagnostics extension content.
 
 #### Azure Monitor for Containers
 
-- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration.md) - Added note for creating a client application to support RBAC-enabled cluster to support Azure Monitor for containers.
+- [Integrate Azure Active Directory with Azure Kubernetes Service](../aks/azure-ad-integration-cli.md) - Added note for creating a client application to support RBAC-enabled cluster to support Azure Monitor for containers.
 
 #### Azure Monitor for VMs
 
@@ -406,8 +406,8 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Platform logs
 
-- [Collect Azure Activity log with diagnostic settings- Azure Monitor](platform/diagnostic-settings-legacy.md) - Additional information on changed properties.
-- [Export the Azure Activity Log](platform/activity-log-export.md) - Updated for UI changes. 
+- [Collect Azure Activity log with diagnostic settings- Azure Monitor](./platform/activity-log.md) - Additional information on changed properties.
+- [Export the Azure Activity Log](./platform/activity-log.md#legacy-collection-methods) - Updated for UI changes. 
 
 ## December 2019
 
@@ -444,7 +444,7 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 ### Insights and solutions
 
-- [Azure Monitor for containers Frequently Asked Questions](insights/container-insights-faq.md) - Added question on Image and Name fields.
+- [Azure Monitor for containers Frequently Asked Questions](./faq.md) - Added question on Image and Name fields.
 - [Azure SQL Analytics solution in Azure Monitor](insights/azure-sql.md) - Updated Database waits Managed Instance support.
 - [Configure Azure Monitor for containers agent data collection](insights/container-insights-agent-config.md) - Added setting for enrich_container_logs.
 - [Configure Hybrid Kubernetes clusters with Azure Monitor for containers](insights/container-insights-hybrid-setup.md) - Added troubleshooting section.
@@ -468,19 +468,19 @@ Multiple New articles for view designer to workbooks conversion guide.
 
 Multiple articles updated as part of restructure of content for platform logs based on new feature for configuring activity log using diagnostic settings.
 
-- [Archive Azure resource logs to storage account](platform/resource-logs-collect-storage.md)
+- [Archive Azure resource logs to storage account](./platform/resource-logs.md#send-to-azure-storage)
 - [Azure Activity Log event schema](platform/activity-log-schema.md)
 - [Azure Monitor service limits](service-limits.md)
-- [Collect and analyze Azure activity logs in Log Analytics workspace](platform/activity-log-collect.md)
-- [Collect Azure Activity log with diagnostic settings (preview) - Azure Monitor](platform/diagnostic-settings-legacy.md)
+- [Collect and analyze Azure activity logs in Log Analytics workspace](./platform/activity-log.md)
+- [Collect Azure Activity log with diagnostic settings (preview) - Azure Monitor](./platform/activity-log.md)
 - [Collect Azure Activity logs into a Log Analytics workspace across Azure tenants](platform/activity-log-collect-tenants.md)
-- [Collect Azure resource logs in Log Analytics workspace](platform/resource-logs-collect-workspace.md)
+- [Collect Azure resource logs in Log Analytics workspace](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Create diagnostic setting in Azure using Resource Manager template](platform/diagnostic-settings-template.md)
 - [Create diagnostic setting to collect logs and metrics in Azure](platform/diagnostic-settings.md)
-- [Export the Azure Activity Log](platform/activity-log-export.md)
+- [Export the Azure Activity Log](./platform/activity-log.md#legacy-collection-methods)
 - [Overview of Azure platform logs](platform/platform-logs-overview.md)
 - [Stream Azure monitoring data to event hub](platform/stream-monitoring-data-event-hubs.md)
-- [Stream Azure platform logs to an event hub](platform/resource-logs-stream-event-hubs.md)
+- [Stream Azure platform logs to an event hub](./platform/resource-logs.md#send-to-azure-event-hubs)
 
 ### Quickstarts and tutorials
 

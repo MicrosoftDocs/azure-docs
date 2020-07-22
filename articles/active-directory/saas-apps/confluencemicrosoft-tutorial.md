@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Confluence SAML SSO by Microsoft | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Confluence SAML SSO by Microsoft.
 services: active-directory
@@ -49,6 +49,9 @@ To configure Azure AD integration with Confluence SAML SSO by Microsoft, you nee
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment of Confluence. Test the integration first in development or staging environment of the application and then use the production environment.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 To get started, you need the following items:
 

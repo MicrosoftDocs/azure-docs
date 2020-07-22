@@ -26,7 +26,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
 * Use it to install Microsoft Azure Powershell
 
 ## Connect to Azure
-Start Azure PowerShell and [connect to your subscription](/powershell/azure/overview):
+Start Azure PowerShell and [connect to your subscription](/powershell/azure/):
 
 ```azurepowershell
 Add-AzAccount
@@ -135,7 +135,7 @@ The metrics are sent by different telemetry modules:
 You can [automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md). Azure will call a web address of your choice when an alert is raised.
 
 ## See also
-* [Script to configure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
+* [Script to configure Application Insights](./create-new-resource.md#creating-a-resource-automatically)
 * [Create Application Insights and web test resources from templates](powershell.md)
 * [Automate coupling Microsoft Azure Diagnostics to Application Insights](powershell-azure-diagnostics.md)
 * [Automate your response to an alert](../../azure-monitor/platform/alerts-webhooks.md)

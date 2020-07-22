@@ -3789,7 +3789,7 @@ For more information, see [Skype for Business topologies supported with modern a
 **Service category:** Privileged Identity Management
 **Product capability:** Privileged Identity Management
 
-With the public preview refresh of Azure AD Privileged Identity Management (PIM) for Azure Role-Based Access Control (RBAC), you can now:
+With the public preview refresh of Azure AD Privileged Identity Management (PIM) for Azure role-based access control (Azure RBAC), you can now:
 
 * Use Just Enough Administration.
 * Require approval to activate resource roles.

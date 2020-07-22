@@ -491,7 +491,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
  
 ### Create a custom role for the fence agent
 
-Follow the tutorial to [Create a custom role for Azure resources using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
+Follow the tutorial to [Create an Azure custom role using Azure CLI](../../../role-based-access-control/tutorial-custom-role-cli.md#create-a-custom-role).
 
 Your json file should look similar to the following:
 
