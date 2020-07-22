@@ -18,8 +18,8 @@ ms.date: 12/05/2019
 In this article, you learn how to view and understand the charts and metrics for each of your automated machine learning runs. 
 
 Learn more about:
-+ [Metrics, charts, and curves for classification models](#classification)
-+ [Metrics, charts, and graphs for regression models](#regression)
++ [Metrics and charts for classification models](#classification)
++ [Metrics and charts for regression models](#regression)
 + [Model interpretability and feature importance](#explain-model)
 
 ## Prerequisites
@@ -73,9 +73,9 @@ The following metrics are saved in each run iteration for a classification task.
 
 Metric|Description|Calculation|Extra Parameters
 --|--|--|--
-AUC_Macro| AUC is the Area under the Receiver Operating Characteristic Curve. Macro is the arithmetic mean of the AUC for each class.  | [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
-AUC_Micro| AUC is the Area under the Receiver Operating Characteristic Curve. Micro is computed globally by combining the true positives and false positives from each class.| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
-AUC_Weighted  | AUC is the Area under the Receiver Operating Characteristic Curve. Weighted is the arithmetic mean of the score for each class, weighted by the number of true instances in each class.| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
+AUC_macro| AUC is the Area under the Receiver Operating Characteristic Curve. Macro is the arithmetic mean of the AUC for each class.  | [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
+AUC_micro| AUC is the Area under the Receiver Operating Characteristic Curve. Micro is computed globally by combining the true positives and false positives from each class.| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
+AUC_weighted  | AUC is the Area under the Receiver Operating Characteristic Curve. Weighted is the arithmetic mean of the score for each class, weighted by the number of true instances in each class.| [Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|average="weighted"
 accuracy|Accuracy is the percent of predicted labels that exactly match the true labels. |[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |None|
 average_precision_score_macro|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Macro is the arithmetic mean of the average precision score of each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="macro"|
 average_precision_score_micro|Average precision summarizes a precision-recall curve as the weighted mean of precisions achieved at each threshold, with the increase in recall from the previous threshold used as the weight. Micro is computed globally by combining the true positives and false positives at each cutoff.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|average="micro"|
@@ -93,6 +93,12 @@ recall_score_macro|Recall is the percent of correctly labeled elements of a cert
 recall_score_micro|Recall is the percent of correctly labeled elements of a certain class. Micro is computed globally by counting the total true positives, false negatives and false positives|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
 recall_score_weighted|Recall is the percent of correctly labeled elements of a certain class. Weighted is the arithmetic mean of recall for each class, weighted by number of true instances in each class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|Weighted accuracy is accuracy where the weight given to each example is equal to the proportion of true instances in that example's true class.|[Calculation](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight is a vector equal to the proportion of that class for each element in the target|
+
+### Note on binary vs multiclass metrics:
+
+AutoML does not differentiate between binary and multiclass metrics. The same validation metrics are reported whether the dataset being used has two classes or more than two classes. However, some of these metrics are intended for multiclass classification and when applied to a binary dataset will not treat any class as the `true` class as you might expect. Metrics clearly meant for multiclass will all be suffixed with `micro`, `macro`, or `weighted`. Examples include `average_precision_score`, `f1_score`, `precision_score`, `recall_score`, and `AUC`.
+
+A concrete example makes this distinction clearer. Instead of calculating recall as `tp / (tp + fn)`, the multiclass averaged recall (`micro`, `macro`, or `weighted`) averages over both classes of a binary classification dataset. This is equivalent to calculating the recall for the `true` class and the `false` class separately and then taking the average of the two.
 
 <a name="confusion-matrix"></a>
 
@@ -191,7 +197,7 @@ For all classification problems, you can review the calibration line for micro-a
 
 Macro-average will compute the metric independently of each class and then take the average, treating all classes equally. However, micro-average will aggregate the contributions of all the classes to compute the average. 
 #### What does a good model look like?
- A well-calibrated model  aligns with the y=x line, where it is reasonably confident in its predictions. An over-confident model  aligns with the y=0 line, where the predicted probability is present but there is no actual probability. 
+ A well-calibrated model aligns with the y=x line, where it correctly predicts the probability that samples belong to each class. An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample.
 
 
 ##### Example 1: A well-calibrated model
@@ -245,11 +251,11 @@ After each run, you can see a predicted vs. true graph for each regression model
 
 ### <a name="histo"></a> Histogram of residuals chart
 #### What is a residuals chart?
-A residual represents an observed y – the predicted y. To show a margin of error with low bias, the histogram of residuals should be shaped as a bell curve, centered around 0. 
+A residual is the difference between the prediction and the actual value (`y_pred - y_true`). To show a margin of error with low bias, the histogram of residuals should be shaped as a bell curve, centered around 0. 
 #### What does automated ML do with the residuals chart?
 Automated ML automatically provides a residuals chart to show the distribution of errors in the predictions.
 #### What does a good model look like?
-A good model will typically have a bell curve or errors around zero.
+A good model will typically have residuals closely centered around zero.
 
 ##### Example 1: A regression model with bias in its errors
 ![SA regression model with bias in its errors](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
