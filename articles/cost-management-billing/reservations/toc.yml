@@ -37,11 +37,11 @@
       href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Dedicated Host
       href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
-      - name: Disk Storage
+    - name: Disk Storage
       href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
-      - name: SAP HANA Large Instances
+    - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
-      - name: Software plans
+    - name: Software plans
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
       href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
