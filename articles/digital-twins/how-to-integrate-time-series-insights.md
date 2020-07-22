@@ -25,7 +25,7 @@ You will be attaching Time Series insights to Azure Digital Twins through the pa
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-integrate-time-series-insights/twins-tsi-diagram-simple.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting Time Series Insights" lightbox="media/how-to-integrate-time-series-insights/twins-tsi-diagram-simple.png":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/twins-time-series-insights-diagram-simple.png" alt-text="A view of Azure services in an end-to-end scenario, highlighting Time Series Insights" lightbox="media/how-to-integrate-time-series-insights/twins-time-series-insights-diagram-simple.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -140,15 +140,15 @@ You can either use the Azure CLI instructions below, or use the Azure portal: [*
 1. Prepare your event hub namespace and resource group name from earlier 
 
 2. Create an event hub
-```azurecli-interactive
-# Create an event hub. Specify a name for the event hub. 
-az eventhubs eventhub create --name <TSI event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
-```
+    ```azurecli-interactive
+    # Create an event hub. Specify a name for the event hub. 
+    az eventhubs eventhub create --name <TSI event hub name> --resource-group <resource group name> --namespace-name <Event Hubs namespace>
+    ```
 3. Create an [authorization rule](https://docs.microsoft.com/cli/azure/eventhubs/eventhub/authorization-rule?view=azure-cli-latest#az-eventhubs-eventhub-authorization-rule-create) with send and receive permissions
-```azurecli-interactive
-# Create an authorization rule. Specify a name for the rule.
-az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <event hub name> --name <TSI auth rule>
-```
+    ```azurecli-interactive
+    # Create an authorization rule. Specify a name for the rule.
+    az eventhubs eventhub authorization-rule create --rights Listen Send --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <event hub name> --name <TSI auth rule>
+    ```
 
 ### Configure your function
 
@@ -186,15 +186,15 @@ You'll need to set one environment variable in your function app from earlier, c
 
 Next, you will set up a Time Series Insights instance to receive the data from your second event hub. For more details about this process see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md)
 
-1. In the Azure Portal, begin creating a Time Series Insights resource. 
+1. In the Azure portal, begin creating a Time Series Insights resource. 
     1. Select the **PAYG(Preview)** pricing tier.
     2. You will need to choose a time series ID for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
     
-        :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is $dtId":::
+        :::image type="content" source="media/how-to-integrate-time-series-insights/time-series-insights-create-twinID.png" alt-text="The creation portal UX for a Time Series Insights environment. The PAYG(Preview) pricing tier is selected and the time series ID property name is $dtId":::
 
 2. Select **Next: Event Source** and select your Event Hubs information from above. You will also need to create a new Event Hubs consumer group.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/time-series-insights-event-source-twins.png" alt-text="The creation portal UX for a Time Series Insights environment event source. You are creating an event source with the event hub information from above. You are also creating a new consumer group.":::
 
 ## Begin sending IoT data to Azure Digital Twins
 
@@ -208,19 +208,19 @@ Now, data should be flowing into your Time Series Insights instance, ready to be
 
 1. Open your Time Series Insights instance in the Azure portal. Visit the Time Series Insights Explorer URL shown in the overview.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-view-environment.png" alt-text="Click on the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/time-series-insights-view-environment.png" alt-text="Click on the Time Series Insights explorer URL in the overview tab of your Time Series Insights environment":::
 
 2. In the explorer, you will see your three twins shown on the left. Click on **thermostat67**, select **patch_value**, and click **add**.
 
-    :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-add-data.png" alt-text="Click on **thermostat67**, select **temperature**, and click **add**":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/time-series-insights-add-data.png" alt-text="Click on **thermostat67**, select **temperature**, and click **add**":::
 
 3. You should now be seeing the initial temperature readings from your thermostat, as shown below. That same temperature reading is updated for room21 and floor1, and you can visualize those data streams in tandem.
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-initial-data.png" alt-text="Initial temperature data is graphed in the TSI explorer. It is a line of random values between 68 and 85":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/time-series-insights-initial-data.png" alt-text="Initial temperature data is graphed in the TSI explorer. It is a line of random values between 68 and 85":::
 
 4. If you allow the simulation to run for much longer, your visualization will look something like this:
     
-    :::image type="content" source="media/how-to-integrate-time-series-insights/tsi-day-data.png" alt-text="Temperature data for each twin is graphed in three parallel lines of different colors.":::
+    :::image type="content" source="media/how-to-integrate-time-series-insights/time-series-insights-day-data.png" alt-text="Temperature data for each twin is graphed in three parallel lines of different colors.":::
 
 ## Next steps
 
