@@ -20,7 +20,7 @@ ms.author: amverma
 
 This extension installs InfiniBand ND drivers (for non-SR-IOV enabled) and OFED drivers (for SR-IOV-enabled) ('r' sizes) [H-series](../sizes-hpc.md) and [N-series](../sizes-gpu.md) VMs running Windows. Depending on the VM family, the extension installs the appropriate drivers for the Connect-X NIC.
 
-An extension is also available to install InfiniBand drivers for [Linux VMs](hpccompute-infiniband-linux.md).
+An extension is also available to install InfiniBand drivers for [Linux VMs](hpc-compute-infiniband-linux.md).
 
 ## Prerequisites
 

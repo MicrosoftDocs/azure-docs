@@ -61,9 +61,9 @@
   - name: InfiniBand Drivers
     items:
     - name: Linux
-      href: hpccompute-infiniband-linux.md
+      href: hpc-compute-infiniband-linux.md
     - name: Windows
-      href: hpccompute-infiniband-windows.md
+      href: hpc-compute-infiniband-windows.md
   - name: NVIDIA GPU Drivers
     items:
     - name: Linux

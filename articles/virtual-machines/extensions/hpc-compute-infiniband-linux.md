@@ -22,7 +22,7 @@ This extension installs InfiniBand OFED drivers on InfiniBand and SR-IOV-enabled
 
 Instructions on manual installation of the OFED drivers are available [here](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband#manually-install-mellanox-ofed).
 
-An extension is also available to install InfiniBand drivers for [Windows VMs](hpccompute-infiniband-windows.md).
+An extension is also available to install InfiniBand drivers for [Windows VMs](hpc-compute-infiniband-windows.md).
 
 ## Prerequisites
 
