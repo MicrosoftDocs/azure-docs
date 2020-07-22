@@ -149,6 +149,12 @@
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
+    - name: Azure VMs with no temp disk
+      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      maintainContext: true
+    - name: Azure VM sizes naming conventions
+      href: ../virtual-machines/vm-naming-conventions.md
+      maintainContext: true
     - name: Azure compute units (ACU)
       href: ../virtual-machines/acu.md
       maintainContext: true
