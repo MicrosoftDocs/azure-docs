@@ -83,11 +83,11 @@ Related links:
 
 ### Check that credentials aren't expired
 
-Tokens and Active Directory credentials may expire after defined periods, preventing registry access. To enable access, you or a registry owner might need to reset or regenerate credentials.
+Tokens and Active Directory credentials may expire after defined periods, preventing registry access. To enable access, credentials might need to be reset or regenerated.
 
 * If using an individual AD identity, a managed identity, or service principal for registry login, the AD token expires after 3 hours. Log in again to the registry.  
-* If using an AD service principal with an expired client secret, a subscription owner or account administrator might need to rest credentials
-* If using a [repository-scoped token](container-registry-repository-scoped-permissions.md), a registry owner might need to reset crecentials
+* If using an AD service principal with an expired client secret, a subscription owner or account administrator needs to reset credentials or generate a new service principal.
+* If using a [repository-scoped token](container-registry-repository-scoped-permissions.md), a registry owner might need to reset a password or generate a new token.
 
 Related links:
 
