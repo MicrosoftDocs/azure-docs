@@ -58,7 +58,7 @@ Before you begin, make sure that:
 * You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * You have your Microsoft Azure storage account with access credentials.
 * You are not blocked by any Azure policy set up by your system administrator. For more information about policies, see [Azure Policy documentation](https://docs.microsoft.com/azure/governance/policy/).
-* You should have an "Owner" role at the subscription level to grant access to anyone else. If you are the "Owner", follow these steps to grant contributor access:
+* You should have an **Owner** role at the subscription level to grant access to anyone else. If you are the **Owner**, follow these steps to grant contributor access:
   * In Azure portal, click **All Services** > **Subscriptions** > **Access control (IAM)** > **+Add** > **Add role assignment**. [Tutorial: Grant a user access to Azure resources using the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
 ### For the Azure Stack Edge device
