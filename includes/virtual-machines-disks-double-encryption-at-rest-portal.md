@@ -50,6 +50,10 @@
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="example text":::
 
+    A notification should pop up and succeed. Doing this will allow you to use the disk encryption set with your key vault.
+    
+    ![Screenshot of successful permission and role assignment for your key vault.](media/virtual-machines-disk-encryption-portal/disk-encryption-notification-success.png)
+
 1. Navigate to your disk
 1. Select **Encryption**
 1. For **Encryption type** select **Double encryption with platform-managed and customer-managed keys**
