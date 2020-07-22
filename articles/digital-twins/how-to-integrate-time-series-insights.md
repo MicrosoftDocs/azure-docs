@@ -34,7 +34,7 @@ You will be attaching Time Series insights to Azure Digital Twins through the pa
 ## Prerequisites
 
 * You need an Azure Digital Twins instance which you can update twin information a few times in order to see that data tracked in Time Series Insights. 
-    * If you do not have one, follow the The Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) to set up an Azure Digital Twins instance and a virtual IoT device to generate twin changes.
+    * If you do not have one, follow the Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) to set up an Azure Digital Twins instance and a virtual IoT device to generate twin changes.
 
 ## Create a route and filter to twin update notifications
 
