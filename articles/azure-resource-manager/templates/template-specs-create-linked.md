@@ -23,13 +23,13 @@ Create the main template and the linked template.
 
 To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the relative path of the linked template in accordance with the path of the parent template.
 
-The linked template is called **linkedTemplate.json**, and is stored in a sub-folder called **artifacts** in the path where the main template is stored.  You can use one of the follow values for the relativePath:
+The linked template is called **linkedTemplate.json**, and is stored in a subfolder called **artifacts** in the path where the main template is stored.  You can use one of the follow values for the relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-If there is another linkedTemplate2.json which is called from linkedTemplate.json and linkedTemplate2.json is stored in the same artifacts subfolder, the relativePath specified in linkedTemplate.json is linkedTemplate2.json.
+If there is another linkedTemplate2.json that is called from linkedTemplate.json and linkedTemplate2.json is stored in the same artifacts subfolder, the relativePath specified in linkedTemplate.json is **linkedTemplate2.json**.
 
 1. Create the main template with the following JSON. Save the main template as **azuredeploy.json** to your local computer. This tutorial assumes you've saved to a path **c:\Templates\linkedTS\azuredeploy.json** but you can use any path.
 
