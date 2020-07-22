@@ -40,7 +40,7 @@ Once on the call, you will see a couple of different components:
 
 ![Gallery](../media/mediaGallery-calling-sample.png)
 
-Feel free to test the sample around. Open multiple windows and try adding yourself into the call to see more participants. Below you will find links to download the sample, pre-requisites, steps to set up and some excercises to familarize yourself with it.
+Feel free to test the sample around. Open multiple windows and try adding yourself into the call to see more participants. Below you will find more information on pre-requisites, steps to set up and step-by-step tutorials to help familarize yourself with it.
 
 # Locally deploying the service & client app
 
