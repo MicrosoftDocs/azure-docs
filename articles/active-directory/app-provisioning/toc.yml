@@ -85,6 +85,8 @@
       href: scim-graph-scenarios.md
     - name: Cloud HR provisioning
       items:
+        - name: SuccessFactors integration 
+          href: sap-successfactors-integration-reference.md
         - name: SuccessFactors attribute reference
           href: sap-successfactors-attribute-reference.md
         - name: Workday attribute reference

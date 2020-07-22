@@ -63,7 +63,9 @@ For a DTDL model to be compatible with Azure Digital Twins, it must meet these r
 
 Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension *.json*. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
 
-Here is an example of a typical model, written as a DTDL interface. The model describes planets, each with a name, a mass, and a temperature. The planet may have moons as satellites, and it may contain craters.
+This section contains an example of a typical model, written as a DTDL interface. The model describes **planets**, each with a name, a mass, and a temperature.
+ 
+Consider that planets may also interact with **moons** that are their satellites, and may contain **craters**. In the example below, the `Planet` model expresses connections to these other entities by referencing two external models—`Moon` and `Crater`. These models are also defined in the example code below, but are kept very simple so as not to detract from the primary `Planet` example.
 
 ```json
 [
@@ -102,6 +104,11 @@ Here is an example of a typical model, written as a DTDL interface. The model de
   },
   {
     "@id": "dtmi:com:contoso:Crater;1",
+    "@type": "Interface",
+    "@context": "dtmi:dtdl:context;2"
+  },
+  {
+    "@id": "dtmi:com:contoso:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2"
   }

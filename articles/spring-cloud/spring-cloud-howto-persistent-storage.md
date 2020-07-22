@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Use persistent storage in Azure Spring Cloud
