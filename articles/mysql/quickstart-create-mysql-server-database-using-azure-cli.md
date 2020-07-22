@@ -117,7 +117,7 @@ The result is in JSON format. Make a note of the **fullyQualifiedDomainName** an
 ```
 
 ## Connect to Azure Database for MySQL server using mysql command-line client
-You can connect to your server using a popular client tool,**[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use mysql command line on your local environment.
+You can connect to your server using a popular client tool, **[mysql.exe](https://dev.mysql.com/downloads/)** command-line tool with [Azure Cloud Shell](../cloud-shell/overview.md). Alternatively, you can use mysql command line on your local environment.
 ```bash
  mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
