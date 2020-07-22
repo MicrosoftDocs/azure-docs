@@ -182,7 +182,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 > Alternatively, you can deploy a bot using the [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot).
 
 > [!NOTE]
-> If Publish... doesn't appear as you perform the following steps, use Visual Studio Installer to add the **ASP.NET and web development** workload.
+> If **Publish...** doesn't appear as you perform the following steps, use Visual Studio Installer to add the **ASP.NET and web development** workload.
 
 1. From Visual Studio, open the Echo Bot that's been configured for use with Direct Line Speech channel:
 
