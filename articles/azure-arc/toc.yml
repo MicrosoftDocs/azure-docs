@@ -14,6 +14,13 @@
       href: ./kubernetes/policy-samples.md
     - name: Arc enabled servers
       href: ./servers/policy-samples.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./servers/security-controls-policy.md
 - name: How-to guides
   items:
   - name: Arc enabled Kubernetes
