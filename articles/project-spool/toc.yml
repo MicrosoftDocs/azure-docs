@@ -171,7 +171,9 @@
 - name: Samples
   items:
   - name: Samples Overview
-    href: samples/samples-overview.md
+    href: samples/samples-overview.md 
+  - name: Calling Hero Sample
+    href: samples/calling-hero-sample.md
 - name: References
   items:
   - name: Client SDK for C#
