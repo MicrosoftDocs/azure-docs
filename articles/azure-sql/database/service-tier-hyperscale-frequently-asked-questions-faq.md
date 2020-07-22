@@ -200,7 +200,7 @@ Yes. The data pages associated with a given table can end up in multiple data fi
 
 Yes. You can move your existing databases in Azure SQL Database to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. For proofs of concept (POCs), we recommend you make a copy of your database and migrate the copy to Hyperscale. 
 
-The time required to move an existing database to Hyperscale is proportional to data size, and will be shorter for databases without extensive write activity during the move.
+The time required to move an existing database to Hyperscale consists of the time to copy data, and the time to replay the changes made in the source database while copying data. The data copy time is proportional to data size. The time to replay changes will be shorter if the move is done during a period of low write activity.
   
 ### Can I move my Hyperscale databases to other service tiers
 
