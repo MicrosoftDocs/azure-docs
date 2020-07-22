@@ -1,24 +1,21 @@
 ---
-title: Use Microsoft.Azure.Search (v10) in .NET
+title: Use Azure.Search.Documents v11 in .NET
 titleSuffix: Azure Cognitive Search
-description: Learn how to create and manage search objects a .NET application using C# and version 10 of the .NET SDK. Code snippets demonstrate connecting to the service, creating indexes, and queries.
+description: Learn how to create and manage search objects a .NET application using C# and version 11 of the .NET SDK. Code snippets demonstrate connecting to the service, creating indexes, and queries.
 
 manager: nitinme
-author: brjohnstmsft
-ms.author: brjohnst
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/21/2020
 ---
-# How to use Microsoft.Azure.Search (v10) in a .NET Application
+# How to use the Azure.Search.Documents (v11) client library a .NET Application
 
-This article explains how to create and manage search objects using C# and the [Azure Cognitive Search (v10) .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). Version 10 is the most mature version of the Microsoft.Azure.Search package. It is being replaced by [Azure.Search.Documents version 11](search-howto-dotnet-sdk-v11.md) from the Azure SDK team.
+This article is a walkthrough to get you up and running with the [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search). You can use the .NET SDK to implement a rich search experience in your application using Azure Cognitive Search.
 
-If you have existing or inflight development projects, continue to use version 10. For new projects, or to use new features, you should transition existing search solutions to the new library.
-
-## What's in version 10
-
+## What's in the Azure Cognitive Search SDK
 The SDK consists of a few client libraries that enable you to manage your indexes, data sources, indexers, and synonym maps, as well as upload and manage documents, and execute queries, all without having to deal with the details of HTTP and JSON. These client libraries are all distributed as NuGet packages.
 
 The main NuGet package is `Microsoft.Azure.Search`, which is a meta-package that includes all the other packages as dependencies. Use this package if you're just getting started or if you know your application will need all the features of Azure Cognitive Search.
