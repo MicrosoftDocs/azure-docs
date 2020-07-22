@@ -79,11 +79,9 @@ To support [Private Link](../../private-link/private-link-overview.md) in Azure 
 | US Gov Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
 
-Replace `<accountId>` in the DNS record with the registration key of your Automation account. You can get the key required from **Keys** under **Account Settings** in the Azure portal.
+Replace `<accountId>` in the DNS record with the registration key of your Automation account. You can get the key required from **Keys** under **Account Settings** in the Azure portal. Copy the value of the **Primary access key** field found on the **Keys** page.
 
 ![Automation account primary key page](./media/automation-region-dns-records/automation-account-keys.png)
-
-Registration key is the value of the **Primary access key** field found on the **Keys** page.
 
 We recommend that you use the addresses listed when defining [exceptions](../automation-runbook-execution.md#exceptions). For a list of region IP addresses instead of region names, download the JSON file from the Microsoft Download Center for the following cloud environments:
 
