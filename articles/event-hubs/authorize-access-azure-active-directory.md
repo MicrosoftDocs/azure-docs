@@ -29,8 +29,8 @@ When an RBAC role is assigned to an Azure AD security principal, Azure grants ac
 Azure provides the following built-in RBAC roles for authorizing access to Event Hubs data using Azure AD and OAuth:
 
 - [Azure Event Hubs Data owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Use this role to give complete access to Event Hubs resources.
-- [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give the send access to Event Hubs resources.
-- [Azure Event Hubs Data receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give the consuming/receiving access to Event Hubs resources.
+- [Azure Event Hubs Data sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give the send access to Event Hubs resources.
+- [Azure Event Hubs Data receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give the consuming/receiving access to Event Hubs resources.
 
 ## Resource scope 
 Before you assign an RBAC role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
