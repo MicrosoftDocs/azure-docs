@@ -51,7 +51,7 @@ With **Azure CDN Premium from Verizon**, you can also access the following repor
    * [Real-time stats](cdn-real-time-stats.md)
    * [Azure CDN edge node performance](cdn-edge-performance.md)
 
-## Next Steps
+## Next steps
 In this article, you learned about the different options for analysis reports for Azure CDN.
 
 For more information on Azure CDN and the other Azure services mentioned in this article, see:
