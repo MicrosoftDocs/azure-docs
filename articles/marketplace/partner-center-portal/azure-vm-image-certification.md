@@ -1,5 +1,5 @@
 ---
-title: Azure virtual machine certification - Azure Marketplace
+title: Test Virtual Machine (VM) deployed from VHD - Azure Marketplace
 description: Learn how to test and submit a virtual machine offer in the commercial marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,15 +9,44 @@ ms.author: mingshen
 ms.date: 04/09/2020
 ---
 
-# Azure virtual machine (VM) image certification
+# Test Virtual Machine (VM) deployed from VHD
 
-This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
+This article describes how to deploy and test an Azure virtual machine (VM) from the generalized VHD image created in the previous section ([Create Azure VM technical asset)](create-azure-vm-technical-asset.md) to ensure the VHD image meets Azure Marketplace publishing requirements.
 
-Complete these steps before submitting your VM offer:
+Complete these steps to generate a compatibility report, which certifies your VHD image can be used on Azure Marketplace.
 
-1. Create and deploy certificates.
-2. Deploy an Azure VM using your generalized image.
-3. Run validations.
+1. Create and deploy certificate required for remote VM management to Azure Key Vault.
+2. Deploy an Azure VM from your generalized VHD image created in [Create Azure VM technical asset](create-azure-vm-technical-asset.md).
+3. Run tests on the deployed VM to ensure the VHD image is ready to be published and used to deploy VMs.
+
+### Running scripts
+
+This article contains three scripts to be run in PowerShell. The desktop PowerShell works best, however, the Azure Cloud Shell can also be used with the PowerShell option selected (top left of window).
+
+1. Ensure PowerShell is configured to run scripts.
+
+    - Always open PowerShell with the **Run as administrator** option.
+    - Ensure you can run threse scripts: `Set-ExecutionPolicy` and `RemoteSigned`.
+
+2. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+3. Install Azure PowerShell Az Module.
+    1. **Option A**: No modules installed yet.
+        - `Install-Module -Name Az -AllowClobber -Scope AllUsers`
+        
+        For more information, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.2.0).
+
+    2. **Option B**: Currently using AzureRM module.
+
+        - Uninstall-AzureRM
+        - Install-Module -Name Az -AllowClobber -Scope AllUsers
+        - Enable-AzureRmAlias -Scope CurrentUser
+
+        For more information, see Migrate Azure PowerShell from AzureRM to Az
+
+4. Save session parameters.
+
+The scripts in this section use session variables/parameters. If you close the session, the parameters are erased. We recommend using one session to run all scripts to avoid parameter value errors. If this is not possible, you'll have to reinitialize the parameters when opening a new session, especially for the later scripts.
 
 ## Create and deploy certificates for Azure Key Vault
 
@@ -35,7 +64,7 @@ You can use either a new or an existing Azure resource group for this work.
 
 #### Create the security certificate
 
-Edit and run the following Azure PowerShell script to create the certificate file (.pfx) in a local folder. Replace the values for the parameters shown in the following table.
+Run this script to create the certificate file (.pfx) in a local folder. The certificate belongs to the planned Azure VM that will be deployed from your VHD image. The VM will need a name, location, and password as specified by the script parameters. Edit the following Azure PowerShell **Certification creation script** to specify the correct values for the script parameters shown in the table.
 
 | **Parameter** | **Description** |
 | --- | --- |
@@ -83,7 +112,7 @@ Edit and run the following Azure PowerShell script to create the certificate fil
 
 Copy the contents of the template below to a file on your local machine. In the example script below, this resource is `C:\certLocation\keyvault.json`).
 
-```json
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -273,13 +302,13 @@ Edit and run the following Azure PowerShell script to create an Azure Key Vault 
 
     # Create a resource group
      Write-Host "Creating Resource Group $rgName"
-     Create-ResourceGroup -rgName $rgName -location $location
+     az group create --name $rgName --location $location
      Write-Host "-----------------------------------"
 
     # Create key vault and configure access
     New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
 
-    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys Decrypt,Encrypt,UnwrapKey,WrapKey,Verify,Sign,Get,List,Update,Create,Import,Delete,Backup,Restore,Recover,Purge -PermissionsToSecrets Get,List,Set,Delete,Backup,Restore,Recover,Purge
 
 ```
 
@@ -309,7 +338,7 @@ Store the certificates contained in the .pfx file to the new key vault using thi
 
 ```
 
-## Deploy an Azure VM using your generalized image
+## Deploy an Azure VM from your generalized VHD image
 
 This section describes how to deploy a generalized VHD image to create a new Azure VM resource. For this process, we'll use the supplied Azure Resource Manager template and Azure PowerShell script.
 
@@ -550,7 +579,7 @@ Copy the following Azure Resource Manager template for VHD deployment to a local
 
 ```
 
-Edit this file to provide values for these parameters:
+Copy and edit the following script to provide values for these parameters:
 
 | **Parameter** | **Description** |
 | --- | --- |
@@ -579,7 +608,7 @@ Copy and edit the following script to provide values for the `$storageaccount` a
 
 ```PowerShell
 
-# storage account of existing generalized VHD
+## storage account of existing generalized VHD
 
 $storageaccount = "testwinrm11815"
 
@@ -587,17 +616,38 @@ $storageaccount = "testwinrm11815"
 
 $vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
 
+# Full pathname to the file VHDtoImage.json. inserted these highlighted lines
+$templateFile = "$certroopath\VHDtoImage.json"
+
+# Size of the virtual machine instance.
+$vmSize = "Standard_D2s_v3"
+
+# Name of the public IP address.
+$publicIPAddressName = "myPublicIP1"
+
+# Name of the virtual network
+$virtualNetworkName = "myVNET1"
+
+# Name of the network interface card for the virtual network
+$nicName = "myNIC1"
+
+# Username of the administrator account
+$adminUserName = "isv"
+
+# The OS of the virtual machine
+$osType = "windows"
+
 echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
 
 # deploying VM with existing VHD
 
-New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName" -TemplateFile"C:\certLocation\VHDtoImage.json" -userStorageAccountName"$storageaccount" -dnsNameForPublicIP"$vmName" -subscriptionId"$mysubid" -location"$location" -vmName"$vmName" -vaultName"$kvname" -vaultResourceGroup"$rgName" -certificateUrl$objAzureKeyVaultSecret.Id  -vhdUrl"$vhdUrl" -vmSize"Standard\_A2" -publicIPAddressName"myPublicIP1" -virtualNetworkName"myVNET1" -nicName"myNIC1" -adminUserName"isv" -adminPassword$pwd
+New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl “$objAzureKeyVaultSecret.Id” -vhdUrl "$vhdUrl" -vmSize "Standard_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName"myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword “$pwd”
 
 ```
 
-## Run validations
+## Run tests on the deployed VM
 
-There are two ways to run validations on the deployed image:
+There are two ways to run tests on the deployed image:
 
 - Use Certification Test Tool for Azure Certified
 - Use the self-test API
