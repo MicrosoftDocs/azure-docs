@@ -80,7 +80,7 @@ If you have everything ready, then let's get started.
 >[!NOTE]
 >If you already have an Azure Automation account with a runbook running an older version of the script, all you need to do is re-run just this script to make sure it's updated.
 
-First, you'll need an Azure Automation account to run the PowerShell runbook. Below procedure is valid even if you have an existing Azure Automation account which you would like to use to set up the PowerShell runbook. Here's how to set it up:
+First, you'll need an Azure Automation account to run the PowerShell runbook. The process this section describes is valid even if you have an existing Azure Automation account that you want to use to set up the PowerShell runbook. Here's how to set it up:
 
 1. Open Windows PowerShell.
 
@@ -120,7 +120,7 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Be
 
 5. The cmdlet's output will include a webhook URI. Make sure to keep a record of the URI because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
 
-6. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to keep a record of it because you'll use it as a parameter when you set up the execution schedule for the Azure Logic App.
+6. If you specified the parameter **WorkspaceName** for Log Analytics, the cmdlet's output will also include the Log Analytics Workspace ID and its Primary Key. Make sure to remember URI because you'll need to use it again later as a parameter when you set up the execution schedule for the Azure Logic App.
 
 7. After you've set up your Azure Automation account, sign in to your Azure subscription and check to make sure your Azure Automation account and the relevant runbook have appeared in your specified resource group, as shown in the following image:
 
