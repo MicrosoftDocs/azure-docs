@@ -23,7 +23,7 @@ In this article, you'll learn how to set up Visual Studio Code Remote extension 
 
 ## Prerequisite  
 
-* SSH-enabled compute instance. For more information, [see the create a compute instance guide.](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance#create).
+* SSH-enabled compute instance. For more information, [see the create a compute instance guide.](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#create).
 * On Windows platforms, you must [install an OpenSSH compatible SSH client](https://code.visualstudio.com/docs/remote/troubleshooting#_installing-a-supported-ssh-client) if one is not already present. 
 
 > [!Note]

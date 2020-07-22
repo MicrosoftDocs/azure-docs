@@ -30,9 +30,12 @@ In some cases, you may need to interactively debug the Python code used in your 
 
   * An Azure Virtual Machine in the virtual network
   * A Compute instance of Notebook VM in the virtual network
-  * A client machine connected to the virtual network by a virtual private network (VPN).
+  * A client machine that has private network connectivity to the virtual network, either by VPN or via ExpressRoute.
 
 For more information on using an Azure Virtual Network with Azure Machine Learning, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
+
+> ![TIP]
+> Although you can work with Azure Machine Learning resources that are not behind a virtual network, using a virtual network is recommended.
 
 ### How it works
 
@@ -40,7 +43,7 @@ Your ML pipeline steps run Python scripts. These scripts are modified to perform
 
 1. Log the IP address of the host that they are running on. You use the IP address to connect the debugger to the script.
 
-2. Start the PTVSD debug component, and wait for a debugger to connect.
+2. Start the debugpy debug component, and wait for a debugger to connect.
 
 3. From your development environment, you monitor the logs created by the training process to find the IP address where the script is running.
 
@@ -55,7 +58,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
 1. Add the following import statements:
 
     ```python
-    import ptvsd
+    import debugpy
     import socket
     from azureml.core import Run
     ```
@@ -77,7 +80,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
     run = Run.get_context()
     ```
 
-1. Add an `if` statement that starts PTVSD and waits for a debugger to attach. If no debugger attaches before the timeout, the script continues as normal.
+1. Add an `if` statement that starts debugpy and waits for a debugger to attach. If no debugger attaches before the timeout, the script continues as normal. Make sure to replace the `HOST` and `PORT` values is the `listen` function with your own.
 
     ```python
     if args.remote_debug:
@@ -85,11 +88,10 @@ To enable debugging, make the following changes to the Python script(s) used by 
         # Log the IP and port
         ip = socket.gethostbyname(socket.gethostname())
         print(f'ip_address: {ip}')
-        ptvsd.enable_attach(address=('0.0.0.0', 5678),
-                            redirect_output=True)
+        debugpy.listen(('<HOST>', '<PORT>'))
         # Wait for the timeout for debugger to attach
-        ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
-        print(f'Debugger attached = {ptvsd.is_attached()}')
+        debugpy.wait_for_client()
+        print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
 The following Python example shows a basic `train.py` file that enables debugging:
@@ -100,7 +102,7 @@ The following Python example shows a basic `train.py` file that enables debuggin
 
 import argparse
 import os
-import ptvsd
+import debugpy
 import socket
 from azureml.core import Run
 
@@ -130,11 +132,10 @@ if args.remote_debug:
     # Log the IP and port
     ip = socket.gethostbyname(socket.gethostname())
     print(f'ip_address: {ip}')
-    ptvsd.enable_attach(address=('0.0.0.0', 5678),
-                        redirect_output=True)
+    debugpy.listen(address=('0.0.0.0', 5678))
     # Wait for the timeout for debugger to attach
-    ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
-    print(f'Debugger attached = {ptvsd.is_attached()}')
+    debugpy.wait_for_client()
+    print(f'Debugger attached = {debugpy.is_client_connected()}')
 
 print("Argument 1: %s" % args.input_data)
 print("Argument 2: %s" % args.output_train)
@@ -147,7 +148,7 @@ if not (args.output_train is None):
 ### Configure ML pipeline
 
 To provide the Python packages needed to start PTVSD and get the run context, create an environment
-and set `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`. Change the SDK version to match the one you are using. The following code snippet demonstrates how to create an environment:
+and set `pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>']`. Change the SDK version to match the one you are using. The following code snippet demonstrates how to create an environment:
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.
@@ -169,7 +170,7 @@ run_config.environment.python.user_managed_dependencies = False
 
 # specify CondaDependencies obj
 run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'],
-                                                                           pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
+                                                                           pip_packages=['debugpy', 'azureml-sdk==1.0.83'])
 ```
 
 In the [Configure Python scripts](#configure-python-scripts) section, two new arguments were added to the scripts used by your ML pipeline steps. The following code snippet demonstrates how to use these arguments to enable debugging for the component and set a timeout. It also demonstrates how to use the environment created earlier by setting `runconfig=run_config`:
@@ -199,13 +200,13 @@ Save the `ip_address` value. It is used in the next section.
 
 ### Configure development environment
 
-1. To install the Python Tools for Visual Studio (PTVSD) on your VS Code development environment, use the following command:
+1. To install debugpy on your VS Code development environment, use the following command:
 
     ```
-    python -m pip install --upgrade ptvsd
+    python -m pip install --upgrade debugpy
     ```
 
-    For more information on using PTVSD with VS Code, see [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+    For more information on using debugpy with VS Code, see [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
 
 1. To configure VS Code to communicate with the Azure Machine Learning compute that is running the debugger, create a new debug configuration:
 
@@ -234,7 +235,7 @@ Save the `ip_address` value. It is used in the next section.
         > If there are already other entries in the configurations section, add a comma (,) after the code that you inserted.
 
         > [!TIP]
-        > The best practice is to keep the resources for scripts in separate directories, which is why the `localRoot` example value references `/code/step1`.
+        > The best practice, especially for pipelines is to keep the resources for scripts in separate directories so that code is relevant only for each of the steps. In this example the `localRoot` example value references `/code/step1`.
         >
         > If you are debugging multiple scripts, in different directories, create a separate configuration section for each script.
 
@@ -246,14 +247,14 @@ Save the `ip_address` value. It is used in the next section.
 2. Set breakpoints where you want the script to stop once you've attached.
 3. While the child process is running the script, and the `Timeout for debug connection` is displayed in the logs, use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Compute: remote debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning: remote debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
-    At this point, VS Code connects to PTVSD on the compute node and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
+    At this point, VS Code connects to debugpy on the compute node and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
     > [!NOTE]
     > If the log displays an entry stating `Debugger attached = False`, then the timeout has expired and the script continued without the debugger. Submit the pipeline again and connect the debugger after the `Timeout for debug connection` message, and before the timeout expires.
 
 ## Debug and troubleshoot deployments
 
-In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using Visual Studio Code and the Python Tools for Visual Studio (PTVSD), you can attach to the code running inside the Docker container.
+In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
 
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
@@ -262,13 +263,13 @@ Local web service deployments require a working Docker installation on your loca
 
 ### Configure development environment
 
-1. To install the Python Tools for Visual Studio (PTVSD) on your local VS Code development environment, use the following command:
+1. To install debugpy on your local VS Code development environment, use the following command:
 
-    ```
-    python -m pip install --upgrade ptvsd
+    ```bash
+    python -m pip install --upgrade debugpy
     ```
 
-    For more information on using PTVSD with VS Code, see [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_remote-debugging).
+    For more information on using PTVSD with VS Code, see [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
 
 1. To configure VS Code to communicate with the Docker image, create a new debug configuration:
 
@@ -278,7 +279,7 @@ Local web service deployments require a working Docker installation on your loca
 
         ```json
         {
-            "name": "Azure Machine Learning: Docker Debug",
+            "name": "Azure Machine Learning Deployment: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -299,9 +300,9 @@ Local web service deployments require a working Docker installation on your loca
 
     1. Save the __launch.json__ file.
 
-### Create an image that includes PTVSD
+### Create an image that includes debugpy
 
-1. Modify the conda environment for your deployment so that it includes PTVSD. The following example demonstrates adding it using the `pip_packages` parameter:
+1. Modify the conda environment for your deployment so that it includes debugpy. The following example demonstrates adding it using the `pip_packages` parameter:
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -309,9 +310,9 @@ Local web service deployments require a working Docker installation on your loca
 
     # Usually a good idea to choose specific version numbers
     # so training is made on same packages as scoring
-    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',            
+    myenv = CondaDependencies.create(conda_packages=['numpy==1.15.4',
                                 'scikit-learn==0.19.1', 'pandas==0.23.4'],
-                                 pip_packages = ['azureml-defaults==1.0.45', 'ptvsd'])
+                                 pip_packages = ['azureml-defaults==1.0.83', 'debugpy'])
 
     with open("myenv.yml","w") as f:
         f.write(myenv.serialize_to_string())
@@ -320,11 +321,11 @@ Local web service deployments require a working Docker installation on your loca
 1. To start PTVSD and wait for a connection when the service starts, add the following to the top of your `score.py` file:
 
     ```python
-    import ptvsd
+    import debugpy
     # Allows other computers to attach to ptvsd on this IP address and port.
-    ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
+    ptvsd.enable_attach(('0.0.0.0', 5678))
     # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
-    ptvsd.wait_for_attach(timeout = 30)
+    debugpy.wait_for_client()
     print("Debugger attached...")
     ```
 
@@ -365,7 +366,7 @@ Local web service deployments require a working Docker installation on your loca
 ### Debug the service
 
 > [!TIP]
-> If you set a timeout for the PTVSD connection in the `score.py` file, you must connect VS Code to the debug session before the timeout expires. Start VS Code, open the local copy of `score.py`, set a breakpoint, and have it ready to go before using the steps in this section.
+> If you set a timeout for the debugpy connection in the `score.py` file, you must connect VS Code to the debug session before the timeout expires. Start VS Code, open the local copy of `score.py`, set a breakpoint, and have it ready to go before using the steps in this section.
 >
 > For more information on debugging and setting breakpoints, see [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -375,11 +376,11 @@ Local web service deployments require a working Docker installation on your loca
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
+1. To attach VS Code to debugpy inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning Deployment: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning Deployment: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
     ![The debug icon, start debugging button, and configuration selector](./media/how-to-troubleshoot-deployment/start-debugging.png)
 
-At this point, VS Code connects to PTVSD inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
+At this point, VS Code connects to debugpy inside the Docker container and stops at the breakpoint you set previously. You can now step through the code as it runs, view variables, etc.
 
 For more information on using VS Code to debug Python, see [Debug your Python code](https://docs.microsoft.com/visualstudio/python/debugging-python-in-visual-studio?view=vs-2019).
 
