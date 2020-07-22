@@ -184,9 +184,9 @@ You'll need to set one environment variable in your function app from earlier, c
 
 ## Create and connect a Time Series Insights instance
 
-Next, you will set up a Time Series Insights instance to receive the data from your second event hub.
+Next, you will set up a Time Series Insights instance to receive the data from your second event hub. For more details about this process see [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md)
 
-1. Create a preview pay-as-you-go (PAYG) environment for setting up your Time Series Insights. [*Tutorial: Set up an Azure Time Series Insights Gen2 PAYG environment*](../time-series-insights/tutorials-set-up-tsi-environment.md)
+1. In the Azure Portal, begin creating a Time Series Insights resource. 
     1. Select the **PAYG(Preview)** pricing tier.
     2. You will need to choose a time series ID for this environment. Your time series ID can be up to three values that you will use to search for your data in Time Series Insights. For this tutorial, you can use **$dtId**. Read more about selecting an ID value in [*Best practices for choosing a Time Series ID*](https://docs.microsoft.com/azure/time-series-insights/how-to-select-tsid).
     
