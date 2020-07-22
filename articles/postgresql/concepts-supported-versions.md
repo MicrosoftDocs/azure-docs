@@ -28,7 +28,7 @@ The current minor release is 9.5.20. Refer to the [PostgreSQL documentation](htt
 ## Managing upgrades
 The PostgreSQL project regularly issues minor releases to fix reported bugs. Azure Database for PostgreSQL automatically patches servers with minor releases during the service's monthly deployments. 
 
-Automatic in-place upgrades for major versions are not supported. For example, there is not an automatic in-place upgrade from PostgreSQL 10 to PostgreSQL 11. To upgrade to the next major version, you can 
+Automatic in-place upgrades for major versions are not supported. To upgrade to the next major version, you can 
    * Use [pg_dump and pg_restore](./howto-migrate-using-dump-and-restore.md) to move a database to a server created with the new engine version
    * Alternatively, you can upgrade from PostgreSQL 10 to 11 using the [Azure Database Migration service](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
 
