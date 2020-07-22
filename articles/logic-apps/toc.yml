@@ -49,8 +49,13 @@
     href: connect-virtual-network-vnet-isolated-environment-overview.md
   - name: Business continuity and disaster recovery
     href: business-continuity-disaster-recovery-guidance.md
-  - name: Security baseline
-    href: security-baseline.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline
+      href: security-baseline.md
 - name: How-to guides
   items:
   - name: Develop
