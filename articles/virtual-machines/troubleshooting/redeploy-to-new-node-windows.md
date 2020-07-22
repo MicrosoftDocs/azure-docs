@@ -25,7 +25,7 @@ If you have been facing difficulties troubleshooting Remote Desktop (RDP) connec
 
 
 ## Using Azure PowerShell
-Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 The following example deploys the VM named `myVM` in the resource group named `myResourceGroup`:
 

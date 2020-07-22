@@ -125,7 +125,6 @@
       items:
       - name: B-series burstable
         href: ../virtual-machines/sizes-b-series-burstable.md
-        maintainContext: true
       maintainContext: true
     - name: Compute optimized
       href: ../virtual-machines/sizes-compute.md
@@ -136,7 +135,6 @@
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
-        maintainContext: true
       maintainContext: true
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
@@ -147,7 +145,6 @@
       items:
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
-        maintainContext: true
       maintainContext: true
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
@@ -384,7 +381,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/azure/
   - name: REST
     href: /rest/api/virtualmachinescalesets/
   - name: Azure templates
