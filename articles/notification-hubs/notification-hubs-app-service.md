@@ -22,7 +22,7 @@ ms.lastreviewed: 01/04/2019
 
 # Integration with App Service Mobile Apps
 
-To facilitate a seamless and unifying experience across Azure services, [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
+To facilitate a seamless and unifying experience across Azure services, [App Service Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) has built-in support for push notifications using Notification Hubs. [App Service Mobile Apps](/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop) offers a highly scalable, globally available mobile application development platform for Enterprise Developers and System Integrators that brings a rich set of capabilities to mobile developers.
 
 Mobile Apps developers can utilize Notification Hubs with the following workflow:
 

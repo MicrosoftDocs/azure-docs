@@ -5,13 +5,13 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/25/2019
+ ms.date: 06/15/2020
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
 
 
-If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the **-debug** switch with CLI and the **-Debug** switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
+If you run into issues while performing any operations on shared image galleries, image definitions, and image versions, run the failing command again in debug mode. Debug mode is activated by passing the `--debug` switch with CLI and the `-Debug` switch with PowerShell. Once you’ve located the error, follow this document to troubleshoot the errors.
 
 
 ## Unable to create a shared image gallery
@@ -39,7 +39,7 @@ Allowed characters for image definition are uppercase or lowercase letters, digi
 
 The properties such as name, publisher, offer, sku, and OS type are mandatory. Verify if all the properties are being passed.
 
-Make sure that the **OSType**, either Linux or Windows, of the image definition is the same as the source managed image that you are using to create the image version. 
+Make sure that the **OSType**, either Linux or Windows, of the image definition is the same as the source that you are using to create the image version. 
 
 
 ## Unable to create an image version 
@@ -80,7 +80,7 @@ Verify that the region you are trying to create a VM or virtual machine scale in
 
 *The VM or virtual machine scale set creation takes a long time.*
 
-Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source managed image that you used to create the image version. 
+Verify that the **OSType** of the image version that you are trying to create the VM or virtual machine scale set from has the same **OSType** of the source that you used to create the image version. 
 
 ## Unable to share resources
 

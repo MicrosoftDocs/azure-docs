@@ -14,14 +14,14 @@ Customers who have delegated subscriptions for [Azure Lighthouse](../overview.md
 
 ## View activity log data
 
-You can [view the activity log](../../azure-monitor/platform/activity-log-view.md) from the **Monitor** menu in the Azure portal. To limit results to a specific subscription, use the filters to select a specific subscription. You can also [view and retrieve activity log events](../../azure-monitor/platform/activity-log-view.md) programmatically.
+You can [view the activity log](../../azure-monitor/platform/activity-log.md#view-the-activity-log) from the **Monitor** menu in the Azure portal. To limit results to a specific subscription, use the filters to select a specific subscription. You can also [view and retrieve activity log events](../../azure-monitor/platform/activity-log.md#view-the-activity-log) programmatically.
 
 > [!NOTE]
 > Users in a service provider's tenant can view activity log results for a delegated subscription in a customer tenant if they were granted the [Reader](../../role-based-access-control/built-in-roles.md#reader) role (or another built-in role which includes Reader access) when that subscription was onboarded to Azure Lighthouse.
 
 In the activity log, you'll see the name of the operation and its status, along with the date and time it was performed. The **Event initiated by** column shows which user performed the operation, whether it was a user in a service provider's tenant acting through Azure Lighthouse, or a user in the customer's own tenant. Note that the name of the user is shown, rather than the tenant or the role that the user has been assigned for that subscription.
 
-Logged activity is available in the Azure portal for the past 90 days. To learn how to store this data for longer than 90 days, see [Collect and analyze Azure activity logs in Log Analytics workspace](../../azure-monitor/platform/activity-log-collect.md).
+Logged activity is available in the Azure portal for the past 90 days. To learn how to store this data for longer than 90 days, see [Collect and analyze Azure activity logs in Log Analytics workspace](../../azure-monitor/platform/activity-log.md).
 
 > [!NOTE]
 > Users from the service provider appear in the activity log, but these users and their role assignments are not shown in **Access Control (IAM)** or when retrieving role assignment info via APIs.

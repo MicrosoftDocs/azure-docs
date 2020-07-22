@@ -37,17 +37,17 @@ In the Azure portal, you must have at least one app before you can access the de
 
 1. In the [Azure portal](https://portal.azure.com), from the left menu, select **App Services** > **\<any_app>** > **Deployment center** > **FTP** > **Dashboard**.
 
-    ![](./media/app-service-deployment-credentials/access-no-git.png)
+    ![Shows how you can select the FTP dashboard from the Deployment center in Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
     Or, if you've already configured Git deployment, select **App Services** > **&lt;any_app>** > **Deployment center** > **FTP/Credentials**.
 
-    ![](./media/app-service-deployment-credentials/access-with-git.png)
+    ![Shows how you can select the FTP dashboard from the Deployment center in Azure App Services for your configured Git deployment.](./media/app-service-deployment-credentials/access-with-git.png)
 
 2. Select **User Credentials**, configure the user name and password, and then select **Save Credentials**.
 
 Once you have set your deployment credentials, you can find the *Git* deployment username in your app's **Overview** page,
 
-![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
+![Shows how to find the Git deployment user name on your app's Overview page.](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
 If Git deployment is configured, the page shows a **Git/deployment username**; otherwise, an **FTP/deployment username**.
 

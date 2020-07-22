@@ -66,7 +66,7 @@ To encrypt the SAML response assertion:
 3. Set the technical profile metadata **WantsEncryptedAssertions** to `true`.
 4. Update the identity provider with the new Azure AD B2C technical profile metadata. You should see the **KeyDescriptor** with the **use** property set to `encryption` containing the public key of your certificate.
 
-The following example shows the Azure AD B2C technical profile encryption section of the metadata:
+The following example shows the Key Descriptor section of the SAML metadata used for encryption:
 
 ```xml
 <KeyDescriptor use="encryption">

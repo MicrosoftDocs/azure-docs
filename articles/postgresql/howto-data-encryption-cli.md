@@ -83,8 +83,8 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
 
 ### Creating a restored/replica server
 
-  *  [Create a restore server](howto-restore-server-cli.md) 
-  *  [Create a read replica server](howto-read-replicas-cli.md) 
+* [Create a restore server](howto-restore-server-cli.md)
+* [Create a read replica server](howto-read-replicas-cli.md)
 
 ### Once the server is restored, revalidate data encryption the restored server
 
@@ -100,7 +100,7 @@ az postgres server key create –name  <server name> -g <resource_group> --kid <
 az postgres server key show --name <server name>  -g <resource_group> --kid <key url>
 ```
 
-Key url:  `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
+Key url: `https://YourVaultName.vault.azure.net/keys/YourKeyName/01234567890123456789012345678901>`
 
 ### List the Key used
 

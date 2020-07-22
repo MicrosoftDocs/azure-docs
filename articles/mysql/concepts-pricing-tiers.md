@@ -12,7 +12,7 @@ ms.date: 02/25/2020
 
 You can create an Azure Database for MySQL server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Attribute   | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -38,7 +38,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 The storage you provision is the amount of storage capacity available to your Azure Database for MySQL server. The storage is used for the database files, temporary files, transaction logs, and the MySQL server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Storage attribute   | Basic | General purpose | Memory optimized |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 16 TB | 5 GB to 16 TB |

@@ -1,16 +1,16 @@
 ---
-title: Customize RDP Properties with PowerShell - Azure
+title: Customize RDP properties with PowerShell Spring 2020 - Azure
 description: How to customize RDP Properties for Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
 ---
-# Customize Remote Desktop Protocol properties for a host pool
+# Customize Remote Desktop Protocol (RDP) properties for a host pool
 
 >[!IMPORTANT]
 >This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/customize-rdp-properties-2019.md).
@@ -26,18 +26,6 @@ See [supported RDP file settings](https://docs.microsoft.com/windows-server/remo
 
 Before you begin, follow the instructions in [Set up the Windows Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
 
-## Default RDP properties
-
-By default, published RDP files contain the following properties:
-
-|RDP properties | Desktops | RemoteApps |
-|---|---| --- |
-| Multi-monitor mode | Enabled | N/A |
-| Drive redirections enabled | Drives, clipboard, printers, COM ports, USB devices and smartcards| Drives, clipboard, and printers |
-| Remote audio mode | Play locally | Play locally |
-
-Any custom properties you define for the host pool will override these defaults.
-
 ## Configure RDP properties in the Azure portal
 
 To configure RDP properties in the Azure portal:
@@ -48,7 +36,7 @@ To configure RDP properties in the Azure portal:
 4. At the Windows Virtual Desktop page, select **host pools** in the menu on the left side of the screen.
 5. Select **the name of the host pool** you want to update.
 6. Select **Properties** in the menu on the left side of the screen.
-7. On the **Properties** tab, go to **RDP settings** to start editing the RDP properties. Properties should be in a comma-separated format like the PowerShell examples.
+7. On the **Properties** tab, go to **RDP settings** to start editing the RDP properties. Properties should be in a semicolon-separated format like the PowerShell examples.
 8. When you're done, select **Save** to save your changes.
 
 The next sections will tell you how to edit custom RDP properties manually in PowerShell.
@@ -127,7 +115,7 @@ CustomRdpProperty : <CustomRDPpropertystring>
 
 Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next how-to guides will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10.md)
 - [Connect with the web client](connect-web.md)
 - [Connect with the Android client](connect-android.md)
 - [Connect with the macOS client](connect-macos.md)

@@ -23,7 +23,7 @@ ms.date: 05/29/2020
 
 - A database in Azure SQL Database or Azure SQL Managed Instance. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || Azure SQL Database | Azure SQL Managed Instance |
+  | Action | Azure SQL Database | Azure SQL Managed Instance |
   |:--- |:--- |:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |

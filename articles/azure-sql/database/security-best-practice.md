@@ -237,7 +237,7 @@ Assign only the necessary [permissions](https://docs.microsoft.com/sql/relationa
 - In Azure Resource Manager:
   - Use built-in roles if available or custom RBAC roles and assign the necessary permissions.
     - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
-    - [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md)
+    - [Azure custom roles](../../role-based-access-control/custom-roles.md)
 
 **Best practices**:
 
@@ -338,7 +338,7 @@ For the readers that want to dive deeper into SoD, we recommend the following re
 
 - For Azure Resource Management:
   - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
-  - [Custom roles for Azure resources](../../role-based-access-control/custom-roles.md)
+  - [Azure custom roles](../../role-based-access-control/custom-roles.md)
   - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### Perform regular code reviews

@@ -88,5 +88,5 @@ To remove an installed solution, locate it in the [list of installed solutions](
 
 ## Next steps
 
-* Get a [list of monitoring solutions from Microsoft](solutions-inventory.md).
+* Get a [list of monitoring solutions from Microsoft](../monitor-reference.md).
 * Learn how to [create queries](../log-query/log-query-overview.md) to analyze data collected by monitoring solutions.

@@ -1,14 +1,15 @@
 ---
-title: Tutorial - Set up your Config Server instance in Azure Spring Cloud
-description: In this tutorial, you learn how to set up a Spring Cloud Config Server instance for your Azure Spring Cloud on the Azure portal
+title: Set up your Config Server instance in Azure Spring Cloud
+description: Learn how to set up a Spring Cloud Config Server instance for your Azure Spring Cloud on the Azure portal
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
+ms.custom: devx-track-java
 ---
 
-# Tutorial: Set up a Spring Cloud Config Server instance for your service
+# Set up a Spring Cloud Config Server instance for your service
 
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
@@ -185,7 +186,4 @@ After you've saved a configuration file, the **Delete app configuration** button
 
 ## Next steps
 
-In this tutorial, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, continue to the tutorial about manually scaling your app.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Scale an application in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)
+In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md).
