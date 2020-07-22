@@ -1,34 +1,32 @@
 ---
-title:  Azure Monitor platform metrics exportable via Diagnostic Settings
-description: List of metrics available for each resource type with Azure Monitor.
+title:  Metrics export behavior with NULL and zero values
+description: Discussion of NULL vs. zero values when exporting metrics and a pointer to a list of what metrics are not exportable.
 services: azure-monitor
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 07/22/2020
 ms.subservice: metrics
 ---
 # Azure Monitor platform metrics exportable via Diagnostic Settings
 
 Azure Monitor provides [platform metrics](data-platform-metrics.md) by default with no configuration. It provides several ways to interact with platform metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. See [metrics-supported](metrics-supported.md) for a complete list of platform metrics currently available with Azure Monitor's consolidated metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics may be available in the portal or using legacy APIs.
 
-You can export the platform metrics from the Azure monitor pipeline to other locations in one of two ways.
-1. Using [diagnostic settings](diagnostic-settings.md) to send to Log Analytics, Event Hubs or Azure Storage.
-2. Use the [metrics REST API](/rest/api/monitor/metrics/list)
-
 ## Metrics not exportable via diagnostic settings
 
-Because of intricacies in the Azure Monitor backend, not all metrics are exportable using diagnostic settings. For information on which are exportable and which are not, see [Supported list of Azure Monitor Metrics](metrics-supported.md).
+The content that used to be at this location has been moved to [Supported list of Azure Monitor Metrics](metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-All metrics are exportable using the REST API. 
+There are limitation when exporting metrics via diagnostic settings. All metrics are exportable using the REST API. 
 
 ## Exported zero vs NULL values 
 
-When platform metrics can be exported via diagnostic settings, they export NULLs when the resource sends no data.  They export '0's only when they are truly been emitted by the underlying resource. 
+Metrics have different behavior when dealing with 0 or NULL values.  Some metrics report zero when no data is obtained, for example metrics on http failures. Other metrics store NULL when no data is obtained because it can indicate that the resource is offline. You can see the difference when charting these metrics with NULL values showing up as [dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line).  
+
+When platform metrics can be exported via diagnostic settings, they match the behavior of the metric. That is, they export NULLs when the resource sends no data.  They export '0's only when they are truly been emitted by the underlying resource. 
 
 If you delete a resource group or a specific resource, metric data from the affected resources no longer is sent to diagnostic setting export destinations. That is, it no longer appears in Event Hubs, Azure Storage accounts and Log Analytics workspaces.
 
-## Metrics that used to export zero for NULL
+### Metrics that used to export zero for NULL
 
-The metrics below **used to** emit '0's when there was no data. Those zeros could then be exported into downstream systems like Log Analytics and Azure storage.  This behavior caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (NULLs), and so the behavior was changed on June 1, 2020.  Since that date, they now emit NULL values just like the rest of the supported platform metrics.
+Before June 1, 2020, the metrics below **used to** emit '0's when there was no data. Those zeros could then be exported into downstream systems like Log Analytics and Azure storage.  This behavior caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (NULLs), and so the behavior was changed. Since June 1, 2020, they now emit NULL values just like the rest of the supported platform metrics.
 
 The change occured in all public and private clouds.
 
