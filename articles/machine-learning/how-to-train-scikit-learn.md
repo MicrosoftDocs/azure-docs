@@ -57,16 +57,9 @@ ws = Workspace.from_config()
 
 In this tutorial, the training script **train_iris.py** is already provided for you [here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train_iris.py). In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
 
-To use the Azure ML tracking and metrics capabilities, add a small amount of Azure ML code inside your training script.  The training script **train_iris.py** shows how to log some metrics to your Azure ML run using the `Run` object within the script.
-
-The provided training script uses example data from the  `iris = datasets.load_iris()` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#data-upload) to make data available during training.
-
-Copy the training script **train_iris.py** into your project directory.
-
-```
-import shutil
-shutil.copy('./train_iris.py', 'training')
-```
+Notes:
+- The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
+- The provided training script uses example data from the  `iris = datasets.load_iris()` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#data-upload) to make data available during training.
 
 ### Create an Environment
 
@@ -97,7 +90,7 @@ myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklear
 ```python
 from azureml.core import ScriptRunConfig
 
-src = ScriptRunConfig(source_directory='training', script='train.py')
+src = ScriptRunConfig(source_directory='.', script='train.py')
 src.run_config.environment = myenv
 ```
 
