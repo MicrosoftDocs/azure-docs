@@ -98,7 +98,7 @@ On the **Component** page, you can view the non-writable properties, update writ
 
 #### Properties
 
-You can view the read-only properties defined in an interface on the **Properties (non-writable)** tab. You can update the writeable properties defined in an interface on the **Properties (writable)** tab:
+You can view the read-only properties defined in an interface on the **Properties (non-writable)** tab. You can update the writable properties defined in an interface on the **Properties (writable)** tab:
 
 1. Go to the **Properties (writable)** tab.
 1. Click the property you'd like to update.
