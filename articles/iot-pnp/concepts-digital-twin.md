@@ -11,22 +11,25 @@ services: iot-pnp
 
 # Understand IoT Plug and Play digital twins
 
-An IoT Plug and Play device implements a model described by [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have. When an IoT Plug and Play device connects to IoT Hub for the first time, a device twin and a digital twin are initialized.
+An IoT Plug and Play device implements a model described by the [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) schema. A model describes the set of components, properties, commands, and telemetry messages that a particular device can have. A device twin and a digital twin are initialized the first time an IoT Plug and Play device connects to an IoT hub.
 
-IoT Plug and Play uses DTDL *version 2*. For more information about this version of DTDL, see its spec documentation in GitHub: [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). DTDL is not exclusive to IoT Plug and Play, it is also used to represent entire environment like buildings, energy networks and more in other IoT services such as [Azure Digital Twins](https://docs.microsoft.com/en-us/azure/digital-twins/overview).
-To learn more, see [Understand twin models in Azure Digital Twins](../digital-twins/concepts-models.md).
+IoT Plug and Play uses DTDL version 2. For more information about this version, see the [Digital Twins Definition Language (DTDL) - version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md) specification on GitHub.
 
-This article describes how components and properties are represented in the desired and reported sections of a device twin. It also describes how these concepts are mapped in the corresponding digital twin.
+DTDL isn't exclusive to IoT Plug and Play. Other IoT services, such as [Azure Digital Twins](../digital-twins/overview.md), use it to represent entire environments such as buildings and energy networks. To learn more, see [Understand twin models in Azure Digital Twins](../digital-twins/concepts-models.md).
+
+This article describes how components and properties are represented in the *desired* and *reported* sections of a device twin. It also describes how these concepts map to the corresponding digital twin.
 
 The IoT plug and play device in this article that implements [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) with [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) component.
 
 ## Device twins and digital twins
 
-Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). Both device and solution developers can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
+Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). Both device and solution builders can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
 
-Digital Twin APIs operate on high-level constructs of Digital Twins Definition Language (DTDL) such as components, properties, and commands. Hence solution developers can build IoT Plug and Play solutions more easily by leveraging the Digital Twin APIs.
+Digital Twin APIs operate on high-level constructs in the Digital Twins Definition Language (DTDL) such as components, properties, and commands. The Digital Twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
 
-In a device twin, the state of a writable property is split across the desired and reported section. All read-only properties are available within the reported section. A digital twin on the other hand, provides unified view of the current and desired state of the property. The synchronization state of given property is stored in the corresponding root-level or component `$metadata` section.
+In a device twin, the state of a writable property is split across the desired and reported sections. All read-only properties are available within the reported section.
+
+In a digital twin, there's a unified view of the current and desired state of the property. The synchronization state for a given property is stored in the corresponding root-level or component `$metadata` section.
 
 ### Digital twin JSON format
 
@@ -230,9 +233,12 @@ Components allow building model interface as an assembly of other interfaces.
 Consider [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface, which is defined as a model.
 This interface can now be incorporated as a component thermostat1(and another component thermostat2) when defining [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-In a device twin, a component is identified by the `{ "__t": "c"}` marker whereas within a digital twin, presence of `$metadata` marks a component.
-In this example, `thermostat1` is a component with two properties. `maxTempSinceLastReboot` is read-only property.
-`targetTemperature` is a writable property that has been successfully synced by the device. The desired value and synchronization state of a these properties are within component's `$metadata`.
+In a device twin, a component is identified by the `{ "__t": "c"}` marker. In a digital twin, the presence of `$metadata` marks a component.
+
+In this example, `thermostat1` is a component with two properties:
+
+- `maxTempSinceLastReboot` is a read-only property.
+- `targetTemperature` is a writable property that's been successfully synchronized by the device. The desired value and synchronization state of these properties are in the component's `$metadata`.
 
 The following snippets show the side-by-side JSON representation of the `thermostat1` component:
 
@@ -302,9 +308,9 @@ Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital T
 
 ## Digital twin change events
 
-When digital twin change event is enabled, an event is triggered whenever the current or desired value of the component or property changes. Corresponding events are generated in the device twin format if twin change events are enabled. Digital twin change events are generated in [JSON Patch](http://jsonpatch.com/) format.
+When digital twin change events are enabled, an event is triggered whenever the current or desired value of the component or property changes. Digital twin change events are generated in [JSON Patch](http://jsonpatch.com/) format. Corresponding events are generated in the device twin format if twin change events are enabled. 
 
-To learn how to enable routing for device and digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c#non-telemetry-events). To understand messaging format, see [Create and read IoT Hub messages](../iot-hub/iot-hub-devguide-messages-construct)
+To learn how to enable routing for device and digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). To understand the message format, see [Create and read IoT Hub messages](../iot-hub/iot-hub-devguide-messages-construct.md).
 
 For example, the following digital twin change event is triggered when `targetTemperature` is set by the solution:
 
@@ -369,7 +375,7 @@ content-encoding:utf-8
 
 Now that you've learned about digital twins, here are some additional resources:
 
-- [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin)
-- [Interact with a device from your solution](quickstart-service-node)
+- [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
+- [Interact with a device from your solution](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)
