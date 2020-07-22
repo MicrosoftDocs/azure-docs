@@ -21,7 +21,7 @@ You can receive SMS messages and Delivery Reports by using ACS' EventGrid integr
 This quickstart also requires:
 - **Deployed Azure Communication Service resource.** Check out the quick start for making an ACS resource in the Azure portal. [create an Azure Communication Resource](./create-a-communication-resource).
 - **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. **NOTE:** For private preview, please contact Nikolay Muravlyannikov (nmurav@microsoft.com) or Phone@microsoft.com to aquire telephone numbers for your resource.
-- **Download SMS SDK.** Download `CommunicationServices-SMS` Javascript SDK to send an SMS from Communication-Preview [Releases](https://github.com/Azure/communication-preview/releases).
+- **Download SMS SDK.** Download `Communication-SMS` Javascript SDK to send an SMS from Communication-Preview [Releases](https://github.com/Azure/communication-preview/releases).
 
 ## Installing local npm tarballs
 For this quickstart you will need the tarballs for packages: sms, common and configuration.
@@ -43,7 +43,7 @@ In the Azure Portal, use the `Keys` page in `Settings` to generate keys.
 Once the module has been installed, we are ready to implement a few lines of code to create an SMS client and send a message.
 
 ```javascript
-var sms = require('@azure/communicationservices-sms');
+var sms = require('@azure/communication-sms');
 
 let connectionString = <ConnectionString>;
 let smsClient = new sms.SmsClient(connectionString);
