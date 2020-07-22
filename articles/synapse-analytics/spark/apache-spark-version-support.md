@@ -1,11 +1,11 @@
 ---
-title: Apache Spark for Azure Synapse Analytics version support 
+title: Apache Spark version support 
 description: Supported versions of Spark, Scala, Python
 services: synapse-analytics
 author: euangMS 
 ms.service: synapse-analytics 
 ms.topic: reference
-ms.subservice: 
+ms.subservice: spark
 ms.date: 04/15/2020 
 ms.author: euang 
 ms.reviewer: euang

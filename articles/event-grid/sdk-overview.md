@@ -1,14 +1,8 @@
 ---
 title: Azure Event Grid SDKs
 description: Describes the SDKs for Azure Event Grid. These SDKs provide management, publishing and consumption.
-services: event-grid
-author: spelluru
-manager: timlt
-
-ms.service: event-grid
 ms.topic: reference
-ms.date: 01/19/2019
-ms.author: spelluru
+ms.date: 07/07/2019
 ---
 
 # Event Grid SDKs for management and publishing

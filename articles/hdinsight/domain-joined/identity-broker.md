@@ -5,7 +5,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2019
 ---
 
@@ -84,6 +84,8 @@ If you add a new role called `idbrokernode` with the following attributes to the
 ## Tool integration
 
 The HDInsight [IntelliJ plug-in](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin#integrate-with-hdinsight-identity-broker-hib) is updated to support OAuth. You can use this plug-in to connect to the cluster and submit jobs.
+
+You can also use [Spark & Hive Tools for VS Code](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode) to leverage notebook and submit jobs.
 
 ## SSH access without a password hash in Azure AD DS
 

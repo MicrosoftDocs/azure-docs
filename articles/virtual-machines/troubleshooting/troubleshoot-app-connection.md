@@ -114,7 +114,7 @@ If you cannot access the application, verify the following settings:
   
   * Verify that the endpoint configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
   * Verify that access control lists (ACLs) on the endpoint are not preventing incoming traffic from the Internet.
-  * For more information, see [How to Set Up Endpoints to a Virtual Machine](../windows/classic/setup-endpoints.md).
+  * For more information, see [How to Set Up Endpoints to a Virtual Machine](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints).
 * For VMs created using the Resource Manager deployment model:
   
   * Verify that the inbound NAT rule configuration for the VM is allowing the incoming traffic, especially the protocol (TCP or UDP) and the public and private port numbers.
@@ -135,11 +135,9 @@ If you can access the application, ensure that your Internet edge device is allo
 
 ## Step 4 If you cannot access the application, use IP Verify to check the settings. 
 
-For more information, see [Azure network monitoring overview](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
+For more information, see [Azure network monitoring overview](../../network-watcher/network-watcher-monitoring-overview.md). 
 
 ## Additional resources
 [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](troubleshoot-rdp-connection.md)
 
 [Troubleshoot Secure Shell (SSH) connections to a Linux-based Azure virtual machine](troubleshoot-ssh-connection.md)
-
-

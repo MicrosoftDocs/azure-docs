@@ -6,7 +6,7 @@ author: mlee3gsd
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
@@ -51,10 +51,6 @@ A. See our current [capacity limits](sql-data-warehouse-service-capacity-limits.
 Q. Why is my Scale/Pause/Resume taking so long?
 
 A. Several factors can influence the time for compute management operations. A common case for long running operations is transactional rollback. When a scale or pause operation is initiated, all incoming sessions are blocked and queries are drained. In order to leave the system in a stable state, transactions must be rolled back before an operation can commence. The greater the number and larger the log size of transactions, the longer the operation will be stalled restoring the system to a stable state.
-
-Q: How do I rename a published artifact (dataset, notebook, sql script and so on) in Synapse?
-
-A: To rename a published artifact file clone the file first and rename the new file name that you prefer. You need to manually update all the references of the artifact to the new file and delete the old one.
 
 ## User support
 

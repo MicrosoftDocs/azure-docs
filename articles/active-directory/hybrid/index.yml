@@ -60,7 +60,7 @@ landingContent:
             url: how-to-connect-sso.md
       - linkListType: concept
         links:
-          - text: Determine which authetication method is right for you
+          - text: Determine which authentication method is right for you
             url: /azure/security/fundamentals/choose-ad-authn
 
 

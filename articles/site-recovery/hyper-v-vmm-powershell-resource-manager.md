@@ -18,9 +18,9 @@ This article shows how to automate the steps for replication of Hyper-V VMs in S
 ## Prerequisites
 
 - Review the [scenario architecture and components](hyper-v-vmm-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-to-sec-site.md) for all components.
-- Make sure that Virtual Machine Manager servers and Hyper-V hosts comply with [support requirements](site-recovery-support-matrix-to-sec-site.md).
-- Check that the VMs you want to replicate comply with [replicated machine support](site-recovery-support-matrix-to-sec-site.md).
+- Review the [support requirements](./vmware-physical-secondary-support-matrix.md) for all components.
+- Make sure that Virtual Machine Manager servers and Hyper-V hosts comply with [support requirements](./vmware-physical-secondary-support-matrix.md).
+- Check that the VMs you want to replicate comply with [replicated machine support](./vmware-physical-secondary-support-matrix.md).
 
 ## Prepare for network mapping
 
@@ -32,10 +32,10 @@ This article shows how to automate the steps for replication of Hyper-V VMs in S
 
 Prepare Virtual Machine Manager as follows:
 
-- Make sure you have [Virtual Machine Manager logical networks](https://docs.microsoft.com/system-center/vmm/network-logical) on the source and target Virtual Machine Manager servers:
+- Make sure you have [Virtual Machine Manager logical networks](/system-center/vmm/network-logical) on the source and target Virtual Machine Manager servers:
   - The logical network on the source server should be associated with the source cloud in which Hyper-V hosts are located.
   - The logical network on the target server should be associated with the target cloud.
-- Make sure you have [VM networks](https://docs.microsoft.com/system-center/vmm/network-virtual) on the source and target Virtual Machine Manager servers. VM networks should be linked to the logical network in each location.
+- Make sure you have [VM networks](/system-center/vmm/network-virtual) on the source and target Virtual Machine Manager servers. VM networks should be linked to the logical network in each location.
 - Connect VMs on the source Hyper-V hosts to the source VM network.
 
 ## Prepare for PowerShell

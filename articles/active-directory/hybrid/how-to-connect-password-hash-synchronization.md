@@ -8,7 +8,7 @@ manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
@@ -117,7 +117,6 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> This feature is in Public Preview right now.
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
 
 #### Synchronizing temporary passwords and "Force Password Change on Next Logon"
@@ -135,9 +134,6 @@ To support temporary passwords in Azure AD for synchronized users, you can enabl
 
 > [!CAUTION]
 > You should only use this feature when SSPR and Password Writeback are enabled on the tenant.  This is so that if a user changes their password via SSPR, it will be synchronized to Active Directory.
-
-> [!NOTE]
-> This feature is in public preview right now.
 
 #### Account expiration
 

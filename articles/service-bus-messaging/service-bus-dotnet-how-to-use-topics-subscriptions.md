@@ -1,22 +1,11 @@
 ---
 title: Get started with Azure Service Bus topics and subscriptions | Microsoft Docs
 description: Write a C# .NET Core console application that uses Service Bus messaging topics and subscriptions.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 11/27/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Get started with Service Bus topics
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]

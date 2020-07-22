@@ -1,18 +1,21 @@
 ---
-title: Use the Azure storage emulator for development and testing | Microsoft Docs
+title: Use the Azure storage emulator for development and testing
 description: The Azure storage emulator provides a free local development environment for developing and testing your Azure Storage applications.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Use the Azure storage emulator for development and testing
 
 The Microsoft Azure storage emulator is a tool that emulates the Azure Blob, Queue, and Table services for local development purposes. You can test your application against the storage services locally without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, switch to using an Azure storage account in the cloud.
+
+> [!IMPORTANT]
+> The Azure Storage Emulator is no longer being actively developed. [**Azurite**](storage-use-azurite.md) is the storage emulator platform going forward. Azurite supersedes the Azure Storage Emulator. Azurite will continue to be updated to support the latest versions of Azure Storage APIs. For more information, see [**Use the Azurite emulator for local Azure Storage development**](storage-use-azurite.md).
 
 ## Get the storage emulator
 
@@ -71,7 +74,7 @@ You can use the storage emulator command-line tool to initialize the storage emu
 
    `AzureStorageEmulator.exe init /server .`
 
-   Or, you can use the following command, which reinitializes the database to the default LocalDB instance:
+   Or, you can use the following command, which initializes the database to the default LocalDB instance:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -324,3 +327,7 @@ There are no differences specific to Queue storage in the emulator.
 * Evaluate the cross-platform, community-maintained open-source storage emulator [Azurite](https://github.com/azure/azurite). 
 * [Azure Storage samples using .NET](../storage-samples-dotnet.md) contains links to several code samples you can use when developing your application.
 * You can use the [Microsoft Azure Storage Explorer](https://storageexplorer.com) to work with resources in your cloud Storage account, and in the storage emulator.
+
+## See Also
+
+* [Local Azure Storage Development with Azurite, Azure SDKs, and Azure Storage Explorer](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

@@ -1,11 +1,11 @@
 ---
-title: Synchronize Apache Spark for Azure Synapse external table definitions in SQL on-demand (preview)
+title: Synchronize Apache Spark for external table definitions in SQL on-demand (preview)
 description: Overview of how to query Spark tables using SQL on-demand (preview)
 services: synapse-analytics 
 author: julieMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
@@ -17,7 +17,7 @@ The SQL on-demand (preview) can automatically synchronize metadata from Apache S
 
 For each Spark external table based on Parquet and located in Azure Storage, an external table is created in the SQL on-demand database. As such, you can shut down your Spark pools and still query Spark external tables from SQL on-demand.
 
-When a table is partitioned in Spark, files in storage are organized by folders. SQL on-demand will utilize partition metadata and only target relevant folders and files for your query.
+When a table is partitioned in Spark, files in storage are organized by folders. SQL on-demand will use partition metadata and only target relevant folders and files for your query.
 
 Metadata synchronization is automatically configured for each Spark pool provisioned in the Azure Synapse workspace. You can start querying Spark external tables instantly.
 
@@ -29,12 +29,15 @@ For Spark external table queries, run a query that targets an external [spark_ta
 SELECT * FROM [db].dbo.[spark_table]
 ```
 
-## Spark data types to SQL data types mapping
+> [!NOTE]
+> Add, drop, or alter Spark external table commands for a column will not be reflected in the external table in SQL on-demand.
+
+## Apache Spark data types to SQL data types mapping
 
 | Spark data type | SQL data type               |
 | --------------- | --------------------------- |
 | ByteType        | smallint                    |
-| ShortType       | smallint                    |
+| Short Type       | smallint                    |
 | IntegerType     | int                         |
 | LongType        | bigint                      |
 | FloatType       | real                        |

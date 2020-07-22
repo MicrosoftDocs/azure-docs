@@ -36,7 +36,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-*  A [Juno Journey tenant](https://www.junojourney.com/blank).
+*  A [Juno Journey tenant](https://www.junojourney.com/getstarted).
 *  A user account in Juno Journey with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment

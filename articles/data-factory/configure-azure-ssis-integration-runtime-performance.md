@@ -98,11 +98,15 @@ If you don't have many packages to run, and you want packages to run quickly, us
 
 This data represents a single package execution on a single worker node. The package loads 3 million records with first name and last name columns from Azure Blob Storage, generates a full name column, and writes the records that have the full name longer than 20 characters to Azure Blob Storage.
 
+The y-axis is the number of packages that completed execution in one hour. Please note that this is only a test result of one memory-consuming package. If you want to know the throughput of your package, it is recommended to perform the test by yourself.
+
 ![SSIS Integration Runtime package execution speed](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### Configure for overall throughput
 
 If you have lots of packages to run, and you care most about the overall throughput, use the information in the following chart to choose a virtual machine type suitable for your scenario.
+
+The y-axis is the number of packages that completed execution in one hour. Please note that this is only a test result of one memory-consuming package. If you want to know the throughput of your package, it is recommended to perform the test by yourself.
 
 ![SSIS Integration Runtime maximum overall throughput](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 
@@ -144,7 +148,7 @@ Here are the guidelines for setting the right value for the **AzureSSISMaxParall
 
 ## SSISDBPricingTier
 
-**SSISDBPricingTier** is the pricing tier for the SSIS Catalog database (SSISDB) on an Azure SQL database. This setting affects the maximum number of workers in the IR instance, the speed to queue a package execution, and the speed to load the execution log.
+**SSISDBPricingTier** is the pricing tier for the SSIS Catalog database (SSISDB) on in Azure SQL Database. This setting affects the maximum number of workers in the IR instance, the speed to queue a package execution, and the speed to load the execution log.
 
 -   If you don't care about the speed to queue package execution and to load the execution log, you can choose the lowest database pricing tier. Azure SQL Database with Basic pricing supports 8 workers in an integration runtime instance.
 

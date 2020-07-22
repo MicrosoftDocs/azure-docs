@@ -8,7 +8,6 @@ ms.author: alkarche # Microsoft employees only
 ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ms.reviewer: baanders
 ---
 
 # Use Azure Digital Twins to update an Azure Maps indoor map
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 This article walks through the steps required to use Azure Digital Twins data to update information displayed on an *indoor map* using [Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stores a graph of your IoT device relationships and routes telemetry to different endpoints, making it the perfect service for updating informational overlays on maps.
 
@@ -30,9 +27,9 @@ This how-to will cover:
 
 ### Prerequisites
 
-* Follow the Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md).
+* Follow the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md).
     * You'll be extending this twin with an additional endpoint and route. You will also be adding another function to your function app from that tutorial. 
-* Follow the Azure Maps [Tutorial: Use Azure Maps Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
+* Follow the Azure Maps [*Tutorial: Use Azure Maps Creator to create indoor maps*](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
     * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you will be displaying on a map.
     * You will need your feature *stateset ID* and Azure Maps *subscription ID*.
 
@@ -48,7 +45,7 @@ First, you'll create a route in Azure Digital Twins to forward all twin update e
 
 ## Create a route and filter to twin update notifications
 
-Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
+Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: *Connect an end-to-end solution*](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
 
 This pattern reads from the room twin directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for temperature without needing to update our mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update our map logic.
 
@@ -141,9 +138,9 @@ az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-st
 
 To see live-updating temperature, follow the steps below:
 
-1. Begin sending simulated IoT data by running the **DeviceSimulator** project from the Azure Digital Twins [Tutorial: Connect an end-to-end solution](tutorial-end-to-end.md). The instructions for this are in the [*Configure and run the simulation*](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
+1. Begin sending simulated IoT data by running the **DeviceSimulator** project from the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md). The instructions for this are in the [*Configure and run the simulation*](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
 2. Use [the **Azure Maps Indoor** module](../azure-maps/how-to-use-indoor-module.md) to render your indoor maps created in Azure Maps Creator.
-    1. Copy the HTML from the [*Example: Use the Indoor Maps Module*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) section of the indoor maps [Tutorial: Use the Azure Maps Indoor Maps module](../azure-maps/how-to-use-indoor-module.md) to a local file.
+    1. Copy the HTML from the [*Example: Use the Indoor Maps Module*](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) section of the indoor maps [*Tutorial: Use the Azure Maps Indoor Maps module*](../azure-maps/how-to-use-indoor-module.md) to a local file.
     1. Replace the *tilesetId* and *statesetID* in the local HTML file with your values.
     1. Open that file in your browser.
 
@@ -163,5 +160,5 @@ Depending on the configuration of your topology, you will be able to store these
 
 To read more about managing, upgrading, and retrieving information from the twins graph, see the following references:
 
-* [How-to: Manage a digital twin](./how-to-manage-twin.md)
-* [How-to: Query the twin graph](./how-to-query-graph.md)
+* [*How-to: Manage digital twins*](./how-to-manage-twin.md)
+* [*How-to: Query the twin graph*](./how-to-query-graph.md)

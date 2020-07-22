@@ -13,7 +13,7 @@ ms.date: 08/13/2019
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-To maintain your existing investment in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) and use extended capabilities with Azure Monitor, you can integrate Operations Manager with your Log Analytics workspace. This allows you to leverage the opportunities of logs in Azure Monitor while continuing to use Operations Manager to:
+To maintain your existing investment in [System Center Operations Manager](/system-center/scom/key-concepts?view=sc-om-1807) and use extended capabilities with Azure Monitor, you can integrate Operations Manager with your Log Analytics workspace. This allows you to leverage the opportunities of logs in Azure Monitor while continuing to use Operations Manager to:
 
 * Monitor the health of your IT services with Operations Manager
 * Maintain integration with your ITSM solutions supporting incident and problem management
@@ -150,7 +150,7 @@ If your proxy server requires authentication, perform the following steps to con
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Under **RunAs Configuration**, select **Profiles**.
 1. Open the **System Center Advisor Run As Profile Proxy** profile.
-1. In the Run As Profile Wizard, click Add to use a Run As account. You can create a [Run As account](https://technet.microsoft.com/library/hh321655.aspx) or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.
+1. In the Run As Profile Wizard, click Add to use a Run As account. You can create a [Run As account](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) or use an existing account. This account needs to have sufficient permissions to pass through the proxy server.
 1. To set the account to manage, choose **A selected class, group, or object**, click **Select…** and then click **Group…** to open the **Group Search** box.
 1. Search for and then select **Microsoft System Center Advisor Monitoring Server Group**. Click **OK** after selecting the group to close the **Group Search** box.
 1. Click **OK** to close the **Add a Run As account** box.
@@ -169,7 +169,7 @@ After configuration is completed, the Operations Manager management group establ
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - Updates the base Azure Monitor management packs. Runs every 12 hours by default.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Updates solution management packs enabled in your workspace. Runs every five (5) minutes by default.
 
-You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with Azure Monitor to determine if a new management pack is available and should be downloaded. Follow the steps [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules. Target the overrides to all objects of class Operations Manager Management Group.
+You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with Azure Monitor to determine if a new management pack is available and should be downloaded. Follow the steps [How to Override a Rule or Monitor](/previous-versions/system-center/system-center-2012-R2/hh212869(v=sc.12)) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules. Target the overrides to all objects of class Operations Manager Management Group.
 
 To continue following your existing change control process for controlling management pack releases in your production management group, you can disable the rules and enable them during specific times when updates are allowed. If you have a development or QA management group in your environment and it has connectivity to the Internet, you can configure that management group with a Log Analytics workspace to support this scenario. This allows you to review and evaluate the iterative releases of the Azure Monitor management packs before releasing them into your production management group.
 

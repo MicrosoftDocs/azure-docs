@@ -21,7 +21,7 @@ This article explains how to provision autoscale throughput on a database or con
 
 1. Select **New Container.** Enter a name for your database, container, and a partition key. Under **Throughput**, select the **autoscale** option, and set the [maximum throughput (RU/s)](provision-throughput-autoscale.md#how-autoscale-provisioned-throughput-works) that you want the database or container to scale to.
 
-   ![Creating a container and configuring autoscale provisioned throughput](./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/create-new-autoscale-container.png" alt-text="Creating a container and configuring autoscale provisioned throughput":::
 
 1. Select **OK**.
 
@@ -40,7 +40,7 @@ To provision autoscale on shared throughput database, select the **Provision dat
 
 1. Under **Scale**, select the **Autoscale** option and **Save**.
 
-   ![Enabling autoscale on an existing container](./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png)
+   :::image type="content" source="./media/how-to-provision-autoscale-throughput/autoscale-scale-and-settings.png" alt-text="Enabling autoscale on an existing container":::
 
 > [!NOTE]
 > When you enable autoscale on an existing database or container, the starting value for max RU/s is determined by the system, based on your current manual provisioned throughput settings and storage. After the operation completes, you can change the max RU/s if needed. [Learn more.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 

@@ -13,11 +13,12 @@ ms.reviewer:
 ms.date: 01/25/2019
 ---
 # Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this tutorial, you deploy and explore the Wingtip Tickets SaaS database-per-tenant application (Wingtip). The app uses a database-per-tenant pattern to store the data of multiple tenants. The app is designed to showcase features of Azure SQL Database that simplify how to enable SaaS scenarios.
 
-Five minutes after you select **Deploy to Azure**, you have a multitenant SaaS application. The app includes a SQL database that runs in the cloud. The app is deployed with three sample tenants, each with its own database. All the databases are deployed into a SQL elastic pool. The app is deployed to your Azure subscription. You have full access to explore and work with the individual components of the app. The application C# source code and the management scripts are available in the [WingtipTicketsSaaS-DbPerTenant GitHub repo][github-wingtip-dpt].
+Five minutes after you select **Deploy to Azure**, you have a multitenant SaaS application. The app includes a database that runs in Azure SQL Database. The app is deployed with three sample tenants, each with its own database. All the databases are deployed into a SQL elastic pool. The app is deployed to your Azure subscription. You have full access to explore and work with the individual components of the app. The application C# source code and the management scripts are available in the [WingtipTicketsSaaS-DbPerTenant GitHub repo][github-wingtip-dpt].
 
 In this tutorial you learn:
 
@@ -101,7 +102,7 @@ These values are referenced in nearly every script.
 
 The app showcases venues that host events. Venue types include concert halls, jazz clubs, and sports clubs. In Wingtip Tickets, venues are registered as tenants. Being a tenant gives a venue an easy way to list events and to sell tickets to their customers. Each venue gets a personalized website to list their events and to sell tickets.
 
-Internally in the app, each tenant gets a SQL database deployed into a SQL elastic pool.
+Internally in the app, each tenant gets a database deployed into an elastic pool.
 
 A central **Events Hub** page provides a list of links to the tenants in your deployment.
 

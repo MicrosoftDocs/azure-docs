@@ -3,7 +3,7 @@ title: Use Azure Automation to launch a job in StorSimple Data Manager
 description: Learn how to use Azure Automation for triggering StorSimple Data Manager jobs
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ---

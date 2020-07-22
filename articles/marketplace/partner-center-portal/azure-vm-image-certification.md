@@ -1,11 +1,11 @@
 ---
 title: Azure virtual machine certification - Azure Marketplace
 description: Learn how to test and submit a virtual machine offer in the commercial marketplace.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 04/09/2020
 ---
 
@@ -644,4 +644,4 @@ Finally, select **Generate Report** to download the test results and log files f
 
 ## Next step
 
-- [Generate a uniform resource identifiers (URI) for each VHD](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri)
+- [Common SAS URI issues and fixes](common-sas-uri-issues.md)

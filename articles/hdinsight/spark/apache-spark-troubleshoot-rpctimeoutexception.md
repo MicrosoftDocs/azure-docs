@@ -31,7 +31,7 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 ## Cause
 
-These errors are caused by a lack of memory resources during data processing. If the Java garbage collection process starts, it could lead to the Spark application hanging. Queries will begin to time out and stop processing. The `Futures timed out` error indicates a cluster under severe stress.
+These errors are caused by a lack of memory resources during data processing. If the Java garbage collection process starts, it could lead to the Spark application to stop responding. Queries will begin to time out and stop processing. The `Futures timed out` error indicates a cluster under severe stress.
 
 ## Resolution
 

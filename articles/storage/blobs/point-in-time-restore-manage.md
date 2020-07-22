@@ -34,6 +34,10 @@ The following command installs Az.Storage [2.0.1-preview](https://www.powershell
 Install-Module -Name Az.Storage -RequiredVersion 2.0.1-preview -AllowPrerelease
 ```
 
+The above command requires Version 2.2.4.1 or greater of PowerShellGet to install. To determine what version you currently have loaded:
+```powershell
+Get-Module PowerShellGet
+```
 For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
 ## Enable and configure point-in-time restore

@@ -26,10 +26,10 @@ Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. T
 
 The base JWK/JWA specifications are also extended to enable key types unique to the Key Vault implementation. For example, importing keys using  HSM vendor-specific packaging, enables secure transportation of keys that may only be used in Key Vault HSMs. 
 
-Azure Key Vault supports both Soft and Hard keys:
+Azure Key Vault supports both software-protected and HSM-protected keys:
 
-- **"Soft" keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC (Elliptic Curve) key, or request that Key Vault generate one.
-- **"Hard" keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in soft form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the key_hsm attribute to the JWK obtain to carry the HSM key material.
+- **Software protected keys**: A key processed in software by Key Vault, but is encrypted at rest using a system key that is in an HSM. Clients may import an existing RSA or EC (Elliptic Curve) key, or request that Key Vault generate one.
+- **HSM-potected keys**: A key processed in an HSM (Hardware Security Module). These keys are protected in one of the Key Vault HSM Security Worlds (there's one Security World per geography to maintain isolation). Clients may import an RSA or EC key, in Software-protected form or by exporting from a compatible HSM device. Clients may also request Key Vault to generate a key. This key type adds the key_hsm attribute to the JWK obtain to carry the HSM key material.
 
 For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -37,9 +37,9 @@ For more information on geographical boundaries, see [Microsoft Azure Trust Cent
 
 Key Vault supports RSA and Elliptic Curve keys only. 
 
--   **EC**: "Soft" Elliptic Curve key.
+-   **EC**: Software-protected Elliptic Curve key.
 -   **EC-HSM**: "Hard" Elliptic Curve key.
--   **RSA**: "Soft" RSA key.
+-   **RSA**: Software-protected RSA key.
 -   **RSA-HSM**: "Hard" RSA key.
 
 Key Vault supports RSA keys of sizes 2048, 3072 and 4096. Key Vault supports Elliptic Curve key types P-256, P-384, P-521, and P-256K (SECP256K1).
