@@ -35,31 +35,10 @@ Run this code on either of these environments:
 
     - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-    - Download the dataset and sample script file 
-        - [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris)
-        - [train_iris.py](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn)
-    - You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning and retrieving the best model by primary metrics.
 
 ## Set up the experiment
 
 This section sets up the training experiment by loading the required python packages, initializing a workspace, creating an experiment, and uploading the training data and training scripts.
-
-### Import packages
-
-First, import the necessary Python libraries.
-
-```Python
-import os
-import urllib
-import shutil
-import azureml
-
-from azureml.core import Experiment
-from azureml.core import Workspace, Run
-
-from azureml.core.compute import ComputeTarget, AmlCompute
-from azureml.core.compute_target import ComputeTargetException
-```
 
 ### Initialize a workspace
 
@@ -68,21 +47,13 @@ The [Azure Machine Learning workspace](concept-workspace.md) is the top-level re
 Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
 
 ```Python
+from azureml.core import Workspace
+
 ws = Workspace.from_config()
 ```
 
-### Create a machine learning experiment
 
-Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "sklearn-iris".
-
-```Python
-project_folder = './sklearn-iris'
-os.makedirs(project_folder, exist_ok=True)
-
-experiment = Experiment(workspace=ws, name='sklearn-iris')
-```
-
-### Prepare training script
+### Prepare scripts
 
 In this tutorial, the training script **train_iris.py** is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
 
@@ -94,35 +65,33 @@ Copy the training script **train_iris.py** into your project directory.
 
 ```
 import shutil
-shutil.copy('./train_iris.py', project_folder)
+shutil.copy('./train_iris.py', 'training')
 ```
-## Create a ScriptRunConfig
 
-
-
-If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
-
-```Python
-
+### Create an Environment
+```python
 from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
-from azureml.core import ScriptRunConfig
 
 myenv = Environment("myenv")
 myenv.python.conda_dependncies = CondaDependencies.create(conda_packages=['scikit-learn'])
+```
+
+### Create a ScriptRunConfig
 
 
+```python
+from azureml.core import ScriptRunConfig
 
 src = ScriptRunConfig(source_directory='', script='train.py')
-
-# Set compute target to your compute instance or local
-src.run_config.target = instance
-
-# Set environment
 src.run_config.environment = myenv
- 
-run = experiment.submit(config=src)
+```
 
+### Submit your run
+```python
+from azureml.core import Experiment
+
+run = Experiment(ws,'train-sklearn').submit(config=src)
 ```
 
 > [!WARNING]
@@ -130,15 +99,7 @@ run = experiment.submit(config=src)
 
 For more information on customizing your Python environment, see [Create and manage environments for training and deployment](how-to-use-environments.md). 
 
-## Submit a run
-
-The [Run object](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) provides the interface to the run history while the job is running and after it has completed.
-
-```Python
-run = experiment.submit(estimator)
-run.wait_for_completion(show_output=True)
-```
-
+## What happens during run execution
 As the run is executed, it goes through the following stages:
 
 - **Preparing**: A docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
