@@ -8,18 +8,18 @@ ms.subservice: core
 ms.topic: troubleshooting
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 06/11/2020
+ms.date: 07/22/2020
 ---
 
 # Interactive debugging with Visual Studio Code
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Learn how to interactively debug Azure Machine Learning code, pipelines and deployments using Visual Studio Code
+Learn how to interactively debug Azure Machine Learning pipelines and deployments using Visual Studio Code (VS Code) and [depugpy](https://github.com/microsoft/debugpy/).
 
 ## Debug and troubleshoot machine learning pipelines
 
-In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and the Python Tools for Visual Studio (PTVSD), you can attach to the code as it runs in the training environment. 
+In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using VS Code and debugpy, you can attach to the code as it runs in the training environment.
 
 ### Prerequisites
 
@@ -28,16 +28,16 @@ In some cases, you may need to interactively debug the Python code used in your 
 * An Azure Machine Learning Compute cluster, which is __in the virtual network__ and is __used by the pipeline for training__.
 * A __development environment__ that is __in the virtual network__. The development environment might be one of the following:
 
-    * An Azure Virtual Machine in the virtual network
-    * A Compute instance of Notebook VM in the virtual network
-    * A client machine connected to the virtual network by a virtual private network (VPN).
+  * An Azure Virtual Machine in the virtual network
+  * A Compute instance of Notebook VM in the virtual network
+  * A client machine connected to the virtual network by a virtual private network (VPN).
 
 For more information on using an Azure Virtual Network with Azure Machine Learning, see [Secure Azure ML experimentation and inference jobs within an Azure Virtual Network](how-to-enable-virtual-network.md).
 
 ### How it works
 
 Your ML pipeline steps run Python scripts. These scripts are modified to perform the following actions:
-    
+
 1. Log the IP address of the host that they are running on. You use the IP address to connect the debugger to the script.
 
 2. Start the PTVSD debug component, and wait for a debugger to connect.
