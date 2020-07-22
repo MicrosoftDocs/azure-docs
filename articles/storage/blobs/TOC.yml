@@ -280,6 +280,8 @@
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: NFS 3.0 protocol support
+      href: network-file-system-protocol-support.md
   - name: How to
     items:
     - name: Create and manage storage accounts
@@ -469,7 +471,9 @@
           href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Azure Data Factory
         href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Mount Blob storage as a file system on Linux
+      - name: Mount storage from Linux using NFS
+        href: network-file-system-protocol-support-how-to.md
+      - name: Mount storage from Linux using blobfuse
         href: storage-how-to-mount-container-linux.md
       - name: Transfer data with the Data Movement library
         href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
