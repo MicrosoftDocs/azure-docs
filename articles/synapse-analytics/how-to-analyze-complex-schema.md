@@ -160,7 +160,7 @@ First, depending how the data has been stored, users should use the following ta
 | BULK              | FORMAT |
 | -------------------- | --- |
 | 'https://ACCOUNTNAME.dfs.core.windows.net/FILESYSTEM/PATH/FINENAME.parquet' |'Parquet' (ADLSg2)|
-| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account= ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY, SECRET='YOURSECRET' |'CosmosDB' (Synapse Link)|
+| N'endpoint=https://ACCOUNTNAME.documents-staging.windows-ppe.net:443/;account=ACCOUNTNAME;database=DATABASENAME;collection=COLLECTIONNAME;region=REGIONTOQUERY', SECRET='YOURSECRET' |'CosmosDB' (Synapse Link)|
 
 
 > [!NOTE]
@@ -174,8 +174,8 @@ Replace each field as follows:
 select *
 FROM
 openrowset(
-BULK 'YOUR BULK ABOVE',
-        	FORMAT='YOUR TYPE ABOVE'
+    BULK 'YOUR BULK ABOVE',
+    FORMAT='YOUR TYPE ABOVE'
 )
 with (id varchar(50),
         contextdataeventTime varchar(50) '$.context.data.eventTime',
