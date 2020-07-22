@@ -12,11 +12,9 @@ ms.custom: sttsinar
 
 # Azure virtual machine sizes naming conventions
 
-## Overview
-
 This page outlines the naming conventions used for Azure Virtual Machines (VM). VMs use these naming conventions to denote varying features and specifications.
 
-## Naming Convention Explanation
+## Naming convention explanation
 
 **[Family]** + **[Sub-family]** + **[# of vCPUs]** + **[additive features]** + **[version]**
 
@@ -29,7 +27,7 @@ This page outlines the naming conventions used for Azure Virtual Machines (VM). 
 | Additive Features | One or more lower case letters denote additive features, such as: <br> a = AMD-based processor <br> d = disk (local temp disk is present); this is for newer Azure VMs, see [Ddv4 and Ddsv4-series](./ddv4-ddsv4-series.md) <br> h = hibernation capable <br> i = isolated <br> l = low memory <br> m = memory intensive <br> t = tiny memory <br> r = RDMA <br> s = Premium Storage capable, including possible use of [Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk) (Note: some newer sizes without the attribute of s can still support Premium Storage e.g. M128, M64, etc.)<br> |
 | Version | Denotes the version of the VM Family Series |
 
-## Example Breakdown
+## Example breakdown
 
 **[Family]** + **[Sub-family]** + **[# of vCPUs]** + **[additive features]** + **[version]**
 
@@ -52,6 +50,6 @@ This page outlines the naming conventions used for Azure Virtual Machines (VM). 
 | Additive Features | a = AMD-based processor <br> s = Premium Storage capable |
 | Version | v4 |
 
-## What's Next
+## Next steps
 
 Learn more about available [VM Sizes](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) in Azure. 
