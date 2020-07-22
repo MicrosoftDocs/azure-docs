@@ -48441,6 +48441,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/tutorial-connect-pnp-device.md",
+      "redirect_url": "/azure/iot-central/core/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/preview/tutorial-create-telemetry-rules.md",
       "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules/",
       "redirect_document_id": false
