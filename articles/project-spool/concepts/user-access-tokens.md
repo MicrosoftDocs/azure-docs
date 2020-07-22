@@ -59,14 +59,14 @@ app.post('/token', (req, res) => {
     
     // initialize the configuration client with a connection string
     // retrieved from the Azure Portal
-    const configurationClient = new ConfigurationClient(CONNECTION_STRING);
+    const userTokenClient = new UserTokenClient(CONNECTION_STRING);
     
 
     // create a user access token for the provided identity and implicitly create a new ACS identity
     // Scopes: chat, vpoid, pstn, joinroom
     // createToken method also accepts an identiy, but that should only be passed after
     // the user has already been assigned one to recreate their token.
-    const tokenResponse = configurationClient.userToken().createToken(USER_SCOPES[]);
+    const tokenResponse = userTokenClient.issueToken(USER_SCOPES[]);
     
     // return the access token to the client
     res.json({ 
@@ -96,10 +96,10 @@ Read the [Identity Model concept page to learn more](identity-model.md).
 ```js
 
     // create a user access token and implicitly create a new ACS identity
-    const tokenResponse = configurationClient.userToken().createToken([ "chat", "pstn" ], null)
+    const tokenResponse = UserTokenClient.issueToken([ "chat", "pstn" ], null)
     
     const identity = tokenResponse.identity;
-    tokenResponse = configurationClient.userToken().createToken([ "chat", "pstn" ], identity)
+    tokenResponse = UserTokenClient.issueToken([ "chat", "pstn" ], identity)
 
 ```
 --- 
@@ -121,13 +121,13 @@ var tokenResult = await userClient.IssueAsync(
 );
 ```
 
-#### [JS](#tab/javascript)
+#### [Javascript](#tab/javascript)
 ```javascript
 // create a user access token that enables  voip calling
 // Only pass username if you have already generated an id,
 // if not omit, to generate a user id for the specific user
 
-var tokenResult = await configurationClient.userToken().createToken(
+var tokenResult = await UserTokenClient.issueToken(
     username,
     ['chat']
 );
@@ -434,7 +434,7 @@ var userCredential = new CommunicationUserCredential(async () => {
 });
 ```
 
-#### [JS](#tab/javascript-shared-credential)
+#### [Javascript](#tab/javascript-shared-credential)
 ```javascript
 
 TODO
@@ -453,7 +453,7 @@ In some cases, you may need to explicitly revoke user access tokens, for example
 // revoke all access tokens issued for a given user
 var result = await configurationClient.RevokeUserAccessTokenAsync(userID);
 ```
-#### [JS](#tab/javascript-shared-credential)
+#### [Javascript](#tab/javascript-shared-credential)
 ```javascript
 //revoke all access tokens issued for a given user
 
