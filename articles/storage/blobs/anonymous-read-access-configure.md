@@ -21,7 +21,7 @@ Azure Storage supports optional anonymous public read access for containers and 
 
 To configure public access for a container, you must perform two steps:
 
-1. **Allow public access for the storage account.** By default, a storage account allows a user with the appropriate permissions to enable public access to a container. When public access is allowed, it is always optional. No data is available for public access unless the user explicitly configures the container's public access setting.
+1. **Allow public access for the storage account.** By default, a storage account allows a user with the appropriate permissions to enable public access to a container. Blob data is not available for public access unless the user takes the additional step to explicitly configure the container's public access setting.
 1. **Configure the container's public access setting.** By default, a container's public access setting is disabled, meaning that authorization is required for every request to the container or its data. A user with the appropriate permissions can modify a container's public access setting to enable anonymous access only if anonymous access is allowed for the storage account.
 
 This article describes how to configure anonymous public read access for a container and its blobs. For information about how to access blob data anonymously from a client application, see [Access public containers and blobs anonymously with .NET](anonymous-read-access-client.md).
