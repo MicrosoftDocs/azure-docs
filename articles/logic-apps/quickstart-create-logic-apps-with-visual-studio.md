@@ -3,10 +3,10 @@ title: Automate task workflows in Visual Studio
 description: Create, schedule, and run recurring workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
+ms.date: 07/22/2020
 ---
 
 # Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
@@ -30,8 +30,12 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
   * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
-    > When you install Visual Studio 2019 or 2017, make sure 
-    > that you select the **Azure development** workload.
+    > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
+    
+    To use Azure Government subscriptions with Visual Studio, see these topics:
+     
+    * Visual Studio 2019: [Quickstart: Connect to Azure Government with Visual Studio](../azure-government/documentation-government-connect-vs.md)
+    * Visual Studio 2017: [Introducing the Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
 
   * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
