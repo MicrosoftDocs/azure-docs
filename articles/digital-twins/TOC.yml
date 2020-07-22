@@ -50,6 +50,8 @@
       href: how-to-manage-model.md
     - name: Parse and validate models
       href: how-to-use-parser.md
+    - name: Add tags 
+      href: how-to-use-tags.md
   - name: Use live execution environment
     items:
     - name: Manage digital twins
