@@ -21,11 +21,11 @@ ms.collection: M365-identity-device-management
 # Troubleshoot: User Impact of verified domain change 
 
 
-## I have alot of changes to my users and I am not sure what the cause of it is.
+## I have a lot of changes to my users and I am not sure what the cause of it is.
 
 ### Symptoms
 
-I check the Azure AD audit logs, and see multiple user updates occurring in my Azure AD tenant. These 'Update User' events do not display 'Actor' information which causes uncertainty as to what/who triggered the mass changes to users. 
+I check the Azure AD audit logs, and see multiple user updates occurring in my Azure AD tenant. These 'Update User' events do not display 'Actor' information, which causes uncertainty as to what/who triggered the mass changes to users. 
 
 ### Cause
 
@@ -35,23 +35,23 @@ I check the Azure AD audit logs, and see multiple user updates occurring in my A
 
 #### What does UserPrincipalName consistency mean? 
 
-For cloud-only users, consistency means that the UserPrincipalName is set to a verified domain suffix. When an inconsistent UserPrincipalName is processed, ProxyCalc will convert it to the default onmicrosoft.com suffix, e.g.: username@Contoso.onmicrosoft.com 
+For cloud-only users, consistency means that the UserPrincipalName is set to a verified domain suffix. When an inconsistent UserPrincipalName is processed, ProxyCalc will convert it to the default onmicrosoft.com suffix, for example: username@Contoso.onmicrosoft.com 
 
-For synchronized users, consistency means that the UserPrincipalName is set to a verified domain suffix and matches the on-premises UserPrincipalName value (i.e ShadowUserPrincipalName). When an inconsistent UserPrincipalName is processed, ProxyCalc will revert to the same value as the ShadowUserPrincipalName or, in case that domain suffix has been removed from the tenant, will convert it to the default *.onmicrosoft.com domain suffix. 
+For synchronized users, consistency means that the UserPrincipalName is set to a verified domain suffix and match the on-premises UserPrincipalName value (i.e ShadowUserPrincipalName). When an inconsistent UserPrincipalName is processed, ProxyCalc will revert to the same value as the ShadowUserPrincipalName or, in case that domain suffix has been removed from the tenant, will convert it to the default *.onmicrosoft.com domain suffix. 
 
   
 
 #### What does Proxy Address consistency mean? 
 
-For cloud-only users, consistency means that the Proxy Addresses match a verified domain suffix. When an inconsistent Proxy Address is processed, ProxyCalc will convert it to the default *.onmicrosoft.com domain suffix, e.g.: SMTP:username@Contoso.onmicrosoft.com 
+For cloud-only users, consistency means that the Proxy Addresses match a verified domain suffix. When an inconsistent Proxy Address is processed, ProxyCalc will convert it to the default *.onmicrosoft.com domain suffix, for example: SMTP:username@Contoso.onmicrosoft.com 
 
-For synchronized users, consistency means that the Proxy Addresses matches the on-premises Proxy Address(es) value(s) (i.e ShadowProxyAddresses). ProxyAddresses are expected to be in sync with ShadowProxyAddresses. If the synchronized user has an Exchange license assigned, then the Proxy Addresses must match the on-premises Proxy Address(es) value(s) and must also match a verified domain suffix. In this scenario, ProxyCalc will sanitize the inconsistent Proxy Address with an unverified domain suffix and will be removed from the object in Azure AD. If that unverified domain is verified later, ProxyCalc will recompute and add the Proxy Address from ShadowProxyAddresses back to the object in Azure AD.  
+For synchronized users, consistency means that the Proxy Addresses match the on-premises Proxy Address(es) value(s) (i.e ShadowProxyAddresses). ProxyAddresses are expected to be in sync with ShadowProxyAddresses. If the synchronized user has an Exchange license assigned, then the Proxy Addresses must match the on-premises Proxy Address(es) value(s) and must also match a verified domain suffix. In this scenario, ProxyCalc will sanitize the inconsistent Proxy Address with an unverified domain suffix and will be removed from the object in Azure AD. If that unverified domain is verified later, ProxyCalc will recompute and add the Proxy Address from ShadowProxyAddresses back to the object in Azure AD.  
 
 > [!NOTE]
 > For synchronized objects, to avoid ProxyCalc logic from calculating unexpected results, it is best to set Proxy Addresses to an Azure AD verified domain on the On-Premises object.  
 
   
-One of the admin tasks that could trigger ProxyCalc is whenever there’s a verified domain change. This task occurs every time a verified domain is added/removed from an Azure AD tenant which internally triggers ProxyCalc.  
+One of the admin tasks that could trigger ProxyCalc is whenever there’s a verified domain change. This task occurs every time a verified domain is added/removed from an Azure AD tenant, which internally triggers ProxyCalc.  
 
 For example, if you add a verified domain Fabrikam.com to your Contoso.onmicrosoft.com tenant, this will trigger a ProxyCalc operation on all objects in the tenant. This will be captured in the Azure AD Audit logs as 'Update User' events preceded by an 'Add verified domain' event. On the other hand, if Fabrikam.com was removed from the Contoso.onmicrosoft.com tenant, then all the ‘Update User’ events will be preceded by a 'Remove verified domain' event.   
 
