@@ -38,7 +38,7 @@ Designing, building, and testing these assets takes time and requires technical 
 
 Consider using one of the following scripting environments to help manage VMs and VHDs:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://code.visualstudio.com/)
 
 Additionally, consider adding the following tools to your development environment:

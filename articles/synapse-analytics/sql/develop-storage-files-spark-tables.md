@@ -30,7 +30,7 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> Add, drop or alter Spark external table column will not be reflected in external table in SQL on-demand.
+> Add, drop, or alter Spark external table commands for a column will not be reflected in the external table in SQL on-demand.
 
 ## Apache Spark data types to SQL data types mapping
 

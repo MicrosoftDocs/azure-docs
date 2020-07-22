@@ -272,7 +272,7 @@ myenv.docker.base_image_registry="your_registry_location"
 > Azure Machine Learning only supports Docker images that provide the following software:
 > * Ubuntu 16.04 or greater.
 > * Conda 4.5.# or greater.
-> * Python 3.5.# or 3.6.#.
+> * Python 3.5.#, 3.6.# or 3.7.#.
 
 You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to None.
 
