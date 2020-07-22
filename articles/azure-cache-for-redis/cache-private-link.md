@@ -17,7 +17,7 @@ In this article, you'll learn how to create an Azure Cache, an Azure virtual net
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-  > This feature is currently in preview - [email us](mailto:azurecache@microsoft.com) if you're interested in being an early adopter of this feature.
+  > This feature is currently in preview - [contact us](mailto:azurecache@microsoft.com) if you're interested.
   >
 
 
