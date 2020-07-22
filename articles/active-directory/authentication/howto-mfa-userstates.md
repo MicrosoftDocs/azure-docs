@@ -77,7 +77,7 @@ After you enable users, notify them via email. Tell the users that a prompt is d
 
 ## Change state using PowerShell
 
-To change the user state by using [Azure AD PowerShell](/powershell/azure/overview), you change the `$st.State` parameter for a user account. There are three possible states for a user account:
+To change the user state by using [Azure AD PowerShell](/powershell/azure/), you change the `$st.State` parameter for a user account. There are three possible states for a user account:
 
 * *Enabled*
 * *Enforced*

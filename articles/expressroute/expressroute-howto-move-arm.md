@@ -18,7 +18,7 @@ To use an ExpressRoute circuit for both the classic and Resource Manager deploym
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* Verify that you have installed both the classic and Az Azure PowerShell modules locally on your computer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* Verify that you have installed both the classic and Az Azure PowerShell modules locally on your computer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * Review the information that is provided under [Moving an ExpressRoute circuit from classic to Resource Manager](expressroute-move.md). Make sure that you fully understand the limits and limitations.
 * Verify that the circuit is fully operational in the classic deployment model.
