@@ -58,7 +58,7 @@ Make sure the server roles running on the machine are supported by Sysprep. For 
 Upload the VHD to an Azure storage account.
 
 ### Log in to Azure
-If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](/powershell/azure/overview).
+If you don't already have PowerShell version 1.4 or above installed, read [How to install and configure Azure PowerShell](/powershell/azure/).
 
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
    

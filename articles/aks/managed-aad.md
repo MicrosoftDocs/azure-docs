@@ -31,6 +31,11 @@ AKS-managed Azure Active Directory integration is available in public regions wh
 * non-RBAC enabled clusters aren't supported for AKS-managed AAD integration
 * Changing the Azure AD tenant associated with AKS-managed AAD integration isn't supported
 
+> [!IMPORTANT]
+> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:	
+> - [AKS Support Policies](support-policies.md)	
+> - [Azure Support FAQ](faq.md)
+
 ## Prerequisites
 
 * The Azure CLI version 2.9.0 or later
@@ -47,6 +52,23 @@ kubectl version --client
 ```
 
 Use [these instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl/) for other operating systems.
+
+```azurecli-interactive	
+az feature register --name AAD-V2 --namespace Microsoft.ContainerService	
+```	
+
+It might take several minutes for the status to show as **Registered**. You can check the registration status by using the [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list) command:	
+
+```azurecli-interactive	
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"	
+```	
+
+When the status shows as registered, refresh the registration of the `Microsoft.ContainerService` resource provider by using the [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register) command:	
+
+```azurecli-interactive	
+az provider register --namespace Microsoft.ContainerService	
+```	
+
 
 ## Before you begin
 
