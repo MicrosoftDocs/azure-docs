@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Set up an instance and authentication (Manual)
+title: Set up an instance and authentication (manual, CLI)
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service, including the proper authentication.
 author: baanders
@@ -15,13 +15,15 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Set up an Azure Digital Twins instance and authentication (Manual)
+# Set up an Azure Digital Twins instance and authentication (manual, CLI)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one. To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (Scripted)*](how-to-set-up-instance-scripted.md).
+This version of this article goes through these steps manually, one by one, using the CLI.
+* To go through these steps manually using the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (manual, portal)*](how-to-set-up-instance-manual-portal.md).
+* To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
 
 [!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
 
