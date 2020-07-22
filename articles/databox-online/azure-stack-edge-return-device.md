@@ -61,7 +61,7 @@ To begin the return process, take the following steps.
 
 2. In the **Return device** blade, under **Basic details**:
 
-    1. Provide the serial number of the device. To get the device serial number, go the local web UI of the device. Go to **Network**, select a port and in the port settings, the serial number is displayed. 
+    1. Provide the serial number of the device. To get the device serial number, go the local web UI of the device and then go to **Overview**.  
     
     ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
@@ -71,12 +71,14 @@ To begin the return process, take the following steps.
 
     3. From the dropdown list, choose a reason for the return.
 
-    ![Return device 3](media/azure-stack-edge-return-device/return-device-3.png) 
+    ![Return device 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. Under **Shipping details**:
 
     1. Provide your name, company name, and full company address. Enter a work phone including the area code and an email ID for notification.
     2. If you need a return shipping box, you can request it. Answer **Yes** to the question **Need an empty box to return**.
+
+    ![Return device 3](media/azure-stack-edge-return-device/return-device-3.png)
 
 4. Review the **Privacy terms** and select the checkbox against the note that you have reviewed and agree to the privacy terms.
 
