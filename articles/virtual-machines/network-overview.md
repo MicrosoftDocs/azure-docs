@@ -45,8 +45,8 @@ This table lists the methods that you can use to create a network interface.
 | ------ | ----------- |
 | Azure portal | When you create a VM in the Azure portal, a network interface is automatically created for you (you cannot use a NIC you create separately). The portal creates a VM with only one NIC. If you want to create a VM with more than one NIC, you must create it with a different method. |
 | [Azure PowerShell](./windows/multiple-nics.md) | Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) with the **-PublicIpAddressId** parameter to provide the identifier of the public IP address that you previously created. |
-| [Azure CLI](../articles/virtual-machines/linux/multiple-nics.md) | To provide the identifier of the public IP address that you previously created, use [az network nic create](/cli/azure/network/nic) with the **--public-ip-address** parameter. |
-| [Template](../articles/virtual-network/template-samples.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a network interface using a template. |
+| [Azure CLI](./linux/multiple-nics.md) | To provide the identifier of the public IP address that you previously created, use [az network nic create](/cli/azure/network/nic) with the **--public-ip-address** parameter. |
+| [Template](../virtual-network/template-samples.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a network interface using a template. |
 
 ## IP addresses 
 
