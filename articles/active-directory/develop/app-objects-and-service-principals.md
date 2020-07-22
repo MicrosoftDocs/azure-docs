@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/29/2020
+ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
@@ -23,6 +23,8 @@ This article describes application registration, application objects, and servic
 ## Application registration
 In order to delegate Identity and Access Management functions to Azure AD, an application must be registered with an Azure AD [tenant](developer-glossary.md#tenant). When you register your application with Azure AD, you are creating an identity configuration for your application that allows it to integrate with Azure AD. When you register an app in the [Azure portal][AZURE-Portal], you choose whether it's single tenant (only accessible in your tenant) or multi-tenant (accessible to in other tenants) and can optionally set a redirect URI (where the access token is sent to).
 
+![App registration](./media/app-objects-and-service-principals/app-registration.png)
+
 When you've completed the app registration, you have a globally unique instance of the app (the application object) which lives within your home tenant or directory.  You also have a globally unique ID for your app (the app or client ID).  In the portal, you can then add secrets or certificates and scopes to make your app work, customize the branding of your app in the sign-in dialog, and more.
 
 If you register an application in the portal, an application object as well as a service principal object are automatically created in your home tenant.  If you register/create an application using the Microsoft Graph APIs, creating the service principal object is a separate step.
@@ -34,6 +36,8 @@ The application object describes three aspects of an application: how the servic
 
 The **App registrations** blade in the [Azure portal][AZURE-Portal] is used to list and manage the application objects in your home tenant.
 
+![App registrations blade](./media/app-objects-and-service-principals/app-registrations-blade.png)
+
 The Microsoft Graph [Application entity][MS-Graph-App-Entity] defines the schema for an application object's properties.
 
 ## Service principal object
@@ -44,6 +48,8 @@ A service principal is the local representation, or application instance, of a g
 When an application is given permission to access resources in a tenant (upon registration or [consent](developer-glossary.md#consent)), a service principal object is created. You can also create service principal object in a tenant using [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http), the [Azure portal][AZURE-Portal], and other tools.  When using the portal, a service principal is created automatically when you register an application.
 
 The **Enterprise applications** blade in the portal is used to list and manage the service principals in a tenant. You can see the service principal's permissions, user consented permissions, which users have done that consent, sign in information, and more.
+
+![Enterprise apps blade](./media/app-objects-and-service-principals/enterprise-apps-blade.png)
 
 The Microsoft Graph [ServicePrincipal entity][MS-Graph-Sp-Entity] defines the schema for a service principal object's properties.
 
