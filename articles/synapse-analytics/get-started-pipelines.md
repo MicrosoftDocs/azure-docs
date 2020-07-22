@@ -34,4 +34,5 @@ You can orchestrate a wide variety of tasks in Azure Synapse.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visualize data with Power BI](get-started-visualize-powerbi.md)
+> [Visualize data with Power BI](get-started-visualize-power-bi.md)
+                                 
