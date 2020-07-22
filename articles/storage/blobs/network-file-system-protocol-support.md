@@ -108,7 +108,7 @@ During the preview, the data stored in your storage account is billed at the sam
 
 A transaction is not charged during the preview. Pricing for transactions is subject to change and will be determined when it is generally available.
 
-## Next Steps
+## Next steps
 
 To get started, see [Mount Blob storage on Linux by using the Network File System (NFS) 3.0 protocol (preview)](network-file-system-protocol-support-how-to.md).
 
