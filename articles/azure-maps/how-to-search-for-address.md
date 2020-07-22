@@ -1,8 +1,8 @@
 ---
 title: Search for a location using Azure Maps Search services | Microsoft Azure Maps
 description: In this article, you will learn how to search for a location using the Microsoft Azure Maps Search Service for geocoding and reverse geocoding.
-author: farah-alyasari
-ms.author: v-faalya
+author: philmea
+ms.author: philmea
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -24,7 +24,7 @@ In this article you will learn, how to:
 
 ## Prerequisites
 
-To complete the steps in this article, you need to first create an Azure Maps account and get you maps account subscription key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+To complete the steps in this article, you need to first create an Azure Maps account and get you maps account subscription key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 This article uses the [Postman app](https://www.getpostman.com/apps) to build REST calls. You can use any API development environment that you prefer.
 
@@ -222,5 +222,5 @@ If you have a set of coordinate locations to reverse geocode, you can use [Post 
 
 ## Next steps
 
-- Explore the [Azure Maps search service](https://docs.microsoft.com/rest/api/maps/search) API documentation.
-- Learn about [Best practices](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search).
+- Explore the [Azure Maps Search Service REST API documentation](https://docs.microsoft.com/rest/api/maps/search).
+- Learn about [Azure Maps Search Service best practices](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search) and how to optimize your queries.

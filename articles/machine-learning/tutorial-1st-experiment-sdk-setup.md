@@ -1,15 +1,15 @@
 ---
-title: "Tutorial: Create your first ML experiment"
-titleSuffix: Azure Machine Learning
+title: "Tutorial: Experiment in Jupyter notebooks (Python)"
+titleSuffix: Machine Learning - Azure 
 description: In this tutorial, you'll to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  In Part 1, you create a workspace in which you'll manage experiments and ML models. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+author: sdgilley
+ms.author: sgilley
 ms.date: 02/10/2020
+ms.custom: tracking-python
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
@@ -42,11 +42,9 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 This tutorial uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
-Follow along with this video or use the detailed steps below to clone and run the tutorial from your workspace. 
+ Follow along with this video or use the detailed steps below to clone and run the tutorial from your workspace. 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
 
 ### Clone a notebook folder
 
@@ -58,7 +56,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Select **Notebooks** on the left.
 
-1. Open the **Samples** folder.
+1. Select the **Samples** tab at the top.
 
 1. Open the **Python** folder.
 
@@ -66,26 +64,33 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Select the **"..."** at the right of the **tutorials** folder and then select **Clone**.
 
-    ![Clone folder](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Clone tutorials folder":::
 
 1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
-### <a name="open">Open the cloned notebook
+### <a name="open"></a>Open the cloned notebook
 
-1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
-
-    ![Open tutorials folder](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Open the **tutorials** folder that was just closed into your **User files** section.
 
     > [!IMPORTANT]
     > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User Files** section.
     
 1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials/create-first-ml-experiment** folder.
 
-1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). You can select a VM created by any user of your workspace. 
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Open tutorials folder":::
+
+
+1. On the top bar, select a compute instance to use to run the notebook. These VMs are pre-configured with [everything you need to run Azure Machine Learning](concept-compute-instance.md#contents). 
 
 1. If no VMs are found, select **+ Add** to create the compute instance VM. 
 
-    1. When you create a VM, provide a name.  The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character, and must also be unique across your Azure subscription.
+    1. When you create a VM, follow these rules:  
+        + Name is required and can't be empty.
+        + Name needs to be unique (in a case insensitive fashion) across all existing compute instances in the Azure region of the workspace/compute instance. You'll get an alert if the name you choose is not unique.
+        + Valid characters are upper and lower case letters, numbers (0 to 9), and dash character (-).
+        + Name must be between 3 and 24 characters long.
+        + Name should start with a letter (not a number or a dash character).
+        + If dash character is used, then it needs to be followed by at least one letter after the dash. Example: Test-, test-0, test-01 are invalid, while test-a0, test-0a are valid instances.
 
     1.  Select the Virtual Machine size from the available choices.
 

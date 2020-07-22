@@ -19,10 +19,10 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Visual Studio Community Edition
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | General purpose IDE      |
-| Supported DSVM versions      | Windows: Visual Studio 2017, Windows 2019 (Preview) : Visual Studio 2019      |
+| Supported DSVM versions      | Windows: Visual Studio 2017, Windows 2019 : Visual Studio 2019      |
 | Typical uses      | Software development    |
 | How is it configured and installed on the DSVM?      | Data Science Workload (Python and R tools), Azure workload (Hadoop, Data Lake), Node.js, SQL Server tools, [Azure Machine Learning for Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
 | How to use and run it      | Desktop shortcut (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`). Graphically, open Visual Studio by using the desktop icon or the **Start** menu. Search for programs (Windows logo key+S), followed by **Visual Studio**. From there, you can create projects in languages like C#, Python, R, and Node.js.   |
@@ -33,7 +33,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Visual Studio Code 
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | General purpose IDE      |
 | Supported DSVM versions      | Windows, Linux     |
@@ -43,7 +43,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## RStudio Desktop
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for R language   |
 | Supported DSVM versions      | Windows, Linux      |
@@ -53,7 +53,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## RStudio Server
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for R language   |
 | What is it?   | Web-based IDE for R    |
@@ -64,7 +64,7 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Juno 
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Julia language   |
 | Supported DSVM versions      | Windows, Linux      |
@@ -74,10 +74,10 @@ The Data Science Virtual Machine (DSVM) bundles several popular tools in a highl
 
 ## Pycharm
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Client IDE for Python language    |
-| Supported DSVM versions      | Windows 2019 (Preview), Linux      |
+| Supported DSVM versions      | Windows 2019, Linux      |
 | Typical uses      |  Python development     |
 | How to use and run it      | Desktop shortcut (`C:\Program Files\tk`) on Windows. Desktop shortcut (`/usr/bin/pycharm`) on Linux      |
 | Related tools on the DSVM      |   Visual Studio, Visual Studio Code, RStudio      |

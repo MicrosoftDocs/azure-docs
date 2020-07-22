@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -68,13 +68,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: What is the data retention for activity logs (Audit and Sign-ins) in the Azure portal?** 
 
-**A:** The following table lists the data retention period for activity logs. For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
-
-| Report                 | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Audit logs             | 7 days        | 30 days             | 30 days             |
-| Sign-ins               | N/A           | 30 days             | 30 days             |
-| Azure MFA Usage        | 30 days       | 30 days             | 30 days             |
+**A:** For more information, see [data retention policies for Azure AD reports](reference-reports-data-retention.md).
 
 ---
 

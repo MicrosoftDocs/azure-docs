@@ -12,7 +12,7 @@ Customer intent: I need to diagnose virtual machine (VM) network routing problem
 ms.assetid: 
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018

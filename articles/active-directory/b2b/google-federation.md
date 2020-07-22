@@ -6,8 +6,8 @@ description: Federate with Google to enable guest users to sign in to your Azure
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
-ms.date: 03/05/2020
+ms.topic: how-to
+ms.date: 05/11/2020
 
 ms.author: mimart
 author: msmimart
@@ -88,8 +88,8 @@ Now you'll set the Google client ID and client secret, either by entering it in 
 
 #### To configure Google federation in the Azure AD portal 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**, and then click the **Google** button.
+2. Select **External Identities**.
+3. Select **All identity providers**, and then click the **Google** button.
 4. Enter a name. Then enter the client ID and client secret you obtained earlier. Select **Save**. 
 
    ![Screenshot showing the Add Google identity provider page](media/google-federation/google-identity-provider.png)
@@ -111,8 +111,8 @@ You can delete your Google federation setup. If you do so, Google guest users wh
  
 ### To delete Google federation in the Azure AD portal: 
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
-2. Select **Organizational Relationships**.
-3. Select **Identity providers**.
+2. Select **External Identities**.
+3. Select **All identity providers**.
 4. On the **Google** line, select the context menu (**...**) and then select **Delete**. 
    
    ![Screenshot showing the Delete option for the social identity provider](media/google-federation/google-social-identity-providers.png)

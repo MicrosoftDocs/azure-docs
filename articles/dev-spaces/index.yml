@@ -74,7 +74,7 @@ landingContent:
         links:
           - text: Use GitHub Actions with Azure Dev Spaces
             url: how-to/github-actions.md
-          - text: Connect your development machine to an AKS cluster
-            url: how-to/connect.md
-          - text: Configure your Azure Dev Spaces cluster to use Helm 3
-            url: how-to/helm-3.md
+          - text: Use Local Process with Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
+          - text: Use Local Process with Kubernetes with Visual Studio
+            url: /visualstudio/containers/local-process-kubernetes

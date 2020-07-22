@@ -4,8 +4,9 @@ description: This article describes how to configure and access metric alerts fo
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 2/18/2020
+ms.subservice: hyperscale-citus
+ms.topic: how-to
+ms.date: 3/16/2020
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -96,7 +97,7 @@ As the disk approaches its space limit, try these techniques to get more free sp
 
 * Review data retention policy. Move older data to cold storage if feasible.
 * Consider [adding nodes](howto-hyperscale-scaling.md#add-worker-nodes) to the server group and rebalancing shards. Rebalancing distributes the data across more computers.
-* Consider [growing the capacity](howto-hyperscale-scaling.md#increase-vcores) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
+* Consider [growing the capacity](howto-hyperscale-scaling.md#increase-or-decrease-vcores-on-nodes) of worker nodes. Each worker can have up to 2 TiB of storage. However adding nodes should be attempted before resizing nodes because adding nodes completes faster.
 
 ### CPU usage
 

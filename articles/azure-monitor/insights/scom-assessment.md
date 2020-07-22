@@ -1,5 +1,5 @@
 ---
-title: Optimize your System Center Operations Manager environment with Azure Log Analytics | Microsoft Docs
+title: Assess System Center Operations Manager with Azure Monitor
 description: You can use the System Center Operations Manager Health Check solution to assess the risk and health of your environments on a regular interval.
 ms.subservice: logs
 ms.topic: conceptual
@@ -60,7 +60,7 @@ Data is collected on the management server and forwarded to Log Analytics every 
 
 ## Operations Manager run-as accounts for Log Analytics
 
-Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) in the Operations Manager documentation.
+Log Analytics builds on management packs for workloads to provide value-add services. Each workload requires workload-specific privileges to run management packs in a different security context, such as a domain user account. Configure an Operations Manager Run As account with privileged credentials. For additional information, see [How to create a Run As account](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) in the Operations Manager documentation.
 
 Use the following information to set the Operations Manager Run As account for System Center Operations Manager Health Check.
 

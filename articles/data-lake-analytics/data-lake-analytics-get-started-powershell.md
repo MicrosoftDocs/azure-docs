@@ -22,7 +22,7 @@ Learn how to use Azure PowerShell to create Azure Data Lake Analytics accounts a
 Before you begin this tutorial, you must have the following information:
 
 * **An Azure Data Lake Analytics account**. See [Get started with Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* **A workstation with Azure PowerShell**. See [How to install and configure Azure PowerShell](/powershell/azure/).
 
 ## Log in to Azure
 
@@ -42,7 +42,7 @@ Connect-AzAccount -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
 If  successful, the output of this command looks like the following text:
 
-```
+```text
 Environment           : AzureCloud
 Account               : joe@contoso.com
 TenantId              : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"

@@ -7,7 +7,7 @@ documentationcenter: na
 author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 09/10/2018
@@ -22,10 +22,14 @@ In this article, you learn to start, stop, download, and delete a packet capture
 
 ## Before you begin
 
-Packet capture requires the following connectivity:
-* Outbound connectivity to a storage account over port 443.
-* Inbound and outbound connectivity to 169.254.169.254
-* Inbound and outbound connectivity to 168.63.129.16
+Packet capture requires the following outbound TCP connectivity:
+- to the chosen storage account over port 443
+- to 169.254.169.254 over port 80
+- to 168.63.129.16 over port 8037
+
+> [!NOTE]
+> The ports mentioned in the latter two cases above are common across all Network Watcher features that involve the Network Watcher extension and might occasionally change.
+
 
 If a network security group is associated to the network interface, or subnet that the network interface is in, ensure that rules exist that allow the previous ports. Similarly, adding user-defined traffic routes to your network may prevent connectivity to the above mentioned IPs and ports. Please ensure they are reachable. 
 

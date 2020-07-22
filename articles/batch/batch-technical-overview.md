@@ -1,22 +1,10 @@
 ---
-title: Azure Batch runs large parallel jobs in the cloud | Microsoft Docs
+title: Azure Batch runs large parallel jobs in the cloud
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads
-services: batch
-documentationcenter: ''
-author: mscurrell
-manager: evansma
-editor: ''
-
-ms.assetid: 
-ms.service: batch
-ms.workload: big-compute
-ms.tgt_pltfrm: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: markscu
-ms.custom: mvc
-
 ---
+
 # What is Azure Batch?
 
 Use Azure Batch to run large-scale parallel and high-performance computing (HPC) batch jobs efficiently in Azure. Azure Batch creates and manages a pool of compute nodes (virtual machines), installs the applications you want to run, and schedules jobs to run on the nodes. There is no cluster or job scheduler software to install, manage, or scale. Instead, you use [Batch APIs and tools](batch-apis-tools.md), command-line scripts, or the Azure portal to configure, manage, and monitor your jobs. 
@@ -25,7 +13,7 @@ Developers can use Batch as a platform service to build SaaS applications or cli
 
 There is no additional charge for using Batch. You only pay for the underlying resources consumed, such as the virtual machines, storage, and networking.
 
-For a comparison between Batch and other HPC solution options in Azure, see [High Performance Computing (HPC) on Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+For a comparison between Batch and other HPC solution options in Azure, see [High Performance Computing (HPC) on Azure](/azure/architecture/topics/high-performance-computing/).
 
 ## Run parallel workloads
 Batch works well with intrinsically parallel (also known as "embarrassingly parallel") workloads. Intrinsically parallel workloads are those where the applications can run independently, and each instance completes part of the work. When the applications are executing, they might access some common data, but they do not communicate with other instances of the application. Intrinsically parallel workloads can therefore run at a large scale, determined by the amount of compute resources available to run applications simultaneously.
@@ -41,7 +29,7 @@ Some examples of intrinsically parallel workloads you can bring to Batch:
 * Data ingestion, processing, and ETL operations
 * Software test execution
 
-You can also use Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) or Intel MPI. Improve application performance with specialized [HPC](../virtual-machines/linux/sizes-hpc.md) and [GPU-optimized](../virtual-machines/linux/sizes-gpu.md) VM sizes.
+You can also use Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](/message-passing-interface/microsoft-mpi) or Intel MPI. Improve application performance with specialized [HPC](../virtual-machines/sizes-hpc.md) and [GPU-optimized](../virtual-machines/sizes-gpu.md) VM sizes.
 
 Some examples of tightly coupled workloads:
 * Finite element analysis
@@ -81,7 +69,7 @@ The following diagram shows steps in a common Batch workflow, with a client appl
 
 Keep in mind this is just one way to use Batch, and this scenario describes just some of its features. For example, you can execute [multiple tasks in parallel](batch-parallel-node-tasks.md) on each compute node. Or, use [job preparation and completion tasks](batch-job-prep-release.md) to prepare the nodes for your jobs, then clean up afterward. 
 
-See the [Batch feature overview for developers](batch-api-basics.md) for more detailed information about pools, nodes, jobs, and tasks, and the many API features that you can use while building your Batch application. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
+See [Batch service workflow and primary resources](batch-service-workflow-features.md) for an overview of features such as pools, nodes, jobs, and tasks. Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
 ## Next steps
 
@@ -90,4 +78,3 @@ Get started with Azure Batch with one of these quickstarts:
 * [Run your first Batch job with the Azure portal](quick-create-portal.md)
 * [Run your first Batch job using the .NET API](quick-run-dotnet.md)
 * [Run your first Batch job using the Python API](quick-run-python.md)
-

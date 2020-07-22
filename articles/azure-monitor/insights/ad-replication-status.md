@@ -1,5 +1,5 @@
 ---
-title: Monitor Active Directory replication status with Azure Monitor | Microsoft Docs
+title: Monitor Active Directory replication status
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
 ms.subservice: logs
 ms.topic: conceptual
@@ -58,7 +58,7 @@ The following table shows data collection methods and other details about how da
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-The AD Replication Status tile displays how many replication errors you currently have. **Critical Replication Errors** are errors that are at or above 75% of the [tombstone lifetime](https://technet.microsoft.com/library/cc784932%28v=ws.10%29.aspx) for your Active Directory forest.
+The AD Replication Status tile displays how many replication errors you currently have. **Critical Replication Errors** are errors that are at or above 75% of the [tombstone lifetime](/previous-versions/windows/it-pro/windows-server-2003/cc784932(v=ws.10)) for your Active Directory forest.
 
 ![AD Replication Status tile](./media/ad-replication-status/oms-ad-replication-tile.png)
 

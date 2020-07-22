@@ -32,15 +32,16 @@ The data that's available for backup depends on where the agent is installed.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
+* Ensure the user performing the installation and configuration of the MARS agent has local administrator privileges on the server to be protected.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## Modify storage replication
 
-By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md).
 
 * If the vault is your primary backup mechanism, we recommend that you use GRS.
-* You can use [locally redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) to reduce Azure storage costs.
+* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) to reduce Azure storage costs.
 
 To modify the storage replication type:
 
@@ -61,11 +62,12 @@ To modify the storage replication type:
 If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
 
 * URLs
-  * `www\.msftncsi.com`
+  * `www.msftncsi.com`
   * `*.Microsoft.com`
   * `*.WindowsAzure.com`
   * `*.microsoftonline.com`
   * `*.windows.net`
+  * `www.msftconnecttest.com`
 * IP addresses
   * 20.190.128.0/18
   * 40.126.0.0/18
@@ -77,6 +79,7 @@ You can back up your data over Azure ExpressRoute by using public peering (avail
 To use public peering, first ensure access to the following domains and addresses:
 
 * `http://www.msftncsi.com/ncsi.txt`
+* `http://www.msftconnecttest.com/connecttest.txt`
 * `microsoft.com`
 * `.WindowsAzure.com`
 * `.microsoftonline.com`
@@ -88,12 +91,16 @@ To use Microsoft peering, select the following services, regions, and relevant c
 * Azure region, according to the location of your Recovery Services vault
 * Azure Storage, according to the location of your Recovery Services vault
 
-For more information, see [ExpressRoute routing requirements](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+For more information, see [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > Public peering is deprecated for new circuits.
 
 All of the preceding URLs and IP addresses use the HTTPS protocol on port 443.
+
+### Private Endpoints
+
+[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
 ## Download the MARS agent
 

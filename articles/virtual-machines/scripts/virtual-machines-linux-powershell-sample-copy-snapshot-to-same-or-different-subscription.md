@@ -1,11 +1,11 @@
 ---
-title: Copy snapshot of a managed disk to a subscription - PowerShell Sample
+title: Snapshot of managed disk to subscription (Linux) - PowerShell
 description: Azure PowerShell Script Sample -  Copy (or move) snapshot of a managed disk to same or different subscription
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
-editor: tysonn
+
 tags: azure-service-management
 
 ms.assetid:
@@ -18,7 +18,7 @@ ms.date: 06/06/2017
 ms.author: ramankum
 ---
 
-# Copy snapshot of a managed disk in same subscription or different subscription with PowerShell
+# Copy snapshot of a managed disk in same subscription or different subscription with PowerShell (Linux)
 
 This script copies a snapshot of a managed disk to same or different subscription. Use this script for the following scenarios:
 
@@ -42,13 +42,13 @@ This script uses following commands to create a snapshot in the target subscript
 
 | Command | Notes |
 |---|---|
-| [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Creates snapshot configuration that is used for snapshot creation. It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
+| [New-AzSnapshotConfig](/powershell/module/az.compute/new-azsnapshotconfig) | Creates snapshot configuration that is used for snapshot creation. It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.  |
+| [New-AzSnapshot](/powershell/module/az.compute/new-azdisk) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
 
 ## Next steps
 
 [Create a virtual machine from a snapshot](./virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

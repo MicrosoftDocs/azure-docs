@@ -71,8 +71,8 @@ landingContent:
             url: iaas.md
           - text: Identity management and access control
             url: identity-management-best-practices.md
-          - text: Database security
-            url: database-best-practices.md
+#          - text: Database security
+#            url: ../../sql-database/sql-database-security-best-practice.md
           - text: PaaS deployments
             url: paas-deployments.md
           - text: Data security and encryption

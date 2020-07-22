@@ -75,7 +75,7 @@ az vm create \
 
 The VMs take a few minutes to create. After Azure creates the VMs, the Azure CLI returns output like this:
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm2",

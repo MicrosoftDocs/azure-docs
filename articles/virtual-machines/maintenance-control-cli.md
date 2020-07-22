@@ -1,50 +1,18 @@
 ---
-title: Maintenance control 
-description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance Control.
+title: Maintenance control for Azure virtual machines using CLI 
+description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and CLI.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 04/20/2020
 ms.author: cynthn
 #pmcontact: shants
 ---
 
-# Preview: Control updates with Maintenance Control and the Azure CLI
+# Control updates with Maintenance Control and the Azure CLI
 
-Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window. 
-
-Maintenance control lets you decide when to apply updates to your isolated VMs and Azure Dedicated Hosts.
-
-With maintenance control, you can:
-- Batch updates into one update package.
-- Wait up to 35 days to apply updates. 
-- Automate platform updates for your maintenance window using Azure Functions.
-- Maintenance configurations work across subscriptions and resource groups. 
-
-> [!IMPORTANT]
-> Maintenance Control is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-
-## Limitations
-
-- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), or be created using an [isolated VM size](./linux/isolation.md).
-- After 35 days, an update will automatically be applied.
-- User must have **Resource Contributor** access.
-
-
-## Install the maintenance extension
-
-If you choose to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) locally, you need version 2.0.76 or later.
-
-Install the `maintenance` preview CLI extension locally or in Cloud Shell. 
-
-```azurecli-interactive
-az extension add -n maintenance
-```
-
+Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts. This topic covers the Azure CLI options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 
 ## Create a maintenance configuration
 
@@ -58,7 +26,7 @@ az maintenance configuration create \
    -g myMaintenanceRG \
    --name myConfig \
    --maintenanceScope host\
-   --location  eastus
+   --location eastus
 ```
 
 Copy the configuration ID from the output to use later.

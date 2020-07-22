@@ -3,19 +3,16 @@ title: Create a VM with a static public IP address - Azure portal | Microsoft Do
 description: Learn how to create a VM with a static public IP address using the Azure portal.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
+author: asudbring
+manager: KumudD
 ms.service: virtual-network
-ms.devlang: azurecli
-ms.topic: article
+ms.subservice: ip-services
+ms.devlang:
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Create a virtual machine with a static public IP address using the Azure portal
@@ -47,7 +44,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
    ![Select static](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
 
-   If the public IP address must be a standard SKU, select **Standard** under **SKU**. Learn more about [Public IP address SKUs](virtual-network-ip-addresses-overview-arm.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus).
+   If the public IP address must be a standard SKU, select **Standard** under **SKU**. Learn more about [Public IP address SKUs](virtual-network-ip-addresses-overview-arm.md#sku). If the virtual machine will be added to the back-end pool of a public Azure Load Balancer, the SKU of the virtual machine's public IP address must match the SKU of the load balancer's public IP address. For details, see [Azure Load Balancer](../load-balancer/skus.md).
 
 6. Select a port, or no ports under **Select public inbound ports**. Portal 3389 is selected, to enable remote access to the Windows Server virtual machine from the internet. Opening port 3389 from the internet is not recommended for production workloads.
 

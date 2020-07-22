@@ -17,7 +17,7 @@ ms.author: juliako
 
 # Streaming Policies
 
-In Azure Media Services v3, [Streaming Policies](https://docs.microsoft.com/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). Media Services v3 provides some predefined Streaming Policies so that you can use them directly for trial or production. 
+In Azure Media Services v3, [Streaming Policies](/rest/api/media/streamingpolicies) enable you to define streaming protocols and encryption options for your [Streaming Locators](streaming-locators-concept.md). Media Services v3 provides some predefined Streaming Policies so that you can use them directly for trial or production. 
 
 The currently available predefined Streaming Policies:<br/>
 * 'Predefined_DownloadOnly'
@@ -31,7 +31,7 @@ The following "Decision tree" helps you choose a predefined Streaming Policy for
 
 > [!IMPORTANT]
 > * Properties of **Streaming Policies** that are of the Datetime type are always in UTC format.
-> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limitations](limits-quotas-constraints.md).
+> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. For more information, see [Quotas and limits](limits-quotas-constraints.md).
 
 ## Decision tree
 
@@ -41,11 +41,11 @@ Click the image to view it full size.
 
 If encrypting your content, you need to create a [Content Key Policy](content-key-policy-concept.md), the **Content Key Policy** is not needed for clear streaming or downloading. 
 
-If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can [create](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) a custom Streaming Policy. 
+If you have special requirements (for example, if you want to specify different protocols, need to use a custom key delivery service, or need to use a clear audio track), you can [create](/rest/api/media/streamingpolicies/create) a custom Streaming Policy. 
 
 ## Get a Streaming Policy definition  
 
-If you want to see the definition of a Streaming Policy, use [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) and specify the policy name. For example:
+If you want to see the definition of a Streaming Policy, use [Get](/rest/api/media/streamingpolicies/get) and specify the policy name. For example:
 
 ### REST
 

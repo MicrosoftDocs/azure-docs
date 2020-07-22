@@ -85,7 +85,7 @@ Download the [latest version](https://github.com/Microsoft/ApplicationInsights-J
     * Download the latest [Application Insights SDK for Java](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) and replace the old ones. Changes are described in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
 
 ## Add an *ApplicationInsights.xml* file
-Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project’s deployment class path. Copy the following XML into it.
+Add *ApplicationInsights.xml* to the resources folder in your project, or make sure it's added to your project's deployment class path. Copy the following XML into it.
 
 Replace the instrumentation key with the one that you got from the Azure portal.
 
@@ -171,11 +171,11 @@ Click through a specific request type to see individual instances.
 ![Drill into a specific sample view](./media/java-get-started/007-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../../azure-monitor/app/analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../log-query/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/java-get-started/0025.png)
 
-## 7. Install your app on the server
+## Install your app on the server
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
 
 * Make sure your firewall allows your application to send telemetry to these ports:
@@ -222,7 +222,7 @@ And for automatic operation naming.
 
 The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
 
-The incoming SDK configuration is explained further in our article on [correlation](correlation.md#telemetry-correlation-in-the-java-sdk).
+The incoming SDK configuration is explained further in our article on [correlation](correlation.md).
 
 Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
 
@@ -257,13 +257,13 @@ You can specify additional performance counters to be collected.
 * `displayName` – The name displayed in the Application Insights portal.
 * `objectName` – The JMX object name.
 * `attribute` – The attribute of the JMX object name to fetch
-* `type` (optional) - The type of JMX object’s attribute:
+* `type` (optional) - The type of JMX object's attribute:
   * Default: a simple type such as int or long.
   * `composite`: the perf counter data is in the format of 'Attribute.Data'
   * `tabular`: the perf counter data is in the format of a table row
 
 #### Windows performance counters
-Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
+Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-portal) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
 ```XML
     <PerformanceCounters>
@@ -307,7 +307,7 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Use  [Analytics](../../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
+* Use  [Analytics](../log-query/log-query-overview.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
@@ -317,5 +317,5 @@ Application Insights can test your website at regular intervals to check that it
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/app/metrics-explorer.md
+[metrics]: ../../azure-monitor/platform/metrics-charts.md
 [usage]: javascript.md

@@ -8,7 +8,7 @@ ms.date: 07/17/2019
 ms.author: tomfitz
 ---
 
-# Azure managed applications in the Marketplace
+# Tutorial: Publish Azure managed applications in the Marketplace
 
 Vendors can use Azure managed applications to offer their solutions to all Azure Marketplace customers. Those vendors can include managed service providers (MSPs), independent software vendors (ISVs), and system integrators (SIs). Managed applications reduce the maintenance and servicing overhead for customers. Vendors sell infrastructure and software through the marketplace. They can attach services and operational support to managed applications. For more information, see [Managed application overview](overview.md).
 
@@ -168,6 +168,6 @@ After you fill out all the sections, select **Publish** to start the process tha
 
 ## Next steps
 
-* For information about what happens after you click **Publish**, see [Publish Azure application offer](../../marketplace/cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+* For information about what happens after you click **Publish**, see [Publish Azure application offer](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 * For an introduction to managed applications, see [Managed application overview](overview.md).
 * For information about publishing a Service Catalog managed application, see [Create and publish a Service Catalog managed application](publish-service-catalog-app.md).

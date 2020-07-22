@@ -6,12 +6,16 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 12/9/2019
+ms.date: 06/20/2020
 ---
 
 # Build expressions in mapping data flow
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 In mapping data flow, many transformation properties are entered as expressions. These expressions are composed of column values, parameters, functions, operators, and literals that evaluate to a Spark data type at run time.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4tkur]
 
 ## Open Expression Builder
 
@@ -67,16 +71,12 @@ Some examples of string interpolation:
 
 Add comments to your expressions by using single-line and multiline comment syntax.
 
-![Single-line and multiline comment syntax](media/data-flow/comments.png "Comments")
-
 The following examples are valid comments:
 
 * ```/* This is my comment */```
 
 * ```/* This is a```
 *   ```multi-line comment */```
-   
-* ```// This is a single line comment```
 
 If you put a comment at the top of your expression, it appears in the transformation text box to document your transformation expressions.
 
@@ -124,6 +124,13 @@ To convert milliseconds from epoch to a date or timestamp, use `toTimestamp(<num
 ```toTimestamp(1574127407*1000l)```
 
 The trailing "l" at the end of the previous expression signifies conversion to a long type as inline syntax.
+
+## Find time from epoch or Unix Time
+
+toLong( 
+    currentTimestamp() -
+    toTimestamp('1970-01-01 00:00:00.000', 'yyyy-MM-dd HH:mm:ss.SSS')
+) * 1000l
 
 ## Next steps
 

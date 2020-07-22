@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 03/24/2020
 ms.custom: seodec18
 ---
 # Throttling Resource Manager requests
@@ -59,10 +59,6 @@ For checking virtual machine instances within a virtual machine scale set, use t
 ### Azure Resource Graph throttling
 
 [Azure Resource Graph](../../governance/resource-graph/overview.md) limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Resource Graph throttling headers](../../governance/resource-graph/concepts/guidance-for-throttled-requests.md#understand-throttling-headers).
-
-## Request increase
-
-Sometimes, throttle limits can be increased. To see if the throttling limits for your scenario can be increased, create a support request. The details of your calling pattern will be evaluated.
 
 ## Error code
 

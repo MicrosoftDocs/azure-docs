@@ -39,7 +39,7 @@ Now, you will create a Data Lake Analytics and an Azure Data Lake Storage Gen1 a
 
 The following text is a very simple U-SQL script. All it does is define a small dataset within the script and then write that dataset out to the default Data Lake Storage Gen1 account as a file called `/data.csv`.
 
-```
+```usql
 @a  = 
     SELECT * FROM 
         (VALUES

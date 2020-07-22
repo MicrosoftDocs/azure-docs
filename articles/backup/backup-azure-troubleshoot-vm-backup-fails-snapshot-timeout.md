@@ -23,7 +23,7 @@ The Azure VM agent might be stopped, outdated, in an inconsistent state, or not 
 - **Open Azure portal > VM > Settings > Properties pane** > ensure VM **Status** is **Running** and **Agent status** is **Ready**. If the VM agent is stopped or is in an inconsistent state, restart the agent<br>
   - For Windows VMs, follow these [steps](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) to restart the Guest Agent.<br>
   - For Linux VMs, follow these [steps](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) to restart the Guest Agent.
-- **Open  Azure portal > VM > Settings > Extensions** > Ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
+- **Open  Azure portal > VM > Settings > Extensions** > Ensure all extensions are in **provisioning succeeded** state. If not, follow these [steps](#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) to resolve the issue.
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
@@ -40,12 +40,14 @@ After you register and schedule a VM for the Azure Backup service, Backup starts
 
 **Cause 4: [VM-Agent configuration options are not set (for Linux VMs)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
+**Cause 5: [Application control solution is blocking IaaSBcdrExtension.exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
+
 ## UserErrorVmProvisioningStateFailed - The VM is in failed provisioning state
 
 **Error code**: UserErrorVmProvisioningStateFailed<br>
 **Error message**: The VM is in failed provisioning state<br>
 
-This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](https://docs.microsoft.com/azure/virtual-machines/windows/states-lifecycle#provisioning-states).
+This error occurs when one of the extension failures puts the VM into provisioning failed state.<br>**Open  Azure portal > VM > Settings > Extensions > Extensions status** and check if all extensions are in **provisioning succeeded** state. To learn more, see [Provisioning states](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
 
 - If VMSnapshot extension is in a failed state, then right-click on the failed extension and remove it. Trigger an on-demand backup. This action will reinstall the extensions, and run the backup job.  <br>
 - If any other extension is in a failed state, then it can interfere with the backup. Ensure those extension issues are resolved and retry the backup operation.
@@ -73,7 +75,7 @@ To resolve this issue, remove the lock on the resource group of the VM, and retr
 **Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
 
-For a backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. Permissions can be set through the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) or through [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+For a backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. Permissions can be set through the [Azure portal](./backup-azure-vms-encryption.md) or through [PowerShell](./backup-azure-vms-automation.md#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
 
@@ -123,9 +125,9 @@ Your recent backup job failed because there's an existing backup job in progress
 2. From the list of recovery services vaults, select a vault in which the backup is configured.
 3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
    - If a backup job is in progress, wait for it to complete or cancel the backup job.
-     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob).
    - If you've reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists, then cancel the backup job.
-     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+     - To cancel the backup job, right-click on the backup job and click **Cancel** or use [PowerShell](/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer, conflicting with the next backup configuration, then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance), and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -136,6 +138,13 @@ If the scheduled backup operation is taking longer, conflicting with the next ba
 **Error message**: Backup failed due to an error. For details, see Job Error Message Details.
 
 This error is reported from the IaaS VM. To identify the root cause of the issue, go to the Recovery Services vault settings. Under the **Monitoring** section, select **Backup jobs** to filter and view the status. Click on **Failures** to review the underlying error message details. Take further actions according to the recommendations in the error details page.
+
+## UserErrorBcmDatasourceNotPresent - Backup failed: This virtual machine is not (actively) protected by Azure Backup
+
+**Error code**: UserErrorBcmDatasourceNotPresent <br>
+**Error message**: Backup failed: This virtual machine is not (actively) protected by Azure Backup.
+
+Please check if the given virtual machine is actively (not in pause state) protected by Azure Backup. To overcome this issue, ensure the virtual machine is active and then retry the operation.
 
 ## Causes and solutions
 
@@ -153,7 +162,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 6. Run an on-demand backup:
    - In the portal, select **Backup Now**.
 
-Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
+Also, verify that [Microsoft .NET 4.5 is installed](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) in the VM. .NET 4.5 is required for the VM agent to communicate with the service.
 
 ### The agent installed in the VM is out of date (for Linux VMs)
 
@@ -161,7 +170,7 @@ Also, verify that [Microsoft .NET 4.5 is installed](https://docs.microsoft.com/d
 
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/linux/update-agent.md).
+1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/extensions/update-linux-agent.md).
 
    > [!NOTE]
    > We *strongly recommend* that you update the agent only through a distribution repository. We do not recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution is not available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
@@ -188,8 +197,16 @@ If you require verbose logging for waagent, follow these steps:
 
 ### VM-Agent configuration options are not set (for Linux VMs)
 
-A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** and **Provisioning.Agent** should be set to **y** for Backup to work.
+A configuration file (/etc/waagent.conf) controls the actions of waagent. Configuration File Options **Extensions.Enable** should be set to **y** and **Provisioning.Agent** should be set to **auto** for Backup to work.
 For full list of VM-Agent Configuration File Options, see <https://github.com/Azure/WALinuxAgent#configuration-file-options>
+
+### Application control solution is blocking IaaSBcdrExtension.exe
+
+If you are running [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (or another application control solution), and the rules are publisher or path based, they may block the **IaaSBcdrExtension.exe** executable from running.
+
+#### Solution
+
+Exclude the `/var/lib` path or the **IaaSBcdrExtension.exe** executable from AppLocker (or other application control software.)
 
 ### <a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>The snapshot status can't be retrieved, or a snapshot can't be taken
 

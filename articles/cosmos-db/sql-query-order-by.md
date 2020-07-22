@@ -4,13 +4,13 @@ description: Learn about SQL ORDER BY clause for Azure Cosmos DB. Use SQL as an 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 06/06/2020
 ms.author: tisande
 
 ---
 # ORDER BY clause in Azure Cosmos DB
 
-The optional ORDER BY clause specifies the sorting order for results returned by the query.
+The optional `ORDER BY` clause specifies the sorting order for results returned by the query.
 
 ## Syntax
   
@@ -26,9 +26,9 @@ ORDER BY <sort_specification>
   
    Specifies a property or expression on which to sort the query result set. A sort column can be specified as a name or property alias.  
   
-   Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the ORDER BY clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
+   Multiple properties can be specified. Property names must be unique. The sequence of the sort properties in the `ORDER BY` clause defines the organization of the sorted result set. That is, the result set is sorted by the first property and then that ordered list is sorted by the second property, and so on.  
   
-   The property names referenced in the ORDER BY clause must correspond to either a property in the select list or to a property defined in the collection specified in the FROM clause without any ambiguities.  
+   The property names referenced in the `ORDER BY` clause must correspond to either a property in the select list or to a property defined in the collection specified in the `FROM` clause without any ambiguities.  
   
 - `<sort_expression>`  
   
@@ -40,7 +40,7 @@ ORDER BY <sort_specification>
   
 - `ASC | DESC`  
   
-   Specifies that the values in the specified column should be sorted in ascending or descending order. ASC sorts from the lowest value to highest value. DESC sorts from highest value to lowest value. ASC is the default sort order. Null values are treated as the lowest possible values.  
+   Specifies that the values in the specified column should be sorted in ascending or descending order. `ASC` sorts from the lowest value to highest value. `DESC` sorts from highest value to lowest value. `ASC` is the default sort order. Null values are treated as the lowest possible values.  
   
 ## Remarks  
   
@@ -147,7 +147,7 @@ The results only include the document that has a defined `lastName`:
     ]
 ```
 
-If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it.
+If we update the container's indexing policy to explicitly include a path for `lastName`, we will include documents with an undefined sort property in the query results. You must explicitly define the path to lead to this scalar value (and not beyond it). You should use the `?` character in your path definition in the indexing policy to ensure that you explicitly index the property `lastName` and no additional nested paths beyond it. If your `Order By` query uses a [composite index](index-policy.md#composite-indexes), the results will always include documents with an undefined sort property in the query results.
 
 Here is a sample indexing policy which allows you to have documents with an undefined `lastName` appear in the query results:
 
@@ -210,6 +210,11 @@ The results are:
     }
 ]
 ```
+
+> [!Note]
+> Only the .NET SDK version 3.4.0 or later supports ORDER BY with mixed types. Therefore, if you want to sort by a combination of undefined and defined values, you should use this version (or later).
+
+You can't control the order that different types appear in the results. In the above example, we showed how undefined values were sorted before string values. If instead, for example, you wanted more control over the sort order of undefined values, you could assign any undefined properties a string value of "aaaaaaaaa" or "zzzzzzzz" to ensure they were either first or last.
 
 ## Next steps
 

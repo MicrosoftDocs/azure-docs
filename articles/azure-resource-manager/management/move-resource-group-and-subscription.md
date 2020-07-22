@@ -2,7 +2,7 @@
 title: Move resources to a new subscription or resource group
 description: Use Azure Resource Manager to move resources to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 03/02/2020
+ms.date: 07/15/2020
 ---
 
 # Move resources to a new resource group or subscription
@@ -12,6 +12,8 @@ This article shows you how to move Azure resources to either another Azure subsc
 Both the source group and the target group are locked during the move operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you can't add, update, or delete resources in the resource groups. It doesn't mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database. The lock can last for a maximum of four hours, but most moves complete in much less time.
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
+
+If you are using Azure Stack Hub, you cannot move resources between groups.
 
 ## Checklist before moving resources
 
@@ -48,7 +50,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
    If the tenant IDs for the source and destination subscriptions aren't the same, use the following methods to reconcile the tenant IDs:
 
-   * [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md)
+   * [Transfer ownership of an Azure subscription to another account](../../cost-management-billing/manage/billing-subscription-transfer.md)
    * [How to associate or add an Azure subscription to Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
@@ -102,7 +104,7 @@ For illustration purposes, we have only one dependent resource.
 
 * Step 1: If dependent resources are distributed across different resource groups, first move them into one resource group.
 * Step 2: Move the resource and dependent resources together from the source subscription to the target subscription.
-* Step 3: Optionally, redistribute the dependent resources to different resource groups within the target subscription. 
+* Step 3: Optionally, redistribute the dependent resources to different resource groups within the target subscription.
 
 ## Validate move
 
@@ -255,8 +257,9 @@ When moving a resource, its dependent resources must either exist in the destina
 For example, moving a virtual machine could require moving seven resource types with three different resource providers. Those resource providers and types are:
 
 * Microsoft.Compute
-   * virtualMachines
-   * disks
+
+  * virtualMachines
+  * disks
 * Microsoft.Network
   * networkInterfaces
   * publicIPAddresses
@@ -267,7 +270,7 @@ For example, moving a virtual machine could require moving seven resource types 
 
 Another common example involves moving a virtual network. You may have to move several other resources associated with that virtual network. The move request could require moving public IP addresses, route tables, virtual network gateways, network security groups, and others.
 
-**Question: Why can’t I move some resources in Azure?**
+**Question: Why can't I move some resources in Azure?**
 
 Currently, not all resources in Azure support move. For a list of resources that support move, see [Move operation support for resources](move-support-resources.md).
 

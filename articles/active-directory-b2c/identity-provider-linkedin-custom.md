@@ -8,7 +8,7 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/25/2019
 ms.author: mimart
 ms.subservice: B2C
@@ -132,7 +132,7 @@ The LinkedIn technical profile requires the **ExtractGivenNameFromLinkedInRespon
 
 Add the **BuildingBlocks** element near the top of the *TrustFrameworkExtensions.xml* file. See *TrustFrameworkBase.xml* for an example.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <!-- Claim type needed for LinkedIn claims transformations -->
@@ -193,7 +193,7 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 1. Find the **OrchestrationStep** element that includes `Order="1"` in the user journey that you created.
 2. Under **ClaimsProviderSelections**, add the following element. Set the value of **TargetClaimsExchangeId** to an appropriate value, for example `LinkedInExchange`:
 
-    ```XML
+    ```xml
     <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
     ```
 
@@ -204,7 +204,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
 2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
 
-    ```XML
+    ```xml
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     ```
 
@@ -237,14 +237,14 @@ LinkedIn recently [updated their APIs from v1.0 to v2.0](https://engineering.lin
 
 In the existing **Metadata** element of the **TechnicalProfile**, update the following **Item** elements from:
 
-```XML
+```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
 To:
 
-```XML
+```xml
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
 <Item Key="scope">r_emailaddress r_liteprofile</Item>
 ```
@@ -253,7 +253,7 @@ To:
 
 In the **Metadata** of the **TechnicalProfile**, add the following **Item** elements:
 
-```XML
+```xml
 <Item Key="external_user_identity_claim_id">id</Item>
 <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
 <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
@@ -263,14 +263,14 @@ In the **Metadata** of the **TechnicalProfile**, add the following **Item** elem
 
 In the existing **OutputClaims** of the **TechnicalProfile**, update the following **OutputClaim** elements from:
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
 To:
 
-```XML
+```xml
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
 ```
@@ -279,7 +279,7 @@ To:
 
 In the **OutputClaimsTransformations** of the **TechnicalProfile**, add the following **OutputClaimsTransformation** elements:
 
-```XML
+```xml
 <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
 <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
 ```
@@ -290,7 +290,7 @@ In the last step, you added new claims transformations that need to be defined. 
 
 The **BuildingBlocks** element should be added near the top of the file. See the *TrustframeworkBase.xml* as an example.
 
-```XML
+```xml
 <BuildingBlocks>
   <ClaimsSchema>
     <!-- Claim type needed for LinkedIn claims transformations -->
@@ -334,7 +334,7 @@ As part of the LinkedIn migration from v1.0 to v2.0, an additional call to anoth
 2. Save the LinkedIn access token into a claim. [See the instructions here](idp-pass-through-custom.md).
 3. Add the following claims provider that makes the request to LinkedIn's `/emailAddress` API. In order to authorize this request, you need the LinkedIn access token.
 
-    ```XML
+    ```xml
     <ClaimsProvider>
       <DisplayName>REST APIs</DisplayName>
       <TechnicalProfiles>
@@ -362,7 +362,7 @@ As part of the LinkedIn migration from v1.0 to v2.0, an additional call to anoth
 
 4. Add the following orchestration step into your user journey, so that the API claims provider is triggered when a user signs in using LinkedIn. Make sure to update the `Order` number appropriately. Add this step immediately after the orchestration step that triggers the LinkedIn technical profile.
 
-    ```XML
+    ```xml
     <!-- Extra step for LinkedIn to get the email -->
     <OrchestrationStep Order="3" Type="ClaimsExchange">
       <Preconditions>

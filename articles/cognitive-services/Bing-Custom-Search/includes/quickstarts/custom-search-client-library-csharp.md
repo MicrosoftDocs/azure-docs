@@ -81,7 +81,7 @@ Use the Bing Custom Search client library for C# to:
     {
         Console.WriteLine("Didn't see any Web data..");
     }
-    ```csharp
+    ```
 
 ## Next steps
 

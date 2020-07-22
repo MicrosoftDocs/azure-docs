@@ -1,13 +1,9 @@
 ---
-title: Use proximity placement groups for Linux VMs
-description: Learn about creating and using proximity placement groups for Linux virtual machines in Azure. 
-services: virtual-machines-linux
+title: Use proximity placement groups 
+description: Learn about creating and using proximity placement groups for virtual machines in Azure. 
 author: cynthn
-manager: gwallace
-
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: cynthn

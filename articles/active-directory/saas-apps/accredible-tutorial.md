@@ -104,11 +104,10 @@ To configure Azure AD single sign-on with Accredible, perform the following step
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	|  `https://api.accredible.com/sp/admin/accredible` |
-	| `https://api.accredible.com/sp/user/accredible` |
-    | |
+    ```http
+    https://api.accredible.com/sp/admin/accredible
+    https://api.accredible.com/sp/user/accredible
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://api.accredible.com/v1/saml/admin/<Unique id>/consume`

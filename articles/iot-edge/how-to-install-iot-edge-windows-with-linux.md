@@ -20,6 +20,8 @@ In a production scenario, Windows devices should only run Windows containers. Ho
 
 This article lists the steps to install the Azure IoT Edge runtime using Linux containers on your Windows x64 (AMD/Intel) system. To learn more about the IoT Edge runtime installer, including details about all the installation parameters, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
+For information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
+
 ## Prerequisites
 
 Use this section to review whether your Windows device can support IoT Edge, and to prepare it for a container engine before installation.
@@ -27,8 +29,6 @@ Use this section to review whether your Windows device can support IoT Edge, and
 ### Supported Windows versions
 
 Azure IoT Edge with Linux containers can run on any version of Windows that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
-
-For more information about what's included in the latest version of IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
 If you want to install IoT Edge on a virtual machine, enable nested virtualization and allocate at least 2-GB memory. How you enable nested virtualization is different depending on the hypervisor your use. For Hyper-V, generation 2 virtual machines have nested virtualization enabled by default. For VMWare, there's a toggle to enable the feature on your virtual machine.
 

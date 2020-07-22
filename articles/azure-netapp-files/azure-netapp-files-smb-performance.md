@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/17/2020
 ms.author: b-juche
 ---
 # FAQs about SMB performance for Azure NetApp Files
@@ -90,12 +90,12 @@ Azure places network rate limits on each virtual machine type/size. The rate lim
 
 ![Sequential I/O comparison](../media/azure-netapp-files/azure-netapp-files-sequential-io-tests-list.png)
 
-## Is advanced networking recommended?
+## Is Accelerated Networking recommended?
 
-For maximum performance, it is recommended that you configure advanced networking where possible. Keep the following considerations in mind:  
+For maximum performance, it is recommended that you configure [Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) where possible. Keep the following considerations in mind:  
 
-* The Azure portal enables advanced networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable advanced networking can hobble the performance of a machine.  
-* If advanced networking is not enabled on the network interface of a virtual machine due to its lack of support for an instance type or size, it will remain disabled with larger instance types. You will need manual intervention in those cases.
+* The Azure portal enables Accelerated Networking by default for virtual machines supporting this feature.  However, other deployment methods such as Ansible and similar configuration tools may not.  Failure to enable Accelerated Networking can hobble the performance of a machine.  
+* If Accelerated Networking is not enabled on the network interface of a virtual machine due to its lack of support for an instance type or size, it will remain disabled with larger instance types. You will need manual intervention in those cases.
 
 ## Are jumbo frames supported?
 

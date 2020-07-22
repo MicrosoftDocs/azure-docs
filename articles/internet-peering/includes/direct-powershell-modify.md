@@ -12,15 +12,15 @@ ms.author: prmitiki
 
 This section describes how to perform the following modification operations for Direct peering:
 
-* Add Direct peering connections
-* Remove Direct peering connections
+* Add Direct peering connections.
+* Remove Direct peering connections.
 * Upgrade or downgrade bandwidth on Active connections.
-* Add IPv4/IPv6 session on Active connections.
-* Remove IPv4/IPv6 session on Active connections.
+* Add IPv4 or IPv6 sessions on Active connections.
+* Remove IPv4 or IPv6 sessions on Active connections.
 
 ### Add Direct peering connections
 
-Below example describes how to add connections to existing Direct peering
+This example describes how to add connections to existing Direct peering.
 
 ```powershell
 
@@ -41,7 +41,7 @@ $directPeering | Update-AzPeering
 
 ### Remove Direct peering connections
 
-Removing a connection is not currently supported on PowerShell. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
+Removing a connection isn't currently supported on PowerShell. For more information, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
 
 <!--
 ```powershell
@@ -53,7 +53,7 @@ $directPeering | Update-AzPeering
 
 ### Upgrade or downgrade bandwidth on Active connections
 
-Below example describes how to add 10Gbps to existing direct connection.
+This example describes how to add 10 Gbps to an existing Direct connection.
 
 ```powershell
 
@@ -63,9 +63,9 @@ $directPeering | Update-AzPeering
 
 ```
 
-### Add IPv4/IPv6 session on Active connections.
+### Add IPv4 or IPv6 sessions on Active connections
 
-Below example describes how to add IPv6 session on an existing direct connection with only IPv4 session. 
+This example describes how to add an IPv6 session on an existing Direct connection with only an IPv4 session. 
 
 ```powershell
 
@@ -75,6 +75,6 @@ $directPeering | Update-AzPeering
 
 ```
 
-### Remove IPv4/IPv6 session on Active connections.
+### Remove IPv4 or IPv6 sessions on Active connections
 
-Removing an IPv4/IPv6 session from an existing connection is not currently supported on PowerShell. Contact [Microsoft peering](mailto:peeringexperience@microsoft.com).
+Removing an IPv4 or IPv6 session from an existing connection isn't currently supported on PowerShell. For more information, contact [Microsoft peering](mailto:peeringexperience@microsoft.com).

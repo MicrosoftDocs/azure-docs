@@ -14,7 +14,12 @@ ms.date: 01/10/2018
 ---
 
 # Execute Pipeline activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 The Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
+
+
 
 ## Syntax
 

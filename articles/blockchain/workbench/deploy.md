@@ -1,9 +1,10 @@
 ---
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
-ms.date: 01/08/2020
-ms.topic: article
-ms.reviewer: brendal
+ms.date: 07/16/2020
+ms.topic: how-to
+ms.reviewer: ravastra
+ms.custom: references_regions
 #Customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
 # Deploy Azure Blockchain Workbench Preview
@@ -23,7 +24,7 @@ Blockchain Workbench allows you to deploy a blockchain ledger along with a set o
 * Event Grid
 * Azure Key Vault
 * Service Bus
-* SQL Database (Standard S0) + SQL Logical Server
+* SQL Database (Standard S0)
 * Azure Storage account (Standard LRS)
 * Virtual machine scale set with capacity of 1
 * Virtual Network resource group (with Load Balancer, Network Security Group, Public IP Address, Virtual Network)
@@ -40,7 +41,7 @@ The cost of Blockchain Workbench is an aggregate of the cost of the underlying A
 Azure Blockchain Workbench requires Azure AD configuration and application registrations. You can choose to do the Azure AD [configurations manually](#azure-ad-configuration) before deployment or run a script post deployment. If you are redeploying Blockchain Workbench, see [Azure AD configuration](#azure-ad-configuration) to verify your Azure AD configuration.
 
 > [!IMPORTANT]
-> Workbench does not have to be deployed in the same tenant as the one you are using to register an Azure AD application. Workbench must be deployed in a tenant where you have sufficient permissions to deploy resources. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md) and [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+> Workbench does not have to be deployed in the same tenant as the one you are using to register an Azure AD application. Workbench must be deployed in a tenant where you have sufficient permissions to deploy resources. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md) and [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ## Deploy Blockchain Workbench
 
@@ -61,7 +62,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Password | The password is used for connecting to VMs. |
     | SSH | Use an RSA public key in the single-line format beginning  with **ssh-rsa** or use the multi-line PEM format. You can generate SSH keys using `ssh-keygen` on Linux and OS X, or by using PuTTYGen on Windows. More information on SSH keys, see [How to use SSH keys with Windows on Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Database and Blockchain password | Specify the password to use for access to the database created as part of the deployment. The password must meet three of the following four requirements: length needs to be between 12 & 72 characters, 1 lower case character, 1 upper case character, 1 number, and 1 special character that is not number sign(#), percent(%), comma(,), star(*), back quote(\`), double quote("), single quote('), dash(-) and semicolumn(;) |
-    | Deployment region | Specify where to deploy Blockchain Workbench resources. For best availability, this should match the **Location** setting. |
+    | Deployment region | Specify where to deploy Blockchain Workbench resources. For best availability, this should match the **Region** location setting. Not all regions are available during preview. Features may not be available in some regions. Azure Blockchain Data Manager is available in the following Azure regions: East US and West Europe.|
     | Subscription | Specify the Azure Subscription you wish to use for your deployment. |
     | Resource groups | Create a new Resource group by selecting **Create new** and specify a unique resource group name. |
     | Location | Specify the region you wish to deploy the framework. |
@@ -101,7 +102,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
      | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
      | VM selection | Select preferred storage performance and VM size for your blockchain network. Choose a smaller VM size such as *Standard DS1 v2* if you are on a subscription with low service limits like Azure free tier. |
 
-1. Select **OK** to finish Advanced Settings.
+1. Select **Review + create** to finish Advanced Settings.
 
 1. Review the summary to verify your parameters are accurate.
 
@@ -172,7 +173,6 @@ If you choose to manually configure or verify Azure AD settings prior to deploym
 
 Blockchain Workbench deployment requires registration of an Azure AD application. You need an Azure Active Directory (Azure AD) tenant to register the app. You can use an existing tenant or create a new tenant. If you are using an existing Azure AD tenant, you need sufficient permissions to register applications, grant Graph API permissions, and allow guest access within an Azure AD tenant. If you do not have sufficient permissions in an existing Azure AD tenant, create a new tenant.
 
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select your account in the top-right corner, and switch to the desired Azure AD tenant. The tenant should be the subscription admin's tenant of the subscription where Azure Blockchain Workbench is deployed and you have sufficient permissions to register applications.
 1. In the left-hand navigation pane, select the **Azure Active Directory** service. Select **App registrations** > **New registration**.
@@ -189,11 +189,9 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 
 Next, you need to modify the manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../../active-directory/develop/reference-app-manifest.md).
 
-
 1. A GUID is required for the manifest. You can generate a GUID using the PowerShell command `[guid]::NewGuid()` or `New-GUID` cmdlet. Another option is to use a GUID generator website.
 1. For the application you registered, select **Manifest** in the **Manage** section.
-1. Next, update the **appRoles** section of the manifest. Replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
-
+1. Next, update the **appRoles** section of the manifest. Replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the `id` field with the GUID you generated.
     ![Edit manifest](media/deploy/edit-manifest.png)
 
     ``` json
@@ -257,7 +255,7 @@ The application ID and tenant information are required for deployment. Collect a
 
 ### Get tenant domain name
 
-Collect and store the Active Directory tenant domain name where the applications are registered. 
+Collect and store the Active Directory tenant domain name where the applications are registered.
 
 In the left-hand navigation pane, select the **Azure Active Directory** service. Select **Custom domain names**. Copy and store the domain name.
 
@@ -294,7 +292,7 @@ Once the Azure Blockchain Workbench has been deployed, you have to configure the
 
 When a deployment is no longer needed, you can remove a deployment by deleting the Blockchain Workbench resource group.
 
-1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete. 
+1. In the Azure portal, navigate to **Resource group** in the left navigation pane and select the resource group you want to delete.
 1. Select **Delete resource group**. Verify deletion by entering the resource group name and select **Delete**.
 
     ![Delete resource group](media/deploy/delete-resource-group.png)

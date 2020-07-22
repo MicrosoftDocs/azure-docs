@@ -7,8 +7,7 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
-
-ms.custom: 
+ms.custom: tracking-python
 
 ---
 # Timer trigger for Azure Functions 
@@ -17,6 +16,8 @@ This article explains how to work with timer triggers in Azure Functions.
 A timer trigger lets you run a function on a schedule. 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+For information on how to manually run a timer-triggered function, see [Manually run a non HTTP-triggered function](./functions-manually-run-non-http.md).
 
 ## Packages - Functions 1.x
 
@@ -283,24 +284,7 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 
 The numbers in a CRON expression refer to a time and date, not a time span. For example, a 5 in the `hour` field refers to 5:00 AM, not every 5 hours.
 
-The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). To have your CRON expression based on another time zone, create an app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://technet.microsoft.com/library/cc749073).
-
-  > [!NOTE]
-  > `WEBSITE_TIME_ZONE` is not currently supported on the Linux Consumption plan.
-
-For example, *Eastern Standard Time* is UTC-05:00. To have your timer trigger fire at 10:00 AM EST every day, use the following NCRONTAB expression that accounts for UTC time zone:
-
-```
-"0 0 15 * * *"
-```	
-
-Or create an app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then uses the following NCRONTAB expression: 
-
-```
-"0 0 10 * * *"
-```	
-
-When you use `WEBSITE_TIME_ZONE`, the time is adjusted for time changes in the specific timezone, such as daylight savings time. 
+[!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
 ## TimeSpan
 
@@ -314,7 +298,7 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 |---------|---------|
 |"01:00:00" | every hour        |
 |"00:01:00"|every minute         |
-|"24:00:00" | every 24 hours        |
+|"24:00:00" | every 24 days        |
 |"1.00:00:00" | every day        |
 
 ## Scale-out

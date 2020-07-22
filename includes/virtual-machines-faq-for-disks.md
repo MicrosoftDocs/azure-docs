@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/13/2019
+ ms.date: 03/31/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -52,10 +52,6 @@ No.
 
 Managed Disks eliminates the limits associated with storage accounts. However, the maximum limit is 50,000 managed disks per region and per disk type for a subscription.
 
-**Can I take an incremental snapshot of a managed disk?**
-
-No. The current snapshot capability makes a full copy of a managed disk.
-
 **Can VMs in an availability set consist of a combination of managed and unmanaged disks?**
 
 No. The VMs in an availability set must use either all managed disks or all unmanaged disks. When you create an availability set, you can choose which type of disks you want to use.
@@ -96,7 +92,7 @@ Customers can take a snapshot of their managed disks and then use the snapshot t
 
 Yes, both unmanaged and managed disks are supported. We recommend that you use managed disks for new workloads and migrate your current workloads to managed disks.
 
-**Can I co-locate unmanaged and managed disks on the same VM?**
+**Can I colocate unmanaged and managed disks on the same VM?**
 
 No.
 
@@ -121,7 +117,7 @@ No. This is not supported currently as a lease is present to prevent accidental 
 No. You can't update the computer name property. The new VM inherits it from the parent VM, which was used to create the operating system disk. 
 
 **Where can I find sample Azure Resource Manager templates to create VMs with managed disks?**
-* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [List of templates using Managed Disks](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **When creating a disk from a blob, is there any continually existing relationship with that source blob?**
@@ -145,29 +141,33 @@ Premium SSD, standard SSD, and standard HDD support snapshots. For these three d
 **What are Azure disk reservations?**
 Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost. For details regarding Azure disk reservations, see our article on the subject: [Understand how your reservation discount is applied to Azure Disk](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**What options does Azure disk reservation offer?**	
-Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.	
+**What options does Azure disk reservation offer?**    
+Azure disk reservation provides the option to purchase Premium SSDs in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for a one-year term. There is no limitation on the minimum amount of disks necessary to purchase a disk reservation. Additionally, you can choose to pay with a single, upfront payment or monthly payments. There is no additional transactional cost applied for Premium SSD Managed Disks.    
 
 Reservations are made in the form of disks, not capacity. In other words, when you reserve a P80 (32 TiB) disk, you get a single P80 disk, you cannot then divide that specific reservation up into two smaller P70 (16 TiB) disks. You can, of course, reserve as many or as few disks as you like, including two separate P70 (16 TiB) disks.
 
-**How is Azure disk reservation applied?**	
-Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances. 	
+**How is Azure disk reservation applied?**    
+Disks reservation follows a model similar to reserved virtual machine (VM) instances. The difference being that a disk reservation cannot be applied to different SKUs, while a VM instance can. See [Save costs with Azure Reserved VM Instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) for more information on VM instances.     
 
-**Can I use my data storage purchased through Azure disks reservation across multiple regions?**	
-Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.	
+**Can I use my data storage purchased through Azure disks reservation across multiple regions?**    
+Azure disks reservation are purchased for a specific region and SKU (like P30 in East US 2), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage needs in other regions or SKUs.    
 
-**What happens when my Azure disks reservation expires?**	
+**What happens when my Azure disks reservation expires?**    
 You will receive email notifications 30 days prior to expiration and again on the expiration date. Once the reservation expires, deployed disks will continue to run and will be billed with the latest [pay-as-you-go rates](https://azure.microsoft.com/pricing/details/managed-disks/).
+
+**Do Standard SSD Disks support "single instance VM SLA"?**
+
+Yes, all disk types support single instance VM SLA.
 
 ### Azure shared disks
 
 **Is the shared disks feature supported for unmanaged disks or page blobs?**
 
-No, it is only supported for premium SSD managed disks.
+No, it is only supported for ultra disks and premium SSD managed disks.
 
 **What regions support shared disks?**
 
-Currently only West Central US.
+For regional information, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
 
 **Can shared disks be used as an OS disk?**
 
@@ -175,11 +175,11 @@ No, shared disks are only supported for data disks.
 
 **What disk sizes support shared disks?**
 
-Only premium SSDs that are P15 or greater support shared disks.
+For supported sizes, see our [conceptual article](../articles/virtual-machines/linux/disks-shared.md).
 
-**If I have an existing premium SSD, can I enable shared disks on it?**
+**If I have an existing disk, can I enable shared disks on it?**
 
-All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the `maxShares` property on the disk.
+All managed disks created with API version 2019-07-01 or higher can enable shared disks. To do this, you need to unmount the disk from all VMs that it is attached to. Next, edit the **maxShares** property on the disk.
 
 **If I no longer want to use a disk in shared mode, how do I disable it?**
 
@@ -195,7 +195,7 @@ No.
 
 **Can I enable host caching for a disk that has shared disk enabled?**
 
-The only supported host caching option is 'None'.
+The only supported host caching option is **None**.
 
 ## Ultra disks
 
@@ -203,10 +203,10 @@ The only supported host caching option is 'None'.
 If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
 
 **I configured my disk to 40000 IOPS but I'm only seeing 12800 IOPS, why am I not seeing the performance of the disk?**
-In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Please ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md).
+In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Ensure that the VM size you are using can support the levels that are configured on your disks. For details regarding IO limits imposed by your VM, see [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md).
 
 **Can I use caching levels with an ultra disk?**
-No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to None.
+No, ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to **None**.
 
 **Can I attach an ultra disk to my existing VM?**
 Maybe, your VM has to be in a region and availability zone pair that supports Ultra disks. See [getting started with ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) for details.
@@ -258,40 +258,11 @@ All Azure regions now support Standard SSD disks.
 **Is Azure Backup available when using Standard SSDs?**
 Yes, Azure Backup is now available.
 
-**How do I create Standard SSD disks?**
-You can create Standard SSD disks using Azure Resource Manager templates, SDK, PowerShell, or CLI. Below are the parameters needed in the Resource Manager template to create Standard SSD Disks:
-
-* *apiVersion* for Microsoft.Compute must be set as `2018-04-01` (or later)
-* Specify *managedDisk.storageAccountType* as `StandardSSD_LRS`
-
-The following example shows the *properties.storageProfile.osDisk* section for a VM that uses Standard SSD Disks:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
-
-**Can I convert my existing disks to Standard SSD?**
-Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
-    -AccountType StandardSSD_LRS
-
 **What is the benefit of using Standard SSD disks instead of HDD?**
 Standard SSD disks deliver better latency, consistency, availability, and reliability compared to HDD disks. Application workloads run a lot more smoothly on Standard SSD because of that. Note, Premium SSD disks are the recommended solution for most IO-intensive production workloads.
 
 **Can I use Standard SSDs as Unmanaged Disks?**
 No, Standard SSDs disks are only available as Managed Disks.
-
-**Do Standard SSD Disks support "single instance VM SLA"?**
-No, Standard SSDs do not have single instance VM SLA. Use Premium SSD disks for single instance VM SLA.
 
 ## Migrate to Managed Disks
 
@@ -333,9 +304,9 @@ Yes
 
 ## Managed Disks and Storage Service Encryption
 
-**Is Azure Storage Service Encryption enabled by default when I create a managed disk?**
+**Is Server-side Encryption enabled by default when I create a managed disk?**
 
-Yes.
+Yes. Managed Disks are encrypted with server-side encryption with platform managed keys. 
 
 **Is the boot volume encrypted by default on a managed disk?**
 
@@ -343,30 +314,27 @@ Yes. By default, all managed disks are encrypted, including the OS disk.
 
 **Who manages the encryption keys?**
 
-Microsoft manages the encryption keys.
+Platform managed keys are managed by Microsoft. You can also use and manage your own keys stored in Azure Key Vault. 
 
-**Can I disable Storage Service Encryption for my managed disks?**
+**Can I disable Server-side Encryption for my managed disks?**
 
 No.
 
-**Is Storage Service Encryption only available in specific regions?**
+**Is Server-side Encryption only available in specific regions?**
 
-No. It's available in all the regions where Managed Disks are available. Managed Disks is available in all public regions and Germany. It is also available in China, however, only for Microsoft managed keys, not customer managed keys.
+No. Server-side Encryption with both platform and customer managed keys are available in all the regions where Managed Disks are available. 
 
-**How can I find out if my managed disk is encrypted?**
+**Does Azure Site Recovery support server-side encryption with customer-managed key for on-premises to Azure and Azure to Azure disaster recovery scenarios?**
 
-You can find out the time when a managed disk was created from the Azure portal, the Azure CLI, and PowerShell. If the time is after June 9, 2017, then your disk is encrypted.
+Yes. 
 
-**How can I encrypt my existing disks that were created before June 10, 2017?**
+**Can I backup Managed Disks encrypted with server-side encryption with customer-managed key using Azure Backup service?**
 
-As of June 10, 2017, new data written to existing managed disks is automatically encrypted. We are also planning to encrypt existing data, and the encryption will happen asynchronously in the background. If you must encrypt existing data now, create a copy of your disk. New disks will be encrypted.
-
-* [Copy managed disks by using the Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Copy managed disks by using PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Yes.
 
 **Are managed snapshots and images encrypted?**
 
-Yes. All managed snapshots and images created after June 9, 2017, are automatically encrypted. 
+Yes. All managed snapshots and images are automatically encrypted. 
 
 **Can I convert VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?**
 
@@ -410,11 +378,11 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What regions support bursting capability for applicable premium SSD disk size?**
 
-The bursting capability is currently supported in Azure West Central US.
+The bursting capability is currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
 
 **What regions are 4/8/16 GiB Managed Disk sizes (P1/P2/P3, E1/E2/E3) supported in?**
 
-These new disk sizes are currently supported in Azure West Central US.
+These new disk sizes are currently supported in all regions in Azure Public Cloud, with support for sovereign clouds coming soon. 
 
 **Are P1/P2/P3 disk sizes supported for unmanaged disks or page blobs?**
 
@@ -443,9 +411,9 @@ You don't need to upgrade your existing Azure tools to create, attach, or resize
 |Azure tools      | Supported versions                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Version number 4.1.0: June 2017 release or later|
-|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
+|Azure CLI v1     | Version number 0.10.13: May 2017 release or later|
 |Azure CLI v2     | Version number 2.0.12: July 2017 release or later|
-|AzCopy	          | Version number 6.1.0: June 2017 release or later|
+|AzCopy              | Version number 6.1.0: June 2017 release or later|
 
 **Are P4 and P6 disk sizes supported for unmanaged disks or page blobs?**
 
@@ -481,10 +449,44 @@ The 8 TiB, 16 TiB, and 32 TiB disk SKUs are supported in all regions under globa
 
 **Do we support enabling Host Caching on all disk sizes?**
 
-We support Host Caching of ReadOnly and Read/Write on disk sizes less than 4 TiB. For disk sizes more than 4 TiB, we don’t support setting caching option other than None. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
+Host Caching (**ReadOnly** and **Read/Write**) is supported on disk sizes less than 4 TiB. This means any disk that is provisioned up to 4095 GiB can take advantage of Host Caching. Host caching is not supported for disk sizes more than or equal to 4096 GiB. For example, a P50 premium disk provisioned at 4095 GiB can take advantage of Host caching and a P50 disk provisioned at 4096 GiB cannot take advantage of Host Caching. We recommend leveraging caching for smaller disk sizes where you can expect to observe better performance boost with data cached to the VM.
+
+## Private Links for securely exporting and importing Managed Disks
+
+**What is the benefit of using Private Links for exporting and importing Managed Disks?**
+
+You can leverage Private Links for restricting the export and import to Managed Disks only from your Azure virtual network. 
+
+**What can I ensure that a disk can be exported or imported only via Private Links?**
+
+You must set the `DiskAccessId` property to an instance of a disk access object and also set the NetworkAccessPolicy property to `AllowPrivate`.
+
+**Can I link multiple virtual networks to the same disk access object?**
+
+No. Currently, you can link a disk access object to only one virtual network.
+
+**Can I link a virtual network to a disk access object in another subscription?**
+
+No. Currently, you can link a disk access object to a virtual network in the same subscription.
+
+**Can I link a virtual network to a disk access object in another subscription?**
+
+No. Currently, you can link a disk access object to a virtual network in the same subscription.
+
+**How many exports or imports using the same disk access object can happen at the same time?**
+
+5
+
+**Can I use a SAS URI of a disk/snapshot to download the underlying VHD of a VM in the same subnet as the subnet of the private endpoint associated with the disk?**
+
+Yes.
+
+**Can I use a SAS URI of a disk/snapshot to download the underlying VHD of a VM not in the same subnet as the subnet of the private endpoint not associated with the disk?**
+
+No.
 
 ## What if my question isn't answered here?
 
-If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Azure Storage forum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+If your question isn't listed here, let us know and we'll help you find an answer. You can post a question at the end of this article in the comments. To engage with the Azure Storage team and other community members about this article, use the MSDN [Microsoft Q&A question page for Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 To request features, submit your requests and ideas to the [Azure Storage feedback forum](https://feedback.azure.com/forums/217298-storage).

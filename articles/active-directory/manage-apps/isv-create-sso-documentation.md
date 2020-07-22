@@ -2,14 +2,14 @@
 title: Create & publish single sign-on documentation for your application
 description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
@@ -57,4 +57,4 @@ When you list your application with the Azure Active Directory Application Galle
 
 ## Next Steps
 
-[List your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[List your application in the Azure AD Application Gallery](https://docs.microsoft.com/Azure/active-directory/develop/howto-app-gallery-listing)

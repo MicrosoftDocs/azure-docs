@@ -3,17 +3,17 @@ title: What is entitlement management? - Azure AD
 description: Get an overview of Azure Active Directory entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: compliance
-ms.date: 01/10/2020
-ms.author: ajburnle
+ms.date: 06/18/2020
+ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
@@ -38,10 +38,10 @@ Enterprise organizations often face challenges when managing employee access to 
 
 These problems are compounded for users who need access from another organization, such as external users that are from supply chain organizations or other business partners. For example:
 
-- No one person may not know all of the specific individuals in other organization's directories to be able to invite them
-- Even if they were able to invite these users, no one in that organization may remember to manage all of the user's access consistently
+- No one person may know all of the specific individuals in other organization's directories to be able to invite them
+- Even if they were able to invite these users, no one in that organization may remember to manage all of the users' access consistently
 
-Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://aka.ms/AvanadeELMCase) and the [Centrica case study](https://aka.ms/CentricaELMCase).  This video provides an overview of entitlement management and its value:
+Azure AD entitlement management can help address these challenges.  To learn more about how customers have been using Azure AD entitlement management, you can read the [Avanade case study](https://customers.microsoft.com/story/avanade-professional-services-azure-canada) and the [Centrica case study](https://customers.microsoft.com/story/757467-centrica-energy-azure).  This video provides an overview of entitlement management and its value:
 
 >[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
@@ -65,13 +65,13 @@ Entitlement management introduces to Azure AD the concept of an *access package*
  Here are the types of resources you can manage user's access to with entitlement management:
 
 - Membership of Azure AD security groups
-- Membership of Office 365 Groups and Teams
+- Membership of Microsoft 365 Groups and Teams
 - Assignment to Azure AD enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign on and/or provisioning
 - Membership of SharePoint Online sites
 
-You can also control access to other resources that rely upon Azure AD security groups or Office 365 Groups.  For example:
+You can also control access to other resources that rely upon Azure AD security groups or Microsoft 365 Groups.  For example:
 
-- You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
+- You can give users licenses for Microsoft 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
 - You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
 
 ## How do I control who gets access?
@@ -130,15 +130,16 @@ To better understand entitlement management and its documentation, you can refer
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use.
+Specialized clouds, such as Azure Germany, and Azure China 21Vianet, are not currently available for use.
 
 ### How many licenses must you have?
 
-Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
+Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have:
 
 - Member users who **can** request an access package.
 - Member and guest users who request an access package.
 - Member and guest users who approve requests for an access package.
+- Member and guest users who have a direct assignment to an access package.
 
 Azure AD Premium P2 licenses are **not** required for the following tasks:
 

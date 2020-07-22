@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
+ms.date: 04/01/2020
 
 ---
 
@@ -37,7 +37,6 @@ The following sections describe elements of the Kusto query language that aren't
 ### Operators not supported in Azure Monitor
 
 * [Cross-Cluster Join](/azure/kusto/query/joincrosscluster)
-* [externaldata operator](/azure/kusto/query/externaldata-operator)
 
 ### Plugins not supported in Azure Monitor
 

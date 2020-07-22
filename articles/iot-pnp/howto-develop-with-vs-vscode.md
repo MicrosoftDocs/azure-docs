@@ -4,7 +4,7 @@ description: Use Visual Studio and Visual Studio Code to accelerate authoring Io
 author: liydu
 ms.author: liydu
 ms.date: 12/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
@@ -190,7 +190,7 @@ The following steps show you how to build the device code together with the devi
 
 1. Open terminal application.
 
-1. Use [Homebrew](https://homebrew.sh) to install all the dependencies:
+1. Use [Homebrew](https://brew.sh) to install all the dependencies:
 
     ```bash
     brew update

@@ -29,7 +29,7 @@ When a client attempts to connect to a service, it must first resolve the DNS na
 
 ## Traffic Manager example
 
-Contoso Corp have developed a new partner portal. The URL for this portal is https://partners.contoso.com/login.aspx. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
+Contoso Corp have developed a new partner portal. The URL for this portal is `https://partners.contoso.com/login.aspx`. The application is hosted in three regions of Azure. To improve availability and maximize global performance, they use Traffic Manager to distribute client traffic to the closest available endpoint.
 
 To achieve this configuration, they complete the following steps:
 
@@ -44,7 +44,7 @@ To achieve this configuration, they complete the following steps:
 
 ### How clients connect using Traffic Manager
 
-Continuing from the previous example, when a client requests the page https://partners.contoso.com/login.aspx, the client performs the following steps to resolve the DNS name and establish a connection:
+Continuing from the previous example, when a client requests the page `https://partners.contoso.com/login.aspx`, the client performs the following steps to resolve the DNS name and establish a connection:
 
 ![Connection establishment using Traffic Manager][2]
 

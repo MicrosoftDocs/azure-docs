@@ -1,10 +1,9 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and backup the VM,  with the Azure portal.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
 ---
 
@@ -61,11 +60,11 @@ In the **Backup** window for your VM, the status of the backup and number of com
 
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources
 
-If you are going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
+If you're going to continue on to a Backup tutorial that explains how to restore data for your VM, skip the steps in this section and go to [Next steps](#next-steps).
 
 1. Select the **Backup** option for your VM.
 
-2. Select **...More** to show additional options, then choose **Stop backup**.
+2. Choose **Stop backup**.
 
     ![Stop VM backup from the Azure portal](./media/quick-backup-vm-portal/stop-backup.png)
 

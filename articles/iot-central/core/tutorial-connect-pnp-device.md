@@ -18,9 +18,6 @@ A _device capability model_ (DCM) describes the capabilities of an [IoT Plug and
 
 Support for [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) is in preview and is only supported only in selected regions.
 
-> [!NOTE]
-> Contact technical support for access to create a preview application with support for IoT Plug and Play devices.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -86,7 +83,9 @@ To connect a device to an IoT Central application, you need a device key. To gen
 
 1. Go to the **Administration** page and select **Device Connection**.
 
-1. Make a note of the **ID Scope** and the **Primary Key** you see when you select **View Keys**. You use these values later in this tutorial.
+1. Make a note of the **ID Scope**. You use this value later in this tutorial.
+
+1. Select the **SAS-IoT-Devices** enrollment group. Make a note of the **Primary Key**. You use this value later in this tutorial.
 
     ![Device connection](./media/tutorial-connect-pnp-device/device-connection.png)
 

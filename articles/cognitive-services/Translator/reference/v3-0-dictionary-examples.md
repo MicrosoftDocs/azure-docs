@@ -1,7 +1,7 @@
 ---
-title: Translator Text API Dictionary Examples Method
+title: Translator Dictionary Examples Method
 titleSuffix: Azure Cognitive Services
-description: The Translator Text API Dictionary Examples method provides examples that show how terms in the dictionary are used in context.
+description: The Translator Dictionary Examples method provides examples that show how terms in the dictionary are used in context.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 01/21/2020
 ms.author: swmachan
 ---
 
-# Translator Text API 3.0: Dictionary Examples
+# Translator 3.0: Dictionary Examples
 
 Provides examples that show how terms in the dictionary are used in context. This operation is used in tandem with [Dictionary lookup](./v3-0-dictionary-lookup.md).
 

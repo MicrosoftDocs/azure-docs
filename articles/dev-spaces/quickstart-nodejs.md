@@ -83,7 +83,7 @@ When Visual Studio Code also prompts you to configure your public endpoint, choo
 This command prepares your project to run in Azure Dev Spaces by generating a Dockerfile and Helm chart. It also generates a *.vscode* directory with debugging configuration at the root of your project.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and run.
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and run.
 
 ## Build and run code in Kubernetes from Visual Studio Code
 
@@ -134,7 +134,7 @@ Select **Debug** then **Stop Debugging** to stop the debugger.
 
 Change the debug mode to **Attach to a Server (AZDS)** and start the service:
 
-![](media/get-started-node/attach-nodejs.png)
+![Screenshot of the VS Code UI with the Attache to Server (AZDS) option selected.](media/get-started-node/attach-nodejs.png)
 
 This command builds and runs your service in Azure Dev Spaces. It also starts a [nodemon](https://nodemon.io) process in your service's container and attaches VS Code to it. The *nodemon* process allows for automatic restarts when source code changes are made, enabling faster inner loop development similar to developing on your local machine.
 

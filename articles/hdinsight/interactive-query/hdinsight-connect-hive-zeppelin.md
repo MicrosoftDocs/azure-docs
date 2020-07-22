@@ -19,7 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) to create an HDInsight cluster.  Make sure to choose the **Interactive Query** cluster type.
+An HDInsight Interactive Query cluster. See [Create cluster](../hadoop/apache-hadoop-linux-tutorial-get-started.md) to create an HDInsight cluster.  Make sure to choose the **Interactive Query** cluster type.
 
 ## Create an Apache Zeppelin Note
 

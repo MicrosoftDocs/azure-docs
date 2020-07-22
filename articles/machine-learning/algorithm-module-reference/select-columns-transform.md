@@ -43,7 +43,7 @@ This scenario assumes that you want to use feature selection to generate a dynam
 
    > [!IMPORTANT]
    > You can't expect to apply [Filter Based Feature Selection](filter-based-feature-selection.md) to the scoring dataset and get the same results. Because feature selection is based on values, it might choose a different set of columns, which would cause the scoring operation to fail.
-7. Run the pipeline.
+7. Submit the pipeline.
 
 This process of saving and then applying a column selection ensures that the same data schema is available for training and scoring.
 

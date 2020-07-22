@@ -4,11 +4,10 @@ description: This quickstart provides several Python code samples you can use to
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: [mvc, seo-python-october2019, tracking-python]
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/09/2020
-ms.custom: seo-python-october2019
+ms.date: 5/26/2020
 ---
 
 # Quickstart: Use Python to connect and query data with Azure Database for MySQL
@@ -21,6 +20,9 @@ This topic assumes that you're familiar with developing using Python, but you're
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Database for MySQL server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) or [Create an Azure Database for MySQL server using Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Install Python and the MySQL connector
 

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/05/2019 
+ms.date: 3/18/2020
 ---
 # MySQL drivers and management tools compatible with Azure Database for MySQL
 This article describes the drivers and management tools that are compatible with Azure Database for MySQL.
@@ -39,14 +39,14 @@ The compatibility advantage extends to database management tools as well. Your e
 
 |                                     | **MySQL Workbench 6.x and up** | **Navicat 12** | **PHPMyAdmin 4.x and up** |
 | :---------------------------------- | :----------------------------- | :------------- | :-------------------------|
-| Create, Update, Read, Write, Delete | X | X | X |
-| SSL Connection | X | X | X |
-| SQL Query Auto Completion | X | X |  |
-| Import and Export Data | X | X | X | 
-| Export to Multiple Formats | X | X | X |
-| Backup and Restore |  | X |  |
-| Display Server Parameters | X | X | X |
-| Display Client Connections | X | X | X |
+| **Create, Update, Read, Write, Delete** | X | X | X |
+| **SSL Connection** | X | X | X |
+| **SQL Query Auto Completion** | X | X |  |
+| **Import and Export Data** | X | X | X |
+| **Export to Multiple Formats** | X | X | X |
+| **Backup and Restore** |  | X |  |
+| **Display Server Parameters** | X | X | X |
+| **Display Client Connections** | X | X | X |
 
 ## Next steps
 

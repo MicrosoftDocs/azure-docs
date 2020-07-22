@@ -1,14 +1,15 @@
 ---
 title: Co-locate Azure virtual machine scale sets
 description: Learn about how co-locating Azure virtual machine scale set resources can improve performance.
-author: cynthn
-
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
 ms.date: 05/14/2019
-ms.author: cynthn
+ms.reviewer: jushiman
+ms.custom: mimckitt
+
 ---
 
 # Co-location

@@ -1,5 +1,5 @@
 ---
-title: Analyze user navigation patterns with User Flows in Azure Application Insights | Microsoft docs
+title: Azure Application Insights User Flows analyzes navigation flows
 description: Analyze how users navigate between the pages and features of your web app.
 ms.topic: conceptual
 author: NumberByColors
@@ -11,7 +11,7 @@ ms.reviewer: mbullwin
 
 # Analyze user navigation patterns with User Flows in Application Insights
 
-![Application Insights User Flows tool](./media/usage-flows/00001-flows.png)
+![Application Insights User Flows tool](./media/usage-flows/flows.png)
 
 The User Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:
 
@@ -29,7 +29,7 @@ The User Flows tool starts from an initial page view, custom event, or exception
 
 ## Start by choosing an initial event
 
-![Choose an initial event for User Flows](./media/usage-flows/00002-flows-initial-event.png)
+![Choose an initial event for User Flows](./media/usage-flows/initial-event.png)
 
 To begin answering questions with the User Flows tool, choose an initial page view, custom event, or exception to serve as the starting point for the visualization:
 
@@ -54,7 +54,7 @@ If you want to see more steps in the visualization, use the **Previous steps** a
 
 ## After visiting a page or feature, where do users go and what do they click?
 
-![Use User Flows to understand where users click](./media/usage-flows/00003-flows-one-step.png)
+![Use User Flows to understand where users click](./media/usage-flows/one-step.png)
 
 If your initial event is a page view, the first column ("Step 1") of the visualization is a quick way to understand what users did immediately after visiting the page. Try opening your site in a window next to the User Flows visualization. Compare your expectations of how users interact with the page to the list of events in the "Step 1" column. Often, a UI element on the page that seems insignificant to your team can be among the most-used on the page. It can be a great starting point for design improvements to your site.
 

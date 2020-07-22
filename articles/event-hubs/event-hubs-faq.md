@@ -1,17 +1,8 @@
 ---
 title: Frequently asked questions - Azure Event Hubs | Microsoft Docs
 description: This article provides a list of frequently asked questions (FAQ) for Azure Event Hubs and their answers. 
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
-ms.date: 12/02/2019
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Event Hubs frequently asked questions
@@ -94,11 +85,29 @@ If you use the zone redundancy for your namespace, you need to do a few addition
 2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
 
     ```
-    <name>-s1.servicebus.windows.net
-    <name>-s2.servicebus.windows.net
-    <name>-s3.servicebus.windows.net
+    <name>-s1.cloudapp.net
+    <name>-s2.cloudapp.net
+    <name>-s3.cloudapp.net
     ```
 3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
+### Where can I find client IP sending or receiving msgs to my namespace?
+First, enable [IP filtering](event-hubs-ip-filtering.md) on the namespace. 
+
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). You will see the IP address for which connection is denied.
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## Apache Kafka integration
 
@@ -106,7 +115,7 @@ If you use the zone redundancy for your namespace, you need to do a few addition
 Event Hubs provides a Kafka endpoint that can be used by your existing Apache Kafka based applications. A configuration change is all that is required to have the PaaS Kafka experience. It provides an alternative to running your own Kafka cluster. Event Hubs supports Apache Kafka 1.0 and newer client versions and works with your existing Kafka applications, tools, and frameworks. For more information, see [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka).
 
 ### What configuration changes need to be done for my existing application to talk to Event Hubs?
-To connect to a Kafka-enabled Event Hub, you'll need to update the Kafka client configs. It's done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Kafka-enabled Event Hubs endpoint (which is the connection string you've obtained), with correct authentication as shown below:
+To connect to an event hub, you'll need to update the Kafka client configs. It's done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Event Hubs endpoint (which is the connection string you've obtained), with correct authentication as shown below:
 
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
 request.timeout.ms=60000
@@ -124,8 +133,8 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 Note: If sasl.jaas.config isn't a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use those instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
 
-### What is the message/event size for Kafka-enabled Event Hubs?
-The maximum message size allowed for Kafka-enabled Event Hubs is 1 MB.
+### What is the message/event size for Event Hubs?
+The maximum message size allowed for Event Hubs is 1 MB.
 
 ## Throughput units
 
@@ -155,9 +164,11 @@ You may want to start with low throughput units (TUs), for example, 2 TUs. If yo
 There's **no cost** associated with this feature. 
 
 ### How are throughput limits enforced?
-If the total ingress throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
+If the total **ingress** throughput or the total ingress event rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, senders are throttled and receive errors indicating that the ingress quota has been exceeded.
 
-If the total egress throughput or the total event egress rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled and receive errors indicating that the egress quota has been exceeded. Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an event hub.
+If the total **egress** throughput or the total event egress rate across all event hubs in a namespace exceeds the aggregate throughput unit allowances, receivers are throttled but no throttling errors are generated. 
+
+Ingress and egress quotas are enforced separately, so that no sender can cause event consumption to slow down, nor can a receiver prevent events from being sent into an event hub.
 
 ### Is there a limit on the number of throughput units (TUs) that can be reserved/selected?
 On a multi-tenant offering, throughput units can grow up to 40 TUs (you can select up to 20 TUs in the portal, and raise a support ticket to raise it to 40 TUs on the same namespace). Beyond 40 TUs, Event Hubs offers the resource/capacity-based model called the **Event Hubs Dedicated clusters**. Dedicated clusters are sold in Capacity Units (CUs).
@@ -187,7 +198,7 @@ In the testing, the following criteria was used:
 The results give you an idea of what can be achieved with a dedicated Event Hubs cluster. In addition, a dedicate cluster comes with the Event Hubs Capture enabled for your micro-batch and long-term retention scenarios.
 
 ### How do I create an Event Hubs Dedicated cluster?
-You create an Event Hubs dedicated cluster by submitting a [quota increase support request](https://portal.azure.com/#create/Microsoft.Support) or by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). It typically takes about two weeks to get the cluster deployed and handed over to be used by you. This process is temporary until a complete self-serve is made available through the Azure portal or Azure Resource Manager templates, which take about two hours to deploy the cluster.
+You create an Event Hubs dedicated cluster by submitting a [quota increase support request](https://portal.azure.com/#create/Microsoft.Support) or by contacting the [Event Hubs team](mailto:askeventhubs@microsoft.com). It typically takes about two weeks to get the cluster deployed and handed over to be used by you. This process is temporary until a complete self-serve is made available through the Azure portal.
 
 ## Best practices
 
@@ -253,7 +264,7 @@ Event Hubs supports two types of [diagnostics logs](event-hubs-diagnostic-logs.m
 
 ### Support and SLA
 
-Technical support for Event Hubs is available through the [community forums](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Billing and subscription management support is provided at no cost.
+Technical support for Event Hubs is available through the [Microsoft Q&A question page for Azure Service Bus](/answers/topics/azure-service-bus.html). Billing and subscription management support is provided at no cost.
 
 To learn more about our SLA, see the [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/) page.
 
@@ -261,6 +272,6 @@ To learn more about our SLA, see the [Service Level Agreements](https://azure.mi
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](./event-hubs-about.md)
 * [Create an Event Hub](event-hubs-create.md)
 * [Event Hubs Auto-inflate](event-hubs-auto-inflate.md)

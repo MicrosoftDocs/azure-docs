@@ -5,27 +5,23 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 04/07/2020
 ---
 
 # Create Apache Hadoop clusters in HDInsight by using Resource Manager templates
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-In this article, you learn several ways to create Azure HDInsight clusters using Azure Resource Manager templates. For more information, see [Deploy an application with Azure Resource Manager template](../azure-resource-manager/templates/deploy-powershell.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page or see [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
+In this article, you learn several ways to create Azure HDInsight clusters using [Azure Resource Manager templates](../azure-resource-manager/templates/deploy-powershell.md). To learn about other cluster creation tools and features, click the tab selector on the top of this page. See also, [Cluster creation methods](hdinsight-hadoop-provision-linux-clusters.md#cluster-setup-methods).
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Prerequisites
-
-* An [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell and/or Azure CLI.
-
-### Resource Manager templates
+## Resource Manager templates
 
 A Resource Manager template makes it easy to create the following resources for your application in a single, coordinated operation:
+
 * HDInsight clusters and their dependent resources (such as the default storage account).
 * Other resources (such as Azure SQL Database to use [Apache Sqoop](https://sqoop.apache.org/)).
 

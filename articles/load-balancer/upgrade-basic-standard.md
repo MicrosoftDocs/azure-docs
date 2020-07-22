@@ -4,19 +4,18 @@ description: This article shows you how to upgrade Azure Public Load Balancer fr
 services: load-balancer
 author: irenehua
 ms.service: load-balancer
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
 ---
 
 # Upgrade Azure Public Load Balancer
-[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Azure Standard Load Balancer](load-balancer-overview.md) offers a rich set of functionality and high availability through zone redundancy. To learn more about Load Balancer SKU, see [comparison table](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 There are three stages in a upgrade:
 
 1. Migrate the configuration
 2. Add VMs to backend pools of Standard Load Balancer
-3. Create an outbound rule on the load balancer for outbound connection
 
 This article covers configuration migration. Adding VMs to backend pools may vary depending on your specific environment. However, some high-level, general recommendations [are provided](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -26,17 +25,18 @@ An Azure PowerShell script is available that does the following:
 
 * Creates a Standard SKU Load Balancer in the resource group and location the you specify.
 * Seamlessly copies the configurations of the Basic SKU Load Balancer to the newly create Standard Load Balancer.
+* Creates a default outbound rule which enables outbound connectivity.
 
 ### Caveats\Limitations
 
-* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, create a Standard Internal Load Balancer if outbound connectivity is not desired, and create a Standard Internal Load Balancer and Standard Public Load Balancer if outbound connectivity is required.
+* Script only supports Public Load Balancer upgrade. For Internal Basic Load Balancer upgrade, refer to [this page](https://docs.microsoft.com/azure/load-balancer/upgrade-basicinternal-standard) for instructions.
 * The Standard Load Balancer has a new public address. It’s impossible to move the IP addresses associated with existing Basic Load Balancer seamlessly to Standard Load Balancer since they have different SKUs.
 * If the Standard load balancer is created in a different region, you won’t be able to associate the VMs existing in the old region to the newly created Standard Load Balancer. To work around this limitation, make sure to create a new VM in the new region.
 * If your Load Balancer does not have any frontend IP configuration or backend pool, you are likely to hit an error running the script. Please make sure they are not empty.
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/1.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/2.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:

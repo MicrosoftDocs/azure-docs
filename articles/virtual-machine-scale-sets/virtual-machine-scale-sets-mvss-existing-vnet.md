@@ -1,14 +1,15 @@
 ---
 title: 'Reference an existing virtual network in an Azure scale set template'
 description: Learn how to add a virtual network to an existing Azure Virtual Machine Scale Set template
-author: mayanknayar
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: networking
 ms.date: 04/26/2019
-ms.author: manayar
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+
 ---
 
 # Add reference to an existing virtual network in an Azure scale set template

@@ -1,6 +1,6 @@
 ---
 title: Self-service sign-up for email-verified users - Azure AD | Microsoft Docs
-description: Use self-service sign-up in an Azure Active Directory (Azure AD) tenant
+description: Use self-service sign-up in an Azure Active Directory (Azure AD) organization
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,9 +9,9 @@ editor: ''
 
 ms.service: active-directory
 ms.subservice: users-groups-roles
-ms.topic: article
+ms.topic: overview
 ms.workload: identity
-ms.date: 11/08/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
@@ -74,8 +74,8 @@ For more information and examples of how to use these parameters, see [Set-MsolC
 ## Next steps
 
 * [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md)
-* [How to install and configure Azure PowerShell](/powershell/azure/overview)
-* [Azure PowerShell](/powershell/azure/overview)
+* [How to install and configure Azure PowerShell](/powershell/azure/)
+* [Azure PowerShell](/powershell/azure/)
 * [Azure Cmdlet Reference](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
 * [Close your work or school account in an unmanaged directory](users-close-account.md)

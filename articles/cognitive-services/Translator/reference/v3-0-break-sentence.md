@@ -1,7 +1,7 @@
 ---
-title: Translator Text API BreakSentence Method
+title: Translator BreakSentence Method
 titleSuffix: Azure Cognitive Services
-description: The Translator Text API BreakSentence method identifies the positioning of sentence boundaries in a piece of text.
+description: The Translator BreakSentence method identifies the positioning of sentence boundaries in a piece of text.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 01/21/2020
 ms.author: swmachan
 ---
 
-# Translator Text API 3.0: BreakSentence
+# Translator 3.0: BreakSentence
 
 Identifies the positioning of sentence boundaries in a piece of text.
 
@@ -137,7 +137,7 @@ The following are the possible HTTP status codes that a request returns.
   </tr>
 </table> 
 
-If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator Text API reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+If an error occurs, the request will also return a JSON error response. The error code is a 6-digit number combining the 3-digit HTTP status code followed by a 3-digit number to further categorize the error. Common error codes can be found on the [v3 Translator reference page](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## Examples
 

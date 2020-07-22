@@ -1,12 +1,12 @@
 ---
 title: Extensions – Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Describes the ability to extend the functionality of your database by using extensions in Azure Database for PostgreSQL - Hyperscale (Citus)
-author: rachel-msft
-ms.author: raagyema
+author: jonels-msft
+ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 07/09/2020
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
@@ -110,7 +110,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html) | Provides a means for showing row-level locking information. |
 > | [pgstattuple](https://www.postgresql.org/docs/current/static/pgstattuple.html) | Provides a means for showing tuple-level statistics. |
 > | [postgres\_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. See the "dblink and postgres_fdw" section for information about this extension.|
-> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Information about SSL certificates. |
+> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | Information about TLS/SSL certificates. |
 > | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | TABLESAMPLE method, which accepts number of rows as a limit. |
 > | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | TABLESAMPLE method, which accepts time in milliseconds as a limit. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |
@@ -138,6 +138,17 @@ The setting `pg_stat_statements.track` controls what statements are counted by t
 There's a tradeoff between the query execution information pg_stat_statements provides and the effect on server performance as it logs each SQL statement. If you aren't actively using the pg_stat_statements extension, we recommend that you set `pg_stat_statements.track` to `none`. Some third-party monitoring services might rely on pg_stat_statements to deliver query performance insights, so confirm whether this is the case for you or not.
 
 ## dblink and postgres_fdw
-You can use dblink and postgres_fdw to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. To use these extensions to connect between Azure Database for PostgreSQL servers, set **Allow access to Azure services** to ON. You also need to turn this setting ON if you want to use the extensions to loop back to the same server. The **Allow access to Azure services** setting can be found in the Azure portal page for the Postgres server under **Connection Security**. Turning **Allow access to Azure services** ON whitelists all Azure IPs.
 
-Currently, outbound connections from Azure Database for PostgreSQL aren't supported, except for connections to other Azure Database for PostgreSQL servers.
+You can use dblink and postgres\_fdw to connect from one PostgreSQL server to
+another, or to another database in the same server.  The receiving server needs
+to allow connections from the sending server through its firewall.  To use
+these extensions to connect between Azure Database for PostgreSQL servers or
+Hyperscale (Citus) server groups, set **Allow Azure services and resources to
+access this server group (or server)** to ON.  You also need to turn this
+setting ON if you want to use the extensions to loop back to the same server.
+The **Allow Azure services and resources to access this server group** setting
+can be found in the Azure portal page for the Hyperscale (Citus) server group
+under **Networking**.  Currently, outbound connections from Azure Database for
+PostgreSQL Single server and Hyperscale (Citus) aren't supported, except for
+connections to other Azure Database for PostgreSQL servers and Hyperscale
+(Citus) server groups.

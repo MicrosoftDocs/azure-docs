@@ -8,23 +8,28 @@ ms.service: data-factory
 ms.workload: data-services
 
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: makromer
 ---
 
 # Handle SQL truncation error rows in Data Factory mapping data flows
 
-A common scenario in Data Factory when using mapping data flows, is to write your transformed data to an Azure SQL database. In this scenario, a common error condition that you must prevent against is possible column truncation. Follow these steps to provide logging of columns that won't fit into a target string column, allowing your data flow to continue in those scenarios.
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+A common scenario in Data Factory when using mapping data flows, is to write your transformed data to a database in Azure SQL Database. In this scenario, a common error condition that you must prevent against is possible column truncation. Follow these steps to provide logging of columns that won't fit into a target string column, allowing your data flow to continue in those scenarios.
 
 ## Scenario
 
-1. We have a target Azure SQL database table that has an ```nvarchar(5)``` column called "name".
+1. We have a target database table that has an ```nvarchar(5)``` column called "name".
 
 2. Inside of our data flow, we want to map movie titles from our sink to that target "name" column.
 
     ![Movie data flow 1](media/data-flow/error4.png)
     
 3. The problem is that the movie title won't all fit within a sink column that can only hold 5 characters. When you execute this data flow, you will receive an error like this one: ```"Job failed due to reason: DF-SYS-01 at Sink 'WriteToDatabase': java.sql.BatchUpdateException: String or binary data would be truncated. java.sql.BatchUpdateException: String or binary data would be truncated."```
+
+This video walks through an example of setting-up error row handling logic in your data flow:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4uOHj]
 
 ## How to design around this condition
 

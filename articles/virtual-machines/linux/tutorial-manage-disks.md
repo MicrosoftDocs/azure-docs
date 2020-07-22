@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
 manager: gwallace
-editor: tysonn
+
 tags: azure-resource-manager
 
 ms.assetid: 
@@ -31,7 +31,6 @@ Azure virtual machines (VMs) use disks to store the operating system, applicatio
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 
@@ -115,7 +114,7 @@ Once a disk has been attached to the virtual machine, the operating system needs
 
 Create an SSH connection with the virtual machine. Replace the example IP address with the public IP of the virtual machine.
 
-```azurecli-interactive
+```console
 ssh 10.101.10.10
 ```
 
@@ -178,7 +177,7 @@ exit
 
 ## Take a disk snapshot
 
-When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](/azure/backup/), which enables you to perform automated backups while the VM is running.
+When you take a disk snapshot, Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes. In the event of an issue or error, VM can be restored using a snapshot. When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the [Azure Backup service](../../backup/index.yml), which enables you to perform automated backups while the VM is running.
 
 ### Create snapshot
 
@@ -264,7 +263,6 @@ In this tutorial, you learned about VM disks topics such as:
 > * Standard and Premium disks
 > * Disk performance
 > * Attaching and preparing data disks
-> * Resizing disks
 > * Disk snapshots
 
 Advance to the next tutorial to learn about automating VM configuration.

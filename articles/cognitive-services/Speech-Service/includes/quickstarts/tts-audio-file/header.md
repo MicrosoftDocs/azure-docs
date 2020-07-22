@@ -1,10 +1,10 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/31/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 In this quickstart, you will use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to convert text to synthesized speech in an audio file. The text-to-speech service provides numerous options for synthesized voices, under [text-to-speech language support](../../../language-support.md#text-to-speech). After satisfying a few prerequisites, synthesizing speech into a file only takes five steps:

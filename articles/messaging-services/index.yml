@@ -1,0 +1,198 @@
+### YamlMime:Hub
+
+title: Azure messaging services documentation
+summary: Learn how to use Azure Event Grid, Azure Event Hubs, Azure Service Bus, and Azure Relay to deliver event messages.
+brand: azure
+
+metadata:
+  title: Azure messaging services documentation
+  description: Learn how to use Azure Event Grid, Azure Event Hubs, Azure Service Bus, and Azure Relay to deliver event messages.
+  services: multiple
+  ms.service: multiple
+  ms.topic: hub-page
+  author: spelluru
+  ms.author: spelluru
+  ms.date: 03/15/2020
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Choose between Azure messaging services
+      itemType: overview
+      url: ../event-grid/compare-messaging-services.md
+    # Card
+    - title: What is Event Grid?
+      itemType: overview
+      url: ../event-grid/overview.md
+    # Card
+    - title: What is Event Hubs?
+      itemType: overview
+      url: ../event-hubs/event-hubs-about.md
+    # Card
+    - title: What is Service Bus?
+      itemType: overview
+      url: ../service-bus-messaging/service-bus-messaging-overview.md
+    # Card
+    - title: What is Relay?
+      itemType: overview
+      url: ../azure-relay/relay-what-is-it.md
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+  items:
+    # Card
+    - title: Route events
+      links:
+        - url: ../event-grid/blob-event-quickstart-portal.md
+          itemType: quickstart
+          text: Route Blob storage events to web endpoint with the Azure portal
+        - url: ../event-grid/custom-event-to-function.md
+          itemType: quickstart
+          text: Route custom events to an Azure Function with Event Grid
+        - url: ../event-grid/custom-event-quickstart-portal.md
+          itemType: quickstart
+          text: Route custom events to web endpoint with the Azure portal and Event Grid
+      # footerLink
+      footerLink:
+        url: ../event-grid/index.yml
+        text: See more
+    # Card
+    - title: Create an event hub
+      links:
+        - url: ../event-hubs/event-hubs-create.md
+          itemType: quickstart
+          text: Create an event hub using Azure portal
+        - url: ../event-hubs/event-hubs-quickstart-cli.md
+          itemType: quickstart
+          text: Create an event hub using Azure CLI
+      # footerLink
+      footerLink:
+        url: ../event-hubs/index.yml
+        text: See more
+    # Card
+    - title: Integrate with Apache Kafka
+      links:
+        - url: ../event-hubs/event-hubs-for-kafka-ecosystem-overview.md
+          itemType: overview
+          text: What is Event Hubs for Apache Kafka
+        - url: ../event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs.md
+          itemType: quickstart
+          text: Stream into Event Hubs for Apache Kafka
+      # footerLink
+      footerLink:
+        url: ../event-hubs/index.yml
+        text: See more
+    # Card
+    - title: Send and receive events
+      links:
+        - url: ../event-hubs/get-started-dotnet-standard-send-v2.md
+          itemType: quickstart
+          text: Send and receive events from Azure Event Hubs using .NET Core
+        - url: ../event-hubs/event-hubs-java-get-started-send.md
+          itemType: quickstart
+          text: Use Java to send events to or receive events from Azure Event Hubs
+        - url: ../event-hubs/get-started-python-send-v2.md
+          itemType: quickstart
+          text: Send events to or receive events from event hubs by using Python
+      # footerLink
+      footerLink:
+        url: ../event-hubs/index.yml
+        text: See more
+    # Card
+    - title: Capture events
+      links:
+        - url: ../event-hubs/event-hubs-dedicated-overview.md
+          itemType: overview
+          text: Capture events in Azure Blob Storage or Azure Data Lake Storage
+        - url: ../event-hubs/event-hubs-capture-enable-through-portal.md
+          itemType: quickstart
+          text: Enable capturing of events streaming through Azure Event Hubs
+      # footerLink
+      footerLink:
+        url: ../event-hubs/index.yml
+        text: See more
+    # Card
+    - title: Process events
+      links:
+        - url: ../event-hubs/event-hubs-tutorial-visualize-anomalies.md
+          itemType: tutorial
+          text: Visualize data anomalies in real-time events sent to Azure Event Hubs
+        - url: ../event-hubs/event-hubs-kafka-stream-analytics.md
+          itemType: tutorial
+          text: Process Apache Kafka for Event Hubs events using Stream analytics
+      # footerLink
+      footerLink:
+        url: ../event-hubs/index.yml
+        text: See more
+    # Card
+    - title: Create a queue
+      links:
+        - url: ../service-bus-messaging/service-bus-quickstart-portal.md
+          itemType: quickstart
+          text: Use Azure portal to create a Service Bus queue
+        - url: ../service-bus-messaging/service-bus-quickstart-cli.md
+          itemType: quickstart
+          text: Use the Azure CLI to create a Service Bus queue
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
+        text: See more
+    # Card
+    - title: Create topics and subscriptions
+      links:
+        - url: ../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md
+          itemType: quickstart
+          text: Use the Azure portal to create a Service Bus topic and subscriptions to the topic
+        - url: ../service-bus-messaging/service-bus-resource-manager-namespace-topic.md
+          itemType: quickstart
+          text: Create a Service Bus namespace with topic and subscription using a template
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
+        text: See more
+    # Card
+    - title: Send and receive messages - queues
+      links:
+        - url: ../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md
+          itemType: concept
+          text: Compare Azure Storage queues and Service Bus queues
+        - url: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
+          itemType: quickstart
+          text: Get started with Service Bus queues
+        - url: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
+          itemType: quickstart
+          text: Use Azure Service Bus queues with Java to send and receive messages
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
+        text: See more
+    # Card
+    - title: Publish and subscribe for messages
+      links:
+        - url: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
+          itemType: quickstart
+          text: Get started with Service Bus topics
+        - url: ../service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions.md
+          itemType: quickstart
+          text: Use Service Bus topics and subscriptions with Java
+        - url: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
+          itemType: quickstart
+          text: Use Service Bus topics and subscriptions with Python
+      # footerLink
+      footerLink:
+        url: ../service-bus-messaging/index.yml
+        text: See more
+    # Card
+    - title: Hybrid connections
+      links:
+        - url: ../azure-relay/relay-hybrid-connections-dotnet-get-started.md
+          itemType: tutorial
+          text: Get started with Relay Hybrid Connections WebSockets in .NET
+        - url: ../azure-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
+          itemType: tutorial
+          text: Get started with Relay Hybrid Connections HTTP requests in .NET
+      # footerLink (optional)
+      footerLink:
+        url: ../azure-relay/index.yml
+        text: See more

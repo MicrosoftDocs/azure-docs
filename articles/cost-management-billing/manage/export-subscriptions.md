@@ -1,7 +1,6 @@
 ---
-title: Export your Azure subscription top level information | Microsoft Docs
+title: Export your Azure subscription top level information
 description: Describes how you can view all Azure subscription IDs associated with your account.
-keywords:
 author: bandersmsft
 ms.reviewer: matrive
 tags: billing

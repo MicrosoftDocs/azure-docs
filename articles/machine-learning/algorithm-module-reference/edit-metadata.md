@@ -9,13 +9,13 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/11/2020
+ms.date: 06/10/2020
 ---
 # Edit Metadata module
 
 This article describes a module included in Azure Machine Learning designer (preview).
 
-Use the Edit Data module to change metadata that's associated with columns in a dataset. The value and data type of the dataset will  change after use of the Edit Metadata module.
+Use the Edit Metadata module to change metadata that's associated with columns in a dataset. The value and data type of the dataset will  change after use of the Edit Metadata module.
 
 Typical metadata changes might include:
   
@@ -50,7 +50,8 @@ Typical metadata changes might include:
     + The column type and values will change after you perform the Edit Metadata operation. You can recover the original data type at any time by using Edit Metadata to reset the column data type.  
 
     > [!NOTE]
-    > If you change any type of number to the **DateTime** type, leave the **DateTime Format** field blank. Currently it isn't possible to specify the target data format.  
+    > The **DateTime Format** follows [Python built-in datetime format](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior).  
+    > If you change any type of number to the **DateTime** type, leave the **DateTime Format** field blank. Currently it isn't possible to specify the target data format.
 
 1. Select the **Categorical** option to specify that the values in the selected columns should be treated as categories.
 
@@ -89,7 +90,7 @@ Typical metadata changes might include:
   
     + All selected columns must be renamed. You can't omit or skip columns.  
   
-1. Run the pipeline.  
+1. Submit the pipeline.  
 
 ## Next steps
 

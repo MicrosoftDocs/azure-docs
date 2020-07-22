@@ -15,6 +15,8 @@ ms.date: 3/8/2019
 
 # Copy new and changed files by LastModifiedDate with Azure Data Factory
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes a solution template that you can use to copy new and changed files only by LastModifiedDate from a file-based store to a destination store. 
 
 ## About this solution template

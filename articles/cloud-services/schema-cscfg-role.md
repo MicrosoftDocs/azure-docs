@@ -1,5 +1,6 @@
 ---
 title: Azure Cloud Services Role Schema | Microsoft Docs
+description: The Role element of a service configuration file specifies how many role instances to deploy for each role, configuration values, and certificate thumbprints.
 ms.custom: 
 ms.date: 12/07/2016
 services: cloud-services

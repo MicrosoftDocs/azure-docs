@@ -4,7 +4,7 @@ description: In this learning path, get started protecting DNS zones and record 
 services: dns
 author: asudbring
 ms.service: dns
-ms.topic: article
+ms.topic: how-to
 ms.date: 2/20/2020
 ms.author: allensu
 ---
@@ -19,7 +19,7 @@ This article explains how Azure DNS enables you to protect your private DNS zone
 
 ## Role-based access control
 
-Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure users, groups, and resources. With RBAC, you can grant the level of access that users need. For more information about how RBAC helps you manage access, see [What is Role-Based Access Control](../role-based-access-control/overview.md).
+Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure users, groups, and resources. With RBAC, you can grant the level of access that users need. For more information about how RBAC helps you manage access, see [What is Role-Based Access Control](../role-based-access-control/overview.md).
 
 ### The DNS Zone Contributor role
 
@@ -213,7 +213,7 @@ New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rsc -ResourceTy
 
 The equivalent command is also [available via the Azure CLI](https://docs.microsoft.com/cli/azure/lock?view=azure-cli-latest#az-lock-create):
 
-```azurecli-interactive
+```azurecli
 # Lock a DNS zone
 
 az lock create \

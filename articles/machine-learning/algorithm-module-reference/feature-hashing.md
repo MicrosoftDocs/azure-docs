@@ -89,7 +89,7 @@ Numeric outputs also make it possible to use common machine learning methods, in
 
     For example, if you enter 3, unigrams, bigrams, and trigrams will be created.
 
-1. Run the pipeline.
+1. Submit the pipeline.
 
 ## Results
 

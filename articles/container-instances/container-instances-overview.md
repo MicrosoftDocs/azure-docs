@@ -38,7 +38,7 @@ For compute-intensive jobs such as machine learning, Azure Container Instances c
 
 ## Persistent storage
 
-To retrieve and persist state with Azure Container Instances, we offer direct [mounting of Azure Files shares](container-instances-mounting-azure-files-volume.md) backed by Azure Storage.
+To retrieve and persist state with Azure Container Instances, we offer direct [mounting of Azure Files shares](./container-instances-volume-azure-files.md) backed by Azure Storage.
 
 ## Linux and Windows containers
 
