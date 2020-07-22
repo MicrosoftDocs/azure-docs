@@ -53,6 +53,6 @@ You must deploy a new VM to enable encryption at host, it cannot be enabled on e
 
 1. Finish the VM deployment process, make selections that fit your environment.
 
-You have now deployed a VM and all its associated disks will be encrypted using encryption at host.
+You have now deployed a VM with encryption at host enabled, all its associated disks will be encrypted using encryption at host.
 
 ## Next steps
