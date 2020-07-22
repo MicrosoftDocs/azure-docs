@@ -6,6 +6,24 @@
   items:
   - name: What is Azure Synapse Analytics?
     href: overview-what-is.md
+  - name: Get Started
+    items: 
+    - name: Introduction
+      href: get-started.md
+    - name: Step 1 Create and setup a Synapse workspace
+      href: get-started-create-workspace.md
+    - name: Step 2 Analyze using a SQL Pool
+      href: get-started-analyze-sql-pool.md
+    - name: Step 3 Analyze using Spark
+      href: get-started-analyze-spark.md
+    - name: Step 4 Analyze using SQL on-demand
+      href: get-started-analyze-sql-on-demand.md
+    - name: Step 5 Analyze data in a storage account
+      href: get-started-analyze-storage.md
+    - name: STEP 6 - Orchestrate with pipelines
+      href: get-started-pipelines.md
+    - name: STEP 7 - Visualize data with Power BI
+      href: get-started-visualize-power-bi.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -46,8 +64,6 @@
     href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutorials
   items:
-  - name: Get started
-    href: get-started.md
   - name: Run Apache Spark applications for Spark pools
     href: ./spark/intellij-tool-synapse.md
   - name: Spark job definitions
