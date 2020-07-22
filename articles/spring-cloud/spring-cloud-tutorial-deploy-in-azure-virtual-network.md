@@ -135,7 +135,7 @@ az role assignment create \
     |Service runtime subnet                 |Select *service-runtime-subnet*                   |
     |Spring Boot microservice apps subnet   |Select *apps-subnet*                              |
 
-    ![Creation networking tab](./media/v-net-injection/creation-blade-networking-tab.png)
+    ![Creation networking tab](./media/spring-cloud-v-net-injection/creation-blade-networking-tab.png)
 
 6. Click **Review and create**.
 
@@ -147,7 +147,7 @@ After the deployment, two additional resource groups will be created in your sub
 
 The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for the Service Runtime of the service instance.
 
-  ![Service runtime](./media/v-net-injection/service-runtime-resource-group.png)
+  ![Service runtime](./media/spring-cloud-v-net-injection/service-runtime-resource-group.png)
 
 The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for your Spring Boot Microservice Applications of the service instance.
 
