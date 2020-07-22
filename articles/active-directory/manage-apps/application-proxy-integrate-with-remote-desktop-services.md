@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/20
+ms.date: 07/22/20
 ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
