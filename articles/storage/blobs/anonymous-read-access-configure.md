@@ -79,7 +79,7 @@ az resource update \
 To check whether public access is allowed for a storage account, get the value of the **allowBlobPublicAccess** property. To check this property for a large number storage accounts at once, use the Azure Resource Graph Explorer.
 
 > [!IMPORTANT]
-> The **allowBlobPublicAccess** property is not set by default and does not return a value until you explicitly set it. The storage account defaults to permitting public access when the property value is **null** or when it is **true**.
+> The **allowBlobPublicAccess** property is not set by default and does not return a value until you explicitly set it. The storage account allows public access when the property value is **null** or when it is **true**.
 
 ### Check whether public access is allowed for a single storage account
 
