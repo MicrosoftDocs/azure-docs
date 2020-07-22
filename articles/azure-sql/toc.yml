@@ -1055,7 +1055,7 @@
     - name: Reference
       items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/azure/
       - name: Azure CLI
         href: /cli/azure/
       - name: T-SQL

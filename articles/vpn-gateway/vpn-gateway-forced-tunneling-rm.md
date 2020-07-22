@@ -58,7 +58,7 @@ The procedure steps set the 'DefaultSiteHQ' as the default site connection for f
 
 ## <a name="before"></a>Before you begin
 
-Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+Install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 > [!IMPORTANT]
 > Installing the latest version of the PowerShell cmdlets is required. Otherwise, you may receive validation errors when running some of the cmdlets.
