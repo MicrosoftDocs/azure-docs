@@ -44,6 +44,7 @@ This version is only available for install via the download page. An auto-upgrad
 
 ### Fixed issues
 - Fixed a websocket issue that forced lowercase strings.
+- Fixed an issue that caused connectors to be occassionally unresponsive.
 
 ## 1.5.1626.0
 
