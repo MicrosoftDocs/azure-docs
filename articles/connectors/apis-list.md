@@ -258,14 +258,9 @@ Consume and publish events through an Event Hub. For example, get output from yo
 
 Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change.
 
-
 [![API icon][salesforce-icon]<br>**Salesforce**][salesforce-doc]
 
 Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more.
-
-[![API icon][twitter-icon]<br>**Twitter**][twitter-doc]
-
-Connect to your Twitter account so that you can manage tweets, followers, your timeline, and more. Save your tweets to SQL, Excel, or SharePoint.
 
 <a name="on-premises-connectors"></a>
 
@@ -399,7 +394,7 @@ For more information, see these topics:
 
 ## Triggers and action types
 
-Connectors can provide *triggers*, *actions*, or both. A *trigger* is the first step in any logic app, usually specifying the event that fires the trigger and starts running your logic app. For example, the FTP connector has a trigger that starts your logic app "when a file is added or modified". Some triggers regularly check for the specified event or data and then fire when they detect the specified event or data. Other triggers wait but fire instantly when a specific event happens or when new data is available. Triggers also pass along any required data to your logic app. Your logic app can read and use that data throughout the workflow. For example, the Twitter connector has a trigger, "When a new tweet is posted", that passes the tweet's content into your logic app's workflow.
+Connectors can provide *triggers*, *actions*, or both. A *trigger* is the first step in any logic app, usually specifying the event that fires the trigger and starts running your logic app. For example, the FTP connector has a trigger that starts your logic app "when a file is added or modified". Some triggers regularly check for the specified event or data and then fire when they detect the specified event or data. Other triggers wait but fire instantly when a specific event happens or when new data is available. Triggers also pass along any required data to your logic app. Your logic app can read and use that data throughout the workflow. For example, the Office 365 Outlook connector has a trigger, "When a new email arrives", that can pass the content from that email into your logic app's workflow.
 
 After a trigger fires, Azure Logic Apps creates an instance of your logic app and starts running the *actions* in your logic app's workflow. Actions are the steps that follow the trigger and perform tasks in your logic app's workflow. For example, you can create a logic app that gets customer data from a SQL database and process that data in later actions.
 
@@ -415,7 +410,7 @@ Here are the general kinds of triggers that Azure Logic Apps provides:
 
 ## Connector configuration
 
-Each connector's triggers and actions provide their own properties for you to configure. Many connectors also require that you first create a *connection* to the target service or system and provide authentication credentials or other configuration details before you can use a trigger or action in your logic app. For example, you must authorize a connection to a Twitter account for accessing data or to post on your behalf.
+Each connector's triggers and actions provide their own properties for you to configure. Many connectors also require that you first create a *connection* to the target service or system and provide authentication credentials or other configuration details before you can use a trigger or action in your logic app. For example, before you can access and working with your Office 365 Outlook email account, you must authorize a connection to that account.
 
 For connectors that use Azure Active Directory (Azure AD) OAuth, creating a connection means signing into the service, such as Office 365, Salesforce, or GitHub, where your access token is [encrypted](../security/fundamentals/encryption-overview.md) and securely stored in an Azure secret store. Other connectors, such as FTP and SQL, require a connection that has configuration details, such as the server address, username, and password. These connection configuration details are also encrypted and securely stored. Learn more about [encryption in Azure](../security/fundamentals/encryption-overview.md).
 
@@ -483,6 +478,7 @@ If your organization doesn't permit connecting to specific resources by using th
 [azure-cognitive-services-text-analytics-icon]: ./media/apis-list/azure-cognitive-services-text-analytics.png
 [azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
 [azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-devops-icon]: ./media/apis-list/azure-devops.png
 [azure-document-db-icon]: ./media/apis-list/azure-document-db.png
 [azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
 [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
@@ -501,15 +497,11 @@ If your organization doesn't permit connecting to specific resources by using th
 [bitly-icon]: ./media/apis-list/bitly.png
 [biztalk-server-icon]: ./media/apis-list/biztalk.png
 [blogger-icon]: ./media/apis-list/blogger.png
-[box-icon]: ./media/apis-list/box.png
 [campfire-icon]: ./media/apis-list/campfire.png
 [common-data-service-icon]: ./media/apis-list/common-data-service.png
-[dropbox-icon]: ./media/apis-list/dropbox.png
-[dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
 [dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
 [dynamics-365-operations-icon]: ./media/apis-list/dynamics-365-operations.png
 [easy-redmine-icon]: ./media/apis-list/easyredmine.png
-[facebook-icon]: ./media/apis-list/facebook.png
 [file-system-icon]: ./media/apis-list/file-system.png
 [ftp-icon]: ./media/apis-list/ftp.png
 [github-icon]: ./media/apis-list/github.png
@@ -526,11 +518,9 @@ If your organization doesn't permit connecting to specific resources by using th
 [instagram-icon]: ./media/apis-list/instagram.png
 [instapaper-icon]: ./media/apis-list/instapaper.png
 [jira-icon]: ./media/apis-list/jira.png
-[mailchimp-icon]: ./media/apis-list/mailchimp.png
 [mandrill-icon]: ./media/apis-list/mandrill.png
 [mysql-icon]: ./media/apis-list/mysql.png
 [office-365-outlook-icon]: ./media/apis-list/office-365.png
-[office-365-users-icon]: ./media/apis-list/office-365-users.png
 [onedrive-icon]: ./media/apis-list/onedrive.png
 [onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
 [oracle-db-icon]: ./media/apis-list/oracle-db.png
@@ -540,7 +530,6 @@ If your organization doesn't permit connecting to specific resources by using th
 [postgre-sql-icon]: ./media/apis-list/postgre-sql.png
 [project-online-icon]: ./media/apis-list/projecton-line.png
 [redmine-icon]: ./media/apis-list/redmine.png
-[rss-icon]: ./media/apis-list/rss.png
 [salesforce-icon]: ./media/apis-list/salesforce.png
 [sap-icon]: ./media/apis-list/sap.png
 [send-grid-icon]: ./media/apis-list/sendgrid.png
@@ -554,13 +543,9 @@ If your organization doesn't permit connecting to specific resources by using th
 [sql-server-icon]: ./media/apis-list/sql.png
 [teradata-icon]: ./media/apis-list/teradata.png
 [todoist-icon]: ./media/apis-list/todoist.png
-[trello-icon]: ./media/apis-list/trello.png
 [twilio-icon]: ./media/apis-list/twilio.png
-[twitter-icon]: ./media/apis-list/twitter.png
 [vimeo-icon]: ./media/apis-list/vimeo.png
-[visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
 [wordpress-icon]: ./media/apis-list/wordpress.png
-[yammer-icon]: ./media/apis-list/yammer.png
 [youtube-icon]: ./media/apis-list/youtube.png
 
 <!-- Enterprise Integration Pack icons -->
@@ -618,15 +603,10 @@ If your organization doesn't permit connecting to specific resources by using th
 [azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
 [azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
 [biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side-by-side with Azure Logic Apps"
-[box-doc]: ./connectors-create-api-box.md "Connect to Box. Upload, get, delete, list your files, and more"
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Connect to Dropbox. Upload, get, delete, list your files, and more"
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Connect to Dynamics CRM Online so that you can work with CRM Online data"
-[facebook-doc]: ./connectors-create-api-facebook.md "Connect to Facebook. Post to a timeline, get a page feed, and more"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connect to an on-premises file system"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP / FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [github-doc]: ./connectors-create-api-github.md "Connect to GitHub and track issues"
 [google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Connects to Google Calendar and can manage calendar"
-[google-drive-doc]: ./connectors-create-api-googledrive.md "Connect to GoogleDrive so that you can work with your data"
 [google-sheets-doc]: ./connectors-create-api-googlesheet.md "Connect to Google Sheets so that you can modify your sheets"
 [google-tasks-doc]: ./connectors-create-api-googletasks.md "Connects to Google Tasks so that you can manage your tasks"
 [ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Connect to 3270 apps on IBM mainframes"
@@ -634,18 +614,14 @@ If your organization doesn't permit connecting to specific resources by using th
 [ibm-informix-doc]: ./connectors-create-api-informix.md "Connect to Informix in the cloud or on-premises. Read a row, list the tables, and more"
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Connect to IBM MQ on-premises or in Azure to send and receive messages"
 [instagram-doc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Connect to your MailChimp account. Manage and automate mails"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
 [mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account so that you can send and receive emails, manage your calendar and contacts, and more"
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive so that you can upload, delete, list files, and more"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox so that you can manage your email, calendars, contacts, and more"
 [postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Connect to your PostgreSQL database so that you can read data from tables"
-[project-online-doc]: ./connectors-create-api-projectonline.md "Connect to Microsoft Project Online so that you can manage your projects, tasks, resources, and more"
-[rss-doc]: ./connectors-create-api-rss.md "Publish and retrieve feed items, trigger operations when a new item is published to an RSS feed"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account. Manage accounts, leads, opportunities, and more"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "Connect to SendGrid. Send email and manage recipient lists"
@@ -657,10 +633,7 @@ If your organization doesn't permit connecting to specific resources by using th
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
 [teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Connect to your Teradata database to read data from tables"
-[trello-doc]: ./connectors-create-api-trello.md "Connect to Trello. Manage your projects and organize anything with anyone"
 [twilio-doc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
-[twitter-doc]: ./connectors-create-api-twitter.md "Connect to Twitter. Get timelines, post tweets, and more"
-[yammer-doc]: ./connectors-create-api-yammer.md "Connect to Yammer. Post messages, get new messages, and more"
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 
 <!--Enterprise Intregation Pack doc links-->

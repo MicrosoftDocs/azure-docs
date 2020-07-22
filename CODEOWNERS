@@ -21,6 +21,11 @@ articles/chef/ @TomArcherMsft
 articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
 
+# compute
+articles/virtual-machines/ @cynthn @mimckitt 
+articles/virtual-machine-scale-sets/ @ju-shim @mimckitt 
+articles/cloud-services/ @mimckitt 
+
 # Requires Internal Review
 articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking
 

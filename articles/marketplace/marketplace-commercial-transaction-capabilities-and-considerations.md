@@ -4,7 +4,7 @@ description: This article describes pricing, billing, invoicing, and payout cons
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 07/22/2020
 
 ---
 # Commercial marketplace transact capabilities
@@ -129,7 +129,7 @@ In this scenario, Microsoft bills $100.00 for your software license and pays out
 |Microsoft pays you 80% of your license cost <br> \* Microsoft pays you 90% of your license cost for any qualified SaaS apps   |   $80.00 per month <br> \* $90.00 per month    |
 |Microsoft keeps 20% of your license cost <br> \* Microsoft keeps 10% of your license cost for any qualified SaaS apps.  |  $20.00 per month <br> \* $10.00     |
 
-For certain SaaS products that you publish on the commercial marketplace, Microsoft will reduce its **Marketplace Service Fee** from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer to qualify, at least one of your offers must be designated by Microsoft as either IP co-sell ready or IP co-sell prioritized. To receive this reduced Marketplace Service Fee for the month, eligibility must be met at least five business days before the end of the previous calendar month. Reduced Marketplace Service fee will not apply to VMs, managed apps, or any other products made available through the commercial marketplace. This reduced fee will be available to qualified offers, with license charges collected by Microsoft between May 1, 2019 and June 30, 2020. After that time, the fee will return to its normal amount.
+For certain SaaS offers that you publish on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incetivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee also applies to Azure IP Co-sell incentivized VMs, Managed Apps and any other qualified transactable IaaS offers made available through the commercial marketplace.
 
 ### Customer invoicing, payment, billing, and collections
 

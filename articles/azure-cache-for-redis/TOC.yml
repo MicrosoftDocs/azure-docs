@@ -66,6 +66,8 @@
       href: cache-how-to-premium-persistence.md
     - name: Secure your cache with a virtual network
       href: cache-how-to-premium-vnet.md
+    - name: Connect privately to a cache 
+      href: cache-private-link.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
     - name: Save with reserved capacity
