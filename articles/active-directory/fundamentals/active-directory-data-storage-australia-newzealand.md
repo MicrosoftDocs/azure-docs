@@ -28,7 +28,3 @@ Additionally, certain Azure AD features do not yet support storage of Customer D
 > [!NOTE]
 > Microsoft products, services, and third-party applications that integrate with Azure AD have access to Customer Data. Evaluate each product, service, and application you use to determine how Customer Data is processed by that specific product, service, and application, and whether they meet your company's data storage requirements. For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
-
-## Next steps
-For more information about any of the features and functionality described above, see these articles:
-- [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
