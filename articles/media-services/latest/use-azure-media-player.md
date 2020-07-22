@@ -45,7 +45,7 @@ You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) 
 
 ## Set up Azure Media Player in your HTML
 
-Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](https://aka.ms/ampdocs) for details on how to set up and configure Azure Media Player. 
+Azure Media Player is easy to set up. It only takes a few moments to get basic playback of media content from your Media Services account. See [Azure Media Player documentation](../azure-media-player/azure-media-player-overview) for details on how to set up and configure Azure Media Player.
 
 ## Additional notes
 
