@@ -77,7 +77,6 @@ dependencies:
 Create an Azure ML environment from this Conda environment specification. The Environment will be packaged into a docker container at runtime.
 ```python
 from azureml.core import Environment
-from azureml.core.conda_dependencies import CondaDependencies
 
 myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklearn-env.yml")
 ```
