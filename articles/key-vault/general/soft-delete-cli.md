@@ -224,7 +224,7 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 
 When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
 
-You can enable purge protection only if soft-delete is also enabled. 
+You can enable purge protection only if soft-delete is also enabled. Disabling purge protection is not supported.
 
 To turn on both soft-delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
 

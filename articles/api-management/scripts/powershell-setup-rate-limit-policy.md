@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure PowerShell Script Sample - Set up rate limit policy | Microsoft Docs
 description: Azure PowerShell Script Sample - Set up rate limit policy
 services: api-management
@@ -38,6 +38,6 @@ Remove-AzResourceGroup -Name myResourceGroup
 ```
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional Azure PowerShell samples for Azure API Management can be found in the [PowerShell samples](../powershell-samples.md).

@@ -63,8 +63,8 @@ You can capture the data churn rate information and source data upload rate info
 7. Once the installation is complete, go to Log Analytics workspace and click on **Advanced Settings**. Go to the **Data** page and further click on **Windows Performance Counters**. 
 8. Click on **'+'** to add the following two counters with sample interval of 300 seconds:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 The churn and upload rate data will start feeding into the workspace.
 

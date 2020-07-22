@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 04/15/2020
 ---
 
-# Quickstart: Create an Apache Spark pool (preview) in Azure Synapse Analytics using web tools
+# Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools
 
 In this quickstart, you learn how to create an Apache Spark pool (preview) in Azure Synapse using web tools. You then learn to connect to the Apache Spark pool and run Spark SQL queries against files and tables. Apache Spark enables fast data analytics and cluster computing using in-memory processing. For information on Spark in Azure Synapse, see [Overview: Apache Spark on Azure Synapse](./spark/apache-spark-overview.md).
 

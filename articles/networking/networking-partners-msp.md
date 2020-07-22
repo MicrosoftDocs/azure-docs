@@ -3,7 +3,6 @@ title: 'Networking Partners: Azure Networking | Microsoft Docs'
 description: This article provides a list of MSP Networking partners
 services: networking
 author: skishen525
-
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
@@ -12,7 +11,7 @@ ms.author: sukishen
 
 # About Azure Networking MSP partners
 
-The [Azure Networking Managed Service Provider (MSP) Partner Program](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) enables network-services focused MSPs, Telcos, and Systems Integrators (SIs) to offer cloud and hybrid networking services centered around Azure’s portfolio of networking products and services.
+The [Azure Networking Managed Service Provider (MSP) Partner Program](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) enables network-services focused MSPs, Telcos, and Systems Integrators (SIs) to offer cloud and hybrid networking services centered around Azure's portfolio of networking products and services.
 
 Azure Networking MSPs are a specialized set of managed service providers that address the enterprise cloud networking needs and challenges across all aspects of cloud and hybrid networking. The managed network services include one or more of the following services: network architecture, planning, deployment, operations, maintenance, and optimization.
 
@@ -50,7 +49,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN Powered by Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis Managed VWAN Powered by Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
 Azure Marketplace offers including new Managed Security Services and Managed MEC Services from the following Azure Networking MSP Partners are on our roadmap:
-[Amdocs](https://www.amdocs.com/); [AXESDN](https://www.axesdn.com/en/azure-msp.html); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/);  [InterCloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [Federated Wireless](https://www.federatedwireless.com/caas/)
+[Amdocs](https://www.amdocs.com/); [AXESDN](https://www.axesdn.com/en/azure-msp.html); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/);  [InterCloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [Federated Wireless](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute"></a>ExpressRoute partners
 
