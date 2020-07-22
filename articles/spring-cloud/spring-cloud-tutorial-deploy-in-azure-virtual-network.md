@@ -62,7 +62,7 @@ Select the virtual network *azure-spring-cloud-vnet* previously created.
 
 1. Select **Access control (IAM)** from the left navigation pane, then select **Add** > **Add role assignment**.
 
-    ![Access control](./media/v-net-injection/access-control.png)
+    ![Access control](./media/spring-cloud-v-net-injection/access-control.png)
 
 1. In the **Add role assignment** dialog, enter or select the following information:
 
@@ -88,7 +88,7 @@ Select the virtual network *azure-spring-cloud-vnet* you created.
 
 1. Select **Access control (IAM)**, then select **Add > Add role assignment**.
 
-    ![Access control for v-net](./media/v-net-injection/access-control.png)
+    ![Access control for v-net](./media/spring-cloud-v-net-injection/access-control.png)
 
 2. In **Add role assignment**, enter or select this information:
 
@@ -99,7 +99,7 @@ Select the virtual network *azure-spring-cloud-vnet* you created.
 
     Then select *Azure Spring Cloud Resource Provider*, and select **Save**.
 
-    ![Grant azure spring cloud resource provider to v-net](./media/v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
+    ![Grant azure spring cloud resource provider to v-net](./media/spring-cloud-v-net-injection/grant-azure-spring-cloud-resource-provider-to-vnet.png)
 
 You can also achieve this by running the following az CLI command
 
@@ -141,7 +141,7 @@ az role assignment create \
 
 7. Verify your specifications, and click **Create**.
 
-    ![Verification](media/v-net-injection/creation-blade-verification.png)
+    ![Verification](media/spring-cloud-v-net-injection/creation-blade-verification.png)
 
 After the deployment, two additional resource groups will be created in your subscription, to host the network resources for the Azure Spring Cloud service instance.
 
@@ -151,11 +151,11 @@ The resource group named as *azure-spring-cloud-service-runtime_{service instanc
 
 The resource group named as *azure-spring-cloud-service-runtime_{service instance name}_{service instance region}* contains network resources for your Spring Boot Microservice Applications of the service instance.
 
-  ![Apps resource group](./media/v-net-injection/apps-resource-group.png)
+  ![Apps resource group](./media/spring-cloud-v-net-injection/apps-resource-group.png)
 
 Those network resources are connected to your virtual network created above.
 
-  ![V-net with connected device](./media/v-net-injection/vnet-with-connected-device.png)
+  ![V-net with connected device](./media/spring-cloud-v-net-injection/vnet-with-connected-device.png)
 
 **Important:** Those resource groups are fully managed by Azure Spring Cloud service. Please do **NOT** manually delete or modify any resource inside.
 
