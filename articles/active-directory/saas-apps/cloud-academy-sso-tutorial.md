@@ -124,15 +124,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the company's name and select **Settings & Integrations** from the menu.
 
-    ![Configuration ](./media/cloud-academy-sso-tutorial/config1.PNG)
+    ![Configuration ](./media/cloud-academy-sso-tutorial/config-1.PNG)
 
 1. In the **Settings & Integrations** page, go to the **Integrations** tab and click on **SSO** card.
 
-    ![Configuration ](./media/cloud-academy-sso-tutorial/config2.PNG)
+    ![Configuration ](./media/cloud-academy-sso-tutorial/config-2.PNG)
 
 1. Perform the following steps in the following page:
 
-    ![Configuration ](./media/cloud-academy-sso-tutorial/config3.PNG)
+    ![Configuration ](./media/cloud-academy-sso-tutorial/config-3.PNG)
 
     a. In the **Entity ID URL** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
 
@@ -157,11 +157,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Invite Members** and select **Invite a Single Member**.
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser1.PNG)
+    ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser-1.PNG)
 
 1. Enter the required fields and click on **Invite**.
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser2.PNG)
+    ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser-2.PNG)
 
 ## Test SSO 
 
