@@ -126,6 +126,8 @@ Below are examples of creating and attaching compute targets for:
 * Azure Databricks 
 * Azure Data Lake Analytics
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ### Azure Machine Learning compute
 
 You can create an Azure Machine Learning compute for running your steps.

@@ -479,7 +479,7 @@ Microsoft manages the underlying infrastructure for Azure Backup and has impleme
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
+**Guidance**: Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can segregate duties within your team and grant only the amount of access to users that they need to perform their jobs.
 
 Azure Backup provides three built-in roles to control backup management operations: Backup Contributor, Backup Operator, and Backup Reader. You can map Backup built-in roles to various backup management actions.
 
@@ -585,7 +585,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 - [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -723,7 +723,7 @@ Allowed resource types
 
 **Guidance**: Define and implement standard security configurations for your Recovery Services vault with Azure Policy. Use Azure Policy aliases in the "Microsoft.RecoveryServices" namespace to create custom policies to audit or enforce the configuration of your Recovery Services vaults.
 
-- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
