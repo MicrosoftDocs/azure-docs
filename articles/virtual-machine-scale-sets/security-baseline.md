@@ -1,5 +1,5 @@
 ---
-title: Virtual Machine Scale Sets security baseline for Azure Security Benchmark
+title: Azure security baseline for Virtual Machine Scale Sets
 description: The Virtual Machine Scale Sets security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: virtual-machine-scale-sets
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Virtual Machine Scale Sets security baseline for Azure Security Benchmark
+# Azure security baseline for Virtual Machine Scale Sets
 
 The Azure Security Baseline for Virtual Machine Scale Sets contains recommendations that will help you improve the security posture of your deployment.
 
