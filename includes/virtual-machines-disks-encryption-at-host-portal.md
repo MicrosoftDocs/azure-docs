@@ -39,12 +39,20 @@ Once the feature is enabled, you'll need to set up an Azure Key Vault and a Disk
 
 ## Deploy a VM
 
-Fill in values
+You must deploy a new VM to enable encryption at host, it cannot be enabled on existing VMs.
+
+1. Create a new virtual machine, select the appropriate region and a supported VM size.
+1. Select the remaining values as you see fit and proceed to the Disk blade.
 
 :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="example text":::
 
-Select encryption at host
+1. Select Yes for Encryption at host.
+1. Select the remaining values as you see fit.
 
 :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="example text":::
+
+1. Finish the VM deployment process, make selections that fit your environment.
+
+You have now deployed a VM and all its associated disks will be encrypted using encryption at host.
 
 ## Next steps
