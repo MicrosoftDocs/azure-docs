@@ -74,9 +74,9 @@ private static TelemetryClient _telemetryClient;
 
 // Add a constructor that accepts a telemetry client:
 public HomeController(TelemetryClient telemetry)
-    {
-        _telemetryClient = telemetry;
-    }
+{
+    _telemetryClient = telemetry;
+}
 ```
 
 **Use JavaScript**
@@ -107,7 +107,8 @@ var client = new SearchIndexClient(<SearchServiceName>, <IndexName>, new SearchC
 var headers = new Dictionary<string, List<string>>() { { "x-ms-azs-return-searchid", new List<string>() { "true" } } };
 var response = await client.Documents.SearchWithHttpMessagesAsync(searchText: searchText, searchParameters: parameters, customHeaders: headers);
 string searchId = string.Empty;
-if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues)){
+if (response.Response.Headers.TryGetValues("x-ms-azs-searchid", out IEnumerable<string> headerValues))
+{
     searchId = headerValues.FirstOrDefault();
 }
 ```
@@ -138,14 +139,15 @@ Every time that a search request is issued by a user, you should log that as a s
 **Use C#**
 
 ```csharp
-var properties = new Dictionary <string, string> {
+var properties = new Dictionary <string, string> 
+{
     {"SearchServiceName", <service name>},
     {"SearchId", <search Id>},
     {"IndexName", <index name>},
     {"QueryTerms", <search terms>},
     {"ResultCount", <results count>},
     {"ScoringProfile", <scoring profile used>}
-    };
+};
 _telemetryClient.TrackEvent("Search", properties);
 ```
 
@@ -153,12 +155,12 @@ _telemetryClient.TrackEvent("Search", properties);
 
 ```javascript
 appInsights.trackEvent("Search", {
-SearchServiceName: <service name>,
-SearchId: <search id>,
-IndexName: <index name>,
-QueryTerms: <search terms>,
-ResultCount: <results count>,
-ScoringProfile: <scoring profile used>
+  SearchServiceName: <service name>,
+  SearchId: <search id>,
+  IndexName: <index name>,
+  QueryTerms: <search terms>,
+  ResultCount: <results count>,
+  ScoringProfile: <scoring profile used>
 });
 ```
 
@@ -178,12 +180,13 @@ Every time that a user clicks on a document, that's a signal that must be logged
 **Use C#**
 
 ```csharp
-var properties = new Dictionary <string, string> {
+var properties = new Dictionary <string, string> 
+{
     {"SearchServiceName", <service name>},
     {"SearchId", <search id>},
     {"ClickedDocId", <clicked document id>},
     {"Rank", <clicked document position>}
-    };
+};
 _telemetryClient.TrackEvent("Click", properties);
 ```
 
