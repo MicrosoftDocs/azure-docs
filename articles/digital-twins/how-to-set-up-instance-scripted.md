@@ -25,7 +25,8 @@ This version of this article completes these steps by running an [**automated de
 * To view the manual steps that the script runs through behind the scenes, see the manual version of this article: [*How-to: Set up an instance and authentication (manual, CLI)*](how-to-set-up-instance-manual.md).
 * To view the manual steps according to the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (manual, portal)*](how-to-set-up-instance-manual-portal.md).
 
-[!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]
 
 ## Run the deployment script
 

@@ -25,10 +25,23 @@ This version of this article goes through these steps manually, one by one, usin
 * To go through these steps manually using the CLI, see the CLI version of this article: [*How-to: Set up an instance and authentication (manual, CLI)*](how-to-set-up-instance-manual.md).
 * To run through an automated setup using a deployment script sample, see the scripted version of this article: [*How-to: Set up an instance and authentication (scripted)*](how-to-set-up-instance-scripted.md).
 
-### Prerequisites
-
-To proceed, you will need an Azure subscription, which you can set up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+ 
 Log in to the [Azure portal](https://ms.portal.azure.com/) with your credentials.
+
+## Prerequisites: Permission requirements
+
+To be able to complete all the steps in this article, you need to be classified as an Owner in your Azure subscription. 
+
+You can check your permission level in the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. Look for the subscription name you are using, and view your role under the *My role* column:
+
+:::image type="content" source="media/how-to-set-up-instance/check-role-owner-in-subscriptions.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner":::
+
+If you are an owner, the *My role* value is *Owner*.
+
+If you find that the value is *Contributor* or something other than *Owner*, you can contact your subscription Owner and proceed in one of the following ways:
+* Request for the Owner to complete the steps in this article on your behalf
+* Request for the Owner to elevate you to Owner on the subscription as well, so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
 
 ## Create the Azure Digital Twins instance
 
@@ -70,12 +83,6 @@ In order to use Azure Digital Twins with a client application, you'll also need 
 ### Assign yourself a role
 
 Create a role assignment for yourself in the Azure Digital Twins instance, using your email associated with the AAD tenant on your Azure subscription. 
-
-To be able to do this, you need to be classified as an _owner_ in your Azure subscription. You can check this by viewing your [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. Look for the subscription name you are using, and view your role under the *My role* column.
-
-:::image type="content" source="media/how-to-set-up-instance/check-role-owner-in-subscriptions.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner":::
-
-If you find that _My role_ is _Contributor_ or something other than _Owner_, contact your subscription administrator with the power to grant permissions in your subscription.
 
 To assign your user "owner" permissions in your Azure Digital Twins instance, go to your resource in the Azure portal. You can do this by searching with the resource name at the top of the Azure portal home page search bar, then select *Access control (IAM)* from the instance's menu, and choose the  _Add_ button under _Add a role assignment_.
 
