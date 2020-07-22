@@ -30,7 +30,7 @@ Configure Attack Management System to forward Syslog messages in CEF format to y
 
 1. Log onto the Illusive Console, and navigate to Settings->Reporting.
 
-1. Find Syslog Serversץ
+1. Find Syslog servers.
 
 1. Supply the following information:
    - Host name: Linux Syslog agent IP address or FQDN host name
@@ -40,7 +40,7 @@ Configure Attack Management System to forward Syslog messages in CEF format to y
 
 1. To add the syslog server, click Add.
 
-1. To use the relevant schema in Log Analytics for the Illusive Attack Management System, search for CommonSecurityLog.
+1. To use the relevant schema in **Logs** for the Illusive Attack Management System, search for **CommonSecurityLog**.
 
 ## Next steps
 

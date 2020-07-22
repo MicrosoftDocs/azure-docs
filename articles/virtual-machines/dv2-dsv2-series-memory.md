@@ -23,6 +23,10 @@ Premium Storage: Not Supported
 
 Premium Storage caching: Not Supported
 
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
+
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs/Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_D11_v2 | 2  | 14  | 100 | 6000/93/46    | 8/8x500   | 2/1500  |
@@ -43,6 +47,10 @@ ACU: 210 - 250 <sup>1</sup>
 Premium Storage:  Supported
 
 Premium Storage caching:  Supported
+
+Live Migration: Supported
+
+Memory Preserving Updates: Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

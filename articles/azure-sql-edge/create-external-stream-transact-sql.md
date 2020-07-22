@@ -17,6 +17,17 @@ The EXTERNAL STREAM object has a dual purpose of both an input and output. It ca
 
 An EXTERNAL STREAM can also be specified and created as both an output and input for services such as Event Hub or Blob storage. This is for chaining scenarios where a streaming query is persisting results to the external stream as output and another streaming query reading from the same external stream as input. 
 
+Azure SQL Edge currently only supports the following stream inputs and outputs.
+
+**Stream input**: This defines the connections to a data source to read the data stream from
+- Edge Hub
+- Kafka (Support for Kafka inputs is currently only available on Intel/AMD64 versions of Azure SQL Edge.)
+
+**Stream output**: This defines the connections to a data source to write the data stream to. 
+- Edge Hub
+- SQL (The SQL output can be a local database within the instance of Azure SQL Edge, or a remote SQL Server or Azure SQL Database.) 
+- Azure Blob storage
+
 
 ## Syntax
 
@@ -166,14 +177,14 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL SQLCredName 
-WITH IDENTITY = '<user>’, 
+WITH IDENTITY = '<user>', 
 SECRET = '<password>'; 
  
 -- Azure SQL Database 
 CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
 WITH 
 (     
-  LOCATION = ' <my_server_name>.database.windows.net’, 
+  LOCATION = ' <my_server_name>.database.windows.net', 
   CREDENTIAL = SQLCredName 
 ); 
  
@@ -181,16 +192,15 @@ WITH
 CREATE EXTERNAL DATA SOURCE MyTargetSQLTabl 
 WITH 
 (     
-  LOCATION = ' <sqlserver://<ipaddress>,<port>’, 
+  LOCATION = ' <sqlserver://<ipaddress>,<port>', 
   CREDENTIAL = SQLCredName 
 ); 
- 
---SQL Database/Edge 
+
 CREATE EXTERNAL STREAM Stream_A 
 WITH   
 (  
     DATA_SOURCE = MyTargetSQLTable, 
-    LOCATION = ‘<DatabaseName>.<SchemaName>.<TableName>’ 
+    LOCATION = '<DatabaseName>.<SchemaName>.<TableName>' 
    --Note: If table is container in the database, <TableName> should be sufficient 
    --Note: Do not need external file format in this case 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
@@ -215,7 +225,7 @@ CREATE EXTERNAL DATA SOURCE MyKafka_tweets
 WITH 
 ( 
   --The location maps to KafkaBootstrapServer 
-  LOCATION = ' kafka://<kafkaserver>:<ipaddress>’, 
+  LOCATION = 'kafka://<kafkaserver>:<ipaddress>', 
   CREDENTIAL = kafkaCredName 
  
 ); 
@@ -224,8 +234,8 @@ CREATE EXTERNAL FILE FORMAT myFileFormat
 WITH ( 
     FORMAT_TYPE = 'CSV', 
     DATA_COMPRESSION = 'GZIP', 
-    ENCODING = ‘UTF-8’, 
-    DELIMITER = ‘|’ 
+    ENCODING = 'UTF-8', 
+    DELIMITER = '|' 
 ); 
  
  
@@ -233,7 +243,7 @@ CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR)
 WITH   
 (  
     DATA_SOURCE = MyKafka_tweets, 
-    LOCATION = ‘<KafkaTopicName>’, 
+    LOCATION = '<KafkaTopicName>', 
    --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
     INPUT_OPTIONS =  
@@ -267,41 +277,38 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL StorageAcctCredName 
-WITH IDENTITY = 'Shared Access Signature’, 
+WITH IDENTITY = '<my_account>', -- <my_account> can be any string. This string is not used during authentication
 SECRET = 'AccountKey'; 
- 
-CREATE DATABASE SCOPED CREDENTIAL StorageAcctCredNameMSI 
-WITH IDENTITY = 'Managed Identity’; 
  
 CREATE EXTERNAL DATA SOURCE MyBlobStorage_tweets 
 WITH 
 (     
-  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net’, 
-  CREDENTIAL = eventHubCredName 
+  LOCATION = 'wasbs://<container_name>@<storage_account_name>.blob.core.windows.net/', 
+  CREDENTIAL = StorageAcctCredName 
 ); 
  
 CREATE EXTERNAL FILE FORMAT myFileFormat 
 WITH ( 
     FORMAT_TYPE = 'CSV', --Event serialization format 
     DATE_FORMAT = 'YYYY/MM/DD HH', --Both Date and Time format 
-    ENCODING = ‘UTF-8’ 
+    ENCODING = 'UTF-8'
 ); 
  
 CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
 WITH   
 (  
     DATA_SOURCE = MyBlobStorage_tweets, 
-    LOCATION = ‘<path_pattern>’, 
+    LOCATION = '<path_pattern>', 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
     INPUT_OPTIONS =  
-      ‘PARTITIONS: 1’, 
+      'PARTITIONS: 1', 
   
     OUTPUT_OPTIONS =  
-      ‘REJECT_TYPE: Drop, 
+      'REJECT_TYPE: Drop, 
       PARTITION_KEY_COLUMN: , 
       PROPERTY_COLUMNS: (), 
       MINUMUM_ROWS: 100000, 
-      MAXIMUM_TIME: 60’ 
+      MAXIMUM_TIME: 60'
 ); 
 ```
 
@@ -328,13 +335,13 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL eventHubCredName 
-WITH IDENTITY = 'Shared Access Signature’, 
+WITH IDENTITY = 'Shared Access Signature', 
 SECRET = '<policyName>'; 
  
 CREATE EXTERNAL DATA SOURCE MyEventHub_tweets 
 WITH 
 (     
-  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net’, 
+  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net', 
   CREDENTIAL = eventHubCredName 
 ); 
  
@@ -342,8 +349,8 @@ CREATE EXTERNAL FILE FORMAT myFileFormat
 WITH ( 
     FORMAT_TYPE = 'CSV', 
     DATA_COMPRESSION = 'GZIP', 
-    ENCODING = ‘UTF-8’, 
-    DELIMITER = ‘|’ 
+    ENCODING = 'UTF-8, 
+    DELIMITER = '|' 
 ); 
  
  
@@ -351,17 +358,17 @@ CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR)
 WITH   
 (  
     DATA_SOURCE = MyEventHub_tweets, 
-    LOCATION = ‘<topicname>’, 
+    LOCATION = '<topicname>', 
    --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
  
     INPUT_OPTIONS =  
-      ‘CONSUMER_GROUP: FirstConsumerGroup’, 
+      'CONSUMER_GROUP: FirstConsumerGroup', 
           
     OUTPUT_OPTIONS =  
-      ‘REJECT_TYPE: Drop, 
+      'REJECT_TYPE: Drop, 
       PARTITION_KEY_COLUMN: , 
-      PROPERTY_COLUMNS: ()’ 
+      PROPERTY_COLUMNS: ()' 
 );
 ```
 
@@ -384,13 +391,13 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL IoTHubCredName 
-WITH IDENTITY = 'Shared Access Signature’, 
+WITH IDENTITY = 'Shared Access Signature', 
 SECRET = '<policyName>'; 
  
 CREATE EXTERNAL DATA SOURCE MyIoTHub_tweets 
 WITH 
 (     
-  LOCATION = ' iot://iot_hub_name.azure-devices.net’, 
+  LOCATION = ' iot://iot_hub_name.azure-devices.net', 
   CREDENTIAL = IoTHubCredName 
 );	
 
@@ -398,18 +405,18 @@ CREATE EXTERNAL FILE FORMAT myFileFormat
 WITH ( 
     FORMAT_TYPE = 'CSV', --Event serialization format 
     DATA_COMPRESSION = 'GZIP', 
-    ENCODING = ‘UTF-8’ 
+    ENCODING = 'UTF-8'
 ); 
  
 CREATE EXTERNAL STREAM Stream_A (user_id VARCHAR, tweet VARCHAR) 
 WITH   
 (  
     DATA_SOURCE = MyIoTHub_tweets, 
-    LOCATION = ‘<name>’, 
+    LOCATION = ‘<name>', 
     EXTERNAL_FILE_FORMAT = myFileFormat,  
     INPUT_OPTIONS =  
-      ‘ENDPOINT: Messaging, 
-      CONSUMER_GROUP: ‘FirstConsumerGroup’ 
+      'ENDPOINT: Messaging, 
+      CONSUMER_GROUP: ''FirstConsumerGroup'''
 ); 
 ```
 
@@ -429,24 +436,24 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL SQLCredName 
-WITH IDENTITY = '<user>’, 
+WITH IDENTITY = '<user>', 
 SECRET = '<password>'; 
  
 CREATE EXTERNAL DATA SOURCE MyTargetSQLTable 
 WITH 
 (     
-  LOCATION = ' <my_server_name>.database.windows.net’, 
+  LOCATION = ' <my_server_name>.database.windows.net', 
   CREDENTIAL = SQLCredName 
 ); 
  
 CREATE EXTERNAL STREAM MySQLTableOutput 
 WITH ( 
    DATA_SOURCE = MyTargetSQLTable, 
-   LOCATION = ‘<TableName>’ 
+   LOCATION = '<TableName>' 
    --Note: Do not need external file format in this case 
    OUTPUT_OPTIONS =  
      ‘REJECT_TYPE: Drop, 
-     STAGING_AREA: staging_area_data_source’, 
+     STAGING_AREA: staging_area_data_source', 
 ); 
 ```
 
@@ -467,25 +474,25 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL TableStorageCredName 
-WITH IDENTITY = ‘Storage account Key’, 
+WITH IDENTITY = 'Storage account Key', 
 SECRET = '<storage_account_key>'; 
  
 CREATE EXTERNAL DATA SOURCE MyTargetTableStorage 
 WITH 
 (     
-  LOCATION = 'abfss://<storage_account>.dfs.core.windows.net’, 
+  LOCATION = 'abfss://<storage_account>.dfs.core.windows.net', 
   CREDENTIAL = TableStorageCredName 
 ); 
  
 CREATE EXTERNAL STREAM MyTargetTableStorageOutput 
 WITH ( 
    DATA_SOURCE = MyTargetTableStorage, 
-   LOCATION = ‘<TableName>’, 
+   LOCATION = '<TableName>', 
    OUTPUT_OPTIONS =  
-     ‘REJECT_TYPE: Drop, 
+     'REJECT_TYPE: Drop, 
      PARTITION_KEY: <column_partition_key>, 
      ROW_KEY: <column_row_key>, 
-     BATCH_SIZE: 100’ 
+     BATCH_SIZE: 100'
 ); 
 ```
 
@@ -508,13 +515,13 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL serviceBusCredName 
-WITH IDENTITY = 'Shared Access Signature’, 
+WITH IDENTITY = 'Shared Access Signature', 
 SECRET = '<policyName>'; 
  
 CREATE EXTERNAL DATA SOURCE MyServiceBus_tweets 
 WITH 
 (     
-  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net’, 
+  LOCATION = 'sb://my-sb-namespace.servicebus.windows.net', 
   CREDENTIAL = serviceBusCredName 
 ); 
  
@@ -522,19 +529,19 @@ CREATE EXTERNAL FILE FORMAT myFileFormat
 WITH ( 
     FORMAT_TYPE = 'CSV', --Event serialization format 
     DATA_COMPRESSION = 'GZIP', 
-    ENCODING = ‘UTF-8’ 
+    ENCODING = 'UTF-8'
 ); 
  
 CREATE EXTERNAL STREAM MyServiceBusOutput 
 WITH ( 
    DATA_SOURCE = MyServiceBus_tweets, 
-   LOCATION = ‘<topic_name>’, 
+   LOCATION = '<topic_name>', 
    EXTERNAL_FILE_FORMAT = myFileFormat 
        OUTPUT_OPTIONS =  
-     ‘REJECT_TYPE: Drop, 
+     'REJECT_TYPE: Drop, 
      PARTITION_KEY_COLUMN: , 
      PROPERTY_COLUMNS: (), 
-     SYSTEM_PROPERTY_COLUMNS: ()’ 
+     SYSTEM_PROPERTY_COLUMNS: ()'
    --JSON: Format, CSV: Delimiter and Encoding, AVRO: None 
            
 ); 
@@ -557,22 +564,22 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL cosmosDBCredName 
-WITH IDENTITY = ‘Storage Account Key’, 
+WITH IDENTITY = 'Storage Account Key', 
 SECRET = '<accountKey>'; 
  
 CREATE EXTERNAL DATA SOURCE MyCosmosDB_tweets 
 WITH 
 (     
-  LOCATION = ' cosmosdb://accountid.documents.azure.com:443/ database’, 
+  LOCATION = 'cosmosdb://accountid.documents.azure.com:443/ database', 
   CREDENTIAL = cosmosDBCredName 
 ); 
  
 CREATE EXTERNAL STREAM MyCosmosDBOutput 
 WITH ( 
    DATA_SOURCE = MyCosmosDB_tweets, 
-   LOCATION = ‘<container/documentID>’ 
+   LOCATION = '<container/documentID>'
    OUTPUT_OPTIONS =  
-     ‘REJECT_TYPE: Drop', 
+     'REJECT_TYPE: Drop', 
      --Note: Do not need external file format in this case 
           
 );
@@ -593,12 +600,12 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL PBIDBCredName 
-WITH IDENTITY = ‘Managed Identity’; 
+WITH IDENTITY = 'Managed Identity'; 
  
 CREATE EXTERNAL DATA SOURCE MyPbi_tweets 
 WITH 
 ( 
-  LOCATION = 'pbi://dataset/’, 
+  LOCATION = 'pbi://dataset/', 
   CREDENTIAL = PBIDBCredName 
  
 ); 
@@ -608,7 +615,7 @@ WITH (
    DATA_SOURCE = MyPbi_tweets, 
    LOCATION = 'tableName', 
    OUTPUT_OPTIONS =  
-     ‘REJECT_TYPE: Drop' 
+     'REJECT_TYPE: Drop' 
         
 );
 ```
@@ -627,25 +634,25 @@ Syntax:
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL AzureFunctionCredName 
-WITH IDENTITY = ‘Function Key’, 
+WITH IDENTITY = 'Function Key', 
 SECRET = '<function_key>'; 
  
 CREATE EXTERNAL DATA SOURCE MyTargetTableStorage 
 WITH 
 (     
-  LOCATION = 'abfss://<storage_account>.dfs.core.windows.net’, 
+  LOCATION = 'abfss://<storage_account>.dfs.core.windows.net', 
   CREDENTIAL = TableStorageCredName 
 ); 
  
 CREATE EXTERNAL STREAM MyTargetTableStorageOutput 
 WITH ( 
    DATA_SOURCE = MyTargetTableStorage, 
-   LOCATION = ‘<TableName>’, 
+   LOCATION = '<TableName>', 
    OUTPUT_OPTIONS =  
-     ‘REJECT_TYPE: 'Drop'      
-     PARTITION_KEY: ‘<column_partition_key>, 
+     'REJECT_TYPE: 'Drop'      
+     PARTITION_KEY: '<column_partition_key>, 
      ROW_KEY: <column_row_key>, 
-     BATCH_SIZE: 100’ 
+     BATCH_SIZE: 100'
 ); 
 ```
 

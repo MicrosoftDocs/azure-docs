@@ -28,11 +28,6 @@ For more information on the different endpoints, see [Choose between Azure messa
 
 Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). They can also be managed through the [Azure portal](https://portal.azure.com).
 
-> [!NOTE]
-> Managing event routes through the Azure portal is currently only available to Azure users on corporate-domain accounts. 
->
->If you are using a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), such as an @outlook.com account, please use the Azure Digital Twins APIs or CLI to manage event routes as described within this article.
-
 ## Create an endpoint for Azure Digital Twins
 
 To link an endpoint to Azure Digital Twins, the Event Hub, event grid topic, or Service Bus that you're using for the endpoint needs to exist already. 
@@ -72,6 +67,13 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 ## Manage event routes with APIs
 
 To actually send data from Azure Digital Twins to an endpoint, you need to define an event route. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
+
+You can proceed to creating an event route once your endpoints are finished setting up.
+
+>[!NOTE]
+>If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
+>
+> If you are scripting this flow, you may want to account for this by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
 
 The samples in this article use the C# SDK.
 
