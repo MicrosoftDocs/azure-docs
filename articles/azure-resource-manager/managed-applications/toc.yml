@@ -83,7 +83,7 @@
   - name: User interface functions
     items:
     - name: All functions
-      href: create-ui-definition-functions.md
+      href: create-uidefinition-functions.md
     - name: Collection functions
       href: create-ui-definition-collection-functions.md
     - name: Conversion functions
