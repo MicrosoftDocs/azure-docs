@@ -45,7 +45,10 @@ If you find that the value is *Contributor* or something other than *Owner*, you
 
 ## Create the Azure Digital Twins instance
 
-In this section of how-to, you will create a new Azure resource group for use. Then, you can **create a new instance of Azure Digital Twins** inside that resource group. 
+In this section, you will **create a new instance of Azure Digital Twins** using the Azure portal.
+
+
+
 
 You'll also need to provide a name for your instance and choose a region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 
@@ -59,53 +62,55 @@ After you are logged into [Azure portal](https://ms.portal.azure.com/), you can 
 :::image type="content" source= "media/how-to-set-up-instance/create-new-resource-ADT.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 
 On the following *Create Resource* page, fill in the values given below:
-* _Subscription_: select your existing Azure subscription from the dropdown menu
-  - _Resource group_: Create a new resource group by selecting the _Create new_ link and entering your desired name for the resource group
-* _Location_: Choose a location for your resource from the dropdown menu
-* _Resource name_: Enter the desired name for your Azure Digital Twins instance
-> [!IMPORTANT]
-> Make a note of the resource group and resource name. These are important values that you will need as you continue working with your Azure Digital Twins instance.
+* _Subscription_: The Azure subscription you'd like to use
+  - _Resource group_: A resource group in which to deploy the instance. If you don't already have an existing resource group in mind, you can create one now by selecting the *Create new* link and entering a new name for a resource group
+* _Location_: A region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* _Resource name_: A name for your instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
 
 :::image type="content" source= "media/how-to-set-up-instance/review+create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
-Create your instance by selecting _Review + create_ button. Then in the summary page, review your instance details and select _create_ button. You can now view the status of your instance deployment in your Azure notifications along the portal icon bar. Once deployment succeeds, you can view your resource details by selecting the _Go to resource_ button as shown below:
+Create your instance by selecting _Review + create_ button. Then in the summary page, review your instance details and select _create_ button. 
+
+### Verify success
+
+After selecting *create*, you can view the status of your instance deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to hit the _Go to resource_ button to view the details of your created instance.
 
 :::image type="content" source="media/how-to-set-up-instance/notifications-for-resource-deployment.png" alt-text="View of Azure notifications showing a successful deployment and highlighting the 'Go to resource' button":::
 
-If deployment fails, you can resolve any listed errors and attempt to retry.
+Alternatively, if deployment fails, the notification will indicate why. Observe the advice from the error message and retry creating the instance.
 
-## Assign Azure Active Directory Permissions
+>[!TIP]
+>Once you are able to open the details of your instance in the portal, you can return to this page at any time by searching for the name of your instance in the search bar at the top of the Azure portal.
 
-Azure Digital Twins uses [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before you can make data plane calls to your Azure Digital Twins instance, you must first assign yourself a role with these permissions.
+From the instance's *Overview* page, note its *hostName*, *name*, and *resourceGroup*. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources.
 
-In order to use Azure Digital Twins with a client application, you'll also need to make sure your client app can authenticate against Azure Digital Twins. This is done by setting up an Azure Active Directory (AAD) app registration, which you can read about in [*How-to: Authenticate a client application*](how-to-authenticate-client.md).
+You now have an Azure Digital Twins instance ready to go. Next, you'll give the appropriate Azure user permissions to manage it.
 
-### Assign yourself a role
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
-Create a role assignment for yourself in the Azure Digital Twins instance, using your email associated with the AAD tenant on your Azure subscription. 
-
-To assign your user "owner" permissions in your Azure Digital Twins instance, go to your resource in the Azure portal. You can do this by searching with the resource name at the top of the Azure portal home page search bar, then select *Access control (IAM)* from the instance's menu, and choose the  _Add_ button under _Add a role assignment_.
-
-On the following *Add role assignment* page, fill in the values:
-* _Role_: Select Azure Digital Twins Owner (Preview) from the dropdown menu
-* _Assign access to_: Select Azure AD user, group or service principal from the dropdown menu
-* _Select_: Enter the name or email address associated with your Azure account
-
-When you're finished entering your details, hit the *Save* button.
+First, open the details page for your Azure Digital Twins instance in the Azure portal. From the instance menu, select *Access control (IAM)*. Hit the  _Add_ button under _Add a role assignment_.
 
 :::image type="content" source="media/how-to-set-up-instance/access-control-role-assignment.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
 
-You now have an Azure Digital Twins instance ready to go, and permissions to manage it. You can verify your role assignments in the _Role assignments_ tab for your instance by searching with your email address or name.
+On the following *Add role assignment* page, fill in the values (must be completed by an owner of the Azure subscription):
+* _Role_: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
+* _Assign access to_: Select *Azure AD user, group or service principal* from the dropdown menu
+* _Select_: Enter the name or email address of the user to assign
 
->[!TIP]
->You can search for your resource or resource group details at any time in the top search bar on [Azure portal](https://ms.portal.azure.com/)
+When you're finished entering your details, hit the *Save* button.
+
+### Verify success
+
+You can view the role assignment you've set up under *Access control (IAM) > Role assignments*. The user should show up in the list with a role of *Azure Digital Twins Owner (Preview)*. 
+
+:::image type="content" source="media/how-to-set-up-instance/verify-role-assignment.png" alt-text="View of the role assignments for an Azure Digital Twins instance in Azure portal":::
+
+You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it. Next, you'll set up permissions for a client app to access it.
 
 ## Next steps
 
-See how to set up and authenticate a client app to work with your instance:
-* [*How-to: Authenticate a client application*](how-to-authenticate-client.md)
-
-
+See how to connect your client application to your instance by writing the client app's authentication code:
+* [*How-to: Write app authentication code*](how-to-authenticate-client.md)
 
  
 
