@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot request header too large
+title: Troubleshoot request header too large or 400 bad request in Azure Cosmos DB 
 description: How to diagnose and fix request header too large exception
 author: j82w
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot Azure Cosmos DB request header too large
+# Diagnose and troubleshoot Azure Cosmos DB request header too large message
 The request header too large message is thrown with an HTTP error code 400. This error occurs if the size of the request header has grown too large and is exceeding the maximum allowed size. We recommend you to use the latest version of the SDK. Make sure to use at least version 3.x or 2.x, because these versions add header size tracing to the exception message.
 
 ## Troubleshooting steps
