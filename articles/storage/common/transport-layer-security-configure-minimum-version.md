@@ -220,11 +220,42 @@ To test that the minimum required TLS version for a storage account forbids call
 
 When a client accesses a storage account using a TLS version that does not meet the minimum TLS version configured for the account, Azure Storage returns error code 400 error (Bad Request) and a message indicating that the TLS version that was used is not permitted for making requests against this storage account.
 
-## Audit with Azure Policy for compliance to the minimum TLS version
+## Use Azure Policy to audit for compliance
 
-...
+If you have a large number of storage accounts, you may want to perform an audit to make sure that all accounts are configured for the minimum version of TLS that your organization requires. To audit a set of storage accounts for their compliance, use Azure Policy. Azure Policy is a service that you can use to create, assign, and manage policies that enforce rules over Azure resources. Azure Policy helps you to keep those resources compliant with your corporate standards and service level agreements. For more information, see [Overview of Azure Policy](../../governance/policy/overview.md).
 
-## Use Azure Policy to enforce governance of the minimum TLS version
+To create an audit policy for the minimum TLS version, follow these steps:
+
+1. In the Azure portal, navigate to the Azure Policy service.
+1. Under the **Authoring** section, select **Definitions**.
+1. Select **Add policy definition** to create a new policy definition.
+1. For the **Definition location** field, select the **More** button to specify the scope for the audit policy.
+1. Specify a name for the policy. You can optionally specify a description and category.
+1. Add the following policy definition
+
+    ```json
+    {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Storage/storageAccounts"
+          },
+          {
+            "not": {
+              "field":"Microsoft.Storage/storageAccounts/minimumTlsVersion",
+              "equals": "TLS1_2"
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "audit"
+      }
+    }
+    ```
+
+## Use Azure Policy to enforce the minimum TLS version
 
 ...
 
