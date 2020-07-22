@@ -21,7 +21,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 Create the main template and the linked template.
 
-To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the relative path of the linked template in accordance with the path of the main template.
+To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the relative path of the linked template in accordance with the path of the parent template.
 
 The linked template is called **linkedTemplate.json**, and is stored in a sub-folder called **artifacts** in the path where the main template is stored.  You can use one of the follow values for the relativePath:
 
