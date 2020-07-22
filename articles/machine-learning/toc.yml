@@ -361,33 +361,35 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
-      - name: Azure Kubernetes Service
-        displayName: aks, aad, authentication, azure active directory
-        href: how-to-deploy-azure-kubernetes-service.md
-      - name: Azure Container Instances
-        displayName: aci
-        href: how-to-deploy-azure-container-instance.md
-      - name: IoT Edge
-        href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-      - name: FPGA inference
-        href: how-to-deploy-fpga-web-service.md
-      - name: GPU inference
-        href: how-to-deploy-inferencing-gpus.md
-      - name: Azure App Service
-        displayName: web app
-        href: how-to-deploy-app-service.md
-      - name: Azure Functions
-        displayName: functions app
-        href: how-to-deploy-functions.md
-      - name: Azure Cognitive Search
-        href: how-to-deploy-model-cognitive-search.md
-      - name: Compute instances
-        href: how-to-deploy-local-container-notebook-vm.md
-      - name: Use custom Docker image
-        href: how-to-deploy-custom-docker-image.md
-      - name: Use existing models
-        displayName: publish existing model
-        href: how-to-deploy-existing-model.md
+      - name: Deployment scenarios
+        items:
+        - name: Use existing models
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
+        - name: Azure ML compute instances
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: Azure Kubernetes Service
+          displayName: aks, aad, authentication, azure active directory
+          href: how-to-deploy-azure-kubernetes-service.md
+        - name: Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: GPU inference
+          href: how-to-deploy-inferencing-gpus.md
+        - name: Azure App Service
+          displayName: web app
+          href: how-to-deploy-app-service.md
+        - name: Azure Functions
+          displayName: functions app
+          href: how-to-deploy-functions.md
+        - name: Azure Cognitive Search
+          href: how-to-deploy-model-cognitive-search.md
+        - name: Use custom Docker image
+          href: how-to-deploy-custom-docker-image.md
+        - name: IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: FPGA inference
+          href: how-to-deploy-fpga-web-service.md
       - name: Troubleshoot & debug
         href: how-to-troubleshoot-deployment.md
       - name: Create clients
