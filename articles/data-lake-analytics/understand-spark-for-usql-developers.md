@@ -1,8 +1,6 @@
 ---
 title: Understand Apache Spark for Azure Data Lake Analytics U-SQL developers.
 description: This article describes Apache Spark concepts to help you differences between U-SQL developers.
-author: xujxu
-ms.author: xujiang1
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
