@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete the tutorial, make sure you've installed the following items:
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - A single database in Azure SQL Database. To create one use,
   - [The Azure Portal](single-database-create-quickstart.md)
   - [The Azure CLI](az-cli-script-samples-content-guide.md)
