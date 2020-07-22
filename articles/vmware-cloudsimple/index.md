@@ -1,6 +1,6 @@
 --- 
 title: Azure VMware Solution by CloudSimple 
-description: Find documentation for Azure VMware Solution by CloudSimple. 
+description: Find Vmware documentation, tutorials, quickstarts and guides for Azure VMware Solution by CloudSimple. Explore VMS features, benefits and concepts for CloudSimple.
 author: sharaths-cs
 ms.author: b-mashar 
 ms.date: 08/20/2019 
@@ -8,6 +8,8 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
+ms.custom: seo-azure-migrate
+keywords: vms support, azure vmware solution by cloudsimple, cloudsimple azure, vms tools, vmware documentation 
 ---
 # Azure VMware Solution by CloudSimple
 
