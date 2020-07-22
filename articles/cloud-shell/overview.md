@@ -29,13 +29,19 @@ You can access the Cloud Shell in three ways:
 
     ![Icon to launch the Cloud Shell from the Azure portal](media/overview/portal-launch-icon.png)
 
-- **Code snippets**: On [docs.microsoft.com](https://docs.microsoft.com) and [Microsoft Learn](https://docs.microsoft.com/learn/), select the **Try It** button that appears with code snippet:
+- **Code snippets**: On [docs.microsoft.com](https://docs.microsoft.com) and [Microsoft Learn](https://docs.microsoft.com/learn/), select the **Try It** button that appears with Azure CLI and Azure PowerShell code snippets:
 
     ```azurecli-interactive
     az account show
     ```
 
-    The **Try It** button opens the Cloud Shell directly alongside the documentation but doesn't run the command automatically. To run the command, use **Copy** in the code snippet, use **Ctrl**+**Shift**+**V** (Windows/Linux) or **Cmd**+**Shift**+**V** (macOS) to paste the command, and then press **Enter**.
+    ```azurepowershell-interactive
+    Get-AzSubscription
+    ```
+
+    The **Try It** button opens the Cloud Shell directly alongside the documentation using Bash (for Azure CLI snippets) or PowerShell (for Azure PowerShell snippets).
+
+    To run the command, use **Copy** in the code snippet, use **Ctrl**+**Shift**+**V** (Windows/Linux) or **Cmd**+**Shift**+**V** (macOS) to paste the command, and then press **Enter**.
 
 ## Features
 
