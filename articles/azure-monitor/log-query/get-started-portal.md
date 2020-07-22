@@ -199,6 +199,8 @@ To load a saved query, select **Query explorer** at upper right. The **Query exp
 ### Export and share queries
 To export a query, select **Export** on the top bar, and then select **Export to CSV - all columns**, **Export to CSV - displayed columns**, or **Export to Power BI (M query)** from the dropdown list.
 
+The following video shows you how to integrate Log Analytics with Excel.
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Asme]
 
 To share a link to a query, select **Copy link** on the top bar, and then select **Copy link to query**, **Copy query text**, or **Copy query results** to copy to the clipboard. You can send the query link to others who have access to the same workspace.

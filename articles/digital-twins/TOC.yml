@@ -40,9 +40,11 @@
     items:
     - name: Use the Azure Digital Twins CLI
       href: how-to-use-cli.md
-    - name: Create an Azure Digital Twins instance
-      href: how-to-set-up-instance.md
-    - name: Authenticate a client application
+    - name: Set up an instance and authentication (scripted)
+      href: how-to-set-up-instance-scripted.md
+    - name: Set up an instance and authentication (manual)
+      href: how-to-set-up-instance-manual.md
+    - name: Write app authentication code
       href: how-to-authenticate-client.md
   - name: Design models
     items: 
@@ -50,6 +52,8 @@
       href: how-to-manage-model.md
     - name: Parse and validate models
       href: how-to-use-parser.md
+    - name: Add tags 
+      href: how-to-use-tags.md
   - name: Use live execution environment
     items:
     - name: Manage digital twins
@@ -149,7 +153,7 @@
       - name: Azure Digital Twins samples
         href: https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: Azure Digital Twins explorer (sample)
-        href: https://github.com/Azure-Samples/digital-twins-explorer
+        href: https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL validator (sample)
         href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
   - name: Azure tools

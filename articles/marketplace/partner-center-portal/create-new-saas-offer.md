@@ -91,7 +91,7 @@ This is a sample breakdown of costs and payouts to demonstrate the agency model 
 - In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
 
 > [!NOTE]
-> **Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through the commercial marketplace.
+> **Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee for the month. The Reduced Marketplace Service Fee also applies to Azure IP Co-sell incentivized VMs, Managed Apps and any other qualified transactable IaaS offers made available through the commercial marketplace.
 
 ### List through Microsoft
 
