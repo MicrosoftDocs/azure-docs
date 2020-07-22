@@ -1,6 +1,6 @@
 ---
 
-title: 'Troubleshoot user impact of verified domain change  | Microsoft Docs'
+title: 'Troubleshoot audit data of verified domain change  | Microsoft Docs'
 description: Provides you with information that will appear in the Azure Active Directory activity logs when you change a users verified domain.
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot: User Impact of verified domain change 
+# Troubleshoot: Audit data on verified domain change 
 
 
 ## I have a lot of changes to my users and I am not sure what the cause of it is.
