@@ -170,5 +170,5 @@ In this quick start you learned how to:
 > * Receive messages from a thread
 > * Remove Users from a thread
 
-Now you can try the [chat demo sample web application](get-started-with-chat-2) and explore some more advanced features 
+Now you can try the [chat demo sample web application](group-chat-sample) and explore some more advanced features 
 
