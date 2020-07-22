@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
 
 1. Generate and assign an Azure AD Identity to the Azure SQL logical server. Execute the following PowerShell command:
 
-    - Replace `<resource group>` and `<server name>` with your resources. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
+    - Replace `<resource group>` and `<server name>` with your resources. If your server name is `myserver.database.windows.net`, replace `<server name>` with `myserver`.
 
     ```powershell
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
@@ -66,7 +66,7 @@ In this tutorial, you learn how to:
 
 1. Check the server identity was successfully assigned. Execute the following PowerShell command:
 
-    - Replace `<resource group>` and `<server name>` with your resources. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
+    - Replace `<resource group>` and `<server name>` with your resources. If your server name is `myserver.database.windows.net`, replace `<server name>` with `myserver`.
     
     ```powershell
     $xyz = Get-AzSqlServer  -ResourceGroupName <resource group> -ServerName <server name>
@@ -91,7 +91,7 @@ To grant this required permission, run the following script.
 > This script must be executed by an Azure AD `Global Administrator` or a `Privileged Roles Administrator`.
 
 - Replace `<TenantId>` with your `TenantId` gathered earlier.
-- Replace `<server name>` with your SQL logical server name. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
+- Replace `<server name>` with your SQL logical server name. If your server name is `myserver.database.windows.net`, replace `<server name>` with `myserver`.
 
 ```powershell
 # This script grants Azure “Directory Readers” permission to a Service Principal representing the Azure SQL logical server
@@ -215,7 +215,7 @@ Once a service principal is created in Azure AD, create the user in SQL Database
     - Replace `<TenantId>` with your `TenantId` gathered earlier.
     - Replace `<ClientId>` with your `ClientId` gathered earlier.
     - Replace `<ClientSecret>` with your client secret created earlier.
-    - Replace `<server name>` with your SQL logical server name. If your server name is *myserver.database.windows.net*, replace `<server name>` with *myserver*.
+    - Replace `<server name>` with your SQL logical server name. If your server name is `myserver.database.windows.net`, replace `<server name>` with `myserver`.
     - Replace `<database name>` with your SQL Database name.
 
     ```powershell
