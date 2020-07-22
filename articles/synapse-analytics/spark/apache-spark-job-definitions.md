@@ -120,6 +120,7 @@ In this section, you create an Apache Spark job definition for .NET Spark(C#/F#)
  4. Select **.NET Spark(C#/F#)** from the Language drop down list in the Apache Spark Job Definition main window.
 
  5. Fill in information for Apache Spark Job Definition. You can copy the sample information.
+    
      |  Property   | Description   |  
      | ----- | ----- |  
      |Job definition name| Enter a name for your Apache Spark job definition. This name can be updated at any time until it's published. Sample: `job definition sample`|
