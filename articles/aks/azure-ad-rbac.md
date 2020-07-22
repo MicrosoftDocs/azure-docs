@@ -7,7 +7,7 @@ services: container-service
 
 
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/21/2020
 
 ---
 
@@ -136,7 +136,7 @@ Create a file named `role-dev-namespace.yaml` and paste the following YAML manif
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-full-access
   namespace: dev
@@ -167,7 +167,7 @@ Now, create a RoleBinding for the *appdev* group to use the previously created R
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: dev-user-access
   namespace: dev
@@ -201,7 +201,7 @@ Create a file named `role-sre-namespace.yaml` and paste the following YAML manif
 
 ```yaml
 kind: Role
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-full-access
   namespace: sre
@@ -232,7 +232,7 @@ Create a RoleBinding for the *opssre* group to use the previously created Role f
 
 ```yaml
 kind: RoleBinding
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: sre-user-access
   namespace: sre

@@ -78,6 +78,8 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 ## Next steps
 
-* See how to walk through these steps with a sample client application in [*How-to: Authenticate a client application*](how-to-authenticate-client.md).
+* See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
+
+* See how to interact with these concepts from client application code in [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
 * Read more about [RBAC for Azure](../role-based-access-control/overview.md).
