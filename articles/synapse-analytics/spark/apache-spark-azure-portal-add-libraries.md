@@ -21,7 +21,7 @@ When a Spark instance starts up, a new virtual environment is created using this
 ## Manage Python packages
 Once you have identified the libraries that you would like to use for your Spark application, you can install them into a Spark pool (preview). 
 
- A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the virtual environment. The packages listed in this file for install or upgrade are downloaded from PyPi at the time of cluster startup. This requirements file is used every time a Spark instance is created from that Spark pool.
+ A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the virtual environment. The packages listed in this file for install or upgrade are downloaded from PyPi at the time of pool startup. This requirements file is used every time a Spark instance is created from that Spark pool.
 
 > [!IMPORTANT]
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
@@ -98,15 +98,15 @@ To update or uninstall a library:
 
 3. Navigate to the **Packages** section and upload a new environment configuration file
    
-4. Once you save your changes, you will need to end active sessions and let the cluster restart. Optionally, you can force active sessions to end by selecting the checkbox to **Force new settings**.
+4. Once you save your changes, you will need to end active sessions and let the pool restart. Optionally, you can force active sessions to end by selecting the checkbox to **Force new settings**.
 
 ![Add Python libraries](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Add Python libraries")
    
 
 > [!IMPORTANT]
-> By selecting the option to **Force new settings**, you will end the all current sessions for the selected Spark pool. Once the sessions are ended, you will have to wait for the cluster to restart. 
+> By selecting the option to **Force new settings**, you will end the all current sessions for the selected Spark pool. Once the sessions are ended, you will have to wait for the pool to restart. 
 >
-> If this setting is unchecked, then you  will have to wait for the current Spark session to end or stop it manually. Once the session has ended, you will need to let the cluster restart. 
+> If this setting is unchecked, then you  will have to wait for the current Spark session to end or stop it manually. Once the session has ended, you will need to let the pool restart. 
 
 
 ## Manage a Python Wheel
@@ -121,9 +121,9 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 ```
 
 >[!IMPORTANT]
->Custom packages can be added or modified between sessions. However, you will need to wait for the cluster to die and restart to see the updated package.
+>Custom packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
 
 ## Next steps
 
-- Learn more about how to create an Apache Spark pool: [Quickstart: Create an Apache Spark Pool](quickstart-create-apache-spark-pool.md)
+- Learn more about how to create an Apache Spark pool: [Quickstart: Create an Apache Spark Pool](quickstart-create-apache-spark-pool-portal.md)
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
