@@ -14,9 +14,9 @@ ms.date: 07/20/2020
 ms.author: curtand
 ---
 
-# View or change your My Account portal settings
+# View or change your settings in the My Account portal
 
-You can view or change settings for your My Account portal, such as language or time zone, from the **Settings & Privacy** page of the **My Account** portal.
+You can view or change your account settings in the My Account portal, such as language or time zone, from the **Settings & Privacy** page of the **My Account** portal.
 
 ## View and manage your language and regional settings
 
@@ -32,6 +32,13 @@ You can view or change settings for your My Account portal, such as language or 
     * *Regional format*: Microsoft websites use this setting to format dates and times.
     * *Time zone*: Used to effectively schedule meetings in your Microsoft calendar.
 
+After you change your display language, it's recommended to sign out and sign in to your work or school account to make sure your display language is refreshed.
+
+> [!NOTE]
+> In some organizations, you can't manage the *Display Language* setting. If your display language is disabled, as shown in the following example screenshot, reach out to your IT admin for assistance:
+>
+> ![My Account page, showing Display Language settings are disabled for the organization](media/my-account-portal/my-account-portal-managed-language-settings.png)
+
 ## Next steps
 
 After changing your My Account portal settings, you can:
@@ -44,4 +51,4 @@ After changing your My Account portal settings, you can:
 
 - View your [sign-in activity](my-account-portal-sign-ins-page.md).
 
-- You can also view your Microsoft Office-related contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).
+- View the [M365 web applications that currently use the language and regional format settings](https://support.microsoft.com/office/change-your-display-language-and-time-zone-in-microsoft-365-for-business-6f238bff-5252-441e-b32b-655d5d85d15b).
