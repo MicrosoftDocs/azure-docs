@@ -35,7 +35,7 @@ The maximum latency between customer acquisition and reporting in Partner Center
 
 The Customer summary section displays a count of all customers, including new, existing, and churned, during the selected date range.
 
-- Total customers are defined as the count of all customers who have purchased your offer and have at least one order that has not been canceled.
+- Total customers is defined as the count of all customers who have purchased your offer and have at least one order that has not been canceled.
 - Customer percentage of growth compared to the previous month is indicated by the number and upward indicator in green or downward indicator in red.
 - Growth trends are represented by bar graphs and will display the value for each month by hovering over the columns of the chart.
 
