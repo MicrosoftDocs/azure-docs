@@ -74,7 +74,8 @@ You can choose either [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.
 
 1. Launch Azure Cloud Shell in the portal by clicking the highlighted icon on the top-left side. Make a note of your server name, server admin login name, password, and subscription for your newly created server from the **Overview** section as shown in the image below.
 
-    > Note: If you are launching cloud shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-   time step and will be automatically attached for all sessions. 
+    >[!NOTE]
+    >If you are launching cloud shell for the first time, you will see a prompt to create a resource group, storage account. This is a one-   time step and will be automatically attached for all sessions. 
 
    >[!div class="mx-imgBorder"]
    > ![Portal Full View Cloud Shell](./media/quickstart-create-mysql-server-database-using-azure-portal/use-in-cloud-shell.png)
@@ -129,9 +130,8 @@ You have successfully created an Azure Database for MySQL server in a resource g
 4. In the confirmation dialog box, type the name of your resource group, and then select **Delete**.
 
 To delete the server, you can click on **Delete** button on **Overview** page of your server as shown below:
-
->[!div class="mx-imgBorder"]
-> ![Delete your resources][delete mysql server](/media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+> [!div class="mx-imgBorder"]
+> ![Delete your resources](media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 
 ## Next steps
 > [!div class="nextstepaction"]
