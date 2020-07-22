@@ -1,8 +1,8 @@
 ---
 # Mandatory fields.
-title: Set up an instance and authentication
+title: Set up an instance and authentication (scripted)
 titleSuffix: Azure Digital Twins
-description: See how to set up an instance of the Azure Digital Twins service, including the proper authentication.
+description: See how to set up an instance of the Azure Digital Twins service, including the proper authentication. Scripted version.
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 4/22/2020
@@ -15,13 +15,13 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Set up an Azure Digital Twins instance and authentication (Scripted)
+# Set up an Azure Digital Twins instance and authentication (scripted)
 
 [!INCLUDE [digital-twins-setup-selector.md](../../includes/digital-twins-setup-selector.md)]
 
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article completes these steps by running an [**automated deployment script** sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. To view the manual steps that the script runs through behind the scenes, see the manual version of this article: [*How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md).
+This version of this article completes these steps by running an [**automated deployment script** sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. To view the manual steps that the script runs through behind the scenes, see the manual version of this article: [*How-to: Set up an instance and authentication (manual)*](how-to-set-up-instance-manual.md).
 
 [!INCLUDE [digital-twins-setup-starter.md](../../includes/digital-twins-setup-starter.md)]
 
