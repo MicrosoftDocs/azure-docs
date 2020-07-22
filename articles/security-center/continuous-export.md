@@ -24,7 +24,6 @@ Using these tools you can:
 
 
 
-
 ## Availability
 
 - Release state: **Generally Available**
@@ -33,9 +32,9 @@ Using these tools you can:
     - **Security admin role** on the resource group (or **Owner**)
     - Must also have write permissions for the target resource
 - Clouds: 
-    - ✔ Commercial clouds
-    - ✔ US Gov
-    - ✘ China Gov, Other Gov
+    ✔ Commercial clouds
+    ✔ US Gov
+    ✘ China Gov, Other Gov
 
 
 ## Setting up a continuous export

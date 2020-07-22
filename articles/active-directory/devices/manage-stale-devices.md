@@ -56,7 +56,7 @@ You have two options to retrieve the value of the activity timestamp:
 
     ![Activity timestamp](./media/manage-stale-devices/01.png)
 
-- The [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet
+- The [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice) cmdlet
 
     ![Activity timestamp](./media/manage-stale-devices/02.png)
 
@@ -88,7 +88,7 @@ If your device is under control of Intune or any other MDM solution, retire the 
 
 ### System-managed devices
 
-Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `get-msoldevice` cmdlet excludes system-managed devices by default. 
+Don't delete system-managed devices. These are generally devices such as Autopilot. Once deleted, these devices can't be reprovisioned. The new `Get-AzureADDevice` cmdlet excludes system-managed devices by default. 
 
 ### Hybrid Azure AD joined devices
 
@@ -128,26 +128,25 @@ While you can cleanup stale devices in the Azure portal, it is more efficient, t
 
 A typical routine consists of the following steps:
 
-1. Connect to Azure Active Directory using the [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) cmdlet
+1. Connect to Azure Active Directory using the [Connect-AzureAD](/powershell/module/azuread/connect-azuread) cmdlet
 1. Get the list of devices
-1. Disable the device using the [Disable-MsolDevice](/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet. 
+1. Disable the device using the [Set-AzureADDevice](/powershell/module/azuread/Set-AzureADDevice) cmdlet (disable by using -AccountEnabled option). 
 1. Wait for the grace period of however many days you choose before deleting the device.
-1. Remove the device using the [Remove-MsolDevice](/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet.
+1. Remove the device using the [Remove-AzureADDevice](/powershell/module/azuread/Remove-AzureADDevice) cmdlet.
 
 ### Get the list of devices
 
 To get all devices and store the returned data in a CSV file:
 
 ```PowerShell
-Get-MsolDevice -all | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, Approxi
-mateLastLogonTimestamp | export-csv devicelist-summary.csv
+Get-AzureADDevice -All:$true | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-summary.csv
 ```
 
 If you have a large number of devices in your directory, use the timestamp filter to narrow down the number of returned devices. To get all devices with a timestamp older than specific date and store the returned data in a CSV file: 
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## What you should know

@@ -119,7 +119,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 ## Deploy the quickstart template locally using PowerShell
 
 > [!IMPORTANT]
-> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/overview).
+> The command-line operations displayed below describe the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/).
 
 1. In PowerShell, log in to your Azure account.
 

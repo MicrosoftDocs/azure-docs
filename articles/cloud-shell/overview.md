@@ -78,7 +78,7 @@ Cloud Shell is a flexible tool that can be used from:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Azure CLI documentation](https://docs.microsoft.com/cli/azure)
-* [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/)
 * [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
