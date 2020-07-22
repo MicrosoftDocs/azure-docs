@@ -78,7 +78,7 @@ If you have everything ready, then let's get started.
 ## Create or update an Azure Automation account
 
 >[!NOTE]
->If you already have an Azure Automation account with a runbook running an older version of the script, all you need to do is re-run just this script to make sure it's updated.
+>If you already have an Azure Automation account with a runbook running an older version of the scaling script, all you need to do is follow the instructions below to make sure it's updated.
 
 First, you'll need an Azure Automation account to run the PowerShell runbook. The process this section describes is valid even if you have an existing Azure Automation account that you want to use to set up the PowerShell runbook. Here's how to set it up:
 
