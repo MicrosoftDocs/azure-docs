@@ -10,24 +10,20 @@ ms.date: 06/11/2020
 ---
 
 # Configure data collection for the Azure Monitor agent using JSON (preview)
-
-
-## Data collection rules
-Data Collection Rules (DCR) define the details of data to be collected from the guest operating system of virtual machines monitored by the Azure Monitor Agent. A DCR defines what data should be collected and where that data should be sent. You can create a DCR using the Azure portal or by directly editing is JSON.
+Data Collection Rules (DCR) define the details of data to be collected from the guest operating system of virtual machines monitored by the Azure Monitor agent. This article describes the structure of a DCR and you directly work with its JSON definition. This might be a DCR that you create in the Azure portal and then export for editing, or you may choose to create a new DCR by editing it directly.
 
 ## Components of a DCR
-
-A Data Collection Rule (DCR) is made up of the following components.
+A Data Collection Rule (DCR) defines what data should be collected and where that data should be sent. It's made up of the following components.
 
 | Component | Description |
 |:---|:---|
-| Data sources | Unique source of monitoring data with its own format and method exposing its data. A single virtual machine has multiple data sources, such as Windows event log, performance counters, and syslog. Each has unique format such as XML and CEF. Each has a method of access such as event libraries and syslog server. |
-| Streams | Unique handle that describes a set of data sources that will be transformed and schematized as one type. A stream will typically correspond to a particular table in the Log Analytics workspace. |
-| Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace, Azure Monitor Metrics, and Azure Event Hubs. Each data source in a DCR  | 
+| Data sources | Unique source of monitoring data with its own format and method exposing its data. A single virtual machine has multiple data sources, such as Windows event log, performance counters, and syslog. Each data source matches are particular data source type as described below. |
+| Streams | Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream may be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace. |
+| Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace, Azure Monitor Metrics, and Azure Event Hubs. | 
 | Data flows | Definitions of which streams should be sent to which destinations. | 
 
 
-## Data sources
+## Data source types
 Each data source has a Data Source Type, and the type defines the properties that must be specified for the data source. The data source types currently available are shown the following table:
 
 | Data source type | Description | 
@@ -38,35 +34,23 @@ Each data source has a Data Source Type, and the type defines the properties tha
 | [windowsEventLogs](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#syslogdatasource) | Windows event log |
 
 
-### Properties
-The following table shows the properties common to all data sources types. See the documentation for each data source type for its unique set of properties.
-
-| Property | Description |
-|:---|:---|
-| name   | Name for the data source that's unique for all data sources in the current DCR. |
-| stream | List of one or more streams to collect data from the data source. Multiple data sources may use the same stream if they will be sending data to the same destination. For example, you may have different data sources of type `performanceCounters` that collect different counters at a different rate. Have each of these sources use a stream called `Microsoft-Perf` to send them to Azure Monitor Metrics or to a common workspace. |
-
 ## DCR associations
-An association relates a virtual machine to a DCR. You can create and association when you create a DCR in the Azure portal or create the association using the REST API after creating the DCR.
-
-## Create and assign a DCR
-
-
-
-
-### REST API
-
+An association relates a virtual machine to a DCR. A DCR may have an association with multiple virtual machines, and a virtual machine may have an association with multiple DCRs. This allows you to define multiple DCRs with a 
 
 
 ## Sample DCR
 The sample DCR below has the following details:
 
-- Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 minutes.
-- Collects specific Process counters every 15 minutes.
-- Collects Windows security events every minute.
-- Collects Debug, Critical, and Emergency events from cron facility.
-- Collects Alert, Critical, and Emergency events from syslog facility.
-- Sends all data to a Log Analytics workspace named centralTeamWorkspace.
+- Performance data
+  - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 minutes.
+  - Collects specific Process counters every 15 minutes.
+- Windows events
+  - Collects Windows security events every minute.
+- Syslog
+  - Collects Debug, Critical, and Emergency events from cron facility.
+  - Collects Alert, Critical, and Emergency events from syslog facility.
+- Destinations
+  - Sends all data to a Log Analytics workspace named centralTeamWorkspace.
 
 ```json
 {
@@ -157,7 +141,7 @@ The sample DCR below has the following details:
       "destinations": {
         "logAnalytics": [
           {
-            "workspaceResourceId": "/subscriptions/4e56605e-4b16-4baa-9358-dbb8d6faedfe/resourceGroups/bw-samples-arm/providers/Microsoft.OperationalInsights/workspaces/bw-arm-01",
+            "workspaceResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.OperationalInsights/workspaces/my-workspace",
             "name": "centralWorkspace"
           }
         ]

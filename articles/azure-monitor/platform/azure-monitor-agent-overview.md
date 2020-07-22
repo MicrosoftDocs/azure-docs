@@ -12,9 +12,6 @@ ms.date: 06/11/2020
 # Azure Monitor agent overview (preview)
 The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of virtual machines and sends it to multiple locations in Azure Monitor. This articles provides an overview of the Azure Monitor agent including how to install it and how to configure data collection.
 
-> [!NOTE]
-> The Azure Monitor agent currently doesn't support Azure Arc for servers.
-
 ## Relationship to other agents
 The Azure Monitor Agent replaces the following agents that are currently used by Azure Monitor to collect guest data from virtual machines:
 
@@ -36,7 +33,7 @@ The methods for defining data collection for the existing agents are distinctly 
 
 - Diagnostic extension has a configuration for each virtual machine. This is easy to define independent definitions for different virtual machines but difficult to centrally manage. It can only send data to Azure Monitor Metrics, Azure Event Hubs, or Azure Storage. For Linux agents, the open source Telegraf agent is required to send data to Azure Monitor Metrics.
 
-AMA uses Data Collection Rules (DCR) to configure data to collect from each agent. DCRs enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the VM which allows them to be defined once and reused across machines and environments.
+Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-portal.md) to configure data to collect from each agent. DCRs enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the VM which allows them to be defined once and reused across machines and environments.
 
 
 
@@ -44,7 +41,7 @@ AMA uses Data Collection Rules (DCR) to configure data to collect from each agen
 The following limitations apply during public preview of the Azure Monitor Agent:
 
 - The Azure Monitor agent does not support solutions and insights such as Azure Monitor for VMs and Azure Security Center. The only scenario currently supported is collecting data using the data collection rules that you configure. 
-- The Data Collection Rule and any Log Analytics workspace used as a destination must be in the same region.
+- Data collection rules must be created in the same region as any Log Analytics workspace used as a destination.
 - Only Azure virtual machines are supported. On-premises virtual machines, virtual machine scale sets, Arc for Servers, Azure Kubernetes Service, and other compute resource types are not currently supported.
 - The virtual machine must have access to the following HTTPS endpoints:
   - *.ods.opinsights.azure.com
