@@ -83,21 +83,21 @@
   - name: User interface functions
     items:
     - name: All functions
-      href: create-uidefinition-functions.md
+      href: create-ui-definition-functions.md
     - name: Collection functions
-      href: create-uidefinition-collection-functions.md
+      href: create-ui-definition-collection-functions.md
     - name: Conversion functions
-      href: create-uidefinition-conversion-functions.md
+      href: create-ui-definition-conversion-functions.md
     - name: Date functions
-      href: create-uidefinition-date-functions.md
+      href: create-ui-definition-date-functions.md
     - name: Logical functions
-      href: create-uidefinition-logical-functions.md
+      href: create-ui-definition-logical-functions.md
     - name: Math functions
-      href: create-uidefinition-math-functions.md
+      href: create-ui-definition-math-functions.md
     - name: Referencing functions
-      href: create-uidefinition-referencing-functions.md
+      href: create-ui-definition-referencing-functions.md
     - name: String functions
-      href: create-uidefinition-string-functions.md
+      href: create-ui-definition-string-functions.md
   - name: User interface elements
     href: create-uidefinition-elements.md
     items:

@@ -36,87 +36,87 @@ Where applicable, you can reference properties of the output of a function by us
 
 These functions can be used with collections, like JSON strings, arrays and objects.
 
-* [contains](create-uidefinition-collection-functions.md#contains)
-* [empty](create-uidefinition-collection-functions.md#empty)
-* [filter](create-uidefinition-collection-functions.md#filter)
-* [first](create-uidefinition-collection-functions.md#first)
-* [last](create-uidefinition-collection-functions.md#last)
-* [length](create-uidefinition-collection-functions.md#length)
-* [map](create-uidefinition-collection-functions.md#map)
-* [skip](create-uidefinition-collection-functions.md#skip)
-* [split](create-uidefinition-collection-functions.md#split)
-* [take](create-uidefinition-collection-functions.md#take)
+* [contains](create-ui-definition-collection-functions.md#contains)
+* [empty](create-ui-definition-collection-functions.md#empty)
+* [filter](create-ui-definition-collection-functions.md#filter)
+* [first](create-ui-definition-collection-functions.md#first)
+* [last](create-ui-definition-collection-functions.md#last)
+* [length](create-ui-definition-collection-functions.md#length)
+* [map](create-ui-definition-collection-functions.md#map)
+* [skip](create-ui-definition-collection-functions.md#skip)
+* [split](create-ui-definition-collection-functions.md#split)
+* [take](create-ui-definition-collection-functions.md#take)
 
 ## Conversion functions
 
 These functions can be used to convert values between JSON data types and encodings.
 
-* [bool](create-uidefinition-conversion-functions.md#bool)
-* [decodeBase64](create-uidefinition-conversion-functions.md#decodebase64)
-* [decodeUriComponent](create-uidefinition-conversion-functions.md#decodeuricomponent)
-* [encodeBase64](create-uidefinition-conversion-functions.md#encodebase64)
-* [encodeUriComponent](create-uidefinition-conversion-functions.md#encodeuricomponent)
-* [float](create-uidefinition-conversion-functions.md#float)
-* [int](create-uidefinition-conversion-functions.md#int)
-* [parse](create-uidefinition-conversion-functions.md#parse)
-* [string](create-uidefinition-conversion-functions.md#string)
+* [bool](create-ui-definition-conversion-functions.md#bool)
+* [decodeBase64](create-ui-definition-conversion-functions.md#decodebase64)
+* [decodeUriComponent](create-ui-definition-conversion-functions.md#decodeuricomponent)
+* [encodeBase64](create-ui-definition-conversion-functions.md#encodebase64)
+* [encodeUriComponent](create-ui-definition-conversion-functions.md#encodeuricomponent)
+* [float](create-ui-definition-conversion-functions.md#float)
+* [int](create-ui-definition-conversion-functions.md#int)
+* [parse](create-ui-definition-conversion-functions.md#parse)
+* [string](create-ui-definition-conversion-functions.md#string)
 
 ## Date functions
 
-* [addHours](create-uidefinition-date-functions.md#addhours)
-* [addMinutes](create-uidefinition-date-functions.md#addminutes)
-* [addSeconds](create-uidefinition-date-functions.md#addseconds)
-* [utcNow](create-uidefinition-date-functions.md#utcnow)
+* [addHours](create-ui-definition-date-functions.md#addhours)
+* [addMinutes](create-ui-definition-date-functions.md#addminutes)
+* [addSeconds](create-ui-definition-date-functions.md#addseconds)
+* [utcNow](create-ui-definition-date-functions.md#utcnow)
 
 ## Logical functions
 
 These functions can be used in conditionals. Some functions may not support all JSON data types.
 
-* [and](create-uidefinition-logical-functions.md#and)
-* [coalesce](create-uidefinition-logical-functions.md#coalesce)
-* [equals](create-uidefinition-logical-functions.md#equals)
-* [greater](create-uidefinition-logical-functions.md#greater)
-* [greaterOrEquals](create-uidefinition-logical-functions.md#greaterorequals)
-* [if](create-uidefinition-logical-functions.md#if)
-* [less](create-uidefinition-logical-functions.md#less)
-* [lessOrEquals](create-uidefinition-logical-functions.md#lessorequals)
-* [not](create-uidefinition-logical-functions.md#not)
-* [or](create-uidefinition-logical-functions.md#or)
+* [and](create-ui-definition-logical-functions.md#and)
+* [coalesce](create-ui-definition-logical-functions.md#coalesce)
+* [equals](create-ui-definition-logical-functions.md#equals)
+* [greater](create-ui-definition-logical-functions.md#greater)
+* [greaterOrEquals](create-ui-definition-logical-functions.md#greaterorequals)
+* [if](create-ui-definition-logical-functions.md#if)
+* [less](create-ui-definition-logical-functions.md#less)
+* [lessOrEquals](create-ui-definition-logical-functions.md#lessorequals)
+* [not](create-ui-definition-logical-functions.md#not)
+* [or](create-ui-definition-logical-functions.md#or)
 
 ## Math functions
 
-* [add](create-uidefinition-math-functions.md#add)
-* [ceil](create-uidefinition-math-functions.md#ceil)
-* [div](create-uidefinition-math-functions.md#div)
-* [floor](create-uidefinition-math-functions.md#floor)
-* [max](create-uidefinition-math-functions.md#max)
-* [min](create-uidefinition-math-functions.md#min)
-* [mod](create-uidefinition-math-functions.md#mod)
-* [mul](create-uidefinition-math-functions.md#mul)
-* [rand](create-uidefinition-math-functions.md#rand)
-* [range](create-uidefinition-math-functions.md#range)
-* [sub](create-uidefinition-math-functions.md#sub)
+* [add](create-ui-definition-math-functions.md#add)
+* [ceil](create-ui-definition-math-functions.md#ceil)
+* [div](create-ui-definition-math-functions.md#div)
+* [floor](create-ui-definition-math-functions.md#floor)
+* [max](create-ui-definition-math-functions.md#max)
+* [min](create-ui-definition-math-functions.md#min)
+* [mod](create-ui-definition-math-functions.md#mod)
+* [mul](create-ui-definition-math-functions.md#mul)
+* [rand](create-ui-definition-math-functions.md#rand)
+* [range](create-ui-definition-math-functions.md#range)
+* [sub](create-ui-definition-math-functions.md#sub)
 
 ## Referencing functions
 
-* [basics](create-uidefinition-referencing-functions.md#basics)
-* [location](create-uidefinition-referencing-functions.md#location)
-* [resourceGroup](create-uidefinition-referencing-functions.md#resourcegroup)
-* [steps](create-uidefinition-referencing-functions.md#steps)
-* [subscription](create-uidefinition-referencing-functions.md#subscription)
+* [basics](create-ui-definition-referencing-functions.md#basics)
+* [location](create-ui-definition-referencing-functions.md#location)
+* [resourceGroup](create-ui-definition-referencing-functions.md#resourcegroup)
+* [steps](create-ui-definition-referencing-functions.md#steps)
+* [subscription](create-ui-definition-referencing-functions.md#subscription)
 
 ## String functions
 
-* [concat](create-uidefinition-string-functions.md#concat)
-* [endsWith](create-uidefinition-string-functions.md#endswith)
-* [guid](create-uidefinition-string-functions.md#guid)
-* [indexOf](create-uidefinition-string-functions.md#indexof)
-* [lastIndexOf](create-uidefinition-string-functions.md#lastindexof)
-* [replace](create-uidefinition-string-functions.md#replace)
-* [startsWith](create-uidefinition-string-functions.md#startswith)
-* [substring](create-uidefinition-string-functions.md#substring)
-* [toLower](create-uidefinition-string-functions.md#tolower)
-* [toUpper](create-uidefinition-string-functions.md#toupper)
+* [concat](create-ui-definition-string-functions.md#concat)
+* [endsWith](create-ui-definition-string-functions.md#endswith)
+* [guid](create-ui-definition-string-functions.md#guid)
+* [indexOf](create-ui-definition-string-functions.md#indexof)
+* [lastIndexOf](create-ui-definition-string-functions.md#lastindexof)
+* [replace](create-ui-definition-string-functions.md#replace)
+* [startsWith](create-ui-definition-string-functions.md#startswith)
+* [substring](create-ui-definition-string-functions.md#substring)
+* [toLower](create-ui-definition-string-functions.md#tolower)
+* [toUpper](create-ui-definition-string-functions.md#toupper)
 
 ## Next steps
 

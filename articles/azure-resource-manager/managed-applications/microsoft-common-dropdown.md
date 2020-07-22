@@ -19,23 +19,23 @@ The DropDown element has different options which determine its appearance in the
 
 When only a single item is allowed for selection, the control appears as:
 
-![Microsoft.Common.DropDown single selection](./media/managed-application-elements/microsoft.common.dropdown1.png)
+![Microsoft.Common.DropDown single selection](./media/managed-application-elements/microsoft.common.dropdown-1.png)
 
 When descriptions are included, the control appears as:
 
-![Microsoft.Common.DropDown single selection with descriptions](./media/managed-application-elements/microsoft.common.dropdown2.png)
+![Microsoft.Common.DropDown single selection with descriptions](./media/managed-application-elements/microsoft.common.dropdown-2.png)
 
 When multi-select is enabled, the control adds a **Select all** option and checkboxes for selecting more than one item:
 
-![Microsoft.Common.DropDown multi-select](./media/managed-application-elements/microsoft.common.dropdown3.png)
+![Microsoft.Common.DropDown multi-select](./media/managed-application-elements/microsoft.common.dropdown-3.png)
 
 Descriptions can be included with multi-select enabled.
 
-![Microsoft.Common.DropDown multi-select with descriptions](./media/managed-application-elements/microsoft.common.dropdown4.png)
+![Microsoft.Common.DropDown multi-select with descriptions](./media/managed-application-elements/microsoft.common.dropdown-4.png)
 
 When filtering is enabled, the control includes a text box for adding the filtering value.
 
-![Microsoft.Common.DropDown multi-select with descriptions](./media/managed-application-elements/microsoft.common.dropdown5.png)
+![Microsoft.Common.DropDown multi-select with descriptions](./media/managed-application-elements/microsoft.common.dropdown-5.png)
 
 ## Schema
 
