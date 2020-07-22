@@ -18,7 +18,7 @@ This article shows you sample PowerShell commands to help you access Azure Monit
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Set up PowerShell
-If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/overview).
+If you haven't already, set up PowerShell to run on your computer. For more information, see [How to Install and Configure PowerShell](/powershell/azure/).
 
 ## Examples in this article
 The examples in the article illustrate how you can use Azure Monitor cmdlets. You can also review the entire list of Azure Monitor PowerShell cmdlets at [Azure Monitor (Insights) Cmdlets](/powershell/module/az.applicationinsights).
