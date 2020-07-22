@@ -25,10 +25,6 @@ When any attributes of a user or device change, the system evaluates all dynamic
 - You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
 - You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
 
-> [!NOTE]
-> This feature requires an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
-> No license is required for devices that are members of a dynamic device group.
-
 ## Rule builder in the Azure portal
 
 Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction of up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
