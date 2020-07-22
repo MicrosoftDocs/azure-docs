@@ -24,7 +24,7 @@ The IoT plug and play device in this article that implements [Temperature Contro
 
 Device twins are JSON documents that store device state information including metadata, configurations, and conditions. To learn more, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md). Both device and solution developers can continue to use the same set of Device Twin APIs and SDKs to implement devices and solutions using IoT Plug and Play conventions.
 
-Digital Twin APIs operates on high level constructs of Digital Twins Definition Language (DTDL) such as components, properties, and commands. Hence solution developers can build IoT Plug and Play solutions more easily by leveraging the Digital Twin APIs.
+Digital Twin APIs operate on high-level constructs of Digital Twins Definition Language (DTDL) such as components, properties, and commands. Hence solution developers can build IoT Plug and Play solutions more easily by leveraging the Digital Twin APIs.
 
 In a device twin, the state of a writable property is split across the desired and reported section. All read-only properties are available within the reported section. A digital twin on the other hand, provides unified view of the current and desired state of the property. The synchronization state of given property is stored in the corresponding root-level or component `$metadata` section.
 
@@ -227,12 +227,12 @@ In this example, `3.0` is the current value of the `fanSpeed` property reported 
 ### Components
 
 Components allow building model interface as an assembly of other interfaces.
-Consider [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface which is defined as a model.
-This interface can now be incorporated as a component thermostat1( and another component thermostat2) when defining [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
+Consider [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface, which is defined as a model.
+This interface can now be incorporated as a component thermostat1(and another component thermostat2) when defining [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json).
 
-In a device twin, a component is identified by the `{ "__t": "c"}` marker where as within a digital twin, presence of `$metadata` marks a component.
+In a device twin, a component is identified by the `{ "__t": "c"}` marker whereas within a digital twin, presence of `$metadata` marks a component.
 In this example, `thermostat1` is a component with two properties. `maxTempSinceLastReboot` is read-only property.
-`targetTemperature` is a writable property that has been successfully synced by the device. The desired value and synchronization state of a theses properties are within component's `$metadata`.
+`targetTemperature` is a writable property that has been successfully synced by the device. The desired value and synchronization state of a these properties are within component's `$metadata`.
 
 The following snippets show the side-by-side JSON representation of the `thermostat1` component:
 
