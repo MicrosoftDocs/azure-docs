@@ -38,10 +38,11 @@ Using diagnostic settings is the easiest way to route the metrics, but there are
 
 > [!WARNING]
 > Metrics for the guest operating system (guest OS) which runs in Azure Virtual Machines, Service Fabric, and Cloud Services are **NOT** listed here. Guest OS metrics must be collected through the one or more agents which run on or as part of the guest operating system.  Guest OS metrics include performance counters which track guest CPU percentage or memory usage, both of which are  frequently used for auto-scaling or alerting. 
-> Host OS metrics ARE available and listed below. They are not the same. The Host OS metrics relate to the Hyper-V session hosting your Guest OS session. 
+>
+> **Host OS metrics ARE available and listed below.** They are not the same. The Host OS metrics relate to the Hyper-V session hosting your guest OS session. 
 
 > [!TIP]
-> Best practice is to use the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest os performance metrics into the same Azure Monitor metric database where platform metrics are stored. The extension routes guest os metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest os metrics like platform metrics. 
+> Best practice is to use the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest OS performance metrics into the same Azure Monitor metric database where platform metrics are stored. The extension routes guest OS metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest OS metrics like platform metrics. 
 > Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. There you can query on them in combination with non-metric data. 
 
 For important additional information, see [Monitoring Agents Overview](agents-overview.md).    
