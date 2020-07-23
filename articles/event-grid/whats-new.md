@@ -43,7 +43,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Private Link Service support](configure-private-endpoints.md)
 
 ## 5.3.1-preview (2020-04)
-- This includes various bug fixes to enhance quality.
+- This release includes various bug fixes to enhance quality.
 - As version 5.3.0-preview, this release corresponds to the 2020-04-01-Preview API version, which includes the following new functionalities: 
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
     - [Partner topics](partner-topics-overview.md)
@@ -69,7 +69,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
 
 ## 5.0.0 (2019-05)
-- This release corresponds to the 2019-06-01 API version.
+- This release corresponds to the `2019-06-01` API version.
 - It adds support to the following new functionalities:
 	* [Domains](event-domains.md)
 	* Pagination and search filter for resources list operations,
@@ -86,7 +86,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 	* Disallows usage of ‘All’ with IncludedEventTypes,
 
 ## 4.0.0 (2018-12)
-- This corresponds to the 2019-01-01 stable API version.
+- This release corresponds to the `2019-01-01` stable API version.
 - It supports General Availability (GA) of the following functionalities related to event subscriptions:
 	* [Dead Letter destination](manage-event-delivery.md)
 	* [Azure Storage queue as destination](handler-storage-queues.md)
@@ -99,11 +99,11 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - Taking dependency on [10.0.3 version of Newtonsoft NuGet package](https://www.nuget.org/packages/Newtonsoft.Json/10.0.3).
 
 ## 3.0.0-preview (2018-10)
-- This is a preview SDK for the new features introduced in 2018-09-15-preview API version. - This includes support for:
+- This release is a preview SDK for the new features introduced in 2018-09-15-preview API version. - This release includes support for:
     - [Domain and domain topics](event-domains.md)
     - Introducing [expiration date for event subscription](concepts.md#event-subscription-expiration)
     - Introducing [advanced filtering](event-filtering.md#advanced-filtering) for event subscriptions
-    - The stable version of the SDK targeting the 2018-01-01 API version continues to exist as version 1.3.0
+    - The stable version of the SDK targeting the `2018-01-01` API version continues to exist as version 1.3.0
 
 
 ## Next steps
