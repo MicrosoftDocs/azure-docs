@@ -57,8 +57,7 @@ Configure an Azure shared disk as the disk witness.
 To get started, see [Configure a disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Supported OS**: All    
-**Supported SQL version**: SQL Server 2019   
+**Supported OS**: All   
 
 
 ### Cloud witness
@@ -69,7 +68,6 @@ To get started, see [Configure a cloud witness](/windows-server/failover-cluster
 
 
 **Supported OS**: Windows Server 2016 and later   
-**Supported SQL version**: SQL Server 2016 and later     
 
 
 ### File share witness
@@ -82,8 +80,6 @@ To get started, see [Configure a file share witness](/windows-server/failover-cl
 
 
 **Supported OS**: Windows Server 2012 and later   
-**Supported SQL version**: SQL Server 2016 and later   
-
 
 ## Connectivity
 
