@@ -5,7 +5,7 @@ services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 07/23/2020
 ms.author: sukishen
 ---
 
@@ -15,7 +15,7 @@ The [Azure Networking Managed Service Provider (MSP) Partner Program](https://az
 
 Azure Networking MSPs are a specialized set of managed service providers that address the enterprise cloud networking needs and challenges across all aspects of cloud and hybrid networking. The managed network services include one or more of the following services: network architecture, planning, deployment, operations, maintenance, and optimization.
 
-![MSP][0]
+:::image type="content" source="./media/networking-partners-msp/msp.jpg" alt-text="partners":::
 
 Customers can purchase MSP-managed services offers in the Azure Marketplace, or directly from the MSP. MSPs can deploy and manage Azure networking resources in the customers' subscriptions and resource groups by using [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
@@ -58,6 +58,3 @@ For information about partners, see [ExpressRoute partners and locations](../exp
 ## <a name="vwan"></a>Virtual WAN partners
 
 For information about partners, see [Virtual WAN partners and providers](../virtual-wan/virtual-wan-locations-partners.md).
-
-<!--Image References-->
-[0]: ./media/networking-partners-msp/msp.png "MSP program description"
