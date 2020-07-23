@@ -56,7 +56,7 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
 
 * Access to the web while using the embedded Logic App Designer
 
-  The designer needs an internet connection to create resources in Azure and to read properties and data from connectors in your logic app. For example, for Dynamics CRM Online connections, the designer checks your CRM instance for default and custom properties.
+  The designer needs an internet connection to create resources in Azure and to read properties and data from connectors in your logic app.
 
 * An email account that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, review the [connectors list here](/connectors/). This example uses Office 365 Outlook. If you use a different provider, the overall steps are the same, but your UI might slightly differ.
 
