@@ -14,19 +14,19 @@ Azure Monitor provides [platform metrics](data-platform-metrics.md) by default w
 
 The content that used to be at this location has been moved to [Supported list of Azure Monitor Metrics](metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-There are limitation when exporting metrics via diagnostic settings. All metrics are exportable using the REST API. 
+There are limitations when exporting metrics via diagnostic settings. All metrics are exportable using the REST API. 
 
 ## Exported zero vs NULL values 
 
-Metrics have different behavior when dealing with 0 or NULL values.  Some metrics report zero when no data is obtained, for example metrics on http failures. Other metrics store NULL when no data is obtained because it can indicate that the resource is offline. You can see the difference when charting these metrics with NULL values showing up as [dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line).  
+Metrics have different behavior when dealing with 0 or NULL values.  Some metrics report 0 when no data is obtained, for example, metrics on http failures. Other metrics store NULLs when no data is obtained because it can indicate that the resource is offline. You can see the difference when charting these metrics with NULL values showing up as [dashed lines](metrics-troubleshoot.md#chart-shows-dashed-line). 
 
-When platform metrics can be exported via diagnostic settings, they match the behavior of the metric. That is, they export NULLs when the resource sends no data.  They export '0's only when they are truly been emitted by the underlying resource. 
+When platform metrics can be exported via diagnostic settings, they match the behavior of the metric. That is, they export NULLs when the resource sends no data.  They export '0's only when they have truly been emitted by the underlying resource. 
 
 If you delete a resource group or a specific resource, metric data from the affected resources no longer is sent to diagnostic setting export destinations. That is, it no longer appears in Event Hubs, Azure Storage accounts and Log Analytics workspaces.
 
 ### Metrics that used to export zero for NULL
 
-Before June 1, 2020, the metrics below **used to** emit '0's when there was no data. Those zeros could then be exported into downstream systems like Log Analytics and Azure storage.  This behavior caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (NULLs), and so the behavior was changed. Since June 1, 2020, they now emit NULL values just like the rest of the supported platform metrics.
+Before June 1, 2020, the metrics below **used to** emit '0's when there was no data. Those zeros could then be exported into downstream systems like Log Analytics and Azure storage.  This behavior caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (NULLs), and so the behavior was changed to match that of the underlying metric as mentioned in the previous section. 
 
 The change occured in all public and private clouds.
 
