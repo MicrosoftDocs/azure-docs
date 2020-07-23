@@ -42,7 +42,7 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets that aren't delegated to any service for creating and deploying resources in your ISE. Each subnet supports a different Logic Apps component that's used in your ISE. You can create the subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets that aren't delegated to any service. These subnets are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You can create the subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -181,7 +181,7 @@ Also, you need to add outbound rules for [App Service Environment (ASE)](../app-
 
    **Create subnet**
 
-   To create and deploy resources in your environment, your ISE needs four *empty* subnets that aren't delegated to any service. Each subnet supports a different Logic Apps component that's used in your ISE. You *can't* change these subnet addresses after you create your environment. Each subnet needs to meet these requirements:
+   To create and deploy resources in your environment, your ISE needs four *empty* subnets that aren't delegated to any service. These subnets are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You *can't* change these subnet addresses after you create your environment. Each subnet needs to meet these requirements:
 
    * Has a name that starts with an alphabetic character or an underscore (no numbers), and doesn't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
 
