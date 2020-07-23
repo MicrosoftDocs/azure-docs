@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure SAP SuccessFactors writeback in Azure Active Directory | Microsoft Docs'
-description: Learn how to configure attribute writeback to SAP SuccessFactors from Azure AD 
+description: Learn how to configure attribute write-back to SAP SuccessFactors from Azure AD 
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/23/2020
 ms.author: chmutali
 ---
-# Tutorial: Configure attribute writeback from Azure AD to SAP SuccessFactors (Preview)
-The objective of this tutorial is to show the steps to writeback attributes from Azure AD to SAP SuccessFactors Employee Central. 
+# Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors (Preview)
+The objective of this tutorial is to show the steps to write-back attributes from Azure AD to SAP SuccessFactors Employee Central. 
 
 ## Overview
 
@@ -24,7 +24,7 @@ You can configure the SAP SuccessFactors Writeback app to write specific attribu
 
 * Work Email
 * Username
-* Business phone number (including country code, area code, number and extension)
+* Business phone number (including country code, area code, number, and extension)
 * Business phone number primary flag
 * Cell phone number (including country code, area code, number)
 * Cell phone primary flag 
@@ -38,7 +38,7 @@ You can configure the SAP SuccessFactors Writeback app to write specific attribu
 
 This SuccessFactors Writeback user provisioning solution is ideally suited for:
 
-* Organizations using Office 365 that desire to writeback authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
+* Organizations using Office 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
 
 ## Configuring SuccessFactors for the integration
 
@@ -66,7 +66,7 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 * Under Permission settings, click **Permission...**, then scroll down the permission list and click **Manage Integration Tools**. Check the box for **Allow Admin to Access to OData API through Basic Authentication**.
   > [!div class="mx-imgBorder"]
   > ![Manage integration tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the Writeback to SuccessFactors scenario. 
+* Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the write-back to SuccessFactors scenario. 
   > [!div class="mx-imgBorder"]
   > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
 * Click on **Done**. Click **Save Changes**.
@@ -102,7 +102,7 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 ## Preparing for SuccessFactors Writeback
 
-The SuccessFactors Writeback provisioning app uses certain *code* values for setting email and phone numbers in Employee Central. These *code* values are set as constant values in the attribute mapping table and are different for each SuccessFactors instance. This section uses [Postman](https://www.postman.com/downloads/) to fetch the code values. You may use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other similar tool to send HTTP requests. 
+The SuccessFactors Writeback provisioning app uses certain *code* values for setting email and phone numbers in Employee Central. These *code* values are set as constant values in the attribute-mapping table and are different for each SuccessFactors instance. This section uses [Postman](https://www.postman.com/downloads/) to fetch the code values. You may use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other similar tool to send HTTP requests. 
 
 ### Download and configure Postman with your SuccessFactors tenant
 
@@ -140,7 +140,7 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
   > [!div class="mx-imgBorder"]
   > ![Postman-Email](./media/sap-successfactors-inbound-provisioning/postman-get-email-03.png)
 
-* Note down this value as the constant to use with *emailType* in the attribute mapping table.
+* Note down this value as the constant to use with *emailType* in the attribute-mapping table.
 
 ### Retrieve constant value for phoneType
 
@@ -163,7 +163,7 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
   > [!div class="mx-imgBorder"]
   > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-get-phone-03.png)
 
-* Note down these values as the constants to use with *businessPhoneType* and *cellPhoneType* in the attribute mapping table.
+* Note down these values as the constants to use with *businessPhoneType* and *cellPhoneType* in the attribute-mapping table.
 
 ## Configuring SuccessFactors Writeback App
 
@@ -207,7 +207,7 @@ This section provides steps for
     >[!div class="mx-imgBorder"]
     >![Azure portal](./media/sap-successfactors-inbound-provisioning/sfwb-provisioning-creds.png)
 
-   * Once the credentials are saved successfully, the **Mappings** section will display the default mapping **Synchronize Azure Active Directory Users to SuccessFactors**
+   * Once the credentials are saved successfully, the **Mappings** section will display the default mapping. Refresh the page, if the attribute mappings are not visible.  
 
 ### Part 2: Configure attribute mappings
 
@@ -215,28 +215,28 @@ In this section, you will configure how user data flows from SuccessFactors to A
 
 1. On the Provisioning tab under **Mappings**, click **Provision Azure Active Directory Users**.
 
-1. In the **Source Object Scope** field, you can select which sets of  users in Azure AD should be considered for Writeback, by defining a set of attribute-based filters. The default scope is "all users in Azure AD". 
+1. In the **Source Object Scope** field, you can select which sets of  users in Azure AD should be considered for write-back, by defining a set of attribute-based filters. The default scope is "all users in Azure AD". 
    > [!TIP]
    > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Azure AD. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
 1. The **Target Object Actions** field only supports the **Update** operation.
 
-1. In the mapping table under **Attribute mappings** section, you can map the following Azure Active Directory attributes to SuccessFactors. The table below provides guidance on how to map the writeback attributes. 
+1. In the mapping table under **Attribute mappings** section, you can map the following Azure Active Directory attributes to SuccessFactors. The table below provides guidance on how to map the write-back attributes. 
 
    | \# | Azure AD attribute | SuccessFactors Attribute | Remarks |
    |--|--|--|--|
-   | 1 | employeeId | personIdExternal | By default, this is the matching identifier. Instead of employeeId you can use any other Azure AD attribute that may store the value equal to personIdExternal in SuccessFactors.    |
+   | 1 | employeeId | personIdExternal | By default, this attribute is the matching identifier. Instead of employeeId you can use any other Azure AD attribute that may store the value equal to personIdExternal in SuccessFactors.    |
    | 2 | mail | email | Map email attribute source. For testing purposes, you can map userPrincipalName to email. |
-   | 3 | 8448 | emailType | This constant value is the SuccessFactors ID value associated with business email. Update this to match your SuccessFactors environment. Please see the section [Retrieve constant value for    emailType](#retrieve-constant-value-for-emailType) for steps to set this value. |
-   | 4 | true | emailIsPrimary | Use this attribute to set business email as primary in SuccessFactors. If business email is not not primary, set this flag to false. |
+   | 3 | 8448 | emailType | This constant value is the SuccessFactors ID value associated with business email. Update this value to match your SuccessFactors environment. See the section [Retrieve constant value for    emailType](#retrieve-constant-value-for-emailType) for steps to set this value. |
+   | 4 | true | emailIsPrimary | Use this attribute to set business email as primary in SuccessFactors. If business email is not primary, set this flag to false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Using **Add New Mapping**, you can optionally write userPrincipalName or any Azure AD attribute to a custom attribute available in the SuccessFactors User object.  |
    | 6 | on-prem-samAccountName | username | Using **Add New Mapping**, you can optionally map on-premises samAccountName to SuccessFactors username attribute. |
    | 7 | SSO | loginMethod | If SuccessFactors tenant is setup for [partial SSO](https://apps.support.sap.com/sap/support/knowledge/en/2320766), then using Add New Mapping, you can optionally set loginMethod to a    constant value of "SSO" or "PWD". |
    | 8 | telephoneNumber | businessPhoneNumber | Use this mapping to flow *telephoneNumber* from Azure AD to SuccessFactors business / work phone number. |
-   | 9 | 10605 | businessPhoneType | This constant value is the SuccessFactors ID value associated with business phone. Update this to match your SuccessFactors environment. Please see the section [Retrieve constant    value for phoneType](#retrieve-constant-value-for-phoneType) for steps to set this value. |
+   | 9 | 10605 | businessPhoneType | This constant value is the SuccessFactors ID value associated with business phone. Update this value to match your SuccessFactors environment. See the section [Retrieve constant    value for phoneType](#retrieve-constant-value-for-phoneType) for steps to set this value. |
    | 10 | true | businessPhoneIsPrimary | Use this attribute to set the primary flag for business phone number. Valid values are true or false. |
    | 11 | mobile | cellPhoneNumber | Use this mapping to flow *telephoneNumber* from Azure AD to SuccessFactors business / work phone number. |
-   | 12 | 10606 | cellPhoneType | This constant value is the SuccessFactors ID value associated with cell phone. Update this to match your SuccessFactors environment. Please see the section [Retrieve constant value for    phoneType](#retrieve-constant-value-for-phoneType) for steps to set this value. |
+   | 12 | 10606 | cellPhoneType | This constant value is the SuccessFactors ID value associated with cell phone. Update this value to match your SuccessFactors environment. See the section [Retrieve constant value for    phoneType](#retrieve-constant-value-for-phoneType) for steps to set this value. |
    | 13 | false | cellPhoneIsPrimary | Use this attribute to set the primary flag for cell phone number. Valid values are true or false. |
  
 1. Validate and review your attribute mappings. 
@@ -268,7 +268,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 Once the SuccessFactors provisioning app configurations have been completed, you can turn on the provisioning service in the Azure portal.
 
 > [!TIP]
-> By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or Workday data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
+> By default when you turn on the provisioning service, it will initiate provisioning operations for all users in scope. If there are errors in the mapping or data issues, then the provisioning job might fail and go into the quarantine state. To avoid this, as a best practice, we recommend configuring **Source Object Scope** filter and testing  your attribute mappings with a few test users before launching the full sync for all users. Once you have verified that the mappings work and are giving you the desired results, then you can either remove the filter or gradually expand it to include more users.
 
 1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
@@ -276,7 +276,7 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the SuccessFactors tenant. You can check the progress bar to the track the progress of the sync cycle. 
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read out of Workday and then subsequently added or updated to Active Directory. 
+4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read from Employee Central and then subsequently added or updated to Active Directory. 
 
 5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 
@@ -285,7 +285,7 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 ## Supported scenarios, known issues and limitations
 
-Please refer to the [Writeback scenarios section](../app-provisioning/sap-successfactors-integration-reference.md#Writeback-scenarios) of the SAP SuccessFactors integration reference guide. 
+Refer to the [Writeback scenarios section](../app-provisioning/sap-successfactors-integration-reference.md#Writeback-scenarios) of the SAP SuccessFactors integration reference guide. 
 
 ## Next steps
 
