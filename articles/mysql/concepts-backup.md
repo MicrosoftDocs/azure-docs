@@ -20,7 +20,21 @@ These backup files are not user-exposed and cannot be exported. These backups ca
 
 ### Backup frequency
 
-Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. The earliest point in time that a new server can be restored to is the time at which the initial full backup is complete. As snapshots are instantaneous, servers with support up to 16 TB of storage can be restored all the way back to the create time.
+#### Legacy servers with 4TB storage
+
+For our legacy servers, which support up to 4TB maximum storage, full backups occur weekly, differential backups occur twice a day for servers, and transaction log backups occur every five minutes.
+
+#### Servers with 16TB storage (large storage)
+
+For [Azure regions](concepts-pricing-tiers#storage) that support storage size up to 16TB, all newly provisioned servers deploy “large storage”, which supports up to 16TB. Backups on these servers are snapshot-based backups. The first full snapshot backup is scheduled immediately after a server is created. The first full snapshot backup is retained as base backup at any given point in time and subsequent snapshot backups are differential backups only. Differential snapshot backups occur at least one time a day for servers. Differential snapshot backups do not occur at the fixed schedule. Differential snapshot backup occurs every 24 hours unless the transaction log (i.e., binlog in MySQL) exceeds 50GB since the last backup. In a day, a maximum of six differential snapshots is allowed. Transaction log backups occur every five minutes. 
+
+### Backup Retention
+
+Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or any time after server creation by updating the backup configuration using [Azure portal](howto-restore-server-portal#set-backup-configuration) or [Azure CLI](howto-restore-server-cli#set-backup-configuration). 
+
+The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained and stored in backup storage to support point in time restores during the retention window. For example, if the backup retention period is set to 7 days, the recovery window is considered last 7 days, and all the backups required to restore and recover the server in last 7 days are retained. With a backup retention window of seven days:
+- Legacy servers with 4TB storage will retain up to 2 full database backups, all the differential backups, and transaction log backups performed since the earliest full database backup.
+-	Servers with large storage (16TB) will retain the full database snapshot and all the differential snapshots and transaction log backups in last 8 days.
 
 ### Backup redundancy options
 
@@ -31,9 +45,7 @@ Azure Database for MySQL provides the flexibility to choose between locally redu
 
 ### Backup storage cost
 
-Azure Database for MySQL provides up to 100% of your provisioned server storage as backup storage at no additional cost. Typically, this is suitable for a backup retention of seven days. Any additional backup storage used is charged in GB-month.
-
-For example, if you have provisioned a server with 250 GB, you have 250 GB of backup storage at no additional charge. Storage in excess of 250 GB is charged.
+Azure Database for MySQL provides up to 100% of your provisioned server storage as backup storage at no additional cost. Any additional backup storage used is charged in GB per month. For example, if you have provisioned a server with 250 GB of storage, you have 250 GB of additional storage available for server backups at no additional charge. Storage consumed for backups more than 250 GB is charged as per the [pricing model](https://azure.microsoft.com/en-us/pricing/details/mysql/). For more details on monitoring or controlling backup storage cost, you can refer [pricing tier documentation](concepts-pricing-tiers.md).
 
 ## Restore
 
