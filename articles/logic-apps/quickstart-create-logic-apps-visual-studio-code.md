@@ -251,7 +251,7 @@ In Visual Studio Code, you can open and edit the workflow definition for an alre
 > avoid the risk in breaking that logic app and minimize disruption by 
 > [disabling your logic app first](#disable-enable-logic-app).
 
-1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
+1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#access-azure).
 
 1. In the Azure window, under **Logic Apps**, expand your Azure subscription, and select the logic app you want.
 
