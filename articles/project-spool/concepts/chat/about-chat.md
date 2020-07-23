@@ -82,6 +82,6 @@ If a user is active on their app, no need to poll for new messages. With Chat SD
 
 3. Read Receipts – when the recipient of message has read user’s message.   
 
-Events for edit and delete operations on messages is not available currently, so regularly poll for the list of messages at a predefined interval, to get edits and updates from other clients.  
+Events for edit and delete operations on messages is not available currently, so regularly poll for the list of messages at a predefined interval, to get edits and updates from other clients.
 
 For event properties and how to register callbacks, check out the API documentation.  

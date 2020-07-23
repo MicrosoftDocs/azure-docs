@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 --- 
 
-# Reacting to Communication Services events 
+# Event Handling in Azure Communication Services
 
 Azure Communication Services allow applications to react to events such as SMSReceived, InstantMessageReceived and allow the you to integrate with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. You can configure your business applications to listen for Communication Services events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time an SMS is delivered to your Communication Service.
 

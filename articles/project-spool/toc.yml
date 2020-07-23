@@ -136,8 +136,8 @@
     href: concepts/pricing.md
   - name: Authentication and Authorization
     href: concepts/authentication.md
-  - name: ACS As An Event Grid Source
-    href: concepts/acs-event-grid.md
+  - name: Event Handling
+    href: concepts/event-handling.md
   - name: User Access Tokens
     href: concepts/user-access-tokens.md
   - name: Identity Model
