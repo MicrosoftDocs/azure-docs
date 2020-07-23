@@ -22,13 +22,15 @@ In this article, you learn how to:
 
 ## Customer is not able to place an order because of unsupported subscription or region
 
-**Error:** In Azure portal, if you get the error *Selected subscription or region is not supported. Choose a different subscription or region.*.
+**Error:** In Azure portal, if you get the error:
+
+*Selected subscription or region is not supported. Choose a different subscription or region.*.
 
 ![Unsupported subscription or region](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
 **Solution:** Make sure that you check your subscription type. Only Microsoft Enterprise Agreement (EA) and Cloud Solution Provider (CSP) subscription types can place an order. Pay-as-you-go (PAYG) subscriptions are not supported. For more information, see [Azure Stack Edge resource prerequisites](azure-stack-edge-deploy-prep.md#prerequisites). There is the possibility that Microsoft may allow a subscription type upgrade on a case-by-case basis. Contact [customer service](https://azure.microsoft.com/support/options/) at any time so that we can understand your needs and adjust these limits appropriately.
 
-##	I have an EA/CSP/sponsored subscription, but I'm not seeing any SKUs and instead get an error
+## I have an EA/CSP/sponsored subscription, but I'm not seeing any SKUs and instead get an error
 
 **Error:** You have an EA, CSP, or sponsored subscription and you get the following error:
 
