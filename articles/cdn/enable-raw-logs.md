@@ -2,18 +2,18 @@
 title: Azure CDN HTTP raw logs
 description: This article describes the Azure CDN HTTP raw logs.
 services: cdn
-author: sohamnchatterjee
-manager: danielgi
+author: asudbring
+manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/23/2020
-ms.author: sohamnc
+ms.date: 07/22/2020
+ms.author: allensu
 ---
 
 # Azure CDN HTTP raw logs
-Raw logs provide rich information about operations and errors that are important for auditing and troubleshooting. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources. Raw logs provide a record of operations of your resource.
+Raw logs provide rich information about operations and errors that are important for auditing and troubleshooting. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources. Raw logs provide a record of operations of your resource. Raw log provides rich information about every request that CDN receives. 
 
 > [!IMPORTANT]
 > The HTTP raw logs feature is available for Azure CDN from Microsoft.
