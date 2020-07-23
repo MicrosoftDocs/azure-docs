@@ -138,6 +138,58 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
+## BERT integration into Automated Machine Learning
+BERT is used in the featurization layer of Automated ML. In this layer we detect if a column contains free text or other types of data like timestamps or simple numbers and we featurize accordingly. For BERT we fine-tune/train the model by utilizing the user-provided labels, then we output document embeddings (for BERT these are the final hidden state associated with the special [CLS] token) as features alongside other features like timestamp-based features (e.g. day of week) or numbers that many typical datasets have. 
+
+AutoML takes the following steps, for the case of BERT:
+
+1. Preprocessing including tokenization of all text columns (you will see "StringCast" transformer in the final model's featurization summary. Please visit [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) to see an example of how to produce the model's featurization summary using the `get_featurization_summary()` method.
+
+```python
+text_transformations_used = []
+for column_group in fitted_model.named_steps['datatransformer'].get_featurization_summary():
+    text_transformations_used.extend(column_group['Transformations'])
+text_transformations_used
+```
+
+2. Concatenates all text columns into a single text column hence you will see "StringConcatTransformer" in the final model. 
+
+> [!NOTE]
+> Our implementation of BERT limits total text length of a training sample to 128 tokens. That means, all text columns when concatenated, should ideally be at most 128 tokens  > in length. 
+> Ideally, if multiple columns are present, each column should be pruned such that this condition is satisfied. For instance, if there are two text columns in the data, both  
+> text columns should be pruned to 64 tokens each (assuming you want both columns to be equally represented in the final concatenated text column) before feeding the data to 
+> AutoML. For concatenated columns of length >128 tokens, BERT's tokenizer layer will truncate this input to 128 tokens.
+
+3. In feature sweeping step, AutoML tries out BERT vs baseline (bag of words features + pretrained word embeddings) at runtime on a sample of the data and determines if BERT would give accuracy improvement. If it determines that BERT indeed is giving accuracy benefit over the baseline, AutoML then uses BERT for text featurization in the optimal featurization strategy and proceeds with featurizing the whole data. In that case, you will see the "PretrainedTextDNNTransformer" in the final model.
+
+Depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model. Dataset language can be specified in AutoMLConfig like the following:
+
+```python
+from azureml.automl.core.featurization import FeaturizationConfig
+
+featurization_config = FeaturizationConfig(dataset_language='deu')
+
+automl_settings = {
+    "experiment_timeout_minutes": 120,
+    "primary_metric": 'accuracy', 
+# All other settings you want to use 
+    "featurization": featurization_config,
+    
+  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_voting_ensemble": False,
+    "enable_stack_ensemble": False
+}
+```
+
+> [!NOTE] 
+> To enable BERT, user should use GPU compute for training. If a CPU compute is used, then instead of BERT, AutoML will enable BiLSTM DNN featurizer.
+
+> The above is an example on how to trigger German language BERT model. 'deu' is the 3-letter language code for German according to ISO classification (reference: ISO 639-2 online and https://iso639-3.sil.org/code/hbs)
+
+> [!NOTE]
+> In order to invoke BERT, you have to set  "enable_dnn: True" in automl_settings and use GPU compute (e.g. vm_size = "STANDARD_NC6", or a higher GPU). Please see this notebook > for an example.
+
+
 ## Next steps
 
 * Learn how to set up your automated ML experiments:
@@ -148,3 +200,6 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
 * Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](how-to-auto-train-remote.md).
+
+* Learn more about [how BERT is integrated into Azure automated machine learning] (https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657)
+
