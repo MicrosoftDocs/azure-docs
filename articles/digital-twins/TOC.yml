@@ -42,8 +42,10 @@
       href: how-to-use-cli.md
     - name: Set up an instance and authentication (scripted)
       href: how-to-set-up-instance-scripted.md
-    - name: Set up an instance and authentication (manual)
-      href: how-to-set-up-instance-manual.md
+    - name: Set up an instance and authentication (manual, CLI)
+      href: how-to-set-up-instance-manual-cli.md
+    - name: Set up an instance and authentication (manual, portal)
+      href: how-to-set-up-instance-manual-portal.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
   - name: Design models
