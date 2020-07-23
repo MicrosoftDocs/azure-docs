@@ -64,7 +64,7 @@ Review your updated environment by charting some of the newly created variables 
 
 ## Migrate Power BI queries
 
-If you have generated queries using the Power BI Connector, they are making calls to Azure Time Series Insights using the Preview API version and old Time Series Expression Syntax. These queries will continue to successfully retreive data until the Preview API is deprecated. 
+If you have generated queries using the Power BI Connector, they are making calls to Azure Time Series Insights using the Preview API version and old Time Series Expression Syntax. These queries will continue to successfully retrieve data until the Preview API is deprecated. 
 
 To update the queries to use the new API version and new Time Series Expression Syntax, queries will need to be regenerated from the Explorer. Read more about how to [create queries using the Power BI Connector](./how-to-connect-power-bi.md). 
 
