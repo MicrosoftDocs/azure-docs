@@ -29,29 +29,29 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 * **Scalable, durable, and secure storage -** Azure Backup uses reliable Blob storage with in-built security and high availability features. You can choose LRS, GRS, or RA-GRS storages for your backup data.  
 
-* **Native Workload integration -** Azure Backup provides native integration with Azure Workloads (VMs, SAP HANA, SQL in Azure VMs and even Azure Files) without requiring you to manage automation or infrastructure to deploy agents, write new scripts or provision storage.
+* **Native workload integration -** Azure Backup provides native integration with Azure Workloads (VMs, SAP HANA, SQL in Azure VMs and even Azure Files) without requiring you to manage automation or infrastructure to deploy agents, write new scripts or provision storage.
 
-### Data Plane
+### Data plane
 
-* **Automated Storage Management** – Azure Backup automates provisioning and managing storage accounts for the backup data to ensure it scales as the backup data grows.
+* **Automated storage management** – Azure Backup automates provisioning and managing storage accounts for the backup data to ensure it scales as the backup data grows.
 
 * **Malicious delete protection –** Protect against any accidental and malicious attempts for deleting your backups via soft delete of backups. The deleted backup data is stored for 14 days free of charge and allows it to be recovered from this state.
 
-* **Secure Encrypted Backups-** Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform like RBAC and Encryption.
+* **Secure encrypted backups-** Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform like RBAC and Encryption.
 
-* **Backup data Lifecycle Management -** Azure Backup automatically cleans up older backup data to comply with the retention policies. You can also tier your data from operational storage to vault storage.
+* **Backup data lifecycle management -** Azure Backup automatically cleans up older backup data to comply with the retention policies. You can also tier your data from operational storage to vault storage.
 
-### Management Plane
+### Management plane
 
 * **Access control** – The Recovery Service vault provides the management capabilities and is accessible via the Azure portal, SDK, CLI, and even REST APIs. It's also an RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
 
-* **Policy Management** – Azure Backup Policies within each vault define when the backups should be triggered and how long they need to be retained. You can also manage these policies and apply them across multiple items.
+* **Policy management** – Azure Backup Policies within each vault define when the backups should be triggered and how long they need to be retained. You can also manage these policies and apply them across multiple items.
 
 * **Monitoring and Reporting** – Azure Backup integrates with Log Analytics and provides the ability to see reports via Workbooks as well.
 
-* **Snapshot Management** – Azure Backup takes snapshots for some Azure native workloads (VMs and Azure Files), manages these snapshots and allows fast restores from them. This option drastically reduces the time to recover your data to the original storage.
+* **Snapshot management** – Azure Backup takes snapshots for some Azure native workloads (VMs and Azure Files), manages these snapshots and allows fast restores from them. This option drastically reduces the time to recover your data to the original storage.
 
-## Vault Considerations
+## Vault considerations
 
 Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It also uses vaults to store backed-up data. Effective vault design helps organizations establish a structure to organize and manage backup assets in Azure to support your business priorities. Consider the following guidelines when creating a vault:  
 
@@ -59,7 +59,7 @@ Azure Backup uses Recovery Services vaults to orchestrate and manage backups. It
 
 Since the vault is scoped to a subscription, fit your vault design to meet the subscription design strategy such as *Application category strategy* where subscriptions are separated based on specific applications or services or along the lines of application archetypes. For more information, see this [article](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/).
 
-### Single/Multiple Vault
+### Single or multiple vault
 
 You can use a single vault or multiple vaults to organize and manage your backup. Consider the following guidelines:
 
@@ -83,7 +83,7 @@ Review the default settings for Storage Replication type and Security settings t
 
 * Before finalizing your vault design, review the [vault support matrixes](backup-support-matrix.md#vault-support) to understand the factors that might influence or limit your design choices.
 
-## Backup Policy Considerations
+## Backup Policy considerations
 
 Azure Backup Policy has two components: *Schedule* (when to take backup) and *Retention* (how long to retain backup). You can define the policy based on the type of data that is being backed up, RTO/RPO requirements, operational or regulatory compliance needs and workload type (for example,  VM, database, files). [Learn more here](backup-architecture.md#backup-policy-essentials).
 
@@ -97,7 +97,7 @@ Consider the following guidelines when creating Backup Policy:
 
 * To distribute backup traffic, consider backing up different VMs at different times of the day and make sure the times don't overlap.
 
-### Retention Considerations
+### Retention considerations
 
 * Short-term retention can be "minutes" or "daily". Retention for "Weekly", "monthly" or "yearly" backup points is referred to as Long-term retention.
 
@@ -126,11 +126,11 @@ Consider the following guidelines when creating Backup Policy:
   * You can't selectively delete specific recovery points.
   * You can't completely disable the scheduled backup and keep the data source in a protected state. The least frequent backup you can configure with the policy is to have one weekly scheduled backup. An alternative would be to stop protection with retain data and enable protection each time you want to take a backup, take an on-demand backup, and then turn off protection but retain the backup data. [Learn more here](backup-azure-manage-vms.md#stop-protecting-a-vm).
 
-## Security Considerations
+## Security considerations
 
 To help you protect your backup data and meet the security needs of your business, Azure Backup provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Consider the following security guidelines for your Azure Backup solution:
 
-### Authentication and Authorization
+### Authentication and authorization
 
 * Azure Role-Based Access Control (RBAC) enables fine-grained access management, segregation of  duties within your team and granting only the amount of access to users necessary to perform their jobs. [Learn more here](backup-rbac-rs-vault.md).
 
@@ -182,7 +182,7 @@ Azure [Private Endpoint](https://docs.microsoft.com/azure/private-link/private-e
 
 * Azure Active Directory doesn't currently support private endpoints. So, IPs and FQDNs required for Azure Active Directory will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable. Learn more about the [prerequisites here](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start).
 
-## Governance Considerations
+## Governance considerations
 
 Governance in Azure is primarily implemented with [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) and [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview). [Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers. Also, the following tools such as [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) and [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview)  play an important role in the cost management process.
 
