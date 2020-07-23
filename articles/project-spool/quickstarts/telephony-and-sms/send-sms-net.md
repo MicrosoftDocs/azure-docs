@@ -65,10 +65,10 @@ namespace SmsSender
     {
         static void Main(string[] args)
         {
-            var connectionString = "<connectionString>"; // Connection string can be acqiured throught the Azure portal
+            var connectionString = "<connectionString>"; // Connection string can be acqiured through the Azure portal
             var sms = new SmsClient(connectionString);
             sms.Send(
-                from: "+15551111111", // Phone number acquired by your account
+                from: "+15551111111", // Phone number allocated to your Azure Communication Service resource
                 to: "+15552222222",
                 message: "Hello World 👋🏻 via Sms");
         }
@@ -85,13 +85,14 @@ Step by step:
 
 ## Send a SMS message and enable Delivery Reports
 
-Lets modify above code to enable Delivery Report for the message sent.
+Lets modify above code to enable Delivery Report for the sent message.
 
 ### Prerequisites
 -- Setup EventGrid subscription to receive Sms Delivery Report Event, `Microsoft.CommunicationServices.SMSDeliveryReport` **Refer:** [EventGrid concept for more information.](../concepts/acs-event-grid.md)
 
 ```csharp
 using Azure.Communication.Sms; // Add NuGet package Azure.Communication.Sms
+using Azure.Communication.Sms.Models; // Add NuGet package Azure.Communication.Sms.Models to add SendSmsOptions
 
 namespace SmsSender
 {
@@ -99,10 +100,10 @@ namespace SmsSender
     {
         static void Main(string[] args)
         {
-            var connectionString = "<connectionString>"; // Connection string can be acqiured throught the Azure portal
+            var connectionString = "<connectionString>"; // Connection string can be acqiured through the Azure portal
             var sms = new SmsClient(connectionString);
             var response = sms.Send(
-                                from: "+15551111111", // Phone number acquired by your account
+                                from: "+15551111111", // Phone number allocated to your Azure Communication Service resource
                                 to: "+15552222222",
                                 message: "Hello World 👋🏻 via Sms",
                                 sendSmsOptions: new SendSmsOptions { EnableDeliveryReport = true }); // Use SendSmsOptions to enable delivery report for the message sent.
@@ -115,6 +116,6 @@ namespace SmsSender
 Step by step:
 
 1. Refer to previous example Steps 1-3.
-2. On success, `SmsClient.Send()` returns SendSmsResponse that returns a MessageId which can be used to corelate DeliveryReport sent to EventGrid
+2. On success, `SmsClient.Send()` returns SendSmsResponse that returns a MessageId which can be used to correlate the DeliveryReport sent to the EventGrid.
 
 
