@@ -268,7 +268,7 @@ Response
 HTTP/1.1 404 Not Found
 ```
 
-### Example 11: Delete a role assignment between self and built-in role definition
+### Example 11: Delete a role assignment between self and Global Administrator role definition
 
 DELETE
 
@@ -287,12 +287,14 @@ HTTP/1.1 400 Bad Request
         "message":
         {
             "lang":"en",
-            "value":"Cannot remove self from built-in role definitions."},
+            "value":"Removing self from Global Administrator built-in role is not allowed"},
             "values":null
         }
     }
 }
 ```
+
+We prevent users from deleting their own Global Administrator role to avoid a scenario where a tenant has zero Global Administrators. Removing other roles assigned to self is allowed.
 
 ## Next steps
 
