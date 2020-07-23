@@ -55,22 +55,6 @@
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
     href: quickstarts/create-a-communication-resource.md
- # - name: Configure Your Server
- #   href: quickstarts/configure-server.md
- # - name: Place a VoIP Call
- #   href: quickstarts/get-started-with-voice.md
- # - name: Place a Video Call
- #   href: quickstarts/get-started-with-video.md
-  - name: Events quickstart
-    href: quickstarts/acs-events-quickstart.md
- # - name: Share Your Screen
- #   href: quickstarts/todo.md 
- # - name: Implement Two-Factor Authentication
- #   href: quickstarts/todo.md
- # - name: Assign A Telephone Number To An MS Graph Bot
- #   href: quickstarts/assign-a-telephone-number-to-a-ms-graph-bot.md
- # - name: Place A Telephone Call To An MS Graph Bot
- #   href: quickstarts/place-a-telephone-call-to-a-graph-api-bot.md
 - name: Tutorials
   expanded: true
   items:
@@ -84,33 +68,21 @@
       href: quickstarts/acs-events-quickstart.md
   - name: Telephony and SMS
     items:
-    - name: Placeholder
-      href: quickstarts/acs-events-quickstart.md
+    - name: Add Two-Factor Authentication To Your App
+      href: tutorials/telephony-and-sms/add-2fa-to-your-app.md
+    - name: Add SMS To Your Web App
+      href: tutorials/telephony-and-sms/add-sms-to-your-web-app.md
   - name: Voice and Video Calling
     items:
-    - name: Placeholder
-      href: quickstarts/acs-events-quickstart.md
-  # - name: Add Calling To Your App
-  #  href: tutorials/add-calling-to-your-app.md  
-  # - name: Add Signaling To Your App
-  #  href: tutorials/add-signaling-to-your-app.md
-  #- name: Add Chat To Your App
-  #  href: tutorials/add-chat-to-your-app.md
-  #- name: Add Network Traversal To Your App
-  #  href: tutorials/add-network-traversal-to-your-app.md
-  #- name: Add Video To Your UWP App
-  #  href: tutorials/add-video-to-your-uwp-app.md
-  #- name: Provision and Release Phone Numbers
-  #  href: tutorials/provision-and-release-phone-numbers.md
-  #- name: Configure Call Routing and Number Assignment
-  #  href: tutorials/configure-call-routing.md
+    - name: Add Video To Your UWP App
+      href: quickstarts/voice-and-video-calling/add-video-to-your-uwp-app.md
 - name: Concepts
   expanded: true
   items:
   - name: Chat
     items: 
       - name: About Chat
-        href: concepts/chat/chat.md
+        href: concepts/chat/about-chat.md
   - name: Networking
     items: 
       - name: Client and Server Architecture
@@ -119,39 +91,38 @@
         href: concepts/networking/ice-stun-nat-turn-sdp.md
   - name: Telephony and SMS
     items: 
+      - name: About Telephony and SMS
+        href: concepts/telephony-and-sms/about-telephony-sms.md
+      - name: Phone Numbers
+        href: concepts/telephony-and-sms/phone-numbers.md
+      - name: Phone Trees
+        href: concepts/telephony-and-sms/phone-trees.md
       - name: SMS
         href: concepts/telephony-and-sms/sms.md
       - name: Push Notifications Overview
         href: concepts/telephony-and-sms/push-notifications-overview.md
+      - name: Push Notifications Overview 2
+        href: concepts/telephony-and-sms/push-notifications-overview-2.md
       - name: Registering For Push Notifications
         href: concepts/telephony-and-sms/notifications-azure-portal-registration.md
       - name: Plan Your Telephony and SMS Solution 
         href: concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
       - name: Call Flows
         href: concepts/telephony-and-sms/call-flows.md
+      - name: Call Analytics
+        href: concepts/telephony-and-sms/call-analytics.md
+      - name: Call Detail Records
+        href: concepts/telephony-and-sms/call-detail-records.md
       - name: SIP, VOIP, and PSTN
         href: concepts/telephony-and-sms/sip-voip-pstn.md
+      - name: Spam and Robocall Protection
+        href: concepts/telephony-and-sms/spam-robocall.md
   - name: Voice and Video Calling
     items:
-      - name: About Voice
-        href: concepts/voice/voice.md
-      #- name: Phone Numbers
-      #  href: concepts/voice/phone-numbers.md
-      #- name: Phone Trees
-      #  href: concepts/voice/phone-trees.md
-      #- name: Call Detail Records
-      #  href: concepts/voice/call-detail-records.md
-      #- name: Call Analytics
-      #  href: concepts/voice/call-analytics.md
-      #- name: Spam and Robocall Protection
-      #  href: concepts/voice/spam-robocall.md
-      - name: About Video
-        href: concepts/video/video.md
+      - name: About Voice and Video
+        href: concepts/voice-and-video/about-voice.md
       - name: Introduction to WebRTC
-        href: concepts/video/about-webrtc.md
-      
-      #- name: Data Channels
-      #  href: concepts/video/data-channels.md
+        href: concepts/voice-and-video/intro-to-webrtc.md
   - name: Diagnostics and metrics
     items:
     - name: Metrics definitions 
@@ -159,7 +130,7 @@
     - name: Leveraging metrics and logs
       href: concepts/most-out-of-metrics-logs.md
     - name: Logging
-      href: concepts/logs-schema-list.md
+      href: concepts/logging-diagnostics.md
   - name: SDK Options
     href: concepts/sdk-options.md
   - name: Pricing Model
