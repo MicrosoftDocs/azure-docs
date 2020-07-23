@@ -3,9 +3,9 @@
 title: Set up an instance and authentication (manual, portal)
 titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the Azure portal
-author: v-lakast
-ms.author: v-lakast # Microsoft employees only
-ms.date: 7/16/2020
+author: baanders
+ms.author: baanders # Microsoft employees only
+ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 
