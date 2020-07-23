@@ -54747,7 +54747,7 @@
     },
     {
       "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
-      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
+      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes",
       "redirect_document_id": false
     },
     {
