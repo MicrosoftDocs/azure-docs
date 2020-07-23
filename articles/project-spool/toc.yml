@@ -43,6 +43,8 @@
         href: quickstarts/telephony-and-sms/send-sms-js.md
       - name: Send an SMS (.NET)
         href: quickstarts/telephony-and-sms/send-sms-net.md
+      - name: Assign A Telephone Number To A Bot
+        href: quickstarts/telephony-and-sms/assign-a-telephone-number-to-an-acs-bot.md
   - name: Voice and Video Calling
     items:
     - name: Initialize Your Calling Client
@@ -119,8 +121,6 @@
     items: 
       - name: SMS
         href: concepts/telephony-and-sms/sms.md
-      - name: SMS Flows
-        href: concepts/telephony-and-sms/sms-flows.md
       - name: Push Notifications Overview
         href: concepts/telephony-and-sms/push-notifications-overview.md
       - name: Registering For Push Notifications
