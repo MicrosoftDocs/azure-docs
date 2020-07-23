@@ -31,7 +31,7 @@ RBAC can be assigned based on the roles. The roles ensure certain permission lev
 
 * **Built-in roles** - The built-in roles can be owner, contributor, reader, or user access administrator. For more information, see [Built-in roles for Azure Role-based Access Control](../role-based-access-control/built-in-roles.md).
 
-* **Custom roles** - If the built-in roles do not suit your needs, you can create custom RBAC roles for StorSimple. To create a custom RBAC role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../role-based-access-control/custom-roles.md).
+* **Custom roles** - If the built-in roles do not suit your needs, you can create Azure custom roles for StorSimple. To create a Azure custom role, start with a built-in role, edit it, and then import it back in the environment. The download and upload of the role are managed using either Azure PowerShell or the Azure CLI. For more information, see [Create custom roles for Role-based Access Control](../role-based-access-control/custom-roles.md).
 
 To view the different roles available for a StorSimple device user in the Azure portal, go to your StorSimple Device Manager service and then go to **Access control (IAM) > Roles**.
 
@@ -98,7 +98,7 @@ In the following example, we start with the built-in role **Reader** that allows
     }
     ```
 
-6. Import the custom RBAC role back into the environment.
+6. Import the Azure custom role back into the environment.
 
     `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 

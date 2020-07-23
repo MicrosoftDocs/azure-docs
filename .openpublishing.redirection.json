@@ -49863,7 +49863,7 @@
     },
     {
       "source_path": "articles/billing/billing-understand-vm-reservation-charges.md",
-      "redirect_url": "/azure/cost-management-billing/manage/understand-vm-reservation-charges",
+      "redirect_url": "/azure/cost-management-billing/manage/understand-vm-reservation-charges?toc=/azure/cost-management-billing/reservations/toc.json",
       "redirect_document_id": true
     },
     {
