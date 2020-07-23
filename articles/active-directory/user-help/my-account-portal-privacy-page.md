@@ -16,17 +16,19 @@ ms.author: curtand
 
 # View how your organization uses your privacy-related data
 
-You can view how your organization uses your data from the **Privacy** page of the **My Account** portal.
+You can view how your organization uses your data from the **Settings & Privacy** page of the **My Account** portal.
 
 ## View your privacy-related info
 
 1. Sign in to your work or school account and then go to your https://myaccount.microsoft.com/ page.
 
-2. Select **Settings & Privacy** from the left navigation pane or select the **View Settings And Privacy** link from the **Settings & Privacy** block.
+2. Select **Settings & Privacy** from the left navigation pane or select the **View Settings and Privacy** link from the **Settings & Privacy** block.
 
     ![My Account page, showing highlighted Settings & Privacy link](media/my-account-portal/my-account-portal-privacy.png)
 
-3. Select **Privacy**, then review the information, including:
+3. Select **Privacy**, as shown in the following example screenshot, then review the information, including:
+
+    ![Settings & Privacy page, showing highlighted Privacy tab option](media/my-account-portal/my-account-portal-privacy-tab.png)
 
     - **Services.** A list of online services you're connected to using your work or school account.
 
