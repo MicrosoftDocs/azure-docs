@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
 ---
 
 # Sign in users and call the Microsoft Graph API from a JavaScript single-page application (SPA)

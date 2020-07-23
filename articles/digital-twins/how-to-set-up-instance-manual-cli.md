@@ -75,7 +75,7 @@ The result of this command is outputted information about the role assignment th
 > [!TIP]
 > If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for the user:
 > ```azurecli
-> az ad user show --id <Azure AD-email-of-user-to-assign> --query objectId
+> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
 > ```
 > Then, repeat the role assignment command using the user's *Object ID* in place of their email.
 
