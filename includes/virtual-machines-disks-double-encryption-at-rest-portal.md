@@ -20,7 +20,7 @@
 > [!IMPORTANT]
 > You must use the [provided link](https://aka.ms/diskencryptionupdates) to access the Azure portal. Double encryption at rest is not currently visible in the public Azure portal without using the link.
 
-1. Search for and select Disk Encryption Sets.
+1. Search for and select **Disk Encryption Sets**.
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png" alt-text="example text":::
 
