@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Blockchain Service member - Azure CLI
 description: Create an Azure Blockchain Service member for a blockchain consortium using the Azure CLI.
-ms.date: 07/16/2020
+ms.date: 07/23/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.custom: references_regions
@@ -30,7 +30,7 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
 1. Sign in.
 
-   Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
+    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
 
     ```azurecli
     az login
@@ -38,21 +38,21 @@ If you prefer to install and use the CLI locally, this quickstart requires Azure
 
     Follow the steps displayed in your terminal to complete the authentication process.
 
-2. Install the Azure CLI extension.
+1. Install the Azure CLI extension.
 
-   When working with extension references for the Azure CLI, you must first install the extension.  Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.  To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+    When working with extension references for the Azure CLI, you must first install the extension.  Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.  To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
-   Install the [extension for Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain) by running the following command:
+    Install the [extension for Azure Blockchain Service](/cli/azure/ext/blockchain/blockchain) by running the following command:
 
-    ```azurecli
+    ```azurecli-interactive
     az extension add --name blockchain
-   ```
+    ```
 
-3. Create a resource group.
+1. Create a resource group.
 
-   Azure Blockchain Service, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
+    Azure Blockchain Service, like all Azure resources, must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 
-   For this quickstart, create a resource group named _myresourcegroup_ in the _eastus_ location with the following [az group create](/cli/azure/group#az-group-create) command:
+    For this quickstart, create a resource group named _myResourceGroup_ in the _eastus_ location with the following [az group create](/cli/azure/group#az-group-create) command:
 
     ```azurecli-interactive
     az group create \
