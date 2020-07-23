@@ -13,7 +13,7 @@ ms.date: 07/24/2019
 
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
-This article describes the details of onboarding and using Service Map. For information about configuring the prerequisites for this solution, see [Enable the Azure Monitor for VMs overview](vminsights-enable-overview.md#prerequisites). The prerequisites of the solution are the following:
+This article describes the details of onboarding and using Service Map. The prerequisites of the solution are the following:
 
 * A Log Analytics workspace in a [supported region](vminsights-configure-workspace.md#supported-regions).
 

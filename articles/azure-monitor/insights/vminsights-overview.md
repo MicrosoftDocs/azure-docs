@@ -1,6 +1,6 @@
 ---
 title: What is Azure Monitor for VMs?
-description: Overview of Azure Monitor for VMs which monitors the health and performance of the Azure VMs in addition to automatically discovering and mapping application components and their dependencies. 
+description: Overview of Azure Monitor for VMs, which monitors the health and performance of the Azure VMs and automatically discovers and maps application components and their dependencies. 
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -28,19 +28,19 @@ Azure Monitor for VMs supports Windows and Linux operating systems on the follow
 ) we are making to the Health feature based on the feedback we have received from our public preview customers. Given the number of changes we will be making, we are going to stop offering the Health feature for new customers. Existing customers can continue to use the health feature. For more details, please refer to our [General Availability FAQ](vminsights-ga-release-faq.md).  
 
 
-Azure Monitor for VMs stores its data in Azure Monitor Logs which allows it to deliver powerful aggregation and filtering and to analyze data trends over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
+Azure Monitor for VMs stores its data in Azure Monitor Logs, which allows it to deliver powerful aggregation and filtering and to analyze data trends over time. You can view this data in a single VM from the virtual machine directly, or you can use Azure Monitor to deliver an aggregated view of multiple VMs.
 
 ![Virtual machine insights perspective in the Azure portal](media/vminsights-overview/vminsights-azmon-directvm.png)
 
 
 ## Pricing
-There is no direct cost for Azure Monitor for VMs, but you are charged for its activity in the Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
+There's no direct cost for Azure Monitor for VMs, but you're charged for its activity in the Log Analytics workspace. Based on the pricing that's published on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/), Azure Monitor for VMs is billed for:
 
 - Data ingested from agents and stored in the workspace.
 - Alert rules based on log and health data.
 - Notifications sent from alert rules.
 
-The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the additional performance data that's sent to the Azure Monitor InsightsMetrics data type.​
+The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the additional performance data that's sent to the Azure Monitor `InsightsMetrics` data type.​
 
 
 ## Configuring Azure Monitor for VMs
