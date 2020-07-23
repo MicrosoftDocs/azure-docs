@@ -72,7 +72,7 @@ You can configure custom rules WAF as follows:
 
 ### Azure-managed rule sets
 
-Azure-managed rule sets provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Azure-managed Default Rule Set includes rules against the following threat categories:
+[Azure-managed rule sets](../ag/application-gateway-crs-rulegroups-rules.md) provide an easy way to deploy protection against a common set of security threats. Since such rulesets are managed by Azure, the rules are updated as needed to protect against new attack signatures. Azure-managed Default Rule Set includes rules against the following threat categories:
 
 - Cross-site scripting
 - Java attacks
