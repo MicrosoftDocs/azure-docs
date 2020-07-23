@@ -156,11 +156,8 @@ Create a load balancer rule with [az network lb rule create](https://docs.micros
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool \
     --probe-name myHealthProbe \
-    --disable-outbound-snat false 
+    --disable-outbound-snat true 
 ```
-> [!NOTE]
-> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, omit **(--disable-outbound-snat false)** and refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
-
 
 ## Configure virtual network
 
@@ -409,6 +406,140 @@ Create the virtual machines with [az vm create](https://docs.microsoft.com/cli/a
     --no-wait
 ```
 It may take a few minutes for the VMs to deploy.
+
+## Create outbound rule configuration
+Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
+
+For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
+
+### Create outbound public IP address
+
+Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
+
+* Create a standard zone redundant public IP address named **myPublicIPOutbound**.
+* In **myResourceGroupLB**.
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPOutbound \
+    --sku Standard
+```
+
+To create a zonal redundant public IP address in Zone 1:
+
+```azurecli-interactive
+  az network public-ip create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPOutbound \
+    --sku Standard \
+    --zone 1
+```
+### Create outbound frontend IP configuration
+
+Create a new frontend IP configuration with [az network lb frontend-ip create
+](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create):
+
+* Named **myFrontEndOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with public IP address **myPublicIPOutbound**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network lb frontend-ip create \
+    --resource-group myResourceGroupLB \
+    --name myFrontEndOutbound \
+    --lb-name myLoadBalancer \
+    --public-ip-address myPublicIPOutbound 
+```
+
+### Create outbound pool
+
+Create a new outbound pool with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create):
+
+* Named **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network lb address-pool create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myBackendPoolOutbound
+```
+### Create outbound rule
+
+Create a new outbound rule for the outbound backend pool with [az network lb outbound-rule create](https://docs.microsoft.com/cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-create):
+
+* Named **myOutboundRule**.
+* In resource group **myResourceGroupLB**.
+* Associated with load balancer **myLoadBalancer**
+* Associated with frontend **myFrontEndOutbound**.
+* Protocol **All**.
+* Idle timeout of **15**.
+* **10000** outbound ports.
+* Associated with backend pool **myBackEndPoolOutbound**.
+
+```azurecli-interactive
+  az network lb outbound-rule create \
+    --resource-group myResourceGroupLB \
+    --lb-name myLoadBalancer \
+    --name myOutboundRule \
+    --frontend-ip-configs myFrontEndOutbound \
+    --protocol All \
+    --idle-timeout 15 \
+    --outbound-ports 10000 \
+    --address-pool myBackEndPoolOutbound
+```
+### Add virtual machines to outbound pool
+
+Add the virtual machine network interfaces to the outbound pool of the load balancer with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+
+
+#### VM1
+* In backend address pool **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myVMNic1** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPoolOutbound \
+   --ip-config-name ipconfig1 \
+   --nic-name myVMNic1 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### VM2
+* In backend address pool **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myVMNic2** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPoolOutbound \
+   --ip-config-name ipconfig1 \
+   --nic-name myVMNic2 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
+
+#### VM3
+* In backend address pool **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myVMNic3** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network nic ip-config address-pool add \
+   --address-pool myBackendPoolOutbound \
+   --ip-config-name ipconfig1 \
+   --nic-name myVMNic3 \
+   --resource-group myResourceGroupLB \
+   --lb-name myLoadBalancer
+```
 
 # [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
