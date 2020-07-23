@@ -37,6 +37,8 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 ![Dashboard](media/visualizations/dashboard.png)
 
+Here is a video walkthrough on creating dashboards.
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### Advantages

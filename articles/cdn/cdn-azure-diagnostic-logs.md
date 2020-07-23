@@ -20,16 +20,17 @@ ms.author: allensu
 
 With Azure diagnostic logs, you can view core analytics and save them into one or more destinations including:
 
- - Azure Storage account
- - Log Analytics workspace
-  - Azure Event Hubs
+* Azure Storage account
+* Log Analytics workspace
+* Azure Event Hubs
+
 This feature is available on CDN endpoints for all pricing tiers. 
 
 Diagnostics logs allow you to export basic usage metrics from your CDN endpoint to different kinds sources so that you can consume them in a customized way. You can do the following types of data export:
 
-- Export data to blob storage, export to CSV, and generate graphs in Excel.
-- Export data to Event Hubs and correlate with data from other Azure services.
-- Export data to Azure Monitor logs and view data in your own Log Analytics workspace
+* Export data to blob storage, export to CSV, and generate graphs in Excel.
+* Export data to Event Hubs and correlate with data from other Azure services.
+* Export data to Azure Monitor logs and view data in your own Log Analytics workspace
 
 An Azure CDN profile is required for the following steps. Refer to [create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md) before you continue.
 
