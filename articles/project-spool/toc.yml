@@ -7,8 +7,6 @@
     href: contribute.md
   - name: Docs Philosophy
     href: docs-philosophy.md
-  - name: Docs FAQ
-    href: docs-faq.md
   - name: Generating Reference Docs
     href: reference-docs-guidance.md
 - name: Overview
@@ -20,7 +18,7 @@
     href: compare.md
 - name: Quickstarts
   expanded: true
-  items:
+  items: 
   - name: Chat
     items:
       - name: Get Started With Chat
