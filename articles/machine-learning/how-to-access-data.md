@@ -104,7 +104,7 @@ Within this section are examples for how to create and register a datastore via 
 
 The parameters provided in these examples are the **required parameters** to create and register a datastore. To create datastores for other supported storage services, see the [reference documentation for the applicable `register_azure_*` methods](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods).
 
-If you prefer a low code experience, see [Create datastores in Azure Machine Learning studio](#create-datastores-in-azure-machine-learning-studio).
+If you prefer a low code experience, see [Create datastores in Azure Machine Learning studio](#studio).
 
 You can find the information that you need to populate the `register_azure_*()` method on the [Azure portal](https://portal.azure.com).
 
@@ -218,7 +218,7 @@ The following example demonstrates what the form looks like when you create an *
 
 ## Use the data in your datastores
 
-After you create a datastore, [create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with your data. Datasets package your data into a consumable object for machine learning tasks, like training. They also provide the ability to [download or mount](how-to-train-with-datasets.md#mount-vs-download.) files of any format from Azure storage services like, Azure Blob storage and Azure Data Lake Storage Gen2. You can also use them to load tabular data into a pandas or Spark DataFrame.
+After you create a datastore, [create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with your data. Datasets package your data into a consumable object for machine learning tasks, like training. They also provide the ability to [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like, Azure Blob storage and Azure Data Lake Storage Gen2. You can also use them to load tabular data into a pandas or Spark DataFrame.
 
 <a name="get"></a>
 
