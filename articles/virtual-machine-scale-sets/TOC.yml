@@ -125,7 +125,7 @@
       items:
       - name: B-series burstable
         href: ../virtual-machines/sizes-b-series-burstable.md
-      maintainContext: true
+        maintainContext: true
     - name: Compute optimized
       href: ../virtual-machines/sizes-compute.md
       maintainContext: true
@@ -135,7 +135,7 @@
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
-      maintainContext: true
+        maintainContext: true
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
       maintainContext: true
@@ -145,9 +145,15 @@
       items:
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
-      maintainContext: true
+        maintainContext: true
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
+      maintainContext: true
+    - name: Azure VMs with no temp disk
+      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      maintainContext: true
+    - name: Azure VM sizes naming conventions
+      href: ../virtual-machines/vm-naming-conventions.md
       maintainContext: true
     - name: Azure compute units (ACU)
       href: ../virtual-machines/acu.md
