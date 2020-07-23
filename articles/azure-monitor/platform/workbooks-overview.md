@@ -7,7 +7,7 @@ services: azure-monitor
 
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
 ---
 
