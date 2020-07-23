@@ -11,8 +11,13 @@
     href: docs-faq.md
   - name: Generating Reference Docs
     href: reference-docs-guidance.md
-- name: About Azure Communication Services
-  href: overview.md
+- name: Overview
+  expanded: true
+  items:
+  - name: What Is Azure Communication Services?
+    href: overview.md
+  - name: Compare Communication Services
+    href: compare.md
 - name: Quickstarts
   expanded: true
   items:
