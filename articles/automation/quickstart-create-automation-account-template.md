@@ -10,7 +10,7 @@ ms.service: automation
 ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 
@@ -37,6 +37,7 @@ This sample template performs the following:
 * Automates the creation of an Azure Monitor Log Analytics workspace.
 * Automates the creation of an Azure Automation account.
 * Links the Automation account to the Log Analytics workspace.
+* Adds sample Automation runbooks to the account.
 
 >[!NOTE]
 >Creation of the Automation Run As account is not supported when you're using an ARM template. To create a Run As account manually from the portal or with PowerShell, see [Manage Run As accounts](manage-runas-account.md).
@@ -54,7 +55,8 @@ The following table lists the API version for the resources used in this example
 | Resource | Resource type | API version |
 |:---|:---|:---|
 | [Workspace](/azure/templates/microsoft.operationalinsights/workspaces) | workspaces | 2020-03-01-preview |
-| [Automation account](/azure/templates/microsoft.automation/automationaccounts) | automation | 2018-06-30 |
+| [Automation account](/azure/templates/microsoft.automation/automationaccounts) | automation | 2020-01-13-preview |
+| [Workspace Linked services](/azure/templates/microsoft.operationalinsights/workspaces/linkedservices) | worksapces | 2020-03-01-preview |
 
 ### Before you use the template
 
