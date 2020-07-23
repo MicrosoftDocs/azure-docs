@@ -47,17 +47,11 @@ If you find that the value is *Contributor* or something other than *Owner*, you
 
 In this section, you will **create a new instance of Azure Digital Twins** using the Azure portal.
 
-
-
-
-You'll also need to provide a name for your instance and choose a region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-
->[!NOTE]
-> The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll have to pick a different name).
-
-After you are logged into [Azure portal](https://ms.portal.azure.com/), you can create your instance by selecting _Create a resource_ in the Azure services menu. Then, choose the service by typing 'Azure Digital Twins' in the search box and choose **Azure Digital Twins (Preview)** from the results, then select the _Create_ button to create a new instance of the service.
+After you are logged into [Azure portal](https://ms.portal.azure.com/), you can create your instance by selecting _Create a resource_ in the Azure services home page menu.
 
 :::image type="content" source= "media/how-to-set-up-instance/azure-portal-home-page.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
+
+Search for *Azure Digital Twins* in the search box, and choose the **Azure Digital Twins (Preview)** service from the results. Select the _Create_ button to create a new instance of the service.
 
 :::image type="content" source= "media/how-to-set-up-instance/create-new-resource-ADT.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 
@@ -111,7 +105,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 ## Set up access permissions for client applications
 
-[!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
 
 In your working directory, open a new file and enter the following JSON snippet to configure these details: 
 

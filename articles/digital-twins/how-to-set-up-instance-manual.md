@@ -87,7 +87,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 ## Set up access permissions for client applications
 
-[!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
 
 In your working directory, open a new file and enter the following JSON snippet to configure these details: 
 
