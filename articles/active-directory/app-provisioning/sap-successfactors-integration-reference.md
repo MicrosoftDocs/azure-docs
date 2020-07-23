@@ -16,14 +16,14 @@ ms.author: chmutali
 
 [Azure Active Directory user provisioning service](../app-provisioning/user-provisioning.md) integrates with [SAP SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) to manage the identity life cycle of users. Azure Active Directory offers three pre-built integrations: 
 
-* SuccessFactors to on-premises Active Directory user provisioning
-* SuccessFactors to Azure Active Directory user provisioning
-* SuccessFactors Writeback
+* [SuccessFactors to on-premises Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+* [SuccessFactors to Azure Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+* [SuccessFactors Writeback](../saas-apps/sap-successfactors-writeback-tutorial.md)
 
 This article explains how the integration works and how you can customize the provisioning behavior for different HR scenarios. 
 
 ## Establishing connectivity 
-Azure AD provisioning engine uses basic authentication to connect to Employee Central OData API endpoints. When setting up the SuccessFactors provisioning app, use the *Tenant URL* parameter in the *Admin Credentials* section to configure the [API data center URL](https://apps.support.sap.com/sap/support/knowledge/en/2215682). 
+Azure AD provisioning service uses basic authentication to connect to Employee Central OData API endpoints. When setting up the SuccessFactors provisioning app, use the *Tenant URL* parameter in the *Admin Credentials* section to configure the [API data center URL](https://apps.support.sap.com/sap/support/knowledge/en/2215682). 
 
 To further secure the connectivity between Azure AD provisioning service and SuccessFactors, you can add the Azure AD IP ranges in the SuccessFactors IP allow-list using the steps described below:
 
@@ -107,7 +107,7 @@ After full sync, Azure AD provisioning service maintains *LastExecutionTimestamp
 When Azure AD provisioning service queries SuccessFactors, it retrieves a JSON result set. The JSON result set includes a number of attributes stored in Employee Central. By default, the provisioning schema is configured to retrieve only a subset of those attributes. 
 
 To retrieve additional attributes, follow the steps listed below:
-	
+    
 * Browse to **Enterprise Applications** -> **SuccessFactors App** -> **Provisioning** -> **Edit Provisioning** -> **Attribute Mapping page**.
 * Scroll down and click **Show advanced options**.
 * Click on **Edit attribute list for SuccessFactors**. 
@@ -272,6 +272,31 @@ To fetch attributes belonging to both jobs, use the steps listed below:
 * You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. 
 * Save the mapping. 
 * Restart provisioning. 
+
+## Writeback scenarios
+
+This section covers different write back scenarios. It recommends configuration approaches based on how email and phone number is setup in SuccessFactors.
+
+### Supported scenarios for phone and email write back 
+
+| \# | Scenario requirement | Email primary <br> flag value | Business phone <br> primary flag value | Cell phone <br> primary flag value | Business phone <br> mapping | Cell phone <br> mapping |
+|--|--|--|--|--|--|--|
+| 1 | * Only set business email as primary. <br> * Don't set phone numbers. | true | true | false | \[Not Set\] | \[Not Set\] | 
+| 2 | * In SuccessFactors, business email and business phone is primary <br> * Always flow Azure AD telephone number to business phone and mobile to cell phone. | true | true | false | telephoneNumber | mobile | 
+| 3 | * In SuccessFactors, business email and cell phone is primary <br> * Always flow Azure AD telephone number to business phone and mobile to cell phone | true | false | true |  telephoneNumber | mobile | 
+| 4 | * In SuccessFactors business email is primary <br> * In Azure AD, check if work telephone number is present, if it is present, then check if mobile number is present, mark  work telephone number as primary only if there is no mobile number. | true | Use expression mapping: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use expression mapping: `IIF(IsPresent([mobile]),"false", "true")` | telephoneNumber | mobile | 
+| 5 | * In SuccessFactors business email and business phone is primary. <br> * In Azure AD, if mobile is available, then set it as the business phone, else use telephoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Not Set\] | 
+
+* If there is no mapping for phone number in the write back attribute mapping, then only email is included in the write back.
+* During new hire onboarding in Employee Central, business email and phone number may not be available. If it is mandatory during onboarding to set business email and phone, you can set a dummy value  for business phone and email during new hire creation, which will eventually be updated by the Writeback app.
+ 
+### Unsupported scenarios for phone and email write back
+
+The SuccessFactors Writeback app does not support the following scenarios:
+* In SuccessFactors, personal email and personal phone is set as primary during onboarding and later business email and business phone is set as primary.
+* In SuccessFactors, business phone is set as primary and you want to switch to cell phone as primary.
+* Configure write back to use the primary flag settings read from SuccessFactors. Use the flag value read from SuccessFactors during the write operation.
+
 
 ## Next steps
 
