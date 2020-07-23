@@ -90,7 +90,11 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 
 ### Verify app registration
 
-[!INCLUDE [digital-twins-setup-verify-app-registration.md](../../includes/digital-twins-setup-verify-app-registration.md)]
+[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+
+First, verify that the Azure Digital Twins permissions settings were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
+
+[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
 ## Other possible steps for your organization
 
