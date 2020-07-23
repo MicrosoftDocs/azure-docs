@@ -321,6 +321,12 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
 }
 ```
 
+After you create the policy with the Deny effect and assign it to a scope, you cannot create a storage account with a minimum TLS version set to less than 1.2, or modify the minimum TLS version for an existing storage account so that it is less than 1.2. Attempting to do so results in an error.
+
+The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 when the policy requires that the minimum TLS version is set to TLS 1.2.
+
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
+
 ## Next steps
 
 - [Configure Transport Layer Security (TLS) for a client application](transport-layer-security-configure-client-version.md)
