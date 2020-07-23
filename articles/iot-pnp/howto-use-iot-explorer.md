@@ -88,7 +88,7 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 - You can send a [cloud-to-device message](../iot-hub/iot-hub-devguide-messages-c2d.md) on the **Cloud-to-device messages** tab.
 - You can access the [module twin](../iot-hub/iot-hub-devguide-module-twins.md) information.
 
-### IoT Plug and Play Components
+### IoT Plug and Play components
 
 If the device is connected to the hub using a **Model ID**, the tool shows the **IoT Plug and Play components** tab `` where you can see the **Model ID**.
 

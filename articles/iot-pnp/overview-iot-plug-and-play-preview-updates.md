@@ -57,13 +57,13 @@ The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub
 
 ## Message routing
 
-Telemetry messages have the following changes within [**SystemProperties**](../iot-hub/iot-hub-devguide-messages-construct.md) collection.
+Telemetry messages have the following changes within [SystemProperties](../iot-hub/iot-hub-devguide-messages-construct.md) collection.
 
-It now includes a **dt-dataschema** property that is the **Model ID** registered by the device.
+It now includes a **dt-dataschema** property that's the **Model ID** registered by the device.
 
-**dt-subject** property represents the component sending telemetry message.
+The **dt-subject** property represents the component sending telemetry message.
 
-**iothub-interface-name** property is deprecated.
+The **iothub-interface-name** property is deprecated.
 
 ## Device and service SDKs
 

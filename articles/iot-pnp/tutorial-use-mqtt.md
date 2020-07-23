@@ -92,12 +92,12 @@ In the **TelemetryMQTTWin32** project, open the **MQTT_Mosquitto.cpp** source fi
 * `DEVICEID` identifier with the name of the device you created.
 * `PWD` identifier with the shared access signature value you generated for the device.
 
-Verify the code is working correctly, by starting Azure IoT Explorer, start listening the telemetry.
+Verify the code is working correctly, by starting Azure IoT explorer, start listening the telemetry.
 Run the application (Ctrl+F5), after couple of seconds you should see something like:
 
 :::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
 
-In Azure IoT Explorer, you should see, clearly not an IoT Plug and Play device:
+In Azure IoT explorer, you should see, clearly not an IoT Plug and Play device:
 
 :::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
 

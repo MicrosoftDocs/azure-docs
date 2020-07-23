@@ -223,7 +223,7 @@ Let's say device also had the following writable property at root-level:
    :::column-end:::
 :::row-end:::
 
-In this example, `3.0` is the current value of the `fanSpeed` property reported by the device. `2.0` is the desired value set by the solution. The desired value and synchronization state of a root-level property is set within root-level `$metadata` for a digital twin. When the device comes online, it can apply this update and reported back the updated value.
+In this example, `3.0` is the current value of the `fanSpeed` property reported by the device. `2.0` is the desired value set by the solution. The desired value and synchronization state of a root-level property is set within root-level `$metadata` for a digital twin. When the device comes online, it can apply this update and report back the updated value.
 
 ### Components
 
