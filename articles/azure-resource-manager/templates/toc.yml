@@ -118,6 +118,8 @@
       items:
       - name: Advisor
         href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      - name: Automation
+        href: ../../automation/quickstart-create-automation-account-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Backup
         href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Cost Management+Billing

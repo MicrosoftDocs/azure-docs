@@ -34,7 +34,7 @@ To enter single-user mode, enter GRUB when your VM is booting, and modify the bo
 ## General GRUB access
 To access GRUB, reboot your VM while the Serial Console pane is open. Some distributions require keyboard input to show GRUB, and others automatically show GRUB for a few seconds to allow user keyboard input to cancel the timeout.
 
-To be able to access single-user mode, you want to ensure that GRUB is enabled on your VM. Depending on your distribution, some setup work might be necessary to ensure that GRUB is enabled. For distribution-specific information, see the next section and our [Support for Linux on Azure](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time) page.
+To be able to access single-user mode, you want to ensure that GRUB is enabled on your VM. Depending on your distribution, some setup work might be necessary to ensure that GRUB is enabled. For distribution-specific information, see the next section.
 
 ### Restart your VM to access GRUB in Serial Console
 You can restart your VM within Serial Console by hovering over the **Restart** button and then selecting **Restart VM**. A notification about the restart is displayed at the bottom of the pane.

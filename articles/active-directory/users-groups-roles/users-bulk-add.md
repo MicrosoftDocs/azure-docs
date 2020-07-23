@@ -43,6 +43,7 @@ The rows in a downloaded CSV template are as follows:
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
+- Make sure to check there is no unintended whitespace before/after any field. For **User principal name**, having such whitespace would cause import failure.
 
 ## To create users in bulk
 
@@ -52,7 +53,7 @@ The rows in a downloaded CSV template are as follows:
 
    ![Select a local CSV file in which you list the users you want to add](./media/users-bulk-add/upload-button.png)
 
-1. Open the CSV file and add a line for each user you want to create. The only required values are **Name**, **User principal name**, **Initial password** and **Block sign in (Yes/No)**. Make sure to check there is no unintended whitespace before/after any field. For **User principal name**, having such whitespace would cause import failure. Then save the file.
+1. Open the CSV file and add a line for each user you want to create. The only required values are **Name**, **User principal name**, **Initial password** and **Block sign in (Yes/No)**. Then save the file.
 
    [![](media/users-bulk-add/add-csv-file.png "The CSV file contains names and IDs of the users to create")](media/users-bulk-add/add-csv-file.png#lightbox)
 
