@@ -65,7 +65,7 @@ As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1 to 6.15.9
-- Confluence: 7.0.1 to 7.4.0
+- Confluence: 7.0.1 to 7.6.1
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
