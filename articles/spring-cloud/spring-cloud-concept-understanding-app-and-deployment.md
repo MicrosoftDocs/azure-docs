@@ -4,7 +4,7 @@ description: The distinction between application and deployment in Azure Spring 
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: Conceptual
+ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
 ---
