@@ -53,6 +53,7 @@ eyAiYWxnIjoiUlMyNTYiLCAieDVjIjogWyJNSUlETERDQ0FoU2dBd0lCQWdJSVpTYW5zQ1djS1RNd0RR
 ```
 
 </br>
+
 **No security policy for VBS enclaves**
 
 ```
@@ -69,6 +70,7 @@ c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
 ```
 
 </br>
+
 **Optimum securrity policy for VBS enclaves**
 
 version=1.0;
@@ -98,6 +100,7 @@ c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
 => issueproperty(type = "omit_x5c", value = true);
 };
 </br>
+
 ## Next steps
 
 - [Authoring and signing attestation policy](authoringandsigningpolicy.md)
