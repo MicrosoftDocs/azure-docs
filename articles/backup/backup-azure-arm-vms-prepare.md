@@ -29,18 +29,18 @@ In this article, you learn how to:
 
 In addition, there are a couple of things that you might need to do in some circumstances:
 
-* **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](#install-the-vm-agent).
+* **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](#install-the-vm-agent).
 
 ## Create a vault
 
  A vault stores backups and recovery points created over time, and stores backup policies associated with backed up machines. Create a vault as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. In search, type **Recovery Services**. Under **Services**, click **Recovery Services vaults**.
+2. In search, type **Recovery Services**. Under **Services**, select **Recovery Services vaults**.
 
      ![Search for Recovery Services vaults](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png)
 
-3. In **Recovery Services vaults** menu, click **+Add**.
+3. In **Recovery Services vaults** menu, select **+Add**.
 
      ![Create Recovery Services Vault step 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
@@ -48,7 +48,7 @@ In addition, there are a couple of things that you might need to do in some circ
     * The name needs to be unique for the Azure subscription.
     * It can contain 2 to 50 characters.
     * It must start with a letter, and it can contain only letters, numbers, and hyphens.
-5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Then click **Create**.
+5. Select the Azure subscription, resource group, and geographic region in which the vault should be created. Then select **Create**.
     * It can take a while for the vault to be created.
     * Monitor the status notifications in the upper-right area of the portal.
 
@@ -64,13 +64,13 @@ After the vault is created, it appears in the Recovery Services vaults list. If 
 By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md).
 
 * If the vault is your primary backup mechanism, we recommend you use GRS.
-* You can use [locally-redundant storage (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) for a cheaper option.
+* You can use [locally redundant storage (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) for a cheaper option.
 
 Modify storage replication type as follows:
 
-1. In the new vault, click **Properties** in the **Settings** section.
-2. In **Properties**, under **Backup Configuration**, click **Update**.
-3. Select the storage replication type, and click **Save**.
+1. In the new vault, select **Properties** in the **Settings** section.
+2. In **Properties**, under **Backup Configuration**, select **Update**.
+3. Select the storage replication type, and select **Save**.
 
       ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
 
@@ -81,7 +81,7 @@ Modify storage replication type as follows:
 
 Configure a backup policy for the vault.
 
-1. In the vault, click **+Backup** in the **Overview** section.
+1. In the vault, select **+Backup** in the **Overview** section.
 
    ![Backup button](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
@@ -95,7 +95,7 @@ Configure a backup policy for the vault.
 
       ![Default backup policy](./media/backup-azure-arm-vms-prepare/default-policy.png)
 
-4. In **Select virtual machines**, select the VMs you want to back up using the policy. Then click **OK**.
+4. In **Select virtual machines**, select the VMs you want to back up using the policy. Then select **OK**.
 
    * The selected VMs are validated.
    * You can only select VMs in the same region as the vault.
@@ -106,7 +106,7 @@ Configure a backup policy for the vault.
     >[!NOTE]
     > Only VMs in the same region and subscription as that of the vault will be available to configure backup.
 
-5. In **Backup**, click **Enable backup**. This deploys the policy to the vault and to the VMs, and installs the backup extension on the VM agent running on the Azure VM.
+5. In **Backup**, select **Enable backup**. This deploys the policy to the vault and to the VMs, and installs the backup extension on the VM agent running on the Azure VM.
 
      !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -117,7 +117,7 @@ After enabling backup:
 * When backups run, note that:
   * A VM that's running have the greatest chance for capturing an application-consistent recovery point.
   * However, even if the VM is turned off it's backed up. Such a VM is known as an offline VM. In this case, the recovery point will be crash-consistent.
-* Explicit outbound connectivity is not required to allow backup of Azure VMs.
+* Explicit outbound connectivity isn't required to allow backup of Azure VMs.
 
 ### Create a custom policy
 
@@ -126,11 +126,11 @@ If you selected to create a new backup policy, fill in the policy settings.
 1. In **Policy name**, specify a meaningful name.
 2. In **Backup schedule**, specify when backups should be taken. You can take daily or weekly backups for Azure VMs.
 3. In **Instant Restore**, specify how long you want to retain snapshots locally for instant restore.
-    * When you restore, backed up VM disks are copied from storage, across the network to the recovery storage location. With instant restore, you can leverage locally-stored snapshots taken during a backup job, without waiting for backup data to be transferred to the vault.
+    * When you restore, backed up VM disks are copied from storage, across the network to the recovery storage location. With instant restore, you can leverage locally stored snapshots taken during a backup job, without waiting for backup data to be transferred to the vault.
     * You can retain snapshots for instant restore for between one to five days. Two days is the default setting.
 4. In **Retention range**, specify how long you want to keep your daily or weekly backup points.
 5. In **Retention of monthly backup point**, specify whether you want to keep a monthly backup of your daily or weekly backups.
-6. Click **OK** to save the policy.
+6. select **OK** to save the policy.
 
     ![New backup policy](./media/backup-azure-arm-vms-prepare/new-policy.png)
 
@@ -141,11 +141,11 @@ If you selected to create a new backup policy, fill in the policy settings.
 
 The initial backup will run in accordance with the schedule, but you can run it immediately as follows:
 
-1. In the vault menu, click **Backup items**.
-2. In **Backup Items**, click **Azure Virtual Machine**.
-3. In the **Backup Items** list, click the ellipses (...).
-4. Click **Backup now**.
-5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
+1. In the vault menu, select **Backup items**.
+2. In **Backup Items**, select **Azure Virtual Machine**.
+3. In the **Backup Items** list, select the ellipses (...).
+4. Select **Backup now**.
+5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then select **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
 
 ## Verify Backup job status
@@ -155,7 +155,7 @@ The snapshot phase guarantees the availability of a recovery point stored along 
 
   ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details blade as given below:
+There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details pane as given below:
 
   ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
@@ -172,7 +172,7 @@ Completed | Failed | Completed with warning
 Failed | Failed | Failed
 
 Now with this capability, for the same VM, two backups can run in parallel, but in either phase (snapshot, transfer data to vault) only one sub task can be running. So in scenarios were a backup job in progress resulted in the next day’s backup to fail will be avoided with this decoupling functionality. Subsequent day’s backups can have snapshot completed while **Transfer data to vault** skipped if an earlier day’s backup job is in progress state.
-The incremental recovery point created in the vault will capture all the churn from the last recovery point created in the vault. There is no cost impact on the user.
+The incremental recovery point created in the vault will capture all the churn from the last recovery point created in the vault. There's no cost impact on the user.
 
 ## Optional steps
 
