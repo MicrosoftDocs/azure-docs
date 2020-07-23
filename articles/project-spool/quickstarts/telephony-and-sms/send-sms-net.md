@@ -39,7 +39,7 @@ This quick start is simple enough that we will leverage the .NET console applica
 1. Start Visual Studio.
 2. Create a new .NET console project
 
-![Screenshot of Visual Studio console app template](../media/console-app-template.png)
+![Screenshot of Visual Studio console app template](../media/VisualStudio-console-app-template.png)
 
 The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a built assembly. Visual Studio's nuget package manager makes it easy to find and download packages:
 
