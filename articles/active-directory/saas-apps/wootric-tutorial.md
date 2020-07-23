@@ -132,11 +132,34 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Wootric SSO
 
-To configure single sign-on on **Wootric** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Wootric support team](mailto:support@wootric.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to the Wootric in a different browser window as an administrator.
+
+1. Click on **Settings Icon** from the top menu.
+
+	![Configuration ](./media/wootric-tutorial/configure-1.PNG)
+
+1. In the **INTEGRATIONS**, select **Authentication** from the Left side menu and click on **Enable Single Sign On with Azure Active Directory**.
+
+	![Configuration ](./media/wootric-tutorial/configure-2.PNG)
+
+1. Perform the following steps in the following page:
+
+	![Configuration ](./media/wootric-tutorial/configure-3.PNG)
+
+
+	a. In the **Identity Provider Single Sign-On URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+
+	b. In the **Identity Provider Issuer** textbox, paste the **Entity ID** value which you have copied from the Azure portal.
+
+	c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **X.509 Certificate** textbox.
+
+	d. Select **Automatically grant access to new users** checkbox.
+	
+	e. Click on **Save**.
 
 ### Create Wootric test user
 
-In this section, a user called Britta Simon is created in Wootric. Wootric supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Wootric, a new one is created after authentication.
+In this section, a user called B.Simon is created in Wootric. Wootric supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Wootric, a new one is created after authentication.
 
 ## Test SSO 
 
