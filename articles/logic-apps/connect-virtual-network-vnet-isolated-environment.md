@@ -173,7 +173,7 @@ Also, you need to add outbound rules for [App Service Environment (ASE)](../app-
 
    <a name="create-subnet"></a>
 
-   **Create subnet**
+   **Create subnets**
 
    Your ISE needs four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You *can't* change these subnet addresses after you create your environment. If you create and deploy your ISE through the Azure portal, make sure that you don't delegate these subnets to any Azure services. However, if you create and deploy your ISE through the REST API, Azure PowerShell, or an Azure Resource Manager template, you need to [delegate](../virtual-network/manage-subnet-delegation.md) one empty subnet to `Microsoft.integrationServiceEnvironment`. For more information, see [Add a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
