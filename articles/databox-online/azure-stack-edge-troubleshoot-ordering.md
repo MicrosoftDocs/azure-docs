@@ -14,13 +14,11 @@ ms.author: v-grpr
 
 This article describes how to troubleshoot Azure Stack Edge ordering issues.
 
-<!-- In this article, you learn how to: -->
+In this article, you learn how to:
 
-<!-- > [!div class="checklist"]
+ [!div class="checklist"]
 >
-> * Run diagnostics
-> * Collect Support package
-> * Use logs to troubleshoot -->
+> * Troubleshoot ordering issues
 
 ## Customer is not able to place an order because of unsupported subscription or region
 
