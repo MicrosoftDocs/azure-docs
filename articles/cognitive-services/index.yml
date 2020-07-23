@@ -136,6 +136,38 @@ conceptualContent:
           itemType: reference
           text: Cognitive Services containers FAQ
 
+# productDirectory section (optional)
+productDirectory:
+  title: Customize with Cognitive Services 
+  summary: With the Cognitive Services you can use your data to improve baseline models, or create your own models with your unique data.
+  items:
+    # Card
+    - title: Custom Translator
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/service-icons/translator.svg
+      summary: Learn how to customize Microsoft Translator's neural text and speech translation systems using your own training data to fit your style and terminology.
+      url: https://portal.customtranslator.azure.ai/
+    - title: Custom Vision
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ./media/service-icons/custom-vision.svg
+      summary: Easily customize your own state-of-the-art computer vision models that fit perfectly with your unique use case. Just bring a few examples of labeled images and let Custom Vision do the hard work.
+      url: https://www.customvision.ai/
+    # Card
+    - title: Language Understanding (LUIS)
+      imageSrc: ./media/service-icons/language-understanding.svg
+      summary: A machine learning-based service to build natural language into apps, bots, and IoT devices. Quickly create enterprise-ready, custom models that continuously improve.
+      url: https://luis.ai
+    # Card
+    - title: QnA Maker 
+      imageSrc: ./media/service-icons/qna-maker.svg
+      summary: Build, train and publish a sophisticated bot using FAQ pages, support websites, product manuals, SharePoint documents or editorial content through an easy-to-use UI.
+      url: https://www.qnamaker.ai/
+    # Card
+    - title: Speech Studio
+      imageSrc: ./media/service-icons/speech.svg
+      summary: All the tools you need to transcribe spoken audio to text, perform translations and convert text to lifelike speech. Includes tools for custom speech, custom voice, and custom translation.
+      url: https://speech.microsoft.com/
+
 tools:
   title: Software development kits (SDKs)
   summary: Get started with the Cognitive Services SDK in your favorite programming language.
