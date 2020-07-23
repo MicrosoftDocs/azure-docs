@@ -80,13 +80,12 @@ To use the new route table capabilities, please wait until week of August 3rd fo
 
 ## <a name="considerations"></a>Virtual WAN Routing Considerations
 
-Please take these caveats into account when configuring Virtual WAN Routing:
+Please consider the following when configuring Virtual WAN routing:
 
-* All branch connections (point-to-site, site-to-site and ExpressRoute) need to be associated to the Default route table. As a consequence, all branches will learn the same prefixes
-* All branch connections need to propagate to the same set of route tables (it can be as well the Default route table, but not necessarily). As a consequence, you cannot configure selective learning from a subset of branches
+* All branch connections (point-to-site, site-to-site and ExpressRoute) need to be associated to the Default route table. Therefore, all branches will learn the same prefixes
+* All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a consequence, all connections associated to the Default route table will be able to reach all of the branches.
 * Branch-to-branch via Azure Firewall is currently not supported
-* When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, the custom vnet isolation scenario (also known as "red/blue vnets") is not compatible with the Azure Firewall Interhub scenario (in preview today)
-* Static routes to an external NVA in a user-managed hub ("Route through an NVA" scenario) do not support 0.0.0.0/0 as destination. As a consequence you cannot absorb all Internet traffic from a virtual network connected to Virtual WAN
+* When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible
 
 ## Next steps
 
