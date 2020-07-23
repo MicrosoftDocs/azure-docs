@@ -1,5 +1,20 @@
+---
+title: Sample code of SGX attestation from Linux VM using Open Enclave SDK
+description: XXX
+services: attestation
+author: msmbaldwin
+ms.service: attestation
+ms.topic: overview
+ms.date: 07/20/2020
+ms.author: mbaldwin
+
+
+---
+
 # Sample code of SGX attestation from Linux VM using Open Enclave SDK
+
 ## Overview
+
 The SGX Attestation sample code demonstrates how to generate a quote in an SGX enclave and then get it validated by the Microsoft Azure Attestation. The "enclave held data" for the quote is populated with public key component of a 2048 bit RSA key that's held within the enclave.
 
 The components used in the sample code are outlined in the following diagram:
@@ -22,6 +37,7 @@ The following diagram depicts the relationship between the different artifacts p
 ![JWT Validation Overview Diagram](./media/maa.jwt.validation.overview.png)
 
 ## Remote Quote Generation
+
 *Note: The SGX enclave code in this sample is derived from the [remote_attestation sample code](https://github.com/openenclave/openenclave/tree/master/samples/remote_attestation) in Open Enclave SDK.  Many thanks to the author(s)!*
 
 Remote quote generation is performed by the following call to the ```oe_get_report``` method in the [attestation.cpp](./genquotes/common/attestation.cpp#L43) file in the ```genquote_enclave``` application.
@@ -161,3 +177,5 @@ greg@acc-ubuntu-1:~/src/attestation/sgx.attest.sample/validatequotes$ ./runall.s
 05/04/2020 12:32:47 : Enclave Held Data check:            True
 05/04/2020 12:32:47 : 
 ```
+
+## Next steps
