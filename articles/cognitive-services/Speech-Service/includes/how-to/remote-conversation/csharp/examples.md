@@ -10,10 +10,9 @@ ms.author: amishu
 
 Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.13.0 or above).
 
-This example code shows how to create conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). 
+This example code shows how to create a conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](../../../../how-to-use-conversation-transcription.md). 
 
 ```csharp
-
 async Task CompleteContinuousRecognition(ConversationTranscriber recognizer, string conversationId)
 {
     recognizer.SessionStopped += (s, e) =>
@@ -101,11 +100,11 @@ speechConfig.SetServiceProperty("transcriptionMode", "RealTimeAndAsync", Service
 
 ## Get transcription results
 
-Please install **Microsoft.CognitiveServices.Speech.Remoteconversation version 1.13.0 or above** from public nuget into your project.
+Install **Microsoft.CognitiveServices.Speech.Remoteconversation version 1.13.0 or above** via NuGet.
 
 ### Sample transcription code
 
-After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Create an object of  **RemoteConversationTranscriptionOperation** to get a long running operation [Operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) object. You can check the status of the operation or wait for it to complete. 
+After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Create an object of  **RemoteConversationTranscriptionOperation** to get a long running [Operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) object. You can check the status of the operation or wait for it to complete. 
 
 ```csharp
 // Create the speech config
