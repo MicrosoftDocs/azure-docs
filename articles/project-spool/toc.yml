@@ -151,14 +151,22 @@
     href: samples/calling-hero-sample.md
 - name: References
   items:
-  - name: Client SDK for C#
-    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
-  - name: Server SDK for C#
-    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
-  - name: Client SDK for Javascript
-    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
-  - name: Server SDK for Javascript
-    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: Chat SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: Networking SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: Telephony and SMS SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: Voice and Video SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
 - name: Resources
   items:
   - name: Roadmap
