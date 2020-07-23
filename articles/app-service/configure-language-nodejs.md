@@ -1,7 +1,7 @@
 ---
 title: Configure Windows Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances of App Service. This article shows the most common configuration tasks. 
-
+ms.custom: devx-track-javascript
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
