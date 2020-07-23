@@ -105,7 +105,7 @@ msiexec /i AzureConnectedMachineAgent.msi /l*v installationlog.txt /qn | Out-Str
 ```
 
 >[!NOTE]
->The script only supports running from either a 64-bit version of the Windows Command shell or PowerShell.
+>The script only supports running from a 64-bit version of Windows PowerShell.
 >
 
 ### Linux installation script

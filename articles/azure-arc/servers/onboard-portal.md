@@ -85,7 +85,7 @@ If the agent fails to start after setup is finished, check the logs for detailed
 1. Open an elevated PowerShell command prompt.
 
     >[!NOTE]
-    >The script only supports running from either a 64-bit version of the Windows Command shell or PowerShell.
+    >The script only supports running from a 64-bit version of Windows PowerShell.
     >
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
