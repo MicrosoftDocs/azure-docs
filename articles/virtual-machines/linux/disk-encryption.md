@@ -76,8 +76,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- [Enable end-to-end encryption using encryption at host - CLI](disks-enable-host-based-encryption-cli.md)
-- [Enable double encryption at rest for managed disks - CLI](disks-enable-double-encryption-at-rest-cli.md)
-- [Enable customer-managed keys for managed disks - CLI](disks-enable-customer-managed-keys-cli.md)
-- [Enable customer-managed keys for managed disks - portal](disks-enable-customer-managed-keys-portal.md)
+- Enable end-to-end encryption using encryption at host with either [CLI](disks-enable-host-based-encryption-cli.md) or the [Azure portal](disks-enable-host-based-encryption-portal.md).
+- Enable double encryption at rest for managed disks with either [CLI](disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
+- Enable customer-managed keys for managed disks with either [CLI](disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md).
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)

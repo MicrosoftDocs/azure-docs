@@ -37,7 +37,7 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 >Authorization to your cluster is managed by Kubernetes and the security model it is configured with. Users accessing this feature require permission to download the Kubernetes configuration (*kubeconfig*), similar to running `az aks get-credentials -n {your cluster name} -g {your resource group}`. This configuration file contains the authorization and authentication token for **Azure Kubernetes Service Cluster User Role**, in the case of Azure RBAC-enabled and AKS clusters without RBAC authorization enabled. It contains information about Azure AD and client registration details when AKS is enabled with Azure Active Directory (AD) SAML-based single-sign on.
 
 >[!IMPORTANT]
->Users of this features requires [Azure Kubernetes Cluster User Role](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) to the cluster in order to download the `kubeconfig` and use this feature. Users do **not** require contributor access to the cluster to utilize this feature.
+>Users of this features requires [Azure Kubernetes Cluster User Role](../../role-based-access-control/built-in-roles.md) to the cluster in order to download the `kubeconfig` and use this feature. Users do **not** require contributor access to the cluster to utilize this feature.
 
 ## Using clusterMonitoringUser with RBAC-enabled clusters
 
