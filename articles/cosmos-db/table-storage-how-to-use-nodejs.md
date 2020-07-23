@@ -10,10 +10,11 @@ author: sakash279
 ms.author: akshanka
 ---
 # How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
+
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows how to perform common scenarios using Azure Storage Table service or Azure Cosmos DB in a Node.js application.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. You need to choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in Node.js.
 
 ## Create an Azure service account
 
