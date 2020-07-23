@@ -31,10 +31,10 @@ Current availability guidance and timelines for individual SDK packages are coll
 Area|  .NET | Python|Java | Swift or Obj-C | Java (Android)|JavaScript|Other|
 -|-|-|-|-|-|-|-|
 ARM  |July |    July    |September |   -  |-|September|GO - July, Azure CLI - July
-Common     |**Available Now**    |July  |September| July| July| July |-
-Configuration  | **Available Now**  |   September |  September| -|    -|    July| CLI|-
+Common     |**Available Now**    |July  |September| July| July| **Available Now**   |-
+Configuration  | **Available Now**  |   September |  September| -|    -|    **Available Now**  | CLI|-
 Chat   |September | -  |September |September    |September    |**Available Now**     |-
-SMS     |**Available Now**     | -  |September |September    |September    |July    |-
+SMS     |**Available Now**     | -  |September |September    |September    |**Available Now**   |-
 Calling   |**Available Now**  | -  |- |**Obj-C Available Now**     |**Available Now**    |**Available Now**     |
 Network Traversal | - |-|-|-|-|-|-|
 
