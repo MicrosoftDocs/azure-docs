@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure Attestation
 
-Microsoft Azure Attestation is a new solution for attesting Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves and [Virtualization-based Security](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. Enclave attestation is a process for verifying that an enclave is secure and trustworthy.
+Microsoft Azure Attestation is a solution for attesting Trusted Execution Environments (TEEs) such as [Intel® Software Guard Extensions](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (SGX) enclaves and [Virtualization-based Security](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-vbs) (VBS) enclaves. Enclave attestation is a process for verifying that an enclave is secure and trustworthy.
 
 Attestation is a process for demonstrating that software binaries were properly instantiated on a trusted platform. Remote relying parties can then gain confidence that only such intended software is running on trusted hardware. Azure Attestation is a unified customer-facing service and framework for attestation. 
 
@@ -21,8 +21,7 @@ Azure Attestation enables cutting-edge security paradigms such as [Azure Confide
 Azure Attestation receives evidence from compute entities, turns them into a set of claims, validates them against configurable policies, and produces cryptographic proofs for claims-based applications (for example, relying parties and auditing authorities ).
 
 ## Use cases
-Azure Attestation is tasked with providing comprehensive attestation services for multiple environments and distinctive use cases.
-This section elaborates on the primary scenarios.
+Azure Attestation provides comprehensive attestation services for multiple environments and distinctive use cases.
 
 ### SGX attestation
 SGX refers to hardware grade isolation, which is supported on certain Intel CPUs models. SGX enables code to run in sanitized compartments known as SGX enclaves. Access and memory permissions are then managed by hardware to ensure a minimal attack surface with proper isolation.
@@ -72,13 +71,13 @@ The below table describes Azure Attestation rollout plan in different regions.
 | UK South | TEE | SGX enclave attestation | Live |
 | US East 2 | Non TEE | SGX & VBS enclave attestation | Live 
 | Central US | Non TEE | SGX & VBS enclave attestation | Live
-| Canada Central | | | Expected soon |
-| Canada East | | | Expected soon |
-| East US| | | Expected soon |
-| West US | | | Expected soon |
-| West Europe | | | Expected soon |
-| North Europe | | | Expected soon |
-| UK West | | | Expected soon |
+| Canada Central | TEE | | Expected soon |
+| Canada East | TEE | SGX enclave attestation | Expected soon |
+| East US| TEE | SGX enclave attestation | Expected soon |
+| West US | TEE | SGX enclave attestation | Expected soon |
+| West Europe | TEE | SGX enclave attestation | Expected soon |
+| North Europe | TEE | SGX enclave attestation | Expected soon |
+| UK West | TEE | SGX enclave attestation | Expected soon |
 
 ## BCDR support
 
@@ -97,6 +96,6 @@ Clusters deployed in two regions will serve completely independently under norma
 
 ## Next steps
 - Learn about [Azure Attestation basic concepts](basic-concepts.md)
-- [Authoring and signing attestation policy](authoringandsigningpolicy.md)
+- [Authoring and signing an attestation policy](authoringandsigningpolicy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
 

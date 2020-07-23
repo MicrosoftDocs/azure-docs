@@ -30,5 +30,5 @@ MIIDLDCCAhSgAwIBAgIIZSansCWcKTMwDQYJKoZIhvcNAQELBQAwFzEVMBMGA1UEAwwMTWFhVGVzdENl
 
 ## Next steps
 
-- [Authoring and signing attestation policy](authoringandsigningpolicy.md)
+- [Authoring and signing an attestation policy](authoringandsigningpolicy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
