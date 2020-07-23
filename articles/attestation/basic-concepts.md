@@ -43,7 +43,7 @@ Attestation providers get created with a default policy for each TEE type (note 
 
 Policy management is a key feature provided to customers by Azure Attestation. Policies will be TEE-specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
-See [examples of attestation policy](policy-samples.md) for default policy content and samples.
+See [examples of an attestation policy](policy-samples.md) for default policy content and samples.
 
 ## Benefits of policy signing
 
@@ -88,5 +88,5 @@ See [claims issued by Azure Attestation](claimsets.md) for more information.
 
 ## Next steps
 
-- [Authoring and signing attestation policy](authoringandsigningpolicy.md)
+- [Authoring and signing an attestation policy](authoringandsigningpolicy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)

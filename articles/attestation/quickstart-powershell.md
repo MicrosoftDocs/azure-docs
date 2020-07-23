@@ -78,7 +78,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation
 
 ## Create an Azure resource group
 
-Create a resource group for attestation provider. Note that other Azure resources (including a virtual machine with client application instance) can be put in the same resource group.
+Create a resource group for the attestation provider. Note that other Azure resources (including a virtual machine with client application instance) can be put in the same resource group.
 
 ```powershell
 $location = "uksouth" 
@@ -107,7 +107,7 @@ New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationReso
 
 For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policysigner-samples.md).
 
-Get-AzAttestation retrieve attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
+Get-AzAttestation retrieves the attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
 ```powershell
 Get-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup  
@@ -167,7 +167,7 @@ If PolicySignerCertificateFile is provided during creation of an attestation pro
 
 Attestation policy in JWT format must contain a claim named "AttestationPolicy". For signed policy, JWT must be signed with private key corresponding to any of the existing policy signer certificates.
 
-For policy samples, see [examples of attestation policy](policy-samples.md).
+For policy samples, see [examples of an attestation policy](policy-samples.md).
 
 Reset-AzAttestationPolicy resets the policy to default for the specified TEE.
 

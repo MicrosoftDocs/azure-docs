@@ -10,13 +10,13 @@
     href: quickstart-powershell.md
 - name: Tutorials
   items:
-  - name: Authoring and signing attestation policy
+  - name: Authoring and signing an attestation policy
     href: authoringandsigningpolicy.md
   - name: SGX attestation using Open Enclave SDK
     href: tutorials.md
 - name: Samples
   items:
-    - name: Examples of attestation policy
+    - name: Examples of an attestation policy
       href: policy-samples.md
     - name: Examples of policy signer certificate
       href: policysigner-samples.md
