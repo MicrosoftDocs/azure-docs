@@ -15,11 +15,11 @@ ms.custom: azure-synapse
 
 # Predictive insights with Synapse SQL 
 
-Synapse SQL provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest), you can bring your existing machine learning models trained in historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs and generates predictions based on the model without moving the data outside the data warehouse for scoring. This functionality aims to empowers data professionals to successfully deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task.
+Synapse SQL provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest), you can bring your existing machine learning models trained in historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs. Predictions are generated based on the model. This feature eliminates the step of moving valuable data outside the data warehouse for scoring. It aims to empower data professionals to easily deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task.
 
 [!IMPORTANT] This functionality is currently not supported in SQL on-demand.
 
-The functionality requires that the model is trained outside of Synapse SQL. Once the model is trained and tested, it is then loaded into the data warehouse and scoring is performed with the T-SQL Predict syntax to get insights from the data.
+The functionality requires that the model is trained outside of Synapse SQL. After building the model, load it into the data warehouse and score it with the T-SQL Predict syntax to get insights from the data.
 
 ![predictoverview](./media/sql-data-warehouse-predict/datawarehouse-overview.png)
 
@@ -27,17 +27,17 @@ The functionality requires that the model is trained outside of Synapse SQL. Onc
 
 Synapse SQL expects a pre-trained model. This section covers factors to keep in mind for training a machine learning model that is used for performing predictions in Synapse SQL.
 
-Firstly, Synapse SQL only supports ONNX format models. ONNX is an opensource model format that allows you to exchange models between various frameworks to enable interoperability. You can convert your existing models to ONNX format using frameworks that either support it natively or have converting packages available. For example, [sklearn-onnx](https://github.com/onnx/sklearn-onnx) is a tool to convert sciket-learn models to ONNX. [Here](https://github.com/onnx/tutorials#converting-to-onnx-format) is a list of supported frameworks and examples.
+Firstly, Synapse SQL only supports ONNX format models. ONNX is an open-source model format that allows you to exchange models between various frameworks to enable interoperability. You can convert your existing models to ONNX format using frameworks that either support it natively or have converting packages available. For example, [sklearn-onnx](https://github.com/onnx/sklearn-onnx) is a tool to convert sciket-learn models to ONNX. [Here](https://github.com/onnx/tutorials#converting-to-onnx-format) is a list of supported frameworks and examples.
 
 If you are using [Automated ML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) for training, make sure to set *enable_onnx_compatible_models* parameter to TRUE to produce ONNX format model. [Here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) is an example of a tutorial showing how to use AutoML to create a machine learning model with ONNX format.
 
 Secondly, following are the data types supported:
     - INT, BIGINT, REAL, DECIMAL, FLOAT, NUMERIC
-    - CHAR and VARCHAR [??]
+    - CHAR and VARCHAR[??]
 
-Thirdly, complex data types such as multi-dimensional array are not supported by PREDICT so for training make sure that each input of the model correspond to a single column for the scoring table instead of passing a single array containing all inputs.
+Thirdly, the scoring data needs to be in the same format as the training data. Complex data types such as multi-dimensional arrays are not supported by PREDICT. So, for training make sure that each inputs of the model correspond to a single column for the scoring table instead of passing a single array containing all inputs.
 
-Lastly, make sure that the names and data types of the model inputs match the column names for the new prediction data. Visualizing an ONNX model using various open source tools available online can further help with debugging.
+Lastly, make sure that the names and data types of the model inputs match the column names for the new prediction data. Visualizing an ONNX model using various open-source tools available online can further help with debugging.
 
 ## Loading the model
 
@@ -73,7 +73,7 @@ WITH (
 
 ## Scoring the model
 
-Once the model and data are loaded, use the [T-SQL Predict keyword](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) to score the model. Make sure that the input data for prediction is in the same format as that of the training data. T-SQL PREDICT takes two inputs: model and new scoring input data, and generates new columns for the output. In the example below, an additional column with name *Score* and data type *float* is created containing the prediction results. All the input data columns as well as output prediction columns are available for the select statement. Refer to the [predict documentation](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) for more details.
+Once the model and data are loaded, use the [T-SQL Predict keyword](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) to score the model. Make sure that the new input data for predictions is in the same format as the training data used for building the model. T-SQL PREDICT takes two inputs: model and new scoring input data, and generates new columns for the output. In the example below, an additional column with name *Score* and data type *float* is created containing the prediction results. All the input data columns as well as output prediction columns are available for the select statement. For more information, see [predict documentation](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) for more details.
 
 ```sql
 -- Query for ML predictions
