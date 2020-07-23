@@ -50,7 +50,7 @@ To explore the workbooks experience, first navigate to the Azure Monitor service
 
 Then select **Workbooks**.
 
-![Screenshot of Workbooks preview button highlighted in a red box](./media/workbooks-overview/workbooks-preview.png)
+![Screenshot of Workbooks button highlighted in a red box](./media/workbooks-overview/workbooks.png)
 
 ### Gallery
 
