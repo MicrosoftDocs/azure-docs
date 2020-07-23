@@ -57,15 +57,15 @@ Look for unusual peaks. In general, expect response time to rise with a rise in 
 
 Click the tile to get times for specific URLs.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![Screenshot of the Application health pane, which displays line graphs over time of moving averages of requests and response time.](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### Slowest requests
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![Screenshot of a list of the slowest requests and their response times.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 Shows which requests might need performance tuning.
 
 ### Failed requests
-![](./media/web-monitor-performance/appinsights-46failed.png)
+![Screenshot of a line graph over time of the number of failed requests; that is, requests that threw uncaught exceptions.](./media/web-monitor-performance/appinsights-46failed.png)
 
 A count of requests that threw uncaught exceptions.
 
@@ -83,7 +83,7 @@ Selecting any metric disables the others that can't appear on the same chart.
 ## Set alerts
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![Screenshot of the Add an Alert Rule dialog box, along with screenshots connected by arrows that show how to reach that dialog box from Metrics Explorer.](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 Set the resource before the other properties. Don't choose the webtest resources if you want to set alerts on performance or usage metrics.
 
