@@ -9,7 +9,7 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 07/23/2020
 ms.custom: tracking-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
@@ -277,7 +277,7 @@ myenv.docker.base_image_registry="your_registry_location"
 You can also specify a custom Dockerfile. It's simplest to start from one of Azure Machine Learning base images using Docker ```FROM``` command, and then add your own custom steps. Use this approach if you need to install non-Python packages as dependencies. Remember to set the base image to None.
 
 ```python
-# Specify docker steps as a string. Alternatively, load the string from a file.
+# Specify docker steps as a string. 
 dockerfile = r"""
 FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
 RUN echo "Hello from custom container!"
@@ -286,6 +286,10 @@ RUN echo "Hello from custom container!"
 # Set base image to None, because the image is defined by dockerfile.
 myenv.docker.base_image = None
 myenv.docker.base_dockerfile = dockerfile
+
+# Alternatively, load the string from a file.
+myenv.docker.base_image = None
+myenv.docker.base_dockerfile = "./Dockerfile"
 ```
 
 ### Specify your own Python interpreter
