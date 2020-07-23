@@ -166,6 +166,7 @@ The `build` step type supports the following properties. Find details of these p
 | `secret` | object | Optional |
 | `startDelay` | int (seconds) | Optional |
 | `timeout` | int (seconds) | Optional |
+| `volumeMount` | object | Optional |
 | `when` | [string, string, ...] | Optional |
 | `workingDirectory` | string | Optional |
 
@@ -360,7 +361,7 @@ By using the standard `docker run` image reference convention, `cmd` can run ima
 
 #### Access secret volumes
 
-The `volumes` property allows volumes and their secret contents to be specified for a task. Inside each `cmd` step, an optional `volumeMounts` property lists the volumes and corresponding container paths to mount into the container at that step. Secrets are provided as files at each volume's path.
+The `volumes` property allows volumes and their secret contents to be specified for `build` and `cmd` steps in a task. Inside each step, an optional `volumeMounts` property lists the volumes and corresponding container paths to mount into the container at that step. Secrets are provided as files at each volume's mount path.
 
 Execute a task and mount two secrets to a step: one stored in a key vault and one specified on the command line:
 
@@ -369,7 +370,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 ```
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
-<!--[!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
+<!-- [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
 
 ```yml
 # This template demonstrates mounting a custom volume into a container at a CMD step
@@ -427,7 +428,7 @@ The volumeMount object has the following properties.
 | Property | Type | Optional | Description | Default value |
 | -------- | ---- | -------- | ----------- | ------- | 
 | `name` | string | No | The name of the volume to mount. Must exactly match the name from a `volumes` property. | None |
-| `mountPath`	|string | no | The absolute path to mount files in the container.	| None |
+| `mountPath`	| string | no | The absolute path to mount files in the container.	| None |
 
 ### Examples: Task step properties
 
