@@ -42,7 +42,7 @@ This SuccessFactors Writeback user provisioning solution is ideally suited for:
 
 ## Configuring SuccessFactors for the integration
 
-A common requirement of all the SuccessFactors provisioning connectors is that they require credentials of a SuccessFactors account with the right permissions to invoke the SuccessFactors OData APIs. This section describes steps to create the service account in SuccessFactors and grant appropriate permissions. 
+All SuccessFactors provisioning connectors require credentials of a SuccessFactors account with the right permissions to invoke the Employee Central OData APIs. This section describes steps to create the service account in SuccessFactors and grant appropriate permissions. 
 
 * [Create/identify API user account in SuccessFactors](#createidentify-api-user-account-in-successfactors)
 * [Create an API permissions role](#create-an-api-permissions-role)
