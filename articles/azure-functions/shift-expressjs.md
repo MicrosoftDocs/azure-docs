@@ -19,7 +19,7 @@ When migrating code to a serverless architecture, refactoring Express.js endpoin
 
 - **Default route**: By default, Azure Functions endpoints are exposed under the `api` route. Routing rules are configurable.
 
-- **Configuration and conventions**: There are a few configuration and conventions you need to consider as you move to Azure Functions. A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./azure-functions/functions-triggers-bindings.md). Also, by convention, the folder name, which contains the function files defines the endpoint name.
+- **Configuration and conventions**: There are a few configuration and conventions you need to consider as you move to Azure Functions. A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./functions-triggers-bindings.md). Also, by convention, the folder name, which contains the function files defines the endpoint name.
 
 ## Example
 
