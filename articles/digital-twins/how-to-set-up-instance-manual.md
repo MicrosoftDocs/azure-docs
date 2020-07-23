@@ -35,7 +35,7 @@ In this section, you will **create a new instance of Azure Digital Twins** using
     ```azurecli
     az group create --location <region> --name <name-for-your-resource-group>
     ```
-* A region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* A region for the deployment. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * A name for your instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
 
 Use these values in the following command to create the instance:
