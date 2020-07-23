@@ -45,12 +45,12 @@
         href: quickstarts/telephony-and-sms/assign-a-telephone-number-to-an-acs-bot.md
   - name: Voice and Video Calling
     items:
-    - name: Initialize Your Calling Client
-      href: quickstarts/voice-and-video-calling/init-client.md
-    - name: Capture a Local Video Stream
-      href: quickstarts/voice-and-video-calling/capture-local-video-stream.md
+    - name: Get Started With Voice and Video
+      href: quickstarts/voice-and-video-calling/get-started-with-voice-and-video.md
+    - name: Place a Voice Call
+      href: quickstarts/voice-and-video-calling/place-a-voice-call.md
     - name: Calling Client Samples
-      href: concepts/voice-and-video-calling/calling-client-samples.md
+      href: quickstarts/voice-and-video-calling/calling-client-samples.md
   - name: Get Started
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
