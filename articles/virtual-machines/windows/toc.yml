@@ -865,14 +865,18 @@
       href: incremental-snapshots.md
     - name: Encryption
       items:
-      - name: Enable host-based encryption - PowerShell
+      - name: Enable encryption at host - PowerShell
         href: disks-enable-host-based-encryption-powershell.md
+      - name: Enable encryption at host - Portal
+        href: disks-enable-host-based-encryption-portal.md
       - name: Enable customer-managed keys - PowerShell
         href: disks-enable-customer-managed-keys-powershell.md
       - name: Enable customer-managed keys - Portal
         href: disks-enable-customer-managed-keys-portal.md
       - name: Enable double encryption-at-rest
         href: disks-enable-double-encryption-at-rest-powershell.md
+      - name: Enable double encryption at rest - Portal
+        href: disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
         - name: Convert disk between Standard and Premium

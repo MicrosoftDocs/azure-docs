@@ -62,6 +62,10 @@
         href: scenario-route-between-hubs-firewall.md
       - name: Azure Firewall - custom
         href: scenario-route-between-vnets-firewall.md
+  - name: Monitoring
+    items:
+    - name: About Azure Monitor Insights for Virtual WAN (Preview)
+      href: azure-monitor-insights.md
   - name: Site-to-site
     items:
     - name: About IPsec policies
