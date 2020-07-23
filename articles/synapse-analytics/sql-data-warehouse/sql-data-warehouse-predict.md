@@ -32,12 +32,12 @@ Firstly, Synapse SQL only supports ONNX format models. ONNX is an open-source mo
 If you are using [Automated ML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) for training, make sure to set *enable_onnx_compatible_models* parameter to TRUE to produce ONNX format model. [Here](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) is an example of a tutorial showing how to use AutoML to create a machine learning model with ONNX format.
 
 Secondly, following are the data types supported:
-    - INT, BIGINT, REAL, DECIMAL, FLOAT, NUMERIC
-    - CHAR and VARCHAR[??]
+    - int, bigint, real, float
+    - char, varchar, nvarchar
 
 Thirdly, the scoring data needs to be in the same format as the training data. Complex data types such as multi-dimensional arrays are not supported by PREDICT. So, for training make sure that each inputs of the model correspond to a single column for the scoring table instead of passing a single array containing all inputs.
 
-Lastly, make sure that the names and data types of the model inputs match the column names for the new prediction data. Visualizing an ONNX model using various open-source tools available online can further help with debugging.
+Lastly, make sure that the names and data types of the model inputs match the column names of the new prediction data. Visualizing an ONNX model using various open-source tools available online can further help with debugging.
 
 ## Loading the model
 
