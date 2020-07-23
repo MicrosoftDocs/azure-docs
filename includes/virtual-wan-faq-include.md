@@ -229,9 +229,17 @@ If a Virtual Hub learns the same route from multiple remote hubs,  the order in 
 
 Transit between ER-to-ER is always via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there is no need for the traffic to come all the way from the edge routers to the virtual hub DC.
 
-### Is there a concept of weight in Azure Virtual WAN circuits or VPN connections
+### Is there a concept of weight in Azure Virtual WAN ExpressRoute circuits or VPN connections
 
 When multiple ExpressRoute circuits are connected to a virtual hub, routing weight on the connection provides a mechanism for the ExpressRoute in the virtual hub to prefer one circuit over the other. There is no mechanism to set a weight on a VPN connection. Azure always prefers an ExpressRoute connection over a VPN connection within a single hub.
+
+### Does Virtual WAN prefer ExpressRoute over VPN for traffic egressing Azure
+
+Yes 
+
+### When a Virtual WAN hub has an ExpressRoute circuit and a VPN Site connected to it, what would cause a VPN connection route to be prefered over ExpressRoute?
+
+When an ExpressRoute circuit is connected to Virtual Hub, the Microsoft edge routers are the first node for communication between on-premises and Azure. These edge routers communicate with the Virtual WAN ExpressRoute gateways that in turn learn routes from the Virtual Hub router that controls all routes between any gateways in Virtual WAN. The Microsoft edge routers process Virtual Hub ExpressRoute routes with higher preference over routes learnt from on-premises. Due to any reason if VPN connection becomes the primary medium for Virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN) , unless the VPN Site has a longer AS Path length, Virtual Hub will continue to share VPN learnt routes with ExpressRoute Gateway, causing the Microsoft Edge Routers to prefer VPN routes over on-premise routes. 
 
 ### When two hubs (hub 1 and 2) are connected and there is an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
