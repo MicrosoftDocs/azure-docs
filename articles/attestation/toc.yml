@@ -13,7 +13,7 @@
 - name: Tutorials
   items:
   - name: Authoring and signing an attestation policy
-    href: authoring-signing-policy.md
+    href: author-signing-policy.md
   - name: SGX attestation using Open Enclave SDK
     href: sgx-enclave-sdk.md
 - name: Samples

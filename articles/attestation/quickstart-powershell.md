@@ -105,7 +105,7 @@ PolicySignerCertificateFile is a file specifying a set of trusted signing keys. 
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
-For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policy-signer-exampless.md).
+For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policy-signer-examples.md).
 
 Get-AzAttestation retrieves the attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
