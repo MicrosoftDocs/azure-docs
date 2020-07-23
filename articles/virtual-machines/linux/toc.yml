@@ -967,12 +967,16 @@
       items:
       - name: Enable encryption at host - CLI
         href: disks-enable-host-based-encryption-cli.md
+      - name: Enable encryption at host - Portal
+        href: disks-enable-host-based-encryption-portal.md
       - name: Enable customer-managed keys - CLI
         href: disks-enable-customer-managed-keys-cli.md
       - name: Enable customer-managed keys - Portal
         href: disks-enable-customer-managed-keys-portal.md
-      - name: Enable double encryption at rest
+      - name: Enable double encryption at rest - CLI
         href: disks-enable-double-encryption-at-rest-cli.md
+      - name: Enable double encryption at rest - Portal
+        href: disks-enable-double-encryption-at-rest-portal.md
     - name: Migration and conversion
       items:
       - name: Migrate to Premium storage with Azure Site Recovery
