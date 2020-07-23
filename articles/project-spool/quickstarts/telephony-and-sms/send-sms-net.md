@@ -21,14 +21,15 @@ You can receive SMS messages and Delivery Reports by using ACS' EventGrid integr
 If you don’t already have Visual Studio 2019 installed, you can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup.
 
 This quick start also requires:
-- **Deployed Azure Communication Service resource.** Check out the quick start for making an ACS resource in the Azure portal. [create an Azure Communication Resource](./create-a-communication-resource).
-- **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. **NOTE:** For private preview, please contact Pranita Kulkarni (prakulka@microsoft.com) or Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
+- **Deployed Azure Communication Service resource.** Check out the quick start for making an ACS resource in the Azure portal. [create an Azure Communication Resource](../create-a-communication-resource.md).
+- **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. 
+**NOTE:** For private preview, please contact Pranita Kulkarni (prakulka@microsoft.com) or Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
 - **Download SMS SDK.** Download `Azure.Communication.Sms` C# SDK to send an SMS. **NOTE** For private preview, sdk must be downloaded internally from [Azure Dev Ops](https://dev.azure.com/azure-sdk/internal/_packaging?_a=feed&feed=azure-sdk-for-net-pr%40Local) or [GitHub](https://github.com/Azure/communication-preview/releases).
 
 ## Obtain a connection string
 Connection strings provide addressing and key information necessary for service clients to connect and authenticate to Azure Communication Services to drive activity. You can get connection strings from the Azure portal or programmatically with Azure Resource Management (ARM) APIs.
 
-In the Azure Portal, use the `Keys` page in `Settings` to generate keys.
+In the Azure Portal, use the `Keys` page in `Settings` to view keys and connection strings. You can use either of Primary or Secondary Connection String.
 
 ![Screenshot of Key page](../media/key.png)
 
@@ -117,5 +118,9 @@ Step by step:
 
 1. Refer to previous example Steps 1-3.
 2. On success, `SmsClient.Send()` returns SendSmsResponse that returns a MessageId which can be used to corelate DeliveryReport sent to EventGrid
+
+
+## Add EventGrid Subscription for Sms Events
+Sms events in Azure Communication Service can be subscribed using EventGrid Subscription of the Azure communication resource.
 
 
