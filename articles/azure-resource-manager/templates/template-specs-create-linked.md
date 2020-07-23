@@ -29,7 +29,7 @@ The linked template is called **linkedTemplate.json**, and is stored in a subfol
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
 
-If there is another linkedTemplate2.json that is called from linkedTemplate.json and linkedTemplate2.json is stored in the same artifacts subfolder, the relativePath specified in linkedTemplate.json is **linkedTemplate2.json**.
+The `relativePath` property is always relative to the template file where `relativePath` is declared, so if there is another linkedTemplate2.json that is called from linkedTemplate.json and linkedTemplate2.json is stored in the same artifacts subfolder, the relativePath specified in linkedTemplate.json is just `linkedTemplate2.json`.
 
 1. Create the main template with the following JSON. Save the main template as **azuredeploy.json** to your local computer. This tutorial assumes you've saved to a path **c:\Templates\linkedTS\azuredeploy.json** but you can use any path.
 
