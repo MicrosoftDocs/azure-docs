@@ -51,7 +51,7 @@ az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-res
 
 If the instance was created successfully, the result in Cloud Shell looks something like this, outputting information about the resource you've created:
 
-:::image type="content" source="media/how-to-set-up-instance/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
 
 Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources.
 
@@ -112,7 +112,7 @@ Save this file as *manifest.json*.
 
 In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 Navigate to the *manifest.json* you just created and hit "Open."
 
 Next, run the following command to create an app registration (replacing placeholders as needed):
@@ -123,7 +123,7 @@ az ad app create --display-name <name-for-your-app> --native-app --required-reso
 
 Here is an excerpt of the output from this command, showing information about the registration you've created:
 
-:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
 
 ### Verify success
 
@@ -137,7 +137,7 @@ First, verify that the settings from your uploaded *manifest.json* were properly
 
 Next, select *Overview* from the menu bar to see the details of the app registration:
 
-:::image type="content" source="media/how-to-set-up-instance/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
 
 Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
 
