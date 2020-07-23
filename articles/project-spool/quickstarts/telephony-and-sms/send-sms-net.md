@@ -22,7 +22,7 @@ If you don’t already have Visual Studio 2019 installed, you can download and u
 
 This quick start also requires:
 - **Deployed Azure Communication Service resource.** Check out the quick start for making an ACS resource in the Azure portal. [create an Azure Communication Resource](./create-a-communication-resource).
-- **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. **NOTE:** For private preview, please contact Pranita Kulkarni (Pranita.Kulkarni@microsoft.com) or Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
+- **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. **NOTE:** For private preview, please contact Pranita Kulkarni (prakulka@microsoft.com) or Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
 - **Download SMS SDK.** Download `Azure.Communication.Sms` C# SDK to send an SMS. **NOTE** For private preview, sdk must be downloaded internally from [Azure Dev Ops](https://dev.azure.com/azure-sdk/internal/_packaging?_a=feed&feed=azure-sdk-for-net-pr%40Local) or [GitHub](https://github.com/Azure/communication-preview/releases).
 
 ## Obtain a connection string
@@ -58,7 +58,6 @@ Now that we have the SDK included in our project we can send an SMS message with
 
 ```csharp
 using Azure.Communication.Sms; // Add NuGet package Azure.Communication.Sms
-using Azure.Communication.Sms.Models;
 
 namespace SmsSender
 {
