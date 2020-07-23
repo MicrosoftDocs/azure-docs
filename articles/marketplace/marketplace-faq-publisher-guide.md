@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 05/08/2020
+ms.date: 07/22/2020
 ---
 
 # Common questions about Microsoft commercial marketplace
@@ -41,7 +41,7 @@ To learn more, view the video at [Why sell through marketplace](https://partner.
 
 ### Is there a listing fee for the Microsoft commercial marketplace?
 
-No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations.
+No, there's no cost to publish offers in our commercial marketplace. We keep a small percentage of the sale, as a transaction fee, and invest it in the Marketplace Rewards program, platform innovation, and commercial marketplace operations. This transaction fee is reduced for [Azure IP Co-sell](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) incentivized offers.
 
 ### How do I sign up to be a publisher in the Microsoft commercial marketplace?
 
