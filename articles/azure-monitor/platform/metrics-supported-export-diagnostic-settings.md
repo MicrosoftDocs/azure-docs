@@ -28,7 +28,7 @@ If you delete a resource group or a specific resource, metric data from the affe
 
 Before June 1, 2020, the metrics below **used to** emit '0's when there was no data. Those zeros could then be exported into downstream systems like Log Analytics and Azure storage.  This behavior caused some confusion between real '0s' (emitted by resource) and interpreted '0s' (NULLs), and so the behavior was changed to match that of the underlying metric as mentioned in the previous section. 
 
-The change occured in all public and private clouds.
+The change occurred in all public and private clouds.
 
 The change did not impact the behavior of any of the following experiences: 
    - Platform Resource logs exported via Diagnostic Settings
