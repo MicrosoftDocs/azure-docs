@@ -105,8 +105,8 @@ namespace SmsSender
             var connectionString = "<connectionString>"; // Connection string can be acquired through the Azure portal
             var smsClient = new SmsClient(connectionString);
             var response = smsClient.Send(
-                                from: "+15551111111", // Phone number acquired by your account
-                                to: "+15552222222",
+                                from: new PhoneNumber("+15551111111"), // Phone number acquired by your account
+                                to: new PhoneNumber("+15552222222"),
                                 message: "Hello World 👋🏻 via Sms",
                                 sendSmsOptions: new SendSmsOptions { EnableDeliveryReport = true }); // Use SendSmsOptions to enable delivery report for the message sent.
             // Use response.Value.MessageId to correlate Delivery Report sent to EventGrid
