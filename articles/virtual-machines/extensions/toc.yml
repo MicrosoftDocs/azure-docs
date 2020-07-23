@@ -58,6 +58,12 @@
       href: network-watcher-linux.md
     - name: Windows
       href: network-watcher-windows.md
+  - name: InfiniBand Drivers
+    items:
+    - name: Linux
+      href: hpc-compute-infiniband-linux.md
+    - name: Windows
+      href: hpc-compute-infiniband-windows.md
   - name: NVIDIA GPU Drivers
     items:
     - name: Linux
