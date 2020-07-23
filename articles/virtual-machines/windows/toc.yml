@@ -283,6 +283,8 @@
       displayName: pre-empt, preempt
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
+    - name: Azure VM sizes naming conventions
+      href: ../vm-naming-conventions.md
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       displayName: D-series Ds-series A-series Basic
@@ -340,6 +342,9 @@
       href: security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ../security-controls-policy.md
     - name: Security baseline for Azure Security Benchmark
       href: security-baseline.md
     - name: Built-in security controls
