@@ -123,8 +123,10 @@
       href: azure-stack-edge-contact-microsoft-support.md
     - name: Monitor
       href: azure-stack-edge-monitor.md
-    - name: Return or replace device
+    - name: Return device
       href: azure-stack-edge-return-device.md
+    - name: Replace device
+      href: azure-stack-edge-replace-device.md
   - name: Release notes
     items:
     - name: 2007 - Current

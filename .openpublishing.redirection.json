@@ -49863,7 +49863,7 @@
     },
     {
       "source_path": "articles/billing/billing-understand-vm-reservation-charges.md",
-      "redirect_url": "/azure/cost-management-billing/manage/understand-vm-reservation-charges",
+      "redirect_url": "/azure/cost-management-billing/manage/understand-vm-reservation-charges?toc=/azure/cost-management-billing/reservations/toc.json",
       "redirect_document_id": true
     },
     {
@@ -54747,12 +54747,17 @@
     },
     {
       "source_path": "articles/dev-spaces/how-dev-spaces-works-local-process-kubernetes.md",
-      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes.md",
+      "redirect_url": "/visualstudio/containers/overview-local-process-kubernetes",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
       "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/service-tiers-prs.md",
+      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes",
       "redirect_document_id": false
     }
   ]
