@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -21,6 +21,11 @@ ms.collection: M365-identity-device-management
 Multi-factor authentication (MFA) is a process where a user is prompted during a sign-in event for additional forms of identification. This prompt could be to enter a code on their cellphone or to provide a fingerprint scan. When you require a second form of authentication, security is increased as this additional factor isn't something that's easy for an attacker to obtain or duplicate.
 
 Azure Multi-Factor Authentication and Conditional Access policies give the flexibility to enable MFA for users during specific sign-in events.
+
+> [!IMPORTANT]
+> This tutorial shows an administrator how to enable Azure Multi-Factor Authentication.
+>
+> If your IT team hasn't enabled the ability to use Azure Multi-Factor Authentication or you have problems during sign-in, reach out to your helpdesk for additional assistance.
 
 In this tutorial you learn how to:
 
@@ -37,9 +42,9 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An account with *global administrator* privileges.
 * A non-administrator user with a password you know, such as *testuser*. You test the end-user Azure Multi-Factor Authentication experience using this account in this tutorial.
-    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../add-users-azure-active-directory.md).
+    * If you need to create a user, see [Quickstart: Add new users to Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * A group that the non-administrator user is a member of, such as *MFA-Test-Group*. You enable Azure Multi-Factor Authentication for this group in this tutorial.
-    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * If you need to create a group, see how to [Create a group and add members in Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## Create a Conditional Access policy
 

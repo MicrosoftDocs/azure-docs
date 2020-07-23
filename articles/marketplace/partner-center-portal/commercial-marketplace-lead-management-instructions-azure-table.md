@@ -1,12 +1,12 @@
 ---
 title: Lead management with Azure Table storage - Microsoft commercial marketplace
 description: Learn how to use Azure Table storage to configure leads for Microsoft AppSource and Azure Marketplace
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: keferna
+ms.author: keferna
 ms.date: 03/30/2020
-ms.author: dsindona
 ---
 
 # Use Azure Table storage to manage commercial marketplace leads

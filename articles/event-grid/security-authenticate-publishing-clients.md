@@ -1,13 +1,8 @@
 ---
 title: Authenticate clients publishing events to Event Grid custom topics or domains
 description: This article describes different ways of authenticating clients publishing events to Event Grid custom topics. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Authenticate publishing clients (Azure Event Grid)

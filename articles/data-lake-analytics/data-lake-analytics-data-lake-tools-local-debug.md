@@ -7,7 +7,7 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
 ---
@@ -39,7 +39,7 @@ You can debug C# assemblies without submitting and registering them to the Azure
    ```sql
    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
    ```
-        
+   
 3. Set breakpoints in the C# code.
 4. Select **F5** to debug the script by referencing the C# **DLL** file locally.
 

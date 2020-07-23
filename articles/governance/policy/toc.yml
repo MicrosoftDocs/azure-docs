@@ -93,9 +93,14 @@
   - name: Design Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
-  - name: Azure Policy for Kubernetes (preview)
-    displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
-    href: ./concepts/policy-for-kubernetes.md
+  - name: Kubernetes integration
+    items:
+    - name: Azure Policy for Kubernetes (preview)
+      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
+      href: ./concepts/policy-for-kubernetes.md
+    - name: Secure pods with Azure Policy (preview)
+      displayName: aks, psp, rego, opa
+      href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
@@ -138,7 +143,7 @@
     items:
     - name: Integrate Key Vault with Azure Policy
       displayName: key vault, certificate, key
-      href: ../../key-vault/azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Lighthouse integration
     items:
     - name: Deploy a policy at scale

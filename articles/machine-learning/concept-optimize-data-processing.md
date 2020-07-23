@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning
 description: Learn best practices for optimizing data processing speeds and what integrations Azure Machine Learning supports for data processing at scale.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual

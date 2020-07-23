@@ -33,7 +33,9 @@ The syntax for `search.score` in **$orderby** is `search.score()`. The function 
 
 Sort hotels in descending order by `search.score` and `rating`, and then in ascending order by distance from the given coordinates so that between two hotels with identical ratings, the closest one is listed first:
 
+```odata-filter-expr
     search.score() desc,rating desc,geo.distance(location, geography'POINT(-122.131577 47.678581)') asc
+```
 
 ## Next steps  
 

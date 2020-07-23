@@ -1,5 +1,5 @@
 ---
-title: Customize RDP Properties with PowerShell - Azure
+title: Customize RDP properties with PowerShell Fall 2019 - Azure
 description: How to customize RDP Properties for Windows Virtual Desktop with PowerShell cmdlets.
 services: virtual-desktop
 author: Heidilohr
@@ -75,5 +75,5 @@ Set-RdsHostPool -TenantName <tenantname> -Name <hostpoolname> -CustomRdpProperty
 
 Now that you've customized the RDP properties for a given host pool, you can sign in to a Windows Virtual Desktop client to test them as part of a user session. These next two How-tos will tell you how to connect to a session using the client of your choice:
 
-- [Connect with the Windows Desktop client](../connect-windows-7-and-10.md)
+- [Connect with the Windows Desktop client](connect-windows-7-10-2019.md)
 - [Connect with the web client](connect-web-2019.md)

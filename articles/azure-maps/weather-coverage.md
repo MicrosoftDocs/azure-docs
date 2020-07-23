@@ -106,7 +106,7 @@ The following table provides information about what kind of weather information 
 | Chad                        | ✓               |                              |        ✓| 
 | Comoros                     | ✓               |                              |        ✓| 
 | Congo (DRC)                 | ✓               |                              |        ✓|
-| Côte d’Ivoire               | ✓               |                              |        ✓| 
+| Côte d'Ivoire               | ✓               |                              |        ✓| 
 | Djibouti                    | ✓               |                              |        ✓| 
 | Egypt                       | ✓               |                              |        ✓| 
 | Equatorial Guinea           | ✓               |                              |        ✓| 

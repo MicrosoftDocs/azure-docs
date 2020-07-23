@@ -44,6 +44,10 @@ At this time, only text copy/paste is supported. Features such as file copy are 
 
 Use the Microsoft Edge browser or Google Chrome on Windows. For Apple Mac, use Google Chrome browser. Microsoft Edge Chromium is also supported on both Windows and Mac, respectively.
 
+### <a name="data"></a>Where does Azure Bastion store customer data?
+
+Azure Bastion doesn't move or store customer data out of the region it is deployed in.
+
 ### <a name="roles"></a>Are any roles required to access a virtual machine?
 
 In order to make a connection, the following roles are required:

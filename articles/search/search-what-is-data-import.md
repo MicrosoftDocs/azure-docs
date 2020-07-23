@@ -62,7 +62,9 @@ For both POST and GET, you need to provide your *service name*, *index name*, an
 
 For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2020-06-30
+```http
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2019-05-06
+```
 
 The format for POST is the same, but with `api-version` in the query string parameters.
 

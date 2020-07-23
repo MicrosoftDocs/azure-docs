@@ -58,7 +58,7 @@ After you've registered your application, you'll see the application ID:
 
 ![Register your Batch application with Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
 
-For more information about registering an application with Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/authentication-scenarios.md).
+For more information about registering an application with Azure AD, see [Authentication Scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).
 
 ## Get the tenant ID for your Active Directory
 
@@ -188,7 +188,7 @@ Here's an example of a custom role definition:
 }
 ```
 
-For more general information on creating a custom role, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+For more general information on creating a custom role, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ### Get the tenant ID for your Azure Active Directory
 
@@ -422,8 +422,8 @@ Use the service principal credentials to open a **BatchServiceClient** object. T
 
 - For a Python example of how to create a Batch client authenticated using an Azure AD token, see the [Deploying Azure Batch Custom Image with a Python Script](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) sample.
 
-[aad_about]:../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"
-[aad_adal]: ../active-directory/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Authentication Scenarios for Azure AD"
-[aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
+[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "What is Azure Active Directory?"
+[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
+[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Authentication Scenarios for Azure AD"
+[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Integrating Applications with Azure Active Directory"
 [azure_portal]: https://portal.azure.com

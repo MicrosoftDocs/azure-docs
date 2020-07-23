@@ -6,8 +6,8 @@ author: v-miegge
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: troubleshooting
+ms.date: 06/05/2020
 ms.author: v-miegge
 ---
 

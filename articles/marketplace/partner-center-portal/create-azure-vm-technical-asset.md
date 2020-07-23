@@ -1,11 +1,11 @@
 ---
 title: Create your Azure Virtual Machine technical assets 
 description: Learn how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace.  
-author: dannyevers 
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: dannyevers 
+ms.author: mingshen
 ms.date: 04/13/2020
 ---
 
@@ -38,7 +38,7 @@ Designing, building, and testing these assets takes time and requires technical 
 
 Consider using one of the following scripting environments to help manage VMs and VHDs:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://code.visualstudio.com/)
 
 Additionally, consider adding the following tools to your development environment:

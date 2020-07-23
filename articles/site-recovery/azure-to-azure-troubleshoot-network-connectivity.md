@@ -46,7 +46,7 @@ Try to access the DNS server from the virtual machine. If the DNS server isn't a
 ### Issue 2: Site Recovery configuration failed (151196)
 
 > [!NOTE]
-> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Office 365 IPs such as `login.microsoftonline.com`. Either change it to **Basic** internal load balancer type or create outbound access as mentioned in the article [Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI](/azure/load-balancer/configure-load-balancer-outbound-cli).
+> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Office 365 IPs such as `login.microsoftonline.com`. Either change it to **Basic** internal load balancer type or create outbound access as mentioned in the article [Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI](../load-balancer/configure-load-balancer-outbound-cli.md).
 
 #### Possible cause
 
@@ -55,7 +55,7 @@ A connection can't be established to Office 365 authentication and identity IP4 
 #### Resolution
 
 - Azure Site Recovery requires access to the Office 365 IP ranges for authentication.
-- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Office 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](/azure/virtual-network/security-overview#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
+- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Office 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
 - If new addresses are added to Azure AD in the future, you need to create new NSG rules.
 
 ### Example NSG configuration
@@ -138,7 +138,7 @@ The custom proxy settings are invalid and the Azure Site Recovery Mobility servi
 
 ### Fix the problem
 
-To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
+To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags), follow the steps in the [networking guidance document](./azure-to-azure-about-networking.md).
 
 ## Next steps
 

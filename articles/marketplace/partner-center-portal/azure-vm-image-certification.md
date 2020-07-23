@@ -1,11 +1,11 @@
 ---
 title: Azure virtual machine certification - Azure Marketplace
 description: Learn how to test and submit a virtual machine offer in the commercial marketplace.
-author: emuench
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: emuench
+ms.author: mingshen
 ms.date: 04/09/2020
 ---
 
