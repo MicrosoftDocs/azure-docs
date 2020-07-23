@@ -73,6 +73,7 @@ c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
 
 **Optimum securrity policy for VBS enclaves**
 
+```
 version=1.0;
 authorizationrules
 {
@@ -99,6 +100,7 @@ issuancerules
 c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
 => issueproperty(type = "omit_x5c", value = true);
 };
+```
 </br>
 
 ## Next steps
