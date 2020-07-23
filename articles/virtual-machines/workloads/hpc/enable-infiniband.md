@@ -33,20 +33,19 @@ If you're using a custom VM image or a [GPU optimized](../../sizes-gpu.md) VM, y
 
 To manually configure InfiniBand with SR-IOV, use the following steps. The example in these steps shows syntax for RHEL/CentOS, but the steps are general and can be used for any compatible operating system such as Ubuntu (16.04, 18.04 19.04) and SLES (12 SP4 and 15). The inbox drivers work as well, but the Mellanox OpenFabrics drivers provide more features.
 
-For more information on the supported distributions for the Mellanox driver, see the latest [Mellanox OpenFabrics drivers](https://www.mellanox.com/page/products_dyn?product_family=26). For more information on the Mellanox OpenFabrics driver, see the [Mellanox user guide](https://docs.mellanox.com/category/mlnxofedib).
+For more information on the supported distributions for the Mellanox driver, see the latest [Mellanox OpenFabrics drivers](https://www.mellanox.com/page/products_dyn?product_family=26). For more information on the Mellanox OpenFabrics driver, see the [Mellanox user guide](https://docs.mellanox.com/category/mlnxofedib). We have examples for other OS distributions in our [AzureHPCImages repository](https://github.com/Azure/azhpc-images).
 
-See the following example for how to configure InfiniBand on Linux:
+See the following example for how to configure InfiniBand on Ubuntu:
 
 ```bash
-# Modify the variable to desired Mellanox OFED version
-MOFED_VERSION=#4.7-1.0.0.1
-# Modify the variable to desired OS
-MOFED_OS=#rhel7.6
-pushd /tmp
-curl -fSsL https://www.mellanox.com/downloads/ofed/MLNX_OFED-${MOFED_VERSION}/MLNX_OFED_LINUX-${MOFED_VERSION}-${MOFED_OS}-x86_64.tgz | tar -zxpf -
-cd MLNX_OFED_LINUX-*
-sudo ./mlnxofedinstall
-popd
+DRIVER_URL=http://content.mellanox.com/ofed/MLNX_OFED-5.0-1.0.0.0/MLNX_OFED_LINUX-5.0-1.0.0.0-ubuntu18.04-x86_64.tgz
+
+wget $DRIVER_URL
+DRIVER_FILE=$(basename $DRIVER_URL) # Extract filename of tarball
+tar xzf $DRIVER_FILE                # Extract tarball
+DRIVER_ROOT=${DRIVER_FILE%.*}       # Extract root without .tgz
+
+./$DRIVER_ROOT/mlnxofedinstall --add-kernel-support
 ```
 
 For Windows, download and install the [Mellanox OFED for Windows drivers](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34).
