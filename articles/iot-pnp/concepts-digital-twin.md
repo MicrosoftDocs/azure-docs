@@ -47,7 +47,7 @@ When represented as a JSON object, a digital twin includes the following fields:
 | `$metadata.{propertyName}.ackDescription` | [Optional, only for writable properties] The `ack` description returned by the device app implementing the digital twin |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub maintains the timestamp of the last update of the property by the device. The timestamps are in UTC and encoded in the ISO8601 format YYYY-MM-DDTHH:MM:SS.mmmZ |
 | `{componentName}` | A JSON object containing the component's property values and metadata, similar to a root object. |
-| `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
+| `{componentName}.{propertyName}` | The value of the component's property in JSON |
 | `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
 
 #### Device Twin sample
