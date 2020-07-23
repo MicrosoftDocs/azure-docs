@@ -1,11 +1,11 @@
 ---
 title: Configure Log Analytics workspace for Azure Monitor for VMs
-description: 
+description: Describes how to create and configure the Log Analytics workspace used by Azure Monitor for VMs.
 ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/07/2020
+ms.date: 07/22/2020
 
 ---
 
@@ -61,9 +61,14 @@ Azure Monitor for VMs supports Log Analytics workspaces in the following regions
 - Australia East
 - Australia Southeast
 
+## Role-based access control
+To enable and access the features in Azure Monitor for VMs, you must have the [Log Analytics contributor role](../platform/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../platform/roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
 
 ## Add VMInsights solution to workspace
 Before a Log Analytics workspace can be used with Azure Monitor for VMs, it must have the *VMInsights* solution installed. The methods for configuring the workspace are described in the following sections.
+
+> [!NOTE]
+> When you add the *VMInsights* solution to the workspace, all existing VMs connected to the workspace will start to send data to InsightsMetrics. Data for the other data types won't be collected until you add the Dependency Agent to those existing VMs connected to the workspace.
 
 ### Azure portal
 There are three options for configuring an existing workspace from the Azure portal.
@@ -103,9 +108,5 @@ New-AzResourceGroupDeployment -Name ConfigureWorkspace -ResourceGroupName my-res
 
 
 ## Next steps
-
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
-
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
-
-- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md).
+- See [Onboard agents to Azure Monitor for VMs](vminsights-enable-overview.md) to connect agents to Azure Monitor for VMs.
+- See [Targeting monitoring solutions in Azure Monitor (Preview)](solution-targeting.md) to limit the amount of data sent from a solution to the workspace.

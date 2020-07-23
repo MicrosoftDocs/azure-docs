@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/07/2020
+ms.date: 07/22/2020
 
 ---
 
@@ -40,7 +40,7 @@ There is no direct cost for Azure Monitor for VMs, but you are charged for its a
 - Alert rules based on log and health data.
 - Notifications sent from alert rules.
 
-The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the additional connection data that's sent to Azure Monitor.​
+The log size varies by the string lengths of performance counters, and it can increase with the number of logical disks and network adapters allocated to the VM. If you're already using Service Map, the only change you'll see is the additional performance data that's sent to the Azure Monitor InsightsMetrics data type.​
 
 
 ## Configuring Azure Monitor for VMs
@@ -50,18 +50,9 @@ The steps to configure Azure Monitor for VMs are as follows. Follow each link fo
 - [Add VMInsights solution to workspace.](vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
 - [Install agents on VM and VMSS to be monitored.](vminsights-enable-overview.md)
 
-## Role-based access control
-
-To enable and access the features in Azure Monitor for VMs, you must have the [Log Analytics contributor role](../platform/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../platform/roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM.
-
-For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
-
-
-
- see [access modes overview](../platform/design-logs-deployment.md#access-mode).
 
 
 ## Next steps
 
-To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-enable-overview.md).
+- See [Deploy Azure Monitor for VMs](vminsights-enable-overview.md) for requirements and methods that to enable monitoring for your virtual machines.
 

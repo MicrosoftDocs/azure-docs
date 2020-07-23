@@ -1,21 +1,21 @@
 ---
 title: Enable Azure Monitor for VMs by using Azure Policy
-description: This article describes how you enable Azure Monitor for VMs for multiple Azure virtual machines or virtual machine scale sets by using Azure Policy.
+description: Describes how you enable Azure Monitor for VMs for multiple Azure virtual machines or virtual machine scale sets using Azure Policy.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/07/2020
+ms.date: 07/22/2020
 
 ---
 
 # Enable Azure Monitor for VMs by using Azure Policy
-This article explains how to enable Azure Monitor for VMs for Azure virtual machines using Azure Policy. Azure Policy allows you to assign policy definitions that install the required agents for Azure Monitor for VMs across your Azure environment and automatically enable monitoring for VMs as each VM is created. Azure Monitor for VMs provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
+This article explains how to enable Azure Monitor for VMs for Azure virtual machines or hybrid virtual machine connected with Azure Arc (preview) using Azure Policy. Azure Policy allows you to assign policy definitions that install the required agents for Azure Monitor for VMs across your Azure environment and automatically enable monitoring for VMs as each VM is created. Azure Monitor for VMs provides a feature that allows you to discover and remediate noncompliant VMs in your environment. Use this feature instead of working directly with Azure Policy.
 
 If you're not familiar with Azure Policy, get a brief introduction at [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md).
 
 > [!NOTE]
-> To use Azure Policy with Azure virtual machine scale sets or hybrid virtual machine connected with Azure Arc, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md#azure-monitor-for-vms).
+> To use Azure Policy with Azure virtual machine scale sets, or to work with Azure Policy directly to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../platform/deploy-scale.md#azure-monitor-for-vms).
 
 
 ## Prerequisites

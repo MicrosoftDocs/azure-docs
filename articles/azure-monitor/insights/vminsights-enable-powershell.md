@@ -1,11 +1,11 @@
 ---
 title: Enable Azure Monitor for VMs using PowerShell
-description: This article describes how you enable Azure Monitor for VMs for one or more Azure virtual machines or virtual machine scale sets by using Azure PowerShell or Azure Resource Manager templates.
+description: Describes how to enable Azure Monitor for VMs for Azure virtual machines or virtual machine scale sets using Azure PowerShell.
 ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/07/2020
+ms.date: 07/22/2020
 
 ---
 
@@ -186,8 +186,5 @@ Failed: (0)
 
 ## Next steps
 
-Now that monitoring is enabled for your virtual machines, this information is available for analysis with Azure Monitor for VMs.
-
-- To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
-
-- To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM Performance](vminsights-performance.md).
+* See [Use Azure Monitor for VMs Map](vminsights-maps.md) to view discovered application dependencies. 
+* See [View Azure VM performance](vminsights-performance.md) to identify bottlenecks, overall utilization, and your VM's performance.

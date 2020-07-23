@@ -1,6 +1,6 @@
 ---
 title: Enable Azure Monitor for single VM or VMSS in the Azure portal
-description: Learn how to enable Azure Monitor for VMs on a single Azure virtual machine or virtual machine scale set.
+description: Learn how to enable Azure Monitor for VMs on a single Azure virtual machine or virtual machine scale set using the Azure portal.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -29,6 +29,9 @@ From the Azure portal, select **Virtual machines**, **Virtual machine scale sets
 
 If the VM isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../../azure-monitor/learn/quick-create-workspace.md), then you can select a default for the location where the VM or VMSS is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for Azure Monitor for VMs if it wasn't already.
 
+> [!NOTE]
+> If you select a workspace that wasn't previously configured for Azure Monitor for VMs, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for Azure Monitor for VMs. P                   erformance data will be collected from these VMs and stored in the *InsightsMetrics* table.
+
 ![Select workspace](media/vminsights-configure-workspace/select-workspace.png)
 
 You will receive status messages as the configuration is performed.
@@ -42,5 +45,5 @@ You will receive status messages as the configuration is performed.
 
 ## Next steps
 
-* To view discovered application dependencies, see [Use Azure Monitor for VMs Map](vminsights-maps.md). 
-* To identify bottlenecks, overall utilization, and your VM's performance, see [View Azure VM performance](vminsights-performance.md).
+* See [Use Azure Monitor for VMs Map](vminsights-maps.md) to view discovered application dependencies. 
+* See [View Azure VM performance](vminsights-performance.md) to identify bottlenecks, overall utilization, and your VM's performance.
