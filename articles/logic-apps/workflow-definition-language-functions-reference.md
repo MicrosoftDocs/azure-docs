@@ -4910,13 +4910,71 @@ Here is the result array with the nodes that match `<name></name`:
 
 *Example 2*
 
+Following on Example 1, this example is passed in XPath expression, `" /produce/item/name[1] "` , which finds the first `name` element that is the child of `item` element.
+
+`xpath(xml(parameters('items')), '/produce/item/name[1]')`
+
+And returns this result: `Gala`
+
+*Example 3*
+
+Following on Example 1, this example is passed in XPath expression, `" /produce/item/name[last()] "` , which finds the last `name` element that is the child of `item` element.
+
+`xpath(xml(parameters('items')), '/produce/item/name[last()]')`
+
+And returns this result: `Honeycrisp`
+
+*Example 4*
+
+* The "items" string, which contains this XML:
+
+  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired.
+
+:  `" //name[@expired]	"`
+
+Here the result is :
+
+` [ Gala, Honeycrisp] `
+
+*Example 5*
+
+* The "items" string, which contains this XML:
+
+  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired with value true.
+
+:  `" //name[@expired - 'true']	"`
+
+Here the result is :
+
+` [ Gala ] `
+
+*Example 6*
+
+* The "items" string, which contains this XML:
+
+  `"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+* This XPath expression, which is passed as a string selects all the name elements with price value more than 35.
+
+:  `" //name[price>35]	"`
+
+Here the result is :
+
+` Honeycrisp `
+
+*Example 7*
+
 Following on Example 1, this example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
 And returns this result: `30`
 
-*Example 3*
+*Example 8*
 
 For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. 
 
@@ -4961,85 +5019,13 @@ Here is the result node that matches the `<location></location>` node:
 <location xmlns="https://contoso.com">Paris</location>
 ```
 
-*Example 4*
+*Example 9*
 
-Following on Example 3, this example finds the value in the `<location></location>` node:
+Following on Example 8, this example finds the value in the `<location></location>` node:
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
 And returns this result: `"Paris"`
-
-*Example 5*
-
-Following on Example 1.
-
-* This XPath expression, which is passed as a string selects the first name element that is the child of item element.
-
-:  `" /produce/item/name[1] "`
-
-Here the result is :
-
-` Gala `
-
-*Example 6*
-
-Following on Example 1.
-
-* This XPath expression, which is passed as a string selects the last name element that is the child of item element.
-
-:  `" /produce/item/name[last()] "`
-
-Here the result is :
-
-` Honeycrisp `
-
-*Example 7*
-
-Following on Example 1.
-
-* The "items" string, which contains this XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired.
-
-:  `" //name[@expired]	"`
-
-Here the result is :
-
-` [ Gala, Honeycrisp] `
-
-*Example 8*
-
-* The "items" string, which contains this XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-Following on Example 1.
-
-* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired with value true.
-
-:  `" //name[@expired - 'true']	"`
-
-Here the result is :
-
-` [ Gala ] `
-
-*Example 9*
-
-Following on Example 1.
-
-* The "items" string, which contains this XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-* This XPath expression, which is passed as a string selects all the name elements with price value more than 35.
-
-:  `" //name[price>35]	"`
-
-Here the result is :
-
-` Honeycrisp `
 
 ## Next steps
 
