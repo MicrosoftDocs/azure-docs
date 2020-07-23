@@ -98,6 +98,8 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
     ![Example result when deployment is complete](media/quickstart-create-automation-account-template/template-output.png)
 
+## Review deployed resources
+
 ## Clean up resources
 
 When you no longer need them, unlink the Automation account from the Log Analytics workspace, and then delete the Automation account and workspace.
