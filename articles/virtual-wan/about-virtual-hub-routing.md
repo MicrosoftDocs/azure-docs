@@ -82,10 +82,10 @@ To use the new route table capabilities, please wait until week of August 3rd fo
 
 Please consider the following when configuring Virtual WAN routing:
 
-* All branch connections (point-to-site, site-to-site and ExpressRoute) need to be associated to the Default route table. Therefore, all branches will learn the same prefixes
-* All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a consequence, all connections associated to the Default route table will be able to reach all of the branches.
-* Branch-to-branch via Azure Firewall is currently not supported
-* When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible
+* All branch connections (Point-to-site, Site-to-site, and ExpressRoute) need to be associated to the Default route table. That way, all branches will learn the same prefixes.
+* All branch connections need to propagate their routes to the same set of route tables. For example, if you decide that branches should propagate to the Default route table, this configuration should be consistent across all branches. As a result, all connections associated to the Default route table will be able to reach all of the branches.
+* Branch-to-branch via Azure Firewall is currently not supported.
+* When using Azure Firewall in multiple regions, all spoke virtual networks must be associated to the same route table. For example, having a subset of the VNets going through the Azure Firewall while other VNets bypass the Azure Firewall in the same virtual hub is not possible.
 
 ## Next steps
 
