@@ -22,7 +22,7 @@
 
 1. Search for and select Disk Encryption Sets.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="example text":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-encryption-sets-search.png" alt-text="example text":::
 
 1. Select **+ Add**.
 
