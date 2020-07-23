@@ -15,7 +15,7 @@ ms.reviewer: sngun
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on the data. You need to choose either the Azure Table service or the Azure Cosmos DB Table API. The samples described in this article are written in Ruby and uses the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include create a table, delete a table, insert entities, and query entities from the table.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples described in this article are written in Ruby and uses the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include create a table, delete a table, insert entities, and query entities from the table.
 
 ## Create an Azure service account
 

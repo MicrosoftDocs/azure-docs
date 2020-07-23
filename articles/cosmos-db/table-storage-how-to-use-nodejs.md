@@ -14,7 +14,7 @@ ms.author: akshanka
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on the data. You need to choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in Node.js.
+This article shows you how to create tables, store your data, and perform CRUD operations on the data. Choose either the Azure Table service or the Azure Cosmos DB Table API. The samples are written in Node.js.
 
 ## Create an Azure service account
 
@@ -67,7 +67,7 @@ You can either connect to the Azure storage account or the Azure Cosmos DB Table
 
 ### Add an Azure Storage connection
 
-The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information when calling **TableService**. For example, the following code creates a **TableService** object:
+The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information when calling `TableService`. For example, the following code creates a `TableService` object:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
@@ -75,7 +75,7 @@ var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 
 ### Add an Azure Cosmos DB connection
 
-To add an Azure Cosmos DB connection, create a **TableService** object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
+To add an Azure Cosmos DB connection, create a `TableService` object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint');
@@ -83,13 +83,13 @@ var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint
 
 ## Create a table
 
-The following code creates a **TableService** object and uses it to create a new table.
+The following code creates a `TableService` object and uses it to create a new table.
 
 ```javascript
 var tableSvc = azure.createTableService();
 ```
 
-The call to **createTableIfNotExists** creates a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
+The call to `createTableIfNotExists` creates a new table with the specified name if it does not already exist. The following example creates a new table named 'mytable' if it does not already exist:
 
 ```javascript
 tableSvc.createTableIfNotExists('mytable', function(error, result, response){
@@ -103,7 +103,7 @@ The `result.created` is `true` if a new table is created, and `false` if the tab
 
 ### Apply filters
 
-You can apply optional filtering to operations performed using **TableService**. Filtering operations can include logging, automatic retries, etc. Filters are objects that implement a method with the signature:
+You can apply optional filtering to operations performed using `TableService`. Filtering operations can include logging, automatic retries, etc. Filters are objects that implement a method with the signature:
 
 ```javascript
 function handle (requestOptions, next)
@@ -115,9 +115,9 @@ After doing its preprocessing on the request options, the method must call **nex
 function (returnObject, finalCallback, next)
 ```
 
-In this callback, and after processing the **returnObject** (the response from the request to the server), the callback must either invoke **next** if it exists to continue processing other filters or simply invoke **finalCallback** otherwise to end the service invocation.
+In this callback, and after processing the `returnObject` (the response from the request to the server), the callback must either invoke `next` if it exists to continue processing other filters or simply invoke `finalCallback` otherwise to end the service invocation.
 
-Two filters that implement retry logic are included with the Azure SDK for Node.js, **ExponentialRetryPolicyFilter** and **LinearRetryPolicyFilter**. The following creates a **TableService** object that uses the **ExponentialRetryPolicyFilter**:
+Two filters that implement retry logic are included with the Azure SDK for Node.js, `ExponentialRetryPolicyFilter** and `LinearRetryPolicyFilter`. The following creates a `TableService` object that uses the `ExponentialRetryPolicyFilter`:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -133,7 +133,7 @@ To add an entity, first create an object that defines your entity properties. Al
 
 Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
-The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types are inferred if not specified.
+The following is an example of defining an entity. The **dueDate** is defined as a type of `Edm.DateTime`. Specifying the type is optional, and types are inferred if not specified.
 
 ```javascript
 var task = {
@@ -145,9 +145,9 @@ var task = {
 ```
 
 > [!NOTE]
-> There is also a **Timestamp** field for each record, which is set by Azure when an entity is inserted or updated.
+> There is also a `Timestamp` field for each record, which is set by Azure when an entity is inserted or updated.
 
-You can also use the **entityGenerator** to create entities. The following example creates the same task entity using the **entityGenerator**.
+You can also use the `entityGenerator` to create entities. The following example creates the same task entity using the `entityGenerator`.
 
 ```javascript
 var entGen = azure.TableUtilities.entityGenerator;
@@ -159,7 +159,7 @@ var task = {
 };
 ```
 
-To add an entity to your table, pass the entity object to the **insertEntity** method.
+To add an entity to your table, pass the entity object to the `insertEntity` method.
 
 ```javascript
 tableSvc.insertEntity('mytable',task, function (error, result, response) {
@@ -178,7 +178,7 @@ Example response:
 ```
 
 > [!NOTE]
-> By default, **insertEntity** does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or want to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling **echoContent** as follows:
+> By default, `insertEntity` does not return the inserted entity as part of the `response` information. If you plan on performing other operations on this entity, or want to cache the information, it can be useful to have it returned as part of the `result`. You can do this by enabling `echoContent` as follows:
 >
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
@@ -186,12 +186,12 @@ Example response:
 
 There are multiple methods available to update an existing entity:
 
-* **replaceEntity** - Updates an existing entity by replacing it.
-* **mergeEntity** - Updates an existing entity by merging new property values into the existing entity.
-* **insertOrReplaceEntity** - Updates an existing entity by replacing it. If no entity exists, a new one will be inserted.
-* **insertOrMergeEntity** - Updates an existing entity by merging new property values into the existing. If no entity exists, a new one will be inserted.
+* `replaceEntity` - Updates an existing entity by replacing it.
+* `mergeEntity` - Updates an existing entity by merging new property values into the existing entity.
+* `insertOrReplaceEntity` - Updates an existing entity by replacing it. If no entity exists, a new one will be inserted.
+* `insertOrMergeEntity` - Updates an existing entity by merging new property values into the existing. If no entity exists, a new one will be inserted.
 
-The following example demonstrates updating an entity using **replaceEntity**:
+The following example demonstrates updating an entity using `replaceEntity`:
 
 ```javascript
 tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response){
@@ -212,13 +212,13 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 >
 >
 
-With **replaceEntity** and **mergeEntity**, if the entity that is being updated doesn't exist, then the update operation fails; therefore, if you want to store an entity regardless of whether it already exists, use **insertOrReplaceEntity** or **insertOrMergeEntity**.
+With `replaceEntity` and `mergeEntity`, if the entity that is being updated doesn't exist, then the update operation fails; therefore, if you want to store an entity regardless of whether it already exists, use `insertOrReplaceEntity` or `insertOrMergeEntity`.
 
 The `result` for successful update operations contains the **Etag** of the updated entity.
 
 ## Work with groups of entities
 
-Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, use the **TableBatch** class to create a batch, and then use the **executeBatch** method of **TableService** to perform the batched operations.
+Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, use the `TableBatch` class to create a batch, and then use the `executeBatch` method of `TableService` to perform the batched operations.
 
  The following example demonstrates submitting two entities in a batch:
 
@@ -318,6 +318,7 @@ var query = new azure.TableQuery()
 ```
 
 ## Delete an entity
+
 You can delete an entity using its partition and row keys. In this example, the **task1** object contains the **RowKey** and **PartitionKey** values of the entity to delete. Then the object is passed to the **deleteEntity** method.
 
 ```javascript
