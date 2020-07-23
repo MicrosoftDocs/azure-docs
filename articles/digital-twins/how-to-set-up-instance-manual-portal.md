@@ -84,14 +84,16 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-First, open the details page for your Azure Digital Twins instance in the Azure portal. From the instance menu, select *Access control (IAM)*. Hit the  _Add_ button under _Add a role assignment_.
+First, open the details page for your Azure Digital Twins instance in the Azure portal. From the instance menu, select *Access control (IAM)*. Hit the  *Add* button under *Add a role assignment*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/access-control-role-assignment.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
 
 On the following *Add role assignment* page, fill in the values (must be completed by an owner of the Azure subscription):
-* (Role*: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
+* *Role*: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
 * *Assign access to*: Select *Azure AD user, group or service principal* from the dropdown menu
-* *Select*: Enter the name or email address of the user to assign
+* *Select*: Search for the name or email address of the user to assign. When you select the result, it will show up in a *Selected members* section.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
 
 When you're finished entering your details, hit the *Save* button.
 
