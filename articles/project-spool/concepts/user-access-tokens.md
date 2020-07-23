@@ -53,13 +53,15 @@ public async Task<ActionResult> CreateAccessToken(string userId)
 ```
 #### [Javascript](#tab/javascript)
 ```js
+var config = require('@azure/communication-configuration');
+
 app.post('/token', (req, res) => {
     // validate the user that sent this request is authorized to
     // access Azure Communication Services
     
     // initialize the configuration client with a connection string
     // retrieved from the Azure Portal
-    const userTokenClient = new UserTokenClient(CONNECTION_STRING);
+    const userTokenClient = new config.UserTokenClient(CONNECTION_STRING);
     
 
     // create a user access token for the provided identity and implicitly create a new ACS identity
