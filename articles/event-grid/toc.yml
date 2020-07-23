@@ -8,6 +8,8 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
+  - name: Release notes
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
