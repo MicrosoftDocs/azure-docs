@@ -12,7 +12,7 @@ ms.author: mbaldwin
 ---
 # Authoring and signing attestation policy for Microsoft Azure Attestation
 
-Attestation provider gets created with a default policy for each TEE type. For default policy content, see [examples of attestation policy](policy-samples.md). If the default TEE policy of attestation provider meets the requirements, skip this section.
+Attestation provider gets created with a default policy for each TEE type. For default policy content, see [examples of an attestation policy](policy-samples.md). If the default TEE policy of attestation provider meets the requirements, skip this section.
 
 Else custom policy can be configured for any of the supported TEE types. The policy can be uploaded in a Azure Attestation specific policy format. Alternatively, an encoded version of the policy, in JWT, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends evidence which Azure Attestation  parses and converts into incoming claims (set of properties, value). Azure Attestation then processes the claims, based on what’s defined in the policy, and returns the computed result.
 
@@ -46,7 +46,7 @@ Currently the only version supported is version 1.0.
 
 **Issuancerules**: The issuance rules are a collection of claim rules that will be evaluated to add additional information to the attestation result as defined in the policy. The claim rules apply in the order they are defined and are also optional.
 
-For policy samples, see [examples of attestation policy](policy-samples.md)
+For policy samples, see [examples of an attestation policy](policy-samples.md)
 
 See [claim and claim rules](claimrulegrammar.md) to learn how to define claim rules in a policy.
 
