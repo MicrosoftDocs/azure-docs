@@ -443,19 +443,19 @@ For .NET applications and functions, the simplest way to work with a managed ide
     // OR
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
-If you want to use a user-defined managed identity, then you'll need to use the following code instead modifying to target the right resources and use the right clientid:
 
-    ```csharp
-    using Microsoft.Azure.Services.AppAuthentication;
-    using Microsoft.Azure.KeyVault;
-    // ...
-    var azureServiceTokenProvider = new AzureServiceTokenProvider("RunAs=App;AppId=<clientid-guid>");
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
-    // OR
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-    ```
+If you want to use a user-assigned managed identity, you can set the `AzureServicesAuthConnectionString` application setting to `RunAs=App;AppId=<clientId-guid>`. Replace `<clientId-guid>` with the client ID of the identity you want to use. You can define multiple such connection strings by using custom application settings and passing their values into the AzureServiceTokenProvider constructor.
+
+```csharp
+    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
+    
+    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
+```
 
 To learn more about configuring AzureServiceTokenProvider and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+
 ### Using the Azure SDK for Java
 
 For Java applications and functions, the simplest way to work with a managed identity is through the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java). This section shows you how to get started with the library in your code.
