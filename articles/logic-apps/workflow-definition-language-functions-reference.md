@@ -4969,6 +4969,78 @@ Following on Example 3, this example finds the value in the `<location></locatio
 
 And returns this result: `"Paris"`
 
+*Example 5*
+
+Following on Example 1.
+
+* This XPath expression, which is passed as a string selects the first name element that is the child of item element.
+
+:  `" /produce/item/name[1] "`
+
+Here the result is :
+
+` Gala `
+
+*Example 6*
+
+Following on Example 1.
+
+* This XPath expression, which is passed as a string selects the last name element that is the child of item element.
+
+:  `" /produce/item/name[last()] "`
+
+Here the result is :
+
+` Honeycrisp `
+
+*Example 7*
+
+Following on Example 1.
+
+* The "items" string, which contains this XML:
+
+  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired.
+
+:  `" //name[@expired]	"`
+
+Here the result is :
+
+` [ Gala, Honeycrisp] `
+
+*Example 8*
+
+* The "items" string, which contains this XML:
+
+  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Following on Example 1.
+
+* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired with value true.
+
+:  `" //name[@expired - 'true']	"`
+
+Here the result is :
+
+` [ Gala ] `
+
+*Example 9*
+
+Following on Example 1.
+
+* The "items" string, which contains this XML:
+
+  `"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+* This XPath expression, which is passed as a string selects all the name elements with price value more than 35.
+
+:  `" //name[price>35]	"`
+
+Here the result is :
+
+` Honeycrisp `
+
 ## Next steps
 
 Learn about the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md)
