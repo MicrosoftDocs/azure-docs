@@ -126,7 +126,7 @@
     - name: Return device
       href: azure-stack-edge-return-device.md
     - name: Replace device
-      href: azure-stack-edge-replace-device.md
+      href: azure-stack-edge-replace-device.md   
   - name: Release notes
     items:
     - name: 2007 - Current
@@ -139,6 +139,14 @@
       href: data-box-gateway-1905-release-notes.md
     - name: General availability (GA)
       href: data-box-gateway-release-notes.md
+  - name: Reference
+    items:
+    - name: Azure PowerShell
+      href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
+    - name: REST API
+      href: https://docs.microsoft.com/rest/api/databoxedgegateway
+    - name: .NET SDK
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 - name: Resources
   items:
   - name: Azure Stack Edge C# module samples (.NET)

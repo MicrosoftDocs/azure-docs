@@ -55,10 +55,10 @@ However, the tool also has the following limitations:
 
 - This solution applies only to pooled multi-session session host VMs.
 - This solution manages VMs in any region, but can only be used in the same subscription as your Azure Automation account and Azure Logic App.
-- The maximum runtime of a job in the runbook is 3 hours. If starting or stopping the VMs in the host pool takes longer than that, the job will fail. For more details, see [Shared resources](../../automation/automation-runbook-execution.md#fair-share)
+- The maximum runtime of a job in the runbook is 3 hours. If starting or stopping the VMs in the host pool takes longer than that, the job will fail. For more details, see [Shared resources](../../automation/automation-runbook-execution.md#fair-share).
 
 >[!NOTE]
->The scaling tool controls the load balancing mode of the host pool it is scaling. It sets it to breadth-first load balancing for both peak and off-peak hours.
+>The scaling tool controls the load balancing mode of the host pool it's currently scaling. The tool uses breadth-first load balancing mode for both peak and off-peak hours.
 
 ## Prerequisites
 
@@ -135,7 +135,7 @@ Now that you have an Azure Automation account, you'll also need to create an Azu
 
 An [Azure Automation Run As account](../../automation/manage-runas-account.md) provides authentication for managing resources in Azure with Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level. An Azure Run As account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As account authentication, see [Limit Run As account permissions](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
-Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account by following the next section's instructions.
+Any user who's a member of the Subscription Admins role and coadministrator of the subscription can create a Run As account.
 
 To create a Run As account in your Azure Automation account:
 

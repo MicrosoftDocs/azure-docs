@@ -74,6 +74,8 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
+  - name: Scale session hosts automatically
+    href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics

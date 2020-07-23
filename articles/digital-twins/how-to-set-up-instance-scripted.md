@@ -48,13 +48,13 @@ Here are the steps to run the deployment script in Cloud Shell.
 
 3. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. As the script runs through the automated setup steps, you will be asked to pass in the following values:
     * For the instance: the *subscription ID* of your Azure subscription to use
-    * For the instance: a *location* where you'd like to deploy the instance. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+    * For the instance: a *location* where you'd like to deploy the instance. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * For the instance: a *resource group* name. You can use an existing resource group, or enter a new name of one to create.
     * For the instance: a *name* for your Azure Digital Twins instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
-    * For the app registration: an *AAD application display name* to associate with the registration. This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
-    * For the app registration: an *AAD application reply URL* for the AAD application. You can use `http://localhost`.
+    * For the app registration: an *Azure AD application display name* to associate with the registration. This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
+    * For the app registration: an *Azure AD application reply URL* for the Azure AD application. You can use `http://localhost`.
 
-The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance, and set up an AAD app registration for your client app to use.
+The script will create an Azure Digital Twins instance, assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance, and set up an Azure AD app registration for your client app to use.
 
 Here is an excerpt of the output log from the script:
 
@@ -68,7 +68,7 @@ Upon script completion, you now have an Azure Digital Twins instance ready to go
 
 There are two important values from the app registration that will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). 
 
-To find them, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the AAD app registration overview page in the Azure portal. This page shows all the app registrations that have been created in your subscription.
+To find them, follow [this link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) to navigate to the Azure AD app registration overview page in the Azure portal. This page shows all the app registrations that have been created in your subscription.
 
 You should see the the app registration you just created in this list. Select it to open up its details:
 
