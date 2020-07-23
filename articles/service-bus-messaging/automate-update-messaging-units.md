@@ -15,7 +15,7 @@ By using the Autoscale feature for Service Bus premium namespaces, you can speci
 For example, you can implement the following scaling scenarios for Service Bus namespaces using the Autoscale feature. 
 
 - Increase messaging units for a Service Bus namespace when the CPU usage of the namespace goes above 75%. 
-- Decrease messaging units for a Service Bus namespace when the CPU usage of the namespace goes above 25%. 
+- Decrease messaging units for a Service Bus namespace when the CPU usage of the namespace goes below 25%. 
 - Use more messaging units during business hours and fewer during off hours. 
 
 This article shows you how you can automatically scale a Service Bus namespace (update [messaging units](service-bus-premium-messaging.md)) in the Azure portal. 
@@ -85,7 +85,7 @@ The following procedure shows you how to add a condition to automatically increa
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Default - scale out if CPU usage is greater than 75%":::       
 
         > [!NOTE]
-        > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes above 75% in this example. Decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
+        > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes below 25% in this example. Decrements are done from 8 to 4, 4 to 2, and 2 to 1. 
 1. Set the **minimum** and **maximum** and **default** number of messaging units.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Default rule based on a metric":::
@@ -136,7 +136,9 @@ The previous section shows you how to add a default condition for the autoscale 
     1. If you select **Repeat specific days**, select the days of the week, timezone, start time, and end time when the condition should apply.
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scale to specific messaging units - repeat specific days":::
-         
+
+> [!IMPORTANT]
+> To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/platform/autoscale-understanding-settings).          
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)
