@@ -14,7 +14,7 @@ ms.service: azure-project-spool
 # Quickstart: Place A Telephone Call
 
 Azure Communication Services lets you acquire multiple telephone (PSTN) numbers to your your Azure Communication Services resource and placing and outgoing telephone call using those numbers.
-
+ 
 ## Prerequisites
 To be able to place an outgoing telephone call, you need following:
 

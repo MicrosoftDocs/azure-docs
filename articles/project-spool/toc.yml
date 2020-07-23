@@ -120,9 +120,9 @@
   - name: Voice and Video Calling
     items:
       - name: About Voice and Video
-        href: concepts/voice-and-video/about-voice.md
+        href: concepts/voice-and-video-calling/about-voice.md
       - name: Introduction to WebRTC
-        href: concepts/voice-and-video/intro-to-webrtc.md
+        href: concepts/voice-and-video-calling/intro-to-webrtc.md
   - name: Diagnostics and metrics
     items:
     - name: Metrics definitions 
