@@ -24,6 +24,10 @@ Setting up customer-managed keys for your disks will require you to create resou
 1. Select **+Add** to create a new Key Vault.
 1. Create a new resource group.
 1. Enter a key vault name, select a region, and select a pricing tier.
+
+    > [!NOTE]
+    > When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
+
 1. Select **Review + Create**, verify your choices, then select **Create**.
 
     ![Screenshot of the Azure Key Vault creation experience. Showing the particular values you create](media/virtual-machines-disk-encryption-portal/server-side-encryption-create-a-key-vault.png)
