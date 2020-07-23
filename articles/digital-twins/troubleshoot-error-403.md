@@ -24,7 +24,7 @@ Most often, this error indicates that your role-based access control (RBAC) perm
 
 ### Cause #2
 
-If you are using a client app to communicate with Azure Digital Twins, this error may happen because your [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) app registration does not have permissions set up for the Azure Digital Twins service.
+If you are using a client app to communicate with Azure Digital Twins, this error may happen because your [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration does not have permissions set up for the Azure Digital Twins service.
 
 The app registration is required to have access permissions configured for the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
@@ -49,7 +49,7 @@ If you do not have this role assignment, someone with an Owner role in your **Az
 If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
 
 ```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section of *How-to: Set up an instance and authentication (Manual)*](how-to-set-up-instance-manual.md#set-up-your-users-access-permissions).
@@ -58,7 +58,7 @@ If you have this role assignment already and still encounter the 403 issue, cont
 
 ### Solution #2
 
-The second solution is to verify that the AAD app registration has permissions configured for the Azure Digital Twins service. If this is not configured, set them up.
+The second solution is to verify that the Azure AD app registration has permissions configured for the Azure Digital Twins service. If this is not configured, set them up.
 
 #### Check current setup
 
