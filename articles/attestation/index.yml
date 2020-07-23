@@ -30,9 +30,30 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Portal quickstart
-            url: quickstart-portal.md
           - text: PowerShell quickstart
             url: quickstart-powershell.md
-          - text: PowerShell CLI
-            url: quickstart-cli.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Basic concepts
+            url: basic-concepts.md
+          - text: Claim rule grammar
+            url: claimrulegrammar.md
+          - text: Claim sets
+            url: claimsets.md
+          - text: Work flow
+            url: workflow.md
+            
+  # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Authoring and signing an attestation policy
+            url: authoringandsigningpolicy.md
+          - text: SGX attestation using Open Enclave SDK
+            url: tutorials.md
+      
