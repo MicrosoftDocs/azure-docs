@@ -48,7 +48,7 @@ The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a bu
 3. Find the ACS SMS SDK in nuget package manager by searching for Azure.Communication.Sms
 4. Accept the license and load dependencies. Visual Studio and nuget will automatically load dependencies for `Azure.Communication.Sms` such as  `Azure.Core`.
 
-![Screenshot of Visual Studio nuget package manager](../media/nuget-package-sms.PNG)
+![Screenshot of Visual Studio nuget package manager](../media/nuget.PNG)
 
 > **NOTE:**
 > During the private preview, `.nupkg` files are not available in public nuget, but must be downloaded internally from [Azure Dev Ops](https://dev.azure.com/azure-sdk/internal/_packaging?_a=feed&feed=azure-sdk-for-net-pr%40Local) or [GitHub](https://github.com/Azure/communication-preview/releases). Once locally downloaded to [your local nuget package source location](https://stackoverflow.com/questions/10240029/how-do-i-install-a-nuget-package-nupkg-file-locally) you can follow these same steps to include in your project.
