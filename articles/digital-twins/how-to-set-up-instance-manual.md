@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Set up an instance and authentication (manual, CLI)
 titleSuffix: Azure Digital Twins
-description: See how to set up an instance of the Azure Digital Twins service, including the proper authentication.
+description: See how to set up an instance of the Azure Digital Twins service, including the proper authentication. Manual version.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 4/22/2020
+ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -64,7 +64,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Use the following command (must be run by an owner of the Azure subscription):
+Use the following command to assign the role (must be run by an owner of the Azure subscription):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<AAD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
@@ -125,7 +125,11 @@ Here is an excerpt of the output from this command, showing information about th
 
 ### Verify success
 
-[!INCLUDE [digital-twins-setup-verify-app-registration.md](../../includes/digital-twins-setup-verify-app-registration.md)]
+[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+
+First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
+
+[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
 ### Collect important values
 

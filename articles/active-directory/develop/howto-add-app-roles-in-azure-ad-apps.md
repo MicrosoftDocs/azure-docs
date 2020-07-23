@@ -72,7 +72,7 @@ The following example shows the `appRoles` that you can assign to `users`.
 > [!NOTE]
 >The `displayName` cannot contain spaces.
 
-You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions in the **Required Permissions** blade. The following example shows an app role targeted towards an `Application`.
+You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions under **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**. The following example shows an app role targeted towards an `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
