@@ -10,7 +10,7 @@ ms.service: automation
 ms.devlang: na
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 07/22/2020
+ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
 
@@ -99,6 +99,18 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
     ![Example result when deployment is complete](media/quickstart-create-automation-account-template/template-output.png)
 
 ## Review deployed resources
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. In the Azure portal, open the Automation account you just created. 
+
+3. From the left-pane, select **Runbooks**. On the **Runbooks** page, listed are three tutorial runbooks created with the Automation account.
+
+    ![Tutorial runbooks created with Automation account](./media/quickstart-create-automation-account-template/automation-sample-runbooks.png)
+
+4. From the left-pane, select **Linked workspace**. On the **Linked workspace** page, it shows the Log Analytics workspace you specified earlier linked to your Automation account.
+
+    ![Automation account linked to the Log Analytics workspace](./media/quickstart-create-automation-account-template/automation-account-linked-workspace.png)
 
 ## Clean up resources
 
