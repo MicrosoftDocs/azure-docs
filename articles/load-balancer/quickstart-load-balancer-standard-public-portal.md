@@ -277,8 +277,6 @@ For more information on outbound connections, see [Outbound connections in Azure
 8. Select **Save**.
 
 ---
-
----
 # [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
@@ -482,6 +480,8 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Name |  **myVM2** |**myVM3**|
     | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
+
+---
 
 ## Install IIS
 
