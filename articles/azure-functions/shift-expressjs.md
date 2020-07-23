@@ -9,7 +9,7 @@ ms.author: cshoe
 
 # Shifting from Express.js to Azure Functions
 
-Express.js is one of the most popular Node.js frameworks for web developers and remains an excellent choice for apps not build with serverless architecture.
+Express.js is one of the most popular Node.js frameworks for web developers and remains an excellent choice for building apps that serve API endpoints.
 
 When migrating code to a serverless architecture, refactoring Express.js endpoints affects the following areas:
 
@@ -67,9 +67,9 @@ When moving to Functions, the following changes are made:
 
 - **Context  and response object**: The `context` object holds the `res` object, which allows you to define a response. To complete the function call, you need to call `context.done()`.
 
-- **Naming convention**: The folder name used to contain the Azure Functions files is used as the endpoint name.
+- **Naming convention**: The folder name used to contain the Azure Functions files is used as the endpoint name by default (this can be overridden in the _function.json_).
 
-- **Configuration**: Rather than defining the HTTP verb in code, the *function.json* file defines allowed HTTP verbs.
+- **Configuration**: You define the HTTP verbs in the *function.json* file such as `POST, PUT`.
 
 The following _function.json_ file holds configuration information for the function.
 
