@@ -332,7 +332,7 @@ With your managed domain migrated to the Resource Manager deployment model, [cre
 <!-- INTERNAL LINKS -->
 [azure-bastion]: ../bastion/bastion-overview.md
 [network-considerations]: network-considerations.md
-[azure-powershell]: /powershell/azure/overview
+[azure-powershell]: /powershell/azure/
 [network-ports]: network-considerations.md#network-security-groups-and-required-ports
 [Connect-AzAccount]: /powershell/module/az.accounts/connect-azaccount
 [Set-AzContext]: /powershell/module/az.accounts/set-azcontext
