@@ -144,7 +144,7 @@ In this example, we'll be making reverse searches using a few of the optional pa
 
 6. Next, we'll add the `entityType` key, and set its value to `Municipality`. The `entityType` key will override the `returnMatchType` key in the previous step. We'll also need to remove `returnSpeedLimit` and `returnRoadUse` since we're requesting information about the municipality.  For all possible entity types, see [Entity Types](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#entitytype).
 
-    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entitytype.png" alt-text="Search reverse entityType.":::
+    :::image type="content" source="./media/how-to-search-for-address/search-reverse-entity-type.png" alt-text="Search reverse entityType.":::
 
 7. Click **Send**. Compare the results to the results returned in step 5.  Because the requested entity type is now `municipality`, the response does not include street address information. Also, the returned `geometryId` can be used to request boundary polygon through Azure Maps Get [Search Polygon API](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
