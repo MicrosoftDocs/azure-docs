@@ -211,7 +211,8 @@
         "articles/media-services/**/*.md": "Juliako",
         "articles/media-services/**/**/*.md": "Juliako",
         "articles/marketplace/**/*.md": "dsindona",
-        "articles/azure-government/**/*.md": "stevevi"
+        "articles/azure-government/**/*.md": "stevevi",
+        "articles/data-lake-analytics/*.md": "xujxu"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -547,7 +548,8 @@
         "articles/media-services/*.md": "juliako",
         "articles/media-services/**/*.md": "juliako",
         "articles/marketplace/**/*.md": "dsindona",
-        "articles/azure-government/**/*.md": "stevevi"
+        "articles/azure-government/**/*.md": "stevevi",
+        "articles/data-lake-analytics/*.md": "xujiang1"
       },
       "ms.service": {
         "articles/batch/**/*.md": "batch",
