@@ -32,7 +32,7 @@ The app registration is required to have access permissions configured for the A
 
 ### Solution #1
 
-The first solution is to verify that your Azure user has the *Azure Digital Twins Owner (Preview)* role on the instance you are trying to manage. If you do not have this role, set it up.
+The first solution is to verify that your Azure user has the _**Azure Digital Twins Owner (Preview)**_ role on the instance you are trying to manage. If you do not have this role, set it up.
 
 Note that this role is different from...
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Owner (Preview)* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
