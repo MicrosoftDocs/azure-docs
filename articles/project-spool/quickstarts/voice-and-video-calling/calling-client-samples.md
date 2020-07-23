@@ -1,5 +1,5 @@
 ---
-title: Calling Client library samples
+title: Calling Client Samples
 description: Learn how to manage users and authenticate them to ACS
 author: mikben
 manager: jken
@@ -13,7 +13,7 @@ ms.service: azure-project-spool
 
 ---
 
-# Calling Client library samples
+# Get Started With The Calling Client Samples
 
 
 ## Initialization

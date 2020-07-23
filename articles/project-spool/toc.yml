@@ -33,10 +33,10 @@
     items:
       - name: Request A Phone Number
         href: quickstarts/telephony-and-sms/request-phone-numbers.md
-      - name: Buy A Telephone Number 
+      - name: Buy A Telephone Number
         href: quickstarts/telephony-and-sms/search-and-acquire-phone-number.md
       - name: Place a Telephone Call
-        href: quickstarts/telephony-and-sms/get-started-with-phone.md
+        href: quickstarts/telephony-and-sms/place-a-telephone-call.md
       - name: Send an SMS (JS)
         href: quickstarts/telephony-and-sms/send-sms-js.md
       - name: Send an SMS (.NET)
@@ -49,6 +49,8 @@
       href: quickstarts/voice-and-video-calling/init-client.md
     - name: Capture a Local Video Stream
       href: quickstarts/voice-and-video-calling/capture-local-video-stream.md
+    - name: Calling Client Samples
+      href: concepts/voice-and-video-calling/calling-client-samples.md
   - name: Get Started
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
@@ -147,8 +149,7 @@
         href: concepts/video/video.md
       - name: Introduction to WebRTC
         href: concepts/video/about-webrtc.md
-      - name: Calling Client Samples
-        href: concepts/voice-and-video-calling/calling-client-samples.md
+      
       #- name: Data Channels
       #  href: concepts/video/data-channels.md
   - name: Diagnostics and metrics
