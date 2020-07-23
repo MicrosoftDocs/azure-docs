@@ -41,7 +41,11 @@ The Database Migration Assistant supports the following target and source SQL Se
 |---------|---------|
 |SQL Server 2005 <br/> SQL Server 2008 R2 <br/> SQL Server 2008<br/>SQL Server 2012 <br/>SQL Server 2014 <br/>SQL Server 2016 <br/> SQL Server 2017 on Windows<br/> <br/> | SQL Server 2008 R2<br/>SQL Server 2012 <br/> SQL Server 2014<br/>SQL Server 2016 <br/>SQL Server 2017 on Windows and Linux <br/> SQL Server 2019 on Windows and Linux|
 
-## Discover
+## Pre-migration
+
+Before you begin your migration, discover the topology of your environment and assess the feasibility of your intended migration. 
+
+### Discover
 
 Azure Migrate assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises. Use Azure Migrate to [identify existing data sources and details about the features](../../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use to plan for the migration. This process involves scanning the network to identify all of your SQL Server instances in your organization with the version and features in use. 
 
@@ -51,7 +55,7 @@ Azure Migrate assesses migration suitability of on-premises computers, performs 
 For additional discovery tools, see [Services and tools](../../../../dms/dms-tools-matrix.md#business-justification-phase) available for data migration scenarios.
 
 
-## Assess
+### Assess
 
 After you've discovered all of the data sources, use the [Data Migration Assistant (DMA)](/dma/dma-overview) to assess on-premises SQL Server instance(s) migrating to an instance of SQL Server on Azure VM to understand the gaps between the source and target instances. 
 
@@ -61,7 +65,7 @@ After you've discovered all of the data sources, use the [Data Migration Assista
 
 
 
-### Assess user databases 
+#### Assess user databases 
 
 The Data Migration Assistant (DMA) helps you upgrade to a modern data platform by detecting compatibility issues that can impact database functionality in your new version of SQL Server. DMA recommends performance and reliability improvements for your target environment and allows you to move your schema, data, and login objects from your source server to your target server.
 
@@ -72,7 +76,7 @@ See [assessment](/sql/dma/dma-migrateonpremsql) to learn more.
 > DMA requires **sysadmin** access to perform an assessment. 
 
 
-### Assess applications
+#### Assess applications
 
 Typically, an application layer accesses user databases to persist and modify data.  DMA can assess the data access layer of an application in two ways: 
 
@@ -83,13 +87,13 @@ Typically, an application layer accesses user databases to persist and modify da
 Use DMA to [import](/sql/dma/dma-assesssqlonprem#add-databases-and-extended-events-trace-to-assess) captured trace files or DAMT files during the assessment of user databases. 
 
 
-### Scale assessments
+#### Scale assessments
 
 If you have multiple servers that require a DMA assessment, you can automate the process through the [command line interface](/sql/dma/dma-commandline). Using the interface, you can prepare assessment commands in advance for each SQL Server instance in the scope for migration. 
 
 For summary reporting across large estates, Data Migration Assistant (DMA) assessments can now be [consolidated into Azure Migrate](/sql/dma/dma-assess-sql-data-estate-to-sqldb).
 
-### Refactor databases with DMA
+#### Refactor databases with DMA
 
 Based on the DMA assessment results, you may have a series of recommendations to ensure your user database(s) perform and function correctly after migration. DMA provides details on the impacted objects as well as resources for how to resolve each issue. It is recommended that all breaking changes, and behavior changes are resolved before production migration.
 
@@ -175,14 +179,17 @@ Data Migration Assistant (DMA) is an offline migration, so has limited support f
 > For minimal downtime migrations, please refer to the log shipping and distributed availability group migration options outlined in [SQL VM migration overview](to-sql-server-on-azure-vm-overview.md).
 >
 
+## Post-migration
 
-## Remediate applications
+After you have successfully completed the migration stage, go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
+
+### Remediate applications
 
 After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this may in some cases require changes to the applications.
 
 Apply any Database Migration Assistant recommended fixes to user database(s). It is recommended these are scripted to ensure consistency and to allow for automation.
 
-## Perform tests
+### Perform tests
 
 The test approach for database migration consists of performing the following activities:
 
@@ -195,7 +202,7 @@ The test approach for database migration consists of performing the following ac
 > Use the [Database Experimentation Assistant (DEA)](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15) to assist with evaluating the target SQL Server performance.
 >
 
-## Optimize
+### Optimize
 
 The post migration phase is crucial for reconciling any issues with data accuracy and completeness, as well as addressing potential performance issues with the workload.
 
