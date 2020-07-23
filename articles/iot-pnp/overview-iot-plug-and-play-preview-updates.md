@@ -51,12 +51,19 @@ The following Microsoft-defined interfaces are deprecated and aren't published i
 
 The following interface is published in the new model repository: `dtmi:azure:DeviceManagement:DeviceInformation;1` available in the URL [https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview).
 
-
 ## DigitalTwinChangeEvents
 
 The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events) has changed to use the **JSON-Patch** format. This change is a breaking change with no backward compatibility support.
 
-The **SystemProperties** collection in a digital twin change event now includes a **dt-dataschema** property that stores the **Model ID** reported by the device.
+## Message routing
+
+Telemetry messages have the following changes within **SystemProperties** collection.
+
+It now includes a **dt-dataschema** property that is the **Model ID** registered by the device.
+
+**dt-subject** property represents the component sending telemetry message.
+
+**iothub-interface-name** property is deprecated.
 
 ## Device and service SDKs
 

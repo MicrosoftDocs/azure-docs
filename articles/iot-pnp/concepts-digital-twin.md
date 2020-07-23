@@ -38,7 +38,7 @@ When represented as a JSON object, a digital twin includes the following fields:
 | Field name | Description |
 | --- | --- |
 | `$dtId` | A user-provided string representing the ID of the device digital twin |
-| `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
+| `{propertyName}` | The value of a property in JSON |
 | `$metadata.$model` | [Optional] The ID of the model interface that characterizes this digital twin |
 | `$metadata.{propertyName}.desiredValue` | [Only for writable properties] The desired value of the specified property |
 | `$metadata.{propertyName}.desiredVersion` | [Only for writable properties] The version of the desired value maintained by IoT Hub|
@@ -65,8 +65,7 @@ The following snippet shows an IoT Plug and Play device twin formatted as a JSON
                 "__t": "c",
                 "targetTemperature": 21.8
             },
-            "$metadata": {
-            },
+            "$metadata": {...},
             "$version": 4
         },
         "reported": {
@@ -80,8 +79,7 @@ The following snippet shows an IoT Plug and Play device twin formatted as a JSON
                     "ad": "Successfully executed patch",
                 }
             },
-            "$metadata": {
-            },
+            "$metadata": {...},
             "$version": 11
         }
     }
@@ -225,7 +223,7 @@ Let's say device also had the following writable property at root-level:
    :::column-end:::
 :::row-end:::
 
-In this example, `3.0` is the current value of the `fanSpeed` property reported by the device. `2.0` is the desired value set by the solution. The desired value and synchronization state of a root-level property is set within root-level `$metadata` for a digital twin.
+In this example, `3.0` is the current value of the `fanSpeed` property reported by the device. `2.0` is the desired value set by the solution. The desired value and synchronization state of a root-level property is set within root-level `$metadata` for a digital twin. When the device comes online, it can apply this update and reported back the updated value.
 
 ### Components
 

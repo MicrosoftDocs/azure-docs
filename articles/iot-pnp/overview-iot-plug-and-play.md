@@ -44,7 +44,7 @@ IoT Plug and Play is useful for two types of developers:
 
 As a solution builder, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. Use [IoT Hub](../iot-hub/about-iot-hub.md) - a managed cloud service, that acts as a message hub for secure, bi-directional communication between your IoT application and your devices.
 
-When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](./howto-install-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the interfaces that compose the model.
+When you connect an IoT Plug and Play device to an IoT hub, you can use the [Azure IoT explorer](./howto-use-iot-explorer.md) tool to view the telemetry, properties, and commands defined in the interfaces that compose the model.
 
 ## Develop an IoT device application
 
