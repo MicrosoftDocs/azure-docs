@@ -23,6 +23,7 @@ This module supports exporting your data to the following cloud data services:
 - Azure File Share
 - Azure Data Lake
 - Azure Data Lake Gen2
+- Azure SQL database
 
 Before exporting your data, you need to first register a datastore in your Azure Machine Learning workspace. For more information, see [Access data in Azure storage services](../how-to-access-data.md).
 
