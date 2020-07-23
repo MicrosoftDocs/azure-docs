@@ -125,7 +125,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 |---------|---------|
 | Bahrain | Bahrain* |
 | Burkina Faso | Ouagadougou |
-| Democratic Republic of the Congo | Kinshasa |
+| Congo | Kinshasa |
 | Egypt | Cairo    |
 | Israel| Israel*  |
 | Kenya | Nairobi  |
