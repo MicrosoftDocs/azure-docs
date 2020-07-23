@@ -51,6 +51,53 @@ eyJhbGciOiJub25lIn0.eyJBdHRlc3RhdGlvblBvbGljeSI6ICJkbVZ5YzJsdmJqMGdNUzR3TzJGMWRH
 ```
 eyAiYWxnIjoiUlMyNTYiLCAieDVjIjogWyJNSUlETERDQ0FoU2dBd0lCQWdJSVpTYW5zQ1djS1RNd0RRWUpLb1pJaHZjTkFRRUxCUUF3RnpFVk1CTUdBMVVFQXd3TVRXRmhWR1Z6ZEVObGNuUXhNQ0FYRFRJd01EUXlOVEF3TURBd01Gb1lEekl3TnpBd05ESTFNREF3TURBd1dqQVhNUlV3RXdZRFZRUUREQXhOWVdGVVpYTjBRMlZ5ZERFd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUNjbFVEcGJnVDM3My9GZUZCS0lwZTFoL3k0dTM2Z09NSTJOcFZVS3pVZ2krdVp5U042dTE5OVlESEtwYVVUZE1iNzd6THdCRnJmdWx4SHo3aVkyTEFWTmo5R01kZXpIbGdrZDgyaTJ0N2Rmd3hkbG8xZTlrbGFhQmUrTEZWL1dITDJrN1JSeG5mRFU2YktrK3lkWWY4REtSRUdyZEc2bzJqRW1CQVBxREQzaSszNENVVjlyTnk2bW5VTGI1ZjFDZnI0eERZTEdUTDNyS0VDaU12SFAyVllnbTBneEpmdXlDR1laYkRmSWVtcTA3QmlMYmt4dm4xOG1qR0dzNHlCQ0ZLZmZrMG9Ya1FHMU9uRHpyWVdObGVtNW1mUE5DY1RqOUVUYzBqbEI3b2dMcVZWNUxxOW9pb0M1S3ErR3hLaWwxSk51UnQrZkxEZTFtZWlXWitldTg5N0FnTUJBQUdqZWpCNE1FWUdBMVVkSXdRL01EMkFGRWhERjBadDFqclNqQ0ZDVnZacG5YWTdvdk4xb1J1a0dUQVhNUlV3RXdZRFZRUUREQXhOWVdGVVpYTjBRMlZ5ZERHQ0NHVW1wN0FsbkNrek1CMEdBMVVkRGdRV0JCUklReGRHYmRZNjBvd2hRbGIyYVoxMk82THpkVEFQQmdOVkhSTUJBZjhFQlRBREFRSC9NQTBHQ1NxR1NJYjNEUUVCQ3dVQUE0SUJBUUE5MHJYSlY4WmpHcWRscWVZeEV3RTBoeENhdHBaY04yckdjUkMvVVJ0Um5KQlFiV3BCKzc5ZHpaSFhPK1VJRjd6aFZVd3czZVF5UXVhaDBhQzZzNnRCVUtqZ0Zqa0s5Wkw2U2MvNHFweWI2UkUxSGdqUkNjZWdtVSs4MENkY3F4Z29xWFRVeUZXeXFtQWxzSFh6VzN4aWpyTjFIOXpkdDdwdHNiQ1hPNHBiME5qcXo1NHpzS01RTDg0WlRNOWZYamt0N2FacEtuaGw1TlAzMTFTQ01VTzRrem1xaW0zMzFScFd2dXhabnQxZjFrbDRRZUxoL1lBRjcrT0VLTmFGZ3l4T1hGMkROdk1GRFlFV0V3NUY5dkRrMFZlc1VFck9nYTN2RmxJWTl5ZkU4aEY3OXFudHNNWVFuY0pBRklBNVJaZmZMVG45SGxZbVp0SmVPWmxDR3l6aSJdfQ.eyJBdHRlc3RhdGlvblBvbGljeSI6ICJ2ZXJzaW9uPSAxLjA7YXV0aG9yaXphdGlvbnJ1bGVze2M6W3R5cGU9PVwiJGlzLWRlYnVnZ2FibGVcIl0gPT4gcGVybWl0KCk7fTtpc3N1YW5jZXJ1bGVze2M6W3R5cGU9PVwiJGlzLWRlYnVnZ2FibGVcIl0gPT4gaXNzdWUodHlwZT1cImlzLWRlYnVnZ2FibGVcIiwgdmFsdWU9Yy52YWx1ZSk7YzpbdHlwZT09XCIkc2d4LW1yc2lnbmVyXCJdID0-IGlzc3VlKHR5cGU9XCJzZ3gtbXJzaWduZXJcIiwgdmFsdWU9Yy52YWx1ZSk7YzpbdHlwZT09XCIkc2d4LW1yZW5jbGF2ZVwiXSA9PiBpc3N1ZSh0eXBlPVwic2d4LW1yZW5jbGF2ZVwiLCB2YWx1ZT1jLnZhbHVlKTtjOlt0eXBlPT1cIiRwcm9kdWN0LWlkXCJdID0-IGlzc3VlKHR5cGU9XCJwcm9kdWN0LWlkXCIsIHZhbHVlPWMudmFsdWUpO2M6W3R5cGU9PVwiJHN2blwiXSA9PiBpc3N1ZSh0eXBlPVwic3ZuXCIsIHZhbHVlPWMudmFsdWUpO2M6W3R5cGU9PVwiJHRlZVwiXSA9PiBpc3N1ZSh0eXBlPVwidGVlXCIsIHZhbHVlPWMudmFsdWUpO2M6W3R5cGU9PVwiJHRlZS1mdXR1cmVcIl0gPT4gaXNzdWUodHlwZT1cInRlZS1mdXR1cmVcIiwgdmFsdWU9Yy52YWx1ZSk7fTsifQ.Rm_KOcxPzo_6AytCyoWrgRa50efT_87gR9_Yewxeuesji99drOepXp50qabnPc0oCyy5ArcPSETeYCaYQrrNVhCTEW-3U_WJxXKrHuQIa9IcE06muFrA4X4esjCitbgrTujKzf83puB5u8vUG0KI_y9FAKGIjrZzDRXAG0126DOCjMltUxyRpNpXq5Ex6SQI5q-CQctoO9kYkMrYoUTqAxiAJ8mpNvC4Ufe4TjF8t6SpSI2zXXta_gY_decJ8AkyDx4YkzbHn5QzjaXaXoHMgbj_76D_RnGhANC0u5rBHvqScFMTO50QnPW94frkn-9PBtWuQ0g7Q1TeERkoMknhBA       
 ```
+
+</br>
+**No security policy for VBS enclaves**
+
+```
+version=1.0;
+authorizationrules
+{
+=> permit();
+};
+issuancerules
+{
+c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
+=> issueproperty(type = "omit_x5c", value = true);
+};
+```
+
+</br>
+**Optimum securrity policy for VBS enclaves**
+
+version=1.0;
+authorizationrules
+{
+[type == "aikValidated", value == true, issuer=="AttestationService"] &&
+[type == "tpmVersion", value >= 2, issuer=="AttestationService"] &&
+[type == "secureBootEnabled", value == true, issuer=="AttestationService"] &&
+[type == "iommuEnabled", value == true, issuer=="AttestationService"] &&
+[type == "bootDebuggingDisabled", value == true, issuer=="AttestationService"] &&
+[type == "notSafeMode", value == true, issuer=="AttestationService"] &&
+[type == "notWinPE", value == true, issuer=="AttestationService"] &&
+[type == "vbsEnabled", value == true, issuer=="AttestationService"] &&
+[type == "vbsReportPresent", value == true, issuer=="AttestationService"] &&
+[type == "enclaveAuthorId", value == "BDfK4lN9i5sHdrYbEebO09Iy6TCPYOIa2rL9kePalZg", issuer == "AttestationService"] &&
+[type == "enclaveImageId", value == "GRcSAAEFIBMABRQDEgEiBQ", issuer == "AttestationService"] &&
+[type == "enclaveOwnerId", value == "ECAwQEExIREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", issuer == "AttestationService"] &&
+[type == "enclaveFamilyId", value == "_v4AAAAAAAAAAAAAAAAAAA", issuer == "AttestationService"] &&
+[type == "enclaveSvn", value >= 0, issuer == "AttestationService"] &&
+[type == "enclavePlatformSvn", value >= 1, issuer == "AttestationService"] &&
+[type == "enclaveFlags", value == 0, issuer == "AttestationService"]
+=> permit();
+};
+issuancerules
+{
+c:[type == "aas-ehd", issuer == "CustomClaim"] => issue(claim = c);
+=> issueproperty(type = "omit_x5c", value = true);
+};
+</br>
 ## Next steps
 
 - [Authoring and signing attestation policy](authoringandsigningpolicy.md)
