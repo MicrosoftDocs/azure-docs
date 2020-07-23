@@ -14,12 +14,12 @@ Microsoft Azure compute, networking, and storage services. Each consortium membe
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-> [!IMPORTANT]
-> Consider using [Azure Blockchain Service](../service/overview.md) rather than the Ethereum on Azure solution template. Azure Blockchain Service is a supported managed Azure Service. Parity Ethereum transitioned to community driven development and maintenance. For more information, see [Transitioning Parity Ethereum to OpenEthereum DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
-
 ## Choose an Azure Blockchain solution
 
 Before choosing to use the Ethereum proof-of-authority consortium solution template, compare your scenario with the common use cases of available Azure Blockchain options.
+
+> [!IMPORTANT]
+> Consider using [Azure Blockchain Service](../service/overview.md) rather than the Ethereum on Azure solution template. Azure Blockchain Service is a supported managed Azure Service. Parity Ethereum transitioned to community driven development and maintenance. For more information, see [Transitioning Parity Ethereum to OpenEthereum DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
 
 Option | Service model | Common use case
 -------|---------------|-----------------
