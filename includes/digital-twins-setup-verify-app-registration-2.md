@@ -7,8 +7,8 @@ ms.date: 7/22/2020
 ms.author: baanders
 ---
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-manifest.png" alt-text="Portal view of the manifest for the AAD app registration":::
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration":::
 
 Next, select *API permissions* from the menu bar to verify that this app registration contains Read/Write permissions for Azure Digital Twins. You should see an entry like this:
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Portal view of the API permissions for the AAD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Portal view of the API permissions for the Azure AD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
