@@ -67,12 +67,11 @@ namespace SmsSender
     {
         static void Main(string[] args)
         {
-            var connectionString = "<connectionString>"; // Connection string can be acquired through the Azure portal
-            var smsClient = new SmsClient(connectionString);
-            smsClient.Send(
-                from: new PhoneNumber("+15551111111"), // Phone number acquired by your account
-                to: new PhoneNumber("+15552222222"),
-                message: "Hello World 👋🏻 via Sms");
+            string connectionString = "<connection string>";
+            SmsClient sms = new SmsClient(connectionString);
+            Azure.Communication.Models.PhoneNumber source = new Azure.Communication.Models.PhoneNumber("+5555555555");
+            Azure.Communication.Models.PhoneNumber destination = new Azure.Communication.Models.PhoneNumber("+5555555556");
+            sms.Send(source, destination, "Hello World via SMS");       
         }
     }
 }
