@@ -59,7 +59,7 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
 
 Use [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest) to configure the diagnostic setting for raw logs.
 
-Retention data is defined by the **-RetentioninDays** option in the command.
+Retention data is defined by the **-RetentionInDays** option in the command.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -99,7 +99,7 @@ Retention data is defined by the **-RetentioninDays** option in the command.
 2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
 
     ```azurepowershell-interactive
-     ## Variables for the commands ##
+    ## Variables for the commands ##
     $rsg = <your-resource-group-name>
     $cdnprofile = <your-cdn-profile-name>
     $cdnendpoint = <your-cdn-endpoint-name>
@@ -123,6 +123,7 @@ Retention data is defined by the **-RetentioninDays** option in the command.
 2. To enable Diagnostic Logs for an event hub namespace, enter these commands. Replace the variables with your values:
 
     ```azurepowershell-interactive
+    ## Variables for the commands ##
     $rsg = <your-resource-group-name>
     $cdnprofile = <your-cdn-profile-name>
     $cdnendpoint = <your-cdn-endpoint-name>
@@ -135,7 +136,6 @@ Retention data is defined by the **-RetentioninDays** option in the command.
 
     Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhub.id -Enabled $true -Category AzureCdnAccessLog -RetentionEnabled 1 -RetentionInDays $days
     ```
-
 
 ## Raw logs properties
 
