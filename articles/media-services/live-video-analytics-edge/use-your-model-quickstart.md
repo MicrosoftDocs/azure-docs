@@ -279,7 +279,7 @@ If you intend to try other quickstarts, keep the resources you created. Otherwis
 
 ## Next steps
 
-* Try a [secured version of the YOLOv3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) and deploy it to the edge device. 
+* Try a [secured version of the YOLOv3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) and deploy it to the IOT edge device. 
 
 Review additional challenges for advanced users:
 
