@@ -19,7 +19,10 @@ With this feature, you can run SSIS packages that are stored in SSISDB in a SQL 
 
 ## Prerequisites
 
-To use this feature, [download](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and install SQL Server Management Studio (SSMS) 18.5.3 or above.
+To use this feature, [download](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and install latest SQL Server Management Studio (SSMS). Version support details as below:
+
+- To run packages in SSISDB or file system, install SSMS version 18.5 or above.
+- To run packages in package store, install SSMS version 18.6 or above.
 
 You also need to [provision an Azure-SSIS integration runtime](tutorial-create-azure-ssis-runtime-portal.md) in Azure Data Factory. It uses a SQL Managed Instance as an endpoint server.
 
