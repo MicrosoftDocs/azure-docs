@@ -29,7 +29,7 @@
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="example text":::
 
 1. Select one of the supported regions
-1. For **Encryption type** select **Double encryption with platform-managed and customer-managed keys**
+1. For **Encryption type**, select **Double encryption with platform-managed and customer-managed keys**
 
     > [!NOTE]
     > Once you create a disk encryption set with a particular encryption type, it cannot be changed. If you want to use a different encryption type, you must create a new disk encryption set.
@@ -46,7 +46,7 @@
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="example text":::
 
 1. Select create
-1. Navigate to the disk encryption set you just created, and select the error that is displayed. This will configure your disk encryption set to work.
+1. Navigate to the disk encryption set you created, and select the error that is displayed. This will configure your disk encryption set to work.
 
     :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="example text":::
 
@@ -56,7 +56,7 @@
 
 1. Navigate to your disk
 1. Select **Encryption**
-1. For **Encryption type** select **Double encryption with platform-managed and customer-managed keys**
+1. For **Encryption type**, select **Double encryption with platform-managed and customer-managed keys**
 1. Select your disk encryption set
 1. select **Save**.
 
