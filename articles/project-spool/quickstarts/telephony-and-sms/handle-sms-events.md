@@ -1,5 +1,5 @@
 ---
-title: Route Events
+title: Handle SMS Events
 description: TODO
 author: mikben    
 manager: jken

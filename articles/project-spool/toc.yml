@@ -43,13 +43,14 @@
         href: quickstarts/telephony-and-sms/send-sms-net.md
       - name: Assign A Telephone Number To A Bot
         href: quickstarts/telephony-and-sms/assign-a-telephone-number-to-an-acs-bot.md
+      - name: Handle SMS Events
+        href: quickstarts/telephony-and-sms/handle-sms-events.md
   - name: Voice and Video Calling
     items:
     - name: Get Started With Voice and Video
       href: quickstarts/voice-and-video-calling/get-started-with-voice-and-video.md
     - name: Place a Voice Call
       href: quickstarts/voice-and-video-calling/place-a-voice-call.md
-
   - name: Get Started
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
