@@ -432,7 +432,7 @@ For .NET applications and functions, the simplest way to work with a managed ide
 
 1. Add references to the [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) and any other necessary NuGet packages to your application. The below example also uses [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2. Add the following code to your application, modifying to target the correct resource, if you plan to run the application locally or using the system-assigned managed identity. This example shows two ways to work with Azure Key Vault:
+2. Add the following code to your application, modifying to target the correct resource. This example shows two ways to work with Azure Key Vault:
 
     ```csharp
     using Microsoft.Azure.Services.AppAuthentication;
