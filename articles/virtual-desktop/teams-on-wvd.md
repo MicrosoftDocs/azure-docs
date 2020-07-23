@@ -50,6 +50,14 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
+#### Latest WebSocket Service versions
+
+The following table lists the current versions available for each user group:
+
+|Version    |Release date  |
+|-----------|--------------|
+|0.11.0     |05/29/2020    |
+
 ### Install Microsoft Teams
 
 You can deploy the Teams desktop app using a per-machine or per-user installation. To install Microsoft Teams in your Windows Virtual Desktop environment:

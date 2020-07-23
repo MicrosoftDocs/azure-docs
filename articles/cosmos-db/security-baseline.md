@@ -74,7 +74,7 @@ Configure Cross-Origin Resource Sharing: https://docs.microsoft.com/azure/cosmos
 
 Enable DDoS Protection Standard on the Virtual Networks associated with your Azure Cosmos DB instances to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused Internet IP addresses.
 
-How to configureAzure Cosmos DB Advanced Threat Protection: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
+How to configure Azure Cosmos DB Advanced Threat Protection: https://docs.microsoft.com/azure/cosmos-db/cosmos-db-advanced-threat-protection
 
 How to configure DDoS protection: https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
 
@@ -117,7 +117,7 @@ How to configure Cosmos DB Advanced Threat Protection: https://docs.microsoft.co
 
 ### 1.8: Minimize complexity and administrative overhead of network security rules
 
-**Guidance**: For resources that need access to your Azure Cosmos account, use Virtual Network service tags to define network access controls on network securitygGroups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
+**Guidance**: For resources that need access to your Azure Cosmos account, use Virtual Network service tags to define network access controls on network security groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureCosmosDB) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
 For more information about using service tags: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
