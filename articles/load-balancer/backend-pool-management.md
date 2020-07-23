@@ -250,10 +250,12 @@ All backend pool management is done directly on the backend pool object as highl
 
   >[!IMPORTANT] 
   >This feature is currently in preview and has the following limitations:
-  >* Limit of 100 IP addresses being added
+  >* Standard load balancer only
+  >* Limit of 100 IP addresses in the backend pool
   >* The backend resources must be in the same virtual network as the load balancer
   >* This feature is not currently supported in the Azure portal
-  >* Standard load balancer only
+  >* ACI containers are not currently supported by this feature
+  >* Load balancers or services fronted by load balancers cannot be placed in the backend pool of the load balancer
   
 ### PowerShell
 Create new backend pool:

@@ -16,7 +16,7 @@ ms.date: 06/03/2020
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.6.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
-> Resource locks do not work for changes made by users connecting using any Cassandra SDK, CQL Shell, or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+> Resource locks do not work for changes made by users connecting using any Cassandra SDK, CQL Shell, or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 
 ## Sample script
 

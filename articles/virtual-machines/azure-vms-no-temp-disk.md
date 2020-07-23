@@ -10,7 +10,7 @@ ms.date: 06/15/2020
 --- 
 
 # Azure VM sizes with no local temporary disk 
-This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that do not have a local temporary disk (i.e. no local temp desk). For more information on these VM sizes, see [Specifications for Dv4 and Dsv4-series (General Purpose Workloads)](dv4-dsv4-series.md) or [Specifications for Ev4 and Esv4-series (Memory Optimized Workloads)](ev4-esv4-series.md).
+This article provides answers to frequently asked questions (FAQ) about Azure VM sizes that do not have a local temporary disk (i.e. no local temp disk). For more information on these VM sizes, see [Specifications for Dv4 and Dsv4-series (General Purpose Workloads)](dv4-dsv4-series.md) or [Specifications for Ev4 and Esv4-series (Memory Optimized Workloads)](ev4-esv4-series.md).
 
 > [!IMPORTANT]
 > Dv4, Dsv4, Ev4 and Esv4-series VM sizes are now in Public Preview. To sign up for Public Preview, fill out this [Form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 

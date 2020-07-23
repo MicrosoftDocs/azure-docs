@@ -485,6 +485,7 @@
       items:
       - name: Action rules (Preview)
         href: platform/alerts-action-rules.md
+        displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: platform/action-groups.md
       - name: Common alert schema
@@ -1018,6 +1019,7 @@
     items:
     - name: Overview
       href: insights/solutions.md
+      displayName: Azure CLI, az monitor log-analytics
     - name: Target solutions
       href: insights/solution-targeting.md
     - name: Available solutions
@@ -1030,8 +1032,6 @@
         href: insights/capacity-performance.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
-      - name: Key Vault Analytics
-        href: insights/azure-key-vault.md
       - name: Networks
         items:
         - name: Networking Analytics
@@ -1290,6 +1290,8 @@
     - name: Change to blob storage format
       displayname: Diagnostic settings
       href: platform/resource-logs-blob-format.md
+    - name: Key Vault Analytics (deprecated)
+      href: insights/azure-key-vault-deprecated.md
 - name: Resources
   items:
   - name: Azure Roadmap

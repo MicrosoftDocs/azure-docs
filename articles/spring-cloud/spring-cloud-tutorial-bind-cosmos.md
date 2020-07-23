@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Bind an Azure Cosmos DB database to your Azure Spring Cloud application
