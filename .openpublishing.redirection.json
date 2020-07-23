@@ -54754,6 +54754,11 @@
       "source_path": "articles/azure-monitor/insights/azure-key-vault.md",
       "redirect_url": "/azure/azure-monitor/insights/key-vault-insights-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/service-tiers-prs.md",
+      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes",
+      "redirect_document_id": false
     }
   ]
 }

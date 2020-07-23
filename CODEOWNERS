@@ -2,8 +2,9 @@
 
 # Horizontals
 
-## Azure Policy: Samples
+## Azure Policy: Samples and Compliance Controls
 articles/**/policy-samples.md @DCtheGeek
+articles/**/security-controls-policy.md @DCtheGeek
 includes/policy/ @DCtheGeek
 
 # Azure Active Directory
