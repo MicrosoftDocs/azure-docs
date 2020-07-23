@@ -1,5 +1,5 @@
 ---
-title: Azure Attestation 
+title: Azure Attestation CLI quickstart
 description: XXX
 services: attestation
 author: msmbaldwin

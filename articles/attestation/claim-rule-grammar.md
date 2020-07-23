@@ -1,5 +1,5 @@
 ---
-title: Azure Attestation 
+title: Azure Attestation claim rule grammar
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -11,6 +11,7 @@ ms.author: mbaldwin
 
 ---
 # Claim and claim rules
+
 To understand the claim rule grammar, it is important to understand about an attestation policy claim.
 
 ## Claim
@@ -91,6 +92,6 @@ The set of actions that are allowed in a policy are described below.
 | issueproperty(claim) | Adds the claim to the incoming and property claims set | Issuancerules
 
 ## Next steps
-- [Authoring and signing an attestation policy](authoringandsigningpolicy.md)
+- [Authoring and signing an attestation policy](author-sign-policy.md)
 - [Set up Azure Attestation using PowerShell](quickstart-powershell.md)
 

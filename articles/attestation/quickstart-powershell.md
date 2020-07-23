@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Attestation 
+title: Azure Attestation Powershell quickstart
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -10,7 +10,7 @@ ms.author: mbaldwin
 
 
 ---
-# Microsoft Azure Attestation set up with Azure PowerShell
+# Quickstart: Set up Azure Attestation with Azure PowerShell
 
 Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) for information on how to install and run Azure PowerShell.
 

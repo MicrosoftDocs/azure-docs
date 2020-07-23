@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Attestation 
+title: Azure Attestation Workflow
 description: XXX
 services: attestation
 author: msmbaldwin

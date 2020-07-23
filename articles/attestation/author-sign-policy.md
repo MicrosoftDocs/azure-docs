@@ -1,5 +1,5 @@
 ---
-title: Azure Attestation 
+title: How to author and sign Azure Attestation policy
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -363,4 +363,4 @@ print("\nAttestation Policy JWS:")
 print(encoded.decode('utf-8'))
 ```
 
-# Next steps
+## Next steps
