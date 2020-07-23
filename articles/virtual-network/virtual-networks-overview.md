@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network | Microsoft Docs
-description: Learn about Azure Virtual Network concepts and features.
+description: Learn about Azure Virtual Network concepts and features, including address space, subnets, regions, and subscriptions. 
 services: virtual-network
 documentationcenter: na
 author: anavinahar
