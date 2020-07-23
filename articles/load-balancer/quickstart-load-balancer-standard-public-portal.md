@@ -232,6 +232,11 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | **2** |**3**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
 
+## Create outbound rule configuration
+Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
+
+For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
+
 ### Create outbound rule
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
@@ -270,8 +275,6 @@ These VMs are added to the backend pool of the load balancer that was created ea
 7. Select **Add**.
 
 8. Select **Save**.
-
----
 
 # [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
@@ -477,12 +480,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability set| Select **myAvailabilitySet** | Select **myAvailabilitySet**|
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
 
-## Create outbound rule configuration
-Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
-
-For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
-
-
+---
 
 ## Install IIS
 
