@@ -34,7 +34,7 @@ You will be attaching Time Series insights to Azure Digital Twins through the pa
 ## Prerequisites
 
 * You need an Azure Digital Twins instance which you can update twin information a few times in order to see that data tracked in Time Series Insights. 
-    * If you do not have one, follow the Azure Digital Twins [Tutorial: Connect an end-to-end solution](./tutorial-end-to-end.md) to set up an Azure Digital Twins instance and a virtual IoT device to generate twin changes.
+    * If you do not have one, follow the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) to set up an Azure Digital Twins instance and a virtual IoT device to generate twin changes.
 
 ## Create a route and filter to twin update notifications
 
@@ -77,7 +77,7 @@ The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-
 
 ## Create an Azure function 
 
-Next, you're going to create an Event Hubs-triggered function inside a new function app, your function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will convert those updates from their original form as JSON patch documents to JSON objects containing only updated and added values from your twins.
+Next, you're going to create an Event Hubs-triggered function inside a new function app, your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will convert those updates from their original form as JSON patch documents to JSON objects containing only updated and added values from your twins.
 
 For more information about using Event Hubs with Azure functions, see [*Azure Event Hubs trigger for Azure Functions*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 

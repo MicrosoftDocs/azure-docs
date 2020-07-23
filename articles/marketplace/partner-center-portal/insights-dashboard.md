@@ -1,15 +1,15 @@
 ---
-title: Marketplace Insights - Microsoft commercial marketplace
+title: Marketplace Insights - Microsoft commercial marketplace, Microsoft AppSource and Azure Marketplace
 description: Access a summary of marketplace web analytics, which enables you to measure customer engagement in Microsoft AppSource and Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
+ms.topic: article
+ms.date: 07/22/2019
 ---
 
 # Marketplace Insights dashboard in Partner Center
 
-This article provides information on the Marketplace Insights dashboard in Partner Center. This dashboard displays a summary of marketplace web analytics, which enables publishers to measure customer engagement for their respective product detail pages listed on the marketplace storefronts: Microsoft AppSource and Azure Marketplace.
+This article provides information on the Marketplace Insights dashboard in Partner Center. This dashboard displays a summary of marketplace web analytics that enables publishers to measure customer engagement for their respective product detail pages listed on the commercial marketplace storefronts: Microsoft AppSource and Azure Marketplace.
 
 ## Marketplace Insights dashboard
 
@@ -20,18 +20,20 @@ You can view graphical representations of the following items:
 - [Marketplace Insights summary](#marketplace-insights-summary)
 - [Page visits by geography](#page-visits-by-geography)  
 - [Page visits versus unique visitors trend](#page-visits-versus-unique-visitors-trend)
-- [Call to action versus unique visitors with CTAs](#call-to-action-versus-unique-visitors-with-ctas)
+- [Call to action (CTA) versus unique visitors with CTAs](#call-to-action-versus-unique-visitors-with-ctas)
 - [Page visits and call to action by offers](#page-visits-and-calls-to-action-by-offers)
 - [Call to action percentage trend](#call-to-action-percentage-trend)
 - [Page visits and calls to action by referral domains](#page-visits-and-calls-to-action-by-referral-domains)
 - [Marketplace Insights details table](#marketplace-insights-details-table)
+
+The maximum latency between users visiting offers on Azure Marketplace or AppSource and reporting in Partner Center is 48 hours.
 
 >[!NOTE]
 > For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](./faq-terminology.md).
 
 ### Insights dashboard layout
 
-You can view the Marketplace metrics in a variety of ways:
+View commercial marketplace metrics in a variety of ways:
 
 - Storefront tabs
 - Page filters
@@ -69,7 +71,7 @@ This number represents the distinct visitor count during the selected date range
 
 ### Call to action
 
-This number represents the count of **Call to Action** button clicks completed on the offer page (product detail page). **Calls to action** are counted when the **Get it now**, **Free trial**, **Contact me**, and **Test drive** buttons are selected.
+This number represents the count of **Call to Action** button clicks completed on the offer page (product detail page). **Calls to action** are counted when users select the **Get it now**, **Free trial**, **Contact me**, or **Test drive** buttons.
 
 ![Partner Center Insights call to action summary](./media/insights-summary.png)
 
@@ -123,7 +125,7 @@ This table provides a list view of the page visits and the calls to action of yo
 
 - The data can be extracted to a CSV file if the count of records is less than 1000.
 - If the count of records is over 1000, exported data will be asynchronously placed in a downloads page for the next 30 days.
-- Filters can be applied to display the data that you are interested in. Data can be filtered by Offer names and Campaign names.  
+- Filter data by Offer names and Campaign names to display the data you are interested in.
 
 ## Next steps
 

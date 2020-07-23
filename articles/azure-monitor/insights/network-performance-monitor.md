@@ -62,6 +62,9 @@ The list of supported regions for ExpressRoute Monitor is available in the [docu
 
 ## Set up and configure
 
+> [!NOTE]
+> You may also see the Log Analytics agent referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent.
+
 ### Install and configure agents 
 
 Use the basic processes to install agents at [Connect Windows computers to Azure Monitor](../platform/agent-windows.md) and [Connect Operations Manager to Azure Monitor](../platform/om-agents.md).
