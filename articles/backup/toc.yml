@@ -89,6 +89,8 @@
       href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
+  - name: Guidance and best practices
+    href: guidance-best-practices.md
 - name: How to guides
   items:
   - name: Recovery Services vault
@@ -375,6 +377,9 @@
       href: encryption-at-rest-with-cmk.md
     - name: Built-in security controls
       href: backup-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Security baseline
       href: security-baseline.md
   - name: Troubleshoot
