@@ -44,7 +44,7 @@ To configure the quorum resource with SQL Server on Azure VMs, you can use these
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Supported OS**| All |Windows Server 2016+| Windows Server 2012+|
-|**Supported SQL Server version**|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
+|**Supported SQL Server version**|All |SQL Server 2016+|SQL Server 2016+|
 
 
 
