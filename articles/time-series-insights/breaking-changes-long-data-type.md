@@ -14,13 +14,11 @@ ms.custom: dpalled
 
 # Adding support for long data type
 
-The changes described in this article only apply to Azure Time Series Insights Gen2 environments. If you have a Gen1 environment, you can disregard these changes.
-
-The addition of support for long data type affects how we store and index numeric data in Azure Time Series Insights Gen2. If you’re affected by any of the following cases, make the recommended changes.
+The addition of support for long data type affects how we store and index numeric data in Azure Time Series Insights Gen2 environments only. If you have a Gen1 environment, you can disregard these changes.
 
 Beginning June 29 or June 30, 2020, depending on your region, your data will be indexed as **Long** and **Double**.  If you have any questions or concerns about this change, submit a support ticket through the Azure portal and mention this communication.
 
-This change impacts you in the following cases:
+If you’re impacted by any of the following cases, make the recommended changes:
 
 - **Case 1**: You currently use Time Series Model variables and send only integral data types in your telemetry data.
 - **Case 2**: You currently use Time Series Model variables and send both integral and nonintegral data types in your telemetry data.
@@ -46,11 +44,15 @@ Data can also be observed through the [Event Hub Explorer](https://marketplace.v
 If you use IoT Hub, go to [Read device-to-cloud messages from the built-in endpoint](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) for how to access the built-in endpoint.
 
 > [!NOTE]
-> You might experience a disruption if you do not make the recommended changes. The affected Time Series Insights variables that are accessed via the query APIs or Time Series Insights explorer will return **null** (i.e. show no data in the explorer).
+> You might experience a disruption if you don't make the recommended changes. For example, the affected Time Series Insights variables that are accessed via the query APIs or Time Series Insights explorer will return **null** (i.e. show no data in the explorer).
 
 ## Recommended changes
 
-### Cases 1 and 2: Using Time Series Model variables and sending only integral data types OR sending both integral and nonintegral types in telemetry data
+### Case 1: Using Time Series Model variables and sending only integral data types in telemetry data
+
+The recommended changes for Case 1 are the same as for Case 2. Follow the instructions in the section for Case 2.
+
+### Case 2: Using Time Series Model variables and sending both integral and nonintegral types in telemetry data
 
 If you currently send integer telemetry data, your data will be divided into two columns:
 
@@ -63,19 +65,19 @@ If you want to query data across these two columns for the **propertyValue** pro
 
 #### Variable definition in TSX - numeric
 
-- Previous variable definition:
+*Previous variable definition:*
 
-  [![Previous Variable Definition](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
+[![Previous Variable Definition](media/time-series-insights-long-data-type/var-def-previous.png)](media/time-series-insights-long-data-type/var-def-previous.png#lightbox)
 
-- New variable definition:
+*New variable definition:*
 
-   [![New Variable Definition](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
+[![New Variable Definition](media/time-series-insights-long-data-type/var-def.png)](media/time-series-insights-long-data-type/var-def.png#lightbox)
 
 You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
 #### Inline variable definition using TSX query APIs - numeric
 
-- Previous Variable Definition:
+*Previous variable definition:*
 
 ```JSON
 "PropertyValueVariable": {
@@ -97,7 +99,7 @@ You can also use **coalesce($event.propertyValue.Double, toDouble($event.propert
 }
 ```
 
-- New Variable Definition:
+*New variable definition:*
 
 ```JSON
 "PropertyValueVariable ": {
@@ -130,13 +132,13 @@ If you currently use categorical variables that map integer values to categories
 
 #### Variable definition in Time Series Explorer - categorical
 
-- Previous variable definition:
+*Previous variable definition:*
 
-  [![Previous Variable Definition](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
+[![Previous Variable Definition](media/time-series-insights-long-data-type/var-def-cat-previous.png)](media/time-series-insights-long-data-type/var-def-cat-previous.png#lightbox)
 
-- New variable definition:
+*New variable definition:*
 
-  [![New Variable Definition](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
+[![New Variable Definition](media/time-series-insights-long-data-type/var-def-cat.png)](media/time-series-insights-long-data-type/var-def-cat.png#lightbox)
 
 You can also use **coalesce($event.propertyValue.Double, toDouble($event.propertyValue.Long))** as the custom [Time Series Expression](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax).
 
@@ -144,7 +146,7 @@ Categorical variables still require the value to be of an integer type. The **Da
 
 #### Inline variable definition using TSX query APIs - categorical
 
-- Previous variable definition:
+*Previous variable definition:*
 
 ```JSON
 "PropertyValueVariable_Long": {
@@ -182,7 +184,7 @@ Categorical variables still require the value to be of an integer type. The **Da
 }
 ```
 
-- New variable definition:
+*New variable definition:*
 
 ```JSON
 "PropertyValueVariable_Long": {
