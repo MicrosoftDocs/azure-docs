@@ -67,9 +67,13 @@ This section will show you how to create a role assignment for a user in the Azu
 
 ### Assign the role
 
-To give a user permissions to manage an Azure Digital Twins instance, you must assign them the *Azure Digital Twins Owner (Preview)* role within the instance. This is different from the *Owner* role on the entire Azure subscription, as it is scoped to this individual Azure Digital Twins resource.
+To give a user permissions to manage an Azure Digital Twins instance, you must assign them the *Azure Digital Twins Owner (Preview)* role within the instance. 
 
-Use the following command (must be run by an owner of the Azure subscription):
+Note that this role is different from...
+* the *Owner* role on the entire Azure subscription. *Azure Digital Twins Owner (Preview)* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
+* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Owner (Preview)* is the role that should be used for management during preview.
+
+Use the following command to assign the role (must be run by an owner of the Azure subscription):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<AAD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
@@ -137,7 +141,11 @@ Here is an excerpt of the output from this command, showing information about th
 
 ### Verify success
 
-[!INCLUDE [digital-twins-setup-verify-app-registration.md](../../includes/digital-twins-setup-verify-app-registration.md)]
+[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+
+First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
+
+[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
 ### Collect important values
 
