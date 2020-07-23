@@ -30,7 +30,7 @@ Your Azure Time Series Insights Gen2 environment is strongly typed. If devices o
 
 The Azure Time Series Insights Explorer offers a way to auto-coalesce the separate columns of the same device property. In the example below, the sensor sends a `PresentValue` property that can be both a Long or Double. To query against all stored values (regardless of data type) of the `PresentValue` property, choose `PresentValue (Double | Long)` and the columns will be coalesced for you.
 
-[![Explorer auto coalesce](media\concepts-supported-data-types/explorer-auto-coalesce.png)](media\concepts-supported-data-types/explorer-auto-coalesce.png#lightbox)
+[![Explorer auto coalesce](media\concepts-supported-data-types/explorer-auto-coalesce-sample.png)](media\concepts-supported-data-types/explorer-auto-coalesce-sample.png#lightbox)
 
 ## Objects and arrays
 
