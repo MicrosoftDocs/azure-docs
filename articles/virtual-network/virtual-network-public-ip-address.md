@@ -1,6 +1,6 @@
 ---
 title: Create, change, or delete an Azure public IP address | Microsoft Docs
-description: Learn how to create, change, or delete a public IP address.
+description: Learn how to create, change, or delete a public IP address, and how a public IP address is a resource with its own configurable settings.
 services: virtual-network
 documentationcenter: na
 author: asudbring
