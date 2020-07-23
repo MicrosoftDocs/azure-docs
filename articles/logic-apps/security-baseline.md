@@ -641,7 +641,7 @@ Microsoft manages the underlying infrastructure for Azure Logic Apps and has imp
 
 ### 4.6: Use Role-based access control to control access to resources
 
-**Guidance**: You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use Azure Role-Based Access Control (RBAC) so that you can assign customized or built-in roles to the members in your Azure subscription:
+**Guidance**: You can permit only specific users or groups to run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, use Azure role-based access control (Azure RBAC) so that you can assign customized or built-in roles to the members in your Azure subscription:
 - Logic App Contributor: Lets you manage logic apps, but you can't change access to them.
 - Logic App Operator: Lets you read, enable, and disable logic apps, but you can't edit or update them.
 

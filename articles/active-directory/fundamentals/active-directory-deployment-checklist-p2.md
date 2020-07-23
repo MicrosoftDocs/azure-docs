@@ -4,9 +4,9 @@ description: Azure Active Directory feature deployment checklist
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: 
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/20/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -50,10 +50,11 @@ In this phase, administrators enable baseline security features to create a more
 | [Disable periodic password resets for cloud-based user accounts](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Periodic password resets encourage your users to increment their existing passwords. Use the guidelines in Microsoft's password guidance doc and mirror your on-premises policy to cloud-only users. | Azure AD Free |
 | [Customize Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md) | Stop lockouts from cloud-based users from being replicated to on-premises Active Directory users | |
 | [Enable Extranet Smart Lockout for AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | AD FS extranet lockout protects against brute force password guessing attacks, while letting valid AD FS users continue to use their accounts. | |
+| [Block legacy authentication to Azure AD with Conditional Access](../conditional-access/block-legacy-authentication.md) | Block legacy authentication protocols like POP, SMTP, IMAP, and MAPI that can't enforce Multi-Factor Authentication, making them a preferred entry point for adversaries. | Azure AD Premium P1 |
 | [Deploy Azure AD Multi-Factor Authentication using Conditional Access policies](../authentication/howto-mfa-getstarted.md) | Require users to perform two-step verification when accessing sensitive applications using Conditional Access policies. | Azure AD Premium P1 |
 | [Enable Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Enable tracking of risky sign-ins and compromised credentials for users in your organization. | Azure AD Premium P2 |
 | [Use risk detections to trigger multi-factor authentication and password changes](../authentication/tutorial-risk-based-sspr-mfa.md) | Enable automation that can trigger events such as multi-factor authentication, password reset, and blocking of sign-ins based on risk. | Azure AD Premium P2 |
-| [Enable converged registration for self-service password reset and Azure AD Multi-Factor Authentication (preview)](../authentication/concept-registration-mfa-sspr-converged.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
+| [Enable combined registration for self-service password reset and Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Allow your users to register from one common experience for both Azure Multi-Factor Authentication and self-service password reset. | Azure AD Premium P1 |
 
 ## Phase 2: Import users, enable synchronization, and manage devices
 

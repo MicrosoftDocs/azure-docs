@@ -16,7 +16,7 @@ In Kubernetes, the API server receives requests to perform actions in the cluste
 This article shows you how to use API server authorized IP address ranges to limit which IP addresses and CIDRs can access control plane.
 
 > [!IMPORTANT]
-> On newly created clusters, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded. API server authorized IP address ranges are not supported for private clusters.
+> On clusters created after API server authorized IP address ranges moved out of preview in October 2019, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded. API server authorized IP address ranges are not supported for private clusters.
 
 ## Before you begin
 
@@ -57,8 +57,10 @@ az aks create \
 > - The firewall public IP address
 > - Any range that represents networks that you'll administer the cluster from
 > - If you are using Azure Dev Spaces on your AKS cluster, you have to allow [additional ranges based on your region][dev-spaces-ranges].
-
-> The upper limit for the number of IP ranges you can specify is 3500.
+>
+> The upper limit for the number of IP ranges you can specify is 200.
+>
+> The rules can take up to 2min to propagate. Please allow up to that time when testing the connection.
 
 ### Specify the outbound IPs for the Standard SKU load balancer
 

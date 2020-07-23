@@ -23,7 +23,7 @@ Before you restore a database, note the following:
 
 - You can restore the database to an instance of a SQL Server in the same Azure region.
 - The destination server must be registered to the same vault as the source.
-- To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+- To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Before you restore the "master" database, start the SQL Server instance in single-user mode by using the startup option **-m AzureWorkloadBackup**.
   - The value for **-m** is the name of the client.
   - Only the specified client name can open the connection.
@@ -121,7 +121,7 @@ To restore the backup data as .bak files instead of a database, choose **Restore
     >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Verify access with `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Kick off a restore as files from the Backup Vault to `\\<storageacct>.file.core.windows.net\<filesharename>` as the path<BR>
-    You can download Psexec via <https://docs.microsoft.com/sysinternals/downloads/psexec>
+    You can Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page.
 
 1. Select **OK**.
 
