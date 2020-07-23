@@ -469,8 +469,7 @@ Create a new outbound pool with [az network lb address-pool create](https://docs
 ```
 ### Create outbound rule
 
-Create a new outbound rule for the outbound backend pool with [az network lb outbound-rule create
-](https://docs.microsoft.com/cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-create):
+Create a new outbound rule for the outbound backend pool with [az network lb outbound-rule create](https://docs.microsoft.com/cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-create):
 
 * Named **myOutboundRule**.
 * In resource group **myResourceGroupLB**.
@@ -494,7 +493,7 @@ Create a new outbound rule for the outbound backend pool with [az network lb out
 ```
 ### Add virtual machines to outbound pool
 
-Add the virtual machine network interfaces to the outbound pool of the load balancer with [az network nic ip-config address-pool add](https://docs.microsoft.com/en-us/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+Add the virtual machine network interfaces to the outbound pool of the load balancer with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
 
 #### VM1
