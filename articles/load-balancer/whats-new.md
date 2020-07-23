@@ -29,6 +29,16 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 | Feature| IPv6 support for Azure Load Balancer (generally available) | You can have IPv6 addresses as your frontend for your Azure Load Balancers. Learn how to [create a dual stack application here](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) |April 2020|
 | Feature| TCP Resets on Idle Timeout (generally available)| Use TCP resets to create a more predictable application behavior. [Learn more](load-balancer-tcp-reset.md)| February 2020 |
 
+## Known issues
+
+The product group is actively working on resolutions for the following known issues:
+
+|Issue |Description  |Mitigation  |
+| ---------- |---------|---------|
+| Log Analytics metric export for Load Balancer is not functional | Due to breaking changes in the pipeline Log Analytics cannot export metrics information for Basic and Standard Load Balancers | [Configure Azure Monitor for multi-dimensional metrics for your Standard Load Balancer](load-balancer-standard-diagnostics.md). If using Basic Load Balancer [upgrade to Standard](upgrade-basic-standard.md) for production level metrics monitoring.
+
+  
+
 ## Next steps
 
 For more information about Azure Load Balancer, see [What is Azure Load Balancer?](load-balancer-overview.md) and [frequently asked questions](load-balancer-faqs.md).
