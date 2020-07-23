@@ -92,16 +92,16 @@ In the **TelemetryMQTTWin32** project, open the **MQTT_Mosquitto.cpp** source fi
 * `DEVICEID` identifier with the name of the device you created.
 * `PWD` identifier with the shared access signature value you generated for the device.
 
-Verify the code is working correctly, by starting IotExplorer, start listening the telemetry.
+Verify the code is working correctly, by starting Azure IoT Explorer, start listening the telemetry.
 Run the application (Ctrl+F5), after couple of seconds you should see something like:
 
 :::image type="content" source="media/tutorial-use-mqtt/mqtt-sample-output.png" alt-text="Output from MQTT sample application":::
 
-in IotExplorer, you should see, clearly not an IoT Plug and Play device:
+In Azure IoT Explorer, you should see, clearly not an IoT Plug and Play device:
 
 :::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Non-IoT Plug and Play device in Azure IoT explorer":::
 
-### Make the device an IoT Plug and Play device 
+### Make the device an IoT Plug and Play device
 
 IoT Plug and Play device must follow a set of simple conventions. If a device sends a **Model ID** when it connects, it becomes an IoT Plug and Play device.
 
@@ -126,7 +126,7 @@ You can now navigate the IoT Plug and Play component:
 
 :::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="View components in Azure IoT explorer":::
 
-You can now modify your device code to implement the telemetry, properties, and commands defined in your model. In this example, no code change is necessary because the model diesn't include any components.
+You can now modify your device code to implement the telemetry, properties, and commands defined in your model. In this example, no code change is necessary because the model doesn't include any components.
 
 > [!NOTE]
 > By default a shared access signature is only valid for 60 minutes.

@@ -24,7 +24,7 @@ ms.date: 07/13/2020
 
 1. Select the **Telemetry** page and then select **Start** to view the telemetry data the device is sending for this component.
 
-1. Select the **Properties (non-writable)** page to view the non-writable properties reported for this component.
+1. Select the **Properties (read-only)** page to view the read-only properties reported for this component.
 
 1. Select the **Properties (writable)** page to view the writable properties you can update  for this component.
 

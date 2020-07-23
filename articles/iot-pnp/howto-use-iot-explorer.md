@@ -94,9 +94,13 @@ If the device is connected to the hub using a **Model ID**, the tool shows the *
 
 If the **Model ID** is available in one of the configured sources - Public Repo or Local Folder, the list of components is displayed. Selecting a component shows the properties, commands, and telemetry available.
 
-On the **Component** page, you can view the non-writable properties, update writable properties, invoke commands, and see the telemetry messages produced by this component.
+On the **Component** page, you can view the read-only properties, update writable properties, invoke commands, and see the telemetry messages produced by this component.
+
+:::image type="content" source="media/howto-use-iot-explorer/components-iot-explorer.png" alt-text="View components in Azure IoT explorer":::
 
 #### Properties
+
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="View properties in Azure IoT explorer":::
 
 You can view the read-only properties defined in an interface on the **Properties (read-only)** tab. You can update the writable properties defined in an interface on the **Properties (writable)** tab:
 
