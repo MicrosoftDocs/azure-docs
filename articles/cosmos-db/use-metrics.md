@@ -6,7 +6,7 @@ ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/18/2019
+ms.date: 07/22/2020
 ---
 # Monitor and debug with metrics in Azure Cosmos DB
 

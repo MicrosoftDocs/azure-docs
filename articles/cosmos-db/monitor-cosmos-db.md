@@ -5,7 +5,7 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring 
 ---
