@@ -67,7 +67,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 Use the following command to assign the role (must be run by an owner of the Azure subscription):
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<AAD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 The result of this command is outputted information about the role assignment that's been created.
@@ -75,7 +75,7 @@ The result of this command is outputted information about the role assignment th
 > [!TIP]
 > If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for the user:
 > ```azurecli
-> az ad user show --id <AAD-email-of-user-to-assign> --query objectId
+> az ad user show --id <Azure AD-email-of-user-to-assign> --query objectId
 > ```
 > Then, repeat the role assignment command using the user's *Object ID* in place of their email.
 
@@ -123,7 +123,11 @@ az ad app create --display-name <name-for-your-app> --native-app --required-reso
 
 Here is an excerpt of the output from this command, showing information about the registration you've created:
 
+<<<<<<< HEAD
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
+=======
+:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new Azure AD app registration":::
+>>>>>>> 7-23-feedback
 
 ### Verify success
 
