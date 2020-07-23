@@ -34,13 +34,19 @@ The app registration is required to have access permissions configured for the A
 
 The first solution is to verify that your Azure user has the *Azure Digital Twins Owner (Preview)* role on the instance you are trying to manage. If you do not have this role, set it up.
 
+Note that this role is different from...
+* the *Owner* role on the entire Azure subscription. *Azure Digital Twins Owner (Preview)* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
+* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Owner (Preview)* is the role that should be used for management during preview.
+
 #### Check current setup
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
 #### Fix issues 
 
-If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Owner (Preview)* role on the **Azure Digital Twins instance**. If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
+If you do not have this role assignment, someone with an Owner role in your **Azure subscription** should run the following command to give your Azure user the *Azure Digital Twins Owner (Preview)* role on the **Azure Digital Twins instance**. 
+
+If you are an Owner on the subscription, you can run this command yourself. If you are not, contact an Owner to run this command on your behalf.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-AAD-email>" --role "Azure Digital Twins Owner (Preview)"
