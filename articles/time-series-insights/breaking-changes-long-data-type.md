@@ -1,6 +1,6 @@
 ---
-title: 'Adding Support for long data type | Microsoft Docs'
-description: Support for long data type
+title: 'Support for long data type in Azure Time Series Insights Gen2 | Microsoft Docs'
+description: Support for long data type in Azure Time Series Insights Gen2.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,7 +12,7 @@ ms.date: 07/07/2020
 ms.custom: dpalled
 ---
 
-# Adding support for long data type
+# Adding support for long data type in Azure Time Series Insights Gen2
 
 The addition of support for long data type affects how we store and index numeric data in Azure Time Series Insights Gen2 environments only. If you have a Gen1 environment, you can disregard these changes.
 
