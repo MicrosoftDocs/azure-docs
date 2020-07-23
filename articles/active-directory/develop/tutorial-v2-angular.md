@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
