@@ -184,6 +184,7 @@ additionalContent:
         - title: Speech Studio
           summary: All the tools you need to transcribe spoken audio to text, perform translations and convert text to lifelike speech. Includes tools for custom speech, custom voice, and custom translation.
           url: https://speech.microsoft.com/
+  sections:
     - title: Additional resources
       items:
       - title: Tools
