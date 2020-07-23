@@ -15,9 +15,7 @@ ms.custom: azure-synapse
 
 # Predictive insights with Synapse SQL 
 
-Synapse SQL provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest), you can bring your existing machine learning models trained in historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs. Predictions are generated based on the model. This feature eliminates the step of moving valuable data outside the data warehouse for scoring. It aims to empower data professionals to easily deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task.
-
-[!IMPORTANT] This functionality is currently not supported in SQL on-demand.
+Synapse SQL provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest), you can bring your existing machine learning models trained in historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs. Predictions are generated based on the model. This feature eliminates the step of moving valuable data outside the data warehouse for scoring. It aims to empower data professionals to easily deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task. This functionality is currently not supported in SQL on-demand.
 
 The functionality requires that the model is trained outside of Synapse SQL. After building the model, load it into the data warehouse and score it with the T-SQL Predict syntax to get insights from the data.
 
@@ -44,6 +42,7 @@ Lastly, make sure that the names and data types of the model inputs match the co
 The model is stored in a Synapse SQL user table as a hexadecimal string with varbinary(max) data type. Additional columns such as ID and description can be added in the model table to identify the model. Here is a code example for a table that can be used for storing models:
 
 ```sql
+-- Sample table schema for storing a model and related data
 CREATE TABLE [dbo].[Models]
 (
     [Id] [int] IDENTITY(1,1) NOT NULL,
