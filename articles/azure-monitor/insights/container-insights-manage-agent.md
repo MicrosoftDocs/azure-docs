@@ -2,7 +2,7 @@
 title: How to manage the Azure Monitor for containers agent | Microsoft Docs
 description: This article describes managing the most common maintenance tasks with the containerized Log Analytics agent used by Azure Monitor for containers.
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 07/21/2020
 
 ---
 
@@ -26,31 +26,12 @@ The process to upgrade the agent on AKS clusters consists of two straight forwar
 
 To install the new version of the agent, follow the steps described in the [enable monitoring using Azure CLI](container-insights-enable-new-cluster.md#enable-using-azure-cli), to complete this process.  
 
-After you've re-enabled monitoring, it might take about 15 minutes before you can view updated health metrics for the cluster. To verify the agent upgraded successfully, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`
+After you've re-enabled monitoring, it might take about 15 minutes before you can view updated health metrics for the cluster. To verify the agent upgraded successfully, you can either:
 
-The status should resemble the following example, where the value for *omi* and *omsagent* should match the latest version specified in the [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
+* Run the command: `kubectl get pod <omsagent-pod-name> -n kube-system -o=jsonpath='{.spec.containers[0].image}'`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output.
+* On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
 
-```console
-User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-:
-:
-instance of Container_HostInventory
-{
-	[Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-	Computer=aks-nodepool1-39773055-0
-	DockerVersion=1.13.1
-	OperatingSystem=Ubuntu 16.04.3 LTS
-	Volume=local
-	Network=bridge host macvlan null overlay
-	NodeRole=Not Orchestrated
-	OrchestratorType=Kubernetes
-}
-Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc
-Status: Onboarded(OMSAgent Running)
-omi 1.4.2.5
-omsagent 1.6.0-163
-docker-cimprov 1.0.0.31
-```
+The version of the agent shown should match the latest version listed on the [Release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) page.
 
 ### Upgrade agent on hybrid Kubernetes cluster
 

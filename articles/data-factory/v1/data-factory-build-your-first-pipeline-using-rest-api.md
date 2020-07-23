@@ -48,7 +48,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
   4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
-* Install [Azure PowerShell](/powershell/azure/overview).
+* Install [Azure PowerShell](/powershell/azure/).
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   1. Run **Connect-AzAccount** and enter the user name and password that you use to sign in to the Azure portal.
   2. Run **Get-AzSubscription** to view all the subscriptions for this account.

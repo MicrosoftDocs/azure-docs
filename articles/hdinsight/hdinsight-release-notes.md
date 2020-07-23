@@ -42,7 +42,10 @@ Starting from July 1 2020, customers will not be able to create new Kafka cluste
 No behavior changes you need to pay attention to.
 
 ## Upcoming changes
-No upcoming breaking changes you need to pay attention to.
+The following changes will happen in upcoming releases. 
+
+### Ability to select different Zookeeper SKU for Spark, Hadoop, and ML Services
+HDInsight today doesn't support changing Zookeeper SKU for Spark, Hadoop, and ML Services cluster types. It uses A2_v2/A2 SKU for Zookeeper nodes and customers aren't charged for them. In the upcoming release, customers will be able to change Zookeeper SKU for Spark, Hadoop, and ML Services as needed. Zookeeper nodes with SKU other than A2_v2/A2 will be charged. The default SKU will still be A2_V2/A2 and free of charge.
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
@@ -53,4 +56,4 @@ There was an issue for Hive Warehouse connector usability in previous release. T
 Zeppelin was incorrectly truncating leading zeros in the table output for String format. We've fixed this issue in this release.
 
 ## Component version change
-No component version change for this release. You can find the current component versions for HDInsight 4.0 ad HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).

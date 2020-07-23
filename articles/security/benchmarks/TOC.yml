@@ -81,7 +81,9 @@
   - name: Cosmos DB security baseline
     href: ../../cosmos-db/security-baseline.md  
   - name: Customer Lockbox security baseline
-    href: ../fundamentals/customer-lockbox-security-baseline.md  
+    href: ../fundamentals/customer-lockbox-security-baseline.md
+  - name: Data Lake Analytics security baseline
+    href: ../../data-lake-analytics/security-baseline.md  
   - name: Event Hubs security baseline
     href: ../../event-hubs/security-baseline.md
   - name: ExpressRoute security baseline

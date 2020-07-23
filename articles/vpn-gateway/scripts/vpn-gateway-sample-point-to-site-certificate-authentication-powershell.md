@@ -3,7 +3,7 @@ title: 'Azure PowerShell script sample - Configure point-to-site VPN with native
 description: Configure point-to-site VPN with native Azure certificate authentication using self-signed certificates. This article uses PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.devlang: powershell
@@ -118,4 +118,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
