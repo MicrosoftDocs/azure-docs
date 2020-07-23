@@ -43,7 +43,7 @@ These keys are protected in single-tenant HSM-pools. You can import an RSA, EC, 
 
 For more information on geographical boundaries, see [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
-## Key types and protection methods
+## Key types, protection methods and algorithms
 
 Key Vault supports RSA, EC and symmetric keys. 
 
@@ -54,6 +54,7 @@ Key Vault supports RSA, EC and symmetric keys.
 **EC-HSM**: Elliptic Curve key|FIPS 140-2 Level 2 HSM|FIPS 140-2 Level 3 HSM
 **RSA-HSM**: RSA key|FIPS 140-2 Level 2 HSM|FIPS 140-2 Level 3 HSM
 **oct-HSM**: Symmetric|Not supported|FIPS 140-2 Level 3 HSM
+||||
 
 ### Software-protected keys
 
@@ -61,16 +62,16 @@ Key Vault supports RSA, EC and symmetric keys.
 |--|--|--|--|
 **RSA**: "Software-protected" RSA key|FIPS 140-2 Level 1|Not supported
 **EC**: "Software-protected" Elliptic Curve key|FIPS 140-2 Level 1|Not supported
+||||
 
+### Supported algorithms
 
-### Key Types and algorithms support summary
-
-|Key Types| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
+|Key types/sizes/curves| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
 | --- | --- | --- |
+|EC-P256, EC-P256K, EC-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
 |AES 128-bit, 256-bit| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
-|EC-P256, EC-P256K, EC-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
-
+|||
 
 ###  EC algorithms
  The following algorithm identifiers are supported with EC-HSM keys
