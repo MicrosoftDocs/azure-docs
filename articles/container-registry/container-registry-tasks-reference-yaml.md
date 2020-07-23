@@ -503,7 +503,7 @@ ACR Tasks includes a default set of variables that are available to task steps w
 * `Run.Branch`
 * `Run.TaskName`
 
-The variable names are generally self-explanatory. Details follows for commonly used variables. As of YAML version `v1.1.0`, you can use an abbreviated, predefined [task alias](#aliases) in place of most run variables. For example, in place of `{{.Run.Registry}}`, use the `$Registry` alias.
+The variable names are generally self-explanatory. Details follow for commonly used variables. As of YAML version `v1.1.0`, you can use an abbreviated, predefined [task alias](#aliases) in place of most run variables. For example, in place of `{{.Run.Registry}}`, use the `$Registry` alias.
 
 ### Run.ID
 
