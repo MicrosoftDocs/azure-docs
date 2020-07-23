@@ -85,8 +85,8 @@ Body
 ``` HTTP
 {
     "principalId":" 2142743c-a5b3-4983-8486-4532ccba12869",
-    "roleDefinitionId":"fe930be7-5e62-47db-91af-98c3a49a38b1",    //role template ID of User Administrator
-    "directoryScopeId":"/administrativeUnits/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"  //object ID of an administrative unit
+    "roleDefinitionId":"e9b2b976-1dea-4229-a078-b08abd6c4f84",    //role template ID of a custom role
+    "directoryScopeId":"/13ff0c50-18e7-4071-8b52-a6f08e17c8cc"  //object ID of an application
 }
 ```
 
@@ -96,7 +96,7 @@ Response
 HTTP/1.1 201 Created
 ```
 
-### Example 4: Create a single resource scoped role assignment on a built-in role definition which is not supported
+### Example 4: Create an administrative unit scoped role assignment on a built-in role definition which is not supported
 
 POST
 
