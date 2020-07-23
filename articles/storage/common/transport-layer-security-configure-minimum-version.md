@@ -79,7 +79,7 @@ StorageBlobLogs
 | project TlsVersion, CallerIpAddress, UserAgentHeader
 ```
 
-## Remediate security risks by requiring a minimum version of TLS
+## Remediate security risks with a minimum version of TLS
 
 When you are confident that traffic from clients using earlier versions of TLS is minimal, or that it's acceptable to fail requests made with an earlier version of TLS, then you can begin enforcement of a minimum TLS version on your storage account. Requiring that clients use a minimum version of TLS to make requests against a storage account is part of a strategy to minimize security risks to your data.
 
@@ -88,7 +88,7 @@ When you are confident that traffic from clients using earlier versions of TLS i
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
 > [!NOTE]
-> The **minimumTlsVersion** property is not set by default and does not return a value until you explicitly set it. The storage account defaults to permitting requests sent with TLS version 1.0 or greater if the property value is null.
+> The **minimumTlsVersion** property is not set by default and does not return a value until you explicitly set it. The storage account permits requests sent with TLS version 1.0 or greater if the property value is **null**.
 
 # [Portal](#tab/portal)
 
@@ -287,15 +287,15 @@ To view the compliance report in the Azure portal, follow these steps:
 1. In the Azure portal, navigate to the Azure Policy service.
 1. Select **Compliance**.
 1. Filter the results for the name of the policy assignment that you created in the previous step. The report shows how many resources are not in compliance with the policy.
-1. You can drill down into the report for additional details, including the names of storage accounts that are not in compliance.
+1. You can drill down into the report for additional details, including a list of storage accounts that are not in compliance.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot showing compliance report for audit policy for minimum TLS version":::
 
 ## Use Azure Policy to enforce the minimum TLS version
 
-Azure Policy supports cloud governance by ensuring that resources within a subscription adhere to requirements and standards. To enforce a minimum TLS version requirement for the storage accounts in your organization, you can create a policy that prevents the creation of new storage accounts that do not have the correct minimum TLS version specified. The policy will also prevent existing storage accounts from configuration changes that modify the minimum TLS version setting to a version that is less than the minimum required by the policy.
+Azure Policy supports cloud governance by ensuring that resources within a subscription adhere to requirements and standards. To enforce a minimum TLS version requirement for the storage accounts in your organization, you can create a policy that prevents the creation of new storage accounts that do not have the correct minimum TLS version specified. The policy will also prevent configuration changes to existing accounts that modify the minimum TLS version setting to a version that is less than the minimum required by the policy.
 
-The enforcement policy uses the Deny effect to prevent a request that would create or modify a storage account so that the minimum TLS version no longer adhered to your organization's standards. For more information about effects, see [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
+The enforcement policy uses the Deny effect to prevent a request that would create or modify a storage account so that the minimum TLS version no longer adheres to your organization's standards. For more information about effects, see [Understand Azure Policy effects](../../governance/policy/concepts/effects.md).
 
 To create a policy with a Deny effect for a minimum TLS version that is less than TLS 1.2, follow the same steps described in [Use Azure Policy to audit for compliance](#use-azure-policy-to-audit-for-compliance), but provide the following JSON in the **policyRule** section of the policy definition:
 
@@ -323,7 +323,7 @@ To create a policy with a Deny effect for a minimum TLS version that is less tha
 
 After you create the policy with the Deny effect and assign it to a scope, you cannot create a storage account with a minimum TLS version set to less than 1.2, or modify the minimum TLS version for an existing storage account so that it is less than 1.2. Attempting to do so results in an error.
 
-The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 when the policy requires that the minimum TLS version is set to TLS 1.2.
+The following image shows the error that occurs if you try to create a storage account with the minimum TLS version set to TLS 1.0 (the default for a new account) when the policy requires that the minimum TLS version is set to TLS 1.2.
 
 :::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot showing the error that occurs when creating a storage account in violation of policy":::
 
