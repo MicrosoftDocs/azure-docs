@@ -59,6 +59,7 @@ Now that we have the SDK included in our project we can send an SMS message with
 
 ```csharp
 using Azure.Communication.Sms; // Add NuGet package Azure.Communication.Sms
+using Azure.Communication.Sms.Models;
 
 namespace SmsSender
 {
@@ -69,8 +70,8 @@ namespace SmsSender
             var connectionString = "<connectionString>"; // Connection string can be acquired through the Azure portal
             var smsClient = new SmsClient(connectionString);
             smsClient.Send(
-                from: "+15551111111", // Phone number acquired by your account
-                to: "+15552222222",
+                from: new PhoneNumber("+15551111111"), // Phone number acquired by your account
+                to: new PhoneNumber("+15552222222"),
                 message: "Hello World 👋🏻 via Sms");
         }
     }
