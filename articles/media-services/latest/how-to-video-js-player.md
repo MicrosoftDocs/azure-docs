@@ -23,7 +23,7 @@ Video.js is a web video player built from the ground up for an HTML5 world. It p
 Its official documentation can be found at [https://docs.videojs.com/](https://docs.videojs.com/).
 
 ## Sample code
-Sample code is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
+Sample code for this article is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
 
 ## Implement the player
 
@@ -55,7 +55,7 @@ Sample code is available at [Azure-Samples/media-services-3rdparty-player-sample
     });
     ```
 
-3. Replace `manifestUrl` with the manifest URL of your choice.
+3. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset.
 
 4. Replace `protocolType` with the following options:
 

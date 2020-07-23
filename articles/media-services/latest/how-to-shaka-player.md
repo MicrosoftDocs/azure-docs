@@ -10,7 +10,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 07/23/2020
 ms.author: inhenkel
 ---
 
@@ -20,12 +20,12 @@ ms.author: inhenkel
 
 Shaka Player is an open-source JavaScript library for adaptive media. It plays adaptive media formats (such as DASH and HLS) in a browser, without using plugins or Flash. Instead, the Shaka Player uses the open web standards MediaSource Extensions and Encrypted Media Extensions.
 
-We recommend using it with [Mux.js](https://github.com/videojs/mux.js/) in order to maximize HLS compatibility. Without Mux the player it would support HLS CMAF format, but not HLS TS.
+We recommend using [Mux.js](https://github.com/videojs/mux.js/) as with it, the Shaka player would support HLS CMAF format, but not HLS TS.
 
 Its official documentation can be found at [Shaka player documentation](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html).
 
 ## Sample code
-Sample code is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
+Sample code is for this article is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
 
 ## Implementing the player
 
@@ -60,12 +60,12 @@ Follow these instructions if you need to implement your own instance of the play
     player.load(manifestUrl);
     ```
 
-3. Replace `manifestUrl` with the manifest URL of your choice.
-4. Run a server (for example with `npx http-server`) and your player should be working.
+3. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset.
+4. Run a server (for example with `npm http-server`) and your player should be working.
 
-### Set up captions
+## Set up captions
 
-#### Set up VOD captions
+### Set up VOD captions
 
 Run the following lines of code, and replace `captionUrl` with your .vtt directory (vtt file needs to be in the same host to avoid CORS error), `lang` with the two letter code for language, and `type` with either `caption` or `subtitle`:
 
@@ -78,7 +78,7 @@ player.load(manifestUrl).then(function(){
 });
 ```
 
-#### Set up live stream captions
+### Set up live stream captions
 
 Enable captions in live stream is configured adding the following line of code:
 
@@ -86,7 +86,7 @@ Enable captions in live stream is configured adding the following line of code:
 player.setTextTrackVisibility(true)
 ```
 
-### Set up token authentication
+## Set up token authentication
 
 Run the following lines of code, and replace `token` with your token string:
 
@@ -98,13 +98,13 @@ player.getNetworkingEngine().registerRequestFilter(function (type, request) {
 });
 ```
 
-### Set up AES-128 encryption
+## Set up AES-128 encryption
 
 Shaka Player does not currently support AES-128 encryption.
 
 A link to a GitHub [issue](https://github.com/google/shaka-player/issues/850) to follow the status of this feature.
 
-### Set up DRM protection
+## Set up DRM protection
 
 Shaka Player uses Encrypted Media Extensions (EME), which requires a secure URL to use. It means that for testing any DRM protected content it's necessary to use https. Also, because of mixed content requirements, if the site is using https, then the manifest and every segment will also need to use https too.
 
@@ -140,5 +140,5 @@ For more information, see [Shaka player DRM protection documentation](https://sh
 
 ## Next steps
 
-> [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)
-> [Quickstart: Encrypt content](encrypt-content-quickstart.md)
+* [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)
+* [Quickstart: Encrypt content](encrypt-content-quickstart.md)
