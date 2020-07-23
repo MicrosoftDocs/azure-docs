@@ -30,7 +30,7 @@ Connection strings provide addressing and key information necessary for service 
 
 In the Azure Portal, use the `Keys` page in `Settings` to generate keys.
 
-![Screenshot of Key page](../media/keys.png)
+![Screenshot of Key page](../media/key.png)
 
 
 ## Create a .NET console application and download the SMS .NET SDK
