@@ -38,6 +38,8 @@ You can create a new Log Analytics workspace using any of the following methods.
 * [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 
+## Supported regions
+
 Azure Monitor for VMs supports Log Analytics workspaces in the following regions, although you can monitor VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
 
 - West Central US
