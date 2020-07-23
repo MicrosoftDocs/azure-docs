@@ -1,5 +1,5 @@
 ---
-title: 'Migrating new Azure Time Series Insights Gen2 API Versions | Microsoft Docs'
+title: 'Migrating to new Azure Time Series Insights Gen2 API versions | Microsoft Docs'
 description: How to update Azure Time Series Insights Gen2 environments to use new generally available versions.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,7 +12,7 @@ ms.date: 07/22/2020
 ms.custom: shresha
 ---
 
-# Migrating to new Azure Time Series Insights Gen2 API Versions
+# Migrating to new Azure Time Series Insights Gen2 API versions
 
 ## Overview
 
@@ -71,7 +71,7 @@ To update the queries to use the new API version and new Time Series Expression 
 > [!NOTE]
 > You must be using the July 2020 Version of Power BI Desktop. If not you may see an [invalid query payload version error](./how-to-diagnose-troubleshoot#problem-power-bi-connector-shows-unable-to-connect). 
 
-## Migrate Custom Applications
+## Migrate custom applications
 
 If your custom application is making calls to the following REST endpoints, it is sufficient to update the API version to `2020-07-31` in the URI: 
 
@@ -104,7 +104,7 @@ For the following REST endpoints, you must update the API version to `2020-07-31
 
 ### Examples
 
-#### TypesBatchPut example
+#### TypesBatchPut
 
 Old Request Body (used by `2018-11-01-preview`): 
 ```JSON
@@ -162,7 +162,7 @@ Updated Request Body (used by `2020-07-31`):
 
 Alternatively, the `filter` can also be `$event.Mode.String = 'outdoor'`. The `value` must use the brackets to escape the special character (`_`).
 
-#### GetEvents example
+#### GetEvents
 
 Old Request Body (used by `2018-11-01-preview`): 
 ```JSON
@@ -216,7 +216,7 @@ Updated Request Body (used by `2020-07-31`):
 
 Alternatively, the `filter` can also be `($event['Value'].Double != null) OR ($event['Status'].String = 'Good')`. 
 
-#### GetSeries example
+#### GetSeries
 Old Request Body (used by `2018-11-01-preview`): 
 ```JSON
 {
@@ -277,7 +277,7 @@ Updated Request Body (used by `2020-07-31`):
 
 Alternatively, the `value` can also be `$event['Bar-Pressure-Offset'].Double`. If no data type is specified, the data type is always assumed to be Double. The bracket notation must be used to escape the special character (`-`). 
 
-#### GetAggregateSeries example
+#### GetAggregateSeries
 Old Request Body (used by `2018-11-01-preview`): 
 ```JSON
 {
