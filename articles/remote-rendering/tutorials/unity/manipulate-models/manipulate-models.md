@@ -1,8 +1,8 @@
 ---
 title: Manipulating models
 description: Manipulate remotely rendered models by moving, rotating scaling and more
-author: michael-house
-ms.author: v-mihous
+author: florianborn71
+ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ---

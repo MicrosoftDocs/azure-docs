@@ -97,20 +97,20 @@ To redeploy cloud services in the Azure portal:
 
 To redeploy cloud services by using PowerShell:
 
-1. [Create a new cloud service](/powershell/module/servicemanagement/azure/new-azureservice) by using your `.cspkg` and `.cscfg` definitions.
+1. [Create a new cloud service](/powershell/module/servicemanagement/azure.service/new-azureservice) by using your `.cspkg` and `.cscfg` definitions.
 
     ```powershell
     New-AzureService -ServiceName <yourServiceName> -Label <MyTestService> -Location <westeurope>
     ```
 
-1. [Create a new deployment](/powershell/module/servicemanagement/azure/new-azuredeployment) by using your `.cspkg` and `.cscfg` definitions.
+1. [Create a new deployment](/powershell/module/servicemanagement/azure.service/new-azuredeployment) by using your `.cspkg` and `.cscfg` definitions.
 
     ```powershell
     New-AzureDeployment -ServiceName <yourServiceName> -Slot <Production> -Package <YourCspkgFile.cspkg> -Configuration <YourConfigFile.cscfg>
     ```
 
 1. Update the [CNAME or A record](../cloud-services/cloud-services-custom-domain-name-portal.md) to point traffic to the new cloud service.
-1. When traffic points to the new cloud service, [delete the old cloud service](/powershell/module/servicemanagement/azure/remove-azureservice) in Azure Germany.
+1. When traffic points to the new cloud service, [delete the old cloud service](/powershell/module/servicemanagement/azure.service/remove-azureservice) in Azure Germany.
 
     ```powershell
     Remove-AzureService -ServiceName <yourOldServiceName>

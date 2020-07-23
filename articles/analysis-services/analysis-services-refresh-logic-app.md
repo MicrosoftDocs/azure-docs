@@ -6,6 +6,7 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
+ms.custom: references_regions 
 
 ---
 # Refresh with Logic Apps

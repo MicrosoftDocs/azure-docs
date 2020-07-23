@@ -245,7 +245,7 @@ Primary              : False
 
 Assign the NIC to a virtual machine by using the `Add-AzVMNetworkInterface` command.
 
-For step-by-step instructions to create a virtual machine and assign the NIC, see [Create an Azure VM by using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
+For step-by-step instructions to create a virtual machine and assign the NIC, see [Create an Azure VM by using PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
 ## Add the network interface
 

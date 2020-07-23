@@ -3,7 +3,7 @@ title: Tutorial - Connect a generic Python client app to Azure IoT Central | Mic
 description: This tutorial shows you how, as a device developer, to connect a device running a Python client app to your Azure IoT Central application. You create a device template by importing a device capability model and add views that let you interact with a connected device
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/24/2020
+ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this article, you need the following:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
+* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md). The application must have been created on or after 07/14/2020.
 * A development machine with [Python](https://www.python.org/) version 3.7 or later installed. You can run `python3 --version` at the command line to check your version. Python is available for a wide variety of operating systems. The instructions in this tutorial assume you're running the **python3** command at the Windows command prompt.
 
 [!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
@@ -211,18 +211,18 @@ The following steps show you how to create a Python client application that conn
 
     An operator can view the response payload in the command history.
 
-1. Add the following functions inside the `main` function to handle property updates sent from your IoT Central application:
+1. Add the following functions inside the `main` function to handle property updates sent from your IoT Central application. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
 
     ```python
       async def name_setting(value, version):
         await asyncio.sleep(1)
         print(f'Setting name value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'name' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'name' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       async def brightness_setting(value, version):
         await asyncio.sleep(5)
         print(f'Setting brightness value {value} - {version}')
-        await device_client.patch_twin_reported_properties({'brightness' : {'value': value['value'], 'status': 'completed', 'desiredVersion': version}})
+        await device_client.patch_twin_reported_properties({'brightness' : {'value': value, 'ad': 'completed', 'ac': 200, 'av': version}})
 
       settings = {
         'name': name_setting,
@@ -258,7 +258,7 @@ The following steps show you how to create a Python client application that conn
 
       if device_client is not None and device_client.connected:
         print('Send reported properties on startup')
-        await device_client.patch_twin_reported_properties({'state': 'true'})
+        await device_client.patch_twin_reported_properties({'state': 'true', 'processorArchitecture': 'ARM', 'swVersion': '1.0.0'})
         tasks = asyncio.gather(
           send_telemetry(),
           command_listener(),
@@ -300,6 +300,10 @@ You can see the device connects to your Azure IoT Central application and starts
 You can see how the device responds to commands and property updates:
 
 ![Observe the client application](media/tutorial-connect-device-python/run-application-2.png)
+
+## View raw data
+
+[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
 
 ## Next steps
 

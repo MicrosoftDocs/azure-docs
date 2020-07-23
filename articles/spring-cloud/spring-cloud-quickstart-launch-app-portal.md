@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 02/15/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal
 
 This quickstart shows you how to deploy an existing Spring Cloud application to Azure. Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure. 
@@ -127,11 +128,7 @@ It takes about 5 minutes for the service to deploy.  Once it is deployed, the **
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-5. Create the `gateway` application and deploy the JAR file.  The following steps require the Spring Cloud extension. If you didn't install it with prerequisites, run the following command:
-
-    ```azurecli
-    az extension add --name spring-cloud
-    ```
+5. Create the `gateway` application and deploy the JAR file.
 
     Using the Spring Cloud extension, create the app:
 

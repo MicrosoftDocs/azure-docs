@@ -72,9 +72,9 @@ Prepare Azure for migration with Azure Migrate: Server Migration tool.
 
 Assign the Virtual Machine Contributor role to the Azure account. This provides permissions to:
 
-    - Create a VM in the selected resource group.
-    - Create a VM in the selected virtual network.
-    - Write to an Azure managed disk. 
+- Create a VM in the selected resource group.
+- Create a VM in the selected virtual network.
+- Write to an Azure managed disk. 
 
 ### Create an Azure network
 

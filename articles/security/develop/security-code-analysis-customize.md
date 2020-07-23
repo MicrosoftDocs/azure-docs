@@ -60,9 +60,11 @@ Details of task configuration are shown in the following screenshot and list.
     - Directory specifications must always end with \\*.
     - Examples:
 
+```binskim-targets
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*
            $(BUILD_STAGINGDIRECTORY)\*.dll;$(BUILD_STAGINGDIRECTORY)\*.exe;
+```
 
 - If you select **Command Line** in the **Type** list, you need to run binskim.exe:
      - Make sure the first arguments to binskim.exe are the verb **analyze** followed by one or more path specifications. Each path can be either a full path or a path relative to the source directory.
@@ -70,11 +72,13 @@ Details of task configuration are shown in the following screenshot and list.
      - You can omit the **/o** or **/output** option. The output value is added for you or replaced.
      - Standard command-line configurations are shown as follows.
 
+```binskim-line-args
            analyze $(Build.StagingDirectory)\* --recurse --verbose
            analyze *.dll *.exe --recurse --verbose
+```
 
-          > [!NOTE]
-          > The trailing \\* is important if you specify directories for the target.
+> [!NOTE]
+> The trailing \\* is important if you specify directories for the target.
 
 For more information on BinSkim command-line arguments, rules by ID, or exit codes, see the [BinSkim User Guide](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 

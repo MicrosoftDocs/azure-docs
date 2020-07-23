@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -27,7 +27,7 @@ The script to automate the download and installation, and to establish the conne
 
 1. From your browser, go to the [Azure portal](https://aka.ms/hybridmachineportal).
 
-1. On the **Machines - Azure Arc** page, select either **Add**, at the upper left, or the **Create machine - Azure Arc** option at the bottom of the middle pane. 
+1. On the **Machines - Azure Arc** page, select either **Add**, at the upper left, or the **Create machine - Azure Arc** option at the bottom of the middle pane.
 
 1. On the **Select a method** page, select the **Add machines using interactive script** tile, and then select **Generate script**.
 
@@ -44,8 +44,8 @@ The script to automate the download and installation, and to establish the conne
 
 1. On the **Generate script** page, in the **Operating system** drop-down list, select the operating system that the script will be running on.
 
-1. If the machine is communicating through a proxy server to connect to the internet, select **Next: Proxy Server**. 
-1. On the **Proxy server** tab, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`. 
+1. If the machine is communicating through a proxy server to connect to the internet, select **Next: Proxy Server**.
+1. On the **Proxy server** tab, specify the proxy server IP address or the name and port number that the machine will use to communicate with the proxy server. Enter the value in the format `http://<proxyURL>:<proxyport>`.
 1. Select **Review + generate**.
 
 1. On the **Review + generate** tab, review the summary information, and then select **Download**. If you still need to make changes, select **Previous**.
@@ -54,17 +54,17 @@ The script to automate the download and installation, and to establish the conne
 
 ### Install manually
 
-You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. You can download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center. 
+You can install the Connected Machine agent manually by running the Windows Installer package *AzureConnectedMachineAgent.msi*. You can download the latest version of the [Windows agent Windows Installer package](https://aka.ms/AzureConnectedMachineAgent) from the Microsoft Download Center.
 
-> [!NOTE]
-> * To install or uninstall the agent, you must have *Administrator* permissions.
-> * You must first download and copy the Installer package to a folder on the target server, or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
+>[!NOTE]
+>* To install or uninstall the agent, you must have *Administrator* permissions.
+>* You must first download and copy the Installer package to a folder on the target server, or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
 
 If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described later in the article. This sets the proxy server system environment variable `https_proxy`.
 
 If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](/windows/win32/msi/command-line-options).
 
-For example, run the installation program with the `/?` parameter to review the help and quick reference option. 
+For example, run the installation program with the `/?` parameter to review the help and quick reference option.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
@@ -83,6 +83,10 @@ If the agent fails to start after setup is finished, check the logs for detailed
 1. Log in to the server.
 
 1. Open an elevated PowerShell command prompt.
+
+    >[!NOTE]
+    >The script only supports running from a 64-bit version of Windows PowerShell.
+    >
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
 
@@ -108,7 +112,7 @@ Restart-Service -Name himds
 
 After installing the agent, you need to configure the agent to communicate with the Azure Arc service by running the following command:
 
-`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
 
 ## Install and validate the agent on Linux
 
@@ -119,7 +123,7 @@ The Connected Machine agent for Linux is provided in the preferred package forma
 
 Optionally, you can configure the agent with your proxy information by including the `--proxy "{proxy-url}:{proxy-port}"` parameter.
 
-The script also contains logic to identify the supported and unsupported distributions, and it verifies the permissions that are required to perform the installation. 
+The script also contains logic to identify the supported and unsupported distributions, and it verifies the permissions that are required to perform the installation.
 
 The following example downloads the agent and installs it:
 
@@ -127,7 +131,7 @@ The following example downloads the agent and installs it:
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
+# Install the connected machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
@@ -145,7 +149,10 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 After you install the agent, configure it to communicate with the Azure Arc service by running the following command:
 
-`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID"`
+
+>[!NOTE]
+>You must have *root* access permissions on Linux machines to run **azcmagent**.
 
 ## Verify the connection with Azure Arc
 

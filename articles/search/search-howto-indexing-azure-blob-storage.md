@@ -9,7 +9,7 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 07/11/2020
 ms.custom: fasttrack-edit
 ---
 
@@ -209,6 +209,25 @@ To bring this all together, here's how you can add field mappings and enable bas
 >
 >
 
+#### What if you need to encode a field to use it as a key, but you also want to search it?
+
+There are times when you need to use an encoded version of a field like metadata_storage_path as the key, but you also need that field to be searchable (without encoding). In order to resolve this issue, you can map it into two fields; one that will be used for the key, and another one that will be used for search purposes. In the example below the *key* field contains the encoded path, while the *path* field is not encoded and will be used as the searchable field in the index.
+
+```http
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      "dataSourceName" : " blob-datasource ",
+      "targetIndexName" : "my-target-index",
+      "schedule" : { "interval" : "PT2H" },
+      "fieldMappings" : [
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "key", "mappingFunction" : { "name" : "base64Encode" } },
+        { "sourceFieldName" : "metadata_storage_path", "targetFieldName" : "path" }
+      ]
+    }
+```
 <a name="WhichBlobsAreIndexed"></a>
 ## Controlling which blobs are indexed
 You can control which blobs are indexed, and which are skipped.

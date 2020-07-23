@@ -55,7 +55,7 @@ If a Traffic Manager profile is configured for geographic routing, traffic is ro
 
 ## Use soft delete on your Azure storage account to save and recover data after accidental overwrite or deletion
 
-Enable [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
+Enable [soft delete](../storage/blobs/soft-delete-overview.md) on your storage account so that deleted blobs transition to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. Using soft delete allows you to recover from accidental deletions or overwrites. Advisor identifies Azure storage accounts that don't have soft delete enabled and suggests that you enable it.
 
 ## Configure your VPN gateway to active-active for connection resiliency
 
@@ -104,7 +104,7 @@ Starting July 1, 2020, you won't be able to create new Kafka clusters by using K
 Starting July 1, 2020, you won't be able to create new Spark clusters by using Spark 2.1 or 2.2 on HDInsight 3.6. You won't be able to create new Spark clusters by using Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without support from Microsoft. 
 
 ## Enable virtual machine replication
-Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+Virtual machines that don't have replication enabled to another region aren't resilient to regional outages. Replicating virtual machines reduces any adverse business impact during Azure region outages. Advisor detects VMs on which replication isn't enabled and recommends enabling it. When you enable replication, if there's an outage, you can quickly bring up your virtual machines in a remote Azure region. [Learn more about virtual machine replication.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## How to access high availability recommendations in Advisor
 

@@ -17,7 +17,7 @@ ms.date: 03/04/2020
 ms.author: mlottner
 ---
 
-# Azure Security Center for IoT security alerts
+# Azure Security Center for IoT customizable security alerts
 
 Azure Security Center for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 
