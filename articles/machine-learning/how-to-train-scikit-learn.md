@@ -61,7 +61,9 @@ Notes:
 - The provided training script shows how to log some metrics to your Azure ML run using the `Run` object within the script.
 - The provided training script uses example data from the  `iris = datasets.load_iris()` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#data-upload) to make data available during training.
 
-### Create an Environment
+### Define your Environment.
+
+#### Create a custom environment.
 
 Author your conda environment (sklearn-env.yml).
 ```yaml
@@ -82,9 +84,16 @@ myenv = Environment.from_conda_specification(name = "myenv", file_path = "sklear
 ```
 
 #### Use a curated environment
+Azure ML provides prebuilt, curated container environments if you don't want to build your own image. For more info, see [here](resource-curated-environments.md).
+If you want to use a curated environment, you can run the following command instead:
+
+```python
+env = Environment.get(workspace=ws, name="AzureML-Tutorial")
+```
 
 ### Create a ScriptRunConfig
 
+This ScriptRunConfig will submit your job for execution on the local compute target.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -93,11 +102,15 @@ src = ScriptRunConfig(source_directory='.', script='train.py')
 src.run_config.environment = myenv
 ```
 
+If you want to submit against a remote cluster, you can change run_config.target to the desired compute target.
+
 ### Submit your run
 ```python
 from azureml.core import Experiment
 
 run = Experiment(ws,'train-sklearn').submit(config=src)
+run.wait_for_completion(show_output=True)
+
 ```
 
 > [!WARNING]
