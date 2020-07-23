@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ---
@@ -13,26 +13,27 @@ ms.author: akshanka
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-## Overview
 This article shows how to perform common scenarios using Azure Storage Table service or Azure Cosmos DB in a Node.js application.
 
 ## Create an Azure service account
 
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### Create an Azure storage account
+**Create an Azure storage account**
 
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### Create an Azure Cosmos DB Table API account
+**Create an Azure Cosmos DB Table API account**
 
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## Configure your application to access Azure Storage or the Azure Cosmos DB Table API
+
 To use Azure Storage or Azure Cosmos DB, you need the Azure Storage SDK for Node.js, which includes a set of convenience libraries that
 communicate with the Storage REST services.
 
 ### Use Node Package Manager (NPM) to install the package
+
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix), and navigate to the folder where you created your application.
 2. Type **npm install azure-storage** in the command window. Output from the command is similar to the following example.
 
@@ -52,20 +53,27 @@ communicate with the Storage REST services.
 3. You can manually run the **ls** command to verify that a **node_modules** folder was created. Inside that folder you will find the **azure-storage** package, which contains the libraries you need to access storage.
 
 ### Import the package
+
 Add the following code to the top of the **server.js** file in your application:
 
 ```javascript
 var azure = require('azure-storage');
 ```
 
-## Add an Azure Storage connection
+## Add your connection string
+
+You can either connect to the Azure storage account or the Azure Cosmos DB Table API account. Get the connection string based on the type of account you are using.
+
+### Add an Azure Storage connection
+
 The Azure module reads the environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY, or AZURE_STORAGE_CONNECTION_STRING for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information when calling **TableService**. For example, the following code creates a **TableService** object:
 
 ```javascript
 var tableSvc = azure.createTableService('myaccount', 'myaccesskey');
 ```
 
-## Add an Azure Cosmos DB connection
+### Add an Azure Cosmos DB connection
+
 To add an Azure Cosmos DB connection, create a **TableService** object and specify your account name, primary key, and endpoint. You can copy these values from **Settings** > **Connection String** in the Azure portal for your Cosmos DB account. For example:
 
 ```javascript
@@ -73,6 +81,7 @@ var tableSvc = azure.createTableService('myaccount', 'myprimarykey', 'myendpoint
 ```
 
 ## Create a table
+
 The following code creates a **TableService** object and uses it to create a new table.
 
 ```javascript
@@ -91,7 +100,8 @@ tableSvc.createTableIfNotExists('mytable', function(error, result, response){
 
 The `result.created` is `true` if a new table is created, and `false` if the table already exists. The `response` contains information about the request.
 
-### Filters
+### Apply filters
+
 You can apply optional filtering to operations performed using **TableService**. Filtering operations can include logging, automatic retries, etc. Filters are objects that implement a method with the signature:
 
 ```javascript
@@ -114,6 +124,7 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 ```
 
 ## Add an entity to a table
+
 To add an entity, first create an object that defines your entity properties. All entities must contain a **PartitionKey** and **RowKey**, which are unique identifiers for the entity.
 
 * **PartitionKey** - Determines the partition in which the entity is stored.
@@ -171,6 +182,7 @@ Example response:
 > `tableSvc.insertEntity('mytable', task, {echoContent: true}, function (error, result, response) {...}`
 
 ## Update an entity
+
 There are multiple methods available to update an existing entity:
 
 * **replaceEntity** - Updates an existing entity by replacing it.
@@ -204,6 +216,7 @@ With **replaceEntity** and **mergeEntity**, if the entity that is being updated 
 The `result` for successful update operations contains the **Etag** of the updated entity.
 
 ## Work with groups of entities
+
 Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, use the **TableBatch** class to create a batch, and then use the **executeBatch** method of **TableService** to perform the batched operations.
 
  The following example demonstrates submitting two entities in a batch:
@@ -237,6 +250,7 @@ tableSvc.executeBatch('mytable', batch, function (error, result, response) {
 For successful batch operations, `result` contains information for each operation in the batch.
 
 ### Work with batched operations
+
 You can inspect operations added to a batch by viewing the `operations` property. You can also use the following methods to work with operations:
 
 * **clear** - Clears all operations from a batch.
@@ -246,6 +260,7 @@ You can inspect operations added to a batch by viewing the `operations` property
 * **size** - Returns the number of operations in the batch.
 
 ## Retrieve an entity by key
+
 To return a specific entity based on the **PartitionKey** and **RowKey**, use the **retrieveEntity** method.
 
 ```javascript
@@ -259,6 +274,7 @@ tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, res
 After this operation is complete, `result` contains the entity.
 
 ## Query a set of entities
+
 To query a table, use the **TableQuery** object to build up a query expression using the following clauses:
 
 * **select** - The fields to be returned from the query.
@@ -289,6 +305,7 @@ tableSvc.queryEntities('mytable',query, null, function(error, result, response) 
 If successful, `result.entries` contains an array of entities that match the query. If the query was unable to return all entities, `result.continuationToken` is non-*null* and can be used as the third parameter of **queryEntities** to retrieve more results. For the initial query, use *null* for the third parameter.
 
 ### Query a subset of entity properties
+
 A query to a table can retrieve just a few fields from an entity.
 This reduces bandwidth and can improve query performance, especially for large entities. Use the **select** clause and pass the names of the fields to return. For example, the following query returns only the **description** and **dueDate** fields.
 
@@ -321,6 +338,7 @@ tableSvc.deleteEntity('mytable', task, function(error, response){
 >
 
 ## Delete a table
+
 The following code deletes a table from a storage account.
 
 ```javascript
@@ -334,6 +352,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 If you are uncertain whether the table exists, use **deleteTableIfExists**.
 
 ## Use continuation tokens
+
 When you are querying tables for large amounts of results, look for continuation tokens. There may be large amounts of data available for your query that you might not realize if you do not build to recognize when a continuation token is present.
 
 The **results** object returned during querying entities sets a `continuationToken` property when such a token is present. You can then use this when performing a query to continue to move across the partition and table entities.
@@ -362,6 +381,7 @@ If you inspect the `continuationToken` object, you will find properties such as 
 You can also use `top` along with `continuationToken` to set the page size.
 
 ## Work with shared access signatures
+
 Shared access signatures (SAS) are a secure way to provide granular access to tables without providing your Storage account name or keys. SAS are often used to provide limited access to your data, such as allowing a mobile app to query records.
 
 A trusted application such as a cloud-based service generates a SAS using the **generateSharedAccessSignature** of the **TableService**, and provides it to an untrusted or semi-trusted application such as a mobile app. The SAS is generated using a policy, which describes the start and end dates during which the SAS is valid, as well as the access level granted to the SAS holder.
@@ -407,6 +427,7 @@ sharedTableService.queryEntities(query, null, function(error, result, response) 
 Because the SAS was generated with only query access, an error is returned if you attempt to insert, update, or delete entities.
 
 ### Access Control Lists
+
 You can also use an Access Control List (ACL) to set the access policy for a SAS. This is useful if you want to allow multiple clients to access the table, but provide different access policies for each client.
 
 An ACL is implemented using an array of access policies, with an ID associated with each policy. The following example defines two policies, one for 'user1' and one for 'user2':
@@ -449,6 +470,7 @@ tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
 ## Next steps
+
 For more information, see the following resources.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
