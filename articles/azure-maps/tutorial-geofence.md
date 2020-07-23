@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Create a geofence and track devices on a map | Microsoft Azure Maps'
 description: Learn how to set up a geofence and track devices relative to the geofence using Microsoft Azure Maps Spatial Service.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
