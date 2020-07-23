@@ -27,7 +27,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Service Bus topic as destination](handler-service-bus.md)
     - [Azure function as destination](handler-functions.md)
     - [Webhook batching](./edge/delivery-output-batching.md)
-    - [Secure webhook (Azure Active Directory support)](secure-webhook-delivery)
+    - [Secure webhook (Azure Active Directory support)](secure-webhook-delivery.md)
     - ImmutableId support
     - [Ip filtering](configure-firewall.md)
     - [Private Link Service support](configure-private-endpoints.md)
@@ -73,7 +73,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - It adds support to the following new functionalities:
 	* [Domains](event-domains.md)
 	* Pagination and search filter for resources list operations,
-	* [Service Bus queue as destination](handler-service-bus)
+	* [Service Bus queue as destination](handler-service-bus.md)
 	* [Advanced filtering](event-filtering.md#advanced-filtering)
 	* Disallows usage of ‘All’ with IncludedEventTypes."
 
@@ -93,7 +93,7 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 	* [Azure Relay - Hybrid Connection as destination](handler-relay-hybrid-connections.md)
 	* [Manual handshake validation](webhook-event-delivery.md)
 	* [Support for retry policies](delivery-and-retry.md)
-- Features that are still in preview (such as [Event Grid domains](event-domains.md) or [advanced filters support](event-filtering.md#advanced-filtering.md) can still be accessed using the 3.0.1-preview version of the SDK."
+- Features that are still in preview (such as [Event Grid domains](event-domains.md) or [advanced filters support](event-filtering.md#advanced-filtering) can still be accessed using the 3.0.1-preview version of the SDK."
 
 ## 3.0.1-preview (2018-10)
 - Taking dependency on [10.0.3 version of Newtonsoft nuget package](https://www.nuget.org/packages/Newtonsoft.Json/10.0.3).
