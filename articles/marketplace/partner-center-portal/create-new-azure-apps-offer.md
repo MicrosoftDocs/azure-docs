@@ -62,7 +62,7 @@ The video [Building Solution Templates, and Managed Applications for the Azure M
 
 Choose one or both of the following scripting environments to help manage your Azure application:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 We recommend adding the following tools to your development environment:
