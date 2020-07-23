@@ -9,7 +9,7 @@ ms.date: 07/16/2020
 ms.author: jgao
 
 ---
-# Use deployment scripts in templates (Preview)
+# Configure development environment for deployment scripts in templates
 
 Learn how to create a development environment for developing deployment scripts with an deployment script image.  You can either create an Azure container instance or use docker. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
@@ -177,7 +177,6 @@ New-AzResourceGroupDeployment -resourceGroupName $resourceGroupName -TemplateFil
     ```
 
     The output shall be **Hello John Dole**.
-
 
 ## Use Docker
 
