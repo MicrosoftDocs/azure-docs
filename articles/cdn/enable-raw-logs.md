@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Configuration - Azure Portal
+## Configuration - Azure portal
 
 To configure Raw logs for your Azure CDN from Microsoft profile: 
 
@@ -120,7 +120,7 @@ Retention data is defined by the **-RetentioninDays** option in the command.
     ```azurepowershell-interactive
     Connect-AzAccount 
     ```
-2. To enable Diagnostic Logs for a event hub namespace, enter these commands. Replace the variables with your values:
+2. To enable Diagnostic Logs for an event hub namespace, enter these commands. Replace the variables with your values:
 
     ```azurepowershell-interactive
     $rsg = <your-resource-group-name>
@@ -167,15 +167,20 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 
 
 ### Sent to origin shield deprecation
-The raw log property **isSentToOriginShield** has been deprecated and replaced by a new field **isReceivedFromClient**. Please use the new field if you are already using the deprecated field. 
+The raw log property **isSentToOriginShield** has been deprecated and replaced by a new field **isReceivedFromClient**. Use the new field if you're already using the deprecated field. 
 
-Raw logs include logs generated from both CDN edge (child POP) and origin shield. Origin shield refers to parent nodes that are strategically located across the global to help communicate with origin servers and reduce the traffic load on origin. 
+Raw logs include logs generated from both CDN edge (child POP) and origin shield. Origin shield refers to parent nodes that are strategically located across the globe. These nodes communicate with origin servers and reduce the traffic load on origin. 
 
-For every request that goes to origin shield, there will be two log entries; one for edge nodes and the other one for origin shield. In order to differentiate the egress or responses from the edge nodes vs. origin shield, you can use the field isReceivedFromClient to get the right data. 
+For every request that goes to origin shield, there are 2-log entries:
 
-If the value is false, then it means the request is responded from origin shield to edge nodes. This approach is effective to compare raw logs with billing data. We do not charge for egress from origin shield to the edge nodes and only charge for egress from the edge nodes to clients. 
+* One for edge nodes
+* One for origin shield. 
 
-**Kusto queury sample to exclude logs generated on origin shield in Log Analytics.**
+To differentiate the egress or responses from the edge nodes vs. origin shield, you can use the field isReceivedFromClient to get the correct data. 
+
+If the value is false, then it means the request is responded from origin shield to edge nodes. This approach is effective to compare raw logs with billing data. Charges aren't incurred for egress from origin shield to the edge nodes. Charges are incurred for egress from the edge nodes to clients. 
+
+**Kusto query sample to exclude logs generated on origin shield in Log Analytics.**
 
 ```kusto
 AzureDiagnostics 
