@@ -19,7 +19,7 @@ The Azure IoT explorer is a graphical tool you can use to interact with and test
 
 - View the devices connected to your [IoT hub](#azure-iot-hub).
 - Connect to an IoT Plug and Play device.
-- View the device [components](#components).
+- View the device [components](#component).
 - View the [telemetry](#telemetry) the device sends.
 - Work with device [properties](#properties).
 - Call device [commands](#commands).
@@ -41,7 +41,7 @@ Commands defined in an [interface](#interface) represent methods that can be exe
 
 ## Component
 
-A DTDL model can combine multiple [interfaces](#interface) as components. For example, a model might include a switch component and thermostat component. Multiple components in a model can also use the same interface type. For example a model might include two thermostat components.
+Components let you build a model [interface](#interface) as an assembly of other interfaces. A [device model](#device-model) can combine multiple interfaces as components. For example, a model might include a switch component and thermostat component. Multiple components in a model can also use the same interface type. For example a model might include two thermostat components.
 
 ## Connection string
 
@@ -52,15 +52,15 @@ A connection string encapsulates the information required to connect to an endpo
 
 ## Device model
 
-A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the [components](#components) that make up the device. A simple device model has no separate components and contains a definition for a single root-level interface. A more complex device model includes multiple components. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language](#digital-twins-definition-language) to define a device model.
+A device model describes an [IoT Plug and Play device](#iot-plug-and-play-device) and defines the [components](#component) that make up the device. A simple device model has no separate components and contains a definition for a single root-level interface. A more complex device model includes multiple components. A device model typically corresponds to a physical device, product, or SKU. You use the [Digital Twins Definition Language version 2](#digital-twins-definition-language) to define a device model.
 
 ## Device builder
 
-A device builder uses a [device model](#device-model), [interfaces](#interface), and an [Azure IoT device SDK](#azure-iot-device-sdk) to implement code to run on an [IoT Plug and Play device](#iot-plug-and-play-device).
+A device builder uses a [device model](#device-model) and [interfaces](#interface) when implementing code to run on an [IoT Plug and Play device](#iot-plug-and-play-device). Device builders typically use one of the [Azure IoT device SDKs](#azure-iot-device-sdk) to implement  the device client but this is not required.
 
 ## Device modeling
 
-A [device builder](#device-builder) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). The model can be shared using a model repository. A [solution builder](#solution-builder) can configure an IoT solution from the model.
+A [device builder](#device-builder) uses the [Digital Twins Definition Language](#digital-twins-definition-language) to model the capabilities of an [IoT Plug and Play device](#iot-plug-and-play-device). A [solution builder](#solution-builder) can configure an IoT solution from the model.
 
 ## Digital twin
 
@@ -68,15 +68,15 @@ A digital twin is a model of an [IoT Plug and Play device](#iot-plug-and-play-de
 
 ## Digital twin change events
 
-When an [IoT Plug and Play device](#iot-plug-and-play-device) is connected to an [IoT hub](#azure-iot-hub), the hub can use its routing capability to send notifications of digital twin changes. For example, whenever a [property](#properties) value changes on a device, IoT Hub can send a notification to an endpoint such as a Service Bus queue.
+When an [IoT Plug and Play device](#iot-plug-and-play-device) is connected to an [IoT hub](#azure-iot-hub), the hub can use its routing capability to send notifications of digital twin changes. For example, whenever a [property](#properties) value changes on a device, IoT Hub can send a notification to an endpoint such as a Event hub.
 
 ## Digital Twins Definition Language
 
-A language for describing models and interfaces for [IoT Plug and Play devices](#iot-plug-and-play-device). Use the [Digital Twins Definition Language](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to leverage the semantics of the entity.
+A language for describing models and interfaces for [IoT Plug and Play devices](#iot-plug-and-play-device). Use the [Digital Twins Definition Language version 2](https://github.com/Azure/opendigitaltwins-dtdl) to describe a [digital twin's](#digital-twin) capabilities and enable the IoT platform and IoT solutions to leverage the semantics of the entity.
 
 ## Digital twin route
 
-A route set up in an [IoT hub](#azure-iot-hub) to deliver [digital twin change events](#digital-twin-change-events) to and endpoint such as a Service Bus queue.
+A route set up in an [IoT hub](#azure-iot-hub) to deliver [digital twin change events](#digital-twin-change-events) to and endpoint such as a Event hub.
 
 ## Interface
 
@@ -84,7 +84,7 @@ An interface describes related capabilities that are implemented by a [IoT Plug 
 
 ## IoT Hub query language
 
-The IoT Hub query language is used for multiple purposes. For example, you can use the language to search for [devices registered](#device-registration) with your IoT hub or refine the [digital twin routing](#digital-twin-route) behavior.
+The IoT Hub query language is used for multiple purposes. For example, you can use the language to search for devices registered with your IoT hub or refine the [digital twin routing](#digital-twin-route) behavior.
 
 ## IoT Plug and Play device
 
@@ -96,7 +96,7 @@ IoT Plug and Play [devices](#iot-plug-and-play-device) are expected to follow a 
 
 ## Model discovery
 
-When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device model](#device-model). The solution can find a device model in a [model repository](#model-repository).
+When an [IoT Plug and Play device](#iot-plug-and-play-device) connects to an IoT solution, the solution can discover the capabilities of the device by finding the [device model](#device-model). The solution can find a device model in a [model repository](#model-repository) or other location.
 
 ## Model ID
 
@@ -104,7 +104,7 @@ When an IoT Plug and Play device connects to an IoT Hub it sends the **Model ID*
 
 ## Model repository
 
-A model repository stores [device models](#device-model) and [interfaces](#interface).
+A [model repository](concepts-model-repository.md) stores [device models](#device-model) and [interfaces](#interface).
 
 ## Model repository REST API
 
