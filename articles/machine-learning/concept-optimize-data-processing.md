@@ -79,4 +79,4 @@ You can create `Dask` clusters on Azure ML compute cluster with the [dask-cloudp
 ## Next steps
 
 * [Data ingestion options with Azure Machine Learning](concept-data-ingestion.md).
-* [Data ingestion with Azure Data Factory](how-to-data-ingest-adf.md).
+* [Create and register datasets](how-to-create-register-datasets.md).
