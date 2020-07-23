@@ -65,7 +65,7 @@ The following steps will help create a Conditional Access policy to require thos
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**, and select **Done**.
-1. Under **Conditions** > **Client apps (Preview)**, set **Configure** to **Yes**, and select **Done**.
+1. Under **Conditions** > **Client apps (Preview)**, under **Select the client apps this policy will apply to** leave all defaults selected and select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
