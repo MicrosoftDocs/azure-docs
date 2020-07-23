@@ -76,6 +76,8 @@
       href: how-to-manage-routes.md
     - name: Integrate with Azure Maps
       href: how-to-integrate-maps.md
+    - name: Integrate with Azure Time Series Insights
+      href: how-to-integrate-time-series-insights.md
   - name: Troubleshoot
     items:
     - name: Known issues
