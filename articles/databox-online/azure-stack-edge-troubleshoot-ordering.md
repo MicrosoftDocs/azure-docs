@@ -16,43 +16,43 @@ This article describes how to troubleshoot Azure Stack Edge ordering issues.
 
 In this article, you learn how to:
 
- [!div class="checklist"]
+[!div class="checklist"]
 >
 > * Troubleshoot ordering issues
 
-## Customer is not able to place an order because of unsupported subscription or region
+## Unsupported subscription or region
 
-**Error:** In Azure portal, if you get the error:
+**Error Description:** In Azure portal, if you get the error:
 
 *Selected subscription or region is not supported. Choose a different subscription or region.*.
 
 ![Unsupported subscription or region](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-**Solution:** Make sure that you check your subscription type. Only Microsoft Enterprise Agreement (EA) and Cloud Solution Provider (CSP) subscription types can place an order. Pay-as-you-go (PAYG) subscriptions are not supported. For more information, see [Azure Stack Edge resource prerequisites](azure-stack-edge-deploy-prep.md#prerequisites). There is the possibility that Microsoft may allow a subscription type upgrade on a case-by-case basis. Contact [customer service](https://azure.microsoft.com/support/options/) at any time so that we can understand your needs and adjust these limits appropriately.
+**Suggested solution:**  Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions are not supported. For more information, see [Azure Stack Edge resource prerequisites](azure-stack-edge-deploy-prep.md#prerequisites).
 
-## I have an EA/CSP/sponsored subscription, but I'm not seeing any SKUs and instead get an error
+There is the possibility that Microsoft may allow a subscription type upgrade on a case-by-case basis. Contact [Microsoft support](https://azure.microsoft.com/support/options/) so that they can understand your needs and adjust these limits appropriately.
+
+## Selected subscription type not supported
 
 **Error:** You have an EA, CSP, or sponsored subscription and you get the following error:
 
-*The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](azure-stack-edge-deploy-prep.md#prerequisites). If using a supported subscription type, make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, refer [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*
+*The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](azure-stack-edge-deploy-prep.md#prerequisites). If using a supported subscription type, make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*.
 
-**Solution:** You need to register your Azure Stack Edge resource provider following these steps:
+**Suggested solution:** Follow these steps to register your Azure Stack Edge resource provider:
 
-1. In Azure portal, click **Home**->**Subscriptions**.
+1. In Azure portal, go to **Home** > **Subscriptions**.
 
-2. Select the subscription to be used for ordering.
+2. Select the subscription that you will use to order your device.
 
-3. Click **Resource providers**.
-
-4. Then search for **Microsoft.DataBoxEdge**.
+3. Select **Resource providers** and then search for **Microsoft.DataBoxEdge**.
 
     ![Register resource provider](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-02.png)
 
-**Solution:** You need to have owner or contributor access to register the resource provider, otherwise you will get the following error: *The subscription &lt;subscription name&gt; doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
+If you don't have owner or contributor access to register the resource provider, you see the following error: *The subscription &lt;subscription name&gt; doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
-For more information about registering resource providers, see [Register resource providers](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+For more information, see [Register resource providers](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-## Subscription is the correct type and is enabled for the SKUs, but *show devices* is disabled and displays an error
+## Microsoft.DataBoxEdge not registered for subscription
 
 **Error:** In Azure portal, you select a subscription to use for Azure Stack Edge or Data Box Gateway and get the following error:
 
@@ -60,9 +60,9 @@ For more information about registering resource providers, see [Register resourc
 
 ![Don't have permissions to register resource provider](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-03.png)
 
-**Solution:** You need to find someone that has owner or contributor access to register the resource provider or elevated your subscription access.
+**Suggested solution:** You need to elevate your subscription access or find someone with owner or contributor access to register the resource provider.
 
-## I get a **Deny generally unwanted resource types** error while creating an order
+## Resource disallowed by policy
 
 **Error:** In Azure portal, you attempt to register a resource provider and get the following error:
 
@@ -70,8 +70,8 @@ For more information about registering resource providers, see [Register resourc
 
 ![Disallowed by policy](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-04.png)
 
-**Solution:** This error occurs due to an existing Azure policy that blocks the resource creation. Azure policies are set by an organization's system administrator to ensure compliance while using or creating Azure resources. If any such policy is blocking Azure Stack Edge creation, you need to contact your system administrator to elevate your the Azure policy.
+**Suggested solution:** This error occurs due to an existing Azure policy that blocks the resource creation. Azure policies are set by an organization's system administrator to ensure compliance while using or creating Azure resources. If any such policy is blocking Azure Stack Edge resource creation, contact your system administrator to edit your Azure policy.
 
 ## Next steps
 
-* Learn more about the [known issues in this release](data-box-gateway-release-notes.md).
+* Learn more about how to [Troubleshoot your Azure Stack Edge issues](azure-stack-edge-troubleshoot.md).
