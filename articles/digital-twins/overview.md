@@ -45,7 +45,7 @@ DTDL is used for data models throughout other Azure IoT services, including [IoT
 
 Digital models in Azure Digital Twins are live, up-to-date representations of the real world. Using the relationships in your custom DTDL models, you'll connect twins into a **live graph** representing your environment.
 
-You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [**Azure Digital Twins explorer**](https://github.com/Azure-Samples/digital-twins-explorer).
+You can view a visualization of your Azure Digital Twins graph through the help of a sample application, [**Azure Digital Twins explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/).
 
 Here's a view of what the sample visualization looks like:
 
