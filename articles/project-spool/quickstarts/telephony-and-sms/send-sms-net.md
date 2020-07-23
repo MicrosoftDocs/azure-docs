@@ -121,6 +121,26 @@ Step by step:
 
 
 ## Add EventGrid Subscription for Sms Events
-Sms events in Azure Communication Service can be subscribed using EventGrid Subscription of the Azure communication resource.
+Sms events in Azure Communication Service can be subscribed using EventGrid Subscription of the Azure communication resource. Below are sample instructions using Webhook.
+
+Step by step:
+
+1. Navigate to `Events` tab on the Azure Communication Resource Page on Portal
+2. Click on `+ Event Subscription`
+
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_1.PNG)
+
+3. Add a subscription name and select Sms Events `SMS Received` and `SMS Delivery Report Received`
+
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_2.PNG)
+
+4. Select Endpoint Type. We will use Webhook for this sample
+
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_3.PNG)
+
+5. Add Webhook url and Create subscription
+
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_4.PNG)
+
 
 
