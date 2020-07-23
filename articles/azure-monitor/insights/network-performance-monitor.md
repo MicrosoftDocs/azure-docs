@@ -28,7 +28,7 @@ Network Performance Monitor offers three broad capabilities:
 
 * [ExpressRoute Monitor](network-performance-monitor-expressroute.md): Monitor end-to-end connectivity and performance between your branch offices and Azure, over Azure ExpressRoute.  
 
-More information on the various capabilities supported by [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) is available online.
+More information on the various capabilities supported by [Network Performance Monitor](../../networking/network-monitoring-overview.md) is available online.
  
 ## Supported Regions
 NPM can monitor connectivity between networks and applications in any part of the world, from a workspace that is hosted in one of the following regions:
@@ -57,10 +57,13 @@ NPM can monitor connectivity between networks and applications in any part of th
 * China East 2
 
 
-The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+The list of supported regions for ExpressRoute Monitor is available in the [documentation](../../expressroute/how-to-npm.md?utm_swu=8117).
 
 
 ## Set up and configure
+
+> [!NOTE]
+> You may also see the Log Analytics agent referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent.
 
 ### Install and configure agents 
 
@@ -252,9 +255,9 @@ All data that is exposed graphically through the Network Performance Monitor das
 
 ## Alerts
 
-Network Performance Monitor uses the alerting capabilities of [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Network Performance Monitor uses the alerting capabilities of [Azure Monitor](../platform/alerts-overview.md).
 
-This means that all notifications are managed using [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+This means that all notifications are managed using [action groups](../platform/action-groups.md).  
 
 If you are an NPM user creating an alert via Log Analytics: 
 1. You will see a link that will redirect you to Azure portal. Click it to access the portal.
@@ -265,7 +268,7 @@ If you are an NPM user creating an alert via Log Analytics:
 If you are an NPM user creating an alert via Azure portal:  
 1. You can choose to enter your email directly or you can choose to create alerts via action groups.
 2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
-3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Once the alert is successfully created, you can use Manage Alerts link to manage your alerts. 
 
 Each time you create an alert, NPM creates a query based log alert rule in Azure Monitor. 

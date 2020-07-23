@@ -11,7 +11,7 @@ ms.date: 05/20/2020
 
 # Customer-owned storage accounts for log ingestion in Azure Monitor
 
-Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](azure-storage-iis-table.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account gives you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
+Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](./diagnostics-extension-logs.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account gives you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
 
 One scenario that requires BYOS is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or considered a bad practice. Instead, Logs should be ingested through a customer-owned storage account inside the VNet or easily accessible from it.
 
@@ -19,7 +19,7 @@ Another scenario is the encryption of logs with Customer-Managed Keys (CMK). Cus
 
 ## Data types supported
 
-Data types that are ingested from a storage account include the following. See [Collect data from Azure diagnostics extension to Azure Monitor Logs](azure-storage-iis-table.md) for more information about the ingestion of these types.
+Data types that are ingested from a storage account include the following. See [Collect data from Azure diagnostics extension to Azure Monitor Logs](./diagnostics-extension-logs.md) for more information about the ingestion of these types.
 
 | Type | Table information |
 |:-----|:------------------|

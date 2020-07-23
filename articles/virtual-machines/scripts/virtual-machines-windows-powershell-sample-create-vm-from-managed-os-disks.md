@@ -1,5 +1,5 @@
 ---
-title: Create a VM by attaching a managed disk as OS disk - PowerShell Sample
+title: Make VM by attaching managed disk as OS disk (Windows) - PowerShell
 description: Azure PowerShell Script Sample - Create a VM by attaching a managed disk as OS disk
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -19,7 +19,7 @@ ms.author: ramankum
 ms.custom: mvc
 ---
 
-# Create a virtual machine using an existing managed OS disk with PowerShell
+# Create a virtual machine using an existing managed OS disk with PowerShell (Windows)
 
 This script creates a virtual machine by attaching an existing managed disk as OS disk. Use this script in preceding scenarios:
 * Create a VM from an existing managed OS disk that was copied from a managed disk in different subscription
@@ -48,15 +48,15 @@ This script uses the following commands to get managed disk properties, attach a
 
 | Command | Notes |
 |---|---|
-| [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/Get-AzDisk) | Gets disk object based on the name and the resource group of a disk. Id property of the returned disk object is used to attach the disk to a new VM |
-| [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
-| [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) | Attaches a managed disk using the Id property of the disk as OS disk to a new virtual machine |
-| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address. |
-| [New-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/new-aznetworkinterface) | Creates a network interface. |
-| [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Create a virtual machine. |
-|[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
+| [Get-AzDisk](/powershell/module/az.compute/get-azdisk) | Gets disk object based on the name and the resource group of a disk. Id property of the returned disk object is used to attach the disk to a new VM |
+| [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
+| [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) | Attaches a managed disk using the Id property of the disk as OS disk to a new virtual machine |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address. |
+| [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Creates a network interface. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | Create a virtual machine. |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
 
-For marketplace images use [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) to set the plan information.
+For marketplace images use [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) to set the plan information.
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame
@@ -64,6 +64,6 @@ Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Windows VM documentation](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

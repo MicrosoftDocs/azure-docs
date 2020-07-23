@@ -56,14 +56,14 @@ Cloud Shell offers an integrated graphical text editor based on the open-source 
 
 ### Integrated with docs.microsoft.com
 
-You can use Cloud Shell directly from documentation hosted on [docs.microsoft.com](https://docs.microsoft.com). It is integrated in [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) and [Azure CLI documentation](https://docs.microsoft.com/cli/azure) - click on the "Try It" button in a code snippet to open the immersive shell experience. 
+You can use Cloud Shell directly from documentation hosted on [docs.microsoft.com](https://docs.microsoft.com). It is integrated in [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) and [Azure CLI documentation](https://docs.microsoft.com/cli/azure) - click on the "Try It" button in a code snippet to open the immersive shell experience. 
 
 ### Multiple access points
 Cloud Shell is a flexible tool that can be used from:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Azure CLI documentation](https://docs.microsoft.com/cli/azure)
-* [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell documentation](https://docs.microsoft.com/powershell/azure/)
 * [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Visual Studio Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 

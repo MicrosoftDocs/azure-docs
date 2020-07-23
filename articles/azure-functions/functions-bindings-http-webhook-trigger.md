@@ -670,7 +670,7 @@ You can also read this information from binding data. This capability is only av
 
 # [C#](#tab/csharp)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
 ```csharp
 using System.Net;
@@ -702,7 +702,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # [C# Script](#tab/csharp-script)
 
-Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
+Information regarding authenticated clients is available as a [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
 ```csharp
 using System.Net;

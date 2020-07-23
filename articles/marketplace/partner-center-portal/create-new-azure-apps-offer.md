@@ -3,8 +3,10 @@ title: Create an Azure application offer - Microsoft commercial marketplace
 description: Learn the steps and considerations for creating a new Azure application offer in the commercial marketplace portal in Partner Center. You can list or sell your Azure application offer in Azure Marketplace or through the Cloud Solution Provider (CSP) program. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
+ms.topic: article
+author: qianw211
+ms.author: dsindona 
+ms.date: 07/14/2020
 ---
 
 # Create an Azure application offer
@@ -60,7 +62,7 @@ The video [Building Solution Templates, and Managed Applications for the Azure M
 
 Choose one or both of the following scripting environments to help manage your Azure application:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 We recommend adding the following tools to your development environment:
@@ -303,7 +305,7 @@ The technical configuration defines the details (tenant ID, and app ID) used to 
 
 ## Plan overview
 
-This tab enables you to provide different plan options within the same offer. These plans (referred to as SKUs in the Cloud Partner Portal) can differ in terms of plan type (solution template vs. managed application), monetization, or audience.  Configure at least one plan in order to list your offer in the marketplace.
+This tab enables you to provide different plan options within the same offer. These plans (formerly called SKUs) can differ in terms of plan type (solution template vs. managed application), monetization, or audience. Configure at least one plan in order to list your offer in the marketplace.
 
 Once created, you will see your plan names, IDs, plan type, availability (Public or Private), current publishing status, and any available actions on this tab.
 
@@ -505,7 +507,7 @@ Indicate who should have management access to this managed application in each s
 
 **Authorizations** – Add the Azure Active Directory object ID of the user, group, or application that you want to be granted permission to the managed resource group. Identify the user by their Principal ID, which can be found at the [Azure Active Directory users blade on the Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](../../role-based-access-control/overview.md).
+For each principal, select one of the Azure AD built-in roles from the list (Owner or Contributor). The role you select will describe the permissions the principal will have on the resources in the customer subscription. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md). For more information about role-based access control (RBAC), see [Get started with RBAC in the Azure portal](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Although you may add up to 100 authorizations per cloud, it's generally easier to create an Active Directory user group and specify its ID in the "Principal ID." This will allow you to add more users to the management group after the plan is deployed and reduce the need to update the plan just to add more authorizations.

@@ -2,7 +2,7 @@
 title: General questions about the Azure Site Recovery service
 description: This article discusses popular general questions about Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/24/2020
+ms.date: 7/14/2020
 ms.author: raynew
 
 ---
@@ -111,6 +111,19 @@ Mobility agents installed on the replicated items communicate to Process Server 
 ### How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
 All communication between the microservices of Azure Site Recovery happens on TLS 1.2 protocol. Site Recovery uses security providers configured in the system (OS) and uses the latest available TLS protocol. One will need to explicitly enable the TLS 1.2 in the Registry and then Site Recovery will start using TLS 1.2 for communication with services. 
 
+### How can I enforce restricted access on my storage accounts, which are accessed by Site Recovery service for reading/writing replication data?
+You can switch on the managed identity of the recovery services vault by going to the *Identity* setting. Once the vault gets registered with Azure Active Directory, you can go to your storage accounts and give the following role-assignments to the vault:
+
+- Resource Manager based storage accounts (Standard Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- Resource Manager based storage accounts (Premium Type):
+  - [Contributor](../role-based-access-control/built-in-roles.md#contributor)
+  - [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- Classic storage accounts:
+  - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
+  - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
 ## Disaster recovery
 
 ### What can Site Recovery protect?
@@ -137,7 +150,7 @@ Yes, Site Recovery supports disaster recovery of on-premises VMware VMs. [Review
 ### Is disaster recovery supported for Hyper-V VMs?
 Yes, Site Recovery supports disaster recovery of on-premises Hyper-V VMs. [Review common questions](hyper-v-azure-common-questions.md) for disaster recovery of Hyper-V VMs.
 
-## Is disaster recovery supported for physical servers?
+### Is disaster recovery supported for physical servers?
 Yes, Site Recovery supports disaster recovery of on-premises physical servers running Windows and Linux to Azure or to a secondary site. Learn about requirements for disaster recovery to [Azure](vmware-physical-azure-support-matrix.md#replicated-machines), and to[a secondary site](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 Note that physical servers will run as VMs in Azure after failover. Failback from Azure to an on-premises physical server isn't currently supported. You can only fail back to a VMware virtual machine.
 

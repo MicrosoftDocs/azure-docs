@@ -100,7 +100,7 @@ Select `New` > `All Parameters` > Select a name and location for the parameter f
 
 This action creates a new parameter file and maps it with the template from which it was created. You can see and modify the current template/parameter file mapping in the Visual Studio Code status bar while the template is selected.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Image showing the template/parameter file mapping in the Visual Studio Code status bar.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Now that the parameter file has been mapped to the template, the extension validates both the template and parameter file together. To see this validation in practice, add a two-character value to the `storageAccountName` parameter in the parameter file and save the file.
 
