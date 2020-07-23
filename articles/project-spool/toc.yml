@@ -21,9 +21,9 @@
   items: 
   - name: Chat
     items:
-      - name: Get Started With Chat
+      - name: Get Started with Chat APIs (JavaScript)
         href: quickstarts/chat/get-started-with-chat.md
-      - name: Get Started With The 1:N Group Chat Sample
+      - name: Build a Chat browser sample
         href: quickstarts/chat/group-chat-sample.md
   - name: Networking
     items:
@@ -49,8 +49,7 @@
       href: quickstarts/voice-and-video-calling/get-started-with-voice-and-video.md
     - name: Place a Voice Call
       href: quickstarts/voice-and-video-calling/place-a-voice-call.md
-    - name: Calling Client Samples
-      href: quickstarts/voice-and-video-calling/calling-client-samples.md
+
   - name: Get Started
     href: quickstarts/get-started.md
   - name: Create a Communication Services Resource
@@ -74,8 +73,8 @@
       href: tutorials/telephony-and-sms/add-sms-to-your-web-app.md
   - name: Voice and Video Calling
     items:
-    - name: Add Video To Your UWP App
-      href: tutorials/voice-and-video-calling/add-video-to-your-uwp-app.md
+    - name: Using the Calling Client API
+      href: quickstarts/voice-and-video-calling/calling-client-samples.md
 - name: Concepts
   expanded: true
   items:
@@ -145,9 +144,7 @@
     href: concepts/identity-model.md
 - name: Samples
   items:
-  - name: Samples Overview
-    href: samples/samples-overview.md 
-  - name: Calling Hero Sample
+  - name: Build and deploy a video calling browser app
     href: samples/calling-hero-sample.md
 - name: References
   items:
