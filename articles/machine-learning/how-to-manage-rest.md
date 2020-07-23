@@ -43,7 +43,7 @@ Administrative REST requests are authenticated with an OAuth2 implicit flow. Thi
 - Your client ID (which will be associated with the created token)
 - Your client secret (which you should safeguard)
 
-You should have these values from the response to the creation of your service principal as discussed in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
+You should have these values from the response to the creation of your service principal. Getting these values is discussed in [Set up authentication for Azure Machine Learning resources and workflows](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). If you're using your company subscription, you might not have permission to create a service principal. In that case, you should use either a [free or paid personal subscription](https://aka.ms/AMLFree).
 
 To retrieve a token:
 
@@ -195,15 +195,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Notice that to list experiments the path begins with `history/v1.0` while to list models, the path begins with `modelmanagement/v1.0`. The REST API is divided into several operational groups, each with a distinct path. The API Reference docs at the links below list the operations, parameters, and response codes for the various operations.
+Notice that to list experiments the path begins with `history/v1.0` while to list models, the path begins with `modelmanagement/v1.0`. The REST API is divided into several operational groups, each with a distinct path. 
 
-|Area|Path|Reference|
-|-|-|-|
-|Artifacts|artifact/v2.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Data stores|datastore/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Hyperparameter tuning|hyperdrive/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Models|modelmanagement/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Run history|execution/v1.0/ and history/v1.0/|[REST API Reference](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Area|Path|
+|-|-|
+|Artifacts|artifact/v2.0/|
+|Data stores|datastore/v1.0/|
+|Hyperparameter tuning|hyperdrive/v1.0/|
+|Models|modelmanagement/v1.0/|
+|Run history|execution/v1.0/ and history/v1.0/|
 
 You can explore the REST API using the general pattern of:
 
