@@ -14,8 +14,7 @@ ms.date: 7/20/2020
 
 # Migration guide: SQL Server to SQL Server on Azure VMs
 
-This migration guide teaches you to migrate your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) using the [Database Migration Assistant (DMA)](/sql/dma/dma-overview). 
-
+This migration guide teaches you to migrate your user databases from SQL Server to an instance of SQL Server on Azure Virtual Machines (VMs) by using the [Database Migration Assistant (DMA)](/sql/dma/dma-overview). 
 
 You can migrate SQL Server running on-premises or on:
 
@@ -24,7 +23,7 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (GCP)
 - AWS RDS
 
-For information about additional migration strategies, see the [Migration overview](to-sql-server-on-azure-vm-overview.md).
+For information about additional migration strategies, see the [SQL Server VM migration overview](to-sql-server-on-azure-vm-overview.md).
 
 
 ## Prerequisites
@@ -36,7 +35,7 @@ Migrating to SQL Server on Azure VMs requires the following:
 - A [SQL Server on Azure VM](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)
 - [Connectivity between Azure and on-premises](../../../architecture/reference-architectures/hybrid-networking.md)
 
-The Database Migration Assistant supports the following target and source SQL Server versions: 
+The Database Migration Assistant supports the following target and source SQL Server versions - the target must be the same or a greater version than the source: 
 
 |Supported sources   |Supported targets |
 |---------|---------|
@@ -44,10 +43,10 @@ The Database Migration Assistant supports the following target and source SQL Se
 
 ## Discover
 
-Use Azure Migrate to [identify existing data sources and details about the features](../../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use to plan for the migration. This process involves scanning the network to identify all your organizations SQL Server instances together with the version and features in use, and assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises.
+Azure Migrate assesses migration suitability of on-premises computers, performs performance-based sizing, and provides cost estimations for running on-premises. Use Azure Migrate to [identify existing data sources and details about the features](../../../../migrate/concepts-assessment-calculation.md) your SQL Server instances use to plan for the migration. This process involves scanning the network to identify all of your SQL Server instances in your organization with the version and features in use. 
 
 > [!IMPORTANT]
-> When choosing a target Azure Virtual machine for your SQL Server instance, be sure to consider the [Performance guidelines for SQL Server on Azure VMs](windows/performance-guidelines-best-practices.md).
+> When choosing a target Azure virtual machine for your SQL Server instance, be sure to consider the [Performance guidelines for SQL Server on Azure VMs](windows/performance-guidelines-best-practices.md).
 
 For additional discovery tools, see [Services and tools](../../../../dms/dms-tools-matrix.md#business-justification-phase) available for data migration scenarios.
 
@@ -79,9 +78,9 @@ Typically, an application layer accesses user databases to persist and modify da
 
 - Using captured [extended events](/sql/relational-databases/extended-events/extended-events) or [SQL Server Profiler traces ](/sql/tools/sql-server-profiler/create-a-trace-sql-server-profiler) of your user databases. You can also use the [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-capture-trace) to create a trace log which can also be used for A/B testing.
 
-- (Preview) The [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) (DAMT) provides discovery and assessment of SQL queries within the code and is used to migrate application source code from one database platform to another. This tool supports a variety of popular file types including C# and Java, XML and Plaint Text. For a guide on how to perform a DAMT assessment see the [Use DMAT](https://techcommunity.microsoft.com/t5/microsoft-data-migration/using-data-migration-assistant-to-assess-an-application-s-data/ba-p/990430) blog.
+- Using the [Data Access Migration Toolkit (preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) (DAMT), which provides discovery and assessment of SQL queries within the code and is used to migrate application source code from one database platform to another. This tool supports a variety of popular file types including C# and Java, XML and Plaint Text. For a guide on how to perform a DAMT assessment see the [Use DMAT](https://techcommunity.microsoft.com/t5/microsoft-data-migration/using-data-migration-assistant-to-assess-an-application-s-data/ba-p/990430) blog.
 
-Use DMA to [import](/sql/dma/dma-assesssqlonprem#add-databases-and-extended-events-trace-to-assess) captured trace files or DAMT export files during the assessment of user databases. 
+Use DMA to [import](/sql/dma/dma-assesssqlonprem#add-databases-and-extended-events-trace-to-assess) captured trace files or DAMT files during the assessment of user databases. 
 
 
 ### Scale assessments
@@ -92,19 +91,21 @@ For summary reporting across large estates, Data Migration Assistant (DMA) asses
 
 ### Refactor databases with DMA
 
-Based on the DMA assessment results, you may have a series of recommendations to complete to ensure your user database(s) perform and function correctly after migration. DMA provides details on the impacted objects as well as resources for how to resolve each issue. It is recommended that all breaking changes, behavior changes are resolved before production migration.
+Based on the DMA assessment results, you may have a series of recommendations to ensure your user database(s) perform and function correctly after migration. DMA provides details on the impacted objects as well as resources for how to resolve each issue. It is recommended that all breaking changes, and behavior changes are resolved before production migration.
 
 For deprecated features, you can choose to run your user database in its original [compatibility](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) mode if you wish to avoid making these changes and speed up migration. However, this will prevent [upgrading your database compatibility](/sql/database-engine/install-windows/compatibility-certification#compatibility-levels-and-database-engine-upgrades) until the deprecated items have been resolved.
 
-It is recommended that all DMA fixes are scripted and applied to the target SQL Database during [Post-Migration](#Post-migration).
+It is recommended that all DMA fixes are scripted and applied to the target SQL Server database during [post-migration](#Post-migration).
 
 > [!CAUTION]
-> Not all SQL Server versions support all compatibility modes. Check that your [target SQL Server version](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15) supports your chosen database compatibility. As an example, SQL Server 2019 does not support databases with level 90 compatibility (which is SQL Server 2005). These databases would require, at least, an upgrade to compatibility level 100.
+> Not all SQL Server versions support all compatibility modes. Check that your [target SQL Server version](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15) supports your chosen database compatibility. For example, SQL Server 2019 does not support databases with level 90 compatibility (which is SQL Server 2005). These databases would require, at least, an upgrade to compatibility level 100.
 >
 
 ### Convert
 
-Typically, after assessing the source database instance(s) you are migrating for heterogenous migrations, you need to convert the schema to work in the target environment. Since migrating from SQL Server to an instance of SQL Server on an Azure VM is a homogeneous migration, the convert phase is unnecessary and you can skip it.
+!!!! Can we remove this section entirely since we're skipping it? or is this something relevant to the UI of DMA that the customer should know to skip? !!!!
+
+Typically for heterogenous migrations, after assessing the source database instance(s), you need to convert the schema to work in the target environment. Since migrating from SQL Server to an instance of SQL Server on an Azure VM is a homogeneous migration, the convert phase is unnecessary and you can skip it.
 
 ## Migrate
 
@@ -118,12 +119,12 @@ It is recommended that you first review and test an offline migration to determi
 
 The following is a list of key points to consider when reviewing migration methods:
 
-- For optimum data transfer performance, migrate databases and files onto an instance of SQL Server on Azure VM using a compressed backup filej. 
+- For optimum data transfer performance, migrate databases and files onto an instance of SQL Server on Azure VM using a compressed backup file. 
 - To minimize downtime during database migration, use the Always On availability group option. 
 - To minimize downtime without the overhead of configuring an availability group, use the log shipping option. 
-- For limited to no network options, use offline migration methods such as backup and restore, [disk transfer services](../../../../storage/common/storage-solution-large-dataset-low-network.md) available in Azure.
+- For limited to no network options, use offline migration methods such as backup and restore,  or [disk transfer services](../../../../storage/common/storage-solution-large-dataset-low-network.md) available in Azure.
 
-i don't think this is accurate: 
+!!!!! i don't think this is accurate:  !!!!!!
 - There is no supported method to upgrade SQL Server Instances on an Azure VM. Instead, create and new Instance of SQL Server on a new Azure VM and use one of the methods above to migrate your User Database(s).
 
 ### Migrate schema and data
@@ -138,70 +139,50 @@ See [steps associated with using DMA to perform a database migration](/sql/dma/d
 There may be additional components that are required for the seamless operation of your user databases post migration. 
 
 The following table provides a list components and recommended migration methods: 
-22
-| **Feature** | **Component** | **Migration Method(s)** |
-| --- | --- | --- |
-| Databases | Model database | Script with SQL Server Management Studio |
-|| TempDB database | Plan to move TempDB onto [Azure VM temporary disk (SSD](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your TempDB. |
-|| User databases with Filestream | Do not use DMA for Database Migration, use the [Backup and restore](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server#back-up-and-restore) methods for migration. |
-| Security | SQL Server and Windows logins | Use DMA to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
-|| SQL Server Roles | Script with SQL Server Management Studio |
-|| Cryptographic providers | Recommend [converting to use Azure Key Vault Service](windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](windows/sql-vm-resource-provider-register.md). |
-| Server Objects | Backup Devices | Replace with database backup using [Azure Backup Service](../../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 + ). This procedure uses the [SQL VM resource provider](windows/sql-vm-resource-provider-register.md).|
-|| Linked Servers | Script with SQL Server Management Studio |
-|| Server Triggers | Script with SQL Server Management Studio |
-| Replication | Local Publications | Script with SQL Server Management Studio |
-|| Local Subscribers | Script with SQL Server Management Studio |
-| Polybase | Polybase | Script with SQL Server Management Studio |
-| Management | Database Mail | Script with SQL Server Management Studio |
-| SQL Server Agent | Jobs | Script with SQL Server Management Studio |
-|| Alerts | Script with SQL Server Management Studio |
-|| Operators | Script with SQL Server Management Studio |
-|| Proxies | Script with SQL Server Management Studio |
-| Operating system | Files, file shares | Make a note of any additional files or file shares that are used by your SQL Servers and replicate on the Azure VM target. |
+
 
 | **Feature** | **Component** | **Migration Method(s)** |
 | --- | --- | --- |
-| Databases | Model Database | Script with SQL Server Management Studio |
-|| TempDB database | Plan to move TempDB onto [Azure VM temporary disk (SSD](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your TempDB. |
-|| User databases with Filestream |  Do not use DMA for Database Migration, use the [Backup and restore](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server#back-up-and-restore) methods for migration. |
+| Databases | Model  | Script with SQL Server Management Studio |
+|| TempDB | Plan to move TempDB onto [Azure VM temporary disk (SSD](windows/performance-guidelines-best-practices.md#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your TempDB. |
+|| User databases with Filestream |  Use the [Backup and restore](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server#back-up-and-restore) methods for migration. DMA does not support databases with Filestream. |
 | Security | SQL Server and Windows Logins | Use DMA to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
-|| SQL Server Roles | Script with SQL Server Management Studio |
+|| SQL Server roles | Script with SQL Server Management Studio |
 || Cryptographic providers | Recommend [converting to use Azure Key Vault Service](windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](windows/sql-vm-resource-provider-register.md). |
-| Server Objects | Backup Devices | Replace with database backup using [Azure Backup Service](../../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 + ). This procedure uses the [SQL VM resource provider](windows/sql-vm-resource-provider-register.md).|
-|| Linked Servers | Script with SQL Server Management Studio |
-|| Server Triggers | Script with SQL Server Management Studio |
-| Replication | Local Publications | Script with SQL Server Management Studio |
-|| Local Subscribers | Script with SQL Server Management Studio |
-| Polybase | Polybase | Script with SQL Server Management Studio |
-| Management | Database Mail | Script with SQL Server Management Studio |
-| SQL Server Agent | Jobs | Script with SQL Server Management Studio |
-|| Alerts | Script with SQL Server Management Studio |
-|| Operators | Script with SQL Server Management Studio |
-|| Proxies | Script with SQL Server Management Studio |
+| Server objects | Backup devices | Replace with database backup using [Azure Backup Service](../../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 + ). This procedure uses the [SQL VM resource provider](windows/sql-vm-resource-provider-register.md).|
+|| Linked Servers | Script with SQL Server Management Studio. |
+|| Server Triggers | Script with SQL Server Management Studio. |
+| Replication | Local Publications | Script with SQL Server Management Studio. |
+|| Local Subscribers | Script with SQL Server Management Studio. |
+| Polybase | Polybase | Script with SQL Server Management Studio. |
+| Management | Database Mail | Script with SQL Server Management Studio. |
+| SQL Server Agent | Jobs | Script with SQL Server Management Studio. |
+|| Alerts | Script with SQL Server Management Studio. |
+|| Operators | Script with SQL Server Management Studio. |
+|| Proxies | Script with SQL Server Management Studio. |
 | Operating System | Files, file shares | Make a note of any additional files or file shares that are used by your SQL Servers and replicate on the Azure VM target. |
 
 
 
 ### Data sync and cutover
 
+!!!! Can we remove this section entirely since we're skipping it? or is this something relevant to the UI of DMA that the customer should know to skip? !!!!
+
+
 Data Migration Assistant (DMA) is an offline migration, so has limited support for minimal-downtime migrations. Therefore Data Sync and cut-over are not applicable here.
 
 > [!NOTE]
-> For minimal downtime migrations, please refer to the migration methods log shipping and distributed availability group options outlined in [SQL VM migration overview](to-sql-server-on-azure-vm-overview.md).
+> For minimal downtime migrations, please refer to the log shipping and distributed availability group migration options outlined in [SQL VM migration overview](to-sql-server-on-azure-vm-overview.md).
 >
 
-## Post-migration
 
-After you have successfully completed the migration stage, go through a series of post-migration tasks to ensure that everything is functioning as smoothly and efficiently as possible.
-
-### Remediate applications
+## Remediate applications
 
 After the data is migrated to the target environment, all the applications that formerly consumed the source need to start consuming the target. Accomplishing this may in some cases require changes to the applications.
 
 Apply any Database Migration Assistant recommended fixes to user database(s). It is recommended these are scripted to ensure consistency and to allow for automation.
 
-### Perform tests
+## Perform tests
 
 The test approach for database migration consists of performing the following activities:
 
@@ -214,7 +195,7 @@ The test approach for database migration consists of performing the following ac
 > Use the [Database Experimentation Assistant (DEA)](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview?view=sql-server-ver15) to assist with evaluating the target SQL Server performance.
 >
 
-### Optimize
+## Optimize
 
 The post migration phase is crucial for reconciling any issues with data accuracy and completeness, as well as addressing potential performance issues with the workload.
 
