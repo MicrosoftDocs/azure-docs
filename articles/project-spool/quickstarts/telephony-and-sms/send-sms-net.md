@@ -40,7 +40,7 @@ This quick start is simple enough that we will leverage the .NET console applica
 1. Start Visual Studio.
 2. Create a new .NET console project
 
-![Screenshot of Visual Studio console app template](../media/VisualStudio-console-app-template.PNG)
+![Screenshot of Visual Studio console app template](../media/VisualStudio-console-app-template.png)
 
 The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a built assembly. Visual Studio's nuget package manager makes it easy to find and download packages:
 
@@ -49,7 +49,7 @@ The ACS SMS .NET SDK is available in GitHub as source code, and on nuget as a bu
 3. Find the ACS SMS SDK in nuget package manager by searching for Azure.Communication.Sms
 4. Accept the license and load dependencies. Visual Studio and nuget will automatically load dependencies for `Azure.Communication.Sms` such as  `Azure.Core`.
 
-![Screenshot of Visual Studio nuget package manager](../media/nuget.PNG)
+![Screenshot of Visual Studio nuget package manager](../media/nuget.png)
 
 > **NOTE:**
 > During the private preview, `.nupkg` files are not available in public nuget, but must be downloaded internally from [Azure Dev Ops](https://dev.azure.com/azure-sdk/internal/_packaging?_a=feed&feed=azure-sdk-for-net-pr%40Local) or [GitHub](https://github.com/Azure/communication-preview/releases). Once locally downloaded to [your local nuget package source location](https://stackoverflow.com/questions/10240029/how-do-i-install-a-nuget-package-nupkg-file-locally) you can follow these same steps to include in your project.
@@ -128,19 +128,19 @@ Step by step:
 1. Navigate to `Events` tab on the Azure Communication Resource Page on Portal
 2. Click on `+ Event Subscription`
 
-![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_1.PNG)
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_1.png)
 
 3. Add a subscription name and select Sms Events `SMS Received` and `SMS Delivery Report Received`
 
-![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_2.PNG)
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_2.png)
 
 4. Select Endpoint Type. We will use Webhook for this sample
 
-![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_3.PNG)
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_3.png)
 
 5. Add Webhook url and Create subscription
 
-![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_4.PNG)
+![Screenshot of Adding a new Event Grid Subscription](../media/sms_event_subscription_4.png)
 
 
 
