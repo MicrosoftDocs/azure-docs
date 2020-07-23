@@ -22,7 +22,7 @@ If you don’t already have Visual Studio 2019 installed, you can download and u
 
 This quick start also requires:
 - **Deployed Azure Communication Service resource.** Check out the quick start for making an ACS resource in the Azure portal. [create an Azure Communication Resource](./create-a-communication-resource).
-- **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. **NOTE:** For private preview, please contact Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
+- **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. **NOTE:** For private preview, please contact Pranita Kulkarni (Pranita.Kulkarni@microsoft.com) or Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
 - **Download SMS SDK.** Download `Azure.Communication.Sms` C# SDK to send an SMS. **NOTE** For private preview, sdk must be downloaded internally from [Azure Dev Ops](https://dev.azure.com/azure-sdk/internal/_packaging?_a=feed&feed=azure-sdk-for-net-pr%40Local) or [GitHub](https://github.com/Azure/communication-preview/releases).
 
 ## Obtain a connection string
@@ -58,6 +58,7 @@ Now that we have the SDK included in our project we can send an SMS message with
 
 ```csharp
 using Azure.Communication.Sms; // Add NuGet package Azure.Communication.Sms
+using Azure.Communication.Sms.Models;
 
 namespace SmsSender
 {
@@ -65,10 +66,10 @@ namespace SmsSender
     {
         static void Main(string[] args)
         {
-            var connectionString = "<connectionString>"; // Connection string can be acqiured through the Azure portal
-            var sms = new SmsClient(connectionString);
-            sms.Send(
-                from: "+15551111111", // Phone number allocated to your Azure Communication Service resource
+            var connectionString = "<connectionString>"; // Connection string can be acquired through the Azure portal
+            var smsClient = new SmsClient(connectionString);
+            smsClient.Send(
+                from: "+15551111111", // Phone number acquired by your account
                 to: "+15552222222",
                 message: "Hello World 👋🏻 via Sms");
         }
@@ -78,21 +79,21 @@ namespace SmsSender
 
 Step by step:
 
-1. Include the ACS namespaces with `using Azure.Communication.Sms;`
+1. Include the ACS namespaces with `using Azure.Communication.Sms;` and `using Azure.Communication.Sms.Models;`
 2. Initialize the `SmsClient` using the connection string retrieved in the Azure Portal. It is important to protect connection strings, they should only be used by trusted services and devices.
 3. Use the `SmsClient.Send()` API to send an SMS message using a number allocated to the Azure Communication Service resource, in this case `+15551111111`, to a destination phone number `+15552222222`. To programmatically list allocated phoned numbers and acquire new ones, check out the allocate phone number quick start.
 
 
 ## Send a SMS message and enable Delivery Reports
 
-Lets modify above code to enable Delivery Report for the sent message.
+Lets modify above code to enable Delivery Report for the message sent.
 
 ### Prerequisites
 -- Setup EventGrid subscription to receive Sms Delivery Report Event, `Microsoft.CommunicationServices.SMSDeliveryReport` **Refer:** [EventGrid concept for more information.](../concepts/acs-event-grid.md)
 
 ```csharp
 using Azure.Communication.Sms; // Add NuGet package Azure.Communication.Sms
-using Azure.Communication.Sms.Models; // Add NuGet package Azure.Communication.Sms.Models to add SendSmsOptions
+using Azure.Communication.Sms.Models;
 
 namespace SmsSender
 {
@@ -100,14 +101,14 @@ namespace SmsSender
     {
         static void Main(string[] args)
         {
-            var connectionString = "<connectionString>"; // Connection string can be acqiured through the Azure portal
-            var sms = new SmsClient(connectionString);
-            var response = sms.Send(
-                                from: "+15551111111", // Phone number allocated to your Azure Communication Service resource
+            var connectionString = "<connectionString>"; // Connection string can be acquired through the Azure portal
+            var smsClient = new SmsClient(connectionString);
+            var response = smsClient.Send(
+                                from: "+15551111111", // Phone number acquired by your account
                                 to: "+15552222222",
                                 message: "Hello World 👋🏻 via Sms",
                                 sendSmsOptions: new SendSmsOptions { EnableDeliveryReport = true }); // Use SendSmsOptions to enable delivery report for the message sent.
-            // Use response.Value.MessageId to corelate Delivery Report sent to EventGrid
+            // Use response.Value.MessageId to correlate Delivery Report sent to EventGrid
         }
     }
 }
@@ -116,6 +117,6 @@ namespace SmsSender
 Step by step:
 
 1. Refer to previous example Steps 1-3.
-2. On success, `SmsClient.Send()` returns SendSmsResponse that returns a MessageId which can be used to correlate the DeliveryReport sent to the EventGrid.
+2. On success, `SmsClient.Send()` returns SendSmsResponse that returns a MessageId which can be used to corelate DeliveryReport sent to EventGrid
 
 
