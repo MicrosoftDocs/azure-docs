@@ -42,15 +42,14 @@ Using diagnostic settings is the easiest way to route the metrics, but there are
 > **Host OS metrics ARE available and listed below.** They are not the same. The Host OS metrics relate to the Hyper-V session hosting your guest OS session. 
 
 > [!TIP]
-> Best practice is to use the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest OS performance metrics into the same Azure Monitor metric database where platform metrics are stored. The extension routes guest OS metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest OS metrics like platform metrics. 
-> Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. There you can query on them in combination with non-metric data. 
+> Best practice is to use and configure the [Azure Diagnostics extension](diagnostics-extension-overview.md) to send guest OS performance metrics into the same Azure Monitor metric database where platform metrics are stored. The extension routes guest OS metrics through the [custom metrics](metrics-custom-overview.md) API. Then you can chart, alert and otherwise use guest OS metrics like platform metrics. Alternatively or in addition, you can use the Log Analytics agent to send guest OS metrics to Azure Monitor Logs / Log Analytics. There you can query on those metrics in combination with non-metric data. 
 
 For important additional information, see [Monitoring Agents Overview](agents-overview.md).    
 
 ## Table formatting
 
 > [!IMPORTANT] 
-> This latest update adds a new and reordered metrics to be alphabetic. The addition information means that the table below may have a horizontal scroll bars at the bottom, depending on the width of your browser window. If you believe you are missing information, use the scroll bar to see the entirety of the table.
+> This latest update adds a new column and reordered the metrics to be alphabetic. The addition information means that the tables below may have a horizontal scroll bar at the bottom, depending on the width of your browser window. If you believe you are missing information, use the scroll bar to see the entirety of the table.
 
 
 ## Microsoft.AnalysisServices/servers
