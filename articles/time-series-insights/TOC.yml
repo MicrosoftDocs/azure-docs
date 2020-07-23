@@ -109,7 +109,7 @@
         href: how-to-connect-power-bi.md
     - name: Migrations
       items:
-      - name: How to migrate onto new API versions
+      - name: How to migrate to new API versions
         href: how-to-api-migration.md
   - name: Azure Time Series Insights Gen1
     items:
