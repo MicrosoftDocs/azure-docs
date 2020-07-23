@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
 
->[NOTE] 
+>[!NOTE] 
 > This article contains version reference information about all archived versions of Azure AD - 1.3.20.0 and older.  For current releases, see the [Azure AD Connect Version release history](reference-connect-version-history.md)
 
 ## 1.3.20.0 
