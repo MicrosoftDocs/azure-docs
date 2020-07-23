@@ -132,7 +132,7 @@ Retention data is defined by the **-RetentionInDays** option in the command.
 
     $cdn = Get-AzCdnEndpoint -ResourceGroupName $rsg -ProfileName $cdnprofile -EndpointName $cdnendpoint
 
-    $eventhub = Get-AzEventHub -ResourceGroupName $rsg -Name $eventhubname
+    $eventhub = Get-AzEventHubNamespace -ResourceGroupName $rsg -Name $eventhubname
 
     Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhub.id -Enabled $true -Category AzureCdnAccessLog -RetentionEnabled 1 -RetentionInDays $days
     ```
