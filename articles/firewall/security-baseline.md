@@ -1,10 +1,10 @@
 ---
-title: Azure Firewall security baseline for Azure Security Benchmark
+title: Azure security baseline for Azure Firewall
 description: The Azure Firewall security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Azure Firewall security baseline for Azure Security Benchmark
+# Azure security baseline for Azure Firewall
 
 This security baseline applies guidance from the [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview) to Azure Firewall. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure. The content is grouped the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Azure Firewall. **Controls** not applicable to Azure Firewall have been excluded. To see how Azure Firewall completely maps to the Azure Security Benchmark, see the [full Azure Firewall security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -445,42 +445,6 @@ Follow Azure Security Center recommendations for encryption at rest and encrypti
 * [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
 **Azure Security Center monitoring**: Currently not available
-
-**Responsibility**: Customer
-
-## Vulnerability management
-
-*For more information, see [Security control: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
-
-### 5.1: Run automated vulnerability scanning tools
-
-**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 5.2: Deploy automated operating system patch management solution
-
-**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 5.4: Compare back-to-back vulnerability scans
-
-**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
-
-**Azure Security Center monitoring**: Not applicable
-
-**Responsibility**: Customer
-
-### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
-
-**Guidance**: Not applicable. All underlying Microsoft infrastructure which hosts Azure Services (VMs, etc.) handles vulnerability scanning. The customer has no ability to configure this on the underlying infrastructure.
-
-**Azure Security Center monitoring**: Not applicable
 
 **Responsibility**: Customer
 
