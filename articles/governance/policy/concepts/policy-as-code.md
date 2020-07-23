@@ -38,7 +38,8 @@ examples:
 The file names align to portions of either the policy or initiative definition:
 - `policy(set).json` - The entire definition
 - `policy(set).parameters.json` - The `properties.parameters` portion of the definition
-- `policy(set).rules.json` - The `properties.policyRule` portion of the definition
+- `policy.rules.json` - The `properties.policyRule` portion of the definition
+- `policyset.definitions.json` - The `properties.policyDefinitions` portion of the definition
 
 Examples of these file formats are available in the
 [Azure Policy GitHub Repo](https://github.com/Azure/azure-policy/):
