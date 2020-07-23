@@ -1032,6 +1032,8 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
+      - name: Michigan Data Hub Single Sign-On
+        href: michigan-data-hub-single-sign-on-tutorial.md
       - name: Mimecast Admin Console
         href: mimecast-admin-console-tutorial.md
       - name: Mimecast Personal Portal
