@@ -634,38 +634,39 @@ Install IIS with a custom web page on both back-end VMs as follows:
 
 1. Get the public IP addresses of the three VMs using [Get-AzPublicIPAddress](/powershell/module/az.compute/get-azpublicipaddress).
 
-```azurepowershell-interactive
-## Variables for commands. ##
-$rg = 'myResourceGroupLB'
-$ip1 = 'myVMPubIP1'
-$ip2 = 'myVMPubIP2'
-$ip3 = 'myVMPubIP3'
+   ```azurepowershell-interactive
+   ## Variables for commands. ##
+   $rg = 'myResourceGroupLB'
+   $ip1 = 'myVMPubIP1'
+   $ip2 = 'myVMPubIP2'
+   $ip3 = 'myVMPubIP3'
 
-## VM1 ##
-(Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip1).IpAddress
+   ## VM1 ##
+   (Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip1).IpAddress
 
-## VM2 ##
-(Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip2).IpAddress
+   ## VM2 ##
+   (Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip2).IpAddress
 
-## VM3 ##
-(Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip3).IpAddress
-```
+   ## VM3 ##
+   (Get-AzPublicIPAddress -ResourceGroupName $rg -Name $ip3).IpAddress
+   ```
+   
 2. Create remote desktop connections with **myVM1**, **myVM2**, and **myVM3** using the public IP addresses of the VMs.
 
 3. Enter the credentials for each VM to start the RDP session.
 
 4. Launch Windows PowerShell on each VM and use the following commands to install IIS server and update the default htm file.
 
-```powershell
-# Install IIS
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
+   ```powershell
+   # Install IIS
+   Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
-# Remove default htm file
-remove-item  C:\inetpub\wwwroot\iisstart.htm
+   # Remove default htm file
+   remove-item  C:\inetpub\wwwroot\iisstart.htm
     
-#Add custom htm file
-Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from host " + $env:computername)
-```
+   #Add custom htm file
+   Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from host " + $env:computername)
+   ```
 
 5. Close the RDP connections with **myVM1**, **myVM2**, and **myVM3**.
 
