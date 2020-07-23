@@ -14,9 +14,9 @@ ms.author: v-grpr
 
 This article describes how to troubleshoot Azure Stack Edge ordering issues.
 
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
-[!div class="checklist"]
+> [!div class="checklist"]
 >
 > * Troubleshoot ordering issues
 
@@ -24,7 +24,7 @@ In this article, you learn how to:
 
 **Error Description:** In Azure portal, if you get the error:
 
-*Selected subscription or region is not supported. Choose a different subscription or region.*.
+*Selected subscription or region is not supported. Choose a different subscription or region.*
 
 ![Unsupported subscription or region](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
