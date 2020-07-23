@@ -125,7 +125,11 @@
       items:
       - name: B-series burstable
         href: ../virtual-machines/sizes-b-series-burstable.md
+<<<<<<< HEAD
       maintainContext: true
+=======
+        maintainContext: true
+>>>>>>> 044852350bd2af1f54fe945ee90e5b19887a7dde
     - name: Compute optimized
       href: ../virtual-machines/sizes-compute.md
       maintainContext: true
@@ -135,7 +139,11 @@
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
+<<<<<<< HEAD
       maintainContext: true
+=======
+        maintainContext: true
+>>>>>>> 044852350bd2af1f54fe945ee90e5b19887a7dde
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
       maintainContext: true
@@ -145,9 +153,19 @@
       items:
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
+<<<<<<< HEAD
       maintainContext: true
+=======
+        maintainContext: true
+>>>>>>> 044852350bd2af1f54fe945ee90e5b19887a7dde
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
+      maintainContext: true
+    - name: Azure VMs with no temp disk
+      href: ../virtual-machines/azure-vms-no-temp-disk.md
+      maintainContext: true
+    - name: Azure VM sizes naming conventions
+      href: ../virtual-machines/vm-naming-conventions.md
       maintainContext: true
     - name: Azure compute units (ACU)
       href: ../virtual-machines/acu.md
@@ -198,6 +216,8 @@
       href: ../virtual-machines/windows/security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Azure security baseline
+      href: security-baseline.md
     - name: Built-in security controls
       href: virtual-machine-scale-sets-security-controls.md
     maintainContext: true
@@ -381,7 +401,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/azure/
   - name: REST
     href: /rest/api/virtualmachinescalesets/
   - name: Azure templates

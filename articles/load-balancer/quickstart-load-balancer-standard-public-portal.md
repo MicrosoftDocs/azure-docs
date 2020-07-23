@@ -135,7 +135,7 @@ In this section, you'll create a load balancer rule:
     | Backend port | Enter **80**. |
     | Backend pool | Select **myBackendPool**.|
     | Health probe | Select **myHealthProbe**. |
-    | Create implicit outbound rules | Select **Yes**. </br> For more information and advanced outbound rule configuration, see: </br> [Outbound connections in Azure](load-balancer-outbound-connections.md) </br> [Configure load balancing and outbound rules in Standard Load Balancer by using the Azure portal](configure-load-balancer-outbound-portal.md)
+    | Create implicit outbound rules | Select **No**.
 
 4. Leave the rest of the defaults and then select **OK**.
 
@@ -438,7 +438,60 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Network security group | Select the existing **myNSG**| Select the existing **myNSG**|
 ---
 
-### Install IIS
+## Create outbound rule configuration
+Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
+
+For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
+
+### Create an outbound public IP address and frontend
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Frontend IP configuration**, then select **Add**.
+
+3. Use these values to configure the frontend IP configuration for outbound:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **LoadBalancerFrontEndOutbound**. |
+    | IP version | Select **IPv4**. |
+    | IP type | Select **IP address** or **IP Prefix**.|
+    | Public IP address | Select **Create new**. </br> In the **Add a public IP address**, enter **myPublicIPOutbound**. </br> If using IP Prefix, in **Add a public IP prefix**, enter **myPublicIPPrefixOutbound**. Choose a **Prefix size** for the public IP prefix </br> Select **OK**.  |
+
+4. Select **Add**.
+
+### Create an outbound backend pool
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Backend pools**, then select **Add**.
+
+3. On the **Add a backend pool** page, for name, type **myBackendPoolOutbound**, as the name for your backend pool, and then select **Add**.
+
+### Create outbound rule
+
+1. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer** from the resources list.
+
+2. Under **Settings**, select **Outbound rules**, then select **Add**.
+
+3. Use these values to configure the outbound rules:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **myOutboundRule**. |
+    | Frontend IP address | Select **LoadBalancerFrontEndOutbound**. |
+    | Idle timeout (minutes) | Move slider to **15 minutes**.|
+    | TCP Reset | Select **Enabled**.|
+    | Backend pool | Select **myBackendPoolOutbound** |
+    | Port allocation -> Port allocation | Select **Manually choose number of outbound ports** |
+    | Outbound ports -> Choose by | Select **Ports per instance** |
+    | Outbound ports -> Ports per instance | Enter **10,000**. |
+
+4. Select **Add**.
+
+
+
+## Install IIS
 
 1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myVM1** that is located in the **myResourceGroupLB** resource group.
 

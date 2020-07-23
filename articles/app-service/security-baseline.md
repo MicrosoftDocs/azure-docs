@@ -1,10 +1,10 @@
 ---
-title: App Service security baseline for Azure Security Benchmark
+title: Azure security baseline for App Service
 description: The App Service security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: app-service
 ms.topic: conceptual
-ms.date: 07/22/2020
+ms.date: 07/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# App Service security baseline for Azure Security Benchmark
+# Azure security baseline for App Service
 
 The Azure Security Baseline for App Service contains recommendations that will help you improve the security posture of your deployment.
 
