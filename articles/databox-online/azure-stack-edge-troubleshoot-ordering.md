@@ -50,7 +50,6 @@ In this article, you learn how to:
 
 **Solution:** You need to have owner or contributor access to register the resource provider, otherwise you will get the following error: *The subscription &lt;subscription name&gt; doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
-
 For more information about registering resource providers, see [Register resource providers](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
 ## Subscription is the correct type and is enabled for the SKUs, but *show devices* is disabled and displays an error
