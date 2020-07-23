@@ -1,15 +1,15 @@
 ---
-title: Create a Power BI app offer in Microsoft commercial marketplace
+title: Create a Power BI app offer in Microsoft AppSource
 description: Learn how to create and publish a Power BI app offer to Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
+ms.date: 07/22/2020
 ---
 
-# Create a Power BI app for Microsoft AppSource
+# Create a Power BI app offer
 
 This article describes how to create and publish a Power BI app offer to Microsoft [AppSource](https://appsource.microsoft.com/).
 

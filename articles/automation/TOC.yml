@@ -180,6 +180,18 @@
               href: automation-dsc-extension-history.md
             - name: Troubleshoot State Configuration issues
               href: troubleshoot/desired-state-configuration.md
+            - name: Scenarios
+              items:
+                - name: Configure data based on STIG
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: Configure data at scale
+                  href: automation-dsc-config-data-at-scale.md
+                - name: Create config from existing servers
+                  href: automation-dsc-config-from-server.md
+                - name: Convert configurations to composite resources
+                  href: automation-dsc-create-composite.md
+                - name: Remediate non-compliant servers
+                  href: automation-dsc-remediate.md 
         - name: Change tracking and inventory
           items:
             - name: Overview
