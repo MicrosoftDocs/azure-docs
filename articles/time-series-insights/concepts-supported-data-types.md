@@ -22,13 +22,13 @@ The following table lists the data types supported by Azure Time Series Insights
 | **double** | A double-precision 64-bit number  | `"value": 31.0482941` | value_double
 | **long** | A signed 64-bit integer  | `"value" : 31` | value_long
 | **string** | Text values, must consist of valid UTF-8. Null and empty strings are treated the same. |  `"site": "DIM_MLGGG"` | site_string
-| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp property(ies) will be stored as dynamic. Read this [article](./concepts-json-flattening-escaping-rules.md) to understand how objects will be flattened and arrays may be unrolled. Payload properties stored as this type are accessible through the Azure Time Series Insights Gen2 Explorer and the GetEvents Query API. |  `"values": "[197, 194, 189, 188]"` | values_dynamic
+| **dynamic** | A complex (non-primitive) type consisting of either an array or property bag (dictionary). Currently only stringified JSON arrays of primitives or arrays of objects not containing the TS ID or timestamp property(ies) will be stored as dynamic. Read this [article](./concepts-json-flattening-escaping-rules.md) to understand how objects will be flattened and arrays may be unrolled. Payload properties stored as this type are accessible through the Azure Time Series Insights Gen2 Explorer and the `GetEvents` Query API. |  `"values": "[197, 194, 189, 188]"` | values_dynamic
 
 ## Sending mixed data types
 
 Your Azure Time Series Insights Gen2 environment is strongly typed. If devices or tags send data of different types for a device property, values will be stored in two separated columns and the [coalesce() function](https://docs.microsoft.com/rest/api/time-series-insights/preview#other-functions) should be used when defining your Time Series Model Variable expressions in API calls.
 
-The Azure Time Series Insights Explorer offers a way to auto-coalesce the separate columns of the same device property. In the example below, the sensor sends a PresentValue property that can be both a Long or Double. To query against all stored values (regardless of data type) of the PresentValue property, choose PresentValue (Double | Long) and the columns will be coalesced for you.
+The Azure Time Series Insights Explorer offers a way to auto-coalesce the separate columns of the same device property. In the example below, the sensor sends a `PresentValue` property that can be both a Long or Double. To query against all stored values (regardless of data type) of the `PresentValue` property, choose `PresentValue (Double | Long)` and the columns will be coalesced for you.
 
 [![Explorer auto coalesce](media\concepts-supported-data-types/explorer-auto-coalesce.png)](media\concepts-supported-data-types/explorer-auto-coalesce.png#lightbox)
 
