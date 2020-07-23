@@ -123,11 +123,7 @@ az ad app create --display-name <name-for-your-app> --native-app --required-reso
 
 Here is an excerpt of the output from this command, showing information about the registration you've created:
 
-<<<<<<< HEAD
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
-=======
-:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new Azure AD app registration":::
->>>>>>> 7-23-feedback
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Cloud Shell output of new Azure AD app registration":::
 
 ### Verify success
 

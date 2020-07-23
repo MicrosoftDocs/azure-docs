@@ -15,7 +15,7 @@ Here are some common potential activities that an Owner may need to perform. The
     :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
   - If consent was granted successfully, the entry for Azure Digital Twins should show a *Status* value of _Granted for **(your company)**_
    
-    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/grant-admin-consent-done.png" alt-text="Portal view of the admin consent granted for the company under API permissions":::
+    :::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/granted-admin-consent-done.png" alt-text="Portal view of the admin consent granted for the company under API permissions":::
   - The Owner may prefer to repeat this process for every app registration that is created, or to do it once and establish a single shared app registration for all Azure Digital Twins instances in the subscription to use. In the second scenario, the Owner should share the *client ID* and *tenant ID* for the app registration with the developers who will need to use the app registration. (This is how it's done within Microsoft's own tenant).
 * Activate public client access
 * Set specific reply URLs for web and desktop access

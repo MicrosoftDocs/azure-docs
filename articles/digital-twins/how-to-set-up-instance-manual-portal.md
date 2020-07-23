@@ -61,7 +61,7 @@ On the following *Create Resource* page, fill in the values given below:
 * _Location_: A region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * _Resource name_: A name for your instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource:::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource":::
 
 Create your instance by selecting _Review + create_ button. Then in the summary page, review your instance details and select _create_ button. 
 
@@ -120,7 +120,7 @@ In the *Register an application* page that follows, fill in the requested values
 
 When you are finished, hit the *Register* button.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="View of the 'Register an application' page with the described values filled in:::
+:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="View of the 'Register an application' page with the described values filled in":::
 
 When the registration is finished setting up, the portal will redirect you to its details page.
 
@@ -134,11 +134,11 @@ From the portal view of your app registration, select *API permissions* from the
 
 In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *azure digital twins*. Select *Azure Digital Twins* from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins:::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins":::
 
 Next, you'll select the permissions to grant for these APIs. Expand the *Read* permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions. When finished, hit *Add permissions*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="View of the 'Request API Permissions' page selecting 'Read.Write' permissions for the Azure Digital Twins APIs:::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="View of the 'Request API Permissions' page selecting 'Read.Write' permissions for the Azure Digital Twins APIs":::
 
 ### Verify success
 
