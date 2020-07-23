@@ -2,7 +2,7 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/22/2020
 
 ---
 
@@ -21,16 +21,15 @@ An Azure account with an active subscription. [Create an account for free](https
 
 Create the main template and the linked template.
 
-To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the relative path of the linked template or the resource ID of the linked template spec.
+To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the relative path of the linked template in accordance with the path of the parent template.
 
-> [!NOTE]
-> The apiVersion of `Microsoft.Resources/deployments` must be 2020-06-01 or later.
-
-The linked template is called **createStorage.json**, and is stored in the **artifacts** folder on your computer.  You can use one of the follow values for the relativePath:
+The linked template is called **linkedTemplate.json**, and is stored in a subfolder called **artifacts** in the path where the main template is stored.  You can use one of the follow values for the relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
 - `artifacts/linkedTemplate.json`
+
+If there is another linkedTemplate2.json that is called from linkedTemplate.json and linkedTemplate2.json is stored in the same artifacts subfolder, the relativePath specified in linkedTemplate.json is **linkedTemplate2.json**.
 
 1. Create the main template with the following JSON. Save the main template as **azuredeploy.json** to your local computer. This tutorial assumes you've saved to a path **c:\Templates\linkedTS\azuredeploy.json** but you can use any path.
 
@@ -97,6 +96,9 @@ The linked template is called **createStorage.json**, and is stored in the **art
       ]
     }
     ```
+
+    > [!NOTE]
+    > The apiVersion of `Microsoft.Resources/deployments` must be 2020-06-01 or later.
 
 1. Create a directory called **artifacts** in the folder where the main template is saved.
 1. Create the linked template with the following JSON:

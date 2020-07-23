@@ -53,7 +53,7 @@ Azure provides the below built-in RBAC roles for authorizing access to an Azure 
 > [!TIP]
 > The Azure Digital Twins Reader (Preview) role now also supports browsing relationships.
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
 * via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
@@ -78,6 +78,8 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 ## Next steps
 
-* See how to walk through these steps with a sample client application in [*How-to: Authenticate a client application*](how-to-authenticate-client.md).
+* See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
+
+* See how to interact with these concepts from client application code in [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
 * Read more about [RBAC for Azure](../role-based-access-control/overview.md).
