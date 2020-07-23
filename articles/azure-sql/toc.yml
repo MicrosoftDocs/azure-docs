@@ -246,8 +246,6 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-      - name: Migrate from Premium RS
-        href: database/service-tiers-prs.md     
 
   - name: Quickstarts
     href: database/quickstart-content-reference-guide.md

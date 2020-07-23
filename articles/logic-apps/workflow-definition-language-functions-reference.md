@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 07/22/2020
 ---
 
 # Reference guide to using functions in expressions for Azure Logic Apps and Power Automate
@@ -1743,8 +1743,7 @@ And returns this result: `"https://contoso.com"`
 
 ### div
 
-Return the integer result from dividing two numbers.
-To get the remainder result, see [mod()](#mod).
+Return the result from dividing two numbers. To get the remainder result, see [mod()](#mod).
 
 ```
 div(<dividend>, <divisor>)
@@ -1758,19 +1757,26 @@ div(<dividend>, <divisor>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*quotient-result*> | Integer | The integer result from dividing the first number by the second number |
+| <*quotient-result*> | Integer or Float | The result from dividing the first number by the second number. If either the dividend or divisor has Float type, the result has Float type. <p><p>**Note**: To convert the float result to an integer, try [creating and calling an Azure function](../logic-apps/logic-apps-azure-functions.md) from your logic app. |
 ||||
 
-*Example*
+*Example 1*
 
-Both examples divide the first number by the second number:
+Both examples return this value with Integer type: `2`
 
 ```
-div(10, 5)
-div(11, 5)
+div(10,5)
+div(11,5)
 ```
 
-And return this result: `2`
+*Example 2*
+
+Both examples return this value with Float type: `2.2`
+
+```
+div(11,5.0)
+div(11.0,5)
+```
 
 <a name="encodeUriComponent"></a>
 
