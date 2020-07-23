@@ -25,7 +25,7 @@ Symptoms can include:
 
 ## Causes
 
-* Client firewall rules prevent access - [solution](#configure-client-firewall-access)
+* A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * IP access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
 * Virtual network configuration prevents access - [solution](#configure-vnet-access)
 * You attempt to integrate Azure Security Center with a registry that has a private endpoint - [solution](#configure-image-scanning-solution)
@@ -38,8 +38,8 @@ If you don't resolve your problem here, see [Next steps](#next-steps) for other 
 
 To access a registry from behind a client firewall or proxy server, configure firewall rules to access the registry's REST and data endpoints. If [dedicated data endpoints](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) are enabled, you need rules to access:
 
-* REST endpoint: <registryname>.azurecr.io
-* Data endpoint(s): <registry-name>.<region>.data.azurecr.io
+* REST endpoint: `<registryname>.azurecr.io`
+* Data endpoint(s): `<registry-name>.<region>.data.azurecr.io`
 
 For a geo-replicated registry, configure access to the data endpoint for each regional replica.
 
@@ -53,7 +53,7 @@ Related links:
 
 ### Configure public access to registry
 
-If accessing a registry over the internet, confirm the registry allows public access. By default an Azure container registry allows access to the public registry endpoints from all networks. A registry can limit access to selected networks, or selected IP addresses. 
+If accessing a registry over the internet, confirm the registry allows access from your client. By default an Azure container registry allows access to the public registry endpoints from all networks. A registry can limit access to selected networks, or selected IP addresses. 
 
 If your registry is configured for Private Link, IP network rules don't apply to the registry's private endpoints.
 
