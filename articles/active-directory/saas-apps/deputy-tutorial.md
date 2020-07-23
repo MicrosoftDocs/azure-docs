@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -103,43 +104,43 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
-    |  |
-	| ----|
-	| `https://<subdomain>.<region>.au.deputy.com` |
-	| `https://<subdomain>.<region>.ent-au.deputy.com` |
-	| `https://<subdomain>.<region>.na.deputy.com`|
-	| `https://<subdomain>.<region>.ent-na.deputy.com`|
-	| `https://<subdomain>.<region>.eu.deputy.com` |
-	| `https://<subdomain>.<region>.ent-eu.deputy.com` |
-	| `https://<subdomain>.<region>.as.deputy.com` |
-	| `https://<subdomain>.<region>.ent-as.deputy.com` |
-	| `https://<subdomain>.<region>.la.deputy.com` |
-	| `https://<subdomain>.<region>.ent-la.deputy.com` |
-	| `https://<subdomain>.<region>.af.deputy.com` |
-	| `https://<subdomain>.<region>.ent-af.deputy.com` |
-	| `https://<subdomain>.<region>.an.deputy.com` |
-	| `https://<subdomain>.<region>.ent-an.deputy.com` |
-	| `https://<subdomain>.<region>.deputy.com` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com
+    https://<subdomain>.<region>.ent-au.deputy.com
+    https://<subdomain>.<region>.na.deputy.com
+    https://<subdomain>.<region>.ent-na.deputy.com
+    https://<subdomain>.<region>.eu.deputy.com
+    https://<subdomain>.<region>.ent-eu.deputy.com
+    https://<subdomain>.<region>.as.deputy.com
+    https://<subdomain>.<region>.ent-as.deputy.com
+    https://<subdomain>.<region>.la.deputy.com
+    https://<subdomain>.<region>.ent-la.deputy.com
+    https://<subdomain>.<region>.af.deputy.com
+    https://<subdomain>.<region>.ent-af.deputy.com
+    https://<subdomain>.<region>.an.deputy.com
+    https://<subdomain>.<region>.ent-an.deputy.com
+    https://<subdomain>.<region>.deputy.com
+    ```
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
 	
-    | |
-	|----|
-	| `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.` |
-	| `https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs` |
-	| `https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs` |
+    ```http
+    https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-au.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-na.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-eu.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.as.deputy.com/exec/devapp/samlacs.
+    https://<subdomain>.<region>.ent-as.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-la.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-af.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.ent-an.deputy.com/exec/devapp/samlacs
+    https://<subdomain>.<region>.deputy.com/exec/devapp/samlacs
+    ```
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -171,7 +172,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 
 ### Configure Deputy Single Sign-On
 
-1. Navigate to the following URL:[https://(your-subdomain).deputy.com/exec/config/system_config]( https://(your-subdomain).deputy.com/exec/config/system_config). Go to **Security Settings** and click **Edit**.
+1. Navigate to the following URL:`https://(your-subdomain).deputy.com/exec/config/system_config`. Go to **Security Settings** and click **Edit**.
    
     ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_004.png)
 
@@ -270,7 +271,7 @@ To enable Azure AD users to log in to Deputy, they must be provisioned into Depu
    
 	d. Click **Save & Invite** button.
 
-5. The AAD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision AAD user accounts.
+5. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active. You can use any other Deputy user account creation tools or APIs provided by Deputy to provision Azure AD user accounts.
 
 ### Test single sign-on 
 

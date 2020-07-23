@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 03/22/2019
+ ms.date: 09/11/2019
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -25,7 +25,7 @@ Create the new ASP.NET WebAPI backend by doing the following actions:
 >
 >To check, start Visual Studio. On the **Tools** menu, select **Extensions and Updates**. Search for **NuGet Package Manager** in your version of Visual Studio, and make sure you have the latest version. If your version is not the latest version, uninstall it, and then reinstall the NuGet Package Manager.
 
-![][B4]
+![Screenshot of the Extensions and Updates dialog box with the NuGet Package manage for Visual Studios package highlighted.][B4]
 
 > [!NOTE]
 > Make sure you have installed the Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) for website deployment.
@@ -103,7 +103,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
                 string user = authorizationUserAndPwd.Split(':')[0];
                 string password = authorizationUserAndPwd.Split(':')[1];
 
-                if (verifyUserAndPwd(user, password))
+                if (VerifyUserAndPwd(user, password))
                 {
                     // Attach the new principal object to the current HttpContext object
                     HttpContext.Current.User =
@@ -118,7 +118,7 @@ In this section, you create a new message-handler class named **AuthenticationTe
             return base.SendAsync(request, cancellationToken);
         }
 
-        private bool verifyUserAndPwd(string user, string password)
+        private bool VerifyUserAndPwd(string user, string password)
         {
             // This is not a real authentication scheme.
             return user == password;
@@ -180,6 +180,9 @@ In this section, you add a new controller to the WebAPI backend to handle reques
         }
     }
     ```
+    > [!IMPORTANT]
+    > Enter the **name** and the **DefaultFullSharedAccessSignature** of your hub before proceeding further. 
+    
 7. Next, create a new controller named **RegisterController**. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**.
 
 8. Select **Web API 2 Controller - Empty**, and then select **Add**.

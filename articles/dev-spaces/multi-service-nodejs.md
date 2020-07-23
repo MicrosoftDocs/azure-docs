@@ -1,16 +1,12 @@
 ---
-title: "Running multiple dependent services using Node.js and VS Code"
-titleSuffix: Azure Dev Spaces
+title: "Running multiple dependent services: Node.js & Visual Studio Code"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio Code to debug a multi-service Node.js application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Multi-service development with Azure Dev Spaces
+# Running multiple dependent services: Node.js and Visual Studio Code with Azure Dev Spaces
 
 In this tutorial, you'll learn how to develop multi-service applications using Azure Dev Spaces, along with some of the added benefits that Dev Spaces provides.
 
@@ -18,7 +14,7 @@ In this tutorial, you'll learn how to develop multi-service applications using A
 
 In this section you're going to create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. You'll then debug across both containers.
 
-![](media/common/multi-container.png)
+![The diagram shows the webfrontend service calling (as indicated by an arrow) the mywebapi service.](media/common/multi-container.png)
 
 ### Open sample code for *mywebapi*
 You should already have the sample code for `mywebapi` for this guide under a folder named `samples` (if not, go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository.) The code for this section is in `samples/nodejs/getting-started/mywebapi`.

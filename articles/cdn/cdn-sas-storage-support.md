@@ -3,7 +3,7 @@ title: Using Azure CDN with SAS | Microsoft Docs
 description: Azure CDN supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -12,9 +12,9 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/21/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Using Azure CDN with SAS
@@ -40,7 +40,7 @@ For example:
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
-For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared access signature parameters](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
+For more information about setting parameters, see [SAS parameter considerations](#sas-parameter-considerations) and [Shared access signature parameters](https://docs.microsoft.com/azure/storage/common/storage-sas-overview#how-a-shared-access-signature-works).
 
 ![CDN SAS settings](./media/cdn-sas-storage-support/cdn-sas-settings.png)
 
@@ -78,7 +78,8 @@ This option is available only for **Azure CDN Premium from Verizon** profiles. W
    
    Source:   
    `(container1\/.*)`
-   
+
+
    Destination:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D

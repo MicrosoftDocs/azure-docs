@@ -1,11 +1,11 @@
 ---
-title: Configure SaaS apps for B2B collaboration - Azure Active Directory | Microsoft Docs
+title: Configure SaaS apps for B2B collaboration - Azure AD
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2017
 
 ms.author: mimart

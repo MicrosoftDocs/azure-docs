@@ -4,8 +4,8 @@ description: Azure PowerShell Script Sample - Manage web traffic with an applica
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
+
+
 tags: azure-resource-manager
 
 ms.service: application-gateway
@@ -65,6 +65,6 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional application gateway PowerShell script samples can be found in the [Azure Application Gateway documentation](../powershell-samples.md).

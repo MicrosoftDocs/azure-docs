@@ -1,5 +1,5 @@
 ---
-title: Deploy the Remote Monitoring solution locally (via IntelliJ IDE) - Azure | Microsoft Docs 
+title: Deploy Remote Monitoring solution locally - IntelliJ IDE - Azure | Microsoft Docs 
 description: This how-to guide shows you how to deploy the Remote Monitoring solution accelerator to your local machine by using IntelliJ for testing and development.
 author: v-krghan
 manager: dominicbetts
@@ -185,10 +185,10 @@ Each web service opens a Command Prompt window and web browser window. At the co
 
 To access the status of the services, go to the following URLs:
 
-* IoT-Hub Manager: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* Device Telemetry: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* config: [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* storage-adapter: [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* IoT-Hub Manager: `http://localhost:9002/v1/status`
+* Device Telemetry: `http://localhost:9004/v1/status`
+* config: `http://localhost:9005/v1/status`
+* storage-adapter: `http://localhost:9022/v1/status`
 
 ### Start the Stream Analytics job
 
@@ -208,7 +208,7 @@ npm install
 npm start
 ```
 
-When the **start** command is completed, your browser displays the page at the address [http://localhost:3000/dashboard](http://localhost:3000/dashboard). The errors on this page are expected. To view the application without errors, complete the following steps.
+When the **start** command is completed, your browser displays the page at the address `http://localhost:3000/dashboard`. The errors on this page are expected. To view the application without errors, complete the following steps.
 
 ### Configure and run Nginx
 
@@ -221,7 +221,7 @@ For more information about running Nginx, see [nginx for Windows](https://nginx.
 
 ### Connect to the dashboard
 
-To access the Remote Monitoring solution dashboard, go to http://localhost:9000 in your browser.
+To access the Remote Monitoring solution dashboard, go to `http://localhost:9000` in your browser.
 
 ## Clean up
 

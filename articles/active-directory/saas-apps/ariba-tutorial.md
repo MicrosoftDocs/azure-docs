@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -103,10 +104,10 @@ To configure Azure AD single sign-on with Ariba, perform the following steps:
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     
-	| |
-	|--|
-	| `https://<subdomain>.sourcing.ariba.com` |
-	| `https://<subdomain>.supplier.ariba.com` |
+    ```http
+    https://<subdomain>.sourcing.ariba.com
+    https://<subdomain>.supplier.ariba.com
+    ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `http://<subdomain>.procurement-2.ariba.com`

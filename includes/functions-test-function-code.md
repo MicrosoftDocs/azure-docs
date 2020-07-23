@@ -5,16 +5,13 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ---
-## <a name="test"></a>Test the function in Azure
+## <a name="test"></a>Verify the function in Azure
 
-Use cURL to test the deployed function. Using the URL that you copied from the previous step, append the query string `&name=<yourname>` to the URL, as in the following example:
+You can use a web browser to verify the deployed function.  Copy the URL, including the function key, into the address bar of your web browser. Append the query string `&name=<yourname>` to the URL before you execute the request.
 
-```bash
-curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-```
+![Using a web browser to call the function.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  
+
+Alternatively, you can use cURL to verify the deployed function. Using the URL, including the function key, that you copied from the previous step, append the query string `&name=<yourname>` to the URL.
 
 ![using cURL to call the function in Azure.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
 
-You can also paste the copied URL in to the address of your web browser. Again, append the query string `&name=<yourname>` to the URL before you execute the request.
-
-![Using a web browser to call the function.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  

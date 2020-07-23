@@ -7,7 +7,7 @@ ms.date: 10/26/2018
 ---
 > [!div class="op_single_selector"]
 > * [Azure portal](../articles/iot-hub/iot-hub-create-through-portal.md)
-> * [Azure IoT Hub Toolkit for VS Code](../articles/iot-hub/iot-hub-create-use-iot-toolkit.md)
+> * [Azure IoT Hub for VS Code](../articles/iot-hub/iot-hub-create-use-iot-toolkit.md)
 > * [PowerShell](../articles/iot-hub/iot-hub-create-using-powershell.md)
 > * [Azure CLI](../articles/iot-hub/iot-hub-create-using-cli.md)
 > * [PowerShell with template](../articles/iot-hub/iot-hub-rm-template-powershell.md)

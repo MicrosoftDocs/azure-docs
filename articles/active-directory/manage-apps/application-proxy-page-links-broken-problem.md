@@ -1,20 +1,15 @@
 ---
-title: Links on the page don't work for an Application Proxy application | Microsoft Docs
+title: Links on the page don't work for an Application Proxy application
 description:  How to troubleshoot issues with broken links on Application Proxy applications you have integrated with Azure AD
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/10/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ---
@@ -34,7 +29,11 @@ There are three ways to resolve this issue. The choices below are in listed in i
 
 1.  Make sure the internal URL is a root that contains all the relevant links for the application. This allows all links to be resolved as content published within the same application.
 
-    If you change the internal URL but don’t want to change the landing page for users, change the Home page URL to the previously published internal URL. This can be done by going to “Azure Active Directory” -&gt; App Registrations -&gt; select the application -&gt; Properties. In this properties tab, you see the field “Home Page URL”, which you can adjust to be the desired landing page.
+    If you change the internal URL but don’t want to change the landing page for users, change the Home page URL to the previously published internal URL. This can be done by going to “Azure Active Directory” -&gt; App Registrations -&gt; select the application -&gt; Branding. In the branding section, you see the field “Home Page URL”, which you can adjust to be the desired landing page. If you are still using the legacy App registrations experience the properties tab would show the "Home Page URL" details. 
+    
+    > [!IMPORTANT]
+    > In order to make the above changes you require rights to modify application objects in Azure AD.The user needs to be assigned [Application Administrator](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) role which grants application modificaion rights in Azure AD to the user.
+    >
 
 2.  If your applications use fully qualified domain names (FQDNs), use [custom domains](application-proxy-configure-custom-domain.md) to publish your applications. This feature allows the same URL to be used both internally and externally.
 

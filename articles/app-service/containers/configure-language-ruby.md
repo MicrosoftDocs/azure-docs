@@ -1,29 +1,15 @@
 ---
 title: Configure Ruby apps - Azure App Service
-description: This tutorial describes options for authoring and configuring Ruby apps for Azure App Service on Linux.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: Learn how to configure a pre-built Ruby container for your app. This article shows the most common configuration tasks. 
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
-ms.custom: mvc
-ms.custom: seodec18
-
+ms.custom: mvc, seodec18
 ---
 
 # Configure a Linux Ruby app for Azure App Service
 
-This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps must be deployed with all the required [pip](https://pypi.org/project/pip/) modules.
+This article describes how [Azure App Service](app-service-linux-intro.md) runs Ruby apps, and how you can customize the behavior of App Service when needed. Ruby apps must be deployed with all the required [gems](https://rubygems.org/gems).
 
 This guide provides key concepts and instructions for Ruby developers who use a built-in Linux container in App Service. If you've never used Azure App Service, you should follow the [Ruby quickstart](quickstart-ruby.md) and [Ruby with PostgreSQL tutorial](tutorial-ruby-postgres-app.md) first.
 
@@ -120,7 +106,7 @@ You can customize the start-up process in the following ways:
 The Rails server in the Ruby container runs in production mode by default, and [assumes that assets are precompiled and are served by your web server](https://guides.rubyonrails.org/asset_pipeline.html#in-production). To serve static assets from the Rails server, you need to do two things:
 
 - **Precompile the assets** - [Precompile the static assets locally](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) and deploy them manually. Or, let the deployment engine handle it instead (see [Precompile assets](#precompile-assets).
-- **Enable serving static files** - To serve static assets from the Ruby container, set the `RAILS_SERVE_STATIC_FILES` [set the `RAILS_SERVE_STATIC_FILES` app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) to `true`. For example:
+- **Enable serving static files** - To serve static assets from the Ruby container, [set the `RAILS_SERVE_STATIC_FILES` app setting](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) to `true`. For example:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
@@ -150,11 +136,13 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## Access diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-linux-no-h.md)]
 
 ## Open SSH session in browser
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## Next steps
 

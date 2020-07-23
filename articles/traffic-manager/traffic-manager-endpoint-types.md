@@ -3,15 +3,15 @@ title: Traffic Manager Endpoint Types | Microsoft Docs
 description: This article explains different types of endpoints that can be used with Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
-manager: twooley
+author: rohinkoul
+
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: allensu
+ms.author: rohink
 ---
 
 # Traffic Manager endpoints
@@ -96,7 +96,7 @@ If all endpoints in a profile are disabled, or if the profile itself is disabled
 
 * [Can I use Traffic Manager with more than one Web App in the same region?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
 
-* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
+* [How do I move my Traffic Manager profile’s Azure endpoints to a different resource group?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription)
 
 ## Next steps
 

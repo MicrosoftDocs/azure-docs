@@ -1,19 +1,9 @@
 ---
-title: Attach a data disk to a Linux VM | Microsoft Docs
+title: Attach a data disk to a Linux VM 
 description: Use the portal to attach new or existing data disk to a Linux VM.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 5e1c6212-976c-4962-a297-177942f90907
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
@@ -30,10 +20,9 @@ Before you attach disks to your VM, review these tips:
 
 
 ## Find the virtual machine
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. On the left menu, click **Virtual Machines**.
-3. Select the virtual machine from the list.
-4. To the Virtual machines page, in **Essentials**, click **Disks**.
+1. Go to the [Azure portal](https://portal.azure.com/) to find the VM. Search for and select **Virtual machines**.
+2. Choose the VM from the list.
+3. In the **Virtual machines** page sidebar, under **Settings**, choose **Disks**.
    
     ![Open disk settings](./media/attach-disk-portal/find-disk-settings.png)
 
@@ -96,6 +85,9 @@ Here, *sdc* is the disk that we want.
 
 ### Partition a new disk
 If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
+
+> [!NOTE]
+> It is recommended that you use the latest versions of fdisk or parted that are available for your distro.
 
 Partition the disk with `fdisk`. If the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, you can use `parted` to perform GPT partitioning. If disk size is under 2TiB, then you can use either MBR or GPT partitioning. Make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
 
@@ -177,6 +169,16 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### Alternate method using parted
+The fdisk utility needs interactive input and hence is not ideal for use within automation scripts. However, the [parted](https://www.gnu.org/software/parted/) utility can be scripted and hence lends itself better in automation scenarios. The parted utility can be used to partition and to format a data disk. For the walkthrough below, we use a new data disk /dev/sdc and format it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+partprobe /dev/sdc1
+```
+As seen above, we use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is immediately aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+
 ### Mount the disk
 Create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 
@@ -218,11 +220,11 @@ In this example, use the UUID value for the */dev/sdc1* device that was created 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
-
+When done, save the */etc/fstab* file and reboot the system.
 > [!NOTE]
 > Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the *nofail* and/or *nobootwait* fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 > 
-> The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> The *nofail* option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 
 ### TRIM/UNMAP support for Linux in Azure
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. This feature is primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded, and can save money if you create large files and then delete them.

@@ -1,7 +1,7 @@
 ---
 title: View and edit Video Indexer insights
 titlesuffix: Azure Media Services
-description: This topic demonstrates how to view and edit Video Indexer insights.
+description: This article demonstrates how to view and edit Azure Media Services Video Indexer insights.
 services: media-services
 author: Juliako
 manager: femila

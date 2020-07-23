@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 08/06/2019
 ms.author: "jeedes"
 ms.collection: M365-identity-device-management
 ---
@@ -23,18 +23,15 @@ ms.collection: M365-identity-device-management
 This tutorial demonstrates the steps to perform in Zendesk and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and deprovision users and groups to Zendesk.
 
 > [!NOTE]
-> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../manage-apps/user-provisioning.md).
+> This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## Prerequisites
 
 The scenario outlined in this tutorial assumes that you have:
 
 * An Azure AD tenant.
-* A Zendesk tenant with the [Enterprise](https://www.zendesk.com/product/pricing/) plan or better enabled.
+* A Zendesk tenant with the Professional plan or better enabled.
 * A user account in Zendesk with admin permissions.
-
-> [!NOTE]
-> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction). This API is available to Zendesk teams on the Enterprise plan or better.
 
 ## Add Zendesk from the Azure Marketplace
 
@@ -137,7 +134,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Zendesk matching group attributes](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. To configure scoping filters, follow the instructions in the [scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. To enable the Azure AD provisioning service for Zendesk, in the **Settings** section, change **Provisioning Status** to **On**.
 
@@ -155,7 +152,7 @@ This operation starts the initial synchronization of all users or groups defined
 
 You can use the **Synchronization Details** section to monitor progress and follow links to the provisioning activity report. The report describes all the actions performed by the Azure AD provisioning service on Zendesk.
 
-For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+For information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## Connector limitations
 
@@ -165,12 +162,12 @@ For information on how to read the Azure AD provisioning logs, see [Reporting on
 
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md)
+* [Learn how to review logs and get reports on provisioning activity](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zendesk-tutorial/tutorial_general_01.png

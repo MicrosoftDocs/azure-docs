@@ -1,18 +1,16 @@
 ---
-title: Disaster recovery for B2B integration accounts - Azure Logic Apps | Microsoft Docs
-description: Get ready for cross-region disaster recovery in Azure Logic Apps
+title: Disaster recovery for integration accounts
+description: Set up your integration accounts and B2B artifacts with cross-region disaster recovery in Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
 ---
 
-# Cross-region disaster recovery for B2B integration accounts in Azure Logic Apps
+# Set up cross-region disaster recovery for integration accounts in Azure Logic Apps
 
 B2B workloads involve money transactions like orders and invoices. 
 During a disaster event, it's critical for a business to quickly 
@@ -88,7 +86,7 @@ To avoid sending duplicate generated control numbers
 to partners during a disaster event, 
 the recommendation is to increment the control numbers 
 in the secondary region agreements by using 
-[PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## Fall back to a primary region post-disaster event
 
@@ -98,7 +96,7 @@ To fall back to a primary region when it is available, follow these steps:
 
 2. Increment the generated control numbers for all the 
 primary region agreements by using 
-[PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+[PowerShell cmdlets](/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Direct traffic from the secondary region to the primary region.
 
@@ -320,5 +318,4 @@ direct traffic to the secondary region for business continuity.
 
 ## Next steps
 
-[Monitor B2B messages](logic-apps-monitor-b2b-message.md)
-
+[Monitor B2B messages with Azure Monitor logs](../logic-apps/monitor-b2b-messages-log-analytics.md)

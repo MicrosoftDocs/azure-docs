@@ -1,21 +1,19 @@
 ---
-title: Security recommendations for Azure App Service
-description: Security recommendations for the Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your web app solutions. 
-services: app-service
-author: barclayn
+title: Security recommendations
+description: Implement the security recommendations to help fulfill your security obligations as stated in our shared responsibility model. Improve the security of your app.
+author: msmbaldwin
 manager: barbkess
 
-ms.service: app-service
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.author: barclayn
+ms.author: mbaldwin
 ms.custom: security-recommendations
 
 ---
 
 # Security recommendations for App Service
 
-This article contains security recommendations for Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your Web App solutions. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../security/azure-security-infrastructure.md).
+This article contains security recommendations for Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your Web App solutions. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../security/fundamentals/infrastructure.md).
 
 ## General
 
@@ -59,4 +57,4 @@ This article contains security recommendations for Azure App Service. Implementi
 
 ## Next steps
 
-Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](../security/abstract-develop-secure-apps.md).
+Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](../security/fundamentals/abstract-develop-secure-apps.md).

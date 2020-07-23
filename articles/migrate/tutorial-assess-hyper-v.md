@@ -1,21 +1,14 @@
 ---
 title: Assess Hyper-V VMs for migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+description: Describes how to assess on-premises Hyper-V VMs for migration to Azure using Azure Migrate Server Assessment.
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.author: raynew
+ms.date: 06/03/2020
 ms.custom: mvc
 ---
 
 # Assess Hyper-V VMs with Azure Migrate Server Assessment
 
-This article shows you how to assess on-premises Hyper-V VMs, using the Azure Migrate: Server Assessment tool.
-
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
-
+This article shows you how to assess on-premises Hyper-V VMs, using the [Azure Migrate:Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool.
 
 
 This tutorial is the second in a series that demonstrates how to assess and migrate Hyper-V VMs to Azure. In this tutorial, you learn how to:
@@ -37,8 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - [Complete](tutorial-prepare-hyper-v.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
-    - [Set up Azure permissions](tutorial-prepare-hyper-v.md#prepare-azure) for Azure Migrate.
-    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) clusters, hosts, and VMs for assessment.
+    - [Prepare Azure](tutorial-prepare-hyper-v.md#prepare-azure) to work with Azure Migrate.
+    - [Prepare Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-assessment) hosts and VMs assessment.
+    - [Verify](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) what you need in order to deploy the Azure Migrate appliance for Hyper-V assessment.
 
 ## Set up an Azure Migrate project
 
@@ -50,22 +44,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 4. In **Getting started**, click **Add tools**.
 5. In the **Migrate project** tab, select your Azure subscription, and create a resource group if you don't have one.
-6. In **Project Details**, specify the project name, and the region in which you want to create the project.
-
-
-    ![Create an Azure Migrate project](./media/tutorial-assess-hyper-v/migrate-project.png)
-
-    You can create an Azure Migrate project in these regions.
-
-    **Geography** | **Region**
-    --- | ---
-    Asia  | Southeast Asia
-    Europe | North Europe or West Europe
-    United Kingdom |  UK South or UK West
-    United States | East US, West US 2 or West Central US
+6. In **Project Details**, specify the project name, and the region in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
 
     - The project region is used only to store the metadata gathered from on-premises VMs.
     - You can select a different Azure target region when you migrate the VMs. All Azure regions are supported for migration target.
+
+    ![Create an Azure Migrate project](./media/tutorial-assess-hyper-v/migrate-project.png)
 
 7. Click **Next**.
 8. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.
@@ -76,18 +60,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 10. In **Review + add tools**, review the settings, and click **Add tools**.
 11. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
 
+## Set up the Azure Migrate appliance
 
 
+Azure Migrate:Server Assessment uses a lightweight Azure Migrate appliance. The appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate. The appliance can be set up in a number of ways.
 
-## Set up the appliance VM
+- Set up on a Hyper-V VM using a downloaded Hyper-V VHD. This is the method used in this tutorial.
+- Set up on a Hyper-V VM or physical machine with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a VM using the VHD, or if you're in Azure Government.
 
-Azure Migrate Server Assessment runs a lightweight Hyper-V VM appliance.
-
-- This appliance performs VM discovery and sends VM metadata and performance data to Azure Migrate: Server Assessment.
-- To set up the appliance you:
-    - Download a compressed Hyper-V VHD from the Azure portal.
-    - Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
-    - Configure the appliance for the first time, and register it with the Azure Migrate project.
+After creating the appliance, you check that it can connect to Azure Migrate:Server Assessment, configure it for the first time, and register it with the Azure Migrate project.
 
 ### Download the VHD
 
@@ -105,45 +86,60 @@ Download the zipped VHD template for the appliance.
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the VHD
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  For appliance version 1.19.06.27, the generated hash should match these settings.
 
-  **Algorithm** | **Hash value**
-  --- | ---
-  MD5 | 3681f745fa2b0a0a6910707d85161ec5
-  SHA256 | e6ca109afab9657bdcfb291c343b3e3abced9a273d25273059171f9954d25832
+2. Run the following PowerShell command to generate the hash for the ZIP file
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
+3.  Verify the latest appliance versions and hash values:
+
+    - For the Azure public cloud:
+
+        **Scenario** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (8.93 GB) | [Latest version](https://aka.ms/migrate/appliance/hyperv) |  572be425ea0aca69a9aa8658c950bc319b2bdbeb93b440577264500091c846a1
+
+    - For Azure Government:
+
+        **Scenario*** | **Download** | **SHA256**
+        --- | --- | ---
+        Hyper-V (63.1 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
 
 
 ### Create the appliance VM
 
 Import the downloaded file, and create the VM.
 
-1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance VM. Three folders are extracted.
+1. After downloading the zipped VHD file to the Hyper-V host on which the appliance VM will be placed, extract the zipped file.
+    - In the extracted location, the file unzips into a folder called **AzureMigrateAppliance_VersionNumber**.
+    - This folder contains a subfolder, also called **AzureMigrateAppliance_VersionNumber**.
+    - This subfolder contains three further subfolders - **Snapshots**, **Virtual Hard Disks**, and **Virtual Machines**.
+
 2. Open Hyper-V Manager. In **Actions**, click **Import Virtual Machine**.
 
     ![Deploy VHD](./media/tutorial-assess-hyper-v/deploy-vhd.png)
 
 2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
-3. In **Locate Folder**, specify the folder containing the extracted VHD. Then click **Next**.
+3. In **Locate Folder**, select the **Virtual Machines** folder. Then click **Next**.
 1. In **Select Virtual Machine**, click **Next**.
 2. In **Choose Import Type**, click **Copy the virtual machine (create a new unique ID)**. Then click **Next**.
 3. In **Choose Destination**, leave the default setting. Click **Next**.
 4. In **Storage Folders**, leave the default setting. Click **Next**.
-5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure.
+5. In **Choose Network**, specify the virtual switch that the VM will use. The switch needs internet connectivity to send data to Azure. [Learn](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) about creating a virtual switch.
 6. In **Summary**, review the settings. Then click **Finish**.
 7. In Hyper-V Manager > **Virtual Machines**, start the VM.
 
 
-### Verify appliance access to Azure
+## Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to Azure URLs for [public](migrate-appliance.md#public-cloud-urls) and [government](migrate-appliance.md#government-cloud-urls) clouds.
 
 ### Configure the appliance
 
 Set up the appliance for the first time.
+
+> [!NOTE]
+> If you set up the appliance using a [PowerShell script](deploy-appliance-script.md) instead of the downloaded VHD, the first two steps in this procedure aren't relevant.
 
 1. In Hyper-V Manager > **Virtual Machines**, right-click the VM > **Connect**.
 2. Provide the language, time zone, and password for the appliance.
@@ -153,9 +149,9 @@ Set up the appliance for the first time.
 1. In the web app > **Set up prerequisites**, do the following:
     - **License**: Accept the license terms, and read the third-party information.
     - **Connectivity**: The app checks that the VM has internet access. If the VM uses a proxy:
-        - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
-        - Specify credentials if the proxy needs authentication.
-        - Only HTTP proxy is supported.
+      - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
+      - Specify credentials if the proxy needs authentication.
+      - Only HTTP proxy is supported.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for VM discovery to work properly.
     - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.
 
@@ -173,19 +169,28 @@ Set up the appliance for the first time.
 
 ### Delegate credentials for SMB VHDs
 
-If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. If you didn't do this on each host in the [previous tutorial](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), do this now from the appliance:
+If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. To do this, you enable each host to act as a delegate for the appliance. If you followed the tutorials in order, you did this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials), or by [running a script](tutorial-prepare-hyper-v.md#run-the-script) that does this.
 
-1. On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
+Enable on the appliance as follows:
 
-    ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
-    ```
+#### Option 1
 
-2. Alternatively, do this in the Local Group Policy Editor on the appliance:
-    - In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
-    - Double-click **Allow delegating fresh credentials**, and select **Enabled**.
-    - In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
-    - In  **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
+
+```
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
+```
+
+Example: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
+
+#### Option 2
+
+Alternatively, do this in the Local Group Policy Editor on the appliance:
+
+1. In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
+2. Double-click **Allow delegating fresh credentials**, and select **Enabled**.
+3. In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+4. Then, in **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
 
 ## Start continuous discovery
 
@@ -200,7 +205,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start VM discovery.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the Azure portal.
+This starts discovery. It takes around 1.5 minutes per host for metadata of discovered servers to appear in the Azure portal.
 
 ### Verify VMs in the portal
 
@@ -234,7 +239,7 @@ Run an assessment as follows:
 
     ![Assessment properties](./media/tutorial-assess-hyper-v/assessment-properties.png)
 
-3. In **Select or create a group**, select **Create New** and specify a group name. A group gathers one or more VMs together for assessment.
+3. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
 4. In **Add machines to the group**, select VMs to add to the group.
 5. Click **Create Assessment** to create the group, and run the assessment.
 

@@ -18,6 +18,9 @@ ms.author: alkohli
 
 ---
 # Supported hardware for the 10 GbE network interfaces on your StorSimple device
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 This article provides information about supplementary hardware that works with your Microsoft Azure StorSimple device.
 

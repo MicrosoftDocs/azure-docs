@@ -1,6 +1,6 @@
 ---
 title: How to deploy an OPC Twin module to an existing Azure project | Microsoft Docs
-description: How to deploy OPC Twin to an existing project.
+description: This article describes how to deploy OPC Twin to an existing project. You can also learn how to troubleshoot deployment failures.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -137,4 +137,4 @@ AAD tenant to use.
 Now that you've learned how to deploy OPC Twin to an existing project, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Secure communication of OPC Client and OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Secure communication of OPC UA Client and OPC UA PLC](howto-opc-vault-secure.md)

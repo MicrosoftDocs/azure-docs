@@ -1,14 +1,14 @@
 ---
-title: 'Configure ExpressRoute Global Reach: Azure CLI | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure ExpressRoute Global Reach: CLI'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
 services: expressroute
 author: jaredr80
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.custom: seodec18
+
 
 ---
 
@@ -65,7 +65,7 @@ az network express-route peering connection create -g <ResourceGroupName> --circ
 
 The CLI output looks like this:
 
-```azurecli
+```output
 {
   "addressPrefix": "<__.__.__.__/29>",
   "authorizationKey": null,
@@ -101,7 +101,7 @@ If the two circuits aren't in the same Azure subscription, you need authorizatio
 
    The CLI output looks like this:
 
-   ```azurecli
+   ```output
    {
      "authorizationKey": "<authorizationKey>",
      "authorizationUseStatus": "Available",

@@ -1,5 +1,5 @@
 ---
-title: What’s new for Azure Active Directory in Microsoft 365 Government - Azure Active Directory | Microsoft Docs
+title: What’s new for Azure AD in Microsoft 365 Government? | Microsoft Docs
 description: Learn about some changes to Azure Active Directory (Azure AD) in the Microsoft 365 Government cloud instance, which might impact you.
 services: active-directory
 author: eross-msft
@@ -51,7 +51,6 @@ The following table shows the endpoints for all customers:
 |------|------------------|
 | Portals |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 Government – GCC High: https://portal.office365.us<p>Microsoft 365 Government – DoD: https://portal.apps.mil |
 | Azure Active Directory Authority Endpoint | https://login.microsoftonline.us |
-| Azure Active Directory Graph API | https://graph.windows.net |
 | Microsoft Graph API for Microsoft 365 Government - GCC High | https://graph.microsoft.us |
 | Microsoft Graph API for Microsoft 365 Government - DoD | https://dod-graph.microsoft.us |
 | Azure Government services endpoints | For details, see [Azure Government developer guide](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
@@ -66,6 +65,6 @@ For more information, see these articles:
 
 - [Azure Government AAD Authority Endpoint Update](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
-- [￼Microsoft Graph endpoints in US Government cloud](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
+- [Microsoft Graph endpoints in US Government cloud](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
 - [Office 365 US Government GCC High and DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

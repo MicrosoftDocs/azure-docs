@@ -1,5 +1,5 @@
 ---
-title: Stream Azure Active Directory logs to SumoLogic using Azure Monitor  | Microsoft Docs
+title: Stream logs to SumoLogic using Azure Monitor  | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with SumoLogic using Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor

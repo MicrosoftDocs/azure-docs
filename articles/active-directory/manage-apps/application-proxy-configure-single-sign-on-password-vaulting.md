@@ -3,15 +3,14 @@ title: Single sign-on to apps with Azure AD Application Proxy | Microsoft Docs
 description: Turn on single sign-on for your published on-premises applications with Azure AD Application Proxy in the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/12/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
@@ -30,6 +29,8 @@ You should already have published and tested your app with Application Proxy. If
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 1. Select **Azure Active Directory** > **Enterprise applications** > **All applications**.
 1. From the list, select the app that you want to set up with SSO.  
+1. Select **Application Proxy**. 
+1. Change the **Pre Authentication type** to **Passthrough** and select **Save**. Later you can switch back to **Azure Active Directory** type again! 
 1. Select **Single sign-on**.
 
    ![Select Single sign-on from the app's overview page](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
@@ -40,6 +41,17 @@ You should already have published and tested your app with Application Proxy. If
    ![Choose password-based Sign-on and enter your URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Select **Save**.
+1. Select **Application Proxy**. 
+1. Change the **Pre Authentication type** to **Azure Active Directory** and select **Save**. 
+1. Select **Users and Groups**.
+1. Assign users to the application with selecting **Add user**. 
+1. If you want to predefine credentials for a user, check the box front of the user name and select **Update credentials**.
+1. Select **Azure Active Directory** > **App registrations** > **All applications**.
+1. From the list, select the app that you configured with Password SSO.
+1. Select **Branding**. 
+1. Update the **Home page URL** with the **Sign on URL** from the Password SSO page and select **Save**.  
+
+
 
 <!-- Need to repro?
 7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
@@ -47,7 +59,7 @@ You should already have published and tested your app with Application Proxy. If
 
 ## Test your app
 
-Go to external URL that you configured for remote access to your application. Sign in with your credentials for that app (or the credentials for a test account that you set up with access). Once you sign in successfully, you should be able to leave the app and come back without entering your credentials again.
+Go to the My Apps portal. Sign in with your credentials (or the credentials for a test account that you set up with access). Once you signed in successfully, click on the icon of the app. This might trigger the installation of the My Apps Secure Sign-in browser extension. If your user had predefined credentials the authentication to the app should happen automatically, otherwise you must specify the user name or password for the first time. 
 
 ## Next steps
 

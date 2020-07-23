@@ -1,6 +1,6 @@
 ---
 title: IoT Hub Device Provisioning Service - Auto-provisioning concepts
-description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service, IoT Hub, and client SDKs.
+description: This article provides a conceptual overview of the phases of device auto-provisioning, using IoT Device Provisioning Service (DPS), IoT Hub, and client SDKs.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/04/2019
@@ -98,10 +98,10 @@ Begin by completing a "Set up auto-provisioning" Quickstart that best suits your
 
 Then continue with an "Auto-provision a simulated device" Quickstart that suits your device attestation mechanism and Device Provisioning Service SDK/language preference. In this Quickstart, you walk through the "Device enrollment" and "Device registration and configuration" phases: 
 
-|  | Simulated device attestation mechanism | Quickstart SDK/Language |  |
-|--|--|--|--|
-|  | Trusted Platform Module (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |  |
-|  | X.509 certificate | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |  |
+| Simulated device attestation mechanism | Quickstart SDK/Language |
+| -------------------------------------- | ----------------------- |
+| Trusted Platform Module (TPM) | [C](quick-create-simulated-device.md)<br>[Java](quick-create-simulated-device-tpm-java.md)<br>[C#](quick-create-simulated-device-tpm-csharp.md)<br>[Python](quick-create-simulated-device-tpm-python.md) |
+| X.509 certificate | [C](quick-create-simulated-device-x509.md)<br>[Java](quick-create-simulated-device-x509-java.md)<br>[C#](quick-create-simulated-device-x509-csharp.md)<br>[Node.js](quick-create-simulated-device-x509-node.md)<br>[Python](quick-create-simulated-device-x509-python.md) |
 
 
 

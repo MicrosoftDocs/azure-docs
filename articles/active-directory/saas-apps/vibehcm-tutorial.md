@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Vibe HCM, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode the user does not have to perform any step as the app is already pre-integrated with Azure.
 
     ![Vibe HCM Domain and URLs single sign-on information](common/preintegrated.png)
 
@@ -171,7 +171,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Vibe HCM test user
 
-In this section, you create a user called Britta Simon in Vibe HCM. Work with [Vibe HCM support team](mailto:support@vibehcm.com) to add the users in the Vibe HCM platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Vibe HCM. Work with [Vibe HCM support team](mailto:support@vibehcm.com) to add the users in the Vibe HCM platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

@@ -2,14 +2,14 @@
 title: Create an Azure tenant for a multi-tenant application
 description: Guidance for independent software vendors on integrating with Azure Active Directory
 services: active-directory
-author: barbaraselden
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/22/2019
-ms.author: baselden
+ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
 #customer intent: As an ISV developer, I need to learn about single-sign on (SSO) so I can create a multi-tenant SaaS app
@@ -21,7 +21,7 @@ To provide access to your multi-tenant application you must create an Azure Acti
 
 ## Costs of hosting a multi-tenant application
 
-Azure Active Directory is available in three SKUs, Free, Basic, and Premium. [See the detailed feature comparison](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory is available in multiple editions. [See the detailed feature comparison](https://azure.microsoft.com/pricing/details/active-directory/).
 
 You can create your Azure subscription and Azure active directory for free, and use basic features.
 

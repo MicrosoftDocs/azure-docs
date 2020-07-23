@@ -1,29 +1,26 @@
 ---
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: mbullwin
+ms.date: 05/26/2020
+
 ---
+
 # Export telemetry from Application Insights
-Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
+Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
+
+> [!NOTE]
+> Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
+>
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
-* The Export button at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet.
+* The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](../../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
+* [Analytics](../log-query/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](../../azure-monitor/app/export-power-bi.md ), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
-* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../../azure-monitor/app/data-retention-privacy.md).
 
@@ -31,37 +28,45 @@ After Continuous Export copies your data to storage (where it can stay for as lo
 
 Continuous Export **does not support** the following Azure storage features/configurations:
 
-* Use of [VNET/Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in conjunction with Azure Blob storage.
+* Use of [VNET/Azure Storage firewalls](../../storage/common/storage-network-security.md) in conjunction with Azure Blob storage.
 
-* [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) for Azure Blob storage.
-
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="setup"></a> Create a Continuous Export
-1. In the Application Insights resource for your app, open Continuous Export and choose **Add**:
+
+1. In the Application Insights resource for your app under configure on the left, open Continuous Export and choose **Add**:
 
 2. Choose the telemetry data types you want to export.
 
-3. Create or select an [Azure storage account](../../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
+3. Create or select an [Azure storage account](../../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options, visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
+
+     Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store.
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
 
-    ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/export-telemetry/02-add.png)
+4. Create or select a container in the storage.
 
-4. Create or select a container in the storage:
-
-    ![Click Choose event types](./media/export-telemetry/create-container.png)
-
-Once you've created your export, it starts going. You only get data that arrives after you create the export.
+> [!NOTE]
+> Once you've created your export, newly ingested data will begin to flow to Azure Blob storage. Continuous export will only transmit new telemetry that is created/ingested after continuous export was enabled. Any data that existed prior to enabling continuous export will not be exported, and there is no supported way to retroactively export previously created data using continuous export.
 
 There can be a delay of about an hour before data appears in the storage.
 
+Once the first export is complete you will find a structure similar to the following in your Azure Blob storage container: (This will vary depending on the data you are collecting.)
+
+|Name | Description |
+|:----|:------|
+| [Availability](export-data-model.md#availability) | Reports [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md).  |
+| [Event](export-data-model.md#events) | Custom events generated by [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Exceptions](export-data-model.md#exceptions) |Reports [exceptions](../../azure-monitor/app/asp-net-exceptions.md) in the server and in the browser.
+| [Messages](export-data-model.md#trace-messages) | Sent by [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace), and by the [logging adapters](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Metrics](export-data-model.md#metrics) | Generated by metric API calls.
+| [PerformanceCounters](export-data-model.md) | Performance Counters collected by Application Insights.
+| [Requests](export-data-model.md#requests)| Sent by [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). The standard modules use this to reports server response time, measured at the server.| 
+
 ### To edit continuous export
 
-If you want to change the event types later, just edit the export:
-
-![Click Choose event types](./media/export-telemetry/05-edit.png)
+Click on continuous export and select the storage account to edit.
 
 ### To stop continuous export
 
@@ -70,10 +75,10 @@ To stop the export, click Disable. When you click Enable again, the export will 
 To stop the export permanently, delete it. Doing so doesn't delete your data from storage.
 
 ### Can't add or change an export?
-* To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
+* To add or change exports, you need Owner, Contributor, or Application Insights Contributor access rights. [Learn about roles][roles].
 
 ## <a name="analyze"></a> What events do you get?
-The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.
+The exported data is the raw telemetry we receive from your application, except that we add location data, which we calculate from the client IP address.
 
 Data that has been discarded by [sampling](../../azure-monitor/app/sampling.md) is not included in the exported data.
 
@@ -87,7 +92,7 @@ The data also includes the results of any [availability web tests](../../azure-m
 >
 
 ## <a name="get"></a> Inspect the data
-You can inspect the storage directly in the portal. Click **Browse**, select your storage account, and then open **Containers**.
+You can inspect the storage directly in the portal. Click home in the leftmost menu, at the top where it says "Azure services" select **Storage accounts**, select the storage account name, on the overview page select **Blobs** under services, and finally select the container name.
 
 To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
 
@@ -99,47 +104,53 @@ The date and time are UTC and are when the telemetry was deposited in the store 
 
 Here's the form of the path:
 
-    $"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```console
+$"{applicationName}_{instrumentationKey}/{type}/{blobDeliveryTimeUtc:yyyy-MM-dd}/{ blobDeliveryTimeUtc:HH}/{blobId}_{blobCreationTimeUtc:yyyyMMdd_HHmmss}.blob"
+```
 
 Where
 
-* `blobCreationTimeUtc` is time when blob was created in the internal staging storage
+* `blobCreationTimeUtc` is the time when blob was created in the internal staging storage
 * `blobDeliveryTimeUtc` is the time when blob is copied to the export destination storage
 
 ## <a name="format"></a> Data format
 * Each blob is a text file that contains multiple '\n'-separated rows. It contains the telemetry processed over a time period of roughly half a minute.
 * Each row represents a telemetry data point such as a request or page view.
-* Each row is an unformatted JSON document. If you want to sit and stare at it, open it in Visual Studio and choose Edit, Advanced, Format File:
+* Each row is an unformatted JSON document. If you want to view the rows, open the blob in Visual Studio and choose **Edit** > **Advanced** > **Format File**:
 
-![View the telemetry with a suitable tool](./media/export-telemetry/06-json.png)
+   ![View the telemetry with a suitable tool](./media/export-telemetry/06-json.png)
 
 Time durations are in ticks, where 10 000 ticks = 1 ms. For example, these values show a time of 1 ms to send a request from the browser, 3 ms to receive it, and 1.8 s to process the page in the browser:
 
-    "sendRequest": {"value": 10000.0},
-    "receiveRequest": {"value": 30000.0},
-    "clientProcess": {"value": 17970000.0}
+```json
+"sendRequest": {"value": 10000.0},
+"receiveRequest": {"value": 30000.0},
+"clientProcess": {"value": 17970000.0}
+```
 
 [Detailed data model reference for the property types and values.](export-data-model.md)
 
 ## Processing the data
 On a small scale, you can write some code to pull apart your data, read it into a spreadsheet, and so on. For example:
 
-    private IEnumerable<T> DeserializeMany<T>(string folderName)
-    {
-      var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
-      foreach (var file in files)
+```csharp
+private IEnumerable<T> DeserializeMany<T>(string folderName)
+{
+   var files = Directory.EnumerateFiles(folderName, "*.blob", SearchOption.AllDirectories);
+   foreach (var file in files)
+   {
+      using (var fileReader = File.OpenText(file))
       {
-         using (var fileReader = File.OpenText(file))
+         string fileContent = fileReader.ReadToEnd();
+         IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
+         foreach (var entity in entities)
          {
-            string fileContent = fileReader.ReadToEnd();
-            IEnumerable<string> entities = fileContent.Split('\n').Where(s => !string.IsNullOrWhiteSpace(s));
-            foreach (var entity in entities)
-            {
-                yield return JsonConvert.DeserializeObject<T>(entity);
-            }
+            yield return JsonConvert.DeserializeObject<T>(entity);
          }
       }
-    }
+   }
+}
+```
 
 For a larger code sample, see [using a worker role][exportasa].
 
@@ -149,9 +160,7 @@ You are responsible for managing your storage capacity and deleting the old data
 ## If you regenerate your storage key...
 If you change the key to your storage, continuous export will stop working. You'll see a notification in your Azure account.
 
-Open the Continuous Export blade and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
-
-![Edit the continuous export, open and close thee export destination.](./media/export-telemetry/07-resetstore.png)
+Open the Continuous Export tab and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
 
 The continuous export will restart.
 
@@ -165,7 +174,7 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 ## Q & A
 * *But all I want is a one-time download of a chart.*  
 
-    Yes, you can do that. At the top of the blade, click **Export Data**.
+    Yes, you can do that. At the top of the tab, click **Export Data**.
 * *I set up an export, but there's no data in my store.*
 
     Did Application Insights receive any telemetry from your app since you set up the export? You'll only receive new data.
@@ -184,7 +193,7 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
   * In addition, for applications with high traffic, additional partition units are allocated. In this case, each unit creates a blob every minute.
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 
-    Edit the export and open the export destination blade. Leave the same storage selected as before, and click OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.
+    Edit the export and open the export destination tab. Leave the same storage selected as before, and click OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.
 * *Can I pause the export?*
 
     Yes. Click Disable.

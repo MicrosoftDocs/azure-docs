@@ -23,8 +23,7 @@ This tutorial demonstrates the steps to perform in Zscaler One and Azure Active 
 
 > [!NOTE]
 > This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
->
-> This connector is currently available as a preview. For more information on the general Microsoft Azure terms of use for preview features, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Prerequisites
 
@@ -156,7 +155,7 @@ For information on how to read the Azure AD provisioning logs, see [Reporting on
 
 ## Additional resources
 
-* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Manage user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps

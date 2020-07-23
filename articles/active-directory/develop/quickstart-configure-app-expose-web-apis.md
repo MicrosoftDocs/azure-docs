@@ -1,24 +1,19 @@
 ---
-title: Configure an application to expose web APIs - Microsoft identity platform
+title: Configure an app to expose web APIs - Microsoft identity platform | Azure
 description: Learn how to configure an application to expose a new permission/scope and role to make the application available to client applications.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to configure my application to expose new permissions (or scopes) and roles, to make my application available to client applications.
-ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Configure an application to expose web APIs
@@ -113,8 +108,9 @@ To expose a new scope through the application manifest:
 ## Verify the web API is exposed to other applications
 
 1. Go back to your Azure AD tenant, select **App registrations**, find and select the client application you want to configure.
-1. Repeat the steps outlined in Configure a client application to access web APIs.
-1. When you get to the **Select an API** step, select your resource. You should see the new scope, available for client permission requests.
+1. Repeat the steps outlined in [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md).
+1. When you get to the step to [select an API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+), select your resource. You should see the new scope, available for client permission requests.
 
 ## More on the application manifest
 

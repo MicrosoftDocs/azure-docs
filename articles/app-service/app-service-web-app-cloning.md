@@ -1,20 +1,10 @@
 ---
-title: Clone app with PowerShell - Azure App Service
-description: Learn how to clone your App Service app to a new app using PowerShell.
-services: app-service\web
-documentationcenter: ''
-author: ahmedelnably
-manager: stefsch
-editor: ''
+title: Clone app with PowerShell
+description: Learn how to clone your App Service app to a new app using PowerShell. A variety of cloning scenarios are covered, including Traffic Manager integration.
 
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2016
-ms.author: aelnably
 ms.custom: seodec18
 
 ---
@@ -38,16 +28,16 @@ $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-
 To create a new App Service Plan, you can use `New-AzAppServicePlan` command as in the following example
 
 ```powershell
-New-AzAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
+New-AzAppServicePlan -Location "North Central US" -ResourceGroupName DestinationAzureResourceGroup -Name DestinationAppServicePlan -Tier Standard
 ```
 
-Using the `New-AzWebApp` command, you can create the new app in the North Central US region, and tie it to an existing premium tier App Service Plan. Moreover, you can use the same resource group as the source app, or define a new resource group, as shown in the following command:
+Using the `New-AzWebApp` command, you can create the new app in the North Central US region, and tie it to an existing App Service Plan. Moreover, you can use the same resource group as the source app, or define a new resource group, as shown in the following command:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-To clone an existing app including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
+To clone an existing app including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter.  Note that the `IncludeSourceWebAppSlots` parameter is only supported for cloning an entire app including all of its slots. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
@@ -56,7 +46,7 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 To clone an existing app within the same region, you need to create a new resource group and a new app service plan in the same region, and then use the following PowerShell command to clone the app:
 
 ```powershell
-$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
+$destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcapp
 ```
 
 ## Cloning an existing App to an App Service Environment
@@ -133,5 +123,5 @@ Here are the known restrictions of app cloning:
 * [Back up an app in Azure App Service](manage-backup.md)
 * [Azure Resource Manager support for Azure Traffic Manager Preview](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introduction to App Service Environment](environment/intro.md)
-* [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/manage-resources-powershell.md)
+* [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 

@@ -1,21 +1,20 @@
 ---
-title: How to monitor indexer status and results - Azure Search
-description: Monitor the status, progress, and results of Azure Search indexers in the Azure portal, using the REST API, or the .NET SDK.
+title: Monitor indexer status and results
+titleSuffix: Azure Cognitive Search
+description: Monitor the status, progress, and results of Azure Cognitive Search indexers in the Azure portal, using the REST API, or the .NET SDK.
 
-ms.date: 06/28/2019
-author: RobDixon22
-manager: HeidiSteen
-ms.author: v-rodixo
-services: search
-ms.service: search
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 07/12/2020
 ---
 
-# How to monitor Azure Search indexer status and results
+# How to monitor Azure Cognitive Search indexer status and results
 
-Azure Search provides status and monitoring information about current and historical runs of every indexer.
+Azure Cognitive Search provides status and monitoring information about current and historical runs of every indexer.
 
 Indexer monitoring is useful when you want to:
 
@@ -23,7 +22,7 @@ Indexer monitoring is useful when you want to:
 * Review the results of ongoing or previous indexer run.
 * Identify top-level indexer errors, and errors or warnings about individual documents being indexed.
 
-## Find indexer status and history details
+## Get status and history
 
 You can access indexer monitoring information in various ways, including:
 
@@ -41,7 +40,7 @@ Indexers that process large volumes of data can take a long time to run. For exa
 
 <a name="portal"></a>
 
-## Monitor indexers in the portal
+## Monitor using the portal
 
 You can see the current status of all of your indexers in the **Indexers** list on your search service Overview page.
 
@@ -71,44 +70,48 @@ If there were document-specific problems during the run, they will be listed in 
 
 Warnings are common with some types of indexers, and do not always indicate a problem. For example indexers that use cognitive services can report warnings when image or PDF files don't contain any text to process.
 
-For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Search](search-indexer-troubleshooting.md).
+For more information about investigating indexer errors and warnings, see [Troubleshooting common indexer issues in Azure Cognitive Search](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
-## Monitor indexers using the REST API
+## Monitor using REST APIs
 
 You can retrieve the status and execution history of an indexer using the [Get Indexer Status command](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
-    GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
-    api-key: [Search service admin key]
+```http
+GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
+api-key: [Search service admin key]
+```
 
 The response contains overall indexer status, the last (or in-progress) indexer invocation, and the history of recent indexer invocations.
 
-    {
-        "status":"running",
-        "lastResult": {
-            "status":"success",
-            "errorMessage":null,
-            "startTime":"2018-11-26T03:37:18.853Z",
-            "endTime":"2018-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-         },
-        "executionHistory":[ {
-            "status":"success",
-             "errorMessage":null,
-            "startTime":"2018-11-26T03:37:18.853Z",
-            "endTime":"2018-11-26T03:37:19.012Z",
-            "errors":[],
-            "itemsProcessed":11,
-            "itemsFailed":0,
-            "initialTrackingState":null,
-            "finalTrackingState":null
-        }]
-    }
+```output
+{
+    "status":"running",
+    "lastResult": {
+        "status":"success",
+        "errorMessage":null,
+        "startTime":"2018-11-26T03:37:18.853Z",
+        "endTime":"2018-11-26T03:37:19.012Z",
+        "errors":[],
+        "itemsProcessed":11,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+     },
+    "executionHistory":[ {
+        "status":"success",
+         "errorMessage":null,
+        "startTime":"2018-11-26T03:37:18.853Z",
+        "endTime":"2018-11-26T03:37:19.012Z",
+        "errors":[],
+        "itemsProcessed":11,
+        "itemsFailed":0,
+        "initialTrackingState":null,
+        "finalTrackingState":null
+    }]
+}
+```
 
 Execution history contains up to the 50 most recent runs, which are sorted in reverse chronological order (most recent first).
 
@@ -122,9 +125,9 @@ For more details about status codes and indexer monitoring data, see [GetIndexer
 
 <a name="dotnetsdk"></a>
 
-## Monitor indexers using the .NET SDK
+## Monitor using the .NET SDK
 
-You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
+You can define the schedule for an indexer using the Azure Cognitive Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 
 The following C# example writes information about an indexer's status and the results of its most recent (or ongoing) run to the console.
 
@@ -160,14 +163,16 @@ static void CheckIndexerStatus(Indexer indexer, SearchServiceClient searchServic
 
 The output in the console will look something like this:
 
-    Indexer has run 18 times.
-    Indexer Status: Running
-    Latest run
-      Run Status: Success
-      Total Documents: 7, Failed: 0
-      StartTime: 10:02:46 PM, EndTime: 10:02:47 PM, Elapsed: 00:00:01.0990000
-      ErrorMessage: none
-      Document Errors: 0, Warnings: 0
+```output
+Indexer has run 18 times.
+Indexer Status: Running
+Latest run
+  Run Status: Success
+  Total Documents: 7, Failed: 0
+  StartTime: 10:02:46 PM, EndTime: 10:02:47 PM, Elapsed: 00:00:01.0990000
+  ErrorMessage: none
+  Document Errors: 0, Warnings: 0
+```
 
 Note there are two different status values. The top-level status is the status of the indexer itself. A indexer status of **Running** means that the indexer is set up correctly and available for execution, but not that it is currently executing.
 

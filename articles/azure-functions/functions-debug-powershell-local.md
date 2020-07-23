@@ -1,12 +1,7 @@
 ---
 title: Debug PowerShell Azure Functions locally
 description: Understand how to develop functions by using PowerShell.
-services: functions
-documentationcenter: na
 author: tylerleonhardt
-manager: jeconnoc
-ms.service: azure-functions
-ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
@@ -17,8 +12,6 @@ ms.reviewer: glenga
 # Debug PowerShell Azure Functions locally
 
 Azure Functions lets you develop your functions as PowerShell scripts.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 You can debug your PowerShell functions locally as you would any PowerShell scripts using the following standard development tools:
 
@@ -41,7 +34,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-This function app is similar to the one you get when you complete the [PowerShell quickstart](functions-create-first-function-powershell.md).
+This function app is similar to the one you get when you complete the [PowerShell quickstart](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 The function code in `run.ps1` looks like the following script:
 
@@ -98,7 +91,7 @@ To debug your PowerShell functions in Visual Studio Code, you must have the foll
 * [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md)
 * [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](functions-create-first-function-powershell.md).
+After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 >[!NOTE]
 > Should your project not have the needed configuration files, you are prompted to add them.
@@ -130,6 +123,9 @@ The start debugging operation does the following tasks:
 * Runs `func extensions install` in the terminal to install any Azure Functions extensions required by your function app.
 * Runs `func host start` in the terminal to start the function app in the Functions host.
 * Attach the PowerShell debugger to the PowerShell runspace within the Functions runtime.
+
+>[!NOTE]
+> You need to ensure PSWorkerInProcConcurrencyUpperBound is set to 1 to ensure correct debugging experience in Visual Studio Code. This is the default.
 
 With your function app running, you need a separate PowerShell console to call the HTTP triggered function.
 

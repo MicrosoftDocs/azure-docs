@@ -2,13 +2,10 @@
 title: Connect to REST endpoints from Azure Logic Apps
 description: Monitor REST endpoints in automated tasks, processes, and workflows by using Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
 ---
 
@@ -20,7 +17,7 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the built-in H
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* The URL for the Swagger file that describes the target REST endpoint
+* The URL for the Swagger (not OpenAPI) file that describes the target REST endpoint
 
   Typically, the REST endpoint must meet this criteria for the connector to work:
 
@@ -66,7 +63,7 @@ This built-in trigger sends an HTTP request to a URL for a Swagger file that des
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP + Swagger, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continue building your logic app's workflow with actions that run when the trigger fires.
 
@@ -106,7 +103,7 @@ This built-in action makes an HTTP request to the URL for the Swagger file that 
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
-   For more information about authentication types available for HTTP + Swagger, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP + Swagger, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. When you're finished, remember to save your logic app. On the designer toolbar, select **Save**.
 
@@ -135,9 +132,9 @@ You can reference a Swagger file that's not hosted or that doesn't meet the secu
 
 1. [Upload the Swagger file to the blob container](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), either through the [Azure portal](https://portal.azure.com) or [Azure Storage Explorer](https://storageexplorer.com/).
 
-1. To reference the file in the blob container, use an HTTPS link that follows this format, which is case-sensitive:
+1. To reference the file in the blob container, get the HTTPS URL that follows this format, which is case-sensitive, from Azure Storage Explorer:
 
-   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<complete-swagger-file-name>?<query-parameters>`
 
 ## Connector reference
 

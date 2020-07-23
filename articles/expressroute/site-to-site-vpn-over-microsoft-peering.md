@@ -1,11 +1,11 @@
 ---
-title: Configure a site-to-site VPN over Microsoft peering - ExpressRoute - Azure | Microsoft Docs
+title: 'Azure ExpressRoute: Configure S2S VPN over Microsoft peering'
 description: Configure IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
@@ -21,7 +21,7 @@ This article helps you configure secure encrypted connectivity between your on-p
 >
 >
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>Architecture
 
@@ -64,7 +64,7 @@ Once you have configured your circuit and Microsoft peering, you can easily view
 
 ## <a name="routefilter"></a>2. Configure route filters
 
-A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially a whitelist of all the BGP community values. 
+A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It is essentially an allow list of all the BGP community values. 
 
 ![route filter](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
@@ -127,7 +127,7 @@ The following diagram shows the abstracted overview of the example network:
 
 ### About the Azure Resource Manager template examples
 
-In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you are new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). The template in this section creates a greenfield Azure environment (VNet). However, if you have an existing VNet, you can reference it in the template. If you are not familiar with VPN gateway IPsec/IKE site-to-site configurations, see [Create a site-to-site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
+In the examples, the VPN gateway and the IPsec tunnel terminations are configured using an Azure Resource Manager template. If you are new to using Resource Manager templates, or to understand the Resource Manager template basics, see [Understand the structure and syntax of Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). The template in this section creates a greenfield Azure environment (VNet). However, if you have an existing VNet, you can reference it in the template. If you are not familiar with VPN gateway IPsec/IKE site-to-site configurations, see [Create a site-to-site connection](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md).
 
 >[!NOTE]
 >You do not need to use Azure Resource Manager templates in order to create this configuration. You can create this configuration using the Azure portal, or PowerShell.

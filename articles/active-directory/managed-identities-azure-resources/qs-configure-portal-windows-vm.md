@@ -1,5 +1,5 @@
 ---
-title: How to configure managed Identities for Azure resources on an Azure VM using the Azure portal
+title: Configure managed identities using the Azure portal - Azure AD
 description: Step by step instructions for configuring managed identities for Azure resources on an Azure VM using the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018

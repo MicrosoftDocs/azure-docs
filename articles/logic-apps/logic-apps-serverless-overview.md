@@ -1,17 +1,16 @@
 ---
-title: Overview - Azure Serverless
-description: Create powerful solutions in the cloud without worrying about infrastructure
+title: Overview - Azure Serverless for cloud-based apps and solutions
+description: Learn how to create cloud-based apps and solutions without worrying about infrastructure by using Azure Logic Apps and Azure Functions
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
 ---
 
-# Overview: Azure serverless with Azure Logic Apps and Azure Functions
+# Azure Serverless: Overview for building cloud-based apps and solutions with Azure Logic Apps and Azure Functions
 
 [Serverless](https://azure.microsoft.com/solutions/serverless/) apps offer benefits such as increased development speed, reduced code, simplicity, and scale. This article covers the different attributes of serverless solutions and Azure serverless offerings.
 

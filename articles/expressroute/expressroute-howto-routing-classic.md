@@ -1,14 +1,13 @@
 ﻿---
-title: 'Configure peering for a circuit - ExpressRoute: Azure: classic | Microsoft Docs'
+title: 'Azure ExpressRoute: Configure peering: classic'
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 04/24/2019
+ms.topic: how-to
+ms.date: 12/06/2019
 ms.author: cherylmc
-ms.custom: seodec18
 
 ---
 # Create and modify peering for an ExpressRoute circuit (classic)
@@ -32,9 +31,6 @@ These instructions only apply to circuits created with service providers that of
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Configuration prerequisites
 
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md) page, the [routing requirements](expressroute-routing.md) page, and the [workflows](expressroute-workflows.md) page before you begin configuration.
@@ -42,40 +38,7 @@ These instructions only apply to circuits created with service providers that of
 
 ### Download the latest PowerShell cmdlets
 
-Install the latest versions of the Azure Service Management (SM) PowerShell modules and the ExpressRoute module. When using the following example, note that the version number (in this example, 5.1.1) will change as newer versions of the cmdlets are released.
-
-```powershell
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
-Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
-```
-
-For more information, see [Getting started with Azure PowerShell cmdlets](/powershell/azure/overview) for step-by-step guidance on how to configure your computer to use the Azure PowerShell modules.
-
-### Sign in
-
-To sign in to your Azure account, use the following examples:
-
-1. Open your PowerShell console with elevated rights and connect to your account.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Check the subscriptions for the account.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-3. If you have more than one subscription, select the subscription that you want to use.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
-
-   ```powershell
-   Add-AzureAccount
-   ```
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
 ## Azure private peering
 

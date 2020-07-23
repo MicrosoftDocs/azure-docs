@@ -1,14 +1,8 @@
 ---
-title: Quickstart - Create a private Docker registry in Azure - Azure CLI
+title: Quickstart - Create registry - Azure CLI
 description: Quickly learn to create a private Docker container registry with the Azure CLI.
-services: container-registry
-author: dlepow
-manager: gwallace
-
-ms.service: container-registry
 ms.topic: quickstart
-ms.date: 01/22/2019
-ms.author: danlep
+ms.date: 06/12/2020
 ms.custom: "seodec18, H1Hack27Feb2017, mvc"
 ---
 # Quickstart: Create a private container registry using the Azure CLI
@@ -33,12 +27,13 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry SKUs][container-registry-skus].
+In this quickstart you create a *Basic* registry, which is a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
 
 Create an ACR instance using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry007* is used. Update this to a unique value.
 
 ```azurecli
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
+az acr create --resource-group myResourceGroup \
+  --name myContainerRegistry007 --sku Basic
 ```
 
 When the registry is created, the output is similar to the following:
@@ -64,14 +59,14 @@ When the registry is created, the output is similar to the following:
 }
 ```
 
-Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<acrName>` is a placeholder for the container registry name.
+Take note of `loginServer` in the output, which is the fully qualified registry name (all lowercase). Throughout the rest of this quickstart `<registry-name>` is a placeholder for the container registry name, and `<login-server>` is a placeholder for the registry's login server name.
 
 ## Log in to registry
 
 Before pushing and pulling container images, you must log in to the registry. To do so, use the [az acr login][az-acr-login] command.
 
 ```azurecli
-az acr login --name <acrName>
+az acr login --name <registry-name>
 ```
 
 The command returns a `Login Succeeded` message once completed.
@@ -83,7 +78,7 @@ The command returns a `Login Succeeded` message once completed.
 The following example lists the repositories in your registry:
 
 ```azurecli
-az acr repository list --name <acrName> --output table
+az acr repository list --name <registry-name> --output table
 ```
 
 Output:
@@ -97,7 +92,7 @@ hello-world
 The following example lists the tags on the **hello-world** repository.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository hello-world --output table
+az acr repository show-tags --name <registry-name> --repository hello-world --output table
 ```
 
 Output:
@@ -123,7 +118,10 @@ az group delete --name myResourceGroup
 In this quickstart, you created an Azure Container Registry with the Azure CLI, pushed a container image to the registry, and pulled and ran the image from the registry. Continue to the Azure Container Registry tutorials for a deeper look at ACR.
 
 > [!div class="nextstepaction"]
-> [Azure Container Registry tutorials][container-registry-tutorial-quick-task]
+> [Azure Container Registry tutorials][container-registry-tutorial-prepare-registry]
+
+> [!div class="nextstepaction"]
+> [Azure Container Registry Tasks tutorials][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
@@ -143,3 +141,4 @@ In this quickstart, you created an Azure Container Registry with the Azure CLI, 
 [azure-cli]: /cli/azure/install-azure-cli
 [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
+[container-registry-tutorial-prepare-registry]: container-registry-tutorial-prepare-registry.md

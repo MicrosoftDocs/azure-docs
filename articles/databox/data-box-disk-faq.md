@@ -6,11 +6,12 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 05/23/2019
+ms.topic: conceptual
+ms.date: 08/29/2019
 ms.author: alkohli
 ---
-# What is Azure Data Box Disk?
+
+# Azure Data Box Disk: Frequently Asked Questions
 
 The Microsoft Azure Data Box Disk cloud solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way. This FAQ contains questions and answers that you may have when you use Data Box Disks in the Azure portal. 
 
@@ -31,7 +32,7 @@ A.  Azure Data Box service is designed for offline data ingestion. This service 
 ### Q. What are Azure Data Box Disks?
 A. The Azure Data Box Disks allow a quick, inexpensive, and secure transfer of terabytes of data into and out of Azure. Microsoft ships you 1 to 5 disks, with a maximum storage capacity of 35 TB. You can easily configure, connect, and unlock these disks via the Data Box service in Azure portal.  
 
-Disks are encrypted using Microsoft BitLocker drive encryption, and your encryption keys are managed on the Azure portal. You then copy the data from the customer’s servers. In the datacenter, Microsoft migrates your data from drive to cloud using a fast, private network upload link and uploads it to Azure.
+Disks are encrypted using Microsoft BitLocker drive encryption, and your encryption keys are managed on the Azure portal. You then copy the data from the customer's servers. In the datacenter, Microsoft migrates your data from drive to cloud using a fast, private network upload link and uploads it to Azure.
 
 ### Q. When should I use Data Box Disks?
 A. If you have 40 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
@@ -51,8 +52,8 @@ A.  To see where the Data Box Disks are currently available, go to the [Region a
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
-### Q. Will my Data Box Disk cross country borders during shipping?
-A. Data Box Disk are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where disks can ship to and from any EU country.
+### Q. Will my Data Box Disk cross country/region borders during shipping?
+A. Data Box Disk are shipped from within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where disks can ship to and from any EU country/region.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -84,13 +85,31 @@ A.  You can track the status of the Data Box Disk order in the Azure portal. Whe
 ### Q. How do I return the disks? 
 A.  Microsoft provides a shipping label with the Data Box Disks in the shipping package. Affix the label to the shipping box and drop off the sealed package at your shipping carrier location. If the label is damaged or lost, go to **Overview > Download shipping label** and download a new return shipping label.
 
+### Can I pick up my Data Box Disk order myself? Can I return the disks via a carrier that I choose?
+A. Yes. Microsoft also offers self-managed shipping in US Gov region only. When placing the Data Box Disk order, you can choose self-managed shipping option. To pick up your Data Box Disk order, take the following steps:
+    
+1. After you have placed the order, the order is processed and the disks are prepared. You will be notified via an email that your order is ready for pickup. 
+2. Once the order is ready for pickup, go to your order in the Azure portal and navigate to the **Overview** blade. 
+3. You will see a notification with a code in the Azure portal. Email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. The team will provide the location and schedule a pickup date and time. You must call the team within 5 business days after you receive the email notification.
+
+Once the data copy and validation is complete, take the following steps to return your disk:
+
+1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
+2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
+
+    - Reuse the packaging from the initial shipment. We recommend that you pack disks using a well-secured bubbled wrap.
+    - Make sure the fit is snug to reduce any movements within the box.
+3. Go to the **Overview blade** for your order in Azure portal. You should see a notification with a code.
+4. Use that code and email the [Azure Data Box Operations team](mailto:adbops@microsoft.com) and provide them the code. They would provide you information on where and when to drop off the disks.
+
+
 ## Migrate data
 
 ### Q. What is the maximum data size that can be used with Data Box Disks?  
 A.  Data Box Disks solution can have up to 5 disks with a maximum usable capacity of 35 TB. The disks themselves are 8 TB (usable 7 TB).
 
 ### Q. What are the maximum block blob and page blob sizes supported by Data Box Disks? 
-A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, go to [Azure Storage Scalability and Performance Targets](../storage/common/storage-scalability-targets.md).
+A.  The maximum sizes are governed by Azure Storage limits. The maximum block blob is roughly 4.768 TiB and the maximum page blob size is 8 TiB. For more information, see [Scalability and performance targets for Blob storage](../storage/blobs/scalability-targets.md).
 
 ### Q. What is the data transfer speed for Data Box Disks?
 A. When tested with disks connected via USB 3.0, the disk performance was up to 430 MB/s. The actual numbers vary depending upon the file size used. For smaller files, you may see lower performance.
@@ -108,14 +127,14 @@ A.  To speed up the copy process:
 - Use multiple sessions.
 - Instead of copying over network share (where you could be limited by the network speeds) ensure that you have the data residing locally on the computer to which the disks are connected.
 - Ensure that you are using USB 3.0 or later throughout the copy process. Download and use the [USBView tool](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview) to identify the USB controllers and USB devices connected to the computer.
-- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://bluestop.org/fio/) to benchmark the performance of the server hardware.
+- Benchmark the performance of the computer used to copy the data. Download and use the [Bluestop FIO tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
 
 ### Q. How to speed up the data if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.
+- Copy files to the VM's disk.
 
 ### Q. Can I use multiple storage accounts with Data Box Disks?
 A.  No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported. Currently, only the storage accounts in US, West Europe, and North Europe in the Azure public cloud are supported.
@@ -136,7 +155,7 @@ A. Azure Files are supported with Data Box Disk but will not work well with Azur
 
 ## Verify and upload
 
-### Q. How soon can I access my data in Azure once I’ve shipped the disks back? 
+### Q. How soon can I access my data in Azure once I've shipped the disks back? 
 A.  Once the order status for Data Copy shows as complete, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?

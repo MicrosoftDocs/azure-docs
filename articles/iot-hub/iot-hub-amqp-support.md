@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
+ms.custom:  [amqp, mqtt]
 ---
 
 # Communicate with your IoT hub by using the AMQP Protocol
@@ -258,7 +259,7 @@ The following link paths are supported as device operations:
 | Created by | Link type | Link path | Description |
 |------------|-----------|-----------|-------------|
 | Devices | Receiver link | `/devices/<deviceID>/messages/devicebound` | Cloud-to-device messages that are destined for devices are received on this link by each destination device. |
-| Devices | Sender link | `/devices/<deviceID>messages/events` | Device-to-cloud messages that are sent from a device are sent over this link. |
+| Devices | Sender link | `/devices/<deviceID>/messages/events` | Device-to-cloud messages that are sent from a device are sent over this link. |
 | Devices | Sender link | `/messages/serviceBound/feedback` | Cloud-to-device message feedback sent to the service over this link by devices. |
 
 ### Receive cloud-to-device commands (device client)

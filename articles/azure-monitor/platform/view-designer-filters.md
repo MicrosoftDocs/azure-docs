@@ -1,18 +1,12 @@
 ---
 title: Filters in Azure Monitor views | Microsoft Docs
 description: A filter in an Azure Monitor view allows users to filter the data in the view by the value of a particular property without modifying the view itself.  This article describes how to use a filter and add one to a custom view.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
+ms.date: 06/22/2018
+
 ---
 
 # Filters in Azure Monitor views
@@ -63,15 +57,19 @@ For a filter to have any effect, you must modify any queries in the view to filt
 
 The syntax for using a filter value in a query is: 
 
-    where ${filter name}  
+`where ${filter name}`  
 
 For example, if your view has a query that returns events and uses a filter called _Computers_, you could use the following query.
 
-    Event | where ${Computers} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | summarize count() by EventLevelName
+```
 
 If you added another filter called Severity, you could use the following query to use both filters.
 
-    Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```kusto
+Event | where ${Computers} | where ${Severity} | summarize count() by EventLevelName
+```
 
 ## Next steps
 * Learn more about the [Visualization Parts](view-designer-parts.md) you can add to your custom view.

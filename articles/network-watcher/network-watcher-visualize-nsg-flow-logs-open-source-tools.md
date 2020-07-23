@@ -1,20 +1,17 @@
 ---
-title: Manage and analyze Network Security Group flow logs using Network Watcher and Elastic Stack | Microsoft Docs
+title: Visualize NSG flow logs - Elastic Stack
+titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Elastic Stack.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor:
-
-ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
+ms.author: damendo
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -22,9 +19,6 @@ ms.author: mareat
 Network Security Group flow logs provide information that can be used understand ingress and egress IP traffic on Network Security Groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5 tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
 These flow logs can be difficult to manually parse and gain insights from. However, there are several open source tools that can help visualize this data. This article will provide a solution to visualize these logs using the Elastic Stack, which will allow you to quickly index and visualize your flow logs on a Kibana dashboard.
-
-> [!Warning]  
-> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
 
 ## Scenario
 
@@ -136,6 +130,11 @@ For further instructions on installing Elastic search, refer to [Installation in
                   "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
                   "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
                   "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+	               "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+	               "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+	               "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+	               "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
                    }
       convert => {"unixtimestamp" => "integer"}
       convert => {"srcPort" => "integer"}

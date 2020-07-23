@@ -1,13 +1,13 @@
 ---
 title: Schedule Azure Data Lake Analytics U-SQL jobs using SSIS
-description: Learn how to use SQL Server Integration Services to schedule U-SQL jobs.
+description: Learn how to use SQL Server Integration Services to schedule U-SQL jobs with inline script or from U-SQL query files.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
 ---
@@ -165,4 +165,3 @@ In some cases, you may want to dynamically set the U-SQL variable value in the U
 - [Run SSIS packages in Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Azure Feature Pack for Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Schedule U-SQL jobs using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
-

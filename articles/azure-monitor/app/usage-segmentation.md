@@ -1,18 +1,12 @@
 ---
-title: User, session, and event analysis in Azure Application Insights | Microsoft docs
+title: User, session, and event analysis in Azure Application Insights
 description: Demographic analysis of users of your web app.
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/24/2018
-ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
+author: NumberByColors
 ms.author: daviste
+ms.date: 01/24/2018
+
+ms.reviewer: mbullwin
 ---
 
 # Users, sessions, and events analysis in Application Insights
@@ -59,10 +53,10 @@ The **Meet your users** section shows information about five sample users matche
 
 ## Next steps
 
-- To enable usage experiences, start sending [custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) or [page views](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- To enable usage experiences, start sending [custom events](./api-custom-events-metrics.md#trackevent) or [page views](./api-custom-events-metrics.md#page-views).
 - If you already send custom events or page views, explore the Usage tools to learn how users use your service.
     - [Funnels](usage-funnels.md)
     - [Retention](usage-retention.md)
     - [User Flows](usage-flows.md)
-    - [Workbooks](../../azure-monitor/app/usage-workbooks.md)
+    - [Workbooks](../../azure-monitor/platform/workbooks-overview.md)
     - [Add user context](usage-send-user-context.md)

@@ -3,12 +3,12 @@ title: 'Azure PowerShell script sample - Create a VPN Gateway | Microsoft Docs'
 description: Create a VPN gateway using powershell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 04/17/2018
+ms.date: 01/09/2020
 ms.author: alzam
 ---
 
@@ -78,4 +78,4 @@ This script uses the following commands to create the deployment. Each item in t
 
 ## Next steps
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).

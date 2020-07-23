@@ -1,14 +1,10 @@
 ---
-title: Azure CLI script sample - Create a network for multi-tier applications | Microsoft Docs
+title: Create a VNet for multi-tier applications - Azure CLI script sample
 description: Azure CLI script sample - Create a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags:
-
-ms.assetid:
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,7 +15,7 @@ ms.author: kumud
 
 ---
 
-# Create a network for multi-tier applications script sample
+# Create a virtual network for multi-tier applications using an Azure CLI script sample
 
 This script sample creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. After running the script, you have two virtual machines, one in each subnet, that you can deploy web server and MySQL software to.
 

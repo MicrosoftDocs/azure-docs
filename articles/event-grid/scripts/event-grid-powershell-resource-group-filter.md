@@ -1,17 +1,9 @@
 ---
-title: Azure PowerShell script sample - Subscribe to resource group and filter by resource | Microsoft Docs
-description: Azure PowerShell script sample - Subscribe to resource group and filter by resource
-services: event-grid
-documentationcenter: na
-author: tfitzmac
-
-ms.service: event-grid
+title: Azure PowerShell - subscribe to resource group
+description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for a resource group and filter for a resource.
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
+ms.date: 07/08/2020
 ---
 
 # Subscribe to events for a resource group and filter for a resource with PowerShell

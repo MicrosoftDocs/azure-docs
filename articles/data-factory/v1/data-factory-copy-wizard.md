@@ -1,5 +1,5 @@
 ---
-title: Copy data easily with Copy Wizard - Azure | Microsoft Docs
+title: Copy data easily with Copy Wizard - Azure 
 description: Learn about how to use the Data Factory Copy Wizard to copy data from supported data sources to sinks.
 services: data-factory
 documentationcenter: ''
@@ -10,7 +10,7 @@ editor:
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+
 
 ms.topic: conceptual
 ms.date: 01/22/2018
@@ -64,10 +64,12 @@ You can use variables in the folder path to copy data from a folder that is dete
 
 Suppose that you have input folders in the following format:
 
-    2016/03/01/01
-    2016/03/01/02
-    2016/03/01/03
-    ...
+```text
+2016/03/01/01
+2016/03/01/02
+2016/03/01/03
+...
+```
 
 Click the **Browse** button for **File or folder**, browse to one of these folders (for example, 2016->03->01->02), and click **Choose**. You should see `2016/03/01/02` in the text box. Now, replace **2016** with **{year}**, **03** with **{month}**, **01** with **{day}**, and **02** with **{hour}**, and press Tab. You should see drop-down lists to select the format for these four variables:
 

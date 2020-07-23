@@ -9,6 +9,7 @@ ms.reviewer: barbkess
 
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -106,11 +107,10 @@ To configure Azure AD single sign-on with Central Desktop, perform the following
 
     b. In the **Identifier** box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
-	| `https://<companyname>.imeetcentral.com/saml2-metadata.php`|
-    | |
+    ```http
+    https://<companyname>.centraldesktop.com/saml2-metadata.php
+    https://<companyname>.imeetcentral.com/saml2-metadata.php
+    ```
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<companyname>.centraldesktop.com/saml2-assertion.php`

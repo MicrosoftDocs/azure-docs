@@ -1,9 +1,9 @@
 ---
-title: Azure Media Services - Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC | Microsoft Docs
-description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. This is an amendment to the Smooth Streaming protocol documentation (MS-SSTR) to include support for HEVC ingest and streaming. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
+title: Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC - Azure
+description: This specification describes the protocol and format for fragmented MP4-based live streaming with HEVC in Azure Media Services. Only the changes required to deliver HEVC are specified in this article, except were “(No Change)” indicates text is copied for clarification only.
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/19/2019
 ms.author: johndeu
 
 ---
@@ -26,10 +26,7 @@ specification [MS-SSTR] to enable Smooth Streaming of HEVC encoded video. In thi
 outline only the changes required to deliver the HEVC video codec. The article follows the same
 numbering schema as the [MS-SSTR] specification. The empty headlines presented throughout the article are provided to orient the reader to their position in the [MS-SSTR] specification.  “(No Change)” indicates text is copied for clarification purposes only.
 
-The article provides technical implementation requirements for the signaling of HEVC video codec 
-in a Smooth Streaming manifest and normative  references are updated to reference the current MPEG standards 
-that include HEVC, Common Encryption of HEVC, and box names for ISO Base Media File
-Format have been updated to be consistent with the latest specifications. 
+The article provides technical implementation requirements for the signaling of HEVC video codec (using either 'hev1' or 'hvc1' format tracks) in a Smooth Streaming manifest and normative  references are updated to reference the current MPEG standards that include HEVC, Common Encryption of HEVC, and box names for ISO Base Media File Format have been updated to be consistent with the latest specifications. 
 
 The referenced Smooth Streaming Protocol specification [MS-SSTR] describes the
 wire format used to deliver live and on-demand digital media,
@@ -95,7 +92,7 @@ or more **samples**.
 ### 1.2.1 Normative References 
 
 >  [MS-SSTR] Smooth Streaming Protocol *v20140502*
->   [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>   [https://msdn.microsoft.com/library/ff469518.aspx](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251)
 > 
 >   [ISO/IEC 14496-12] International Organization for Standardization,
 >   "Information technology -- Coding of audio-visual objects -- Part 12: ISO
@@ -215,6 +212,9 @@ Units SHALL be encrypted.
 > 
 > * "hev1”: Video samples for this track use HEVC video, using the ‘hev1’
 >   sample description format specified in [ISO/IEC-14496-15].
+>
+> * "hvc1”: Video samples for this track use HEVC video, using the ‘hvc1’
+>   sample description format specified in [ISO/IEC-14496-15].
 > 
 >   **CodecPrivateData (variable):** Data that specifies parameters specific to
 >   the media format and common to all samples in the track, represented as a
@@ -222,7 +222,7 @@ Units SHALL be encrypted.
 >   varies with the value of the **FourCC** field as follows:
 > 
 >   * When a TrackElement describes HEVC video, the **FourCC** field SHALL equal
->   **"hev1"** and;
+>   **"hev1"** or **"hvc1"**
 > 
 >   The **CodecPrivateData** field SHALL contain a hex-coded string
 >   representation of the following byte sequence, specified in ABNF
@@ -251,7 +251,7 @@ Units SHALL be encrypted.
 
 ### 2.2.3 Fragment Request 
 
->   **Note**: The default media format requested for **MinorVersion** 2 and ‘hev1’
+>   **Note**: The default media format requested for **MinorVersion** 2 and ‘hev1’ or 'hvc1'
 >   is ‘iso8’ brand ISO Base Media File Format specified in [ISO/IEC 14496-12]
 >   ISO Base Media File Format Fourth Edition, and [ISO/IEC 23001-7] Common
 >   Encryption Second Edition.
@@ -362,10 +362,12 @@ Units SHALL be encrypted.
 >   The syntax of the fields defined in this section, specified in ABNF
 >   [[RFC5234],](https://go.microsoft.com/fwlink/?LinkId=123096) is as follows:
 
-    FileType = MajorBrand MinorVersion CompatibleBrands
-    MajorBrand = STRING_UINT32
-    MinorVersion = STRING_UINT32
-    CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```properties
+FileType = MajorBrand MinorVersion CompatibleBrands
+MajorBrand = STRING_UINT32
+MinorVersion = STRING_UINT32
+CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
+```
 
 **Note**: The compatibility brands ‘ccff’ and ‘iso8’ indicate that fragments conform
 to “Common Container File Format” and Common Encryption [ISO/IEC 23001-7] and
@@ -413,14 +415,18 @@ ISO Base Media File Format Edition 4 [ISO/IEC 14496-12].
 > 
 >   Presentations containing HEVC Streams SHALL set:
 
-    MajorVersion = 2
-    MinorVersion = 2
+```properties
+MajorVersion = 2
+MinorVersion = 2
+```
 
 >   LookaheadCount = 0 (Note: Boxes deprecated)
 > 
 >   Presentations SHOULD also set:
 
-    TimeScale = 90000
+```properties
+TimeScale = 90000
+```
 
 >   Stream Collection: A collection of Stream Description data elements, as
 >   specified in section *3.1.1.1.2*.

@@ -1,6 +1,6 @@
 ---
-title: Azure Kinect Record and playback API
-description: Using record and playback API
+title: Azure Kinect playback API
+description: Learn how to use the Azure Kinect Sensor SDK to open a recording file using the playback API.
 author: xthexder
 ms.author: jawirth
 ms.prod: kinect-dk
@@ -8,7 +8,7 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, depth, rgb, record, playback, matroska, mkv
 ---
-# The Azure Kinect record and playback API
+# The Azure Kinect playback API
 
 The sensor SDK provides an API for recording device data to a Matroska (.mkv) file. The Matroska container format stores video tracks, IMU samples, and device calibration. Recordings can be generated using the provided [k4arecorder](record-sensor-streams-file.md) command-line utility. Recordings can also be customized and recorded directly using the record API.
 

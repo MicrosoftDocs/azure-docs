@@ -1,33 +1,25 @@
 ---
 title: Introduction to Azure Queues - Azure Storage
 description: Introduction to Azure Queues
-services: storage
 author: mhopkins-msft
 
-ms.service: storage
-ms.topic: overview
-ms.date: 06/07/2019
 ms.author: mhopkins
-ms.reviewer: cbrooks
+ms.date: 03/18/2020
+ms.service: storage
 ms.subservice: queues
+ms.topic: overview
+ms.reviewer: dineshm
 ---
 
-# What are Azure Queues?
+# What are Azure queues?
 
-Azure Queue storage is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account.
-
-## Common uses
-
-Common uses of Queue storage include:
-
-* Creating a backlog of work to process asynchronously
-* Passing messages from an Azure web role to an Azure worker role
+Azure Queue Storage is a service for storing large numbers of messages. You access messages from anywhere in the world via authenticated calls using HTTP or HTTPS. A queue message can be up to 64 KB in size. A queue may contain millions of messages, up to the total capacity limit of a storage account. Queues are commonly used to create a backlog of work to process asynchronously.
 
 ## Queue service concepts
 
 The Queue service contains the following components:
 
-![Queue Concepts](./media/storage-queues-introduction/queue1.png)
+![Diagram showing the relationship between a storage account, queues, and messages](./media/storage-queues-introduction/queue1.png)
 
 * **URL format:** Queues are addressable using the following URL format:
 
@@ -37,7 +29,7 @@ The Queue service contains the following components:
   
     `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Storage account:** All access to Azure Storage is done through a storage account. See [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) for details about storage account capacity.
+* **Storage account:** All access to Azure Storage is done through a storage account. For information about storage account capacity, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 * **Queue:** A queue contains a set of messages. The queue name **must** be all lowercase. For information on naming queues, see [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 

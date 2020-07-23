@@ -4,8 +4,6 @@ description: This tutorial describes how to deploy a Web App, API App, or Mobile
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: sdubeymsft
-manager: zakramer
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
-ms.author: sdubey
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government and deploy an Azure App Services app in the Azure Government cloud because i want to be sure that my agency meets government security and compliance requirements.
 ---
@@ -40,8 +37,6 @@ If you don't have an Azure Government subscription, create a [free account](http
 * Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> with the **ASP.NET and web development** workload.
 
     If you've installed Visual Studio already, add the workload in Visual Studio by clicking **Tools** > **Get Tools and Features**.
-
-* Follow [these instructions](documentation-government-get-started-connect-with-vs.md) to configure Visual Studio to connect to Azure Government account.
 
 ## Sign in to Azure Government 
 

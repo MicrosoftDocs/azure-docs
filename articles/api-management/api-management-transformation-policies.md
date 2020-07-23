@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
@@ -74,15 +73,15 @@ This topic provides a reference for the following API Management policies. For i
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - always apply conversion.<br />-   content-type-json - convert only if response Content-Type header indicates presence of JSON.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if JSON is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  The `xml-to-json` policy converts a request or response body from XML to JSON. This policy can be used to modernize APIs based on XML-only backend web services.
@@ -119,14 +118,14 @@ This topic provides a reference for the following API Management policies. For i
 |----------|-----------------|--------------|-------------|
 |kind|The attribute must be set to one of the following values.<br /><br /> -   javascript-friendly - the converted JSON has a form friendly to JavaScript developers.<br />-   direct - the converted JSON reflects the original XML document's structure.|Yes|N/A|
 |apply|The attribute must be set to one of the following values.<br /><br /> -   always - convert always.<br />-   content-type-xml - convert only if response Content-Type header indicates presence of XML.|Yes|N/A|
-|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
+|consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if JSON is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
  The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
@@ -157,11 +156,11 @@ This topic provides a reference for the following API Management policies. For i
 |to|The replacement string. Specify a zero length replacement string to remove the search string.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="MaskURLSContent"></a> Mask URLs in content
  The `redirect-content-urls` policy re-writes (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to re-write response body links to make them point to the gateway. Use in the inbound section for an opposite effect.
@@ -188,11 +187,11 @@ This topic provides a reference for the following API Management policies. For i
 |redirect-content-urls|Root element.|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetBackendService"></a> Set backend service
  Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
@@ -210,7 +209,7 @@ or
 ```
 
 > [!NOTE]
-> Backend entities can be managed via management [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Backend entities can be managed via management [API](/rest/api/apimanagement/2019-12-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### Example
 
@@ -265,7 +264,7 @@ In this example the policy routes the request to a service fabric backend, using
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
-|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](/rest/api/apimanagement/2019-12-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
@@ -273,20 +272,20 @@ In this example the policy routes the request to a service fabric backend, using
 |sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using ‘backend-id’. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute is not specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. |No|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetBody"></a> Set body
  Use the `set-body` policy to set the message body for incoming and outgoing requests. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
 > [!IMPORTANT]
 >  Note that by default when you access the message body using `context.Request.Body` or `context.Response.Body`, the original message body is lost and must be set by returning the body back in the expression. To preserve the body content, set the `preserveContent` parameter to `true` when accessing the message. If `preserveContent` is set to `true` and a different body is returned by the expression, the returned body is used.
-> 
+>
 >  Please note the following considerations when using the `set-body` policy.
-> 
+>
 > - If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
 >   -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
 >   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
@@ -443,11 +442,11 @@ OriginalUrl.
 
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetHTTPheader"></a> Set HTTP header
  The `set-header` policy assigns a value to an existing response and/or request header or adds a new response and/or request header.
@@ -464,13 +463,20 @@ OriginalUrl.
 
 ### Examples
 
-#### Example
+#### Example - adding header, override existing
 
 ```xml
 <set-header name="some header name" exists-action="override">
     <value>20</value>
 </set-header>
 ```
+#### Example - removing header
+
+```xml
+ <set-header name="some header name" exists-action="delete" />
+```
+
+
 
 #### Forward context information to the backend service
  This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
@@ -504,7 +510,7 @@ OriginalUrl.
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |set-header|Root element.|Yes|
-|value|Specifies the value of the header to be set. For multiple headers with the same name add additional `value` elements.|Yes|
+|value|Specifies the value of the header to be set. For multiple headers with the same name add additional `value` elements.|No|
 
 ### Properties
 
@@ -514,11 +520,11 @@ OriginalUrl.
 |name|Specifies name of the header to be set.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetQueryStringParameter"></a> Set query string parameter
  The `set-query-parameter` policy adds, replaces value of, or deletes request query string parameter. Can be used to pass query parameters expected by the backend service which are optional or never present in the request.
@@ -531,17 +537,12 @@ OriginalUrl.
 </set-query-parameter>
 ```
 
-### Examples
-
 #### Example
 
 ```xml
 
-<set-query-parameter>
-  <parameter name="api-key" exists-action="skip">
-    <value>12345678901</value>
-  </parameter>
-  <!-- for multiple parameters with the same name add additional value elements -->
+<set-query-parameter name="api-key" exists-action="skip">
+  <value>12345678901</value>
 </set-query-parameter>
 
 ```
@@ -574,11 +575,11 @@ OriginalUrl.
 |name|Specifies name of the query parameter to be set.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="RewriteURL"></a> Rewrite URL
  The `rewrite-uri` policy converts a request URL from its public form to the form expected by the web service, as shown in the following example.
@@ -652,11 +653,11 @@ OriginalUrl.
 |copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the re-write template|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.
@@ -716,16 +717,16 @@ OriginalUrl.
 |xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](https://www.w3.org/TR/xslt)|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## Next steps
 
 For more information, see the following topics:
 
 + [Policies in API Management](api-management-howto-policies.md)
-+ [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
++ [Policy Reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy samples](policy-samples.md)

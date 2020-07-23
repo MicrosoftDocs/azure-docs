@@ -1,6 +1,6 @@
 ---
 
-title: Quickstart Add a guest user with PowerShell - Azure Active Directory | Microsoft Docs
+title: 'Quickstart: Add a guest user with PowerShell - Azure AD'
 description: In this quickstart, you learn how to use PowerShell to send an invitation to an external Azure AD B2B collaboration user.
 
 services: active-directory
@@ -78,7 +78,7 @@ When prompted, enter your credentials.
 1. To send an invitation to your test email account, run the following PowerShell command (replace **"Sanda"** and **sanda\@fabrikam.com** with your test email account name and email address): 
 
    ```powershell
-   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
+   New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.microsoft.com -SendInvitationMessage $true
    ```
 2. The command sends an invitation to the email address specified. Check the output, which should look similar to the following:
 

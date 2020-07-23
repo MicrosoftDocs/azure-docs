@@ -1,13 +1,9 @@
 ---
-title: Build serverless apps by using Azure Logic Apps and Azure Functions in Visual Studio
-description: Build, deploy, and manage your first serverless app by using Azure Logic Apps and Azure Functions in Visual Studio
+title: Build first serverless app in Visual Studio
+description: Build, deploy, and manage a serverless app by using Azure Logic Apps and Azure Functions in Visual Studio
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.custom: vs-azure
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
 ---
@@ -40,7 +36,7 @@ To build a serverless app in Visual Studio, you need:
     > that you select the **Azure development** workload.
 
   * [Microsoft Azure SDK for .NET (version 2.9.1 or later)](https://azure.microsoft.com/downloads/). 
-  Learn more about [Azure SDK for .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  Learn more about [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation).
 
@@ -54,7 +50,7 @@ To build a serverless app in Visual Studio, you need:
   
     You can either download and install Azure Logic Apps Tools 
     directly from the Visual Studio Marketplace, or learn 
-    [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+    [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Make sure that you restart Visual Studio after you finish installing.
 
   * [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) 
@@ -71,12 +67,12 @@ To build a serverless app in Visual Studio, you need:
 ## Create a resource group project
 
 To get started, create an 
-[Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 
+[Azure Resource Group project](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) 
 for your serverless app. In Azure, you create resources within a *resource group*, 
 which is a logical collection you use for organizing, managing, and deploying 
 resources for an entire app as a single asset. For a serverless app in Azure, 
 your resource group includes resources for both Azure Logic Apps and Azure Functions. 
-Learn more about [Azure resource groups and resources](../azure-resource-manager/resource-group-overview.md).
+Learn more about [Azure resource groups and resources](../azure-resource-manager/management/overview.md).
 
 1. Start Visual Studio and sign in by using your Azure account.
 
@@ -187,7 +183,7 @@ Python, F#, PowerShell, Batch, or Bash, follow the steps in
 [Work with Azure Functions Core Tools](../azure-functions/functions-run-local.md). 
 To develop your Azure function by using C# inside your solution, 
 use a C# class library by following the steps in 
-[Publish a .NET class library as a Function App](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+[Publish a .NET class library as a Function App](https://azure.microsoft.com/blog/).
 
 ## Deploy functions from Visual Studio
 

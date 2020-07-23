@@ -1,18 +1,12 @@
 ---
 title: Capacity and Performance solution in Azure Monitor | Microsoft Docs
 description: Use the Capacity and Performance solution in Monitor to help you understand the capacity of your Hyper-V servers.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 07/13/2017
-ms.author: magoedte
+
 ---
 
 # Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (deprecated)
@@ -46,7 +40,7 @@ The following table describes the connected sources that are supported by this s
 | [Windows agents](../../azure-monitor/platform/agent-windows.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
 | [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
 | [SCOM management group](../../azure-monitor/platform/om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
-| [Azure storage account](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No | Azure storage does not include capacity and performance data.|
+| [Azure storage account](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage does not include capacity and performance data.|
 
 ## Prerequisites
 
@@ -111,7 +105,7 @@ Click on the Capacity and Performance tile to open the Capacity and Performance 
 
 Production computing environments differ greatly from one organization to another. Also, capacity and performance workloads might depend on how your VMs are running, and what you consider normal. Specific procedures to help you measure performance would probably not apply to your environment. So, more generalized prescriptive guidance is better suited to help. Microsoft publishes a variety of prescriptive guidance articles to help you measure performance.
 
-To summarize, the solution collects capacity and performance data from a variety of sources including performance counters. Use that capacity and performance data that presented in various surfaces in the solution and compare your results to those at the [Measuring Performance on Hyper-V](https://msdn.microsoft.com/library/cc768535.aspx) article. Although the article was published some time ago, the metrics, considerations, and guidelines are still valid. The article contains links to other useful resources.
+To summarize, the solution collects capacity and performance data from a variety of sources including performance counters. Use that capacity and performance data that presented in various surfaces in the solution and compare your results to those at the [Measuring Performance on Hyper-V](https://www.microsoft.com/en-us/download/details.aspx?id=56495) article. Although the article was published some time ago, the metrics, considerations, and guidelines are still valid. The article contains links to other useful resources.
 
 
 ## Sample log searches

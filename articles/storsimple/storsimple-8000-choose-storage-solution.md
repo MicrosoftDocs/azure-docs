@@ -11,6 +11,8 @@ ms.author: alkohli
 ---
 
 # Compare StorSimple with Azure File Sync and Data Box Edge data transfer options 
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
 This document provides an overview of options for on-premises data transfer to Azure, comparing: Data Box Edge vs. Azure File Sync vs. StorSimple 8000 series.
 
@@ -22,14 +24,14 @@ This document provides an overview of options for on-premises data transfer to A
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|Overview         |Tiered hybrid storage and archival|General file server storage with cloud tiering and multi-site sync.  |Storage solution to pre-process data and send it over network to Azure.        |
-|Scenarios        |File server, archival, backup target |File server, archival (multi-site)   |Data transfer, data pre-processing including ML inferencing, IoT, archival    |
-|Edge compute     |Not available |Not available |Supports running containers using Azure IoT Edge    |
-|Form factor      |Physical device   |Agent installed on Windows Server |Physical device   |
-|Hardware         |Physical device provided from Microsoft as part of the service | Customer provided |Physical device provided from Microsoft as part of the service  |
-|Data format      |Custom format   |Files         |Blobs or Files    |
-|Protocol support |iSCSI          |SMB, NFS    | SMB or NFS      |
-|Pricing          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
+|**Overview**     |Tiered hybrid storage and archival|General file server storage with cloud tiering and multi-site sync.  |Storage solution to pre-process data and send it over network to Azure.        |
+|**Scenarios**    |File server, archival, backup target |File server, archival (multi-site)   |Data transfer, data pre-processing including ML inferencing, IoT, archival    |
+|**Edge compute** |Not available |Not available |Supports running containers using Azure IoT Edge    |
+|**Form factor**  |Physical device   |Agent installed on Windows Server |Physical device   |
+|**Hardware**     |Physical device provided from Microsoft as part of the service | Customer provided |Physical device provided from Microsoft as part of the service  |
+|**Data format**  |Custom format   |Files         |Blobs or Files    |
+|**Protocol support** |iSCSI          |SMB, NFS    | SMB or NFS      |
+|**Pricing**      |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## Next steps
 

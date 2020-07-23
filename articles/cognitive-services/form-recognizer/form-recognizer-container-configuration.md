@@ -2,15 +2,17 @@
 title: How to configure a container for Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.author: dapine
+ms.date: 07/14/2020
+ms.author: aahi
 ---
 # Configure Form Recognizer containers
+
+[!INCLUDE [Form Recognizer containers limit](includes/container-limit.md)]
 
 By using Azure Form Recognizer containers, you can build an application architecture that's optimized to take advantage of both robust cloud capabilities and edge locality.
 
@@ -41,7 +43,7 @@ You can find this setting in the Azure portal, in **Form Recognizer Overview**, 
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
-|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus2.api.cognitive.microsoft.com/` |
+|Yes| `Billing` | String | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](form-recognizer-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -84,16 +86,17 @@ Replace {_argument_name_} in the following table with your own values:
 
 | Placeholder | Value |
 |-------------|-------|
-|{FORM_RECOGNIZER_API_KEY} | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page.  |
-|{FORM_RECOGNIZER_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
-|{COMPUTER_VISION_API_KEY}| The key is available on the Azure portal Computer Vision API Keys page.|
-|{COMPUTER_VISION_ENDPOINT_URI}|The billing endpoint. If you're using a cloud-based Computer Vision resource, the URI value is available on the Azure portal Computer Vision API Overview page. If you're using a  *cognitive-services-recognize-text* container, use the billing endpoint URL that's passed to the container in the `docker run` command.|
+| **{FORM_RECOGNIZER_API_KEY}** | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page. |
+| **{FORM_RECOGNIZER_ENDPOINT_URI}** | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
+| **{COMPUTER_VISION_API_KEY}** | The key is available on the Azure portal Computer Vision API Keys page.|
+| **{COMPUTER_VISION_ENDPOINT_URI}** | The billing endpoint. If you're using a cloud-based Computer Vision resource, the URI value is available on the Azure portal Computer Vision API Overview page. If you're using a *cognitive-services-recognize-text* container, use the billing endpoint URL that's passed to the container in the `docker run` command. |
+
+See [gathering required parameters](form-recognizer-container-howto.md#gathering-required-parameters) for details on how to obtain these values.
+
+[!INCLUDE [cognitive-services-custom-subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > To run the container, specify the `Eula`, `Billing`, and `ApiKey` options; otherwise, the container won't start. For more information, see [Billing](#billing-configuration-setting).
-
-> [!NOTE] 
-> The ApiKey value is the **Key** from the Azure Form Recognizer Resource keys page.
 
 ## Form Recognizer container Docker examples
 

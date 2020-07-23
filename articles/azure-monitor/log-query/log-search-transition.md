@@ -1,17 +1,12 @@
 ---
 title: Viewing and analyzing data in Azure Log Analytics | Microsoft Docs
 description: Assistance for users of Log Analytics log search to Azure Monitor log query experience.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/16/2019
+author: bwren
 ms.author: bwren
+ms.date: 01/16/2019
+
 ---
 
 # Transition from Log Analytics log search to Azure Monitor logs
@@ -59,7 +54,7 @@ In Azure Monitor logs, you must modify the query to return these records. Expand
 ![Azure Monitor logs drilldown](media/log-search-transition/drilldown-logs.png)
 
 ## Take action
-In Log Search, you can [start a runbook](take-action.md) from a search result by selecting **Take action**.
+In Log Search, you can [start a runbook](../platform/action-groups.md) from a search result by selecting **Take action**.
 
 ![Take action](media/log-search-transition/take-action-log-search.png)
 

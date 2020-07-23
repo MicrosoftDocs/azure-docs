@@ -1,7 +1,7 @@
 ---
 
 title: Manage streaming endpoints with the Azure portal | Microsoft Docs
-description: This topic shows how to manage streaming endpoints with the Azure portal.
+description: This article demonstrates how to manage streaming endpoints with the Azure portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -65,7 +65,7 @@ Streaming Endpoint enables you to configure the following properties:
 * Cache control
 * Cross site access policies
 
-For detailed information about these properties, see [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+For detailed information about these properties, see [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
 >When CDN is enabled, you cannot access IP access. IP access is only applicable when you don’t have CDN.
@@ -120,4 +120,3 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

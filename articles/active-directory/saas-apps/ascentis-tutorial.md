@@ -26,7 +26,6 @@ In this tutorial, you'll learn how to integrate Ascentis with Azure Active Direc
 
 * Control in Azure AD who has access to Ascentis.
 * Enable your users to be automatically signed-in to Ascentis with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -87,10 +86,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     In the **Sign-on URL** text box, type a URL using any one of the following pattern:
 
-	| |
-	|--|
-	| `https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true` |
-	| `https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true` |
+   ```https
+    https://selfservice.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
+    https://selfservice2.ascentis.com/<clientname>/STS/signin.aspx?SAMLResponse=true
+    ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Ascentis Client support team](mailto:support@ascentis.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

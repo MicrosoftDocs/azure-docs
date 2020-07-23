@@ -1,20 +1,11 @@
 ---
-title: Web application performance monitoring - Azure Application Insights | Microsoft Docs
+title: Web app performance monitoring - Azure Application Insights
 description: How Application Insights fits into the devOps cycle
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.author: mbullwin
 
 ---
+
 # Deep diagnostics for web apps and services with Application Insights
 ## Why do I need Application Insights?
 Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, Java EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
@@ -115,7 +106,7 @@ Application Map automatically discovers your application topology, laying the pe
 ![Application Map](./media/devops/0050.png)
 
 ## Application Insights Analytics
-With [Analytics](../../azure-monitor/app/analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
+With [Analytics](../log-query/log-query-overview.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
 
 You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation, and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
 
@@ -165,4 +156,3 @@ Getting started with Application Insights is easy. The main options are:
 * [IIS servers](../../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
 * Instrument your project during development. You can do this for [ASP.NET](../../azure-monitor/app/asp-net.md) or [Java](../../azure-monitor/app/java-get-started.md) apps, as well as [Node.js](../../azure-monitor/app/nodejs.md) and a host of [other types](../../azure-monitor/app/platforms.md). 
 * Instrument [any web page](../../azure-monitor/app/javascript.md) by adding a short code snippet.
-

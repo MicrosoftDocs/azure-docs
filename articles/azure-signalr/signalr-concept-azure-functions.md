@@ -1,10 +1,10 @@
 ---
-title: Build Real-time apps with Azure Functions and Azure SignalR Service
-description: An overview of using Azure SignalR Service in serverless applications.
+title: Build Real-time app - Azure Functions & Azure SignalR Service
+description: Learn how to develop real-time serverless web application with Azure SignalR Service by following example.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
 ---
 # Build real-time Apps with Azure Functions and Azure SignalR Service
@@ -16,7 +16,7 @@ Because Azure SignalR Service and Azure Functions are both fully managed, highly
 
 ## Integrate real-time communications with Azure services
 
-Azure Functions allow you to write code in [several languages](../azure-functions/supported-languages.md), including JavaScript, C#, and Java, that triggers whenever events occur in the cloud. Examples of these events include:
+Azure Functions allow you to write code in [several languages](../azure-functions/supported-languages.md), including JavaScript, Python, C#, and Java, that triggers whenever events occur in the cloud. Examples of these events include:
 
 * HTTP and webhook requests
 * Periodic timers

@@ -1,22 +1,20 @@
 ---
-title: Remove user or group assignments from an app in Azure Active Directory | Microsoft Docs
+title: Remove user or group assignments from an app in Azure AD
 description: How to remove the access assignment of a user or group from an enterprise app in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/12/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
 ms.custom: it-pro
-
 ms.collection: M365-identity-device-management
 ---
 

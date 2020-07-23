@@ -1,14 +1,13 @@
 ---
-title: 'Create and modify an ExpressRoute circuit: Azure CLI | Microsoft Docs'
+title: 'Create and modify an ExpressRoute circuit: Azure CLI'
 description: This article shows how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit using CLI.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: conceptual
-ms.date: 12/07/2018
+ms.topic: how-to
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
 
 ---
 # Create and modify an ExpressRoute circuit using CLI
@@ -36,7 +35,7 @@ This article describes how to create an Azure ExpressRoute circuit by using the 
 
 To begin your configuration, sign in to your Azure account. If you use the CloudShell "Try It", you are signed in automatically. Use the following examples to help you connect:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -62,7 +61,7 @@ az network express-route list-service-providers
 
 The response is similar to the following example:
 
-```azurecli
+```output
 [
   {
     "bandwidthsOffered": [
@@ -138,8 +137,8 @@ The following example shows how to create a 200-Mbps ExpressRoute circuit throug
 
 Make sure that you specify the correct SKU tier and SKU family:
 
-* SKU tier determines whether an ExpressRoute standard or an ExpressRoute premium add-on is enabled. You can specify 'Standard' to get the standard SKU or 'Premium' for the premium add-on.
-* SKU family determines the billing type. You can specify 'Metereddata' for a metered data plan and 'Unlimiteddata' for an unlimited data plan. You can change the billing type from 'Metereddata' to 'Unlimiteddata', but you can't change the type from 'Unlimiteddata' to 'Metereddata'.
+* SKU tier determines whether an ExpressRoute circuit is [Local](expressroute-faqs.md#expressroute-local), Standard or [Premium](expressroute-faqs.md#expressroute-premium). You can specify *Local*, *Standard* or *Premium*.
+* SKU family determines the billing type. You can specify *Metereddata* for a metered data plan and *Unlimiteddata* for an unlimited data plan. You can change the billing type from *Metereddata* to *Unlimiteddata*, but you can't change the type from *Unlimiteddata* to *Metereddata*. A *Local* circuit is *Unlimiteddata* only.
 
 
 Your ExpressRoute circuit is billed from the moment a service key is issued. The following example is a request for a new service key:
@@ -160,7 +159,7 @@ az network express-route list
 
 Your service key is listed in the *ServiceKey* field of the response.
 
-```azurecli
+```output
 "allowClassicOperations": false,
 "authorizations": [],
 "circuitProvisioningState": "Enabled",
@@ -201,21 +200,21 @@ az network express-route list -h
 
 When you create a new ExpressRoute circuit, the circuit is in the following state:
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 The circuit changes to the following state when the connectivity provider is in the process of enabling it for you:
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 For you to be able to use an ExpressRoute circuit, it must be in the following state:
 
-```azurecli-interactive
+```output
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -230,7 +229,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 The response is similar to the following example:
 
-```azurecli
+```output
 "allowClassicOperations": false,
 "authorizations": [],
 "circuitProvisioningState": "Enabled",

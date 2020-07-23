@@ -1,12 +1,8 @@
 ---
 title: View Azure Advisor recommendations that matter to you
 description: View and filter Azure Advisor recommendations to reduce noise.
-services: advisor
-author: kasparks
-ms.service: advisor
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: kasparks
 ---
 
 # View Azure Advisor recommendations that matter to you

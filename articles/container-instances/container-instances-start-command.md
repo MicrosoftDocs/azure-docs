@@ -1,14 +1,8 @@
 ---
-title: Use a starting command line in Azure Container Instances
-description: Override the entrypoint configured in a container image when you deploy an Azure container instance
-services: container-instances
-author: dlepow
-manager: gwallace
-
-ms.service: container-instances
+title: Override entrypoint in container instance
+description: Set a command line to override the entrypoint in a container image when you deploy an Azure container instance
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ---
 
 # Set the command line in a container instance to override the default command line operation
@@ -19,7 +13,7 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 ## Command line guidelines
 
-* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. 
+* By default, the command line specifies a *single process that starts without a shell* in the container. For example, the command line might run a Python script or executable file. The process can specify additional parameters or arguments.
 
 * To execute multiple commands, begin your command line by setting a shell environment that is supported in the container operating system. Examples:
 
@@ -55,8 +49,8 @@ The command line syntax varies depending on the Azure API or tool used to create
 
 |    |  Azure CLI   | Portal | Template | 
 | ---- | ---- | --- | --- |
-| Single command | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
-| Multiple commands | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
+| **Single command** | `--command-line "python myscript.py arg1 arg2"` | **Command override**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
+| **Multiple commands** | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**Command override**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
 
 ## Azure CLI example
 

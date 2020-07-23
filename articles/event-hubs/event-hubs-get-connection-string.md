@@ -1,17 +1,8 @@
 ---
 title: Get connection string - Azure Event Hubs | Microsoft Docs
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
-services: event-hubs
-documentationcenter: na
-author: spelluru
-manager: timlt
-
-ms.service: event-hubs
 ms.topic: article
-ms.custom: seodec18
-ms.date: 02/19/2019
-ms.author: spelluru
-
+ms.date: 06/23/2020
 ---
 
 # Get an Event Hubs connection string
@@ -53,7 +44,7 @@ This article walks you through various ways of obtaining the connection string.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-You can use the [Get-AzEventHubNamespaceKey](/powershell/module/az.eventhub/get-azeventhubkey) to get the connection string for the specific policy/rule name as shown below:
+You can use the [Get-AzEventHubKey](/powershell/module/az.eventhub/get-azeventhubkey) to get the connection string for the specific policy/rule name as shown below:
 
 ```azurepowershell-interactive
 Get-AzEventHubKey -ResourceGroupName dummyresourcegroup -NamespaceName dummynamespace -AuthorizationRuleName RootManageSharedAccessKey
@@ -66,11 +57,17 @@ You can use the following to get the connection string for the namespace:
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
+Or you can use the following to get the connection string for an EventHub entity:
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+```
+
 For more information about Azure CLI commands for Event Hubs, see [Azure CLI for Event Hubs](/cli/azure/eventhubs).
 
 ## Next steps
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](./event-hubs-about.md)
 * [Create an Event Hub](event-hubs-create.md)

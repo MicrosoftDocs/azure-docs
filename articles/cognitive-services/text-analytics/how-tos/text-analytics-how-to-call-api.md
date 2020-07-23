@@ -1,7 +1,7 @@
 ---
 title: Call the Text Analytics API
-titlesuffix: Azure Cognitive Services
-description: Learn how to call the Text Analytics REST API.
+titleSuffix: Azure Cognitive Services
+description: This article explains how you can call the Azure Cognitive Services Text Analytics REST API and Postman.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,24 +9,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ---
 
 # How to call the Text Analytics REST API
 
-Calls to the **Text Analytics API** are HTTP POST/GET calls, which you can formulate in any language. In this article, we use REST and [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) to demonstrate key concepts.
+Calls to the **Text Analytics API** are HTTP POST/GET calls, which you can formulate in any language. In this article, we use REST and [Postman](https://www.postman.com/downloads/) to demonstrate key concepts.
 
 Each request must include your access key and an HTTP endpoint. The endpoint specifies the region you chose during sign up, the service URL, and a resource used on the request: `sentiment`, `keyphrases`, `languages`, and `entities`. 
 
 Recall that Text Analytics is stateless so there are no data assets to manage. Your text is uploaded, analyzed upon receipt, and results are returned immediately to the calling application.
 
-> [!Tip]
-> For one-off calls to see how the API works, you can send POST requests from the built-in **API testing console**, available on any [API doc page](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). There is no setup, and the only requirements are to paste an access key and the JSON documents into the request. 
+[!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with the Text Analytics API, and the [endpoint and access key](text-analytics-how-to-access-key.md) that is generated for you when you sign up for Cognitive Services. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 <a name="json-schema"></a>
 

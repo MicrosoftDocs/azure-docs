@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
+ms.custom: [amqp, mqtt]
 ---
 
 # Reference - choose a communication protocol
@@ -34,16 +35,16 @@ Consider the following points when you choose your protocol for device-side comm
 
 * **Cloud-to-device pattern**. HTTPS does not have an efficient way to implement server push. As such, when you are using HTTPS, devices poll IoT Hub for cloud-to-device messages. This approach is inefficient for both the device and IoT Hub. Under current HTTPS guidelines, each device should poll for messages every 25 minutes or more. MQTT and AMQP support server push when receiving cloud-to-device messages. They enable immediate pushes of messages from IoT Hub to the device. If delivery latency is a concern, MQTT or AMQP are the best protocols to use. For rarely connected devices, HTTPS works as well.
 
-* **Field gateways**. When using MQTT and HTTPS, you cannot connect multiple devices (each with its own per-device credentials) using the same TLS connection. For [Field gateway scenarios](iot-hub-devguide-endpoints.md#field-gateways) that require one TLS connection between the field gateway and IoT Hub for each connected device, these protocols are suboptimal.
+* **Field gateways**. MQTT and HTTPS support only a single device identity (device ID plus credentials) per TLS connection. For this reason, these protocols are not supported for [field gateway scenarios](iot-hub-devguide-endpoints.md#field-gateways) that require multiplexing messages using multiple device identities across a single or a pool of upstream connections to IoT Hub. Such gateways can use a protocol that supports multiple device identities per connection, like AMQP, for their upstream traffic.
 
 * **Low resource devices**. The MQTT and HTTPS libraries have a smaller footprint than the AMQP libraries. As such, if the device has limited resources (for example, less than 1-MB RAM), these protocols might be the only protocol implementation available.
 
-* **Network traversal**. The standard AMQP protocol uses port 5671, and MQTT listens on port 8883. USe of these ports could cause problems in networks that are closed to non-HTTPS protocols. Use MQTT over WebSockets, AMQP over WebSockets, or HTTPS in this scenario.
+* **Network traversal**. The standard AMQP protocol uses port 5671, and MQTT listens on port 8883. Use of these ports could cause problems in networks that are closed to non-HTTPS protocols. Use MQTT over WebSockets, AMQP over WebSockets, or HTTPS in this scenario.
 
 * **Payload size**. MQTT and AMQP are binary protocols, which result in more compact payloads than HTTPS.
 
 > [!WARNING]
-> When using HTTPS, each device should poll for cloud-to-device messages every 25 minutes or more. However, during development, it is acceptable to poll more frequently than every 25 minutes.
+> When using HTTPS, each device should poll for cloud-to-device messages no more than once every 25 minutes. In development, each device can poll more frequently, if desired.
 
 ## Port numbers
 

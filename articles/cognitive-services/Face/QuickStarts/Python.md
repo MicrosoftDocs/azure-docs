@@ -9,14 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 04/14/2020
 ms.author: pafarley
+ms.custom: tracking-python
 #Customer intent: As a Python developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
 
 # Quickstart: Detect faces in an image using the Face REST API and Python
 
-In this quickstart, you will use the Azure Face REST API with Python to detect human faces in an image. The script will draw frames around the faces and superimpose gender and age information on the image.
+In this quickstart, you'll use the Azure Face REST API with Python to detect human faces in an image. The script will draw frames around the faces and superimpose gender and age information on the image.
 
 ![A man and a woman, each with a rectangle drawn around their faces and age and sex displayed on the image](../images/labelled-faces-python.png)
 
@@ -25,7 +26,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Run the Jupyter notebook
 
@@ -40,7 +44,7 @@ Alternately, you can run this quickstart from the command line with the followin
 1. Copy the following code into a text editor.
 1. Make the following changes in code where needed:
     1. Replace the value of `subscription_key` with your subscription key.
-    1. Replace the value of `face_api_url` with the endpoint URL for the Face API resource in the Azure region where you obtained your subscription keys, if necessary.
+    1. Edit the value of `face_api_url` to include the endpoint URL for your Face API resource.
     1. Optionally, replace the value of `image_url` with the URL of a different image that you want to analyze.
 1. Save the code as a file with an `.py` extension. For example, `detect-face.py`.
 1. Open a command prompt window.
@@ -50,10 +54,12 @@ Alternately, you can run this quickstart from the command line with the followin
 import requests
 import json
 
+# set to your own subscription key value
 subscription_key = None
 assert subscription_key
 
-face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
+# replace <My Endpoint String> with the string from your endpoint URL
+face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 

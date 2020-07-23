@@ -1,16 +1,15 @@
 ---
  title: include file
  description: include file
- services: search
  author: HeidiSteen
- ms.service: search
+ ms.service: cognitive-search
  ms.topic: include
  ms.date: 05/06/2019
  ms.author: heidist
  ms.custom: include file
 ---
 
-You can create multiple services within a subscription. Each one can be provisioned at a specific tier. You're limited only by the number of services allowed at each tier. For example, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. For more information about tiers, see [Choose an SKU or tier for Azure Search](../articles/search/search-sku-tier.md).
+You can create multiple services within a subscription. Each one can be provisioned at a specific tier. You're limited only by the number of services allowed at each tier. For example, you could create up to 12 services at the Basic tier and another 12 services at the S1 tier within the same subscription. For more information about tiers, see [Choose an SKU or tier for Azure Cognitive Search](../articles/search/search-sku-tier.md).
 
 Maximum service limits can be raised upon request. If you need more services within the same subscription, contact Azure Support.
 

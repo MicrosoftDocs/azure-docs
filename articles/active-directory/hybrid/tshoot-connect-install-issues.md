@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/31/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -53,7 +53,7 @@ However, if you don’t meet the express installation criteria and must do the c
 
 ## Next steps
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md).
-- [What is hybrid identity?](whatis-hybrid-identity.md).
+- [What is hybrid identity?](whatis-hybrid-identity.md)
 
 
 

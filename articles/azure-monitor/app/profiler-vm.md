@@ -1,19 +1,13 @@
 ---
-title: Profile web apps running on an Azure VM by using Application Insights Profiler | Microsoft Docs
+title:  Profile web apps on an Azure VM - Application Insights Profiler
 description: Profile web apps on an Azure VM by using Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
----
+ms.date: 11/08/2019
 
+ms.reviewer: mbullwin
+---
 
 # Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler
 
@@ -27,7 +21,7 @@ You can also deploy Azure Application Insights Profiler on these services:
 ## Deploy Profiler on a virtual machine or a virtual machine scale set
 This article shows you how to get Application Insights Profiler running on your Azure virtual machine (VM) or Azure virtual machine scale set. Profiler is installed with the Azure Diagnostics extension for VMs. Configure the extension to run Profiler, and build the Application Insights SDK into your application.
 
-1. Add the Application Insights SDK to your [ASP.NET application](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+1. Add the Application Insights SDK to your [ASP.NET application](./asp-net.md).
 
    To view profiles for your requests, you must send request telemetry to Application Insights.
 
@@ -74,7 +68,7 @@ This article shows you how to get Application Insights Profiler running on your 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. If establishing remote access is a problem, you can use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to run the following command:  
+   b. If establishing remote access is a problem, you can use the [Azure CLI](/cli/azure/get-started-with-azure-cli) to run the following command:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
@@ -89,15 +83,15 @@ We don't yet have a way to set the Application Insights Profiler sink from the p
 
     ![Check if WAD extension is installed][wadextension]
 
-1. Find the VM Diagnostics extension for your VM. Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
+2. Find the VM Diagnostics extension for your VM. Go to [https://resources.azure.com](https://resources.azure.com). Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
 
     ![Navigate to WAD config in Azure Resource Explorer][azureresourceexplorer]
 
-1. Add the Application Insights Profiler sink to the SinksConfig node under WadCfg. If you don't already have a SinksConfig section, you may need to add one. Be sure to specify the proper Application Insights iKey in your settings. You'll need to switch the explorers mode to Read/Write in the upper right corner and Press the blue 'Edit' button.
+3. Add the Application Insights Profiler sink to the SinksConfig node under WadCfg. If you don't already have a SinksConfig section, you may need to add one. Be sure to specify the proper Application Insights iKey in your settings. You'll need to switch the explorers mode to Read/Write in the upper right corner and Press the blue 'Edit' button.
 
     ![Add Application Insights Profiler Sink][resourceexplorersinksconfig]
 
-1. When you're done editing the config, press 'Put'. If the put is successful, a green check will appear in the middle of the screen.
+4. When you're done editing the config, press 'Put'. If the put is successful, a green check will appear in the middle of the screen.
 
     ![Send put request to apply changes][resourceexplorerput]
 

@@ -1,6 +1,6 @@
 ---
 title: Scalar expressions in Azure Cosmos DB SQL queries
-description: Learn about scalar expression SQL syntax for Azure Cosmos DB.
+description: Learn about the scalar expression SQL syntax for Azure Cosmos DB. This article also describes how to combine scalar expressions into complex expressions by using operators. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -137,5 +137,5 @@ The results are:
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](introduction.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Subqueries](sql-query-subquery.md)

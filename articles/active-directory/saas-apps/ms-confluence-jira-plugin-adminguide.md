@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: joflore
 
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -142,7 +143,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **You want to disable WebSudo (disable the secure administrator session)**:
 
-  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `ira.websudo.is.disabled = true`
+  * For Jira, secure administrator sessions (that is, password confirmation before accessing administration functions) are enabled by default. If you want to remove this ability in your Jira instance, specify the following line in your jira-config.properties file: `jira.websudo.is.disabled = true`
 
   * For Confluence, follow the steps on the [Confluence support site](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html).
 

@@ -1,18 +1,12 @@
 ---
 title: Guidance for personal data stored in Azure Log Analytics| Microsoft Docs
 description: This article describes how to manage personal data stored in Azure Log Analytics and the methods to identify and remove it.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 05/18/2018
-ms.author: magoedte
+
 ---
 
 # Guidance for personal data stored in Log Analytics and Application Insights
@@ -69,8 +63,8 @@ Log Analytics is a flexible store, which while prescribing a schema to your data
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *In-memory and in-transit data*: Application Insights will track exceptions, requests, dependency calls, and traces. Private data can often be collected at the code and HTTP call level. Review the exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) where possible to obfuscate this data.
-* *Snapshot Debugger captures*: The [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) feature in Application Insights allows you to collect debug snapshots whenever an exception is caught on the production instance of your application. Snapshots will expose the full stack trace leading to the exceptions as well as the values for local variables at every step in the stack. Unfortunately, this feature does not allow for selective deletion of snap points, or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate does not satisfy your compliance requirements, the recommendation is to turn off the feature.
+* *In-memory and in-transit data*: Application Insights will track exceptions, requests, dependency calls, and traces. Private data can often be collected at the code and HTTP call level. Review the exceptions, requests, dependencies, and traces tables to identify any such data. Use [telemetry initializers](../app/api-filtering-sampling.md) where possible to obfuscate this data.
+* *Snapshot Debugger captures*: The [Snapshot Debugger](../app/snapshot-debugger.md) feature in Application Insights allows you to collect debug snapshots whenever an exception is caught on the production instance of your application. Snapshots will expose the full stack trace leading to the exceptions as well as the values for local variables at every step in the stack. Unfortunately, this feature does not allow for selective deletion of snap points, or programmatic access to data within the snapshot. Therefore, if the default snapshot retention rate does not satisfy your compliance requirements, the recommendation is to turn off the feature.
 
 ## How to export and delete private data
 
@@ -94,15 +88,20 @@ We have made available as part of a privacy handling a *purge* API path. This pa
 
 Purge is a highly privileged operation that no app or user in Azure (including even the resource owner) will have permissions to execute without explicitly being granted a role in Azure Resource Manager. This role is _Data Purger_ and should be cautiously delegated due to the potential for data loss. 
 
+> [!IMPORTANT]
+> In order to manage system resources, purge requests are throttled at 50 requests per hour. You should batch the execution of purge requests by sending a single command whose predicate includes all user identities that require purging. Use the [in operator](/azure/kusto/query/inoperator) to specify multiple identities. You should run the query before executing the purge request to verify that the results are expected. 
+
+
+
 Once the Azure Resource Manager role has been assigned, two new API paths are available: 
 
 #### Log data
 
-* [POST purge](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
+* [POST purge](/rest/api/loganalytics/workspacepurge/purge) - takes an object specifying parameters of data to delete and returns a reference GUID 
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
 
     ```
-    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
@@ -110,7 +109,7 @@ Once the Azure Resource Manager role has been assigned, two new API paths are av
 
 #### Application data
 
-* [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - takes an object specifying parameters of data to delete and returns a reference GUID
+* [POST purge](/rest/api/application-insights/components/purge) - takes an object specifying parameters of data to delete and returns a reference GUID
 * GET purge status - the POST purge call will return an 'x-ms-status-location' header that will include a URL that you can call to determine the status of your purge API. For example:
 
    ```

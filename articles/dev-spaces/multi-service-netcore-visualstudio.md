@@ -1,25 +1,21 @@
 ﻿---
-title: "Running multiple dependent services using .NET Core and Visual Studio"
-titleSuffix: Azure Dev Spaces
+title: "Running multiple dependent services: .NET Core & Visual Studio"
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
-description: "Rapid Kubernetes development with containers and microservices on Azure"
+description: "This tutorial shows you how to use Azure Dev Spaces and Visual Studio to debug a multi-service .NET Core application on Azure Kubernetes Service"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Multi-service development with Azure Dev Spaces
+# Running multiple dependent services: .NET Core and Visual Studio with Azure Dev Spaces
 
 In this tutorial, you'll learn how to develop multi-service applications using Azure Dev Spaces, along with some of the added benefits that Dev Spaces provides.
 
 ## Call another container
 In this section, you're going to create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. You'll then debug across both containers.
 
-![](media/common/multi-container.png)
+![The diagram shows the webfrontend service calling (as indicated by an arrow) the mywebapi service.](media/common/multi-container.png)
 
 ### Download sample code for *mywebapi*
 For the sake of time, let's download sample code from a GitHub repository. Go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository. The code for this section is in `samples/dotnetcore/getting-started/mywebapi`.
@@ -32,7 +28,7 @@ For the sake of time, let's download sample code from a GitHub repository. Go to
 2. When `mywebapi` is ready, open your browser to the localhost address and append `/api/values` to the URL to invoke the default GET API for the `ValuesController`. 
 3. If all the steps were successful, you should be able to see a response from the `mywebapi` service that looks like this.
 
-    ![](media/get-started-netcore-visualstudio/WebAPIResponse.png)
+    ![The web page shows a json array of two strings: "value1" and "value2".](media/get-started-netcore-visualstudio/WebAPIResponse.png)
 
 ### Make a request from *webfrontend* to *mywebapi*
 Let's now write code in `webfrontend` that makes a request to `mywebapi`. Switch to the Visual Studio window that has the `webfrontend` project. In the `HomeController.cs` file, *replace* the code for the About method with the following code:

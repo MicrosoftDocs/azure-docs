@@ -1,7 +1,7 @@
 ---
-title: "Detect faces in an image - Face API"
+title: "Detect faces in an image - Face"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the various data returned by the face detection feature.
+description: This guide demonstrates how to use face detection to extract attributes like gender, age, or pose from a given image.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -15,7 +15,7 @@ ms.author: sbowles
 
 # Get face detection data
 
-This guide demonstrates how to use face detection to extract attributes like gender, age, or pose from a given image. The code snippets in this guide are written in C# by using the Azure Cognitive Services Face API client library. The same functionality is available through the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+This guide demonstrates how to use face detection to extract attributes like gender, age, or pose from a given image. The code snippets in this guide are written in C# by using the Azure Cognitive Services Face client library. The same functionality is available through the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 This guide shows you how to:
 
@@ -25,7 +25,7 @@ This guide shows you how to:
 
 ## Setup
 
-This guide assumes that you already constructed a [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) object, named `faceClient`, with a Face subscription key and endpoint URL. From here, you can use the face detection feature by calling either [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), which is used in this guide, or [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). For instructions on how to set up this feature, see the [Detect faces quickstart for C#](../quickstarts/csharp-detect-sdk.md).
+This guide assumes that you already constructed a [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) object, named `faceClient`, with a Face subscription key and endpoint URL. From here, you can use the face detection feature by calling either [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), which is used in this guide, or [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). For instructions on how to set up this feature, follow one of the quickstarts.
 
 This guide focuses on the specifics of the Detect call, such as what arguments you can pass and what you can do with the returned data. We recommend that you query for only the features you need. Each operation takes additional time to complete.
 
@@ -141,9 +141,8 @@ To learn more about each of the attributes, see the [Face detection and attribut
 In this guide, you learned how to use the various functionalities of face detection. Next, integrate these features into your app by following an in-depth tutorial.
 
 - [Tutorial: Create a WPF app to display face data in an image](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutorial: Create an Android app to detect and frame faces in an image](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## Related topics
 
 - [Reference documentation (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
-- [Reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)
+- [Reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)

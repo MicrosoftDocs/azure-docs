@@ -1,18 +1,12 @@
 ---
 title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: This article provides an overview of IT Service Management Connector (ITSMC) and information about how to use this solution to centrally monitor and manage the ITSM work items in Azure Log Analytics, and resolve any issues quickly.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: nolavime
 ms.author: v-jysur
+ms.date: 05/24/2018
+
 ---
 
 # Connect Azure to ITSM tools using IT Service Management Connector
@@ -30,11 +24,12 @@ ITSMC supports connections with the following ITSM tools:
 -	Provance
 -	Cherwell
 
-With ITSMC, you can
+With ITSMC, you can:
 
 -  Create work items in ITSM tool, based on your Azure alerts (metric alerts, Activity Log alerts and Log Analytics alerts).
 -  Optionally, you can sync your incident and change request data from your ITSM tool to an Azure Log Analytics workspace.
 
+Read more about the [legal terms and privacy policy](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9).
 
 You can start using the ITSM Connector using the following steps:
 
@@ -58,7 +53,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
    >[!NOTE]
    > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
-   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West Europe, Southeast Asia, Southeast Australia, West Central US, East Japan, South UK, Central India, Central Canada.
+   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West US2, South Central US, West Central US, Fairfax, Central Canada, West Europe, South UK, Southeast Asia, East Japan, Central India, Southeast Australia.
 
 4. In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
 
@@ -68,7 +63,7 @@ Before you can create a connection, you need to add the ITSM Connector Solution.
 
 5. Click **Create**.
 
-When the solution resource is deployed, a notification appears at the top right of the window.
+When the solution resource is deployed, a notification appears at the top right- of the window.
 
 
 ## Creating an ITSM  connection
@@ -77,7 +72,7 @@ Once you have installed the solution, you can create a connection.
 
 For creating a connection, you will need to prep your ITSM tool to allow the connection from the ITSM Connector solution.  
 
-Depending on the ITSM product you are connecting to, use the following steps :
+Depending on the ITSM product you are connecting to, use the following steps:
 
 - [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -98,7 +93,7 @@ Once you have prepped your ITSM tools, follow the steps below to create a connec
 4. Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](../../azure-monitor/platform/itsmc-connections.md).
 
    > [!NOTE]
-   > 
+   >
    > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the **Sync** button on your connection's blade.
 
    ![Connection refresh](media/itsmc-overview/itsmc-connections-refresh.png)
@@ -136,7 +131,7 @@ Use the following procedure:
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 
 > [!NOTE]
-> 
+>
 > For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for Action Groups.
 
 
@@ -169,7 +164,7 @@ Incidents and change requests are synced from your ITSM product to your Log Anal
 The following information shows examples of data gathered by ITSMC:
 
 > [!NOTE]
-> 
+>
 > Depending on the work item type imported into Log Analytics, **ServiceDesk_CL** contains the following fields:
 
 **Work item:** **Incidents**  

@@ -15,8 +15,3 @@ Select **Switch Platform** to change the platform to **iOS**. Unity might prompt
 
 Close the **Build Settings** window.
 
-### Download and import the Unity ARKit Plugin
-
-Download [Unity ARKit Plugin version 2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) and extract the archive.
-
-Copy the contents of the `Assets` folder from the extracted Unity ARKit Plugin folder to the sample's `Assets` folder.

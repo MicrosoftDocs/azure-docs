@@ -1,23 +1,19 @@
 ---
-title: Microsoft Azure StorSimple Virtual Array system requirements| Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array system requirements
 description: Learn about the software and networking requirements for your StorSimple Virtual Array
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 01/11/2019
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 ## Overview
+
 This article describes the important system requirements for your Microsoft Azure StorSimple Virtual Array and for the storage clients accessing the array. We recommend that you review the information carefully before you deploy your StorSimple system, and then refer back to it as necessary during deployment and subsequent operation.
 
 The system requirements include:
@@ -100,7 +96,7 @@ The following table lists the ports that need to be opened in your firewall to a
 <sup>1</sup> No inbound ports need to be opened on the public Internet.
 
 > [!IMPORTANT]
-> Ensure that the firewall does not modify or decrypt any SSL traffic between the StorSimple device and Azure.
+> Ensure that the firewall does not modify or decrypt any TLS traffic between the StorSimple device and Azure.
 > 
 > 
 

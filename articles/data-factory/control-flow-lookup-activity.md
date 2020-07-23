@@ -1,22 +1,20 @@
 ---
-title: Lookup activity in Azure Data Factory | Microsoft Docs
+title: Lookup activity in Azure Data Factory 
 description: Learn how to use Lookup activity to look up a value from an external source. This output can be further referenced by succeeding activities. 
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: 
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: shlo
-
 ---
+
 # Lookup activity in Azure Data Factory
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Lookup activity can retrieve a dataset from any of the Azure Data Factory-supported data sources. Use it in the following scenario:
 - Dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
@@ -236,10 +234,7 @@ This storage account contains the JSON file with the names of the SQL tables.
     "properties": {
         "type": "AzureStorage",
         "typeProperties": {
-            "connectionString": {
-                "value": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>",
-                "type": "SecureString"
-            }
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<StorageAccountKey>"
         }
     },
         "name": "AzureStorageLinkedService"
@@ -256,10 +251,7 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
         "type": "AzureSqlDatabase",
         "description": "",
 		"typeProperties": {
-			"connectionString": {
-				"value": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;",
-				"type": "SecureString"
-			}
+			"connectionString": "Server=<server>;Initial Catalog=<database>;User ID=<user>;Password=<password>;"
 		}
 	}
 }

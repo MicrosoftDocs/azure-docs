@@ -1,18 +1,12 @@
 ---
 title: Collect and analyze performance counters in Azure Monitor | Microsoft Docs
 description: Performance counters are collected by Azure Monitor to analyze performance on Windows and Linux agents.  This article describes how to configure collection of Performance counters for both Windows and Linux agents, details of they are stored in the workspace, and how to analyze them in the Azure portal.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 20e145e4-2ace-4cd9-b252-71fb4f94099e
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+author: bwren
+ms.author: bwren
 ms.date: 11/28/2018
-ms.author: magoedte
+
 ---
 
 # Windows and Linux performance data sources in Azure Monitor
@@ -64,13 +58,15 @@ Instead of configuring Linux performance counters using the Azure portal, you ha
 
 Each object, or category, of performance metrics to collect should be defined in the configuration file as a single `<source>` element. The syntax follows the pattern below.
 
-	<source>
-	  type oms_omi  
-	  object_name "Processor"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+```xml
+<source>
+    type oms_omi  
+    object_name "Processor"
+    instance_regex ".*"
+    counter_name_regex ".*"
+    interval 30s
+</source>
+```
 
 
 The parameters in this element are described in the following table.
@@ -144,40 +140,42 @@ The following table lists the objects and counters that you can specify in the c
 
 Following is the default configuration for performance metrics.
 
-	<source>
-	  type oms_omi
-	  object_name "Physical Disk"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 5m
-	</source>
+```xml
+<source>
+    type oms_omi
+	object_name "Physical Disk"
+	instance_regex ".*"
+	counter_name_regex ".*"
+	interval 5m
+</source>
 
-	<source>
-	  type oms_omi
-	  object_name "Logical Disk"
-	  instance_regex ".*
-	  counter_name_regex ".*"
-	  interval 5m
-	</source>
+<source>
+	type oms_omi
+	object_name "Logical Disk"
+	instance_regex ".*
+	counter_name_regex ".*"
+	interval 5m
+</source>
 
-	<source>
-	  type oms_omi
-	  object_name "Processor"
-	  instance_regex ".*
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+<source>
+    type oms_omi
+	object_name "Processor"
+	instance_regex ".*
+	counter_name_regex ".*"
+	interval 30s
+</source>
 
-	<source>
-	  type oms_omi
-	  object_name "Memory"
-	  instance_regex ".*"
-	  counter_name_regex ".*"
-	  interval 30s
-	</source>
+<source>
+	type oms_omi
+	object_name "Memory"
+	instance_regex ".*"
+	counter_name_regex ".*"
+	interval 30s
+</source>
+```
 
 ## Data collection
-Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your subscription.
+Azure Monitor collects all specified performance counters at their specified sample interval on all agents that have that counter installed.  The data is not aggregated, and the raw data is available in all log query views for the duration specified by your log analytics workspace.
 
 ## Performance record properties
 Performance records have a type of **Perf** and have the properties in the following table.
@@ -196,7 +194,7 @@ Performance records have a type of **Perf** and have the properties in the follo
 ## Sizing estimates
  A rough estimate for collection of a particular counter at 10-second intervals is about 1 MB per day per instance.  You can estimate the storage requirements of a particular counter with the following formula.
 
-    1 MB x (number of counters) x (number of agents) x (number of instances)
+> 1 MB x (number of counters) x (number of agents) x (number of instances)
 
 ## Log queries with Performance records
 The following table provides different examples of log queries that retrieve Performance records.

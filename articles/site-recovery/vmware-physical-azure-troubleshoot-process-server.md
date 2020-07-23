@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 04/29/2019
+ms.date: 09/09/2019
 ms.author: raynew
 
 ---
@@ -92,7 +92,7 @@ If there's no heartbeat from the process server (error code 806), do the followi
 
 ## Step 4: Verify time sync on source machine
 
-Ensure that the system date/time for the replicated machine is in sync. [Learn more](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
+Ensure that the system date/time for the replicated machine is in sync. [Learn more](/windows-server/networking/windows-time-service/accurate-time)
 
 ## Step 5: Check anti-virus software on source machine
 
@@ -101,7 +101,7 @@ Check that no anti-virus software on the replicated machine is blocking Site Rec
 ## Step 6: Check connectivity from source machine
 
 
-1. Install the [Telnet client](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx) on the source machine if you need to. Don't use Ping.
+1. Install the [Telnet client](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771275(v=ws.10)) on the source machine if you need to. Don't use Ping.
 2. From the source machine, ping the process server on the HTTPS port with Telnet. By default 9443 is the HTTPS port for replication traffic.
 
     `telnet <process server IP address> <port>`
@@ -165,7 +165,7 @@ Check whether the process server is actively pushing data to Azure.
 
   1. On the process server, open Task Manager (press Ctrl+Shift+Esc).
   2. Select the **Performance** tab > **Open Resource Monitor**.
-  3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large vNotolume of data.
+  3. In **Resource Monitor** page, select the **Network** tab. Under **Processes with Network Activity**, check whether cbengine.exe is actively sending a large volume of data.
 
        ![Volumes under processes with network activity](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
@@ -243,7 +243,7 @@ Increase the bandwidth between the process server and Azure, and then check whet
 
 ## Next steps
 
-If you need more help, post your question in the [Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+If you need more help, post your question in the [Microsoft Q&A question page for Azure Site Recovery](/answers/topics/azure-site-recovery.html). 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

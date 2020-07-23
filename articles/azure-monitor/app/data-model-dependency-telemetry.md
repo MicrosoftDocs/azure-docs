@@ -1,18 +1,12 @@
 ---
-title: Azure Application Insights Telemetry Data Model - Dependency Telemetry | Microsoft Docs
+title: Azure Monitor Application Insights Dependency Data Model
 description: Application Insights data model for dependency telemetry
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/17/2017
+
 ms.reviewer: sergkanz
-ms.author: mbullwin
 ---
+
 # Dependency telemetry: Application Insights data model
 
 Dependency Telemetry (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents an interaction of the monitored component with a remote component such as SQL or an HTTP endpoint.

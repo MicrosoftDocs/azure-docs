@@ -1,6 +1,6 @@
 ---
-title: Search Categories in Azure Maps | Microsoft Docs
-description: Learn about search categories in Azure Maps 
+title: Search Categories | Microsoft Azure Maps
+description: In this article, you will learn about supported search categories in Microsoft Azure Maps. 
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -14,14 +14,14 @@ manager:
 
 # Azure Maps supported categories
 
-When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top level categories. All sub categories share same category code. Please note that this category list is subject to change with new data releases.
+When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top-level categories. All sub categories share same category code. This category list is subject to change with new data releases.
 
 <br/>
 
 | **Category code** | **Categories matching code** |
 | --- | --- |
 | ACCESS\_GATEWAY | airline access, security gate, station access, access gateway |
-| ADMINISTRATIVE\_DIVISION | province, fourth-order administrative division, first-order administrative division, historical third-order administrative division, seat of a fourth-order administrative division, seat of a second-order administrative division, dependent political entity, populated place, seat of a third-order administrative division, populated places, second-order administrative division, seat of a first-order administrative division, administrative division, populated locality, historical region, historical site, historical populated place, Israeli settlement, historical fourth-order administrative division, fifth-order administrative division, historical first-order administrative division, third-order administrative division, historical political entity, historical administrative division, seat of government of a political entity, historical second-order administrative division, capital of a political entity |
+| ADMINISTRATIVE\_DIVISION | province, fourth-order administrative division, first-order administrative division, historical third-order administrative division, seat of a fourth-order administrative division, seat of a second-order administrative division, dependent political entity, populated place, seat of a third-order administrative division, populated places, second-order administrative division, seat of a first-order administrative division, administrative division, populated locality, historical region, historical site, historical populated place, Israeli settlement, historical fourth-order administrative division, fifth-order administrative division, historical first-order administrative division, third-order administrative division, historical political entity, historical administrative division, seat of government of a political entity, historical second-order administrative division, capital/major city of a political entity |
 | ADVENTURE\_SPORTS\_VENUE | adventure sports venue |
 | AGRICULTURE | horticulture, primary producer, agriculture, farm, farm village, farmstead, homestead, grazing area, common, aquaculture facility, farms, fishing area, dairy, field(s) |
 | AIRPORT | private authority, military authority, heliport, closed, medium airport, large airport, small airport, airfield, seaplane base, public authority, balloon port, airport |

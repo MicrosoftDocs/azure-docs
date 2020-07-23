@@ -1,9 +1,10 @@
 ---
-title: 'Validate VPN throughput to a Microsoft Azure Virtual Network | Microsoft Docs'
+title: 'Validate VPN throughput to a Microsoft Azure Virtual Network'
 description: The purpose of this document is to help a user validate the network throughput from their on-premises resources to an Azure virtual machine.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-manager: jasmc
+manager: dcscontentpm
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
@@ -39,11 +40,11 @@ The following diagram shows the logical connectivity of an on-premises network t
 
 1. Determine your application's baseline throughput requirements.
 1. Determine your Azure VPN gateway throughput limits. For help, see the "Gateway SKUs" section of [About VPN Gateway](vpn-gateway-about-vpngateways.md#gwsku).
-1. Determine the [Azure VM throughput guidance](../virtual-machines/virtual-machines-windows-sizes.md) for your VM size.
+1. Determine the [Azure VM throughput guidance](../virtual-machines/sizes.md) for your VM size.
 1. Determine your Internet Service Provider (ISP) bandwidth.
 1. Calculate your expected throughput by taking the least bandwidth of either the VM, VPN Gateway, or ISP; which is measured in Megabits-per-second (/) divided by eight (8).
 
-If your calculated throughput does not meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/virtual-machines-windows-resize-vm.md). If you are not experiencing the expected Internet bandwidth, you may also contact your ISP.
+If your calculated throughput does not meet your application's baseline throughput requirements, you must increase the bandwidth of the resource that you identified as the bottleneck. To resize an Azure VPN Gateway, see [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku). To resize a virtual machine, see [Resize a VM](../virtual-machines/windows/resize-vm.md). If you are not experiencing the expected Internet bandwidth, you may also contact your ISP.
 
 > [!NOTE]
 > VPN Gateway throughput is an aggregate of all Site-to-Site\VNET-to-VNET, or Point-to-Site connections.
@@ -226,7 +227,7 @@ Even if the overall throughput assessed with the previous steps (iPERF/NTTTCP/et
    ![Slow file copy issues](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 
    > [!Note]
-   > Not all application work same, and not all application/process utilizes all the threads. If you run the test, you could see some threads being empty and won’t provide accurate throughput results.
+   > Not all application work same, and not all application/process utilizes all the threads. If you run the test, you could see some threads being empty and won't provide accurate throughput results.
    > To check your application file transfer performance, use multi-thread by increasing the # of thread in succession or decrease in order to find the optimal throughput of the application or file transfer.
 
 * Insufficient VM disk read/write speed. For more information, see [Azure Storage Troubleshooting](../storage/common/storage-e2e-troubleshooting.md).
@@ -255,7 +256,7 @@ You can check latency by using the following tools:
 
 If you notice a high latency spike at any of the hops before entering MS Network backbone, you may want to proceed with further investigations with your Internet Service Provider.
 
-If a large, unusual latency spike is noticed from hops within “msn.net”, please contact MS support for further investigations.
+If a large, unusual latency spike is noticed from hops within "msn.net", please contact MS support for further investigations.
 
 ## Next steps
 

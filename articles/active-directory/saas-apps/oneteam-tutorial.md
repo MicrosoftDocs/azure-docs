@@ -117,7 +117,7 @@ To configure Azure AD single sign-on with Oneteam, perform the following steps:
     `https://<team name>.one-team.io/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Oneteam Client support team](https://support.one-team.com/hc/requests/new) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact Oneteam Client support team to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Oneteam, perform the following steps:
 
 ### Configure Oneteam Single Sign-On
 
-To configure single sign-on on **Oneteam** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Oneteam support team](https://support.one-team.com/hc/requests/new). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Oneteam** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to Oneteam support team. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -193,7 +193,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in Oneteam. Oneteam supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Oneteam, a new one is created after authentication.
 
 >[!NOTE]
->If you need to create an user manually, you can raise the support ticket with [Oneteam support team](https://support.one-team.com/hc/requests/new).
+>If you need to create an user manually, you can raise the support ticket with Oneteam support team.
 
 ### Test single sign-on 
 

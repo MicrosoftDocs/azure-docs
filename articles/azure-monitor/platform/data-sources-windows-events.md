@@ -1,18 +1,12 @@
 ---
 title: Collect and analyze Windows Event logs in Azure Monitor | Microsoft Docs
 description: Describes how to configure the collection of Windows Event logs by Azure Monitor and details of the records they create.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
+ms.date: 11/28/2018
+
 ---
 
 # Windows event log data sources in Azure Monitor
@@ -28,6 +22,9 @@ Azure Monitor only collects events from the Windows event logs that are specifie
 As you type the name of an event log, Azure Monitor provides suggestions of common event log names. If the log you want to add does not appear in the list, you can still add it by typing in the full name of the log. You can find the full name of the log by using event viewer. In event viewer, open the *Properties* page for the log and copy the string from the *Full Name* field.
 
 ![Configure Windows events](media/data-sources-windows-events/configure.png)
+
+> [!NOTE]
+> Critical events from the Windows event log will have a severity of "Error" in Azure Monitor Logs.
 
 ## Data collection
 Azure Monitor collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then it collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.

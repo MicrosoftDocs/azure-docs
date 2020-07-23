@@ -1,15 +1,11 @@
 ---
 title: Back up SQL Server workloads on Azure Stack
-description: Use Azure Backup Server to protect SQL Server workload on Azure Stack.
-services: backup
-author: adigan
-manager: shivamg
-ms.service: backup
+description: In this article, learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 ms.topic: conceptual
-ms.date: 6/8/2018
-ms.author: adigan
+ms.date: 06/08/2018
 ---
-# Back up SQL Server on Stack
+# Back up SQL Server on Azure Stack
+
 Use this article to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 
 The management of SQL Server database backup to Azure and recovery from Azure involves three steps:
@@ -18,11 +14,40 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 2. Create on-demand backup copies
 3. Recover the database from Disks, and from Azure
 
+## Prerequisites and limitations
+
+* If you have a database with files on a remote file share, protection will fail with Error ID 104. MABS doesn't support protection for SQL Server data on a remote file share.
+* MABS can't protect databases that are stored on remote SMB shares.
+* Ensure that the [availability group replicas are configured as read-only](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* You must explicitly add the system account **NTAuthority\System** to the Sysadmin group on SQL Server.
+* When you perform an alternate location recovery for a partially contained database, you must ensure that the target SQL instance has the [Contained Databases](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) feature enabled.
+* When you perform an alternate location recovery for a file stream database, you must ensure that the target SQL instance has the [file stream database](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) feature enabled.
+* Protection for SQL Server AlwaysOn:
+  * MABS detects Availability Groups when running inquiry at protection group creation.
+  * MABS detects a failover and continues protection of the database.
+  * MABS supports multi-site cluster configurations for an instance of SQL Server.
+* When you protect databases that use the AlwaysOn feature, MABS has the following limitations:
+  * MABS will honor the backup policy for availability groups that is set in SQL Server based on the backup preferences, as follows:
+    * Prefer secondary - Backups should occur on a secondary replica except when the primary replica is the only replica online. If there are multiple secondary replicas available, then the node with the highest backup priority will be selected for backup. IF only the primary replica is available, then the backup should occur on the primary replica.
+    * Secondary only - Backup shouldn't be performed on the primary replica. If the primary replica is the only one online, the backup shouldn't occur.
+    * Primary - Backups should always occur on the primary replica.
+    * Any Replica - Backups can happen on any of the availability replicas in the availability group. The node to be backed up from will be based on the backup priorities for each of the nodes.
+  * Note the following:
+    * Backups can happen from any readable replica -  that is, primary, synchronous secondary, asynchronous secondary.
+    * If any replica is excluded from backup, for example **Exclude Replica** is enabled or is marked as not readable, then that replica won't be selected for backup under any of the options.
+    * If multiple replicas are available and readable, then the node with the highest backup priority will be selected for backup.
+    * If the backup fails on the selected node, then the backup operation fails.
+    * Recovery to the original location isn't supported.
+* SQL Server 2014 or above backup issues:
+  * SQL server 2014 added a new feature to create a [database for on-premises SQL Server in Windows Azure Blob storage](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). MABS can't be used to protect this configuration.
+  * There are some known issues with "Prefer secondary" backup preference for the SQL AlwaysOn option. MABS always takes a backup from secondary. If no secondary can be found, then the backup fails.
+
 ## Before you start
 
 [Install and prepare Azure Backup Server](backup-mabs-install-azure-stack.md).
 
 ## Create a backup policy to protect SQL Server databases to Azure
+
 1. On the Azure Backup Server UI, click the **Protection** workspace.
 
 2. On the tool ribbon, click **New** to create a new protection group.
@@ -62,7 +87,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     ![Initial replication method](./media/backup-azure-backup-sql/pg-manual.png)
 
-    The initial backup copy requires transferring the entire data source (SQL Server database) from production server (SQL Server machine) to Azure Backup Server. This data might be large, and transferring the data over the network could exceed bandwidth. For this reason, you can choose to transfer the initial backup: **Manually** (using removable media) to avoid bandwidth congestion, or **Automatically over the network** (at a specified time).
+    The initial backup copy requires transferring the entire data source (SQL Server database) from production server (SQL Server computer) to Azure Backup Server. This data might be large, and transferring the data over the network could exceed bandwidth. For this reason, you can choose to transfer the initial backup: **Manually** (using removable media) to avoid bandwidth congestion, or **Automatically over the network** (at a specified time).
 
     Once the initial backup is complete, the rest of the backups are incremental backups on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 
@@ -70,7 +95,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
 
     ![Consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server machine in this scenario) and the backed-up data for that file. If there is a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
+    Azure Backup Server performs a consistency check on the integrity of the backup point. Azure Backup Server calculates the checksum of the backup file on the production server (SQL Server computer in this scenario) and the backed-up data for that file. If there is a conflict, it's assumed the backed-up file on Azure Backup Server is corrupt. Azure Backup Server rectifies the backed-up data by sending the blocks corresponding to the checksum mismatch. Because consistency checks are performance-intensive, you can schedule the consistency check or run it automatically.
 
 10. To specify online protection of the datasources, select the databases to be protected to Azure and click **Next**.
 
@@ -106,6 +131,7 @@ The management of SQL Server database backup to Azure and recovery from Azure in
     ![Creation of Protection Group In-Progress](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## On-demand backup of a SQL Server database
+
 While the previous steps created a backup policy, a “recovery point” is created only when the first backup occurs. Rather than waiting for the scheduler to kick in, the steps below trigger the creation of a recovery point manually.
 
 1. Wait until the protection group status shows **OK** for the database before creating the recovery point.
@@ -122,6 +148,7 @@ While the previous steps created a backup policy, a “recovery point” is crea
     ![Monitoring console](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## Recover a SQL Server database from Azure
+
 The following steps are required to recover a protected entity (SQL Server database) from Azure.
 
 1. Open the Azure Backup Server Management Console. Navigate to **Recovery** workspace where you can see the protected servers. Browse the required database (in this case ReportServer$MSDPM2012). Select a **Recovery from** time that is specified as an **Online** point.
@@ -146,7 +173,7 @@ The following steps are required to recover a protected entity (SQL Server datab
 
     Once the recovery is completed, the restored database is application consistent.
 
-## Next Steps
+## Next steps
 
 See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
 See the [Backup SharePoint on Azure Stack](backup-mabs-sharepoint-azure-stack.md) article.

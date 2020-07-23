@@ -103,12 +103,11 @@ To configure Azure AD single sign-on with Insignia SAML SSO, perform the followi
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
 	
-	| |
-	|--|
-	| `https://<customername>.insigniails.com/ils`|
-	| `https://<customername>.insigniails.com/`|
-	| `https://<customername>.insigniailsusa.com/`|
-	| |
+    ```http
+    https://<customername>.insigniails.com/ils
+    https://<customername>.insigniails.com/
+    https://<customername>.insigniailsusa.com/
+    ```
 	
 	b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<customername>.insigniailsusa.com/<uniqueid>`

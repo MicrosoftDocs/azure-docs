@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Require terms of use to be accepted before accessing cloud apps that are protected by Azure Active Directory Conditional Access | Microsoft Docs
+title: Conditional Access require terms of use - Azure Active Directory
 description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by Azure Active Directory Conditional Access.
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart 
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -208,4 +208,3 @@ When no longer needed, delete the test user and the Conditional Access policy:
 
 > [!div class="nextstepaction"]
 > [Require MFA for specific apps](app-based-mfa.md)
-> [Block access when a session risk is detected](app-sign-in-risk.md)

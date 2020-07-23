@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, tracking-python
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Python.
 ---
 
 # Quickstart: Use Python to call the Bing Web Search API  
 
-Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This Python application sends a search request to the API, and shows the response. While this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Web Search API. This Python application sends a search request to the API, and shows the JSON response. Although this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Select the launch binder badge:
+This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). To run it, select the launch binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
@@ -30,28 +30,30 @@ This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). S
 
 ## Define variables
 
-Replace the `subscription_key` value with a valid subscription key from your Azure account.
+1. Replace the `subscription_key` value with a valid subscription key from your Azure account.
 
-```python
-subscription_key = "YOUR_ACCESS_KEY"
-assert subscription_key
-```
+   ```python
+   subscription_key = "YOUR_ACCESS_KEY"
+   assert subscription_key
+   ```
 
-Declare the Bing Web Search API endpoint. If you run into any authorization errors, double-check this value against the Bing search endpoint in your Azure dashboard.
+2. Declare the Bing Web Search API endpoint. You can use the global endpoint in the following code, or use the [custom subdomain](../../../cognitive-services/cognitive-services-custom-subdomains.md) endpoint displayed in the Azure portal for your resource.
 
-```python
-search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
-```
+   ```python
+   search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
+   ```
 
-Feel free to customize the search query by replacing the value for `search_term`.
+3. Optionally, customize the search query by replacing the value for `search_term`.
 
-```python
-search_term = "Azure Cognitive Services"
-```
+   ```python
+   search_term = "Azure Cognitive Services"
+   ```
 
 ## Make a request
 
-This block uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. See [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) documentation for a complete list of options and parameters.
+This code uses the `requests` library to call the Bing Web Search API and return the results as a JSON object. The API key is passed in the `headers` dictionary, and the search term and query parameters are passed in the `params` dictionary. 
+
+For a complete list of options and parameters, see [Bing Web Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference).
 
 ```python
 import requests
@@ -65,7 +67,7 @@ search_results = response.json()
 
 ## Format and display the response
 
-The `search_results` object includes the search results and metadata like related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
+The `search_results` object includes the search results, and such metadata as related queries and pages. This code uses the `IPython.display` library to format and display the response in your browser.
 
 ```python
 from IPython.display import HTML
@@ -80,11 +82,11 @@ HTML("<table>{0}</table>".format(rows))
 
 ## Sample code on GitHub
 
-If you'd like to run this code locally, the complete [sample is available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingWebSearchv7.py).
+To run this code locally, see the complete [sample available on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingWebSearchv7.py).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Web search single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
+> [Bing Web Search API single-page app tutorial](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

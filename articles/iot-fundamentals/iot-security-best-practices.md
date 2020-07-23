@@ -1,6 +1,6 @@
 ---
 title: Internet of Things (IoT) security best practices 
-description: Best practices for securing your IoT infrastructure
+description: Best practices for securing your IoT data and infrastructure
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
 ---
+# Security best practices for Internet of Things (IoT)
 
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 

@@ -1,15 +1,10 @@
 ---
-title: 'Build your own disaster recovery for Custom Topics in Azure Event Grid | Microsoft Docs'
-description: Survive regional outages to keep Azure Event Grid connected.
-services: event-grid
-author: banisadr
-
-ms.service: event-grid
+title: Disaster recovery for custom topics in Azure Event Grid
+description: This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a region.
 ms.topic: tutorial
-ms.date: 05/16/2019
-ms.author: babanisa
-
+ms.date: 07/07/2020
 ---
+
 # Build your own disaster recovery for custom topics in Event Grid
 Disaster recovery focuses on recovering from a severe loss of application functionality. This tutorial will walk you through how to set up your eventing architecture to recover if the Event Grid service becomes unhealthy in a particular region.
 

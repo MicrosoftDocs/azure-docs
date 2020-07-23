@@ -1,251 +1,369 @@
 ---
-title: Delete a Recovery Services vault in Azure
-description: Describes how to delete a Recovery Services vault.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: backup
+title: Delete a Microsoft Azure Recovery Services vault 
+description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.author: raynew
+ms.date: 06/04/2020
 ---
-# Delete a Recovery Services vault
+# Delete an Azure Backup Recovery Services vault
 
 This article describes how to delete an [Azure Backup](backup-overview.md) Recovery Services vault. It contains instructions for removing dependencies and then deleting a vault.
 
-
 ## Before you start
 
-You cannot delete a Recovery Services vault that has dependencies such as protected servers or backup management servers associated with the vault.<br/>
-Vault containing backup data cannot be deleted (that is, even if you have stopped protection but retained the backup data).
+You can't delete a Recovery Services vault with any of the following dependencies:
 
-If you delete a vault that contains dependencies, then it will display the following error:
+- You can't delete a vault that contains protected data sources (for example, IaaS VMs, SQL databases, Azure file shares, etc.)  
+- You can't delete a vault that contains backup data. Once backup data is deleted, it will go into the soft deleted state.
+- You can't delete a vault that contains backup data in the soft deleted state.
+- You can't delete a vault that has registered storage accounts.
 
-![delete vault error](./media/backup-azure-delete-vault/error.png)
+If you try to delete the vault without removing the dependencies, you'll encounter one of the following error messages:
 
-To gracefully delete the vault, choose the scenario that matches your setup and follow the recommended steps:
+- Vault cannot be deleted as there are existing resources within the vault. Please ensure there are no backup items, protected servers, or backup management servers associated with this vault. Unregister the following containers associated with this vault before proceeding for deletion.
 
-Scenario | Steps to remove dependencies to delete vault |
--- | --
-I have on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure | Perform the steps in Delete backup data and backup items - [For MARS agent](#for-mars-agent)
-I have on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manager) | Perform the steps in Delete backup data and backup items - [For MABS agent](#for-mabs-agent)
-I have protected items in cloud (ex. laaS VM, Azure File Share etc.)  | Perform the steps in Delete backup data and backup items - [For Protected items in Cloud](#for-protected-items-in-cloud)
-I have protected items both on-premises and cloud | Perform the steps in Delete backup data and backup items in the below sequence: <br> - [For Protected items in Cloud](#for-protected-items-in-cloud)<br> - [For MABS agent](#for-mars-agent) <br> - [For MABS agent](#for-mabs-agent)
-I don't have any protected items on-premises or cloud; however, I am still getting the Vault deletion error | Perform the steps in [Delete the Recovery Services vault using Azure Resource Manager client](#delete-the-recovery-services-vault-using-azure-resource-manager-client)
-I don't have that original on-premises server anymore (lost/decommissioned) and I want to delete the Recovery Services vault | Contact Microsoft support.
+- Recovery Services vault cannot be deleted as there are backup items in soft deleted state in the vault. The soft deleted items are permanently deleted after 14 days of delete operation. Please try vault deletion after the backup items are permanently deleted and there is no item in soft deleted state left in the vault. For more information, see [Soft delete for Azure Backup](./backup-azure-security-feature-cloud.md).
 
-## Delete backup data and backup items
+## Proper way to delete a vault
 
-Before you proceed further read **[this](#before-you-start)** section to understand the dependencies and vault deletion process.
+>[!WARNING]
+>The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
 
-### For Protected items in Cloud
+To properly delete a vault, you must follow the steps in this order:
 
-To stop protection and delete the backup data, perform the below:
+- **Step 1**: Disable the soft delete feature. [See here](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) for the steps to disable soft delete.
 
-1. From portal > Recovery Services vault > Backup Items choose the protected items in cloud.
+- **Step 2**: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) to find soft delete items and permanently delete them.
 
-    ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.jpg)
+- **Step 3**: You must check all of the following three places to verify if there are any protected items:
 
-2. For each item, you need to right-click and choose **Stop backup**.
+  - **Cloud protected items**: Go to the vault dashboard menu > **Backup Items**. All items listed here must be removed with **Stop Backup** or **Delete Backup Data** along with their backup data.  [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
+  - **MARS protected servers**: Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. If you have MARS protected servers, then all items listed here must be deleted along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete MARS protected servers.
+  - **MABS or DPM management servers**: Go to the vault dashboard menu > **Backup Infrastructure** > **Backup Management Servers**. If you have DPM or Azure Backup Server (MABS), then all items listed here must be deleted or unregistered along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete the management servers.
 
-    ![select the backup type](./media/backup-azure-delete-vault/stop-backup-item.png)
+- **Step 4**: You must ensure all registered storage accounts are deleted. Go to the vault dashboard menu > **Backup Infrastructure** > **Storage Accounts**. If you have storage accounts listed here, then you must unregister all of them. To learn how to unregister the account, see [Unregister a storage account](manage-afs-backup.md#unregister-a-storage-account).
 
-3. In **Stop Backup** > **Choose an option**, select **Delete Backup Data**.
-4. Type the name of the item, and click **Stop backup**.
-   - This verifies that you want to delete the item.
-   - The **Stop Backup** button activates after you verify.
-   - If you retain and don't delete the data, you won't be able to delete the vault.
+After you've completed these steps, you can continue to [delete the vault](#delete-the-recovery-services-vault).
 
-     ![delete backup data](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
+If you don't have any protected items on-premises or cloud, but are still getting the vault deletion error, perform the steps in [Delete the Recovery Services vault by using Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
 
-5. Check the **Notification** ![delete backup data](./media/backup-azure-delete-vault/messages.png). After the completion, the service displays the message: **Stopping backup and deleting backup data for "*Backup Item*"**. **Successfully completed the operation**.
-6. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
+## Delete protected items in the cloud
 
-      ![delete backup data](./media/backup-azure-delete-vault/empty-items-list.png)
+First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
-### For MARS agent
+To stop protection and delete the backup data, perform the following steps:
 
-To stop protection and delete backup data, perform steps in the order listed below:
+1. From the portal, go to **Recovery Services vault**, and then go to **Backup items**. Then, choose the protected items in the cloud (for example, Azure Virtual Machines, Azure Storage [the Azure Files service], or SQL Server on Azure Virtual Machines).
 
-- [Step 1: Delete backup items from MARS Management console](#step-1-delete-backup-items-from-mars-management-console)
-- [Step 2: From portal remove Azure Backup agent](#step-1-delete-backup-items-from-mars-management-console)
+    ![Select the backup type.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
+2. Right-click to select the backup item. Depending on whether the backup item is protected or not, the menu displays either the **Stop Backup** pane or the **Delete Backup Data** pane.
 
-#### Step 1: Delete backup items from MARS Management console
+    - If the **Stop Backup** pane appears, select **Delete Backup Data** from the drop-down menu. Enter the name of the backup item (this field is case-sensitive), and then select a reason from the drop-down menu. Enter your comments, if you have any. Then, select **Stop backup**.
 
-If you are unable to perform this step due to unavailability of the server then contact Microsoft support.
+        ![The Stop Backup pane.](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-- Launch the MARS Management console, go to the **Actions** pane and choose **Schedule Backup**.
-- From **Modify or Stop a Scheduled Backup** wizard, choose the option **Stop using this backup schedule and delete all the stored backups** and click **Next**.
+    - If the **Delete Backup Data** pane appears, enter the name of the backup item (this field is case-sensitive), and then select  a reason from the drop-down menu. Enter your comments, if you have any. Then, select **Delete**.
 
-    ![Modify or Stop a Scheduled Backup](./media/backup-azure-delete-vault/modify-schedule-backup.png)
+         ![The Delete Backup Data pane.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-- From **Stop a Scheduled Backup** wizard, click **Finish**.
+3. Check the **Notification** icon: ![The Notification icon.](./media/backup-azure-delete-vault/messages.png) After the process finishes, the service displays the following message: *Stopping backup and deleting backup data for "*Backup Item*"*. *Successfully completed the operation*.
+4. Select **Refresh** on the **Backup Items** menu, to make sure the backup item was deleted.
 
-    ![Stop a Scheduled Backup](./media/backup-azure-delete-vault/stop-schedule-backup.png)
-- You are prompted to enter a Security Pin. To generate the PIN, perform the below steps:
-  - Sign in to the Azure portal.
-  - Browse to **Recovery Services vault** > **Settings** > **Properties**.
-  - Under **Security PIN**, click **Generate**. Copy this PIN.(This PIN, is valid for only five minutes)
-- In the Management Console (client app) paste the PIN and click **Ok**.
+      ![The Delete Backup Items page.](./media/backup-azure-delete-vault/empty-items-list.png)
 
-  ![Security Pin](./media/backup-azure-delete-vault/security-pin.png)
+## Delete protected items on premises
 
-- In the **Modify Backup Progress** wizard you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
+First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
-    ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted-backup-data.png)
+1. From the vault dashboard menu, select **Backup Infrastructure**.
+2. Depending on your on-premises scenario, choose the one of the following options:
 
-Now that you have deleted the backup items from on-premises, complete the next steps from the portal.
+      - For MARS, select **Protected Servers** and then  **Azure Backup Agent**. Then, select the server that you want to delete.
 
-#### Step 2: From portal remove Azure Backup Agent
+        ![For MARS, select your vault to open its dashboard.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-Ensure [Step 1](#step-1-delete-backup-items-from-mars-management-console) is completed before proceeding further:
+      - For MABS or DPM, select **Backup Management Servers**. Then, select the server that you want to delete.
 
-1. In the vault dashboard menu, click **Backup Infrastructure**.
-2. Click **Protected Servers** to view the infrastructure servers.
+          ![For MABS or DPM, select your vault to open its dashboard.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-    ![select your vault to open its dashboard](./media/backup-azure-delete-vault/identify-protected-servers.png)
+3. The **Delete** pane appears with a warning message.
 
-3. In the **Protected Servers** list, click Azure Backup Agent.
+     ![The delete pane.](./media/backup-azure-delete-vault/delete-protected-server.png)
 
-    ![select the backup type](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
+     Review the warning message and the instructions in the consent check box.
+    > [!NOTE]
+    >
+    >- If the protected server is synced with Azure services and backup items exist, the consent check box will display the number of dependent backup items and the link to view the backup items.
+    >- If the protected server is not synced with Azure services and backup items exist, the consent check box will display only the number of backup items.
+    >- If there are no backup items, the consent check box will ask for deletion.
 
-4. Click the server in the list of servers protected using Azure Backup agent.
+4. Select the consent check box, and then select **Delete**.
 
-    ![select the specific protected server](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
+5. Check the **Notification** icon ![delete backup data](./media/backup-azure-delete-vault/messages.png). After the operation finishes, the service displays the message: *Stopping backup and deleting backup data for "Backup Item."* *Successfully completed the operation*.
+6. Select **Refresh** on the **Backup Items** menu, to make sure the backup item is deleted.
 
-5. On the selected server dashboard, click **Delete**.
+>[!NOTE]
+>If you delete an on-premises protected item from a portal that contains dependencies, you'll receive a warning saying "Deleting server's registration is a destructive operation and cannot be undone. All backup data (recovery points required to restore the data) and Backup items associated with protected server will be permanently deleted."
 
-    ![delete the selected server](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
+After this process finishes, you can delete the backup items from management console:
 
-6. On the **Delete** menu, type the name of the server, and click **Delete**.
+- [Delete backup items from the MARS management console](#delete-backup-items-from-the-mars-management-console)
+- [Delete backup items from the MABS or DPM management console](#delete-backup-items-from-the-mabs-or-dpm-management-console)
 
-     ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
+### Delete backup items from the MARS management console
 
-> [!NOTE]
-> If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#step-1-delete-backup-items-from-mars-management-console).
->
->![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
->
->If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support.
+>[!NOTE]
+>If you deleted or lost the source machine without stopping the backup, the next scheduled backup will fail. The old recovery point expires according to the policy, but the last single recovery point is always retained until you stop the backup and delete the data. You can do this by following the steps in [this section](#delete-protected-items-on-premises).
 
-7. Check the **Notification** ![delete backup data](./media/backup-azure-delete-vault/messages.png). After the completion, the service displays the message: **Stopping backup and deleting backup data for "*Backup Item*"**. **Successfully completed the operation**.
-8. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
+1. Open the MARS management console, go to the **Actions** pane, and select **Schedule Backup**.
+2. From the **Modify or Stop a Scheduled Backup** page, select **Stop using this backup schedule and delete all the stored backups**. Then, select **Next**.
 
+    ![Modify or stop a scheduled backup.](./media/backup-azure-delete-vault/modify-schedule-backup.png)
 
-### For MABS agent
+3. From the **Stop a Scheduled Backup** page, select **Finish**.
 
-To stop protection and delete backup data, perform steps in the order listed below:
+    ![Stop a scheduled backup.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
+4. You are prompted to enter a security PIN (personal identification number), which you must generate manually. To do this, first sign in to the Azure portal.
+5. Go to **Recovery Services vault** > **Settings** > **Properties**.
+6. Under **Security PIN**, select **Generate**. Copy this PIN. The PIN is valid for only five minutes.
+7. In the management console, paste the PIN, and then select **OK**.
 
-- [Step 1: Delete backup items from MABS Management console](#step-1-delete-backup-items-from-mabs-management-console)
-- [Step 2: From portal remove Azure Backup management servers](#step-2-from-portal-remove-azure-backup-agent)
+    ![Generate a security PIN.](./media/backup-azure-delete-vault/security-pin.png)
 
-#### Step 1: Delete backup items from MABS Management console
+8. In the **Modify Backup Progress** page, the following message appears: *Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted.*  
 
-If you are unable to perform this step due to unavailability of the server then contact Microsoft support.
+    ![Delete the backup infrastructure.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
-**Method 1**
-To stop protection and delete backup data, perform the below steps:
+After you delete the on-premises backup items, follow the next steps from the portal.
 
-1.	In DPM Administrator Console, click **Protection** on the navigation bar.
-2.	In the display pane, select the protection group member that you want to remove. Right-click to choose **Stop Protection of Group Members** option.
-3.	From the **Stop Protection** dialog box, select **Delete protected data** > **Delete storage online** checkbox and then click **Stop Protection**.
+### Delete backup items from the MABS or DPM management console
 
-    ![Delete storage online](./media/backup-azure-delete-vault/delete-storage-online.png)
+>[!NOTE]
+>If you deleted or lost the source machine without stopping the backup, the next scheduled backup will fail. The old recovery point expires according to the policy, but the last single recovery point is always retained until you stop the backup and delete the data. You can do this by following the steps in [this section](#delete-protected-items-on-premises).
 
-The protected member status is now changed to **Inactive replica available**.
+There are two methods you can use to delete backup items from the MABS or DPM management console.
 
-5. Right-click the inactive protection group and select **Remove inactive protection**.
+#### Method 1
 
-    ![Remove inactive protection](./media/backup-azure-delete-vault/remove-inactive-protection.png)
+To stop protection and delete backup data, do the following steps:
 
-6. From the **Delete Inactive Protection** window, select **Delete online storage** and click **Ok**.
+1. Open the DPM Administrator Console, and then select **Protection** on the navigation bar.
+2. In the display pane, select the protection group member that you want to remove. Right-click to select the **Stop Protection of Group Members** option.
+3. From the **Stop Protection** dialog box, select **Delete protected data**, and then select the **Delete storage online** check box. Then, select **Stop Protection**.
 
-    ![Remove replicas on disk and online](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+    ![Select Delete protected data from the Stop Protection pane.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
-**Method 2**
-Launch the **MABS Management** console. In the **Select data protection method** section, un-select **I want online protection**.
+    The protected member status changes to *Inactive replica available*.
 
-  ![select data protection method](./media/backup-azure-delete-vault/data-protection-method.png)
+4. Right-click the inactive protection group and select **Remove inactive protection**.
 
-Now that you have deleted the backup items from on-premises, complete the next steps from the portal.
+    ![Remove inactive protection.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
-#### Step 2: From portal remove Azure Backup management servers
+5. From the **Delete Inactive Protection** window, select the **Delete online storage** check box, and then select **OK**.
 
-Ensure [Step 1](#step-1-delete-backup-items-from-mabs-management-console) is completed before proceeding further:
+    ![Delete online storage.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
-1. In the vault dashboard menu, click **Backup Infrastructure**.
-2. Click **Backup Management Servers** to view servers.
+#### Method 2
 
-    ![select vault to open its dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
+Open the **MABS management** or **DPM management** console. Under **Select data protection method**, clear the  **I want online protection** check box.
 
-3. Right-click the item > **Delete**.
-4. On the **Delete** menu, type the name of the server and click **Delete**.
+  ![Select the data protection method.](./media/backup-azure-delete-vault/data-protection-method.png)
 
-     ![delete backup data](./media/backup-azure-delete-vault/delete-protected-server-dialog.png)
-
-> [!NOTE]
-> If you are seeing the below error, then first perform the steps listed in [Deleting backup items from management console](#step-2-from-portal-remove-azure-backup-management-servers).
->
->![deletion failed](./media/backup-azure-delete-vault/deletion-failed.png)
->
-> If you are unable to perform the steps to delete backups from the management console, for example, due to unavailability of the server with the management console, contact Microsoft support.
-
-5. Check the **Notification** ![delete backup data](./media/backup-azure-delete-vault/messages.png). After the completion, the service displays the message: **Stopping backup and deleting backup data for "*Backup Item*"**. **Successfully completed the operation**.
-6. Click **Refresh** on the **Backup Items** menu, to check if the Backup item is removed.
-
+After you delete the on-premises backup items, follow the next steps from the portal.
 
 ## Delete the Recovery Services vault
 
 1. When all dependencies have been removed, scroll to the **Essentials** pane in the vault menu.
-2. Verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If items still appear in the vault, [remove them](#delete-backup-data-and-backup-items).
+2. Verify that there aren't any backup items, backup management servers, or replicated items listed. If items still appear in the vault, refer to the [Before you start](#before-you-start) section.
 
-3. When there are no more items in the vault, on the vault dashboard click **Delete**.
+3. When there are no more items in the vault, select **Delete** on the vault dashboard.
 
-    ![delete backup data](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
+    ![Select Delete on the vault dashboard.](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-4. To verify that you want to delete the vault, click **Yes**. The vault is deleted and the portal returns to the **New** service menu.
+4. Select **Yes** to verify that you want to delete the vault. The vault is deleted. The portal returns to the **New** service menu.
 
-## Delete the Recovery Services vault using Azure Resource Manager client
+## Delete the Recovery Services vault by using PowerShell
 
-This option to delete the Recovery Services vault is only recommended when all the dependencies are removed and you are still getting the *Vault deletion error*.
+First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
+To stop protection and delete the backup data:
 
+- If you're using SQL in Azure VMs backup and enabled auto-protection for SQL instances, first disable the auto-protection.
 
-- From the **Essentials** pane in the vault menu, verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If there are backup items, then perform the steps in [delete backup data and backup items](#delete-backup-data-and-backup-items).
-- Retry [deleting the vault from portal](#delete-the-recovery-services-vault).
-- If all the dependencies are removed and you are still getting the *Vault deletion error* then use ARMClient tool to perform the steps given below;
+    ```PowerShell
+        Disable-AzRecoveryServicesBackupAutoProtection
+           [-InputItem] <ProtectableItemBase>
+           [-BackupManagementType] <BackupManagementType>
+           [-WorkloadType] <WorkloadType>
+           [-PassThru]
+           [-VaultId <String>]
+           [-DefaultProfile <IAzureContextContainer>]
+           [-WhatIf]
+           [-Confirm]
+           [<CommonParameters>]
+    ```
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection) on how to disable protection for an Azure Backup-protected item.
 
-1. Install chocolatey from [here](https://chocolatey.org/) and to install ARMClient run the below command:
+- Stop protection and delete data for all backup-protected items in cloud (for example: IaaS VM, Azure file share, and so on):
+
+    ```PowerShell
+       Disable-AzRecoveryServicesBackupProtection
+       [-Item] <ItemBase>
+       [-RemoveRecoveryPoints]
+       [-Force]
+       [-VaultId <String>]
+       [-DefaultProfile <IAzureContextContainer>]
+       [-WhatIf]
+       [-Confirm]
+       [<CommonParameters>]
+    ```
+
+    [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) about disables protection for a Backup-protected item.
+
+- For on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure, use the following PowerShell command to delete the backed-up data from each MARS PowerShell module:
+
+    ```powershell
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
+    ```
+
+    Post where the following prompt would appear:
+
+    *Microsoft Azure Backup Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
+    [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):*
+
+- For on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM  (System Center Data Protection Manager) to Azure, use the following command to delete the backed-up data in Azure.
+
+    ```powershell
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
+    ```
+
+    Post where the following prompt would appear:
+
+   *Microsoft Azure Backup*
+   Are you sure you want to remove this backup policy? Deleted backup data will be retained for 14 days. After that time, backup data will be permanently deleted. <br/>
+   [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):*
+
+After deleting the backed-up data, un-register any on-premises containers and management servers.
+
+- For on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure:
+
+    ```PowerShell
+    Unregister-AzRecoveryServicesBackupContainer
+              [-Container] <ContainerBase>
+              [-PassThru]
+              [-VaultId <String>]
+              [-DefaultProfile <IAzureContextContainer>]
+              [-WhatIf]
+              [-Confirm]
+              [<CommonParameters>]
+    ```
+
+    [Learn more](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) about un-registering a Windows Server or other container from the vault.
+
+- For on-premises machines protected using MABS (Microsoft Azure Backup Server) or DPM to Azure (System Center Data Protection Manage:
+
+    ```PowerShell
+        Unregister-AzRecoveryServicesBackupManagementServer
+          [-AzureRmBackupManagementServer] <BackupEngineBase>
+          [-PassThru]
+          [-VaultId <String>]
+          [-DefaultProfile <IAzureContextContainer>]
+          [-WhatIf]
+          [-Confirm]
+          [<CommonParameters>]
+    ```
+
+    [Learn more](/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer) about un-registering a Backup management container from the vault.
+
+After permanently deleting backed up data and un-registering all containers, proceed to delete the vault.
+
+To delete a Recovery Services vault:
+
+   ```PowerShell
+       Remove-AzRecoveryServicesVault
+      -Vault <ARSVault>
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
+   ```
+
+[Learn more](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) about deleting a recovery services vault.
+
+## Delete the Recovery Services vault by using CLI
+
+First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
+
+> [!NOTE]
+> Currently, Azure Backup CLI supports managing only Azure VM backups, so the following command to delete the vault works only if the vault contains Azure VM backups. You cannot delete a vault using Azure Backup CLI, if the vault contains any backup item of type other than Azure VMs.
+
+To delete existing Recovery services vault, perform the below:
+
+- To stop protection and delete the backup data
+
+    ```azurecli
+    az backup protection disable --container-name
+                             --item-name
+                             [--delete-backup-data {false, true}]
+                             [--ids]
+                             [--resource-group]
+                             [--subscription]
+                             [--vault-name]
+                             [--yes]
+    ```
+
+    For more information, see this [article](/cli/azure/backup/protection#az-backup-protection-disable).
+
+- Delete an existing Recovery services vault:
+
+    ```azurecli
+    az backup vault delete [--force]
+                       [--ids]
+                       [--name]
+                       [--resource-group]
+                       [--subscription]
+                       [--yes]
+    ```
+
+    For more information, see this [article](/cli/azure/backup/vault?view=azure-cli-latest)
+
+## Delete the Recovery Services vault by using Azure Resource Manager
+
+This option to delete the Recovery Services vault is recommended only if all of the dependencies are removed and you're still getting the *Vault deletion error*. Try any or all of the following tips:
+
+- From the **Essentials** pane in the vault menu, verify that there aren't any backup items, backup management servers, or replicated items listed. If there are backup items, refer the [Before you start](#before-you-start) section.
+- Try [deleting the vault from the portal](#delete-the-recovery-services-vault) again.
+- If all of the dependencies are removed and you're still getting the *Vault deletion error*, use the ARMClient tool to perform the following steps (after the note).
+
+1. Go to [chocolatey.org](https://chocolatey.org/) to download and install Chocolatey. Then, install ARMClient by running the following command:
 
    `choco install armclient --source=https://chocolatey.org/api/v2/`
-2. Sign in to your Azure account, and run this command:
+2. Sign in to your Azure account, and then run the following command:
 
     `ARMClient.exe login [environment name]`
 
 3. In the Azure portal, gather the subscription ID and resource group name for the vault you want to delete.
 
-For more information on ARMClient command, refer this [document](https://github.com/projectkudu/ARMClient/blob/master/README.md).
+For more information on the ARMClient command, see [ARMClient README](https://github.com/projectkudu/ARMClient/blob/master/README.md).
 
-### Use Azure Resource Manager client to delete Recovery Services vault
+### Use the Azure Resource Manager client to delete a Recovery Services vault
 
-1. Run the following command using your subscription ID, resource group name, and vault name. When you run the command, it deletes the vault if you don’t have any dependencies.
+1. Run the following command by using your subscription ID, resource group name, and vault name. If you don't have any dependencies, the vault is deleted when you run the following command:
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. If the vault is not empty, you will receive the error "Vault cannot be deleted as there are existing resources within this vault". To remove a protected items / container within a vault, do the following:
 
-   ```
+2. If the vault isn't empty, you'll receive the following error message: *Vault cannot be deleted as there are existing resources within this vault.* To remove a protected item or container within a vault, run the following command:
+
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-3. In the Azure portal, verify that the vault is deleted.
-
+3. In the Azure portal, make sure that the vault is deleted.
 
 ## Next steps
 
-[Learn about](backup-azure-recovery-services-vault-overview.md) Recovery Services vaults.<br/>
-[Learn about](backup-azure-manage-windows-server.md) monitor and manage Recovery Services vaults.
+[Learn about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
+[Learn about monitoring and managing Recovery Services vaults](backup-azure-manage-windows-server.md)

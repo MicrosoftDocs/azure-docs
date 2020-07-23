@@ -4,11 +4,11 @@ description: Establish high availability for SAP HANA on Azure (Large Instances)
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -335,11 +335,12 @@ Service pacemaker stop
 ```
 Now, stop the pacemaker service on **node2** and resources failed over to **node1**
 
-**Before failover**
-![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)
-**After failover**
-![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)
-![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)
+**Before failover**  
+![Before-failover.png](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+
+**After failover**  
+![after-failover.png](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover.png](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## 9. Troubleshooting

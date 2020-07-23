@@ -1,18 +1,12 @@
 ---
-title: Create a data pipeline with the Azure Monitor Data Collector API | Microsoft Docs
+title: Use Data Collector API to create a data pipeline
 description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to the Log Analytics workspace from any client that can call the REST API. This article describes how to upload data stored in files in an automated way.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 08/09/2018
-ms.author: magoedte
+
 ---
 
 # Create a data pipeline with the Data Collector API
@@ -45,7 +39,7 @@ This article will not cover how to create data or [upload it to an Azure Blob St
 
 While the detailed setup of the blob storage, Logic App, or Azure Function is not outlined in this article, detailed instructions are available on the specific products’ pages.
 
-To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Azure Monitor to monitor our Logic App [details here](../../logic-apps/logic-apps-monitor-your-logic-apps-oms.md). 
+To monitor this pipeline, we use Application Insights to monitor our Azure Function [details here](../../azure-functions/functions-monitoring.md), and Azure Monitor to monitor our Logic App [details here](../../logic-apps/monitor-logic-apps-log-analytics.md). 
 
 ## Setting up the pipeline
 To set the pipeline, first make sure you have your blob container created and configured. Likewise, make sure that the Log Analytics workspace where you’d like to send the data to is created.

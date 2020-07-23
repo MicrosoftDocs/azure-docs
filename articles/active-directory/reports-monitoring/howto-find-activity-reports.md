@@ -1,6 +1,6 @@
 ---
 
-title: Find Azure Active Directory user activity reports in Azure portal | Microsoft Docs
+title: Find user activity reports in Azure portal | Microsoft Docs
 description: Learn where the Azure Active Directory user activity reports are in the Azure portal.
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
@@ -110,13 +110,13 @@ You can use the sign-ins report to view details about application usage, by filt
 
 ### Anomalous activity reports
 
-Anomalous activity reports provide information on security-related risk events that Azure AD can detect and report on.
+Anomalous activity reports provide information on security-related risk detections that Azure AD can detect and report on.
 
-The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal. For more information, see
-[Azure Active Directory risk events](concept-risk-events.md).  
+The following table lists the Azure AD anomalous activity security reports, and corresponding risk detection types in the Azure portal. For more information, see
+[Azure Active Directory risk detections](concept-risk-events.md).  
 
 
-| Azure AD anomalous activity report |  Identity protection risk event type|
+| Azure AD anomalous activity report |  Identity protection risk detection type|
 | :--- | :--- |
 | Users with leaked credentials | Leaked credentials |
 | Irregular sign-in activity | Impossible travel to atypical locations |
@@ -125,15 +125,15 @@ The following table lists the Azure AD anomalous activity security reports, and 
 | Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
 | - | Sign-ins from unfamiliar locations |
 
-The following Azure AD anomalous activity security reports are not included as risk events in the Azure portal:
+The following Azure AD anomalous activity security reports are not included as risk detections in the Azure portal:
 
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies
 
 
-### Detected risk events
+### Detected risk detections
 
-You can access reports about detected risk events in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk events are tracked in the following reports:   
+You can access reports about detected risk detections in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk detections are tracked in the following reports:   
 
 - [Users at risk](concept-user-at-risk.md)
 - [Risky sign-ins](concept-risky-sign-ins.md)
@@ -170,10 +170,10 @@ I performed some actions in the Azure portal and expected to see the audit logs 
 
 Actions don’t appear immediately in the activity logs. The table below enumerates our latency numbers for activity logs. 
 
-| Report | &nbsp; | Latency (P95) | Latency (P99) |
-|--------|--------|---------------|---------------|
-| Directory audit | &nbsp; | 2 mins | 5 mins |
-| Sign-in activity | &nbsp; | 2 mins | 5 mins | 
+| Report | Latency (P95) | Latency (P99) |
+|--------|---------------|---------------|
+| Directory audit | 2 mins | 5 mins |
+| Sign-in activity | 2 mins | 5 mins |
 
 #### Resolution
 
@@ -191,10 +191,10 @@ I recently signed into the Azure portal and expected to see the sign-in logs for
 
 Actions don’t appear immediately in the activity logs. The table below enumerates our latency numbers for activity logs. 
 
-| Report | &nbsp; | Latency (P95) | Latency (P99) |
-|--------|--------|---------------|---------------|
-| Directory audit | &nbsp; | 2 mins | 5 mins |
-| Sign-in activity | &nbsp; | 2 mins | 5 mins | 
+| Report | Latency (P95) | Latency (P99) |
+|--------|---------------|---------------|
+| Directory audit | 2 mins | 5 mins |
+| Sign-in activity | 2 mins | 5 mins |
 
 #### Resolution
 
@@ -212,10 +212,10 @@ I can't view more than 30 days of sign-in and audit data from the Azure portal. 
 
 Depending on your license, Azure Active Directory Actions stores activity reports for the following durations:
 
-| Report           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
-| ---              | ----   |  ---           | ---                 | ---                 |
-| Directory Audit  | &nbsp; |	7 days	   | 30 days             | 30 days             |
-| Sign-in Activity | &nbsp; | Not available. You can access your own sign-ins for 7 days from the individual user profile blade | 30 days | 30 days             |
+| Report           | Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ---           | ---                 | ---
+| Directory Audit  | 7 days        | 30 days             | 30 days             |
+| Sign-in Activity | Not available. You can access your own sign-ins for 7 days from the individual user profile blade | 30 days | 30 days             |
 
 For more information, see [Azure Active Directory report retention policies](reference-reports-data-retention.md).  
 

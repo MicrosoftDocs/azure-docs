@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Media Services events with Event Grid using portal | Microsoft Docs
+title: Monitor Azure Media Services events with Event Grid with portal
 description: This article shows how to subscribe to Event Grid in order to monitor Azure Media Services events. 
 services: media-services
 documentationcenter: na
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/15/2018
+ms.date: 01/21/2020
 ms.author: juliako
 ---
 
@@ -29,7 +29,7 @@ When you're finished, you see that the event data has been sent to the web app.
 ## Prerequisites 
 
 * Have an active Azure subscription.
-* Create a new Azure Media Services account, as described in [this quickstart](create-account-cli-quickstart.md).
+* Create a new Azure Media Services account, as described in [this quickstart](./create-account-howto.md).
 
 ## Create a message endpoint
 

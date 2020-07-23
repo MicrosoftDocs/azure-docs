@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
@@ -54,6 +54,9 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 
 ![Search Connector Space](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
+[!NOTE] If you aren't sure all deletes are desired, and wish to go down a safer route. You can use the PowerShell cmdlet : `Enable-ADSyncExportDeletionThreshold` to set a new threshold rather than disabling the threshold which could allow undesired deletions. 
+
+## If all deletes are desired
 If all the deletes are desired, then do the following:
 
 1. To retrieve the current deletion threshold, run the PowerShell cmdlet `Get-ADSyncExportDeletionThreshold`. Provide an Azure AD Global Administrator account and password. The default value is 500.

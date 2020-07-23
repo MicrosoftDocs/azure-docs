@@ -1,5 +1,5 @@
 ---
-title: 'Connect to Azure Database for MySQL from C#'
+title: 'Connect using C# - Azure Database for MySQL'
 description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 5/26/2020
 ---
 
 # Azure Database for MySQL: Use .NET (C#) to connect and query data
@@ -21,6 +21,9 @@ This quickstart uses the resources created in either of these guides as a starti
 You also need to:
 - Install [.NET](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
 - Install [Visual Studio](https://www.visualstudio.com/downloads/).
+
+> [!IMPORTANT] 
+> Ensure the IP address you're connecting from has been added the server's firewall rules using the [Azure portal](./howto-manage-firewall-using-portal.md) or [Azure CLI](./howto-manage-firewall-using-cli.md)
 
 ## Create a C# project
 At a command prompt, run:

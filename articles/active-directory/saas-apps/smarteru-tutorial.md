@@ -20,6 +20,9 @@ ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with SmarterU
 
+> [!NOTE]
+> The process for integrating SmarterU with Azure Active Directory is also documented and maintained in the [SmarterU help system](https://help.smarteru.com/ID2053086).
+
 In this tutorial, you learn how to integrate SmarterU with Azure Active Directory (Azure AD).
 Integrating SmarterU with Azure AD provides you with the following benefits:
 
@@ -57,7 +60,7 @@ To configure the integration of SmarterU into Azure AD, you need to add SmarterU
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click **New application** button on the top of dialog.
 
 	![The New application button](common/add-new-app.png)
 
@@ -218,7 +221,7 @@ To enable Azure AD users to sign in to SmarterU, they must be provisioned into S
 	d. Click **Save**.
 
 > [!NOTE]
-> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision AAD user accounts.
+> You can use any other SmarterU user account creation tools or APIs provided by SmarterU to provision Azure AD user accounts.
 
 ### Test single sign-on
 

@@ -1,11 +1,11 @@
 ---
-title: Templates
-description: This topic explains Templates for Azure notification hubs.
+title: Azure Notification Hubs templates
+description: Learn about using templates for Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
@@ -14,10 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
-# Templates
+# Notification Hubs templates
 
 Templates enable a client application to specify the exact format of the notifications it wants to receive. Using templates, an app can realize several different benefits, including the following:
 
@@ -56,7 +58,7 @@ The Notification Hubs template feature enables a client app to create special re
 
 The following picture illustrates the process:
 
-![](./media/notification-hubs-templates/notification-hubs-hello.png)
+![Diagram showing the process for using templates cross-platform](./media/notification-hubs-templates/notification-hubs-hello.png)
 
 The template for the iOS client app registration is as follows:
 
@@ -115,7 +117,7 @@ The message sent to the Notification Hub contains all the following properties:
 
 By using this pattern, the backend only sends a single message without having to store specific personalization options for the app users. The following picture illustrates this scenario:
 
-![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
+![Diagram showing how the backend only sends a single message to each platform.](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
 ## How to register templates
 
@@ -164,3 +166,7 @@ As explained earlier, when using concatenation, expressions must be wrapped in c
   </visual>
 </tile>
 ```
+
+## Next steps
+
+[Learn about Azure Notification Hubs](notification-hubs-push-notification-overview.md)

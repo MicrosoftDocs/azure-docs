@@ -1,18 +1,12 @@
 ---
 title: VMware Monitoring solution in Azure Monitor | Microsoft Docs
 description: Learn about how the VMware Monitoring solution can help manage logs and monitor ESXi hosts.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 16516639-cc1e-465c-a22f-022f3be297f1
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
+author: bwren
+ms.author: bwren
 ms.date: 05/04/2018
-ms.author: magoedte
+
 ---
 
 # VMware Monitoring (Deprecated) solution in Azure Monitor
@@ -158,7 +152,7 @@ Saving log queries is a standard feature in Azure Monitor and can help you keep 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### Create alerts from queries
-After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../platform/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blog post.
+After you’ve created your queries, you might want to use the queries to alert you when specific events occur. See [Alerts in Log Analytics](../platform/alerts-overview.md) for information about how to create alerts. For examples of alerting queries and other query examples, see the [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) blog post.
 
 ## Frequently asked questions
 ### What do I need to do on the ESXi host setting? What impact will it have on my current environment?

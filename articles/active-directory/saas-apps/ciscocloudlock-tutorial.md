@@ -82,17 +82,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. In the **Sign on URL** text box, type a URL:
 
-	| |
-	|--|
-	| `https://platform.cloudlock.com` |
-	| `https://app.cloudlock.com` |
+      ```http
+      https://platform.cloudlock.com
+      https://app.cloudlock.com
+      ```
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-	| |
-	|--|
-	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
-	| `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
+      ```http
+      https://platform.cloudlock.com/gate/saml/sso/<subdomain>
+      https://app.cloudlock.com/gate/saml/sso/<subdomain>
+      ```
 
 	> [!NOTE]
 	> The Identifier value is not real. Update the value with the actual Identifier. Contact [The Cloud Security Fabric Client support team](mailto:support@cloudlock.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -101,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/metadataxml.png)
 
-5. To Modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
+5. To Modify the **Signing** options as per your requirement, click **Edit** button to open **SAML Signing Certificate** dialog.
 
 	![Saml Response](./media/ciscocloudlock-tutorial/saml.png)
 
@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create The Cloud Security Fabric test user
 
-In this section, you create a user called B.Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in the The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in The Cloud Security Fabric. Work with [The Cloud Security Fabric support team](mailto:support@cloudlock.com) to add the users in the The Cloud Security Fabric platform. Users must be created and activated before you use single sign-on.
 
 ### Test SSO 
 
