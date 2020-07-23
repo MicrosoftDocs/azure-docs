@@ -12,7 +12,7 @@ ms.author: v-grpr
 ---
 # Troubleshoot your Azure Stack Edge ordering issues
 
-This article describes how to troubleshoot ordering issues on your Azure Stack Edge.
+This article describes how to troubleshoot Azure Stack Edge ordering issues.
 
 In this article, you learn how to:
 
@@ -22,60 +22,56 @@ In this article, you learn how to:
 > * Collect Support package
 > * Use logs to troubleshoot
 
-## Run diagnostics
+## Customer is not able to place an order because of unsupported subscription or region
 
-To diagnose and troubleshoot any device errors, you can run the diagnostics tests. Do the following steps in the local web UI of your device to run diagnostic tests.
+**Error:** In Azure portal, if you get the error *Selected subscription or region is not supported. Choose a different subscription or region.*.
 
-1. In the local web UI, go to **Troubleshooting > Diagnostic tests**. Select the test you want to run and click **Run test**. This runs the tests to diagnose any possible issues with your network, device, web proxy, time, or cloud settings. You are notified that the device is running tests.
+![Unsupported subscription or region](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-01.png)
 
-    ![Select tests](media/azure-stack-edge-troubleshoot/run-diag-1.png)
+**Solution:** Make sure that you check your subscription type. Only Microsoft Enterprise Agreement (EA) and Cloud Solution Provider (CSP) subscription types can place an order. Pay-as-you-go (PAYG) subscriptions are not supported. For more information, see [Azure Stack Edge resource prerequisites](azure-stack-edge-deploy-prep.md#prerequisites). There is the possibility that Microsoft may allow a subscription type upgrade on a case-by-case basis. Contact [customer service](https://azure.microsoft.com/support/options/) at any time so that we can understand your needs and adjust these limits appropriately.
 
-2. After the tests have completed, the results are displayed.
+##	I have an EA/CSP/sponsored subscription, but I'm not seeing any SKUs and instead get an error
 
-    ![Review test results](media/azure-stack-edge-troubleshoot/run-diag-2.png)
+**Error:** You have an EA, CSP, or sponsored subscription and you get the following error:
 
-    If a test fails, then a URL for recommended action is presented. You can click the URL to view the recommended action.
+*The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](azure-stack-edge-deploy-prep.md#prerequisites). If using a supported subscription type, make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, refer [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*
 
-    ![Review warnings for failed tests](media/azure-stack-edge-troubleshoot/run-diag-3.png)
+**Solution:** You need to register your Azure Stack Edge resource provider following these steps:
 
-## Collect Support package
+1. In Azure portal, click **Home**->**Subscriptions**.
 
-A log package is composed of all the relevant logs that can help Microsoft Support troubleshoot any device issues. You can generate a log package via the local web UI.
+2. Select the subscription to be used for ordering.
 
-Do the following steps to collect a Support package.
+3. Click **Resource providers**.
 
-1. In the local web UI, go to **Troubleshooting > Support**. Click **Create support package**. The system starts collecting support package. The package collection may take several minutes.
+4. Then search for **Microsoft.DataBoxEdge**.
 
-    ![Click add user](media/azure-stack-edge-troubleshoot/collect-logs-1.png)
+    ![Register resource provider](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-02.png)
 
-2. After the Support package is created, click **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
+**Solution:** You need to have owner or contributor access to register the resource provider, otherwise you will get the following error: *The subscription &lt;subscription name&gt; doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
-    ![Click add user](media/azure-stack-edge-troubleshoot/collect-logs-2.png)
 
-## Use logs to troubleshoot
+For more information about registering resource providers, see [Register resource providers](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-Any errors experienced during the upload and refresh processes are included in the respective error files.
+## Subscription is the correct type and is enabled for the SKUs, but *show devices* is disabled and displays an error
 
-1. To view the error files, go to your share and click the share to view the contents. 
+**Error:** In Azure portal, you select a subscription to use for Azure Stack Edge or Data Box Gateway and get the following error:
 
-      ![Connect to and view share contents](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
+*Resource provider(s): Microsoft.DataBoxEdge are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription lt;subscription name&gt;*.
 
-2. Click the _Microsoft Azure Stack Edge folder_. This folder has two subfolders:
+![Don't have permissions to register resource provider](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-03.png)
 
-    * Upload folder that has log files for upload errors.
-    * Refresh folder for errors during refresh.
+**Solution:** You need to find someone that has owner or contributor access to register the resource provider or elevated your subscription access.
 
-    Here is a sample log file for refresh.
+## I get a **Deny generally unwanted resource types** error while creating an order
 
-    ```xml
-    <root container="test1" machine="VM15BS020663" timestamp="03/18/2019 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ```
+**Error:** In Azure portal, you attempt to register a resource provider and get the following error:
 
-3. When you see an error in this file (highlighted in the sample), note down the error code, in this case it is 16001. Look up the description of this error code against the following error reference.
+*Resource &lt;resource name&gt; was disallowed by policy. (Code: RequestDisallowedByPolicy). Initiative: Deny generally unwanted Resource Types. Policy: Not allowed resource types.*
 
-    [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
+![Disallowed by policy](media/azure-stack-edge-troubleshoot-ordering/azure-stack-edge-troubleshoot-ordering-04.png)
+
+**Solution:** This error occurs due to an existing Azure policy that blocks the resource creation. Azure policies are set by an organization's system administrator to ensure compliance while using or creating Azure resources. If any such policy is blocking Azure Stack Edge creation, you need to contact your system administrator to elevate your the Azure policy.
 
 ## Next steps
 
