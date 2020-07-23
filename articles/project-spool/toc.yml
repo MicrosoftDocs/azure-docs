@@ -75,7 +75,7 @@
   - name: Voice and Video Calling
     items:
     - name: Add Video To Your UWP App
-      href: quickstarts/voice-and-video-calling/add-video-to-your-uwp-app.md
+      href: tutorials/voice-and-video-calling/add-video-to-your-uwp-app.md
 - name: Concepts
   expanded: true
   items:
