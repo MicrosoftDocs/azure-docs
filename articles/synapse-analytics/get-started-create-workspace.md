@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, an
 
     |Tab|Setting | Suggested value | Description |
     |---|---|---|---|
-    |Basics|**Storage account name**| Choose any name.| This we uses the name **contosolake**.|
+    |Basics|**Storage account name**| Choose any name.| In this document, we'll use the name **contosolake**.|
     |Basics|**Account kind**| **StorageV2** ||
     |Basics|**Location**|Choose any location.| We recommend your Azure Synapse Analytics workspace and Azure Data Lake Storage Gen2 account be in the same region.|
     |Advanced|**Data Lake Storage Gen2**|**Enabled**| Azure Synapse only works with storage accounts that have this setting enabled.|

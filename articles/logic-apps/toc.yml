@@ -207,24 +207,18 @@
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Bing Search
         href: ../connectors/connectors-create-api-bingsearch.md
-      - name: Box
-        href: ../connectors/connectors-create-api-box.md
       - name: Common Data Service
         href: ../connectors/connect-common-data-service.md
       - name: Custom APIs and web apps
         href: logic-apps-create-api-app.md
       - name: Delay
         href: ../connectors/connectors-native-delay.md
-      - name: Dropbox
-        href: ../connectors/connectors-create-api-dropbox.md
       - name: Dynamics 365
         href: ../connectors/connectors-create-api-crmonline.md
       - name: EDIFACT
         href: logic-apps-enterprise-integration-edifact.md
       - name: Excel Online for Business or OneDrive
         href: ../connectors/connectors-create-api-excel.md
-      - name: Facebook
-        href: ../connectors/connectors-create-api-facebook.md
       - name: File system
         href: logic-apps-using-file-connector.md
       - name: Flat file
@@ -251,18 +245,10 @@
         href: ../connectors/connectors-create-api-mq.md
       - name: Integration Account
         href: logic-apps-enterprise-integration-metadata.md
-      - name: MailChimp
-        href: ../connectors/connectors-create-api-mailchimp.md
       - name: Microsoft Graph Security
         href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
-      - name: Microsoft Translator
-        href: ../connectors/connectors-create-api-microsofttranslator.md
       - name: Office 365 Outlook
         href: ../connectors/connectors-create-api-office365-outlook.md
-      - name: Office 365 Users
-        href: ../connectors/connectors-create-api-office365-users.md
-      - name: Office 365 Video
-        href: ../connectors/connectors-create-api-office365-video.md
       - name: OneDrive
         href: ../connectors/connectors-create-api-onedrive.md
       - name: OneDrive for Business
@@ -271,16 +257,12 @@
         href: ../connectors/connectors-create-api-oracledatabase.md
       - name: Outlook.com
         href: ../connectors/connectors-create-api-outlook.md
-      - name: Project Online
-        href: ../connectors/connectors-create-api-projectonline.md
       - name: Recurrence
         href: ../connectors/connectors-native-recurrence.md
       - name: Request / Response
         href: ../connectors/connectors-native-reqres.md
       - name: RosettaNet
         href: logic-apps-enterprise-integration-rosettanet.md
-      - name: RSS
-        href: ../connectors/connectors-create-api-rss.md
       - name: Salesforce
         href: ../connectors/connectors-create-api-salesforce.md
       - name: SAP (New)
@@ -303,10 +285,6 @@
         href: ../connectors/connectors-create-api-sqlazure.md
       - name: Transform XML
         href: logic-apps-enterprise-integration-transform.md
-      - name: Trello
-        href: ../connectors/connectors-create-api-trello.md
-      - name: Twitter
-        href: ../connectors/connectors-create-api-twitter.md
       - name: Twilio
         href: ../connectors/connectors-create-api-twilio.md
       - name: Wunderlist
@@ -315,8 +293,6 @@
         href: logic-apps-enterprise-integration-x12.md
       - name: XML Validation
         href: logic-apps-enterprise-integration-xml-validation.md
-      - name: Yammer
-        href: ../connectors/connectors-create-api-yammer.md
   - name: Secure
     items:
     - name: Secure your logic apps
