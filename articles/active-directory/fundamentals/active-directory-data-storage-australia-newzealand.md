@@ -11,7 +11,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 7/21/2020
-ms.custom: "it-pro, seodec18"
+ms.custom: "it-pro, seodec18, references_regions"
 ms.collection: M365-identity-device-management
 ---
 
