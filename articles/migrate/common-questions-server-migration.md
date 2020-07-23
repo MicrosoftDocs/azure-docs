@@ -73,7 +73,7 @@ You must have at least vCenter Server 5.5 and vSphere ESXi host version 5.5.
 
 No. Azure Migrate supports migration only to managed disks (Standard HDD, Premium SSD).
 
-## How many VMs can I replicate at one time by using agentless migration?
+## How many VMs can I replicate at one time by using agentless migration? 
 
 Currently, you can migrate 100 VMs per instance of vCenter Server simultaneously. Migrate in batches of 10 VMs.
 
