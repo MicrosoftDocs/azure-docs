@@ -499,14 +499,14 @@ Add the virtual machine network interfaces to the outbound pool of the load bala
 #### VM1
 * In backend address pool **myBackEndPoolOutbound**.
 * In resource group **myResourceGroupLB**.
-* Associated with network interface **myVMNic1** and **ipconfig1**.
+* Associated with network interface **myNicVM1** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic1 \
+   --nic-name myNicVM1 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -514,14 +514,14 @@ Add the virtual machine network interfaces to the outbound pool of the load bala
 #### VM2
 * In backend address pool **myBackEndPoolOutbound**.
 * In resource group **myResourceGroupLB**.
-* Associated with network interface **myVMNic2** and **ipconfig1**.
+* Associated with network interface **myNicVM2** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic2 \
+   --nic-name myNicVM2 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
@@ -529,14 +529,14 @@ Add the virtual machine network interfaces to the outbound pool of the load bala
 #### VM3
 * In backend address pool **myBackEndPoolOutbound**.
 * In resource group **myResourceGroupLB**.
-* Associated with network interface **myVMNic3** and **ipconfig1**.
+* Associated with network interface **myNicVM3** and **ipconfig1**.
 * Associated with load balancer **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
    --address-pool myBackendPoolOutbound \
    --ip-config-name ipconfig1 \
-   --nic-name myVMNic3 \
+   --nic-name myNicVM3 \
    --resource-group myResourceGroupLB \
    --lb-name myLoadBalancer
 ```
