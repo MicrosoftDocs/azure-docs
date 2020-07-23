@@ -1,5 +1,5 @@
 ---
-title: List your app in the Azure AD application gallery | Microsoft Docs
+title: Add your app to the Azure AD application gallery | Microsoft Docs
 description: Learn how to list an application that supports single sign-on in the Azure Active Directory app gallery
 services: active-directory
 author: rwike77
@@ -15,7 +15,7 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ---
 
-# List your application in the Azure Active Directory application gallery
+# Add your application to the Azure Active Directory application gallery
 
 This article shows how to list an application in the Azure Active Directory (Azure AD) application gallery, implement single sign-on (SSO), and manage the listing.
 

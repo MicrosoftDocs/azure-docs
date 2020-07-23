@@ -1,5 +1,5 @@
 ---
-title: How to get AppSource certified for Azure Active Directory| Microsoft Docs
+title: Get AppSource certified for Azure Active Directory| Microsoft Docs
 description: Details on how to get your application AppSource certified for Azure Active Directory.
 services: active-directory
 author: rwike77
@@ -15,7 +15,7 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ---
 
-# How to get AppSource Certified for Azure Active Directory
+# Get AppSource Certified for Azure Active Directory
 
 [Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try, and manage line-of-business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
