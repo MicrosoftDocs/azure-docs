@@ -154,7 +154,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 
     $workspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rsg -Name $workspacename
 
-    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -WorkspaceIdAccountId $workspace.ResourceId -Enabled $true -Categories CoreAnalytics
     ```
 ### Enable diagnostics logs for event hub namespace
 
@@ -176,7 +176,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
 
     $eventhub = Get-AzEventHubNamespace -ResourceGroupName $rsg -Name $eventhubname
 
-    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -StorageAccountId $eventhub.id -Enabled $true -Categories CoreAnalytics
+    Set-AzDiagnosticSetting -Name $diagname -ResourceId $cdn.id -EventHubName $eventhub.id -Enabled $true -Categories CoreAnalytics
     ```
 
 ## Consuming diagnostics logs from Azure Storage
