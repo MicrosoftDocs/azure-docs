@@ -459,10 +459,7 @@ If you want to use a user-defined managed identity, then you'll need to use the 
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-To learn more about Microsoft.Azure.Services.AppAuthentication and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
-
-To learn more about how to configure the AzureServiceTokenProvider for service to service authentication, see the [Service to Service Authentication with .NET documentation](https://docs.microsoft.com/en-us/azure/key-vault/general/service-to-service-authentication#connection-string-support)
-
+To learn more about configuring AzureServiceTokenProvider and the operations it exposes, see the [Microsoft.Azure.Services.AppAuthentication reference] and the [App Service and KeyVault with MSI .NET sample](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 ### Using the Azure SDK for Java
 
 For Java applications and functions, the simplest way to work with a managed identity is through the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java). This section shows you how to get started with the library in your code.
