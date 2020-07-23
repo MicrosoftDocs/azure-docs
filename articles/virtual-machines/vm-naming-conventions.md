@@ -12,7 +12,7 @@ ms.custom: sttsinar
 
 # Azure virtual machine sizes naming conventions
 
-This page outlines the naming conventions used for Azure Virtual Machines (VM). VMs use these naming conventions to denote varying features and specifications.
+This page outlines the naming conventions used for Azure VMs. VMs use these naming conventions to denote varying features and specifications.
 
 ## Naming convention explanation
 
