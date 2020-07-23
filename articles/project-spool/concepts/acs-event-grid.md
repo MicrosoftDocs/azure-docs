@@ -1,5 +1,5 @@
 ---
-title: ACS As An Event Grid Source
+title: Event Handling 
 description: Use Azure Event Grid to trigger processes based on actions that happen in a Communication Service.
 author: mikben    
 manager: jken
@@ -12,13 +12,18 @@ ms.service: azure-project-spool
 
 --- 
 
-# React to Communication Services events by using Event Grid to trigger actions
+# Reacting to Communication Services events 
 
-Azure Communication Services integrates with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. Configure your business applications to listen for Communication Services events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time an SMS is delivered to your Communication Service.
+Azure Communication Services allow applications to react to events such as SMSReceived, InstantMessageReceived and allow the you to integrate with Azure Event Grid so that you can send event notifications to other services and trigger downstream processes. You can configure your business applications to listen for Communication Services events so that you can react to critical events in a reliable, scalable, and secure manner. For example, build an application that updates a database, creates a work ticket, and delivers an email notification every time an SMS is delivered to your Communication Service.
 
-[Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md) is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-overview.md) and [Azure Logic Apps](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/logic-apps/logic-apps-what-are-logic-apps.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md).
+All Communication Services events are pushed using [Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering. Event Grid has built-in support for Azure services like [Azure Functions](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/azure-functions/functions-overview.md) and [Azure Logic Apps](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/logic-apps/logic-apps-what-are-logic-apps.md), and can deliver event alerts to non-Azure services using webhooks. For a complete list of the event handlers that Event Grid supports, see [An introduction to Azure Event Grid](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/event-grid/overview.md).
+
+## The event model
+Event Grid uses event subscriptions to route event messages to subscribers. This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
 
 ![Azure Event Grid architecture](https://github.com/MicrosoftDocs/azure-docs/raw/master/articles/iot-hub/media/iot-hub-event-grid/event-grid-functional-model.png)
+
+First, subscribe an endpoint to listen to event. Then, when an event is triggered, the Event Grid service will send data about that event to the endpoint.
 
 ## Regional availability
 
@@ -34,20 +39,17 @@ Azure Communication Services emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.CommunicationServices.SMSReceived | Published when an SMS is received by a phone number associated with the Communcation Service. |
-| Microsoft.CommunicationServices.SMSDeliveryReport | Published when a delivery report is received for an SMS sent by the Communication Service. |
-| Microsoft.CommunicationServices.ChatReceived | Published when a chat messaged is received by a Communication Services user. |
-| Microsoft.CommunicationServices.IncomingCall | Published when a call is received by a Communication Services user. |
-| Microsoft.CommunicationServices.CallEnded | Published when a call is terminated by a Communication Services user. |
-
-
-TODO Add more
+| Microsoft.Communication.SMSReceived | Published when an SMS is received by a phone number associated with the Communication Service. |
+| Microsoft.Communication.SMSDeliveryReportReceived | Published when a delivery report is received for an SMS sent by the Communication Service. |
+| Microsoft.Communication.InstantMessageReceived | Published when a chat instant messaged is received by a Communication Services user. |
+| Microsoft.Communication.InstantMessageEdited | Published when a chat instant messaged is edited by a Communication Services user. |
+| Microsoft.CommunicationServices.InstantMessageDeleted | Published when a chat instant messaged is deleted by a Communication Services user. |
 
 Use either the Azure portal or Azure CLI to configure which events to publish from each Communication Service. For an example, try the [tutorial Send email notifications about SMS Events events using Logic Apps](https://docs.microsoft.com/en-us/azure/event-grid/publish-iot-hub-events-to-logic-apps).
 
-## Event Schema
+## Filtering events
 
-When an event is triggered, the Event Grid service sends data about that event to subscribing endpoints. Communication Services events contain all the information you need to respond to events in your service. You can identify an Communication Services event by checking that the eventType property starts with Microsoft.CommunicationServices. For more information about how to use Event Grid event properties, see the Event Grid event schema.
+When an event is triggered, the Event Grid service sends the data about that event to subscribing endpoints. Communication Services events contain the information you need to respond to events in your service. You can identify an Communication Services event by checking that the eventType property starts with Microsoft.Communication. For more information about how to use Event Grid event properties, see the Event Grid event schema.
 
 ### Event Subjects
 
@@ -71,70 +73,151 @@ The following example shows a filter for all SMS messages and delivery reports s
 }
 ```
 
-### Microsoft.CommunicationServices.SMSReceived event
+## Event Schema
+
+
+
+### Microsoft.Communication.SMSReceived event
 
 The following example shows the schema of an SMS arrived event:
 
 ```json
 [{
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/Microsoft.CommunicationServices/{service-name}",
-  "subject": "/phone_number/555-555-5555",
-  "eventType": "Microsoft.CommunicationServices.SMSReceived",
-  "eventTime": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "messageId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "sender": "555-555-1234",
-    "recepient": "555-555-5555",
-    "content": "This is a message",
-    "receivedTimeStamp": "2020-4-20T17:02:19.6069787Z"
-  },
-  "dataVersion": "",
-  "metadataVersion": "1"
+    "id":"6a49a9bf-418f-44b6-81e7-e503686b4a74",
+    "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{Acs-resource-name}",
+    "subject":"SMS Event Test",
+    "data":
+    {
+        "from":"+19991234567",
+        "to":"+14259991234",
+        "messageId":"917c9ec0-a50a-4515-a626-16825d8318e1",
+        "message":"SMS Message",
+        "receivedTimestamp":"2020-07-16T22:10:00.048727Z"
+    },
+        "eventType":"Microsoft.Communication.SMSReceived",
+        "dataVersion":"1.0",
+        "metadataVersion":"1",
+        "eventTime":"2020-07-16T22:10:00.0490828Z"
 }]
 ```
+### Microsoft.Communication.SMSDeliveryReportReceived event
 
 The following example shows the schema of an SMS deliver report event:
 
 ```json
-TODO
+[{
+    "id":"9b1768b4-1c90-4766-9491-c75a4592b34e",
+    "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{Acs-resource-name}",
+    "subject":"SMS Event Test",
+    "data":{
+        "messageId":"1021620f-7174-4ef7-b9b8-f55cd3a945b1",
+        "from":"+19991234567",
+        "to":"+14259991234",
+        "deliveryStatus":"Success",
+        "deliveryStatusDetails":"Message sent successfully",
+        "deliveryAttempts":[
+            {
+            "timestamp":"2020-07-16T22:10:22.224789Z",
+            "segmentsSucceeded":1,
+            "segmentsFailed":2
+            },
+            {
+                "timestamp":"2020-07-16T22:10:22.2250078Z",
+                "segmentsSucceeded":1,
+                "segmentsFailed":0
+            }
+        ]
+    },
+    "eventType":"Microsoft.Communication.SMSDeliveryReportReceived",
+    "dataVersion":"1.0",
+    "metadataVersion":"1",
+    "eventTime":"2020-07-16T22:10:22.2250704Z"
+}]
 ```
+### Microsoft.Communication.InstantMessageReceived event
 
-The following example shows the schema of a chat received event:
+The following example shows the schema of a chat instant message received event:
 
 ```json
 [{
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/Microsoft.CommunicationServices/{service-name}",
-  "subject": "/user/621e5550-001e-001b-66af-eeb76e000000",
-  "eventType": "Microsoft.CommunicationServices.ChatReceived",
-  "eventTime": "2017-06-26T18:41:00.9584103Z",
-  "id": "831e1650-001e-001b-66ab-eeb76e069631",
-  "data": {
-    "id": "1f4e632b-ecbd-4bbd-afbb-25b5b9a06643",
-    "messageType":"text?",
-    "clientMessageId": "a6e761ea-9e50-4704-98dd-54d178e0b853",
-    "priority": "Normal",
-    "content": "This is a message.",
-    "senderDisplayName": "Bob",
-    "composedAt": 1588308562 ,
-    "arrivedAt": 1588308562 ,
-    "composedBy": "b6d7de05-aac0-4138-9c43-4b3e87ca7646",
-  },
-  "dataVersion": "",
-  "metadataVersion": "1"
+    "id":"c89b02d1-f78d-430d-8db2-8e4de1876d4c",
+    "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{Acs-resource-name}",
+    "subject":"IM Event Test",
+    "data":{
+        "messageBody":"Instant Message Received",
+        "senderId":"testSenderId",
+        "senderDisplayName":"TestClient",
+        "recipientId":"testRecipientId",
+        "transactionId":"transaction id",
+        "groupId":"test group",
+        "collapseId":"collapseId",
+        "messageId":"08ecddc3-d441-4fec-a347-24780cc731e1",
+        "messageType":"MIME"
+    },
+    "eventType":"Microsoft.Communication.InstantMessageReceived",
+    "dataVersion":"1.0",
+    "metadataVersion":"1",
+    "eventTime":"2020-07-16T22:10:43.09717Z"
+}]
+```
+### Microsoft.Communication.InstantMessageEdited event
+
+The following example shows the schema of a chat instant message edited event:
+
+```json
+[{
+    "id":"961d310d-75ec-4bfd-a021-367a0d104ed1",
+    "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{Acs-resource-name}",
+    "subject":"IM Event Test",
+    "data":{
+        "messageBody":"Instant Message Edited",
+        "version":"1.0",
+        "ComposeTime":"2020-07-16T22:11:04.0172485Z",
+        "editTime":"2020-07-16T22:11:04.017254Z",
+        "senderId":"testSenderId",
+        "senderDisplayName":"TestClient",
+        "recipientId":"testRecipientId",
+        "transactionId":"transaction id",
+        "groupId":"test group",
+        "collapseId":"collapseId",
+        "messageId":"3a6f523c-bb65-49ee-a4fb-4a125b653a0f",
+        "messageType":"MIME"
+    },
+    "eventType":"Microsoft.Communication.InstantMessageEdited",
+    "dataVersion":"1.0",
+    "metadataVersion":"1",
+    "eventTime":"2020-07-16T22:11:04.0172575Z"
 }]
 ```
 
-The following example shows the schema of an incoming call event:
+### Microsoft.Communication.InstantMessageDeleted event
+
+The following example shows the schema of a chat instant message deleted event:
 
 ```json
-TODO
-```
-
-The following example shows the schema of a call cancelled event:
-
-```json
-TODO
+[{
+    "id":"4cedf460-a578-4e49-870c-2323a4e98ed9",
+    "topic":"/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{Acs-resource-name}",
+    "subject":"IM Event Test",
+    "data":
+    {
+        "messageBody":"Instant Message Deleted",
+        "version":"1.0",
+        "ComposeTime":"2020-07-16T22:11:25.3945866Z",
+        "deleteTime":"2020-07-16T22:11:25.3947649Z",
+        "senderId":"testSenderId",
+        "senderDisplayName":"TestClient",
+        "recipientId":"testRecipientId",
+        "transactionId":"transaction id",
+        "groupId":"test group",
+        "collapseId":"collapseId",
+        "messageId":"ebe7ab09-c741-42fb-946f-447f9d3adb3b",
+        "messageType":"MIME"
+    },
+    "eventType":"Microsoft.Communication.InstantMessageDeleted",
+    "dataVersion":"1.0","metadataVersion":"1",
+    "eventTime":"2020-07-16T22:11:25.3948833Z"
+}]
 ```
 
 ## Tutorials and how-tos
