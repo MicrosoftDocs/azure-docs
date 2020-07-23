@@ -89,6 +89,8 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 [!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
 
+To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API.
+
 In your working directory, open a new file and enter the following JSON snippet to configure these details: 
 
 ```json

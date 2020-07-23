@@ -15,5 +15,3 @@ This app registration is where you configure access permissions to the [Azure Di
 > As a subscription Owner, you may prefer to set up a new app registration for every new Azure Digital Twins instance, *or* to do this only once and establish a single app registration that will be shared among all Azure Digital Twins instances in the subscription. This is how it's done within Microsoft's own tenant.
 
 ### Create the registration
-
-To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API. 

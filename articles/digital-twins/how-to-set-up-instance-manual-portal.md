@@ -89,9 +89,9 @@ First, open the details page for your Azure Digital Twins instance in the Azure 
 :::image type="content" source="media/how-to-set-up-instance/access-control-role-assignment.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
 
 On the following *Add role assignment* page, fill in the values (must be completed by an owner of the Azure subscription):
-* _Role_: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
-* _Assign access to_: Select *Azure AD user, group or service principal* from the dropdown menu
-* _Select_: Enter the name or email address of the user to assign
+* (Role*: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
+* *Assign access to*: Select *Azure AD user, group or service principal* from the dropdown menu
+* *Select*: Enter the name or email address of the user to assign
 
 When you're finished entering your details, hit the *Save* button.
 
@@ -107,45 +107,46 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 [!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
 
-In your working directory, open a new file and enter the following JSON snippet to configure these details: 
+Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) in the Azure portal. Select *App registrations* from the service menu, and then *+ New registration*.
 
-```json
-[{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
+:::image type="content" source="media/how-to-set-up-instance/new-registration.png" alt-text="View of the AAD service page in the Azure portal, highlighting the 'App registrations' menu option and '+ New registration' button":::
 
-Save this file as *manifest.json*.
+In the *Register an application* page that follows, fill in the requested values:
+* *Name*: An AAD application display name to associate with the registration
+* *Supported account types*: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
+* *Redirect URI*: An *AAD application reply URL* for the AAD application. You can use `http://localhost`.
 
-> [!NOTE] 
-> There are some places where a "friendly," human-readable string `https://digitaltwins.azure.net` can be used for the Azure Digital Twins resource app ID instead of the GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. For instance, many examples throughout this documentation set use authentication with the MSAL library, and the friendly string can be used for that. However, during this step of creating the app registration, the GUID form of the ID is required as it is shown above. 
+When you are finished, hit the *Register* button.
 
-In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
+:::image type="content" source="media/how-to-set-up-instance/register-an-application.png" alt-text="View of the 'Register an application' page with the described values filled in:::
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
-Navigate to the *manifest.json* you just created and hit "Open."
+When the registration is finished setting up, the portal will redirect you to its details page.
 
-Next, run the following command to create an app registration (replacing placeholders as needed):
+### Provide Azure Digital Twins API permission
 
-```azurecli
-az ad app create --display-name <name-for-your-app> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
-```
+Next, configure the app registration you've created with baseline permissions to the Azure Digital Twins APIs.
 
-Here is an excerpt of the output from this command, showing information about the registration you've created:
+From the portal view of your app registration, select *API permissions* from the menu. On the following permissions page, hit the *+ Add a permission* button.
 
-:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
+:::image type="content" source="media/how-to-set-up-instance/add-permission.png" alt-text="View of the app registration in the Azure portal, highlighting the 'API permissions' menu option and '+ Add a permission' button":::
+
+In the *Request API permissions* page that follows, switch to the *APIs my organization uses* tab and search for *azure digital twins*. Select *Azure Digital Twins* from the search results to proceed with assigning permissions for the Azure Digital Twins APIs.
+
+:::image type="content" source="media/how-to-set-up-instance/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins:::
+
+Next, you'll select the permissions to grant for these APIs. Expand the *Read* permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions. When finished, hit *Add permissions*.
+
+:::image type="content" source="media/how-to-set-up-instance/request-api-permissions-2.png" alt-text="View of the 'Request API Permissions' page selecting 'Read.Write' permissions for the Azure Digital Twins APIs:::
 
 ### Verify success
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+Back on the *API permissions* page, verify that there is an entry for Azure Digital Twins reflecting Read/Write permissions:
 
-First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
+:::image type="content" source="media/how-to-set-up-instance/verify-api-permissions.png" alt-text="Portal view of the API permissions for the AAD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+
+You can also verify the connection to Azure Digital Twins within the app registration's *manifest.json*, which was automatically updated with the Azure Digital Twins information when you added the API permissions.
+
+To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
@@ -165,6 +166,3 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 
 See how to connect your client application to your instance by writing the client app's authentication code:
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)
-
- 
-
