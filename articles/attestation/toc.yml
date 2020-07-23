@@ -26,7 +26,7 @@
     href: basic-concepts.md
   - name: Attestation policy claims
     items:
-      - name: Claim Rule Grammar
+      - name: Claim rule grammar
         href: claimrulegrammar.md
       - name: Claim sets
         href: claimsets.md
