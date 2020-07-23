@@ -4,18 +4,22 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 07/17/2020
 
 ---
 # Azure Functions JavaScript developer guide
 
-This guide contains information about the intricacies of writing Azure Functions with JavaScript.
+This guide contains detailed information to help you succeed developing Azure Functions using JavaScript.
 
-A JavaScript function is an exported `function` that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument passed to every function is a `context` object, which is used for receiving and sending binding data, logging, and communicating with the runtime.
+As an Express.js, Node.js, or JavaScript developer, if you are new to Azure Functions, please consider first reading one of the following articles:
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). Complete the Functions quickstart to create your first function, using [Visual Studio Code](functions-create-first-function-vs-code.md) or [in the portal](functions-create-first-azure-function.md).
+| Getting started | Concepts| Guided learning |
+| -- | -- | -- | 
+| <ul><li>[Node.js function using Visual Studio Code](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-javascript)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[TypeScript functions](#typescript)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
-This article also supports [TypeScript app development](#typescript).
+## JavaScript function basics
+
+A JavaScript (Node.js) function is an exported `function` that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The first argument passed to every function is a `context` object, which is used for receiving and sending binding data, logging, and communicating with the runtime.
 
 ## Folder structure
 
