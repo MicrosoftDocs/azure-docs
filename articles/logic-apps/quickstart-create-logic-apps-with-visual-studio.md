@@ -1,12 +1,14 @@
 ---
-title: Automate task workflows in Visual Studio
-description: Create, schedule, and run recurring workflows for enterprise integration by using Azure Logic Apps and Visual Studio
+title: Automate tasks and workflows with Visual Studio
+description: Create, schedule, and run automated workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/22/2020
+
+# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 
 # Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
