@@ -276,7 +276,6 @@ For more information on outbound connections, see [Outbound connections in Azure
 
 8. Select **Save**.
 
----
 # [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
