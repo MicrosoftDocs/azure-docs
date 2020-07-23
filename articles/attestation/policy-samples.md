@@ -10,7 +10,7 @@ ms.author: mbaldwin
 
 
 ---
-# Examples of attestation policy
+# Examples of an attestation policy
 
 **Default policy for an SGX enclave with PolicyFormat=Text**
 
