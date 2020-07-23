@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/21/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -55,11 +55,11 @@ Microsoft recommends using ZRS in the primary region for scenarios that require 
 
 The following table shows which types of storage accounts support ZRS in which regions:
 
-|    Storage account type    |    Supported regions    |    Supported services    |
-|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-|    General-purpose v2<sup>1</sup>    | Asia Southeast<br /> Australia East<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> South Africa North<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2    |    Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
-|    BlockBlobStorage<sup>1</sup>    | Asia Southeast<br /> Australia East<br /> Europe West<br /> US East    |    Block blobs only    |
-|    FileStorage    | Asia Southeast<br /> Australia East<br /> Europe West<br /> US East    |    Azure Files only    |
+| Storage account type | Supported regions | Supported services |
+|--|--|--|
+| General-purpose v2<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe North<br />  Europe West<br /> France Central<br /> Japan East<br /> South Africa North<br /> UK South<br /> US Central<br /> US East<br /> US East 2<br /> US West 2 | Block blobs<br /> Page blobs<sup>2</sup><br /> File shares (standard)<br /> Tables<br /> Queues<br /> |
+| BlockBlobStorage<sup>1</sup> | Asia Southeast<br /> Australia East<br /> Europe West<br /> US East | Premium block blobs only |
+| FileStorage | Asia Southeast<br /> Australia East<br /> Europe West<br /> US East | Premium files shares only |
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
 <sup>2</sup> Storage accounts that contain Azure managed disks for virtual machines always use LRS. Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Neither managed nor unmanaged disks support ZRS or GZRS. For more information on managed disks, see [Pricing for Azure managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -142,11 +142,11 @@ The tables in the following sections summarize the redundancy options available 
 
 The following table describes key parameters for each redundancy option:
 
-| Parameter                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Percent durability of objects over a given year<sup>1</sup>                                          | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
-| Availability SLA for read requests<sup>1</sup>  | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GRS | At least 99.9% (99% for cool access tier) for GZRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GZRS |
-| Availability SLA for write requests<sup>1</sup>  | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
+| Parameter | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| Percent durability of objects over a given year<sup>1</sup> | at least 99.999999999% (11 9's) | at least 99.9999999999% (12 9's) | at least 99.99999999999999% (16 9's) | at least 99.99999999999999% (16 9's) |
+| Availability SLA for read requests<sup>1</sup> | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) for GRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GRS | At least 99.9% (99% for cool access tier) for GZRS<br /><br />At least 99.99% (99.9% for cool access tier) for RA-GZRS |
+| Availability SLA for write requests<sup>1</sup> | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) | At least 99.9% (99% for cool access tier) |
 
 <sup>1</sup> For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
@@ -154,12 +154,12 @@ The following table describes key parameters for each redundancy option:
 
 The following table indicates whether your data is durable and available in a given scenario, depending on which type of redundancy is in effect for your storage account:
 
-| Outage scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| A node within a data center becomes unavailable                                                                 | Yes                             | Yes                              | Yes                                  | Yes                                 |
-| An entire data center (zonal or non-zonal) becomes unavailable                                           | No                              | Yes                              | Yes<sup>1</sup>                                  | Yes                                  |
-| A region-wide outage occurs in the primary region                                                                                     | No                              | No                               | Yes<sup>1</sup>                                  | Yes<sup>1</sup>                                  |
-| Read access to the secondary region is available if the primary region becomes unavailable | No                              | No                               | Yes (with RA-GRS)                                   | Yes (with RA-GZRS)                                 |
+| Outage scenario | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|:-|
+| A node within a data center becomes unavailable | Yes | Yes | Yes | Yes |
+| An entire data center (zonal or non-zonal) becomes unavailable | No | Yes | Yes<sup>1</sup> | Yes |
+| A region-wide outage occurs in the primary region | No | No | Yes<sup>1</sup> | Yes<sup>1</sup> |
+| Read access to the secondary region is available if the primary region becomes unavailable | No | No | Yes (with RA-GRS) | Yes (with RA-GZRS) |
 
 <sup>1</sup> Account failover is required to restore write availability if the primary region becomes unavailable. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
@@ -167,9 +167,9 @@ The following table indicates whether your data is durable and available in a gi
 
 The following table shows which redundancy options are supported by each type of storage account. For information for storage account types, see [Storage account overview](storage-account-overview.md).
 
-| LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
-| :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| General-purpose v2<br /> General-purpose v1<br /> Block blob storage<br /> Blob storage<br /> File storage                | General-purpose v2<br /> Block blob storage<br /> File storage                             | General-purpose v2<br /> General-purpose v1<br /> Blob storage                     | General-purpose v2                     |
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| General-purpose v2<br /> General-purpose v1<br /> Block blob storage<br /> Blob storage<br /> File storage | General-purpose v2<br /> Block blob storage<br /> File storage | General-purpose v2<br /> General-purpose v1<br /> Blob storage | General-purpose v2 |
 
 All data for all storage accounts is copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied. Data in all tiers, including the archive tier, is copied. For more information about blob tiers, see [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md).
 

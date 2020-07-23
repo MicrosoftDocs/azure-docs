@@ -236,7 +236,7 @@ API Version | API HTTP Method | Request URL
 Response Status Code | Description
 ---|---
 `200` | Service Good
-`503` | Service Unavailable
+`5xx` | Service Error
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/overview) installed.
+* The PowerShell [Az Module](https://docs.microsoft.com/powershell/azure/) installed.
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

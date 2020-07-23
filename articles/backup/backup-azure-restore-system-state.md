@@ -177,7 +177,7 @@ This article will only be discussing the first scenario, which calls for a nonau
         >[!NOTE]
         >If you are restoring all Active Directory data (and there are no functioning domain controllers left in the forest), in step 9 above make sure to select **Perform an authoritative restore of Active Directory files**.
 
-    * Use the [wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) utility to perform the restore from the command line.
+    * Use the [wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) utility to perform the restore from the command line.
 
         You'll need the version identifier of the backup you wish to use. You can get a list of version identifiers by running this command:
 
@@ -187,7 +187,7 @@ This article will only be discussing the first scenario, which calls for a nonau
 
         You then use that version identifier to run the restore.
 
-        For example, to perform a [nonauthorative restore of AD DS and an authoritative restore of the sysvol folder](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) using the backup from 04/30/2020 at 9:00 AM, which is stored on the shared resource `\\servername\share` for `server01`, type:
+        For example, to perform a [nonauthorative restore of AD DS and an authoritative restore of the sysvol folder](/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) using the backup from 04/30/2020 at 9:00 AM, which is stored on the shared resource `\\servername\share` for `server01`, type:
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol

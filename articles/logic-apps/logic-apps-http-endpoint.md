@@ -386,7 +386,7 @@ To view the JSON definition for the Response action and your logic app's complet
 
 #### Q: What about URL security?
 
-**A**: Azure securely generates logic app callback URLs by using [Shared Access Signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). This signature passes through as a query parameter and must be validated before your logic app can run. Azure generates the signature using a unique combination of a secret key per logic app, the trigger name, and the operation that's performed. So unless someone has access to the secret logic app key, they cannot generate a valid signature.
+**A**: Azure securely generates logic app callback URLs by using [Shared Access Signature (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). This signature passes through as a query parameter and must be validated before your logic app can run. Azure generates the signature using a unique combination of a secret key per logic app, the trigger name, and the operation that's performed. So unless someone has access to the secret logic app key, they cannot generate a valid signature.
 
 > [!IMPORTANT]
 > For production and higher security systems, we strongly advise against calling your logic app directly from the browser for these reasons:
