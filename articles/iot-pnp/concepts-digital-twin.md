@@ -38,7 +38,7 @@ When represented as a JSON object, a digital twin includes the following fields:
 | Field name | Description |
 | --- | --- |
 | `$dtId` | A user-provided string representing the ID of the device digital twin |
-| `{propertyName}` | The value of a property in JSON (`string`, number type, or object) |
+| `{propertyName}` | The value of a property in JSON |
 | `$metadata.$model` | [Optional] The ID of the model interface that characterizes this digital twin |
 | `$metadata.{propertyName}.desiredValue` | [Only for writable properties] The desired value of the specified property |
 | `$metadata.{propertyName}.desiredVersion` | [Only for writable properties] The version of the desired value maintained by IoT Hub|
@@ -47,7 +47,7 @@ When represented as a JSON object, a digital twin includes the following fields:
 | `$metadata.{propertyName}.ackDescription` | [Optional, only for writable properties] The `ack` description returned by the device app implementing the digital twin |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub maintains the timestamp of the last update of the property by the device. The timestamps are in UTC and encoded in the ISO8601 format YYYY-MM-DDTHH:MM:SS.mmmZ |
 | `{componentName}` | A JSON object containing the component's property values and metadata, similar to a root object. |
-| `{componentName}.{propertyName}` | The value of the component's property in JSON (`string`, number type, or object) |
+| `{componentName}.{propertyName}` | The value of the component's property in JSON |
 | `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
 
 #### Device Twin sample
@@ -65,8 +65,7 @@ The following snippet shows an IoT Plug and Play device twin formatted as a JSON
                 "__t": "c",
                 "targetTemperature": 21.8
             },
-            "$metadata": {
-            },
+            "$metadata": {...},
             "$version": 4
         },
         "reported": {
@@ -80,8 +79,7 @@ The following snippet shows an IoT Plug and Play device twin formatted as a JSON
                     "ad": "Successfully executed patch",
                 }
             },
-            "$metadata": {
-            },
+            "$metadata": {...},
             "$version": 11
         }
     }
@@ -225,7 +223,7 @@ Let's say device also had the following writable property at root-level:
    :::column-end:::
 :::row-end:::
 
-In this example, `3.0` is the current value of the `fanSpeed` property reported by the device. `2.0` is the desired value set by the solution. The desired value and synchronization state of a root-level property is set within root-level `$metadata` for a digital twin.
+In this example, `3.0` is the current value of the `fanSpeed` property reported by the device. `2.0` is the desired value set by the solution. The desired value and synchronization state of a root-level property is set within root-level `$metadata` for a digital twin. When the device comes online, it can apply this update and report back the updated value.
 
 ### Components
 
@@ -308,7 +306,7 @@ Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital T
 
 ## Digital twin change events
 
-When digital twin change events are enabled, an event is triggered whenever the current or desired value of the component or property changes. Digital twin change events are generated in [JSON Patch](http://jsonpatch.com/) format. Corresponding events are generated in the device twin format if twin change events are enabled. 
+When digital twin change events are enabled, an event is triggered whenever the current or desired value of the component or property changes. Digital twin change events are generated in [JSON Patch](http://jsonpatch.com/) format. Corresponding events are generated in the device twin format if twin change events are enabled.
 
 To learn how to enable routing for device and digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). To understand the message format, see [Create and read IoT Hub messages](../iot-hub/iot-hub-devguide-messages-construct.md).
 

@@ -107,7 +107,6 @@ The following JSON Patch sample shows how to add, replace, or remove a component
         }
     },
     {
-        // Clears desired value of "anotherWritableProperty" if it was set.
         "op": "replace",
         "path": "/thermostat1",
         "value": {
@@ -116,8 +115,8 @@ The following JSON Patch sample shows how to add, replace, or remove a component
         }
     },
     {
-        "op": "remove", // Clears desired value of "targetTemperature", "anotherWritableProperty"
-        "path": "/thermostat1"
+        "op": "remove",
+        "path": "/thermostat2"
     }
 ]
 ```
@@ -139,12 +138,12 @@ The following JSON Patch sample shows how to add, replace, or remove a property 
     },
     {
         "op": "replace",
-        "path": "/thermostat1/targetTemperature",
-        "value": 21.4
+        "path": "/thermostat1/anotherWritableProperty",
+        "value": 42
     },
     {
-        "op": "remove", // Clears the desired value of "targetTemperature"
-        "path": "/thermostat1/targetTemperature",
+        "op": "remove",
+        "path": "/thermostat2/targetTemperature",
     }
 ]
 ```

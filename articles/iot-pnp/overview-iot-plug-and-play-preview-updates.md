@@ -51,12 +51,19 @@ The following Microsoft-defined interfaces are deprecated and aren't published i
 
 The following interface is published in the new model repository: `dtmi:azure:DeviceManagement:DeviceInformation;1` available in the URL [https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview](https://repo.azureiotrepository.com/Models/dtmi:azure:DeviceManagement:DeviceInformation;1?api-version=2020-05-01-preview).
 
-
 ## DigitalTwinChangeEvents
 
 The event structure of the **DigitalTwinChangeEvents** [event source](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events) has changed to use the **JSON-Patch** format. This change is a breaking change with no backward compatibility support.
 
-The **SystemProperties** collection in a digital twin change event now includes a **dt-dataschema** property that stores the **Model ID** reported by the device.
+## Message routing
+
+Telemetry messages have the following changes within [SystemProperties](../iot-hub/iot-hub-devguide-messages-construct.md) collection.
+
+It now includes a **dt-dataschema** property that's the **Model ID** registered by the device.
+
+The **dt-subject** property represents the component sending telemetry message.
+
+The **iothub-interface-name** property is deprecated.
 
 ## Device and service SDKs
 
@@ -68,7 +75,7 @@ Devices that don't use components require minimal code changes - just announcing
 
 ### Service SDKs
 
-The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md). 
+The service SDK is available in [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/digitaltwins-preview/digitaltwins/service/readme.md) and [Python](https://github.com/Azure/azure-iot-sdk-python/blob/digitaltwins-preview/azure-iot-hub/README.md).
 
 ## VS Code extension
 

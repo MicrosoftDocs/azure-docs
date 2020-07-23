@@ -88,17 +88,21 @@ This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, 
 - You can send a [cloud-to-device message](../iot-hub/iot-hub-devguide-messages-c2d.md) on the **Cloud-to-device messages** tab.
 - You can access the [module twin](../iot-hub/iot-hub-devguide-module-twins.md) information.
 
-### IoT Plug and Play Components
+### IoT Plug and Play components
 
 If the device is connected to the hub using a **Model ID**, the tool shows the **IoT Plug and Play components** tab `` where you can see the **Model ID**.
 
 If the **Model ID** is available in one of the configured sources - Public Repo or Local Folder, the list of components is displayed. Selecting a component shows the properties, commands, and telemetry available.
 
-On the **Component** page, you can view the non-writable properties, update writable properties, invoke commands, and see the telemetry messages produced by this component.
+On the **Component** page, you can view the read-only properties, update writable properties, invoke commands, and see the telemetry messages produced by this component.
+
+:::image type="content" source="media/howto-use-iot-explorer/components-iot-explorer.png" alt-text="View components in Azure IoT explorer":::
 
 #### Properties
 
-You can view the read-only properties defined in an interface on the **Properties (non-writable)** tab. You can update the writable properties defined in an interface on the **Properties (writable)** tab:
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="View properties in Azure IoT explorer":::
+
+You can view the read-only properties defined in an interface on the **Properties (read-only)** tab. You can update the writable properties defined in an interface on the **Properties (writable)** tab:
 
 1. Go to the **Properties (writable)** tab.
 1. Click the property you'd like to update.
