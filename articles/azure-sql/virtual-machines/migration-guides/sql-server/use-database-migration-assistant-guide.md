@@ -163,12 +163,12 @@ The following table provides a list components and recommended migration methods
 | **Feature** | **Component** | **Migration Method(s)** |
 | --- | --- | --- |
 | Databases | Model Database | Script with SQL Server Management Studio |
-|| TempDB Database | Plan to move TempDB onto [Azure VM temporary disk (SSD](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your TempDB. |
-|| User Databases with File stream | Do not use DMA for Database Migration, use [Backup and Restore](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server#back-up-and-restore) methods for migration. |
-| Security | SQL Server and Windows Logins | Use DMA to migrate User Logins, a step by step guide can be found [here](https://docs.microsoft.com/en-us/sql/dma/dma-migrateserverlogins?view=sql-server-ver15). |
+|| TempDB database | Plan to move TempDB onto [Azure VM temporary disk (SSD](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices#temporary-disk)) for best performance. Be sure to pick a VM size that has a sufficient local SSD to accommodate your TempDB. |
+|| User databases with Filestream |  Do not use DMA for Database Migration, use the [Backup and restore](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server#back-up-and-restore) methods for migration. |
+| Security | SQL Server and Windows Logins | Use DMA to [migrate user logins](/sql/dma/dma-migrateserverlogins). |
 || SQL Server Roles | Script with SQL Server Management Studio |
-|| Cryptographic providers | Recommend converting to use Azure Key Vault Service. A guide on how to do this is provided [here](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure). This procedure uses the [SQL VM Resource Provider](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash). |
-| Server Objects | Backup Devices | Replace with Database backup using [Azure Backup Service](https://docs.microsoft.com/en-us/azure/backup/backup-sql-server-database-azure-vms) or write backups to [Azure Storage](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use) (SQL Server 2012 SP1 CU2). This procedure uses the [SQL VM Resource Provider](https://docs.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register?tabs=azure-cli%2Cbash).|
+|| Cryptographic providers | Recommend [converting to use Azure Key Vault Service](windows/azure-key-vault-integration-configure.md). This procedure uses the [SQL VM resource provider](windows/sql-vm-resource-provider-register.md). |
+| Server Objects | Backup Devices | Replace with database backup using [Azure Backup Service](../../../../backup/backup-sql-server-database-azure-vms.md) or write backups to [Azure Storage](windows/azure-storage-sql-server-backup-restore-use.md) (SQL Server 2012 SP1 CU2 + ). This procedure uses the [SQL VM resource provider](windows/sql-vm-resource-provider-register.md).|
 || Linked Servers | Script with SQL Server Management Studio |
 || Server Triggers | Script with SQL Server Management Studio |
 | Replication | Local Publications | Script with SQL Server Management Studio |
@@ -179,7 +179,7 @@ The following table provides a list components and recommended migration methods
 || Alerts | Script with SQL Server Management Studio |
 || Operators | Script with SQL Server Management Studio |
 || Proxies | Script with SQL Server Management Studio |
-| Operating System | Files, File Shares | Make a note of any additional files or file shares that are used by your SQL Servers and replicate on the Azure VM target. |
+| Operating System | Files, file shares | Make a note of any additional files or file shares that are used by your SQL Servers and replicate on the Azure VM target. |
 
 
 
