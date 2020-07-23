@@ -53,7 +53,7 @@ For synchronized users, consistency means that the Proxy Addresses match the on-
   
 One of the admin tasks that could trigger **ProxyCalc** is whenever there’s a verified domain change. This task occurs every time a verified domain is added/removed from an Azure AD tenant, which internally triggers **ProxyCalc**.  
 
-For example, if you add a verified domain Fabrikam.com to your Contoso.onmicrosoft.com tenant, this will trigger a ProxyCalc operation on all objects in the tenant. This will be captured in the Azure AD Audit logs as **Update User** events preceded by an **Add verified domain** event. On the other hand, if Fabrikam.com was removed from the Contoso.onmicrosoft.com tenant, then all the **Update User** events will be preceded by a **Remove verified domain** event.   
+For example, if you add a verified domain Fabrikam.com to your Contoso.onmicrosoft.com tenant, this action will trigger a ProxyCalc operation on all objects in the tenant. This event will be captured in the Azure AD Audit logs as **Update User** events preceded by an **Add verified domain** event. On the other hand, if Fabrikam.com was removed from the Contoso.onmicrosoft.com tenant, then all the **Update User** events will be preceded by a **Remove verified domain** event.   
 
 #### Additional notes:
 
@@ -63,9 +63,9 @@ ProxyCalc does not cause changes to certain objects that:
 - have **MSExchRemoteRecipientType** set to Null 
 - are not considered a shared resource. Shared Resource is when **CloudMSExchRecipientDisplayType** contains one of the following values: **MailboxUser (shared)**, **PublicFolder**, **ConferenceRoomMailbox**, **EquipmentMailbox**, **ArbitrationMailbox**, **RoomList**, **TeamMailboxUser**, **Group mailbox**, **Scheduling mailbox**, **ACLableMailboxUser**, **ACLableTeamMailboxUser** 
   
- In order to build more correlation between these two disparate events, Microsoft is working on updating the **Actor** info in the audit logs to identify these changes as triggered by a verified domain change. This will help check when the verified domain change event took place and started to mass update the objects in their tenant. 
+ In order to build more correlation between these two disparate events, Microsoft is working on updating the **Actor** info in the audit logs to identify these changes as triggered by a verified domain change. This action will help check when the verified domain change event took place and started to mass update the objects in their tenant. 
 
-Additionally, in most cases, there are no changes to users as their **UserPrincipalName** and **Proxy Addresses** are consistent, so we are working to display in Audit Logs only those updates that caused an actual change to the object. This will prevent noise in the audit logs and help admins correlate the remaining user changes to verified domain change event as explained above. 
+Additionally, in most cases, there are no changes to users as their **UserPrincipalName** and **Proxy Addresses** are consistent, so we are working to display in Audit Logs only those updates that caused an actual change to the object. This action will prevent noise in the audit logs and help admins correlate the remaining user changes to verified domain change event as explained above. 
 
 ## Next Steps
 
