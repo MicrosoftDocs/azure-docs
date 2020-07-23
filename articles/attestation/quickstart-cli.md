@@ -1,5 +1,5 @@
 ---
-title: Azure Attestation CLI quickstart
+title: Set up Azure Attestation with Azure CLI
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -10,8 +10,7 @@ ms.author: mbaldwin
 
 
 ---
-# Azure Attestation
-
+# Quickstart: Set up Azure Attestation with Azure CLI
 TODO
 
 ## Next steps

@@ -1,5 +1,5 @@
 ---
-title: Azure Attestation 
+title: Azure Attestation Basic Concepts
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -22,7 +22,7 @@ ms.author: mbaldwin
 
 ## Attestation provider
 
-Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](..azure-resource-manager/management/overview.md) (ARM) which supports Role-Based Access Control (RBAC). Each attestation provider honors a specific, discoverable policy. 
+Attestation provider is a resource type of Azure resource provider named Microsoft.Attestation. The resource provider is a service endpoint that provides Azure Attestation REST contract and is deployed using [Azure Resource Manager](../azure-resource-manager/management/overview.md) (ARM) which supports Role-Based Access Control (RBAC). Each attestation provider honors a specific, discoverable policy. 
 
 Example of URI of an attestation provider: htt<span>ps</span>://tradewinds.us.attest.azure.net
 
@@ -53,7 +53,7 @@ Trust model defines the authorization model of attestation provider to define an
 
 In isolated model, administrator creates an attestation provider specifying a set of trusted signing X.509 certificates in a file. The administrator can then add a signed policy to the attestation provider. While processing the attestation request, Azure Attestation will validate the signature of the policy using the public key represented by either the “jwk” or the “x5c” parameter in the header.  Azure Attestation will also verify if public key in the request header is in the list of trusted signing certificates associated with the attestation provider. In this way, the relying party (Azure Attestation) can trust a policy signed using the X.509 certificates it knows about. 
 
-See [examples of policy signer certificate](policysigner-examples.md) for samples.
+See [examples of policy signer certificate](policy-signer-examples.md) for samples.
 
 ## Attestation token
 

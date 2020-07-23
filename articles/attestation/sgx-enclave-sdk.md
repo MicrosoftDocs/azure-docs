@@ -75,10 +75,10 @@ The verification that the Azure Attestation JWT claims match the initial parsed 
 ## Instructions to Build and Run Yourself
 
 To set up the pre-requisites to build and run these samples:
-1. Install Ubuntu 18.04 on an [Azure Confidential Compute](https://azure.microsoft.com/en-us/solutions/confidential-compute/) VM.
+1. Install Ubuntu 18.04 on an [Azure Confidential Compute](https://azure.microsoft.com/solutions/confidential-compute/) VM.
 1. Install the [Open Enclave SDK](https://github.com/openenclave/openenclave/blob/v0.9.x/docs/GettingStartedDocs/install_oe_sdk-Ubuntu_18.04.md) on this VM.  You don't need to install Ninja or CMake -- they are not used here.
 1. Add the command "```. /opt/openenclave/share/openenclave/openenclaverc```" to your ~/.bashrc file.
-1. Install the [.NET CORE SDK](https://docs.microsoft.com/en-us/dotnet/core/install/linux-package-manager-ubuntu-1804) on this VM.
+1. Install the [.NET CORE SDK](/dotnet/core/install/linux-package-manager-ubuntu-1804) on this VM.
 
 To build and run the samples:
 1. ```git clone``` this repo to the VM

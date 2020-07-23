@@ -15,7 +15,7 @@
   - name: Authoring and signing an attestation policy
     href: authoring-signing-policy.md
   - name: SGX attestation using Open Enclave SDK
-    href: sgx-using-enclave-sdk.md
+    href: sgx-enclave-sdk.md
 - name: Samples
   items:
     - name: Examples of an attestation policy

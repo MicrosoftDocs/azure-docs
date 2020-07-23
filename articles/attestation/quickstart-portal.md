@@ -1,5 +1,5 @@
 ---
-title: Azure Attestation portal quickstart
+title: Set up Azure Attestation with the Azure portal
 description: XXX
 services: attestation
 author: msmbaldwin
@@ -10,7 +10,7 @@ ms.author: mbaldwin
 
 
 ---
-# Azure Attestation
+# Set up Azure Attestation with the Azure portal
 
 TODO
 
