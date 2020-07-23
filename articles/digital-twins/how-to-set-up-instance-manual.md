@@ -35,7 +35,7 @@ In this section, you will **create a new instance of Azure Digital Twins** using
     ```azurecli
     az group create --location <region> --name <name-for-your-resource-group>
     ```
-* A region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* A region for the deployment. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * A name for your instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
 
 Use these values in the following command to create the instance:
@@ -59,15 +59,15 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 ## Set up your user's access permissions
 
-Azure Digital Twins uses [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before a user can make data plane calls to your Azure Digital Twins instance, that user must first be assigned a role with permissions to do so.
+Azure Digital Twins uses [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) for role-based access control (RBAC). This means that before a user can make data plane calls to your Azure Digital Twins instance, that user must first be assigned a role with permissions to do so.
 
 For Azure Digital Twins, this role is _**Azure Digital Twins Owner (Preview)**_. You can read more about roles and security in [*Concepts: Security for Azure Digital Twins solutions*](concepts-security.md).
 
-This section will show you how to create a role assignment for a user in the Azure Digital Twins instance, through their email associated with the AAD tenant on your Azure subscription. Depending on your role and your permissions on your Azure subscription, you will either set this up for yourself, or set this up on behalf of someone else who will be managing the Azure Digital Twins instance.
+This section will show you how to create a role assignment for a user in the Azure Digital Twins instance, through their email associated with the Azure AD tenant on your Azure subscription. Depending on your role and your permissions on your Azure subscription, you will either set this up for yourself, or set this up on behalf of someone else who will be managing the Azure Digital Twins instance.
 
 ### Assign the role
 
-To give a user permissions to manage an Azure Digital Twins instance, you must assign them the *Azure Digital Twins Owner (Preview)* role within the instance. 
+To give a user permissions to manage an Azure Digital Twins instance, you must assign them the _**Azure Digital Twins Owner (Preview)**_ role within the instance. 
 
 Note that this role is different from...
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Owner (Preview)* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
@@ -76,7 +76,7 @@ Note that this role is different from...
 Use the following command to assign the role (must be run by an owner of the Azure subscription):
 
 ```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<AAD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
 The result of this command is outputted information about the role assignment that's been created.
@@ -84,7 +84,7 @@ The result of this command is outputted information about the role assignment th
 > [!TIP]
 > If you get a *400: BadRequest* error instead, run the following command to get the *ObjectID* for the user:
 > ```azurecli
-> az ad user show --id <AAD-email-of-user-to-assign> --query objectId
+> az ad user show --id <Azure-AD-email-of-user-to-assign> --query objectId
 > ```
 > Then, repeat the role assignment command using the user's *Object ID* in place of their email.
 
@@ -96,7 +96,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 ## Set up access permissions for client applications
 
-Once you set up an Azure Digital Twins instance, it is common to interact with that instance through a client application that you create. In order to do this, you'll need to make sure the client app will be able to authenticate against Azure Digital Twins. This is done by setting up an [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration** for your client app to use.
+Once you set up an Azure Digital Twins instance, it is common to interact with that instance through a client application that you create. In order to do this, you'll need to make sure the client app will be able to authenticate against Azure Digital Twins. This is done by setting up an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration** for your client app to use.
 
 This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
 
@@ -137,7 +137,7 @@ az ad app create --display-name <name-for-your-app> --native-app --required-reso
 
 Here is an excerpt of the output from this command, showing information about the registration you've created:
 
-:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new AAD app registration":::
+:::image type="content" source="media/how-to-set-up-instance/new-app-registration.png" alt-text="Cloud Shell output of new Azure AD app registration":::
 
 ### Verify success
 

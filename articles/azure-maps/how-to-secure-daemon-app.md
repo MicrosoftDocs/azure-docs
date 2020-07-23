@@ -2,8 +2,8 @@
 title: How to secure a daemon application
 titleSuffix: Azure Maps
 description: Use the Azure portal to manage authentication to configure a trusted daemon application.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
