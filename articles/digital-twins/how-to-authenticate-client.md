@@ -92,8 +92,8 @@ See [*How-to: Set up an Azure function for processing data*](how-to-create-azure
 
 Also, to use authentication in a function, remember to:
 * [Enable managed identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
-* [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp)
-* Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) for more information.
+* Use [environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp) as appropriate
+* Assign permissions to the functions app that enable it to access the Digital Twins APIs. For more information on Azure Functions processes, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
 ## Authentication with an AutoRest-generated SDK
 
