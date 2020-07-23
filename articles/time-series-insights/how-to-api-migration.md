@@ -18,19 +18,19 @@ ms.custom: shresha
 
 If you have created an Azure Time Series Insights Gen2 environment when it was in Public Preview (before July 16th, 2020), please update your TSI environment to use the new generally available versions of APIs by following the steps described in this article.
 
-The new API version is `2020-07-31` and uses an updated [Time Series Expression Syntax](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax). 
+The new API version is `2020-07-31` and uses an updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax). 
 
-Users must migrate their environment's [Time Series Model variables](./concepts-variables), saved queries, Power BI queries, and any custom tools making calls to the API endpoints. If you have any questions or concerns about the migration process, submit a support ticket through the Azure portal and mention this document.
+Users must migrate their environment's [Time Series Model variables](./concepts-variables.md), saved queries, Power BI queries, and any custom tools making calls to the API endpoints. If you have any questions or concerns about the migration process, submit a support ticket through the Azure portal and mention this document.
 
 > [!IMPORTANT]
 > The Preview API version `2018-11-01-preview` will continue to be supported until October 31st, 2020. Please complete all applicable steps of this migration before then to avoid any disruptions in service. 
 
 ## Migrate Time Series Model and saved queries
 
-To help users migrate their [Time Series Model variables](./concepts-variables) and saved queries, there is a built-in tool available through the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com). Navigate to the environment you wish to migrate and follow the steps below. **You can complete the migration partially and return to complete it at a later time, however, none of the updates can be reverted.** 
+To help users migrate their [Time Series Model variables](./concepts-variables.md) and saved queries, there is a built-in tool available through the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com). Navigate to the environment you wish to migrate and follow the steps below. **You can complete the migration partially and return to complete it at a later time, however, none of the updates can be reverted.** 
 
 > [!NOTE]
-> You must be a Contributor to the environment to make updates to the Time Series Model and saved queries. If you are not a Contributor, you will only be able to migrate your personal saved queries. Please review [environment access policies](./concepts-access-policies) and your access level before proceeding.
+> You must be a Contributor to the environment to make updates to the Time Series Model and saved queries. If you are not a Contributor, you will only be able to migrate your personal saved queries. Please review [environment access policies](./concepts-access-policies.md) and your access level before proceeding.
 
 1. You will be prompted by the Explorer to update the syntax used by your Time Series Model variables and saved queries. 
    
@@ -66,10 +66,10 @@ Review your updated environment by charting some of the newly created variables 
 
 If you have generated queries using the Power BI Connector, they are making calls to Azure Time Series Insights using the Preview API version and old Time Series Expression Syntax. These queries will continue to successfully retreive data until the Preview API is deprecated. 
 
-To update the queries to use the new API version and new Time Series Expression Syntax, queries will need to be regenerated from the Explorer. Read more about how to [create queries using the Power BI Connector](./how-to-connect-power-bi). 
+To update the queries to use the new API version and new Time Series Expression Syntax, queries will need to be regenerated from the Explorer. Read more about how to [create queries using the Power BI Connector](./how-to-connect-power-bi.md). 
 
 > [!NOTE]
-> You must be using the July 2020 Version of Power BI Desktop. If not you may see an [invalid query payload version error](./how-to-diagnose-troubleshoot#problem-power-bi-connector-shows-unable-to-connect). 
+> You must be using the July 2020 Version of Power BI Desktop. If not you may see an [invalid query payload version error](./how-to-diagnose-troubleshoot.md#problem-power-bi-connector-shows-unable-to-connect). 
 
 ## Migrate custom applications
 
@@ -77,29 +77,29 @@ If your custom application is making calls to the following REST endpoints, it i
 
 - Time Series Model APIs
   - Model Settings APIs
-    - [Get](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
-    - [Update](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
+    - [Get](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/get)
+    - [Update](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/modelsettings/update)
   - Instance APIs 
-    - [All Batch Operations](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
-    - [List](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
-    - [Search](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
-    - [Suggest](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
+    - [All Batch Operations](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/executebatch)
+    - [List](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/list)
+    - [Search](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/search)
+    - [Suggest](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriesinstances/suggest)
   - Hierarchy APIs
-    - [All Batch Operations](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
-    - [List](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
+    - [All Batch Operations](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/executebatch)
+    - [List](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeserieshierarchies/list)
   - Types APIs
-    - [Delete, Get Operations](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
-    - [List](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
+    - [Delete, Get Operations](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch)
+    - [List](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/list)
 
 
-For the following REST endpoints, you must update the API version to `2020-07-31` in the URI and make sure all occurrences of the `tsx` property use the updated [Time Series Expression Syntax](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax). 
+For the following REST endpoints, you must update the API version to `2020-07-31` in the URI and make sure all occurrences of the `tsx` property use the updated [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax). 
 
 - Types APIs
-  - [Put Operation](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
+  - [Put Operation](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/timeseriestypes/executebatch#typesbatchput)
 - Query APIs
-  - [GetEvents](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
-  - [GetSeries](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
-  - [GetAggregateSeries](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
+  - [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)
+  - [GetSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries)
+  - [GetAggregateSeries](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#aggregateseries)
 
 
 ### Examples
@@ -343,7 +343,7 @@ Alternatively, the `value` can also be `coalesce($event['Temp'].Double, toDouble
 
 #### InvalidInput
 
-If you see the following error, you are using the new API version (`2020-07-31`) but the TSX syntax has not been updated. Please review the [Time Series Expression Syntax](https://docs.microsoft.com/en-us/rest/api/time-series-insights/preview#time-series-expression-and-syntax) and migration examples above. Make sure all `tsx` properties are properly updated before resubmitting the API request.
+If you see the following error, you are using the new API version (`2020-07-31`) but the TSX syntax has not been updated. Please review the [Time Series Expression Syntax](https://docs.microsoft.com/rest/api/time-series-insights/preview#time-series-expression-and-syntax) and migration examples above. Make sure all `tsx` properties are properly updated before resubmitting the API request.
 
 ```JSON
 {
