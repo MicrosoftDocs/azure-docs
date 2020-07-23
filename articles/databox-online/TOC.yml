@@ -144,9 +144,9 @@
     - name: Azure PowerShell
       href: https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge
     - name: REST API
-      href: https://docs.microsoft.com/en-us/rest/api/databoxedgegateway
+      href: https://docs.microsoft.com/rest/api/databoxedgegateway
     - name: .NET SDK
-      href: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 - name: Resources
   items:
   - name: Azure Stack Edge C# module samples (.NET)
