@@ -39,7 +39,7 @@ app.get('/hello', (req, res) => {
 });
 ```
 
-When a `GET` request is sent `/hello`, then an `HTTP 200` response containing "Success" is returned. If the endpoint returns an error, the response is an `HTTP 500` with the error details.
+When a `GET` request is sent to `/hello`, an `HTTP 200` response containing "Success" is returned. If the endpoint returns an error, the response is an `HTTP 500` with the error details.
 
 ### Azure Functions
 
