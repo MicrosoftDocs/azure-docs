@@ -12,7 +12,7 @@ ms.service: azure-project-spool
 
 ---
 
-# Video
+# About Voice and Video Calling
 
 The ACS SDKs and APIs allow you to add video and voice chat to your applications.
 

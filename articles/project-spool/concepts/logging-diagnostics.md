@@ -14,7 +14,15 @@ ms.service: azure-project-spool
 
 # Logging and Diagnostics
 
-TODO
+## VoIP
+
+## Chat
+
+## SMS
+
+## NAT
+
+## PSTN
 
 
 ### meta
