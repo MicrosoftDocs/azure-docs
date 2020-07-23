@@ -130,7 +130,7 @@ If you selected to create a new backup policy, fill in the policy settings.
     * You can retain snapshots for instant restore for between one to five days. Two days is the default setting.
 4. In **Retention range**, specify how long you want to keep your daily or weekly backup points.
 5. In **Retention of monthly backup point**, specify whether you want to keep a monthly backup of your daily or weekly backups.
-6. select **OK** to save the policy.
+6. Select **OK** to save the policy.
 
     ![New backup policy](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

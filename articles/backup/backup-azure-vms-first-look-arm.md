@@ -26,7 +26,7 @@ To back up Azure VMs, Azure Backup installs an extension on the VM agent running
 ## Back up from Azure VM settings
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. select **All services** and in the Filter, type **Virtual machines**, and then select **Virtual machines**.
+2. Select **All services** and in the Filter, type **Virtual machines**, and then select **Virtual machines**.
 3. From the list of VMs, select the VM you want to back up.
 4. On the VM menu, select **Backup**.
 5. In **Recovery Services vault**, do the following:
@@ -43,7 +43,7 @@ To back up Azure VMs, Azure Backup installs an extension on the VM agent running
 
    ![Select backup policy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
-7. select **Enable Backup**. This associates the backup policy with the VM.
+7. Select **Enable Backup**. This associates the backup policy with the VM.
 
     ![Enable Backup button](./media/backup-azure-vms-first-look-arm/vm-management-menu-enable-backup-button.png)
 
