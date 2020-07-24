@@ -273,7 +273,7 @@
         - name: Azure Cache for Redis reservation
           href: /azure/data-explorer/pricing-reserved-capacity
         - name: Cosmos DB
-          href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+          href: /azure/data-explorer
         - name: Databricks
           href: reservations/prepay-databricks-reserved-capacity.md
         - name: Data Explorer

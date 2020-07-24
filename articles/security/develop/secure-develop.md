@@ -80,7 +80,7 @@ on the client side).
 ### Verify your application's outputs
 
 Any output that you present either visually or within a document should
-always be encoded and escaped. [Escaping](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), also known as *output encoding*, is used to help ensure that untrusted data isn't a vehicle for an injection attack. Escaping, combined with data validation, provides layered defenses to increase security of the
+always be encoded and escaped. [Escaping](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), also known as *output encoding*, is used to help ensure that untrusted data isn't a vehicle for an injection attack. Escaping, combined with data validation, provides layered defenses to increase security of the
 system as a whole.
 
 Escaping makes sure that everything is displayed as *output.* Escaping
