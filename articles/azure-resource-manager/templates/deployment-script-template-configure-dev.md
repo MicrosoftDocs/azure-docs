@@ -11,7 +11,7 @@ ms.author: jgao
 ---
 # Configure development environment for deployment scripts in templates
 
-Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/).
+Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
 
 ## Prerequisite
 
