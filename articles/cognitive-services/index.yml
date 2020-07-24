@@ -139,7 +139,7 @@ conceptualContent:
 additionalContent:
   sections:
     - title: Customize with Cognitive Services 
-      summary: With Cognitive Services, you can customize your user experience by improving  Microsoft's baseline models or creating your own. 
+      summary: With Cognitive Services, you can customize your user experience by improving  Microsoft's baseline models or creating your own. Use the links below to create, manage, and deploy models using web-based user interfaces for each service.
       items: 
         # Card
         - title: Custom Translator
