@@ -76,7 +76,7 @@ body | Represents the payload that is sent to the endpoint.  | String (or expres
 authentication | Authentication method used for calling the endpoint. Supported Types are "Basic, or ClientCertificate." For more information, see [Authentication](#authentication) section. If authentication is not required, exclude this property. | String (or expression with resultType of string) | No
 datasets | List of datasets passed to the endpoint. | Array of dataset references. Can be an empty array. | Yes
 linkedServices | List of linked services passed to endpoint. | Array of linked service references. Can be an empty array. | Yes
-connectVia | The [integration runtime](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | The integration runtime reference. | No 
+connectVia | The [integration runtime](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) to be used to connect to the data store. You can use the Azure integration runtime or the self-hosted integration runtime (if your data store is in a private network). If this property isn't specified, the service uses the default Azure integration runtime. | The integration runtime reference. | No 
 
 > [!NOTE]
 > REST endpoints that the web activity invokes must return a response of type JSON. The activity will timeout at 1 minute with an error if it does not receive a response from the endpoint.
