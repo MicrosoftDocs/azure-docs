@@ -34,7 +34,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 
 ## Specifying Azure Government as the *environment* to connect to

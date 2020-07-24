@@ -48,6 +48,9 @@
         displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
       - name: Best practices
         href: database/security-best-practice.md
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./database/security-controls-policy.md
       - name: Security baseline
         href: database/security-baseline.md
       - name: Security attributes
@@ -246,8 +249,6 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-      - name: Migrate from Premium RS
-        href: database/service-tiers-prs.md     
 
   - name: Quickstarts
     href: database/quickstart-content-reference-guide.md
@@ -1055,7 +1056,7 @@
     - name: Reference
       items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/azure/
       - name: Azure CLI
         href: /cli/azure/
       - name: T-SQL

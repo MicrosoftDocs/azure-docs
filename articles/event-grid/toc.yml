@@ -8,6 +8,8 @@
     href: overview.md
   - name: Compare messaging services
     href: compare-messaging-services.md
+  - name: Release notes
+    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -236,7 +238,7 @@
       href: configure-private-endpoints.md
     - name: Configure IP firewall (preview)
       href: configure-firewall.md
-    - name: Secure WebHook with AAD
+    - name: Secure Webhook with AAD
       href: secure-webhook-delivery.md
     - name: Event delivery with managed identity
       href: managed-service-identity.md

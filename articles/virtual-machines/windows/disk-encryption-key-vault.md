@@ -21,7 +21,7 @@ Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
 
 > [!Note]
-> You must select the option in the Azure Key Vault access policy settings to enable access to Azure Disk Encryption for volume encryption.
+> You must select the option in the Azure Key Vault access policy settings to enable access to Azure Disk Encryption for volume encryption. If you have enabled the firewall on the key vault, you must go to the Networking tab on the key vault and enable access to Microsoft Trusted Services. 
 
 1. Creating a resource group, if needed.
 2. Creating a key vault. 
@@ -39,7 +39,7 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 ## Install tools and connect to Azure
 
-The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/overview), or the [Azure portal](https://portal.azure.com).
+The steps in this article can be completed with the [Azure CLI](/cli/azure/), the [Azure PowerShell Az module](/powershell/azure/), or the [Azure portal](https://portal.azure.com).
 
 While the portal is accessible through your browser, Azure CLI and Azure PowerShell require local installation; see [Azure Disk Encryption for Windows: Install tools](disk-encryption-windows.md#install-tools-and-connect-to-azure) for details.
 

@@ -68,7 +68,7 @@ Available resources:
 | Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
-| Maximum job lifetime | 90 days<sup>1</sup> |
+| Maximum job lifetime | 21 days<sup>1</sup> |
 | Maximum job lifetime on a Low-Priority Node | 7 days<sup>2</sup> |
 | Maximum parameter servers per node | 1 |
 

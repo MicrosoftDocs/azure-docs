@@ -109,7 +109,7 @@ The *provisioningState* of *Succeeded* is shown once the extension is successful
 
 ## Configure role assignments for the VM
 
-Azure Role-Based Access Control (RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
+Azure role-based access control (Azure RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
 
 - **Virtual Machine Administrator Login**: Users with this role assigned can log in to an Azure virtual machine with Windows Administrator or Linux root user privileges.
 - **Virtual Machine User Login**: Users with this role assigned can log in to an Azure virtual machine with regular user privileges.
