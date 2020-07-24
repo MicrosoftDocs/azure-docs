@@ -14,31 +14,30 @@ Azure Database for MySQL automatically creates server backups and stores them in
 
 ## Backups
 
-Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption.
+Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16 TB max storage servers). These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
 These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](concepts-migrate-dump-restore.md) to copy a database.
 
 ### Backup frequency
 
-#### Legacy servers with 4TB storage
+#### Servers with up to 4 TB storage
 
-For our legacy servers, which support up to 4TB maximum storage, full backups occur weekly, differential backups occur twice a day for servers, and transaction log backups occur every five minutes.
+For servers, which support up to 4 TB maximum storage, full backups occur weekly, differential backups occur twice a day for servers, and transaction log backups occur every five minutes.
 
-#### Servers with 16TB storage (large storage)
-
-In a subset of Azure regions, all newly-provisioned servers can support up to 16TB storage. Backups on these "large storage" servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
+#### Servers with up to 16 TB storage
+In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly-provisioned servers can support up to 16 TB storage. Backups on these "large storage" servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
 
 Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (i.e. binlog in MySQL) exceeds 50GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed. 
 
 Transaction log backups occur every five minutes. 
 
-### Backup Retention
+### Backup retention
 
 Backups are retained based on the backup retention period setting on the server. You can select a retention period of 7 to 35 days. The default retention period is 7 days. You can set the retention period during server creation or any time after server creation by updating the backup configuration using [Azure portal](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) or [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration). 
 
 The backup retention period governs how far back in time a point-in-time restore can be retrieved, since it's based on backups available. The backup retention period can also be treated as a recovery window from a restore perspective. All backups required to perform a point-in-time restore within the backup retention period are retained and stored in backup storage to support point in time restores during the retention window. For example, if the backup retention period is set to 7 days, the recovery window is considered last 7 days, and all the backups required to restore and recover the server in last 7 days are retained. With a backup retention window of seven days:
-- Legacy servers with 4TB storage will retain up to 2 full database backups, all the differential backups, and transaction log backups performed since the earliest full database backup.
--	Servers with large storage (16TB) will retain the full database snapshot and all the differential snapshots and transaction log backups in last 8 days.
+- Legacy servers with 4 TB storage will retain up to 2 full database backups, all the differential backups, and transaction log backups performed since the earliest full database backup.
+-	Servers with large storage (16 TB) will retain the full database snapshot and all the differential snapshots and transaction log backups in last 8 days.
 
 ### Backup redundancy options
 
