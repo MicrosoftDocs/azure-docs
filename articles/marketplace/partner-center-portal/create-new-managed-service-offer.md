@@ -132,20 +132,13 @@ In this section, you can provide logos and images that will be used when showing
 
 Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) and a **Medium** (90 x 90 pixels) size logo. You can optionally replace these with different images.
 
-All three logo sizes are required and are used in different places in the listing:
+All three logo sizes are required for use in different places in the listing:
 
 - **Small** (48 x 48)
 - **Medium** (90 x 90)
 - **Large** (between 216 x 216 and 350 x 350)
 
-Follow these guidelines for your logos:
-
-- The Azure design has a simple color palette. Limit the number of primary and secondary colors on your logo.
-- The theme colors of the portal are white and black. Don't use these colors as the background color for your logo. Use a color that makes your logo prominent in the portal. We recommend simple primary colors.
-- If you use a transparent background, make sure that the logo and text aren't white, black, or blue.
-- The look and feel of your logo should be flat and avoid gradients in the logo or background.
-Don't place text on the logo, not even your company or brand name.
-- Make sure the logo isn't stretched.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### Screenshots
 
