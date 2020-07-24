@@ -115,6 +115,9 @@ When you create a new workspace, it automatically creates several Azure resource
 > [!NOTE]
 > In addition to creating new versions, you can also use existing Azure services.
 
+> [!IMPORTANT]
+> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace.
+
 ## Next steps
 
 To get started with Azure Machine Learning, see:
