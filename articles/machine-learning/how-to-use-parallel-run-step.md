@@ -22,13 +22,13 @@ With ParallelRunStep, it's straightforward to scale offline inferences to large 
 
 In this article, you learn the following tasks:
 
-> * Set up machine learning resources.
-> * Configure batch inference data inputs and output.
-> * Prepare the pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
-> * Write your inference script.
-> * Create a [machine learning pipeline](concept-ml-pipelines.md) containing ParallelRunStep and run batch inference on MNIST test images. 
-> * Resubmit a batch inference run with new data input and parameters. 
-> * View the results.
+> 1. Set up machine learning resources.
+> 1. Configure batch inference data inputs and output.
+> 1. Prepare the pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset. 
+> 1.  Write your inference script.
+> 1. Create a [machine learning pipeline](concept-ml-pipelines.md) containing ParallelRunStep and run batch inference on MNIST test images. 
+> 1. Resubmit a batch inference run with new data input and parameters. 
+> 1. View the results.
 
 ## Prerequisites
 
@@ -204,12 +204,12 @@ The script *must contain* two functions:
     -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
+%%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
-%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
