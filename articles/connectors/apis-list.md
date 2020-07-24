@@ -53,30 +53,24 @@ Connectors are available as built-in triggers and actions or as managed connecto
   | [**Integration account connectors**](#integration-account-connectors) | Available when you create and pay for an integration account, these connectors transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages with AS2, EDIFACT, and X12 protocols. |
   |||
 
-  > [!IMPORTANT]
-  > If you want to use the Gmail connector, only G-Suite business accounts can use this connector without restriction in logic apps. 
-  > If you have a Gmail consumer account, you can use this connector with only specific Google-approved services, or you can 
-  > [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
-  > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
-
 <a name="integration-service-environment"></a>
 
-### Connect from an integration service environment
+### Connect from an integration service environment (ISE)
 
-For logic apps that need direct access to resources in an Azure virtual network, you can create an isolated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your logic apps on dedicated resources. In the Logic App Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on some connectors:
+For logic apps that need direct access to resources in an Azure virtual network, you can create an dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you can build, deploy, and run your logic apps on dedicated resources. In the Logic App Designer, when you browse the connectors that you want to use for logic apps in an ISE, a **CORE** label appears on built-in triggers and actions, while the **ISE** label appears on some connectors.
 
-| Label | Description |
-|-------|-------------|
-| **CORE** | Built-in triggers and actions with this label run in the same ISE as your logic apps, for example: <p> ![Example ISE connector](./media/apis-list/example-core-connector.png) |
-| **ISE** | Managed connectors with this label run in the same ISE as your logic apps, for example: <p>![Example ISE connector](./media/apis-list/example-ise-connector.png) <p><p>If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your logic apps directly access that system without the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom). For on-premises systems that don't have **ISE** connectors, use on-premises data gateway. To review available ISE connectors, see [ISE connectors](#ise-connectors). |
-| No label | All other connectors without the **CORE** or **ISE** label, which you can continue to use, run in the global, multi-tenant Logic Apps service, for example: <p>![Example multi-tenant connector](./media/apis-list/example-multi-tenant-connector.png) |
+> [!NOTE]
+> Logic apps that run in an ISE and their connectors, regardless where those connectors run, 
+> follow a fixed pricing plan versus the consumption-based pricing plan. For more information, 
+> see [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) and 
+> [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
+
+| Label | Example | Description |
+|-------|---------|-------------|
+| **CORE** | ![Example ISE connector](./media/apis-list/example-core-connector.png) | Built-in triggers and actions with this label run in the same ISE as your logic apps. |
+| **ISE** | ![Example ISE connector](./media/apis-list/example-ise-connector.png) | Managed connectors with this label run in the same ISE as your logic apps. If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your logic apps directly access that system without the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom). For on-premises systems that don't have **ISE** connectors, use on-premises data gateway. To review available ISE connectors, see [ISE connectors](#ise-connectors). |
+| No label | ![Example multi-tenant connector](./media/apis-list/example-multi-tenant-connector.png) | All other connectors without the **CORE** or **ISE** label, which you can continue to use, run in the global, multi-tenant Logic Apps service. |
 |||
-
-Logic apps that run in an ISE and their connectors, regardless where those connectors run, follow a fixed pricing plan versus the consumption-based pricing plan. For more information, see these pages:
-
-* [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
-* [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/)
-* [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 <a name="built-ins"></a>
 
@@ -152,6 +146,15 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 | [![API icon][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more. |
 |||
 
+> [!IMPORTANT]
+> For the Gmail connector, these considerations apply:
+>
+> * If you have a G-Suite business account, you can use the Gmail connector with any other connector in your logic apps.
+>
+> * If you have a Gmail consumer account, you can use the Gmail connector only with specific Google-approved services. To work around this restriction, 
+> you need to [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
+> For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+
 <a name="on-premises-connectors"></a>
 
 ## On-premises connectors
@@ -192,7 +195,7 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 ## ISE connectors
 
-For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that currently have ISE versions:
+For logic apps that you create and run in a dedicated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that currently have ISE versions:
 
 |___|___|___|___|___|
 |---|---|---|---|---|
