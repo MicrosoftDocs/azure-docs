@@ -100,7 +100,7 @@ This ScriptRunConfig will submit your job for execution on the local compute tar
 ```python
 from azureml.core import ScriptRunConfig
 
-src = ScriptRunConfig(source_directory='.', script='train_iris.py')
+sklearnconfig = ScriptRunConfig(source_directory='.', script='train_iris.py')
 src.run_config.environment = myenv
 ```
 
@@ -110,7 +110,7 @@ If you want to submit against a remote cluster, you can change run_config.target
 ```python
 from azureml.core import Experiment
 
-run = Experiment(ws,'train-sklearn').submit(config=src)
+run = Experiment(ws,'train-sklearn').submit(config=sklearnconfig)
 run.wait_for_completion(show_output=True)
 
 ```
