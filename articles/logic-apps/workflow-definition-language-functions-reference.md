@@ -4950,7 +4950,7 @@ In this example, suppose your `items` XML string also contains these attributes:
 
 `"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
 
-This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35':
+This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35`:
 
 `xpath(xml(parameters('items')), '//name[price>35]')`
 
