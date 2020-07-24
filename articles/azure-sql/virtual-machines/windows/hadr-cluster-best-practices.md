@@ -50,7 +50,7 @@ The following table lists the quorum options available in the order recommended 
 
 ### Disk witness
 
-A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for an Azure VM. 
+A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for an Azure VM as it can solve the partition in time problem, unlike the cloud and file share witness. 
 
 Configure an Azure shared disk as the disk witness. 
 
