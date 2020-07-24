@@ -8,7 +8,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
 
-#customer intent: As an Apache Spark developer, I would like to learn about the tools and features to optimize my Spark worloads on Azure HDInsight.
+#customer intent: As an Apache Spark developer, I would like to learn about the tools and features to optimize my Spark workloads on Azure HDInsight.
 ---
 # SparkCruise on Azure HDInsight
 
@@ -54,7 +54,7 @@ The following sample scenario illustrates how to use *SparkCruise* to optimize A
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-The `analyze` command parses the query plans and creates a tabular representation of the workload. This workload table can be queried using the *WorkloadInsights* notebook included on HDInsight clusters. Then, the `views` command identifies common subplan expressions and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. 
+The `analyze` command parses the query plans and creates a tabular representation of the workload. Then, the `views` command identifies common subplan expressions and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. 
 
 The `show` command displays an output like the following text:
 
