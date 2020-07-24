@@ -7,7 +7,6 @@ services: iot-hub
 ms.author: robinsh
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.prod: iot-hub
 ---
 # Quickstart: Deploy an Azure IoT Hub and a storage account using an ARM template
 
