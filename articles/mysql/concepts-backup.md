@@ -26,7 +26,11 @@ For our legacy servers, which support up to 4TB maximum storage, full backups oc
 
 #### Servers with 16TB storage (large storage)
 
-For [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) that support storage size up to 16TB, all newly provisioned servers deploy “large storage”, which supports up to 16TB. Backups on these servers are snapshot-based backups. The first full snapshot backup is scheduled immediately after a server is created. The first full snapshot backup is retained as base backup at any given point in time and subsequent snapshot backups are differential backups only. Differential snapshot backups occur at least one time a day for servers. Differential snapshot backups do not occur at the fixed schedule. Differential snapshot backup occurs every 24 hours unless the transaction log (i.e., binlog in MySQL) exceeds 50GB since the last backup. In a day, a maximum of six differential snapshots is allowed. Transaction log backups occur every five minutes. 
+In a subset of Azure regions, all newly-provisioned servers can support up to 16TB storage. Backups on these "large storage" servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
+
+Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (i.e. binlog in MySQL) exceeds 50GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed. 
+
+Transaction log backups occur every five minutes. 
 
 ### Backup Retention
 
