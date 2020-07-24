@@ -98,10 +98,10 @@ The solution can also use **Get Twin** to retrieve model ID from the device twin
 
 ## Model resolution
 
-To make the model and component interfaces that your devices use available to your solution, you have the following options:
+Model Resolution is the ability for the solution, to get access to the interfaces that compose a model from the model Id. 
 
-- Use the [model repository](howto-manage-models.md).
-- Use a local cache.
+- Solutions can opt to store these interfaces as files in a local folder. 
+- Solutions can use the [model repository](howto-manage-models.md).
 
 ## Next steps
 
