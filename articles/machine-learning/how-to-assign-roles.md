@@ -133,7 +133,7 @@ The following table is a summary of Azure Machine Learning activities and the pe
 | ----- | ----- | ----- | ----- |
 | Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
 | Update the Edition of the workspace | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/write` |
-| Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role allowing: `/locations/updateQuotas/action` at subscription scope | Not Authorized | Not Authorized |
+| Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role</br>allowing `/locations/updateQuotas/action`</br> at subscription scope | Not Authorized | Not Authorized |
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `/workspaces/computes/write` |
 | Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
