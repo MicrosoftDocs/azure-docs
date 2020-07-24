@@ -116,7 +116,7 @@ New-AzVm @AzVmParams
 The VM deployment now starts and typically takes a few minutes to complete. After deployment
 completes, move on to the next section.
 
-## Download Dashboard Template
+## Download the dashboard template
 
 Since Azure dashboards are resources, they can be represented as JSON. The following code downloads
 a JSON representation of a sample dashboard. For more information, see [The structure of Azure Dashboards](/azure/azure-portal/azure-portal-dashboards-structure).
@@ -143,11 +143,11 @@ $Content = $Content -replace '<location>', $location
 $Content | Out-File -FilePath $myPortalDashboardTemplatePath -Force
 ```
 
-For more information, see [Microsoft.Portal dashboards template reference](/azure/templates/microsoft.portal/dashboards)
+For more information, see [Microsoft portal dashboards template reference](/azure/templates/microsoft.portal/dashboards)
 
 ## Deploy the dashboard template
 
-You can use the `New-AzPortalDashboard` cmdlet that is part of the Az.Portal module to deploy the
+You can use the `New-AzPortalDashboard` cmdlet that's part of the Az.Portal module to deploy the
 template directly from PowerShell.
 
 ```azurepowershell
@@ -159,7 +159,7 @@ $DashboardParams = @{
 New-AzPortalDashboard @DashboardParams
 ```
 
-## Review deployed resources
+## Review the deployed resources
 
 Check that the dashboard was created successfully.
 
@@ -197,7 +197,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 ## Next steps
 
-For more information about dashboards in the Azure portal, see:
+For more information about the cmdlets contained in the Az.Portal PowerShell module, see:
 
 > [!div class="nextstepaction"]
-> [Create and share dashboards in the Azure portal](azure-portal-dashboards.md)
+> [Microsoft Azure PowerShell: Portal Dashboard cmdlets](https://docs.microsoft.com/powershell/module/Az.Portal/)
