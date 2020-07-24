@@ -25,13 +25,16 @@ Here is the process for updating the VM size and operating system of the primary
 3. After deciding to upgrade the primary node type VMs, add a new scale set to the primary node type using these sample [template](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) and [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) files so the primary node type now has two scale sets.  System services and user applications are able to migrate between VMs in the two different scale sets.  The new scale set VMs are size Standard D4_V2 and run Windows Server 2016 Datacenter with Containers.  A new load balancer and public IP address are also added with the new scale set.  
     To find the new scale set in the template, search for the "Microsoft.Compute/virtualMachineScaleSets" resource named by the *vmNodeType2Name* parameter.  The new scale set is added to the primary node type using the properties->virtualMachineProfile->extensionProfile->extensions->properties->settings->nodeTypeRef setting.
 4. Check the cluster health and verify all the nodes are healthy.
-5. Disable the nodes in the old scale set of the primary node type with the intent to remove node. You can disable all at once and the operations are queued. Wait until all nodes are disabled, which may take some time.  As the older nodes in the node type are disabled, the system services and seed nodes migrate to the VMs of the new scale set in the primary node type.
-6. Remove the older scale set from the primary node type. (After the nodes are disabled as in step 5, in the virtual machine scale set blade in the Azure portal, deallocate the nodes from the old node type one by one.)
-7. Remove the load balancer associated with the old scale set. The cluster is unavailable while the new public IP address and load balancer are configured for the new scale set.  
-8. Store DNS settings of the public IP address associated with the old primary node type scale set in a variable and remove that public IP address.
-9. Replace the DNS settings of the public IP address associated with the new primary node type scale set with the DNS settings of the deleted public IP address.  The cluster is now reachable again.
-10. Remove the node state of the nodes from the cluster.  If the durability level of the old scale set was silver or gold, this step is done by the system automatically.
-11. If you deployed the stateful application in a previous step, verify that the application is functional.
+5. Modify the cluster manifest from resources.azure.com  
+5.a)Make "isPrimary": true for the new primary nodetype.
+b) Make "isPrimary": false for the old primary nodetype.
+6. Disable the nodes in the old scale set of the primary node type with the intent to remove node. You can disable all at once and the operations are queued. Wait until all nodes are disabled, which may take some time.  As the older nodes in the node type are disabled, the system services and seed nodes migrate to the VMs of the new scale set in the primary node type.
+7. Remove the older scale set from the primary node type. (After the nodes are disabled as in step 5, in the virtual machine scale set blade in the Azure portal, deallocate the nodes from the old node type one by one.)
+8. Remove the load balancer associated with the old scale set. The cluster is unavailable while the new public IP address and load balancer are configured for the new scale set.  
+9. Store DNS settings of the public IP address associated with the old primary node type scale set in a variable and remove that public IP address.
+10. Replace the DNS settings of the public IP address associated with the new primary node type scale set with the DNS settings of the deleted public IP address.  The cluster is now reachable again.
+11. Remove the node state of the nodes from the cluster.  If the durability level of the old scale set was silver or gold, this step is done by the system automatically.
+12. If you deployed the stateful application in a previous step, verify that the application is functional.
 
 ## Set up the test cluster
 
