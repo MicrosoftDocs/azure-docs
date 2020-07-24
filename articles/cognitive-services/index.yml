@@ -140,6 +140,8 @@ conceptualContent:
         - url: ./containers/container-faq.md
           itemType: reference
           text: Cognitive Services containers FAQ
+additionalContent:
+  sections:
     - title: Additional resources
       items:
         - title: Additional resources
