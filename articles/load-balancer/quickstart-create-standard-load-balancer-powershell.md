@@ -1443,7 +1443,7 @@ Install IIS with a custom web page on both back-end VMs as follows:
 5. Close the RDP connections with **myVM1**, **myVM2**, and **myVM3**.
 
 
-## Test load balancer
+## Test the load balancer
 To get the public IP address of the load balancer, use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
 
 * Named **myPublicIP**
