@@ -28,7 +28,7 @@ For all the features discussed in this article, use at least July 2017, version 
 
 ## Authentication options
 
-There are two non-interactive authentication models for Azure AD, which can be used in many different applications (ADO.NET, JDCB, ODC, etc.). These two methods never result in pop-up dialog boxes:
+There are two non-interactive authentication models for Azure AD, which can be used in many different applications (ADO.NET, JDCB, ODC, and so on). These two methods never result in pop-up dialog boxes:
 
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
@@ -65,7 +65,7 @@ If you are running SSMS 18.x or later, the AD domain name or tenant ID is no lon
 
 Azure AD users that are supported for Azure AD B2B scenarios as guest users (see [What is Azure B2B collaboration](../../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)) can connect to SQL Database and Azure Synapse only as part of members of a group created in the associated Azure AD, and mapped manually using the [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) statement in a given database. For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure AD domain `contosotest.onmicrosoft.com`), an Azure AD group, such as `usergroup` must be created in the Azure AD that contains the `steve@gmail.com` member. Then, this group must be created for a specific database (for example, `MyDatabase`) by an Azure AD SQL admin or Azure AD DBO,  by executing the Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` statement. 
 
-After the database user is created, then the user `steve@gmail.com` can log in to `MyDatabase` using the SSMS authentication option `Azure Active Directory – Universal with MFA`. By default, the `usergroup` has only the connect permission. Any further data access will need to be [granted](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) in the database by a user with enough priviledge. 
+After the database user is created, then the user `steve@gmail.com` can sign into `MyDatabase` using the SSMS authentication option `Azure Active Directory – Universal with MFA`. By default, the `usergroup` has only the connect permission. Any further data access will need to be [granted](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) in the database by a user with enough privilege. 
 
 > [!NOTE]
 > For SSMS 17.x, using `steve@gmail.com` as a guest user, you must check the **AD domain name or tenant ID** box and add the AD domain name `contosotest.onmicrosoft.com` in the **Connection Property** dialog box. The **AD domain name or tenant ID** option is only supported for the **Azure Active Directory - Universal with MFA** authentication. Otherwise, the check box it is greyed out.

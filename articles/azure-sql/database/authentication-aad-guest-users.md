@@ -18,12 +18,12 @@ ms.date: 07/24/2020
 > [!NOTE]
 > This article is in **public preview**.
 
-Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. For example, this can include users from other Azure Active Directories, or from accounts like *@outlook.com*, *@hotmail.com*, 
+Guest users in Azure Active Directory (Azure AD) are users that have been imported into the current Azure AD from other Azure Active Directories, or outside of it. For example, guest users can include users from other Azure Active Directories, or from accounts like *@outlook.com*, *@hotmail.com*, 
 *@live.com*, or *@gmail.com*. This article will demonstrate how to create an Azure AD guest user, and set that user as an Azure AD admin for the Azure SQL logical server, without needing to have that guest user be part of a group inside Azure AD.
 
 ## Feature description
 
-This feature lifts the current limitation that only allow guest users to connect to Azure SQL Database, SQL Managed Instance, or Azure Synapse Analytics when they are members of a group created in Azure AD. The group needed to be mapped to a user manually using the [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) statement in a given database. Once a database user has been created for the Azure AD group containing the guest user, the guest user can sign into the database using Azure Active Directory with MFA authentication. As part of this **public preview**, guest users can be created and connect directly to SQL Database, SQL Managed Instance, or Azure Synapse without the requirement of adding them to an Azure AD group first, and then creating a database user for that Azure AD group.
+This feature lifts the current limitation that only allows guest users to connect to Azure SQL Database, SQL Managed Instance, or Azure Synapse Analytics when they're members of a group created in Azure AD. The group needed to be mapped to a user manually using the [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) statement in a given database. Once a database user has been created for the Azure AD group containing the guest user, the guest user can sign into the database using Azure Active Directory with MFA authentication. As part of this **public preview**, guest users can be created and connect directly to SQL Database, SQL Managed Instance, or Azure Synapse without the requirement of adding them to an Azure AD group first, and then creating a database user for that Azure AD group.
 
 As part of this feature, you also have the ability to set the Azure AD guest user directly as an AD admin for the Azure SQL logical server. The existing functionality where the guest user can be part of an Azure AD group, and that group can then be set as the Azure AD admin for the Azure SQL logical server is not impacted. Guest users in the database that are a part of an Azure AD group are also not impacted by this change.
 
@@ -129,11 +129,12 @@ Follow these steps to set an Azure AD guest user as the Azure AD admin for the S
 
 ## Limitations
 
-There is a limitation on the Azure portal which prevents selecting an Azure AD guest user as the Azure AD admin for SQL Database, SQL Managed Instance, and Azure Synapse. For guest accounts outside of Azure ADs like *@outlook.com*, *@hotmail.com*, *@live.com*, or *@gmail.com*, the AD admin picker blade shows these accounts, but they are grayed out and cannot be selected. Use the above listed PowerShell or CLI commands to set the Azure AD admin. Alternatively, an Azure AD group containing the guest user can be set as the Azure AD admin for the SQL logical server.
+There is a limitation on the Azure portal that prevents selecting an Azure AD guest user as the Azure AD admin for SQL Database, SQL Managed Instance, and Azure Synapse. For guest accounts outside of your Azure AD like *@outlook.com*, *@hotmail.com*, *@live.com*, or *@gmail.com*, the AD admin selector shows these accounts, but they are grayed out and cannot be selected. Use the above listed [PowerShell or CLI commands](#setting-a-guest-user-as-an-azure-ad-admin) to set the Azure AD admin. Alternatively, an Azure AD group containing the guest user can be set as the Azure AD admin for the SQL logical server.
 
 This functionality will be enabled for SQL Database and Azure Synapse prior to General Availability of this feature.
 
 ## Next steps
 
+- [Configure and manage Azure AD authentication with Azure SQL](authentication-aad-configure.md)
 - [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md)
 - [CREATE USER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
