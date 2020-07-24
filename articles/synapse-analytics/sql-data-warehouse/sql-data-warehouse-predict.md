@@ -1,5 +1,5 @@
 ---
-title: Score machine learning models with PREDICT in Synapse SQL
+title: Score machine learning models with PREDICT
 description: Learn how to score machine learning models using the T-SQL PREDICT function in Synapse SQL.
 services: synapse-analytics
 author: anumjs
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ms.custom: azure-synapse
 ---
 
-# Score machine learning models with PREDICT in Synapse SQL 
+# Score machine learning models with PREDICT
 
 Synapse SQL provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest), you can bring your existing machine learning models trained in historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs. Predictions are generated based on the model. This feature eliminates the step of moving valuable data outside the data warehouse for scoring. It aims to empower data professionals to easily deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task.
 
