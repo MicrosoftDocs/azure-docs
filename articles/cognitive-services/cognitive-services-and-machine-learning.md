@@ -67,7 +67,7 @@ Cognitive Services, as a group of services, can require none, some, or all custo
 
 ### No additional training data required
 
-Services that provide a fully-trained model can be treated as a _black box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully trained model to get a prediction. 
+Services that provide a fully-trained model can be treated as a _opaque box_. You don't need to know how they work or what data was used to train them. You bring your data to a fully trained model to get a prediction. 
 
 ### Some or all training data required
 

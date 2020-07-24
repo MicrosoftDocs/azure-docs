@@ -7,6 +7,8 @@ ms.date: 12/04/2018
 
 # Quickstart: Migrate a local Jupyter notebook in Azure Notebooks Preview
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 In this quickstart, you migrate a Jupyter notebook from your local computer or another accessible file URL to Azure Notebooks. 
 
 Jupyter notebooks on your own computer are accessible only to you. You can share your files, but recipients then have their own local copies of the notebook, and it's difficult to incorporate their changes. Even if you store notebooks in a shared online repository such as GitHub, each collaborator must have a local Jupyter installation configured like yours.
@@ -20,8 +22,6 @@ By migrating your local or repository-based notebooks to Azure Notebooks, you ca
 ## Create a project on Azure Notebooks
 
 This quickstart demonstrates migrating a notebook from your local computer or another accessible file URL. To migrate notebooks from a GitHub repository, see [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md).
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
 

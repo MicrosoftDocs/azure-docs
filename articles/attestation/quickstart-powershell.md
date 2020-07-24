@@ -1,18 +1,18 @@
 ---
-title: Microsoft Azure Attestation 
+title: Azure Attestation Powershell quickstart
 description: XXX
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 07/20/2020
 ms.author: mbaldwin
 
 
 ---
-# Microsoft Azure Attestation set up with Azure PowerShell
+# Quickstart: Set up Azure Attestation with Azure PowerShell
 
-Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) for information on how to install and run Azure PowerShell.
+Follow the below steps to create and configure an attestation provider using Azure PowerShell. See [Overview of Azure PowerShell](/powershell/azure/?view=azps-2.8.0&viewFallbackFrom=azps-2.4.0) for information on how to install and run Azure PowerShell.
 
 ## Install Az.Attestation PowerShell module
 
@@ -70,7 +70,7 @@ Set-AzContext -Subscription <subscription id>
 
 ## Register Microsoft.Attestation resource provider
 
-Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types). Note that registering a resource provider is required only once for a subscription. 
+Register the Microsoft.Attestation resource provider in subscription. For more information about Azure resource providers and how to configure and manage resources providers, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). Note that registering a resource provider is required only once for a subscription. 
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Attestation 
@@ -105,7 +105,7 @@ PolicySignerCertificateFile is a file specifying a set of trusted signing keys. 
 New-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Location $location -PolicySignersCertificateFile "C:\test\policySignersCertificates.pem"
 ```
 
-For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policysigner-samples.md).
+For PolicySignersCertificateFile sample, see [examples of policy signer certificate](policy-signer-examples.md).
 
 Get-AzAttestation retrieves the attestation provider properties like status and AttestURI. Take a note of AttestURI, as it will be needed later.
 
@@ -167,7 +167,7 @@ If PolicySignerCertificateFile is provided during creation of an attestation pro
 
 Attestation policy in JWT format must contain a claim named "AttestationPolicy". For signed policy, JWT must be signed with private key corresponding to any of the existing policy signer certificates.
 
-For policy samples, see [examples of an attestation policy](policy-samples.md).
+For policy samples, see [examples of an attestation policy](policy-examples.md).
 
 Reset-AzAttestationPolicy resets the policy to default for the specified TEE.
 
@@ -191,10 +191,10 @@ Policy signer certificate is a signed JWT with claim named "maa-policyCertificat
 
 Note that all semantic manipulation of the policy signer certificate must be done outside of PowerShell. As far as PowerShell is concerned, is is a simple string.
 
-For policy signer certificate sample, see [examples of policy signer certificate](policysigner-samples.md).
+For policy signer certificate sample, see [examples of policy signer certificate](policy-signer-examples.md).
 
-For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
+For more information on the cmdlets and its parameters, see [Azure Attestation PowerShell cmdlets](/powershell/module/az.attestation/?view=azps-4.3.0#attestation) 
 
 ## Next steps
 
-- [SGX attestation using Open Enclave SDK](tutorials.md)
+- [SGX attestation using Open Enclave SDK](sgx-enclave-sdk.md)

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page # Required
   author: msmbaldwin
   ms.author: mbaldwin
-  ms.date: 08/31/2020 #Required; mm/dd/yyyy format.
+  ms.date: 07/20/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -32,6 +32,8 @@ landingContent:
         links:
           - text: PowerShell quickstart
             url: quickstart-powershell.md
+          - text: ARM template quickstart
+            url: quickstart-template.md
 
   # Card
   - title: Concepts
@@ -41,9 +43,9 @@ landingContent:
           - text: Basic concepts
             url: basic-concepts.md
           - text: Claim rule grammar
-            url: claimrulegrammar.md
+            url: claim-rule-grammar.md
           - text: Claim sets
-            url: claimsets.md
+            url: claim-sets.md
           - text: Work flow
             url: workflow.md
             
@@ -53,7 +55,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Authoring and signing an attestation policy
-            url: authoringandsigningpolicy.md
+            url: author-sign-policy.md
           - text: SGX attestation using Open Enclave SDK
-            url: tutorials.md
+            url: sgx-enclave-sdk.md
       

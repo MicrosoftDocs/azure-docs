@@ -42,6 +42,7 @@ ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ## Next steps
 
 * View the [Node.js quickstart](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) to see what else you can do with the Immersive Reader SDK using Node.js
+* View the [Android tutorial](../tutorial-android.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
+* View the [iOS tutorial](../tutorial-ios.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
 * View the [Python tutorial](../tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
-* View the [Swift tutorial](../tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../reference.md)

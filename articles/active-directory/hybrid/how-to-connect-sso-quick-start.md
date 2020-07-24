@@ -157,9 +157,9 @@ There are two ways to modify users' Intranet zone settings:
 
 4. Enter the following values in appropriate fields and click **OK**.
    - **Key Path**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
-   - **Value name**: ***https***.
-   - **Value type**: ***REG_DWORD***.
-   - **Value data**: ***00000001***.
+   - **Value name**: ***https***
+   - **Value type**: ***REG_DWORD***
+   - **Value data**: ***00000001***
  
      ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  

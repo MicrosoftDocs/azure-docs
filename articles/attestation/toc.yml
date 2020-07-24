@@ -8,18 +8,20 @@
   items:
   - name: PowerShell
     href: quickstart-powershell.md
+  - name: ARM template
+    href: quickstart-template.md
 - name: Tutorials
   items:
   - name: Authoring and signing an attestation policy
-    href: authoringandsigningpolicy.md
+    href: author-signing-policy.md
   - name: SGX attestation using Open Enclave SDK
-    href: tutorials.md
+    href: sgx-enclave-sdk.md
 - name: Samples
   items:
     - name: Examples of an attestation policy
-      href: policy-samples.md
+      href: policy-examples.md
     - name: Examples of policy signer certificate
-      href: policysigner-samples.md
+      href: policy-signer-examples.md
 - name: Concepts
   items:
   - name: Basic concepts
@@ -27,13 +29,15 @@
   - name: Attestation policy claims
     items:
       - name: Claim rule grammar
-        href: claimrulegrammar.md
+        href: claim-rule-grammar.md
       - name: Claim sets
-        href: claimsets.md
+        href: claim-sets.md
   - name: Workflow
     href: workflow.md
 - name: References
   items:
+  - name: Attestation APIs
+    href: apis.md
   - name: Azure PowerShell
     href: https://docs.microsoft.com/en-us/powershell/module/az.attestation/?view=azps-4.3.0#attestation
 

@@ -1,5 +1,5 @@
 ---
-title: Create, develop, and maintain Azure Synapse Studio (preview) notebooks
+title: Synapse Studio notebooks
 description: In this article, you learn how to create and develop Azure Synapse Studio (preview) notebooks to do data preparation and visualization.
 services: synapse analytics 
 author: ruixinxu 
@@ -12,9 +12,9 @@ ms.reviewer:
 ms.custom: tracking-python
 ---
 
-# Create, develop, and maintain Azure Synapse Studio (preview) notebooks
+# Create, develop, and maintain Synapse Studio (preview) notebooks in Azure Synapse Analytics
 
-An Azure Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
+A Synapse Studio (preview) notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
 With an Azure Synapse Studio notebook, you can:
 
@@ -105,7 +105,7 @@ You cannot reference data or variables directly across different languages in a 
 
 ### IDE-style IntelliSense
 
-Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error maker, and automatic code completions help you to write code and identify issues quicker.
+Azure Synapse Studio notebooks are integrated with the Monaco editor to bring IDE-style IntelliSense to the cell editor. Syntax highlight, error marker, and automatic code completions help you to write code and identify issues quicker.
 
 The IntelliSense features are at different levels of maturity for different languages. Use the table below to see what's supported.
 

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ---
@@ -68,7 +68,9 @@ Given these principles, the following sections offer some general rules of thumb
 ## Inline help on rxSetComputeContext
 For more information and examples of RevoScaleR compute contexts, see the inline help in R on the rxSetComputeContext method, for example:
 
-    > ?rxSetComputeContext
+```console
+> ?rxSetComputeContext
+```
 
 You can also refer to the [Distributed computing overview](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) in [Machine Learning Server documentation](https://docs.microsoft.com/machine-learning-server/).
 

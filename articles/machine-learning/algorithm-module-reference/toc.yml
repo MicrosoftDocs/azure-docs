@@ -68,10 +68,14 @@
         href: boosted-decision-tree-regression.md
       - name: Decision Forest Regression
         href: decision-forest-regression.md
+      - name: Fast Forest Quantile Regression
+        href: fast-forest-quantile-regression.md
       - name: Linear Regression
         href: linear-regression.md
       - name: Neural Network Regression
         href: neural-network-regression.md
+      - name: Poisson Regression
+        href: poisson-regression.md
   - name: Clustering
     items: 
     - name: K-Means Clustering
@@ -146,6 +150,10 @@
     href: preprocess-text.md
   - name: Latent Dirichlet Allocation
     href: latent-dirichlet-allocation.md
+  - name: Score Vowpal Wabbit Model
+    href: score-vowpal-wabbit-model.md
+  - name: Train Vowpal Wabbit Model
+    href: train-vowpal-wabbit-model.md
 - name: Computer vision
   items: 
   - name: Apply Image Transformation

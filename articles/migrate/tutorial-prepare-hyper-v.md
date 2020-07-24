@@ -69,13 +69,13 @@ The tenant/global admin can grant permissions as follows:
     ![Azure AD permissions](./media/tutorial-prepare-hyper-v/aad.png)
 
 > [!NOTE]
-> This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+> This is a default setting that isn't sensitive. [Learn more](../active-directory/develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
 
 
 #### Assign Application Developer role
 
-The tenant/global admin can assign the Application Developer role to an account. [Learn more](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+The tenant/global admin can assign the Application Developer role to an account. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ### Assign Azure account permissions
 
@@ -101,7 +101,7 @@ You can prepare Hyper-V for VM assessment manually, or using a configuration scr
 **Verify PowerShell version** | Checks that you're running the script on a supported PowerShell version. | Check you're running PowerShell version 4.0 or later on the Hyper-V host.
 **Create an account** | Verifies that you (the user running the script) have administrative privileges on the Hyper-V host.<br/><br/>  Allows you to create a local user account (not administrator) that the Azure Migrate service uses to communicate with the Hyper-V host. This user account is added to these groups on the host:<br/><br/> - Remote Management Users<br/><br/> - Hyper-V Administrators<br/><br/>- Performance Monitor Users | Set up a domain or local user account with administrator permissions on the Hyper-V hosts/cluster.<br/><br/> - You need a single account for all hosts and clusters that you want to include in the discovery.<br/><br/> - The account can be  a local or domain account. We recommend it has Administrator permissions on the Hyper-V hosts or clusters.<br/><br/> Alternatively, if you don't want to assign Administrator permissions, the following permissions are needed: Remote Management Users; Hyper-V Administrators; Performance Monitor Users.
 **Enable PowerShell remoting** | Enables PowerShell remoting on the host , so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection.| To set up, on each host, open a PowerShell console as admin, and run this command:<br/><br/>``` Enable-PSRemoting -force ```
-**Set up Hyper-V Integration Services** | Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host. |  [Enable Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM.<br/><br/> If you're running Windows Server 2003, [follow these instructions](prepare-windows-server-2003-migration.md).
+**Set up Hyper-V Integration Services** | Checks that the Hyper-V Integration Services is enabled on all VMs managed by the host. |  [Enable Hyper-V Integration Services](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) on each VM.<br/><br/> If you're running Windows Server 2003, [follow these instructions](prepare-windows-server-2003-migration.md).
 **Delegate credentials if VM disks are located on remote SMB shares** | Script delegates credentials. | [Enable CredSSP](#enable-credssp-to-delegate-credentials) to delegate credentials.
 
 ### Run the script

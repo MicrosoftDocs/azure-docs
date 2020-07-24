@@ -7,14 +7,14 @@ ms.date: 06/29/2020
 
 # Quickstart: Export a Jupyter notebook project in Azure Notebooks Preview
 
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
 In this quickstart, you will download an Azure Notebooks project for use in other Jupyter notebook solutions. 
 
 ## Prerequisites
 An existing Azure Notebooks project.
 
 ## Export an Azure Notebooks project
-
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
@@ -33,24 +33,14 @@ After downloading your project files, you can use them with other Jupyter Notebo
 - [Azure Lab Services](#use-azure-lab-services)
 - [GitHub](#use-github)
 
-## Download the requirements file used by Azure Notebooks
+## Create an environment for notebooks
 
-If you'd like to create an environment that matches that of the Azure Notebooks Preview, you can use the **AzureNotebooksRequirements.txt** file provided in GitHub.
+If you'd like to create an environment that matches that of the Azure Notebooks Preview, you can use the script file provided in GitHub.
 
-1. Navigate to the Azure Notebooks [GitHub repository](https://github.com/microsoft/AzureNotebooks) or you can [directly access the file](https://aka.ms/aznbrequirementstxt).
-1. Download the **AzureNotebooksRequirements.txt** file that contains the package dependencies for the Azure Notebooks environment. 
-1. From a command prompt, navigate to the directory you want to use for your projects and use the requirements file to install the appropriate packages.
+1. Navigate to the Azure Notebooks [GitHub repository](https://github.com/microsoft/AzureNotebooks) or [directly access the environment folder](https://aka.ms/aznbrequirementstxt).
+1. From a command prompt, navigate to the directory you want to use for your projects.
+1. Download the environment folder contents and follow the README instructions to install the Azure Notebooks package dependencies.
 
-    > [!Note]
-    > While not required, generally you would want to create a new virtual environment for package installation as shown below.
-
-    ```bash
-    cd your-project-dir
-    python -m venv .venv
-    python -m pip install -r AzureNotebooksRequirements.txt
-    ```
-
-For more information about requirements files, see the [pip docs]( https://pip.pypa.io/en/stable/user_guide/#requirements-files).
 
 ## Use Notebooks in Visual Studio Code
 
@@ -60,7 +50,7 @@ For more information about requirements files, see the [pip docs]( https://pip.p
 
 After [downloading](#export-an-azure-notebooks-project) your project files you can use them with VS Code. For guidance using VS Code with Jupyter Notebooks, see the [Working with Jupyter Notebooks in Visual Studio Code](https://code.visualstudio.com/docs/python/jupyter-support) and [Data Science in Visual Studio Code](https://code.visualstudio.com/docs/python/data-science-tutorial) tutorials.
 
-You can also use the [Azure Notebooks requirements](#download-the-requirements-file-used-by-azure-notebooks) with Visual Studio Code to create an environment that matches the Azure Notebooks Preview.
+You can also use the [Azure Notebooks environment script](#create-an-environment-for-notebooks) with Visual Studio Code to create an environment that matches the Azure Notebooks Preview.
 
 ## Use Notebooks in Visual Studio Codespaces
 
@@ -102,3 +92,11 @@ GitHub provides a free, source-control-backed way to store notebooks (and other 
 1. [Download](#export-an-azure-notebooks-project) your project files.
 1. [Create a GitHub repository](https://help.github.com/github/getting-started-with-github/create-a-repo) for storing your notebooks. 
 1. [Add your files](https://help.github.com/github/managing-files-in-a-repository/adding-a-file-to-a-repository) to the repository.
+
+## Next steps
+
+- [Learn about Python in Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial)
+- [Learn about Azure Machine Learning and Jupyter Notebooks](../machine-learning/how-to-run-jupyter-notebooks.md)
+- [Learn about Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/)
+- [Learn about Azure Lab Services](https://azure.microsoft.com/services/lab-services/)
+- [Learn about GitHub](https://help.github.com/github/getting-started-with-github/)

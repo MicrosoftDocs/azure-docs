@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 07/06/2020
 ms.author: iainfou
 
 ---
@@ -75,6 +75,7 @@ The following table illustrates how specific attributes for user objects in Azur
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | postalCode |postalCode |
 | preferredLanguage |preferredLanguage |
+| proxyAddresses | proxyAddresses |
 | state |st |
 | streetAddress |streetAddress |
 | surname |sn |
@@ -93,6 +94,7 @@ The following table illustrates how specific attributes for group objects in Azu
 | mailNickname |msDS-AzureADMailNickname |
 | objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
+| proxyAddresses | proxyAddresses |
 | securityEnabled |groupType |
 
 ## Synchronization from on-premises AD DS to Azure AD and Azure AD DS

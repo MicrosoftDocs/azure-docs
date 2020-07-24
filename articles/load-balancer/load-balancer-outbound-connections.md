@@ -31,7 +31,7 @@ Azure Load Balancer provides outbound connectivity through different mechanisms.
 | SNAT Ports| TCP | SNAT ports are ephemeral ports available for a particular public IP source address. One SNAT port is consumed per flow to a single destination IP address, port. For multiple TCP flows to the same destination IP address, port, and protocol, each TCP flow consumes a single SNAT port. This ensures that the flows are unique when they originate from the same public IP address and go to the same destination IP address, port, and protocol. Multiple flows, each to a different destination IP address, port, and protocol, share a single SNAT port. The destination IP address, port, and protocol make flows unique without the need for additional source ports to distinguish flows in the public IP address space.|
 |SNAT Ports | UDP | UDP SNAT ports are managed by a different algorithm than TCP SNAT ports.  Load Balancer uses an algorithm known as "port-restricted cone NAT" for UDP.  One SNAT port is consumed for each flow, irrespective of destination IP address, port.|
 | Exhaustion | - | When SNAT port resources are exhausted, outbound flows fail until existing flows release SNAT ports. Load Balancer reclaims SNAT ports when the flow closes and uses a [4-minute idle timeout](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) for reclaiming SNAT ports from idle flows. UDP SNAT ports generally exhaust much faster than TCP SNAT ports due to the difference in algorithm used. You must design and scale test with this difference in mind.|
-| SNAT port release behavior | TCP | If either server/client sends FINACK, SNAT port will be released after 240 seconds. If an RST is seen, SNAT port will be released after 15 seconds. If idle timeout has been reached, port is released.|
+| SNAT port release behavior | TCP | If either server/client sends FINACK, SNAT port will be released after 240 seconds. If a RST is seen, SNAT port will be released after 15 seconds. If idle timeout has been reached, port is released.|
 | SNAT port release behavior | UDP |If idle timeout has been reached, port is released.|
 | SNAT port reuse | TCP, UDP | Once a port has been released, the port is available for reuse as needed.  You can think of SNAT ports as a sequence from lowest to highest available for a given scenario, and the first available SNAT port is used for new connections.|
 
@@ -126,17 +126,6 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 | V| Outbound NAT for internal Standard Load Balancer scenarios| When using an internal Standard Load Balancer, outbound NAT is not available until outbound connectivity has been explicitly declared. You can define outbound connectivity using an outbound rule to create outbound connectivity for VMs behind an internal Standard Load Balancer with these steps: 1. Create a public Standard Load Balancer. 2. Create a backend pool and place the VMs into a backend pool of the public Load Balancer in addition to the internal Load Balancer. 3. Configure an outbound rule on the public Load Balancer to program outbound NAT for these VMs.|
 | VI | Enable both TCP & UDP protocols for outbound NAT with a public Standard Load Balancer | When using a public Standard Load Balancer, the automatic outbound NAT programming provided matches the transport protocol of the load balancing rule. 1. Disable outbound SNAT on the load balancing rule. 2. Configure an outbound rule on the same Load Balancer. 3. Reuse the backend pool already used by your VMs. 4. Specify "protocol": "All" as part of the outbound rule. When only inbound NAT rules are used, no outbound NAT is provided. 1. Place VMs in a backend pool. 2. Define one or more frontend IP configurations with public IP address(es) or public IP prefix 3. Configure an outbound rule on the same Load Balancer. 4. Specify "protocol": "All" as part of the outbound rule |
 
-## <a name="discoveroutbound"></a>Discovering the public IP that a VM uses
-
-There are many ways to determine the public source IP address of an outbound connection. OpenDNS provides a service that can show you the public IP address of your VM.
-
-By using the nslookup command, you can send a DNS query for the name myip.opendns.com to the OpenDNS resolver. The service returns the source IP address that was used to send the query. When you run the following query from your VM, the response is the public IP used for that VM:
-
-    nslookup myip.opendns.com resolver1.opendns.com
-
-## Connections to Azure Storage in the same region
-
-Having outbound connectivity via the scenarios above is not necessary to connect to Storage in the same region as the VM. If you do not want this, use network security groups (NSGs) as explained above. For connectivity to Storage in other regions, outbound connectivity is required. Please note that when connecting to Storage from a VM in the same region, the source IP address in the Storage diagnostic logs will be an internal provider address, and not the public IP address of your VM. If you wish to restrict access to your Storage account to VMs in one or more Virtual Network subnets in the same region, use [Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and not your public IP address when configuring your storage account firewall. Once service endpoints are configured, you will see your Virtual Network private IP address in your Storage diagnostic logs and not the internal provider address.
 
 ## Limitations
 
@@ -149,6 +138,7 @@ Having outbound connectivity via the scenarios above is not necessary to connect
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
+- See our [frequently asked questions about Azure Load Balancer](load-balancer-faqs.md).
 - Learn more about [outbound rules](load-balancer-outbound-rules-overview.md) for Standard public Load Balancer.
 - Learn more about [Load Balancer](load-balancer-overview.md).
 - Learn more about [network security groups](../virtual-network/security-overview.md).

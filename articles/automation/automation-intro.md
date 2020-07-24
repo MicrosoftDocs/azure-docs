@@ -47,14 +47,14 @@ Azure Automation offers a number of shared capabilities, including shared resour
 
 Azure Automation consists of a set of shared resources that make it easier to automate and configure your environments at scale.
 
-* **[Schedules](automation-schedules.md)** - Trigger Automation operations at predefined times.
-* **[Modules](automation-integration-modules.md)** - Manage Azure and other systems. You can import modules into the Automation account for Microsoft, third-party, community, and custom-defined cmdlets and DSC resources.
+* **[Schedules](./shared-resources/schedules.md)** - Trigger Automation operations at predefined times.
+* **[Modules](./shared-resources/modules.md)** - Manage Azure and other systems. You can import modules into the Automation account for Microsoft, third-party, community, and custom-defined cmdlets and DSC resources.
 * **[Modules gallery](automation-runbook-gallery.md)** - Supports native integration with the PowerShell Gallery to let you view runbooks and import them into the Automation account. The gallery allows you to quickly get started integrating and authoring your processes from PowerShell gallery and Microsoft Script Center.
 * **[Python 2 packages](python-packages.md)** - Support Python 2 runbooks for your Automation account.
-* **[Credentials](automation-credentials.md)** - Securely store sensitive information that runbooks and configurations can use at runtime.
+* **[Credentials](./shared-resources/credentials.md)** - Securely store sensitive information that runbooks and configurations can use at runtime.
 * **[Connections](automation-connections.md)** - Store name-value pairs of common information for connections to systems. The module author defines connections in runbooks and configurations for use at runtime.
-* **[Certificates](automation-certificates.md)** - Define information to be used in authentication and securing of deployed resources when accessed by runbooks or DSC configurations at runtime. 
-* **[Variables](automation-variables.md)** - Hold content that can be used across runbooks and configurations. You can change variable values without having to modify any of the runbooks or configurations that reference them.
+* **[Certificates](./shared-resources/certificates.md)** - Define information to be used in authentication and securing of deployed resources when accessed by runbooks or DSC configurations at runtime. 
+* **[Variables](./shared-resources/variables.md)** - Hold content that can be used across runbooks and configurations. You can change variable values without having to modify any of the runbooks or configurations that reference them.
 
 ### Role-based access control
 

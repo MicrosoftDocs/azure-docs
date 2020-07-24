@@ -95,7 +95,7 @@ For an overview of DSC concepts and terminology, see
 
 ### How Guest Configuration modules differ from Windows PowerShell DSC modules
 
-When Guest Configuration audits a machine:
+When Guest Configuration audits a machine the sequence of events is different than in Windows PowerShell DSC.
 
 1. The agent first runs `Test-TargetResource` to determine if the configuration is
 in the correct state.
@@ -103,6 +103,9 @@ in the correct state.
 Manager status for the Guest Assignment should be Compliant/Not-Compliant.
 1. The provider runs `Get-TargetResource` to return the current state of each setting so details are available both about
 why a machine isn't compliant and to confirm that the current state is compliant.
+
+Parameters in Azure Policy that pass values to Guest Configuration assignments must be _string_ type.
+It isn't possible to pass arrays through parameters, even if the DSC resource supports arrays.
 
 ### Get-TargetResource requirements
 
@@ -164,7 +167,7 @@ class ResourceName : OMI_BaseResource
 
 The name of the custom configuration must be consistent everywhere. The name of
 the .zip file for the content package, the configuration name in the MOF file, and the guest
-assignment name in the Resource Manager template, must be the same.
+assignment name in the Azure Resource Manager template (ARM template), must be the same.
 
 ### Scaffolding a Guest Configuration project
 
@@ -200,7 +203,7 @@ The package format must be a .zip file.
 The .zip package must be stored in a location that is accessible by the managed virtual machines.
 Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to not make the
 package public, you can include a
-[SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
+[SAS token](../../../storage/common/storage-sas-overview.md) in the URL.
 You could also implement
 [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
 for machines in a private network, although this configuration applies only to accessing the package
@@ -488,7 +491,7 @@ override values are provided through Azure Policy and don't impact how the Confi
 authored or compiled.
 
 The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a
-parameter named **Parameters**. This parameter takes a hashtable definition including all details
+parameter named **Parameter**. This parameter takes a hashtable definition including all details
 about each parameter and creates the required sections of each file used for the Azure Policy
 definition.
 
@@ -514,7 +517,7 @@ New-GuestConfigurationPolicy
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
     -Path '.\policyDefinitions' `
-    -Parameters $PolicyParameterInfo `
+    -Parameter $PolicyParameterInfo `
     -Version 1.0.0
 ```
 

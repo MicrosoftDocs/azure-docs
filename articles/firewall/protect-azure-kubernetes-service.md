@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 06/30/2020
+ms.date: 07/02/2020
 ms.author: victorh
 ---
 
@@ -13,7 +13,7 @@ ms.author: victorh
 
 Azure Kubernetes Service (AKS) offers a managed Kubernetes cluster on Azure. It reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. AKS handles critical tasks, such as health monitoring and maintenance for you and delivers an enterprise-grade and secure cluster with facilitated governance.
 
-Kubernetes orchestrates clusters of virtual machines and schedules containers to run on those virtual machines based on their available compute resources and the resource requirements of each container. Containers are grouped into pods, the basic operational unit for Kubernetes, and those pods scale to your desired state.
+Kubernetes orchestrates clusters of virtual machines and schedules containers to run on those virtual machines based on their available compute resources and the resource requirements of each container. Containers are grouped into pods, the basic operational unit for Kubernetes, and those pods scale to the state that you want.
 
 For management and operational purposes, nodes in an AKS cluster need to access certain ports and fully qualified domain names (FQDNs). These actions could be to communicate with the API server, or to download and then install core Kubernetes cluster components and node security updates. Azure Firewall can help you lock down your environment and filter outbound traffic.
 
@@ -45,7 +45,20 @@ Azure Firewall provides an AKS FQDN Tag to simplify the configuration. Use the f
       To be more specific, see the **.hcp.<location>.azmk8s.io* and addresses in the following table.
    - UDP port 123 for Network Time Protocol (NTP) time synchronization (Linux nodes).
    - UDP port 53 for DNS is also required if you have pods directly accessing the API server.
-- Configure AzureMonitor and Storage service tags. Azure Monitor receives log analytics data. You can also allow your workspace URL individually: `<worksapceguid>.ods.opinsights.azure.com`, and `<worksapceguid>.oms.opinsights.azure.com`.
+- Configure AzureMonitor and Storage service tags. Azure Monitor receives log analytics data. 
+
+   You can also allow your workspace URL individually: `<worksapceguid>.ods.opinsights.azure.com`, and `<worksapceguid>.oms.opinsights.azure.com`. You can address this in one of the following ways:
+
+    - Allow https access from your host pool subnet to `*. ods.opinsights.azure.com`, and `*.oms. opinsights.azure.com`. These wildcard FQDNs enable the required access but are less restrictive.
+    - Use the following log analytics query to list the exact required FQDNs, and then allow them explicitly in your firewall application rules:
+   ```
+   AzureDiagnostics 
+   | where Category == "AzureFirewallApplicationRule" 
+   | search "Allow" 
+   | search "*. ods.opinsights.azure.com" or "*.oms. opinsights.azure.com"
+   | parse msg_s with Protocol " request from " SourceIP ":" SourcePort:int " to " FQDN ":" * 
+   | project TimeGenerated,Protocol,FQDN 
+   ```
 
 
 ## Next steps

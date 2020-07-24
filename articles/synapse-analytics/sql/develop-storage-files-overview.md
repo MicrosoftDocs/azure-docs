@@ -1,5 +1,5 @@
 ---
-title: Access files on storage using SQL on-demand (preview) within Synapse SQL
+title: Access files on storage in SQL on-demand (preview)
 description: Describes querying storage files using SQL on-demand (preview) resources within Synapse SQL.
 services: synapse-analytics
 author: azaricstefan
@@ -10,9 +10,9 @@ ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
-# Accessing external storage in Synapse SQL
+# Accessing external storage in Synapse SQL (on-demand)
 
-This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand and pool). Users have the following options to access storage:
+This document describes how can user read data from the files stored on Azure Storage in Synapse SQL (on-demand). Users have the following options to access storage:
 
 - [OPENROWSET](develop-openrowset.md) function that enables ad-hoc queries over the files in Azure Storage.
 - [External table](develop-tables-external-tables.md) that is a predefined data structure built on top of set of external files.
@@ -29,7 +29,7 @@ OPENROWSET enables users to query external files on Azure storage if they have a
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'http://storage...com/container/file/path/*.csv', format= 'parquet') as rows
+ OPENROWSET(BULK 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/*.parquet', format= 'parquet') as rows
 ```
 
 User can access storage using the following access rules:
@@ -37,15 +37,15 @@ User can access storage using the following access rules:
 - Azure AD user - OPENROWSET will use Azure AD identity of caller to access Azure Storage or access storage with anonymous access.
 - SQL user – OPENROWSET will access storage with anonymous access.
 
-SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace. If a SQL user executes this function, a power user with ALTER ANY CREDENTIAL permission must create a server-scoped credential that matches URL in the function (using storage name and container) and granted REFERENCES permission for this credential to the caller of OPENROWSET function:
+SQL principals can also use OPENROWSET to directly query files protected with SAS tokens or Managed Identity of the workspace. If a SQL user executes this function, a power user with `ALTER ANY CREDENTIAL` permission must create a server-scoped credential that matches URL in the function (using storage name and container) and granted REFERENCES permission for this credential to the caller of OPENROWSET function:
 
 ```sql
 EXECUTE AS somepoweruser
 
-CREATE CREDENTIAL [http://storage.dfs.com/container]
+CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
  WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sas token';
 
-GRANT REFERENCES CREDENTIAL::[http://storage.dfs.com/container] TO sqluser
+GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
 If there is no server-level CREDENTIAL that matches URL or SQL user don't have references permission for this credential, the error will be returned. SQL principals cannot impersonate using some Azure AD identity.
@@ -59,9 +59,9 @@ OPENROWSET enables user to query the files placed on some external data source:
 
 ```sql
 SELECT * FROM
- OPENROWSET(BULK 'file/path/*.csv',
+ OPENROWSET(BULK 'file/path/*.parquet',
  DATASOURCE = MyAzureInvoices,
- FORMAT= 'csv') as rows
+ FORMAT= 'parquet') as rows
 ```
 
 Power user with CONTROL DATABASE permission would need to create DATABASE SCOPED CREDENTIAL that will be used to access storage and EXTERNAL DATA SOURCE that specifies URL of data source and credential that should be used:
@@ -72,7 +72,7 @@ CREATE DATABASE SCOPED CREDENTIAL AccessAzureInvoices
  SECRET = '******srt=sco&amp;sp=rwac&amp;se=2017-02-01T00:55:34Z&amp;st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>/' ,
  CREDENTIAL = AccessAzureInvoices) ;
 ```
 
@@ -81,8 +81,8 @@ DATABASE SCOPED CREDENTIAL specifies how to access files on the referenced data 
 Caller must have one of the following permissions to execute OPENROWSET function:
 
 - One of the permissions to execute OPENROWSET:
-  - ADMINISTER BULK OPERATION enables login to execute OPENROWSET function.
-  - ADMINISTER DATABASE BULK OPERATION enables database scoped user to execute OPENROWSET function.
+  - `ADMINISTER BULK OPERATIONS` enables login to execute OPENROWSET function.
+  - `ADMINISTER DATABASE BULK OPERATIONS` enables database scoped user to execute OPENROWSET function.
 - REFERENCES DATABASE SCOPED CREDENTIAL to the credential that is referenced in EXTERNAL DATA SOURCE
 
 #### Accessing anonymous data sources
@@ -91,7 +91,7 @@ User can create EXTERNAL DATA SOURCE without CREDENTIAL that will reference publ
 
 ```sql
 CREATE EXTERNAL DATA SOURCE MyAzureInvoices
- WITH ( LOCATION = 'https://newinvoices.blob.core.windows.net/week3') ;
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>') ;
 ```
 
 ## EXTERNAL TABLE
@@ -119,7 +119,7 @@ CREATE DATABASE SCOPED CREDENTIAL cred
  SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=201********' ;
 
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
- WITH ( LOCATION = 'https://samples.blob.core.windows.net/products' ,
+ WITH ( LOCATION = 'https://<storage_account>.dfs.core.windows.net/<container>/<path>' ,
  CREDENTIAL = cred
  ) ;
 ```
@@ -136,8 +136,8 @@ FROM dbo.DimProductsExternal
 ```
 
 Caller must have the following permissions to read data:
-- SELECT permission ON external table
-- REFERENCES DATABASE SCOPED CREDENTIAL permission if DATA SOURCE has CREDENTIAL
+- `SELECT` permission ON external table
+- `REFERENCES DATABASE SCOPED CREDENTIAL` permission if `DATA SOURCE` has `CREDENTIAL`
 
 ## Permissions
 
@@ -145,13 +145,13 @@ The following table lists required permissions for the operations listed above.
 
 | Query | Required permissions|
 | --- | --- |
-| OPENROWSET(BULK) without datasource | ADMINISTER BULK ADMIN SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
-| OPENROWSET(BULK) with datasource without credential | ADMINISTER BULK ADMIN |
-| OPENROWSET(BULK) with datasource with credential | ADMINISTER BULK ADMIN REFERENCES DATABASE SCOPED CREDENTIAL |
-| CREATE EXTERNAL DATA SOURCE | ALTER ANY EXTERNAL DATA SOURCE REFERENCES DATABASE SCOPED CREDENTIAL |
-| CREATE EXTERNAL TABLE | CREATE TABLE, ALTER ANY SCHEMA, ALTER ANY EXTERNAL FILE FORMAT, ALTER ANY EXTERNAL DATA SOURCE |
-| SELECT FROM EXTERNAL TABLE | SELECT TABLE |
-| CETAS | To create table - CREATE TABLE ALTER ANY SCHEMA ALTER ANY DATA SOURCE+ALTER ANY EXTERNAL FILE FORMAT. To read data: ADMIN BULK OPERATIONS+REFERENCES CREDENTIAL or SELECT TABLE per each table/view/function in query + R/W permission on storage |
+| OPENROWSET(BULK) without datasource | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS`, or SQL login must have REFERENCES CREDENTIAL::\<URL> for SAS-protected storage |
+| OPENROWSET(BULK) with datasource without credential | `ADMINISTER BULK OPERATIONS` or `ADMINISTER DATABASE BULK OPERATIONS`, |
+| OPENROWSET(BULK) with datasource with credential | `REFERENCES DATABASE SCOPED CREDENTIAL` and one of `ADMINISTER BULK OPERATIONS` or `ADMINISTER DATABASE BULK OPERATIONS` |
+| CREATE EXTERNAL DATA SOURCE | `ALTER ANY EXTERNAL DATA SOURCE` and `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CREATE EXTERNAL TABLE | `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY EXTERNAL FILE FORMAT`, and `ALTER ANY EXTERNAL DATA SOURCE` |
+| SELECT FROM EXTERNAL TABLE | `SELECT TABLE` and `REFERENCES DATABASE SCOPED CREDENTIAL` |
+| CETAS | To create table - `CREATE TABLE`, `ALTER ANY SCHEMA`, `ALTER ANY DATA SOURCE`, and `ALTER ANY EXTERNAL FILE FORMAT`. To read data: `ADMINISTER BULK OPERATIONS` or `REFERENCES CREDENTIAL` or `SELECT TABLE` per each table/view/function in query + R/W permission on storage |
 
 ## Next steps
 
