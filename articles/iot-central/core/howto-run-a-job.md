@@ -38,7 +38,11 @@ This section shows you how to create and run a job. It shows you how to set the 
     > [!NOTE]
     > You can view up 30 days of history for your previously run jobs.
 
-7. To get an overview of your job, select the job to view from the list. This overview contains the job details, devices, and device status values. From this overview, you can also select **Download Job Details** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting:
+7. Click on the saved job and execute the job by clicking Run button. Run a job popup will be displayed. Confirm by clicking Run Job button. 
+
+    ![Run a Job](./media/howto-run-a-job/run-job.png)
+
+8. Job goes through different phases of pending, running and completed. The job execution details contains Results metrics, Duration details, and device list grid. From this overview, you can also select **Results log** to download a CSV file of your job details, including the devices and their status values. This information can be useful for troubleshooting.
 
     ![View device status](./media/howto-run-a-job/download-details.png)
 
@@ -46,13 +50,23 @@ This section shows you how to create and run a job. It shows you how to set the 
 
 To stop one of your running jobs, open it and select **Stop**. The job status changes to reflect the job is stopped. The **Summary** section shows which devices have completed, failed, or are still pending.
 
-To run a job that's currently stopped, select it, and then select **Run**. The job status changes to reflect the job is now running again. The **Summary** section continues to update with the latest progress.
-
 ![Manage job](./media/howto-run-a-job/manage-job.png)
+
+Once Job is in stopped state you can click **Continue** to resume the job execution. The job status changes to reflect the job is now running again. The **Summary** section continues to update with the latest progress.
+
+![Stopped Job](./media/howto-run-a-job/stopped-job.png)
 
 ## Copy a job
 
-To copy one of your existing jobs, select it on the **Jobs** page and select **Copy**. A copy of the job configuration opens for you to edit, and **Copy** is appended to the job name. You can save or run the new job:
+To copy one of your existing jobs, select it on the **Jobs** page and select **Job Details**. Job Details page will be displayed. 
+
+![Job Details](./media/howto-run-a-job/job-details.png)
+
+Click **Copy**
+
+![Job Details](./media/howto-run-a-job/job-details-copy.png)
+
+A copy of the job configuration opens for you to edit, and **Copy** is appended to the job name. You can save or run the new job:
 
 ![Copy job](./media/howto-run-a-job/copy-job.png)
 
