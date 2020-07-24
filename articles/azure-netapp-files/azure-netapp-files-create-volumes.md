@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/01/2019
+ms.date: 07/24/2020
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -71,7 +71,7 @@ A subnet must be delegated to Azure NetApp Files.
         The **Available quota** field shows the amount of unused space in the chosen capacity pool that you can use towards creating a new volume. The size of the new volume must not exceed the available quota.  
 
     * **Virtual network**  
-        Specify the Azure virtual network (Vnet) from which you want to access the volume.  
+        Specify the Azure virtual network (VNet) from which you want to access the volume.  
 
         The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premises network through Express Route.   
 
@@ -84,6 +84,12 @@ A subnet must be delegated to Azure NetApp Files.
         ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
+
+        For information about creating a snapshot policy, see [Manage snapshots](azure-netapp-files-manage-snapshots.md).
+
+        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Click **Protocol**, and then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
