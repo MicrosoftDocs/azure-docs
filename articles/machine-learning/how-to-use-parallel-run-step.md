@@ -200,8 +200,8 @@ model = Model.register(model_path="models/",
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: ParallelRunStep will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in mini_batch will be - a file path if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
-    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
+    -  `mini_batch`: `ParallelRunStep` will invoke run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch will be - a file path if input is a FileDataset, a pandas DataFrame if input is a `TabularDataset`.
+    -  `response`: run() method should return a pandas `DataFrame` or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
 %%writefile digit_identification.py
@@ -284,7 +284,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 `ParallelRunConfig` is the major configuration for `ParallelRunStep` instance within the Azure Machine Learning pipeline. You use it to wrap your script and configure necessary parameters, including all of the following entries:
 - `entry_script`: A user script as a local file path that will be run in parallel on multiple nodes. If `source_directory` is present, use a relative path. Otherwise, use any path that's accessible on the machine.
-- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for FileDataset and `1MB` for TabularDataset.)
+- `mini_batch_size`: The size of the mini-batch passed to a single `run()` call. (optional; the default value is `10` files for `FileDataset` and `1MB` for `TabularDataset`.)
     - For `FileDataset`, it's the number of files with a minimum value of `1`. You can combine multiple files into one mini-batch.
     - For `TabularDataset`, it's the size of data. Example values are `1024`, `1024KB`, `10MB`, and `1GB`. The recommended value is `1MB`. The mini-batch from `TabularDataset` will never cross file boundaries. For example, if you have .csv files with various sizes, the smallest file is 100 KB and the largest is 10 MB. If you set `mini_batch_size = 1MB`, then files with a size smaller than 1 MB will be treated as one mini-batch. Files with a size larger than 1 MB will be split into multiple mini-batches.
 - `error_threshold`: The number of record failures for `TabularDataset` and file failures for `FileDataset` that should be ignored during processing. If the error count for the entire input goes above this value, the job will be aborted. The error threshold is for the entire input and not for individual mini-batch sent to the `run()` method. The range is `[-1, int.max]`. The `-1` part indicates ignoring all failures during processing.
@@ -391,7 +391,7 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## View the results
 
-The results from above run are written to the DataStore specified in the PipelineData object as the output data, which in this case is called *inferences*. The results are stored in the default blob container, you can navigate to your storage account and view through Storage Explorer, the file path is azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+The results from above run are written to the DataStore specified in the `PipelineData` object as the output data, which in this case is called *inferences*. The results are stored in the default blob container, you can navigate to your storage account and view through Storage Explorer, the file path is azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
 
 You can also download this data to view the results. Below is the sample code to view the first 10 rows.
 
