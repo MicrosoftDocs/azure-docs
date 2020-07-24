@@ -263,7 +263,7 @@
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
       - name: Machine learning predictions
-        href: sql-data-warehouse-predict.md
+        href: ./sql-data-warehouse/sql-data-warehouse-predict.md
       - name: Tables
         items:
         - name: Overview
