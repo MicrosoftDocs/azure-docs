@@ -157,10 +157,7 @@ text_transformations_used
 2. Concatenates all text columns into a single text column hence you will see "StringConcatTransformer" in the final model. 
 
 > [!NOTE]
-> Our implementation of BERT limits total text length of a training sample to 128 tokens. That means, all text columns when concatenated, should ideally be at most 128 tokens  > in length. 
-> Ideally, if multiple columns are present, each column should be pruned such that this condition is satisfied. For instance, if there are two text columns in the data, both  
-> text columns should be pruned to 64 tokens each (assuming you want both columns to be equally represented in the final concatenated text column) before feeding the data to 
-> AutoML. For concatenated columns of length >128 tokens, BERT's tokenizer layer will truncate this input to 128 tokens.
+> Our implementation of BERT limits total text length of a training sample to 128 tokens. That means, all text columns when concatenated, should ideally be at most 128 tokens  in length. Ideally, if multiple columns are present, each column should be pruned such that this condition is satisfied. For instance, if there are two text columns in the data, both text columns should be pruned to 64 tokens each (assuming you want both columns to be equally represented in the final concatenated text column) before feeding the data to AutoML. For concatenated columns of length >128 tokens, BERT's tokenizer layer will truncate this input to 128 tokens.
 
 3. In the feature sweeping step, AutoML compares BERT against the baseline (bag of words features + pretrained word embeddings) on a sample of the data and determines if BERT would give accuracy improvements. If it determines that BERT performs better than the baseline, AutoML then uses BERT for text featurization as the optimal featurization strategy and proceeds with featurizing the whole data. In that case, you will see the "PretrainedTextDNNTransformer" in the final model.
 
