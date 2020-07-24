@@ -60,8 +60,8 @@ Sample code for this article is available at [Azure-Samples/media-services-3rdpa
 
 4. Replace `protocolType` with the following options:
 
-- "application/x-mpegURL" for HLS protocols
-- "application/dash+xml" for DASH protocols
+    - "application/x-mpegURL" for HLS protocols
+    - "application/dash+xml" for DASH protocols
 
 ### Set up captions
 
@@ -155,5 +155,5 @@ keySystems: {...
 
 ## Next steps
 
-> [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)  
-> [Quickstart: Encrypt content](encrypt-content-quickstart.md)
+- [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)  
+- [Quickstart: Encrypt content](encrypt-content-quickstart.md)
