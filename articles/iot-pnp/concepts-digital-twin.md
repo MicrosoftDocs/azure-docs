@@ -184,19 +184,19 @@ Let's say device also had the following writable property at root-level:
 
 ```json
 {
-"properties": {
-    "desired": {
-        "fanSpeed": 2.0,
-    },
-    "reported": {
-        "fanSpeed": {
-            "value": 3.0,
-            "ac": 200,
-            "av": 1,
-            "ad": "Successfully executed patch version 1"
+    "properties": {
+        "desired": {
+            "fanSpeed": 2.0,
+        },
+        "reported": {
+            "fanSpeed": {
+                "value": 3.0,
+                "ac": 200,
+                "av": 1,
+                "ad": "Successfully executed patch version 1"
+            }
         }
-    }
-},
+    },
 }
 ```
 
