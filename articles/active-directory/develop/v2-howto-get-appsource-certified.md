@@ -15,7 +15,7 @@ ms.reviewer: jeedes
 ms.custom: aaddev
 ---
 
-# Get AppSource Certified for Azure Active Directory
+# Get AppSource certified for Azure Active Directory
 
 [Microsoft AppSource](https://appsource.microsoft.com/) is a destination for business users to discover, try, and manage line-of-business SaaS applications (standalone SaaS and add-on to existing Microsoft SaaS products).
 
@@ -46,18 +46,20 @@ Single-tenant applications can enable the *Contact Me* experience, but if you wa
 
 The customer-led trial is the experience that AppSource recommends as it offers a single-click access to your application. The following example shows what this experience looks like:
 
-<table >
-<tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%" alt-text="Shows Free trial for customer-led trial experience"/><ul><li>User finds your application in AppSource Web Site</li><li>Selects 'Free trial' option</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" alt-text="Shows how user is redirected to a URL in your web site"/><ul><li>AppSource redirects user to a URL in your web site</li><li>Your web site starts the <i>single-sign-on</i> process automatically (on page load)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%" alt-text="Shows the Microsoft sign-in page"/><ul><li>User is redirected to Microsoft Sign-in page</li><li>User provides credentials to sign in</li></ul></td>
-</tr>
-<tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%" alt-text="Example: Consent page for an application"/><ul><li>User gives consent for your application</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
-    <td></td>
-</tr>
-</table>
+1. ![Shows Free trial for customer-led trial experience](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png)
+    - User finds your application in AppSource Web Site
+    - Selects 'Free trial' option
+2. ![Shows how user is redirected to a URL in your web site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png)
+    - AppSource redirects user to a URL in your web site
+    - Your web site starts the *single-sign-on* process automatically (on page load)
+3. ![Shows the Microsoft sign-in page](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png)
+    - User is redirected to Microsoft Sign-in page
+    - User provides credentials to sign in
+4. ![Example: Consent page for an application](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png)
+    - User gives consent for your application
+5. ![Shows the experience the user sees when redirected back to your site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
+    - Sign-in completes and user is redirected back to your web site
+    - User starts the free trial
 
 ### Contact me (partner-led trial experience)
 
@@ -97,11 +99,6 @@ You can use the partner trial experience when a manual or a long-term operation 
 
 For more information about the AppSource trial experience, see [this video](https://aka.ms/trialexperienceforwebapps). 
 
-## Next Steps
-
-- For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md).
-- For information on how to list your SaaS application in AppSource, go see [AppSource Partner Information](https://appsource.microsoft.com/partners)
-
 ## Get support
 
 For Azure AD integration, we use [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) with the community to provide support.
@@ -109,4 +106,11 @@ For Azure AD integration, we use [Stack Overflow](https://stackoverflow.com/ques
 We highly recommend you ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before. Make sure that your questions or comments are tagged with [`[azure-active-directory]` and `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
 Use the following comments section to provide feedback and help us refine and shape our content.
+
+## Next steps
+
+- For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md).
+- For information on how to list your SaaS application in AppSource, go see [AppSource Partner Information](https://appsource.microsoft.com/partners)
+
+
 
