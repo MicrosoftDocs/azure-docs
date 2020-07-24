@@ -30,12 +30,7 @@ Before you begin this tutorial:
 
 ## Upgrade a Managed Service Fabric cluster
 
-In many instances, Service Fabric clusters are automatically upgraded. For more information see the [Service Fabric Application Upgrade](service-fabric-application-upgrade) overview.
-
-
-```powershell
-
-```
+In many instances, Service Fabric clusters are automatically upgraded, and this remains true for Managed Service Fabric clusters. For more information see the [Service Fabric Application Upgrade](service-fabric-application-upgrade) overview.
 
 ## Cleaning Up
 
