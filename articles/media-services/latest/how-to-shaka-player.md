@@ -18,14 +18,14 @@ ms.author: inhenkel
 
 ## Overview
 
-Shaka Player is an open-source JavaScript library for adaptive media. It plays adaptive media formats (such as DASH and HLS) in a browser, without using plugins or Flash. Instead, the Shaka Player uses the open web standards MediaSource Extensions and Encrypted Media Extensions.
+Shaka Player is an open-source JavaScript library for adaptive media. It plays adaptive media formats (such as DASH and HLS) in a browser, without using plugins or Flash. Instead, the Shaka Player uses the open web standards Media Source Extensions and Encrypted Media Extensions.
 
 We recommend using [Mux.js](https://github.com/videojs/mux.js/) as, without it, the Shaka player would support HLS CMAF format, but not HLS TS.
 
 Its official documentation can be found at [Shaka player documentation](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html).
 
 ## Sample code
-Sample code is for this article is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
+Sample code for this article is available at [Azure-Samples/media-services-3rdparty-player-samples](https://github.com/Azure-Samples/media-services-3rdparty-player-samples).
 
 ## Implementing the player
 
@@ -60,7 +60,7 @@ Follow these instructions if you need to implement your own instance of the play
     player.load(manifestUrl);
     ```
 
-1. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset which can be found on the streaming locator page in the Azure portal.
+1. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset, which can be found on the streaming locator page in the Azure portal.
     ![streaming locator URLs](media/how-to-shaka-player/streaming-urls.png)
 
 1. Run a server (for example with `npm http-server`) and your player should be working...
@@ -102,13 +102,13 @@ player.getNetworkingEngine().registerRequestFilter(function (type, request) {
 
 ## Set up AES-128 encryption
 
-Shaka Player does not currently support AES-128 encryption.
+Shaka Player doesn't currently support AES-128 encryption.
 
 A link to a GitHub [issue](https://github.com/google/shaka-player/issues/850) to follow the status of this feature.
 
 ## Set up DRM protection
 
-Shaka Player uses Encrypted Media Extensions (EME), which requires a secure URL to use. It means that for testing any DRM protected content it's necessary to use https. Also, because of mixed content requirements, if the site is using https, then the manifest and every segment will also need to use https too.
+Shaka Player uses Encrypted Media Extensions (EME), which requires a secure URL to use. So, for testing any DRM protected content it's necessary to use https. If the site is using https, then the manifest and every segment will also need to use https. This is because of mixed content requirements.
 
 The order of preference for Shaka management of the URL(s) of its license server(s):
 
@@ -130,7 +130,7 @@ player.configure({
 
 ```
 
-All FairPlay content requires setting a server certificate. This is set in the Player configuration:
+All FairPlay content requires setting a server certificate. It is set in the Player configuration:
 
 ```javascript
 const req = await fetch("YOUR FAIRPLAY CERTIFICATE URL");
