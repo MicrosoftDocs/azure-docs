@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.reviewer: jmartens
-ms.author: larryfr
-author: Blackmist
-ms.date: 06/30/2020
+ms.reviewer: Blackmist
+ms.author: nigup
+author: nishankgu
+ms.date: 07/24/2020
 ms.custom: seodec18
 
 ---
@@ -299,7 +299,7 @@ Yes here are some common scenarios with custom proposed role definitions that yo
 ```
 
 
-4. "Workspace Admin" role allows you to perform all operations within the scope of a workspace, except creating a new workspace, assigning subscription or workspace level quotas, or upgrading the Edition of the workspace. The workspace admin can also not create a new role but only assign existing built-in or custom roles within the scope of their workspace:
+4. "Workspace Admin" role allows you to perform all operations within the scope of a workspace, except creating a new workspace, assigning subscription or workspace level quotas, or upgrading the Edition of the workspace. The workspace admin  also cannot create a new role but only assign existing built-in or custom roles within the scope of their workspace:
 
 `workspace_admin_custom_role.json` :
 ```json
@@ -345,20 +345,20 @@ az provider operation show –n Microsoft.MachineLearningServices
 
 Here are a few things to be aware of while you use Azure Role Based Access Controls:
 
-- When you create a resource in Azure, say a worskpace, you are not directly the owner of the workspace. Your role gets inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and had the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
-- When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take affect if they are also listed as Actions in another role.
-- To deploy your compute resources inside a VNet you need to explicitly have permissions for "Microsoft.Network/virtualNetworks/join/action" on that VNet resource.
+- When you create a resource in Azure, say a workspace, you are not directly the owner of the workspace. Your role gets inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and had the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
+- When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role.
+- To deploy your compute resources inside a VNet, you need to explicitly have permissions for "Microsoft.Network/virtualNetworks/join/action" on that VNet resource.
 - It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
 
 ### Q. What permissions do I need to use a user-assigned managed identity with my Amlcompute clusters?
 
-To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on RBAC with Managed Identities read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+To assign a user assigned identity on Amlcompute clusters, one has to have write permissions to create compute and have [Managed Identity Operator Role](/azure/role-based-access-control/built-in-roles#managed-identity-operator). For more information on RBAC with Managed Identities, read [How to manage user assigned identity](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
-### Q. Do we support role based access controls on the Studio portal?
+### Q. Do we support role-based access controls on the Studio portal?
 
-Azure Machine Learning Studio supports role based access controls out of the box. Once you have assigned a custom role with specific permissiosn to a data scientist in your workspace, corresponding actions (such as adding a compute button) get automatically hidden from the users. This prevents any confusion on seeing controls that return an Unauthorized Access notification from the service later.
+Azure Machine Learning Studio supports role-based access controls out of the box. Once you have assigned a custom role with specific permissions to a data scientist in your workspace, corresponding actions (such as adding a compute button) are automatically hidden from the users. Hiding these items prevents any confusion from seeing controls that return an Unauthorized Access notification from the service when used.
 
 
 ### Q. How do I find the role definition for a role in my subscription?
