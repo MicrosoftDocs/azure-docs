@@ -4974,7 +4974,7 @@ In this example, suppose you have this XML string, which includes the XML docume
 
 `"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
 
-These expressions use either the XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node: 
+These expressions use either XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node. These examples show the syntax that you use in either the Logic App Designer or in the expression editor:
 
 * `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
 * `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
@@ -4985,16 +4985,14 @@ Here is the result node that matches the `<location></location>` node:
 
 > [!IMPORTANT]
 >
-> If you're working in code view, escape the double quotation mark (") by using the backslash character (\\). 
+> If you work in code view, escape the double quotation mark (") by using the backslash character (\\). 
 > For example, you need to use escape characters when you serialize an expression as a JSON string. 
-> However, if you're working in the Logic App Designer or expression editor, you don't need to escape the 
+> However, if you're work in the Logic App Designer or expression editor, you don't need to escape the 
 > double quotation mark because the backslash character is added automatically to the underlying definition, for example:
 > 
 > * Code view: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
 > * Expression editor: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-> 
-> The following examples apply to expressions that you enter in the expression editor.
 
 *Example 9*
 
