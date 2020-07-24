@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/20/2020
+ms.date: 07/24/2020
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications
@@ -16,7 +16,7 @@ ms.date: 07/20/2020
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 > [!NOTE]
-> This article is in **public preview**. For more information, see [Azure Active Directory service principal with Azure SQL](authentication-aad-service-principal.md). This article will use Azure SQL Database to demonstrate the necessary steps, but can be similarly applied to [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
+> This article is in **public preview**. For more information, see [Azure Active Directory service principal with Azure SQL](authentication-aad-service-principal.md). This article will use Azure SQL Database to demonstrate the necessary tutorial steps, but can be similarly applied to [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 This article takes you through the process of creating Azure AD users in Azure SQL Database, using Azure service principals (Azure AD applications). This functionality already exists in Azure SQL Managed Instance, but is now being introduced in Azure SQL Database and Azure Synapse Analytics. To support this scenario, an Azure AD Identity must be generated and assigned to the Azure SQL logical server.
 

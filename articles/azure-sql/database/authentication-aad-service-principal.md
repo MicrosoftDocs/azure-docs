@@ -1,14 +1,14 @@
 ---
 title: Azure Active Directory service principal with Azure SQL
 description: Azure AD Applications (service principals) support Azure AD user creation in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/20/2020
+ms.date: 07/24/2020
 ---
 
 # Azure Active Directory service principal with Azure SQL

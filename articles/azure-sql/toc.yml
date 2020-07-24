@@ -145,6 +145,8 @@
 
     - name: Security  
       items: 
+      - name: Create Azure AD guest users and set as an Azure AD admin
+        href: database/authentication-aad-guest-users.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Store vulnerability scans in storage

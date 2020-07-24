@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
+ms.date: 07/24/2020
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -533,6 +533,7 @@ Guidance on troubleshooting issues with Azure AD authentication can be found in 
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
+- For information about how to set an Azure AD guest user as the Azure AD admin, see [Create Azure AD guest users and set as an Azure AD admin](authentication-aad-guest-users.md).
 
 <!--Image references-->
 
