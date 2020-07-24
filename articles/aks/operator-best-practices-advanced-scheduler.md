@@ -76,6 +76,7 @@ For more information about how to use multiple node pools in AKS, see [Create an
 When you upgrade a node pool in AKS, taints and tolerations follow a set pattern as they're applied to new nodes:
 
 - **Default clusters that use virtual machine scale sets**
+  - You can [taint a nodepool][taint-node-pool] from the AKS API, to have newly scaled out nodes receive API specified node taints.
   - Let's assume you have a two-node cluster - *node1* and *node2*. You upgrade the node pool.
   - Two additional nodes are created, *node3* and *node4*, and the taints are passed on respectively.
   - The original *node1* and *node2* are deleted.
@@ -194,3 +195,4 @@ This article focused on advanced Kubernetes scheduler features. For more informa
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool
