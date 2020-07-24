@@ -11,7 +11,7 @@ ms.author: jgao
 ---
 # Configure development environment for deployment scripts in templates
 
-Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
+Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
 
 ## Prerequisite
 
@@ -208,7 +208,7 @@ You can also upload the file by using the Azure portal and Azure CLI.
 ## Use Docker
 
 You can use a pre-configured docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
-You also need to configure file sharing to mount the directory which contains the deployment scripts into Docker container.
+You also need to configure file sharing to mount the directory, which contains the deployment scripts into Docker container.
 
 1. Pull the deployment script container image to the local computer:
 

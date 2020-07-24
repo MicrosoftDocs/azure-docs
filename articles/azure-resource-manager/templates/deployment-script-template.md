@@ -561,7 +561,7 @@ After the script is tested successfully, you can use it as a deployment script i
 | Error code | Description |
 |------------|-------------|
 | DeploymentScriptInvalidOperation | The deployment script resource definition in the template contains invalid property names. |
-| DeploymentScriptResourceConflict | Cannot delete a deployment script resource that is in non-terminal state and the execution hasn't exceeded 1 hour. Or cannot re-run the same deployment script with the same resource identifier (same subscription, resource group name, and resource name) but different script body content at the same time . |
+| DeploymentScriptResourceConflict | Cannot delete a deployment script resource that is in non-terminal state and the execution hasn't exceeded 1 hour. Or cannot re-run the same deployment script with the same resource identifier (same subscription, resource group name, and resource name) but different script body content at the same time. |
 | DeploymentScriptOperationFailed | The deployment script operation failed internally. Please contact Microsoft support. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | The access key hasn't been specified for the existing storage account.|
 | DeploymentScriptContainerGroupContainsInvalidContainers | A container group created by the deployment script service got externally modified, and invalid containers got added. |
@@ -573,10 +573,10 @@ After the script is tested successfully, you can use it as a deployment script i
 | DeploymentScriptStorageAccountInvalidAccessKey | Invalid access key specified for the existing storage account. |
 | DeploymentScriptStorageAccountInvalidAccessKeyFormat | Invalid storage account key format. See [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md). |
 | DeploymentScriptExceededMaxAllowedTime | Deployment script execution time exceeded the timeout value specified in the deployment script resource definition. |
-| DeploymentScriptInvalidOutputs | The deployment script outputs is not a valid JSON object. |
-| DeploymentScriptContainerInstancesServiceLoginFailure | The user-assigned managed identity was not able to login after 10 attempts with 1 minute interval. |
+| DeploymentScriptInvalidOutputs | The deployment script output is not a valid JSON object. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | The user-assigned managed identity was not able to login after 10 attempts with 1-minute interval. |
 | DeploymentScriptContainerGroupNotFound | A Container group created by deployment script service got deleted by an external tool or process. |
-| DeploymentScriptDownloadFailure | Failed downloading a supporting script. See [Use supporting script](#use-supporting-scripts).|
+| DeploymentScriptDownloadFailure | Failed to download a supporting script. See [Use supporting script](#use-supporting-scripts).|
 | DeploymentScriptError | The user script threw an error. |
 | DeploymentScriptBootstrapScriptExecutionFailed | The bootstrap script threw an error. Bootstrap script is the system script that orchestrates the deployment script execution. |
 | DeploymentScriptExecutionFailed | Unknown error during the deployment script execution. |
