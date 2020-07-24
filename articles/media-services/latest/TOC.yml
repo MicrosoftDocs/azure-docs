@@ -174,7 +174,7 @@
   - name: Player clients
     items:
     - name: Azure Media Player
-      href: use-azure-media-player.md
+      href: https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -345,6 +345,10 @@
       displayName: filters
   - name: Deliver content
     items:
+    - name: Use the Video.js player
+      href: how-to-video-js-player.md
+    - name: Use the Shaka video player
+      href: how-to-shaka-player.md
     - name: Manage streaming endpoints
       href: manage-streaming-endpoints-howto.md
     - name: Publish an asset
