@@ -26,7 +26,7 @@ This article contains three scripts to be run in PowerShell. The desktop PowerSh
 1. Ensure PowerShell is configured to run scripts.
 
     - Always open PowerShell with the **Run as administrator** option.
-    - Ensure you can run threse scripts: `Set-ExecutionPolicy` and `RemoteSigned`.
+    - Ensure you can run these scripts: `Set-ExecutionPolicy` and `RemoteSigned`.
 
 2. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
