@@ -1,7 +1,7 @@
 ---
 title: Deploy Ethereum Proof-of-Authority consortium solution template on Azure
 description: Use the Ethereum Proof-of-Authority consortium solution to deploy and configure a multi-member consortium Ethereum network on Azure
-ms.date: 07/07/2020
+ms.date: 07/23/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ---
@@ -17,6 +17,9 @@ Microsoft Azure compute, networking, and storage services. Each consortium membe
 ## Choose an Azure Blockchain solution
 
 Before choosing to use the Ethereum proof-of-authority consortium solution template, compare your scenario with the common use cases of available Azure Blockchain options.
+
+> [!IMPORTANT]
+> Consider using [Azure Blockchain Service](../service/overview.md) rather than the Ethereum on Azure solution template. Azure Blockchain Service is a supported managed Azure Service. Parity Ethereum transitioned to community driven development and maintenance. For more information, see [Transitioning Parity Ethereum to OpenEthereum DAO](https://www.parity.io/parity-ethereum-openethereum-dao/).
 
 Option | Service model | Common use case
 -------|---------------|-----------------
