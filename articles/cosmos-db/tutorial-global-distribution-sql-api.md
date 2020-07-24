@@ -23,24 +23,22 @@ This article covers the following tasks:
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-
 ## <a id="preferred-locations"></a> Connecting to a preferred region using the SQL API
 
-In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
+In order to take advantage of [global distribution](distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.
 
-This preference list is specified when initializing a connection using the SQL SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
+This preference list is specified when initializing a connection using the SQL SDKs. The SDKs accept an optional parameter `PreferredLocations` that is an ordered list of Azure regions.
 
-The SDK will automatically send all writes to the current write region.
+The SDK will automatically send all writes to the current write region. All reads will be sent to the first available region in the preferred locations list. If the request fails, the client will fail down the list to the next region.
 
-All reads will be sent to the first available region in the PreferredLocations list. If the request fails, the client will fail down the list to the next region, and so on.
+The SDK will only attempt to read from the regions specified in preferred locations. So, for example, if the Azure Cosmos account is available in four regions, but the client only specifies two read(non-write) regions within the `PreferredLocations`, then no reads will be served out of the read region that is not specified in `PreferredLocations`. If the read regions specified in the `PreferredLocations` list are not available, reads will be served out of write region.
 
-The SDKs will only attempt to read from the regions specified in PreferredLocations. So, for example, if the Database Account is available in four regions, but the client only specifies two read(non-write) regions for PreferredLocations, then no reads will be served out of the read region that is not specified in PreferredLocations. If the read regions specified in the PreferredLocations are not available,  reads will be served out of write region.
+The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, `WriteEndpoint` and `ReadEndpoint`, available in SDK version 1.8 and above. If the `PreferredLocations` property is not set, all requests will be served from the current write region.
 
-The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, WriteEndpoint and ReadEndpoint, available in SDK version 1.8 and above.
-
-If the PreferredLocations property is not set, all requests will be served from the current write region.
+If you don't specify the preferred locations but used the `setCurrentLocation` method, the SDK automatically populates the preferred locations based on the current region that the client is running in. The SDK orders the regions based on their proximity to the current region.
 
 ## .NET SDK
+
 The SDK can be used without any code changes. In this case, the SDK automatically directs both reads and writes to the current write region.
 
 In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
