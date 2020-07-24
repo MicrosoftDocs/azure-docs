@@ -16,7 +16,7 @@ This article guides you through the process of building a landing page for a tra
 
 ## Overview
 
-You can think of the landing page as the “lobby” for your software as a service (SaaS) offer. After the buyer makes a purchase, the commercial marketplace directs them to the landing page to activate and configure their subscription to your SaaS application. Think of this as an order confirmation step that lets the buyer see what they’ve purchased and confirm their account details. Using Azure Active Directory (Azure AD) and Microsoft Graph, you will enable single sign-on (SSO) for the buyer and get important details about the buyer that you can use to confirm and activate their subscription, including their name, email address, and organization.
+You can think of the landing page as the “lobby” for your software as a service (SaaS) offer. After the buyer subscribes to an offer, the commercial marketplace directs them to the landing page to activate and configure their subscription to your SaaS application. Think of this as an order confirmation step that lets the buyer see what they’ve purchased and confirm their account details. Using Azure Active Directory (Azure AD) and Microsoft Graph, you will enable single sign-on (SSO) for the buyer and get important details about the buyer that you can use to confirm and activate their subscription, including their name, email address, and organization.
 
 Because the information needed to activate the subscription is limited and provided by Azure AD and Microsoft Graph, there should be no need to request information that requires more than basic consent. If you need user details that require additional consent for your application, you should request this information after subscription activation is complete. This enables frictionless subscription activation for the buyer and decreases the risk of abandonment.
 
@@ -47,7 +47,7 @@ The first step to using the identity is to make sure your landing page is regist
 
 ### Register a new application using the Azure portal
 
-To get started, follow the instructions for [registering a new application](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). To let users from other companies visit the app, you must choose **Accounts in any organizational directory (any Azure AD directory—multitenant) and personal Microsoft accounts (like Skype or Xbox)** when asked who can use the application.
+To get started, follow the instructions for [registering a new application](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). To let users from other companies visit the app, you must choose one of the multitenant options when asked who can use the application.
 
 If you intend to query the Microsoft Graph API, [configure your new application to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis). When you select the API permissions for this application, the default of **User.Read** is enough to gather basic information about the buyer to make the onboarding process smooth and automatic. Do not request any API permissions labeled **needs admin consent**, as this will block all non-administrator users from visiting your landing page.
 

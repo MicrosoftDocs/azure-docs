@@ -36,8 +36,14 @@ To verify your configuration, work through these five checkpoints.
 1. Confirm that the application that hosts your landing page is registered with Azure AD. Check with your administrator that the landing page is using the correct [Application ID and client secret](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 2. Verify that your app’s landing page URI is configured properly. In Partner Center, review your [landing page URL](./partner-center-portal/create-new-saas-offer.md#technical-configuration) on the **Technical configuration** tab of your offer in Partner Center.  
 3. Test that your landing page is enabled for sign-in. Using a non-administrator account, follow the link to your landing page. The page is properly enabled if it requests that you go through the Azure AD sign-in process. If it doesn’t, refer to the quickstart documentation linked from the Azure AD app registration.
-4. Check that your app is enabled for multitenant Azure AD access, including personal Microsoft accounts. Go to your application’s [authentication page](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/[app_id]/isMSAApp/) in the Azure portal, and then select the multitenant option that includes all account types. If your application was already configured as multi-tenant but with no personal Microsoft accounts, you may need to use the manifest editor to make this change.
-5. Review the permissions your app requires. Navigate to your application’s [API permissions page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/CallAnAPI/appId/%5Bapp_id%5D/isMSAApp/) in the Azure portal, and then confirm that you’ve selected only the minimum required [permissions](https://docs.microsoft.com/azure/active-directory/develop/perms-for-given-api) and that those permissions don’t require administrator approval.
+4. Check that your app is enabled for multitenant Azure AD access, including personal Microsoft accounts. Go to your application’s [authentication page](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Authentication/appId/[app_id]/isMSAApp/) in the Azure portal, and then select one of the multitenant options. 
+
+   > [!TIP]
+   > If your app doesn’t accept login requests from Skype or Xbox, then select **Accounts in any organizational directory (Any Azure AD directory – Multitenant)**.
+
+   If your application was already configured as multi-tenant but with no personal Microsoft accounts, you may need to use the manifest editor to make this change.
+
+1. Review the permissions your app requires. Navigate to your application’s [API permissions page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/CallAnAPI/appId/%5Bapp_id%5D/isMSAApp/) in the Azure portal, and then confirm that you’ve selected only the minimum required [permissions](https://docs.microsoft.com/azure/active-directory/develop/perms-for-given-api). Make sure that those permissions don’t require administrator approval unless the app requires administrator consent.
 
 ## Next steps
 
