@@ -99,7 +99,7 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 ## Next steps
 
 - Users in other roles, such as Owner or Contributor, can access not just billing information, but Azure services as well. To manage these roles, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-- For more information about roles, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+- For more information about roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 ## Need help? Contact us.
 

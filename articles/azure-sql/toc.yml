@@ -48,6 +48,9 @@
         displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
       - name: Best practices
         href: database/security-best-practice.md
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./database/security-controls-policy.md
       - name: Security baseline
         href: database/security-baseline.md
       - name: Security attributes

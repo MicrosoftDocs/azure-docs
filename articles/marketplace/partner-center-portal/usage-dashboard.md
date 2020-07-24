@@ -1,10 +1,10 @@
 ---
-title: Usage dashboard in Microsoft commercial marketplace analytics
+title: Usage dashboard in Microsoft commercial marketplace analytics, Azure Marketplace and Microsoft AppSource
 description: Learn how to access all VM offers usage and metered billing metrics. Go to the Usage dashboard in Partner Center under Commercial Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 07/01/2020
+ms.date: 07/22/2020
 ---
 
 # Usage dashboard in Microsoft commercial marketplace analytics
@@ -31,6 +31,8 @@ In the VM usage tab, there are graphical representations of the following items:
 - [Usage by sales channel](#usage-by-sales-channel)
 - [Detailed usage data](#detailed-usage-data)
 
+The maximum latency between usage event generation and reporting in Partner Center is 48 hours.
+
 ### Usage summary
 
 The usage summary table displays the customer usage hours for all offers they have purchased.
@@ -44,7 +46,7 @@ The usage summary table displays the customer usage hours for all offers they ha
 
 ### Usage by geography
 
-The **normalized usage by geography** heatmap displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
+The **normalized usage by geography** heat-map displays usage hours mapped according to the customer country/region. Country/region color variation represents normalized usage concentration. Revert to the original view by pressing the **home** button on the map.
 
 ### Usage by offers
 
@@ -82,7 +84,7 @@ The **usage details table** displays a numbered list of the top 1000 usage recor
 - Each column in the grid is sortable.
 - The data can be extracted to a CSV file if the count of the records is less than 1000.
 - If records count is over 1000, export data will be asynchronously placed in a downloads page that will be available for the next 30 days.
-- Filters can be applied to the **detailed usage data** to display only the data that you are interested in. Data can be filtered by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
+- Apply filters to **detailed usage data** to display only the data you are interested in. Filter data by country/region, sales channel, Marketplace license type, usage type, offer name, offer type, free trials, Marketplace subscription ID, customer ID, and company name.
 
 > [!NOTE]
 > Select the **Usage type** in the page filter to view charts on the page in either "Normalized view" or "Raw view." The default view for these charts is "Normalized view."
