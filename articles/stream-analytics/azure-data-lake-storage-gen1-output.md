@@ -1,21 +1,23 @@
 ---
 title: Azure Data Lake Storage Gen 1 output from Azure Stream Analytics
-description: This article describes Azure Data Lake Storage Gen 1 as an output options for Azure Stream Analytics.
+description: This article describes Azure Data Lake Storage Gen 1 as an output option for Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/23/2020
 ---
 
-## Azure Data Lake Storage Gen 1 output from Azure Stream Analytics
+# Azure Data Lake Storage Gen 1 output from Azure Stream Analytics
 
 Stream Analytics supports [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) outputs. Azure Data Lake Storage is an enterprise-wide, hyperscale repository for big data analytic workloads. You can use Data Lake Storage to store data of any size, type, and ingestion speed for operational and exploratory analytics. Stream Analytics needs to be authorized to access Data Lake Storage.
 
-Azure Data Lake Storage output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
+Azure Data Lake Storage output from Stream Analytics is not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
 
-The following table lists property names and their descriptions to configure your Data Lake Storage Gen 1 output.   
+## Output configuration
+
+The following table lists property names and their descriptions to configure your Data Lake Storage Gen 1 output.
 
 | Property name | Description |
 | --- | --- |
@@ -33,10 +35,17 @@ The following table lists property names and their descriptions to configure you
 
 ## Partitioning
 
-For the partition key, use {date} and {time} tokens in the path prefix pattern. Choose a date format, such as YYYY/MM/DD, DD/MM/YYYY, or MM-DD-YYYY. HH is used for the time format. The number of output writers follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md).
+For the partition key, use {date} and {time} tokens in the path prefix pattern. Choose a date format, such as YYYY/MM/DD, DD/MM/YYYY, or MM-DD-YYYY. Use HH for the time format. The number of output writers follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md).
 
 ## Output batch size
 
 For the maximum message size, see [Data Lake Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#data-lake-store-limits). To optimize batch size, use up to 4 MB per write operation.
 
 ## Next steps
+
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
+* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
+* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)

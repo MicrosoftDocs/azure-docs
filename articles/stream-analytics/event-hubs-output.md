@@ -1,18 +1,20 @@
 ---
 title: Event Hubs output from Azure Stream Analytics
-description: This article describes data output options available in Azure Stream Analytics.
+description: This article describes how to output data from Azure Stream Analytics to Azure Event Hubs.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/8/2020
+ms.date: 07/23/2020
 ---
 # Event Hubs output from Azure Stream Analytics
 
 The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an event hub as output is when the output of a Stream Analytics job becomes the input of another streaming job. For information about the maximum message size and batch size optimization, see the [output batch size](#output-batch-size) section.
 
-You need a few parameters to configure data streams from event hubs as an output.
+## Output configuration
+
+The following table has the parameters needed to configure data streams from event hubs as an output.
 
 | Property name | Description |
 | --- | --- |
@@ -29,22 +31,25 @@ You need a few parameters to configure data streams from event hubs as an output
 | Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
 
 ## Partitioning
+
 Partitioning varies depending on partition alignment. When the partition key for event hub output is equally aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in event hub output. Each writer uses the [EventHubSender class](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) to send events to the specific partition. When the partition key for event hub output is not aligned with the upstream (previous) query step, the number of writers is the same as the number of partitions in that prior step. Each writer uses the [SendBatchAsync class](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient** to send events to all the output partitions. 
 
-
 ## Output batch size
-| Azure Event Hubs    | 256 KB or 1 MB per message. <br />See [Event Hubs limits](../event-hubs/event-hubs-quotas.md). |    When input/output partitioning isn't aligned, each event is packed individually in `EventData` and sent in a batch of up to the maximum message size. This also happens if [custom metadata properties](#custom-metadata-properties-for-output) are used. <br /><br />  When input/output partitioning is aligned, multiple events are packed into a single `EventData` instance, up to the maximum message size, and sent.    |
 
-## Custom metadata properties for output 
+The maximum message size is 256 KB or 1 MB per message. For more information, see [Event Hubs limits](../event-hubs/event-hubs-quotas.md). When input/output partitioning isn't aligned, each event is packed individually in `EventData` and sent in a batch of up to the maximum message size. This also happens if [custom metadata properties](#custom-metadata-properties-for-output) are used. When input/output partitioning is aligned, multiple events are packed into a single `EventData` instance, up to the maximum message size, and sent.
+
+## Custom metadata properties for output
 
 You can attach query columns as user properties to your outgoing messages. These columns don't go into the payload. The properties are present in the form of a dictionary on the output message. *Key* is the column name and *value* is the column value in the properties dictionary. All Stream Analytics data types are supported except Record and Array.  
 
-Supported outputs: 
-* Service Bus queue 
-* Service Bus topic 
-* Event hub 
+Supported outputs:
+
+* Service Bus queue
+* Service Bus topic
+* Event hub
 
 In the following example, we add the two fields `DeviceId` and `DeviceStatus` to the metadata. 
+
 * Query: `select *, DeviceId, DeviceStatus from iotHubInput`
 * Output configuration: `DeviceId,DeviceStatus`
 
