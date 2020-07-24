@@ -54,51 +54,72 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 ### Create an API permissions role
 
-* Log in to SAP SuccessFactors with a user account that has access to the Admin Center.
-* Search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
-  ![Manage Permission Roles](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* From the Permission Role List, click **Create New**.
-  > [!div class="mx-imgBorder"]
-  > ![Create New Permission Role](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
-* Add a **Role Name** and **Description** for the new permission role. The name and description should indicate that the role is for API usage permissions.
-  > [!div class="mx-imgBorder"]
-  > ![Permission role detail](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Under Permission settings, click **Permission...**, then scroll down the permission list and click **Manage Integration Tools**. Check the box for **Allow Admin to Access to OData API through Basic Authentication**.
+1. Log in to SAP SuccessFactors with a user account that has access to the Admin Center.
+1. Search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
+
+   ![Manage Permission Roles](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
+
+1. From the Permission Role List, click **Create New**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Create New Permission Role](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
+
+1. Add a **Role Name** and **Description** for the new permission role. The name and description should indicate that the role is for API usage permissions.
+
+   > [!div class="mx-imgBorder"]
+   > ![Permission role detail](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
+
+1. Under Permission settings, click **Permission...**, then scroll down the permission list and click **Manage Integration Tools**. Check the box for **Allow Admin to Access to OData API through Basic Authentication**.
+
   > [!div class="mx-imgBorder"]
   > ![Manage integration tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the write-back to SuccessFactors scenario. 
-  > [!div class="mx-imgBorder"]
-  > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Click on **Done**. Click **Save Changes**.
+
+1. Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the write-back to SuccessFactors scenario. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Read write permissions](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+1. Click on **Done**. Click **Save Changes**.
 
 ### Create a Permission Group for the API user
 
-* In the SuccessFactors Admin Center, search for *Manage Permission Groups*, then select **Manage Permission Groups** from the search results.
-  > [!div class="mx-imgBorder"]
-  > ![Manage permission groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* From the Manage Permission Groups window, click **Create New**.
-  > [!div class="mx-imgBorder"]
-  > ![Add new group](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
-* Add a Group Name for the new group. The group name should indicate that the group is for API users.
-  > [!div class="mx-imgBorder"]
-  > ![Permission group name](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
-* Add members to the group. For example, you could select **Username** from the People Pool drop-down menu and then enter the username of the API account that will be used for the integration. 
-  > [!div class="mx-imgBorder"]
-  > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
-* Click **Done** to finish creating the Permission Group.
+1. In the SuccessFactors Admin Center, search for *Manage Permission Groups*, then select **Manage Permission Groups** from the search results.
+
+   > [!div class="mx-imgBorder"]
+   > ![Manage permission groups](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
+
+1. From the Manage Permission Groups window, click **Create New**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Add new group](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
+
+1. Add a Group Name for the new group. The group name should indicate that the group is for API users.
+
+   > [!div class="mx-imgBorder"]
+   > ![Permission group name](./media/sap-successfactors-inbound-provisioning/permission-group-name.png)
+
+1. Add members to the group. For example, you could select **Username** from the People Pool drop-down menu and then enter the username of the API account that will be used for the integration. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Add group members](./media/sap-successfactors-inbound-provisioning/add-group-members.png)
+
+1. Click **Done** to finish creating the Permission Group.
 
 ### Grant Permission Role to the Permission Group
 
-* In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
-* From the **Permission Role List**, select the role that you created for API usage permissions.
-* Under **Grant this role to...**, click **Add...** button.
-* Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
-  > [!div class="mx-imgBorder"]
-  > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
-* Review the Permission Role grant to the Permission Group. 
-  > [!div class="mx-imgBorder"]
-  > ![Permission Role and Group detail](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Click **Save Changes**.
+1. In SuccessFactors Admin Center, search for *Manage Permission Roles*, then select **Manage Permission Roles** from the search results.
+1. From the **Permission Role List**, select the role that you created for API usage permissions.
+1. Under **Grant this role to...**, click **Add...** button.
+1. Select **Permission Group...** from the drop-down menu, then click **Select...** to open the Groups window to search and select the group created above. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Add permission group](./media/sap-successfactors-inbound-provisioning/add-permission-group.png)
+
+1. Review the Permission Role grant to the Permission Group. 
+   > [!div class="mx-imgBorder"]
+   > ![Permission Role and Group detail](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
+
+1. Click **Save Changes**.
 
 ## Preparing for SuccessFactors Writeback
 
@@ -106,64 +127,64 @@ The SuccessFactors Writeback provisioning app uses certain *code* values for set
 
 ### Download and configure Postman with your SuccessFactors tenant
 
-* Download [Postman](https://www.postman.com/downloads/)
-* Create a "New Collection" in the Postman app. Call it "SuccessFactors". 
+1. Download [Postman](https://www.postman.com/downloads/)
+1. Create a "New Collection" in the Postman app. Call it "SuccessFactors". 
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Setup](./media/sap-successfactors-inbound-provisioning/postman-setup-01.png)
+   > [!div class="mx-imgBorder"]
+   > ![New Postman collection](./media/sap-successfactors-inbound-provisioning/new-postman-collection.png)
 
-* In the "Authorization" tab, enter credentials of the API user configured in the previous section. Configure type as "Basic Auth". 
+1. In the "Authorization" tab, enter credentials of the API user configured in the previous section. Configure type as "Basic Auth". 
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Setup](./media/sap-successfactors-inbound-provisioning/postman-setup-02.png)
+   > [!div class="mx-imgBorder"]
+   > ![Postman authorization](./media/sap-successfactors-inbound-provisioning/postman-authorization.png)
 
-* Save the configuration. 
+1. Save the configuration. 
 
 ### Retrieve constant value for emailType
 
-* In Postman, click on the ellipsis (...) associated with the SuccessFactors collection and add a "New Request" called "Get Email Types" as shown below. 
+1. In Postman, click on the ellipsis (...) associated with the SuccessFactors collection and add a "New Request" called "Get Email Types" as shown below. 
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Email](./media/sap-successfactors-inbound-provisioning/postman-get-email-01.png)
+   > [!div class="mx-imgBorder"]
+   > ![Postman email request ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
 
-* Open the "Get Email Type" request panel. 
-* In the GET URL, add the following URL, replacing `successFactorsAPITenantName` with the API tenant for your SuccessFactors instance. 
-  `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecEmailType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Open the "Get Email Type" request panel. 
+1. In the GET URL, add the following URL, replacing `successFactorsAPITenantName` with the API tenant for your SuccessFactors instance. 
+   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecEmailType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Email](./media/sap-successfactors-inbound-provisioning/postman-get-email-02.png)
+   > [!div class="mx-imgBorder"]
+   > ![Postman get email type](./media/sap-successfactors-inbound-provisioning/postman-get-email-type.png)
 
-* The "Authorization" tab will inherit the auth configured for the collection. 
-* Click on "Send" to invoke the API call. 
-* In the Response body, view the JSON result set and look for the id corresponding to the `externalCode = B`. 
+1. The "Authorization" tab will inherit the auth configured for the collection. 
+1. Click on "Send" to invoke the API call. 
+1. In the Response body, view the JSON result set and look for the ID corresponding to the `externalCode = B`. 
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Email](./media/sap-successfactors-inbound-provisioning/postman-get-email-03.png)
+   > [!div class="mx-imgBorder"]
+   > ![Postman email type response](./media/sap-successfactors-inbound-provisioning/postman-email-type-response.png)
 
-* Note down this value as the constant to use with *emailType* in the attribute-mapping table.
+1. Note down this value as the constant to use with *emailType* in the attribute-mapping table.
 
 ### Retrieve constant value for phoneType
 
-* In Postman, click on the ellipsis (...) associated with the SuccessFactors collection and add a "New Request" called "Get Phone Types" as shown below. 
+1. In Postman, click on the ellipsis (...) associated with the SuccessFactors collection and add a "New Request" called "Get Phone Types" as shown below. 
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-get-phone-01.png)
+   > [!div class="mx-imgBorder"]
+   > ![Postman phone request](./media/sap-successfactors-inbound-provisioning/postman-phone-request.png)
 
-* Open the "Get Phone Type" request panel. 
-* In the GET URL, add the following URL, replacing `successFactorsAPITenantName` with the API tenant for your SuccessFactors instance. 
-  `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecPhoneType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Open the "Get Phone Type" request panel. 
+1. In the GET URL, add the following URL, replacing `successFactorsAPITenantName` with the API tenant for your SuccessFactors instance. 
+   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecPhoneType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-get-phone-02.png)
+   > [!div class="mx-imgBorder"]
+   > ![Postman get phone type](./media/sap-successfactors-inbound-provisioning/postman-get-phone-type.png)
 
-* The "Authorization" tab will inherit the auth configured for the collection. 
-* Click on "Send" to invoke the API call. 
-* In the Response body, view the JSON result set and look for the *id* corresponding to the `externalCode = B` and `externalCode = C`. 
+1. The "Authorization" tab will inherit the auth configured for the collection. 
+1. Click on "Send" to invoke the API call. 
+1. In the Response body, view the JSON result set and look for the *id* corresponding to the `externalCode = B` and `externalCode = C`. 
 
-  > [!div class="mx-imgBorder"]
-  > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-get-phone-03.png)
+   > [!div class="mx-imgBorder"]
+   > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)
 
-* Note down these values as the constants to use with *businessPhoneType* and *cellPhoneType* in the attribute-mapping table.
+1. Note down these values as the constants to use with *businessPhoneType* and *cellPhoneType* in the attribute-mapping table.
 
 ## Configuring SuccessFactors Writeback App
 
@@ -242,13 +263,13 @@ In this section, you will configure how user data flows from SuccessFactors to A
 1. Validate and review your attribute mappings. 
  
     >[!div class="mx-imgBorder"]
-    >![Azure portal](./media/sap-successfactors-inbound-provisioning/writeback-attribute-mapping.png)
+    >![Writeback attribute mapping](./media/sap-successfactors-inbound-provisioning/writeback-attribute-mapping.png)
 
 1. Click **Save** to save the mappings. Next, we will update the JSON Path API expressions to use the phoneType codes in your SuccessFactors instance. 
 1. Select **Show advanced options**. 
 
     >[!div class="mx-imgBorder"]
-    >![Azure portal](./media/sap-successfactors-inbound-provisioning/show-advanced-options.png)
+    >![Show advanced options](./media/sap-successfactors-inbound-provisioning/show-advanced-options.png)
 
 1. Click on **Edit attribute list for SuccessFactors**. 
 
@@ -259,7 +280,7 @@ In this section, you will configure how user data flows from SuccessFactors to A
 1. Update the JSON Path expressions for business phone and cell phone to use the ID value (*businessPhoneType* and *cellPhoneType*) corresponding to your environment. 
 
     >[!div class="mx-imgBorder"]
-    >![Azure portal](./media/sap-successfactors-inbound-provisioning/phone-jsonpath-change.png)
+    >![Phone JSON Path change](./media/sap-successfactors-inbound-provisioning/phone-json-path-change.png)
 
 1. Click **Save** to save the mappings.
 

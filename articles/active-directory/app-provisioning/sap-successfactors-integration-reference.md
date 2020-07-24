@@ -27,15 +27,15 @@ Azure AD provisioning service uses basic authentication to connect to Employee C
 
 To further secure the connectivity between Azure AD provisioning service and SuccessFactors, you can add the Azure AD IP ranges in the SuccessFactors IP allow-list using the steps described below:
 
-* Download the [latest IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure Public Cloud 
-* Open the file and search for tags **AzureActiveDirectory** and **AzureActiveDirectoryDomainServices** 
+1. Download the [latest IP Ranges](https://www.microsoft.com/download/details.aspx?id=56519) for the Azure Public Cloud 
+1. Open the file and search for tags **AzureActiveDirectory** and **AzureActiveDirectoryDomainServices** 
 
-  >[!div class="mx-imgBorder"] 
-  >![Azure AD IP range](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)
+   >[!div class="mx-imgBorder"] 
+   >![Azure AD IP range](media/sap-successfactors-integration-reference/azure-active-directory-ip-range.png)
 
-* Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address restriction list.
-* Translate the CIDR values to IP ranges.  
-* Log in to SuccessFactors admin portal to add IP ranges to the allow-list. Refer to SAP [support note 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
+1. Copy all IP address ranges listed within the element *addressPrefixes* and use the range to build your IP address restriction list.
+1. Translate the CIDR values to IP ranges.  
+1. Log in to SuccessFactors admin portal to add IP ranges to the allow-list. Refer to SAP [support note 2253200](https://apps.support.sap.com/sap/support/knowledge/en/2253200). You can now [enter IP ranges](https://answers.sap.com/questions/12882263/whitelisting-sap-cloud-platform-ip-address-range-i.html) in this tool. 
 
 ## Supported entities
 For every user in SuccessFactors, Azure AD provisioning service retrieves the following entities. Each entity is expanded using the OData API *$expand* query parameter. Refer to the *Retrieval rule* column below. Some entities are expanded by default, while some entities are expanded only if a specific attribute is present in the mapping. 
@@ -108,23 +108,26 @@ When Azure AD provisioning service queries SuccessFactors, it retrieves a JSON r
 
 To retrieve additional attributes, follow the steps listed below:
     
-* Browse to **Enterprise Applications** -> **SuccessFactors App** -> **Provisioning** -> **Edit Provisioning** -> **attribute-mapping page**.
-* Scroll down and click **Show advanced options**.
-* Click on **Edit attribute list for SuccessFactors**. 
+1. Browse to **Enterprise Applications** -> **SuccessFactors App** -> **Provisioning** -> **Edit Provisioning** -> **attribute-mapping page**.
+1. Scroll down and click **Show advanced options**.
+1. Click on **Edit attribute list for SuccessFactors**. 
 
-> [!NOTE] 
-> If the **Edit attribute list for SuccessFactors** option does not show in the Azure portal, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page. 
+   > [!NOTE] 
+   > If the **Edit attribute list for SuccessFactors** option does not show in the Azure portal, use the URL *https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true* to access the page. 
 
-* The **API expression** column in this view displays the JSONPath expressions used by the connector.
-  >[!div class="mx-imgBorder"] 
-  >![API-Expression](media/sap-successfactors-integration-reference/jsonpath-api-expressions.png#lightbox)  
-* You can either edit an existing JSONPath value or add a new attribute with a valid JSONPath expression to the schema. 
+1. The **API expression** column in this view displays the JSONPath expressions used by the connector.
+
+   >[!div class="mx-imgBorder"] 
+   >![API-Expression](media/sap-successfactors-integration-reference/jsonpath-api-expressions.png#lightbox)  
+
+1. You can either edit an existing JSONPath value or add a new attribute with a valid JSONPath expression to the schema. 
 
 The next section provides a list of common scenarios for editing the JSONPath values. 
 
 ## Handling different HR scenarios
 
 JSONPath is a query language for JSON that is similar to XPath for XML. Like XPath, JSONPath allows for the extraction and filtration of data out of a JSON payload.
+
 By using JSONPath transformation, you can customize the behavior of the Azure AD provisioning app to retrieve custom attributes and handle scenarios such as rehire, worker conversion and global assignment. 
 
 This section covers how you can customize the provisioning app for the following HR scenarios: 
@@ -140,9 +143,9 @@ This section covers how you can customize the provisioning app for the following
 The default Azure AD SuccessFactors provisioning app schema ships with [90+ pre-defined attributes](sap-successfactors-attribute-reference.md). 
 To add more SuccessFactors attributes to the provisioning schema, use the steps listed below: 
 
-* Use the OData query below to retrieve data for a valid test user from Employee Central. 
+1. Use the OData query below to retrieve data for a valid test user from Employee Central. 
 
-```
+   ```
     https://[SuccessFactorsAPIEndpoint]/odata/v2/PerPerson?$format=json&
     $filter=(personIdExternal in '[personIdExternalValue]')&
     $expand=employmentNav/userNav,employmentNav/jobInfoNav,personalInfoNav,personEmpTerminationInfoNav,
@@ -152,18 +155,18 @@ To add more SuccessFactors attributes to the provisioning schema, use the steps 
     employmentNav/jobInfoNav/locationNav,employmentNav/jobInfoNav/locationNav/addressNavDEFLT,employmentNav/jobInfoNav/payGradeNav,
     employmentNav/empGlobalAssignmentNav,employmentNav/empGlobalAssignmentNav/assignmentTypeNav,employmentNav/jobInfoNav/emplStatusNav,
     employmentNav/jobInfoNav/employmentTypeNav,employmentNav/jobInfoNav/employeeClassNav,employmentNav/jobInfoNav/eventReasonNav
-```
+   ```
 
-* Determine the Employee Central entity associated with the attribute
-  * If the attribute is part of *EmpEmployment* entity, then look for the attribute under *employmentNav* node. 
-  * If the attribute is part of *User* entity, then look for the attribute under *employmentNav/userNav* node.
-  * If the attribute is part of *EmpJob* entity, then look for the attribute under *employmentNav/jobInfoNav* node. 
-* Construct the JSON Path associated with the attribute and add this new attribute to the list of SuccessFactors attributes. 
-  * Example 1: Let's say you want to add the attribute *okToRehire*, which is part of *employmentNav* entity, then use the JSONPath  `$.employmentNav.results[0].okToRehire`
-  * Example 2: Let's say you want to add the attribute *timeZone*, which is part of *userNav* entity, then use the JSONPath `$.employmentNav.results[0].userNav.timeZone`
-  * Example 3: Let's say you want to add the attribute *flsaStatus*, which is part of *jobInfoNav* entity, then use the JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
-* Save the schema. 
-* Restart provisioning.
+1. Determine the Employee Central entity associated with the attribute
+   * If the attribute is part of *EmpEmployment* entity, then look for the attribute under *employmentNav* node. 
+   * If the attribute is part of *User* entity, then look for the attribute under *employmentNav/userNav* node.
+   * If the attribute is part of *EmpJob* entity, then look for the attribute under *employmentNav/jobInfoNav* node. 
+1. Construct the JSON Path associated with the attribute and add this new attribute to the list of SuccessFactors attributes. 
+   * Example 1: Let's say you want to add the attribute *okToRehire*, which is part of *employmentNav* entity, then use the JSONPath  `$.employmentNav.results[0].okToRehire`
+   * Example 2: Let's say you want to add the attribute *timeZone*, which is part of *userNav* entity, then use the JSONPath `$.employmentNav.results[0].userNav.timeZone`
+   * Example 3: Let's say you want to add the attribute *flsaStatus*, which is part of *jobInfoNav* entity, then use the JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
+1. Save the schema. 
+1. Restart provisioning.
 
 ### Retrieving custom attributes
 
@@ -174,12 +177,12 @@ By default, the following custom attributes are pre-defined in the Azure AD Succ
 
 Let's say, in your Employee Central instance, *customString35* attribute in *EmpJobInfo* stores the location description. You want to flow this value to Active Directory *physicalDeliveryOfficeName* attribute. To configure attribute-mapping for this scenario, use the steps given below: 
 
-* Edit the SuccessFactors attribute list to add a new attribute called *empJobNavCustomString35*.
-* Set the JSONPath API expression for this attribute as: 
-  `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
-* Save and reload the mapping change in the Azure portal.  
-* In the attribute-mapping blade, map *empJobNavCustomString35* to *physicalDeliveryOfficeName*.
-* Save the mapping.
+1. Edit the SuccessFactors attribute list to add a new attribute called *empJobNavCustomString35*.
+1. Set the JSONPath API expression for this attribute as: 
+   `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
+1. Save and reload the mapping change in the Azure portal.  
+1. In the attribute-mapping blade, map *empJobNavCustomString35* to *physicalDeliveryOfficeName*.
+1. Save the mapping.
 
 Extending this scenario: 
 * If you want to map *custom35* attribute from the *User* entity, then use the JSONPath `$.employmentNav.results[0].userNav.custom35`
@@ -189,22 +192,25 @@ Extending this scenario:
 
 Worker conversion is the process of converting an existing full-time employee to a contractor or a contractor to full-time. In this scenario, Employee Central adds a new *EmpEmployment* entity along with a new *User* entity for the same *Person* entity. The *User* entity nested under the previous *EmpEmployment* entity is set to null. To handle this scenario so that the new employment data shows up when a conversion occurs, you can bulk update the provisioning app schema using the steps listed below:  
 
-* Open the attribute-mapping blade of your SuccessFactors provisioning app. 
-* Scroll down and click **Show advanced options**.
-* Click on the link **Review your schema here** to open the schema editor. 
-  >![review-schema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
-* Click on the **Download** link to save a copy of the schema before editing. 
-  >![download-schema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
-* In the schema editor, press Ctrl-H key to open the find-replace control.
-* In the find text box, copy, and paste the value `$.employmentNav.results[0]`
-* In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.userNav != null)]`. Note the whitespace surrounding the `!=` operator, which is important for successful processing of the JSONPath expression. 
-  >![find-replace-conversion](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
-* Click on the "replace all" option to update the schema. 
-* Save the schema. 
-* The above process updates all JSONPath expressions as follows: 
-  * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-  * New JSONPath: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
-* Restart provisioning. 
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
+1. Scroll down and click **Show advanced options**.
+1. Click on the link **Review your schema here** to open the schema editor. 
+
+   >![review-schema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+
+1. Click on the **Download** link to save a copy of the schema before editing. 
+
+   >![download-schema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+1. In the schema editor, press Ctrl-H key to open the find-replace control.
+1. In the find text box, copy, and paste the value `$.employmentNav.results[0]`
+1. In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.userNav != null)]`. Note the whitespace surrounding the `!=` operator, which is important for successful processing of the JSONPath expression. 
+   >![find-replace-conversion](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
+1. Click on the "replace all" option to update the schema. 
+1. Save the schema. 
+1. The above process updates all JSONPath expressions as follows: 
+   * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * New JSONPath: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
+1. Restart provisioning. 
 
 ### Handling rehire scenario
 
@@ -217,19 +223,19 @@ If your HR process uses Option 2, then Employee Central adds a new *EmpEmploymen
 
 To handle this rehire scenario (option 2), so that the latest employment data shows up for rehire profiles, you can bulk update the provisioning app schema using the steps listed below:  
 
-* Open the attribute-mapping blade of your SuccessFactors provisioning app. 
-* Scroll down and click **Show advanced options**.
-* Click on the link **Review your schema here** to open the schema editor.   
-* Click on the **Download** link to save a copy of the schema before editing.   
-* In the schema editor, press Ctrl-H key to open the find-replace control.
-* In the find text box, copy, and paste the value `$.employmentNav.results[0]`
-* In the replace text box, copy, and paste the value `$.employmentNav.results[-1:]`. This JSONPath expression returns the latest *EmpEmployment* record.   
-* Click on the "replace all" option to update the schema. 
-* Save the schema. 
-* The above process updates all JSONPath expressions as follows: 
-  * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-  * New JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
-* Restart provisioning. 
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
+1. Scroll down and click **Show advanced options**.
+1. Click on the link **Review your schema here** to open the schema editor.   
+1. Click on the **Download** link to save a copy of the schema before editing.   
+1. In the schema editor, press Ctrl-H key to open the find-replace control.
+1. In the find text box, copy, and paste the value `$.employmentNav.results[0]`
+1. In the replace text box, copy, and paste the value `$.employmentNav.results[-1:]`. This JSONPath expression returns the latest *EmpEmployment* record.   
+1. Click on the "replace all" option to update the schema. 
+1. Save the schema. 
+1. The above process updates all JSONPath expressions as follows: 
+   * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * New JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
+1. Restart provisioning. 
 
 This schema change also supports the worker conversion scenario. 
 
@@ -241,39 +247,40 @@ When a user in Employee Central is processed for global assignment, SuccessFacto
 
 To fetch attributes belonging to the standard assignment and global assignment user profile, use the steps listed below: 
 
-* Open the attribute-mapping blade of your SuccessFactors provisioning app. 
-* Scroll down and click **Show advanced options**.
-* Click on the link **Review your schema here** to open the schema editor.   
-* Click on the **Download** link to save a copy of the schema before editing.   
-* In the schema editor, press Ctrl-H key to open the find-replace control.
-* In the find text box, copy, and paste the value `$.employmentNav.results[0]`
-* In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.assignmentClass == 'ST')]`. 
-* Click on the "replace all" option to update the schema. 
-* Save the schema. 
-* The above process updates all JSONPath expressions as follows: 
-  * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-  * New JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
-* Reload the attribute-mapping blade of the app. 
-* Scroll down and click **Show advanced options**.
-* Click on **Edit attribute list for SuccessFactors**.
-* Add new attributes to fetch global assignment data. For example: if you want to fetch the department name associated with a global assignment profile, you can add the attribute **globalAssignmentDepartment** with the JSONPath expression set to `$.employmentNav.results[?(@.assignmentClass == 'GA')].jobInfoNav.results[0].departmentNav.name_localized`. 
-* You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. Example: the below expression sets the value of AD *department* attribute to *globalAssignmentDepartment* if present, else it sets the value to *department* associated with standard assignment. 
-  * `IIF(IsPresent([globalAssignmentDepartment]),[globalAssignmentDepartment],[department])`
-* Save the mapping. 
-* Restart provisioning. 
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
+1. Scroll down and click **Show advanced options**.
+1. Click on the link **Review your schema here** to open the schema editor.   
+1. Click on the **Download** link to save a copy of the schema before editing.   
+1. In the schema editor, press Ctrl-H key to open the find-replace control.
+1. In the find text box, copy, and paste the value `$.employmentNav.results[0]`
+1. In the replace text box, copy, and paste the value `$.employmentNav.results[?(@.assignmentClass == 'ST')]`. 
+1. Click on the "replace all" option to update the schema. 
+1. Save the schema. 
+1. The above process updates all JSONPath expressions as follows: 
+   * Old JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * New JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
+1. Reload the attribute-mapping blade of the app. 
+1. Scroll down and click **Show advanced options**.
+1. Click on **Edit attribute list for SuccessFactors**.
+1. Add new attributes to fetch global assignment data. For example: if you want to fetch the department name associated with a global assignment profile, you can add the attribute *globalAssignmentDepartment* with the JSONPath expression set to `$.employmentNav.results[?(@.assignmentClass == 'GA')].jobInfoNav.results[0].departmentNav.name_localized`. 
+1. You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. Example: the below expression sets the value of AD *department* attribute to *globalAssignmentDepartment* if present, else it sets the value to *department* associated with standard assignment. 
+   * `IIF(IsPresent([globalAssignmentDepartment]),[globalAssignmentDepartment],[department])`
+
+1. Save the mapping. 
+1. Restart provisioning. 
 
 ### Handling concurrent jobs scenario
 
 When a user in Employee Central has concurrent/multiple jobs, there are two *EmpEmployment* and *User* entities with *assignmentClass* set to "ST". 
 To fetch attributes belonging to both jobs, use the steps listed below: 
 
-* Open the attribute-mapping blade of your SuccessFactors provisioning app. 
-* Scroll down and click **Show advanced options**.
-* Click on **Edit attribute list for SuccessFactors**.
-* Let's say you want to pull the department associated with job 1 and job 2. The pre-defined attribute *department* already fetches the value of department for the first job. You can define a new attribute called *secondJobDepartment* and set the JSONPath expression to `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
-* You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. 
-* Save the mapping. 
-* Restart provisioning. 
+1. Open the attribute-mapping blade of your SuccessFactors provisioning app. 
+1. Scroll down and click **Show advanced options**.
+1. Click on **Edit attribute list for SuccessFactors**.
+1. Let's say you want to pull the department associated with job 1 and job 2. The pre-defined attribute *department* already fetches the value of department for the first job. You can define a new attribute called *secondJobDepartment* and set the JSONPath expression to `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
+1. You can now either flow both department values to Active Directory attributes or selectively flow a value using expression mapping. 
+1. Save the mapping. 
+1. Restart provisioning. 
 
 ## Writeback scenarios
 
@@ -294,10 +301,9 @@ This section covers different write-back scenarios. It recommends configuration 
  
 ### Unsupported scenarios for phone and email write-back
 
-The SuccessFactors Writeback app does not support the following scenarios:
-* In SuccessFactors, personal email and personal phone is set as primary during onboarding and later business email and business phone is set as primary.
-* In SuccessFactors, business phone is set as primary and you want to switch to cell phone as primary.
-* Configure write-back to use the primary flag settings read from SuccessFactors. Use the flag value read from SuccessFactors during the write operation.
+* In SuccessFactors, during onboarding personal email and personal phone is set as primary. The write-back app cannot switch this setting and set business email and business phone as primary.
+* In SuccessFactors, business phone is set as primary. The write-back app cannot change this and set cell phone as primary.
+* The write-back app cannot read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping will always be used. 
 
 
 ## Next steps
