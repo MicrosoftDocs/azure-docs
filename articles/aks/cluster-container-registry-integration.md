@@ -96,7 +96,7 @@ Ensure you have the proper AKS credentials
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Create a file called **acr-nginx.yaml** that contains the following. Substitute the resource name of your registry for <acr-name>. Example: *myContainerRegistry*.
+Create a file called **acr-nginx.yaml** that contains the following. Substitute the resource name of your registry for **acr-name**. Example: *myContainerRegistry*.
 
 ```yaml
 apiVersion: apps/v1
