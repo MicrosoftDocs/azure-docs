@@ -25,11 +25,13 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
 1. Create an Azure Digital Twins instance. You can find instructions on how to set up an Azure Digital Twins instance in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
 
-2. Open the details page for your Azure Digital Twins instance (you can find it by typing its name into the portal search bar). From the instance's menu, select **Metrics**.
+2. Find your Azure Digital Twins instance in the [Azure portal](https:/portal.azure.com) (you can open the page for it by typing its name into the portal search bar). 
+
+    From the instance's menu, select **Metrics**.
    
     :::image type="content" source="media/how-to-view-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot showing the metrics page for Azure Digital Twins":::
 
-This page displays the metrics for your Azure Digital Twins instance. You can also create custom views of your metrics by selecting the ones you want to see from the list.
+    This page displays the metrics for your Azure Digital Twins instance. You can also create custom views of your metrics by selecting the ones you want to see from the list.
     
 3. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings** from the menu, then **Add diagnostic setting**.
 
