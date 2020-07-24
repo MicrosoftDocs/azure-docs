@@ -101,6 +101,8 @@
       href: howto-labels-aspnet-core.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
+    - name: Store JSON settings in App Configuration
+      href: howto-leverage-json-content-type.md
     - name: Route events to a custom endpoint
       href: howto-app-configuration-event.md
     - name: Backup configuration store automatically
