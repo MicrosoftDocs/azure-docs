@@ -38,7 +38,7 @@ Technically, a three-node cluster can survive a single node loss (down to two no
 
 The quorum resource protects the cluster against either of these issues. 
 
-To configure the quorum resource with SQL Server on Azure VMs, you can use these witness types: 
+The following table lists the quorum options available in the order recommended to use with an Azure VM, with the disk witness being the preferred choice: 
 
 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
@@ -50,7 +50,7 @@ To configure the quorum resource with SQL Server on Azure VMs, you can use these
 
 ### Disk witness
 
-A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. 
+A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for an Azure VM as it's actually the most powerful witness type, capable of resolving some issues that the cloud witness and fileshre witness are not capable of resolving. 
 
 Configure an Azure shared disk as the disk witness. 
 
