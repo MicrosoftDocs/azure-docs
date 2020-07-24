@@ -43,7 +43,7 @@ Check the [GitHub issues section](https://github.com/Azure/azure-cosmos-dotnet-v
 * You may run into connectivity/availability issues due to lack of resources on your client machine. We recommend monitoring your CPU utilization on nodes running the Azure Cosmos DB client, and scaling up/out if they're running at high load.
 
 ### Check the portal metrics
-Checking the [portal metrics](monitor-accounts.md) will help determine if it's a client-side issue or if there is an issue with the service. For example, if the metrics contain a high rate of rate-limited requests(HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section. 
+Checking the [portal metrics](monitor-accounts.md) will help determine if it's a client-side issue or if there is an issue with the service. For example, if the metrics contain a high rate of rate-limited requests (HTTP status code 429) which means the request is getting throttled then check the [Request rate too large](troubleshoot-request-rate-too-large.md) section. 
 
 ## Common error status codes <a id="error-codes"></a>
 
