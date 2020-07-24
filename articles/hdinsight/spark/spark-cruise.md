@@ -130,7 +130,7 @@ drwxr-xr-x   - root root          0 2020-07-24 17:21 /peregrine/views/9409467400
 
 Although the literal value in the query has changed from `'11%'` to `'12%'`, *SparkCruise* can still match previous queries to new queries with slight variations like the evolution of literal values and dataset versions. If there are major changes to a query, you can rerun the analysis tool to identify new queries that can be reused.
 
-Behind the scenes, *SparkCruise* triggers a subquery for materializing the selected subplan from the first query that contains it. Then, the subsequent queries can directly read the materialized subplans instead of recomputing them. In this workload, the subplans will be materialized in an online fashion by the first and third queries. We can see the plan change of queries after the common subplans are materialized.
+Behind the scenes, *SparkCruise* triggers a subquery for materializing the selected subplan from the first query that contains it. Later queries can directly read the materialized subplans instead of recomputing them. In this workload, the subplans will be materialized in an online fashion by the first and third queries. We can see the plan change of queries after the common subplans are materialized.
 
 You can see that there are now four new materialized subexpressions available to be reused in subsequent queries.
 
