@@ -1,19 +1,21 @@
 ---
 title: Power BI output from Azure Stream Analytics
-description: This article describes data output options available in Azure Stream Analytics.
+description: This article describes how to output data from Azure Stream Analytics to Power BI.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/24/2020
 ---
 
-## Power BI output from Azure Stream Analytics
+# Power BI output from Azure Stream Analytics
 
 You can use [Power BI](https://powerbi.microsoft.com/) as an output for a Stream Analytics job to provide for a rich visualization experience of analysis results. You can use this capability for operational dashboards, report generation, and metric-driven reporting.
 
 Power BI output from Stream Analytics is currently not available in the Azure China 21Vianet and Azure Germany (T-Systems International) regions.
+
+## Ouput configuration
 
 The following table lists property names and their descriptions to configure your Power BI output.
 
@@ -32,11 +34,13 @@ For a walkthrough of configuring a Power BI output and dashboard, see the [Azure
 >
 
 ### Create a schema
+
 Azure Stream Analytics creates a Power BI dataset and table schema for the user if they don't already exist. In all other cases, the table is updated with new values. Currently, only one table can exist within a dataset. 
 
 Power BI uses the first-in, first-out (FIFO) retention policy. Data will collect in a table until it hits 200,000 rows.
 
 ### Convert a data type from Stream Analytics to Power BI
+
 Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
 
 This table covers the data type conversions from [Stream Analytics data types](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) to Power BI [Entity Data Model (EDM) types](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), if a Power BI dataset and table don't exist.
@@ -50,10 +54,10 @@ float | Double
 Record array | String type, constant value "IRecord" or "IArray"
 
 ### Update the schema
+
 Stream Analytics infers the data model schema based on the first set of events in the output. Later, if necessary, the data model schema is updated to accommodate incoming events that might not fit into the original schema.
 
 Avoid the `SELECT *` query to prevent dynamic schema update across rows. In addition to potential performance implications, it might result in uncertainty of the time taken for the results. Select the exact fields that need to be shown on the Power BI dashboard. Additionally, the data values should be compliant with the chosen data type.
-
 
 Previous/current | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
@@ -62,6 +66,6 @@ Double | Double | String | String | Double
 String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
-
 ## Output batch size
-| Power BI | See [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx). |
+
+For output batch size, see [Power BI Rest API limits](https://msdn.microsoft.com/library/dn950053.aspx).

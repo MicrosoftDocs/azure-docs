@@ -42,19 +42,11 @@ The maximum message size is 256 KB or 1 MB per message. For more information, se
 
 You can attach query columns as user properties to your outgoing messages. These columns don't go into the payload. The properties are present in the form of a dictionary on the output message. *Key* is the column name and *value* is the column value in the properties dictionary. All Stream Analytics data types are supported except Record and Array.  
 
-Supported outputs:
+## Next steps
 
-* Service Bus queue
-* Service Bus topic
-* Event hub
-
-In the following example, we add the two fields `DeviceId` and `DeviceStatus` to the metadata. 
-
-* Query: `select *, DeviceId, DeviceStatus from iotHubInput`
-* Output configuration: `DeviceId,DeviceStatus`
-
-![Property columns](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
-
-The following screenshot shows output message properties inspected in EventHub through [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
-
-![Event custom properties](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
+* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
+* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)
