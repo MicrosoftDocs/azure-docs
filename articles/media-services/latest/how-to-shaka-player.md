@@ -20,7 +20,7 @@ ms.author: inhenkel
 
 Shaka Player is an open-source JavaScript library for adaptive media. It plays adaptive media formats (such as DASH and HLS) in a browser, without using plugins or Flash. Instead, the Shaka Player uses the open web standards MediaSource Extensions and Encrypted Media Extensions.
 
-We recommend using [Mux.js](https://github.com/videojs/mux.js/) as with it, the Shaka player would support HLS CMAF format, but not HLS TS.
+We recommend using [Mux.js](https://github.com/videojs/mux.js/) as, without it, the Shaka player would support HLS CMAF format, but not HLS TS.
 
 Its official documentation can be found at [Shaka player documentation](https://shaka-player-demo.appspot.com/docs/api/tutorial-welcome.html).
 
@@ -46,7 +46,7 @@ Follow these instructions if you need to implement your own instance of the play
     </html>
     ```
 
-2. Add a JavaScript file with the following code:
+1. Add a JavaScript file with the following code:
 
     ```javascript
     // myScript.js
@@ -60,8 +60,10 @@ Follow these instructions if you need to implement your own instance of the play
     player.load(manifestUrl);
     ```
 
-3. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset.
-4. Run a server (for example with `npm http-server`) and your player should be working.
+1. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset which can be found on the streaming locator page in the Azure portal.
+    ![streaming locator URLs](media/how-to-shaka-player/streaming-urls.png)
+
+1. Run a server (for example with `npm http-server`) and your player should be working.
 
 ## Set up captions
 
