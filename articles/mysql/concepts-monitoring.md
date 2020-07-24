@@ -32,7 +32,7 @@ These metrics are available for Azure Database for MySQL:
 |seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the master server.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
-|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
+|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|
 
 ## Server logs
 You can enable slow query and audit logging on your server. These logs are also available through Azure Diagnostic Logs in Azure Monitor logs, Event Hubs, and Storage Account. To learn more about logging, visit the [audit logs](concepts-audit-logs.md) and [slow query logs](concepts-server-logs.md) articles.

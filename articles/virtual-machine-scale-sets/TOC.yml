@@ -204,6 +204,8 @@
       href: ../virtual-machines/windows/security-policy.md
     - name: Azure Disk Encryption
       href: disk-encryption-overview.md
+    - name: Azure security baseline
+      href: security-baseline.md
     - name: Built-in security controls
       href: virtual-machine-scale-sets-security-controls.md
     maintainContext: true

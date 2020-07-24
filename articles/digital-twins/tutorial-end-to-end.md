@@ -94,7 +94,7 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (AAD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
+In this section, you will publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity. Completing these steps will allow the rest of the tutorial to use the functions inside the function app. 
 
 ### Publish the app
 
@@ -143,7 +143,7 @@ On the *Publish* pane that opens back in the main Visual Studio window, check th
 
 ### Assign permissions to the function app
 
-To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed AAD identity, and give this identity *owner* permissions in the Azure Digital Twins instance.
+To enable the function app to access Azure Digital Twins, the next step is to configure an app setting, assign the app a system-managed Azure AD identity, and give this identity *owner* permissions in the Azure Digital Twins instance.
 
 In Azure Cloud Shell, use the following command to set an application setting which your function app will use to reference your digital twins instance.
 
@@ -426,7 +426,7 @@ Using the Azure Cloud Shell, you can delete all Azure resources in a resource gr
 az group delete --name <your-resource-group>
 ```
 
-Next, delete the AAD app registration you created for your client app with this command:
+Next, delete the Azure AD app registration you created for your client app with this command:
 
 ```azurecli
 az ad app delete --id <your-application-ID>
