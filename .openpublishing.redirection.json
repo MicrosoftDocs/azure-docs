@@ -23666,7 +23666,7 @@
       "source_path": "articles/virtual-machines/windows/sizes.md",
       "redirect_url": "/azure/virtual-machines/sizes",
       "redirect_document_id": false
-    }, 
+    },
     {
       "source_path": "articles/virtual-machines/linux/cloudfoundry-deploy-your-first-app.md",
       "redirect_url": "/azure/cloudfoundry/cloudfoundry-deploy-your-first-app",
@@ -23826,6 +23826,11 @@
       "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-windesktop.md",
       "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-mobileanddesktopapp-windowsdesktop-configure-arp.md",
+      "redirect_url": "/azure/active-directory/develop/tutorial-v2-windows-desktop",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-uwp-v2.md",

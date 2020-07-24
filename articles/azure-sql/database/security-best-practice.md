@@ -236,7 +236,7 @@ Assign only the necessary [permissions](https://docs.microsoft.com/sql/relationa
 
 - In Azure Resource Manager:
   - Use built-in roles if available or Azure custom roles and assign the necessary permissions.
-    - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
+    - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
     - [Azure custom roles](../../role-based-access-control/custom-roles.md)
 
 **Best practices**:
@@ -337,7 +337,7 @@ For the readers that want to dive deeper into SoD, we recommend the following re
   - [Signing Stored Procedures](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - For Azure Resource Management:
-  - [Built-in roles for Azure](../../role-based-access-control/built-in-roles.md)
+  - [Azure built-in roles](../../role-based-access-control/built-in-roles.md)
   - [Azure custom roles](../../role-based-access-control/custom-roles.md)
   - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
