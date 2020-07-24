@@ -4974,10 +4974,10 @@ In this example, suppose you have this XML string, which includes the XML docume
 
 `"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
 
-These expressions use either the XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` to find nodes that match the `<location></location>` node: 
+These expressions use either the XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`, to find nodes that match the `<location></location>` node: 
 
-`xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-`xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+* `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
 
 Here is the result node that matches the `<location></location>` node: 
 
