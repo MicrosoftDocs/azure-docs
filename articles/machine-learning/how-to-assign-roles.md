@@ -177,7 +177,7 @@ Yes here are some common scenarios with custom proposed role definitions that yo
             "Microsoft.MachineLearningServices/workspaces/write",
             "Microsoft.MachineLearningServices/workspaces/computes/*/write",
             "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
-            "Microsoft.Authorization/*/write",
+            "Microsoft.Authorization/*",
             "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
             "Microsoft.MachineLearningServices/workspaces/listKeys/action",
             "Microsoft.MachineLearningServices/workspaces/services/aks/write",
@@ -216,7 +216,6 @@ Yes here are some common scenarios with custom proposed role definitions that yo
             "Microsoft.MachineLearningServices/workspaces/experiments/write",
             "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
             "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
-            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write",
             "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
             "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
             "Microsoft.MachineLearningServices/workspaces/environments/write",
@@ -312,7 +311,7 @@ Yes here are some common scenarios with custom proposed role definitions that yo
             "Microsoft.MachineLearningServices/workspaces/*/action",
             "Microsoft.MachineLearningServices/workspaces/*/write",
             "Microsoft.MachineLearningServices/workspaces/*/delete",
-            "Microsoft.Authorization/*/write"
+            "Microsoft.Authorization/roleAssignments/*"
         ],
         "NotActions": [
             "Microsoft.MachineLearningServices/workspaces/write"
@@ -323,6 +322,27 @@ Yes here are some common scenarios with custom proposed role definitions that yo
     }
     ```
 
+* __Labeler Custom__: Allows you to define a role scoped only to labeling data:
+
+    `labeler_custom_role.json` :
+    ```json
+    {
+        "Name": "Labeler Custom",
+        "IsCustom": true,
+        "Description": "Can label data for Labeling",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/read",
+            "Microsoft.MachineLearningServices/workspaces/labeling/labels/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/labeling/projects/summary/read"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
 
 ### Q. How do I list all the custom roles in my subscription?
 
@@ -340,13 +360,15 @@ In the Azure CLI, run the following command.
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
+They can also be found in the list of [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+
 
 ### Q. What are some common gotchas when using Azure RBAC?
 
 Here are a few things to be aware of while you use Azure Role Based Access Controls:
 
 - When you create a resource in Azure, say a workspace, you are not directly the owner of the workspace. Your role gets inherited from the highest scope role that you are authorized against in that subscription. As an example if you are a Network Administrator, and had the permissions to create a Machine Learning workspace, you would be assigned the Network Administrator role against that workspace, and not the Owner role.
-- When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role.
+- When there are two role assignments to the same AAD user with conflicting sections of Actions/NotActions, your operations listed in NotActions from one role might not take effect if they are also listed as Actions in another role. To learn more about how Azure parses role assignments, read [How Azure RBAC determines if a user has access to a resource](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 - To deploy your compute resources inside a VNet, you need to explicitly have permissions for "Microsoft.Network/virtualNetworks/join/action" on that VNet resource.
 - It can sometimes take upto 1 hour for your new role assignments to take effect over cached permissions across the stack.
 
