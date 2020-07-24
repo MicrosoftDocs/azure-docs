@@ -43,6 +43,7 @@ highlightedContent:
       url: cognitive-services-security.md
 
 conceptualContent:
+  
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
     - title: Vision
@@ -138,7 +139,7 @@ conceptualContent:
 additionalContent:
   sections:
     - title: Customize with Cognitive Services 
-      summary: With Cognitive Services, you can customize your user experience by improving  Microsoft's baseline models or creating your own. When you're finished, it's easy to deploy your custom solution. Get started with the links below.  
+      summary: With Cognitive Services, you can customize your user experience by improving  Microsoft's baseline models or creating your own. 
       items: 
         # Card
         - title: Custom Translator
@@ -163,12 +164,6 @@ additionalContent:
           url: https://speech.microsoft.com/
     - title: Additional resources
       items:
-        - title: Tools
-          links:
-            - text: Azure CLI
-              url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
-            - text: PowerShell
-              url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
         - title: SDKs
           links:
             - text: C#
@@ -187,3 +182,9 @@ additionalContent:
           links:
             - text: Cognitive Services Management
               url: https://docs.microsoft.com/rest/api/cognitiveservices/
+        - title: Tools
+          links:
+            - text: Azure CLI
+              url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+            - text: PowerShell
+              url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
