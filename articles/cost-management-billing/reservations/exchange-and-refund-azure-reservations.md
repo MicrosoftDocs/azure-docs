@@ -3,7 +3,7 @@ title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
 ---

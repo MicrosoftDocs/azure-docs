@@ -4,14 +4,14 @@ description: Learn how to view Azure reservations in the Azure portal.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 03/31/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 
 # View Azure reservations
 
-You can view and manage the purchased reservation from Azure portal.   
+You can view and manage the purchased reservation from Azure portal.
 
 ## Permissions to view a reservation
 
