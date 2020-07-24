@@ -540,7 +540,7 @@ Create a new outbound rule for the outbound backend pool with [az network lb out
 ```
 ### Add virtual machines to outbound pool
 
-Add the virtual machine network interfaces to the outbound pool of the load balancer with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+Add the virtual machines to the outbound pool with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
 
 #### VM1
