@@ -158,7 +158,7 @@ You can also verify the connection to Azure Digital Twins within the app registr
 
 To do this, select *Manifest* from the menu to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration. Nested under 'requiredResourceAccess', there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
 ### Collect important values
 
