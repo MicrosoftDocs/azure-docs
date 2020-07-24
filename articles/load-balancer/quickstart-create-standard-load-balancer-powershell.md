@@ -746,13 +746,15 @@ $bep = 'myBackEndPoolOutbound'
 $nic1 = 'myNicVM1'
 $ipc = 'ipconfig1'
 
-
+## Get the load balancer configuration ##
 $lb = 
 Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
 
+## Get the network interface configuration ##
 $nic = 
 Get-AzNetworkInterface -Name $nic1 -ResourceGroupName $rg
 
+## Apply the backend to the network interface ##
 $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
 ```
 
@@ -770,13 +772,15 @@ $bep = 'myBackEndPoolOutbound'
 $nic2 = 'myNicVM2'
 $ipc = 'ipconfig1'
 
-
+## Get the load balancer configuration ##
 $lb = 
 Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
 
+## Get the network interface configuration ##
 $nic = 
 Get-AzNetworkInterface -Name $nic2 -ResourceGroupName $rg
 
+## Apply the backend to the network interface ##
 $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
 ```
 
@@ -794,13 +798,15 @@ $bep = 'myBackEndPoolOutbound'
 $nic3 = 'myNicVM3'
 $ipc = 'ipconfig1'
 
-
+## Get the load balancer configuration ##
 $lb = 
 Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
 
+## Get the network interface configuration ##
 $nic = 
 Get-AzNetworkInterface -Name $nic3 -ResourceGroupName $rg
 
+## Apply the backend to the network interface ##
 $nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
 
 ```
