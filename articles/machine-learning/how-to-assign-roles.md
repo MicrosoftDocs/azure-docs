@@ -80,7 +80,7 @@ To create a custom role, first construct a role definition JSON file that specif
     "Name": "Data Scientist Custom",
     "IsCustom": true,
     "Description": "Can run experiment but can't create or delete compute.",
-    "Actions": [*],
+    "Actions": ["*"],
     "NotActions": [
         "Microsoft.MachineLearningServices/workspaces/*/delete",
         "Microsoft.MachineLearningServices/workspaces/write",
