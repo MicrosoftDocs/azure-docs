@@ -1,6 +1,6 @@
 ---
 title: Manage snapshots by using Azure NetApp Files | Microsoft Docs
-description: Describes how to create snapshots for a volume or restore from a snapshot to a new volume by using Azure NetApp Files.
+description: Describes how to create and manage snapshots by using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
