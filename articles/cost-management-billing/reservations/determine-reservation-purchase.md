@@ -4,8 +4,8 @@ description: This article helps you determine which reservation you should purch
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 
