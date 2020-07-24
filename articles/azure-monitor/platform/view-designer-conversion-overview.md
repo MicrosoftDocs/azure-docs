@@ -15,7 +15,7 @@ ms.date: 02/07/2020
 
 ## Retirement schedule
 
-| What change is occurring? | What does this change mean for me? | When can I expect this change? |
+| Change | What this means | Expected Date |
 |:---|:---|:---|
 | Disable the creation of new views created through View Designer. | You will no longer be able to create and save new custom views in the Azure portal.| November 2020 |
 | Disable the edit function for existing views with View Designer. | You will no longer be able to modify and save changes to your existing custom views. | November 2020 |
