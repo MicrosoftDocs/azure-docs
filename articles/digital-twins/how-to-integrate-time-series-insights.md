@@ -159,7 +159,7 @@ You'll need to set one environment variable in your function app from earlier, c
 1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for the Time Series Insights hub:
 
     ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <twins event hub name> --name <twins auth rule>
+    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
     ```
 
 2. In your function app, create an app setting containing your connection string:
@@ -173,7 +173,7 @@ You'll need to set one environment variable in your function app from earlier, c
 1. Get the [event hub connection string](../event-hubs/event-hubs-get-connection-string.md) for the authorization rules you created above for the twins hub.
 
     ```azurecli-interactive
-    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <TSI event hub name> --name <TSI auth rule>
+    az eventhubs eventhub authorization-rule keys list --resource-group <resource group name> --namespace-name <Event Hubs namespace> --eventhub-name <Twins event hub name> --name <Twins auth rule>
     ```
 
 2. In your function app, create an app setting containing your connection string:

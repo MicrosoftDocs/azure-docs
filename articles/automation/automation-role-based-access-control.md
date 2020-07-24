@@ -1,10 +1,10 @@
 ---
 title: Manage role permissions and security in Azure Automation
-description: This article tells how to use role-based access control (RBAC), which enables access management for Azure resources.
+description: This article describes how to use role-based access control (RBAC), which enables access management for Azure resources.
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
 ---
 # Manage role permissions and security
@@ -63,7 +63,12 @@ A Reader can view all the resources in an Automation account but cannot make any
 
 ### Automation Operator
 
-An Automation Operator is able to create and manage jobs, and read runbook names and properties for all runbooks in an Automation account.  Note: If you want to control operator access to individual runbooks then don’t set this role, and instead use the 'Automation Job Operator' and 'Automation Runbook Operator' roles in combination. The following table shows the permissions granted for the role:
+An Automation Operator is able to create and manage jobs, and read runbook names and properties for all runbooks in an Automation account.
+
+>[!NOTE]
+>If you want to control operator access to individual runbooks then don’t set this role. Instead use the **Automation Job Operator** and **Automation Runbook Operator** roles in combination.
+
+The following table shows the permissions granted for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -90,7 +95,9 @@ An Automation Operator is able to create and manage jobs, and read runbook names
 
 ### Automation Job Operator
 
-An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. The following table shows the permissions granted for the role:
+An Automation Job Operator role is granted at the Automation account scope. This allows the operator permissions to create and manage jobs for all runbooks in the account. If the Job Operator role is granted read permissions on the resource group containing the Automation account, members of the role have the ability to start runbooks. However, they do not have the ability to create, edit, or delete them.
+
+The following table shows the permissions granted for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -108,7 +115,7 @@ An Automation Job Operator role is granted at the Automation account scope. Th
 
 ### Automation Runbook Operator
 
-An Automation Runbook Operator role is granted at the Runbook scope. An Automation Runbook Operator can view the runbook's name and properties.  This role combined with the 'Automation Job Operator' role enables the operator to also create and manage jobs for the runbook. The following table shows the permissions granted for the role:
+An Automation Runbook Operator role is granted at the Runbook scope. An Automation Runbook Operator can view the runbook's name and properties. This role combined with the **Automation Job Operator** role enables the operator to also create and manage jobs for the runbook. The following table shows the permissions granted for the role:
 
 |**Actions**  |**Description**  |
 |---------|---------|
@@ -284,6 +291,7 @@ The following section shows you how to configure RBAC on your Automation account
    ![List users](media/automation-role-based-access-control/automation-05-list-users.png)
 
    You can also assign a role to the user from the Roles page.
+
 4. Click **Roles** from the Access control (IAM) page to open the Roles page. You can view the name of the role and the number of users and groups assigned to that role.
 
     ![Assign role from users page](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -347,7 +355,7 @@ ObjectType         : User
 ```
 
 Use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) to assign access to users, groups, and applications to a particular scope.
-    
+
 **Example:** Use the following command to assign the "Automation Operator" role for a user in the Automation account scope.
 
 ```azurepowershell-interactive
