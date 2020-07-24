@@ -179,7 +179,7 @@ One of the packages installed in a previous step was for System Security Service
 1. To apply the change, restart the SSSD service:
 
     ```console
-    sudo service sssd restart
+    sudo systemctl restart sssd
     ```
 
 ## Configure user account and group settings
