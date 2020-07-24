@@ -26,19 +26,19 @@ The functionality requires that the model is trained outside of Synapse SQL. Aft
 
 ## Training the Model
 
-Synapse SQL expects a pre-trained model. This section covers factors to keep in mind for training a machine learning model that is used for performing predictions in Synapse SQL.
+Synapse SQL expects a pre-trained model. Keep the following factors in mind when training a machine learning model that is used for performing predictions in Synapse SQL.
 
 - Synapse SQL only supports ONNX format models. ONNX is an open-source model format that allows you to exchange models between various frameworks to enable interoperability. You can convert your existing models to ONNX format using frameworks that either support it natively or have converting packages available. For example, [sklearn-onnx](https://github.com/onnx/sklearn-onnx) is a tool to convert sciket-learn models to ONNX. [Here](https://github.com/onnx/tutorials#converting-to-onnx-format) is a list of supported frameworks and examples.
 
    If you are using [Automated ML](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) for training, make sure to set the *enable_onnx_compatible_models* parameter to TRUE to produce an ONNX format model. For an example of a tutorial showing how to use AutoML to create a machine learning model with ONNX format, see the [Automated Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
-Secondly, following are the data types supported:
+- The following data types are supported:
     - int, bigint, real, float
     - char, varchar, nvarchar
 
-Thirdly, the scoring data needs to be in the same format as the training data. Complex data types such as multi-dimensional arrays are not supported by PREDICT. So, for training make sure that each inputs of the model correspond to a single column for the scoring table instead of passing a single array containing all inputs.
+- The scoring data needs to be in the same format as the training data. Complex data types such as multi-dimensional arrays are not supported by PREDICT. So, for training make sure that each inputs of the model correspond to a single column for the scoring table instead of passing a single array containing all inputs.
 
-Lastly, make sure that the names and data types of the model inputs match the column names of the new prediction data. Visualizing an ONNX model using various open-source tools available online can further help with debugging.
+- Make sure that the names and data types of the model inputs match the column names of the new prediction data. Visualizing an ONNX model using various open-source tools available online can further help with debugging.
 
 ## Loading the model
 
@@ -61,7 +61,7 @@ GO
 
 ```
 
-Once the model is converted to a hexadecimal string and the table definition specified, [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) or Polybase can be used to load the model in the Synapse SQL table. Following is the code sample for using Copy command to load the model.
+Once the model is converted to a hexadecimal string and the table definition specified, use the [COPY command](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) or Polybase to load the model in the Synapse SQL table. The following code sample uses the Copy command to load the model.
 
 ```sql
 -- Copy command to load hexadecimal string of the model from Azure Data Lake storage location
@@ -75,7 +75,7 @@ WITH (
 
 ## Scoring the model
 
-Once the model and data are loaded, use the [T-SQL Predict keyword](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) to score the model. Make sure that the new input data for predictions is in the same format as the training data used for building the model. T-SQL PREDICT takes two inputs: model and new scoring input data, and generates new columns for the output. In the example below, an additional column with name *Score* and data type *float* is created containing the prediction results. All the input data columns as well as output prediction columns are available for the select statement. For more information, see [predict documentation](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest) for more details.
+Once the model and data are loaded, use the T-SQL **PREDICT** function to score the model. Make sure that the new input data for predictions is in the same format as the training data used for building the model. T-SQL PREDICT takes two inputs: model and new scoring input data, and generates new columns for the output. In the example below, an additional column with name *Score* and data type *float* is created containing the prediction results. All the input data columns as well as output prediction columns are available for the select statement. For more details, see [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
 
 ```sql
 -- Query for ML predictions
@@ -86,4 +86,4 @@ DATA = dbo.mytable AS d) WITH (Score float) AS p;
 
 ## Next steps
 
-Learn more about [T-SQL PREDICT here](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
+To learn more about the PREDICT function, see [PREDICT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest).
