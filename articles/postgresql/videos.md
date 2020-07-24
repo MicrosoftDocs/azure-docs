@@ -9,19 +9,25 @@ ms.date: 02/28/2018
 ---
 # Azure Database for PostgreSQL videos
 
-[Overview: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+## [Overview: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 
 Azure Database for PostgreSQL and Azure Database for MySQL bring together community edition database engines and capabilities of a fully managed service—so you can focus on your apps instead of having to manage a database. Tune in to get a quick overview of the advantages of using the service, and see some of the capabilities in action. See how to create a [Azure Database for PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal) and [Azure Database for MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal).
 
-[Deep dive on managed service capabilities for MySQL and PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+## [Create an Azure Database for PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal)
+Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This video tutorial shows you how to create an Azure Database for PostgreSQL server in about three minutes using the Azure portal. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+## [Create an Azure Database for MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal)
+Azure Database for MySQL is a managed service that you use to run, manage, and scale highly available MySQL Databases in the cloud. This video tutorial shows you how to create an Azure Database for MySQL server in about three minutes using the Azure portal. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
+
+## [Deep dive on managed service capabilities for MySQL and PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T148/player]
 
 Azure Database for PostgreSQL and Azure Database for MySQL bring together community edition database engines and the capabilities of a fully managed service. Tune in to get a deep dive on how these services work—how we ensure high availability and fast scaling (within seconds), so you can meet your customers’ needs. You'll also learn about some of the underlying investments in security and worldwide availability.
 
-[Develop an intelligent analytics app with PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T149)
+## [Develop an intelligent analytics app with PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T149)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T149/player]
 
