@@ -301,8 +301,8 @@ This section covers different write-back scenarios. It recommends configuration 
  
 ### Unsupported scenarios for phone and email write-back
 
-* In SuccessFactors, during onboarding personal email and personal phone is set as primary. The write-back app cannot switch this setting and set business email and business phone as primary.
-* In SuccessFactors, business phone is set as primary. The write-back app cannot change this and set cell phone as primary.
+* In Employee Central, during onboarding personal email and personal phone is set as primary. The write-back app cannot switch this setting and set business email and business phone as primary.
+* In Employee Central, business phone is set as primary. The write-back app cannot change this and set cell phone as primary.
 * The write-back app cannot read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping will always be used. 
 
 
