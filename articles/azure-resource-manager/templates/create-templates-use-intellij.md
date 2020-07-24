@@ -23,7 +23,7 @@ To complete this article, you need:
 
 * An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 * The [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) installed, check [IntelliJ's plugins management guide](https://www.jetbrains.com/help/idea/managing-plugins.html) for more information
-* Be [signed in](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
+* Be [signed in](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) to your Azure account for the Azure Toolkit for IntelliJ
 
 ## Deploy a Quickstart template
 
@@ -82,4 +82,4 @@ The main focus of this article is to use IntelliJ IDEA to deploy an existing tem
 > [Beginner tutorials](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
-> [Visit Java on Azure Dev center](https://docs.microsoft.com/azure/java)
+> [Visit Java on Azure Dev center](/azure/java)

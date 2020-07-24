@@ -41,7 +41,7 @@ Before you begin, make sure that you're familiar with the [device identity manag
 
 The key benefits of giving your devices an Azure AD identity:
 
-* Increase productivity – With Azure AD, your users can do [seamless sign-on (SSO)](/azuread-join-sso.md) to your on-premises and cloud resources, which enables them to be productive wherever they are.
+* Increase productivity – With Azure AD, your users can do [seamless sign-on (SSO)](./azuread-join-sso.md) to your on-premises and cloud resources, which enables them to be productive wherever they are.
 
 * Increase security – Azure AD devices enable you to apply [Conditional Access (CA) policies](../conditional-access/require-managed-devices.md) to resources based on the identity of the device or user. CA policies can offer extra protection using [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md). Joining a device to Azure AD is a prerequisite for increasing your security with a [Passwordless Authentication](../authentication/concept-authentication-passwordless.md) strategy.
 
@@ -101,7 +101,7 @@ Use this tree to determine options for organization-owned devices.
 
 iOS and Android devices may only be Azure AD registered. The following table presents high-level considerations for Windows client devices. Use it as an overview, then explore the different integration methods in detail.
 
-| | Azure AD registered| Azure AD join| Hybrid Azure AD join |
+| Consideration | Azure AD registered| Azure AD join| Hybrid Azure AD join |
 | - | - | - | - |
 | **Client operating systems**| | |  |
 | Windows 10 devices| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png)| ![check](./media/plan-device-deployment/check.png) |

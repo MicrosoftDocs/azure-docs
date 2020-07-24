@@ -1,20 +1,10 @@
 ---
 title: Troubleshoot issues with artifacts in Azure DevTest Labs | Microsoft Docs
 description: Learn how to troubleshoot issues that occur when applying artifacts in an Azure DevTest Labs virtual machine. 
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-editor: ''
-
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Troubleshoot issues when applying artifacts in an Azure DevTest Labs virtual machine
 Applying artifacts on a virtual machine can fail for various reasons. This article guides you through some of the methods  to help identify possible causes.
 

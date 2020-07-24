@@ -1,22 +1,10 @@
 ---
 title: Add a VM using a shared image in Azure DevTest Labs | Microsoft Docs
 description: Learn how to add a virtual machine (VM) using an image from the attached shared image gallery in Azure DevTest Labs
-services: devtest-lab,virtual-machines
-documentationcenter: na
-author: spelluru
-manager:
-editor: ''
-
-ms.assetid:
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Add a VM using an image from the attached shared image gallery
 Azure DevTest Labs allows you to attach a shared image gallery to your lab and then use images in the gallery as bases for the VMs you create in the lab. To learn how to attach a shared image gallery to your lab, see [Configure shared image gallery](configure-shared-image-gallery.md). This article shows you how to add a VM to your lab by using an image from the attached shared image gallery as a base. 
 

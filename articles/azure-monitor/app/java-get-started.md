@@ -171,7 +171,7 @@ Click through a specific request type to see individual instances.
 ![Drill into a specific sample view](./media/java-get-started/007-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../../azure-monitor/app/analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../log-query/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/java-get-started/0025.png)
 
@@ -263,7 +263,7 @@ You can specify additional performance counters to be collected.
   * `tabular`: the perf counter data is in the format of a table row
 
 #### Windows performance counters
-Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
+Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-portal) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
 ```XML
     <PerformanceCounters>
@@ -307,7 +307,7 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Use  [Analytics](../../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
+* Use  [Analytics](../log-query/log-query-overview.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->

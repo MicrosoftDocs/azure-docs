@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with RedVector, perform the following steps
     `https://sso2.redvector.com/adfs/<Companyname>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<Companyname>.redvector.com/saml2`
+    `https://sso2.redvector.com/saml2`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [RedVector Client support team](mailto:sso@redvector.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

@@ -1,6 +1,6 @@
 ---
 title: Connect Azure Security Center data to Azure Sentinel
-description: Learn how to connect Azure Security Center data to Azure Sentinel.
+description: Learn how to connect alerts from Azure Security Center (ASC) Standard tier and stream them into Azure Sentinel.
 author: yelevin
 manager: rkarlin
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a

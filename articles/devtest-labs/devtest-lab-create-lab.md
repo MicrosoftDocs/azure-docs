@@ -1,22 +1,10 @@
 ---
 title: Create a lab in Azure DevTest Labs | Microsoft Docs
 description: This article walks you through the process of creating a lab using the Azure portal and Azure DevTest Labs. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 8b6d3e70-6528-42a4-a2ef-449575d0f928
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru	
-
+ms.date: 06/26/2020
 ---
+
 # Create a lab in Azure DevTest Labs
 A lab in Azure DevTest Labs is the infrastructure that encompasses a group of resources, such as Virtual Machines (VMs), that lets you better manage those resources by specifying limits and quotas. This article walks you through the process of creating a lab using the Azure portal.
 

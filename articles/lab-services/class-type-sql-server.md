@@ -1,12 +1,9 @@
 ---
 title: Set up a lab to manage and develop with Azure SQL Database | Azure Lab Services
 description: Learn how to set up a lab to manage and develop with Azure SQL Database.
-services: lab-services
 author: emaher
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 06/05/2020
+ms.date: 06/26/2020
 ms.author: enewman
 ---
 

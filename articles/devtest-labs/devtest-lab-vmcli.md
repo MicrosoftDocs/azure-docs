@@ -1,21 +1,10 @@
 ---
 title: Create and manage virtual machines in DevTest Labs with Azure CLI
 description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure CLI
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Create and manage virtual machines with DevTest Labs using the Azure CLI
 This quickstart will guide you through creating, starting, connecting, updating, and cleaning up a development machine in your lab. 
 

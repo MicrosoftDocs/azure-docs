@@ -1,11 +1,9 @@
 ---
 title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers.
 description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
-author: guyhay
-ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ---
@@ -126,7 +124,7 @@ The following table gives the equivalent types in Spark, Scala, and PySpark for 
 For more information, see:
 
 - [org.apache.spark.sql.types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
-- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
+- [Spark SQL and DataFrames Types](https://spark.apache.org/docs/latest/sql-ref-datatypes.html)
 - [Scala value types](https://www.scala-lang.org/api/current/scala/AnyVal.html)
 - [pyspark.sql.types](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#module-pyspark.sql.types)
 

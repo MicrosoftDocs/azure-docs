@@ -1,21 +1,10 @@
 ---
 title: Azure Lab Services - Administrator guide | Microsoft Docs
 description: This guide helps administrators who create and manage lab accounts using Azure Lab Services. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Azure Lab Services - Administrator guide
 Information Technology (IT) administrators who manage a university's cloud resources are typically responsible for setting up the lab account for their school. Once a lab account is set up, administrators or educators create classroom labs that are contained within the lab account. This article provides a high-level overview of the Azure resources involved and the guidance for creating them.
 

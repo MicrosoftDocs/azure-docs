@@ -200,7 +200,7 @@ Extension execution output is logged to the following file:
 
 | Error Code | Meaning | Possible Action |
 | :---: | --- | --- |
-| 9 | Enable called prematurely | [Update the Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) to the latest available version. |
+| 9 | Enable called prematurely | [Update the Azure Linux Agent](./update-linux-agent.md) to the latest available version. |
 | 10 | VM is already connected to a Log Analytics workspace | To connect the VM to the workspace specified in the extension schema, set stopOnMultipleConnections to false in public settings or remove this property. This VM gets billed once for each workspace it is connected to. |
 | 11 | Invalid config provided to the extension | Follow the preceding examples to set all property values necessary for deployment. |
 | 17 | Log Analytics package installation failure | 

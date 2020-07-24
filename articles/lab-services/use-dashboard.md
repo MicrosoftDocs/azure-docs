@@ -1,21 +1,10 @@
 ---
 title: Use dashboard for a classroom lab in Azure Lab Services | Microsoft Docs
 description: Learn how to use dashboard for a classroom lab in Azure Lab Services. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Dashboard for classroom labs
 This article describes the dashboard view of a classroom lab in Azure Lab Services. 
 

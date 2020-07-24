@@ -1,21 +1,10 @@
 ---
 title: About classroom labs in Azure Lab Services | Microsoft Docs
 description: Learn how to quickly set up a classroom lab environment in the cloud - configure a lab with a template VM with the software required for the class and make a copy of the VM available to each student in the class. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Introduction to classroom labs
 Azure Lab Services enables you to quickly set up a classroom lab environment in the cloud. An educator creates a classroom lab, provisions Windows, or Linux virtual machines, installs the necessary software and tools labs in the class, and makes them available to students. The students in the class connect to virtual machines (VMs) in the lab, and use them for their projects, assignments, classroom exercises. 
 

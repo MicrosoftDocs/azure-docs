@@ -1,20 +1,8 @@
 ---
 title: Accelerated classroom lab setup guide for Azure Lab Services
 description: This guide helps lab creators quickly set up a lab account for use within their school.
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Classroom lab setup guide

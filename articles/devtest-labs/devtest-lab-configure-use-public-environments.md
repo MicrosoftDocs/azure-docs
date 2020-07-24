@@ -1,20 +1,8 @@
 ---
 title: Configure and use public environments in Azure DevTest Labs | Microsoft Docs
 description: This article describes  how to configure and use public environments (Azure Resource Manager templates in a Git repo) in Azure DevTest Labs.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
-ms.author: spelluru
+ms.date: 06/26/2020
 ---
 
 # Configure and use public environments in Azure DevTest Labs

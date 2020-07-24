@@ -4,7 +4,7 @@ description: Disaster recovery for Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/18/2019
 ---
 # Disaster recovery for Azure Data Share

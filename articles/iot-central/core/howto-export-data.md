@@ -4,7 +4,7 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/07/2020
+ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
 manager: corywink
@@ -77,11 +77,9 @@ Now that you have a destination to export data to, follow these steps to set up 
     > [!Tip]
     > If you don't see **Data export** in the left pane, then you don't have permissions to configure data export in your app. Talk to an administrator to set up data export.
 
-3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** as the destination of your export. The maximum number of exports per application is five.
+3. Select the **+ New** button. Choose one of **Azure Blob Storage**, **Azure Event Hubs**, **Azure Service Bus Queue**, or **Azure Service Bus Topic** as the destination of your export. The maximum number of exports per application is five.
 
-    ![Create new data export](media/howto-export-data/new-export-definition.png)
-
-4. In the drop-down list box, select your **Event Hubs namespace**, **Service Bus namespace**, **Storage Account namespace**, or **Enter a connection string**.
+4. Enter a name for the export. In the drop-down list box, select your **namespace**, or **Enter a connection string**.
 
     - You only see storage accounts, Event Hubs namespaces, and Service Bus namespaces in the same subscription as your IoT Central application. If you want to export to a destination outside of this subscription, choose **Enter a connection string** and see step 6.
     - For apps created using the free pricing plan, the only way to configure data export is through a connection string. Apps on the free pricing plan don't have an associated Azure subscription.
@@ -103,7 +101,7 @@ Now that you have a destination to export data to, follow these steps to set up 
           1. Under **Settings**, select **Access keys**
           2. Copy either the key1 connection string or the key2 connection string
 
-    Paste in the connection string. Type in the instance or container name, keeping in mind this is case-sensitive.
+    Paste in the connection string. Type in the instance or **container name**, keeping in mind this is case-sensitive.
 
 7. Under **Data to export**, choose the types of data to export by setting the type to **On**.
 
@@ -749,4 +747,4 @@ For **Device templates**, notable differences between the old data format and th
 Now that you know how to export your data to Azure Event Hubs, Azure Service Bus, and Azure Blob storage, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to create webhooks](./howto-create-webhooks.md)
+> [How to run custom analytics with Databricks](./howto-create-custom-analytics.md)

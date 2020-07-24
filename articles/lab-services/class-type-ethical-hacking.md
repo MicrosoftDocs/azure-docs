@@ -1,20 +1,8 @@
 ---
 title: Set up an Ethical Hacking lab with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab using Azure Lab Services to teach ethical hacking. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Set up a lab to teach ethical hacking class 

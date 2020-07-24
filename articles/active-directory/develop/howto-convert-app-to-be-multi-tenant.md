@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 03/17/2020
 ms.author: ryanwi
@@ -67,15 +67,21 @@ Web applications and web APIs receive and validate tokens from Microsoft identit
 
 Let’s look at how an application validates tokens it receives from Microsoft identity platform. A single tenant application normally takes an endpoint value like:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 and uses it to construct a metadata URL (in this case, OpenID Connect) like:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 to download two critical pieces of information that are used to validate tokens:  the tenant’s signing keys and issuer value. Each Azure AD tenant has a unique issuer value of the form:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 where the GUID value is the rename-safe version of the tenant ID of the tenant. If you select the preceding metadata link for `contoso.onmicrosoft.com`, you can see this issuer value in the document.
 
@@ -83,7 +89,9 @@ When a single tenant application validates a token, it checks the signature of t
 
 Because the /common endpoint doesn’t correspond to a tenant and isn’t an issuer, when you examine the issuer value in the metadata for /common it has a templated URL instead of an actual value:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
 Therefore, a multi-tenant application can’t validate tokens just by matching the issuer value in the metadata with the `issuer` value in the token. A multi-tenant application needs logic to decide which issuer values are valid and which are not based on the tenant ID portion of the issuer value. 
 
@@ -131,7 +139,9 @@ Your application may have multiple tiers, each represented by its own registrati
 
 This can be a problem if your logical application consists of two or more application registrations, for example a separate client and resource. How do you get the resource into the customer tenant first? Azure AD covers this case by enabling client and resource to be consented in a single step. The user sees the sum total of the permissions requested by both the client and resource on the consent page. To enable this behavior, the resource’s application registration must include the client’s App ID as a `knownClientApplications` in its [application manifest][AAD-App-Manifest]. For example:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 This is demonstrated in a multi-tier native client calling web API sample in the [Related content](#related-content) section at the end of this article. The following diagram provides an overview of consent for a multi-tier app registered in a single tenant.
 

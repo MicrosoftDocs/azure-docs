@@ -1,22 +1,10 @@
 ---
 title: DevTest Labs concepts | Microsoft Docs
 description: Learn the basic concepts of DevTest Labs, and how it can make it easy to create, manage, and monitor Azure virtual machines
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 105919e8-3617-4ce3-a29f-a289fa608fb2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # DevTest Labs concepts
 ## Overview
 The following list contains key DevTest Labs concepts and definitions:
@@ -64,7 +52,7 @@ Policies help in controlling cost in your lab. For example, you can create a pol
 Caps is a mechanism to minimize waste in your lab. For example, you can set a cap to restrict the number of VMs that can be created per user, or in a lab.
 
 ## Security levels
-Security access is determined by Azure Role-Based Access Control (RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC.
+Security access is determined by Azure role-based access control (Azure RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by RBAC.
 
 * Permission - A permission is a defined access to a specific action (e.g. read-access to all virtual machines).
 * Role - A role is a set of permissions that can be grouped and assigned to a user. For example, the *subscription owner* role has access to all resources within a subscription.

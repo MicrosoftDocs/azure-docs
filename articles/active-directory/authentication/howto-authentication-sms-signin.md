@@ -22,10 +22,8 @@ To reduce the complexity and security risks for users to sign in to applications
 
 This article shows you how to enable SMS-based authentication for select users or groups in Azure AD.
 
-|     |
-| --- |
-| SMS-based authentication for users is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+> [!NOTE]
+> SMS-based authentication for users is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Before you begin
 

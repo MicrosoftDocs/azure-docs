@@ -10,6 +10,10 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: June 2020 new and updated features
+      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/
+    - name: June 2020 UI and documentation updates
+      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/
     - name: May 2020 jobs and metrics updates
       href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
     - name: May 2020 dashboard updates
@@ -63,6 +67,8 @@
       href: concepts-app-templates.md
     - name: What are device templates?
       href: concepts-device-templates.md
+    - name: Message payloads
+      href: concepts-telemetry-properties-commands.md
     - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
@@ -133,6 +139,8 @@
               href: howto-use-app-templates.md
             - name: Monitor application health
               href: howto-monitor-application-health.md
+            - name: About your application
+              href: howto-get-app-info.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
@@ -152,6 +160,10 @@
             - name: Toggle live chat
               href: howto-show-hide-chat.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

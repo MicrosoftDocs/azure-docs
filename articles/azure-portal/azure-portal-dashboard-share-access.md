@@ -84,6 +84,5 @@ You can assign a group of users to a role for that dashboard.
 
 ## Next steps
 
-* For a list of roles, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+* For a list of roles, see [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 * To learn about managing resources, see [Manage Azure resources by using the Azure portal](resource-group-portal.md).
-

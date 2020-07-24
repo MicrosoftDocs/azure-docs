@@ -7,7 +7,7 @@ services: azure-monitor
 
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
 ---
 
@@ -27,9 +27,9 @@ Workbooks are currently compatible with the following data sources:
 * [Metrics](workbooks-data-sources.md#metrics)
 * [Azure Resource Graph](workbooks-data-sources.md#azure-resource-graph)
 * [Alerts (Preview)](workbooks-data-sources.md#alerts-preview)
-* [Workload Health (Preview)](workbooks-data-sources.md#workload-health-preview)
-* [Azure Resource Health (Preview)](workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer (Preview)](workbooks-data-sources.md#azure-data-explorer-preview)
+* [Workload Health](workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](workbooks-data-sources.md#azure-data-explorer)
 
 ## Visualizations
 
@@ -48,9 +48,9 @@ Workbooks provide a rich set of capabilities for visualizing your data. For deta
 
 To explore the workbooks experience, first navigate to the Azure Monitor service. This can be done by typing **Monitor** into the search box in the Azure portal.
 
-Then select **Workbooks (preview)**.
+Then select **Workbooks**.
 
-![Screenshot of Workbooks preview button highlighted in a red box](./media/workbooks-overview/workbooks-preview.png)
+![Screenshot of Workbooks button highlighted in a red box](./media/workbooks-overview/workbooks.png)
 
 ### Gallery
 

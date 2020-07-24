@@ -13,13 +13,15 @@ ms.custom: subject-armqs
 
 ---
 
-# Quickstart: Create an Azure Cosmos DB and a container by using Azure Resource Manager template
+# Quickstart: Create an Azure Cosmos DB and a container by using an ARM template
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. This quickstart focuses on the process of deploying a Resource Manager template to create an Azure Cosmos database and a container within that database. You can later store data in this container.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases. This quickstart focuses on the process of deploying an Azure Resource Manager template (ARM template) to create an Azure Cosmos database and a container within that database. You can later store data in this container.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -29,11 +31,9 @@ An Azure subscription or free Azure Cosmos DB trial account
 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## Create an Azure Cosmos account, database, container
+## Review the template
 
-### Review the template
-
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
@@ -47,7 +47,7 @@ Three Azure resources are defined in the template:
 
 More Azure Cosmos DB template samples can be found in the [quickstart template gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb).
 
-### Deploy the template
+## Deploy the template
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Cosmos account, a database, and a container.
 
@@ -55,7 +55,7 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
 
 2. Select or enter the following values.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Resource Manager template, Azure Cosmos DB integration, deploy portal":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="ARM template, Azure Cosmos DB integration, deploy portal":::
 
     Unless it is specified, use the default values to create the Azure Cosmos resources.
 
@@ -76,7 +76,7 @@ More Azure Cosmos DB template samples can be found in the [quickstart template g
 
 3. Select **Purchase**. After the Azure Cosmos account has been deployed successfully, you get a notification:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Resource Manager template, Cosmos DB integration, deploy portal notification":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="ARM template, Cosmos DB integration, deploy portal notification":::
 
 The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -130,7 +130,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure Cosmos account, a database and a container by using an Azure Resource Manager template and validated the deployment. To learn more about Azure Cosmos DB and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure Cosmos account, a database and a container by using an ARM template and validated the deployment. To learn more about Azure Cosmos DB and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Cosmos DB](introduction.md)
 - Learn more about [Azure Resource Manager](../azure-resource-manager/management/overview.md)

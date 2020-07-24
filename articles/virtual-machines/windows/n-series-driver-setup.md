@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure N-series NVIDIA GPU driver setup for Windows 
 description: How to set up NVIDIA GPU drivers for N-series VMs running Windows Server or Windows in Azure
 author: vikancha-MSFT
@@ -17,7 +17,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs backed by NVIDIA
 
 If you choose to install NVIDIA GPU drivers manually, this article provides supported operating systems, drivers, and installation and verification steps. Manual driver setup information is also available for [Linux VMs](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes](../sizes-gpu.md?toc=/azure/virtual-machines/windows/toc.json). 
 
 [!INCLUDE [virtual-machines-n-series-windows-support](../../../includes/virtual-machines-n-series-windows-support.md)]
 
@@ -47,19 +47,17 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 ## RDMA network connectivity
 
-RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set or in a single placement group in a virtual machine scale set. The HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. To add the VM extension to an RDMA-enabled N-series VM, use [Azure PowerShell](/powershell/azure/overview) cmdlets for Azure Resource Manager.
+RDMA network connectivity can be enabled on RDMA-capable N-series VMs such as NC24r deployed in the same availability set or in a single placement group in a virtual machine scale set. The HpcVmDrivers extension must be added to install Windows network device drivers that enable RDMA connectivity. To add the VM extension to an RDMA-enabled N-series VM, use [Azure PowerShell](/powershell/azure/) cmdlets for Azure Resource Manager.
 
 To install the latest version 1.1 HpcVMDrivers extension on an existing RDMA-capable VM named myVM in the West US region:
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  For more information, see [Virtual machine extensions and features for Windows](extensions-features.md).
+  For more information, see [Virtual machine extensions and features for Windows](../extensions/features-windows.md).
 
-The RDMA network supports Message Passing Interface (MPI) traffic for applications running with [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) or Intel MPI 5.x. 
+The RDMA network supports Message Passing Interface (MPI) traffic for applications running with [Microsoft MPI](/message-passing-interface/microsoft-mpi) or Intel MPI 5.x. 
 
 
 ## Next steps
 
 * Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the latest [CUDA Toolkit](https://developer.nvidia.com/cuda-downloads). For more information, see the [CUDA Installation Guide](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
-
-

@@ -114,7 +114,7 @@ The following table shows the configuration settings for a telemetry capability:
 | Field | Description |
 | ----- | ----------- |
 | Display Name | The display name for the telemetry value used on dashboards and forms. |
-| Name | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
+| Name | The name of the field in the telemetry message. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Telemetry. |
 | Semantic Type | The semantic type of the telemetry, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The telemetry data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
@@ -134,7 +134,7 @@ The following table shows the configuration settings for a property capability:
 | Field | Description |
 | ----- | ----------- |
 | Display Name | The display name for the property value used on dashboards and forms. |
-| Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
+| Name | The name of the property. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Property. |
 | Semantic Type | The semantic type of the property, such as temperature, state, or event. The choice of semantic type determines which of the following fields are available. |
 | Schema | The property data type, such as double, string, or vector. The available choices are determined by the semantic type. Schema isn't available for the event and state semantic types. |
@@ -155,7 +155,7 @@ The following table shows the configuration settings for a command capability:
 | Field | Description |
 | ----- | ----------- |
 | Display Name | The display name for the command used on dashboards and forms. |
-| Name | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. |
+| Name | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. |
 | Capability Type | Command. |
 | Command | `SynchronousExecutionType`. |
 | Comment | Any comments about the command capability. |

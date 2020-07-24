@@ -39,7 +39,7 @@ In this step, you'll assign a role to the function app's system-assigned managed
 |Built-in role  |Description  |
 |---------|---------|
 |[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts. Allows retrieval of read/write keys. |
-|[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
+|[Cosmos DB Account Reader Role](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data. Allows retrieval of read keys. |
 
 > [!IMPORTANT]
 > Support for role-based access control in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured through master keys or resource tokens. To learn more, see the [Secure access to data](secure-access-to-data.md) article.
@@ -48,6 +48,8 @@ In this step, you'll assign a role to the function app's system-assigned managed
 > When you assign roles, assign only the needed access. If your service requires only reading data, then assign the **Cosmos DB Account Reader** role to the managed identity. For more information about the importance of least privilege access, see the [Lower exposure of privileged accounts](../security/fundamentals/identity-management-best-practices.md#lower-exposure-of-privileged-accounts) article.
 
 In this scenario, the function app will read the temperature of the aquarium, then write back that data to a container in Azure Cosmos DB. Because the function app must write the data, you'll need to assign the **DocumentDB Account Contributor** role. 
+
+### Assign the role using Azure portal
 
 1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane and then the **Role assignments** tab:
 
@@ -66,6 +68,18 @@ In this scenario, the function app will read the temperature of the aquarium, th
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot showing the Add role assignment pane populated with examples.":::
 
 1. After you have selected your function app, select **Save**.
+
+### Assign the role using Azure CLI
+
+To assign the role by using Azure CLI, use the following commands:
+
+```azurecli-interactive
+$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+
+$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
 
 ## Programmatically access the Azure Cosmos DB keys
 

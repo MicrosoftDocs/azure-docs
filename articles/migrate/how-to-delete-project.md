@@ -10,7 +10,7 @@ ms.author: raynew
 
 # Delete an Azure Migrate project
 
-This article describes how to delete an [Azure Migrate](migrate-overview.md) project.
+This article describes how to delete an [Azure Migrate](./migrate-services-overview.md) project.
 
 
 ## Before you start

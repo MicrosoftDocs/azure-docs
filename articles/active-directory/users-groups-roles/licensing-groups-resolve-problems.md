@@ -118,7 +118,7 @@ Updating license assignment on a user causes the proxy address calculation to be
 ## LicenseAssignmentAttributeConcurrencyException in audit logs
 
 **Problem:** User has LicenseAssignmentAttributeConcurrencyException for license assignment in audit logs.
-When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. AZure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
+When group-based licensing tries to process concurrent license assignment of same license to a user, this exception is recorded on the user. This usually happens when a user is a member of more than one group with same assigned license. Azure AD will retry processing the user license and will resolve the issue. There is no action required from the customer to fix this issue.
 
 ## More than one product license assigned to a group
 

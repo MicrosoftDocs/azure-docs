@@ -31,13 +31,13 @@ Make sure your credentials are saved properly with the scene and you can connect
 1. Change *Platform* to **Universal Windows Platform**
 1. Set *Target Device* to **HoloLens**
 1. Set *Architecture* to **ARM64**
-1. Set *Build Type* to **D3D Project**
+1. Set *Build Type* to **D3D Project**\
     ![Build settings](./media/unity-build-settings.png)
 1. Select **Switch to Platform**
 1. When pressing **Build** (or 'Build And Run'), you will be asked to select some folder where the solution should be stored
 1. Open the generated **Quickstart.sln** with Visual Studio
 1. Change the configuration to **Release** and **ARM64**
-1. Switch the debugger mode to **Remote Machine**
+1. Switch the debugger mode to **Remote Machine**\
     ![Solution configuration](media/unity-deploy-config.png)
 1. Build the solution (F7)
 1. For the project 'Quickstart', go to *Properties > Debugging*

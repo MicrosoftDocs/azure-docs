@@ -12,7 +12,7 @@ ms.date: 06/09/2020
 
 # Quickstart: Create an Azure Synapse Analytics SQL pool by using an ARM template
 
-This template will create an Azure Synapse Analytics SQL pool with Transparent Data Encryption enabled. Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
+This Azure Resource Manager template (ARM template) will create an Azure Synapse Analytics SQL pool with Transparent Data Encryption enabled. Synapse SQL pool refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -36,7 +36,7 @@ The template defines one resource:
 
 ## Deploy the template
 
-1. Select the following image to sign in to Azure and open the template. This template creates an Synapse SQL pool.
+1. Select the following image to sign in to Azure and open the template. This template creates a Synapse SQL pool.
    
    [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-data-warehouse-transparent-encryption-create%2Fazuredeploy.json)
 
@@ -102,8 +102,8 @@ Write-Host "Press [ENTER] to continue..."
 
 ## Next steps
 
-In this quickstart, you created an Azure Synapse Analytics SQL pool using an Azure Resource Manager template and validated the deployment. To learn more about Azure Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
+In this quickstart, you created an Azure Synapse Analytics SQL pool using an ARM template and validated the deployment. To learn more about Azure Synapse Analytics and Azure Resource Manager, continue on to the articles below.
 
 - Read an [Overview of Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)
 - Learn more about [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- [Create and deploy your first Azure Resource Manager template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+- [Create and deploy your first ARM template](../../azure-resource-manager/templates/template-tutorial-create-first-template.md)

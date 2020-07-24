@@ -62,6 +62,9 @@ No. Azure Availability Zones aren't supported for Azure Migrate migration.
 
 Azure Migrate uses the Network Block Device (NBD) protocol with TLS encryption.
 
+## How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission? 
+The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).  
+
 ## What is the minimum vCenter Server version required for migration?
 
 You must have at least vCenter Server 5.5 and vSphere ESXi host version 5.5.

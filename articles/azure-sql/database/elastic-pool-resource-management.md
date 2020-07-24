@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: carlrab
-ms.date: 03/13/2019
+ms.date: 06/29/2020
 ---
 
 # Resource management in dense elastic pools
@@ -55,7 +55,7 @@ Azure SQL Database provides several metrics that are relevant for this type of m
 |`avg_log_write_percent`|Throughput utilizations for transaction log write IO. Provided for each database in the pool, as well as for the pool itself. There are different limits on the log throughput at the database level, and at the pool level, therefore monitoring this metric at both levels is recommended. Available in the [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `log_write_percent`, and can be viewed in Azure portal. When this metric is close to 100%, all database modifications (INSERT, UPDATE, DELETE, MERGE statements, SELECT … INTO, BULK INSERT, etc.) will be slower.|Below 90%. Occasional short spikes up to 100% may be acceptable.|
 |`oom_per_second`|The rate of out-of-memory (OOM) errors in an elastic pool, which is an indicator of memory pressure. Available in the [sys.dm_resource_governor_resource_pools_history_ex](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database?view=azuresqldb-current) view. See [Examples](#examples) for a sample query to calculate this metric.|0|
 |`avg_storage_percent`|Storage space utilization at the elastic pool level. Available in the [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftsqlserverselasticpools) `storage_percent`, and can be viewed in Azure portal.|Below 80%. Can approach 100% for pools with no data growth.|
-|`tempdb_log_used_percent`|Transaction log space utilization in the `tempdb` database. Even though temporary objects created in one database are not visible in other databases in the same elastic pool, `tempdb` is a shared resource for all databases in the same pool. A long running or idle transaction in `tempdb` started from one database in the pool can consume a large portion of transaction log, and cause failures for queries in other databases in the same pool. Available in the [sys.dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) view. This metric is also emitted to Azure Monitor, and can be viewed in Azure portal. See [Examples](#examples) for a sample query to return the current value of this metric.|Below 50%. Occasional spikes up to 80% are acceptable.|
+|`tempdb_log_used_percent`|Transaction log space utilization in the `tempdb` database. Even though temporary objects created in one database are not visible in other databases in the same elastic pool, `tempdb` is a shared resource for all databases in the same pool. A long running or orphaned transaction in `tempdb` started from one database in the pool can consume a large portion of transaction log, and cause failures for queries in other databases in the same pool. Derived from [sys.dm_db_log_space_usage](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-log-space-usage-transact-sql) and [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) views. This metric is also emitted to Azure Monitor, and can be viewed in Azure portal. See [Examples](#examples) for a sample query to return the current value of this metric.|Below 50%. Occasional spikes up to 80% are acceptable.|
 |||
 
 In addition to these metrics, Azure SQL Database provides a view that returns actual resource governance limits, as well as additional views that return resource utilization statistics at the resource pool level, and at the workload group level.
@@ -109,11 +109,17 @@ ORDER BY pool_id;
 
 ### Monitoring `tempdb` log space utilization
 
-This query returns the current value of the `tempdb_log_used_percent` metric. This query can be executed in any database in an elastic pool.
+This query returns the current value of the `tempdb_log_used_percent` metric, showing the relative utilization of the `tempdb` transaction log relative to its maximum allowed size. This query can be executed in any database in an elastic pool.
 
 ```sql
-SELECT used_log_space_in_percent AS tempdb_log_used_percent
-FROM tempdb.sys.dm_db_log_space_usage;
+SELECT (lsu.used_log_space_in_bytes / df.log_max_size_bytes) * 100 AS tempdb_log_space_used_percent
+FROM tempdb.sys.dm_db_log_space_usage AS lsu
+CROSS JOIN (
+           SELECT SUM(CAST(max_size AS bigint)) * 8 * 1024. AS log_max_size_bytes
+           FROM tempdb.sys.database_files
+           WHERE type_desc = N'LOG'
+           ) AS df
+;
 ```
 
 ## Next steps
