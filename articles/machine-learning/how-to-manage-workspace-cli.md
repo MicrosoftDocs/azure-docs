@@ -144,6 +144,9 @@ To create a workspace that uses existing resources, you must provide the ID for 
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
 
+    > [!IMPORTANT]
+    > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace.
+
 + **Azure Application Insights**:
 
     1. Install the application insights extension:

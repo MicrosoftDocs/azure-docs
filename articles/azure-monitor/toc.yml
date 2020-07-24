@@ -157,6 +157,11 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./platform/security-controls-policy.md
 - name: How-to guides
   items:
   - name: Scenarios

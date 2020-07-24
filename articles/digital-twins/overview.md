@@ -96,16 +96,16 @@ The following diagram shows where Azure Digital Twins lies in the context of a l
 > [!IMPORTANT]
 > Azure Digital Twins is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> For more information, see [*Supplemental Terms of Use for Microsoft Azure Previews*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For a list of Azure Digital Twins limits during public preview, see [Reference: Public preview service limits](reference-service-limits.md).
+For a list of Azure Digital Twins limits during public preview, see [*Reference: Public preview service limits*](reference-service-limits.md).
 
 ## Next steps
 
 If you have worked with the previous preview release of Azure Digital Twins, learn what has changed:
-* [Overview: Differences from previous release](overview-differences.md)
+* [*Overview: Differences from previous release*](overview-differences.md)
 
 Or, go ahead and dive into working with Azure Digital Twins with the first tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Code a client app](tutorial-code.md)
+> [*Tutorial: Code a client app*](tutorial-code.md)
