@@ -1,6 +1,6 @@
 ---
 title: Change the style of the Azure Maps Web Map Control
-description: In this article, you will learn about style-related functionalities available in Microsoft Azure Maps web SDK.
+description: In this article, you'll learn about style features of the Azure Maps Web Map Control
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/24/2020
@@ -16,7 +16,7 @@ The map control supports several different map [style options](https://docs.micr
 
 ## Set map style options
 
-Style options can be passed into the map control when it is initialized. Or, you can update style options by calling the map control's `setStyle` function. To see all of the available style options, see [style options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions).
+Style options can be set during web control initialization. Or, you can update style options by calling the map control's `setStyle` function. To see all of the available style options, see [style options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions).
 
 ```javascript
 //Set the style options when creating the map.
@@ -30,7 +30,7 @@ var map = new atlas.Map('map', {
     //Additional map options.
 };
 
-//Update the style options at anytime using setStyle function.
+//Update the style options at anytime using `setStyle` function.
 map.setStyle({
     renderWorldCopies: true,
     showBuildingModels: true,
@@ -54,7 +54,7 @@ You can also initialize the map control with one of the [base map styles](suppor
 
 ### Set a base map style on initialization
 
-Base styles can be passed into the map control when it is initialized. In the following code, the `style` option of the map control is set to the [`grayscale_dark` base map style](supported-map-styles.md#grayscale_dark).  
+Base styles of the map control can be set during initialization. In the following code, the `style` option of the map control is set to the [`grayscale_dark` base map style](supported-map-styles.md#grayscale_dark).  
 
 ```javascript
 var map = new atlas.Map('map', {
