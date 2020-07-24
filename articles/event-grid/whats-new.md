@@ -2,7 +2,7 @@
 title: What's new? Release notes - Azure Event Grid
 description: Learn what is new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 07/17/2020
+ms.date: 07/23/2020
 ---
 
 # What's new in Azure Event Grid?
@@ -20,17 +20,16 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 ## 6.0.0 (2020-06)
 - Add support to new generally available (GA) service API version 2020-06-01.
 - The new features that became GA:
-    - Event delivery schema
     - [Input mappings](input-mappings.md)
-    - Custom input schema 
+    - [Custom input schema](input-mappings.md)
     - [Cloud event V10 schema](cloud-event-schema.md)
     - [Service Bus topic as destination](handler-service-bus.md)
     - [Azure function as destination](handler-functions.md)
     - [Webhook batching](./edge/delivery-output-batching.md)
     - [Secure webhook (Azure Active Directory support)](secure-webhook-delivery.md)
-    - `ImmutableId` support
     - [Ip filtering](configure-firewall.md)
     - [Private Link Service support](configure-private-endpoints.md)
+    - [Event delivery schema](event-schema.md)
 
 ## 5.3.2-preview (2020-05)
 - This release includes additional bug fixes to enhance quality.
@@ -38,7 +37,6 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
     - [Partner topics](partner-topics-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
-    - Sku
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
 
@@ -48,7 +46,6 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
     - [Partner topics](partner-topics-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
-    - Sku
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
 
@@ -59,7 +56,6 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - [Support for IP Filtering when publishing events to domains and topics](configure-firewall.md)
     - [Partner topics](partner-topics-overview.md)
     - [System topics as tracked resources in Azure portal](system-topics.md)
-    - Sku
     - [Event delivery with managed service identity](managed-service-identity.md) 
     - [Private Link Service support](configure-private-endpoints.md)
 
@@ -72,18 +68,16 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
 - This release corresponds to the `2019-06-01` API version.
 - It adds support to the following new functionalities:
 	* [Domains](event-domains.md)
-	* Pagination and search filter for resources list operations,
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
 	* [Service Bus queue as destination](handler-service-bus.md)
 	* [Advanced filtering](event-filtering.md#advanced-filtering)
-	* Disallows usage of ‘All’ with IncludedEventTypes."
 
 ## 4.1.0-preview (2019-03)
 - This release corresponds to the 2019-02-01-preview API version.
 - It adds support to the following new functionalities:
-	* Pagination and search filter for resources list operations,
+	* Pagination and search filter for resources list operations. For an example, see [Topics - List By Subscription](/rest/api/eventgrid/version2020-04-01-preview/topics/listbysubscription).
 	* [Manual create/delete of domain topics](how-to-event-domains.md)
 	* [Service Bus Queue as destination](handler-service-bus.md)
-	* Disallows usage of ‘All’ with IncludedEventTypes,
 
 ## 4.0.0 (2018-12)
 - This release corresponds to the `2019-01-01` stable API version.
@@ -104,6 +98,5 @@ Azure Event Grid receives improvements on an ongoing basis. To stay up to date w
     - Introducing [expiration date for event subscription](concepts.md#event-subscription-expiration)
     - Introducing [advanced filtering](event-filtering.md#advanced-filtering) for event subscriptions
     - The stable version of the SDK targeting the `2018-01-01` API version continues to exist as version 1.3.0
-
 
 ## Next steps
