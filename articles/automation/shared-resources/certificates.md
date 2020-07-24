@@ -29,7 +29,7 @@ The cmdlets in the following table create and manage Automation certificates wit
 |[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate?view=azps-3.7.0)|Removes a certificate from Automation.|
 |[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate?view=azps-3.7.0)|Sets the properties for an existing certificate, including uploading the certificate file and setting the password for a **.pfx** file.|
 
-The [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate) cmdlet can also be used to upload a service certificate for the specified cloud service.
+The [Add-AzureCertificate](/powershell/module/servicemanagement/azure.service/add-azurecertificate) cmdlet can also be used to upload a service certificate for the specified cloud service.
 
 ## Internal cmdlets to access certificates
 

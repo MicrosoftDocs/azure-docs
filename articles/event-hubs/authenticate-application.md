@@ -73,7 +73,7 @@ After you've registered your application, you'll see the **Application (client) 
 
 ![Application ID of the registered application](./media/authenticate-application/application-id.png)
 
-For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v2-register-an-app.md).
+For more information about registering an application with Azure AD, see [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-register-app.md).
 
 
 ### Create a client secret   
@@ -102,7 +102,7 @@ For a list of scenarios for which acquiring tokens is supported, see the [Scenar
     This sample has been updated to use the latest **Azure.Messaging.EventHubs** library.
 
 ## Next steps
-- To learn more about RBAC, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md)?
+- To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)
@@ -114,4 +114,3 @@ See the following related articles:
 - [Authenticate requests to Azure Event Hubs using Shared Access Signatures](authenticate-shared-access-signature.md)
 - [Authorize access to Event Hubs resources using Azure Active Directory](authorize-access-azure-active-directory.md)
 - [Authorize access to Event Hubs resources using Shared Access Signatures](authorize-access-shared-access-signature.md)
-

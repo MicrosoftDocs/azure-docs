@@ -8,7 +8,7 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
+ms.date: 07/14/2020
 ---
 
 # Quickstart: Create an Azure Cognitive Search service in the portal
@@ -23,11 +23,11 @@ Prefer PowerShell? Use the Azure Resource Manager [service template](https://azu
 
 ## Before you start
 
-The following service properties are fixed for the lifetime of the service and changing them requires a new service. As you create a service, think about how you will use it:
+The following service properties are fixed for the lifetime of the service - changing any of them requires a new service. Because they are fixed, consider the usage implications as you fill in each property:
 
-* name (review [these suggestions](#name-the-service) for service names)
-* tier (Free, Basic, Standard [affects billing](search-sku-tier.md) and sets an upward limit on capacity)
-* region (choose a location that has related services. For integration with Cognitive Services or Azure Machine Learning, co-locating services in the same region is a requirement)
+* service name becomes part of the URL endpoint ([review tips](#name-the-service) for helpful service names).
+* service tier [affects billing](search-sku-tier.md) and sets an upward limit on capacity.
+* service region can determine the availability of certain scenarios. If you are interested in knowledge mining and AI enrichment, you need Cognitive Services and possibly Azure Machine Learning in the same region as Azure Cognitive Search.
 
 ## Subscribe (free or paid)
 

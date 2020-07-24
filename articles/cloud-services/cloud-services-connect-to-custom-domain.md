@@ -14,7 +14,7 @@ We will first set up a Virtual Network (VNet) in Azure. We will then add an Acti
 
 Before we get started, couple of things to keep in mind:
 
-1. This tutorial uses PowerShell, so make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+1. This tutorial uses PowerShell, so make sure you have Azure PowerShell installed and ready to go. To get help with setting up Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azure/).
 2. Your AD Domain Controller and Web/Worker Role instances need to be in the VNet.
 
 Follow this step-by-step guide and if you run into any issues, leave us a comment at the end of the article. Someone will get back to you (yes, we do read comments).

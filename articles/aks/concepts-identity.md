@@ -69,7 +69,7 @@ The security of AKS clusters can be enhanced with the integration of Azure Activ
 
 With Azure AD-integrated AKS clusters, you can grant users or groups access to Kubernetes resources within a namespace or across the cluster. To obtain a `kubectl` configuration context, a user can run the [az aks get-credentials][az-aks-get-credentials] command. When a user then interacts with the AKS cluster with `kubectl`, they're prompted to sign in with their Azure AD credentials. This approach provides a single source for user account management and password credentials. The user can only access the resources as defined by the cluster administrator.
 
-Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][open-id-connect]. From inside of the Kubernetes cluster, [Webhook Token Authentication][webhook-token-docs] is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
+Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID Connect is an identity layer built on top of the OAuth 2.0 protocol. For more information on OpenID Connect, see the [Open ID connect documentation][openid-connect]. From inside of the Kubernetes cluster, [Webhook Token Authentication][webhook-token-docs] is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
 From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster.
 
@@ -79,7 +79,7 @@ From inside of the Kubernetes cluster, Webhook Token Authentication is used to v
 
 As shown in the graphic above, the API server calls the AKS webhook server and performs the following steps:
 
-1. The Azure AD client application is used by kubectl to sign in users with [OAuth 2.0 device authorization grant flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code).
+1. The Azure AD client application is used by kubectl to sign in users with [OAuth 2.0 device authorization grant flow](../active-directory/develop/v2-oauth2-device-code.md).
 2. Azure AD provides an access_token, id_token, and a refresh_token.
 3. The user makes a request to kubectl with an access_token from kubeconfig.
 4. Kubectl sends the access_token to APIServer.
@@ -101,11 +101,11 @@ Azure RBAC is an authorization system built on [Azure Resource Manager](../azure
 
 With Azure RBAC, you create a *role definition* that outlines the permissions to be applied. A user or group is then assigned this role definition via a *role assignment* for a particular *scope*, which could be an individual resource, a resource group, or across the subscription.
 
-For more information, see [What is Azure RBAC?][azure-rbac]
+For more information, see [What is Azure role-based access control (Azure RBAC)?][azure-rbac]
 
 There are two levels of access needed to fully operate an AKS cluster: 
-1. [Access the AKS resource on your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). This process allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
-2. Access to the Kubernetes API. This access is controlled either by [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (traditionally) or by [integrating Azure RBAC with AKS for kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview)
+1. [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). This process allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.
+2. Access to the Kubernetes API. This access is controlled either by [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (traditionally) or by [integrating Azure RBAC with AKS for Kubernetes authorization](#azure-rbac-for-kubernetes-authorization-preview)
 
 ### Azure RBAC to authorize access to the AKS resource
 

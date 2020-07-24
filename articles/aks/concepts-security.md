@@ -49,9 +49,9 @@ Kubernetes environments, in AKS or elsewhere, currently aren't completely safe f
 
 ### Compute isolation
 
- Certain workloads may require a high degree of isolation from other customer workloads due to compliance or regulatory requirements. For these workloads, Azure provides [isolated virtual machines](../virtual-machines/linux/isolation.md), which can be used as the agent nodes in an AKS cluster. These isolated virtual machines are isolated to a specific hardware type and dedicated to a single customer. 
+ Certain workloads may require a high degree of isolation from other customer workloads due to compliance or regulatory requirements. For these workloads, Azure provides [isolated virtual machines](../virtual-machines/isolation.md), which can be used as the agent nodes in an AKS cluster. These isolated virtual machines are isolated to a specific hardware type and dedicated to a single customer. 
 
- To use these isolated virtual machines with an AKS cluster, select one of the isolated virtual machines sizes listed [here](../virtual-machines/linux/isolation.md) as the **Node size** when creating an AKS cluster or adding a node pool.
+ To use these isolated virtual machines with an AKS cluster, select one of the isolated virtual machines sizes listed [here](../virtual-machines/isolation.md) as the **Node size** when creating an AKS cluster or adding a node pool.
 
 
 ## Cluster upgrades
@@ -76,6 +76,8 @@ For connectivity and security with on-premises networks, you can deploy your AKS
 ### Azure network security groups
 
 To filter the flow of traffic in virtual networks, Azure uses network security group rules. These rules define the source and destination IP ranges, ports, and protocols that are allowed or denied access to resources. Default rules are created to allow TLS traffic to the Kubernetes API server. As you create services with load balancers, port mappings, or ingress routes, AKS automatically modifies the network security group for traffic to flow appropriately.
+
+In cases where you provide your own subnet for your AKS cluster and you wish to modify the flow of traffic, do not modify the subnet-level network security group managed by AKS. You may create additional subnet-level network security groups to modify the flow of traffic as long as they do not interfere with traffic needed for managing the cluster, such as load balancer access, communication with the control plane, and [egress][aks-limit-egress-traffic].
 
 ### Kubernetes network policy
 
@@ -107,17 +109,18 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
-[encryption-atrest]: https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest
+[encryption-atrest]: ../security/fundamentals/encryption-atrest.md
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
 [aks-upgrade-cluster]: upgrade-cluster.md
-[aks-aad]: azure-ad-integration.md
+[aks-aad]: ./azure-ad-integration-cli.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-identity]: concepts-identity.md
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

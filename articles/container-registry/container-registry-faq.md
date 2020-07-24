@@ -27,7 +27,7 @@ Yes. Here is [a template](https://github.com/Azure/azure-quickstart-templates/tr
 
 ### Is there security vulnerability scanning for images in ACR?
 
-Yes. See the documentation from [Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Yes. See the documentation from [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) and [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### How do I configure Kubernetes with Azure Container Registry?
 
@@ -432,8 +432,8 @@ Please contact your network administrator or check your network configuration an
 ### Why does my pull or push request fail with disallowed operation?
 
 Here are some scenarios where operations may be disallowed:
-* Classic registries are no longer supported. Please upgrade to a supported [service tier](https://aka.ms/acr/skus) using [az acr update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
-* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) command to view current attributes.
+* Classic registries are no longer supported. Please upgrade to a supported [service tier](https://aka.ms/acr/skus) using [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) or the Azure portal.
+* The image or repository maybe locked so that it can't be deleted or updated. You can use the [az acr show repository](./container-registry-image-lock.md) command to view current attributes.
 * Some operations are disallowed if the image is in quarantine. Learn more about [quarantine](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 * Your registry may have reached its [storage limit](container-registry-skus.md#service-tier-features-and-limits).
 

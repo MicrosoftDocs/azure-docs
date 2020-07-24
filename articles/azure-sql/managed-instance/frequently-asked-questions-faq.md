@@ -60,11 +60,11 @@ You can consider migrating to other Azure flavors that suit your workload: [Azur
 **Where can I migrate if I have specific hardware requirements such as larger RAM to vCore ratio or more CPUs?**
 You can consider migrating to [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) or [Azure SQL Database](../database/sql-database-paas-overview.md) memory/cpu optimized.
 
-## Known issues & bugs
+## Known issues and defects
 
-**Where can I find known issues and bugs?**
+**Where can I find known issues and defects?**
 
-For bugs and known issues, see [Known issues](../database/doc-changes-updates-release-notes.md#known-issues).
+For product defects and known issues, see [Known issues](../database/doc-changes-updates-release-notes.md#known-issues).
 
 ## New features
 
@@ -121,7 +121,7 @@ To use another DNS zone instead of the default, for example, *.contoso.com*:
 **How can I migrate from Azure SQL Database single or elastic pool to SQL Managed Instance?**
 
 Managed instance offers the same performance levels per compute and storage size as other deployment options of Azure SQL Database. If you want to consolidate data on a single instance, or you simply need a feature supported exclusively in managed instance, you can migrate your data by using export/import (BACPAC) functionality. Here are other ways to consider for SQL Database migration to SQL Managed Instance: 
-- Using [Data Source External]()
+- Using [Data Source External](https://techcommunity.microsoft.com/t5/azure-database-support-blog/lesson-learned-129-using-data-source-external-from-azure-sql/ba-p/1443210)
 - Using [SQLPackage](https://techcommunity.microsoft.com/t5/azure-database-support-blog/how-to-migrate-azure-sql-database-to-azure-sql-managed-instance/ba-p/369182)
 - Using [BCP](https://medium.com/azure-sqldb-managed-instance/migrate-from-azure-sql-managed-instance-using-bcp-674c92efdca7)
 
@@ -343,21 +343,6 @@ To mitigate any data exfiltration risks, customers are recommended to apply a se
 - Turn on [SQL auditing](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine), and integrate it with alerting mechanisms.
 - Turn on [Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) from the [advanced data security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) suite.
 
-
-## Cost-saving use cases
-
-**Where can I find use cases and resulting cost savings with SQL Managed Instance?**
-
-SQL Managed Instance case studies:
-
-- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
-- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
-
-To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Managed Instance, there's also a Forrester study: [The Total Economic Impact of Microsoft Azure SQL Database Managed Instance](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
-
-
 ## DNS
 
 **Can I configure a custom DNS for SQL Managed Instance?**
@@ -461,6 +446,19 @@ You can monitor cost for backup storage via Azure Portal. For instructions, see 
 **How can I optimize my backup storage costs on the managed instance?**
 
 To optimize your backup storage costs, see [Fine backup tuning on SQL Managed Instance](https://techcommunity.microsoft.com/t5/azure-sql-database/fine-tuning-backup-storage-costs-on-managed-instance/ba-p/1390935).
+
+## Cost-saving use cases
+
+**Where can I find use cases and resulting cost savings with SQL Managed Instance?**
+
+SQL Managed Instance case studies:
+
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+
+To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Managed Instance, there's also a Forrester study: [The Total Economic Impact of Microsoft Azure SQL Database Managed Instance](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 
 ## Password policy 
 
