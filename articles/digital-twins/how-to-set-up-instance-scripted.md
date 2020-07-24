@@ -2,7 +2,7 @@
 # Mandatory fields.
 title: Set up an instance and authentication (scripted)
 titleSuffix: Azure Digital Twins
-description: See how to set up an instance of the Azure Digital Twins service, including the proper authentication. Scripted version.
+description: See how to set up an instance of the Azure Digital Twins service, by running an automated deployment script
 author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 7/23/2020
@@ -22,8 +22,8 @@ ms.service: digital-twins
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you will have an Azure Digital Twins instance ready to start programming against.
 
 This version of this article completes these steps by running an [**automated deployment script** sample](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) that streamlines the process. 
-* To view the manual steps that the script runs through behind the scenes, see the manual version of this article: [*How-to: Set up an instance and authentication (manual, CLI)*](how-to-set-up-instance-manual-cli.md).
-* To view the manual steps according to the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (manual, portal)*](how-to-set-up-instance-manual-portal.md).
+* To view the manual CLI steps that the script runs through behind the scenes, see the CLI version of this article: [*How-to: Set up an instance and authentication (CLI)*](how-to-set-up-instance-cli.md).
+* To view the manual steps according to the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 [!INCLUDE [digital-twins-setup-role-cli.md](../../includes/digital-twins-setup-role-cli.md)]

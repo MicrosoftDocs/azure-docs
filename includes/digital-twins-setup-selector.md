@@ -12,5 +12,5 @@
 
 > [!div class="op_single_selector"]
 > * [Scripted](../articles/digital-twins/how-to-set-up-instance-scripted.md)
-> * [Manual (CLI)](../articles/digital-twins/how-to-set-up-instance-manual.md)
-> * [Manual (portal)](../articles/digital-twins/how-to-set-up-instance-manual-portal.md)
+> * [CLI](../articles/digital-twins/how-to-set-up-instance-cli.md)
+> * [Portal](../articles/digital-twins/how-to-set-up-instance-portal.md)
