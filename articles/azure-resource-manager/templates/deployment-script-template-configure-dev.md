@@ -5,13 +5,13 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/24/2020
 ms.author: jgao
 
 ---
 # Configure development environment for deployment scripts in templates
 
-Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create [Azure container instance](../../container-instances/) or use [Docker](https://docs.docker.com/get-docker/).
+Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/).
 
 ## Prerequisite
 
@@ -49,7 +49,7 @@ The following ARM template creates a container instance and a file share, and th
     },
     "containerImage": {
       "type": "string",
-      "defaultValue": "mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7",
+      "defaultValue": "mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3",
       "metadata": {
         "description": "Specify the container image."
       }
@@ -148,15 +148,16 @@ The following ARM template creates a container instance and a file share, and th
   ]
 }
 ```
+The default value for the mount path is **deploymentScript**.  This is the path in the container instance where it is mounted to the file share.
 
-The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7"**.  For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
+The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3"**.  For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
 
-The template sets the sleep time to be 1800 seconds. You have 30 minutes before the container instance goes into terminal state and the session ends.
+The template suspends the container instance 1800 seconds. You have 30 minutes before the container instance goes into terminal state and the session ends.
 
 To deploy the template:
 
 ```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $templateFile = Read-Host -Prompt "Enter the template file path and file name"
 $resourceGroupName = "${projectName}rg"
@@ -170,7 +171,7 @@ New-AzResourceGroupDeployment -resourceGroupName $resourceGroupName -TemplateFil
 Upload your deployment script to the storage account. The following is a PowerShell example:
 
 ```azurepowershell
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+$projectName = Read-Host -Prompt "Enter the same project name that you used earlier"
 $fileName = Read-Host -Prompt "Enter the deployment script file name with the path"
 
 $resourceGroupName = "${projectName}rg"
@@ -186,19 +187,23 @@ You can also upload the file by using the Azure portal and Azure CLI.
 ### Test the deployment script
 
 1. From the Azure portal, open the resource group where you deployed the container instance and the storage account.
-1. Open the container group. The default container group name is the project name with **cg** appended. You shall see the container instance is in the **Pending** state.
+1. Open the container group. The default container group name is the project name with **cg** appended. You shall see the container instance is in the **Running** state.
 1. Select **Containers** from the left menu. You shall see a container instance.  The container instance name is the project name with **container** appended.
-1. Select **Connect**, and then select **Connect**. If  you can't connect to the container instance, restart the container group and try again.
-1. Run the **ls** commmand to list the files.  You shall see a **deploymentScript** folder if you use the default mount path value when you deploy the template.
-1. Run **cd deploymentScript**. The commands are case-sensitive.
-1. Run **ls** to list the file.  You shall see the deployment script files that you have uploaded.
-1. Execute the deployment script file.  For example, for PowerShell script:
 
-    ```cmd
-    pwsh ./myds.ps1 "John Dole"
+    ![deployment script connect container instance](./media/deployment-script-template-configure-dev/deployment-script-container-instance-connect.png)
+
+1. Select **Connect**, and then select **Connect**. If  you can't connect to the container instance, restart the container group and try again.
+1. In the console pane, run the following commands:
+
+    ```
+    cd deploymentScript
+    ls
+    pwsh ./hello.ps1 "John Dole"
     ```
 
-    The output shall be **Hello John Dole**.
+    The output is **Hello John Dole**.
+
+    ![deployment script container instance test](./media/deployment-script-template-configure-dev/deployment-script-container-instance-test.png)
 
 ## Use Docker
 
@@ -208,10 +213,10 @@ You also need to configure file sharing to mount the directory which contains th
 1. Pull the deployment script container image to the local computer:
 
     ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
+    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
-    The example uses version PowerShell 2.7.0.
+    The example uses version PowerShell 4.3.0.
 
     To pull a CLI image from a Microsoft Container Registry (MCR):
 
@@ -224,13 +229,13 @@ You also need to configure file sharing to mount the directory which contains th
 1. Run the docker image locally.
 
     ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
+    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
     Replace **&lt;host driver letter>** and **&lt;host directory name>** with an existing folder on the shared drive.  It maps the folder to the **/data** folder in the container. For examples, to map D:\docker:
 
     ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
+    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az4.3
     ```
 
     **-it** means keeping the container image alive.
