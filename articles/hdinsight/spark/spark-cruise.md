@@ -1,6 +1,6 @@
 ---
-title: Apache Spark Cruise on Azure HDInsight
-description: This article provides an introduction to Spark in HDInsight and the different scenarios in which you can use Spark cluster in HDInsight.
+title: Use SparkCruise on Azure HDInsight to speed up Apache Spark queries
+description: Learn how to use the SparkCruise optimization platform to improve efficiency of Apache Spark queries.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,7 +8,7 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 07/27/2020
 
-#customer intent: .
+#customer intent: As an Apache Spark developer, I would like to learn about the tools and features to optimize my Spark worloads on Azure HDInsight.
 ---
 # SparkCruise on Azure HDInsight
 
@@ -16,68 +16,133 @@ This document discusses the Azure HDInsight feature *SparkCruise*, which automat
 
 ## Overview
 
-The queries that you run on an analytics platform such as Apache Spark, are usually decomposed into a query plan that contains smaller sub-queries. These sub-queries may show up repeatedly in the query plan for various larger queries. Each time they occur, they are re-executed in order to return the results. Re-executing the same query, however, can be inefficient and lead to unnecessary computation costs.
+The queries that you run on an analytics platform such as Apache Spark, are usually decomposed into a query plan that contains smaller sub-queries. These sub-queries may show up repeatedly across query plans for multiple queries. Each time they occur, they are re-executed in order to return the results. Re-executing the same query, however, can be inefficient and lead to unnecessary computation costs.
 
-*SparkCruise* is a workload optimization platform that can reuse common computations, decreasing overall query execution time and data transfer costs.
+*SparkCruise* is a workload optimization platform that can reuse common computations, decreasing overall query execution time and data transfer costs. The platform uses the concept of a *materialized view*, which is a query whose results are stored in pre-computed form. Those results can then be reused when the query itself shows up again later, rather than re-computing the results all over again.
 
 ## Setup and installation
 
-SparkCruise is available on all HDInsight 4.0 clusters with Spark 2.3 or 2.4. The SparkCruise library files are installed in the `/opt/peregrine/` directory on your HDInsight cluster. 
+SparkCruise is available on all HDInsight 4.0 clusters with Spark 2.3 or 2.4. The SparkCruise library files are installed in the `/opt/peregrine/` directory on your HDInsight cluster. To work properly, *SparkCruise* requires the following configuration properties, which are set by default.
 
-To complete configuration on your cluster, set following Spark configuration properties:
-
-* `spark.sql.queryExecutionListeners=com.microsoft.peregrine.spark.listeners.PlanLogListener` to enable logging of query plans 
-* `spark.sql.extensions=com.microsoft.peregrine.spark.extensions.SparkExtensionsHdi` to enable the optimizer rules for online materialization and reuse
+* `spark.sql.queryExecutionListeners` is set to `com.microsoft.peregrine.spark.listeners.PlanLogListener`, which enables logging of query plans.
+* `spark.sql.extensions` is set to `com.microsoft.peregrine.spark.extensions.SparkExtensionsHdi`, which enables the optimizer rules for online materialization and reuse.
 
 ## Computation Reuse in Spark SQL
 
-First, open `spark-shell` and run the first round of this sample query workload - 
-```
-spark.sql("select count(*) from hivesampletable").collect
-spark.sql("select count(*) from hivesampletable").collect
-spark.sql("select distinct market from hivesampletable where querytime like '11%'").show
-spark.sql("select distinct state, country from hivesampletable where querytime like '11%'").show
-:quit
+The following sample scenario illustrates how to use *SparkCruise* to optimize Apache Spark queries. 
+
+1. SSH into the head node of your spark cluster.
+1. Type `spark-shell`.
+1. Run the following code snippet, which runs a few basic queries using sample data on the cluster.
+
+    ```scala
+    spark.sql("select count(*) from hivesampletable").collect
+    spark.sql("select count(*) from hivesampletable").collect
+    spark.sql("select distinct market from hivesampletable where querytime like '11%'").show
+    spark.sql("select distinct state, country from hivesampletable where querytime like '11%'").show
+    :quit
+    ```
+1. Use the *SparkCruise* query analysis tool to analyze the query plans of the previous queries which are stored in the Spark application logs. 
+
+    ```
+    sudo /opt/peregrine/analyze/peregrine.sh analyze views
+    ```
+
+1. View the output of the analysis process, which is a feedback file. This feedback file contains annotations for future Spark SQL queries. 
+
+    ```
+    sudo /opt/peregrine/analyze/peregrine.sh show
+    ```
+
+The `analyze` command parses the query plans and creates a tabular representation of the workload. This workload table can be queried using the WorkloadInsights notebook included on HDInsight clusters. Then, the `views` command identifies common subplan expressions and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. 
+
+The `show` command displays an output like the following:
+
+```bash
+Feedback file -->
+
+1593761760087311271 Materialize /peregrine/views/1593761760087311271
+1593761760087311271 Reuse /peregrine/views/1593761760087311271
+18446744073621796959 Materialize /peregrine/views/18446744073621796959
+18446744073621796959 Reuse /peregrine/views/18446744073621796959
+11259615723090744908 Materialize /peregrine/views/11259615723090744908
+11259615723090744908 Reuse /peregrine/views/11259615723090744908
+9409467400931056980 Materialize /peregrine/views/9409467400931056980
+9409467400931056980 Reuse /peregrine/views/9409467400931056980
+
+Materialized subexpressions -->
+
+Found 4 items
+-rw-r--r--   1 sshuser sshuser     113445 2020-07-24 16:46 /peregrine/views/logical_ir.csv
+-rw-r--r--   1 sshuser sshuser     169458 2020-07-24 16:46 /peregrine/views/physical_ir.csv
+-rw-r--r--   1 sshuser sshuser      25730 2020-07-24 16:46 /peregrine/views/views.csv
+-rw-r--r--   1 sshuser sshuser        536 2020-07-24 16:46 /peregrine/views/views.stp
 ```
 
-Now, we can analyze the plans of above queries from existing Spark application logs - 
-```
-$ sudo /opt/peregrine/analyze/peregrine.sh analyze
-```
-The above analysis parses the query plans, identifies common subplan expressions, and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. The contents of the feedback file can be listed using the following command - 
-```
-$ /opt/peregrine/analyze/peregrine.sh show
-```
-The feedback file contains records in the following format -
-```
-subplan-identifier [Materialize|Reuse] input/path/to/action
-e.g., 18446744072264439276 Materialize /peregrine/views/18446744072264439276
-```
-For our sample workload, the feedback file will contain two unique signatures representing the first two repeated queries (signature: 18446744072264439276) and the filter predicate in last two queries (signature: 7829769082957813160). With this feedback file, the following queries when submitted using `spark-shell` will now automatically materialize and reuse common subplans - 
-```
-spark.sql("select count(*) from hivesampletable").collect
-spark.sql("select count(*) from hivesampletable").collect
-spark.sql("select distinct state, country from hivesampletable where querytime like '12%'").show
-spark.sql("select distinct market from hivesampletable where querytime like '12%'").show
+The feedback file contains entries in the following format: `subplan-identifier [Materialize|Reuse] input/path/to/action`. In this example, there are two unique signatures: one representing the first two repeated queries and the second representing the filter predicate in last two queries. With this feedback file, the following queries when submitted again will now automatically materialize and reuse common sub-plans. 
+
+To test the optimizations, execute another set of sample queries.
+
+1. Type `spark-shell`.
+1. Execute the following code snippet
+
+    ```scala
+    spark.sql("select count(*) from hivesampletable").collect
+    spark.sql("select count(*) from hivesampletable").collect
+    spark.sql("select distinct state, country from hivesampletable where querytime like '12%'").show
+    spark.sql("select distinct market from hivesampletable where querytime like '12%'").show
+    :quit
+    ```
+
+1. View the feedback file again, to see the signatures of the queries that have been reused.
+
+    ```
+    sudo /opt/peregrine/analyze/peregrine.sh show
+    ```
+
+The `show` command gives and output similar to the following:
+
+```bash
+Feedback file -->
+
+1593761760087311271 Materialize /peregrine/views/1593761760087311271
+1593761760087311271 Reuse /peregrine/views/1593761760087311271
+18446744073621796959 Materialize /peregrine/views/18446744073621796959
+18446744073621796959 Reuse /peregrine/views/18446744073621796959
+11259615723090744908 Materialize /peregrine/views/11259615723090744908
+11259615723090744908 Reuse /peregrine/views/11259615723090744908
+9409467400931056980 Materialize /peregrine/views/9409467400931056980
+9409467400931056980 Reuse /peregrine/views/9409467400931056980
+
+Materialized subexpressions -->
+
+Found 8 items
+drwxr-xr-x   - root root          0 2020-07-24 17:21 /peregrine/views/11259615723090744908
+drwxr-xr-x   - root root          0 2020-07-24 17:21 /peregrine/views/1593761760087311271
+drwxr-xr-x   - root root          0 2020-07-24 17:22 /peregrine/views/18446744073621796959
+drwxr-xr-x   - root root          0 2020-07-24 17:21 /peregrine/views/9409467400931056980
+-rw-r--r--   1 root root     113445 2020-07-24 16:46 /peregrine/views/logical_ir.csv
+-rw-r--r--   1 root root     169458 2020-07-24 16:46 /peregrine/views/physical_ir.csv
+-rw-r--r--   1 root root      25730 2020-07-24 16:46 /peregrine/views/views.csv
+-rw-r--r--   1 root root        536 2020-07-24 16:46 /peregrine/views/views.stp
+
 ```
 
-An astute reader might have noticed that we have changed the literal values in the second round of workload. Though computation reuse in Peregrine relies on past workload being a strong indicator of future reuse opportunities, it can still handle the time-varying changes in workload like evolution of literal values and dataset versions. In case of major changes in the workload, no materialization or reuse will be performed as no subplan match will be detected in the query plans. In this case, we can re-run the analysis to find new reuse opportunities.
+Although the literal value in the query has changed from `'11%'` to `'12%'`, *SparkCruise* can still match previous queries to new queries with slight variations like the evolution of literal values and dataset versions. In the case of major changes to a query, you can re-run the analysis tool to identify new queries which can be reused.
 
-Behind the scenes, Peregrine triggers a subquery for materializing the selected subplan from the first query that contains it. Then, the subsequent queries can directly read the materialized subplans instead of recomputing them. In this workload, the subplans will be materialized in an online fashion by the first and third queries. We can see the plan change of queries after the common subplans are materialized - 
-```
-spark.sql("select count(*) from hivesampletable").explain(true)
-spark.sql("select distinct market from hivesampletable where querytime like '12%'").explain(true)
-```
+Behind the scenes, *SparkCruise* triggers a sub-query for materializing the selected sub-plan from the first query that contains it. Then, the subsequent queries can directly read the materialized sub-plans instead of recomputing them. In this workload, the sub-plans will be materialized in an online fashion by the first and third queries. We can see the plan change of queries after the common sub-plans are materialized.
 
-The feedback files, materialized subplans, and query logs are persisted across Spark sessions. To remove these files, run - 
-```
-$ sudo /opt/peregrine/analyze/peregrine.sh clean
-```
+## Clean up
 
-More details of computation reuse in Peregrine are in our [demonstration presented in VLDB 2019](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf).
+The feedback files, materialized sub-plans, and query logs are persisted across Spark sessions. To remove these files, run the following command:
+
+```bash
+sudo /opt/peregrine/analyze/peregrine.sh clean
+```
 
 ## Next Steps
 
-In this overview, you get some basic understanding of Apache Spark in Azure HDInsight. Learn how to create an HDInsight Spark cluster and run some Spark SQL queries:
-
-* [Create an Apache Spark cluster in HDInsight](./apache-spark-jupyter-spark-sql-use-portal.md)
+* [Improve performance of Apache Spark workloads using Azure HDInsight IO Cache](apache-spark-improve-performance-iocache.md)
+* [Optimize Apache Spark jobs in HDInsight](./apache-spark-perf.md)
+* [SparkCruise: Handsfree Computation Reuse in Spark](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf)
+* [Apache Spark guidelines on Azure HDInsight](./spark-best-practices.md)
