@@ -19,6 +19,11 @@ ms.author: yelevin
 ---
 # Connect your Illusive Attack Management System to Azure Sentinel
 
+> [!IMPORTANT]
+> The Illusive Attack Management System data connector in Azure Sentinel is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 This article explains how to connect your [Illusive Attack Management System](https://www.illusivenetworks.com/technology/platform/attack-detection-system) to Azure Sentinel. The Illusive Attack Management System data connector allows you to share Illusive’s attack surface analysis data and incident logs with Azure Sentinel and view this information in dedicated dashboards that offer insight into your organization’s attack surface risk (ASM Dashboard) and track unauthorized lateral movement in your organization’s network (ADS Dashboard).
 
 > [!NOTE]
@@ -30,7 +35,7 @@ Configure Attack Management System to forward Syslog messages in CEF format to y
 
 1. Log onto the Illusive Console, and navigate to Settings->Reporting.
 
-1. Find Syslog Serversץ
+1. Find Syslog servers.
 
 1. Supply the following information:
    - Host name: Linux Syslog agent IP address or FQDN host name
@@ -40,7 +45,7 @@ Configure Attack Management System to forward Syslog messages in CEF format to y
 
 1. To add the syslog server, click Add.
 
-1. To use the relevant schema in Log Analytics for the Illusive Attack Management System, search for CommonSecurityLog.
+1. To use the relevant schema in **Logs** for the Illusive Attack Management System, search for **CommonSecurityLog**.
 
 ## Next steps
 

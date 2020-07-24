@@ -1,7 +1,7 @@
 ---
 title: Use PowerShell to assign an RBAC role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use PowerShell to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
+description: Learn how to use PowerShell to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 
@@ -19,7 +19,7 @@ Azure Active Directory (Azure AD) authorizes access rights to secured resources 
 
 When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use Azure PowerShell to list built-in RBAC roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
+This article describes how to use Azure PowerShell to list built-in RBAC roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

@@ -70,7 +70,7 @@ The following table lists some of the major Azure Machine Learning operations an
 | View models/images | ✓ | ✓ | ✓ |
 | Call web service | ✓ | ✓ | ✓ |
 
-If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported only for operations on the workspace and Machine Learning Compute. Custom roles can have read, write, or delete permissions on the workspace and on the compute resource in that workspace. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
+If the built-in roles don't meet your needs, you can create custom roles. Custom roles are supported to control all operations inside a workspace, such as creating a compute, submitting a run, registering a datastore, or deploying a model. Custom roles can have read, write, or delete permissions on the various resources of a workspace, such as clusters, datastores, models and endpoints. You can make the role available at a specific workspace level, a specific resource-group level, or a specific subscription level. For more information, see [Manage users and roles in an Azure Machine Learning workspace](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning is supported with Azure Active Directory business-to-business collaboration, but is not currently supported with Azure Active Directory business-to-consumer collaboration.
@@ -123,6 +123,8 @@ The `hbi_workspace` flag controls the amount of data Microsoft collects for diag
 * Securely passes credentials for your storage account, container registry, and SSH account from the execution layer to your compute clusters using your key vault
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService
 
+> [!WARNING]
+> The `hbi_workspace` flag can only be set when a workspace is created. It cannot be changed for an existing workspace.
 
 For more information on how encryption at rest works in Azure, see [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
