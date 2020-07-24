@@ -67,7 +67,6 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 
 **Limitations**: 
-- Available only for SQL Server 2019 and Windows Server 2019 while in preview. 
 - Virtual machines must be placed in the same availability set and proximity placement group.
 - Availability zones are not supported.
 - Premium SSD disk caching is not supported.
