@@ -35,7 +35,7 @@ To be able to complete all the steps in this article, you need to be classified 
 
 You can check your permission level in the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal (you can use this link or look for *Subscriptions* with the portal search bar). Look for the name of the subscription you are using, and view your role for it in the *My role* column. If you are an owner, this value is *Owner*:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner":::
+:::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner" lightbox="media/how-to-set-up-instance/portal/subscriptions-role.png":::
 
 If you find that your value is *Contributor* or something other than *Owner*, you can contact your subscription Owner and proceed in one of the following ways:
 * Request for the Owner to complete the steps in this article on your behalf
@@ -59,13 +59,7 @@ On the following *Create Resource* page, fill in the values given below:
 * **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [*Azure products available by region (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Resource name**: A name for your Azure Digital Twins instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
 
-:::row:::
-    :::column:::
-        :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource":::
 
 When finished, select _Review + create_. This will take you to a summary page, where you can review the instance details you entered and hit _Create_. 
 
@@ -164,7 +158,7 @@ You can also verify the connection to Azure Digital Twins within the app registr
 
 To do this, select *Manifest* from the menu to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
 
-:::image type="content" source="../media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration":::
 
 ### Collect important values
 

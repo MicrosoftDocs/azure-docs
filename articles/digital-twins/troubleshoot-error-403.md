@@ -52,7 +52,7 @@ If you are an Owner on the subscription, you can run this command yourself. If y
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
 ```
 
-For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-CLI.md#set-up-your-users-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
+For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
 
 If you have this role assignment already and still encounter the 403 issue, continue to the next solution.
 
