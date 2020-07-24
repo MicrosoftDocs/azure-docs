@@ -7,14 +7,16 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 07/25/2020
+
+# Customer intent: As a developer, I want to perform more advanced JSON transformations by creating maps using Liquid.
 ---
 
 # Perform advanced JSON transformations with Liquid templates in Azure Logic Apps
 
-You can perform basic JSON transformations in your logic apps with native data operation actions such as **Compose** or **Parse JSON**. To perform advanced JSON transformations, you can create templates or maps with [Liquid](https://shopify.github.io/liquid/), which is an open-source template language for flexible web apps. A Liquid template defines how to transform JSON output and supports more complex JSON transformations, such as iterations, control flows, variables, and so on.
+You can perform basic JSON transformations in your logic apps by using native data operation actions such as **Compose** or **Parse JSON**. To perform advanced JSON transformations, you can create templates, which you use as maps, with [Liquid](https://shopify.github.io/liquid/), which is an open-source template language for flexible web apps. A Liquid template defines how to transform JSON output and supports more complex JSON transformations, such as iterations, control flows, variables, and so on.
 
-Before you can perform a Liquid transformation in your logic app, you must first define the JSON to JSON mapping with a Liquid template and store that map in your integration account. This article shows you how to create and use this Liquid template or map.
+Before you can perform a Liquid transformation in your logic app, you must first create a Liquid template that defines the JSON to JSON mapping and [upload the template as a map in your integration account](../logic-apps/logic-apps-enterprise-integration-maps.md). When you add the **Transform JSON to JSON - Liquid** action to your logic app, you can select this map for the action to use. This article shows you how to create a Liquid template, upload the template to your integration account, add the Liquid transform action to your logic app, and select the template that you want to use.
 
 ## Prerequisites
 
@@ -26,19 +28,62 @@ Before you can perform a Liquid transformation in your logic app, you must first
 
 * Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/)
 
-## Create Liquid template or map for your integration account
+  > [!NOTE]
+  > The **Transform JSON to JSON - Liquid** action uses the [DotLiquid implementation for Liquid](http://dotliquidmarkup.org/) 
+  > and in specific cases, differs from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). For more information, 
+  > see [Liquid template considerations](#template-considerations).
 
-1. For this example, create the sample Liquid template described in this step. In your Liquid template, you can use 
-[Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters), which use [DotLiquid](https://github.com/dotliquid/dotliquid) and C# naming conventions.
+<a name="template-considerations"></a>
 
-   > [!NOTE]
-   > Make sure the filter names use *sentence casing* in your template. 
-   > Otherwise, the filters won't work. Also, maps have 
-   > [file size limits](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).
+## Liquid template considerations
+
+* A Liquid template uses the [file size limits for maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) in Azure Logic Apps.
+
+* The **Transform JSON to JSON - Liquid** action uses the [DotLiquid implementation](http://dotliquidmarkup.org/). In specific cases, this implementation differs from the [Shopify specification](https://shopify.github.io/liquid/basics/introduction/). Here are the known differences:
+
+  * Your template can use Liquid filters, which follow the [DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters) and C# naming conventions. In Azure Logic Apps, the **Transform JSON to JSON - Liquid** action uses *sentence casing*, so make sure that the filter names in your template also use sentence casing. Otherwise, the filters won't work.
+
+    For more information, see [Shopify Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters) and [DotLiquid Liquid filters](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters).
+
+  * The **Transform JSON to JSON - Liquid** action natively outputs a string. In Azure Logic Apps, the **Transform JSON to JSON - Liquid** action merely indicates that the template's text output must be interpreted as a string. You need to escape the backslash character (`\`) and any other reserved JSON characters.
+
+  * For the Replace standard filter, the [Shopify implementation](https://shopify.github.io/liquid/filters/replace/) uses [simple string matching](https://github.com/Shopify/liquid/issues/202), while the [DotLiquid implementation](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) uses regular expression (RegEx) matching. Both implementations seem to work the same way until you use an RegEx-reserved character or escape character in the match parameter.
+
+    To work around this behavior, rather than use rather than use `| Replace: '\\' , '\\'`, use `| Replace: '"' , '\"'` instead.
+
+    The `\\` is required for the `Replace` search "string" because the DotLiquid implementation is using RegEx pattern matching instead of the Shopify intended simple string matching.
+
+    > [!NOTE]
+    > Due to the Liquid transform action using sentence casing, the Replace filter appears as `Replace` in the following sample maps, 
+    > Shopify examples, and when you use [DotLiquid online](http://dotliquidmarkup.org/try-online).
+
+    These examples show the difference in Replace filter behaviors when you use the RegEx-reserved character, `\`:
+
+    * Shopify version:
+
+      `{ "Date": "{{ 'MMM "EEE - SS BNBN KLJLsample\\' | Replace: '\\', '\\' | Replace: '"', '\"'}}"}`
+
+      Succeeds with this result:
+
+      `{ "Date": "MMM \"EEE - SS BNBN KLJLsample\\\\"}`
+
+    * DotLiquid version:
+
+      `{ "Date": "{{ 'MMM "EEE - SS BNBN KLJLsample\\' | Replace: '\', '\\' | Replace: '"', '\"'}}"}`
+
+      Fails with this error:
+
+      `{ "Date": "Liquid error: parsing "\" - Illegal \ at end of pattern."}`
+
+## Create the template
+
+1. Create the Liquid template that you use as a map for the JSON transformation. You can use any editing tool that you want.
+
+   For this example, create the sample Liquid template as described in this section:
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-   
+
    {
       "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
       "firstNameUpperCase": "{{content.firstName | Upcase}}",
@@ -50,12 +95,18 @@ Before you can perform a Liquid transformation in your logic app, you must first
             {%- else -%}
             "{{device}}",
             {%- endif -%}
-        {%- endfor -%}
-        ]
+         {%- endfor -%}
+      ]
    }
    ```
 
-1. In the [Azure portal](https://portal.azure.com), from the Azure search box, enter `integration accounts`, and select **Integration accounts**.
+1. Save the template by using the `.liquid` extension. This example uses `SimpleJsonToJsonTemplate.liquid`.
+
+## Upload the template
+
+1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+
+1. In the Azure portal search box, enter `integration accounts`, and select **Integration accounts**.
 
    ![Find "Integration accounts"](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 
@@ -69,16 +120,16 @@ Before you can perform a Liquid transformation in your logic app, you must first
 
 1. On the **Maps** pane, select **Add** and provide these details for your map:
 
-   | Property | Value | Description | 
+   | Property | Value | Description |
    |----------|-------|-------------|
-   | **Name** | `JsonToJsonTemplate` | The name for your map, which is "JsonToJsonTemplate" in this example | 
-   | **Map type** | **liquid** | The type for your map. For JSON to JSON transformation, you must select **liquid**. | 
+   | **Name** | `JsonToJsonTemplate` | The name for your map, which is "JsonToJsonTemplate" in this example |
+   | **Map type** | **liquid** | The type for your map. For JSON to JSON transformation, you must select **liquid**. |
    | **Map** | `SimpleJsonToJsonTemplate.liquid` | An existing Liquid template or map file to use for transformation, which is "SimpleJsonToJsonTemplate.liquid" in this example. To find this file, you can use the file picker. For map size limits, see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
-   ||| 
+   |||
 
    ![Add Liquid template](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
-    
-## Add the Liquid action for JSON transformation
+
+## Add the Liquid transformation action
 
 1. In the Azure portal, follow these steps to [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -120,35 +171,38 @@ The transformed JSON output from your logic app looks like this example:
   
 ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
-## More Liquid action examples
-Liquid is not limited to only JSON transformations. Here are other available transformation actions that use Liquid.
+## Other transformations using Liquid
+
+Liquid is not limited to only JSON transformations. Here are other available transformation actions that use Liquid:
 
 * Transform JSON to text
-  
+
   Here is the Liquid template used for this example:
-   
+
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
+
    Here are sample inputs and outputs:
   
    ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
 * Transform XML to JSON
-  
+
   Here is the Liquid template used for this example:
-   
+
    ``` json
    [{% JSONArrayFor item in content -%}
         {{item}}
     {% endJSONArrayFor -%}]
    ```
+
    Here are sample inputs and outputs:
 
    ![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
 * Transform XML to text
-  
+
   Here is the Liquid template used for this example:
 
    ``` json
@@ -163,4 +217,3 @@ Liquid is not limited to only JSON transformations. Here are other available tra
 
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
 * [Learn more about maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Learn about enterprise integration maps")  
-
