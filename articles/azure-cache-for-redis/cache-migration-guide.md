@@ -40,9 +40,9 @@ General steps to implement this option are:
 
 1. Create a new Azure Cache for Redis instance.
 
-1. Update your application to use the new instance.
+2. Update your application to use the new instance.
 
-1. Delete the old Redis instance.
+3. Delete the old Redis instance.
 
 ### Export data to an RDB file and import it into Azure Cache for Redis
 
@@ -50,21 +50,23 @@ Open-source Redis defines a standard mechanism for taking a snapshot of a cache'
 
 > [!IMPORTANT]
 > RDB file format can change between Redis versions and may not maintain backward-compatibility. The Redis version of the cache you're exporting from should be equal or less than the version provided by Azure Cache for Redis.
+>
 
 General steps to implement this option are:
 
 1. Create a new Azure Cache for Redis instance in the premium tier that is the same size as (or bigger than) the existing cache.
 
-1. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
+2. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
 
     > [!NOTE]
     > If you’re migrating data within Azure Cache for Redis, see [these instructions on how to export an RDB file](cache-how-to-import-export-data.md) or use the [PowerShell Export cmdlet](https://docs.microsoft.com/powershell/module/azurerm.rediscache/export-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0) instead.
+    >
 
-1. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use AzCopy for this task.
+3. Copy the RDB file to an Azure storage account in the region where your new cache is located. You can use AzCopy for this task.
 
-1. Import the RDB file into the new cache using these [import instructions](cache-how-to-import-export-data.md) or the [PowerShell Import cmdlet](https://docs.microsoft.com/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
+4. Import the RDB file into the new cache using these [import instructions](cache-how-to-import-export-data.md) or the [PowerShell Import cmdlet](https://docs.microsoft.com/powershell/module/azurerm.rediscache/import-azurermrediscache?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.4.0).
 
-1. Update your application to use the new cache instance.
+5. Update your application to use the new cache instance.
 
 ### Write to two Redis caches simultaneously during migration period
 
@@ -74,13 +76,13 @@ General steps to implement this option are:
 
 1. Create a new Azure Cache for Redis instance in the premium tier that is the same size as (or bigger than) the existing cache.
 
-1. Modify application code to write to both the new and the original instances.
+2. Modify application code to write to both the new and the original instances.
 
-1. Continue reading data from the original instance until the new instance is sufficiently populated with data.
+3. Continue reading data from the original instance until the new instance is sufficiently populated with data.
 
-1. Update the application code to reading and writing from the new instance only.
+4. Update the application code to reading and writing from the new instance only.
 
-1. Delete the original instance.
+5. Delete the original instance.
 
 ### Migrate programmatically
 
@@ -88,19 +90,21 @@ You can create a custom migration process by programmatically reading data from 
 
 > [!NOTE]
 > This tool isn't officially supported by Microsoft. 
+>
 
 General steps to implement this option are:
 
 1. Create a VM in the region where the existing cache is located. If your dataset is large, choose a relatively powerful VM to reduce copying time.
 
-1. Create a new Azure Cache for Redis instance.
+2. Create a new Azure Cache for Redis instance.
 
-1. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
+3. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
 
     > [!IMPORTANT]
     > Make sure to NOT flush from the source cache.
+    >
 
-1. Use an application such as the open-source tool above to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
+4. Use an application such as the open-source tool above to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
 
 ## Next steps
 Learn more about Azure Cache for Redis features.
