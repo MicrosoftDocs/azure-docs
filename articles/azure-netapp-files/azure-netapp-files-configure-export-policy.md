@@ -17,7 +17,7 @@ You can create up to five export policy rules.
 
 ## Steps 
 
-1.	From the Volumes page, select the NFS or dual-protocol volume, and click **Export policy**. 
+1.	From the Volumes page, select the volume for which you want to configure the export policy, and click **Export policy**. 
 
     You can also configure the export policy during the creation of the volume.
 
