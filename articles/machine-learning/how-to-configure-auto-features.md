@@ -185,9 +185,6 @@ automl_settings = {
 }
 ```
 
-
-
-
 ## Next steps
 
 * Learn how to set up your automated ML experiments:
