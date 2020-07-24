@@ -218,7 +218,7 @@ You may find the following topics helpful when working with Azure Active Directo
 
 - To add a service principal to an Azure Active Directory tenant, see [How to use the portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-- To learn how to get a JWT token from Azure Active Directory to use when calling REST APIs, see [Acquire a token from Azure Active Directory for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-Azure AD-app).
+- To learn how to get a JWT token from Azure Active Directory to use when calling REST APIs, see [Acquire a token from Azure Active Directory for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app).
 
 ## Next steps
 
