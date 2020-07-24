@@ -683,7 +683,9 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFronten
 
 ### Create outbound pool
 
-Create a new outbound pool with [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). Apply the pool and frontend IP address to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
+Create a new outbound pool with [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
+
+Apply the pool and frontend IP address to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
 
 * Named **myBackEndPoolOutbound**.
 
@@ -698,7 +700,9 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerBackend
 ```
 ### Create outbound rule and apply to load balancer
 
-Create a new outbound rule for the outbound backend pool with [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). Apply the rule to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
+Create a new outbound rule for the outbound backend pool with [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 
+
+Apply the rule to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 * Named **myOutboundRule**.
 * Associated with load balancer **myLoadBalancer**.
