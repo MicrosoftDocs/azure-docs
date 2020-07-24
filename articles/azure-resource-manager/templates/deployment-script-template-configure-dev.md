@@ -11,25 +11,30 @@ ms.author: jgao
 ---
 # Configure development environment for deployment scripts in templates
 
-Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create an Azure container instance or use docker. For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
+Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create [Azure container instance](../../container-instances/) or use [Docker](https://docs.docker.com/get-docker/).
 
 ## Prerequisite
 
 If you don't have a deployment script, you can create a **hello.ps1** file with the following content:
 
-    ```powershell
-    param([string] $name)
-    $output = 'Hello {0}' -f $name
-    Write-Output $output
-    $DeploymentScriptOutputs = @{}
-    $DeploymentScriptOutputs['text'] = $output
-    ```
+```powershell
+param([string] $name)
+$output = 'Hello {0}' -f $name
+Write-Output $output
+$DeploymentScriptOutputs = @{}
+$DeploymentScriptOutputs['text'] = $output
+```
 
 ## Use Azure container instance
 
+To author your scripts on your computer, you need to create a storage account and mount the storage account to the container instance. So that you can upload your script to the storage account and run the script on the container instance.
+
+> [!NOTE]
+> The storage account that you create to test your script is not the same storage account that the deployment script service uses to execute the script. Deployment script service creates a unique name as a file share on every execution.
+
 ### Create an Azure container instance
 
-The following ARM template creates a container instance and a file share, and then mounts the file share to the container image. You can upload your deployment script to the file share and run the script from the container instance.
+The following ARM template creates a container instance and a file share, and then mounts the file share to the container image.
 
 ```json
 {
@@ -121,7 +126,7 @@ The following ARM template creates a container instance and a file share, and th
               "command": [
                 "/bin/sh",
                 "-c",
-                "pwsh -c 'Start-Sleep 2000'"
+                "pwsh -c 'Start-Sleep -Seconds 1800'"
               ]
             }
           }
@@ -145,6 +150,8 @@ The following ARM template creates a container instance and a file share, and th
 ```
 
 The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7"**.  For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
+
+The template sets the sleep time to be 1800 seconds. You have 30 minutes before the container instance goes into terminal state and the session ends.
 
 To deploy the template:
 
