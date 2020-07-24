@@ -412,11 +412,17 @@ Load balancer outbound rules configure outbound SNAT for VMs in the backend pool
 
 For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
 
-### Create outbound public IP address
+### Create outbound public IP address or public IP prefix.
 
-Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to:
+Use [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) to create a single IP for the outbound connectivity.  
 
-* Create a standard zone redundant public IP address named **myPublicIPOutbound**.
+Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-create) to create a public IP prefix for the outbound connectivity.
+
+For more information on scaling outbound NAT and outbound connectivity, see [Scale outbound NAT with multiple IP addresses](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scale).
+
+#### Public IP
+
+* Named **myPublicIPOutbound**.
 * In **myResourceGroupLB**.
 
 ```azurecli-interactive
@@ -435,10 +441,36 @@ To create a zonal redundant public IP address in Zone 1:
     --sku Standard \
     --zone 1
 ```
+#### Public IP prefix
+
+* Named **myPublicIPPrefixOutbound**.
+* In **myResourceGroupLB**.
+* Prefix length of **28**.
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28
+```
+To create a zonal redundant public IP prefix in Zone 1:
+
+```azurecli-interactive
+  az network public-ip prefix create \
+    --resource-group myResourceGroupLB \
+    --name myPublicIPPrefixOutbound \
+    --length 28 \
+    --zone 1
+```
+
 ### Create outbound frontend IP configuration
 
 Create a new frontend IP configuration with [az network lb frontend-ip create
 ](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip?view=azure-cli-latest#az-network-lb-frontend-ip-create):
+
+Select the public IP or public IP prefix commands based on decision in previous step.
+
+#### Public IP
 
 * Named **myFrontEndOutbound**.
 * In resource group **myResourceGroupLB**.
@@ -451,6 +483,21 @@ Create a new frontend IP configuration with [az network lb frontend-ip create
     --name myFrontEndOutbound \
     --lb-name myLoadBalancer \
     --public-ip-address myPublicIPOutbound 
+```
+
+#### Public IP prefix
+
+* Named **myFrontEndOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with public IP prefix **myPublicIPPrefixOutbound**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurecli-interactive
+  az network lb frontend-ip create \
+    --resource-group myResourceGroupLB \
+    --name myFrontEndOutbound \
+    --lb-name myLoadBalancer \
+    --public-ip-prefix myPublicIPPrefixOutbound 
 ```
 
 ### Create outbound pool
@@ -493,7 +540,7 @@ Create a new outbound rule for the outbound backend pool with [az network lb out
 ```
 ### Add virtual machines to outbound pool
 
-Add the virtual machine network interfaces to the outbound pool of the load balancer with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
+Add the virtual machines to the outbound pool with [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add):
 
 
 #### VM1
