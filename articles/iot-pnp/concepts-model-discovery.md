@@ -100,7 +100,7 @@ The solution can also use **Get Twin** to retrieve model ID from the device twin
 
 To make the model and component interfaces that your devices use available to your solution, you have the following options:
 
-- Use the [model repository](howto-manage-models.md).
+- Use the [model repository](concepts-model-repository.md).
 - Use a local cache or model repository.
 
 When the solution has [discovered the model](#model-discovery) for a device, it can use the model to understand how to interact with the device.
@@ -112,4 +112,3 @@ Now that you've learned about model discovery an IoT solution, learn more about 
 - [Interact with a device from your solution](quickstart-service-node.md)
 - [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)
-

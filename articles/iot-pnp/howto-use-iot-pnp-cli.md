@@ -108,4 +108,4 @@ az iot hub monitor-events -n {iothub_name} -d {device_id} -i {interface_id}
 
 ## Next steps
 
-In this how-to article, you've learned how to install and use the Azure IoT extension for the Azure CLI to interact with your Plug and Play devices. A suggested next step is to learn how to [Manage models](./howto-manage-models.md).
+In this how-to article, you've learned how to install and use the Azure IoT extension for the Azure CLI to interact with your Plug and Play devices. A suggested next step is to learn how to use the [Azure IoT explorer with your devices](./howto-use-iot-explorer.md).

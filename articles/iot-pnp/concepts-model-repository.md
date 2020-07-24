@@ -53,7 +53,7 @@ The company model repository is a tenant in the Azure IoT model repository for y
 
 Use your *work or school Azure Active Directory (Azure AD) account* to access the model repository. If your organization already has an Azure AD tenant you can use user account(s) and service principals from this Azure AD tenant.
 
-To learn how to set up an Azure Active Directory tenant and how to create a user or service principal in an Azure Active Directory tenant, see [Additional information](howto-manage-models.md#additional-information) section.
+To learn how to set up an Azure Active Directory tenant and how to create a user or service principal in an Azure Active Directory tenant, see [Additional information](#additional-information) section.
 
 - If you're the first user from your organization to access the model repository or to sign into the portal, you're granted the **Tenant Administrator** role. This role allows you to assign roles to other users in your organization's repository tenant.
 
@@ -180,7 +180,7 @@ To publish a model using the portal:
     ![Publish model](./media/concepts-model-repository/publish-model.png)
 
 > [!NOTE]
-> If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see [Set up your model repository tenant and users](howto-manage-models.md#set-up-your-model-repository-tenant-and-users).
+> If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see the requirements at the beginning of this section.
 
 To publish a model using the REST API, see the [Publish a model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) REST API documentation. Supply the query string parameter `update-metadata=true` to publish a model using the REST API. See [Passing a security token when accessing company models via REST Api](#passing-a-security-token-when-accessing-company-models-via-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
 
