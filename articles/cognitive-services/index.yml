@@ -144,10 +144,8 @@ additionalContent:
   sections:
     - title: Additional resources
       items:
-        - title: Additional resources
+        - title: Portals for customization
           links:
-            - title: Portals for customization
-              links:
             - text: Custom Translator
               url: https://portal.customtranslator.azure.ai/
             - text: Custom Vision
