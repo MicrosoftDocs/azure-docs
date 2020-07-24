@@ -129,7 +129,7 @@ For more information about LTR, see [Long-term backup retention](long-term-reten
 
 ## Storage costs
 
-The price for storage varies depending on whether you're using the DTU model or the vCore model as well as backup storage redundancy option.
+The price for storage varies and depends on both your purchasing model (DTU or vCore) and the chosen storage backup storage redundancy option.
 
 ### DTU model
 
