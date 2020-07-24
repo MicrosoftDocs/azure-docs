@@ -90,8 +90,8 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     | **Time Series ID property name** | Enter a name of a property that contains values that uniquely identify your time series instances. The value you enter in the **Property name** box as Time Series ID cannot be changed later. For this tutorial, enter ***iothub-connection-device-id***. To learn more about Time Series ID including composite Time Series ID, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account.|
     | **Storage account kind** | Select the storage kind for a new storage account. We recommend StorageV2|
-    | **Storage account replication** | Select the storage kind for a new storage account. Based on your location selection, you can choose from LRS, GRS and ZRS. For this tuorial, you can select LRS|
-    | **Hierarchial namespace** |This option is selectable, once you select the storage kind to be StorageV2. By default, it is disabled. For this tutorial, you can leave it in its default *disabled* state|
+    | **Storage account replication** | Select the storage kind for a new storage account. Based on your location selection, you can choose from LRS, GRS and ZRS. For this tutorial, you can select LRS|
+    | **Hierarchical namespace** |This option is selectable, once you select the storage kind to be StorageV2. By default, it is disabled. For this tutorial, you can leave it in its default *disabled* state|
     |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable or disable this setting. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
     
