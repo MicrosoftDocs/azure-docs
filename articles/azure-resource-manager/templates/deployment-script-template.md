@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/24/2020
 ms.author: jgao
 
 ---
@@ -552,48 +552,7 @@ Deployment script execution is an idempotent operation. If none of the deploymen
 
 ## Configure development environment
 
-You can use a pre-configured docker container image as your deployment script development environment. To install Docker, see [Get Docker](https://docs.docker.com/get-docker/).
-You also need to configure file sharing to mount the directory which contains the deployment scripts into Docker container.
-
-1. Pull the deployment script container image to the local computer:
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    The example uses version PowerShell 2.7.0.
-
-    To pull a CLI image from a Microsoft Container Registry (MCR):
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    This example uses version CLI 2.0.80. Deployment script uses the default CLI containers images found [here](https://hub.docker.com/_/microsoft-azure-cli).
-
-1. Run the docker image locally.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Replace **&lt;host driver letter>** and **&lt;host directory name>** with an existing folder on the shared drive.  It maps the folder to the **/data** folder in the container. For examples, to map D:\docker:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **-it** means keeping the container image alive.
-
-    A CLI example:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. The following screenshot shows how to run a PowerShell script, given that you have a helloworld.ps1 file in the shared drive.
-
-    ![Resource Manager template deployment script docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+You can use a pre-configured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts in templates](./deployment-script-template-configure-dev.md).
 
 After the script is tested successfully, you can use it as a deployment script in your templates.
 

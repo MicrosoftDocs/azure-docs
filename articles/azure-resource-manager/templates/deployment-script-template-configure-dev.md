@@ -11,13 +11,25 @@ ms.author: jgao
 ---
 # Configure development environment for deployment scripts in templates
 
-Learn how to create a development environment for developing deployment scripts with an deployment script image.  You can either create an Azure container instance or use docker. See a list of [supported Azure PowerShell versions](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
+Learn how to create a development environment for developing and testing deployment scripts with an deployment script image. You can either create an Azure container instance or use docker. For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
+
+## Prerequisite
+
+If you don't have a deployment script, you can create a **hello.ps1** file with the following content:
+
+    ```powershell
+    param([string] $name)
+    $output = 'Hello {0}' -f $name
+    Write-Output $output
+    $DeploymentScriptOutputs = @{}
+    $DeploymentScriptOutputs['text'] = $output
+    ```
 
 ## Use Azure container instance
 
 ### Create an Azure container instance
 
-An ARM template has been created to simplify the configuration process. The ARM template creates a container instance and a file share, and then mounts the file share to the container image.
+The following ARM template creates a container instance and a file share, and then mounts the file share to the container image. You can upload your deployment script to the file share and run the script from the container instance.
 
 ```json
 {
@@ -132,6 +144,8 @@ An ARM template has been created to simplify the configuration process. The ARM 
 }
 ```
 
+The default container image specified in the template is **mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7"**.  For a list of supported Azure PowerShell versions and Azure CLI versions, see [Azure PowerShell or Azure CLI](./deployment-script-template.md#prerequisites).
+
 To deploy the template:
 
 ```azurepowershell
@@ -146,25 +160,26 @@ New-AzResourceGroupDeployment -resourceGroupName $resourceGroupName -TemplateFil
 
 ### Upload deployment script
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Open the resource group where you deployed the container instance and the storage account.
-1. Open the storage account. The default storage account name is the project name with **store** appended.
-1. Select **File shares**.
-1. Select your file share.  The default file share name is the project name with **share** appended.
-1. Select **Upload** and then follow the instruction to upload your deployment script file. For the testing purpose, you can create a **ps1** file with the following content:
+Upload your deployment script to the storage account. The following is a PowerShell example:
 
-    ```powershell
-    param([string] $name)
-    $output = 'Hello {0}' -f $name
-    Write-Output $output
-    $DeploymentScriptOutputs = @{}
-    $DeploymentScriptOutputs['text'] = $output
-    ```
+```azurepowershell
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource group name"
+$fileName = Read-Host -Prompt "Enter the deployment script file name with the path"
+
+$resourceGroupName = "${projectName}rg"
+$storageAccountName = "${projectName}store"
+$fileShareName = "${projectName}share"
+
+$context = (Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName).Context
+Set-AzStorageFileContent -Context $context -ShareName $fileShareName -Source $fileName -Force
+```
+
+You can also upload the file by using the Azure portal and Azure CLI.
 
 ### Test the deployment script
 
 1. From the Azure portal, open the resource group where you deployed the container instance and the storage account.
-1. Open the container group. The default container group name is the project name with **cg** appended. You shall see the container instance is in the started state.
+1. Open the container group. The default container group name is the project name with **cg** appended. You shall see the container instance is in the **Pending** state.
 1. Select **Containers** from the left menu. You shall see a container instance.  The container instance name is the project name with **container** appended.
 1. Select **Connect**, and then select **Connect**. If  you can't connect to the container instance, restart the container group and try again.
 1. Run the **ls** commmand to list the files.  You shall see a **deploymentScript** folder if you use the default mount path value when you deploy the template.
