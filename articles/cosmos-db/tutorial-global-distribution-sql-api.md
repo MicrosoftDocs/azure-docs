@@ -41,13 +41,14 @@ If you don't specify the preferred locations but used the `setCurrentLocation` m
 
 The SDK can be used without any code changes. In this case, the SDK automatically directs both reads and writes to the current write region.
 
-In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
+# [.NET SDK V2](#tab/dotnetv2)
+
+In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the region name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
 
 The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
 
 > [!NOTE]
 > The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
->
 >
 
 ```csharp
@@ -71,6 +72,22 @@ DocumentClient docClient = new DocumentClient(
 // connect to DocDB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
+
+# [.NET SDK V3](#tab/dotnetv3)
+
+If you are using the .Net V3 SDK, use the `ApplicationPreferredRegions` property to set the preferred region. You can also use the `ApplicationRegion` property and let the SDK choose the preferred location based on proximity. 
+
+```csharp
+
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+options.ApplicationPreferredRegions = new List<string> {Regions.WestUS, Regions.WestUS2};
+
+CosmosClient client = new CosmosClient(connectionString, options);
+
+```
+
+---
 
 ## Node.js/JavaScript
 
