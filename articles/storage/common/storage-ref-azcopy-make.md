@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy make com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -40,7 +40,7 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 |Option|Description|
 |--|--|
 |-h, --help|Show help content for the make command. |
-|--quota-gb uint32|Specifies the maximum size of the share in gigabytes (GiB), 0 means you accept the file service's default quota.|
+|--quota-gb uint32|Specifies the maximum size of the share in gigabytes (GiB), zero means you accept the file service's default quota.|
 
 ## Options inherited from parent commands
 

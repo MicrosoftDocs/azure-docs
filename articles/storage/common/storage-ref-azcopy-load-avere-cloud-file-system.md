@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy load clf
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -16,17 +16,18 @@ Transfers local data into a Container and stores it in Microsoft's Avere Cloud F
 
 ## Synopsis
 
-The load command copies data into Azure Blob Storage Containers and stores it in Microsoft's Avere Cloud FileSystem (CLFS) format. 
+The load command copies data into Azure Blob storage containers and then stores that data in Microsoft's Avere Cloud FileSystem (CLFS) format. 
 The proprietary CLFS format is used by the Azure HPC Cache and Avere vFXT for Azure products.
 
-To leverage this command, please install the necessary extension via: pip3 install clfsload~=1.0.23. Please make sure CLFSLoad.py is 
-in your PATH. For more information on this step, please visit https://aka.ms/azcopy/clfs.
+To leverage this command, install the necessary extension via: pip3 install clfsload~=1.0.23. Make sure CLFSLoad.py is 
+in your PATH. For more information on this step, visit [https://aka.ms/azcopy/clfs](https://aka.ms/azcopy/clfs).
 
 This command is a simple option for moving existing data to cloud storage for use with specific Microsoft high-performance computing cache products. 
+
 Because these products use a proprietary cloud filesystem format to manage data, that data cannot be loaded through the native copy command. 
-Instead, the data must be loaded through the cache product itself OR via this load command, which uses the correct proprietary format.
-This command lets you transfer data without using the cache. For example, 
-to pre-populate storage or to add files to a working set without increasing cache load.
+
+Instead, the data must be loaded through the cache product itself or via this load command, which uses the correct proprietary format.
+This command lets you transfer data without using the cache. For example, to pre-populate storage or to add files to a working set without increasing cache load.
 
 The destination is an empty Azure Storage Container. When the transfer is complete, the destination container can be used with an Azure HPC Cache instance or Avere vFXT for Azure cluster.
 
@@ -47,19 +48,22 @@ azcopy load clfs [local dir] [container URL] [flags]
 ## Examples
 
 Load an entire directory to a container with a SAS in CLFS format:
-  - azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[container]?[SAS]" --state-path="/path/to/state/path"
+
+```azcopy
+azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[container]?[SAS]" --state-path="/path/to/state/path"
+```
 
 ## Options
 
-**--compression-type** string   specify the compression type to use for the transfers. Available values are: DISABLED,LZ4. (default "LZ4")
+**--compression-type** string   specify the compression type to use for the transfers. Available values are: `DISABLED`,`LZ4`. (default `LZ4`)
 
-**--help**    help for CLFS.
+**--help**    help for the `azcopy load clfs` command.
 
-**--log-level** string   Define the log verbosity for the log file, available levels: DEBUG, INFO, WARNING, ERROR. (default "INFO")
+**--log-level** string   Define the log verbosity for the log file, available levels: `DEBUG`, `INFO`, `WARNING`, `ERROR`. (default `INFO`)
 
 **--max-errors** uint32   Specify the maximum number of transfer failures to tolerate. If enough errors occur, stop the job immediately.
 
-**--new-session**   Start a new job rather than continuing an existing one whose tracking information is kept at --state-path. (default true)
+**--new-session**   Start a new job rather than continuing an existing one whose tracking information is kept at `--state-path`. (default true)
 
 **--preserve-hardlinks**    Preserve hard link relationships.
 

@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -239,7 +239,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 **--exclude-blob-type** string    Optionally specifies the type of blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) to exclude when copying blobs from the container or the account. Use of this flag is not applicable for copying data from non-Azure service to service. More than one blob should be separated by `;`. 
 
-**--exclude-path** string     Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths do not include the container name.
+**--exclude-path** string     Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: `myFolder;myFolder/subDirName/file.pdf`). When used in combination with account traversal, paths do not include the container name.
 
 **--exclude-pattern** string   Exclude these files when copying. This option supports wildcard characters (*).
 
@@ -253,11 +253,11 @@ its read-only attribute set.
 **--help**  help for copy.
 
 **--include-after** string   Include only those files modified on or after the given date/time. The value should be in ISO8601 format. If no timezone 
-is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with --preserve-smb-info or --preserve-smb-permissions.
+is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
 
-**--include-attributes** string   (Windows only) Include files whose attributes match the attribute list. For example: A;S;R
+**--include-attributes** string   (Windows only) Includes files whose attributes match the attribute list. For example: A;S;R
 
-**--include-path** string    Include only these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix (For example: myFolder;myFolder/subDirName/file.pdf).
+**--include-path** string    Include only these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix (For example: `myFolder;myFolder/subDirName/file.pdf`).
 
 **--include-pattern** string   Include only these files when copying. This option supports wildcard characters (*). Separate files by using a `;`.
 
@@ -273,11 +273,11 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--preserve-last-modified-time**  Only available when destination is file system.
 
-**--preserve-owner**    Only has an effect in downloads, and only when --preserve-smb-permissions is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false,--preserve-smb-permissions will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
+**--preserve-owner**    Only has an effect in downloads, and only when `--preserve-smb-permissions` is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false,`--preserve-smb-permissions` will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
 
 **--preserve-smb-info**   False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is never preserved for folders.
 
-**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). For downloads, you will also need the --backup flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
+**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). For downloads, you will also need the `--backup` flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, `include-pattern`).
 
 **--put-md5**    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 

@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy login co
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -18,11 +18,9 @@ Logs in to Azure Active Directory to access Azure Storage resources.
 
 Log in to Azure Active Directory to access Azure Storage resources.
 
-To be authorized to your Azure Storage account, you must assign the **Storage Blob Data Contributor** role to your user account in the context of either the Storage account, parent resource group or parent subscription.
+To be authorized to your Azure Storage account, you must assign the **Storage Blob Data Contributor** role to your user account in the context of either the Storage account, parent resource group, or parent subscription.
 
 This command will cache encrypted login information for current user using the OS built-in mechanisms.
-
-Please refer to the examples for more information.
 
 > [!IMPORTANT]
 > If you set an environment variable by using the command line, that variable will be readable in your command line history. Consider clearing variables that contain credentials from your command line history. To keep variables from appearing in your history, you can use a script to prompt the user for their credentials, and to set the environment variable.
@@ -42,42 +40,58 @@ azcopy login [flags]
 
 Log in interactively with default AAD tenant ID set to common:
 
-- azcopy login
+```azcopy
+azcopy login
+```
 
 Log in interactively with a specified tenant ID:
 
-- azcopy login --tenant-id "[TenantID]"
+```azcopy
+azcopy login --tenant-id "[TenantID]"
+```
 
 Log in by using the system-assigned identity of a Virtual Machine (VM):
 
-- azcopy login --identity
+```azcopy
+azcopy login --identity
+```
 
 Log in by using the user-assigned identity of a VM and a Client ID of the service identity:
-   
-- azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
-
+  
+```azcopy
+azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
+```
+ 
 Log in by using the user-assigned identity of a VM and an Object ID of the service identity:
 
-- azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
+```azcopy
+azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
+```
 
 Log in by using the user-assigned identity of a VM and a Resource ID of the service identity:
  
-- azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
+```azcopy
+azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
+```
 
 Log in as a service principal by using a client secret:
 Set the environment variable AZCOPY_SPA_CLIENT_SECRET to the client secret for secret based service principal auth.
 
-- azcopy login --service-principal --application-id <your service principal's application ID>
+```azcopy
+azcopy login --service-principal --application-id <your service principal's application ID>
+```
 
 Log in as a service principal by using a certificate and it's password:
 
-Set the environment variable AZCOPY_SPA_CERT_PASSWORD to the certificate's password for cert based service principal auth:
+Set the environment variable AZCOPY_SPA_CERT_PASSWORD to the certificate's password for cert-based service principal auth:
 
-- azcopy login --service-principal --certificate-path /path/to/my/cert --application-id <your service principal's application ID>
+```azcopy
+azcopy login --service-principal --certificate-path /path/to/my/cert --application-id <your service principal's application ID>
+```
 
-Please treat /path/to/my/cert as a path to a PEM or PKCS12 file-- AzCopy does not reach into the system cert store to obtain your certificate.
+Treat `/path/to/my/cert` as a path to a PEM or PKCS12 file. AzCopy does not reach into the system cert store to obtain your certificate.
 
---certificate-path is mandatory when doing cert-based service principal auth.
+`--certificate-path` is mandatory when doing cert-based service principal auth.
 
 ## Options
 
@@ -87,9 +101,9 @@ Please treat /path/to/my/cert as a path to a PEM or PKCS12 file-- AzCopy does no
 
 **--certificate-path** string  Path to certificate for SPN authentication. Required for certificate-based service principal auth.
 
-**--help**   help for login
+**--help**   help for the `azcopy login` command.
 
-**--identity**   Log in using virtual machine's identity, also known as managed service identity (MSI).
+**--identity**   Login using virtual machine's identity, also known as managed service identity (MSI).
 
 **--identity-client-id** string  Client ID of user-assigned identity.
 

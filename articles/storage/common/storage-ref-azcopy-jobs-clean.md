@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy jobs cle
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -33,9 +33,9 @@ azcopy jobs clean [flags]
 
 ## Options
 
-**-h, --help**                Help for clean.
+**--help**                Help for clean.
 
-**--with-status** string   Only remove the jobs with this status, available values: Canceled, Completed, Failed, InProgress, All (default "All")
+**--with-status** string   Only remove the jobs with this status, available values: `Canceled`, `Completed`, `Failed`, `InProgress`, `All` (default `All`)
 
 ## Options inherited from parent commands
 

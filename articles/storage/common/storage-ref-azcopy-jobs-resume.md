@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy jobs res
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -31,11 +31,11 @@ azcopy jobs resume [jobID] [flags]
 
 |Option|Description|
 |--|--|
-|--destination-sas string|Destination SAS of the destination for given JobId.|
+|--destination-sas string|Destination SAS of the destination for given Job ID.|
 |--exclude string|Filter: Exclude these failed transfer(s) when resuming the job. Files should be separated by ';'.|
 |-h, --help|Show help content for the resume command.|
 |--include string|Filter: only include these failed transfer(s) when resuming the job. Files should be separated by ';'.|
-|--source-sas string |source SAS of the source for given JobId.|
+|--source-sas string |source SAS of the source for given Job ID.|
 
 ## Options inherited from parent commands
 

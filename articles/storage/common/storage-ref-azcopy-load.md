@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy load com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -12,11 +12,11 @@ ms.reviewer: zezha-msft
 
 # azcopy load
 
-Sub-commands related to transferring data in specific formats
+Subcommands related to transferring data in specific formats
 
 ## Synopsis
 
-Sub-commands related to transferring data in specific formats, such as Microsoft's Avere Cloud FileSystem (CLFS) format.
+Subcommands related to transferring data in specific formats, such as Microsoft's Avere Cloud FileSystem (CLFS) format.
 
 ## Related conceptual articles
 
@@ -28,7 +28,10 @@ Sub-commands related to transferring data in specific formats, such as Microsoft
 ## Examples
 
 Load an entire directory to a container with a SAS in CLFS format:
-  - azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[container]?[SAS]" --state-path="/path/to/state/path"
+
+```azcopy
+azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[container]?[SAS]" --state-path="/path/to/state/path"
+```
 
 ## Options
 
