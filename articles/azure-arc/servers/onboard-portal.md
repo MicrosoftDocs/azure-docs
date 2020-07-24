@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/14/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: references_regions
 ---
@@ -83,6 +83,10 @@ If the agent fails to start after setup is finished, check the logs for detailed
 1. Log in to the server.
 
 1. Open an elevated PowerShell command prompt.
+
+    >[!NOTE]
+    >The script only supports running from a 64-bit version of Windows PowerShell.
+    >
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.ps1` script.
 

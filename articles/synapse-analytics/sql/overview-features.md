@@ -1,5 +1,5 @@
 ---
-title: T-SQL feature differences in Azure Synapse SQL
+title: T-SQL feature differences in Synapse SQL
 description: List of Transact-SQL features that are available in Synapse SQL.
 services: synapse analytics
 author: jovanpop-msft

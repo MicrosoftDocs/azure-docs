@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Understanding app status in Azure Spring Cloud

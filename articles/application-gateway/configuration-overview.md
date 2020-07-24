@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 07/20/2020
 ms.author: absha
 ---
 
@@ -141,7 +141,7 @@ When you create a new listener, you choose between [*basic* and *multi-site*](ht
 
 - If you want all of your requests (for any domain) to be accepted and forwarded to backend pools, choose basic. Learn [how to create an application gateway with a basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- If you want to forward requests to different backend pools based on the *host* header or hostname, choose multi-site listener, where you must also specify a hostname that matches with the incoming request. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.
+- If you want to forward requests to different backend pools based on the *host* header or host names, choose multi-site listener, where you must also specify a host name that matches with the incoming request. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port. To learn more, see [hosting multiple sites using Application Gateway](multiple-site-overview.md).
 
 #### Order of processing listeners
 
@@ -281,7 +281,7 @@ By using rewrite rules, you can add, remove, or update HTTP(S) request and respo
 The headers and URL parameters can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
 For more information, see:
 
- - [Rewrite HTTP headers overview](rewrite-http-headers-url.md)
+ - [Rewrite HTTP headers and URL overview](rewrite-http-headers-url.md)
  - [Configure HTTP header rewrite](rewrite-http-headers-portal.md)
  - [Configure URL rewrite](rewrite-url-portal.md)
 

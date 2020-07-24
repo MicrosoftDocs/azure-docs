@@ -33,7 +33,7 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How RBAC works](/azure/role-based-access-control/overview#how-rbac-works).
 
-For more information on specific built-in roles, see [Built-in roles for Azure](/azure/role-based-access-control/built-in-roles).
+For more information on specific built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles).
 
 ## Manage workspace access
 
@@ -114,7 +114,7 @@ After deployment, this role becomes available in the specified workspace. Now yo
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
+For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
 
 ## Frequently asked questions
 

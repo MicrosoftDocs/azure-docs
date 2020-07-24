@@ -172,7 +172,7 @@ For Windows apps, you can manually configure continuous deployment from a cloud 
 ## Additional resources
 
 * [Investigate common issues with continuous deployment](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
-* [Use Azure PowerShell](/powershell/azureps-cmdlets-docs)
+* [Use Azure PowerShell](/powershell/azure/)
 * [Git documentation](https://git-scm.com/documentation)
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 

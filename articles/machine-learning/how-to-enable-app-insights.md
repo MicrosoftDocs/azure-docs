@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
+ms.date: 07/23/2020
 ms.custom: tracking-python
 ---
 
@@ -148,15 +148,20 @@ You can also enable Azure Application Insights from Azure Machine Learning studi
 1. Select **Enable Application Insights diagnostics and data collection**
 
     ![Enable App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
-## Evaluate data
+
+## View metrics and logs
+
 Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
 
-1. Go to your Azure Machine Learning workspace in the [Azure portal](https://ms.portal.azure.com/) and click on the Application Insights link
+1. Go to your Azure Machine Learning workspace in the [studio](https://ml.azure.com/).
+1. Select **Endpoints**.
+1. Select your deployed service.
+1. Scroll down to find the **Application Insights url** and click on the link.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Locate Application Insights url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. From the **Overview** tab or the __Monitoring__ section in the list on the left, select __Logs__.
+1. In Application Isights, from the **Overview** tab or the __Monitoring__ section in the list on the left, select __Logs__.
 
     [![Overview tab of monitoring](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -181,7 +186,7 @@ You can use Azure Application Insights' [continuous export](https://docs.microso
 
 Azure Data Factory, Azure ML Pipelines, or other data processing tools can be used to transform the data as needed. When you have transformed the data, you can then register it with the Azure Machine Learning workspace as a dataset. To do so, see [How to create and register datasets](how-to-create-register-datasets.md).
 
-   [![Continuous Export](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Continuous export":::
 
 
 ## Example notebook

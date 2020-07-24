@@ -251,6 +251,8 @@
         href: bynder-tutorial.md
     - name: C
       items:
+      - name: C3M Cloud Control
+        href: c3m-cloud-control-tutorial.md
       - name: CakeHR
         href: cakehr-tutorial.md
       - name: Campus Café
@@ -331,6 +333,8 @@
         href: clicktime-tutorial.md
       - name: ClickUp Productivity Platform
         href: clickup-productivity-platform-tutorial.md
+      - name: Cloud Academy - SSO
+        href: cloud-academy-sso-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
       - name: CloudCords
@@ -341,6 +345,8 @@
         href: cloudpassage-tutorial.md
       - name: Cloud Service PICCO
         href: cloud-service-picco-tutorial.md
+      - name: CloudSign
+        href: cloudsign-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
       - name: Coda
@@ -361,6 +367,8 @@
         href: comm100livechat-tutorial.md
       - name: Communifire
         href: communifire-tutorial.md
+      - name: Community Spark
+        href: community-spark-tutorial.md
       - name: CompetencyIQ
         href: competencyiq-tutorial.md
       - name: Compliance ELF
@@ -425,6 +433,8 @@
         href: datadog-tutorial.md
       - name: Datahug
         href: datahug-tutorial.md
+      - name: Datasite
+        href: datasite-tutorial.md
       - name: Datava Enterprise Service Platform
         href: datava-enterprise-service-platform-tutorial.md
       - name: Dealpath
@@ -507,6 +517,8 @@
         href: efidigitalstorefront-tutorial.md
       - name: Egnyte
         href: egnyte-tutorial.md
+      - name: Egress
+        href: egress-tutorial.md
       - name: Ekarda
         href: ekarda-tutorial.md
       - name: eKincare
@@ -820,6 +832,8 @@
         href: intime-tutorial.md
       - name: Intralinks
         href: intralinks-tutorial.md
+      - name: IntSights
+        href: intsights-tutorial.md
       - name: IP Platform
         href: ip-platform-tutorial.md
       - name: iPass SmartConnect
@@ -924,6 +938,8 @@
         href: korn-ferry-360-tutorial.md
       - name: Korn Ferry ALP
         href: korn-ferry-alp-tutorial.md
+      - name: Kpifire
+        href: kpifire-tutorial.md
       - name: Kronos
         href: kronos-tutorial.md
       - name: Kudos
@@ -1594,6 +1610,8 @@
         href: terraform-enterprise-tutorial.md
       - name: TextExpander
         href: textexpander-tutorial.md
+      - name: Textline
+        href: textline-tutorial.md
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
