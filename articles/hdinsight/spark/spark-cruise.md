@@ -132,6 +132,8 @@ Although the literal value in the query has changed from `'11%'` to `'12%'`, *Sp
 
 Behind the scenes, *SparkCruise* triggers a sub-query for materializing the selected sub-plan from the first query that contains it. Then, the subsequent queries can directly read the materialized sub-plans instead of recomputing them. In this workload, the sub-plans will be materialized in an online fashion by the first and third queries. We can see the plan change of queries after the common sub-plans are materialized.
 
+You can see that there are now four new materialized sub-expressions available to be reused in subsequent queries.
+
 ## Clean up
 
 The feedback files, materialized sub-plans, and query logs are persisted across Spark sessions. To remove these files, run the following command:
