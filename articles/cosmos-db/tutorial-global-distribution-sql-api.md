@@ -35,7 +35,7 @@ The SDK will only attempt to read from the regions specified in preferred locati
 
 The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, `WriteEndpoint` and `ReadEndpoint`, available in SDK version 1.8 and above. If the `PreferredLocations` property is not set, all requests will be served from the current write region.
 
-If you don't specify the preferred locations but used the `setCurrentLocation` method, the SDK automatically populates the preferred locations based on the current region that the client is running in. The SDK orders the regions based on their proximity to the current region.
+If you don't specify the preferred locations but used the `setCurrentLocation` method, the SDK automatically populates the preferred locations based on the current region that the client is running in. The SDK orders the regions based on the proximity of a region to the current region.
 
 ## .NET SDK
 
