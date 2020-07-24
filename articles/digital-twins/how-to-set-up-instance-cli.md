@@ -60,7 +60,7 @@ Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* 
 
 You now have an Azure Digital Twins instance ready to go. Next, you'll give the appropriate Azure user permissions to manage it.
 
-## Set up your user's access permissions
+## Set up user access permissions
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 

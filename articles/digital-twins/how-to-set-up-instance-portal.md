@@ -27,19 +27,17 @@ This version of this article goes through these steps manually, one by one, usin
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
  
-Log in to the [Azure portal](https://ms.portal.azure.com/) with your credentials.
+Then, log in to the [Azure portal](https://ms.portal.azure.com/) with your credentials.
 
 ## Prerequisites: Permission requirements
 
 To be able to complete all the steps in this article, you need to be classified as an Owner in your Azure subscription. 
 
-You can check your permission level in the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal. Look for the subscription name you are using, and view your role under the *My role* column:
+You can check your permission level in the [subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in the Azure portal (you can use this link or look for *Subscriptions* with the portal search bar). Look for the name of the subscription you are using, and view your role for it in the *My role* column. If you are an owner, this value is *Owner*:
 
 :::image type="content" source="media/how-to-set-up-instance/portal/subscriptions-role.png" alt-text="View of the Subscriptions page in the Azure portal, showing user as an owner":::
 
-If you are an owner, the *My role* value is *Owner*.
-
-If you find that the value is *Contributor* or something other than *Owner*, you can contact your subscription Owner and proceed in one of the following ways:
+If you find that your value is *Contributor* or something other than *Owner*, you can contact your subscription Owner and proceed in one of the following ways:
 * Request for the Owner to complete the steps in this article on your behalf
 * Request for the Owner to elevate you to Owner on the subscription as well, so that you will have the permissions to proceed yourself. Whether this is appropriate depends on your organization and your role within it.
 
@@ -47,7 +45,7 @@ If you find that the value is *Contributor* or something other than *Owner*, you
 
 In this section, you will **create a new instance of Azure Digital Twins** using the Azure portal.
 
-After you are logged into [Azure portal](https://ms.portal.azure.com/), you can create your instance by selecting _Create a resource_ in the Azure services home page menu.
+After you are logged into [Azure portal](https://ms.portal.azure.com/), start by selecting _Create a resource_ in the Azure services home page menu.
 
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-resource.png" alt-text="Selecting 'Create a resource' from the home page of the Azure portal":::
 
@@ -56,46 +54,60 @@ Search for *Azure Digital Twins* in the search box, and choose the **Azure Digit
 :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecting 'Create' from the Azure Digital Twins service page":::
 
 On the following *Create Resource* page, fill in the values given below:
-* _Subscription_: The Azure subscription you'd like to use
-  - _Resource group_: A resource group in which to deploy the instance. If you don't already have an existing resource group in mind, you can create one now by selecting the *Create new* link and entering a new name for a resource group
-* _Location_: A region for the deployment. To see what regions support Azure Digital Twins, visit [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* _Resource name_: A name for your instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
+* **Subscription**: The Azure subscription you're using
+  - **Resource group**: A resource group in which to deploy the instance. If you don't already have an existing resource group in mind, you can create one here by selecting the *Create new* link and entering a name for a new resource group
+* **Location**: An Azure Digital Twins-enabled region for the deployment. For more details on regional support, visit [*Azure products available by region (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
+* **Resource name**: A name for your Azure Digital Twins instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource":::
+:::row:::
+    :::column:::
+        :::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Filling in the described values to create an Azure Digital Twins resource":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
-Create your instance by selecting _Review + create_ button. Then in the summary page, review your instance details and select _create_ button. 
+When finished, select _Review + create_. This will take you to a summary page, where you can review the instance details you entered and hit _Create_. 
 
 ### Verify success
 
-After selecting *create*, you can view the status of your instance deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to hit the _Go to resource_ button to view the details of your created instance.
+After pushing *Create*, you can view the status of your instance's deployment in your Azure notifications along the portal icon bar. The notification will indicate when deployment has succeeded, and you'll be able to select the _Go to resource_ button to view your created instance.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="View of Azure notifications showing a successful deployment and highlighting the 'Go to resource' button":::
 
 Alternatively, if deployment fails, the notification will indicate why. Observe the advice from the error message and retry creating the instance.
 
 >[!TIP]
->Once you are able to open the details of your instance in the portal, you can return to this page at any time by searching for the name of your instance in the search bar at the top of the Azure portal.
+>Once your instance is created, you can return to its page at any time by searching for the name of your instance in the Azure portal search bar.
 
-From the instance's *Overview* page, note its *hostName*, *name*, and *resourceGroup*. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources.
+From the instance's *Overview* page, note its *Name*, *Resource group*, and *Host name*. These are all important values that you may need as you continue working with your Azure Digital Twins instance. If other users will be programming against the instance, you should share these values with them.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Highlighting the important values from the instance's Overview page":::
 
 You now have an Azure Digital Twins instance ready to go. Next, you'll give the appropriate Azure user permissions to manage it.
 
-## Set up your user's access permissions
+## Set up user access permissions
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-First, open the details page for your Azure Digital Twins instance in the Azure portal. From the instance menu, select *Access control (IAM)*. Hit the  *Add* button under *Add a role assignment*.
+First, open the page for your Azure Digital Twins instance in the Azure portal. From the instance's menu, select *Access control (IAM)*. Select the  *Add* button under *Add a role assignment*.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecting to add a role assignment from the 'Access control (IAM)' page":::
 
 On the following *Add role assignment* page, fill in the values (must be completed by an owner of the Azure subscription):
-* *Role*: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
-* *Assign access to*: Select *Azure AD user, group or service principal* from the dropdown menu
-* *Select*: Search for the name or email address of the user to assign. When you select the result, it will show up in a *Selected members* section.
+* **Role**: Select *Azure Digital Twins Owner (Preview)* from the dropdown menu
+* **Assign access to**: Select *Azure AD user, group or service principal* from the dropdown menu
+* **Select**: Search for the name or email address of the user to assign. When you select the result, the user will show up in a *Selected members* section.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
+:::row:::
+    :::column:::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Filling the listed fields into the 'Add role assignment' dialog":::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
-When you're finished entering your details, hit the *Save* button.
+When you're finished entering the details, hit the *Save* button.
 
 ### Verify success
 
@@ -109,14 +121,14 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 [!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
 
-Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) in the Azure portal. Select *App registrations* from the service menu, and then *+ New registration*.
+Start by navigating to [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) in the Azure portal (you can use this link or find it with the portal search bar). Select *App registrations* from the service menu, and then *+ New registration*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="View of the AAD service page in the Azure portal, highlighting the 'App registrations' menu option and '+ New registration' button":::
+:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="View of the Azure AD service page in the Azure portal, highlighting the 'App registrations' menu option and '+ New registration' button":::
 
 In the *Register an application* page that follows, fill in the requested values:
-* *Name*: An AAD application display name to associate with the registration
-* *Supported account types*: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
-* *Redirect URI*: An *AAD application reply URL* for the AAD application. You can use `http://localhost`.
+* **Name**: An Azure AD application display name to associate with the registration
+* **Supported account types**: Select *Accounts in this organizational directory only (Default Directory only - Single tenant)*
+* **Redirect URI**: An *Azure AD application reply URL* for the Azure AD application. You can use `http://localhost`.
 
 When you are finished, hit the *Register* button.
 
@@ -128,7 +140,7 @@ When the registration is finished setting up, the portal will redirect you to it
 
 Next, configure the app registration you've created with baseline permissions to the Azure Digital Twins APIs.
 
-From the portal view of your app registration, select *API permissions* from the menu. On the following permissions page, hit the *+ Add a permission* button.
+From the portal page for your app registration, select *API permissions* from the menu. On the following permissions page, hit the *+ Add a permission* button.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="View of the app registration in the Azure portal, highlighting the 'API permissions' menu option and '+ Add a permission' button":::
 
@@ -136,21 +148,23 @@ In the *Request API permissions* page that follows, switch to the *APIs my organ
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="View of the 'Request API Permissions' page search result showing Azure Digital Twins":::
 
-Next, you'll select the permissions to grant for these APIs. Expand the *Read* permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions. When finished, hit *Add permissions*.
+Next, you'll select which permissions to grant for these APIs. Expand the **Read (1)** permission and check the box that says *Read.Write* to grant this app registration reader and writer permissions.
 
 :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="View of the 'Request API Permissions' page selecting 'Read.Write' permissions for the Azure Digital Twins APIs":::
 
+Hit *Add permissions* when finished.
+
 ### Verify success
 
-Back on the *API permissions* page, verify that there is an entry for Azure Digital Twins reflecting Read/Write permissions:
+Back on the *API permissions* page, verify that there is now an entry for Azure Digital Twins reflecting Read/Write permissions:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Portal view of the API permissions for the AAD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Portal view of the API permissions for the Azure AD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
 
 You can also verify the connection to Azure Digital Twins within the app registration's *manifest.json*, which was automatically updated with the Azure Digital Twins information when you added the API permissions.
 
-To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
+To do this, select *Manifest* from the menu to view the app registration's manifest code. Scroll to the bottom of the code window and look for these fields under `requiredResourceAccess`. The values should match those in the screenshot below:
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="../media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration":::
 
 ### Collect important values
 
@@ -158,7 +172,7 @@ Next, select *Overview* from the menu bar to see the details of the app registra
 
 :::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
 
-Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you'll need to share these values with the person who will be.
+Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on **your** page. These values will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). If you are not the person who will be writing code for such applications, you should share these values with the person who will be.
 
 ### Other possible steps for your organization
 
