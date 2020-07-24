@@ -16,26 +16,48 @@ To deploy templates at the subscription level, use Azure CLI, PowerShell, or RES
 
 ## Supported resources
 
+Not all resource types can be deployed to the management group level.
+
 You can deploy the following resource types at the subscription level:
 
-* [artifacts (Blueprints)](/azure/templates/microsoft.blueprint/blueprints/artifacts)
+For Azure Blueprints, you can deploy:
+
+* [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
 * [blueprints](/azure/templates/microsoft.blueprint/blueprints)
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
-* [budgets](/azure/templates/microsoft.consumption/budgets)
-* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to resource groups.
-* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
+* [versions (Blueprints)](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+For Azure Policies, you can deploy:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [remediations (Policy)](/azure/templates/microsoft.policyinsights/remediations)
-* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+
+For role-based access control, you can deploy:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
-* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+
+For nested templates that deploy to resource groups, use:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+For creating new resource groups, use:
+
+* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+
+For management of your subscription, you can deploy:
+
+* [budgets](/azure/templates/microsoft.consumption/budgets)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
-* [versions (Blueprints)](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+Other supported types, include:
+
+* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
 ### Schema
 

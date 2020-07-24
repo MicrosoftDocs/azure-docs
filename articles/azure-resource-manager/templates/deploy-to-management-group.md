@@ -2,23 +2,45 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 07/23/2020
 ---
 
 # Create resources at the management group level
 
-As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
+As your organization matures, you can deploy an Azure Resource Manager template (ARM template) to create resources at the management group level. For example, you may need to define and assign [policies](../../governance/policy/overview.md) or [role-based access controls](../../role-based-access-control/overview.md) for a management group. With management group level templates, you can declaratively apply policies and assign roles at the management group level.
 
 ## Supported resources
 
+Not all resource types can be deployed to the management group level.
+
 You can deploy the following resource types at the management group level:
 
-* [deployments](/azure/templates/microsoft.resources/deployments) - for nested templates that deploy to subscriptions or resource groups.
+For Azure Blueprints, you can deploy:
+
+* [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
+* [blueprints](/azure/templates/microsoft.blueprint/blueprints)
+* [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [versions](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+For Azure Policies, you can deploy:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+
+For role-based access control, you can deploy:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+For nested templates that deploy to subscriptions or resource groups, use:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+For management, you can deploy:
+
+* [tags](/azure/templates/microsoft.resources/tags)
 
 ### Schema
 
@@ -91,7 +113,7 @@ For management group deployments, there are some important considerations when u
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## Create policies
+## Azure Policy
 
 ### Define policy
 
