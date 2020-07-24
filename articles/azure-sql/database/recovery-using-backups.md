@@ -28,7 +28,7 @@ If you configured [backup long-term retention](long-term-retention-overview.md),
 > [!IMPORTANT]
 > You can't overwrite an existing database during restore.
 
-By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). Besides geo-replicated (RA-GRS) storage type, SQL Managed Instance support locally-redundant (LRS) and zone-redundant (ZRS) backup storage types. Redundancy ensures that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Zone-redundant storage (ZRS) is available only in certain regions (for more details visit [Azure storage redundancy page](../../storage/common/storage-redundancy.md#zone-redundant-storage)).
+By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). In addition, SQL Managed Instance supports locally-redundant (LRS) and zone-redundant (ZRS) backup storage as well. Redundancy ensures that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Zone-redundant storage (ZRS) is available only in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 > [!IMPORTANT]
 > Configuring storage redundancy for backups is available for managed instance only and allowed during create process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
@@ -137,7 +137,7 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 ## Geo-restore
 
 > [!IMPORTANT]
-> Geo-restore is available only for managed instances with configured geo-redundant (RA-GRS) backup storage type. Managed instances and single databases with locally-redundant and zone-redundant backup storage types cannot perform Geo-restore.
+> Geo-restore is only available for managed instances configured with geo-redundant (RA-GRS) backup storage type. Managed instances configured with with locally-redundant or zone-redundant backup storage types do not support geo-restore.
 
 You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 
