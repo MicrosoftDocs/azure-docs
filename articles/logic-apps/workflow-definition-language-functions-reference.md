@@ -4910,7 +4910,7 @@ Here is the result array with the nodes that match `<name></name`:
 
 *Example 2*
 
-Following on Example 1, this example is passed in XPath expression, `" /produce/item/name[1] "` , which finds the first `name` element that is the child of `item` element.
+Following on Example 1, this example passes in the XPath expression, `"/produce/item/name[1]"` , which finds the first `name` element that is the child of the `item` element.
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
