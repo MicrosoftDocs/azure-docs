@@ -46,20 +46,20 @@ Single-tenant applications can enable the *Contact Me* experience, but if you wa
 
 The customer-led trial is the experience that AppSource recommends as it offers a single-click access to your application. The following example shows what this experience looks like:
 
-1. ![Shows Free trial for customer-led trial experience](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png)
-    - User finds your application in AppSource Web Site
+1.  - User finds your application in AppSource Web Site
     - Selects 'Free trial' option
-2. ![Shows how user is redirected to a URL in your web site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png)
-    - AppSource redirects user to a URL in your web site
+    ![Shows Free trial for customer-led trial experience](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png)
+2.  - AppSource redirects user to a URL in your web site
     - Your web site starts the *single-sign-on* process automatically (on page load)
-3. ![Shows the Microsoft sign-in page](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png)
-    - User is redirected to Microsoft Sign-in page
+    ![Shows how user is redirected to a URL in your web site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png)
+3.  - User is redirected to Microsoft Sign-in page
     - User provides credentials to sign in
-4. ![Example: Consent page for an application](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png)
-    - User gives consent for your application
-5. ![Shows the experience the user sees when redirected back to your site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
-    - Sign-in completes and user is redirected back to your web site
+    ![Shows the Microsoft sign-in page](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png)
+4. User gives consent for your application
+    ![Example: Consent page for an application](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png)
+5.  - Sign-in completes and user is redirected back to your web site
     - User starts the free trial
+    ![Shows the experience the user sees when redirected back to your site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
 
 ### Contact me (partner-led trial experience)
 
