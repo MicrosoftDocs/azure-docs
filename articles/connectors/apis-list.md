@@ -170,7 +170,7 @@ Here are some commonly used Standard connectors that Logic Apps provides for acc
 
 Logic Apps provides Standard connectors for building business-to-business (B2B) solutions with your logic apps when you create and pay for an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), which is available through the Enterprise Integration Pack (EIP) in Azure. With this account, you can create and store B2B artifacts such as trading partners, agreements, maps, schemas, certificates, and so on. To use these artifacts, associate your logic apps with your integration account. If you currently use BizTalk Server, these connectors might seem familiar already.
 
-|___|___|___|___|
+| Name | Name | Name | Name |
 |---|---|---|---|
 | [![API icon][as2-icon]<br>**AS2 <br>decoding**][as2-doc] | [![API icon][as2-icon]<br>**AS2 <br>encoding**][as2-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>decoding**][edifact-decode-doc] | [![API icon][edifact-icon]<br>**EDIFACT <br>encoding**][edifact-encode-doc] |
 | [![API icon][flat-file-decode-icon]<br>**Flat file <br>decoding**][flat-file-decode-doc] | [![API icon][flat-file-encode-icon]<br>**Flat file <br>encoding**][flat-file-encode-doc] | [![API icon][integration-account-icon]<br>**Integration <br>account**][integration-account-doc] | [![API icon][liquid-icon]<br>**Liquid** <br>**transforms**][json-liquid-transform-doc] |
@@ -183,7 +183,7 @@ Logic Apps provides Standard connectors for building business-to-business (B2B) 
 
 Logic Apps provides these Enterprise connectors for accessing enterprise systems, such as SAP and IBM MQ:
 
-|___|___|___|
+| Name | Name | Name |
 |---|---|---|
 | [![API icon][ibm-3270-icon]<br>**IBM 3270**][ibm-3270-doc] | [![API icon][ibm-mq-icon]<br>**IBM MQ**][ibm-mq-doc] | [![API icon][sap-icon]<br>**SAP**][sap-connector-doc] |
 |||
@@ -194,7 +194,7 @@ Logic Apps provides these Enterprise connectors for accessing enterprise systems
 
 For logic apps that you create and run an isolated [integration service environment (ISE)](#integration-service-environment), the Logic App Designer identifies built-in triggers and actions that run in your ISE by using the **CORE** label. Managed connectors that run in an ISE display the **ISE** label, while connectors that run in the global, multi-tenant Logic Apps service don't display either label. This list shows the connectors that currently have ISE versions:
 
-|___|___|___|___|___|
+| Name | Name | Name | Name | Name |
 |---|---|---|---|---|
 | [![API icon][as2-icon]<br>**AS2**][as2-doc] | [![API icon][azure-automation-icon]<br>**Azure <br>Automation**][azure-automation-doc] | [![API icon][azure-blob-storage-icon]<br>**Azure Blob<br>Storage**][azure-blob-storage-doc] | [![API icon][azure-cosmos-db-icon]<br>**Azure Cosmos <br> DB**][azure-cosmos-db-doc] | [![API icon][azure-event-hubs-icon]<br>**Azure Event <br>Hubs**][azure-event-hubs-doc] |
 | [![API icon][azure-event-grid-icon]<br>**Azure Event <br>Grid**][azure-event-grid-doc] | [![API icon][azure-file-storage-icon]<br>**Azure File<br>Storage**][azure-file-storage-doc] | [![API icon][azure-key-vault-icon]<br>**Azure Key <br>Vault**][azure-key-vault-doc] | [![API icon][azure-monitor-logs-icon]<br>**Azure Monitor <br>Logs**][azure-monitor-logs-doc] | [![API icon][azure-service-bus-icon]<br>**Azure Service <br>Bus**][azure-service-bus-doc] |
