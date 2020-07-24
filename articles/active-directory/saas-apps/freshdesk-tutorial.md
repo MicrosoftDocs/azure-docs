@@ -163,7 +163,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. Select the **Security icon** and in the **Security** section, perform the following steps:
 
-	![Single Sign On](./media/freshdesk-tutorial/configure1.png "Single Sign On")
+	![Single Sign On](./media/freshdesk-tutorial/configure-1.png "Single Sign On")
   
 	a. For **Single Sign On**, select **On**.
 
@@ -192,15 +192,15 @@ In the case of FreshDesk, provisioning is a manual task.
 
 1. In the menu on the left, click **Admin** and in the **General Settings** tab, click **Agents**.
   
-	![Agents](./media/freshdesk-tutorial/createuser1.png "Agents")
+	![Agents](./media/freshdesk-tutorial/create-user-1.png "Agents")
 
 1. Click **New Agent**.
 
-    ![New Agent](./media/freshdesk-tutorial/createuser2.png "New Agent")
+    ![New Agent](./media/freshdesk-tutorial/create-user-2.png "New Agent")
 
 1. On the Agent Information dialog, enter the required fields and click on **Create agent**.
 
-	![Agent Information](./media/freshdesk-tutorial/createuser3.png "Agent Information")
+	![Agent Information](./media/freshdesk-tutorial/create-user-3.png "Agent Information")
 
 	>[!NOTE]
 	>The Azure AD account holder will get an email that includes a link to confirm the account before it is activated.
