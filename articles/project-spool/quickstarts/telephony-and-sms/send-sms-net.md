@@ -23,7 +23,7 @@ If you don’t already have Visual Studio 2019 installed, you can download and u
 This quick start also requires:
 - **Deployed Azure Communication Service resource.** Check out the quick start for making an ACS resource in the Azure portal. [create an Azure Communication Resource](../create-a-communication-resource.md).
 - **An ACS configured telephone number.** Sending SMS messages requires a telephone number, which ACS can help you obtain easily. Check out the quick start for telephone number management for more information. 
-**NOTE:** For private preview, please contact Pranita Kulkarni (prakulka@microsoft.com) or Nikolay Muravlyannikov (nmurav@microsoft.com) to aquire telephone numbers for your resource.
+**NOTE:** For private preview, please contact Pranita Kulkarni (prakulka@microsoft.com) or Nikolay Muravlyannikov (nmurav@microsoft.com) or send an email to phone@microsoft.com to aquire telephone numbers for your resource.
 - **Download SMS SDK.** Download `Azure.Communication.Sms` C# SDK to send an SMS. **NOTE** For private preview, sdk must be downloaded internally from [Azure Dev Ops](https://dev.azure.com/azure-sdk/internal/_packaging?_a=feed&feed=azure-sdk-for-net-pr%40Local) or [GitHub](https://github.com/Azure/communication-preview/releases).
 
 ## Obtain a connection string
@@ -69,7 +69,7 @@ namespace SmsSender
         {
             string connectionString = "<connection string>";
             SmsClient sms = new SmsClient(connectionString);
-            Azure.Communication.Models.PhoneNumber source = new Azure.Communication.Models.PhoneNumber("+5555555555");
+            Azure.Communication.Models.PhoneNumber source = new Azure.Communication.Models.PhoneNumber("+5555555555"); // Phone number acquired for your resource
             Azure.Communication.Models.PhoneNumber destination = new Azure.Communication.Models.PhoneNumber("+5555555556");
             sms.Send(source, destination, "Hello World via SMS");       
         }
@@ -104,7 +104,7 @@ namespace SmsSender
             var connectionString = "<connectionString>"; // Connection string can be acquired through the Azure portal
             var smsClient = new SmsClient(connectionString);
             var response = smsClient.Send(
-                                from: new PhoneNumber("+15551111111"), // Phone number acquired by your account
+                                from: new PhoneNumber("+15551111111"), // Phone number acquired for your resource
                                 to: new PhoneNumber("+15552222222"),
                                 message: "Hello World 👋🏻 via Sms",
                                 sendSmsOptions: new SendSmsOptions { EnableDeliveryReport = true }); // Use SendSmsOptions to enable delivery report for the message sent.
