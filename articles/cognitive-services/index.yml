@@ -135,34 +135,11 @@ conceptualContent:
         - url: ./containers/container-faq.md
           itemType: reference
           text: Cognitive Services containers FAQ
-
-tools:
-  title: Software development kits (SDKs)
-  summary: Get started with the Cognitive Services SDK in your favorite programming language.
-  items:
-  - title: C#
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
-    url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
-  - title: Go
-    imageSrc: https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg
-    url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
-  - title: Java
-    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
-    url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
-  - title: JavaScript
-    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
-    url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
-  - title: Python
-    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
-    url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
-  - title: R
-    imageSrc: https://docs.microsoft.com/media/logos/logo_R.svg
-    url: https://github.com/Azure/AzureCognitive
-
 additionalContent:
   sections:
     - title: Customize with Cognitive Services 
-      items:
+      summary: With Cognitive Services, you can customize your user experience by improving  Microsoft's baseline models or creating your own. When you're finished, it's easy to deploy your custom solution. Get started with the links below.  
+      items: 
         # Card
         - title: Custom Translator
           # imageSrc should be square in ratio with no whitespace
@@ -192,6 +169,20 @@ additionalContent:
               url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
             - text: PowerShell
               url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+        - title: SDKs
+          links:
+            - text: C#
+              url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+            - text: Go
+              url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
+            - text: Java
+              url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+            - text: JavaScript
+              url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+            - text: Python
+              url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+            - text: R 
+              url: https://github.com/Azure/AzureCognitive
         - title: REST APIs
           links:
             - text: Cognitive Services Management
