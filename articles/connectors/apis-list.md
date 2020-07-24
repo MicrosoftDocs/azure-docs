@@ -146,15 +146,6 @@ Logic Apps provides these popular Standard connectors for automating tasks, proc
 | [![API icon][salesforce-icon]<br>**Salesforce**][salesforce-doc] | Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more. |
 |||
 
-> [!IMPORTANT]
-> For the Gmail connector, these considerations apply:
->
-> * If you have a G-Suite business account, you can use the Gmail connector with any other connector in your logic apps.
->
-> * If you have a Gmail consumer account, you can use the Gmail connector only with specific Google-approved services. To work around this restriction, 
-> you need to [create a Google client app to use for authentication with your Gmail connector](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). 
-> For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
-
 <a name="on-premises-connectors"></a>
 
 ## On-premises connectors
