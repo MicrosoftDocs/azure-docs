@@ -1,6 +1,6 @@
 ---
 title: Deploy a management tool for Windows Virtual Desktop Classic using service principal - Azure
-description: How to deploy the management tool for Windows Virtual Desktop (Classic) using PowerShell.
+description: How to deploy the management tool for Windows Virtual Desktop (classic) using PowerShell.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,10 +11,10 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Deploy a Windows Virtual Desktop (Classic) management tool with PowerShell
+# Deploy a Windows Virtual Desktop (classic) management tool with PowerShell
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 This article will show you how to deploy the management tool using PowerShell.
 

@@ -39,7 +39,7 @@ landingContent:
           - text: Set up service alerts
             url: set-up-service-alerts.md
 
-  - title: Get started with Windows Virtual Desktop (Classic)
+  - title: Get started with Windows Virtual Desktop (classic)
     linkLists:
       - linkListType: tutorial
         links:

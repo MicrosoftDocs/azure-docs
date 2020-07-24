@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop Classic troubleshooting overview - Azure
-description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop (Classic) tenant environment.
+description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop (classic) tenant environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-#  Windows Virtual Desktop (Classic) troubleshooting overview, feedback, and support
+#  Windows Virtual Desktop (classic) troubleshooting overview, feedback, and support
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-set-up-overview.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-set-up-overview.md).
 
 This article provides an overview of the issues you may encounter when setting up a Windows Virtual Desktop tenant environment and provides ways to resolve the issues.
 

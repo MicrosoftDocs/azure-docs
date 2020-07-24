@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop Classic environment - Azure
-description: The basic elements of a Windows Virtual Desktop (Classic) environment.
+description: The basic elements of a Windows Virtual Desktop (classic) environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Windows Virtual Desktop (Classic) environment
+# Windows Virtual Desktop (classic) environment
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../environment-setup.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../environment-setup.md).
 
 Windows Virtual Desktop is a service that gives users easy and secure access to their virtualized desktops and RemoteApps. This topic will tell you a bit more about the general structure of the Windows Virtual Desktop environment.
 

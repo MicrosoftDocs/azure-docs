@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot service connection Windows Virtual Desktop Classic - Azure
-description: How to resolve issues when you set up client connections in a Windows Virtual Desktop (Classic) tenant environment.
+description: How to resolve issues when you set up client connections in a Windows Virtual Desktop (classic) tenant environment.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
 ---
-# Windows Virtual Desktop (Classic) service connections
+# Windows Virtual Desktop (classic) service connections
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-service-connection.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../troubleshoot-service-connection.md).
 
 Use this article to resolve issues with Windows Virtual Desktop client connections.
 

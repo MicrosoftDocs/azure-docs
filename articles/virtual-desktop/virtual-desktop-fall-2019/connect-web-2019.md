@@ -1,6 +1,6 @@
 ---
 title: Connect Windows Virtual Desktop Classic web client - Azure
-description: How to connect to Windows Virtual Desktop (Classic) using the web client.
+description: How to connect to Windows Virtual Desktop (classic) using the web client.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect to Windows Virtual Desktop (Classic) with the web client
+# Connect to Windows Virtual Desktop (classic) with the web client
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../connect-web.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../connect-web.md).
 
 The web client lets you access your Windows Virtual Desktop resources from a web browser without the lengthy installation process.
 

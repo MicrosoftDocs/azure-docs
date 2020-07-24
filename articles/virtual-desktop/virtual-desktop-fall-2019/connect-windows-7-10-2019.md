@@ -1,6 +1,6 @@
 ---
 title: Connect to Windows Virtual Desktop Classic Windows 10 or 7 - Azure
-description: How to connect to Windows Virtual Desktop (Classic) using the Windows Desktop client.
+description: How to connect to Windows Virtual Desktop (classic) using the Windows Desktop client.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,17 +10,17 @@ ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the Windows Desktop (Classic) client
+# Connect with the Windows Desktop (classic) client
 
 > Applies to: Windows 7, Windows 10, and Windows 10 IoT Enterprise
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../connect-windows-7-10.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../connect-windows-7-10.md).
 
 You can access Windows Virtual Desktop resources on devices with Windows 7, Windows 10, and Windows 10 IoT Enterprise using the Windows Desktop client. The client doesn't support Windows 8 or Windows 8.1.
 
 >[!NOTE]
->The Windows client automatically defaults to Windows Virtual Desktop (Classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.
+>The Windows client automatically defaults to Windows Virtual Desktop (classic). However, if the client detects that the user also has Azure Resource Manager resources, it automatically adds the resources or notifies the user that they are available.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
@@ -58,7 +58,7 @@ There are two ways you can subscribe to a Workspace. The client can try to disco
 1. From the main page of the client, select **Subscribe with URL**.
 2. Enter the Workspace URL or your email address:
    - If you use the **Workspace URL**, use the one your admin gave you. If accessing resources from Windows Virtual Desktop, you can use one of the following URLs:
-     - Windows Virtual Desktop (Classic): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Windows Virtual Desktop (classic): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
      - Windows Virtual Desktop: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
    - If you're using the **Email** field instead, enter your email address. This tells the client to search for a URL associated with your email address if your admin has set up [email discovery](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Select **Next**.

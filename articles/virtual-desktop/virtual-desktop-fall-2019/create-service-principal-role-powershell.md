@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop Classic service principal role assignment - Azure
-description: How to create service principals and assign roles by using PowerShell in Windows Virtual Desktop (Classic).
+description: How to create service principals and assign roles by using PowerShell in Windows Virtual Desktop (classic).
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
 ---
-# Tutorial: Create service principals and role assignments with PowerShell in Windows Virtual Desktop (Classic)
+# Tutorial: Create service principals and role assignments with PowerShell in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (Classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 Service principals are identities that you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop, you can create a service principal to:
 

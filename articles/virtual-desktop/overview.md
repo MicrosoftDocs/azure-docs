@@ -138,7 +138,7 @@ Available automation and deployment options depend on which OS and version you c
 
 ## Next steps
 
-If you're using Windows Virtual Desktop (Classic), you can get started with our tutorial at [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+If you're using Windows Virtual Desktop (classic), you can get started with our tutorial at [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
 If you're using the Windows Virtual Desktop with Azure Resource Manager integration, you'll need to create a host pool instead. Head to the following tutorial to get started.
 
