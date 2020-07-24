@@ -162,7 +162,9 @@ text_transformations_used
 
 3. In the feature sweeping step, AutoML compares BERT against the baseline (bag of words features + pretrained word embeddings) on a sample of the data and determines if BERT would give accuracy improvements. If it determines that BERT performs better than the baseline, AutoML then uses BERT for text featurization as the optimal featurization strategy and proceeds with featurizing the whole data. In that case, you will see the "PretrainedTextDNNTransformer" in the final model.
 
-AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model. In the following code, the German BERT model is triggered, since the dataset language is specified to 'deu', the 3 letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/hbs):
+AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model.
+
+In the following code, the German BERT model is triggered, since the dataset language is specified to 'deu', the 3 letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/hbs):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig
