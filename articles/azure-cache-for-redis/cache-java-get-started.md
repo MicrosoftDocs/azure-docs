@@ -29,7 +29,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a Java app using 
 
 ## Setting up the working environment 
 
-Depending on your operating system, add environment variables for your **Host name** and **Primary access key**. Open Command Prompt, or Terminal, and set up the following values:
+Depending on your operating system, add environment variables for your **Host name** and **Primary access key**. Open a command prompt, or a terminal window, and set up the following values:
 
 ```CMD 
 set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
