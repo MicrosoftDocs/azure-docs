@@ -366,7 +366,7 @@ Next, install the certificate on the remote cluster using [these provided Powers
 > [!Warning]
 > A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.
 
-## Open port 443 in the Azure load balancer and virtual network
+## Open port 443 in the Azure load balancer
 
 Open port 443 in the load balancer if it isn't already.
 
@@ -389,31 +389,6 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 
 # Set the goal state for the load balancer
 $slb | Set-AzLoadBalancer
-```
-
-Do the same for the associated virtual network.
-
-```powershell
-$rulename="AppPortVNetRule6"
-$RGname="voting_RG"
-$region="southcentralus"
-$port=443
-
-# Get the virtual network resource
-$resource = Get-AzResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/virtualNetworks"}
-$vnet = Get-AzVirtualNetwork -Name $resource.Name -ResourceGroupName $RGname
-
-# Create rule config for virtual network
-$netRule = New-AzNetworkSecurityRuleConfig -Name http-passthrough -Description "HTTPS passthrough" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange $port
-
-# Create a new NSG with the rule we just made
-$networkSecurityGroup = New-AzNetworkSecurityGroup -ResourceGroupName $RGname -Location $region -Name "NSG-FrontEnd" -SecurityRules $netRule
-
-# Create a subnet using the NSG we've created
-$subnet = New-AzVirtualNetworkSubnetConfig -Name testSubnet -AddressPrefix "10.0.1.0/24" -NetworkSecurityGroup $networkSecurityGroup
-
-# Set the goal state for the virtual network
-$vnet | Set-AzVirtualNetwork  -Subnet $subnet
 ```
 
 ## Deploy the application to Azure
