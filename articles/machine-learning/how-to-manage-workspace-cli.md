@@ -55,7 +55,13 @@ az extension add -n azure-cli-ml
 The Azure Machine Learning workspace relies on the following Azure services or entities:
 
 > [!IMPORTANT]
-> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it has both Azure Blob and Azure File capabilities enabled, and that Hierarchical Namespace (ADLS Gen 2) is disabled. You can always attach your own storage account later after the workspace is created as datastores.
+> If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group. When attaching your own storage account, make sure that it meets the following criteria:
+>
+> * The storage account is _not_ a premium account (Premium_LRS and Premium_GRS)
+> * Both Azure Blob and Azure File capabilities enabled
+> * Hierarchical Namespace (ADLS Gen 2) is disabled
+>
+> These requirements are only for the _default_ storage account used by the workspace.
 
 | Service | Parameter to specify an existing instance |
 | ---- | ---- |
@@ -145,7 +151,7 @@ To create a workspace that uses existing resources, you must provide the ID for 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
 
     > [!IMPORTANT]
-    > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace.
+    > If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 + **Azure Application Insights**:
 
