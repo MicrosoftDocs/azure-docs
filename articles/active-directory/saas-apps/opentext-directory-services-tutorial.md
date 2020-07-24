@@ -40,8 +40,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* OpenText Directory Services supports **SP and IDP** initiated SSO
-* OpenText Directory Services supports **Just In Time** user provisioning
+* OpenText Directory Services supports **SP and IDP** initiated SSO.
+* OpenText Directory Services supports **Just In Time** user provisioning.
 * Once you configure OpenText Directory Services you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding OpenText Directory Services from the gallery
