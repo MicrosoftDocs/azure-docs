@@ -4,7 +4,7 @@ description: Create a storage account and a container in object (Blob) storage. 
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 01/24/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -13,6 +13,9 @@ ms.topic: conceptual
 # Quickstart: Manage blobs with Java v8 SDK
 
 In this quickstart, you learn to manage blobs by using Java. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs. You'll also create, set permissions on, and delete containers.
+
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Manage blobs with Java v12 SDK](storage-quickstart-blobs-java.md).
 
 ## Prerequisites
 
