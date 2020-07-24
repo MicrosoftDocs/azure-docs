@@ -41,7 +41,7 @@ Follow these steps to create a database user using an Azure AD guest user.
 
 1. Ensure that the guest user (for example, `user1@gmail.com`) is already added into your Azure AD and an Azure AD admin has been set for the database server. Having an Azure AD admin is required for Azure Active Directory authentication.
 
-1. Connect as the Azure AD admin to the SQL logical server, and run the below command on the database where the guest user needs to be added:
+1. Connect to the SQL database as the Azure AD admin or an Azure AD user with sufficient SQL permissions to create users, and run the below command on the database where the guest user needs to be added:
 
     ```sql
     CREATE USER [user1@gmail.com] FROM EXTERNAL PROVIDER
@@ -59,9 +59,12 @@ Follow these steps to create a database user using an Azure AD guest user.
 
 ### Create guest user in SQL Managed Instance
 
+> [!NOTE]
+> SQL Managed Instance supports logins for Azure AD users, as well as Azure AD contained database users. The below steps show how to create a login and user for an Azure AD guest user in SQL Managed Instance. You can also choose to create a [contained database user](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) in SQL Managed Instance by using the method in the [Create guest user in SQL Database and Azure Synapse](#create-guest-user-in-sql-database-and-azure-synapse) section.
+
 1. Ensure that the guest user (for example, `user1@gmail.com`) is already added into your Azure AD and an Azure AD admin has been set for the SQL Managed Instance server. Having an Azure AD admin is required for Azure Active Directory authentication.
 
-1. Connect as the Azure AD admin to the SQL Managed Instance server, and run the following command on the `master` database to create a login for the guest user:
+1. Connect to the SQL Managed Instance server as the Azure AD admin or an Azure AD user with sufficient SQL permissions to create users, and run the following command on the `master` database to create a login for the guest user:
 
     ```sql
     CREATE LOGIN [user1@gmail.com] FROM EXTERNAL PROVIDER
@@ -84,9 +87,6 @@ Follow these steps to create a database user using an Azure AD guest user.
 1. There should now be a database user created for the guest user `user1@gmail.com`.
 
 1. Disconnect and sign into the database as the guest user `user1@gmail.com` using [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) using the authentication method **Azure Active Directory - Universal with MFA**. For more information, see [Using multi-factor Azure Active Directory authentication](authentication-mfa-ssms-overview.md).
-
-> [!NOTE]
-> You can also choose to create a [contained database user](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) in SQL Managed Instance by using the method in the [Create guest user in SQL Database and Azure Synapse](#create-guest-user-in-sql-database-and-azure-synapse) section.
 
 ## Setting a guest user as an Azure AD admin
 
