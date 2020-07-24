@@ -95,7 +95,7 @@ Treat `/path/to/my/cert` as a path to a PEM or PKCS12 file. AzCopy does not reac
 
 ## Options
 
-**--aad-endpoint** string    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the public Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity.
+**--aad-endpoint** string    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity.
 
 **--application-id** string  Application ID of user-assigned identity. Required for service principal auth.
 

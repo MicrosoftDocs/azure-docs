@@ -1,5 +1,6 @@
 ---
 title: azcopy load | Microsoft Docs
+titleSuffix: Azure Storage
 description: This article provides reference information for the azcopy load command.
 author: normesta
 ms.service: storage
