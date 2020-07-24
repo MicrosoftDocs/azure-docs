@@ -216,7 +216,7 @@ Additionally, to help you keep track of dedicated administrative accounts, you m
 ### 3.10: Regularly review and reconcile user access
 **Guidance:** Azure Active Directory (Azure AD) provides logs to help discover stale accounts. Also, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
 
-- [Understand Azure AD reporting](../active-directory/reports-monitoring/)  
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/overview-reports.md)  
 - [How to use Azure identity access reviews](../active-directory/governance/access-reviews-overview.md)  
 
 **Azure Security Center monitoring:** Not applicable
@@ -247,9 +247,63 @@ You can streamline this process by creating Diagnostic Settings for Azure Active
 ### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
 **Guidance:** Customer Lockbox not currently supported for Azure DevTest Labs.
 
-- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability.md) 
+- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability) 
 
 **Azure Security Center monitoring:** Not applicable
+
+**Responsibility:** Customer
+
+## Vulnerability Management
+*For more information, see [Security Control: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
+
+### 5.1: Run automated vulnerability scanning tools
+**Guidance:** Follow recommendations from Azure Security Center on securing your Azure DevTest Labs instances and related resources.
+
+Microsoft performs vulnerability management on the underlying resources that support Azure DevTest Labs.
+
+- [Understand Azure Security Center recommendations](../security-center/recommendations-reference.md) 
+
+**Azure Security Center monitoring:** Yes
+
+**Responsibility:** Shared
+
+### 5.2: Deploy automated operating system patch management solution
+**Guidance:** Use Azure Update Management to ensure the most recent security updates are installed on your Windows and Linux VMs hosted within DevTest Labs. For Windows VMs, ensure Windows Update has been enabled and set to update automatically. This setting is not currently available to configure through DevTest Labs, however lab admin/subscription admin can configure this setting on the underlying compute virtual machines in their subscription. 
+
+- [How to configure Update Management for virtual machines in Azure](../automation/automation-update-management.md)
+- [Understand Azure security policies monitored by Security Center](../security-center/security-center-policy-definitions.md)
+
+**Azure Security Center monitoring:** Not applicable
+
+**Responsibility:** Customer
+
+### 5.3: Deploy automated third-party software patch management solution
+***Guidance:*** As a lab admin, you can use [DevTest Labs artifacts](add-artifact-vm.md) to automate updates to lab custom images including security patches and other updates. 
+
+Learn more about [DevTest Labs Image Factory](image-factory-create.md), which is a configuration-as-code solution that builds and distributes images automatically on a regular basis with all the desired configurations. 
+
+As a subscription admin, you can also use the Azure Update Management solution to manage updates and patches for DevTest Labs virtual machines. Update Management relies on the locally configured update repository to patch supported Windows systems. Tools like System Center Updates Publisher (Updates Publisher) allow you to publish custom updates into Windows Server Update Services (WSUS). This scenario allows Update Management to patch machines that use Configuration Manager as their update repository with third-party software.
+
+- [Update Management solution in Azure](../automation/automation-update-management.md)
+- [Manage updates and patches for your Azure VMs](../automation/automation-tutorial-update-management.md)
+
+**Azure Security Center monitoring:** Not applicable
+
+**Responsibility:** Customer
+
+### 5.4: Compare back-to-back vulnerability scans
+**Guidance:** Export scan results at consistent intervals and compare the results to verify that vulnerabilities have been remediated. When using vulnerability management recommendation suggested by Azure Security Center, customer may pivot into the selected solution's portal to view historical scan data.
+
+**Azure Security Center monitoring:** Not Applicable
+
+**Responsibility:** Customer
+
+### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
+**Guidance:** Use the default risk ratings (secure score) provided by Azure Security Center.
+
+- [Understand Azure Security Center secure score](../security-center/secure-score-security-controls.md)
+
+**Azure Security Center monitoring:** Yes
 
 **Responsibility:** Customer
 
