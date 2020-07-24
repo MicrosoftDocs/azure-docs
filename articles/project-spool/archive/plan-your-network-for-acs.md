@@ -1,1 +1,0 @@
-Plan netowork, FQDNS, IPs
