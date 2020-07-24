@@ -63,7 +63,7 @@ Follow these instructions if you need to implement your own instance of the play
 1. Replace `manifestUrl` with the HLS or DASH URL from the streaming locator of your asset which can be found on the streaming locator page in the Azure portal.
     ![streaming locator URLs](media/how-to-shaka-player/streaming-urls.png)
 
-1. Run a server (for example with `npm http-server`) and your player should be working.
+1. Run a server (for example with `npm http-server`) and your player should be working...
 
 ## Set up captions
 
