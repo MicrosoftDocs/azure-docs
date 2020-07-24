@@ -27,6 +27,8 @@ Azure Private Link enables you to connect to your workspace using a private endp
 > Azure Private Link does not effect Azure control plane (management operations) such as deleting the workspace or managing compute resources. For example, creating, updating, or deleting a compute target. These operations are performed over the public Internet as normal.
 >
 > Azure Machine Learning compute instances preview is not supported in a workspace where Private Link is enabled.
+>
+> You may encounter problems trying to access the private endpoint for your workspace if you are using Mozilla Firefox. This problem may be related to DNS over HTTPS in Mozilla. We recommend using Microsoft Edge of Google Chrome as a workaround.
 
 ## Create a workspace that uses a private endpoint
 
