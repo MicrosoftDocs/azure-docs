@@ -20,7 +20,7 @@ A **road** map is a standard map that displays roads. It also displays natural a
 
 ![road map style](./media/supported-map-styles/road.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
@@ -35,7 +35,7 @@ The **blank** and **blank_accessible** map styles provide a blank canvas for vis
 > [!Note]
 > In the Web SDK, you can change the background color of the map by setting the CSS `background-color` style of map DIV element.
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * Web SDK map control
 
@@ -45,7 +45,7 @@ The **satellite** style is a combination of satellite and aerial imagery.
 
 ![satellite tile map style](./media/supported-map-styles/satellite.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * [Satellite tile](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Web SDK map control
@@ -58,7 +58,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 ![satellite_road_labels map style](./media/supported-map-styles/satellite-road-labels.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * Web SDK map control
 * Android map control
@@ -70,7 +70,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 ![gray_scale map style](./media/supported-map-styles/grayscale-dark.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * [Map image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
@@ -84,7 +84,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 ![grayscale light map style](./media/supported-map-styles/grayscale-light.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 * Web SDK map control
 * Android map control
 * Power BI visual
@@ -95,7 +95,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 ![night map style](./media/supported-map-styles/night.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * Web SDK map control
 * Android map control
@@ -107,7 +107,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 ![shaded relief map style](./media/supported-map-styles/shaded-relief.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Web SDK map control
@@ -120,7 +120,7 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 ![high contrast dark map style](./media/supported-map-styles/high-contrast-dark.png)
 
-**Relevant APIs:**
+**Applicable APIs:**
 
 * Web SDK map control
 * Power BI visual
