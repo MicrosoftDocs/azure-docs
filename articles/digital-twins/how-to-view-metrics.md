@@ -19,17 +19,17 @@ ms.service: digital-twins
 
 These metrics give you information about the state of Azure Digital Twins resources in your Azure subscription. Azure Digital Twins metrics help you assess the overall health of Azure Digital Twins service and the resources connected to it. These user-facing statistics help you see what is going on with your Azure Digital Twins and help perform root-cause analysis on issues without needing to contact Azure support.
 
-Metrics are enabled by default. You can view Azure Digital Twins metrics from the Azure portal.
+Metrics are enabled by default. You can view Azure Digital Twins metrics from the [Azure portal](https://portal.azure.com).
 
 ## How to view Azure Digital Twins metrics
 
-1. Create an Azure Digital Twins instance. You can find instructions on how to create an Azure Digital Twins instance in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
+1. Create an Azure Digital Twins instance. You can find instructions on how to set up an Azure Digital Twins instance in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
 
-2. Open the blade of your Azure Digital Twins. From there, click **Metrics**.
+2. Open the details page for your Azure Digital Twins instance (you can find it by typing its name into the portal search bar). From the instance's menu, select **Metrics**.
    
     ![Screenshot showing where the metrics option is in Azure Digital Twins resource page]()
 
-3. From the metrics blade, you can view the metrics for your Azure Digital Twins and create custom views of your metrics. 
+3. From the metrics page, you can view the metrics for your Azure Digital Twins and create custom views of your metrics. 
    
     ![Screenshot showing the metrics page for Azure Digital Twins]()
     
@@ -39,17 +39,19 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
 ## Azure Digital Twins metrics and how to use them
 
-Azure Digital Twins provides several metrics to give you an overview of the health of your instance and the total number of connected devices. You can combine information from multiple metrics to paint a bigger picture of the state of Azure Digital Twins. The following table describes the metrics each Azure Digital Twins tracks, and how each metric relates to the overall status of Azure Digital Twins.
+Azure Digital Twins provides several metrics to give you an overview of the health of your instance and its associated resources. You can also combine information from multiple metrics to paint a bigger picture of the state of your instance. 
 
-|Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|
+The following table describes the metrics each Azure Digital Twins instance tracks, and how each metric relates to the overall status of your instance.
+
+| Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
+| --- | --- | --- | --- | --- | --- |
 
 ### Dimensions
 
 Dimensions help identify more details about the metrics. Some of the routing metrics provide information per endpoint. The table below lists possible values for these dimensions.
 
-|Dimension|Values|
-|---|---|
+| Dimension | Values |
+| --- | --- |
 
 ## Next steps
 
