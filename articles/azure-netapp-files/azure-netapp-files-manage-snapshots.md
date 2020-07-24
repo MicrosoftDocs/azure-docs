@@ -40,7 +40,7 @@ You can create volume snapshots on demand.
 
 ## Manage snapshot policies
 
-You can schedule for volume snapshots to be taken automatically by using snapshot policies. You can also modify a snapshot policy, or delete a snapshot policy that you no longer need.  
+You can schedule for volume snapshots to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
 
 ### Create a snapshot policy 
 
@@ -77,7 +77,7 @@ A snapshot policy enables you to specify the snapshot creation frequency in hour
 If you need to create additional snapshot policies, repeat Step 3.
 The policies you created appear in the Snapshot policy page.
 
-If you want a volume to use the snapshot policy, you need to apply the policy to the volume. 
+If you want a volume to use the snapshot policy, you need to [apply the policy to the volume](azure-netapp-files-manage-snapshots.md#apply-a-snapshot-policy-to-a-volume). 
 
 ### Apply a snapshot policy to a volume
 
@@ -121,12 +121,11 @@ You can delete a snapshot policy that you no longer want to keep.
 
 Currently, you can restore a snapshot only to a new volume. 
 1. Select **Snapshots** from the Volume blade to display the snapshot list. 
-2. Select the snapshot to restore.  
-3. Right-click the snapshot name and select **Restore to new volume** from the menu option.  
+2. Right-click the snapshot to restore and select **Restore to new volume** from the menu option.  
 
     ![Restore snapshot to new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-4. In the Create a Volume window, provide information for the new volume:  
+3. In the Create a Volume window, provide information for the new volume:  
     * **Name**   
         Specify the name for the volume that you are creating.  
         
@@ -137,10 +136,11 @@ Currently, you can restore a snapshot only to a new volume.
 
     ![Restore to new volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-5. Click **Review+create**.  Then click **Create**.   
+4. Click **Review+create**.  Click **Create**.   
     The new volume uses the same protocol that the snapshot uses.   
     The new volume to which the snapshot is restored appears in the Volumes blade.
 
 ## Next steps
 
-[Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
