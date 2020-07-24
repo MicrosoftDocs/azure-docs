@@ -101,7 +101,7 @@ The second layout option is called `list` and displays a list of map styles.
 > [!IMPORTANT]
 > By default, when using the S0 [pricing tier](choose-pricing-tier.md) of Azure Maps, the style picker control lists all the available styles. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
 
-The following code shows you how to override the default base style collection. In this example, we're using the `mapStyles` option to list which base styles we want to be displayed by the style picker control.
+The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list which base styles we want to be displayed by the style picker control.
 
 <br/>
 
