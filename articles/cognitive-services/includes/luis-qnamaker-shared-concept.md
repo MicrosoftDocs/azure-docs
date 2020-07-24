@@ -2,13 +2,11 @@
 title: include file
 description: include file
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.author: diberry
 ---
 
 Cognitive Services provides two natural language processing services, [Language Understanding](../luis/what-is-luis.md) and [QnA Maker](../qnamaker/overview/overview.md), each with a different purpose. Understand when to use each service and how they compliment each other.

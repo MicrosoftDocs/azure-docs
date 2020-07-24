@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 07/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -24,6 +24,10 @@ ms.reviewer: bagovind
 Access management for cloud resources is a critical function for any organization that is using the cloud. Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
 
 Azure RBAC is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) that provides fine-grained access management of Azure resources.
+
+This video provides a quick overview of Azure RBAC.
+
+>[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
 
 ## What can I do with Azure RBAC?
 
@@ -63,6 +67,10 @@ Azure includes several [built-in roles](built-in-roles.md) that you can use. The
 - [User Access Administrator](built-in-roles.md#user-access-administrator) - Lets you manage user access to Azure resources.
 
 The rest of the built-in roles allow management of specific Azure resources. For example, the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role allows a user to create and manage virtual machines. If the built-in roles don't meet the specific needs of your organization, you can create your own [Azure custom roles](custom-roles.md).
+
+This video provides a quick overview of built-in roles and custom roles.
+
+>[!VIDEO https://www.youtube.com/embed/I1mefHptRgo]
 
 Azure has data operations that enable you to grant access to data within an object. For example, if a user has read data access to a storage account, then they can read the blobs or messages within that storage account. For more information, see [Understand Azure role definitions](role-definitions.md).
 
