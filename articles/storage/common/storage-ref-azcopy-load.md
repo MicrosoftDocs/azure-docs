@@ -1,6 +1,7 @@
 ---
-title: azcopy doc | Microsoft Docs
-description: This article provides reference information for the azcopy doc command.
+title: azcopy load | Microsoft Docs
+titleSuffix: Azure Storage
+description: This article provides reference information for the azcopy load command.
 author: normesta
 ms.service: storage
 ms.topic: reference
@@ -10,19 +11,13 @@ ms.subservice: common
 ms.reviewer: zezha-msft
 ---
 
-# azcopy doc
+# azcopy load
 
-Generates documentation for the tool in Markdown format.
+Subcommands related to transferring data in specific formats
 
 ## Synopsis
 
-Generates documentation for the tool in Markdown format, and stores them in the designated location.
-
-By default, the files are stored in a folder named 'doc' inside the current directory.
-
-```azcopy
-azcopy doc [flags]
-```
+Subcommands related to transferring data in specific formats, such as Microsoft's Avere Cloud FileSystem (CLFS) format.
 
 ## Related conceptual articles
 
@@ -31,11 +26,19 @@ azcopy doc [flags]
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 - [Configure, optimize, and troubleshoot AzCopy](storage-use-azcopy-configure.md)
 
+## Examples
+
+Load an entire directory to a container with a SAS in CLFS format:
+
+```azcopy
+azcopy load clfs "/path/to/dir" "https://[account].blob.core.windows.net/[container]?[SAS]" --state-path="/path/to/state/path"
+```
+
 ## Options
 
 |Option|Description|
 |--|--|
-|-h, --help|Shows help content for the doc command.|
+|-h, --help|Shows help content for the load command.|
 
 ## Options inherited from parent commands
 

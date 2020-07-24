@@ -209,6 +209,8 @@
         href: blackboard-learn-shibboleth-tutorial.md
       - name: Blink
         href: blink-tutorial.md
+      - name: BlogIn
+        href: blogin-tutorial.md
       - name: Blue Access for Members (BAM)
         href: blue-access-for-members-tutorial.md
       - name: BlueJeans
@@ -287,6 +289,8 @@
         href: cezannehrsoftware-tutorial.md
       - name: Change Process Management
         href: change-process-management-tutorial.md
+      - name: Chatwork
+        href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
       - name: Cherwell
@@ -1510,6 +1514,8 @@
         href: smartfile-tutorial.md
       - name: Smart Global Governance
         href: smart-global-governance-tutorial.md
+      - name: SmartHR
+        href: smarthr-tutorial.md
       - name: SmartKargo
         href: smartkargo-tutorial.md
       - name: SmartLPA
