@@ -200,7 +200,7 @@ model = Model.register(model_path="models/",
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called only once at beginning of process.
 -  `run(mini_batch)`: The function will run for each `mini_batch` instance.
-    -  `mini_batch`: `ParallelRunStep` will invoke run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch will be - a file path if input is a FileDataset, a pandas DataFrame if input is a `TabularDataset`.
+    -  `mini_batch`: `ParallelRunStep` will invoke run method and pass either a list or pandas `DataFrame` as an argument to the method. Each entry in mini_batch will be a file path if input is a `FileDataset` or a pandas `DataFrame` if input is a `TabularDataset`.
     -  `response`: run() method should return a pandas `DataFrame` or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful run of input element in the input mini-batch. Make sure that enough data is included in run result to map input to run output result. Run output will be written in output file and not guaranteed to be in order, you should use some key in the output to map it to input.
 
 ```python
@@ -301,7 +301,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: The `run()` method invocation timeout in seconds. (optional; default value is `60`)
 - `run_max_try`: Maximum try count of `run()` for a mini-batch. A `run()` is failed if an exception is thrown, or nothing is returned when `run_invocation_timeout` is reached (optional; default value is `3`). 
 
-You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use PipelineParameter for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
+You can specify `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout`, and `run_max_try` as `PipelineParameter`, so that when you resubmit a pipeline run, you can fine-tune the parameter values. In this example, you use `PipelineParameter` for `mini_batch_size` and `Process_count_per_node` and you will change these values when resubmit a run later. 
 
 This example assumes that you're using the `digit_identification.py` script that was discussed earlier. If you use your own script, change the `source_directory` and `entry_script` parameters accordingly.
 
@@ -391,7 +391,7 @@ pipeline_run_2.wait_for_completion(show_output=True)
 ```
 ## View the results
 
-The results from above run are written to the DataStore specified in the `PipelineData` object as the output data, which in this case is called *inferences*. The results are stored in the default blob container, you can navigate to your storage account and view through Storage Explorer, the file path is azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+The results from above run are written to the `DataStore` specified in the `PipelineData` object as the output data, which in this case is called *inferences*. The results are stored in the default blob container, you can navigate to your storage account and view through Storage Explorer, the file path is azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
 
 You can also download this data to view the results. Below is the sample code to view the first 10 rows.
 
