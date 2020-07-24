@@ -305,7 +305,6 @@ This section covers different write-back scenarios. It recommends configuration 
 * In Employee Central, business phone is set as primary. The write-back app cannot change this and set cell phone as primary.
 * The write-back app cannot read the current primary flag settings and use the same values for the write operation. The flag values configured in the attribute-mapping will always be used. 
 
-
 ## Next steps
 
 * [Learn how to configure SuccessFactors to Active Directory provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
