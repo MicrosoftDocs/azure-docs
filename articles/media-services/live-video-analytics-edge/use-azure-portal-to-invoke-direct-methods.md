@@ -37,7 +37,7 @@ Use the `GraphTopologyList` method call to retrieve a list of all the graph topo
 1. Log into Azure portal
 1. Find the relevant resource group from your portal homepage to locate your IoT Hub, or if you know you IoT Hub, select it.
     ![resource group in portal home page](media/use-azure-portal-to-invoke-directs-methods/portal-rg-home.png)
-1. Once on the IoT Hub page, select IoT edge under Automatic Device Management to list the various device IDs. Select the relevant device ID to list the modules running on the device.
+1. Once on the IoT Hub page, select IoT Edge under Automatic Device Management to list the various device IDs. Select the relevant device ID to list the modules running on the device.
     ![iot hub page](media/use-azure-portal-to-invoke-directs-methods/iot-hub-page.png)
 1. Select the Live Video Analytics on IoT Edge module to bring up its configuration page.<br><br>
     ![Select the Live Video Analytics on IoT Edge module to bring up its configuration page](media/use-azure-portal-to-invoke-directs-methods/modules.png)
