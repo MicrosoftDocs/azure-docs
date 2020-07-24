@@ -2,7 +2,7 @@
 title: Azure Security Baseline for Azure DevTest Labs
 description: Azure Security Baseline for Azure DevTest Labs
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 07/23/2020
 ---
 
 # Azure Security Baseline for Azure DevTest Labs
@@ -101,7 +101,7 @@ For more information, see the following article: [How to alert on log analytics 
 **Responsibility:** Customer
 
 ### 2.10: Enable command-line audit logging
-**Guidance:** Azure DevTest Labs creates Azure Compute machines that are owned and managed by the customer. Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines to log the process creation event and the CommandLine field. For supported Azure Linux Virtual machines, you can manually configure console logging on a per-node basis and use Syslog to store the data. Also, use Azure Monitor's Log Analytics workspace to review logs and run queries on logged data from Azure Virtual machines.
+**Guidance:** Azure DevTest Labs creates Azure Compute machines that are owned and managed by the customer. Use Microsoft Monitoring Agent on all supported Azure Windows virtual machines to log the process creation event and the `CommandLine` field. For supported Azure Linux Virtual machines, you can manually configure console logging on a per-node basis and use Syslog to store the data. Also, use Azure Monitor's Log Analytics workspace to review logs and run queries on logged data from Azure Virtual machines.
 
 - [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 - [How to run custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
@@ -110,6 +110,149 @@ For more information, see the following article: [How to alert on log analytics 
 **Azure Security Center monitoring:** Yes
 
 **Responsibility:** Customer
+
+## Identity and Access Control
+*For more information, see [Security Control: Identity and Access Control](../security/benchmarks/security-control-identity-access-control.md).*
+
+### 3.1: Maintain an inventory of administrative accounts
+**Guidance:** Azure Active Directory (Azure AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups.
+
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Azure DevTest Labs roles](devtest-lab-add-devtest-user.md)  
+
+**Azure Security Center monitoring:** Yes
+
+**Responsibility:** Customer
+
+### 3.2: Change default passwords where applicable
+**Guidance:** Azure Active Directory (Azure AD) doesn't have the concept of default passwords. Other Azure resources requiring a password force a password to be created with complexity requirements and a minimum password length, which differ depending on the service. You're responsible for third-party applications and Marketplace services that may use default passwords.
+
+DevTest Labs doesn't have the concept of default passwords. 
+
+**Azure Security Center monitoring:** Not applicable
+
+**Responsibility:** Customer
+
+### 3.3: Use dedicated administrative accounts
+**Guidance:** Create standard operating procedures around the use of dedicated administrative accounts. Use Azure Security Center Identity and Access Management to monitor the number of administrative accounts.
+
+Additionally, to help you keep track of dedicated administrative accounts, you may use recommendations from Azure Security Center or built-in Azure Policies, such as:
+
+- There should be more than one owner assigned to your subscription
+- Deprecated accounts with owner permissions should be removed from your subscription
+- External accounts with owner permissions should be removed from your subscription
+
+- [How to use Azure Security Center to monitor identity and access (Preview)](../security-center/security-center-identity-access.md)  
+- [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
+- [Azure DevTest Labs roles](devtest-lab-add-devtest-user.md)  
+
+**Azure Security Center monitoring:** Yes
+
+**Responsibility:** Customer
+
+### 3.4: Use single sign-on (SSO) with Azure Active Directory
+**Guidance:** DevTest Labs uses the Azure AD service for identity management. Consider these two key aspects when you give users access to an environment based on DevTest Labs:
+
+- **Resource management:** It provides access to the Azure portal to manage resources (create virtual machines, create environments, start, stop, restart, delete, and apply artifacts, and so on). Resource management is done in Azure by using role-based access control (RBAC). You assign roles to users and set resource and access-level permissions.
+- **Virtual machines (network-level)**: In the default configuration, virtual machines use a local admin account. If there's a domain available (Azure AD Domain Services, an on-premises domain, or a cloud-based domain), machines can be joined to the domain. Users can then use their domain-based identities using the domain join artifact to connect to the machines. 
+
+- [Reference architecture for DevTest Labs](devtest-lab-reference-architecture.md#architecture)
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
+
+**Azure Security Center monitoring:** Not applicable
+
+**Responsibility:** Customer
+
+### 3.5: Use multi-factor authentication for all Azure Active Directory based access
+**Guidance:** Enable Azure Active Directory (AD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
+
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
+
+**Azure Security Center monitoring:*** Yes
+
+**Responsibility:** Customer
+
+
+### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
+**Guidance:** Use privileged access workstations (PAWs) with MFA configured to log into and configure Azure resources.
+
+- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)  
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)  
+
+**Azure Security Center monitoring:** N/A
+
+**Responsibility:** Customer
+
+### 3.7: Log and alert on suspicious activity from administrative accounts
+**Guidance:** Use Azure Active Directory (Azure AD) security reports for generation of logs and alerts when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
+
+- [How to identify Azure AD users flagged for risky activity](../active-directory/reports-monitoring/concept-user-at-risk.md)  
+- [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)  
+
+**Azure Security Center monitoring:** Currently not available
+
+**Responsibility:** Customer
+
+### 3.8: Manage Azure resources from only approved locations
+**Guidance:** Use conditional access named locations to allow access from only specific logical groupings of IP address ranges or countries/regions.
+
+- [How to configure named locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)  
+
+**Azure Security Center monitoring:** Currently not available
+
+**Responsibility:** Customer
+
+### 3.9: Use Azure Active Directory
+**Guidance:** Use Azure Active Directory (Azure AD) as the central authentication and authorization system. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
+
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)  
+
+**Azure Security Center monitoring:** Currently not available
+
+**Responsibility:** Customer
+
+### 3.10: Regularly review and reconcile user access
+**Guidance:** Azure Active Directory (Azure AD) provides logs to help discover stale accounts. Also, use Azure identity access reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access.
+
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/)  
+- [How to use Azure identity access reviews](../active-directory/governance/access-reviews-overview.md)  
+
+**Azure Security Center monitoring:** Not applicable
+
+**Responsibility:** Customer
+
+### 3.11: Monitor attempts to access deactivated accounts
+**Guidance:** You have access to Azure Active Directory (Azure AD) sign-in Activity, Audit, and Risk Event log sources, which allow you to integrate with any Security Information and Event Management (SIEM) /Monitoring tool.
+
+You can streamline this process by creating Diagnostic Settings for Azure Active Directory user accounts and sending the audit logs and sign-in logs to a Log Analytics Workspace. You can configure alerts within Log Analytics Workspace.
+
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)  
+
+**Azure Security Center monitoring:** Currently not available
+
+**Responsibility:** Customer
+
+### 3.12: Alert on account login behavior deviation
+**Guidance:** Use Azure Active Directory (Azure AD) Risk and Identity Protection features to configure automated responses to detected suspicious actions related to user identities.
+
+- [How to view Azure AD risky sign-ins](../active-directory/reports-monitoring/concept-risky-sign-ins.md)  
+- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)  
+
+**Azure Security Center monitoring:** Currently not available
+
+**Responsibility:** Customer
+
+### 3.13: Provide Microsoft with access to relevant customer data during support scenarios
+**Guidance:** Customer Lockbox not currently supported for Azure DevTest Labs.
+
+- [List of Customer Lockbox supported services](../security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability.md) 
+
+**Azure Security Center monitoring:** Not applicable
+
+**Responsibility:** Customer
+
 
 ## Next steps
 See the following article:
