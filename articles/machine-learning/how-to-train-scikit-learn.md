@@ -66,6 +66,8 @@ Notes:
 #### Create a custom environment.
 
 Author your conda environment (sklearn-env.yml).
+To write this from a notebook, you can add the line ```%%writefile sklearn-env.yml``` at the top of the cell.
+
 ```yaml
 name: sklearn-training-env
 dependencies:
@@ -98,7 +100,7 @@ This ScriptRunConfig will submit your job for execution on the local compute tar
 ```python
 from azureml.core import ScriptRunConfig
 
-src = ScriptRunConfig(source_directory='.', script='train.py')
+src = ScriptRunConfig(source_directory='.', script='train_iris.py')
 src.run_config.environment = myenv
 ```
 
