@@ -11,7 +11,7 @@ ms.author: banders
 
 # View Azure reservations
 
-You can view and manage the purchased reservation from Azure portal.
+You can view and manage the purchased reservation from the Azure portal.
 
 ## Permissions to view a reservation
 
@@ -19,7 +19,7 @@ To view or manage a reservation, you need to have reader or owner permission on 
 
 For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
-## View reservation and utilization in Azure portal
+## View reservation and utilization in the Azure portal
 
 To view a reservation as an Owner or Reader
 
