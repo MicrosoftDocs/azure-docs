@@ -176,8 +176,6 @@ Create a load balancer rule with [Add-AzLoadBalancerRuleConfig](/powershell/modu
 * Sending load-balanced network traffic to the backend address pool **myBackEndPool** using **Port 80**. 
 * Using health probe **myHealthProbe**.
 * Protocol **TCP**.
-* Enable outbound source network address translation (SNAT) using the frontend IP address.
-
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -188,11 +186,8 @@ $port = '80'
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT
 ```
-> [!NOTE]
-> The command above enables outbound connectivity for the resources in the backend pool of the load balancer. For advanced outbound connectivity configuration, refer to **[Outbound connections in Azure](load-balancer-outbound-connections.md)** and **[Configure load balancing and outbound rules in Standard Load Balancer by using Azure CLI](configure-load-balancer-outbound-cli.md)**.
-
 
 ### Create load balancer resource
 
@@ -308,7 +303,7 @@ $ip3 = 'myVMPubIP3'
 $sku = 'Standard'
 $all = 'static'
 
-$RdpPubIP2 = 
+$RdpPubIP3 = 
 New-AzPublicIpAddress -Name $ip3 -ResourceGroupName $rg -Location $loc -SKU $sku -AllocationMethod $all
 ```
 
@@ -633,6 +628,191 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 ```
 
 It takes a few minutes to create and configure the three VMs.
+
+## Create outbound rule configuration
+Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
+
+For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
+
+### Create outbound public IP address
+
+Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) to:
+
+* Create a standard zone redundant public IP address named **myPublicIPOutbound**.
+* In **myResourceGroupLB**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$pubIP = 'myPublicIPOutbound'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku
+```
+
+To create a zonal public IP address in zone 1, use the following command:
+
+```azurepowershell-interactive
+## Variables for the command ##
+$rg = 'MyResourceGroupLB'
+$loc = 'eastus'
+$pubIP = 'myPublicIPOutbound'
+$sku = 'Standard'
+$all = 'static'
+
+$publicIp = 
+New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -zone 1
+```
+### Create outbound frontend IP configuration
+
+Create a new frontend IP configuration with [Add-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/add-azloadbalancerfrontendipconfig):
+
+* Named **myFrontEndOutbound**.
+* Associated with public IP address **myPublicIPOutbound**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$fen = 'myFrontEndOutbound'
+
+## Get the load balancer configuration  and apply the frontend config##
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFrontendIPConfig -Name $fen -PublicIpAddress $publicIP | Set-AzLoadBalancer
+```
+
+### Create outbound pool
+
+Create a new outbound pool with [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
+
+Apply the pool and frontend IP address to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
+
+* Named **myBackEndPoolOutbound**.
+
+```azurepowershell-interactive
+## Variables for the command ##
+$ben = 'myBackEndPoolOutbound'
+$lbn = 'myLoadBalancer'
+$rg = 'myResourceGroupLB'
+
+## Get the load balancer configuration and create the outbound backend address pool##
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerBackendAddressPoolConfig -Name $ben | Set-AzLoadBalancer
+```
+### Create outbound rule and apply to load balancer
+
+Create a new outbound rule for the outbound backend pool with [Add-AzLoadBalancerOutboundRuleConfig](/powershell/module/az.network/new-azloadbalanceroutboundruleconfig). 
+
+Apply the rule to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
+
+* Named **myOutboundRule**.
+* Associated with load balancer **myLoadBalancer**.
+* Associated with frontend **myFrontEndOutbound**.
+* Protocol **All**.
+* Idle timeout of **15**.
+* **10000** outbound ports.
+* Associated with backend pool **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$brn = 'myOutboundRule'
+$pro = 'All'
+$idl = '15'
+$por = '10000'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg 
+
+## Apply the outbound rule configuration to the load balancer. ##
+$lb | Add-AzLoadBalancerOutBoundRuleConfig -Name $brn -FrontendIPConfiguration $lb.FrontendIpConfigurations[1] -BackendAddressPool $lb.BackendAddressPools[1] -Protocol $pro -IdleTimeoutInMinutes $idl -AllocatedOutboundPort $por | Set-AzLoadBalancer
+```
+
+### Add virtual machines to outbound pool
+
+Add the virtual machine network interfaces to the outbound pool of the load balancer with [Add-AzNetworkInterfaceIpConfig](/powershell/module/az.network/add-aznetworkinterfaceipconfig):
+
+
+#### VM1
+* In backend address pool **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myNicVM1** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$bep = 'myBackEndPoolOutbound'
+$nic1 = 'myNicVM1'
+$ipc = 'ipconfig1'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
+
+## Get the network interface configuration ##
+$nic = 
+Get-AzNetworkInterface -Name $nic1 -ResourceGroupName $rg
+
+## Apply the backend to the network interface ##
+$nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
+```
+
+#### VM2
+* In backend address pool **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myNicVM2** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$bep = 'myBackEndPoolOutbound'
+$nic2 = 'myNicVM2'
+$ipc = 'ipconfig1'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
+
+## Get the network interface configuration ##
+$nic = 
+Get-AzNetworkInterface -Name $nic2 -ResourceGroupName $rg
+
+## Apply the backend to the network interface ##
+$nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
+```
+
+#### VM3
+* In backend address pool **myBackEndPoolOutbound**.
+* In resource group **myResourceGroupLB**.
+* Associated with network interface **myNicVM3** and **ipconfig1**.
+* Associated with load balancer **myLoadBalancer**.
+
+```azurepowershell-interactive
+## Variables for the commands ##
+$rg = 'myResourceGroupLB'
+$lbn = 'myLoadBalancer'
+$bep = 'myBackEndPoolOutbound'
+$nic3 = 'myNicVM3'
+$ipc = 'ipconfig1'
+
+## Get the load balancer configuration ##
+$lb = 
+Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg
+
+## Get the network interface configuration ##
+$nic = 
+Get-AzNetworkInterface -Name $nic3 -ResourceGroupName $rg
+
+## Apply the backend to the network interface ##
+$nic | Set-AzNetworkInterfaceIpConfig -Name $ipc -LoadBalancerBackendAddressPoolId $lb.BackendAddressPools[1].id | Set-AzNetworkInterface
+
+```
 
 # [Option 2: Create a load balancer (Basic SKU)](#tab/option-1-create-load-balancer-basic)
 
@@ -1263,7 +1443,7 @@ Install IIS with a custom web page on both back-end VMs as follows:
 5. Close the RDP connections with **myVM1**, **myVM2**, and **myVM3**.
 
 
-## Test load balancer
+## Test the load balancer
 To get the public IP address of the load balancer, use [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress):
 
 * Named **myPublicIP**
