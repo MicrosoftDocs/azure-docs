@@ -5,8 +5,8 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
 ms.topic: conceptual
-author: GithubMirek
-ms.author: mireks
+author: shohamMSFT
+ms.author: shohamd
 ms.reviewer: vanto
 ms.date: 07/24/2020
 ---
