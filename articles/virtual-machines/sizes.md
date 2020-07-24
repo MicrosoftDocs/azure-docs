@@ -27,6 +27,8 @@ This article describes the available sizes and options for the Azure virtual mac
 - For availability of VM sizes in Azure regions, see [Products available by region](https://azure.microsoft.com/regions/services/).
 - To see general limits on Azure VMs, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
+> [!NOTE]
+  > For more information on how Azure names its VMs, see: [Azure virtual machine sizes naming conventions](https://docs.microsoft.com/azure/virtual-machines/vm-naming-conventions).
 
 ## REST API
 
