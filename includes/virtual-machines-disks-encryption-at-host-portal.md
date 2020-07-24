@@ -45,12 +45,12 @@ You must deploy a new VM to enable encryption at host, it cannot be enabled on e
 1. Create a new virtual machine, select an appropriate region and a supported VM size.
 1. Fill in the other values on the **Basic** blade as you like, then proceed to the **Disks** blade.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="example text":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-basic-blade.png" alt-text="Screenshot of the virtual machine creation basics blade, region and V M size are highlighted.":::
 
 1. On the **Disks** blade, select **Yes** for **Encryption at host**.
 1. Make the remaining selections as you like.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="example text":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="Screenshot of the virtual machine creation disks blade, encryption at host is highlighted.":::
 
 1. Finish the VM deployment process, make selections that fit your environment.
 
