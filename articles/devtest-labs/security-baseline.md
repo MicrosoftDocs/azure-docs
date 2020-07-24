@@ -454,7 +454,7 @@ See the following articles:
 - [Network security overview](../virtual-network/security-overview.md)
 - [Azure Virtual Network overview]()
 - [Organize your resources with Azure management groups](../governance/management-groups/overview.md)
-- [Subscription decision guide](../cloud-adoption-framework/decision-guides/subscriptions.md)
+- [Subscription decision guide](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)
 
 **Azure Security Center monitoring:** Not Available
 
