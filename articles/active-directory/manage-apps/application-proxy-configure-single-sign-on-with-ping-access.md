@@ -121,11 +121,8 @@ Then make sure your redirect URL is set to your external URL:
 
 In addition to the external URL, an authorize endpoint of Azure Active Directory on ethe xternal URL should be added to the Redirect URIs list.
 
-```
-https://*.msappproxy.net/pa/oidc/cb
-https://*.msappproxy.net/
-
-```
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
 
  > [!Note]
  > 
