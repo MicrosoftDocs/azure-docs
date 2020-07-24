@@ -20,7 +20,7 @@ The request header too large message occurs if the session or the continuation t
 #### Cause:
 400 bad request is most likely caused by the session token being to large. If the following statements are true then it confirms that the session token is too large.
 
-* The error occurs on point operation like create, read, update, and etc where there is not a continuation token.
+* The error occurs on point operation like create, read, update, and etc. where there is not a continuation token.
 * The exception started without making any changes to the application. The session token grows as the number of partitions increase in the container. The numbers of partition increase as the amount of data increase or if the throughput is increased.
 
 #### Temporary mitigation: 
