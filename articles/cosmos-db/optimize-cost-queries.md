@@ -5,16 +5,16 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 07/24/2020
 ---
 
 # Optimize query cost in Azure Cosmos DB
 
-Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries that operate on the items within a container. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations to serve a request. This article describes how to evaluate request unit charges for a query and optimize the query in terms of performance and cost. 
+Azure Cosmos DB offers a rich set of database operations including relational and hierarchical queries that operate on the items within a container. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a request unit (RU) as a single measure for the resources required to perform various database operations to serve a request. This article describes how to evaluate request unit charges for a query and optimize the query in terms of performance and cost.
 
-Queries in Azure Cosmos DB are typically ordered from fastest/most efficient to slower/less efficient in terms of throughput as follows:  
+Reads in Azure Cosmos DB are typically ordered from fastest/most efficient to slower/less efficient in terms of throughput as follows:  
 
-* GET operation on a single partition key and item key.
+* Point reads (GET operation on a single item ID and partition key).
 
 * Query with a filter clause within a single partition key.
 
