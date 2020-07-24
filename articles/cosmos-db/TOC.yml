@@ -1022,7 +1022,7 @@
         items:
         - name: Troubleshoot query performance
           href: troubleshoot-query-performance.md
-        - name : Troubleshoot serivce request timeout
+        - name : Troubleshoot service request timeout
           href: troubleshoot-request-timeout.md
         - name : Troubleshoot request rate too large
           href: troubleshoot-request-rate-too-large.md

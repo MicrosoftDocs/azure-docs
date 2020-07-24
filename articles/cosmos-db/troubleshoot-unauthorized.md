@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Cosmos DB unauthorized exception
+title: Troubleshoot Azure Cosmos DB unauthorized exception
 description: How to diagnose and fix unauthorized exception
 author: j82w
 ms.service: cosmos-db
@@ -42,3 +42,7 @@ Switch the application to use a read/write key to allow the operations to comple
 
 #### Solution:
 There is a race condition with container creation. An application instance is trying to access the container before container creation is complete. The most common scenario for this race condition is if the application is running, and the container is deleted and recreated with the same name. The SDK will attempt to use the new container, but the container creation is still in progress so it does not have the keys.
+
+## Next steps
+* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when using Azure Cosmos DB .NET SDK
+* Learn about performance guidelines for [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET V2](performance-tips.md)

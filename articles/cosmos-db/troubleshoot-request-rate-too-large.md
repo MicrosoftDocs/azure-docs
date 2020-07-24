@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Cosmos DB request rate to large exception
+title: Troubleshoot Azure Cosmos DB request rate to large exception
 description: How to diagnose and fix request rate to large exception
 author: j82w
 ms.service: cosmos-db
@@ -24,3 +24,7 @@ The consumed throughput (RU/s) has exceeded the [provisioned throughput](set-thr
 ## Solution:
 1. Use the [portal or the SDK](set-throughput.md) to increase the provisioned throughput.
 2. Switch the database or container to [Autoscale](provision-throughput-autoscale.md).
+
+## Next steps
+* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when using Azure Cosmos DB .NET SDK
+* Learn about performance guidelines for [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET V2](performance-tips.md)

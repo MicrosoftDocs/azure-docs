@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Cosmos DB service unavailable exception
+title: Troubleshoot Azure Cosmos DB service unavailable exception
 description: How to diagnose and fix Cosmos DB service unavailable exception
 author: j82w
 ms.service: cosmos-db
@@ -28,3 +28,7 @@ Follow the [SNAT Port Exhaustion guide](troubleshoot-dot-net-sdk.md#snat).
 
 ### 3. The required ports are being blocked
 Verify that all the [required ports](performance-tips-dotnet-sdk-v3-sql.md#networking) are enabled.
+
+## Next steps
+* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when using Azure Cosmos DB .NET SDK
+* Learn about performance guidelines for [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET V2](performance-tips.md)

@@ -60,3 +60,7 @@ The application should be able to handle transient failures and retry when neces
 
 ### 8. Failure rate is violating the Cosmos DB SLA
 Please contact Azure support.
+
+## Next steps
+* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when using Azure Cosmos DB .NET SDK
+* Learn about performance guidelines for [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET V2](performance-tips.md)

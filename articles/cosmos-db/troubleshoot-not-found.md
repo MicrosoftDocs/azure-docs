@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Cosmos DB not found exception
+title: Troubleshoot Azure Cosmos DB not found exception
 description: How to diagnose and fix not found exception
 author: j82w
 ms.service: cosmos-db
@@ -15,8 +15,8 @@ The HTTP status code 404 represents that the resource no longer exists.
 ## Expected behavior
 There are many valid scenarios where an application is expecting a 404, and correctly handles the scenario.
 
-## The document should exist or does exist, but a 404 Not Found status code was returned
-Below are the possible reason for this behavior
+## Not found was returned for an item that should exist or does exist
+Below are the possible reason for a status code 404 to be returned if the item should or does exits.
 
 ### 1. Race condition
 There are multiple SDK client instances and the read happened before the write.
@@ -91,3 +91,7 @@ The database and/or container that the item exists in has been deleted.
 #### Solution:
 1. [Restore](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) the parent resource or recreate the resources.
 2. Create a new resource to replace the deleted resource
+
+## Next steps
+* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when using Azure Cosmos DB .NET SDK
+* Learn about performance guidelines for [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET V2](performance-tips.md)

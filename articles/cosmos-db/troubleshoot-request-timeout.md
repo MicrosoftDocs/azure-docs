@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Cosmos DB service request timeout exception
+title: Troubleshoot Azure Cosmos DB service request timeout exception
 description: How to diagnose and fix Cosmos DB service request timeout exception
 author: j82w
 ms.service: cosmos-db
@@ -29,3 +29,7 @@ Azure Cosmos DB distributes the overall provisioned throughput evenly across phy
 
 #### Solution:
 Choose a good partition key that evenly distributes request volume and storage. Learn how to [change your partition key](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/).
+
+## Next steps
+* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when using Azure Cosmos DB .NET SDK
+* Learn about performance guidelines for [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET V2](performance-tips.md)

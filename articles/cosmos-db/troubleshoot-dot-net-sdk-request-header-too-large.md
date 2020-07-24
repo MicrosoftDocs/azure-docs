@@ -20,8 +20,8 @@ The request header too large message occurs if the session or the continuation t
 #### Cause:
 400 bad request is most likely caused by the session token being to large. If the following statements are true then it confirms that the session token is too large.
 
-* The error occurs on point operation like create, read, update, and etc where there is not a coninutation token.
-* The exception started without making any changes to the application.The session token grows as the number of partitions increase in the container. The numbers of partition increase as the amount of data increase or if the throughput is increased.
+* The error occurs on point operation like create, read, update, and etc where there is not a continuation token.
+* The exception started without making any changes to the application. The session token grows as the number of partitions increase in the container. The numbers of partition increase as the amount of data increase or if the throughput is increased.
 
 #### Temporary mitigation: 
 Restart your client application to reset all the session tokens. The session token will eventually grow back to the previous size that caused the issue. So use the solution in the next section to avoid this issue completely.
@@ -38,3 +38,7 @@ The 400 bad request is happening on query operations where the continuation toke
 #### Solution:
 1. Follow the guidance in [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) or [.NET V2](performance-tips.md) performance tips article and convert the application to use direct connection mode with TCP protocol. Direct mode with TCP protocol does not have the header size restriction like the HTTP protocol, so it avoids this issue. 
 3. If Direct connection mode with TCP protocol is not an option for your workload, then try setting the `ResponseContinuationTokenLimitInKb` option. You can find this option in the `FeedOptions` for v2 or the `QueryRequestOptions` in v3.
+
+## Next steps
+* [Diagnose and troubleshoot](troubleshoot-dot-net-sdk.md) issues when using Azure Cosmos DB .NET SDK
+* Learn about performance guidelines for [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) and [.NET V2](performance-tips.md)
