@@ -71,8 +71,8 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 1. Under Permission settings, click **Permission...**, then scroll down the permission list and click **Manage Integration Tools**. Check the box for **Allow Admin to Access to OData API through Basic Authentication**.
 
-  > [!div class="mx-imgBorder"]
-  > ![Manage integration tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
+   > [!div class="mx-imgBorder"]
+   > ![Manage integration tools](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
 
 1. Scroll down in the same box and select **Employee Central API**. Add permissions as shown below to read using ODATA API and edit using ODATA API. Select the edit option if you plan to use the same account for the write-back to SuccessFactors scenario. 
 
