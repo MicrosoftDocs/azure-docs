@@ -59,7 +59,7 @@ The information flow from the platform to the agent occurs via two channels:
 The following systems have been tested and are known to work with the Azure Linux Agent:
 
 > [!NOTE]
-> This list may differ from the official list of [supported distros](../linux/endorsed-distros).
+> This list may differ from the official list of [supported distros](../linux/endorsed-distros.md).
 > 
 > 
 
