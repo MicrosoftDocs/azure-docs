@@ -4887,22 +4887,17 @@ xpath('<xml>', '<xpath>')
 
 *Example 1*
 
-This example finds nodes that match the `<name></name>` node in the specified arguments, and returns an array with those node values:
+Suppose that you have this `'items'` XML string: 
+
+```xml
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```
+
+This example passes in the XPath expression, `'/produce/item/name'`, to find the nodes that match the `<name></name>` node in the `'items'` XML string, and returns an array with those node values:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Here are the arguments:
-
-* The "items" string, which contains this XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-  The example uses the [parameters()](#parameters) function to get the XML string from the "items" argument, but must also convert
-  the string to XML format by using the [xml()](#xml) function.
-
-* This XPath expression, which is passed as a string:
-
-  `"/produce/item/name"`
+The example also uses the [parameters()](#parameters) function to get the XML string from `'items'` and convert the string to XML format by using the [xml()](#xml) function.
 
 Here is the result array with the nodes that match `<name></name`:
 
@@ -4910,75 +4905,97 @@ Here is the result array with the nodes that match `<name></name`:
 
 *Example 2*
 
-Following on Example 1, this example passes in the XPath expression, `"/produce/item/name[1]"` , which finds the first `name` element that is the child of the `item` element.
+Following on Example 1, this example passes in the XPath expression, `'/produce/item/name[1]'`, to find the first `name` element that is the child of the `item` element.
 
 `xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-And returns this result: `Gala`
+Here is the result: `Gala`
 
 *Example 3*
 
-Following on Example 1, this example pass in the XPath expression, `"/produce/item/name[last()]"`, which finds the last `name` element that is the child of the `item` element.
+Following on Example 1, this example pass in the XPath expression, `'/produce/item/name[last()]'`, to find the last `name` element that is the child of the `item` element.
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
-And returns this result: `Honeycrisp`
+Here is the result: `Honeycrisp`
 
 *Example 4*
 
-* The "items" string, which contains this XML:
+In this example, suppose your `items` XML string also contains the attributes, `expired='true'` and `expired='false'`:
 
-  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"
+```
 
-* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired.
+This example passes in the XPath expression, `'//name[@expired]'`, to find all the `name` elements that have the `expired` attribute:
 
-:  `" //name[@expired]	"`
+`xpath(xml(parameters('items')), '//name[@expired]')`
 
-Here the result is :
-
-` [ Gala, Honeycrisp] `
+Here is the result: `[ Gala, Honeycrisp ]`
 
 *Example 5*
 
-* The "items" string, which contains this XML:
+In this example, suppose your `items` XML string contains only this attribute, `expired='true'`:
 
-  `"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+```xml
+"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"
+```
 
-* This XPath expression, which is passed as a string selects all the name elements that have the attribute named expired with value true.
+This example passes in the XPath expression, `'//name[@expired - 'true']'`, to find all the `name` elements that have the attribute, `expired='true'`:
 
-:  `" //name[@expired - 'true']	"`
+`xpath(xml(parameters('items')), '//name[@expired - 'true']')`
 
-Here the result is :
-
-` [ Gala ] `
+Here is the result: `[ Gala ]`
 
 *Example 6*
 
-* The "items" string, which contains this XML:
+In this example, suppose your `items` XML string also contains these attributes: 
 
-  `"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+* `expired='true' price='12'`
+* `expired='false' price='40'`
 
-* This XPath expression, which is passed as a string selects all the name elements with price value more than 35.
+```xml
+"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"
+```
 
-:  `" //name[price>35]	"`
+This example passes in the XPath expression, `'//name[price>35]'`, to find all the `name` elements that have `price > 35':
 
-Here the result is :
+`xpath(xml(parameters('items')), '//name[price>35]')`
 
-` Honeycrisp `
+Here is the result: `Honeycrisp`
 
 *Example 7*
 
-Following on Example 1, this example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
+In this example, suppose your `items` XML string is the same as in Example 1:
+
+```xml
+"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"
+```
+
+This example finds nodes that match the `<count></count>` node and adds those node values with the `sum()` function:
 
 `xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
 
-And returns this result: `30`
+Here is the result: `30`
 
 *Example 8*
 
-For this example, both expressions find nodes that match the `<location></location>` node, in the specified arguments, which include XML with a namespace. 
+In this example, suppose you have this XML string, which includes the XML document namespace, `xmlns="http://contoso.com"`:
 
-> [!NOTE]
+```xml
+"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"
+```
+
+These expressions use either the XPath expression, `/*[name()="file"]/*[name()="location"]` or `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]` to find nodes that match the `<location></location>` node: 
+
+`xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+`xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+
+Here is the result node that matches the `<location></location>` node: 
+
+`<location xmlns="https://contoso.com">Paris</location>`
+
+> [!IMPORTANT]
 >
 > If you're working in code view, escape the double quotation mark (") by using the backslash character (\\). 
 > For example, you need to use escape characters when you serialize an expression as a JSON string. 
@@ -4991,41 +5008,13 @@ For this example, both expressions find nodes that match the `<location></locati
 > 
 > The following examples apply to expressions that you enter in the expression editor.
 
-* *Expression 1*
-
-  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-
-* *Expression 2*
-
-  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
-
-Here are the arguments:
-
-* This XML, which includes the XML document namespace, `xmlns="http://contoso.com"`:
-
-  ```xml
-  <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
-  ```
-
-* Either XPath expression here:
-
-  * `/*[name()="file"]/*[name()="location"]`
-
-  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
-
-Here is the result node that matches the `<location></location>` node:
-
-```xml
-<location xmlns="https://contoso.com">Paris</location>
-```
-
 *Example 9*
 
-Following on Example 8, this example finds the value in the `<location></location>` node:
+Following on Example 8, this example uses the XPath expression, `'string(/*[name()="file"]/*[name()="location"])'`, to find the value in the `<location></location>` node:
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-And returns this result: `"Paris"`
+Here is the result: `Paris`
 
 ## Next steps
 
