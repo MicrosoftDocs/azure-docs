@@ -89,7 +89,7 @@ You can manage your Azure Time Series Insights Gen2 environment by using the Azu
 
 * The Azure portal's **Configure** blade is removed because scale units don't apply to Azure Time Series Insights Gen2 environments. However, you can use **Storage Configuration** to configure the newly introduced warm store.
 
-* The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Gen2 because reference data concept has been replaced by [Time Series Model (TSM)](./time-series-insights-update-how-to-tsm.md).
+* The Azure portal's **Reference data** blade is removed in Azure Time Series Insights Gen2 because reference data concept has been replaced by [Time Series Model (TSM)](/azure/time-series-insights/concepts-model-overview).
 
 [![Azure Time Series Insights Gen2 environment in the Azure portal](media/v2-update-manage/create-and-manage-overview-confirm.png)](media/v2-update-manage/create-and-manage-overview-confirm.png#lightbox)
 

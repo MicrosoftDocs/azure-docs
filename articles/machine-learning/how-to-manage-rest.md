@@ -199,8 +199,8 @@ Notice that to list experiments the path begins with `history/v1.0` while to lis
 
 |Area|Path|
 |-|-|
-|Artifacts|artifact/v2.0/|
-|Data stores|datastore/v1.0/|
+|Artifacts|/rest/api/azureml|
+|Data stores|/azure/machine-learning/how-to-access-data|
 |Hyperparameter tuning|hyperdrive/v1.0/|
 |Models|modelmanagement/v1.0/|
 |Run history|execution/v1.0/ and history/v1.0/|
