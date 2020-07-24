@@ -593,6 +593,9 @@ You can write custom code to show the dependencies. For examples, see the sample
 
 ![Application map](./media/functions-monitoring/app-map.png)
 
+> [!NOTE]
+    > Dependencies are written at Information level. If you filter at Warning or above, you won't see any of this data. Also, automatic collection of dependencies happens at non-user scope. So make sure the level is set to at least `Information` outside the user scope in your host.json (i.e. outside the `Function.<YOUR_FUNCTION_NAME>.User` key) if you want those dependencies to be captured.
+
 ## Enable Application Insights integration
 
 For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
