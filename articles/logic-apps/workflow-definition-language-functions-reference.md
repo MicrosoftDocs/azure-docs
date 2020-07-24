@@ -4918,7 +4918,7 @@ And returns this result: `Gala`
 
 *Example 3*
 
-Following on Example 1, this example is passed in XPath expression, `" /produce/item/name[last()] "` , which finds the last `name` element that is the child of `item` element.
+Following on Example 1, this example pass in the XPath expression, `"/produce/item/name[last()]"`, which finds the last `name` element that is the child of the `item` element.
 
 `xpath(xml(parameters('items')), '/produce/item/name[last()]')`
 
