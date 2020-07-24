@@ -58,9 +58,9 @@ To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](htt
 
 | Classic metric | Metric in Azure Monitor |
 | ------------------- | ----------------- |
-| **Capacity**            | **BlobCapacity** with the dimension **BlobType** equal to **BlockBlob** or **PageBlob** |
-| **ObjectCount**        | **BlobCount** with the dimension **BlobType** equal to **BlockBlob** or **PageBlob** |
-| **ContainerCount**      | **ContainerCount** |
+| `Capacity`            | `BlobCapacity` with the dimension `BlobType` equal to `BlockBlob` or `PageBlob` |
+| `ObjectCount`        | `BlobCount` with the dimension `BlobType` equal to `BlockBlob` or `PageBlob` |
+| `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
 > There are also several new capacity metrics that weren't available as classic metrics. To view the complete list, see [Metrics](../common/monitor-storage-reference.md#metrics).
@@ -69,44 +69,44 @@ To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](htt
 
 | Classic metric | Metric in Azure Monitor |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | Transactions with the dimension **ResponseType** equal to **AuthorizationError** and dimension **Authentication** equal to **Anonymous** |
-| **AnonymousClientOtherError** | Transactions with the dimension **ResponseType** equal to **ClientOtherError** and dimension **Authentication** equal to **Anonymous** |
-| **AnonymousClientTimeoutError** | Transactions with the dimension **ResponseType** equal to **ClientTimeoutError** and dimension **Authentication** equal to **Anonymous** |
-| **AnonymousNetworkError** | Transactions with the dimension **ResponseType** equal to **NetworkError** and dimension **Authentication** equal to **Anonymous** |
-| **AnonymousServerOtherError** | Transactions with the dimension **ResponseType** equal to **ServerOtherError** and dimension **Authentication** equal to **Anonymous** |
-| **AnonymousServerTimeoutError** | Transactions with the dimension **ResponseType** equal to **ServerTimeoutError** and dimension **Authentication** equal to **Anonymous** |
-| **AnonymousSuccess** | Transactions with the dimension **ResponseType** equal to **Success** and dimension **Authentication** equal to **Anonymous** |
-| **AnonymousThrottlingError** | Transactions with the dimension **ResponseType** equal to **ClientThrottlingError** or **ServerBusyError** and dimension **Authentication** equal to **Anonymous** |
-| **AuthorizationError** | Transactions with the dimension **ResponseType** equal to **AuthorizationError** |
-| **Availability** | **Availability** |
-| **AverageE2ELatency** | **SuccessE2ELatency** |
-| **AverageServerLatency** | **SuccessServerLatency** |
-| **ClientOtherError** | Transactions with the dimension **ResponseType** equal to **ClientOtherError** |
-| **ClientTimeoutError** | Transactions with the dimension **ResponseType** equal to **ClientTimeoutError** |
-| **NetworkError** | Transactions with the dimension **ResponseType** equal to **NetworkError** |
-| **PercentAuthorizationError** | Transactions with the dimension **ResponseType** equal to **AuthorizationError** |
-| **PercentClientOtherError** | Transactions with the dimension **ResponseType** equal to **ClientOtherError** |
-| **PercentNetworkError** | Transactions with the dimension **ResponseType** equal to **NetworkError** |
-| **PercentServerOtherError** | Transactions with the dimension **ResponseType** equal to **ServerOtherError** |
-| **PercentSuccess** | Transactions with the dimension **ResponseType** equal to **Success** |
-| **PercentThrottlingError** | Transactions with the dimension **ResponseType** equal to **ClientThrottlingError** or **ServerBusyError** |
-| **PercentTimeoutError** | Transactions with the dimension **ResponseType** equal to **ServerTimeoutError** or **ResponseType** equal to **ClientTimeoutError** |
-| **SASAuthorizationError** | Transactions with the dimension **ResponseType** equal to **AuthorizationError** and dimension **Authentication** equal to **SAS** |
-| **SASClientOtherError** | Transactions with the dimension **ResponseType** equal to **ClientOtherError** and dimension **Authentication** equal to **SAS** |
-| **SASClientTimeoutError** | Transactions with the dimension **ResponseType** equal to **ClientTimeoutError** and dimension **Authentication** equal to **SAS** |
-| **SASNetworkError** | Transactions with the dimension **ResponseType** equal to **NetworkError** and dimension **Authentication** equal to **SAS** |
-| **SASServerOtherError** | Transactions with the dimension **ResponseType** equal to **ServerOtherError** and dimension **Authentication** equal to **SAS** |
-| **SASServerTimeoutError** | Transactions with the dimension **ResponseType** equal to **ServerTimeoutError** and dimension **Authentication** equal to **SAS** |
-| **SASSuccess** | Transactions with the dimension **ResponseType** equal to **Success** and dimension **Authentication** equal to **SAS** |
-| **SASThrottlingError** | Transactions with the dimension **ResponseType** equal to **ClientThrottlingError** or **ServerBusyError** and dimension **Authentication** equal to **SAS** |
-| **ServerOtherError** | Transactions with the dimension **ResponseType** equal to **ServerOtherError** |
-| **ServerTimeoutError** | Transactions with the dimension **ResponseType** equal to **ServerTimeoutError** |
-| **Success** | Transactions with the dimension **ResponseType** equal to **Success** |
-| **ThrottlingError** | **Transactions** with the dimension **ResponseType** equal to **ClientThrottlingError** or **ServerBusyError**|
-| **TotalBillableRequests** | **Transactions** |
-| **TotalEgress** | **Egress** |
-| **TotalIngress** | **Ingress** |
-| **TotalRequests** | **Transactions** |
+| `AnonymousAuthorizationError` | Transactions with the dimension `ResponseType` equal to `AuthorizationError` and dimension `Authentication` equal to `Anonymous` |
+| `AnonymousClientOtherError` | Transactions with the dimension `ResponseType` equal to `ClientOtherError` and dimension `Authentication` equal to `Anonymous` |
+| `AnonymousClientTimeoutError` | Transactions with the dimension `ResponseType` equal to `ClientTimeoutError` and dimension `Authentication` equal to `Anonymous` |
+| `AnonymousNetworkError` | Transactions with the dimension `ResponseType` equal to `NetworkError` and dimension `Authentication` equal to `Anonymous` |
+| `AnonymousServerOtherError` | Transactions with the dimension `ResponseType` equal to `ServerOtherError` and dimension `Authentication` equal to `Anonymous` |
+| `AnonymousServerTimeoutError` | Transactions with the dimension `ResponseType` equal to `ServerTimeoutError` and dimension `Authentication` equal to `Anonymous` |
+| `AnonymousSuccess` | Transactions with the dimension `ResponseType` equal to `Success` and dimension `Authentication` equal to `Anonymous` |
+| `AnonymousThrottlingError` | Transactions with the dimension `ResponseType` equal to `ClientThrottlingError` or `ServerBusyError` and dimension `Authentication` equal to `Anonymous` |
+| `AuthorizationError` | Transactions with the dimension `ResponseType` equal to `AuthorizationError` |
+| `Availability` | `Availability` |
+| `AverageE2ELatency` | `SuccessE2ELatency` |
+| `AverageServerLatency` | `SuccessServerLatency` |
+| `ClientOtherError` | Transactions with the dimension `ResponseType` equal to `ClientOtherError` |
+| `ClientTimeoutError` | Transactions with the dimension `ResponseType` equal to `ClientTimeoutError` |
+| `NetworkError` | Transactions with the dimension `ResponseType` equal to `NetworkError` |
+| `PercentAuthorizationError` | Transactions with the dimension `ResponseType` equal to `AuthorizationError` |
+| `PercentClientOtherError` | Transactions with the dimension `ResponseType` equal to `ClientOtherError` |
+| `PercentNetworkError` | Transactions with the dimension `ResponseType` equal to `NetworkError` |
+| `PercentServerOtherError` | Transactions with the dimension `ResponseType` equal to `ServerOtherError` |
+| `PercentSuccess` | Transactions with the dimension `ResponseType` equal to `Success` |
+| `PercentThrottlingError` | Transactions with the dimension `ResponseType` equal to `ClientThrottlingError` or `ServerBusyError` |
+| `PercentTimeoutError` | Transactions with the dimension `ResponseType` equal to `ServerTimeoutError` or `ResponseType` equal to `ClientTimeoutError` |
+| `SASAuthorizationError` | Transactions with the dimension `ResponseType` equal to `AuthorizationError` and dimension `Authentication` equal to `SAS` |
+| `SASClientOtherError` | Transactions with the dimension `ResponseType` equal to `ClientOtherError` and dimension `Authentication` equal to `SAS` |
+| `SASClientTimeoutError` | Transactions with the dimension `ResponseType` equal to `ClientTimeoutError` and dimension `Authentication` equal to `SAS` |
+| `SASNetworkError` | Transactions with the dimension `ResponseType` equal to `NetworkError` and dimension `Authentication` equal to `SAS` |
+| `SASServerOtherError` | Transactions with the dimension `ResponseType` equal to `ServerOtherError` and dimension `Authentication` equal to `SAS` |
+| `SASServerTimeoutError` | Transactions with the dimension `ResponseType` equal to `ServerTimeoutError` and dimension `Authentication` equal to `SAS` |
+| `SASSuccess` | Transactions with the dimension `ResponseType` equal to `Success` and dimension `Authentication` equal to `SAS` |
+| `SASThrottlingError` | Transactions with the dimension `ResponseType` equal to `ClientThrottlingError` or `ServerBusyError` and dimension `Authentication` equal to `SAS` |
+| `ServerOtherError` | Transactions with the dimension `ResponseType` equal to `ServerOtherError` |
+| `ServerTimeoutError` | Transactions with the dimension `ResponseType` equal to `ServerTimeoutError` |
+| `Success` | Transactions with the dimension `ResponseType` equal to `Success` |
+| `ThrottlingError` | `Transactions` with the dimension `ResponseType` equal to `ClientThrottlingError` or `ServerBusyError`|
+| `TotalBillableRequests` | `Transactions` |
+| `TotalEgress` | `Egress` |
+| `TotalIngress` | `Ingress` |
+| `TotalRequests` | `Transactions` |
 
 ## Next steps
 
