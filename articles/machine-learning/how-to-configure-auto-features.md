@@ -141,7 +141,9 @@ featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of
 ## BERT integration 
 [BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of Automated ML. In this layer we detect if a column contains free text or other types of data like timestamps or simple numbers and we featurize accordingly. For BERT we fine-tune/train the model by utilizing the user-provided labels, then we output document embeddings (for BERT these are the final hidden state associated with the special [CLS] token) as features alongside other features like timestamp-based features (e.g. day of week) or numbers that many typical datasets have. 
 
-AutoML takes the following steps, for the case of BERT:
+To enable BERT, you should use GPU compute for training. If a CPU compute is used, then instead of BERT, AutoML will enable BiLSTM DNN featurizer. In order to invoke BERT, you have to set  "enable_dnn: True" in automl_settings and use GPU compute (e.g. vm_size = "STANDARD_NC6", or a higher GPU). Please see [this notebook for an example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
+AutoML takes the following steps, for the case of BERT (please note you have to set  "enable_dnn: True" in automl_settings for these items to happen):
 
 1. Preprocessing including tokenization of all text columns (you will see "StringCast" transformer in the final model's featurization summary. Please visit [this notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb) to see an example of how to produce the model's featurization summary using the `get_featurization_summary()` method.
 
@@ -183,7 +185,7 @@ automl_settings = {
 }
 ```
 
-To enable BERT, user should use GPU compute for training. If a CPU compute is used, then instead of BERT, AutoML will enable BiLSTM DNN featurizer. In order to invoke BERT, you have to set  "enable_dnn: True" in automl_settings and use GPU compute (e.g. vm_size = "STANDARD_NC6", or a higher GPU). Please see [this notebook for an example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
+
 
 
 ## Next steps
