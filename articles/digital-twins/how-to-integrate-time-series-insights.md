@@ -136,7 +136,7 @@ namespace SampleFunctionsApp
 
 From here, the function will then send the JSON objects it creates to a second event hub, which you will connect to Time Series Insights.
 
-Later, you'll then set some environment variables that this function will use to connect to your own event hubs.
+Later, you'll also set some environment variables that this function will use to connect to your own event hubs.
 
 ## Send telemetry to an event hub
 
