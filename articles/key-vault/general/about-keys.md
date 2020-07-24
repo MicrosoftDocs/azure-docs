@@ -15,13 +15,15 @@ ms.author: ambapat
 
 # About keys
 
-Azure Key Vault supports two types of containers to manage and use cryptographic keys:
-- **Vaults** support software-protected and HSM-protected keys (with Premium SKU)
-- **Managed HSM pools** support HSM-protected keys
+Azure Key Vault provides two types of containers to store and manage cryptographic keys:
+|Container type|Key protection methods|Benefits and use cases|
+|--|--|--|
+**Vaults**|software-protected and HSM-protected keys (with Premium SKU)|Vaults provide a low-cost, easy to deploy, multi-tenant, zone-resilient (where available), highly available key management solution suitable for most common cloud application scenarios.
+|**Managed HSM pools** | HSM-protected keys | Managed HSM provides fully managed, single-tenant, zone-resilient ( (where available)), highly available HSM pools to store and manage your cryptographic keys. Most suitable for applications and usage scenarios that handle high value keys. Also helps to meet stronger security, compliance, and regulatory requirements. 
+|||
 
 >[!NOTE] Vaults also allow you to store and manage several types of objects like secrets, certificates and storage account keys, in addition to cryptographic keys.
 
-Managed HSM enables the use of single-tenant, fully managed, zone-resilient, highly available, HSM pools to store and manage your cryptographic keys protected in Hardware Security Modules (HSM), most suitable for high value keys, and to meet specific compliance or regulatory requirements.
 
 Cryptographic keys in Key Vault are represented as JSON Web Key [JWK] objects. The JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) specifications are:
 
@@ -34,10 +36,8 @@ The base JWK/JWA specifications are also extended to enable key types unique to 
 
 HSM-protected keys (also referred to as HSM-keys) are processed in an HSM (Hardware Security Module) and always remain HSM protection boundary. 
 
-Vaults use FIPS 140-2 Level 2 validated HSMs to protect HSM-keys in shared HSM backend infrastructure. 
-
-
-Managed HSM uses FIPS (Federal Information Processing Standards) **140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with it's own [security domain](security-domains.md) providing complete cryptographic isolation from all other HSM pools sharing the same hardware infrastructure.
+- Vaults use **FIPS 140-2 Level 2** validated HSMs to protect HSM-keys in shared HSM backend infrastructure. 
+- Managed HSM pools uses **FIPS 140-2 Level 3** validated HSM modules to protect your keys. Each HSM pool is an isolated single-tenant instance with it's own [security domain](security-domains.md) providing complete cryptographic isolation from all other HSM pools sharing the same hardware infrastructure.
 
 These keys are protected in single-tenant HSM-pools. You can import an RSA, EC, and symmetric key, in soft form or by exporting from a supported HSM device. You can also generate keys in HSM pools. When you import HSM keys using  keys using the method described in the [BYOK (bring your own key) specification](../keys/byok-specification.md), it enables secure transportation key material into Managed HSM pools. 
 
@@ -107,8 +107,7 @@ Key Vault supports RSA, EC and symmetric keys.
 -   **RS256** - RSASSA-PKCS-v1_5 using SHA-256. The application supplied digest value must be computed using SHA-256 and must be 32 bytes in length.  
 -   **RS384** - RSASSA-PKCS-v1_5 using SHA-384. The application supplied digest value must be computed using SHA-384 and must be 48 bytes in length.  
 -   **RS512** - RSASSA-PKCS-v1_5 using SHA-512. The application supplied digest value must be computed using SHA-512 and must be 64 bytes in length.  
--   **RSNULL** - See [RFC2437], a specialized use-case to enable certain TLS scenarios.  
-
+-   **RSNULL** - See [RFC2437](https://tools.ietf.org/html/rfc2437), a specialized use-case to enable certain TLS scenarios.  
 
 ###  Symmetric key algorithms
 - **AES-KW** - AES Key Wrap ([RFC3394](https://tools.ietf.org/html/rfc3394)).
@@ -175,8 +174,7 @@ For more information on other possible attributes, see the [JSON Web Key (JWK)](
 
 You can specify additional application-specific metadata in the form of tags. Key Vault supports up to 15 tags, each of which can have a 256 character name and a 256 character value.  
 
->[!Note]
->Tags are readable by a caller if they have the *list* or *get* permission to that object type (keys, secrets, or certificates).
+>[!NOTE] Tags are readable by a caller if they have the *list* or *get* permission to that key.
 
 ##  Key access control
 
@@ -209,3 +207,10 @@ The following permissions can be granted, on a per user / service principal basi
 For more information on working with keys, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
 ## Next steps
+- [About Key Vault](../general/overview.md)
+- [About Managed HSM](../managed-hsm/overview.md)
+- [About secrets](../secrets/about-secrets.md)
+- [About certificates](../certificates/about-certificates.md)
+- [Key Vault REST API overview](../general/about-keys-secrets-certificates.md)
+- [Authentication, requests, and responses](../general/authentication-requests-and-responses.md)
+- [Key Vault Developer's Guide](../general/developers-guide.md)
