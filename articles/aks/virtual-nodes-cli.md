@@ -64,6 +64,7 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. In additi
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
 * [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
 * Virtual nodes support scheduling Linux pods. You can manually install the open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) provider to schedule Windows Server containers to ACI.
+* Virtual nodes require AKS clusters with Azure CNI networking
 
 ## Launch Azure Cloud Shell
 
