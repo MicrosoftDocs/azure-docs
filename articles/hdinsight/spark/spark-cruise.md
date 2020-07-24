@@ -16,9 +16,9 @@ This document discusses the Azure HDInsight feature *SparkCruise*, which automat
 
 ## Overview
 
-The queries that you run on an analytics platform such as Apache Spark, are usually decomposed into a query plan that contains smaller sub-queries. These sub-queries may show up repeatedly across query plans for multiple queries. Each time they occur, they are re-executed in order to return the results. Re-executing the same query, however, can be inefficient and lead to unnecessary computation costs.
+The queries that you run on an analytics platform such as Apache Spark, are decomposed into a query plan that contains smaller subqueries. These subqueries may show up repeatedly across query plans for multiple queries. Each time they occur, they're re-executed to return the results. Re-executing the same query, however, can be inefficient and lead to unnecessary computation costs.
 
-*SparkCruise* is a workload optimization platform that can reuse common computations, decreasing overall query execution time and data transfer costs. The platform uses the concept of a *materialized view*, which is a query whose results are stored in pre-computed form. Those results can then be reused when the query itself shows up again later, rather than re-computing the results all over again.
+*SparkCruise* is a workload optimization platform that can reuse common computations, decreasing overall query execution time and data transfer costs. The platform uses the concept of a *materialized view*, which is a query whose results are stored in pre-computed form. Those results can then be reused when the query itself shows up again later, rather than recomputing the results all over again.
 
 ## Setup and installation
 
@@ -42,7 +42,7 @@ The following sample scenario illustrates how to use *SparkCruise* to optimize A
     spark.sql("select distinct state, country from hivesampletable where querytime like '11%'").show
     :quit
     ```
-1. Use the *SparkCruise* query analysis tool to analyze the query plans of the previous queries which are stored in the Spark application logs. 
+1. Use the *SparkCruise* query analysis tool to analyze the query plans of the previous queries, which are stored in the Spark application logs. 
 
     ```
     sudo /opt/peregrine/analyze/peregrine.sh analyze views
@@ -54,9 +54,9 @@ The following sample scenario illustrates how to use *SparkCruise* to optimize A
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-The `analyze` command parses the query plans and creates a tabular representation of the workload. This workload table can be queried using the WorkloadInsights notebook included on HDInsight clusters. Then, the `views` command identifies common subplan expressions and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. 
+The `analyze` command parses the query plans and creates a tabular representation of the workload. This workload table can be queried using the *WorkloadInsights* notebook included on HDInsight clusters. Then, the `views` command identifies common subplan expressions and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. 
 
-The `show` command displays an output like the following:
+The `show` command displays an output like the following text:
 
 ```bash
 Feedback file -->
@@ -79,7 +79,7 @@ Found 4 items
 -rw-r--r--   1 sshuser sshuser        536 2020-07-24 16:46 /peregrine/views/views.stp
 ```
 
-The feedback file contains entries in the following format: `subplan-identifier [Materialize|Reuse] input/path/to/action`. In this example, there are two unique signatures: one representing the first two repeated queries and the second representing the filter predicate in last two queries. With this feedback file, the following queries when submitted again will now automatically materialize and reuse common sub-plans. 
+The feedback file contains entries in the following format: `subplan-identifier [Materialize|Reuse] input/path/to/action`. In this example, there are two unique signatures: one representing the first two repeated queries and the second representing the filter predicate in last two queries. With this feedback file, the following queries when submitted again will now automatically materialize and reuse common subplans. 
 
 To test the optimizations, execute another set of sample queries.
 
@@ -100,7 +100,7 @@ To test the optimizations, execute another set of sample queries.
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-The `show` command gives and output similar to the following:
+The `show` command gives an output similar to the following text:
 
 ```bash
 Feedback file -->
@@ -128,15 +128,15 @@ drwxr-xr-x   - root root          0 2020-07-24 17:21 /peregrine/views/9409467400
 
 ```
 
-Although the literal value in the query has changed from `'11%'` to `'12%'`, *SparkCruise* can still match previous queries to new queries with slight variations like the evolution of literal values and dataset versions. In the case of major changes to a query, you can re-run the analysis tool to identify new queries which can be reused.
+Although the literal value in the query has changed from `'11%'` to `'12%'`, *SparkCruise* can still match previous queries to new queries with slight variations like the evolution of literal values and dataset versions. If there are major changes to a query, you can rerun the analysis tool to identify new queries that can be reused.
 
-Behind the scenes, *SparkCruise* triggers a sub-query for materializing the selected sub-plan from the first query that contains it. Then, the subsequent queries can directly read the materialized sub-plans instead of recomputing them. In this workload, the sub-plans will be materialized in an online fashion by the first and third queries. We can see the plan change of queries after the common sub-plans are materialized.
+Behind the scenes, *SparkCruise* triggers a subquery for materializing the selected subplan from the first query that contains it. Then, the subsequent queries can directly read the materialized subplans instead of recomputing them. In this workload, the subplans will be materialized in an online fashion by the first and third queries. We can see the plan change of queries after the common subplans are materialized.
 
-You can see that there are now four new materialized sub-expressions available to be reused in subsequent queries.
+You can see that there are now four new materialized subexpressions available to be reused in subsequent queries.
 
 ## Clean up
 
-The feedback files, materialized sub-plans, and query logs are persisted across Spark sessions. To remove these files, run the following command:
+The feedback files, materialized subplans, and query logs are persisted across Spark sessions. To remove these files, run the following command:
 
 ```bash
 sudo /opt/peregrine/analyze/peregrine.sh clean
