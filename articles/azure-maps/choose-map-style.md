@@ -22,7 +22,10 @@ Style options can be passed into the map control when it is initialized. Or, you
 //Set the style options when creating the map.
 var map = new atlas.Map('map', {
     renderWorldCopies: false,
-    showBuildingModels: true
+    showBuildingModels: false,
+    showLogo = true,
+    showFeedbackLink = true,
+    style='road'
 
     //Additional map options.
 };
@@ -30,11 +33,13 @@ var map = new atlas.Map('map', {
 //Update the style options at anytime using setStyle function.
 map.setStyle({
     renderWorldCopies: true,
-    showBuildingModels: false
+    showBuildingModels: true,
+    showLogo = false,
+    showFeedbackLink = false
 });
 ```
 
-The following tool shows how the different style options change how a map is rendered. To see the 3D buildings, zoom in close to a major city.
+The following tool shows how the different style options change how the map is rendered. To see the 3D buildings, zoom in close to a major city.
 
 <br/>
 
@@ -49,12 +54,11 @@ You can also initialize the map control with one of the [base map styles](suppor
 
 ### Set a base map style on initialization
 
-Base styles can be passed into the map control when it is initialized. In the following code, the `style` option of the map control is set to the [`road` base map style](supported-map-styles.md#road).  We're also setting the style option, `showTileBoundaries` to `false`.
+Base styles can be passed into the map control when it is initialized. In the following code, the `style` option of the map control is set to the [`grayscale_dark` base map style](supported-map-styles.md#grayscale_dark).  
 
 ```javascript
 var map = new atlas.Map('map', {
-    style: 'road',
-    showTileBoundaries: false,
+    style: 'grayscale_dark',
 
     //Additional map options
 );
@@ -70,10 +74,10 @@ var map = new atlas.Map('map', {
 The base map style can be updated by using the `setStyle` function and setting the `style` option to either change to a different base map style or add additional style options.
 
 ```javascript
-map.setStyle({ style: 'satellite', showTileBoundaries: true, });
+map.setStyle({ style: 'satellite' });
 ```
 
-In the following code, after a map instance is loaded, the map style is updated from `road` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) function.
+In the following code, after a map instance is loaded, the map style is updated from `grayscale_dark` to `satellite` using the [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setstyle-styleoptions-) function.
 
 <br/>
 
