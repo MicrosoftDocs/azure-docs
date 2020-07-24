@@ -33,7 +33,7 @@ Azure Database for PostgreSQL and Azure Database for MySQL bring together commun
 
 Azure Database for PostgreSQL brings together community edition database engine and capabilities of a fully managed service—so you can focus on your apps instead of having to manage a database. Tune in to see in action how easy it is to create new experiences like adding Cognitive Services to your apps by virtue of being on Azure.
 
-[How to get started with the new Azure Database for PostgreSQL service](https://channel9.msdn.com/events/Build/2017/B8046)
+## [How to get started with the new Azure Database for PostgreSQL service](https://channel9.msdn.com/events/Build/2017/B8046)
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8046/player]
 
