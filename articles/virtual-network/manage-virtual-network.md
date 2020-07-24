@@ -1,7 +1,7 @@
 ---
 title: Create, change, or delete an Azure virtual network
 titlesuffix: Azure Virtual Network
-description: Learn how to create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
+description: Create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
 services: virtual-network
 documentationcenter: na
 author: KumudD

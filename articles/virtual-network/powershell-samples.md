@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell samples for virtual network
-description: Learn about Azure PowerShell samples for managing virtual networks, including how to create a virtual network for multi-tier applications.
+description: Learn about Azure PowerShell samples for managing virtual networks, including a sample for creating a virtual network for multi-tier applications.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
