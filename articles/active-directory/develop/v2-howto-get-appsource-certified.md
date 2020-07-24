@@ -28,7 +28,7 @@ A *multi-tenant application* is an application that accepts sign-ins from users 
 To enable multi-tenancy on your application, follow these steps:
 1. Set `Multi-Tenanted` property to `Yes` on your application registration's information in the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). By default, applications created in the Azure portal are configured as *[single-tenant](#single-tenant-applications)*.
 1. Update your code to send requests to the `common` endpoint. To do this, update the endpoint from `https://login.microsoftonline.com/{yourtenant}` to `https://login.microsoftonline.com/common*`.
-1. For some platforms, like ASP .NET, you need also to update your code to accept multiple issuers.
+1. For some platforms, like ASP.NET, you need also to update your code to accept multiple issuers.
 
 For more information about multi-tenancy, see [How to sign in any Azure Active Directory (Azure AD) user using the multi-tenant application pattern](howto-convert-app-to-be-multi-tenant.md).
 
@@ -46,54 +46,33 @@ Single-tenant applications can enable the *Contact Me* experience, but if you wa
 
 The customer-led trial is the experience that AppSource recommends as it offers a single-click access to your application. The following example shows what this experience looks like:
 
-1.  - User finds your application in AppSource Web Site
-    - Selects 'Free trial' option
+1.  A user finds your application in the AppSource web site, then selects **Free trial** option.
     ![Shows Free trial for customer-led trial experience](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png)
-2.  - AppSource redirects user to a URL in your web site
-    - Your web site starts the *single-sign-on* process automatically (on page load)
+2.  AppSource redirects the user to a URL in your web site. Your web site starts the *single-sign-on* process automatically (on page load).
     ![Shows how user is redirected to a URL in your web site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png)
-3.  - User is redirected to Microsoft Sign-in page
-    - User provides credentials to sign in
+3.  The user is redirected to the Microsoft sign-in page and the user provides credentials to sign in.
     ![Shows the Microsoft sign-in page](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png)
-4. User gives consent for your application
+4. The user gives consent for your application.
     ![Example: Consent page for an application](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png)
-5.  - Sign-in completes and user is redirected back to your web site
-    - User starts the free trial
+5.  Sign-in completes and the user is redirected back to your web site.  The user starts the free trial.
     ![Shows the experience the user sees when redirected back to your site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
 
 ### Contact me (partner-led trial experience)
 
 You can use the partner trial experience when a manual or a long-term operation needs to happen to provision the user/company--for example, your application needs to provision virtual machines, database instances, or operations that take much time to complete. In this case, after the user selects the **Request Trial** button and fills out a form, AppSource sends you the user's contact information. When you receive this information, you then provision the environment and send the instructions to the user on how to access the trial experience:<br/><br/>
 
-<table valign="top">
-<tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%" alt-text="Shows Contact me for partner-led trial experience"/><ul><li>User finds your application in AppSource web site</li><li>Selects 'Contact Me' option</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%" alt-text="Shows an example form with contact info"/><ul><li>Fills out a form with contact information</li></ul></td>
-     <td valign="top" width="33%">3.<br/><br/>
-        <table bgcolor="#f7f7f7">
-        <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/usercontact.png" width="55%" alt-text="Shows placeholder for user information"/></td>
-            <td>You receive user information</td>
-        </tr>
-        <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/setupenv.png" width="55%" alt-text="Shows placeholder for setup environment info"/></td>
-            <td>Setup environment</td>
-        </tr>
-        <tr>
-            <td><img src="media/active-directory-devhowto-appsource-certified/contactcustomer.png" width="55%" alt-text="Shows placeholder for trial info"/></td>
-            <td>Contact user with trial info</td>
-        </tr>
-        </table><br/><br/>
-        <ul><li>You receive user's information and setup trial instance</li><li>You send the hyperlink to access your application to the user</li></ul>
-    </td>
-</tr>
-<tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%" alt-text="Shows the application sign-in screen"/><ul><li>User accesses your application and complete the single-sign-on process</li></ul></td>
-    <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%" alt-text="Shows an example consent page for an application"/><ul><li>User gives consent for your application</li></ul></td>
-    <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%" alt-text="Shows the experience the user sees when redirected back to your site"/><ul><li>Sign-in completes and user is redirected back to your web site</li><li>User starts the free trial</li></ul></td>
-   
-</tr>
-</table>
+1. A user finds your application in AppSource web site, then selects **Contact Me**.
+    ![Shows Contact me for partner-led trial experience](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png)
+2. The user fills out a form with contact information.
+    ![Shows an example form with contact info](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png)
+3. You receive the user's information, set up a trial instance, and send the hyperlink to access your application to the user.
+    ![Shows placeholder for user information](./media/active-directory-devhowto-appsource-certified/usercontact.png)
+4. The user accesses your application and completes the single sign-on process.
+    ![Shows the application sign-in screen](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png)
+5. The user gives consent for your application.
+    ![Shows an example consent page for an application](./media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png)
+6. Sign-in completes and the user is redirected back to your web site. The user starts the free trial.
+    ![Shows the experience the user sees when redirected back to your site](./media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png)
 
 ### More information
 
