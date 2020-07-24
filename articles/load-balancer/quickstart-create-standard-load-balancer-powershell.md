@@ -665,7 +665,6 @@ $all = 'static'
 
 $publicIp = 
 New-AzPublicIpAddress -ResourceGroupName $rg -Name $pubIP -Location $loc -AllocationMethod $all -SKU $sku -zone 1
-```-zone 1
 ```
 ### Create outbound frontend IP configuration
 
