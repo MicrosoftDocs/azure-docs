@@ -210,7 +210,7 @@
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/**/*.md": "Juliako",
         "articles/media-services/**/**/*.md": "Juliako",
-        "articles/marketplace/**/*.md": "dsindona",
+        "articles/marketplace/**/*.md": "mingshen-ms",
         "articles/azure-government/**/*.md": "stevevi"
       },
       "feedback_system": {

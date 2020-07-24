@@ -4,7 +4,7 @@ description: Concurrency control strategies for the Cloud Partner Portal publish
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: emuench
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ---
