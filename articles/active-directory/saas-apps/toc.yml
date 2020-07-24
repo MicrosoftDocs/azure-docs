@@ -1510,6 +1510,8 @@
         href: smartfile-tutorial.md
       - name: Smart Global Governance
         href: smart-global-governance-tutorial.md
+      - name: SmartHR
+        href: smarthr-tutorial.md
       - name: SmartKargo
         href: smartkargo-tutorial.md
       - name: SmartLPA
