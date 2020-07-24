@@ -14,7 +14,7 @@ services: iot-pnp
 This article describes how, as a solution builder, you can implement IoT Plug and Play Preview model discovery in an IoT solution. Model discovery describes how:
 
 - IoT Plug and Play devices register their model ID.
-- An IoT solution retrieves the device capabilities.
+- An IoT solution retrieves the interfaces implemented by the device.
 
 There are two broad categories of IoT solution:
 
@@ -98,12 +98,10 @@ The solution can also use **Get Twin** to retrieve model ID from the device twin
 
 ## Model resolution
 
-To make the model and component interfaces that your devices use available to your solution, you have the following options:
+A solution uses model resolution to get access to the interfaces that compose a model from the model ID. 
 
-- Use the [model repository](howto-manage-models.md).
-- Use a local cache or model repository.
-
-When the solution has [discovered the model](#model-discovery) for a device, it can use the model to understand how to interact with the device.
+- Solutions can opt to store these interfaces as files in a local folder. 
+- Solutions can use the [model repository](howto-manage-models.md).
 
 ## Next steps
 
