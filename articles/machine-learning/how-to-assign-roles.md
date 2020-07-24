@@ -26,10 +26,10 @@ An Azure Machine Learning workspace is an Azure resource. Like other Azure resou
 
 | Role | Access level |
 | --- | --- |
-| **Reader** | Read-only actions in the workspace. Readers can list and view assets (including [datastore](how-to-access-data.md) credentials) in a workspace, but can't create or update these assets. |
+| **Reader** | Read-only actions in the workspace. Readers can list and view assets, including [datastore](how-to-access-data.md) credentials, in a workspace. Readers can't create or update these assets. |
 | **Contributor** | View, create, edit, or delete (where applicable) assets in a workspace. For example, contributors can create an experiment, create or attach a compute cluster, submit a run, and deploy a web service. |
 | **Owner** | Full access to the workspace, including the ability to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can change role assignments. |
-| **Custom Role** | Allows you to customize access to specific control or data plane operations within a workspace, such as Submitting a run, Creating a compute, Deploying a model or Registering a dataset. |
+| **Custom Role** | Allows you to customize access to specific control or data plane operations within a workspace. For example, submitting a run, creating a compute, deploying a model or registering a dataset. |
 
 > [!IMPORTANT]
 > Role access can be scoped to multiple levels in Azure. For example, someone with owner access to a workspace may not have owner access to the resource group that contains the workspace. For more information, see [How RBAC works](/azure/role-based-access-control/overview#how-rbac-works).
@@ -45,7 +45,7 @@ If you're an owner of a workspace, you can add and remove roles for the workspac
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Manager templates](/azure/role-based-access-control/role-assignments-template)
 
-If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a CLI command to assign roles to users.
+If you have installed the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can use CLI commands to assign roles to users:
 
 ```azurecli-interactive 
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -124,7 +124,7 @@ For more information on custom roles, see [Azure custom roles](/azure/role-based
 
 ### Q. What are the permissions needed to perform some common scenarios in the Azure Machine Learning service?
 
-The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. As an example if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically. All paths in this table are **relative paths** to `Microsoft.MachineLearningServices/`.
+The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. For example, if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically. All paths in this table are **relative paths** to `Microsoft.MachineLearningServices/`:
 
 | Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
 | ----- | ----- | ----- | ----- |
@@ -151,162 +151,174 @@ We are currently not publishing [Azure built-in roles](/azure/role-based-access-
 
 Yes here are some common scenarios with custom proposed role definitions that you can use as a base to define your own custom roles:
 
-1. "Data Scientist Custom" role that allows a data scientist to perform all operations inside a workspace **except** creation of compute, deploying models to a production AKS cluster, or deploying a pipeline endpoint in production:
+* __Data Scientist Custom__: Allows a data scientist to perform all operations inside a workspace **except**:
 
-`data_scientist_custom_role.json` :
-```json
-{
-    "Name": "Data Scientist Custom",
-    "IsCustom": true,
-    "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/*/read",
-        "Microsoft.MachineLearningServices/workspaces/*/action",
-        "Microsoft.MachineLearningServices/workspaces/*/delete",
-        "Microsoft.MachineLearningServices/workspaces/*/write"
-    ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/delete",
-        "Microsoft.MachineLearningServices/workspaces/write",
-        "Microsoft.MachineLearningServices/workspaces/computes/*/write",
-        "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
-        "Microsoft.Authorization/*/write",
-        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-        "Microsoft.MachineLearningServices/workspaces/services/aks/write",
-        "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
-        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscription_id>"
-    ]
-}
-```
+    * Creation of compute
+    * Deploying models to a production AKS cluster
+    * Deploying a pipeline endpoint in production
 
-2. "Data Scientist Restricted Custom" role that is a more restricted role definition without wildcards in the allowed actions to perform all operations inside a workspace **except** creation of compute, deploying models to a production AKS cluster, or deploying a pipeline endpoint in production:
+    `data_scientist_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints.",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.MachineLearningServices/workspaces/*/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
+            "Microsoft.Authorization/*/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/write",
+            "Microsoft.MachineLearningServices/workspaces/services/aks/delete",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
 
-`data_scientist_restricted_custom_role.json` :
-```json
-{
-    "Name": "Data Scientist Restricted Custom",
-    "IsCustom": true,
-    "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/*/read",
-        "Microsoft.MachineLearningServices/workspaces/computes/start/action",
-        "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
-        "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
-        "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-        "Microsoft.MachineLearningServices/workspaces/experiments/write",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
-        "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
-        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write",
-        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
-        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
-        "Microsoft.MachineLearningServices/workspaces/environments/write",
-        "Microsoft.MachineLearningServices/workspaces/models/write",
-        "Microsoft.MachineLearningServices/workspaces/modules/write",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
-        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
-        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
-        "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
-        "Microsoft.MachineLearningServices/workspaces/environments/build/action"
-    ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/computes/write",
-        "Microsoft.MachineLearningServices/workspaces/write",
-        "Microsoft.MachineLearningServices/workspaces/computes/delete",
-        "Microsoft.MachineLearningServices/workspaces/delete",
-        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-        "Microsoft.Authorization/*",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
-        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
-        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
-        "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
-        "Microsoft.MachineLearningServices/workspaces/datastores/write",
-        "Microsoft.MachineLearningServices/workspaces/datastores/delete"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscription_id>"
-    ]
-}
-```
+* __Data Scientist Restricted Custom__: A more restricted role definition without wildcards in the allowed actions. It can perform all operations inside a workspace **except**:
 
+    * Creation of compute
+    * Deploying models to a production AKS cluster
+    * Deploying a pipeline endpoint in production
 
-3. "MLOps Custom" role allows you to assign a role to a SP and use that automate your MLOps pipelines to submit runs against an already published pipeline as an example:
+    `data_scientist_restricted_custom_role.json` :
+    ```json
+    {
+        "Name": "Data Scientist Restricted Custom",
+        "IsCustom": true,
+        "Description": "Can run experiment but can't create or delete compute or deploy production endpoints",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/computes/start/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/stop/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/restart/action",
+            "Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/read",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/write",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/storage/delete",
+            "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
+            "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/write",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/models/write",
+            "Microsoft.MachineLearningServices/workspaces/modules/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/write", 
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/delete",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/write",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listNodes/action",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/profile/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/preview/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/schema/read",    
+            "Microsoft.MachineLearningServices/workspaces/datasets/unregistered/schema/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/write",
+            "Microsoft.MachineLearningServices/workspaces/datastores/delete"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
 
-`mlops_custom_role.json` :
-```json
-{
-    "Name": "MLOps Custom",
-    "IsCustom": true,
-    "Description": "Can run pipelines against a published pipeline endpoint",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/read",
-        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
-        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
-        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
-        "Microsoft.MachineLearningServices/workspaces/environments/read",    
-        "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
-        "Microsoft.MachineLearningServices/workspaces/modules/read",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
-        "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
-        "Microsoft.MachineLearningServices/workspaces/datastores/read",
-        "Microsoft.MachineLearningServices/workspaces/environments/write",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
-        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
-        "Microsoft.MachineLearningServices/workspaces/environments/build/action",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
-    ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/computes/write",
-        "Microsoft.MachineLearningServices/workspaces/write",
-        "Microsoft.MachineLearningServices/workspaces/computes/delete",
-        "Microsoft.MachineLearningServices/workspaces/delete",
-        "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
-        "Microsoft.MachineLearningServices/workspaces/listKeys/action",
-        "Microsoft.Authorization/*"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscription_id>"
-    ]
-}
-```
+* __MLOps Custom__: Allows you to assign a role to a service principal and use that to automate your MLOps pipelines. For example, to submit runs against an already published pipeline:
 
+    `mlops_custom_role.json` :
+    ```json
+    {
+        "Name": "MLOps Custom",
+        "IsCustom": true,
+        "Description": "Can run pipelines against a published pipeline endpoint",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/read",
+            "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/read",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/read",    
+            "Microsoft.MachineLearningServices/workspaces/metadata/secrets/read",
+            "Microsoft.MachineLearningServices/workspaces/modules/read",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/read",
+            "Microsoft.MachineLearningServices/workspaces/datasets/registered/read",
+            "Microsoft.MachineLearningServices/workspaces/datastores/read",
+            "Microsoft.MachineLearningServices/workspaces/environments/write",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
+            "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
+            "Microsoft.MachineLearningServices/workspaces/environments/build/action",
+            "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/computes/write",
+            "Microsoft.MachineLearningServices/workspaces/write",
+            "Microsoft.MachineLearningServices/workspaces/computes/delete",
+            "Microsoft.MachineLearningServices/workspaces/delete",
+            "Microsoft.MachineLearningServices/workspaces/computes/listKeys/action",
+            "Microsoft.MachineLearningServices/workspaces/listKeys/action",
+            "Microsoft.Authorization/*"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
 
-4. "Workspace Admin" role allows you to perform all operations within the scope of a workspace, except creating a new workspace, assigning subscription or workspace level quotas, or upgrading the Edition of the workspace. The workspace admin  also cannot create a new role but only assign existing built-in or custom roles within the scope of their workspace:
+* __Workspace Admin__: Allows you to perform all operations within the scope of a workspace, **except**:
 
-`workspace_admin_custom_role.json` :
-```json
-{
-    "Name": "Workspace Admin Custom",
-    "IsCustom": true,
-    "Description": "Can perform all operations except quota management and upgrades",
-    "Actions": [
-        "Microsoft.MachineLearningServices/workspaces/*/read",
-        "Microsoft.MachineLearningServices/workspaces/*/action",
-        "Microsoft.MachineLearningServices/workspaces/*/write",
-        "Microsoft.MachineLearningServices/workspaces/*/delete",
-        "Microsoft.Authorization/*/write"
-    ],
-    "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/write"
-    ],
-    "AssignableScopes": [
-        "/subscriptions/<subscription_id>"
-    ]
-}
-```
+    * Creating a new workspace
+    * Assigning subscription or workspace level quotas
+    * Upgrading the edition of the workspace
+
+    The workspace admin also cannot create a new role. It can only assign existing built-in or custom roles within the scope of their workspace:
+
+    `workspace_admin_custom_role.json` :
+    ```json
+    {
+        "Name": "Workspace Admin Custom",
+        "IsCustom": true,
+        "Description": "Can perform all operations except quota management and upgrades",
+        "Actions": [
+            "Microsoft.MachineLearningServices/workspaces/*/read",
+            "Microsoft.MachineLearningServices/workspaces/*/action",
+            "Microsoft.MachineLearningServices/workspaces/*/write",
+            "Microsoft.MachineLearningServices/workspaces/*/delete",
+            "Microsoft.Authorization/*/write"
+        ],
+        "NotActions": [
+            "Microsoft.MachineLearningServices/workspaces/write"
+        ],
+        "AssignableScopes": [
+            "/subscriptions/<subscription_id>"
+        ]
+    }
+    ```
 
 
 ### Q. How do I list all the custom roles in my subscription?
@@ -343,8 +355,10 @@ To assign a user assigned identity on Amlcompute clusters, one has to have writ
 
 ### Q. Do we support role-based access controls on the Studio portal?
 
-Azure Machine Learning Studio supports role-based access controls out of the box. Once you have assigned a custom role with specific permissions to a data scientist in your workspace, corresponding actions (such as adding a compute button) are automatically hidden from the users. Hiding these items prevents any confusion from seeing controls that return an Unauthorized Access notification from the service when used.
+Azure Machine Learning Studio supports role-based access controls. 
 
+> [!IMPORTANT]
+> Once you have assigned a custom role with specific permissions to a data scientist in your workspace, corresponding actions (such as adding a compute button) are automatically hidden from the users. Hiding these items prevents any confusion from seeing controls that return an Unauthorized Access notification from the service when used.
 
 ### Q. How do I find the role definition for a role in my subscription?
 
