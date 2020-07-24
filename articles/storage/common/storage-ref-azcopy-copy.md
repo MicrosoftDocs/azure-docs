@@ -27,7 +27,7 @@ Copies source data to a destination location. The supported directions are:
   - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
   - Amazon Web Services (AWS) S3 (Access Key) -> Azure Block Blob (SAS or OAuth authentication)
 
-Please refer to the examples for more information.
+For more information, see the examples section of this article.
 
 ## Related conceptual articles
 
@@ -38,17 +38,17 @@ Please refer to the examples for more information.
 
 ## Advanced
 
-AzCopy automatically detects the content type of the files when uploading from the local disk, based on the file extension or content (if no extension is specified).
+AzCopy automatically detects the content type of the files when you upload them from the local disk. AzCopy detects the content type based on the file extension or content (if no extension is specified).
 
-The built-in lookup table is small, but on Unix, it is augmented by the local system's mime.types file(s) if available under one or more of these names:
+The built-in lookup table is small, but on Unix, it is augmented by the local system's `mime.types` file(s) if they are available under one or more of these names:
 
 - /etc/mime.types
 - /etc/apache2/mime.types
 - /etc/apache/mime.types
 
-On Windows, MIME types are extracted from the registry. This feature can be turned off with the help of a flag. Please refer to the flag section.
+On Windows, MIME types are extracted from the registry. This feature can be turned off with the help of a flag. For more information, see the flag section of this article.
 
-If you set an environment variable by using the command line, that variable will be readable in your command line history. Consider clearing variables that contain credentials from your command line history. To keep variables from appearing in your history, you can use a script to prompt the user for their credentials, and to set the environment variable.
+If you set an environment variable by using the command line, that variable will be readable in your command-line history. Consider clearing variables that contain credentials from your command-line history. To keep variables from appearing in your history, you can use a script to prompt the user for their credentials, and to set the environment variable.
 
 ```
 azcopy copy [source] [destination] [flags]
@@ -56,7 +56,7 @@ azcopy copy [source] [destination] [flags]
 
 ## Examples
 
-Upload a single file by using OAuth authentication. If you have not yet logged into AzCopy, please run the azcopy login command before you run the following command.
+Upload a single file by using OAuth authentication. If you have not yet logged into AzCopy, run the `azcopy login` command before you run the following command.
 
 ```azcopy
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
@@ -103,7 +103,7 @@ Upload files and directories by using a SAS token and wildcard (*) characters:
 azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
 
-Download a single file by using OAuth authentication. If you have not yet logged into AzCopy, please run the azcopy login command before you run the following command.
+Download a single file by using OAuth authentication. If you have not yet logged into AzCopy, run the `azcopy login` command before you run the following command.
 
 ```azcopy
 azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"
@@ -131,9 +131,9 @@ A note about using a wildcard character (*) in URLs:
 
 There's only two supported ways to use a wildcard character in a URL. 
 
-- You can use one just after the final forward slash (/) of a URL. This copies all of the files in a directory directly to the destination without placing them into a subdirectory. 
+- You can use one just after the final forward slash (/) of a URL. This use of the wildcard character copies all of the files in a directory directly to the destination without placing them into a subdirectory. 
 
-- You can also use one in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers. 
+- You can also a wildcard character in the name of a container as long as the URL refers only to a container and not to a blob. You can use this approach to obtain files from a subset of containers. 
 
 Download the contents of a directory without copying the containing directory itself.
  
@@ -159,7 +159,7 @@ Copy a single blob to another blob by using a SAS token.
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-Copy a single blob to another blob by using a SAS token and an Auth token. You have to use a SAS token at the end of the source account URL, but the destination account doesn't need one if you log into AzCopy by using the azcopy login command. 
+Copy a single blob to another blob by using a SAS token and an Auth token. You have to use a SAS token at the end of the source account URL, but the destination account doesn't need one if you log into AzCopy by using the `azcopy login` command. 
 
 ```azcopy
 azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
@@ -189,7 +189,7 @@ Copy an entire directory to Blob Storage from AWS S3 by using an access key and 
 azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
 ```
     
-  Please refer to https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html to better understand the [folder] placeholder.
+  Refer to https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html to better understand the [folder] placeholder.
 
 Copy all buckets to Blob Storage from Amazon Web Services (AWS) by using an access key and a SAS token. First, set the environment variable `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` for AWS S3 source.
  
@@ -211,33 +211,33 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 
 ## Options
 
-**--backup** Activates Windows' SeBackupPrivilege for uploads, or SeRestorePrivilege for downloads, to allow AzCopy to see and read all files, regardless of their file system permissions, and to restore all permissions. Requires that the account running AzCopy already has these permissions (e.g. has Administrator rights or is a member of the `Backup Operators` group). All this flag does is activate privileges that the account already has.
+**--backup** Activates Windows' SeBackupPrivilege for uploads, or SeRestorePrivilege for downloads, to allow AzCopy to see and read all files, regardless of their file system permissions, and to restore all permissions. Requires that the account running AzCopy already has these permissions (for example, has Administrator rights or is a member of the `Backup Operators` group). This flag activates privileges that the account already has.
 
 **--blob-type** string  Defines the type of blob at the destination. This is used for uploading blobs and when copying between accounts (default `Detect`). Valid values include `Detect`, `BlockBlob`, `PageBlob`, and `AppendBlob`. When copying between accounts, a value of `Detect` causes AzCopy to use the type of source blob to determine the type of the destination blob. When uploading a file, `Detect` determines if the file is a VHD or a VHDX file based on the file extension. If the file is ether a VHD or VHDX file, AzCopy treats the file as a page blob. (default "Detect")
 
-**--block-blob-tier** string  Upload block blob to Azure Storage using this blob tier. (default "None")
+**--block-blob-tier** string Upload block blob to Azure Storage using this blob tier. (default "None")
 
-**--block-size-mb** float  Use this block size (specified in MiB) when uploading to Azure Storage, and downloading from Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
+**--block-size-mb** float Use this block size (specified in MiB) when uploading to Azure Storage, and downloading from Azure Storage. The default value is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25).
 
-**--cache-control** string  Set the cache-control header. Returned on download.
+**--cache-control** string Set the cache-control header. Returned on download.
 
-**--check-length** Check the length of a file on the destination after the transfer. If there is a mismatch between source and destination, the transfer is marked as failed. (default true)
+**--check-length** Check the length of a file on the destination after the transfer. If there is a mismatch between source and destination, the transfer is marked as failed. (default value is `true`)
 
-**--check-md5** string  Specifies how strictly MD5 hashes should be validated when downloading. Only available when downloading. Available options: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default `FailIfDifferent`) (default "FailIfDifferent")
+**--check-md5** string Specifies how strictly MD5 hashes should be validated when downloading. Only available when downloading. Available options: `NoCheck`, `LogOnly`, `FailIfDifferent`, `FailIfDifferentOrMissing`. (default `FailIfDifferent`) (default "FailIfDifferent")
 
-**--content-disposition** string   Set the content-disposition header. Returned on download.
+**--content-disposition** string Set the content-disposition header. Returned on download.
 
-**--content-encoding** string   Set the content-encoding header. Returned on download.
+**--content-encoding** string Set the content-encoding header. Returned on download.
 
-**--content-language** string   Set the content-language header. Returned on download.
+**--content-language** string Set the content-language header. Returned on download.
 
-**--content-type** string    Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
+**--content-type** string Specifies the content type of the file. Implies no-guess-mime-type. Returned on download.
 
-**--decompress**  Automatically decompress files when downloading, if their content-encoding indicates that they are compressed. The supported content-encoding values are `gzip` and `deflate`. File extensions of `.gz`/`.gzip` or `.zz` aren't necessary, but will be removed if present.
+**--decompress** Automatically decompress files when downloading, if their content-encoding indicates that they are compressed. The supported content-encoding values are `gzip` and `deflate`. File extensions of `.gz`/`.gzip` or `.zz` aren't necessary, but will be removed if present.
 
-**--exclude-attributes** string   (Windows only) Exclude files whose attributes match the attribute list. For example: A;S;R
+**--exclude-attributes** string   (Windows only) Excludes files whose attributes match the attribute list. For example: A;S;R
 
-**--exclude-blob-type** string    Optionally specifies the type of blob (BlockBlob/ PageBlob/ AppendBlob) to exclude when copying blobs from the container or the account. Use of this flag is not applicable for copying data from non-Azure service to service. More than one blob should be separated by `;`. 
+**--exclude-blob-type** string    Optionally specifies the type of blob (`BlockBlob`/ `PageBlob`/ `AppendBlob`) to exclude when copying blobs from the container or the account. Use of this flag is not applicable for copying data from non-Azure service to service. More than one blob should be separated by `;`. 
 
 **--exclude-path** string     Exclude these paths when copying. This option does not support wildcard characters (*). Checks relative path prefix(For example: myFolder;myFolder/subDirName/file.pdf). When used in combination with account traversal, paths do not include the container name.
 
@@ -248,12 +248,12 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 **--force-if-read-only** When overwriting an existing file on Windows or Azure Files, force the overwrite to work even if the existing file has 
 its read-only attribute set.
 
-**--from-to** string   Optionally specifies the source destination combination. For Example: LocalBlob, BlobLocal, LocalBlobFS.
+**--from-to** string   Optionally specifies the source destination combination. For Example: `LocalBlob`, `BlobLocal`, `LocalBlobFS`.
 
 **--help**  help for copy.
 
 **--include-after** string   Include only those files modified on or after the given date/time. The value should be in ISO8601 format. If no timezone 
-is specified, the value is assumed to be in the local timezone of the machine running AzCopy. E.g. `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with --preserve-smb-info or --preserve-smb-permissions.
+is specified, the value is assumed to be in the local timezone of the machine running AzCopy. for example, `2020-08-19T15:04:00Z` for a UTC time, or `2020-08-19` for midnight (00:00) in the local timezone. As at AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with --preserve-smb-info or --preserve-smb-permissions.
 
 **--include-attributes** string   (Windows only) Include files whose attributes match the attribute list. For example: A;S;R
 
@@ -273,21 +273,21 @@ is specified, the value is assumed to be in the local timezone of the machine ru
 
 **--preserve-last-modified-time**  Only available when destination is file system.
 
-**--preserve-owner**    Only has an effect in downloads, and only when --preserve-smb-permissions is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false, --preserve-smb-permissions will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
+**--preserve-owner**    Only has an effect in downloads, and only when --preserve-smb-permissions is used. If true (the default), the file Owner and Group are preserved in downloads. If set to false,--preserve-smb-permissions will still preserve ACLs but Owner and Group will be based on the user running AzCopy (default true)
 
-**--preserve-smb-info**   False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (e.g. include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time which is never preserved for folders.
+**--preserve-smb-info**   False by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Windows and Azure Files). Only the attribute bits supported by Azure Files will be transferred; any others will be ignored. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that is never preserved for folders.
 
-**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). For downloads, you will also need the --backup flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (e.g. include-pattern).
+**--preserve-smb-permissions**   False by default. Preserves SMB ACLs between aware resources (Windows and Azure Files). For downloads, you will also need the --backup flag to restore permissions where the new Owner will not be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
 
 **--put-md5**    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
-**--recursive**    Look into sub-directories recursively when uploading from local file system.
+**--recursive**    Look into subdirectories recursively when uploading from local file system.
 
-**--s2s-detect-source-changed**   Detect if the source file/blob changes while it is being read. (This parameter only applies to service to service copies, because the corresponding check is permanently enabled for uploads and downloads.)
+**--s2s-detect-source-changed**   Detect if the source file/blob changes while it is being read. (This parameter only applies to service-to-service copies, because the corresponding check is permanently enabled for uploads and downloads.)
 
 **--s2s-handle-invalid-metadata** string   Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default `ExcludeIfInvalid`). (default "ExcludeIfInvalid")
 
-**--s2s-preserve-access-tier**   Preserve access tier during service to service copy. Please refer to [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default true).  (default true)
+**--s2s-preserve-access-tier**   Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, use s2sPreserveAccessTier=false to bypass copying access tier. (default true).  (default true)
 
 **--s2s-preserve-properties**   Preserve full properties during service to service copy. For AWS S3 and Azure File non-single file source, the list operation doesn't return full properties of objects and files. To preserve full properties, AzCopy needs to send one additional request per object or file. (default true)
 
