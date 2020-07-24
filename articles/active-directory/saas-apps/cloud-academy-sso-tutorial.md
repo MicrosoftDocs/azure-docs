@@ -153,15 +153,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the company's name and select **Members** from the menu.
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser.PNG)
+    ![ Create test user ](./media/cloud-academy-sso-tutorial/create-user.PNG)
 
 1. Click on **Invite Members** and select **Invite a Single Member**.
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser-1.PNG)
+    ![ Create test user ](./media/cloud-academy-sso-tutorial/create-user-1.PNG)
 
 1. Enter the required fields and click on **Invite**.
 
-    ![ Create test user ](./media/cloud-academy-sso-tutorial/createuser-2.PNG)
+    ![ Create test user ](./media/cloud-academy-sso-tutorial/create-user-2.PNG)
 
 ## Test SSO 
 
