@@ -127,32 +127,17 @@ For more information on custom roles, see [Azure custom roles](/azure/role-based
 The following table is a summary of Azure Machine Learning activities and the permissions required to perform them at the least scope. As an example if an activity can be performed with a workspace scope (Column 4), then all higher scope with that permission will also work automatically. All paths in this table are **relative paths** to `Microsoft.MachineLearningServices/`.
 
 | Activity | Subscription-level scope | Resource group-level scope | Workspace-level scope |
-|---|---|---|---|
+| ----- | ----- | ----- | ----- |
 | Create new workspace | Not required | Owner or contributor | N/A (becomes Owner or inherits higher scope role after creation) |
 | Update the Edition of the workspace | Not required | Not required | Owner, contributor, or custom role allowing: `Microsoft.MachineLearningServices/workspaces/write` |
 | Request subscription level Amlcompute quota or set workspace level quota | Owner, or contributor, or custom role allowing: `Microsoft.MachineLearningServices/locations/updateQuotas/action` at subscription scope | Not Authorized | Not Authorized |
 | Create new compute cluster | Not required | Not required | Owner, contributor, or custom role allowing: `Microsoft.MachineLearningServices/workspaces/computes/write` |
 | Create new compute instance | Not required | Not required | Owner, contributor, or custom role allowing: `Microsoft.MachineLearningServices/workspaces/computes/write` |
-| Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/*/read",
-        "Microsoft.MachineLearningServices/workspaces/environments/write",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/write",
-        "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write",
-        "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write",
-        "Microsoft.MachineLearningServices/workspaces/environments/build/action",
-        "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action",
-        "Microsoft.MachineLearningServices/workspaces/environments/readSecrets/action"` |
-| Publishing a pipeline endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/pipelines/write",
-        "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/*", 
-        "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/*",
-        "Microsoft.MachineLearningServices/workspaces/modules/*"` |
-| Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/services/aks/write",
-        "Microsoft.MachineLearningServices/workspaces/services/aci/write"` |
-| Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/services/aks/score/action",
-        "Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action" (when you are not using AAD auth) OR
-        "Microsoft.MachineLearningServices/workspaces/read" (when you are using token auth)` |
-| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/computes/read",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read",
-        "Microsoft.MachineLearningServices/workspaces/notebooks/storage/*"` |
+| Submitting any type of run | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/*/read", "Microsoft.MachineLearningServices/workspaces/environments/write", "Microsoft.MachineLearningServices/workspaces/experiments/runs/write", "Microsoft.MachineLearningServices/workspaces/metadata/artifacts/write", "Microsoft.MachineLearningServices/workspaces/metadata/snapshots/write", "Microsoft.MachineLearningServices/workspaces/environments/build/action", "Microsoft.MachineLearningServices/workspaces/experiments/runs/submit/action", "Microsoft.MachineLearningServices/workspaces/environments/readSecrets/action"` |
+| Publishing a pipeline endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/pipelines/write", "Microsoft.MachineLearningServices/workspaces/endpoints/pipelines/*", "Microsoft.MachineLearningServices/workspaces/pipelinedrafts/*", "Microsoft.MachineLearningServices/workspaces/modules/*"` |
+| Deploying a registered model on an AKS/ACI resource | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/services/aks/write", "Microsoft.MachineLearningServices/workspaces/services/aci/write"` |
+| Scoring against a deployed AKS endpoint | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/services/aks/score/action", "Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action"` (when you are not using AAD auth) OR `"Microsoft.MachineLearningServices/workspaces/read"` (when you are using token auth) |
+| Accessing storage using interactive notebooks | Not required | Not required | Owner, contributor, or custom role allowing: `"Microsoft.MachineLearningServices/workspaces/computes/read", "Microsoft.MachineLearningServices/workspaces/notebooks/samples/read", "Microsoft.MachineLearningServices/workspaces/notebooks/storage/*"` |
 | Create new custom role | Owner, contributor, or custom role allowing: `Microsoft.Authorization/roleDefinitions/write` | Not required | Owner, contributor, or custom role allowing: `workspaces/computes/write` |
 
 
