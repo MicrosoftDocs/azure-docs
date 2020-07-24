@@ -56886,7 +56886,7 @@
     },
     {
       "source_path": "articles/data-share/azure-cli-references-for-data-share.md",
-      "redirect_url": "/cli/azure/azure-cli-reference-for-data-share",
+      "redirect_url": "https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest",
       "redirect_document_id": false
     },
     {
