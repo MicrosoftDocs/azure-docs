@@ -28,7 +28,7 @@ Key differences between persistent and ephemeral OS disks:
 
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Size limit for OS disk**      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller. For the **cache size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
+| **Size limit for OS disk**      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller. For the **cache size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
 | **VM sizes supported**          | All                                                                                          | VM sizes that supports Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, LSv2, M                                               |
 | **Disk type support**           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
 | **Region support**              | All regions                                                                                  | All regions                              |
