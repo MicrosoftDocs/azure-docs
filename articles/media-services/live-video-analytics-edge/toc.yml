@@ -30,8 +30,6 @@
     href: event-based-video-recording-tutorial.md   
   - name: Playback multi-day recordings
     href: playback-multi-day-recordings-tutorial.md
-  - name: Invoke direct methods with the portal
-    href: use-azure-portal-to-invoke-direct-methods.md
 - name: Samples
   items:
   - name: Live Video Analytics on IoT Edge C# samples
@@ -66,6 +64,8 @@
     href: manage-recording-policy-how-to.md
   - name: Analyze live video with AI of your choice
     href: analyze-with-ai-your-choice-how-to.md
+  - name: Invoke direct methods with the portal
+    href: use-azure-portal-to-invoke-direct-methods.md
   - name: Troubleshoot
     href: troubleshoot-how-to.md
 - name: Reference
