@@ -62,7 +62,7 @@ The following table summarizes techniques that are automatically applied to your
 | ------------- | ------------- |
 |**Drop high cardinality or no variance features*** |Drop these features from training and validation sets. Applies to features with all values missing, with the same value across all rows, or with high cardinality (for example, hashes, IDs, or GUIDs).|
 |**Impute missing values*** |For numeric features, impute with the average of values in the column.<br/><br/>For categorical features, impute with the most frequent value.|
-|**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams.|
+|**Generate additional features*** |For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.<br/><br/>For Text features: Term frequency based on unigrams, bigrams, and trigrams. Learn more about [how this is done with BERT.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#bert-integration)|
 |**Transform and encode***|Transform numeric features that have few unique values into categorical features.<br/><br/>One-hot encoding is used for low-cardinality categorical features. One-hot-hash encoding is used for high-cardinality categorical features.|
 |**Word embeddings**|A text featurizer converts vectors of text tokens into sentence vectors by using a pretrained model. Each word's embedding vector in a document is aggregated with the rest to produce a document feature vector.|
 |**Target encodings**|For categorical features, this step maps each category with an averaged target value for regression problems, and to the class probability for each class for classification problems. Frequency-based weighting and k-fold cross-validation are applied to reduce overfitting of the mapping and noise caused by sparse data categories.|
@@ -138,8 +138,8 @@ featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "m
 featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
 ```
 
-## BERT integration into Automated Machine Learning
-BERT is used in the featurization layer of Automated ML. In this layer we detect if a column contains free text or other types of data like timestamps or simple numbers and we featurize accordingly. For BERT we fine-tune/train the model by utilizing the user-provided labels, then we output document embeddings (for BERT these are the final hidden state associated with the special [CLS] token) as features alongside other features like timestamp-based features (e.g. day of week) or numbers that many typical datasets have. 
+## BERT integration 
+[BERT](https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657) is used in the featurization layer of Automated ML. In this layer we detect if a column contains free text or other types of data like timestamps or simple numbers and we featurize accordingly. For BERT we fine-tune/train the model by utilizing the user-provided labels, then we output document embeddings (for BERT these are the final hidden state associated with the special [CLS] token) as features alongside other features like timestamp-based features (e.g. day of week) or numbers that many typical datasets have. 
 
 AutoML takes the following steps, for the case of BERT:
 
@@ -160,9 +160,9 @@ text_transformations_used
 > text columns should be pruned to 64 tokens each (assuming you want both columns to be equally represented in the final concatenated text column) before feeding the data to 
 > AutoML. For concatenated columns of length >128 tokens, BERT's tokenizer layer will truncate this input to 128 tokens.
 
-3. In feature sweeping step, AutoML tries out BERT vs baseline (bag of words features + pretrained word embeddings) at runtime on a sample of the data and determines if BERT would give accuracy improvement. If it determines that BERT indeed is giving accuracy benefit over the baseline, AutoML then uses BERT for text featurization in the optimal featurization strategy and proceeds with featurizing the whole data. In that case, you will see the "PretrainedTextDNNTransformer" in the final model.
+3. In the feature sweeping step, AutoML compares BERT against the baseline (bag of words features + pretrained word embeddings) on a sample of the data and determines if BERT would give accuracy improvements. If it determines that BERT performs better than the baseline, AutoML then uses BERT for text featurization as the optimal featurization strategy and proceeds with featurizing the whole data. In that case, you will see the "PretrainedTextDNNTransformer" in the final model.
 
-Depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model. Dataset language can be specified in AutoMLConfig like the following:
+AutoML currently supports around 100 languages and depending on the dataset's language, AutoML chooses the appropriate BERT model. For German data, we use the German BERT model. For English, we use the English BERT model. For all other languages, we use the multilingual BERT model. In the following code, the German BERT model is triggered, since the dataset language is specified to 'deu', the 3 letter language code for German according to [ISO classification](https://iso639-3.sil.org/code/hbs):
 
 ```python
 from azureml.automl.core.featurization import FeaturizationConfig
@@ -181,13 +181,7 @@ automl_settings = {
 }
 ```
 
-> [!NOTE] 
-> To enable BERT, user should use GPU compute for training. If a CPU compute is used, then instead of BERT, AutoML will enable BiLSTM DNN featurizer.
-
-> The above is an example on how to trigger German language BERT model. 'deu' is the 3-letter language code for German according to ISO classification (reference: ISO 639-2 online and https://iso639-3.sil.org/code/hbs)
-
-> [!NOTE]
-> In order to invoke BERT, you have to set  "enable_dnn: True" in automl_settings and use GPU compute (e.g. vm_size = "STANDARD_NC6", or a higher GPU). Please see this notebook > for an example.
+To enable BERT, user should use GPU compute for training. If a CPU compute is used, then instead of BERT, AutoML will enable BiLSTM DNN featurizer. In order to invoke BERT, you have to set  "enable_dnn: True" in automl_settings and use GPU compute (e.g. vm_size = "STANDARD_NC6", or a higher GPU). Please see [this notebook for an example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 
 ## Next steps
@@ -200,6 +194,3 @@ automl_settings = {
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
 * Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](how-to-auto-train-remote.md).
-
-* Learn more about [how BERT is integrated into Azure automated machine learning] (https://techcommunity.microsoft.com/t5/azure-ai/how-bert-is-integrated-into-azure-automated-machine-learning/ba-p/1194657)
-
