@@ -13,7 +13,7 @@ ms.author: jgao
 
 Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both are covered in this article.
 
-## Prerequisite
+## Prerequisites
 
 If you don't have a deployment script, you can create a **hello.ps1** file with the following content:
 
