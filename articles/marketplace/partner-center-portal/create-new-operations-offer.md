@@ -186,11 +186,12 @@ In this section, you can provide logos and images that will be used when showing
 
 #### Store logos
 
-Provide your offer's logo in two pixel sizes:
+Provide a PNG file for the **Large** size logo (between 216 x 216 and 350 x 350 pixels). Partner Center will use this to create a **Small** (48 x 48 pixels) size logo. You can optionally replace this with a different image.
+
+Both logo sizes are required and are used in different places in the listing:
 
 - **Small** (48 x 48)
-- **Large** (216 x 216)
-
+- **Large** (between 216 x 216 and 350 x 350)
 
 #### Screenshots
 
