@@ -63,7 +63,7 @@ To apply published labels to groups, you must first enable the feature. These st
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-That's it. You've enabled the feature and you can apply published labels to groups.
+You will also need to synchronize your sensitivity labels to Azure AD. Please see https://docs.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels for instructions.
 
 ## Assign a label to a new group in Azure portal
 
@@ -108,7 +108,8 @@ After you enable this feature, the “classic” classifications for groups will
 The sensitivity label option is only displayed for groups when all the following conditions are met:
 
 1. Labels are published in the Microsoft 365 Compliance Center for this Azure AD organization.
-1. The feature is enabled, EnableMIPLabels is set to True in PowerShell.
+1. The feature is enabled, EnableMIPLabels is set to True in from the Azure AD PowerShell module.
+1. Lables are synchronized to Azure AD with the Execute-AzureAdLabelSync cmdlet in the Security & Compliance PowerShell module.
 1. The group is an Office 365 group.
 1. The organization has an active Azure Active Directory Premium P1 license.
 1. The current signed-in user has sufficient privileges to assign labels. The user must be either a Global Administrator, Group Administrator, or the group owner.
