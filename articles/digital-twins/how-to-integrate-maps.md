@@ -45,11 +45,11 @@ First, you'll create a route in Azure Digital Twins to forward all twin update e
 
 ## Create a route and filter to twin update notifications
 
-Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The [Azure Digital Twins tutorial: *Connect an end-to-end solution*](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update our maps.
+Azure Digital Twins instances can emit twin update events whenever a twin's state is updated. The Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md) linked above walks through a scenario where a thermometer is used to update a temperature attribute attached to a room's twin. You'll be extending that solution by subscribing to update notifications for twins, and using that information to update your maps.
 
-This pattern reads from the room twin directly, rather than the IoT device, which gives us the flexibility to change the underlying data source for temperature without needing to update our mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update our map logic.
+This pattern reads from the room twin directly, rather than the IoT device, which gives you the flexibility to change the underlying data source for temperature without needing to update your mapping logic. For example, you can add multiple thermometers or set this room to share a thermometer with another room, all without needing to update your map logic.
 
-1. Create an event grid topic, which will receive events from our Azure Digital Twins instance.
+1. Create an event grid topic, which will receive events from your Azure Digital Twins instance.
     ```azurecli
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
@@ -66,9 +66,9 @@ This pattern reads from the room twin directly, rather than the IoT device, whic
 
 ## Create an Azure function to update maps
 
-You're going to create an Event Grid-triggered function inside our function app from the [end-to-end tutorial](./tutorial-end-to-end.md). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
+You're going to create an Event Grid-triggered function inside your function app from the end-to-end tutorial ([*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md)). This function will unpack those notifications and send updates to an Azure Maps feature stateset to update the temperature of one room. 
 
-See the following document for reference info: [Azure Event Grid trigger for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
+See the following document for reference info: [*Azure Event Grid trigger for Azure Functions*](https://docs.microsoft.com/azure/azure-functions/functions-bindings-event-grid-trigger).
 
 Replace the function code with the following code. It will filter out only updates to space twins, read the updated temperature, and send that information to Azure Maps.
 
@@ -100,7 +100,7 @@ namespace SampleFunctionsApp
 
             //Parse updates to "space" twins
             if (message["data"]["modelId"].ToString() == "dtmi:contosocom:DigitalTwins:Space;1")
-            {   //Set the ID of the room to be updated in our map. 
+            {   //Set the ID of the room to be updated in your map. 
                 //Replace this line with your logic for retrieving featureID. 
                 string featureID = "UNIT103";
 

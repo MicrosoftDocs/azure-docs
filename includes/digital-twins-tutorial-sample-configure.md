@@ -9,7 +9,7 @@ ms.author: baanders
 
 ## Configure the sample project
 
-Next, set up a sample client application that will interact with your Azure Digital Twins instance. If you haven't already downloaded the sample project, get it now from the [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) landing page, by selecting the *Download ZIP* button underneath the title.
+Next, set up a sample client application that will interact with your Azure Digital Twins instance. If you haven't already downloaded the sample project, get it now from the [*Azure Digital Twins samples*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) landing page, by selecting the *Download ZIP* button underneath the title.
 
 Navigate to the downloaded file on your machine and unzip it.
 
