@@ -67,12 +67,16 @@ This section shows the content of the template and how to deploy it.
                 "type": "string",
                 "defaultValue": "GET-UNIQUE",
                 "metadata": {
-                "description": "Specifies the name of the app configuration store."
+                    "description": "Specifies the name of the app configuration store."
+                }
+            },
+            "keyValueName": {
+                "type": "string",
+                "defaultValue": "myKey$myLabel",
+                "metadata": {
+                    "description": "Specifies the name of the key-value resource. The name is a combination of key and label with $ as delimiter."
                 }
             }
-        },
-        "variables": {
-            "keyValueName": "myKey$myLabel"
         },
         "resources": [
             {
@@ -81,11 +85,11 @@ This section shows the content of the template and how to deploy it.
                 "apiVersion": "2020-07-01-preview",
                 "location": "[resourceGroup().location]",
                 "sku": {
-                "name": "standard"
+                    "name": "standard"
                 },
                 "resources": [
                     {
-                        "name": "[variables('keyValueName')]",
+                        "name": "[parameters('keyValueName')]",
                         "type": "keyValues",
                         "apiVersion": "2020-07-01-preview",
                         "dependsOn": [
@@ -104,8 +108,8 @@ This section shows the content of the template and how to deploy it.
             }
         ],
         "outputs": {
-            "reference-value" : {
-                "value": "[reference(resourceId('Microsoft.AppConfiguration/configurationStores/keyValues', parameters('configStoreName'), variables('keyValueName')), '2020-07-01-preview').value]",
+            "reference-value": {
+                "value": "[reference(resourceId('Microsoft.AppConfiguration/configurationStores/keyValues', parameters('configStoreName'), parameters('keyValueName')), '2020-07-01-preview').value]",
                 "type": "string"
             }
         }
