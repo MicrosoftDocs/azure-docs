@@ -86,6 +86,9 @@ Now continue on to [update AKS cluster with new service principal credentials](#
 
 ## Update AKS cluster with new Service Principal credentials
 
+> [!IMPORTANT]
+> For large clusters, updating the service principal may take a long time to complete.
+
 Regardless of whether you chose to update the credentials for the existing service principal or create a service principal, you now update the AKS cluster with your new credentials using the [az aks update-credentials][az-aks-update-credentials] command. The variables for the *--service-principal* and *--client-secret* are used:
 
 ```azurecli-interactive
@@ -97,7 +100,7 @@ az aks update-credentials \
     --client-secret "$SP_SECRET"
 ```
 
-It takes a few moments for the service principal credentials to be updated in the AKS.
+For small and medium size clusters, it takes a few moments for the service principal credentials to be updated in the AKS.
 
 ## Update AKS Cluster with new AAD Application credentials
 
