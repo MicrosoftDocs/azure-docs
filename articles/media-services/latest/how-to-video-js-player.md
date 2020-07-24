@@ -18,7 +18,7 @@ ms.author: inhenkel
 
 ## Overview
 
-Video.js is a web video player built from the ground up for an HTML5 world. It plays adaptive media formats (such as DASH and HLS) in a browser, without using plugins or Flash. Instead, Video.js uses the open web standards MediaSource Extensions and Encrypted Media Extensions. Moreover, it supports video playback on desktops and mobile devices.
+Video.js is a web video player built for an HTML5 world. It plays adaptive media formats (such as DASH and HLS) in a browser, without using plugins or Flash. Instead, Video.js uses the open web standards MediaSource Extensions and Encrypted Media Extensions. Moreover, it supports video playback on desktops and mobile devices.
 
 Its official documentation can be found at [https://docs.videojs.com/](https://docs.videojs.com/).
 
@@ -69,7 +69,7 @@ Run the `addRemoteTextTrack` method, and replace:
 
 - `subtitleKind` with either `"captions"`, `"subtitles"`,`"descriptions"`,  or `"metadata"`  
 - `caption` with the .vtt file path (vtt file needs to be in the same host to avoid CORS error)
-- `subtitleLang` with the BCP 47 code for language, e.g. `"eng"` for English or `"es"` Spanish
+- `subtitleLang` with the BCP 47 code for language, for example, `"eng"` for English or `"es"` Spanish
 - `subtitleLabel` with your desired display name of caption
 
 ```javascript
@@ -104,7 +104,10 @@ videojs.Hls.xhr.beforeRequest = setupTokenForDecrypt;
 
 ### Set up AES-128 encryption
 
-Video.js supports AES-128 encryption without any additional configuration. Please note that there's currently an [issue](https://github.com/videojs/video.js/issues/6717) with encryption and HLS/DASH CMAF content, which are not playable.
+Video.js supports AES-128 encryption without any additional configuration. 
+
+> [!NOTE] 
+> There's currently an [issue](https://github.com/videojs/video.js/issues/6717) with encryption and HLS/DASH CMAF content, which are not playable.
 
 ### Set up DRM protection
 
@@ -137,7 +140,7 @@ In order to support DRM protection, you must add the [videojs-contrib-eme](https
 In order to acquire the license URL, you can:
 
 - Consult your DRM provider configuration
-- or, if you are using the sample, consult the `output.json` document generated when you ran the *setup-vod.ps1* PowerShell scirpt for VODs, or the *start-live.ps1* script for live streams. You'll also find the KIDs inside this file.
+- or, if you are using the sample, consult the `output.json` document generated when you ran the *setup-vod.ps1* PowerShell script for VODs, or the *start-live.ps1* script for live streams. You'll also find the KIDs inside this file.
 
 #### Using tokenized DRM
 

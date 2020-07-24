@@ -116,7 +116,7 @@ The order of preference for Shaka management of the URL(s) of its license server
 2. Application-configured servers, if any are present, should override anything from the manifest.
 3. Manifest-provided license servers are only used if nothing else is specified.
 
-To specify the license server URL for Widevine or PlayReady we can use the following code:
+To specify the license server URL for Widevine or PlayReady, we can use the following code:
 
 ```javascript
 player.configure({
