@@ -21,6 +21,9 @@ When migrating code to a serverless architecture, refactoring Express.js endpoin
 
 - **Configuration and conventions**: There are a few configuration and conventions you need to consider as you move to Azure Functions. A Functions app uses the _function.json_ file to define HTTP verbs, define security policies, and can configure the function's [input and output](./functions-triggers-bindings.md). Also, by convention, the folder name, which contains the function files defines the endpoint name.
 
+> [!TIP]
+> Learn more through the interactive tutorial [Refactor Node.js and Express APIs to Serverless APIs with Azure Functions](https://docs.microsoft.com/learn/modules/shift-nodejs-express-apis-serverless/).
+
 ## Example
 
 ### Express.js
@@ -39,11 +42,21 @@ app.get('/hello', (req, res) => {
 });
 ```
 
-When a `GET` request is sent to `/hello`, an `HTTP 200` response containing "Success" is returned. If the endpoint returns an error, the response is an `HTTP 500` with the error details.
+When a `GET` request is sent to `/hello`, an `HTTP 200` response containing `Success` is returned. If the endpoint returns an error, the response is an `HTTP 500` with the error details.
 
 ### Azure Functions
 
-The following example implements the same result as the Express.js endpoint, but with Azure Functions.
+Azure Functions organizes configuration and code files into a single folder for each function. By default, the name of the folder dictates the function name.
+
+For instance, a function named `hello` has a folder with the following files.
+
+``` files
+| - hello
+|  - function.json
+|  - index.js
+```
+
+The following example implements the same result as the above Express.js endpoint, but with Azure Functions.
 
 # [JavaScript](#tab/javascript)
 
@@ -65,13 +78,10 @@ module.exports = async function (context, req) {
 # [TypeScript](#tab/typescript)
 
 ```typescript
-// index.ts
+// hello/index.ts
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 
-const httpTrigger: AzureFunction = async function (
-  context: Context,
-  req: HttpRequest
-): Promise<void> {
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
   try {
     context.res = { body: "Success!" };
   } catch (error) {
@@ -90,13 +100,13 @@ export default httpTrigger;
 
 When moving to Functions, the following changes are made:
 
-- **Module:** The function code is implemented as a JavaScript module that requires you to provide a value for `module.exports`.
+- **Module:** The function code is implemented as a JavaScript module.
 
 - **Context  and response object**: The [`context`](./functions-reference-node.md#context-object) allows you to communicate with the Function's runtime. From the context, you can read request data and set the function's response. Synchronous code requires you to call `context.done()` to complete execution, while `asyc` functions resolve the request implicitly.
 
 - **Naming convention**: The folder name used to contain the Azure Functions files is used as the endpoint name by default (this can be overridden in the _function.json_).
 
-- **Configuration**: You define the HTTP verbs in the *function.json* file such as `POST` or `PUT`.
+- **Configuration**: You define the HTTP verbs in the _function.json_ file such as `POST` or `PUT`.
 
 The following _function.json_ file holds configuration information for the function.
 
@@ -119,7 +129,7 @@ The following _function.json_ file holds configuration information for the funct
 }
 ```
 
-By defining `get` in the `methods` array, the function is available to HTTP `GET` requests. If you want to your api to accept support `POST` requests, you can add `post` to the array as well.
+By defining `get` in the `methods` array, the function is available to HTTP `GET` requests. If you want to your API to accept support `POST` requests, you can add `post` to the array as well.
 
 ## Next steps
 
