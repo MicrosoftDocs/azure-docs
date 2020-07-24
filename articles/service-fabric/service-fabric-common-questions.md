@@ -164,6 +164,12 @@ Note that this calculation also assumes:
 
 As with reliable services, the amount of data that you can store in an actor service is only limited by the total disk space and memory available across the nodes in your cluster. However, individual actors are most effective when they are used to encapsulate a small amount of state and associated business logic. As a general rule, an individual actor should have state that is measured in kilobytes.
 
+
+### Where does Azure Service Fabric Resource Provider store customer data?
+
+Azure Service Fabric Resource Provider doesn’t move or store customer data out of the region it is deployed in.
+
+
 ## Other questions
 
 ### How does Service Fabric relate to containers?
