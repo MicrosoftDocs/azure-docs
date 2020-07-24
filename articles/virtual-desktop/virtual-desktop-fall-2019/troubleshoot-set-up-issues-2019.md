@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Classic tenant host pool creation - Azure
+title: Windows Virtual Desktop (classic) tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop (classic) tenant environment.
 services: virtual-desktop
 author: Heidilohr

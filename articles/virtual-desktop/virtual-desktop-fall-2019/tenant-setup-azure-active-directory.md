@@ -1,5 +1,5 @@
 ---
-title: Create a tenant in Windows Virtual Desktop Classic - Azure
+title: Create a tenant in Windows Virtual Desktop (classic) - Azure
 description: Describes how to set up Windows Virtual Desktop (classic) tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr

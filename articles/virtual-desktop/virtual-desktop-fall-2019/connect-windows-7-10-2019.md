@@ -1,5 +1,5 @@
 ---
-title: Connect to Windows Virtual Desktop Classic Windows 10 or 7 - Azure
+title: Connect to Windows Virtual Desktop (classic) Windows 10 or 7 - Azure
 description: How to connect to Windows Virtual Desktop (classic) using the Windows Desktop client.
 services: virtual-desktop
 author: Heidilohr

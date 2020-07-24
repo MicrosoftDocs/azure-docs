@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Classic troubleshooting overview - Azure
+title: Windows Virtual Desktop (classic) troubleshooting overview - Azure
 description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop (classic) tenant environment.
 services: virtual-desktop
 author: Heidilohr

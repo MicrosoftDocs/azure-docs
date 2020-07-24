@@ -1,5 +1,5 @@
 ---
-title: Windows 7 virtual machines Windows Virtual Desktop Classic - Azure
+title: Windows 7 virtual machines Windows Virtual Desktop (classic) - Azure
 description: How to resolve issues for Windows 7 virtual machines (VMs) in a Windows Virtual Desktop (classic) environment.
 services: virtual-desktop
 author: Heidilohr

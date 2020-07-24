@@ -1,5 +1,5 @@
 ---
-title: Scale session hosts Azure Automation Windows Virtual Desktop Classic - Azure
+title: Scale session hosts Azure Automation Windows Virtual Desktop (classic) - Azure
 description: How to automatically scale Windows Virtual Desktop (classic) session hosts with Azure Automation.
 services: virtual-desktop
 author: Heidilohr

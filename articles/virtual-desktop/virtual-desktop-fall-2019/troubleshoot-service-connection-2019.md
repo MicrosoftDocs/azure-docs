@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot service connection Windows Virtual Desktop Classic - Azure
+title: Troubleshoot service connection Windows Virtual Desktop (classic) - Azure
 description: How to resolve issues when you set up client connections in a Windows Virtual Desktop (classic) tenant environment.
 services: virtual-desktop
 author: Heidilohr

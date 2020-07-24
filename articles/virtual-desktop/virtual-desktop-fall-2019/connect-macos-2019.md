@@ -1,5 +1,5 @@
 ---
-title: Connect to Windows Virtual Desktop Classic from macOS - Azure
+title: Connect to Windows Virtual Desktop (classic) from macOS - Azure
 description: How to connect to Windows Virtual Desktop (classic) using the macOS client.
 services: virtual-desktop
 author: heidilohr

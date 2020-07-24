@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Classic service principal role assignment - Azure
+title: Windows Virtual Desktop (classic) service principal role assignment - Azure
 description: How to create service principals and assign roles by using PowerShell in Windows Virtual Desktop (classic).
 services: virtual-desktop
 author: Heidilohr

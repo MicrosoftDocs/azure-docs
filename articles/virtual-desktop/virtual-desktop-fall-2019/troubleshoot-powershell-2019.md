@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Classic PowerShell - Azure
+title: Windows Virtual Desktop (classic) PowerShell - Azure
 description: How to troubleshoot issues with PowerShell when you set up a Windows Virtual Desktop (classic) tenant environment.
 services: virtual-desktop
 author: Heidilohr

@@ -1,5 +1,5 @@
 ---
-title: Configure GPU for Windows Virtual Desktop Classic - Azure
+title: Configure GPU for Windows Virtual Desktop (classic) - Azure
 description: How to enable GPU-accelerated rendering and encoding in Windows Virtual Desktop (classic).
 services: virtual-desktop
 author: gundarev

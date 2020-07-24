@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Classic host pool Azure Marketplace - Azure
+title: Windows Virtual Desktop (classic) host pool Azure Marketplace - Azure
 description: How to create a Windows Virtual Desktop (classic) host pool by using the Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr

@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Classic environment - Azure
+title: Windows Virtual Desktop (classic) environment - Azure
 description: The basic elements of a Windows Virtual Desktop (classic) environment.
 services: virtual-desktop
 author: Heidilohr

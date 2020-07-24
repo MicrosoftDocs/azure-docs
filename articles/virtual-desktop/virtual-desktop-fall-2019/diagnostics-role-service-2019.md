@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop Classic diagnose issues - Azure
+title: Windows Virtual Desktop (classic) diagnose issues - Azure
 description: How to use the Windows Virtual Desktop (classic) diagnostics feature to diagnose issues.
 services: virtual-desktop
 author: Heidilohr
