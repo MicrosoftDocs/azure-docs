@@ -1,13 +1,12 @@
 ---
 title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
+ms.reviewer: boalcsva
 ---
 
 # Azure Enterprise enrollment invoices
@@ -66,11 +65,11 @@ The date you receive your overage invoice depends on your enrollment start date 
   - Any charges not covered by your monetary commitment are due as an overage payment.  
 
 - **Indirect enrollments with an enrollment that started before May 1, 2018**:
-  
+
   If you're an indirect Enterprise Agreement (EA) customer with a start date before May 1, 2018, you're set up on a quarterly billing cycle. The channel partner (CP) invoices you directly.  
 
 - **Indirect enrollments with a start date after May 1, 2018**:
-  
+
   You're on a monthly billing cycle.  
 
 ### Increase your monetary commitment
@@ -612,7 +611,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 - **Exclusions**:
   - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
   - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
   -->
 
 ### To access Microsoft Azure Consumption Insights:
@@ -625,7 +624,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 1. When complete, a new dashboard, report, and model appear in the navigation pane. Select the dashboard to view your imported data.
 
 > [!TIP]
-> 
+>
 > - To learn how to generate the API key for your enrollment, see the API Reports help file on the [Enterprise portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
 > - For more information about connecting Power BI to your Azure consumption, see [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 

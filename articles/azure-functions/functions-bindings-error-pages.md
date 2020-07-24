@@ -24,7 +24,7 @@ When integrating with Azure services, errors may originate from the APIs of the 
 
 + [Azure Cosmos DB](functions-bindings-cosmosdb.md#exceptions-and-return-codes)
 
-+ [Blob storage](functions-bindings-storage-blob.md#exceptions-and-return-codes)
++ [Blob storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
 + [Event Hubs](functions-bindings-event-hubs.md#exceptions-and-return-codes)
 

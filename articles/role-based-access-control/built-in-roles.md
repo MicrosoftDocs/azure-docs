@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 01/17/2020
+ms.date: 02/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -418,7 +418,8 @@ The following table provides a brief description of each built-in role. Click th
 > | **Id** | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | Microsoft.Insights/alertRules/* | Create and manage alert rules |
+> | Microsoft.Insights/alertRules/* | Create and manage classic alert rules |
+> | Microsoft.Insights/metricAlerts/* | Create and manage new alert rules |
 > | Microsoft.Insights/components/* | Create and manage Insights components |
 > | Microsoft.Insights/webtests/* | Create and manage web tests |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |

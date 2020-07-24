@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/25/2019
+ms.date: 02/13/2020
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -99,6 +99,28 @@ Any parameter name included as part of an OIDC or OAuth2 request can be mapped t
 | Claim | Description | Example |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | The access token. | N/A |
+
+## Using claim resolvers 
+
+You can use claims resolvers with following elements: 
+
+| Item | Element | Settings |
+| ----- | ----------------------- | --------|
+|Application Insights technical profile |`InputClaim` | |
+|[Azure Active Directory](active-directory-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[OAuth2](oauth2-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[OpenID Connect](openid-connect-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[Claims transformation](claims-transformation-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[RESTful provider](restful-technical-profile.md) technical profile| `InputClaim`| 1, 2|
+|[SAML2](saml-technical-profile.md)  technical profile| `OutputClaim`| 1, 2|
+|[Self-Asserted](self-asserted-technical-profile.md) technical profile| `InputClaim`, `OutputClaim`| 1, 2|
+|[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
+|[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
+|[RelyingParty](relyingparty.md#technicalprofile) technical profile| `OutputClaim`| 2 |
+
+Settings: 
+1. The `IncludeClaimResolvingInClaimsHandling` metadata must set to `true`
+1. The input or output claims attribute `AlwaysUseDefaultValue` must set to `true`
 
 ## How to use claim resolvers
 

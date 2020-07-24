@@ -151,7 +151,7 @@ Observe that you *don't* need to write any code for authentication, getting a qu
 1. When you're done, stop the host with **Ctrl**+**C**.
 
 > [!TIP]
-> During startup, the host downloads and installs the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) and other Microsoft binding extensions. This installation happens because binding extensions are enabled by default in the *host.json* file with the following properties:
+> During startup, the host downloads and installs the [Storage binding extension](functions-bindings-storage-blob.md#add-to-your-functions-app) and other Microsoft binding extensions. This installation happens because binding extensions are enabled by default in the *host.json* file with the following properties:
 >
 > ```json
 > {

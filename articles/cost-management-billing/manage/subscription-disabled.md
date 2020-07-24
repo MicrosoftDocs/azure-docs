@@ -3,17 +3,14 @@ title: Reactivate a disabled Azure subscription
 description: Describes when you might have an Azure subscription disabled and how to reactivate it.
 keywords: azure subscription disabled
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # Reactivate a disabled Azure subscription
 
 Your Azure subscription can get disabled because your credit has expired, you reached your spending limit, have an overdue bill, hit your credit card limit, or because the subscription was canceled by the Account Administrator. See what issue applies to you and follow the steps in this article to get your subscription reactivated.

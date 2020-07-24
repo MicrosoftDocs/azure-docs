@@ -1,7 +1,7 @@
 ---
 title: Programmatically create Azure subscriptions
 description: Learn how to create additional Azure subscriptions programmatically.
-author: amberb
+author: amberbhargava
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: banders

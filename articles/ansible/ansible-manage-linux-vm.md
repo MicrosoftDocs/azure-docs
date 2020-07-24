@@ -16,8 +16,8 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Stop a virtual machine
 
@@ -127,4 +127,4 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Manage Azure dynamic inventories using Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Tutorial: Manage Azure dynamic inventories using Ansible](./ansible-manage-azure-dynamic-inventories.md)

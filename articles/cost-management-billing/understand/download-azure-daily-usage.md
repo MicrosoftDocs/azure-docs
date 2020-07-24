@@ -7,7 +7,7 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 02/13/2020
 ---
 
 # View and download your Azure usage and charges

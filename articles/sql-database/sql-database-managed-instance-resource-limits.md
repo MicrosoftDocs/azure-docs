@@ -32,8 +32,8 @@ Managed instance has characteristics and resource limits that depend on the unde
 | Max instance reserved storage |  General Purpose: 8 TB<br/>Business Critical: 1 TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
-> - Gen4 hardware is being phased out. It is recommended to deploy new managed instances on Gen5 hardware.
-> - Gen4 hardware at this time is still available only in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
+> - Gen4 hardware is being phased out and is not available anymore for the new deployments. All new managed instances must be deployed on Gen5 hardware.
+> - Consider [moving your managed instances to Gen 5](sql-database-service-tiers-vcore.md) hardware to experience a wider range of vCore and storage scalability, accelerated networking, best IO performance, and minimal latency.
 
 ### In-memory OLTP available space 
 

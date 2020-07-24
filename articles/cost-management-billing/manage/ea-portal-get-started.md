@@ -1,13 +1,12 @@
 ---
 title: Get started with the Azure Enterprise portal
 description: This article explains how Azure Enterprise Agreement (Azure EA) customers use the Azure Enterprise portal.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
+ms.reviewer: boalcsva
 ---
 
 # Get started with the Azure Enterprise portal
@@ -230,7 +229,7 @@ Be aware of this important information when transferring accounts:
   - From a work or school account to another work or school account.
   - From a Microsoft account to a work or school account.
   - From a Microsoft account to another Microsoft account.
-  
+
     The target account must be a valid Azure Commerce account to be a valid target for transfers. For new accounts, you are asked to create an Azure Commerce account when signing in to the Azure Enterprise portal. For existing accounts, you must first create a new Azure subscription before the account is eligible.
 
 - You can't make a transfer from a work or school account to a Microsoft account.
@@ -280,7 +279,7 @@ Account owners can view and manage subscriptions. You can use subscriptions to g
 
 When you create different subscriptions for each application environment, you help secure each environment.
 
-- You can also assign a different service administrator account for each subscription. 
+- You can also assign a different service administrator account for each subscription.
 - You can associate subscriptions with any number of services.
 - The account owner creates subscriptions and assigns a service administrator account to each subscription in their account.
 
@@ -304,7 +303,7 @@ To add a subscription:
 1. Select **Subscriptions** and then select the subscription you created.
 1. Select **Edit Subscription Details**.
 1. Edit the **Subscription Name** and the **Service Administrator** and then select the check mark.
-  
+
    The subscription name appears on reports. It's the name of the project associated with the subscription in the development portal.
 
 New subscriptions can take up to 24 hours to appear in the subscriptions list. After you've created a subscription, you can:
@@ -504,14 +503,14 @@ The Azure Enterprise portal offers two types of subscriptions for enterprise cus
 - Microsoft Azure Enterprise, which is ideal for:
   - All production usage
   - Best prices based on infrastructure spend
-  
+
   For more information, [contact Azure sales](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
 - Enterprise Dev/Test, which is ideal for:
   - All team dev/test workloads
   - Medium-to-heavy individual dev/test workloads
   - Access to special MSDN images and preferential service rates
-  
+
   For more information, see [Enterprise Dev/Test offer](https://azure.microsoft.com/offers/ms-azr-0148p/).
 
 ### Is it possible to transfer subscription ownership to another account?

@@ -1,12 +1,11 @@
 ---
 title: Purchase Azure reservations with up front or monthly payments
 description: Learn how you can purchase Azure reservations with up front or monthly payments.
-services: billing
 author: bandersmsft
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 02/12/2020
 ms.author: banders
 ---
 

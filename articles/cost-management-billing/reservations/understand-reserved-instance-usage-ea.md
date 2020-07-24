@@ -2,17 +2,14 @@
 title: Understand Azure reservations usage for Enterprise Agreements
 description: Learn how to read your usage to understand how the Azure reservation for your Enterprise enrollment is applied.
 author: bandersmsft
-manager: yashar
+ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/30/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # Get Enterprise Agreement reservation costs and usage
 
 Reservation costs and usage data are available for Enterprise Agreement customers in the Azure portal and REST APIs. This article helps you:

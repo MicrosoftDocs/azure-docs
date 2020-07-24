@@ -2,17 +2,14 @@
 title: APIs for Azure reservation automation | Microsoft Docs
 description: Learn about the Azure APIs that you can use to programmatically get reservation information.
 author: yashesvi
-manager: yashesvi
+ms.reviewer: yashesvi
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # APIs for Azure reservation automation
 
 Use Azure APIs to programmatically get information for your organization about Azure service or software reservations.

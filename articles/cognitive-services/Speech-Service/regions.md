@@ -34,7 +34,7 @@ The Speech service is available in these regions for **speech recognition**, **t
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
-If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region Identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
+If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
 
 ### Intent recognition
 
