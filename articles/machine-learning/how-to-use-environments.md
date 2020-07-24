@@ -1,5 +1,5 @@
 ---
-title: How to use Azure ML environments 
+title: Use software environments 
 titleSuffix: Azure Machine Learning
 description: Create and manage environments for model training and deployment. Manage Python packages and other settings for the environment.
 services: machine-learning
@@ -16,7 +16,7 @@ ms.custom: tracking-python
 
 ---
 
-# How to use environments in Azure Machine Learning
+# Create & use software environments in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Use the environments to track and reproduce your projects' software dependencies as they evolve.

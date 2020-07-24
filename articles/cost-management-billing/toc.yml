@@ -292,6 +292,8 @@
           href: ../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
         - name: Azure Database for MariaDB
           href: ../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+        - name: SAP HANA Large Instances
+          href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: SQL Database
           href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
         - name: Azure Synapse Analytics

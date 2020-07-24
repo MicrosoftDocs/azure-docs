@@ -40,7 +40,7 @@ In the reseller (CSP) scenario, a CSP is purchasing the SaaS offer on behalf of 
 
 The Publisher is not required to implement any of the API call flows differently for this scenario.
 
-For more information about CSP, please refer to https://partner.microsoft.com/en-us/licensing.
+For more information about CSP, please refer to https://partner.microsoft.com/licensing.
 
 >[!Warning]
 >The current version of this API is version 2, which should be used for all new SaaS offers. Version 1 of the API is deprecated and is being maintained to support existing offers.
