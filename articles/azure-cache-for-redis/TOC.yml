@@ -72,7 +72,9 @@
       href: cache-how-to-geo-replication.md
     - name: Save with reserved capacity
       href: cache-reserved-pricing.md
-    - name: Migrate from Managed Cache Service
+    - name: Migrate to Azure Cache for Redis
+      href: cache-migration-guide.md
+    - name: Migrate from Managed Cache Service (deprecated)
       href: cache-migrate-to-redis.md
   - name: Automate
     items:

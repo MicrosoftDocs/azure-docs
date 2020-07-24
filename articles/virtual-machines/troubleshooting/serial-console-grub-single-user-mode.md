@@ -238,7 +238,7 @@ To enable single-user mode in Oracle Linux, follow the earlier instructions for 
 ## Next steps
 To learn more about Serial Console, see:
 * [Linux Serial Console documentation](serial-console-linux.md)
-* [Use Serial Console to enable GRUB in various distributions](/archive/blogs/linuxonazure/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time)
+* [Use Serial Console to enable GRUB in various distributions](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Use Serial Console for NMI and SysRq calls](serial-console-nmi-sysrq.md)
 * [Serial Console for Windows VMs](serial-console-windows.md)
 * [Boot diagnostics](boot-diagnostics.md)
