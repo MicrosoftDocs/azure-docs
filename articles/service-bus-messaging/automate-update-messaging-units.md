@@ -138,7 +138,7 @@ The previous section shows you how to add a default condition for the autoscale 
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scale to specific messaging units - repeat specific days":::
 
 > [!IMPORTANT]
-> To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/platform/autoscale-understanding-settings).          
+> To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/platform/autoscale-understanding-settings.md).          
 
 ## Next steps
 To learn about messaging units, see the [Premium messaging](service-bus-premium-messaging.md)
