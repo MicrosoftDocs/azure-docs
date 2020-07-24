@@ -24,7 +24,7 @@ PowerShell provides one of the most flexible methods to manage your Azure CDN pr
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To use PowerShell to manage your Azure CDN profiles and endpoints, you must have the Azure PowerShell module installed.  To learn how to install Azure PowerShell and connect to Azure using the `Connect-AzAccount` cmdlet, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To use PowerShell to manage your Azure CDN profiles and endpoints, you must have the Azure PowerShell module installed.  To learn how to install Azure PowerShell and connect to Azure using the `Connect-AzAccount` cmdlet, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > You must log in with `Connect-AzAccount` before you can execute Azure PowerShell cmdlets.

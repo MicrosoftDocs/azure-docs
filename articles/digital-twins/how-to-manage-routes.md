@@ -24,14 +24,9 @@ Supported endpoint types include:
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
-For more information on the different endpoints, see [Choose between Azure messaging services](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
+For more information on the different endpoints, see [*Choose between Azure messaging services*](https://docs.microsoft.com/azure/event-grid/compare-messaging-services).
 
 Endpoints and routes are managed with the [**EventRoutes APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md). They can also be managed through the [Azure portal](https://portal.azure.com).
-
-> [!NOTE]
-> Managing event routes through the Azure portal is currently only available to Azure users on corporate-domain accounts. 
->
->If you are using a personal [Microsoft account (MSA)](https://account.microsoft.com/account/Account), such as an @outlook.com account, please use the Azure Digital Twins APIs or CLI to manage event routes as described within this article.
 
 ## Create an endpoint for Azure Digital Twins
 
