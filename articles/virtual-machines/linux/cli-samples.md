@@ -3,7 +3,7 @@ title: Azure CLI Samples
 description: Azure CLI Samples
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/01/2019
 ms.author: cynthn
 

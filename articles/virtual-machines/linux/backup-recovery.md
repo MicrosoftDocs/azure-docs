@@ -3,7 +3,7 @@ title: Overview backup options for Linux VMs
 description: Overview backup options for Linux Azure virtual machines.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: conceptual
+ms.topic: article
 ms.date: 09/13/2017
 ms.author: cynthn
 ---
