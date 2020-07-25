@@ -2065,6 +2065,8 @@
         href: velpic-provisioning-tutorial.md
       - name: Visitly
         href: visitly-provisioning-tutorial.md
+      - name: Webroot Security Awareness Training
+        href: webroot-security-awareness-training-provisioning-tutorial.md
       - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
       - name: Workday to Azure AD
