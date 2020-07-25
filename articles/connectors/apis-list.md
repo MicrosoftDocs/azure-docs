@@ -12,7 +12,7 @@ ms.date: 06/11/2020
 
 Connectors provide quick access from Azure Logic Apps to events, data, and actions across other apps, services, systems, protocols, and platforms. By using connectors in your logic apps, you expand the capabilities for your cloud and on-premises apps to perform tasks with the data that you create and already have.
 
-While Logic Apps offers [hundreds of connectors](https://docs.microsoft.com/connectors), this article describes the *popular and more commonly used* connectors that are successfully used by thousands of apps and millions of executions for processing data and information. To find the full list of connectors and each connector's reference information, such as triggers, actions, and limits, review the connector reference pages under [Connectors overview](https://docs.microsoft.com/connectors). Also, learn more about [triggers and actions](#triggers-actions), [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
+While Logic Apps offers [hundreds of connectors](/connectors), this article describes the *popular and more commonly used* connectors that are successfully used by thousands of apps and millions of executions for processing data and information. To find the full list of connectors and each connector's reference information, such as triggers, actions, and limits, review the connector reference pages under [Connectors overview](/connectors). Also, learn more about [triggers and actions](#triggers-actions), [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md), and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 > [!TIP]
 > To integrate with a service or API that doesn't have connector, you can either directly 
@@ -42,7 +42,7 @@ Connectors are available as built-in triggers and actions or as managed connecto
 
   For example, if you're using Microsoft BizTalk Server, your logic apps can connect to and communicate with your BizTalk Server by using the [BizTalk Server on-premises connector](#on-premises-connectors). You can then extend or perform BizTalk-like operations in your logic apps by using the [integration account connectors](#integration-account-connectors).
 
-  Connectors are classified as either Standard or Enterprise. [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost. To determine whether a connector is Standard or Enterprise, see the technical details in each connector's reference page under [Connectors overview](https://docs.microsoft.com/connectors).
+  Connectors are classified as either Standard or Enterprise. [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems such as SAP, IBM MQ, and IBM 3270 for an additional cost. To determine whether a connector is Standard or Enterprise, see the technical details in each connector's reference page under [Connectors overview](/connectors).
 
   You can also identify connectors by using these categories, although some connectors can cross multiple categories. For example, SAP is an Enterprise connector and an on-premises connector:
 
@@ -255,9 +255,9 @@ If your organization doesn't permit connecting to specific resources by using th
 
 ## Next steps
 
-* View the [full connector list](https://docs.microsoft.com/connectors)
+* View the [full connector list](/connectors)
 * [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Create custom connectors for logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
+* [Create custom connectors for logic apps](/connectors/custom-connectors/)
 * [Create custom APIs for logic apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!-- Built-ins icons -->
@@ -377,7 +377,7 @@ If your organization doesn't permit connecting to specific resources by using th
 
 <!--Built-in doc links-->
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrate logic apps with App Service API Apps"
+[azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic apps with App Service API Apps"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Process messages in groups, or as batches"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
@@ -403,19 +403,19 @@ If your organization doesn't permit connecting to specific resources by using th
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"
 
 <!--Managed connector doc links-->
-[azure-automation-doc]: https://docs.microsoft.com/connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
+[azure-automation-doc]: /connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
-[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
+[azure-cosmos-db-doc]: /connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
-[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
-[azure-key-vault-doc]: https://docs.microsoft.com/connectors/keyvault/ "Connect to your Azure Key Vault so that you can manage your secrets and keys"
-[azure-monitor-logs-doc]: https://docs.microsoft.com/connectors/azuremonitorlogs/ "Run queries against Azure Monitor Logs across Log Analytics workspaces and Application Insights components"
-[azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "Connect to your Azure Storage account so that you can create and manage queues and messages"
+[azure-file-storage-doc]: /connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
+[azure-key-vault-doc]: /connectors/keyvault/ "Connect to your Azure Key Vault so that you can manage your secrets and keys"
+[azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Run queries against Azure Monitor Logs across Log Analytics workspaces and Application Insights components"
+[azure-queues-doc]: /connectors/azurequeues/ "Connect to your Azure Storage account so that you can create and manage queues and messages"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
-[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
-[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
-[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side-by-side with Azure Logic Apps"
+[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connect to Azure SQL Data Warehouse so that you can view your data"
+[azure-table-storage-doc]: /connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
+[biztalk-server-doc]: /connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side-by-side with Azure Logic Apps"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connect to an on-premises file system"
 [ftp-doc]: ./connectors-create-api-ftp.md "Connect to an FTP / FTPS server for FTP tasks, like uploading, getting, deleting files, and more"
 [github-doc]: ./connectors-create-api-github.md "Connect to GitHub and track issues"
@@ -428,24 +428,24 @@ If your organization doesn't permit connecting to specific resources by using th
 [ibm-mq-doc]: ./connectors-create-api-mq.md "Connect to IBM MQ on-premises or in Azure to send and receive messages"
 [instagram-doc]: ./connectors-create-api-instagram.md "Connect to Instagram. Trigger or act on events"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Connect to Mandrill for communication"
-[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
+[mysql-doc]: /connectors/mysql/ "Connect to your on-premises MySQL database so that you can read and write data"
 [office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Connect to your Office 365 account so that you can send and receive emails, manage your calendar and contacts, and more"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Connect to your personal Microsoft OneDrive so that you can upload, delete, list files, and more"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Connect to your business Microsoft OneDrive so that you can upload, delete, list your files, and more"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Connect to an Oracle database so that you can add, insert, delete rows, and more"
 [outlook.com-doc]: ./connectors-create-api-outlook.md "Connect to your Outlook mailbox so that you can manage your email, calendars, contacts, and more"
-[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Connect to your PostgreSQL database so that you can read data from tables"
+[postgre-sql-doc]: /connectors/postgresql/ "Connect to your PostgreSQL database so that you can read data from tables"
 [salesforce-doc]: ./connectors-create-api-salesforce.md "Connect to your Salesforce account. Manage accounts, leads, opportunities, and more"
 [sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Connect to an on-premises SAP system"
 [sendgrid-doc]: ./connectors-create-api-sendgrid.md "Connect to SendGrid. Send email and manage recipient lists"
 [sftp-ssh-doc]: ./connectors-sftp-ssh.md "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
-[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Connect to SharePoint on-premises server. Manage documents, list items, and more"
-[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Connect to SharePoint Online. Manage documents, list items, and more"
+[sharepoint-server-doc]: ./connectors-create-api-sharepoint.md "Connect to SharePoint on-premises server. Manage documents, list items, and more"
+[sharepoint-online-doc]: ./connectors-create-api-sharepoint.md "Connect to SharePoint Online. Manage documents, list items, and more"
 [slack-doc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels"
 [smtp-doc]: ./connectors-create-api-smtp.md "Connect to an SMTP server and send email with attachments"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
-[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Connect to your Teradata database to read data from tables"
+[teradata-doc]: /connectors/teradata/ "Connect to your Teradata database to read data from tables"
 [twilio-doc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"
 
@@ -463,3 +463,4 @@ If your organization doesn't permit connecting to specific resources by using th
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"
 [xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transform XML messages"
 [xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validate XML messages"
+
