@@ -4,9 +4,9 @@ description: Track engagements with Azure customers by linking a partner ID to t
 author: dhirajgandhi
 ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 05/04/2020
+ms.date: 07/24/2020
 ms.service: cost-management-billing
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Link a partner ID to your Azure accounts

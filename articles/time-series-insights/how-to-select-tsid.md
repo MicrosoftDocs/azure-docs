@@ -70,8 +70,12 @@ Example raw event:
 ```
 
 In the Azure portal, you can then enter the composite key as follows:
-
+ 
 [![Configure Time Series ID for the environment.](media/v2-how-to-tsid/configure-environment-key.png)](media/v2-how-to-tsid/configure-environment-key.png#lightbox)
+
+  > [!NOTE]
+  > In Azure portal, don't enter comma-separated names of properties in one texbox, otherwise, it will be treated as a single property name that contains commas.
+  > Enter each property name in its own texbox.
 
 ## Next steps
 
