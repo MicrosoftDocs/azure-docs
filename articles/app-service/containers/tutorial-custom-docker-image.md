@@ -89,12 +89,12 @@ Then open a terminal window in that *docker-django-webapp-linux* folder.
 The file in the sample named _Dockerfile_ that describes the docker image and contains configuration instructions:
 
 ```Dockerfile
-FROM python:3.4
+FROM tiangolo/uwsgi-nginx-flask:python3.6
 
 RUN mkdir /code
 WORKDIR /code
 ADD requirements.txt /code/
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt --no-cache-dir
 ADD . /code/
 
 # ssh
@@ -102,21 +102,19 @@ ENV SSH_PASSWD "root:Docker!"
 RUN apt-get update \
         && apt-get install -y --no-install-recommends dialog \
         && apt-get update \
-    && apt-get install -y --no-install-recommends openssh-server \
-    && echo "$SSH_PASSWD" | chpasswd 
+	&& apt-get install -y --no-install-recommends openssh-server \
+	&& echo "$SSH_PASSWD" | chpasswd 
 
 COPY sshd_config /etc/ssh/
 COPY init.sh /usr/local/bin/
-    
+	
 RUN chmod u+x /usr/local/bin/init.sh
 EXPOSE 8000 2222
 
-#service SSH start
 #CMD ["python", "/code/manage.py", "runserver", "0.0.0.0:8000"]
 ENTRYPOINT ["init.sh"]
 ```
 
-* The image is based on a Python 3.4 environment. You can use a newer version of Python if you prefer.
 * The first group of commands installs the app's requirements in the environment.
 * The second group of commands create an [SSH](https://www.ssh.com/ssh/protocol/) server for secure communication between the container and the host.
 * The last line, `ENTRYPOINT ["init.sh"]`, invokes `init.sh` to start the SSH service and Python server.
@@ -138,7 +136,7 @@ ENTRYPOINT ["init.sh"]
     This [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command specifies the port with the `-p` argument followed by the name of the image. 
     
     > [!TIP]
-    > If you are running on Windows and see the error, *standard_init_linux.go:211: exec user process caused "no such file or directory"*, the *init.sh* file contains CR-LF line endings instead of the expected LF endings. This error happens if you used git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config`` argument. If you downloaded the repository as a ZIP, the error happens if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
+    > If you are running on Windows and see the error, *standard_init_linux.go:211: exec user process caused "no such file or directory"*, the *init.sh* file contains CR-LF line endings instead of the expected LF endings. This error happens if you used git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config`` argument. You might also see the error if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
 
 1. Browse to `http://localhost:8000` to verify the web app and container are functioning correctly.
 

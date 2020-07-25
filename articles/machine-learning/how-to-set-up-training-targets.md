@@ -92,9 +92,8 @@ Azure Machine Learning compute cluster is a managed-compute infrastructure that 
 
 You can use Azure Machine Learning Compute to distribute the training process across a cluster of CPU or GPU compute nodes in the cloud. For more information on the VM sizes that include GPUs, see [GPU-optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
-Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
+Azure Machine Learning Compute has default limits, such as the number of cores that can be allocated. For more information, see [Manage and request quotas for Azure resources](how-to-manage-quotas.md).
 
-You may also choose to use low-priority VMs to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed.  Low-priority VMs have discounted rates compared to normal VMs, see [Plan and manage costs](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost).
 
 > [!TIP]
 > Clusters can generally scale up to 100 nodes as long as you have enough quota for the number of cores required. By default clusters are setup with inter-node communication enabled between the nodes of the cluster to support MPI jobs for example. However you can scale your clusters to 1000s of nodes by simply [raising a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest), and requesting to allow list your subscription, or workspace, or a specific cluster for disabling inter-node communication. 
@@ -112,14 +111,38 @@ Azure Machine Learning Compute can be reused across runs. The compute can be sha
 
    You can also configure several advanced properties when you create Azure Machine Learning Compute. The properties allow you to create a persistent cluster of fixed size, or within an existing Azure Virtual Network in your subscription.  See the [AmlCompute class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ) for details.
-    
-   Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
 
+    Or you can create and attach a persistent Azure Machine Learning Compute resource in [Azure Machine Learning studio](#portal-create).
+
+   
 1. **Configure**: Create a run configuration for the persistent compute target.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=run_amlcompute)]
 
 Now that you've attached the compute and configured your run, the next step is to [submit the training run](#submit).
+
+ ### <a id="low-pri-vm"></a> Lower your compute cluster cost
+
+You may also choose to use [low-priority VMs](concept-plan-manage-cost.md#low-pri-vm) to run some or all of your workloads. These VMs do not have guaranteed availability and may be preempted while in use. A preempted job is restarted, not resumed. 
+
+Use any of these ways to specify a low-priority VM:
+    
+* In the studio, choose **Low Priority** when you create a VM.
+    
+* With the Python SDK, set the `vm_priority` attribute in your provisioning configuration.  
+    
+    ```python
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_D2_V2',
+                                                                vm_priority='lowpriority',
+                                                                max_nodes=4)
+    ```
+    
+* Using the CLI, set the `vm-priority`:
+    
+    ```azurecli-interactive
+    az ml computetarget create amlcompute --name lowpriocluster --vm-size Standard_NC6 --max-nodes 5 --vm-priority lowpriority
+    ```
+
 
 
 ### <a id="instance"></a>Azure Machine Learning compute instance

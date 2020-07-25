@@ -31,8 +31,8 @@ By the end of the tutorial you will be able to stream a video.
 ## Prerequisites
 
 - If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
-- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
+- [Create a Media Services account](./create-account-howto.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](./access-api-howto.md) and save the credentials. You will need to use them to access the API.
 
 ## Download and configure the sample
 
@@ -44,7 +44,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) in your downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) in your downloaded project. Replace the values with credentials that you got from [accessing APIs](./access-api-howto.md).
 
 The sample performs the following actions:
 
@@ -102,7 +102,7 @@ The [upload, encode, and stream files](stream-files-tutorial-with-api.md) tutori
 
 ### Job error codes
 
-See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+See [Error codes](/rest/api/media/jobs/get#joberrorcode).
 
 ## Multithreading
 

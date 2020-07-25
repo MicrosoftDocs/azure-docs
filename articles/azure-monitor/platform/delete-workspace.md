@@ -61,7 +61,7 @@ The soft-delete method may not fit in some scenarios such as development and tes
 > [!IMPORTANT]
 > Use permanent workspace delete operation with caution since its irreversible and you won't be able to recover your workspace and its data.
 
-Add '-forcedelete' tag to permanently delete your workspace:
+Add '-forceDelete' tag to permanently delete your workspace:
 
 ```powershell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name" -ForceDelete

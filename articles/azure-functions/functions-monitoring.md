@@ -549,7 +549,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -573,7 +573,7 @@ module.exports = function (context, req) {
     var operationIdOverride = {"ai.operation.id":context.operationId};
 
     client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
-    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride);
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
     client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
     client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
@@ -592,6 +592,9 @@ Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, 
 You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![Application map](./media/functions-monitoring/app-map.png)
+
+> [!NOTE]
+> Dependencies are written at Information level. If you filter at Warning or above, you won't see any of this data. Also, automatic collection of dependencies happens at non-user scope. So make sure the level is set to at least **Information** outside the user scope in your host.json (i.e. outside the Function.<YOUR_FUNCTION_NAME>.User key) if you want those dependencies to be captured.
 
 ## Enable Application Insights integration
 
@@ -675,7 +678,7 @@ az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_N
 
 ### Azure PowerShell
 
-You can enable streaming logs by using [Azure PowerShell](/powershell/azure/overview). For PowerShell, use the [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command to enable logging on the function app, as shown in the following snippet: 
+You can enable streaming logs by using [Azure PowerShell](/powershell/azure/). For PowerShell, use the [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command to enable logging on the function app, as shown in the following snippet: 
 
 :::code language="powershell" source="~/powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1" range="19-20":::
 

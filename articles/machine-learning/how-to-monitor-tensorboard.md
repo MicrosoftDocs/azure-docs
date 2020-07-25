@@ -110,7 +110,7 @@ os.environ["TEST_TMPDIR"] = data_dir
 
 # Writing logs to ./logs results in their being uploaded to Artifact Service,
 # and thus, made accessible to our TensorBoard instance.
-arguments_list = ["--log_dir", logs_dir]
+script_params = ["--log_dir", logs_dir]
 
 # Create an experiment
 exp = Experiment(ws, experiment_name)
@@ -144,13 +144,14 @@ compute_target.wait_for_completion(show_output=True, min_node_count=None)
 # print(compute_target.get_status().serialize())
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ### Submit run with TensorFlow estimator
 
 The TensorFlow estimator provides a simple way of launching a TensorFlow training job on a compute target. It's implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
 
 ```Python
 from azureml.train.dnn import TensorFlow
-script_params = {"--log_dir": "./logs"}
 
 tf_estimator = TensorFlow(source_directory=exp_dir,
                           compute_target=compute_target,
