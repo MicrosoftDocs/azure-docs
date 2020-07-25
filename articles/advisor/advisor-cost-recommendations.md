@@ -85,7 +85,7 @@ To save 60% of cost, we recommend storing your snapshots in standard storage, re
 By using intelligence about your Azure Blob storage object count, total size, and transactions, Advisor detects whether you should enable lifecycle management to tier data on one or more of your storage accounts. It prompts you to create lifecycle management rules to automatically tier your data to cool or archive storage to optimize your storage costs while retaining your data in Azure Blob storage for application compatibility.
 
 ## Create an Ephemeral OS Disk recommendation
-[Ephemeral OS Disk](../virtual-machines/windows/ephemeral-os-disks.md) allows you to: 
+[Ephemeral OS Disk](../virtual-machines/ephemeral-os-disks.md) allows you to: 
 - Save on storage costs for OS disks. 
 - Get lower read/write latency to OS disks. 
 - Get faster VM reimage operations by resetting the OS (and temporary disk) to its original state.

@@ -121,7 +121,7 @@
               href: ./partner-center-portal/create-azure-vm-technical-asset.md
             - name: Azure VM technical asset FAQ
               href: ./partner-center-portal/common-issues-during-vhd-creation.md
-            - name: Certify an Azure VM image
+            - name: Test Virtual Machine deployed from VHD 
               href: ./partner-center-portal/azure-vm-image-certification.md
             - name: SAS URI
               items:
