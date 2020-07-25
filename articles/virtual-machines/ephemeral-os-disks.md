@@ -1,14 +1,15 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: cynthn
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 07/08/2019
- ms.author: cynthn
- ms.custom: include file
+title: Ephemeral OS disks 
+description: Learn more about ephemeral OS disks for Azure VMs.
+author: cynthn
+ms.service: virtual-machines
+ms.workload: infrastructure-services
+ms.topic: article
+ms.date: 07/23/2020
+ms.author: cynthn
+ms.subservice: disks
 ---
+# Ephemeral OS disks for Azure VMs
 
 Ephemeral OS disks are created on the local virtual machine (VM) storage and not saved to the remote Azure Storage. Ephemeral OS disks work well for stateless workloads, where applications are tolerant of individual VM failures, but are more affected by VM deployment time or reimaging the individual VM instances. With Ephemeral OS disk, you get lower read/write latency to the OS disk and faster VM reimage. 
  
@@ -19,7 +20,7 @@ The key features of ephemeral disks are:
 - Lower latency, similar to a temporary disk. 
 - Ephemeral OS disks are free, you incur no storage cost for OS disk.
 - They are available in all Azure regions. 
-- Ephemeral OS Disk is supported by [Shared Image Gallery](/azure/virtual-machines/linux/shared-image-galleries). 
+- Ephemeral OS Disk is supported by [Shared Image Gallery](./linux/shared-image-galleries.md). 
  
 
  
@@ -27,7 +28,7 @@ Key differences between persistent and ephemeral OS disks:
 
 |                             | Persistent OS Disk                          | Ephemeral OS Disk                              |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| **Size limit for OS disk**      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller. For the **cache size in GiB**, see [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), and [GS](/azure/virtual-machines/linux/sizes-previous-gen#gs-series)              |
+| **Size limit for OS disk**      | 2 TiB                                                                                        | Cache size for the VM size or 2TiB, whichever is smaller. For the **cache size in GiB**, see [DS](sizes-general.md), [ES](sizes-memory.md), [M](sizes-memory.md), [FS](sizes-compute.md), and [GS](sizes-previous-gen.md#gs-series)              |
 | **VM sizes supported**          | All                                                                                          | VM sizes that supports Premium storage such as DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, LSv2, M                                               |
 | **Disk type support**           | Managed and unmanaged OS disk                                                                | Managed OS disk only                                                               |
 | **Region support**              | All regions                                                                                  | All regions                              |
@@ -39,9 +40,9 @@ Key differences between persistent and ephemeral OS disks:
 
 ## Size requirements
 
-You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](~/articles/virtual-machines/dv2-dsv2-series.md) has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
+You can deploy VM and instance images up to the size of the VM cache. For example, Standard Windows Server images from the marketplace are about 127 GiB,  which means that you need a VM size that has a cache larger than 127 GiB. In this case, the [Standard_DS2_v2](dv2-dsv2-series.md) has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. Basic Linux images in the Marketplace and Windows Server images that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 
-Ephemeral disks also require that the VM size supports Premium storage. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](../articles/virtual-machines/linux/sizes.md) for details around which sizes support Premium storage.
+Ephemeral disks also require that the VM size supports Premium storage. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
 
 ## Preview - Ephemeral OS Disks can now be stored on temp disks
 Ephemeral OS Disks can now be stored on VM temp/resource disk in addition to the VM cache. So, now you can use Ephemeral OS Disks with VM which don’t have a cache or has insufficient cache but has a temp/resource disk to store the Ephemeral OS disk such as Dav3, Dav4, Eav4 and Eav3. If a VM has sufficient cache and temp space, you will now also be able to specify where you want to store the ephemeral OS Disk by using a new property called [DiffDiskPlacement](https://docs.microsoft.com/rest/api/compute/virtualmachines/list#diffdiskplacement). This feature is currently in preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. To get started, [request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6cQw0fZJzdIsnbfbI13601URTBCRUZPMkQwWFlCOTRIMFBSNkM1NVpQQS4u).
@@ -237,3 +238,6 @@ A: Ephemeral disks do not support:
 - Azure Backup
 - Azure Site Recovery  
 - OS Disk Swap 
+ 
+## Next steps
+You can create a VM with an ephemeral OS disk using the [Azure CLI](/cli/azure/vm#az-vm-create).
