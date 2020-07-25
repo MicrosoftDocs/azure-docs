@@ -40,6 +40,8 @@ from openrowset(
 
 Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
+## Using Data source
+
 Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
 
 ```sql
@@ -74,24 +76,12 @@ In the following sections you can see how to query various types of JSON files.
 
 Your first step is to **create a database** where you will execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
-## Sample JSON files
+## Sample JSON documents
 
-The section below contains sample scripts to read JSON files. Files are stored in a *json* container, folder *books*, and contain a single book entry with following structure:
+The query examples read *json* files containing documents with following structure:
 
 ```json
-{
-   "_id":"ahokw88",
-   "type":"Book",
-   "title":"The AWK Programming Language",
-   "year":"1988",
-   "publisher":"Addison-Wesley",
-   "authors":[
-      "Alfred V. Aho",
-      "Brian W. Kernighan",
-      "Peter J. Weinberger"
-   ],
-   "source":"DBLP"
-}
+{"date_rep":"2020-07-24","day":24,"month":7,"year":2020,"cases":13,"deaths":0,"countries_and_territories":"Afghanistan","geo_id":"AF","country_territory_code":"AFG","continent_exp":"Asia","load_date":"2020-07-25 00:05:14","iso_country":"AF"}
 ```
 
 ## Read JSON files
