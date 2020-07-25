@@ -75,7 +75,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 # [.NET SDK V3](#tab/dotnetv3)
 
-If you are using the .Net V3 SDK, use the `ApplicationPreferredRegions` property to set the preferred region. You can also use the `ApplicationRegion` property and let the SDK choose the preferred location based on proximity. 
+If you are using the .Net V3 SDK, use the `ApplicationPreferredRegions` property to set the preferred region. You can also use the `ApplicationRegion` property and let the SDK choose the preferred location based on proximity.
 
 ```csharp
 
