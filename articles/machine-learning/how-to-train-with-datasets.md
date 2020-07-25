@@ -78,7 +78,7 @@ web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 ```
 
-TabularDataset objects provide the ability to load the data in your TabularDataset into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries without having to leave your notebook. To leverage this capability, see [access and explore input datasets](#access-and-explore-input-datasets).
+TabularDataset objects provide the ability to load the data in your TabularDataset into a pandas or Spark DataFrame so that you can work with familiar data preparation and training libraries without having to leave your notebook. To leverage this capability, see [access and explore input datasets](#access-and-explore-input-datasets).
 
 ### Configure the estimator
 
