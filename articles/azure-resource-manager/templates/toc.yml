@@ -49,7 +49,7 @@
       - name: Stream Analytics
         href: ../../stream-analytics/quick-create-azure-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Synapse Analytics
-        href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json  
+        href: ../../synapse-analytics/sql-data-warehouse/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Blockchain
       items:
       - name: Blockchain
@@ -59,7 +59,7 @@
       - name: Batch
         href: ../../batch/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Functions
-        href: ../../azure-functions/functions-create-first-function-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json  
+        href: ../../azure-functions/functions-create-first-function-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Linux virtual machine
         href: ../../virtual-machines/linux/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Virtual machine scale sets - Linux
@@ -95,7 +95,7 @@
       - name: SQL Managed Instance
         href: ../../azure-sql/managed-instance/create-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: SQL Server on Virtual Machines
-        href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json 
+        href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: DevOps
       items:
       - name: DevTest Labs
@@ -131,7 +131,7 @@
       - name: Policy
         href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Portal
-        href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json 
+        href: ../../azure-portal/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Resource Graph
         href: ../../governance/resource-graph/shared-query-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Role-based access control (RBAC)
@@ -169,7 +169,7 @@
     - name: Storage
       items:
       - name: Storage account
-        href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json 
+        href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Web
       items:
       - name: Notification Hubs
@@ -302,6 +302,8 @@
     - name: Deployment script
       displayName: custom script
       href: deployment-script-template.md
+    - name: Create deployment script dev environment
+      href: deployment-script-template-configure-dev.md
     - name: Modularize templates
       displayName: linked templates, nested templates
       href: linked-templates.md
