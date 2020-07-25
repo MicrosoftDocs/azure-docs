@@ -25,12 +25,39 @@ from openrowset(
         bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.jsonl',
         format = 'csv',
         fieldterminator ='0x0b',
-        fieldquote = '0x0b'' 
-        -- , rowterminator = '0x0b'  --> uncomment this line if you have classic JSON file instead of "line-delimited" JSON file
+        fieldquote = '0x0b'
     ) with (doc nvarchar(max)) as rows
 ```
 
-Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
+Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+
+Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
+
+```sql
+create external data source covid
+with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+go
+select top 10 *
+from openrowset(
+        bulk 'latest/ecdc_cases.json',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b',
+        rowterminator = '0x0b' --> You need to override rowterminator to read classic JSON
+    ) with (doc nvarchar(max)) as rows
+```
+
+If a data source is protected with SAS key or custom identity you cna configure [data source with database scoped credential](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential).
 
 In the following sections you can see how to query various types of JSON files.
 
