@@ -164,26 +164,25 @@ WHERE
 
 ## Query JSON files using OPENJSON
 
-The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve objects and properties within a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve COVID statistics reported in Serbia:
 
 ```sql
-SELECT
-    j.*
-FROM
-    OPENROWSET(
-        BULK 'json/books/*.json',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT='CSV',
-        FIELDTERMINATOR ='0x0b',
-        FIELDQUOTE = '0x0b',
-        ROWTERMINATOR = '0x0b'
-    )
-    WITH (
-        jsonContent NVARCHAR(max) -- Use appropriate length. Make sure JSON fits. 
-    ) AS [r]
-CROSS APPLY OPENJSON(jsonContent) AS j
-WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
+select
+    *
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+    cross apply openjson (doc)
+        with (  date_rep datetime2,
+                cases int,
+                fatal int '$.deaths',
+                country varchar(100) '$.countries_and_territories')
+where country = 'Serbia'
+order by country, date_rep desc;
 ```
 
 ## Next steps
