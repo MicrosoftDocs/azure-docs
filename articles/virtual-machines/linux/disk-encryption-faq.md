@@ -4,7 +4,7 @@ description: This article provides answers to frequently asked questions about M
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
