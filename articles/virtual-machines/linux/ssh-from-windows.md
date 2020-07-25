@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.topic: how-to
+ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
 

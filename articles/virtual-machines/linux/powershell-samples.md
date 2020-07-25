@@ -3,7 +3,7 @@ title: Azure Virtual Machine PowerShell Samples
 description: Azure Virtual Machine PowerShell Samples
 author: cynthn
 ms.service: virtual-machines
-ms.topic: how-to
+ms.topic: article
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn

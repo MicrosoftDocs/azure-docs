@@ -4,7 +4,7 @@ description: Learn how to create a Fully Qualified Domain Name, or FQDN, for a R
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
-ms.topic: how-to
+ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
