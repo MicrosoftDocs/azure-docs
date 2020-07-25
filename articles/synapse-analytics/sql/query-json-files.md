@@ -77,7 +77,17 @@ In the following sections you can see how to query various types of JSON files.
 The query examples read *json* files containing documents with following structure:
 
 ```json
-{"date_rep":"2020-07-24","day":24,"month":7,"year":2020,"cases":13,"deaths":0,"countries_and_territories":"Afghanistan","geo_id":"AF","country_territory_code":"AFG","continent_exp":"Asia","load_date":"2020-07-25 00:05:14","iso_country":"AF"}
+{
+    "date_rep":"2020-07-24",
+    "day":24,"month":7,"year":2020,
+    "cases":13,"deaths":0,
+    "countries_and_territories":"Afghanistan",
+    "geo_id":"AF",
+    "country_territory_code":"AFG",
+    "continent_exp":"Asia",
+    "load_date":"2020-07-25 00:05:14",
+    "iso_country":"AF"
+}
 ```
 
 ## Read JSON files
@@ -89,8 +99,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'json/books/book1.json',
-        DATA_SOURCE = 'SqlOnDemandDemo',
+        BULK 'latest/ecdc_cases.json',
+        DATA_SOURCE = 'covid',
         FORMAT='CSV',
         FIELDTERMINATOR ='0x0b',
         FIELDQUOTE = '0x0b',
