@@ -41,8 +41,6 @@ If you don't specify the preferred locations but used the `setCurrentLocation` m
 
 The SDK can be used without any code changes. In this case, the SDK automatically directs both reads and writes to the current write region.
 
-# [.NET SDK V2](#tab/dotnetv2)
-
 In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the region name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
 
 The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
@@ -50,6 +48,8 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
 > [!NOTE]
 > The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
 >
+
+# [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 // Getting endpoints from application settings or other configuration location
