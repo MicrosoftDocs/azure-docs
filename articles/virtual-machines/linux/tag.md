@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
 ms.service: virtual-machines-linux
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017

@@ -3,7 +3,7 @@ title: DNS Name resolution options for Linux VMs
 description: Name Resolution scenarios for Linux virtual machines in Azure IaaS, including provided DNS services, hybrid external DNS and Bring Your Own DNS server.
 author: RicksterCDN
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2016
 ms.author: rclaus
 

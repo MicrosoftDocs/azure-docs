@@ -3,7 +3,7 @@ title: Detailed steps to create an SSH key pair
 description: Learn detailed steps to create and manage an SSH public and private key pair for Linux VMs in Azure.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: cynthn
 

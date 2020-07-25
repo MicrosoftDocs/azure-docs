@@ -3,7 +3,7 @@ title: Create a Linux environment with the Azure CLI
 description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
 

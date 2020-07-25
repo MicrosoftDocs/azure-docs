@@ -11,7 +11,7 @@ tags: azure-virtual-machine
 ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: ''
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017

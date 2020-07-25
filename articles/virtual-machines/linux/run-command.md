@@ -6,7 +6,7 @@ ms.service: virtual-machines
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/26/2019
-ms.topic: article
+ms.topic: how-to
 manager: carmonm
 ---
 # Run shell scripts in your Linux VM by using Run Command
