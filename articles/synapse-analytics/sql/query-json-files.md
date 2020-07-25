@@ -134,30 +134,6 @@ from openrowset(
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
 
-## Query JSON files using JSON_QUERY
-
-The following query shows you how to use [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve objects and arrays (authors) from a book entitled *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
-
-```sql
-SELECT
-    JSON_QUERY(jsonContent, '$.authors') AS authors,
-    jsonContent
-FROM
-    OPENROWSET(
-        BULK 'json/books/*.json',
-        DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT='CSV',
-        FIELDTERMINATOR ='0x0b',
-        FIELDQUOTE = '0x0b',
-        ROWTERMINATOR = '0x0b'
-    )
-    WITH (
-        jsonContent varchar(8000)
-    ) AS [r]
-WHERE
-    JSON_VALUE(jsonContent, '$.title') = 'Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics';
-```
-
 ## Query JSON files using OPENJSON
 
 The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). It will retrieve COVID statistics reported in Serbia:
