@@ -72,10 +72,6 @@ If a data source is protected with SAS key or custom identity you can configure 
 
 In the following sections you can see how to query various types of JSON files.
 
-## Prerequisites
-
-Your first step is to **create a database** where you will execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
-
 ## Sample JSON documents
 
 The query examples read *json* files containing documents with following structure:
