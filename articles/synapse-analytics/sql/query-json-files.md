@@ -19,7 +19,16 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 
 ## Reading JSON documents
 
-The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files this is enough. If you have classic JSON file you would need to set values `0x0b` for `rowterminator`. If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following example:
+The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files this is enough. If you have classic JSON file you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function wll parse JSON and return every document in the following format:
+
+| doc |
+| --- |
+|{"date_rep":"2020-07-24","day":24,"month":7,"year":2020,"cases":3,"deaths":0,"geo_id":"AF"}|
+|{"date_rep":"2020-07-25","day":25,"month":7,"year":2020,"cases":7,"deaths":0,"geo_id":"AF"}|
+|{"date_rep":"2020-07-26","day":26,"month":7,"year":2020,"cases":4,"deaths":0,"geo_id":"AF"}|
+|{"date_rep":"2020-07-27","day":27,"month":7,"year":2020,"cases":8,"deaths":0,"geo_id":"AF"}|
+
+If the file is publicly available or if your Azure AD identity can access this file, you should be able to see the content of the file using the query like the one shown in the following examples.
 
 ### Read JSON files
 
