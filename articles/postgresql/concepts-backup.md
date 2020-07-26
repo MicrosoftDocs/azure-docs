@@ -27,11 +27,7 @@ For servers which support up to 4-TB maximum storage, full backups occur once ev
 
 #### Servers with up to 16-TB storage
 
-In a subset of [Azure regions](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
-
-Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (binlog in MySQL) exceeds 50-GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed. 
-
-Transaction log backups occur every five minutes. 
+In a subset of [Azure regions](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. Differential snapshot backups do not occur on a fixed schedule. In a day, three differential snapshot backups are performed. Transaction log backups occur every five minutes. 
 
 ### Backup retention
 
