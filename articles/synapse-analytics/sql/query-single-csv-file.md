@@ -35,25 +35,31 @@ select top 10 *
 from openrowset(
     bulk 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
     format = 'csv',
-    parser_version = '2.0' ) as rows
+    parser_version = '2.0',
+    firstrow = 2 ) as rows
 ```
 
-Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
+Option `firstrow` is used to skip the first row in the CSV file that represents header in this case. Make sure that you can access this file. If your file is protected with SAS key or custom identity, your would need to setup [server level credential for sql login](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential).
 
 ### Using data source
 
-Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage, and use that data source and the relative path to the file in `OPENROWSET` function:
+Previous example uses full path to the file. As an alternative, you can create an external data source with the location that points to the root folder of the storage:
 
 ```sql
 create external data source covid
 with ( location = 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases' );
-go
+```
+
+Once you create a data source, you can use that data source and the relative path to the file in `OPENROWSET` function:
+
+```sql
 select top 10 *
 from openrowset(
         bulk 'latest/ecdc_cases.csv',
         data_source = 'covid',
         format = 'csv',
-        parser_version ='2.0'
+        parser_version ='2.0',
+        firstrow = 2
     ) as rows
 ```
 
@@ -71,8 +77,14 @@ from openrowset(
         format = 'csv',
         parser_version ='2.0',
         firstrow = 2
-    ) with ( date_rep date 1, cases int 5, geo_id varchar(6) 8) as rows
+    ) with (
+        date_rep date 1,
+        cases int 5,
+        geo_id varchar(6) 8
+    ) as rows
 ```
+
+The numbers after a data type in the `WITH` clause represent column index in the CSV file.
 
 In the following sections you can see how to query various types of CSV files.
 
