@@ -4,7 +4,7 @@ description: Specifications for the HBv2-series VMs.
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: amverma
 ---

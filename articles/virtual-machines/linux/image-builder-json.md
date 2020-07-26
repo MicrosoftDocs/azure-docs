@@ -4,7 +4,7 @@ description: Learn how to create a template to use with Azure Image Builder.
 author: danielsollondon
 ms.author: danis
 ms.date: 07/09/2020
-ms.topic: article
+ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn

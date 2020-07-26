@@ -4,7 +4,7 @@ description: Learn about the key design and implementation guidelines for deploy
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: cynthn
 
