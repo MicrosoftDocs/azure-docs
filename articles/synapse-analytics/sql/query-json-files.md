@@ -90,26 +90,6 @@ The query examples read *json* files containing documents with following structu
 }
 ```
 
-## Read JSON files
-
-To process JSON files using JSON_VALUE and [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), you need to read the JSON file from storage as a single column. The following script reads the *book1.json* file as a single column:
-
-```sql
-SELECT
-    *
-FROM
-    OPENROWSET(
-        BULK 'latest/ecdc_cases.json',
-        DATA_SOURCE = 'covid',
-        FORMAT='CSV',
-        FIELDTERMINATOR ='0x0b',
-        FIELDQUOTE = '0x0b',
-        ROWTERMINATOR = '0x0b'
-    )
-    WITH (
-        jsonContent varchar(8000)
-    ) AS [r];
-```
 
 > [!NOTE]
 > You are reading the entire JSON file as single row or column. So, FIELDTERMINATOR, FIELDQUOTE and ROWTERMINATOR are set to 0x0b.
