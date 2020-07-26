@@ -43,7 +43,7 @@ This scenario is outlined in a diagram below:
 
 Before continuing with this example, you'll need to complete the following prerequisites.
 1. Create an IoT hub. See the *Create an IoT Hub* section of [this IoT Hub quickstart](../iot-hub/quickstart-send-telemetry-cli.md) for instructions.
-2. Create at least one Azure function to process events from IoT Hub. See [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md) to build a basic Azure function that can connect to Azure Digital Twins and call Azure Digital Twins API functions. The rest of this how-to will build on this function.
+2. Create at least one Azure function to process events from IoT Hub. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) to build a basic Azure function that can connect to Azure Digital Twins and call Azure Digital Twins API functions. The rest of this how-to will build on this function.
 3. Set up an event destination for hub data. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance. Under *Events*, create a subscription for your Azure function. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure portal: Adding an event subscription":::
@@ -56,7 +56,7 @@ Before continuing with this example, you'll need to complete the following prere
 
 ## Create an Azure function in Visual Studio
 
-This section uses the same Visual Studio startup steps and Azure function skeleton from [How-to: Set up an Azure function for processing data](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
+This section uses the same Visual Studio startup steps and Azure function skeleton from [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md). The skeleton handles authentication and creates a service client, ready for you to process data and call Azure Digital Twins APIs in response. 
 
 The heart of the skeleton function is this:
 
@@ -269,9 +269,9 @@ Now you have an Azure function that is equipped to read and interpret the scenar
 
 ## Debug Azure function apps locally
 
-It is possible to debug Azure functions with an Event Grid trigger locally. For more information about this, see [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md).
+It is possible to debug Azure functions with an Event Grid trigger locally. For more information about this, see [*Debug Event Grid trigger locally*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ## Next steps
 
 Read about data ingress and egress with Azure Digital Twins:
-* [Concepts: Integration with other services](concepts-integration.md)
+* [*Concepts: Integration with other services*](concepts-integration.md)

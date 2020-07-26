@@ -38,27 +38,26 @@ Technically, a three-node cluster can survive a single node loss (down to two no
 
 The quorum resource protects the cluster against either of these issues. 
 
-To configure the quorum resource with SQL Server on Azure VMs, you can use these witness types: 
+The following table lists the quorum options available in the order recommended to use with an Azure VM, with the disk witness being the preferred choice: 
 
 
 ||[Disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud witness](/windows-server/failover-clustering/deploy-cloud-witness)  |[File share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Supported OS**| All |Windows Server 2016+| Windows Server 2012+|
-|**Supported SQL Server version**|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
+
 
 
 
 ### Disk witness
 
-A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. 
+A disk witness is a small clustered disk in the Cluster Available Storage group. This disk is highly available and can fail over between nodes. It contains a copy of the cluster database, with a default size that's usually less than 1 GB. The disk witness is the preferred quorum option for an Azure VM as it can solve the partition in time problem, unlike the cloud witness and file share witness. 
 
 Configure an Azure shared disk as the disk witness. 
 
 To get started, see [Configure a disk witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Supported OS**: All    
-**Supported SQL version**: SQL Server 2019   
+**Supported OS**: All   
 
 
 ### Cloud witness
@@ -69,21 +68,18 @@ To get started, see [Configure a cloud witness](/windows-server/failover-cluster
 
 
 **Supported OS**: Windows Server 2016 and later   
-**Supported SQL version**: SQL Server 2016 and later     
 
 
 ### File share witness
 
 A file share witness is an SMB file share that's typically configured on a file server running Windows Server. It maintains clustering information in a witness.log file, but doesn't store a copy of the cluster database. In Azure, you can you can configure an [Azure file share](../../../storage/files/storage-how-to-create-file-share.md) to use as the file share witness, or you can use a file share on a separate virtual machine.
 
-If you're going to use another Azure file share, you can mount it with the same process used to [mount the Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+If you're going to use an Azure file share, you can mount it with the same process used to [mount the Premium file share](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 To get started, see [Configure a file share witness](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Supported OS**: Windows Server 2012 and later   
-**Supported SQL version**: SQL Server 2016 and later   
-
 
 ## Connectivity
 

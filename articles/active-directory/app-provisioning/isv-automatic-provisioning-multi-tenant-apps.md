@@ -110,4 +110,4 @@ SAML JIT uses the claims information in the SAML token to create and update user
 
 * [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
-* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial).
+* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/explore/commercial).

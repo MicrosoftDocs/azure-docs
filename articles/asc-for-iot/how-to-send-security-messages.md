@@ -16,6 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
+ms.custom: devx-track-javascript
+
 ---
 
 # Send security messages SDK

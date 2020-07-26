@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
@@ -72,7 +72,7 @@ The following example shows the `appRoles` that you can assign to `users`.
 > [!NOTE]
 >The `displayName` cannot contain spaces.
 
-You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions in the **Required Permissions** blade. The following example shows an app role targeted towards an `Application`.
+You can define app roles to target `users`, `applications`, or both. When available to `applications`, app roles appear as application permissions under **Manage** section > **API permissions > Add a permission > My APIs > Choose an API > Application permissions**. The following example shows an app role targeted towards an `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -114,6 +114,10 @@ Once you've added app roles in your application, you can assign users and groups
 1. Choose a role and press the **Select** button.
 1. Press the **Assign** button on the bottom to finish the assignments of users and groups to the app.
 1. Confirm that the users and groups you added are showing up in the updated **Users and groups** list.
+
+### Receive roles in tokens
+
+When the users assigned to the various app roles sign in to the application, their tokens will have their assigned roles in the `roles` claim.
 
 ## More information
 

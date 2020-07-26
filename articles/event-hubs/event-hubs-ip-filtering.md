@@ -2,7 +2,7 @@
 title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Use Firewall Rules to allow connections from specific IP addresses to Azure Event Hubs. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 07/16/2020
 ---
 
 # Configure IP firewall rules for an Azure Event Hubs namespace
@@ -16,9 +16,7 @@ This feature is helpful in scenarios in which Azure Event Hubs should be only ac
 > Trusted Microsoft services are not supported when Virtual Networks are implemented.
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
-> - Azure Monitor (diagnostic setting)
 > - Azure Stream Analytics
-> - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 >

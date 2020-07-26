@@ -75,7 +75,7 @@ To select a workspace created by Security Center:
 1. Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
 
 > [!NOTE]
-> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
+> The Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the standard tier, Security Center enables the *Security* solution on the default workspace.
 > Storing data in Log Analytics might incur additional charges for data storage. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 For more information about existing log analytics accounts, see [Existing log analytics customers](./faq-azure-monitor-logs.md).
@@ -148,7 +148,7 @@ Selecting a data collection tier in Azure Security Center will only affect the s
 
 
 > [!NOTE]
-> These security events sets are available only on Security Center’s Standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
+> These security events sets are available only on Security Center’s standard tier. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 These sets were designed to address typical scenarios. Make sure to evaluate which one fits your needs before implementing it.
 >
 >

@@ -8,17 +8,13 @@ ms.custom: references_regions
 
 # Support matrix for Azure file share backup
 
-You can use the [Azure Backup service](https://docs.microsoft.com/azure/backup/backup-overview) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
+You can use the [Azure Backup service](./backup-overview.md) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
 ## Supported regions
 
 ### GA regions for Azure file shares backup
 
 Azure file shares backup is available in all regions **except** for: Germany Central (Sovereign), Germany Northeast (Sovereign), China East, China East 2, China North, China North 2, US Gov Iowa
-
-### Supported regions for accidental delete protection
-
-West Central US, Australia South East, Canada Central, West Central US, India South, North Central US, Japan East, Brazil South, South Central US, Australia East, East US, East US 2
 
 ## Supported storage accounts
 
