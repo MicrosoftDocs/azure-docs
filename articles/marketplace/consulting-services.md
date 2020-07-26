@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ---
 
 # Consulting service offers
