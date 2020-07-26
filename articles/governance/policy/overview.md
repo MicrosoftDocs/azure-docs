@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -27,8 +27,9 @@ _policySet_). Once your business rules have been formed, the policy definition o
 [management groups](../management-groups/overview.md), subscriptions,
 [resource groups](../../azure-resource-manager/management/overview.md#resource-groups), or
 individual resources. The assignment applies to all resources within the
-[scope](../../azure-resource-manager/management/overview.md#understand-scope) of that assignment.
-Subscopes can be excluded, if necessary.
+[Resource Manager scope](../../azure-resource-manager/management/overview.md#understand-scope) of
+that assignment. Subscopes can be excluded, if necessary. For more information, see
+[Scope in Azure Policy](./concepts/scope.md).
 
 Azure Policy uses a [JSON format](./concepts/definition-structure.md) to form the logic the
 evaluation uses to determine if a resource is compliant or not. Definitions include metadata and the
