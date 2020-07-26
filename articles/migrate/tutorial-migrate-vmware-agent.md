@@ -173,7 +173,7 @@ Download the template as follows:
 
     ![Discover VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
-3. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
+3. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMware vSphere hypervisor**.
 4. In **How do you want to migrate?**, select **Using agent-based replication**.
 5. In **Target region**, select the Azure region to which you want to migrate the machines.
 6. Select **Confirm that the target region for migration is region-name**.
@@ -191,7 +191,7 @@ Download the template as follows:
 
 After downloading the OVF template, you import it into VMware to create the replication application on a VMware VM running Windows Server 2016.
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
+1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**. 
 3. In **Select source**, enter the location of the downloaded OVF.
 4. In **Review details**, select **Next**.
@@ -205,7 +205,7 @@ After downloading the OVF template, you import it into VMware to create the repl
 
 ### Start appliance setup
 
-1. In the VMWare vSphere Client console, turn on the VM. The VM boots up into a Windows Server 2016 installation experience.
+1. In the VMware vSphere Client console, turn on the VM. The VM boots up into a Windows Server 2016 installation experience.
 2. Accept the license agreement, and enter an administrator password.
 3. After the installation finishes, sign in to the VM as the administrator, using the admin password. The first time you sign in, the replication appliance setup tool (Azure Site Recovery Configuration Tool) starts within a few seconds.
 5. Enter a name to use for registering the appliance with Server Migration. Then click **Next**.
