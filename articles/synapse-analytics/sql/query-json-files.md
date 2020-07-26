@@ -19,7 +19,7 @@ In this article, you'll learn how to write a query using SQL on-demand (preview)
 
 ## Reading JSON documents
 
-The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files this is enough. If you have classic JSON file you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function wll parse JSON and return every document in the following format:
+The easiest way to see to the content of your JSON file is to provide file URL to `OPENROWSET` function, specify csv `FORMAT`, and set values `0x0b` for `fieldterminator` and `fieldquote`. If you need to read line-delimited JSON files this is enough. If you have classic JSON file you would need to set values `0x0b` for `rowterminator`. `OPENROWSET` function will parse JSON and return every document in the following format:
 
 | doc |
 | --- |
@@ -89,7 +89,14 @@ In the following sections you can see how to query various types of JSON files.
 
 ## Parse JSON documents
 
-The queries in the previous examples return every JSON document as a single string in a separate row of the result set. You can use functions `JSON_VALUE` and `OPENJSON` to parse the values in JSON documents and return them as relational values.
+The queries in the previous examples return every JSON document as a single string in a separate row of the result set. You can use functions `JSON_VALUE` and `OPENJSON` to parse the values in JSON documents and return them as relational values, as it is shown in the following example:
+
+| date\_rep | cases | geo\_id |
+| --- | --- | --- |
+| 2020-07-24 | 3 | AF |
+| 2020-07-25 | 7 | AF |
+| 2020-07-26 | 4 | AF |
+| 2020-07-27 | 8| AF |
 
 ### Sample JSON document
 
