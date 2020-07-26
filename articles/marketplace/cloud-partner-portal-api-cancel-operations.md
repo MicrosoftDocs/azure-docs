@@ -4,7 +4,7 @@ description: The API to cancel an operation currently in progress on the offer
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-author: emuench
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ---

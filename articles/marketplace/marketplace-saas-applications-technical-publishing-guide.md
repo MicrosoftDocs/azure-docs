@@ -6,6 +6,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
+ms.author: mingshen
+author: mingshen-ms
 ---
 
 # SaaS applications offer publishing guide
