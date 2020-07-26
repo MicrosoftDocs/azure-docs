@@ -14,7 +14,7 @@ ms.reviewer: jrasnick, carlrab
 # Query JSON files using SQL on-demand (preview) in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. The query's objective is to read JSON files using [OPENROWSET](develop-openrowset.md). 
-- Standard JSON files where multiple JSON documents are stored as an JSON array.
+- Standard JSON files where multiple JSON documents are stored as a JSON array.
 - Line-delimited JSON files, where JSON documents are separated with new-line character. Common extensions for these types of files are `jsonl`, `ldjson`, and `ndjson`.
 
 ## Reading JSON documents
