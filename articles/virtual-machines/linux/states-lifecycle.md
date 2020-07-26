@@ -4,7 +4,7 @@ description: Overview of the lifecycle of a VM in Azure including descriptions o
 services: virtual-machines
 author: shandilvarun
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan

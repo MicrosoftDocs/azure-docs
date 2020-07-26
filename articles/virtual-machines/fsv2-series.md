@@ -4,7 +4,7 @@ description: Specifications for the Fsv2-series VMs.
 author: brbell
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ---

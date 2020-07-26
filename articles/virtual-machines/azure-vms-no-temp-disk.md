@@ -3,7 +3,7 @@ title: FAQ Azure VM sizes with no local temporary disk
 description: This article provides answers to frequently asked questions (FAQ) about Microsoft Azure VM sizes that don’t have local temporary disk. 
 author: brbell 
 ms.service: virtual-machines 
-ms.topic: article 
+ms.topic: conceptual 
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020 

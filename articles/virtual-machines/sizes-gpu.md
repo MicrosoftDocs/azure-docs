@@ -4,7 +4,7 @@ description: Lists the different GPU optimized sizes available for virtual machi
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman

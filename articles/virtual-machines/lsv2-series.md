@@ -4,7 +4,7 @@ description: Specifications for the Lsv2-series VMs.
 author: sasha-melamed
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
 ---

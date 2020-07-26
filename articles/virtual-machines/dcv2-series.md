@@ -4,7 +4,7 @@ description: Specifications for the DC-series VMs.
 author: susaxen
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
 ---

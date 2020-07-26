@@ -5,7 +5,7 @@ author: tanmaygore
 manager: vashan
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
 ---
