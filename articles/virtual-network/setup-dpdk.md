@@ -1,6 +1,6 @@
 ---
 title: DPDK in an Azure Linux VM | Microsoft Docs
-description: Learn how to setup DPDK in a Linux virtual machine.
+description: Learn the benefits of the Data Plane Development Kit (DPDK) and how to set up the DPDK on a Linux virtual machine.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb

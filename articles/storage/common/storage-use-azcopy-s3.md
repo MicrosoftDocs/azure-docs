@@ -77,6 +77,19 @@ Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hiera
 | **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 | **Example** (hierarchical namespace)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
+> [!NOTE]
+> This example appends the `--recursive` flag to copy files in all sub-directories.
+
+### Copy the contents of a directory
+
+You can copy the contents of a directory without copying the containing directory itself by using the wildcard symbol (*).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Example** (hierarchical namespace)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+
 ### Copy a bucket
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.

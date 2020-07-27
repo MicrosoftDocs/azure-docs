@@ -4,7 +4,7 @@ description: Learn to use Python to create and manage a Windows VM in Azure.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
 ms.custom: tracking-python
