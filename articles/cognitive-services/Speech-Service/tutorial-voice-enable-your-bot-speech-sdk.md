@@ -23,7 +23,7 @@ Then you will configure a sample client app for Windows that lets you speak to y
 
 This tutorial is designed for developers who are new to Azure, Bot Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed.
 
-The application you make in this tutorial receives, processes, and produces speech by following these steps:
+The chat bot you make in this tutorial receives, processes, and produces speech by following these steps:
 
 1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot
 1. Audio is recorded from the default microphone on button press (or continuously recorded if custom keyword is activated)
@@ -151,11 +151,9 @@ Now that you've created some resources, let's build a bot. We're going to start 
    ```
 
 4. After the project is loaded, press <kbd>F5</kbd> to build and run the project.
-5. A browser should launch and you'll see a screen looking similar to this.
+5. A browser will launch and you'll see a screen similar to this.
     > [!div class="mx-imgBorder"]
     > [![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "EchoBot running on localhost")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
-
-If a browser does not launch, navigate to the web address you see in the terminal window of the running app, and find the address the app is now listening on. The address might be: [http://localhost:5000](http://localhost:5000)
 
 ### Test the bot sample with the Bot Framework Emulator
 
@@ -167,10 +165,10 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
 3. Enter the URL for your bot. For example:
 
    ```
-   http://localhost:5000/api/messages
+   http://localhost:3978/api/messages
    ```
    and press "Connect".
-4. The bot should immediately greet you with "Hello and welcome!" message. Type in any text message and confirm you get a response from the bot.
+4. The bot should greet you with "Hello and welcome!" message. Type in any text message and confirm you get a response from the bot.
 5. This is what an exchange of communication with an Echo Bot instance might look like:
     [![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
@@ -200,7 +198,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
    * For **Resource Group**, select **SpeechEchoBotTutorial-ResourceGroup**
    * For **Hosting Plan**, select **SpeechEchoBotTutorial-AppServicePlan**
 1. Click **Create**. On the final wizard screen, click **Finish**.
-1. Click **Publish** on the right side of the Publish screen. The EchoBot Web deploys to Azure.
+1. Click **Publish** on the right side of the Publish screen. Visual Studio deploys the bot to Azure.
 1. You should see a success message in Visual Studio's output window that looks like this:
 
    ```
@@ -209,7 +207,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
    ```
 
 1. Your default browser should open and display a page that reads: "Your bot is ready!".
-1. At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup** in the Azure portal, and confirm there are three resources:
+1. At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup** in the Azure portal, and confirm these three resources:
 
 | Name | Type  | Location |
 |------|-------|----------|
@@ -311,7 +309,7 @@ Before we move on, make sure that your microphone and speakers are enabled and w
    * download a pre-built executable in a ZIP package to run, or
    * build the executable yourself, by cloning the repository and building the project.
 
-1. Launch the `VoiceAssistantClient.exe` client application and configure it to connect to your bot, based on the instructions in the GitHub repository
+1. Launch the `VoiceAssistantClient.exe` client application and configure it to connect to your bot, by following the instructions in the GitHub repository.
 1. Click **Reconnect** and make sure you see the message **Press the mic button, or type to start talking to your bot**.
 1. Let's test it out. Click the microphone button, and speak a few words in English. The recognized text will appear as you speak. When you're done speaking, the bot will reply in its own voice, saying "echo" followed by the recognized words.
 1. You can also use text to communicate with the bot. Just type in the text at the bottom bar. 
