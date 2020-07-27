@@ -97,6 +97,6 @@ To disable the Store app:
 
 To learn more about Windows Virtual Desktop and Windows 10 Enterprise multi-session:
 
-- Read our [Windows Virtual Desktop Preview documentation](overview.md)
+- Read our [Windows Virtual Desktop documentation](overview.md)
 - Visit our [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 - Set up your Windows Virtual Desktop deployment with the [Windows Virtual Desktop tutorials](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

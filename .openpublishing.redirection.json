@@ -16,6 +16,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/infrastructure-automation.md",
       "redirect_url": "/azure/virtual-machines/infrastructure-automation",
       "redirect_document_id": false
