@@ -155,6 +155,10 @@ Yes, you can use the **Change Properties** option in the MARS agent to adjust th
 
 ### Manage
 
+#### What characters are allowed for the passphrase?
+
+The passphrase should use characters from the ASCII character set, with ASCII values less than or equal to 127.
+
 #### Can I recover if I forgot my passphrase?
 
 The Azure Backup agent requires a passphrase (that you provided during registration) to decrypt the backed-up data during restore. Review the scenarios below to understand your options for handling a lost passphrase:
