@@ -211,7 +211,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 
 | Name | Type  | Location |
 |------|-------|----------|
-| EchoBot20190000000001 | App Service | West US |
+| EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
 
