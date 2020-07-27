@@ -19,11 +19,11 @@ ms.service: digital-twins
 
 [Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). **It is recommended to validate your models offline before uploading them to your Azure Digital Twins instance.**
 
-To help you do this, a .NET client-side DTDL parsing library is provided on NuGet: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). You can use the parser library directly in your C# code, or use the language-agnostic code sample project that is built on the parser library: [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+To help you do this, a .NET client-side DTDL parsing library is provided on NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). You can use the parser library directly in your C# code, or use the language-agnostic code sample project that is built on the parser library: [**DTDL Validator sample**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## Use the DTDL validator sample
 
-The [DTDL Validator](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
+The [**DTDL Validator**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
 
 The source code shows examples for how to use the parser library. You can use the validator sample as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode.
 
@@ -51,7 +51,7 @@ For more information about this sample, see the source code or run `DTDLValidato
 
 ## Use the .NET parser library 
 
-The [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of any [Azure Digital Twins SDK](how-to-use-apis-sdks.md), especially for DTDL validation in a visual or text editor. It is useful for making sure your model definition files are valid before you try to upload them to the service.
+The [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of any [Azure Digital Twins SDK](how-to-use-apis-sdks.md), especially for DTDL validation in a visual or text editor. It is useful for making sure your model definition files are valid before you try to upload them to the service.
 
 To use the parser library, you provide it with a set of DTDL documents. Typically, you would retrieve these model documents from the service, but you might also have them available locally, if your client was responsible for uploading them to the service in the first place. 
 
