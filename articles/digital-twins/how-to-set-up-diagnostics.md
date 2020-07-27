@@ -53,7 +53,7 @@ You can also turn on diagnostics settings using [Azure PowerShell](https://docs.
 ```azurepowershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName <subscription that includes your Azure Digital Twins instance>
-Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
+Set-AzDiagnosticSetting -ResourceId <your resource ID> -ServiceBusRuleId <your service bus rule ID> -Enabled $true
 ```
 
 ## View the logs

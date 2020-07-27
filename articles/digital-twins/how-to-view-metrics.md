@@ -37,7 +37,7 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
     :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
-    For more details on this process, see [*How-to: Set up diagnostics*](how-to-set-up-diagnostics.md).
+    For more information about this process, see [*How-to: Set up diagnostics*](how-to-set-up-diagnostics.md).
 
 ## Azure Digital Twins metrics and how to use them
 
@@ -51,9 +51,9 @@ Metrics having to do with API requests:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ApiRequests | API Requests (Preview) | Count | Total | The number of API Requests made for Digital Twins read, write, delete and query operations. |  Authentication</br>Operation</br>Protocol</br>Status Code</br>Status Code Class</br>Status Text |
-| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete and query operations. | Authentication</br>Operation</br>Protocol |
-| ApiRequestsFailureRate | API Requests Failure Rate (Preview) | Percent | Average | The percentage of API requests that the service receives for your instance that return an internal error (500) response code for Digital Twins read, write, delete and query operations. | Authentication</br>Operation</br>Protocol</br>Status Code</br>Status Code Class</br>Status Text
+| ApiRequests | API Requests (Preview) | Count | Total | The number of API Requests made for Digital Twins read, write, delete, and query operations. |  Authentication </br>Operation </br>Protocol </br>Status Code </br>Status Code Class </br>Status Text |
+| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete, and query operations. | Authentication </br>Operation </br>Protocol |
+| ApiRequestsFailureRate | API Requests Failure Rate (Preview) | Percent | Average | The percentage of API requests that the service receives for your instance that give an internal error (500) response code for Digital Twins read, write, delete, and query operations. | Authentication </br>Operation </br>Protocol </br>Status Code </br>Status Code Class </br>Status Text
 
 #### Routing metrics
 
@@ -61,9 +61,9 @@ Metrics having to do with routing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| Routing | Routing (Preview) | Count | Total | The number of messages routed to an end point Azure service such as Event Hub, Service Bus or Event Grid. | Operation</br>Result |
-| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the end point Azure service such as Event Hub, Service Bus or Event Grid. | Operation</br>Result |
-| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an end point Azure service such as Event Hub, Service Bus or Event Grid. | Operation</br>Result |
+| Routing | Routing (Preview) | Count | Total | The number of messages routed to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
+| RoutingLatency | Routing Latency (Preview) | Milliseconds | Average | Time elapsed between an event getting routed from Azure Digital Twins to when it is posted to the endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
+| RoutingFailureRate | Routing Failure Rate (Preview) | Percent | Average | The percentage of events that result in an error as they are routed from Azure Digital Twins to an endpoint Azure service such as Event Hub, Service Bus, or Event Grid. | Operation </br>Result |
 
 #### Billing metrics
 
@@ -74,8 +74,8 @@ Metrics having to do with billing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | MeterId |
-| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | MeterId |
+| BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | `MeterId` |
+| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | `MeterId` |
 
 ## Dimensions
 
@@ -84,10 +84,10 @@ Dimensions help identify more details about the metrics. Some of the routing met
 | Dimension | Values |
 | --- | --- |
 | Authentication | OAuth |
-| Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete</br>Microsoft.DigitalTwins/digitaltwins/write</br>Microsoft.DigitalTwins/digitaltwins/read</br>Microsoft.DigitalTwins/query/action</br>Unknown |
-Operation (for Routing) | Event Grid</br>Event Hub</br>Service Bus |
+| Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete</br>Microsoft.DigitalTwins/digitaltwins/write</br>Microsoft.DigitalTwins/digitaltwins/read </br>Microsoft.DigitalTwins/query/action </br>Unknown |
+Operation (for Routing) | Event Grid </br>Event Hub </br>Service Bus |
 | Protocol | HTTPS |
-| Result | Success</br>Failure |
+| Result | Success </br>Failure |
 | Status Code | 200, 404, 500, and so on. |
 | Status Code Class | 2xx, 4xx, 5xx, and so on. |
 | Status Text | Internal Server Error, Not Found, and so on. |
