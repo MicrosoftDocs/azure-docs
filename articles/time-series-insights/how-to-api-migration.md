@@ -1,5 +1,5 @@
 ---
-title: 'Migrating to new Azure Time Series Insights Gen2 API versions | Microsoft Docs'
+title: 'Migrating to new Azure Time Series Insights Gen2 API version | Microsoft Docs'
 description: How to update Azure Time Series Insights Gen2 environments to use new generally available versions.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,7 +12,7 @@ ms.date: 07/23/2020
 ms.custom: shresha
 ---
 
-# Migrating to new Azure Time Series Insights Gen2 API versions
+# Migrating to the new Azure Time Series Insights Gen2 API version
 
 ## Overview
 
