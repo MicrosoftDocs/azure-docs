@@ -30,6 +30,8 @@ In this article, you learn how to:
 * An Azure Machine Learning workspace with the Enterprise SKU.
 * Complete part 1 of this how-to series, [Transform data in the designer](how-to-designer-transform-data.md).
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 This article also assumes that you have basic knowledge of building pipelines in the designer. For a guided introduction, complete the [tutorial](tutorial-designer-automobile-price-train-score.md). 
 
 ### Sample pipeline

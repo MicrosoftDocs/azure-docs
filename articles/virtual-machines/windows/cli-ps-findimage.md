@@ -4,7 +4,7 @@ description: Use Azure PowerShell to determine the publisher, offer, SKU, and ve
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
