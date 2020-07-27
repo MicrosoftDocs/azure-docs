@@ -125,11 +125,7 @@
       items:
       - name: B-series burstable
         href: ../virtual-machines/sizes-b-series-burstable.md
-<<<<<<< HEAD
-      maintainContext: true
-=======
         maintainContext: true
->>>>>>> 044852350bd2af1f54fe945ee90e5b19887a7dde
     - name: Compute optimized
       href: ../virtual-machines/sizes-compute.md
       maintainContext: true
@@ -139,11 +135,7 @@
       items:
       - name: Constrained vCPUs
         href: ../virtual-machines/windows/constrained-vcpu.md
-<<<<<<< HEAD
-      maintainContext: true
-=======
         maintainContext: true
->>>>>>> 044852350bd2af1f54fe945ee90e5b19887a7dde
     - name: Storage optimized
       href: ../virtual-machines/sizes-storage.md
       maintainContext: true
@@ -153,11 +145,7 @@
       items:
       - name: Setup NVIDIA GPU drivers
         href: ../virtual-machines/windows/n-series-driver-setup.md
-<<<<<<< HEAD
-      maintainContext: true
-=======
         maintainContext: true
->>>>>>> 044852350bd2af1f54fe945ee90e5b19887a7dde
     - name: High performance compute
       href: ../virtual-machines/sizes-hpc.md
       maintainContext: true
