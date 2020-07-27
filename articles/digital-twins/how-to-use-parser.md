@@ -23,9 +23,9 @@ To help you do this, a .NET client-side DTDL parsing library is provided on NuGe
 
 ## Use the DTDL validator sample
 
-The [DTDL Validator](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the DTDL parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
+The [DTDL Validator](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) is a sample project that can validate model documents to make sure the DTDL is valid. It is built on the .NET parser library and is language-agnostic. You can get it with the *Download ZIP* button at the sample link.
 
- The source code shows examples for how to use the parser library. You can use the validator sample as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode.
+The source code shows examples for how to use the parser library. You can use the validator sample as a command line utility to validate a directory tree of DTDL files. It also provides an interactive mode.
 
 In the folder for the DTDL Validator sample, see the *readme.md* file for instructions on how to package the sample into a self-contained executable.
 
