@@ -21,7 +21,7 @@ This page outlines where to find detailed release notes regarding updates and bu
       - [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java/releases)
 * [JavaScript](https://github.com/microsoft/ApplicationInsights-JS/releases)
-* [OpenCensus Python Azure Monitor Exporter](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/CHANGELOG.md)
+* [Python Azure Monitor Exporter](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/CHANGELOG.md)
 
 Read also our [blogs](https://azure.microsoft.com/blog/tag/application-insights/) and [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements in the Application Insights service as a whole.
 
