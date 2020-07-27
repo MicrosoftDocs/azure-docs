@@ -278,6 +278,11 @@ In these use cases, the models often have very high detail within a small volume
 * Ray casts are typically an integral part of the application, so collision meshes must be generated.
 * Cut planes look better with the `opaqueMaterialDefaultSidedness` flag enabled.
 
+## Deprecated features
+
+Providing settings using the non-model-specific filename `conversionSettings.json` is still supported but deprecated.
+Please use the model-specific filename `<modelName>.ConversionSettings.json` instead.
+
 ## Next steps
 
 * [Model conversion](model-conversion.md)
