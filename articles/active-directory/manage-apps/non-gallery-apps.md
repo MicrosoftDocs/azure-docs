@@ -6,12 +6,11 @@ author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: tutorial
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/27/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.collection: M365-identity-device-management
 ---
 
 # Using Azure AD for applications not listed in the app gallery
