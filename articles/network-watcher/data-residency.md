@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 20/07/2020
+ms.date: 07/27/2020
 ms.author: damendo
 
 
@@ -20,6 +20,5 @@ ms.author: damendo
 # Data residency for the Network Watcher service
 The Network Watcher service does not store customer data except for the Connection Monitor (Preview) service.
 
-
 ## Connection Monitor (preview) data residency
-Connection Monitor service stores customer data. This data is automatically stored by Network Watcher in a single region, so this service automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/)
+The Connection Monitor (preview) service stores customer data. This data is automatically stored by Connection Monitor (preview) in a single region. So Connection Monitor (preview) automatically satisfies in region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/)
