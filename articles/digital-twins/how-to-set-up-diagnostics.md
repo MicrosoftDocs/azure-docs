@@ -30,23 +30,21 @@ You can choose to send your metrics data to [Log Analytics](../azure-monitor/log
 3. On the page that follows, fill in the following values:
  * **Diagnostic setting name**: Give the diagnostic settings a name.
  * **Category details**: Choose which operations you want to monitor, and check the boxes to enable diagnostics for those operations. The operations that diagnostic settings can report on are:
-  - DigitalTwinsOperation
-  - EventRoutesOperation
-  - ModelsOperation
-  - QueryOperation
-  - AllMetrics
+    - DigitalTwinsOperation
+    - EventRoutesOperation
+    - ModelsOperation
+    - QueryOperation
+    - AllMetrics
  * **Destination details**: Choose where you want to send the logs. You can select any combination of the three options:
-  - Send to Log Analytics
-  - Archive to a storage account
-  - Stream to an event hub
+    - Send to Log Analytics
+    - Archive to a storage account
+    - Stream to an event hub
 
-    You may be asked to fill in additional details depending on your selection.
-
-    Here is a screenshot of this page showing some example selections:
-    
-    :::image type="content" source="media/how-to-set-up-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+    You may be asked to fill in additional details if they are necessary for your destination selection.  
     
 4. Save the new settings. 
+
+    :::image type="content" source="media/how-to-set-up-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
 ## Turn on diagnostics settings with PowerShell
 
@@ -64,5 +62,5 @@ New settings take effect in about 10 minutes. After that, logs appear in the con
 
 ## Next steps
 
-* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../articles/azure-monitor/platform/platform-logs-overview.md).
+* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../azure-monitor/platform/platform-logs-overview.md).
 * For information about the Azure Digital Twins metrics, see [*How-to: View metrics with Azure Monitor*](how-to-view-metrics.md)
