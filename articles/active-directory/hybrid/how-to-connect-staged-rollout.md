@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 # Migrate to cloud authentication using staged rollout (preview)
 
 Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
-	
+    
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
@@ -41,7 +41,7 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [converged registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
+-   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
 
 -   To use the staged rollout feature, you need to be a global administrator on your tenant.
 

@@ -165,6 +165,8 @@ else:
     print(head_compute_target.get_status().serialize())
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ### Worker computing cluster
 
 This example uses four [`STANDARD_D2_V2` VMs](https://docs.microsoft.com/azure/virtual-machines/nc-series) for the worker compute target. Each worker node has 2 available CPUs for a total of 8 available CPUs to parallelize work.

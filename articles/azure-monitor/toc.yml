@@ -157,6 +157,11 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./platform/security-controls-policy.md
 - name: How-to guides
   items:
   - name: Scenarios
@@ -485,6 +490,7 @@
       items:
       - name: Action rules (Preview)
         href: platform/alerts-action-rules.md
+        displayName: Azure CLI, az monitor action rule
       - name: Create action group
         href: platform/action-groups.md
       - name: Common alert schema
@@ -1018,6 +1024,7 @@
     items:
     - name: Overview
       href: insights/solutions.md
+      displayName: Azure CLI, az monitor log-analytics
     - name: Target solutions
       href: insights/solution-targeting.md
     - name: Available solutions
@@ -1030,8 +1037,6 @@
         href: insights/capacity-performance.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
-      - name: Key Vault Analytics
-        href: insights/azure-key-vault.md
       - name: Networks
         items:
         - name: Networking Analytics
@@ -1068,30 +1073,6 @@
         href: insights/vmware.md
       - name: Wire Data solution
         href: insights/wire-data.md
-    - name: Views
-      items:
-      - name: Convert views to workbooks
-        items:
-        - name: Conversion overview
-          href: platform/view-designer-conversion-overview.md
-        - name: Conversion options
-          href: platform/view-designer-conversion-options.md
-        - name: Overview and access
-          href: platform/view-designer-conversion-access.md
-        - name: Common tasks
-          href: platform/view-designer-conversion-tasks.md
-        - name: Tile conversions
-          href: platform/view-designer-conversion-tiles.md
-        - name: Examples
-          href: platform/view-designer-conversion-examples.md
-      - name: View Designer
-        href: platform/view-designer.md
-      - name: Tile reference
-        href: platform/view-designer-tiles.md
-      - name: Visualization part reference
-        href: platform/view-designer-parts.md
-      - name: Filters
-        href: platform/view-designer-filters.md
   - name: Workbooks
     items:
     - name: Overview
@@ -1119,6 +1100,20 @@
           href: platform/workbooks-time.md
         - name: Text parameters
           href: platform/workbooks-text.md
+    - name: Convert views to workbooks
+      items:
+      - name: Conversion overview
+        href: platform/view-designer-conversion-overview.md
+      - name: Conversion options
+        href: platform/view-designer-conversion-options.md
+      - name: Overview and access
+        href: platform/view-designer-conversion-access.md
+      - name: Common tasks
+        href: platform/view-designer-conversion-tasks.md
+      - name: Tile conversions
+        href: platform/view-designer-conversion-tiles.md
+      - name: Examples
+        href: platform/view-designer-conversion-examples.md
   - name: Other visualizations
     items:
     - name: Power BI
@@ -1290,6 +1285,18 @@
     - name: Change to blob storage format
       displayname: Diagnostic settings
       href: platform/resource-logs-blob-format.md
+    - name: Key Vault Analytics (deprecated)
+      href: insights/azure-key-vault-deprecated.md
+    - name: Views
+      items:
+      - name: View Designer
+        href: platform/view-designer.md
+      - name: Tile reference
+        href: platform/view-designer-tiles.md
+      - name: Visualization part reference
+        href: platform/view-designer-parts.md
+      - name: Filters
+        href: platform/view-designer-filters.md
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -2,9 +2,7 @@
 title: How to troubleshoot the Azure Data Lake Analytics U-SQL runtime failures
 description: 'Learn how to troubleshoot U-SQL runtime failures.'
 services: data-lake-analytics
-author: guyhay
-ms.author: guyhay
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data

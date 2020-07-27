@@ -67,6 +67,8 @@
       href: concepts-app-templates.md
     - name: What are device templates?
       href: concepts-device-templates.md
+    - name: Message payloads
+      href: concepts-telemetry-properties-commands.md
     - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices

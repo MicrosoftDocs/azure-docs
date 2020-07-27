@@ -6,6 +6,24 @@
   items:
   - name: What is Azure Synapse Analytics?
     href: overview-what-is.md
+  - name: Get Started
+    items: 
+    - name: Introduction
+      href: get-started.md
+    - name: Step 1 Create a Synapse workspace
+      href: get-started-create-workspace.md
+    - name: Step 2 Analyze using a SQL Pool
+      href: get-started-analyze-sql-pool.md
+    - name: Step 3 Analyze using Spark
+      href: get-started-analyze-spark.md
+    - name: Step 4 Analyze using SQL on-demand
+      href: get-started-analyze-sql-on-demand.md
+    - name: Step 5 Analyze data in a storage account
+      href: get-started-analyze-storage.md
+    - name: Step 6 - Orchestrate with pipelines
+      href: get-started-pipelines.md
+    - name: Step 7 - Visualize with Power BI
+      href: get-started-visualize-power-bi.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -46,8 +64,6 @@
     href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutorials
   items:
-  - name: Get started
-    href: get-started.md
   - name: Run Apache Spark applications for Spark pools
     href: ./spark/intellij-tool-synapse.md
   - name: Spark job definitions
@@ -264,6 +280,8 @@
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
+      - name: Machine learning predictions
+        href: ./sql-data-warehouse/sql-data-warehouse-predict.md
       - name: Tables
         items:
         - name: Overview
@@ -775,9 +793,11 @@
         href: ../data-factory/transform-data-using-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: HDInsight Streaming Activity
         href: ../data-factory/transform-data-using-hadoop-streaming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: ML Batch Execution Activity
+      - name: Machine Learning Execute Pipeline Activity
+        href: ../data-factory/transform-data-machine-learning-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Machine Learning Studio (classic) Batch Execution Activity
         href: ../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: ML Update Resource Activity
+      - name: Machine Learning Studio (classic) Update Resource Activity
         href: ../data-factory/update-machine-learning-models.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Stored Procedure Activity
         href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json

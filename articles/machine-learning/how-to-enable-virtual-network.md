@@ -123,7 +123,7 @@ You can also override the default datastore on a per-module basis. This gives yo
 1. Expand the **Output settings** section.
 1. Select **Override default output settings**.
 1. Select **Set output settings**.
-1. Specify a new datstore.
+1. Specify a new datastore.
 
 ### Azure Data Lake Storage Gen2 access control
 
@@ -427,6 +427,8 @@ except ComputeTargetException:
 ```
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### Access data in a Compute Instance notebook
 

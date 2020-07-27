@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -156,7 +156,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`   | required   | The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | required  | The Application (client) ID that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `grant_type` | required   | Must be `authorization_code` for the authorization code flow.   |
-| `scope`      | required   | A space-separated list of scopes. The scopes requested in this leg must be equivalent to or a subset of the scopes requested in the first leg. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](v2-permissions-and-consent.md). |
+| `scope`      | optional   | A space-separated list of scopes. The scopes must all be from a single resource, along with OIDC scopes (`profile`, `openid`, `email`). For a more detailed explanation of scopes, refer to [permissions, consent, and scopes](v2-permissions-and-consent.md). This is a Microsoft extension to the authorization code flow, intended to allow apps to declare the resource they want the token for during token redemption.|
 | `code`          | required  | The authorization_code that you acquired in the first leg of the flow. |
 | `redirect_uri`  | required  | The same redirect_uri value that was used to acquire the authorization_code. |
 | `client_secret` | required for confidential web apps | The application secret that you created in the app registration portal for your app. You shouldn't use the application secret in a native app or single page app because client_secrets can't be reliably stored on devices or web pages. It's required for web apps and web APIs, which have the ability to store the client_secret securely on the server side.  The client secret must be URL-encoded before being sent. For more information on uri encoding,  see the [URI Generic Syntax specification](https://tools.ietf.org/html/rfc3986#page-12). |

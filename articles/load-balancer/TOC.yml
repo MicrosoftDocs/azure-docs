@@ -75,6 +75,8 @@
     href: load-balancer-security-controls.md
   - name: Backend Pool management
     href: backend-pool-management.md
+  - name: Standard Load Balancer and Virtual Machine Scale Sets
+    href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: How to
   items:
   - name: Virtual machine scale sets
