@@ -1020,6 +1020,10 @@
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
       href: insights/troubleshoot-workbooks.md
+  - name: Change analysis
+    items:
+    - name: Change analysis
+      href: app/change-analysis.md
   - name: Solutions
     items:
     - name: Overview
@@ -1207,6 +1211,8 @@
       href: app/azure-functions-supported-features.md 
     - name: Release notes
       items:
+      - name: Code-based monitoring SDKs
+        href: app/release-notes.md
       - name: Web app extension
         href: app/web-app-extension-release-notes.md
     - name: Data model

@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
+ms.custom: devx-track-javascript
 ---
 
 # Change the style of the map
