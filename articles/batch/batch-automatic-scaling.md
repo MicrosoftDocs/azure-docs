@@ -2,32 +2,28 @@
 title: Automatically scale compute nodes in an Azure Batch pool
 description: Enable automatic scaling on a cloud pool to dynamically adjust the number of compute nodes in the pool.
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 07/27/2020
 ms.custom: H1Hack27Feb2017,fasttrack-edit
 
 ---
 # Create an automatic formula for scaling compute nodes in a Batch pool
 
-Azure Batch can automatically scale pools based on parameters that you define. With automatic scaling, Batch dynamically adds nodes to a pool as task demands increase, and removes compute nodes as they decrease. You can save both time and money by automatically adjusting the number of compute nodes used by your Batch application.
+Azure Batch can automatically scale pools based on parameters that you define, saving you time and money. With automatic scaling, Batch dynamically adds nodes to a pool as task demands increase, and removes compute nodes as task demands decrease.
 
-You enable automatic scaling on a pool of compute nodes by associating with it an *autoscale formula* that you define. The Batch service uses the autoscale formula to determine the number of compute nodes that are needed to execute your workload. Compute nodes may be dedicated nodes or [low-priority nodes](batch-low-pri-vms.md). Batch responds to service metrics data that is collected periodically. Using this metrics data, Batch adjusts the number of compute nodes in the pool based on your formula and at a configurable interval.
+To enable automatic scaling on a pool of compute nodes, you associate the pool with an *autoscale formula* that you define. The Batch service uses the autoscale formula to determine how many nodes are needed to execute your workload. These nodes may be dedicated nodes or [low-priority nodes](batch-low-pri-vms.md). Batch will then periodically review service metrics data and use it to adjust the number of nodes in the pool based on your formula and at an interval that you define.
 
-You can enable automatic scaling either when a pool is created, or on an existing pool. You can also change an existing formula on a pool that is configured for autoscaling. Batch enables you to evaluate your formulas before assigning them to pools and to monitor the status of automatic scaling runs.
-
-This article discusses the various entities that make up your autoscale formulas, including variables, operators, operations, and functions. We discuss how to obtain various compute resource and task metrics within Batch. You can use these metrics to adjust your pool's node count based on resource usage and task status. We then describe how to construct a formula and enable automatic scaling on a pool by using both the Batch REST and .NET APIs. Finally, we finish up with a few example formulas.
+You can enable automatic scaling when you create a pool, or apply it to an existing pool. Batch enables you to evaluate your formulas before assigning them to pools and to monitor the status of automatic scaling runs.Once you configure a pool with automatic scaling, you can make changes to the formula later.
 
 > [!IMPORTANT]
-> When you create a Batch account, you can specify the [account configuration](accounts.md), which determines whether pools are allocated in a Batch service subscription (the default), or in your user subscription. If you created your Batch account with the default Batch Service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
+> When you create a Batch account, you can specify the [pool allocation mode](accounts.md), which determines whether pools are allocated in a Batch service subscription (the default) or in your user subscription. If you created your Batch account with the default Batch service configuration, then your account is limited to a maximum number of cores that can be used for processing. The Batch service scales compute nodes only up to that core limit. For this reason, the Batch service may not reach the target number of compute nodes specified by an autoscale formula. See [Quotas and limits for the Azure Batch service](batch-quota-limit.md) for information on viewing and increasing your account quotas.
 >
->If you created your account with the User Subscription configuration, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
->
->
+>If you created your account with user subscription mode, then your account shares in the core quota for the subscription. For more information, see [Virtual Machines limits](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) in [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## Automatic scaling formulas
+## Autoscale formulas
 
-An automatic scaling formula is a string value that you define that contains one or more statements. The autoscale formula is assigned to a pool's [autoScaleFormula][rest_autoscaleformula] element (Batch REST) or [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] property (Batch .NET). The Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing. The formula string cannot exceed 8 KB, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
+An autoscale formula is a string value that you define that contains one or more statements. The autoscale formula is assigned to a pool's [autoScaleFormula](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) element (Batch REST) or [CloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) property (Batch .NET). The Batch service uses your formula to determine the target number of compute nodes in the pool for the next interval of processing. The formula string cannot exceed 8 KB, can include up to 100 statements that are separated by semicolons, and can include line breaks and comments.
 
-You can think of automatic scaling formulas as a Batch autoscale "language." Formula statements are free-formed expressions that can include both service-defined variables (variables defined by the Batch service) and user-defined variables (variables that you define). They can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
+You can think of automatic scaling formulas as a Batch autoscale "language." Formula statements are free-formed expressions that can include both service-defined variables (defined by the Batch service) and user-defined variables. Formulas can perform various operations on these values by using built-in types, operators, and functions. For example, a statement might take the following form:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
@@ -40,7 +36,7 @@ $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Include these statements in your autoscale formula to arrive at a target number of compute nodes. Dedicated nodes and low-priority nodes each have their own target settings, so that you can define a target for each type of node. An autoscale formula can include a target value for dedicated nodes, a target value for low-priority nodes, or both.
+Include these statements in your autoscale formula to arrive at a target number of compute nodes. Dedicated nodes and low-priority nodes each have their own target settings. An autoscale formula can include a target value for dedicated nodes, a target value for low-priority nodes, or both.
 
 The target number of nodes may be higher, lower, or the same as the current number of nodes of that type in the pool. Batch evaluates a pool's autoscale formula at a specific interval (see [automatic scaling intervals](#automatic-scaling-interval)). Batch adjusts the target number of each type of node in the pool to the number that your autoscale formula specifies at the time of evaluation.
 
@@ -49,6 +45,10 @@ The target number of nodes may be higher, lower, or the same as the current numb
 Below are examples of two autoscale formulas, which can be adjusted to work for most scenarios. The variables `startingNumberOfVMs` and `maxNumberofVMs` in the example formulas can be adjusted to your needs.
 
 #### Pending tasks
+
+With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free and the autoscaling formula shrinks the pool.
+
+This formula scales dedicated nodes, but can be modified to apply to scale low-priority nodes as well.
 
 ```
 startingNumberOfVMs = 1;
@@ -59,11 +59,9 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-With this autoscale formula, the pool is initially created with a single VM. The `$PendingTasks` metric defines the number of tasks that are running or queued. The formula finds the average number of pending tasks in the last 180 seconds and sets the `$TargetDedicatedNodes` variable accordingly. The formula ensures that the target number of dedicated nodes never exceeds 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling formula shrinks the pool.
+#### Preempted nodes
 
-This formula scales dedicated nodes, but can be modified to apply to scale low-priority nodes as well.
-
-#### Preempted nodes 
+This example creates a pool that starts with 25 low-priority nodes. Every time a low-priority node is preempted, it is replaced with a dedicated node. As with the first example, the `maxNumberofVMs` variable prevents the pool from exceeding 25 VMs. This example is useful for taking advantage of low-priority VMs while also ensuring that only a fixed number of preemptions will occur for the lifetime of the pool.
 
 ```
 maxNumberofVMs = 25;
@@ -72,35 +70,40 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 $NodeDeallocationOption = taskcompletion;
 ```
 
-This example creates a pool that starts with 25 low-priority nodes. Every time a low-priority node is preempted, it is replaced with a dedicated node. As with the first example, the `maxNumberofVMs` variable prevents the pool from exceeding 25 VMs. This example is useful for taking advantage of low-priority VMs while also ensuring that only a fixed number of preemptions will occur for the lifetime of the pool.
-
 ## Variables
 
-You can use both **service-defined** and **user-defined** variables in your autoscale formulas. The service-defined variables are built in to the Batch service. Some service-defined variables are read-write, and some are read-only. User-defined variables are variables that you define. In the example formula shown in the previous section, `$TargetDedicatedNodes` and `$PendingTasks` are service-defined variables. Variables `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
+You can use both **service-defined** and **user-defined** variables in your autoscale formulas.
+
+The service-defined variables are built in to the Batch service. Some service-defined variables are read-write, and some are read-only.
+
+User-defined variables are variables that you define. In the example formula shown above, `$TargetDedicatedNodes` and `$PendingTasks` are service-defined variables, while `startingNumberOfVMs` and `maxNumberofVMs` are user-defined variables.
 
 > [!NOTE]
 > Service-defined variables are always preceded by a dollar sign ($). For user-defined variables, the dollar sign is optional.
->
->
 
-The following tables show both read-write and read-only variables that are defined by the Batch service.
+The following tables show the read-write and read-only variables that are defined by the Batch service.
 
-You can get and set the values of these service-defined variables to manage the number of compute nodes in a pool:
+### Read-write service-defined variables
 
-| Read-write service-defined variables | Description |
+You can get and set the values of these service-defined variables to manage the number of compute nodes in a pool.
+
+| Variable | Description |
 | --- | --- |
-| $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. The number of dedicated nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. <br /><br /> A pool in an account created with the Batch Service configuration may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created with the User Subscription configuration may not achieve its target if the target exceeds the shared core quota for the subscription.|
-| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. The number of low-priority nodes is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, then the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**-- The default value. Terminates tasks immediately and puts them back on the job queue so that they are rescheduled. This action ensures the target number of nodes is reach as quickly as possible, but may be less efficient, as any running tasks will be interrupted and have to be restarted, wasting any work they had already done. <li>**terminate**--Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**--Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks from being interrupted and requeued, wasting any work the task has done. <li>**retaineddata**--Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
+| $TargetDedicatedNodes |The target number of dedicated compute nodes for the pool. This is specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of dedicated nodes is modified by an autoscale evaluation before the pool has reached the initial target, the pool may not reach the target. <br /><br /> A pool in an account created in Batch service mode may not achieve its target if the target exceeds a Batch account node or core quota. A pool in an account created in user subscription mode may not achieve its target if the target exceeds the shared core quota for the subscription.|
+| $TargetLowPriorityNodes |The target number of low-priority compute nodes for the pool. This specified as a target because a pool may not always achieve the desired number of nodes. For example, if the target number of low-priority nodes is modified by an autoscale evaluation before the pool has reached the initial target, the pool may not reach the target. A pool may also not achieve its target if the target exceeds a Batch account node or core quota. <br /><br /> For more information on low-priority compute nodes, see [Use low-priority VMs with Batch](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |The action that occurs when compute nodes are removed from a pool. Possible values are:<ul><li>**requeue**: The default value. Terminates tasks immediately and puts them back on the job queue so that they are rescheduled. This action ensures the target number of nodes is reached as quickly as possible. However, it may be less efficient, as any running tasks will be interrupted and have to be restarted, wasting any work they had already done. <li>**terminate**: Terminates tasks immediately and removes them from the job queue.<li>**taskcompletion**: Waits for currently running tasks to finish and then removes the node from the pool. Use this option to avoid tasks being interrupted and requeued, wasting any work the task has done. <li>**retaineddata**: Waits for all the local task-retained data on the node to be cleaned up before removing the node from the pool.</ul> |
 
 > [!NOTE]
 > The `$TargetDedicatedNodes` variable can also be specified using the alias `$TargetDedicated`. Similarly, the `$TargetLowPriorityNodes` variable can be specified using the alias `$TargetLowPriority`. If both the fully named variable and its alias are set by the formula, the value assigned to the fully named variable will take precedence.
->
->
 
-You can get the value of these service-defined variables to make adjustments that are based on metrics from the Batch service:
+### Read-only service-defined variables
 
-| Read-only service-defined variables | Description |
+You can get the value of these service-defined variables to make adjustments that are based on metrics from the Batch service.
+
+> [!IMPORTANT]
+> Job release tasks are not currently included in variables that provide task counts, such as $ActiveTasks and $PendingTasks. Depending on your autoscale formula, this can result in nodes being removed with no nodes available to run job release tasks.
+
+| Variable | Description |
 | --- | --- |
 | $CPUPercent |The average percentage of CPU usage. |
 | $WallClockSeconds |The number of seconds consumed. |
@@ -113,7 +116,7 @@ You can get the value of these service-defined variables to make adjustments tha
 | $NetworkInBytes |The number of inbound bytes. |
 | $NetworkOutBytes |The number of outbound bytes. |
 | $SampleNodeCount |The count of compute nodes. |
-| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. The $ActiveTasks count includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count. For a multi-instance task, $ActiveTasks will include the number of instances set on the task.|
+| $ActiveTasks |The number of tasks that are ready to execute but are not yet executing. This includes all tasks that are in the active state and whose dependencies have been satisfied. Any tasks that are in the active state but whose dependencies have not been satisfied are excluded from the $ActiveTasks count. For a multi-instance task, $ActiveTasks will include the number of instances set on the task.|
 | $RunningTasks |The number of tasks in a running state. |
 | $PendingTasks |The sum of $ActiveTasks and $RunningTasks. |
 | $SucceededTasks |The number of tasks that finished successfully. |
@@ -122,43 +125,36 @@ You can get the value of these service-defined variables to make adjustments tha
 | $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
-> [!IMPORTANT]
-> Job release tasks are not currently included in the above variables that provide task counts, such as $ActiveTasks and $PendingTasks. Depending on your auto-scale formula, this can result in nodes being removed and no nodes being available to run the job release tasks.
-
 > [!TIP]
-> The read-only, service-defined variables that are shown in the previous table are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#getsampledata) later in this article.
->
->
+> These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
 
 ## Types
 
-These types are supported in a formula:
+Autoscale formulas support the following types:
 
-* double
-* doubleVec
-* doubleVecList
-* string
-* timestamp--timestamp is a compound structure that contains the following members:
-
-  * year
-  * month (1-12)
-  * day (1-31)
-  * weekday (in the format of number; for example, 1 for Monday)
-  * hour (in 24-hour number format; for example, 13 means 1 PM)
-  * minute (00-59)
-  * second (00-59)
-* timeinterval
-
-  * TimeInterval_Zero
-  * TimeInterval_100ns
-  * TimeInterval_Microsecond
-  * TimeInterval_Millisecond
-  * TimeInterval_Second
-  * TimeInterval_Minute
-  * TimeInterval_Hour
-  * TimeInterval_Day
-  * TimeInterval_Week
-  * TimeInterval_Year
+- double
+- doubleVec
+- doubleVecList
+- string
+- timestamp--a compound structure that contains the following members:
+  - year
+  - month (1-12)
+  - day (1-31)
+  - weekday (in the format of number; for example, 1 for Monday)
+  - hour (in 24-hour number format; for example, 13 means 1 PM)
+  - minute (00-59)
+  - second (00-59)
+- timeinterval
+  - TimeInterval_Zero
+  - TimeInterval_100ns
+  - TimeInterval_Microsecond
+  - TimeInterval_Millisecond
+  - TimeInterval_Second
+  - TimeInterval_Minute
+  - TimeInterval_Hour
+  - TimeInterval_Day
+  - TimeInterval_Week
+  - TimeInterval_Year
 
 ## Operations
 
@@ -186,7 +182,8 @@ These operations are allowed on the types that are listed in the previous sectio
 When testing a double with a ternary operator (`double ? statement1 : statement2`), nonzero is **true**, and zero is **false**.
 
 ## Functions
-These predefined **functions** are available for you to use in defining an automatic scaling formula.
+
+You can use these predefined **functions** when defining an autoscale formula.
 
 | Function | Return type | Description |
 | --- | --- | --- |
@@ -216,21 +213,23 @@ Some of the functions that are described in the previous table can accept a list
 
 The *doubleVecList* value is converted to a single *doubleVec* before evaluation. For example, if `v = [1,2,3]`, then calling `avg(v)` is equivalent to calling `avg(1,2,3)`. Calling `avg(v, 7)` is equivalent to calling `avg(1,2,3,7)`.
 
-## <a name="getsampledata"></a>Obtain sample data
+## Obtain sample data
 
-Autoscale formulas act on metrics data (samples) that is provided by the Batch service. A formula grows or shrinks pool size based on the values that it obtains from the service. The service-defined variables that were described previously are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
+Autoscale formulas act on metrics data (samples) provided by the Batch service. A formula will grow or shrink the pool size based on the values that it obtains. Service-defined variables are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
+The following methods may be used to obtain sample data.
+
 | Method | Description |
 | --- | --- |
-| GetSample() |The `GetSample()` method returns a vector of data samples.<br/><br/>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds. But as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.<ul><li>`doubleVec GetSample(double count)`<br/>Specifies the number of samples to obtain from the most recent samples that were collected.<br/><br/>`GetSample(1)` returns the last available sample. For metrics like `$CPUPercent`, however, this should not be used because it is impossible to know *when* the sample was collected. It might be recent, or, because of system issues, it might be much older. It is better in such cases to use a time interval as shown below.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Specifies a time frame for gathering sample data. Optionally, it also specifies the percentage of samples that must be available in the requested time frame.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` would return 20 samples if all samples for the last 10 minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned. In this case:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` would fail because only 90 percent of the samples are available.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` would succeed.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Specifies a time frame for gathering data, with both a start time and an end time.<br/><br/>As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. Consider this delay when you use the `GetSample` method. See `GetSamplePercent` below. |
+| GetSample() |The `GetSample()` method returns a vector of data samples.<br/><br/>A sample is 30 seconds worth of metrics data. In other words, samples are obtained every 30 seconds. But as noted below, there is a delay between when a sample is collected and when it is available to a formula. As such, not all samples for a given time period may be available for evaluation by a formula.<ul><li>`doubleVec GetSample(double count)`: Specifies the number of samples to obtain from the most recent samples that were collected. `GetSample(1)` returns the last available sample. For metrics like `$CPUPercent`, however, this should not be used because it is impossible to know *when* the sample was collected. It might be recent, or, because of system issues, it might be much older. It is better in such cases to use a time interval as shown below.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Specifies a time frame for gathering sample data. Optionally, it also specifies the percentage of samples that must be available in the requested time frame. For example, `$CPUPercent.GetSample(TimeInterval_Minute * 10)` would return 20 samples if all samples for the last 10 minutes are present in the CPUPercent history. If the last minute of history was not available, however, only 18 samples would be returned. In this case `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` would fail because only 90 percent of the samples are available, but `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` would succeed.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Specifies a time frame for gathering data, with both a start time and an end time. As mentioned above, there is a delay between when a sample is collected and when it is available to a formula. Consider this delay when you use the `GetSample` method. See `GetSamplePercent` below. |
 | GetSamplePeriod() |Returns the period of samples that were taken in a historical sample data set. |
 | Count() |Returns the total number of samples in the metric history. |
 | HistoryBeginTime() |Returns the time stamp of the oldest available data sample for the metric. |
-| GetSamplePercent() |Returns the percentage of samples that are available for a given time interval. For example:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Because the `GetSample` method fails if the percentage of samples returned is less than the `samplePercent` specified, you can use the `GetSamplePercent` method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation. |
+| GetSamplePercent() |Returns the percentage of samples that are available for a given time interval. For example, `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. Because the `GetSample` method fails if the percentage of samples returned is less than the `samplePercent` specified, you can use the `GetSamplePercent` method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation. |
 
 ### Samples, sample percentage, and the *GetSample()* method
 The core operation of an autoscale formula is to obtain task and resource metric data and then adjust pool size based on that data. As such, it is important to have a clear understanding of how autoscale formulas interact with metrics data (samples).
@@ -273,8 +272,6 @@ Because there may be a delay in sample availability, it is important to always s
 
 > [!IMPORTANT]
 > We **strongly recommend** that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you retrieved it." Since it is only a single sample, and it may be an older sample, it may not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
->
->
 
 ## Metrics
 
@@ -732,13 +729,12 @@ string formula = string.Format(@"
 
 [net_api]: /dotnet/api/microsoft.azure.batch
 [net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
+
 [net_cloudpool_autoscaleevalinterval]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
 [net_enableautoscaleasync]: /dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
 [net_maxtasks]: /dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
 [net_poolops_resizepoolasync]: /dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
 
 [rest_api]: /rest/api/batchservice/
-[rest_autoscaleformula]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
 [rest_autoscaleinterval]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
 [rest_enableautoscale]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
