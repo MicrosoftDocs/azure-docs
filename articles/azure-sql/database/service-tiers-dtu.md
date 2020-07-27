@@ -53,7 +53,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 
 Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](purchasing-models.md#dtu-based-purchasing-model).
 
-|Basic|Standard|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
 | Maximum storage size | 2 GB | 1 TB | 4 TB  |
 | Maximum DTUs | 5 | 3000 | 4000 | 
@@ -64,7 +64,7 @@ Compute sizes are expressed in terms of Database Transaction Units (DTUs) for si
 
 ## Elastic pool eDTU, storage, and pooled database limits
 
-| **Basic** | **Standard** | **Premium** |
+|| **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
 | Maximum storage size per database  | 2 GB | 1 TB | 1 TB |
 | Maximum storage size per pool | 156 GB | 4 TB | 4 TB |
