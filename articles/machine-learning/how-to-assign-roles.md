@@ -322,6 +322,7 @@ Yes here are some common scenarios with custom proposed role definitions that yo
     }
     ```
 
+<a href="labeler"></a>
 * __Labeler Custom__: Allows you to define a role scoped only to labeling data:
 
     `labeler_custom_role.json` :

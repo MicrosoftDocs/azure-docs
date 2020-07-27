@@ -7,7 +7,7 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
+ms.date: 07/27/2020
 
 ---
 
