@@ -67,7 +67,7 @@ From that JSON file, assuming the search service is in West Central US, the foll
     }
 ```
 
-For /32 IP addresses, drop the "/32" (52.253.133.74/32 -> 52.253.133.74), others can be used verbatin.
+For /32 IP addresses, drop the "/32" (52.253.133.74/32 -> 52.253.133.74), others can be used verbatim.
 
 ## Add the IP address ranges to IP firewall rules
 
@@ -82,6 +82,8 @@ Add the 3 IP addresses obtained previously (1 for the search service IP, 2 for t
 The firewall rules take 5-10 minutes to get updated, and after that indexers will be able to access the data in this storage account.
 
 ## Next Steps
+
+Now that you know how to get the two sets of IP addresses to allow access for indexes, use the following links to update the IP firewall rules for some common data sources.
 
 - [Configure Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 - [Configure IP firewall for CosmosDB](https://docs.microsoft.com/azure/cosmos-db/firewall-support)
