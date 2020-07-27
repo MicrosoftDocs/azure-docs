@@ -132,12 +132,9 @@ Name | Description
 Error | (optional) Error information. Usually, this is exception information if it's available.
 Message| Log message.
 Type | Type of message. Maps to internal categorization of errors. For example, **JobValidationError** or **BlobOutputAdapterInitializationFailure**.
-Correlation ID | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
+Correlation ID | GUID that uniquely identifies the job execution. All execution log entries from the time the job starts until the job stops have the same **Correlation ID** value.
 
 ## Next steps
 
-* [Introduction to Stream Analytics](stream-analytics-introduction.md)
-* [Get started with Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Stream Analytics data errors](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Stream Analytics query language reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
