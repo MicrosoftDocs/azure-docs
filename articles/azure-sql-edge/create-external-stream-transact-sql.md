@@ -221,7 +221,6 @@ WITH
 Type: Input<br>
 
 Syntax:
-
 ```sql
 CREATE EXTERNAL DATA SOURCE MyKafka_tweets 
 WITH 
