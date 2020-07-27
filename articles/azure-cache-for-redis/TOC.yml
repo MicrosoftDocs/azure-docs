@@ -66,11 +66,15 @@
       href: cache-how-to-premium-persistence.md
     - name: Secure your cache with a virtual network
       href: cache-how-to-premium-vnet.md
+    - name: Connect privately to a cache 
+      href: cache-private-link.md
     - name: Set up geo-replication
       href: cache-how-to-geo-replication.md
     - name: Save with reserved capacity
       href: cache-reserved-pricing.md
-    - name: Migrate from Managed Cache Service
+    - name: Migrate to Azure Cache for Redis
+      href: cache-migration-guide.md
+    - name: Migrate from Managed Cache Service (deprecated)
       href: cache-migrate-to-redis.md
   - name: Automate
     items:

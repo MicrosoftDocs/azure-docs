@@ -246,7 +246,7 @@ Select **Save draft** before continuing.
 
 ### Plan overview
 
-This tab lets you provide different plan options within the same offer. These plans were previously referred to as SKUs, or stock keeping units. Plans can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the commercial marketplace, you must set up at least one plan.
+This tab lets you provide different plan options within the same offer. Plans (formerly called SKUs) can differ in terms of what clouds are available, such as global clouds, Government clouds, and the image referenced by the plan. To list your offer in the commercial marketplace, you must set up at least one plan.
 
 After you create your plans, the **Plan overview** tab shows:
 

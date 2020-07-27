@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 03/05/2020
 ms.author: victorh
-ms.custom: mvc
+ms.custom: mvc, devx-track-javascript
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI

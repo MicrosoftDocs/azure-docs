@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-two-with-js
 ---
 
 # Learn the basics of speech translation
@@ -37,6 +37,10 @@ One of the core features of the Speech service is the ability to recognize human
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

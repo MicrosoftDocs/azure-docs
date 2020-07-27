@@ -2,7 +2,7 @@
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 07/17/2020
 ---
 
 # Azure DevTest Labs FAQ
@@ -195,7 +195,7 @@ To copy your existing VMs to DevTest Labs:
 Yes, you can attach multiple disks to your VMs.
 
 ### Are Gen 2 images supported by DevTest Labs?
-No. The DevTest Labs service doesn't support [Gen 2 images](../virtual-machines/windows/generation-2.md). If both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You won't see an image if there is only Gen 2 version of it available. 
+Yes. The DevTest Labs service supports [Gen 2 images](../virtual-machines/windows/generation-2.md). However, if both Gen 1 and Gen 2 versions are available for an image, DevTest Labs shows only the Gen 1 version of the image when creating a VM. You see the image if there is only Gen 2 version of it available. 
 
 ### If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, take one of the following steps:
@@ -207,7 +207,7 @@ For more information about the Azure credits for each MSDN offering, see [Monthl
 
 
 ### How do I automate the process of deleting all the VMs in my lab?
-As a lab owner, you can delete VMs from your lab in the Azure portal. You also can delete all the VMs in your lab by using a PowerShell script. In the following example, under the **values to change** comment, modify the parameter values. You can retrieve the subscriptionId, labResourceGroup, and labName values from the lab pane in the Azure portal.
+As a lab owner, you can delete VMs from your lab in the Azure portal. You also can delete all the VMs in your lab by using a PowerShell script. In the following example, under the **values to change** comment, modify the parameter values. You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab pane in the Azure portal.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -335,9 +335,9 @@ For other continuous integration (CI)/continuous delivery (CD) toolchains, you c
 ## Networking
 
 ### When should I create a new virtual network for my DevTest Labs environment vs. using an existing virtual network?
-If your VMs need to interact with existing infrastructure, then consider using an existing virtual network inside your DevTest Labs environment. If you use ExpressRoute, you may want to minimize the amount of VNets / Subnets so that you don’t fragment your IP address space that gets assigned for use in the subscriptions.
+If your VMs need to interact with existing infrastructure, then consider using an existing virtual network inside your DevTest Labs environment. If you use ExpressRoute, you may want to minimize the number of virtual networks / subnets so that you don’t fragment your IP address space that gets assigned for use in the subscriptions.
 
-Consider using the VNet peering pattern here ([Hub-Spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network.
+Consider using the virtual network peering pattern here ([Hub-Spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) too. This approach enables vnet/subnet communication across subscriptions. Otherwise, each DevTest Labs environment could have its own virtual network.
 
 There are [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) on the number of virtual networks per subscription. The default amount is 50, though this limit can be raised to 100.
 

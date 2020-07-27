@@ -271,9 +271,9 @@
         - name: App Service
           href: reservations/prepay-app-service-isolated-stamp.md
         - name: Azure Cache for Redis reservation
-          href: ../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+          href: /azure/data-explorer/pricing-reserved-capacity
         - name: Cosmos DB
-          href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+          href: /azure/data-explorer
         - name: Databricks
           href: reservations/prepay-databricks-reserved-capacity.md
         - name: Data Explorer
@@ -292,6 +292,8 @@
           href: ../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
         - name: Azure Database for MariaDB
           href: ../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
+        - name: SAP HANA Large Instances
+          href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
         - name: SQL Database
           href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
         - name: Azure Synapse Analytics
@@ -465,4 +467,4 @@
       - name: Cloudyn FAQ
         href: cloudyn/cost-mgt-faq.md
       - name: Contact Cloudyn support
-        href: /cloudyn/open-support-request.md
+        href: https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request

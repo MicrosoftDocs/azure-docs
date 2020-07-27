@@ -38,20 +38,6 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
-    - name: Application security
-      items:
-      - name: App access options
-        href: what-is-access-management.md
-      - name: Certificate signing options
-        href: certificate-signing-options.md
-      - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md
-      - name: Tenant restrictions
-        href: tenant-restrictions.md
-      - name: Configure SAML token encryption
-        href: howto-saml-token-encryption.md
-      - name: End-user portals
-        href: end-user-experiences.md
     - name: Planning a cloud app integration
       items:
       - name: Get started with app integration
@@ -74,8 +60,22 @@
         href: plan-sso-deployment.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
-    - name: Cloud app visibility and control
-      href: cloud-app-security.md
+    - name: Application security
+      items:
+      - name: App access options
+        href: what-is-access-management.md
+      - name: Certificate signing options
+        href: certificate-signing-options.md
+      - name: Manage certificates
+        href: manage-certificates-for-federated-single-sign-on.md
+      - name: Tenant restrictions
+        href: tenant-restrictions.md
+      - name: Configure SAML token encryption
+        href: howto-saml-token-encryption.md
+      - name: End-user portals
+        href: end-user-experiences.md
+      - name: Cloud app visibility and control
+        href: cloud-app-security.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy

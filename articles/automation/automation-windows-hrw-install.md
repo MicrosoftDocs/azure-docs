@@ -167,7 +167,7 @@ In the search results, you should see heartbeat records for the machine, indicat
 
 2. To confirm the version of the Hybrid Runbook Worker, browse to `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` and note the **version** subfolder.
 
-### Step 3 - Install the runbook environment and connect to Azure Automation
+### Step 2 - Install the runbook environment and connect to Azure Automation
 
 When you configure an agent to report to a Log Analytics workspace, the Azure Automation feature pushes down the `HybridRegistration` PowerShell module, which contains the `Add-HybridRunbookWorker` cmdlet. Use this cmdlet to install the runbook environment on the machine and register it with Azure Automation.
 
@@ -196,7 +196,7 @@ You can get the information required for the parameters `Url` and `Key` from the
 
 * If required, set the `Verbose` parameter to receive details about the installation.
 
-### Step 4 -  Install PowerShell modules
+### Step 3 -  Install PowerShell modules
 
 Runbooks can use any of the activities and cmdlets defined in the modules installed in your Azure Automation environment. As these modules are not automatically deployed to on-premises machines, you must install them manually. The exception is the Azure module. This module is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 

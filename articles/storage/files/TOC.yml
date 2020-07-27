@@ -33,6 +33,8 @@
       href: storage-files-networking-overview.md
     - name: Prevent accidental data deletion
       href: storage-files-prevent-file-share-deletion.md
+    - name: Back up file shares
+      href: ../../backup/azure-file-share-backup-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Encryption at-rest
       href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Encryption at-rest with customer-managed keys
@@ -83,6 +85,54 @@
       href: storage-files-how-to-create-large-file-share.md
     - name: Create a premium file share
       href: storage-how-to-create-premium-fileshare.md
+  - name: Data protection
+    items:
+    - name: Enable soft delete
+      href: storage-files-enable-soft-delete.md
+    - name: Change how data is replicated
+      href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Manage data redundancy
+      items:
+      - name: Change how data is replicated
+        href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Design highly available applications
+        href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Manage disaster recovery
+      items:
+      - name: Check the Last Sync Time property
+        href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Initiate account failover
+        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Back up file shares
+      items:
+      - name: Portal
+        href: ../../backup/backup-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: CLI
+        href: ../../backup/backup-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: PowerShell
+        href: ../../backup/backup-azure-afs-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: REST API
+        href: ../../backup/backup-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Restore file shares
+      items:
+      - name: Portal
+        href: ../../backup/restore-afs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: CLI
+        href: ../../backup/restore-afs-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: PowerShell
+        href: ../../backup/restore-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: REST API
+        href: ../../backup/restore-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Manage file shares
+      items:
+      - name: Portal
+        href: ../../backup/manage-afs-backup.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: CLI
+        href: ../../backup/manage-afs-backup-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: PowerShell
+        href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: REST API
+        href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Deploy
     items:
     - name: Deploy Azure Files
@@ -125,26 +175,10 @@
       href: storage-sync-files-server-registration.md
     - name: Add an Azure File Sync Server endpoint
       href: storage-sync-files-server-endpoint.md
-    - name: Enable soft delete
-      href: storage-files-enable-soft-delete.md
     - name: Manage storage in Azure independent clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Change how data is replicated
-      href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Initiate an account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Manage data redundancy
-      items:
-      - name: Change how data is replicated
-        href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Design highly available applications
-        href: ../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Manage disaster recovery
-      items:
-      - name: Check the Last Sync Time property
-        href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-      - name: Initiate account failover
-        href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Authenticate
     items:
     - name: Enable on-premises AD DS authentication and authorization
@@ -173,7 +207,7 @@
       href: storage-files-migration-overview.md
     - name: Target a hybrid deployment
       items:
-      - name: Migrate bulk data to Azure File Sync with Azure DataBox
+      - name: Migrate bulk data to Azure File Sync with Azure Data Box
         href: storage-sync-offline-data-transfer.md
       - name: Migrate from Linux to a hybrid file server with Azure File Sync
         href: storage-files-migration-linux-hybrid.md
@@ -217,11 +251,11 @@
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Require secure transfer
       href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Configure Transport Layer Security (TLS)
+    - name: Manage Transport Layer Security (TLS)
       items:
-      - name: Configure minimum TLS version for a storage account
+      - name: Enforce minimum TLS version for incoming requests
         href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
-      - name: Configure TLS for a client application
+      - name: Configure TLS version for a client application
         href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: Transfer
     items: 
@@ -243,6 +277,8 @@
       href: storage-sync-files-troubleshoot.md
     - name: Troubleshoot Deleting Azure Files
       href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+    - name: Troubleshoot backing up file shares
+      href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Reference
   items:
   - name: Azure Files reference

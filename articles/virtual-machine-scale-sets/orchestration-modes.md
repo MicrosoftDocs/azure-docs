@@ -39,7 +39,7 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 
 ## Orchestration modes
 
-| Feature                     | “orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
+| Feature                     | "orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | VM configuration model      | None                                       | Required |
 | Adding new VM to Scale Set  | VMs are explicitly added to the scale set when the VM is created. | VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules | |

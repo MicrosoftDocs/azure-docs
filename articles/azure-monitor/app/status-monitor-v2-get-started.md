@@ -69,7 +69,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 - [Explore metrics](../../azure-monitor/platform/metrics-charts.md) to monitor performance and usage.
 - [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
-- [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
+- [Use Analytics](../log-query/log-query-overview.md) for more advanced queries.
 - [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
 
  Add more telemetry:

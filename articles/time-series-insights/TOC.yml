@@ -107,6 +107,10 @@
       items:
       - name: How to connect to Power BI
         href: how-to-connect-power-bi.md
+    - name: Migrations
+      items:
+      - name: How to migrate to new API versions
+        href: how-to-api-migration.md
   - name: Azure Time Series Insights Gen1
     items:
     - name: Explore Time Series Insights

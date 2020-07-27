@@ -36,15 +36,15 @@ This script uses following commands to create a managed disk from a snapshot. Ea
 
 | Command | Notes |
 |---|---|
-| [Get-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/Get-AzSnapshot) | Gets snapshot properties.  |
-| [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzDiskConfig) | Creates disk configuration that is used for disk creation. It includes the resource Id of the parent snapshot, location that is same as the location of parent snapshot and the storage type.  |
-| [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Creates a disk using disk configuration, disk name, and resource group name passed as parameters. |
+| [Get-AzSnapshot](/powershell/module/az.compute/get-azsnapshot) | Gets snapshot properties.  |
+| [New-AzDiskConfig](/powershell/module/az.compute/new-azdiskconfig) | Creates disk configuration that is used for disk creation. It includes the resource Id of the parent snapshot, location that is same as the location of parent snapshot and the storage type.  |
+| [New-AzDisk](/powershell/module/az.compute/new-azdisk) | Creates a disk using disk configuration, disk name, and resource group name passed as parameters. |
 
 ## Next steps
 
 
 [Create a virtual machine from a managed disk](./virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on the Azure PowerShell module, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional virtual machine PowerShell script samples can be found in the [Azure Linux VM documentation](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

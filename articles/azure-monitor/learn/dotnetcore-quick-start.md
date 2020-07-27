@@ -14,7 +14,7 @@ ms.custom: mvc
 
 With Azure Application Insights, you can easily monitor your web application for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. 
 
-This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. To learn about configuring Application Insights without Visual Studio checkout this [article](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core).
+This quickstart guides you through adding the Application Insights SDK to an existing ASP.NET Core web application. To learn about configuring Application Insights without Visual Studio checkout this [article](../app/asp-net-core.md).
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 1. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
    > [!NOTE]
-   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](../app/create-new-resource.md) doc.
 
     A configuration box appears; use the following table to fill out the input fields.
 
@@ -108,4 +108,4 @@ When you are done testing, you can delete the resource group and all related res
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Find and diagnose run-time exceptions](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [Find and diagnose run-time exceptions](./tutorial-runtime-exceptions.md)
