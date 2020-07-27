@@ -23,7 +23,7 @@ Then you will configure a sample client app for Windows that lets you speak to y
 
 This tutorial is designed for developers who are new to Azure, Bot Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed.
 
-The chat bot you make in this tutorial receives, processes, and produces speech by following these steps:
+The chat bot you make in this tutorial follows these steps:
 
 1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot
 1. Audio is recorded from the default microphone on button press (or continuously recorded if custom keyword is activated)
