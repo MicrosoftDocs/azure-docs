@@ -171,10 +171,10 @@
       href: media-services-metrics-diagnostic-logs.md      
     - name: Diagnostic logs schemas
       href: media-services-diagnostic-logs-schema.md          
-  - name: Player clients
+  - name: Azure Media Player
     items:
-    - name: Azure Media Player
-      href: use-azure-media-player.md
+    - name: Azure Media Player overview
+      href: https://docs.microsoft.com/en-us/azure/media-services/azure-media-player/azure-media-player-overview
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -355,6 +355,14 @@
       href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
+  - name: Use media players
+    items:
+    - name: Azure Media Player full set up
+      href: https://docs.microsoft.com/azure/media-services/azure-media-player/azure-media-player-full-setup
+    - name: Use the Video.js player
+      href: how-to-video-js-player.md
+    - name: Use the Shaka video player
+      href: how-to-shaka-player.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)

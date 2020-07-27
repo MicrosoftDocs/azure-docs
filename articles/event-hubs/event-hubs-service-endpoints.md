@@ -20,7 +20,6 @@ The result is a private and isolated relationship between the workloads bound to
 >
 > Common Azure scenarios that don't work with Virtual Networks (note that the list is **NOT** exhaustive) -
 > - Azure Stream Analytics
-> - Integration with Azure Event Grid
 > - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 >
@@ -55,7 +54,7 @@ This section shows you how to use Azure portal to add a virtual network service 
 2. On the left menu, select **Networking** option. If you select the **All networks** option, the event hub accepts connections from any IP address. This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
     ![Firewall - All networks option selected](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. To restrct access to specific networks, select the **Selected Networks** option at the top of the page.
+1. To restrict access to specific networks, select the **Selected Networks** option at the top of the page.
 2. In the **Virtual Network** section of the page, select **+Add existing virtual network***. Select **+ Create new virtual network** if you want to create a new VNet. 
 
     ![add existing virtual network](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -80,9 +79,9 @@ The following Resource Manager template enables adding a virtual network rule to
 
 Template parameters:
 
-* **namespaceName**: Event Hubs namespace.
-* **vnetRuleName**: Name for the Virtual Network rule to be created.
-* **virtualNetworkingSubnetId**: Fully qualified Resource Manager path for the virtual network subnet; for example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
+* `namespaceName`: Event Hubs namespace.
+* `vnetRuleName`: Name for the Virtual Network rule to be created.
+* `virtualNetworkingSubnetId`: Fully qualified Resource Manager path for the virtual network subnet; for example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
 > [!NOTE]
 > While there are no deny rules possible, the Azure Resource Manager template has the default action set to **"Allow"** which doesn't restrict connections.
