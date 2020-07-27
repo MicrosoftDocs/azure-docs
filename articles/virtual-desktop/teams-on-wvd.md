@@ -52,7 +52,7 @@ Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/
 
 #### Latest WebSocket Service versions
 
-The following table lists the current versions available for each user group:
+The following table lists the latest versions of the WebSocket Service:
 
 |Version    |Release date  |
 |-----------|--------------|

@@ -27,7 +27,7 @@ While any HTML5-capable browser should work, we officially support the following
 | Browser           | Supported OS                     | Notes               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
-| Internet Explorer | Windows                          |                     |
+| Internet Explorer | Windows                          | Version 11 or later |
 | Apple Safari      | macOS                            |                     |
 | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 or later |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
