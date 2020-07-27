@@ -145,7 +145,7 @@ When you run the console application, you are prompted to select a scenario. Sel
 
 
 ## Next steps
-- To learn more about RBAC, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md)?
+- To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)

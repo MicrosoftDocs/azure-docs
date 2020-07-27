@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Diagnose and troubleshoot a Gen2 environment - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to diagnose and troubleshoot an Azure Time Series Insights Gen2 environment.
 author: deepakpalled
@@ -116,7 +116,7 @@ If the Timestamp property isn't explicitly specified, an event's IoT hub or even
 
 ## Problem: All my instances in the Gen2 Explorer lack a parent
 
-This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read about how to [work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+This problem might occur if your environment doesn't have a Time Series Model hierarchy defined. For more information, read about how to [work with Time Series Models](/azure/time-series-insights/time-series-insights-overview).
 
   [![Unparented instances will display a warning.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 
@@ -130,7 +130,7 @@ This problem might occur if you are not using the latest version of the Power BI
 
 ## Next steps
 
-- Read about how to [work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
+- Read about how to [work with Time Series Models](/azure/time-series-insights/time-series-insights-overview).
 
 - Learn about [supported JSON shapes](./how-to-shape-query-json.md).
 
