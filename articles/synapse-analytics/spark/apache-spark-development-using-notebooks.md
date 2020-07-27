@@ -208,7 +208,7 @@ The number of tasks per each job or stage help you to identify the parallel leve
 
 You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
 
-![session-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)
+[![session-mgmt](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-mgmt.png#lightbox)
 
 A spark session recommender now available on spark session config panel. You can select a spark pool directly from the session configuration  panel and see how many nodes are using and how many remaining executors are available. These info can help you to set session size appropriately rather than modifying it back and forth.
 
@@ -274,12 +274,12 @@ A tabular results view is provided with the option to create a bar chart, line c
 
 The output of **%%sql** magic commands appear in the rendered table view by default. You can call <code>display(df)</code> on Spark DataFrames or Resilient Distributed Datasets (RDD) function to produce the rendered table view.
 
-   ![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
+   [![builtin-charts](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png#lightbox)
 
 ### Visualizing built-in charts from large-scale dataset 
 
 By default the <code>display(df)</code> function will only take the first 1000 rows of the data to render the charts. Check the **Aggregation over all results** and click **Apply** button, you will apply the chart generation from the whole dataset. A spark job will be triggered when the chart setting changes, it takes a while to complete the calculation and render the chart. 
-    ![builtin-charts-aggall](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggall.png)
+    [![builtin-charts-aggall](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggall.png)](./media/apache-spark-development-using-notebooks/synapse-builtin-charts-aggall#lightbox.png)
 
 
 ### Visualizing data statistic information
