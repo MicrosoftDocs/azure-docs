@@ -53,16 +53,6 @@ If you intend to query the Microsoft Graph API, [configure your new application 
 
 If you require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis) functionality of Azure AD so that all buyers sent from the marketplace are able to interact initially with the landing page.
 
-When you’re finished, make a note of the Application ID and your tenant ID. You’ll need them to configure your application.
-
-Note that some organizations may block users from accessing apps that have not been verified. To reach the widest audience, we suggest verifying your application, which requires your Microsoft Partner Network (MPN) ID.
-
-**To verify your application**
-
-1. From the Azure portal, go to the registration page for your application.
-2. Select the **Branding** blade.
-3. Under **Publisher Verification**, select **Add MPN ID to verify publisher**, and then enter your MPN ID.
-
 ## Use a code sample as a starting point
 
 We’ve provided several sample apps that implement a simple website with Azure AD login enabled. After your application is registered in Azure AD, the **Quickstart** blade offers a list of common application types and development stacks as seen in Figure 1. Choose the one that matches your environment and follow the instructions for download and setup.
@@ -72,6 +62,15 @@ We’ve provided several sample apps that implement a simple website with Azure 
 :::image type="content" source="./media/azure-ad-saas/azure-ad-quickstart-blade.png" alt-text="Illustrates the quickstart blade in the Azure portal.":::
 
 After youe download the code and set up your development environment, change the configuration settings in the app to reflect the Application ID, tenant ID, and client secret you recorded in the previous procedure. Note that the exact steps will differ depending on which sample you are using.
+
+## Use two Azure AD apps to improve security in production
+
+This article presents a simplified version of the architecture for implementing a landing page for your commercial marketplace SaaS offer. When running the page in production, we recommend that you improve security by communicating to the SaaS fulfillment APIs only through a different, secured application. This requires the creation of two new applications:
+
+- First, the multitenant landing page application described up to this point, except without the functionality to contact the SaaS fulfillment APIs. This functionality will be offloaded to another application, as described below.
+- Second, an application to own the communications with the SaaS fulfillment APIs. This application should be single tenant, only to be used by your organization, and an access control list can be established to limit access to the APIs from only this app.
+
+This enables the solution to work in scenarios that observe the [separation of concerns](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) principle. For example, the landing page uses the first registered Azure AD app to sign in the user. After the user is signed-in, the landing page uses the second Azure AD to request an access token to call the SaaS fulfillment API’s and call the resolve operation.
 
 ## Resolve the marketplace purchase identification token
 
@@ -133,19 +132,6 @@ Most apps that are registered with Azure AD grant delegated permissions to read 
 
 > [!NOTE]
 > Accounts from the MSA tenant (with tenant ID ``9188040d-6c67-4c5b-b112-36a304b66dad``) will not return more information than has already been collected with the ID token. So you can skip this call to the Graph API for these accounts.
-
-## Use two Azure AD apps to improve security in production
-
-This article has presented a simplified version of the architecture for implementing a landing page for your commercial marketplace SaaS offer. When running the page in production, we recommend that you improve security by communicating to the SaaS fulfillment APIs only through a different, secured application. This requires the creation of two new applications:
-
-- First, the multitenant landing page application described up to this point, except without the functionality to contact the SaaS fulfillment APIs. This functionality will be offloaded to another application, as described below.
-- Second, an application to own the communications with the SaaS fulfillment APIs. This application should be single tenant, only to be used by your organization, and an access control list can be established to limit access to the APIs from only this app.
-
-This enables the solution to work in scenarios that observe the [separation of concerns](https://docs.microsoft.com/dotnet/architecture/modern-web-apps-azure/architectural-principles#separation-of-concerns) principle. For example, the landing page uses the first registered Azure AD app to sign in the user. After the user is signed-in, the landing page uses the second Azure AD to request an access token to call the SaaS fulfillment API’s (see Figure 2) and call the resolve operation.
-
-***Figure 2: Improving security by using a separate application to communicate to the SaaS fulfillment APIs***
-
-:::image type="content" source="./media/azure-ad-saas/azure-ad-improving-security-separate-app.png" alt-text="Illustrates how you can improve security by using a separate application to communicate to the SaaS fulfillment APIs.":::
 
 ## Next steps
 

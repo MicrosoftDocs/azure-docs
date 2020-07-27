@@ -50,16 +50,6 @@ If you intend to query the Microsoft Graph API, [configure your new application 
 
 If you do require elevated permissions as part of your onboarding or provisioning process, consider using the [incremental consent](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison#incremental-and-dynamic-consent) functionality of Azure AD so that all users sent from the marketplace are able to interact initially with the landing page.
 
-When you’re finished, make a note of the Application ID and your tenant ID. You’ll need them to configure your application.
-
-Note that some organizations may block users from accessing apps that have not been verified. To reach the widest audience, we suggest verifying your application, which requires your Microsoft Partner Network (MPN) ID.
-
-To verify your application:
-
-1. From the Azure portal, go to the registration page for your application.
-2. Select the **Branding** blade.
-3. Under **Publisher Verification**, select **Add MPN ID to verify publisher**, and then enter your MPN ID.
-
 ## Use a code sample as a starting point
 
 Microsoft has provided several sample apps that implement a simple website with Azure AD login enabled. After your application is registered in Azure AD, the **Quickstart** blade offers a list of common application types and development stacks (Figure 1). Choose the one that matches your environment and follow the instructions for download and setup.
