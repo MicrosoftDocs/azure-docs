@@ -85,4 +85,3 @@ Process steps 7 through 9 are optional user management process steps. They provi
 
 - [Create a SaaS offer in the commercial marketplace](./partner-center-portal/create-new-saas-offer.md)
 - [Build the landing page for your transactable SaaS offer in the commercial marketplace](./azure-ad-transactable-saas-landing-page.md)
-- [Common Azure AD authentication questions for transactable SaaS offers](./azure-ad-saas-faq.md)
