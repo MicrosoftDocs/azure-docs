@@ -23,7 +23,6 @@ Azure SQL Edge currently only supports the following data sources as stream inpu
 |------------------|-------|--------|------------------|
 | Azure IoT Edge hub | Y | Y | Data source to read and write streaming data to an Azure IoT Edge hub. For more information, see [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
 | SQL Database | N | Y | Data source connection to write streaming data to SQL Database. The database can be a local database in Azure SQL Edge, or a remote database in SQL Server or Azure SQL Database.|
-| Azure Blob storage | N | Y | Data source to write data to a blob on an Azure storage account. |
 | Kafka | Y | N | Data source to read streaming data from a Kafka topic. Kafka support is not available for the ARM64 version of Azure SQL Edge.|
 
 
@@ -247,44 +246,6 @@ WITH
     INPUT_OPTIONS =  
       'PARTITIONS: 5'
 ); 
-```
-
-### Example 4 - Blob storage
-
-Type: Output
-
-Syntax:
-```sql
-CREATE DATABASE SCOPED CREDENTIAL StorageAcctCredName 
-WITH IDENTITY = '<my_account>', -- <my_account> can be any string. This string is not used during authentication
-SECRET = 'AccountKey'; 
- 
-CREATE EXTERNAL DATA SOURCE MyBlobStorage_tweets 
-WITH 
-(     
-  LOCATION = 'https://<storage_account_name>.blob.core.windows.net/container_Name', 
-  CREDENTIAL = StorageAcctCredName 
-  Type = BLOB_STORAGE
-); 
- 
-CREATE EXTERNAL FILE FORMAT myFileFormat 
-WITH ( 
-    FORMAT_TYPE = DELIMITEDTEXT, 
-	  FORMAT_OPTIONS ( FIELD_TERMINATOR = '|'),
-	DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
-); 
- 
-CREATE EXTERNAL STREAM BlobStorageOutput 
-WITH   
-(  
-    DATA_SOURCE = MyStorageBlobOutput, 
-    LOCATION = 'streamdata/', 
-    FILE_FORMAT = myFileFormat,  
-    OUTPUT_OPTIONS =  
-      'REJECT_TYPE: Drop, 
-      MINUMUM_ROWS: 1000, 
-      MAXIMUM_TIME: 60'
-);
 ```
 
 ## See also
