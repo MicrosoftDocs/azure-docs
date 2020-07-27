@@ -38,7 +38,7 @@ The following table outlines what methods are available for primary or secondary
 | [Microsoft Authenticator app](#microsoft-authenticator-app) | Yes (preview) | MFA and SSPR |
 | [FIDO2 security keys (preview)](#fido2-security-keys) | Yes | MFA-only |
 | [OATH software tokens](#oath-software-tokens) | No | MFA |
-| [OATH hardware tokens (preview)](#oath-hardware-tokens-preview) | Yes | MFA |
+| [OATH hardware tokens (preview)](#oath-hardware-tokens-preview) | No | MFA |
 | [SMS](#phone-options) | Yes (preview) | MFA and SSPR |
 | [Voice call](#phone-options) | No | MFA and SSPR |
 | [Security questions](#security-questions) | No | SSPR-only |
