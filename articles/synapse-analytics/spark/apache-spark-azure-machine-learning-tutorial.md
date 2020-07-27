@@ -22,33 +22,30 @@ In this tutorial you learn the following tasks:
 - Train an automated machine learning regression model
 - Calculate model accuracy
 
-## Before you begin
+### Before you begin
   - Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](../quickstart-create-apache-spark-pool-studio.md)
   
   - Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you do not have an existing Azure Machine Learning workspace. 
 
-## Understand regression models
+### Understand regression models
  *Regression models* predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others.  
 
-## Regression analysis example on the NYC Taxi data
+### Regression analysis example on the NYC Taxi data
 In this example, you will use Spark to perform some analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, the cost, and other interesting attributes.
 
 > [!IMPORTANT]
 > There may be additional charges for pulling this data from its storage location. In the following steps, you will develop a model to predict NYC taxi fare prices. 
 
 
-##  Create an Apache Spark Machine Learning Applications
+##  Download and prepare the data
 
-Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook.)
+1. Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook.)
    
 > [!Note]
 > 
 >Because of the PySpark kernel, you do not need to create any contexts explicitly. The Spark context is automatically created for you when you run the first code cell.
 
-   
-## Download and prepare data
-
-1. Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. Create a Spark dataframe by retrieving the data via the Open Datasets API. Here, we'll use the Spark dataframe *schema on read* properties to infer the datatypes and schema. 
+2. Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a dataframe directly. Create a Spark dataframe by retrieving the data via the Open Datasets API. Here, we'll use the Spark dataframe *schema on read* properties to infer the datatypes and schema. 
    
 ```python
 blob_account_name = "azureopendatastorage"
@@ -65,7 +62,7 @@ df = spark.read.parquet(wasbs_path)
 
 ```
 
-2. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. Once we have the filtered dataframe, we will also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
+3. Depending on the size of your Spark pool (preview), the raw data may be too large or take too much time to operate on. You can filter this data down to something smaller by using the ```start_date``` and ```end_date``` filters. This applies a filter that returns a month of data. Once we have the filtered dataframe, we will also run the ```describe()``` function on the new dataframe to see summary statistics for each field. 
    
 ```python
 # Create an ingestion filter
@@ -79,7 +76,7 @@ filtered_df.describe().show()
 
 Based on the summary statistics, we can see that there are some irregularities and outliers in the data. For example, the statistics show that the the minimum trip distance is less than 0. We will need to filter out these irregular data points. 
 
-3. Now, we will generate features from the dataset by selecting a set of columns and creating various time-based features from the pickup datetime field. We will also filter out outliers that were identified from the earlier step and then remove the last few columns which are unnecessary for training.
+4. Now, we will generate features from the dataset by selecting a set of columns and creating various time-based features from the pickup datetime field. We will also filter out outliers that were identified from the earlier step and then remove the last few columns which are unnecessary for training.
    
 ```python
 from datetime import datetime
@@ -137,7 +134,7 @@ ws = Workspace(workspace_name = workspace_name,
 
 ```
 
-## Convert Spark Dataframe to a Tabular Dataset
+## Convert Dataframe to a Tabular Dataset
 To run our experiment, we will need to convert our Spark dataframe in an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
@@ -161,7 +158,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ## Submit an Auto ML Experiment
 
-### Define training settings
+#### Define training settings
 1. To submit an experiment, we will need to define the experiment parameter and model settings for training. You can view the full list of settings [here](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
 
 ```python
@@ -193,7 +190,7 @@ automl_config = AutoMLConfig(task='regression',
 > [!NOTE]
 >Automated machine learning pre-processing steps (feature normalization, handling missing data, converting text to numeric, etc.) become part of the underlying model. When using the model for predictions, the same pre-processing steps applied during training are applied to your input data automatically.
 
-### Train the automatic regression model 
+#### Train the automatic regression model 
 Now, we will create an experiment object in your workspace. An experiment acts as a container for your individual runs. 
 
 ```python
@@ -211,7 +208,7 @@ Once the experiment has completed, the output will return details about the comp
 
 ![Model Output](./media/apache-spark-machine-learning-aml-notebook/aml-regression-output.png)
 
-### Retrieve the Best Model
+#### Retrieve the Best Model
 To select the best model from your iterations, we will use the ```get_output``` function to return the best run and fitted model. The code below will retrieve the best run and fitted model for any logged metric or a particular iteration.
 
 ```python
@@ -219,7 +216,7 @@ To select the best model from your iterations, we will use the ```get_output``` 
 best_run, fitted_model = local_run.get_output()
 ```
 
-### Test Model Accuracy
+#### Test Model Accuracy
 1. To test the model accuracy, we will use the best model to run taxi fare predictions on the test data set. The ```predict``` function uses the best model and predicts the values of y (fare amount) from the validation dataset. 
 
 ```python
@@ -309,7 +306,7 @@ plt.show()
 
 From the results, we can see that the R-squared measure accounts for 95% of our variance. This is also validated by the actual verses observed plot. The more variance that is accounted for by the regression model the closer the data points will fall to the fitted regression line.  
 
-### Register Model to Azure Machine Learning
+## Register Model to Azure Machine Learning
 Once we have validated our best model, we can register the model to Azure Machine Learning. After you register the model, you can then download or deploy the registered model and receive all the files that you registered.
 
 ```python
@@ -321,7 +318,7 @@ print(model.name, model.version)
 ```Output
 NYCGreenTaxiModel 1
 ```
-### View Experiment Results in Azure Machine Learning
+## View Results in Azure Machine Learning
 Last, you can also access the results of the iterations by navigating to the experiment in your Azure Machine Learning Workspace. Here, you will be able to dig into additional details on the status of your run, attempted models, and other model metrics. 
 
 ![apache-spark-aml-workspace](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-aml-workspace.png)
