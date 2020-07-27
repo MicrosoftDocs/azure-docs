@@ -12,10 +12,9 @@ ms.custom: seodec18
 ms.date: 12/07/2017
 ---
 
-**APPLIES TO:** ![no](../media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
-
-
 # Create and share an Machine Learning Studio (classic) workspace
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
 
 To use Azure Machine Learning Studio (classic), you need to have a Machine Learning Studio (classic) workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
