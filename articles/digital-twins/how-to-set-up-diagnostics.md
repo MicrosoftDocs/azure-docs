@@ -17,6 +17,10 @@ ms.service: digital-twins
 
 # Enable logging with diagnostics settings
 
+You can choose to send your metrics data to [Log Analytics](../azure-monitor/log-query/get-started-portal.md), an [Event Hubs](../event-hubs/event-hubs-about.md) endpoint, or [Azure Storage](../storage/blobs/storage-blobs-overview.md) by enabling logging with diagnostics settings for your instance.
+
+## Turn on diagnostics settings with the Azure portal
+
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
 2. Select **Diagnostics settings** from the menu, then **Add diagnostic setting**.
@@ -44,7 +48,9 @@ ms.service: digital-twins
     
 4. Save the new settings. 
 
-If you want to turn on diagnostics settings with PowerShell, use the following code:
+## Turn on diagnostics settings with PowerShell
+
+You can also turn on diagnostics settings using [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-4.4.0). Use the following code:
 
 ```azurepowershell
 Connect-AzAccount
@@ -52,8 +58,11 @@ Select-AzSubscription -SubscriptionName <subscription that includes your Azure D
 Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target on the **Diagnostics settings** blade. For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../articles/azure-monitor/platform/platform-logs-overview.md).
+## View the logs
+
+New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostics settings** page for your instance. 
 
 ## Next steps
 
-* [View metrics with Azure Monitor](how-to-view-metrics.md)
+* For more information about configuring diagnostics, see [*Collect and consume log data from your Azure resources*](../articles/azure-monitor/platform/platform-logs-overview.md).
+* For information about the Azure Digital Twins metrics, see [*How-to: View metrics with Azure Monitor*](how-to-view-metrics.md)
