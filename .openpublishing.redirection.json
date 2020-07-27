@@ -54766,6 +54766,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/data-share/azure-cli-references-for-data-share.md",
+      "redirect_url": "https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
       "redirect_document_id": false
