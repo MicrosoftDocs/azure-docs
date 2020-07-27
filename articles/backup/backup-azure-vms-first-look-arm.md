@@ -33,15 +33,15 @@ In order to back up Azure VMs, Azure Backup installs an extension on the VM agen
    - If you already have a vault, click **Select existing**, and select a vault.
    - If you don't have a vault, click **Create new**. Specify a name for the vault. It's created in the same region and resource group as the VM. You can't modify these settings when you enable backup directly from the VM settings.
 
-   ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+        ![Enable Backup Wizard](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
-6. In **Choose backup policy**, do the following:
+6. In **Choose backup policy**, do one of the following:
 
    - Leave the default policy. This backs up the VM once a day at the time specified, and retains backups in the vault for 30 days.
    - Select an existing backup policy if you  have one.
    - Create a new policy, and define the policy settings.  
 
-   ![Select backup policy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+       ![Select backup policy](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. Click **Enable Backup**. This associates the backup policy with the VM.
 
