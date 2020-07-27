@@ -1,6 +1,6 @@
 ---
 title:  "Set up autoscale for microservice applications"
-description: Use autoscale to manage changes in demand for microservices.
+description: This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 author:  MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
@@ -10,7 +10,7 @@ ms.custom: devx-track-java
 ---
 
 # Set up autoscale for microservice applications
-Autoscale is a built-in feature of Azure Spring Cloud that helps microservice applications perform their best when demand changes. This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
+Autoscale is a built-in feature of Azure Spring Cloud that helps microservice applications perform their best when demand changes. This includes modifying the number of virtual CPUs, memory, and app instances. This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 
 ## Prerequisites
 
