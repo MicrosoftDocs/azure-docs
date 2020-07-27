@@ -28,5 +28,5 @@ If you're looking for developer guidance on how to integrate custom apps with Az
 
 ## Next steps
 
-- [Quickstart Series on App Management](view-application-portal.md)
+- [Quickstart Series on App Management](view-applications-portal.md)
 
