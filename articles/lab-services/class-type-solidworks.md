@@ -1,23 +1,23 @@
 ---
-title: Set up a SolidWorks lab for engineering with Azure Lab Services | Microsoft Docs
-description: Learn how to set up a lab for engineering courses using SolidWorks. 
+title: Set up a SOLIDWORKS lab for engineering with Azure Lab Services | Microsoft Docs
+description: Learn how to set up a lab for engineering courses using SOLIDWORKS. 
 author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
 ---
 
-# Set up a lab for engineering classes using SolidWorks
+# Set up a lab for engineering classes using SOLIDWORKS
 
-[SolidWorks](https://www.solidworks.com/) provides a 3D computer-aided design (CAD) environment for modeling solid objects and is used in a variety of engineering fields.  With SolidWorks, engineers can easily create, visualize, simulate and document their designs.
+[SOLIDWORKS](https://www.solidworks.com/) provides a 3D computer-aided design (CAD) environment for modeling solid objects and is used in a variety of engineering fields.  With SOLIDWORKS, engineers can easily create, visualize, simulate and document their designs.
 
-A licensing option commonly used by universities is SolidWorks’ Network Licensing.   With this option, users share a pool of licenses that are managed by a licensing server.  This type of license is sometimes called a “floating” license because you only need to have enough licenses for the number of concurrent users.  When a user is done using SolidWorks, their license goes back into the centrally managed license pool so that it can be reused by another user.
+A licensing option commonly used by universities is SOLIDWORKS’ Network Licensing.   With this option, users share a pool of licenses that are managed by a licensing server.  This type of license is sometimes called a “floating” license because you only need to have enough licenses for the number of concurrent users.  When a user is done using SOLIDWORKS, their license goes back into the centrally managed license pool so that it can be reused by another user.
 
-In this article, we’ll show how to set up a class that uses SolidWorks 2019 and Network Licensing.
+In this article, we’ll show how to set up a class that uses SOLIDWORKS 2019 and Network Licensing.
 
 ## License server
 
-SolidWorks Network Licensing requires that you have SolidNetWork License Manager installed and activated on your license server.  This license server is typically located in either your on-premise network or a private network within Azure.  For more information on how to set up SolidNetWork License Manager on your server, see [Installing and Activating a License Manager](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) in the SolidWorks install guide.  When setting this up, remember the **port number** and [**serial number**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) that are used since they will be needed in later steps.
+SOLIDWORKS Network Licensing requires that you have SolidNetWork License Manager installed and activated on your license server.  This license server is typically located in either your on-premise network or a private network within Azure.  For more information on how to set up SolidNetWork License Manager on your server, see [Installing and Activating a License Manager](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) in the SOLIDWORKS install guide.  When setting this up, remember the **port number** and [**serial number**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) that are used since they will be needed in later steps.
 
 After your license server is set up, you will need to peer the [virtual network (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) to your [lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  The network peering must be done before creating the lab so that lab virtual machines can access the license server and vice versa.
 
@@ -37,7 +37,7 @@ Enable the settings described in the table below for the lab account. For more i
 |Marketplace image| Enable the Windows 10 Pro image for use within your lab account.|
 
 > [!NOTE]
-> In addition to Windows 10, SolidWorks supports other versions of Windows.  See [SolidWorks system requirements](https://www.solidworks.com/sw/support/SystemRequirements.html) for details.
+> In addition to Windows 10, SOLIDWORKS supports other versions of Windows.  See [SOLIDWORKS system requirements](https://www.solidworks.com/sw/support/SystemRequirements.html) for details.
 
 ### Lab settings
 
@@ -56,17 +56,17 @@ Use the settings in the table below when setting up a classroom lab. For more in
 
 ## Template virtual machine configuration
 
-The steps in this section show how to set up your template virtual machine by downloading the SolidWorks installation files and installing the client software:
+The steps in this section show how to set up your template virtual machine by downloading the SOLIDWORKS installation files and installing the client software:
 
 1. Start the template virtual machine and connect to the machine using RDP.
 
-1. Download the installation files for SolidWorks client software. You have two options for downloading:
-   - Download from [SolidWorks customer portal](https://login.solidworks.com/nidp/idff/sso?id=cpenglish&sid=1&option=credential&sid=1&target=https%3A%2F%2Fcustomerportal.solidworks.com%2F).
+1. Download the installation files for SOLIDWORKS client software. You have two options for downloading:
+   - Download from [SOLIDWORKS customer portal](https://login.solidworks.com/nidp/idff/sso?id=cpenglish&sid=1&option=credential&sid=1&target=https%3A%2F%2Fcustomerportal.solidworks.com%2F).
    - Download from a directory on a server.  If you used this option, you need to ensure that the server is accessible from the template virtual machine.  For example, this server may be located in the same virtual network that is peered with your lab account.
   
-    For details, see [Installation on Individual Computers in the SolidWorks](http://help.solidworks.com/2019/english/Installation/install_guide/c_installing_on_individual_computers.htm?id=fc149e8a968a422a89e2a943265758d3#Pg0) in SolidWorks install guide.
+    For details, see [Installation on Individual Computers in the SOLIDWORKS](http://help.solidworks.com/2019/english/Installation/install_guide/c_installing_on_individual_computers.htm?id=fc149e8a968a422a89e2a943265758d3#Pg0) in SOLIDWORKS install guide.
 
-1. Once the installation files are downloaded, install the client software using SolidWorks Installation Manager. See details on [Installing a License Client](http://help.solidworks.com/2019/english/installation/install_guide/t_installing_snl_license_client.htm) in SolidWorks install guide.
+1. Once the installation files are downloaded, install the client software using SOLIDWORKS Installation Manager. See details on [Installing a License Client](http://help.solidworks.com/2019/english/installation/install_guide/t_installing_snl_license_client.htm) in SOLIDWORKS install guide.
 
     > [!NOTE]
     > In the **Add Server** dialog box, you will be prompted for the **port number** used for your license server and the name or IP address of the license server.
