@@ -17,7 +17,7 @@ ms.author: iainfou
 
 # Create an Azure Active Directory Domain Services resource forest and outbound forest trust to an on-premises domain using Azure PowerShell
 
-In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (AD DS). A resource forest uses a one-way outbound trust from an Azure AD DS managed domain to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the managed domain.
+In environments where you can't synchronize password hashes, or you have users that exclusively sign in using smart cards so they don't know their password, you can use a resource forest in Azure Active Directory Domain Services (Azure AD DS). A resource forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In a resource forest, on-premises password hashes are never synchronized.
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
