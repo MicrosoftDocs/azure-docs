@@ -11,7 +11,7 @@ services: iot-pnp
 
 # Azure IoT model repository
 
-The Azure IoT model repository enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). The models stored in the model repository service can be shared with solution developers either privately through access control or publicly without requiring any authentication to integrate and develop the Plug and Play cloud solution.
+The Azure IoT model repository enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). The models stored in the model repository service can be shared with solution developers either privately through access control or publicly without requiring any authentication to integrate and develop the IoT Plug and Play cloud solution.
 
 You can access the model repository using the:
 
@@ -51,9 +51,9 @@ The company model repository is a tenant in the Azure IoT model repository for y
 
 ### Set up your company model repository
 
-Use your *work or school Azure Active Directory (Azure AD) account* to access the model repository. If your organization already has an Azure AD tenant you can use user account(s) and service principals from this Azure AD tenant.
+Use your *work or school Azure Active Directory (Azure AD) account* to access the model repository. If your organization already has an Azure AD tenant, you can use user account(s) and service principals from this Azure AD tenant.
 
-To learn how to set up an Azure Active Directory tenant and how to create a user or service principal in an Azure Active Directory tenant, see [Additional information](#additional-information) section.
+To learn how to set up an Azure AD tenant and how to create a user or service principal in an Azure AD tenant, see [Additional information](#additional-information) section.
 
 - If you're the first user from your organization to access the model repository or to sign into the portal, you're granted the **Tenant Administrator** role. This role allows you to assign roles to other users in your organization's repository tenant.
 
@@ -66,9 +66,9 @@ The following table summarizes the supported capabilities in the company model r
 | Capability  | Permission| Description|
 |-------------|-----------|------------|
 |Read Models|Read Models|By default, all users in the company tenant can view their company models. Additionally, the user can also view the private model(s) shared to them by other companies.|
-|Manage Access|Manage Access|To manage the user role assignment (add or remove) for other users in the organization.|
-|Create Models|Create Models|To create models in the company model repository.|
-|Publish Models|Publish Models|To publish models to make them public for anyone to view the model.|
+|Manage Access|Manage Access|Manage the user role assignment (add or remove) for other users in the organization.|
+|Create Models|Create Models|Create models in the company model repository.|
+|Publish Models|Publish Models|Publish models to make them public for anyone to view the model.|
 
 The following table summarizes the supported roles and their capabilities in the model repository that can be used for access management.
 
@@ -78,7 +78,7 @@ The following table summarizes the supported roles and their capabilities in the
 |Creator|Create Models, Read Models|
 |Publisher|Publish Models, Read Models|
 
-#### Passing a security token when accessing company models via REST Api
+#### Passing a security token when accessing company models with a REST API
 
 When you call the REST APIs to manage company models that are private or shared, you must provide an authorization token for the user or service principal in JWT format. See the [Additional information](#additional-information) section to learn how to get a JWT token for a user or service principal.
 
@@ -117,29 +117,29 @@ To view a company model or a shared model using the CLI, see the Azure CLI [Get 
 
 ### Manage roles
 
-The tenant administrator can assign roles to users in the repository tenant so that they can create models private to the company (or organization), publish models, or manage roles for other users.
+The tenant administrator can assign roles to users in the repository tenant so that they can create models private to the company or organization, publish models, or manage roles for other users.
 
 To add a user to a model repository tenant role using the portal:
 
 1. Sign in to the [Azure IoT model repository portal](https://aka.ms/iotmodelrepo).
 
-1. Select **Access management** on the left pane, then select **+Add**. On the **Add Permission** pane, type the work address of the user you want to add to the role.
+1. Select **Access management** on the left pane, then select **+Add**. On the **Add Permission** pane, type the work address of the user you want to add to the role:
 
     ![Add work address](./media/concepts-model-repository/add-user.png)
 
-1. Choose the role you want to add the user to from the **Role** dropdown. Then select **Save**.
+1. Choose the role you want to add the user to from the **Role** dropdown. Then select **Save**:
 
     ![Choose role](./media/concepts-model-repository/choose-role.png)
 
 ### Upload a model
 
-You must be a member of the repository tenant's *Creator* role to upload a model to the company model repository.
+You must be a member of the repository tenant's **Creator** role to upload a model to the company model repository.
 
 These models are not published and are only accessible by users within your organization by default. You can also share one or more unpublished models with external users.
 
 Uploaded models are immutable.
 
-The modelId's for these models must be globally unique across all repository tenants for all uploaded models.
+The model IDs for these models must be globally unique across all repository tenants for all uploaded models.
 
 To upload a model using the portal:
 
@@ -149,7 +149,7 @@ To upload a model using the portal:
 
     ![Create model](./media/concepts-model-repository/create-model.png)
 
-1.  Select the file you want to upload. If the portal successfully validates your model, select **Save**.
+1. Select the file you want to upload. If the portal successfully validates your model, select **Save**.
 
 To upload a model using the REST API, see the [Create a Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) API. See [Passing a security token when accessing company models via REST Api](#passing-a-security-token-when-accessing-company-models-via-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
 
@@ -196,9 +196,9 @@ Sharing models across companies or organizations allows for secure access to mod
 
 To share a company model using the portal:
 
-If you're the creator of a model, the **Share** and **Shared with** buttons are active when you view the model in the **Company models** section.
+- If you're the creator of a model, the **Share** and **Shared with** buttons are active when you view the model in the **Company models** section.
 
-![Share model](./media/concepts-model-repository/share-model.png)
+    ![Share model](./media/concepts-model-repository/share-model.png)
 
 - To share the model with an external user, select **Share**. In the **Share model** pane, enter the email address of the external user and select **Save**.
 
@@ -206,19 +206,19 @@ If you're the creator of a model, the **Share** and **Shared with** buttons are 
 
 - To stop sharing the model with a specific user, select the user from the list of users on the **Shared with** pane. Then select **Remove** and confirm your choice when prompted.
 
-  ![Stop sharing](./media/concepts-model-repository/stop-sharing.png)
+    ![Stop sharing](./media/concepts-model-repository/stop-sharing.png)
 
 ## Additional information
 
-You may find the following topics helpful when working with Azure Active Directory:
+You may find the following topics helpful when working with Azure AD:
 
-- To create a new Azure Active Directory tenant, see [Create a new tenant in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant). Most organizations will already have Azure Active Directory tenants.
+- To create a new Azure AD tenant, see [Create a new tenant in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant). Most organizations will already have Azure AD tenants.
 
-- To add users or guest users to an Azure Active Directory tenant, see [Add or delete users using Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
+- To add users or guest users to an Azure AD tenant, see [Add or delete users using Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
 
-- To add a service principal to an Azure Active Directory tenant, see [How to use the portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+- To add a service principal to an Azure AD tenant, see [How to use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-- To learn how to get a JWT token from Azure Active Directory to use when calling REST APIs, see [Acquire a token from Azure Active Directory for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app).
+- To learn how to get a JWT token from Azure AD to use when calling REST APIs, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app).
 
 ## Next steps
 

@@ -32,7 +32,7 @@ To discover the model that a device implements, a solution can get the model ID 
 
 ### Event-based discovery
 
-When a IoT Plug and Play device connects to IoT Hub, it registers the model it implements. This registration results in a [Digital Twin Change Event](concepts-digital-twin.md#digital-twin-change-events) notification. To learn how to enable routing for digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
+When an IoT Plug and Play device connects to IoT Hub, it registers the model it implements. This registration results in a [Digital Twin change event](concepts-digital-twin.md#digital-twin-change-events) notification. To learn how to enable routing for digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events).
 
 The solution can use the event shown in the following snippet to learn about IoT Plug and Play device that's connecting and get its model ID:
 
