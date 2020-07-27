@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/27/2020
 ---
 
 ## Azure Functions output from Azure Stream Analytics
@@ -36,7 +36,17 @@ Also, in a situation where there's no event landing in a time window, no output 
 
 ## Partitioning
 
-Partitionig is based on the PARTITION BY clause in the query. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md).
+The partition key is based on the PARTITION BY clause in the query. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md).
 
 ## Output batch size
-| Azure Functions    | | The default batch size is 262,144 bytes (256 KB). <br /> The default event count per batch is 100. <br /> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
+
+The default batch size is 262,144 bytes (256 KB). The default event count per batch is 100. The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
+
+## Next steps
+
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
+* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
+* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)

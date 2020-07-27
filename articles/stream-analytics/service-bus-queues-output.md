@@ -15,6 +15,8 @@ ms.date: 07/15/2020
 
 In [compatibility level 1.2](stream-analytics-compatibility-level.md), Azure Stream Analytics uses [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) messaging protocol to write to Service Bus Queues and Topics. AMQP enables you to build cross-platform, hybrid applications using an open standard protocol.
 
+## Output configuration
+
 The following table lists the property names and their descriptions for creating a queue output.
 
 | Property name | Description |
@@ -38,33 +40,23 @@ The number of partitions is [based on the Service Bus SKU and size](../service-b
 Partitioning is automatically chosen. The number of partitions is based on the [Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition. The number of output writers is the same as the number of partitions in the output queue.
 
 ## Output batch size
-| Azure Service Bus queue    | 256 KB per message for Standard tier, 1MB for Premium tier.<br /> See [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). | Use a single event per message. |
 
-## Custom metadata properties for output 
+The maximum message size is 256 KB per message for Standard tier and 1MB for Premium tier. For more information, see [Service Bus limits](../service-bus-messaging/service-bus-quotas.md). To optimize, use a single event per message.
 
-You can attach query columns as user properties to your outgoing messages. These columns don't go into the payload. The properties are present in the form of a dictionary on the output message. *Key* is the column name and *value* is the column value in the properties dictionary. All Stream Analytics data types are supported except Record and Array.  
+## Custom metadata properties for output
 
-Supported outputs: 
-* Service Bus queue 
-* Service Bus topic 
-* Event hub 
+You can attach query columns as user properties to your outgoing messages. These columns don't go into the payload. The properties are present in the form of a dictionary on the output message. *Key* is the column name and *value* is the column value in the properties dictionary. All Stream Analytics data types are supported except Record and Array.
 
-In the following example, we add the two fields `DeviceId` and `DeviceStatus` to the metadata. 
-* Query: `select *, DeviceId, DeviceStatus from iotHubInput`
-* Output configuration: `DeviceId,DeviceStatus`
+## System properties
 
-![Property columns](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+You can attach query columns as [system properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) to your outgoing service bus Queue or Topic messages.
 
-The following screenshot shows output message properties inspected in EventHub through [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
-
-![Event custom properties](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
-
-## System properties for Service Bus Queue and Topic outputs 
-You can attach query columns as [system properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) to your outgoing service bus Queue or Topic messages. 
 These columns don't go into the payload instead the corresponding BrokeredMessage [system property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) is populated with the query column values.
 These system properties are supported - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+
 String values of these columns are parsed as corresponding system property value type and any parsing failures are treated as data errors.
-This field is provided as a JSON object format. Details about this format are as follows -
+This field is provided as a JSON object format. Details about this format are as follows:
+
 * Surrounded by curly braces {}.
 * Written in key/value pairs.
 * Keys and values must be strings.
@@ -79,3 +71,12 @@ This shows how to use this property –
 `{ "MessageId": "column1", "PartitionKey": "column2"}`
 
 This sets the `MessageId` on service bus queue messages with `column1`'s values and PartitionKey is set with `column2`'s values.
+
+## Next steps
+
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
+* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
+* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)

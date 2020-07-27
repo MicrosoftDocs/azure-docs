@@ -6,7 +6,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 07/27/2020
 ---
 
 ## Table storage output from Azure Stream Analytics
@@ -26,6 +26,18 @@ The following table lists the property names and their descriptions for creating
 | Batch size |The number of records for a batch operation. The default (100) is sufficient for most jobs. See the [Table Batch Operation spec](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation) for more details on modifying this setting. |
 
 ## Partitioning
-Partition key is any output column. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md).
+
+The partition key is any output column. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md).
+
 ## Output batch size
-| Azure Table storage | See [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). | The default is 100 entities per single transaction. You can configure it to a smaller value as needed. |
+
+For the maximum message size, see [Azure Storage limits](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). The default is 100 entities per single transaction, but you can configure it to a smaller value as needed.
+
+## Next steps
+
+* [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
+* [Quickstart: Create an Azure Stream Analytics job using the Azure CLI](quick-create-azure-cli.md)
+* [Quickstart: Create an Azure Stream Analytics job by using an ARM template](quick-create-azure-resource-manager.md)
+* [Quickstart: Create a Stream Analytics job using Azure PowerShell](stream-analytics-quick-create-powershell.md)
+* [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md)
+* [Quickstart: Create an Azure Stream Analytics job in Visual Studio Code](quick-create-vs-code.md)

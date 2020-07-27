@@ -94,6 +94,8 @@
       href: service-bus-queues-topics.md
     - name: Azure Cosmos DB
       href: azure-cosmos-db-output.md
+    - name: Cosmos DB optimization
+      href: stream-analytics-documentdb-output.md
     - name: Azure Functions
       href: azure-functions-output.md
   - name: Extend queries with functions
