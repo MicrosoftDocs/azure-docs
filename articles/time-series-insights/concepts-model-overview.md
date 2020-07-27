@@ -19,7 +19,7 @@ This article describes Time Series Model, the capabilities, and how to start bui
 > [!TIP]
 >
 > * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
-> * Learn [how to work with Time Series Model](time-series-insights-update-how-to-tsm.md) using the Azure Time Series Insights Gen2 Explorer.
+> * Learn [how to work with Time Series Model](/azure/time-series-insights/concepts-model-overview) using the Azure Time Series Insights Gen2 Explorer.
 
 ## Summary
 
@@ -70,7 +70,7 @@ These components are combined to specify a time series model and to organize you
 
 [![Time Series Model overview chart](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-A time series model can be created and managed through the [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-how-to-tsm.md). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+A time series model can be created and managed through the [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
 ## Time Series Model instances
 

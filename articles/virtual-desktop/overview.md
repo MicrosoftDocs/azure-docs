@@ -138,9 +138,9 @@ Available automation and deployment options depend on which OS and version you c
 
 ## Next steps
 
-If you're using the Windows Virtual Desktop Fall 2019 release, you can get started with our tutorial at [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+If you're using Windows Virtual Desktop (classic), you can get started with our tutorial at [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-If you're using the Windows Virtual Desktop Spring 2020 release, you'll need to create a host pool instead. Head to the following tutorial to get started.
+If you're using the Windows Virtual Desktop with Azure Resource Manager integration, you'll need to create a host pool instead. Head to the following tutorial to get started.
 
 > [!div class="nextstepaction"]
 > [Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md)

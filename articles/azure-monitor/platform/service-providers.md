@@ -15,7 +15,7 @@ Log Analytics workspaces in Azure Monitor can help managed service providers (MS
 
 Large enterprises share many similarities with service providers, particularly when there is a centralized IT team that is responsible for managing IT for many different business units. For simplicity, this document uses the term *service provider* but the same functionality is also available for enterprises and other customers.
 
-For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) program, Log Analytics in Azure Monitor is one of the Azure services available in Azure CSP subscriptions.
+For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/membership/cloud-solution-provider) program, Log Analytics in Azure Monitor is one of the Azure services available in Azure CSP subscriptions.
 
 Log Analytics in Azure Monitor can also be used by a service provider managing customer resources through the Azure delegated resource management capability in [Azure Lighthouse](../../lighthouse/overview.md).
 

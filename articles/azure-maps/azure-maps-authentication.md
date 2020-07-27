@@ -2,8 +2,8 @@
 title: Authentication methods
 titleSuffix: Azure Maps
 description: In this article, you'll learn about Azure Active Directory and Shared Key authentication. Both are used for Microsoft Azure Maps services. Learn how to get Azure Maps subscription key.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
