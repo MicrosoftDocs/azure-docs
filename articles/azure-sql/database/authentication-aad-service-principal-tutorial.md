@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ---
 
 # Tutorial: Create Azure AD users using Azure AD applications

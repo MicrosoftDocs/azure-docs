@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ---
 
 # Create Azure AD guest users and set as an Azure AD admin

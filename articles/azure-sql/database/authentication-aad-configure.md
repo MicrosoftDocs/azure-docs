@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
