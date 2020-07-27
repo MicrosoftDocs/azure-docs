@@ -26,13 +26,13 @@ This tutorial is designed for developers who are new to Azure, Bot Framework bot
 The voice-enabled chat bot you make in this tutorial follows these steps:
 
 1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot
-1. Audio is recorded from the default microphone on button press (or continuously recorded if custom keyword is activated)
-1. Optionally, custom keyword detection happens, gating audio streaming to the cloud
-1. Using Speech SDK, the app connects to Direct Line Speech channel and streams audio
-1. Optionally, higher accuracy keyword verification happens on the service
-1. The audio is passed to the speech recognition service and transcribed to text
-1. The recognized text is passed to the Echo-Bot as a Bot Framework Activity
-1. The response text is turned into audio by the Text-to-Speech (TTS) service, and streamed back to the client application for playback
+1. When the user presses a button, voice audio streams from the microphone. (Or audio is continuously recorded when a custom keyword is used.)
+1. If a custom keyword is used, keyword detection happens on the local device, gating audio streaming to the cloud.
+1. Using Speech SDK, the sample client application connects to Direct Line Speech channel and streams audio.
+1. Optionally, higher accuracy keyword verification happens on the service.
+1. The audio is passed to the speech recognition service and transcribed to text.
+1. The recognized text is passed to the Echo Bot as a Bot Framework Activity.
+1. The response text is turned into audio by the Text-to-Speech (TTS) service, and streamed back to the client application for playback.
 
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
