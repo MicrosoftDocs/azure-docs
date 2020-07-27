@@ -1,6 +1,5 @@
 ---
-title: Create & deploy custom R modules
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Create & deploy custom R modules - Azure'
 description: Learn how to author and deploy a custom R modules in ML Studio (classic). 
 services: machine-learning
 ms.service: machine-learning
@@ -12,7 +11,9 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ---
-# Define custom R modules for Azure Machine Learning Studio (classic)
+# Define custom R modules for Machine Learning Studio (classic)
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
 
 This topic describes how to author and deploy a custom R Studio (classic). It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace. The elements and attributes used in the definition of the custom module are then described in more detail. How to use auxiliary functionality and files and multiple outputs is also discussed. 
 

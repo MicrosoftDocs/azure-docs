@@ -92,7 +92,7 @@ This section describes how to create an Azure Time Series Insights Gen2 environm
     | **Storage account kind** | Select the storage kind for a new storage account. We recommend StorageV2|
     | **Storage account replication** | Select the storage kind for a new storage account. Based on your location selection, you can choose from LRS, GRS and ZRS. For this tutorial, you can select LRS|
     | **Hierarchical namespace** |This option is selectable, once you select the storage kind to be StorageV2. By default, it is disabled. For this tutorial, you can leave it in its default *disabled* state|
-    |**Enable warm store**|Select **Yes** to enable warm store. You can come back later and enable or disable this setting. |
+    |**Enable warm store**|Select **Yes** to enable warm store. This setting can be disabled and re-enabled after the environment has been created as well. |
     |**Data retention (in days)**|Choose the default option of 7 days. |
 
     [![New Time Series Insights environment configuration.](media/v2-update-provision/tsi-environment-configuration.png)](media/v2-update-provision/tsi-environment-configuration.png#lightbox)
