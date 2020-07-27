@@ -19,37 +19,30 @@ ms.service: digital-twins
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
-2. Select **Diagnostics settings**.
+2. Select **Diagnostics settings** from the menu, then **Add diagnostic setting**.
 
-3. Select **Turn on diagnostics**.
+    :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
-4. Give the diagnostic settings a name.
+3. On the page that follows, fill in the following values:
+ * **Diagnostic setting name**: Give the diagnostic settings a name.
+ * **Category details**: Choose which operations you want to monitor, and check the boxes to enable diagnostics for those operations. The operations that diagnostic settings can report on are:
+  - DigitalTwinsOperation
+  - EventRoutesOperation
+  - ModelsOperation
+  - QueryOperation
+  - AllMetrics
+ * **Destination details**: Choose where you want to send the logs. You can select any combination of the three options:
+  - Send to Log Analytics
+  - Archive to a storage account
+  - Stream to an event hub
 
-5. Choose where you want to send the logs. You can select any combination of the three options:
+    You may be asked to fill in additional details depending on your selection.
 
-   * Archive to a storage account
-   * Stream to an event hub
-   * Send to Log Analytics
-
-6. Choose which operations you want to monitor, and enable logs for those operations. The operations that diagnostic settings can report on are:
-
-   * Connections
-   * Device telemetry
-   * Cloud-to-device messages
-   * Device identity operations
-   * File uploads
-   * Message routing
-   * Cloud-to-device twin operations
-   * Device-to-cloud twin operations
-   * Twin operations
-   * Job operations
-   * Direct methods  
-   * Distributed tracing (preview)
-   * Configurations
-   * Device streams
-   * Device metrics
-
-6. Save the new settings. 
+    Here is a screenshot of this page showing some example selections:
+    
+    :::image type="content" source="media/how-to-set-up-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
+    
+4. Save the new settings. 
 
 If you want to turn on diagnostics settings with PowerShell, use the following code:
 
