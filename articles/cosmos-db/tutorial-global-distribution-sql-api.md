@@ -51,6 +51,8 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
 
 # [.NET SDK V2](#tab/dotnetv2)
 
+If you are using the .Net V2 SDK, use the `PreferredLocations` property to set the preferred region.
+
 ```csharp
 // Getting endpoints from application settings or other configuration location
 Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
@@ -73,9 +75,30 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
+Alternatively, you can use the `SetCurrentLocation` property and let the SDK choose the preferred location based on proximity.
+
+```csharp
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+  
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+
+connectionPolicy.SetCurrentLocation("West US 2"); /
+
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
+
+// connect to DocDB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
+
 # [.NET SDK V3](#tab/dotnetv3)
 
-If you are using the .Net V3 SDK, use the `ApplicationPreferredRegions` property to set the preferred region. You can also use the `ApplicationRegion` property and let the SDK choose the preferred location based on proximity.
+If you are using the .Net V3 SDK, use the `ApplicationPreferredRegions` property to set the preferred region.
 
 ```csharp
 
@@ -85,6 +108,17 @@ options.ApplicationPreferredRegions = new List<string> {Regions.WestUS, Regions.
 
 CosmosClient client = new CosmosClient(connectionString, options);
 
+```
+
+Alternatively, you can use the `ApplicationRegion` property and let the SDK choose the preferred location based on proximity.
+
+```csharp
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+// If the application is running in West US
+options.ApplicationRegion = Regions.WestUS;
+
+CosmosClient client = new CosmosClient(connectionString, options);
 ```
 
 ---
