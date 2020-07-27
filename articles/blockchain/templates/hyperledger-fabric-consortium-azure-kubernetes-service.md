@@ -79,7 +79,7 @@ To get started with the HLF network components deployment, navigate to the [Azur
 
 5. Enter the following details:
     - **Organization name**: The name of the Fabric organization, which is required for various data plane operations. The organization name needs to be unique per deployment.
-    - **Fabric network component**: Choose either Ordering Service or Peer nodes based on Blockchain network component you want to setup.
+    - **Fabric network component**: Choose either Ordering Service or Peer nodes based on Blockchain network component you want to set up.
     - **Number of nodes** - The following are the two types of nodes:
         - Ordering service - select the number of nodes to provided fault tolerance to the network. Only 3,5 and 7 are the supported orderer node count.
         - Peer nodes - you can choose 1-10 nodes based on your requirement.
@@ -92,7 +92,7 @@ To get started with the HLF network components deployment, navigate to the [Azur
     - **Root Certificate private key**: Upload the private key of the root certificate. If you have a .pem certificate, which has both public and private key combined, upload it here as well.
 
 
-6. Select **AKS cluster Settings** tab to define the Azure Kubernetes cluster configuration that is the underlying infrastructure on which the Fabric network components will be setup.
+6. Select **AKS cluster Settings** tab to define the Azure Kubernetes cluster configuration that is the underlying infrastructure on which the Fabric network components will be set up.
 
     ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/create-for-hyperledger-fabric-aks-cluster-settings-1.png)
 
@@ -125,7 +125,7 @@ To build the blockchain consortium post deploying the ordering service and peer 
 > Azure HLF (azhlf) script provided is to help with demo/DevTest scenarios only. Channel and consortium created by this script has basic HLF policies to simplify demo/DevTest scenario. For production setup, we recommend updating channel/consortium HLF policies in line with your organization compliance needs using the native HLF APIs.
 
 
-All the commands to run the Azure HLF script can be executed through Azure Bash Command Line. Interface (CLI). You can login into Azure shell web version through  ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the top-right corner of the Azure portal. On the command prompt, type bash and enter to switch to bash CLI.
+All the commands to run the Azure HLF script can be executed through Azure Bash Command Line. Interface (CLI). You can sign in to Azure shell web version through  ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) option at the top-right corner of the Azure portal. On the command prompt, type bash and enter to switch to bash CLI or choose *Bash* from the shell toolbar.
 
 See [Azure shell](../../cloud-shell/overview.md) for more information.
 
@@ -139,7 +139,7 @@ The following image shows the step-by-step process to build consortium between a
 Complete the sections for the initial setup of the client application: 
 
 1. Download client application files
-1. Setup environment variables
+1. Set up environment variables
 1. Import organization connection profile, admin user, and MSP
 
 After completing the initial setup, use the client application to achieve the following operations:  
