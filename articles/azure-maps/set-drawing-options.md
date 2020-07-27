@@ -7,7 +7,8 @@ ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+manager: philmea,
+ms.custom: devx-track-javascript
 ---
 
 # Use the drawing tools module

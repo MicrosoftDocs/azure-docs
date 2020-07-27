@@ -8,7 +8,8 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: timlt,
+ms.custom: devx-track-javascript
 ---
 
 # How to secure a single page application with non-interactive sign-in
