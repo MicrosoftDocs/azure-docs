@@ -1,16 +1,16 @@
 ---
 title: Azure Monitor agent overview
-description: T
+description: Overview of the Azure Monitor agent (AMA), which collects monitoring data from the guest operating system of virtual machines.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/11/2020
+ms.date: 07/27/2020
 
 ---
 
 # Azure Monitor agent overview (preview)
-The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of virtual machines and sends it to multiple locations in Azure Monitor. This articles provides an overview of the Azure Monitor agent including how to install it and how to configure data collection.
+The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of virtual machines. This articles provides an overview of the Azure Monitor agent including how to install it and how to configure data collection.
 
 ## Relationship to other agents
 The Azure Monitor Agent replaces the following agents that are currently used by Azure Monitor to collect guest data from virtual machines:

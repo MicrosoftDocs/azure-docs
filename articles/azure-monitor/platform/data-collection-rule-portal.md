@@ -1,10 +1,10 @@
 ---
-title: Configure data collection for the Azure Monitor agent using the Azure portal (preview)
+title: Configure data collection for the Azure Monitor agent (preview)
 description: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/11/2020
+ms.date: 07/27/2020
 
 ---
 

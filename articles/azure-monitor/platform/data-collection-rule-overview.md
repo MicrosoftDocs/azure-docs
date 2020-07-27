@@ -1,11 +1,11 @@
 ---
-title: Data Collection Rules in Azure Monitor agent (preview)
+title: Data Collection Rules in Azure Monitor (preview)
 description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/11/2020
+ms.date: 07/27/2020
 
 ---
 
