@@ -4,7 +4,7 @@ description: Overview backup options for Azure Windows virtual machines.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: recovery
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/13/2017
