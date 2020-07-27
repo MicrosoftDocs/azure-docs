@@ -1,6 +1,5 @@
 ---
-title: PowerShell modules
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): PowerShell modules - Azure'
 description: Use PowerShell to create and manage Azure Machine Learning Studio (classic) workspaces, experiments, web services, and more. 
 services: machine-learning
 ms.service: machine-learning

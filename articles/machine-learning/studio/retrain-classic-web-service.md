@@ -1,6 +1,5 @@
 ---
-title: Retrain a classic web service
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): retrain classic web service - Azure'
 description: Learn how to retrain a model and update a classic web service to use the newly trained model in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning

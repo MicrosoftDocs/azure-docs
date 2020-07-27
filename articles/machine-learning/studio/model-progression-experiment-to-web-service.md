@@ -1,6 +1,5 @@
 ---
-title: How a model becomes a web service
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): How a model becomes a web service - Azure'
 description: An overview of the mechanics of how your Azure Machine Learning Studio (classic) model progresses from a development experiment to a Web service.
 services: machine-learning
 ms.service: machine-learning

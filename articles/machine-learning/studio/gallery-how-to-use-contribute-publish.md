@@ -1,6 +1,5 @@
 ---
-title: Azure AI Gallery
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Azure AI Gallery - Azure'
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 ms.service: machine-learning

@@ -1,6 +1,5 @@
 ---
-title: View & rerun experiments
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): View & rerun experiments - Azure'
 description: Manage experiment runs in Azure Machine Learning Studio (classic). You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions.
 services: machine-learning
 ms.service: machine-learning

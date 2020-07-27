@@ -1,6 +1,5 @@
 ---
-title: Excel add-in for web services
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Excel add-in for web services - Azure'
 description: How to use Azure Machine Learning Web services directly in Excel without writing any code.
 services: machine-learning
 ms.service: machine-learning

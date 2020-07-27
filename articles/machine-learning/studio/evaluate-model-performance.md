@@ -1,6 +1,5 @@
 ---
-title: Evaluate & cross-validate models
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Evaluate & cross-validate models - Azure'
 description: Learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning

@@ -1,5 +1,5 @@
 ---
-title: 'Copy others' data science examples - ML Studio (classic)'
+title: 'Copy data science examples - ML Studio (classic)'
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning

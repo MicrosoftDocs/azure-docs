@@ -1,6 +1,5 @@
 ---
-title: Interpret model results
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Interpret model results - Azure'
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
 ms.service: machine-learning
