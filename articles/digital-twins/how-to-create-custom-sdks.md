@@ -20,7 +20,7 @@ ms.service: digital-twins
 Right now, the only published data plane SDK for interacting with the Azure Digital Twins APIs is for .NET (C#). You can read about the .NET SDK, and the APIs in general, in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md). If you are working in another language, this article will show you how to generate your own data plane SDK in the language of your choice, using AutoRest.
 
 >[!NOTE]
-> You can also use AutoRest to generate a control plane SDK if you would like. To do this, complete the steps in this article using the [control plane Swagger (OpenAPI) file](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins) instead of the data plane one.
+> You can also use AutoRest to generate a control plane SDK if you would like. To do this, complete the steps in this article using the [control plane Swagger (OpenAPI) file](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) instead of the data plane one.
 
 ## Set up your machine
 
