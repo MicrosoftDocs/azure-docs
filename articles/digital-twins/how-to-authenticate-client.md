@@ -20,7 +20,7 @@ ms.service: digital-twins
 After you [set up an Azure Digital Twins instance and authentication](how-to-set-up-instance-scripted.md), you can create a client application that you will use to interact with the instance. Once you have set up a starter client project, this article shows you **how to write code in that client app to authenticate it** against the Azure Digital Twins instance.
 
 There are two approaches to sample code in this article. You can use the one that's right for you, depending on your language of choice:
-* The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [Azure IoT Digital Twin client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
+* The first section of sample code uses the Azure Digital Twins .NET (C#) SDK. The SDK is part of the Azure SDK for .NET, and is located here: [*Azure IoT Digital Twin client library for .NET*](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core).
 * The second section of sample code is for users not using the .NET SDK, and instead using AutoRest-generated SDKs in other languages. For more information on this strategy, see [*How-to: Create custom SDKs for Azure Digital Twins with AutoRest*](how-to-create-custom-sdks.md).
 
 You can also read more about the APIs and SDKs for Azure Digital Twins in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
@@ -92,8 +92,8 @@ See [*How-to: Set up an Azure function for processing data*](how-to-create-azure
 
 Also, to use authentication in a function, remember to:
 * [Enable managed identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
-* [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp)
-* Assign permissions to the functions app that enable it to access the Digital Twins APIs. See [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md) for more information.
+* Use [environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables?tabs=csharp) as appropriate
+* Assign permissions to the functions app that enable it to access the Digital Twins APIs. For more information on Azure Functions processes, see [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
 ## Authentication with an AutoRest-generated SDK
 
@@ -192,7 +192,7 @@ export async function login() {
 
 Note again that where the code above places the client ID, tenant ID and instance URL directly into the code for simplicity, it's a good idea to have your code get these values from a configuration file or environment variable instead.
 
-MSAL has many more options you can use, to implement things like caching and other authentication flows. For more information on this, see [Overview of Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md).
+MSAL has many more options you can use, to implement things like caching and other authentication flows. For more information on this, see [*Overview of Microsoft Authentication Library (MSAL)*](../active-directory/develop/msal-overview.md).
 
 ## Next steps
 

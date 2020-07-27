@@ -46,7 +46,7 @@ From NoSQL migration to application development, you can choose from a variety o
 
 ## Next steps
 
-To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/en-US/).
+To learn more about some of Microsoft's other partners, see the [Microsoft Partner site](https://partner.microsoft.com/).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png

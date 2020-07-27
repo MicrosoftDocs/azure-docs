@@ -121,7 +121,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 
 - Replace *\<postgres-server-name>* with a name that's unique across all Azure (the server endpoint is `https://\<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
 - For *\<admin-username>* and *\<admin-password>*, specify credentials to create an administrator user for this Postgres server.
-- The B_Gen4_1 (Basic, Gen4, 1 core) [pricing tier](/postgresql/concepts-pricing-tiers) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
+- The B_Gen4_1 (Basic, Gen4, 1 core) [pricing tier](../../postgresql/concepts-pricing-tiers.md) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
 
 This command performs the following actions, which may take a few minutes:
 

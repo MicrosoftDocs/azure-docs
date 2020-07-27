@@ -4,7 +4,7 @@ description: Answers to commonly asked questions about transitioning offers from
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ---
@@ -102,19 +102,19 @@ The offers you created in Cloud Partner Portal are available in Partner Center u
 
     If you don't see the Commercial Marketplace program in the navigation pane on the left, you may be in the wrong account. Follow the steps in the next section to access the right account.
 
-    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
+    [![Screenshot that shows the Partner Center Overview menu](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
 
 ### Access the right account in Partner Center
 
 If you are part of multiple accounts, in Partner center you will see an account picker button marked by two arrows in the navigation menu on the left. Select the account picker button to view a list of all the accounts you belong to. Select any account on the list to switch to it and see all the programs and information pertaining to that account. If you don't see an account picker button in the navigation menu, you are a member of a single account.
 
-[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+[![Screenshot shows the Partner Center account picker button.](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
 
 ## How do I create new offers?
 
 Access the Commercial marketplace program in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) to create new offers. On the Overview page, select **+ New offer**.
 
-[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+[![Screenshot shows the Partner Center Overview menu.](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
 
 ## I can't sign in and need to open a support ticket
 
@@ -122,7 +122,7 @@ If you can't sign in to your account, you can open a [support ticket](https://pa
 
 ## Where are instructions for using Partner Center?
 
-Go to the [commercial marketplace documentation](index.yml), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
+Go to the [commercial marketplace documentation.](index.yml), then expand **Commercial Marketplace Portal in Partner Center**. To see help articles for creating offers in Partner Center, expand **Create a new offer**.
 
 ## What are the publishing and offer management differences?
 
@@ -132,7 +132,7 @@ Here are some differences between the Cloud Partner Portal and Partner Center.
 
 Partner Center provides a modular publishing option that lets you select the changes you want to publish instead of always publishing all updates at once. For example, the following screen shows that the only changes selected to be published are the changes to **Properties** and  **Offer Listing**. The changes you make in the Preview page will not be published.
 
-[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
+[![Screenshot shows the Partner Center Review and publish page.](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
 
 The updates that you don't publish are saved as drafts. Continue to use your offer preview to verify your offer before making it live to the public.
 
@@ -140,17 +140,17 @@ The updates that you don't publish are saved as drafts. Continue to use your off
 
 Partner Center includes a [compare feature](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) with improved filtering options. This gives you the ability to compare against the preview and live versions of the offer.
 
-[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
+[![Screenshot shows the Partner Center compare feature.](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
 
 ### Branding and navigation changes
 
 You'll notice some branding changes. For example, *SKUs* are branded as *Plans* in Partner Center:
 
-[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
+[![Screenshot shows the Partner Center Plans page.](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
 
 Also, the information you previously provided in the **Marketplace** or **Storefront Details**  (Consulting Service, Power BI app) pages in the Cloud Partner Portal is now collected on the **Offer listing** page in Partner Center:
 
-[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![Screenshot shows the Partner Center Offer listing page.](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 The information you previously provided for SKUs in a single page in the Cloud Partner Portal may now be collected throughout several pages in Partner Center:
 
@@ -158,7 +158,7 @@ The information you previously provided for SKUs in a single page in the Cloud P
 - Plan listing page
 - Plan availability page
 - Plan technical configuration page, as shown here:
-![![](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+![![Screenshot shows the Partner Center technical configuration page.](media/cpp-pc-faq/technical-configuration.png "Shows the Partner Center technical configuration page")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Your offer ID is now shown on the left-navigation bar of the offer:
 
@@ -168,7 +168,7 @@ Your offer ID is now shown on the left-navigation bar of the offer:
 
 You can request to [stop selling an offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) on the marketplace directly from the Partner Center portal. The option is available on the **Offer overview** page for your offer.
 
-[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Screenshot shows the Partner Center page to stop selling an offer.](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## Are the Cloud Partner Portal REST APIs still supported?

@@ -25,7 +25,7 @@ Azure Digital Twins can be driven with data from IoT Hub. This allows you to col
 
 Azure Digital Twins does not have a built-in IoT Hub. You can use an existing IoT Hub you currently have in production, or deploy a new one. This gives you full access to all of the device management capabilities of IoT Hub.
 
-To ingest data from IoT Hub into Azure Digital Twins, use an [Azure function](../azure-functions/functions-overview.md). Learn more about this pattern in [*How-to: Ingest telemetry from IoT Hub*](how-to-ingest-iot-hub-data.md), or try it out yourself in the [Azure Digital Twins tutorial: *Connect an end-to-end solution*](tutorial-end-to-end.md).
+To ingest data from IoT Hub into Azure Digital Twins, use an [Azure function](../azure-functions/functions-overview.md). Learn more about this pattern in [*How-to: Ingest telemetry from IoT Hub*](how-to-ingest-iot-hub-data.md), or try it out yourself in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
 
 ## Data egress services
 
