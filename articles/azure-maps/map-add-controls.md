@@ -7,7 +7,7 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt,
+manager: timlt
 ms.custom: devx-track-javascript
 ---
 
