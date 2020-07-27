@@ -55,7 +55,7 @@ From a development standpoint, this means a few things:
 1. If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI.  `http://127.0.0.1/MyWebApp` does not match `http://127.0.0.1/MyNativeApp`.  
 1. Per RFC guidance, you should not use `localhost` in the redirect URI.  Instead, use the actual loopback IP address - `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
 
->[NOTE]
+>[!NOTE]
 > At this time, IPv6 loopback (`[::1]`) is not supported at this time.  This will added at a later date.
 
 ## Restrictions using a wildcard in URIs

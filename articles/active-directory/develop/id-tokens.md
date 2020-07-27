@@ -94,8 +94,8 @@ When identifying a user (say, looking them up in a database, or deciding what pe
 
 To correctly store information per-user,  use `sub` or `oid` alone (which as GUIDs are unique), with `tid` used for routing or sharding if needed.  If you need to share data across services, `oid`+`tid` is best as all apps get the same `oid` and `tid` claims for a given user.  The `sub` claim in the Microsoft identity platform is "pair-wise" - it is unique based on a combination of the token recipient, tenant, and user.  Thus, two apps that request ID tokens for a given user will receive different `sub` claims, but the same `oid` claims for that user.
 
->[NOTE]
-> Do not use the `idp` claim to store information about a user in an attempt to correlate users across tenants.  It will not function, as the `oid` and `sub` clams for a user change across tenants, by design, to ensure that applications cannot track users across tenants.  
+>[!NOTE]
+> Do not use the `idp` claim to store information about a user in an attempt to correlate users across tenants.  It will not function, as the `oid` and `sub` claims for a user change across tenants, by design, to ensure that applications cannot track users across tenants.  
 >
 > Guest scenarios, where a user is homed in one tenant, and authenticates in another, should treat the user as if they are a brand new user to the service.  Your documents and privileges in the Contoso tenant should not apply in the Fabrikam tenant. This is important to prevent accidental data leakage across tenants.
 
