@@ -34,6 +34,9 @@ In [part two](tutorial-designer-automobile-price-deploy.md) of the tutorial, you
 >
 >To find it, go to the designer in your workspace. In the **New pipeline** section, select **Sample 1 - Regression: Automobile Price Prediction(Basic)**.
 
+> [!IMPORTANT]
+> If you do not see graphical elements mentioned in this document, such as buttons in studio or designer, you may not have the right level of permissions to the workspace. Please contact your Azure subscription administrator to verify that you have been granted the correct level of access. For more information, see [Manage users and roles](how-to-assign-roles.md).
+
 ## Create a new pipeline
 
 Azure Machine Learning pipelines organize multiple machine learning and data processing steps into a single resource. Pipelines let you organize, manage, and reuse complex machine learning workflows across projects and users.
