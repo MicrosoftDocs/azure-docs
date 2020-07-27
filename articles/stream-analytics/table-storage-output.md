@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ---
 
-## Table storage output from Azure Stream Analytics
+# Table storage output from Azure Stream Analytics
 
 [Azure Table storage](../storage/common/storage-introduction.md) offers highly available, massively scalable storage, so that an application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store, which you can use for structured data with fewer constraints on the schema. Azure Table storage can be used to store data for persistence and efficient retrieval.
 

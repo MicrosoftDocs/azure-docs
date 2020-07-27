@@ -20,14 +20,14 @@ Some outputs types support [partitioning](#partitioning), and [output batch size
 | Output type | Partitioning | Batching | Security | 
 |-------------|--------------|----------|------------------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Yes|Yes|Access key|
-|[Azure SQL Database](azure-sql-database-output.md)|Yes, needs to enabled.|Yes|SQL user auth|
+|[Azure SQL Database](sql-database-output.md)|Yes, needs to enabled.|Yes|SQL user auth|
 |[Azure Synapse Analytics (Preview)](azure-synapse-analytics-output.md)|No|Yes|SQL user auth|
 |[Blob storage and Azure Data Lake Gen 2](blob-storage-azure-data-lake-gen2-output.md)|Yes|Yes|MSI|
 |[Event Hubs](event-hubs-output.md)|Yes|Yes|Access key|
 |[Power BI](power-bi-output.md)|No|Yes|MSI|
 |[Table storage](table-storage-output.md)|Yes|Yes|Account key|
 |[Service Bus queues](service-bus-queues-output.md)|Yes|Yes|Access key|
-|[Service Bus topics](service-bus-queues-topics.md)|Yes|Yes|Access key|
+|[Service Bus topics](service-bus-topics-output.md)|Yes|Yes|Access key|
 |[Azure Cosmos DB](azure-cosmos-db-output.md)|Yes|Yes|Access key|
 |[Azure Functions](azure-functions-output.md)|Yes|Yes|Access key|
 

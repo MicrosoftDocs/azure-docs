@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ---
 
-## Azure Cosmos DB output from Azure Stream Analytics
+# Azure Cosmos DB output from Azure Stream Analytics
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) is a globally distributed database service that offers limitless elastic scale around the globe, rich query, and automatic indexing over schema-agnostic data models. To learn about Azure Cosmos DB container options for Stream Analytics, see the [Stream Analytics with Azure Cosmos DB as output](stream-analytics-documentdb-output.md) article.
 

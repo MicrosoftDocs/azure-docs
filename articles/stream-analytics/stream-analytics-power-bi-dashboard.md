@@ -8,6 +8,7 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/05/2019
 ---
+
 # Stream Analytics and Power BI: A real-time analytics dashboard for streaming data
 
 Azure Stream Analytics enables you to take advantage of one of the leading business intelligence tools, [Microsoft Power BI](https://powerbi.com/). In this article, you learn how create business intelligence tools by using Power BI as an output for your Azure Stream Analytics jobs. You also learn how to create and use a real-time dashboard.
@@ -184,7 +185,7 @@ Your Streaming Analytics job starts looking for fraudulent calls in the incoming
 This tutorial demonstrates how to create only a few kinds of visualizations for a dataset. Power BI can help you create other customer business intelligence tools for your organization. For more ideas, see the following resources:
 
 * For another example of a Power BI dashboard, watch the [Getting Started with Power BI](https://youtu.be/L-Z_6P56aas?t=1m58s) video.
-* For more information about configuring Streaming Analytics job output to Power BI and using Power BI groups, review the [Power BI](stream-analytics-define-outputs.md#power-bi) section of the [Stream Analytics outputs](stream-analytics-define-outputs.md) article. 
+* For more information about configuring Streaming Analytics job output to Power BI and using Power BI groups, review the [Power BI](power-bi-output.md) section of the [Stream Analytics outputs](stream-analytics-define-outputs.md) article. 
 * For information about using Power BI generally, see [Dashboards in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-dashboards/).
 
 

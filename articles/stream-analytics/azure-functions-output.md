@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ---
 
-## Azure Functions output from Azure Stream Analytics
+# Azure Functions output from Azure Stream Analytics
 
 Azure Functions is a serverless compute service that you can use to run code on-demand without having to explicitly provision or manage infrastructure. It lets you implement code that's triggered by events occurring in Azure or partner services. This ability of Azure Functions to respond to triggers makes it a natural output for Azure Stream Analytics. This output adapter enables users to connect Stream Analytics to Azure Functions, and run a script or piece of code in response to a variety of events.
 
@@ -40,7 +40,7 @@ The partition key is based on the PARTITION BY clause in the query. The number o
 
 ## Output batch size
 
-The default batch size is 262,144 bytes (256 KB). The default event count per batch is 100. The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions).
+The default batch size is 262,144 bytes (256 KB). The default event count per batch is 100. The batch size is configurable and can be increased or decreased in the Stream Analytics output options.
 
 ## Next steps
 

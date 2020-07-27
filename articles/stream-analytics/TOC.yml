@@ -91,7 +91,7 @@
     - name: Service Bus queues
       href: service-bus-queues-output.md
     - name: Service Bus topics
-      href: service-bus-queues-topics.md
+      href: service-bus-topics-output.md
     - name: Azure Cosmos DB
       href: azure-cosmos-db-output.md
     - name: Cosmos DB optimization
