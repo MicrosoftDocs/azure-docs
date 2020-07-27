@@ -21,9 +21,6 @@ Although secure and provides additional security benefits, some organizations ca
 
 To address these needs and restrictions, you can create a managed domain that uses a resource forest. This conceptual article explains what forests are, and how they trust other resources to provide a secure authentication method.
 
-> [!IMPORTANT]
-> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
-
 ## What are forests?
 
 A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
