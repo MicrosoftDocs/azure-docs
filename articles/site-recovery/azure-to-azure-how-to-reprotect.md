@@ -93,10 +93,6 @@ When the VM is re-protected after failing back to the primary region (i.e., if t
 
 When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
 
-When the VM is re-protected after failing back to the primary region (i.e., if the VM is re-protected from primary region to DR region), the target VM and associated NIC(s) are deleted. 
-
-When the VM is re-protected from the DR region to the primary region, we do not delete the erstwhile primary VM and associated NIC(s).
-
 ## Next steps
 
 After the VM is protected, you can initiate a failover. The failover shuts down the VM in the secondary region and creates and boots the VM in the primary region, with brief downtime during this process. We recommend you choose an appropriate time for this process and that you run a test failover before initiating a full failover to the primary site. [Learn more](site-recovery-failover.md) about Azure Site Recovery failover.
