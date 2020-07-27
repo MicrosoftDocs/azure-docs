@@ -125,6 +125,4 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 >Custom packages can be added or modified between sessions. However, you will need to wait for the pool and session to restart to see the updated package.
 
 ## Next steps
-
-- Learn more about how to create an Apache Spark pool: [Quickstart: Create an Apache Spark Pool](quickstart-create-apache-spark-pool-portal.md)
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)
