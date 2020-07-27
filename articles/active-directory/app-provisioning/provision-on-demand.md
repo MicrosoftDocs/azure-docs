@@ -44,7 +44,7 @@ The provisioning service attempts to authorize access to the target application 
 
 * Ensure that you've provided valid credentials, such as the secret token and tenant URL, to the target application. The required credentials vary by application. For detailed configuration tutorials, see the [tutorial list](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list). 
 * Make sure that the target application supports filtering on the matching attributes defined in the **Attribute mappings** pane. You might need to check the API documentation provided by the application developer to understand the supported filters.
-* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure AD provisioning service expects. Have a look at an [example request](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
+* For System for Cross-domain Identity Management (SCIM) applications, you can use a tool like Postman. Such tools help you ensure that the application responds to authorization requests in the way that the Azure Active Directory (Azure AD) provisioning service expects. Have a look at an [example request](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#request-3).
 
 ### Step 2: Import user
 
@@ -57,7 +57,7 @@ Next, the provisioning service retrieves the user from the source system. The us
 #### View details
 
 
-The **View details** section shows the properties of the user that were imported from the source system (for example, Azure Active Directory).
+The **View details** section shows the properties of the user that were imported from the source system (for example, Azure AD).
 
 #### Troubleshooting tips
 
@@ -81,7 +81,7 @@ Next, the provisioning service determines whether the user is in [scope](https:/
 
 The **View details** section shows the scoping conditions that were evaluated. You might see one or more of the following properties:
 
-* **Active in source system** indicates that the user has the property `IsActive` set to **true** in Azure Active Directory (Azure AD).
+* **Active in source system** indicates that the user has the property `IsActive` set to **true** in Azure AD.
 * **Assigned to application** indicates that the user is assigned to the application in Azure AD.
 * **Scope sync all** indicates that the scope setting allows all users and groups in the tenant.
 * **User has required role** indicates that the user has the necessary roles to be provisioned into the application. 
