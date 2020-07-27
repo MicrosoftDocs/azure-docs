@@ -239,7 +239,7 @@ Time Series Model types are defined by **id**, **name**, **description**, and **
 | description | A string description for the type. |
 | variables | Specify variables associated with the type. |
 
-Types conform to the following JSON example:
+Types conform to the following JSON example::
 
 ```JSON
 {
