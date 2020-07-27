@@ -100,19 +100,11 @@ speechConfig.SetServiceProperty("transcriptionMode", "RealTimeAndAsync", Service
 
 ## Get transcription results
 
-<<<<<<< HEAD
-Please install **Microsoft.CognitiveServices.Speech.Remoteconversation version 1.13.0 or above** from public nuget into your project.
-
-### Sample transcription code
-
-After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Create an object of  **RemoteConversationTranscriptionOperation** to get a long running operation [Operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) object. You can check the status of the operation or wait for it to complete. 
-=======
 Install **Microsoft.CognitiveServices.Speech.Remoteconversation version 1.13.0 or above** via NuGet.
 
 ### Sample transcription code
 
 After you have the `conversationId`, create a remote conversation transcription client **RemoteConversationTranscriptionClient** at the client application to query the status of the asynchronous transcription. Create an object of  **RemoteConversationTranscriptionOperation** to get a long running [Operation](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core#consuming-long-running-operations-using-operationt) object. You can check the status of the operation or wait for it to complete. 
->>>>>>> 1fc8413b746aa2e051877fe1d2a15df8ecf25d0c
 
 ```csharp
 // Create the speech config

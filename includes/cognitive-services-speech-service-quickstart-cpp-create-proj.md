@@ -23,7 +23,7 @@ To start, make sure you're set up correctly in Visual Studio for C++ desktop dev
 
 1. In the **Workloads** tab, under **Windows**, find the **Desktop development with C++** workload. If the check box next to that workload isn't already selected, select it.
 
-1. In the **Individual components** tab, find the **Nuget package manager** check box. If the check box isn't already selected, select it.
+1. In the **Individual components** tab, find the **NuGet package manager** check box. If the check box isn't already selected, select it.
 
 1. Select the button in the corner labeled either **Close** or **Modify**. (The button name varies depending on whether you selected any features for installation.) If you select **Modify**, installation begins, which may take a while.
 
@@ -53,7 +53,7 @@ Now select your target platform architecture. In the Visual Studio toolbar, find
 
 Finally, install the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget), and reference the Speech SDK in your project:
 
-1. In **Solution Explorer**, right-click your solution, and choose **Manage NuGet Packages for Solution** to go to the **Nuget - Solution** window.
+1. In **Solution Explorer**, right-click your solution, and choose **Manage NuGet Packages for Solution** to go to the **NuGet - Solution** window.
 
 1. Select **Browse**.
 
