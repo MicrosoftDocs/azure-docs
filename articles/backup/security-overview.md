@@ -45,7 +45,7 @@ Encryption protects your data and helps you to meet your organizational security
 
 * Backup data is automatically encrypted using [Microsoft-managed keys](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys). You can also encrypt your backed up managed disk VMs in the Recovery Services Vault using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. You don't need to take any explicit action to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault.
 
-* Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) and [VMs with CMK encrypted disks](backup-encryption#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
+* Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) and [VMs with CMK encrypted disks](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
 
 * When data is backed up from on-premises servers with the MARS agent, data is encrypted with a passphrase before upload to Azure Backup and decrypted only after it's downloaded from Azure Backup. Read more about [security features to help protect hybrid backups](#security-features-to-help-protect-hybrid-backups).
 
