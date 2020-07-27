@@ -40,7 +40,7 @@ To take advantage of the GPU capabilities of your lab VMs, ensure that the appro
 ![Screenshot of the "New lab" showing the "Install GPU drivers" option](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 As shown in the preceding image, this option is enabled by default, which ensures that the *latest* drivers are installed for the type of GPU and image that you selected.
-- When you select a *compute* GPU size, your lab VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU.  In this case, the latest [Compute Unified Device Architecture (CUDA)](https://www.nvidia.com/object/io_69526.html) drivers are installed, which enables high-performance computing.
+- When you select a *compute* GPU size, your lab VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU.  In this case, the latest [Compute Unified Device Architecture (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) drivers are installed, which enables high-performance computing.
 - When you select a *visualization* GPU size, your lab VMs are powered by the [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU and [GRID technology](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  In this case, the latest GRID drivers are installed, which enables the use of graphics-intensive applications.
 
 ### Install the drivers manually
