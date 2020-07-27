@@ -50,7 +50,7 @@ Metrics having to do with API requests:
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API Requests (Preview) | Count | Total | The number of API Requests made for Digital Twins read, write, delete and query operations. |  Authentication</br>Operation</br>Protocol</br>Status Code</br>Status Code Class</br>Status Text |
-| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests, i.e. from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete and query operations. | Authentication</br>Operation</br>Protocol |
+| ApiRequestsLatency | API Requests Latency (Preview) | Milliseconds | Average | The response time for API requests. This refers to the time from when the request is received by Azure Digital Twins until the service sends a success/fail result for Digital Twins read, write, delete and query operations. | Authentication</br>Operation</br>Protocol |
 | ApiRequestsFailureRate | API Requests Failure Rate (Preview) | Percent | Average | The percentage of API requests that the service receives for your instance that return an internal error (500) response code for Digital Twins read, write, delete and query operations. | Authentication</br>Operation</br>Protocol</br>Status Code</br>Status Code Class</br>Status Text
 
 #### Routing metrics
@@ -86,9 +86,9 @@ Dimensions help identify more details about the metrics. Some of the routing met
 Operation (for Routing) | Event Grid</br>Event Hub</br>Service Bus |
 | Protocol | HTTPS |
 | Result | Success</br>Failure |
-| Status Code | 200, 404, 500 etc. |
-| Status Code Class | 2xx, 4xx, 5xx etc. |
-| Status Text | Internal Server Error, Not Found etc. |
+| Status Code | 200, 404, 500, and so on. |
+| Status Code Class | 2xx, 4xx, 5xx, and so on. |
+| Status Text | Internal Server Error, Not Found, and so on. |
 
 ## Next steps
 
