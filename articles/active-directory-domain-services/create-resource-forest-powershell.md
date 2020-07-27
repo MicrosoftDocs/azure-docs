@@ -93,7 +93,7 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
       -Location "WestUS"
     ```
 
-1. Install the `New-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
+1. Install the `New-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-gallery] using the [Install-Script][Install-Script] cmdlet:
 
     ```powershell
     Install-Script -Name New-AaddsResourceForestTrust
@@ -120,7 +120,7 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
     | Workload subnet name (optional)   | *-workloadSubnetName*             | Optional name of a subnet in the *aaddsVnetName* virtual network to create for your own application workloads. VMs and applications and also be connected to a peered Azure virtual network instead. |
     | Workload address range (optional) | *-workloadSubnetCIDRAddressRange* | Optional subnet address range in CIDR notation for application workload, such as *192.168.2.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets.|
 
-1. Now create a managed domain resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *rf.addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
+1. Now create a managed domain resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
 
     ```azure-powershell
     New-AzureAaddsForest `
@@ -147,8 +147,8 @@ Before you start, make sure you understand the [network considerations and recom
 
 1. Create the hybrid connectivity to your on-premises network to Azure using an Azure VPN or Azure ExpressRoute connection. The hybrid network configuration is beyond the scope of this documentation, and may already exist in your environment. For details on specific scenarios, see the following articles:
 
-* [Azure Site-to-Site VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
-* [Azure ExpressRoute Overview](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure Site-to-Site VPN](/vpn-gateway/vpn-gateway-about-vpngateways).
+    * [Azure ExpressRoute Overview](/vpn-gateway/vpn-gateway-about-vpngateways).
 
     > [!IMPORTANT]
     > If you create the connection directly to your managed domain's virtual network, use a separate gateway subnet. Don't create the gateway in the managed domain's subnet.
@@ -184,7 +184,7 @@ The forest trust has two parts - the one-way outbound forest trust in the manage
 
 ### Create the managed domain side of the trust relationship
 
-Use the `Add-AaddsResourceForestTrust` script to create the managed domain side of the trust relationship. First, install the `Add-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
+Use the `Add-AaddsResourceForestTrust` script to create the managed domain side of the trust relationship. First, install the `Add-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-gallery] using the [Install-Script][Install-Script] cmdlet:
 
 ```powershell
 Install-Script -Name Add-AaddsResourceForestTrust
@@ -342,7 +342,7 @@ In normal operation, the managed domain forest and on-premises forest negotiate 
 
 The following example steps show you how to update an existing trust relationship if you need to manually reset the outbound trust password:
 
-1. Install the `Get-AaddsResourceForestTrusts` and `Set-AaddsResourceForestTrust` scripts from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
+1. Install the `Get-AaddsResourceForestTrusts` and `Set-AaddsResourceForestTrust` scripts from the [PowerShell Gallery][powershell-gallery] using the [Install-Script][Install-Script] cmdlet:
 
     ```powershell
     Install-Script -Name Get-AaddsResourceForestTrusts,Set-AaddsResourceForestTrust
@@ -369,7 +369,7 @@ The following example steps show you how to update an existing trust relationshi
 
 If you no longer need the one-way outbound forest trust from the managed domain to an on-premises AD DS forest, you can remove it. Make sure that no applications or services need to authenticate against the on-premises AD DS forest before you remove the trust. You must manually remove the one-way inbound trust in the on-premises AD DS forest, too.
 
-1. Install the `Remove-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
+1. Install the `Remove-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-gallery] using the [Install-Script][Install-Script] cmdlet:
 
     ```powershell
     Install-Script -Name Remove-AaddsResourceForestTrust
@@ -417,3 +417,6 @@ For more conceptual information about forest types in Azure AD DS, see [What are
 [New-AzureADServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
 [Get-AzureRMSubscription]: /powershell/module/AzureRM.Profile/Get-AzureRmSubscription
 [Install-Script]: /powershell/module/powershellget/install-script
+
+<!-- EXTERNAL LINKS -->
+[powershell-gallery]: https://www.powershellgallery.com/

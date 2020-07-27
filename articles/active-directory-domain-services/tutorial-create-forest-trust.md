@@ -31,9 +31,6 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-> [!IMPORTANT]
-> Azure AD DS resource forests don't currently support Azure HDInsight or Azure Files. The default Azure AD DS user forests do support both of these additional services.
-
 ## Prerequisites
 
 To complete this tutorial, you need the following resources and privileges:
@@ -49,8 +46,6 @@ To complete this tutorial, you need the following resources and privileges:
     > Make sure that you create a managed domain using a *resource* forest. The default option creates a *user* forest. Only resource forests can create trusts to on-prem AD DS environments.
     >
     > You also need to use a minimum of *Enterprise* SKU for your managed domain. If needed, [change the SKU for a managed domain][howto-change-sku].
-
-Before you start, make sure you understand the [network considerations, forest naming, and DNS requirements][forest-planning]. You can't change the Azure AD DS forest name once it's deployed.
 
 ## Sign in to the Azure portal
 
