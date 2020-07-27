@@ -18,10 +18,10 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 
 ## July 2020
 
-### Read API v3.1-preview.1 adds Simplified Chinese
+### Read API v3.1-preview.1 adds support for Simplified Chinese
 Computer Vision's Read API v3.1-preview.1 adds support for Simplified Chinese.
 
-* Languages supported are English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish.
+* This preview version of the Read API supports English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish languages.
 
 See the [Read API overview](concept-recognizing-text.md) to learn more.
 
