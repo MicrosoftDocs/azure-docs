@@ -209,6 +209,8 @@
         href: blackboard-learn-shibboleth-tutorial.md
       - name: Blink
         href: blink-tutorial.md
+      - name: BlogIn
+        href: blogin-tutorial.md
       - name: Blue Access for Members (BAM)
         href: blue-access-for-members-tutorial.md
       - name: BlueJeans
@@ -287,6 +289,8 @@
         href: cezannehrsoftware-tutorial.md
       - name: Change Process Management
         href: change-process-management-tutorial.md
+      - name: Chatwork
+        href: chatwork-tutorial.md
       - name: Chargebee
         href: chargebee-tutorial.md
       - name: Cherwell
@@ -1034,6 +1038,8 @@
         href: meta4-global-hr-tutorial.md
       - name: Meta Networks Connector
         href: metanetworksconnector-tutorial.md
+      - name: Michigan Data Hub Single Sign-On
+        href: michigan-data-hub-single-sign-on-tutorial.md
       - name: Mimecast Admin Console
         href: mimecast-admin-console-tutorial.md
       - name: Mimecast Personal Portal
@@ -1062,6 +1068,8 @@
         href: mobileiron-tutorial.md
       - name: moconavi
         href: moconavi-tutorial.md
+      - name: Momenta
+        href: momenta-tutorial.md
       - name: monday.com
         href: mondaycom-tutorial.md
       - name: MongoDB Cloud
@@ -1140,6 +1148,8 @@
         href: ns1-sso-azure-tutorial.md
       - name: Nuclino
         href: nuclino-tutorial.md
+      - name: NumlyEngage™
+        href: numlyengage-tutorial.md
       - name: O.C. Tanner - AppreciateHub
         href: oc-tanner-tutorial.md
       - name: OfficeSpace Software
@@ -1160,6 +1170,8 @@
         href: opal-tutorial.md
       - name: OpenAthens
         href: openathens-tutorial.md
+      - name: OpenText Directory Services
+        href: opentext-directory-services-tutorial.md
       - name: OpsGenie
         href: opsgenie-tutorial.md
       - name: Optimizely
@@ -1510,6 +1522,8 @@
         href: smartfile-tutorial.md
       - name: Smart Global Governance
         href: smart-global-governance-tutorial.md
+      - name: SmartHR
+        href: smarthr-tutorial.md
       - name: SmartKargo
         href: smartkargo-tutorial.md
       - name: SmartLPA
@@ -1640,6 +1654,8 @@
         href: timetabling-solutions-tutorial.md
       - name: TINFOIL SECURITY
         href: tinfoil-security-tutorial.md
+      - name: Titanfile
+        href: titanfile-tutorial.md
       - name: TiViTz
         href: tivitz-tutorial.md
       - name: TonicDM
@@ -1758,6 +1774,8 @@
         href: wisdom-by-invictus-tutorial.md
       - name: Wizergos Productivity Software
         href: wizergosproductivitysoftware-tutorial.md
+      - name: Wootric
+        href: wootric-tutorial.md
       - name: Work.com
         href: work-com-tutorial.md
       - name: Workable

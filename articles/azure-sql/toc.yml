@@ -82,6 +82,8 @@
           href: database/authentication-mfa-ssms-configure.md
         - name: Conditional Access
           href: database/conditional-access-configure.md
+        - name: Service principals (Applications)
+          href: database/authentication-aad-service-principal.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -150,6 +152,8 @@
 
     - name: Security  
       items: 
+      - name: Create Azure AD guest users and set as an Azure AD admin
+        href: database/authentication-aad-guest-users.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
       - name: Store vulnerability scans in storage
@@ -293,6 +297,8 @@
         href: database/transparent-data-encryption-byok-key-rotation.md
       - name: Remove TDE protector
         href: database/transparent-data-encryption-byok-remove-tde-protector.md
+      - name: Create users using service principals
+        href: database/authentication-aad-service-principal-tutorial.md
     - name: Move data
       items: 
       - name: Migrate using DMS
