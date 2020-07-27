@@ -12,5 +12,5 @@ ms.author: marsma
 > MSAL.js 2.0 does not currently support Azure AD B2C for use with the PKCE authorization code flow. At this time, Azure AD B2C recommends using the implicit flow as described in [Tutorial: Register an application][implicit-flow]. To follow progress on this issue, see the [MSAL.js wiki][msal-wiki].
 
 [github-issue]: https://github.com/AzureAD/microsoft-authentication-library-for-js/issues/1795
-[implicit-flow]: ../articles/active-directory-b2c/tutorial-register-applications?tabs=app-reg-ga
+[implicit-flow]: ../articles/active-directory-b2c/tutorial-register-applications.md
 [msal-wiki]: https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-browser-B2C-CORS-issue
