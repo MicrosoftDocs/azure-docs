@@ -125,6 +125,10 @@
     - name: Use container instances
       href: deploy-computer-vision-on-container-instances.md
       displayName: container instances, container, containers, images
+  - name: People Analytics container
+    items:
+    - name: Setup the host machine and run the container
+      href: people-analytics-container.md
 - name: How-to guides
   items:
   - name: Call the Computer Vision API
