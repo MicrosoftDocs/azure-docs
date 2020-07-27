@@ -49,9 +49,8 @@ If you have a Microsoft Customer Agreement, you can download month-to-date usage
 2. Search for *Cost Management + Billing*.
 3. Select a billing profile. Depending on your access, you might need to select a billing account first.
 4. In the **Overview** area, find the download links beneath the recent charges.
-5. Select **Download usage and prices**.
-
-    ![Screenshot that shows download from Overview](./media/download-azure-daily-usage/open-usage01.png)
+5. Select **Download usage and prices**.  
+    :::image type="content" source="./media/open-usage01.png" alt-text="Screenshot that shows download from Overview" lightbox="./media/open-usage01.png" :::
 
 ## Check your billing account type
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
