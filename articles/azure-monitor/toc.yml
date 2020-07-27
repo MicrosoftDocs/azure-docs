@@ -188,37 +188,6 @@
         href: app/pricing.md
       - name: Log data usage and costs
         href: platform/manage-cost-storage.md
-  - name: Data collection
-    items:
-    - name: Data collection rules
-      items: 
-      - name: Overview
-        displayname: data collection rule
-        href: platform/data-collection-rule-overview.md
-      - name: Create
-        displayname: data collection rule
-        href: platform/data-collection-rule-portal.md
-    - name: Custom metrics
-      items:
-      - name: Custom metrics
-        href: platform/metrics-custom-overview.md   
-      - name: Metrics REST API
-        href: platform/metrics-store-custom-rest-api.md
-    - name: Custom logs
-      items: 
-      - name: Log Analytics Data collector API 
-        href: platform/data-collector-api.md
-      - name: Log Analytics Data Collector API Pipeline example
-        href: platform/create-pipeline-datacollector-api.md
-    - name: Logic Apps
-      items: 
-      - name: Azure Monitor Logs connector
-        href: platform/logicapp-flow-connector.md
-      - name: Application Insights connector
-        href: app/automate-with-logic-apps.md
-    - name: REST API
-      displayname: metrics, analyze
-      href: platform/rest-api-walkthrough.md
   - name: Platform logs
     items:
     - name: Overview
@@ -348,6 +317,37 @@
       href: platform/metric-chart-samples.md
     - name: Troubleshooting metric charts
       href: platform/metrics-troubleshoot.md
+  - name: Data collection
+    items:
+    - name: Data collection rules
+      items: 
+      - name: Overview
+        displayname: data collection rule
+        href: platform/data-collection-rule-overview.md
+      - name: Create
+        displayname: data collection rule
+        href: platform/data-collection-rule-portal.md
+    - name: Custom metrics
+      items:
+      - name: Custom metrics
+        href: platform/metrics-custom-overview.md   
+      - name: Metrics REST API
+        href: platform/metrics-store-custom-rest-api.md
+    - name: Custom logs
+      items: 
+      - name: Log Analytics Data collector API 
+        href: platform/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: platform/create-pipeline-datacollector-api.md
+    - name: Logic Apps
+      items: 
+      - name: Azure Monitor Logs connector
+        href: platform/logicapp-flow-connector.md
+      - name: Application Insights connector
+        href: app/automate-with-logic-apps.md
+    - name: REST API
+      displayname: metrics, analyze
+      href: platform/rest-api-walkthrough.md
   - name: Agents
     items:
     - name: Overview
