@@ -35,7 +35,7 @@ In this example, you will use Spark to perform some analysis on taxi trip tip da
 
 > [!IMPORTANT]
 > There may be additional charges for pulling this data from its storage location. In the following steps, you will develop a model to predict NYC taxi fare prices. 
-# 
+
 
 ##  Create an Apache Spark Machine Learning Applications
 
