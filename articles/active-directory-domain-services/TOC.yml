@@ -9,7 +9,7 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Create a basic managed domain
+    - name: Create a managed domain
       href: tutorial-create-instance.md
     - name: Configure the virtual network for apps
       href: tutorial-configure-networking.md
@@ -21,7 +21,9 @@
       href: tutorial-configure-ldaps.md
     - name: Configure password hash sync
       href: tutorial-configure-password-hash-sync.md
-    - name: Create an advanced managed domain
+    - name: Create a replica set (preview)
+      href: tutorial-create-replica-set.md
+    - name: Create a customized managed domain
       href: tutorial-create-instance-advanced.md
     - name: Create a forest trust (preview)
       href: tutorial-create-forest-trust.md
@@ -39,6 +41,8 @@
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
+    - name: Replica sets (preview)
+      href: concepts-replica-sets.md
     - name: Forests and trusts
       items:
         - name: Resource forests
