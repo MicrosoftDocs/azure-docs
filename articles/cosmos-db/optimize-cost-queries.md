@@ -22,6 +22,8 @@ Reads in Azure Cosmos DB are typically ordered from fastest/most efficient to sl
 
 * Query without filters.
 
+Because key/value lookups on the item ID are the most efficient kind of read, you should make sure item ID has a meaningful value.
+
 Queries that read data from one or more partitions incur higher latency and consume higher number of request units. Since each partition has automatic indexing for all properties, the query can be served efficiently from the index. You can make queries that use multiple partitions faster by using the parallelism options. To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
 
 ## Evaluate request unit charge for a query

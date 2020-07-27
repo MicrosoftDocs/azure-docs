@@ -18,7 +18,14 @@ In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 
 Most read-heavy workloads on Azure Cosmos DB use a combination of both point reads and SQL queries. If you just need to read a single item, point reads are cheaper and faster than queries. Point reads don't need to use the query engine to access data and can read the data directly. Of course, it's not possible for all workloads to exclusively read data using point reads, so support of SQL as a query language and [schema-agnostic indexing](index-overview.md) provide a more flexible way to access your data.
 
-The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB.
+You can only run point reads through an SDK. Here are some examples:
+
+- [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
+- [Java SDK](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [Node.js SDK](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
+- [Python SDK](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+
+The remainder of this doc shows how to get started writing SQL queries in Azure Cosmos DB. SQL queries can be run through either the SDK or Azure Portal.
 
 ## Upload sample data
 
