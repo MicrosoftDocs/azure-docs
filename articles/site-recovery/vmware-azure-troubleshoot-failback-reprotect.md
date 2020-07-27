@@ -60,7 +60,7 @@ This issue can happen if there's already a VM with the same name on the master t
 To resolve this issue:
 
 * Select a different master target server on a different host so that reprotection creates the machine on a different host, where the names don't collide.
-* You also can use vMotion to move the master target to a different host where the name collision won't happen. If the existing VM is a stray machine, rename it so that the new VM can be created on the same ESXi host.
+* You also can use VMotion to move the master target to a different host where the name collision won't happen. If the existing VM is a stray machine, rename it so that the new VM can be created on the same ESXi host.
 
 
 ### Error code 78093
@@ -94,4 +94,4 @@ This issue happens when the on-premises VM is brought up on a host that doesn't 
 To resolve this issue:
 
 * Provision more memory on the ESXi host.
-* In addition, you can use vMotion to move the VM to another ESXi host that has enough memory to boot the VM.
+* In addition, you can use VMotion to move the VM to another ESXi host that has enough memory to boot the VM.
