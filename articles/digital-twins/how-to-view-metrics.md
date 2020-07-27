@@ -84,7 +84,7 @@ Dimensions help identify more details about the metrics. Some of the routing met
 | Dimension | Values |
 | --- | --- |
 | Authentication | OAuth |
-| Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete</br>Microsoft.DigitalTwins/digitaltwins/write</br>Microsoft.DigitalTwins/digitaltwins/read </br>Microsoft.DigitalTwins/eventroute/read </br>Microsoft.DigitalTwins/eventroute/write </br>Microsoft.DigitalTwins/eventroute/delete </br>Microsoft.DigitalTwins/model/read </br>Microsoft.DigitalTwins/model/write </br>Microsoft.DigitalTwins/model/delete </br>Microsoft.DigitalTwins/query/action </br>Unknown |
+| Operation (for API Requests) | Microsoft.DigitalTwins/digitaltwins/delete</br>Microsoft.DigitalTwins/digitaltwins/write</br>Microsoft.DigitalTwins/digitaltwins/read </br>Microsoft.DigitalTwins/eventroutes/read </br>Microsoft.DigitalTwins/eventroutes/write </br>Microsoft.DigitalTwins/eventroutes/delete </br>Microsoft.DigitalTwins/models/read </br>Microsoft.DigitalTwins/models/write </br>Microsoft.DigitalTwins/models/delete </br>Microsoft.DigitalTwins/query/action </br>Unknown |
 Operation (for Routing) | Event Grid </br>Event Hub </br>Service Bus |
 | Protocol | HTTPS |
 | Result | Success </br>Failure |
