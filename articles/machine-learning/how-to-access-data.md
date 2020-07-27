@@ -110,9 +110,7 @@ You can find account key, SAS token and service principal information on your [A
 
 ### Permissions
 
-To check your access 
-
-
+For Azure blob contatiner and Azure Data Lake Gen 2 storage make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
 
 <a name="python"></a>
 
