@@ -24,14 +24,21 @@ In a typical scenario, you may have your virtual machines running in a proximity
 -  If an Availability Set is pinned to a Proximity Placement Group and during failover/failback VMs in the availability set have an allocation constraint, then the virtual machines will be created outside of both the availability set and proximity placement group.
 -  Site Recovery for Proximity Placement Groups is not supported for unmanaged disks.
 
-> [!Note]
+> [!NOTE]
 > Azure Site Recovery does not support failback from managed disks for Hyper-V to Azure scenarios. Hence, failback from Proximity Placement Group in Azure to Hyper-V is not supported.
 
 ## Prerequisites
 
 1. Make sure that you have the Azure PowerShell Az module. If you need to install or upgrade Azure PowerShell, follow this [Guide to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
+2. The minimum Azure PowerShell Az version should be 4.1.0. To check the current version, use the below command -
+    ```
+	Get-InstalledModule -Name Az
+	```
 
 ## Set up Site Recovery for Virtual Machines in Proximity Placement Group
+
+> [!NOTE]
+> Make sure that you have the unique ID of target Proximity Placement Group handy. If you're creating a new Proximity Placement Group, then check the command [here](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#create-a-proximity-placement-group) and if you're using an existing Proximity Placement Group, then use the command [here](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups#list-proximity-placement-groups).
 
 ### Azure to Azure
 
@@ -44,7 +51,7 @@ In a typical scenario, you may have your virtual machines running in a proximity
 7. Create a protection container mapping between primary and recovery protection container using [these](./azure-to-azure-powershell.md#create-a-protection-container-mapping-between-the-primary-and-recovery-protection-container) steps and a protection container mapping for failback as mentioned [here](./azure-to-azure-powershell.md#create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover).
 8. Create cache storage account by following [these](./azure-to-azure-powershell.md#create-cache-storage-account-and-target-storage-account) steps.
 9. Create the required network mappings as mentioned [here](./azure-to-azure-powershell.md#create-network-mappings).
-10. To replicate Azure virtual machine with managed disks, use the below PowerShell cmdlet – 
+10. To replicate Azure virtual machine with managed disks, use the below PowerShell cmdlet -
 
 ```azurepowershell
 #Get the resource group that the virtual machine must be created in when failed over.
@@ -73,7 +80,7 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 
-$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryProximityPlacementGroupId $recPpg.Id
+$TempASRJob = New-AzRecoveryServicesAsrReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryProximityPlacementGroupId $targetPpg.Id
 ```
 Once the start replication operation succeeds, virtual machine data is replicated to the recovery region.
 
@@ -81,7 +88,7 @@ The replication process starts by initially seeding a copy of the replicating di
 
 After initial replication completes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected, and a test failover operation can be performed on it. The replication state of the replicated item representing the virtual machine goes to the Protected state after initial replication completes.
 
-Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item corresponding to it. 
+Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item corresponding to it.
 
 ```azurepowershell
 Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $PrimaryProtContainer | Select FriendlyName, ProtectionState, ReplicationHealth
@@ -126,7 +133,7 @@ $VM1 = Get-AzRecoveryServicesAsrProtectableItem -ProtectionContainer $Protection
 
 # Enable replication for virtual machine CentOSVM1 using the Az.RecoveryServices module 2.0.0 onwards to replicate to managed disks
 # The name specified for the replicated item needs to be unique within the protection container. Using a random GUID to ensure uniqueness
-$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $recPpg.Id
+$Job_EnableReplication1 = New-AzRecoveryServicesAsrReplicationProtectedItem -VMwareToAzure -ProtectableItem $VM1 -Name (New-Guid).Guid -ProtectionContainerMapping $PolicyMap -ProcessServer $ProcessServers[1] -Account $AccountHandles[2] -RecoveryResourceGroupId $ResourceGroup.ResourceId -logStorageAccountId $LogStorageAccount.Id -RecoveryAzureNetworkId $RecoveryVnet.Id -RecoveryAzureSubnetName "Subnet-1" -RecoveryProximityPlacementGroupId $targetPpg.Id
 ```
 8. You can check the replication state and replication health of the virtual machine with the Get-ASRReplicationProtectedItem cmdlet.
 
@@ -157,7 +164,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 	
 	```azurepowershell
 	$OSType = "Windows"          # "Windows" or "Linux"
-	$DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId 	$StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -RecoveryProximityPlacementGroupId $recPpg.Id
+	$DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId 	$StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -RecoveryProximityPlacementGroupId $targetPpg.Id
 	```
 	c. Wait for the VMs to reach a protected state after the initial replication. This can take a while, depending on factors such as the amount of data to be replicated, and the available upstream bandwidth to Azure. When a protected state is in place, the job State and StateDescription are updated as follows: 
 	

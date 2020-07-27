@@ -152,7 +152,7 @@ An HDInsight cluster already has the Sqoop packages available. If you've configu
 
 ## Performance considerations while using Sqoop
 
-For information about performance tuning your Sqoop job to copy data to Data Lake Storage Gen1, see the [Sqoop performance blog post](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
+For information about performance tuning your Sqoop job to copy data to Data Lake Storage Gen1, see the [Sqoop performance blog post](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 ## Next steps
 

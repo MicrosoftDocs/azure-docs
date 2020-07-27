@@ -3,7 +3,7 @@ title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
 
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 07/24/2020
 
 ---
 # Azure Functions C# developer reference
@@ -27,7 +27,7 @@ Versions of the Functions runtime work with specific versions of .NET. The follo
 | ---- | ---- |
 | Functions 3.x | .NET Core 3.1 |
 | Functions 2.x | .NET Core 2.2 |
-| Functions 1.x | .NET Framework 4.6 |
+| Functions 1.x | .NET Framework 4.7 |
 
 To learn more, see [Azure Functions runtime versions overview](functions-versions.md)
 

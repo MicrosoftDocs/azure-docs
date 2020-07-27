@@ -988,7 +988,7 @@
         href: how-to-manage-indexing-policy.md
       - name: Define unique keys
         href: how-to-define-unique-keys.md
-    - name: Performance & Troubleshooting
+    - name: Performance
       items:
       - name: Query
         items: 
@@ -996,28 +996,20 @@
           href: profile-sql-api-query.md
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name: Troubleshoot query performance
-          href: troubleshoot-query-performance.md
       - name: .NET
         items: 
         - name: Performance tips for .NET SDK v3
           href: performance-tips-dotnet-sdk-v3-sql.md
         - name: Performance tips for .NET SDK v2
           href: performance-tips.md
-        - name: Troubleshoot .NET SDK
-          href: troubleshoot-dot-net-sdk.md
       - name: Java
         items: 
         - name: Performance tips for Java SDK v4
           href: performance-tips-java-sdk-v4-sql.md  
-        - name: Troubleshoot Java SDK v4
-          href: troubleshoot-java-sdk-v4-sql.md  
         - name: Async Java SDK v2
           href: performance-tips-async-java.md          
         - name: Sync Java SDK v2
           href: performance-tips-java.md
-        - name: Troubleshoot- Async Java SDK v2
-          href: troubleshoot-java-async-sdk.md
       - name: Performance test - sample app
         href: performance-testing.md
       - name: Cost-effective reads and writes
@@ -1026,6 +1018,36 @@
       items:
       - name: Migrate to Java V4 SDK
         href: migrate-java-v4-sdk.md
+    - name: Troubleshooting
+      items:
+      - name: Common errors
+        items:
+        - name: Troubleshoot query performance
+          href: troubleshoot-query-performance.md
+        - name : Troubleshoot service request timeout
+          href: troubleshoot-request-timeout.md
+        - name : Troubleshoot request rate too large
+          href: troubleshoot-request-rate-too-large.md
+        - name : Troubleshoot not found
+          href: troubleshoot-not-found.md
+        - name : Troubleshoot unauthorized
+          href: troubleshoot-unauthorized.md
+      - name: .NET
+        items: 
+        - name: General Troubleshooting .NET SDK
+          href: troubleshoot-dot-net-sdk.md
+        - name : Troubleshoot request header too large
+          href: troubleshoot-dot-net-sdk-request-header-too-large.md
+        - name : Troubleshoot request timeout
+          href: troubleshoot-dot-net-sdk-request-timeout.md
+        - name : Troubleshoot service unavailable
+          href: troubleshoot-service-unavailable.md 
+      - name: .Java
+        items: 
+        - name: Troubleshoot Java SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md  
+        - name: Troubleshoot- Async Java SDK v2
+          href: troubleshoot-java-async-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs

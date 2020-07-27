@@ -37,7 +37,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 * This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-* Th Offer alias can't be changed after you select **Create**.
+* The Offer alias can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 

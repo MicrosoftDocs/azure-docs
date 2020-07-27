@@ -279,6 +279,8 @@ If you intend to try other quickstarts, keep the resources you created. Otherwis
 
 ## Next steps
 
+* Try a [secured version of the YOLOv3 model](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/tls-yolov3-onnx/readme.md) and deploy it to the IOT edge device. 
+
 Review additional challenges for advanced users:
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
