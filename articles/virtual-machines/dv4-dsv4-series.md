@@ -74,20 +74,3 @@ Memory Preserving Updates: Supported
 | Standard_D32s_v4 | 32 | 128 | Remote Storage Only | 32 | 308000/1936 (800) | 51200/768 | 8|16000 |
 | Standard_D48s_v4 | 48 | 192 | Remote Storage Only | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
 | Standard_D64s_v4 | 64 | 256 | Remote Storage Only | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |
-
-## Other sizes and information
-
-- [General purpose](sizes-general.md)
-- [Memory optimized](sizes-memory.md)
-- [Storage optimized](sizes-storage.md)
-- [GPU optimized](sizes-gpu.md)
-- [High performance compute](sizes-hpc.md)
-- [Previous generations](sizes-previous-gen.md)
-
-Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-
-More information on Disks Types : [Disk Types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
-
-## Next steps
-
-Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
