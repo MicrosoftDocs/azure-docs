@@ -42,7 +42,7 @@ Memory Preserving Updates: Not Supported
 
 
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Memory optimized](sizes-memory.md)
@@ -50,6 +50,10 @@ Memory Preserving Updates: Not Supported
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
+
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+More information on Disks Types : [Disk Types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## Next steps
 
