@@ -27,7 +27,7 @@ As described in the following table, the *compute* GPU size is intended for comp
 | ---- | ----- | --- | ----------- | 
 | Small GPU (Compute) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |This size is best suited for computer-intensive applications such as artificial intelligence (AI) and deep learning. |
 
-The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SolidWorks engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because students interact with the SolidWorks 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
+The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SOLIDWORKS engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because students interact with the SOLIDWORKS 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
 
 | Size | Cores | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
@@ -108,7 +108,7 @@ Follow the instructions in the "Verify driver installation" section of [Install 
 See the following articles:
 
 - [Create and manage classroom labs](how-to-manage-classroom-labs.md)
-- [SolidWorks computer-aided design (CAD) class type](class-type-solidworks.md)
+- [SOLIDWORKS computer-aided design (CAD) class type](class-type-solidworks.md)
 - [MATLAB (matrix laboratory) class type](class-type-matlab.md)
 
 
