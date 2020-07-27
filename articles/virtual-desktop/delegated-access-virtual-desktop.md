@@ -1,5 +1,5 @@
 ---
-title: Delegated access in Windows Virtual Desktop Spring 2020 - Azure
+title: Delegated access in Windows Virtual Desktop - Azure
 description: How to delegate administrative capabilities on a Windows Virtual Desktop deployment, including examples.
 services: virtual-desktop
 author: Heidilohr
@@ -13,10 +13,7 @@ manager: lizross
 # Delegated access in Windows Virtual Desktop
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/delegated-access-virtual-desktop-2019.md).
 
 Windows Virtual Desktop has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role. A role assignment has three components: security principal, role definition, and scope. The Windows Virtual Desktop delegated access model is based on the Azure RBAC model. To learn more about specific role assignments and their components, see [the Azure role-based access control overview](../role-based-access-control/built-in-roles.md).
 
