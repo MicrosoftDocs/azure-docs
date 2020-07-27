@@ -119,9 +119,22 @@ In order to leverage this grant control, Conditional Access requires that the de
 This setting applies to the following client apps:
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- MultiLine for Intune
+- Nine Mail - Email & Calendar
+
+> [!NOTE]
+> Microsoft Kaizala, Microsoft Skype for Business and Microsoft Visio do not support the **Require app protection policy** grant. If you require these apps to work, please use the **Require approved apps** grant exclusively. The use of the or clause between the two grants will not work for these three applications.
 
 **Remarks**
 

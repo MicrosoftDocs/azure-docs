@@ -15,8 +15,7 @@ The [Azure Application Insights](../../azure-monitor/app/app-insights-overview.m
 > Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks which require inbound firewall rules.
 
 > [!TIP]
-> You can use Azure [network service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
-) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) which are updated each week: . To cover all the exceptions in this article you would need to use the service tags: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
+> You can use Azure [network service tags](../../virtual-network/service-tags-overview.md) to manage access if you are using Azure Network Security Groups. If you are managing access for hybrid/on premises resources you can download the equivalent IP address lists as [JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) which are updated each week: . To cover all the exceptions in this article you would need to use the service tags: 'ActionGroup', 'ApplicationInsightsAvailability', 'AzureMonitor'.
 
 Alternatively, you can subscribe to this page as a RSS feed by adding https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom to your favorite RSS/ATOM reader to get notified of the latest changes.
 
@@ -217,7 +216,6 @@ Note: *.loganalytics.io domain is owned by the Log Analytics team.
 | Purpose | URI | IP | Ports |
 | --- | --- | --- | --- |
 | Application Insights JS SDK CDN | az416426.vo.msecnd.net | dynamic | 80,443 |
-| Application Insights Java SDK | aijavasdk.blob.core.windows.net | dynamic | 80,443 |
 
 ## Action Group webhooks
 

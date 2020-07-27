@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments. SSE automatically encrypts your data stored on Azure managed disks (OS and data disks) at rest by default when persisting it to the cloud. 
 
-Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant. For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](/windows/desktop/seccng/cng-portal)
 
 Server-side encryption does not impact the performance of managed disks and there is no additional cost. 
 
@@ -71,7 +71,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Server-side encryption versus Azure disk encryption
 
-[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) leverages the [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
+[Azure Disk Encryption](../../security/fundamentals/azure-disk-encryption-vms-vmss.md) leverages the [BitLocker](/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows to encrypt managed disks with customer-managed keys within the guest VM. Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
@@ -79,9 +79,8 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- [Enable end-to-end encryption using encryption at host - PowerShell](disks-enable-host-based-encryption-powershell.md)
-- [Enable double encryption at rest for your managed disks - PowerShell](disks-enable-double-encryption-at-rest-powershell.md)
-- [Enable customer-managed keys for your managed disks - PowerShell](disks-enable-customer-managed-keys-powershell.md)
-- [Enable customer-managed keys for your managed disks - Portal](disks-enable-customer-managed-keys-portal.md)
+- Enable end-to-end encryption using encryption at host with either [PowerShell](disks-enable-host-based-encryption-powershell.md) or the [Azure portal](disks-enable-host-based-encryption-portal.md).
+- Enable double encryption at rest for managed disks with either [PowerShell](disks-enable-double-encryption-at-rest-powershell.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
+- Enable customer-managed keys for managed disks with either [PowerShell](disks-enable-customer-managed-keys-powershell.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md).
 - [Explore the Azure Resource Manager templates for creating encrypted disks with customer-managed keys](https://github.com/ramankumarlive/manageddiskscmkpreview)
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)

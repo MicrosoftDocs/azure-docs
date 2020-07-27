@@ -57,6 +57,8 @@ Note the following current limitations for DPS when using private endpoints:
 
 * Currently, [custom allocation policies with Azure Functions](how-to-use-custom-allocation-policies.md) for DPS will not work a VNET and private endpoints. 
 
+* Current DPS VNET support is for data ingress into DPS only. Data egress, which is the traffic from DPS to IoT Hub, uses an internal service-to-service mechanism rather than a dedicated VNET. Support for full VNET-based egress lockdown between DPS and IoT Hub is not currently available.
+
 * The lowest latency allocation policy is used to assign a device to the IoT hub with the lowest latency. This allocation policy is not reliable in a virtual network environment. 
 
 ## Set up a private endpoint

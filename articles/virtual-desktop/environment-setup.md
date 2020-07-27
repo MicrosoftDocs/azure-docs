@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop environment - Azure
-description: The basic elements of a Windows Virtual Desktop environment.
+description: Learn about the basic elements of a Windows Virtual Desktop environment, like host pools and app groups.
 services: virtual-desktop
 author: Heidilohr
 

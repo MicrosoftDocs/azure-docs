@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 # PowerShell and Graph examples for group-based licensing in Azure AD
 
 Full functionality for group-based licensing is available through the [Azure portal](https://portal.azure.com), and currently PowerShell and Microsoft Graph support is limited to read-only operations. However, there are some useful tasks that can be performed using the existing [MSOnline PowerShell
-cmdlets](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) and Microsoft Graph. This document provides examples of what is possible.
+cmdlets](/powershell/module/msonline) and Microsoft Graph. This document provides examples of what is possible.
 
 > [!NOTE]
 > Before you begin running cmdlets, make sure you connect to your organization first, by running the `Connect-MsolService` cmdlet.

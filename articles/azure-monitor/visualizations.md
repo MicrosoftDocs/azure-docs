@@ -37,6 +37,10 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 
 ![Dashboard](media/visualizations/dashboard.png)
 
+Here is a video walkthrough on creating dashboards.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
+
 ### Advantages
 - Deep integration into Azure. Visualizations can be pinned to dashboards from multiple Azure pages including Metrics Explorer, Log Analytics, and Application Insights.
 - Supports both metrics and logs.

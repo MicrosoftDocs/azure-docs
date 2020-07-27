@@ -22,7 +22,7 @@ To deploy this architecture, download and run the deploy.sh script found in the 
 The repository also has scripts for setting up a Grafana dashboard. You can use the dashboard to query Prometheus, the open-source monitoring and alerting system included with DB2.
 
 > [!NOTE]
-> The deploy.sh script on the client creates private SSH keys and passes them to the deployment template over HTTPS. For greater security, we recommend using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) to store secrets, keys, and passwords.
+> The deploy.sh script on the client creates private SSH keys and passes them to the deployment template over HTTPS. For greater security, we recommend using [Azure Key Vault](../../key-vault/general/overview.md) to store secrets, keys, and passwords.
 
 ## How the deployment script works
 

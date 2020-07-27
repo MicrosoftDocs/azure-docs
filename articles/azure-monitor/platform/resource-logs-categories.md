@@ -707,6 +707,6 @@ If you still something is missing, you can open a GitHub comment at the bottom o
 ## Next Steps
 
 * [Learn more about resource logs](../../azure-monitor/platform/platform-logs-overview.md)
-* [Stream resource resource logs to **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Change resource log diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Stream resource resource logs to **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
+* [Change resource log diagnostic settings using the Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
+* [Analyze logs from Azure storage with Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)

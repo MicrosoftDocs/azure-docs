@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics' shared metadata tables 
+title: Shared metadata tables
 description: Azure Synapse Analytics provides a shared metadata model where creating a table in Apache Spark will make it accessible from its SQL on-demand (preview) and SQL pool engines without duplicating the data. 
 services: sql-data-warehouse 
 author: MikeRys 

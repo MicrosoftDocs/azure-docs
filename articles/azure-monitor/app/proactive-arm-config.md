@@ -18,7 +18,7 @@ This method can be used when deploying new Application Insights resources with A
 
 You can configure the following settings for a smart detection rule:
 - If the rule is enabled (the default is **true**.)
-- If emails should be sent to users associated to the subscription’s [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles when a detection is found (the default is **true**.)
+- If emails should be sent to users associated to the subscription’s [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) and [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) roles when a detection is found (the default is **true**.)
 - Any additional email recipients who should get a notification when a detection is found.
     -  Email configuration is not available for Smart Detection rules marked as _preview_.
 

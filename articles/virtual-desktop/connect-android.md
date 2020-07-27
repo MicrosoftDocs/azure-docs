@@ -10,7 +10,7 @@ ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the Android client
+# Connect to Windows Virtual Desktop with the Android client
 
 > Applies to: Android 4.1 and later, Chromebooks with ChromeOS 53 and later.
 

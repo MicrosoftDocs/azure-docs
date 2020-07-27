@@ -278,7 +278,7 @@ Note the use of {Resolution} macro in the FileName; it indicates to the encoder 
 While all of the above examples have discussed how you can submit an encoding task that only produces images, you can also combine video/audio encoding with thumbnail generation. The following JSON and XML preset tell **Media Encoder Standard** to generate a thumbnail during encoding.
 
 ### <a id="json"></a>JSON preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](/azure/media-services/previous/media-services-mes-schema) article.
 
 ```json
 	{
@@ -343,7 +343,7 @@ For information about schema, see [this](https://msdn.microsoft.com/library/mt26
 ```
 
 ### <a id="xml"></a>XML preset
-For information about schema, see [this](https://msdn.microsoft.com/library/mt269962.aspx) article.
+For information about schema, see [this](/azure/media-services/previous/media-services-mes-schema) article.
 
 ```csharp
 	<?xml version="1.0" encoding="utf-16"?>
@@ -573,4 +573,3 @@ You can check the [job progress](media-services-check-job-progress.md) while the
 
 ## See Also
 [Media Services Encoding Overview](media-services-encode-asset.md)
-

@@ -61,7 +61,8 @@ Next, create your project:
 Now select your target platform architecture. In the Visual Studio toolbar, find the **Solution Platforms** drop-down box. (If you don't see it, choose **View** > **Toolbars** > **Standard** to display the toolbar containing **Solution Platforms**.) If you're running 64-bit Windows, choose **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
 
 > [!NOTE]
-> The Speech SDK only supports Intel-compatible processors. ARM processors are currently not supported.
+> The Speech SDK supports all Intel-compatible processors, but **only x64** 
+> versions of ARM processors.
 
 ### Set up audio capture
 

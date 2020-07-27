@@ -37,7 +37,7 @@ Every function app requires a storage account to operate. If that account is del
 
 The storage account connection is maintained in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). 
 
-The storage account connection string must be updated when you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+The storage account connection string must be updated when you regenerate storage keys. [Read more about storage key management here](../storage/common/storage-account-create.md).
 
 ### Shared storage accounts
 
@@ -76,5 +76,3 @@ Learn more about Azure Functions hosting options.
 
 > [!div class="nextstepaction"]
 > [Azure Functions scale and hosting](functions-scale.md)
-
-
