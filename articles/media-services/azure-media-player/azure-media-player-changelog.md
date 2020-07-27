@@ -57,7 +57,7 @@ ms.date: 07/27/2020
 
 ## 2.3.2 (Official Update October 9 2019)
 
-### Features
+### Features 2.3.2
 
 -Added PlayReady support for DASH playback for Chromium Edge browser
 
