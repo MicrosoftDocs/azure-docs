@@ -29,7 +29,7 @@ When you restore a database, the service determines which full, differential, an
 These backups enable database restore to a point in time within the configured retention period. The backups are stored as [RA-GRS storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md) for protection against outages impacting backup storage in the primary region. 
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Redundancy is currently available as a limited private preview for certain customers in Southeast Asia Azure region. If you would like to be considered for enrollment in this private preview, please contact sqlbackuppreview@microsoft.com. 
+> Azure SQL Database Configurable Backup Storage Redundancy is currently available as a limited private preview for certain customers in Southeast Asia Azure region. If you would like to be considered for enrollment in this private preview, please contact [sqlbackuppreview@microsoft.com]<sqlbackuppreview@microsoft.com>. 
 
 If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
 
