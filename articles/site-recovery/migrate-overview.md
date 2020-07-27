@@ -13,7 +13,7 @@ ms.author: raynew
 
 # About migration
 
-You use the Azure Migrate service to migrate VMs and servers to Azure, instead of the Azure Site Recovery service. [Learn more](../migrate/migrate-services-overview.md).
+Use the Azure Migrate service to migrate VMs and servers to Azure, rather than the Azure Site Recovery service. [Learn more](../migrate/migrate-services-overview.md) about Azure Migrate.
 
 
 ## Why use Azure Migrate?
@@ -35,7 +35,7 @@ Site Recovery should be used:
 - For disaster recovery of on-premises machines to Azure.
 - For disaster recovery of Azure VMs, between Azure regions.
 
-Although we recommend Azure Migrate for migration to Azure, if you've already started your migration journey with Site Recovery, you can continue using it to complete your migration.  
+Although we recommend using Azure Migrate to migrate on-premises servers to Azure, if you've already started your migration journey with Site Recovery, you can continue using it to complete your migration.  
 
 ## Next steps
 
