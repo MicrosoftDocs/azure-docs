@@ -181,9 +181,9 @@ The following table provides descriptions of properties returned by the above cm
 | NodeSize                     | The size of each node in your Azure-SSIS IR. |
 | NodeCount                    | The number of nodes in your Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | The maximum number of parallel executions per node in your Azure-SSIS IR. |
-| CatalogServerEndpoint        | The endpoint of your existing Azure SQL Database server/Managed Instance to host SSIS catalog (SSISDB). |
-| CatalogAdminUserName         | The admin username for your existing Azure SQL Database server/Managed Instance. ADF uses this information to prepare and manage SSISDB on your behalf. |
-| CatalogAdminPassword         | The admin password for your existing Azure SQL Database server/Managed Instance. |
+| CatalogServerEndpoint        | The endpoint of your existing Azure SQL Database server or managed instance to host SSIS catalog (SSISDB). |
+| CatalogAdminUserName         | The admin username for your existing Azure SQL Database server or managed instance. ADF uses this information to prepare and manage SSISDB on your behalf. |
+| CatalogAdminPassword         | The admin password for your existing Azure SQL Database server or managed instance. |
 | CatalogPricingTier           | The pricing tier for SSISDB hosted by Azure SQL Database server.  Not applicable to Azure SQL Managed Instance hosting SSISDB. |
 | VNetId                       | The virtual network resource ID for your Azure-SSIS IR to join. |
 | Subnet                       | The subnet name for your Azure-SSIS IR to join. |
@@ -225,27 +225,27 @@ To monitor your Azure-SSIS IR in Azure portal, go to the **Integration runtimes*
 
 Next, select the name of your Azure-SSIS IR to open its monitoring page, where you can see its overall/node-specific properties and statuses.
 
-![Monitor your Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-ir.png)
+![Monitor your Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
 On the **STATUS** tile of your Azure-SSIS IR monitoring page, you can see its overall status, for example **Running** or **Stopped**. Selecting the **Running** status pops up a window with live **Stop** button to stop your Azure-SSIS IR. Selecting the **Stopped** status pops up a window with live **Start** button to start your Azure-SSIS IR. The pop-up window also has an **Execute SSIS package** button to auto-generate an ADF pipeline with Execute SSIS Package activity that runs on your Azure-SSIS IR (see [Running SSIS packages as Execute SSIS Package activities in ADF pipelines](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)) and a **Resource ID** text box, from which you can copy your Azure-SSIS IR resource ID (`/subscriptions/YourAzureSubscripton/resourcegroups/YourResourceGroup/providers/Microsoft.DataFactory/factories/YourADF/integrationruntimes/YourAzureSSISIR`) that can be used to purchase additional premium/licensed SSIS components from independent software vendors (ISVs) and bind them to your Azure-SSIS IR (see [Installing premium/licensed components on your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components)).
 
-![Monitor your Azure-SSIS IR - STATUS tile](media/monitor-integration-runtime/monitor-azure-ssis-ir-status.png)
+![Monitor your Azure-SSIS IR - STATUS tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-status.png)
 
-If you use Project Deployment Model where packages are stored in SSISDB hosted by your Azure SQL Database server/Managed Instance, you'll see the **SSISDB SERVER ENDPOINT** tile on your Azure-SSIS IR monitoring page (see [Configuring your Azure-SSIS IR deployment settings](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). On this tile, you can select a link designating your Azure SQL Database server/Managed Instance to pop up a window, where you can copy the server endpoint from a text box and use it when connecting from SSMS to deploy, configure, run, and manage your packages. On the pop-up window, you can also select the **See your Azure SQL Database/Managed Instance settings** link to reconfigure/resize your SSISDB in Azure portal.
+If you use Project Deployment Model where packages are stored in SSISDB hosted by your Azure SQL Database server or managed instance, you'll see the **SSISDB SERVER ENDPOINT** tile on your Azure-SSIS IR monitoring page (see [Configuring your Azure-SSIS IR deployment settings](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). On this tile, you can select a link designating your Azure SQL Database server or managed instance to pop up a window, where you can copy the server endpoint from a text box and use it when connecting from SSMS to deploy, configure, run, and manage your packages. On the pop-up window, you can also select the **See your Azure SQL Database or managed instance settings** link to reconfigure/resize your SSISDB in Azure portal.
 
-![Monitor your Azure-SSIS IR - SSISDB tile](media/monitor-integration-runtime/monitor-azure-ssis-ir-ssisdb.png)
+![Monitor your Azure-SSIS IR - SSISDB tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-ssisdb.png)
 
 If you join your Azure-SSIS IR to a VNet, you'll see the **VALIDATE VNET / SUBNET** tile on your Azure-SSIS IR monitoring page (see [Joining your Azure-SSIS IR to a VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)). On this tile, you can select a link designating your VNet and subnet to pop up a window, where you can copy your VNet resource ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/virtualNetworks/YourARMVNet`) and subnet name from text boxes, as well as validate your VNet and subnet configurations to ensure that the required inbound/outbound network traffics and management of your Azure-SSIS IR aren't obstructed.
 
-![Monitor your Azure-SSIS IR - VALIDATE tile](media/monitor-integration-runtime/monitor-azure-ssis-ir-validate.png)
+![Monitor your Azure-SSIS IR - VALIDATE tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-validate.png)
 
 On the **DIAGNOSE CONNECTIVITY** tile of your Azure-SSIS IR monitoring page, you can select the **Test connection** link to pop up a window, where you can check the connections between your Azure-SSIS IR and relevant package/configuration/data stores, as well as management services, via their fully qualified domain name (FQDN)/IP address and designated port (see [Testing connections from your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
-![Monitor your Azure-SSIS IR - DIAGNOSE tile](media/monitor-integration-runtime/monitor-azure-ssis-ir-diagnose.png)
+![Monitor your Azure-SSIS IR - DIAGNOSE tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 If you use Package Deployment Model where packages are stored in file system/Azure Files/SQL Server database (MSDB) hosted by your Azure SQL Managed Instance and managed via Azure-SSIS IR package stores, you'll see the **PACKAGE STORES** tile on your Azure-SSIS IR monitoring page (see [Configuring your Azure-SSIS IR deployment settings](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure#deployment-settings-page)). On this tile, you can select a link designating the number of package stores attached to your Azure-SSIS IR to pop up a window, where you can reconfigure the relevant linked services for your Azure-SSIS IR package stores on top of file system/Azure Files/MSDB hosted by your Azure SQL Managed Instance.
 
-![Monitor your Azure-SSIS IR - PACKAGE tile](media/monitor-integration-runtime/monitor-azure-ssis-ir-package.png)
+![Monitor your Azure-SSIS IR - PACKAGE tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-package.png)
 
 If there are issues with the starting/stopping/maintenance/upgrade of your Azure-SSIS IR, you'll see an additional **ERROR(S)** tile on your Azure-SSIS IR monitoring page. On this tile, you can select a link designating the number of errors generated by your Azure-SSIS IR to pop up a window, where you can see those errors in more details and copy them to find the recommended solutions in our troubleshooting guide (see [Troubleshooting your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)).
 
