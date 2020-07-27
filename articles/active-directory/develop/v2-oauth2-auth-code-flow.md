@@ -30,9 +30,11 @@ At a high level, the entire authentication flow for an application looks a bit l
 
 ![OAuth Auth Code Flow](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
-## Setup required for single-page apps
+## Redirect URI setup required for single-page apps
 
-The authorization code flow for single page applications requires some additional setup.  While you are [creating your application](howto-create-service-principal-portal.md), you must mark the redirect URI for your app as a `spa` redirect URI. This causes the login server to allow CORS (cross origin resource sharing) for your app.  This is required to redeem the code using XHR.
+The authorization code flow for single page applications requires some additional setup.  Follow the instructions for [creating your single-page application](scenario-spa-app-registration.md#redirect-uri-msaljs-20-with-auth-code-flow) to correctly mark your redirect URI as enabled for CORS. To update an existing redirect URI to enable CORS, open the manifest editor and set the `type` field for your redirect URI to `spa` in the `replyUrlsWithType` section. You can also click on the redirect URI in the "Web" section of the Authentication tab, and select the URIs you want to migrate to using the authorization code flow.
+
+The `spa` redirect type is backwards compatible with the implicit flow. Apps currently using the implicit flow to get tokens can move to the `spa` redirect URI type without issues and continue using the implicit flow.
 
 If you attempt to use the authorization code flow and see this error:
 
@@ -226,7 +228,7 @@ Error responses will look like:
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request. The client application might explain to the user that its response is delayed because of a temporary condition. |
 
 > [!NOTE]
-> Single page apps may receive an `invalid_request` error indicating that cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.  This indicates that the redirect URI used to request the token has not been marked as a `spa` redirect URI.  Review the [application registration steps](#setup-required-for-single-page-apps) on how to enable this flow.
+> Single page apps may receive an `invalid_request` error indicating that cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.  This indicates that the redirect URI used to request the token has not been marked as a `spa` redirect URI.  Review the [application registration steps](#redirect-uri-setup-required-for-single-page-apps) on how to enable this flow.
 
 ## Use the access token
 
