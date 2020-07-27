@@ -249,7 +249,7 @@ app.get('/api', function (req, res) {
 
 Save the file, and in the **Debug actions pane**, click the **Restart** button. 
 
-![The Debug actions pane is a small pane at the top center of the page (just below the page title). The Restart button displays a circular arrow, and is highlighted. The hover image for the button is "Restart (Ctrl+Shift+F5)".](media/common/debug-action-refresh.png)
+![The Debug actions pane is a small pane at the top center of the page (just below the page title). The Restart button displays a circular arrow, and is highlighted. The hover image for the button is "Restart (control + shift + F 5)".](media/common/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will restart the Node.js process in between debug sessions to provide a faster edit/debug loop.
 

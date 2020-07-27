@@ -161,13 +161,13 @@ If a cluster has been out of support for more than three (3) minor versions and 
 
 The control plane must be within a window of versions from all node pools. For details on upgrading the control plane or node pools, visit documentation on [upgrading node pools](use-multiple-node-pools.md#upgrade-a-cluster-control-plane-with-multiple-node-pools).
 
-**Can I skip a version when upgrading?**
+**Can I skip multiple AKS versions during cluster upgrade?**
 
-No, following kubernetes best practices, AKS only allows for upgrades to immediately next patch or minor version supported. The Azure portal will only show you the versions you may upgrade to, and on the CLI you can run `az aks get-upgrades -n MyAKSCluster -g MyResourceGroup` to see the available upgrades from your current version.
+When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between *1.12.x* -> *1.13.x* or *1.13.x* -> *1.14.x* are allowed, however *1.12.x* -> *1.14.x* is not.
 
-**How can I upgrade to a supported version if I'm multiple versions behind the latest supported version?**
+To upgrade, from *1.12.x* -> *1.14.x*, first upgrade from *1.12.x* -> *1.13.x*, then upgrade from *1.13.x* -> *1.14.x*.
 
-To remain within support, you must avoid falling behind multiple versions from the currently supported list, but if you're in this situation AKS will always allow the upgrade to the minimum supported version.
+Skipping multiple versions can only be done when upgrading from an unsupported version back into a supported version. For example, upgrade from an unsupported *1.10.x* --> a supported *1.15.x* can be completed.
 
 ## Next steps
 

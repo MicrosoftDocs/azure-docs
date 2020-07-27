@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ---
@@ -39,7 +39,7 @@ The interpretability classes are made available through multiple SDK packages: (
 
 * `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
 
-Use `pip install azureml-interpret` and `pip install azureml-interpret-contrib` for general use, and `pip install azureml-contrib-interpret` for AutoML use to get the interpretability packages.
+Use `pip install azureml-interpret` and `pip install azureml-contrib-interpret` for general use.
 
 
 > [!IMPORTANT]

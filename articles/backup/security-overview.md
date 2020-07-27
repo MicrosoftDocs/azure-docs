@@ -11,7 +11,7 @@ One of the most important steps you can take to protect your data is to have a r
 
 ## Management and control of identity and user access
 
-Storage accounts used by recovery services vaults are isolated and cannot be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure Role-Based Access Control (RBAC)](./backup-rbac-rs-vault.md). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
+Storage accounts used by recovery services vaults are isolated and cannot be accessed by users for any malicious purposes. The access is only allowed through Azure Backup management operations, such as restore. Azure Backup enables you to control the managed operations through fine-grained access using [Azure role-based access control (Azure RBAC)](./backup-rbac-rs-vault.md). RBAC allows you to segregate duties within your team and grant only the amount of access to users necessary to do their jobs.
 
 Azure Backup provides three [built-in roles](../role-based-access-control/built-in-roles.md) to control backup management operations:
 

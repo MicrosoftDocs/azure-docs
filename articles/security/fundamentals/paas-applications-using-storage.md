@@ -61,7 +61,7 @@ Organizations that do not enforce data access control by using capabilities such
 To learn more about RBAC see:
 
 - [Manage access using RBAC and the Azure portal](/azure/role-based-access-control/role-assignments-portal)
-- [Built-in roles for Azure resources](/azure/role-based-access-control/built-in-roles)
+- [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
 - [Azure Storage security guide](/azure/storage/common/storage-security-guide) 
 
 ## Use client-side encryption for high value data

@@ -281,7 +281,7 @@ By using rewrite rules, you can add, remove, or update HTTP(S) request and respo
 The headers and URL parameters can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
 For more information, see:
 
- - [Rewrite HTTP headers overview](rewrite-http-headers-url.md)
+ - [Rewrite HTTP headers and URL overview](rewrite-http-headers-url.md)
  - [Configure HTTP header rewrite](rewrite-http-headers-portal.md)
  - [Configure URL rewrite](rewrite-url-portal.md)
 

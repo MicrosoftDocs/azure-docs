@@ -3,9 +3,9 @@ title: Access data sources on premises
 description: Connect to on-premises data sources from Azure Logic Apps by creating an Azure on-premises data gateway resource
 services: logic-apps
 ms.suite: integration
-ms.reviewer: arthii, logicappspm
+ms.reviewer: arthii, divswa, logicappspm
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 07/21/2020
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
@@ -52,9 +52,9 @@ Azure Logic Apps supports read and write operations through the data gateway. Ho
 
 * You're using the [same Azure account and subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that was used when installing that data gateway. This Azure account must belong to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology).
 
-* Your gateway installation isn't already registered and claimed by another Azure gateway resource.
+* Your gateway installation isn't already registered and claimed by another existing Azure gateway resource in the Azure portal.
 
-  When you create a gateway resource in the Azure portal, you select a gateway installation, which links to your gateway resource and only that gateway resource. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources. In these triggers and actions, you select your Azure subscription and the associated gateway resource that you want to use. Each gateway resource links to only one gateway installation, which links to only one Azure account.
+  When you create a gateway resource in the Azure portal, you select a gateway installation that links to your gateway resource and only that gateway resource. Each gateway resource can link to only one gateway installation, which can link to only one Azure account. In Azure Logic Apps, on-premises triggers and actions use the gateway resource when connecting to on-premises data sources. Provided that you have subscription access, you can select from different Azure subscriptions that are each associated with a different gateway resource. Your logic app and gateway resource don't have to use the same Azure subscription.
 
   > [!NOTE]
   > Only the gateway administrator can create the gateway resource in the Azure portal. 
@@ -104,6 +104,8 @@ After you create your gateway resource and associate your Azure subscription wit
 1. Select **Connect via on-premises data gateway**.
 
 1. Under **Gateways**, from the **Subscriptions** list, select your Azure subscription that has the gateway resource you want.
+
+   Provided that you have subscription access, you can select from different Azure subscriptions that are each associated with a different gateway resource. Your logic app and gateway resource don't have to use the same Azure subscription.
 
 1. From the **Connection Gateway** list, which shows the available gateway resources in your selected subscription, select the gateway resource that you want. Each gateway resource is linked to a single gateway installation.
 

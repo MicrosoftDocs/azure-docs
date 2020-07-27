@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
+ms.custom: devx-track-java
 ---
 
 # Tutorial: Scale an application in Azure Spring Cloud
