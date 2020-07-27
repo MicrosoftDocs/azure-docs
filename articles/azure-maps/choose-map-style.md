@@ -3,11 +3,12 @@ title: Change the style of the Azure Maps Web Map Control
 description: In this article, you'll learn about style features of the Azure Maps Web Map Control
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
+ms.custom: devx-track-javascript
 ---
 
 # Change the style of the map
@@ -88,18 +89,18 @@ In the following code, after a map instance is loaded, the map style is updated 
 
 The style picker control provides an easy to use button with flyout panel that can be used by the end user to switch between base styles.
 
-The style picker has two different layout options: `icon` and `list`. Also, the style picker allows you to choose two different style picker control `style` options: `light` and `dark`. By default the style picker uses the `icon` layout and displays a select list of base map styles as a set of icons. The style control picker base set of styles is: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. For more information on style picker control options, see [Style Control Options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions).
+The style picker has two different layout options: `icon` and `list`. Also, the style picker allows you to choose two different style picker control `style` options: `light` and `dark`. In this example, the style picker uses the `icon` layout and displays a select list of base map styles in the form of icons. The style control picker includes the following base set of styles: `["road", "grayscale_light", "grayscale_dark", "night", "road_shaded_relief"]`. For more information on style picker control options, see [Style Control Options](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.stylecontroloptions).
 
-The image below shows the style picker control displayed in `icon` layout with the default set of base styles.
+The image below shows the style picker control displayed in `icon` layout.
 
 :::image type="content" source="./media/choose-map-style/style-picker-icon-layout.png" alt-text="Style picker list layout":::
 
-The second layout option is called `list` and displays a list of map styles.
+The image below shows the style picker control displayed in `list` layout.
 
 :::image type="content" source="./media/choose-map-style/style-picker-list-layout.png" alt-text="Style picker list layout":::
 
 > [!IMPORTANT]
-> By default, when using the S0 [pricing tier](choose-pricing-tier.md) of Azure Maps, the style picker control lists all the available styles. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
+>By default the style picker control lists all the styles available under the S0 pricing tier of Azure Maps. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
 
 The following code shows you how to override the default `mapStyles` base style list. In this example, we're setting the `mapStyles` option to list which base styles we want to be displayed by the style picker control.
 
