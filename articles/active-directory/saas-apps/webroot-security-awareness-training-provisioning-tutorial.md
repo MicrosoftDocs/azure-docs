@@ -35,7 +35,7 @@ This tutorial describes the steps you need to perform in both Webroot Security A
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * A Managed Service Provider Console with Webroot Security Awareness Training enabled for at least one of your sites.
 
 ## Step 1. Plan your provisioning deployment
@@ -47,11 +47,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ### Obtain a secret token
 
-To connect your site to Azure AD you will need to obtain a **Secret Token** for that site in the Webroot management console.
+To connect your site to Azure AD, you will need to obtain a **Secret Token** for that site in the Webroot management console.
 
 1. Sign into your [Webroot management console](https://identity.webrootanywhere.com/v1/Account/login#tab_customers)
 
-2. From the **Sites** tab click the gear icon in the Security Awareness Training column for the site you wish to connect with Azure AD.
+2. From the **Sites** tab, click the gear icon in the Security Awareness Training column for the site you wish to connect with Azure AD.
 
     ![Gear Icon](./media/webroot-security-awareness-training-provisioning-tutorial/gear-icon.png)
 
