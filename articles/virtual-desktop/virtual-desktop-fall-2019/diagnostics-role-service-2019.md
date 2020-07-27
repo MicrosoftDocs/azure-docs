@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop diagnose issues – Fall 2019 – Azure
-description: How to use the Windows Virtual Desktop diagnostics feature to diagnose issues.
+title: Windows Virtual Desktop (classic) diagnose issues - Azure
+description: How to use the Windows Virtual Desktop (classic) diagnostics feature to diagnose issues.
 services: virtual-desktop
 author: Heidilohr
 
@@ -10,10 +10,10 @@ ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
 ---
-# Identify and diagnose issues
+# Identify and diagnose issues in Windows Virtual Desktop (classic)
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects introduced in the Spring 2020 update, see [this article](../diagnostics-role-service.md).
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../diagnostics-role-service.md).
 
 Windows Virtual Desktop offers a diagnostics feature that allows the administrator to identify issues through a single interface. The Windows Virtual Desktop roles log a diagnostic activity whenever a user interacts with the system. Each log contains relevant information such as the Windows Virtual Desktop roles involved in the transaction, error messages, tenant information, and user information. Diagnostic activities are created by both end-user and administrative actions, and can be categorized into three main buckets:
 
