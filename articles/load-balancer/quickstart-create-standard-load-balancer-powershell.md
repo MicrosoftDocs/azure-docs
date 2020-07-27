@@ -1404,7 +1404,7 @@ It takes a few minutes to create and configure the three VMs.
 
 Install IIS with a custom web page on both back-end VMs as follows:
 
-1. Get the public IP addresses of the three VMs using [Get-AzPublicIPAddress](/powershell/module/az.compute/get-azpublicipaddress).
+1. Get the public IP addresses of the three VMs using [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress).
 
    ```azurepowershell-interactive
    ## Variables for commands. ##
