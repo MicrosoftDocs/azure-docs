@@ -46,18 +46,6 @@ You can choose to send your metrics data to [Log Analytics](../azure-monitor/log
 
     :::image type="content" source="media/how-to-set-up-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
-## Turn on diagnostics settings with PowerShell
-
-You can also turn on diagnostics settings using [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-4.4.0). Use the following code:
-
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName <subscription that includes your Azure Digital Twins instance>
-Set-AzDiagnosticSetting -ResourceId <your resource ID> -ServiceBusRuleId <your service bus rule ID> -Enabled $true
-```
-
-## View the logs
-
 New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostics settings** page for your instance. 
 
 ## Next steps
