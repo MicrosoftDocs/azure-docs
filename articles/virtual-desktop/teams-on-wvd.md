@@ -13,7 +13,10 @@ manager: lizross
 # Use Microsoft Teams on Windows Virtual desktop
 
 >[!IMPORTANT]
->Media optimization for Microsoft Teams is currently in public preview. We recommend evaluating the optimized Teams user experience before deploying Teams for production workloads. Certain features might not be supported or might have constrained capabilities.
+>Media optimization for Teams is currently in **public preview**. We recommend evaluating the optimized Teams user experience before deploying Teams for production workloads. Certain features might not be supported or might have constrained capabilities.
+
+>[!IMPORTANT]
+>Media optimization for Teams is not supported for Microsoft 365 Government environments.
 
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
