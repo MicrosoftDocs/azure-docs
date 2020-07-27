@@ -74,8 +74,6 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     Click **Create**.
 
-    [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
-
     #### [Single-service resource](#tab/singleservice)
 
     |    |    |
@@ -92,7 +90,7 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
     ***
 
-
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## Get the keys for your resource
 
