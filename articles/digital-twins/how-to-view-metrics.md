@@ -61,6 +61,9 @@ The following tables describe the metrics tracked by each Azure Digital Twins in
 
 #### Billing metrics
 
+>[!NOTE]
+> During preview, **billing is zero cost**. While these metrics still show up in the selectable list, they do not apply during preview and will remain at zero until the service moves beyond preview.
+
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | MeterId |
