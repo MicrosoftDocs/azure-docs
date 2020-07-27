@@ -16,7 +16,7 @@ You can download a daily breakdown of your Azure usage and charges in the Azure 
 
 If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges. [Check your billing account type in the Azure portal](#check-your-billing-account-type).
 
-Based on the type of subscription that you use, options to download your usage and charges vary. 
+Based on the type of subscription that you use, options to download your usage and charges vary.
 
 ## Download usage from the Azure portal (.csv)
 
@@ -50,7 +50,7 @@ If you have a Microsoft Customer Agreement, you can download month-to-date usage
 3. Select a billing profile. Depending on your access, you might need to select a billing account first.
 4. In the **Overview** area, find the download links beneath the recent charges.
 5. Select **Download usage and prices**.  
-    :::image type="content" source="./media/open-usage01.png" alt-text="Screenshot that shows download from Overview" lightbox="./media/open-usage01.png" :::
+    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Screenshot that shows download from Overview" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::
 
 ## Check your billing account type
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
