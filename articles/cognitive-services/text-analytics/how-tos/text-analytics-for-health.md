@@ -116,7 +116,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 
 You can also use an Azure Container Instance (ACI) to make deployment easier. ACI is a resource that allows you to run Docker containers on-demand in a managed, serverless Azure environment. 
 
-See [How to use Azure Container Instances](text-analytics-how-to-use-container-instances.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.
+See [How to use Azure Container Instances](text-analytics-how-to-use-container-instances.md) for steps on deploying an ACI resource using the Azure portal. You can also use the below PowerShell script using Azure CLI, which will create a ACI on your subscription using the container image.  Wait for the script to complete (approximately 25-30 minutes) before submitting the first request.  Please note that due to the limit on the maximum number of CPUs for ACI resource, do not select this option when expecting to submit more than 5 documents per request.
 
 > [!NOTE] 
 > Azure Container Instances don't include HTTPS support for the builtin domains. If you need HTTPS, you will need to manually configure it, including creating a certificate and registering a domain. You can find instructions to do this with NGINX below.
