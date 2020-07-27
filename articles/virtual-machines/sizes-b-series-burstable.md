@@ -130,7 +130,7 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 
 **A** : B1ls only supports Linux images and if you deploy any another OS image you might not get the best customer experience.
 
-## Other sizes
+## Other sizes and information
 
 - [General purpose](sizes-general.md)
 - [Compute optimized](sizes-compute.md)
@@ -138,6 +138,10 @@ e.g in above instance your baseline is 20% and if you use 10% of the CPU you are
 - [Storage optimized](sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
+
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+More information on Disks Types : [Disk Types](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types#ultra-ssd-preview/)
 
 ## Next steps
 
