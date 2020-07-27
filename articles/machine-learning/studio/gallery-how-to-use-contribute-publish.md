@@ -14,6 +14,9 @@ ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
 
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
+
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 **[Azure AI Gallery](https://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.

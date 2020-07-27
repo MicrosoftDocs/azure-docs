@@ -14,6 +14,9 @@ ms.date: 11/03/2017
 ---
 # Manage Azure Machine Learning Studio (classic) web services using API Management
 
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
+
 ## Overview
 This guide shows you how to quickly get started using API Management to manage your Azure Machine Learning Studio (classic) web services.
 
