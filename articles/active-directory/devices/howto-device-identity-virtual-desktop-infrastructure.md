@@ -52,9 +52,9 @@ Before configuring device identities in Azure AD for your VDI environment, famil
 |   |   |   | Non-Persistent | No |
 |   | Managed | Windows current | Persistent | No |
 |   |   |   | Non-Persistent | No |
-| Azure AD registered | Federated | Windows current | Persistent | No |
+| Azure AD registered | Federated | Windows current | Persistent | Not Applicable |
 |   |   |   | Non-Persistent | No |
-|   | Managed | Windows current | Persistent | No |
+|   | Managed | Windows current | Persistent | Not Applicable |
 |   |   |   | Non-Persistent | No |
 
 \* A **Federated** identity infrastructure environment represents an environment with an identity provider such as AD FS or other third-party IDP.
