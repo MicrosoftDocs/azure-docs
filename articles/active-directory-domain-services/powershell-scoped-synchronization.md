@@ -35,7 +35,7 @@ To complete this article, you need the following resources and privileges:
 
 ## Scoped synchronization overview
 
-By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only a few users need to access the managed domain, you can synchronize only those user accounts. This scoped synchronization is group-based. When you configure group-based scoped synchronization, only the user accounts that belong to the groups you specify are synchronized to the managed domain.
+By default, all users and groups from an Azure AD directory are synchronized to a managed domain. If only a few users need to access the managed domain, you can synchronize only those user accounts. This scoped synchronization is group-based. When you configure group-based scoped synchronization, only the user accounts that belong to the groups you specify are synchronized to the managed domain. Nested groups aren't synchronized, only the specific groups you select.
 
 You can change the synchronization scope when you create the managed domain, or once it's deployed. You can also now change the scope of synchronization on an existing managed domain without needing to recreate it.
 
