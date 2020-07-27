@@ -112,7 +112,7 @@ Trusts provide this mechanism to validate authentication requests that are passe
 
 To learn more about trusts, see [How do forest trusts work in Azure AD DS?][concepts-trust]
 
-To get started with creating a managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain[create-forest-trust].
+To get started with creating a managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md
