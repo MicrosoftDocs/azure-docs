@@ -152,7 +152,7 @@ To target a subscription within the management group, use a nested deployment an
       "apiVersion": "2020-06-01",
       "name": "nestedSub",
       "location": "westus2",
-      "subscriptionId": "111-111-111-111",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
       "properties": {
         "mode": "Incremental",
         "template": {

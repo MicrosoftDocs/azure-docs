@@ -110,7 +110,7 @@ For each deployment name, the location is immutable. You can't create a deployme
 
 When deploying to a tenant, you can target the tenant or management groups, subscriptions and resource groups in the tenant. The user deploying the template must have access to the specified scope.
 
-Resources defined within the resources section of the template are applied to the tenant from the deployment command.
+Resources defined within the resources section of the template are applied to the tenant.
 
 ```json
 {
