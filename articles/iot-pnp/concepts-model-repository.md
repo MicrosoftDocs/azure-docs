@@ -106,7 +106,7 @@ To view a company or shared model using the portal:
 
     ![View shared models](./media/concepts-model-repository/view-shared-models.png)
 
-To view a company or shared model using the REST API, see the [Get Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync) REST API documentation. See [Passing a security token when accessing company models via REST Api](#passing-a-security-token-when-accessing-company-models-via-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
+To view a company or shared model using the REST API, see the [Get Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync) REST API documentation. See [Passing a security token when accessing company models with a REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
 
 ```csharp
 var modelId = "dtmi:com:mxchip:model;1";
@@ -151,7 +151,7 @@ To upload a model using the portal:
 
 1. Select the file you want to upload. If the portal successfully validates your model, select **Save**.
 
-To upload a model using the REST API, see the [Create a Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) API. See [Passing a security token when accessing company models via REST Api](#passing-a-security-token-when-accessing-company-models-via-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
+To upload a model using the REST API, see the [Create a Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) API. See [Passing a security token when accessing company models with a REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
 
 ```csharp
 var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
@@ -182,7 +182,7 @@ To publish a model using the portal:
 > [!NOTE]
 > If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see the requirements at the beginning of this section.
 
-To publish a model using the REST API, see the [Publish a model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) REST API documentation. Supply the query string parameter `update-metadata=true` to publish a model using the REST API. See [Passing a security token when accessing company models via REST Api](#passing-a-security-token-when-accessing-company-models-via-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
+To publish a model using the REST API, see the [Publish a model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) REST API documentation. Supply the query string parameter `update-metadata=true` to publish a model using the REST API. See [Passing a security token when accessing company models with a REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
 
 To publish a model using the CLI, see the Azure CLI [Publish a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) command.
 
