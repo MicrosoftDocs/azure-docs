@@ -10,10 +10,11 @@ ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick, 
 ---
+# Run Experiments using Azure Automated ML and Apache Spark
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
-In this tutorial, you use [automated machine learning](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml) in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
+In this tutorial, you use [automated machine learning](https://docs.microsoft.com/azure/machine-learning/concept-automated-ml) in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
 In this tutorial you learn the following tasks:
 - Download the data using Apache Spark and Azure Open Datasets
@@ -22,9 +23,9 @@ In this tutorial you learn the following tasks:
 - Calculate model accuracy
 
 ## Before you begin
-  - Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](articles/synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
+  - Create an Apache Spark Pool by following the [Create an Apache Spark pool tutorial](../quickstart-create-apache-spark-pool-studio.md)
   
-  - Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you do not have an existing Azure Machine Learning workspace. 
+  - Complete the [Azure Machine Learning workspace setup tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) if you do not have an existing Azure Machine Learning workspace. 
 
 ## Understand regression models
  *Regression models* predict numerical output values based on independent predictors. In regression, the objective is to help establish the relationship among those independent predictor variables by estimating how one variable impacts the others.  
@@ -38,7 +39,7 @@ In this example, you will use Spark to perform some analysis on taxi trip tip da
 
 ##  Create an Apache Spark Machine Learning Applications
 
-Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](https://docs.microsoft.com/en-us/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook.)
+Create a notebook using the PySpark kernel. For instructions, see [Create a Notebook](https://docs.microsoft.com/azure/synapse-analytics/quickstart-apache-spark-notebook#create-a-notebook.)
    
 > [!Note]
 > 
@@ -137,7 +138,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## Convert Spark Dataframe to a Tabular Dataset
-To run our experiment, we will need to convert our Spark dataframe in an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided files.
+To run our experiment, we will need to convert our Spark dataframe in an Azure Machine Learning ```TabularDatset```. A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning default datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset```. 
 
@@ -161,7 +162,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 ## Submit an Auto ML Experiment
 
 ### Define training settings
-1. To submit an experiment, we will need to define the experiment parameter and model settings for training. You can view the full list of settings [here](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-auto-train).
+1. To submit an experiment, we will need to define the experiment parameter and model settings for training. You can view the full list of settings [here](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train).
 
 ```python
 import logging
