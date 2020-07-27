@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2020
+ms.date: 07/27/2020
 
 ---
 
@@ -50,7 +50,7 @@ On the **Parameters** page, select a **Log Analytics workspace** to be used by a
 Click **Review + Create** to review the details of the assignment before clicking **Create** to create it. Don't create a remediation task at this point since you will most likely need multiple remediation tasks to enable existing virtual machines. See []() below.
 
 ## Review compliance
-Once an assignment is created, you can review and manage coverage for the **Enable Azure Monitor for VMs** initiative across your management groups and subscriptions. This will show how many VMs exist in each of the management groups or subscriptions and their compliance status.
+Once an assignment is created, you can review and manage coverage for the **Enable Azure Monitor for VMs** initiative across your management groups and subscriptions. This will show how many virtual machines exist in each of the management groups or subscriptions and their compliance status.
 
 ![Azure Monitor for VMs Manage Policy page](media/vminsights-enable-at-scale-policy/manage-policy-page-01.png)
 

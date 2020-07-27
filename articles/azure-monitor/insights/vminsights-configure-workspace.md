@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2020
+ms.date: 07/27/2020
 
 ---
 
@@ -40,7 +40,7 @@ You can create a new Log Analytics workspace using any of the following methods.
 
 ## Supported regions
 
-Azure Monitor for VMs supports Log Analytics workspaces in the following regions, although you can monitor VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
+Azure Monitor for VMs supports Log Analytics workspaces in the following regions, although you can monitor virtual machines in any region. The virtual machines themselves aren't limited to the regions supported by the Log Analytics workspace.
 
 - West Central US
 - West US
@@ -70,7 +70,7 @@ To enable and access the features in Azure Monitor for VMs, you must have the [L
 Before a Log Analytics workspace can be used with Azure Monitor for VMs, it must have the *VMInsights* solution installed. The methods for configuring the workspace are described in the following sections.
 
 > [!NOTE]
-> When you add the *VMInsights* solution to the workspace, all existing VMs connected to the workspace will start to send data to InsightsMetrics. Data for the other data types won't be collected until you add the Dependency Agent to those existing VMs connected to the workspace.
+> When you add the *VMInsights* solution to the workspace, all existing virtual machines connected to the workspace will start to send data to InsightsMetrics. Data for the other data types won't be collected until you add the Dependency Agent to those existing virtual machines connected to the workspace.
 
 ### Azure portal
 There are three options for configuring an existing workspace from the Azure portal.

@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/22/2020
+ms.date: 07/27/2020
 
 ---
 
@@ -131,8 +131,6 @@ To provide accurate and efficient troubleshooting capabilities, the Map feature 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
-
-Now that you've enabled monitoring for your VM, monitoring information is available for analysis in Azure Monitor for VMs.
 
 ## Next steps
 

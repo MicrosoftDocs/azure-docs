@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 
 ---
 
@@ -27,10 +27,10 @@ From the Azure portal, select **Virtual machines**, **Virtual machine scale sets
 
 ![Enable Azure Monitor for VMs for a VM](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-If the VM isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../../azure-monitor/learn/quick-create-workspace.md), then you can select a default for the location where the VM or VMSS is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for Azure Monitor for VMs if it wasn't already.
+If the virtual machine isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../../azure-monitor/learn/quick-create-workspace.md), then you can select a default for the location where the VM or VMSS is deployed in the subscription. This workspace will be created and configured if it doesn't already exist. If you select an existing workspace, it will be configured for Azure Monitor for VMs if it wasn't already.
 
 > [!NOTE]
-> If you select a workspace that wasn't previously configured for Azure Monitor for VMs, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for Azure Monitor for VMs. P                   erformance data will be collected from these VMs and stored in the *InsightsMetrics* table.
+> If you select a workspace that wasn't previously configured for Azure Monitor for VMs, the *VMInsights* management pack will be added to this workspace. This will be applied to any agent already connected to the workspace, whether or not it's enabled for Azure Monitor for VMs. Performance data will be collected from these virtual machines and stored in the *InsightsMetrics* table.
 
 ![Select workspace](media/vminsights-configure-workspace/select-workspace.png)
 
