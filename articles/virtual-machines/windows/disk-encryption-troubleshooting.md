@@ -4,7 +4,7 @@ description: This article provides troubleshooting tips for Microsoft Azure Disk
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: troubleshooting
 ms.author: mbaldwin
 ms.date: 08/06/2019
 
