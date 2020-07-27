@@ -169,7 +169,7 @@ From the **Dashboard** or **Services** page, use the **Actions** button at the b
 :::image type="content" source="./media/hdinsight-hadoop-manage-ambari/ambari-service-actions.png" alt-text="Apache Ambari service actions list." border="true":::
 
 > [!WARNING]  
-> While **Add Service** is listed in this menu, it should not be used to add services to the HDInsight cluster. New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
+> New services should be added using a Script Action during cluster provisioning. For more information on using Script Actions, see [Customize HDInsight clusters using Script Actions](hdinsight-hadoop-customize-cluster-linux.md).
 
 While the **Actions** button can restart all services, often you want to start, stop, or restart a specific service. Use the following steps to do actions on an individual service:
 
