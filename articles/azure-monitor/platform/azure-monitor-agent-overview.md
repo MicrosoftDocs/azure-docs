@@ -89,6 +89,10 @@ The following operating systems are currently supported byt the Azure Monitor ag
   - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
   - SLES 11, 12, 15
 
+## Security
+The Azure Monitor agent doesn't require any keys but instead requires a [system -ssigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before deploying the agent.
+
+
 ## Install the Azure Monitor agent
 The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. 
 

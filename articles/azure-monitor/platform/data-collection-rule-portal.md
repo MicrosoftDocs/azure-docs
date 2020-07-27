@@ -8,10 +8,23 @@ ms.date: 06/11/2020
 
 ---
 
-# Configure data collection for the Azure Monitor agent using the Azure portal (preview)
-Data Collection Rules (DCR) define the details of data to be collected from the guest operating system of virtual machines monitored by the Azure Monitor Agent. This article describes the procedure to create a data collection rule and assign it to a set of virtual machines using the Azure portal. 
+# Configure data collection for the Azure Monitor agent (preview)
+[Data Collection Rules (DCR)](data-collection-rule-overview.md) define data sent to Azure Monitor and what should be done with it. This article describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 
-## Create data collection rule
+For a complete description of data collection rules, see [Data collection rules in Azure Monitor (preview)](data-collection-rule-overview.md).
+
+
+## DCR associations
+To apply a DCR to a virtual machine, you create an association between the two. A DCR may have an association with multiple virtual machines, and a virtual machine may have an association with multiple DCRs. This allows you to define a set of DCRs, each matching a particular requirement and apply them to only the virtual machines where they apply. 
+
+The following diagram shows an example of how you might define a set of DCRs and apply them to different virtual machines in your environment.
+
+
+
+
+## Create data collection rule using the Azure portal
+You can use the Azure portal to create a data collection rule and assign it to virtual machines in your subscription. The Azure Monitor agent will be automatically installed and a managed identify 
+
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
 
 ![Data Collection Rules](media/azure-monitor-agent/data-collection-rules.png)
@@ -29,7 +42,7 @@ On the **Collect and deliver** tab, click **Add data source** to add a data sour
 ![Data source basic](media/azure-monitor-agent/data-collection-rule-data-source-basic.png)
 
 
-To specify other logs and performance counters, select **Custom**. (Need details on formatting.)
+To specify other logs and performance counters, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](data-collection-rule-overview.md#sample-dcr) for examples.
 
 ![Data source custom](media/azure-monitor-agent/data-collection-rule-data-source-custom.png)
 
@@ -40,4 +53,5 @@ One the **Destination** tab, add one or more destinations for the data source. W
 Click **Add Data Source** and then **Review + create** to review the details of the data collection rule and association with the set of VMs. Click **Create** to create it.
 
 ## Next steps
+
 
