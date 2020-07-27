@@ -9,7 +9,7 @@ ms.author: nicolela
 
 # Set up a lab for engineering classes using SOLIDWORKS
 
-[SOLIDWORKS](https://www.solidworks.com/) provides a 3D computer-aided design (CAD) environment for modeling solid objects and is used in a variety of engineering fields.  With SOLIDWORKS, engineers can easily create, visualize, simulate and document their designs.
+[SOLIDWORKS](https://www.solidworks.com/) provides a 3D computer-aided design (CAD) environment for modeling solid objects and is used in different kinds of engineering fields.  With SOLIDWORKS, engineers can easily create, visualize, simulate, and document their designs.
 
 A licensing option commonly used by universities is SOLIDWORKS’ Network Licensing.   With this option, users share a pool of licenses that are managed by a licensing server.  This type of license is sometimes called a “floating” license because you only need to have enough licenses for the number of concurrent users.  When a user is done using SOLIDWORKS, their license goes back into the centrally managed license pool so that it can be reused by another user.
 
@@ -17,9 +17,9 @@ In this article, we’ll show how to set up a class that uses SOLIDWORKS 2019 an
 
 ## License server
 
-SOLIDWORKS Network Licensing requires that you have SolidNetWork License Manager installed and activated on your license server.  This license server is typically located in either your on-premise network or a private network within Azure.  For more information on how to set up SolidNetWork License Manager on your server, see [Installing and Activating a License Manager](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) in the SOLIDWORKS install guide.  When setting this up, remember the **port number** and [**serial number**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) that are used since they will be needed in later steps.
+SOLIDWORKS Network Licensing requires that you have SolidNetWork License Manager installed and activated on your license server.  This license server is typically located in either your on-premise network or a private network within Azure.  For more information on how to set up SolidNetWork License Manager on your server, see [Installing and Activating a License Manager](https://help.solidworks.com/2019/English/Installation/install_guide/t_installing_snl_lic_mgr.htm) in the SOLIDWORKS install guide.  When setting this up, remember the **port number** and [**serial number**](https://help.solidworks.com/2019/english/installation/install_guide/r_hid_state_serial_number.htm) that are used since they'll be needed in later steps.
 
-After your license server is set up, you will need to peer the [virtual network (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) to your [lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  The network peering must be done before creating the lab so that lab virtual machines can access the license server and vice versa.
+After your license server is set up, you'll need to peer the [virtual network (VNet)](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) to your [lab account](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account).  The network peering must be done before creating the lab so that lab virtual machines can access the license server and the other way around.
 
 > [!NOTE]
 > You should verify that the appropriate ports are opened on your firewalls to allow communication between the lab virtual machines and the license server.  For example, see the instructions on [Modifying License Manager Computer Ports for Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) that show how to add inbound and outbound rules to the license server's firewall.  You may also need to open up ports to the lab virtual machines.  Follow the steps in the article on [firewall settings for labs](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-configure-firewall-settings) for more information on this, including how to get the lab's public IP address.
@@ -73,7 +73,7 @@ The steps in this section show how to set up your template virtual machine by do
 
 ## Cost
 
-Let's cover a possible cost estimate for this class. This estimate does not include the cost of running the license server. We'll use a class of 25 students. There are 20 hours of scheduled class time. Also, each student gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.
+Let's cover a possible cost estimate for this class. This estimate doesn't include the cost of running the license server. We'll use a class of 25 students. There are 20 hours of scheduled class time. Also, each student gets 10 hours quota for homework or assignments outside scheduled class time. The virtual machine size we chose was **Small GPU (Visualization)**, which is 160 lab units.
 
 25 students \* (20 scheduled hours + 10 quota hours) \* 160 Lab Units * 0.01 USD per hour = 1200.00 USD
 
