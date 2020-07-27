@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: jasteppe
 ---
-# IoT Connector (preview) troubleshooting guide and how-to
+# IoT Connector (preview) troubleshooting guide
 
-In this article, you'll learn how to troubleshoot common IoT Connector (preview) error messages and conditions.
+This article provides steps for troubleshooting common IoT Connector (preview) error messages and conditions.  
 
-You'll also learn how to create copies of the IoT Connector (preview) JSON-mapping.
+You'll also learn how to create copies of the IoT Connector (preview) JSON-mapping files for editing and archiving outside of the Azure portal.
 
 ## Error messages and fixes
 
@@ -53,11 +53,11 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 > [!NOTE]
 > This process can also be used for copying/saving the contents of the **"Configure FHIR mapping"** JSON.
 
-4. Select the contents of the JSON and perform a copy operation (for example: Select Ctrl + c). 
+4. Select the contents of the JSON and do a copy operation (for example: Select Ctrl + c). 
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT Connector" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
-5. Perform a paste operation (for example: Select Ctrl + v) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
+5. Do a paste operation (for example: Select Ctrl + v) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
 
 > [!TIP]
 > If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, make sure to include copies of your mapping files to help with the troubleshooting process.

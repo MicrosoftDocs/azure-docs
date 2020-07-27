@@ -3,7 +3,7 @@ title: Disaster recovery scenarios
 description: Learn what to do in the event that an Azure service disruption impacts Azure virtual machines.
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2017
 ms.author: cynthn
 #pmcontact:

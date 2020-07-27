@@ -4,7 +4,7 @@ description: Provides answers to some of the common questions about Linux virtua
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: cynthn
 

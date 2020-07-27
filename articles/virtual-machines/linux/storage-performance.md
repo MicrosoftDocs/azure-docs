@@ -5,7 +5,7 @@ services: virtual-machines-linux
 author: laurenhughes
 ms.service: virtual-machines-linux
 ms-subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
