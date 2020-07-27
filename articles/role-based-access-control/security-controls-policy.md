@@ -10,6 +10,8 @@ ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure RBAC
 
+[Azure Policy](../governance/policy/index.yml) can enforce ruels for your Azure resources so that
+your infrastructure is compliant with business standards.
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)
 provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
 **compliance domains** and **security controls** related to different compliance standards. This
