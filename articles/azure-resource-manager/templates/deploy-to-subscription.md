@@ -2,39 +2,37 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/27/2020
 ---
 
 # Create resource groups and resources at the subscription level
 
-To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [role-based access controls](../../role-based-access-control/overview.md) to your subscription, and those resources are applied across your subscription. You can also create resource groups and deploy resources to those resource groups.
+To simplify the management of resources, you can use an Azure Resource Manager template (ARM template) to deploy resources at the level of your Azure subscription. For example, you can deploy [policies](../../governance/policy/overview.md) and [role-based access controls](../../role-based-access-control/overview.md) to your subscription, and those resources are applied across your subscription. You can also create resource groups within the subscription and deploy resources to resource groups in the subscription.
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
 
-To deploy templates at the subscription level, use Azure CLI, PowerShell, or REST API.
+To deploy templates at the subscription level, use Azure CLI, PowerShell, REST API, or the portal.
 
 ## Supported resources
 
-Not all resource types can be deployed to the management group level.
+Not all resource types can be deployed to the subscription level. This section lists which resource types are supported.
 
-You can deploy the following resource types at the subscription level:
-
-For Azure Blueprints, you can deploy:
+For Azure Blueprints, use:
 
 * [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
 * [blueprints](/azure/templates/microsoft.blueprint/blueprints)
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versions (Blueprints)](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-For Azure Policies, you can deploy:
+For Azure Policies, use:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For role-based access control, you can deploy:
+For role-based access control, use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
@@ -47,13 +45,13 @@ For creating new resource groups, use:
 
 * [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
 
-For management of your subscription, you can deploy:
+For managing your subscription, use:
 
 * [budgets](/azure/templates/microsoft.consumption/budgets)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
 
-Other supported types, include:
+Other supported types include:
 
 * [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)

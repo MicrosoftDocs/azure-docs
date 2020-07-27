@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 07/24/2020
 ---
 
 # Create resources at the management group level
@@ -11,25 +11,23 @@ As your organization matures, you can deploy an Azure Resource Manager template 
 
 ## Supported resources
 
-Not all resource types can be deployed to the management group level.
+Not all resource types can be deployed to the management group level. This section lists which resource types are supported.
 
-You can deploy the following resource types at the management group level:
-
-For Azure Blueprints, you can deploy:
+For Azure Blueprints, use:
 
 * [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
 * [blueprints](/azure/templates/microsoft.blueprint/blueprints)
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versions](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-For Azure Policies, you can deploy:
+For Azure Policies, use:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For role-based access control, you can deploy:
+For role-based access control, use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
@@ -38,7 +36,7 @@ For nested templates that deploy to subscriptions or resource groups, use:
 
 * [deployments](/azure/templates/microsoft.resources/deployments)
 
-For management, you can deploy:
+For managing your resources, use:
 
 * [tags](/azure/templates/microsoft.resources/tags)
 
@@ -183,7 +181,9 @@ The following example assigns an existing policy definition to the management gr
 }
 ```
 
-## Template sample
+## Deploy to subscription
+
+From a management group level deployment, you can target a subscription within the management group. You use a nested deployment and specify the subscription ID.
 
 * [Create a resource group, a policy, and a policy assignment](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
