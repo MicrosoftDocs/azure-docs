@@ -177,8 +177,6 @@
             href: ./azure-ad-transactable-saas-landing-page.md
           - name: Landing page for free or trial offers
             href: ./azure-ad-free-or-trial-landing-page.md
-          - name: Azure AD auth FAQ
-            href: ./azure-ad-saas-faq.md
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:
