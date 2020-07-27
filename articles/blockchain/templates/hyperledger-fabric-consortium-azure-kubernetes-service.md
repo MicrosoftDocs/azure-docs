@@ -1,7 +1,7 @@
 ---
 title: Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
 description: How to deploy and configure Hyperledger Fabric consortium network on Azure Kubernetes Service
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ---
@@ -243,34 +243,13 @@ For peer organization:
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### Channel management commands
-
-> [!NOTE]
-> Before starting with any channel operation, ensure that the initial setup of the client application is done.
-
-#### Create channel command
+### Create channel command
 
 From orderer organization client, issue command to create a new channel. This command will create a channel with only orderer organization in it.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
-
-#### Setting anchor peer(s) command
-
-From the peer organization client, issue the command to set anchor peer(s) for the peer organization on the specified channel.
-
->[!NOTE]
-> Before executing this command, ensure that peer organization is added in the channel using Consortium management commands.
-
-```bash
-./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
-```
-
-`<anchorPeersList>` is a space separated list of peer nodes to be set as an anchor peer. For example,
-
-  - Set `<anchorPeersList>` as “peer1” if you want to set only peer1 node as anchor peer.
-  - Set `<anchorPeersList>` as “peer1” “peer3” if you want to set both peer1 and peer3 node as anchor peer.
 
 ### Consortium management commands
 
@@ -306,6 +285,21 @@ Execute below commands in the given order to add a peer organization in a channe
 
 Similarly, to add more peer organizations in the channel, update peer environment variables as per the required peer organization and execute the steps 1 to 4.
 
+### Set anchor peer(s) command
+
+From the peer organization client, issue the command to set anchor peer(s) for the peer organization on the specified channel.
+
+>[!NOTE]
+> Before executing this command, ensure that peer organization is added in the channel using Consortium management commands.
+
+```bash
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
+```
+
+`<anchorPeersList>` is a space separated list of peer nodes to be set as an anchor peer. For example,
+
+  - Set `<anchorPeersList>` as “peer1” if you want to set only peer1 node as anchor peer.
+  - Set `<anchorPeersList>` as “peer1” “peer3” if you want to set both peer1 and peer3 node as anchor peer.
 
 ### Chaincode management commands
 
