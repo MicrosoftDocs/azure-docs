@@ -1,5 +1,6 @@
 ---
 title: User flows in Azure Active Directory B2C | Microsoft Docs
+titleSuffix: Azure AD B2C
 description: Learn more about the extensible policy framework of Azure Active Directory B2C and how to create various user flows.
 services: active-directory-b2c
 author: msmimart
@@ -9,6 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/21/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---

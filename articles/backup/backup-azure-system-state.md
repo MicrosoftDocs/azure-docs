@@ -34,7 +34,7 @@ When you create a Recovery Services vault, make sure storage redundancy is confi
 
     ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy-grs.md) and [locally redundant](../storage/common/storage-redundancy-lrs.md) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
+    By default, your vault has geo-redundant storage. If you use Azure as a primary backup storage endpoint, continue to use **Geo-redundant**. If you don't use Azure as a primary backup storage endpoint, then choose **Locally-redundant**, which reduces the Azure storage costs. Read more about [geo-redundant](../storage/common/storage-redundancy.md) and [locally redundant](../storage/common/storage-redundancy.md) storage options in this [Storage redundancy overview](../storage/common/storage-redundancy.md).
 
 Now that you've created a vault, configure it for backing up Windows System State.
 
@@ -168,7 +168,7 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
 5. Click **Close** to close the wizard. If you close the wizard before the backup process finishes, the wizard continues to run in the background.
     > [!NOTE]
-    > The MARS Agent triggers SFC /verifyonly as part of the prechecks before every system state backup. This is to ensure that files backed up as part of System State have the correct versions corresponding to the Windows version. Learn more about System File Checker (SFC) in [this article](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    > The MARS Agent triggers SFC /verifyonly as part of the prechecks before every system state backup. This is to ensure that files backed up as part of System State have the correct versions corresponding to the Windows version. Learn more about System File Checker (SFC) in [this article](/windows-server/administration/windows-commands/sfc).
     >
 
 After the initial backup is completed, the **Job completed** status appears in the Backup console.

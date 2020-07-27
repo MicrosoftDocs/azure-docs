@@ -28,6 +28,11 @@ The workflow is similar no matter [where you deploy](#target) your model:
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
+> [!IMPORTANT]
+> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
+
 ## Prerequisites
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
@@ -437,9 +442,9 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 In this example, the configuration specifies the following settings:
 
-* That the model requires Python.
-* The [entry script](#script), which is used to handle web requests sent to the deployed service.
-* The Conda file that describes the Python packages needed for inference.
+* That the model requires Python
+* The [entry script](#script), which is used to handle web requests sent to the deployed service
+* The Conda file that describes the Python packages needed for inference
 
 For information on using a custom Docker image with an inference configuration, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
@@ -455,7 +460,7 @@ In order to profile your model, you will need:
 > [!IMPORTANT]
 > At this point we only support profiling of services that expect their request data to be a string, for example: string serialized json, text, string serialized image, etc. The content of each row of the dataset (string) will be put into the body of the HTTP request and sent to the service encapsulating the model for scoring.
 
-Below is an example of how you can construct an input dataset to profile a service that expects its incoming request data to contain serialized json. In this case, we created a dataset based one hundred instances of the same request data content. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
+Below is an example of how you can construct an input dataset to profile a service that expects its incoming request data to contain serialized json. In this case, we created a dataset based 100 instances of the same request data content. In real world scenarios we suggest that you use larger datasets containing various inputs, especially if your model resource usage/behavior is input dependent.
 
 ```python
 import json
@@ -533,7 +538,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## Deploy to target
 
-Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different because you must provide a reference to the AKS cluster.
+Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to Azure Kubernetes Service (AKS) is slightly different because you must provide a reference to the AKS cluster.
 
 ### Choose a compute target
 
@@ -625,7 +630,7 @@ See [Deploy to Azure Container Instances](how-to-deploy-azure-container-instance
 See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ### A/B Testing (controlled rollout)
-See [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
+For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
 ## Consume web services
 
@@ -874,7 +879,7 @@ No-code model deployment is currently in preview and supports the following mach
 ### Tensorflow SavedModel format
 Tensorflow models need to be registered in **SavedModel format** to work with no-code model deployment.
 
-Please see [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
+See [this link](https://www.tensorflow.org/guide/saved_model) for information on how to create a SavedModel.
 
 ```python
 from azureml.core import Model
@@ -910,8 +915,13 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-If you're using Pytorch, [
-Exporting models from PyTorch to ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) has the details on conversion and limitations. 
+To score a model, see [Consume an Azure Machine Learning model deployed as a web service](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Many ONNX projects use protobuf files to compactly store training and validation data, which can make it difficult to know what the data format expected by the service. As a model developer, you should document for your developers:
+
+* Input format (JSON or binary)
+* Input data shape and type (for example, an array of floats of shape [100,100,3])
+* Domain information (for instance, for an image, the color space, component order, and whether the values are normalized)
+
+If you're using Pytorch, [Exporting models from PyTorch to ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) has the details on conversion and limitations. 
 
 ### Scikit-learn models
 
@@ -936,7 +946,7 @@ service_name = 'my-sklearn-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-NOTE: Models which support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
+NOTE: Models that support predict_proba will use that method by default. To override this to use predict you can modify the POST body as below:
 ```python
 import json
 

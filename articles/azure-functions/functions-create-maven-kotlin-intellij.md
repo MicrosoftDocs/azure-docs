@@ -21,7 +21,7 @@ To develop a function with Kotlin and IntelliJ, install the following software:
 - [Java Developer Kit](https://aka.ms/azure-jdks) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](/cli/azure)
 - [Version 2.x](functions-run-local.md#v2) of the Azure Functions Core Tools. It provides a local development environment for writing, running, and debugging Azure Functions.
 
 > [!IMPORTANT]
@@ -40,7 +40,7 @@ To develop a function with Kotlin and IntelliJ, install the following software:
 1. Select **OK**, and then select **Next**.
 1. Enter your details for current project, and select **Finish**.
 
-Maven creates the project files in a new folder with the same name as the _ArtifactId_ value. The project's generated code is a simple [HTTP-triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the triggering HTTP request.
+Maven creates the project files in a new folder with the same name as the _ArtifactId_ value. The project's generated code is a simple [HTTP-triggered](./functions-bindings-http-webhook.md) function that echoes the body of the triggering HTTP request.
 
 ## Run functions locally in the IDE
 

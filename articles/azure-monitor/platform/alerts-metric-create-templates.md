@@ -1,5 +1,5 @@
 ---
-title: Create a metric alert with a Resource Manager template
+title: Create a newer metric alert with Azure Resource Manager template
 description: Learn how to use a Resource Manager template to create a metric alert.
 author: harelbr
 ms.author: harelbr
@@ -21,7 +21,7 @@ The basic steps are as follows:
 
 1. Use one of the templates below as a JSON file that describes how to create the alert.
 2. Edit and use the corresponding parameters file as a JSON to customize the alert.
-3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+3. For the `metricName` parameter, see the available metrics in [Azure Monitor supported metrics](./metrics-supported.md).
 4. Deploy the template using [any deployment method](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Template for a simple static threshold metric alert
@@ -198,7 +198,7 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided below.
 
@@ -471,7 +471,7 @@ Save the json below as simpledynamicmetricalert.json for the purpose of this wal
 }
 ```
 
-An explanation of the schema and properties for an alert rule [is available here](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+An explanation of the schema and properties for an alert rule [is available here](/rest/api/monitor/metricalerts/createorupdate).
 
 You can set the values for the parameters either on the command line or through a parameter file. A sample parameter file is provided below. 
 
@@ -1242,7 +1242,7 @@ az group deployment create \
 
 You can use the following template to create a more advanced static threshold metric alert rule on a custom metric.
 
-To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+To learn more about custom metrics in Azure Monitor, see [Custom metrics in Azure Monitor](./metrics-custom-overview.md).
 
 When creating an alert rule on a custom metric, you need to specify both the metric name and the metric namespace. You should also make sure that the custom metric is already being reported, as you cannot create an alert rule on a custom metric that doesn't yet exist.
 
@@ -1498,7 +1498,7 @@ az group deployment create \
 
 >[!NOTE]
 >
-> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> You can find the metric namespace of a specific custom metric by [browsing your custom metrics via the Azure portal](./metrics-custom-overview.md#browse-your-custom-metrics-via-the-azure-portal)
 
 
 ## Template for a metric alert that monitors multiple resources

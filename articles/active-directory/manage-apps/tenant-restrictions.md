@@ -54,7 +54,7 @@ The following configuration is required to enable tenant restrictions through yo
 
 #### Prerequisites
 
-- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs. 
+- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
 
 - Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
 
@@ -63,6 +63,11 @@ The following configuration is required to enable tenant restrictions through yo
 #### Configuration
 
 For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
+
+> [!NOTE]
+> When configuring SSL interception and header injection, ensure that traffic to https://device.login.microsoftonline.com is excluded. This URL is used for device authentication and performing TLS break-and-inspect may interfere with Client Certificate authentication, which may cause issues with device registration and device-based Conditional Access.
+
+
 
 The headers should include the following elements:
 

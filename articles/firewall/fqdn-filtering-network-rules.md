@@ -9,7 +9,7 @@ ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# FQDN filtering in network rules (preview)
+# Use FQDN filtering in network rules (preview)
 
 > [!IMPORTANT]
 > FQDN filtering in network rules is currently in public preview.

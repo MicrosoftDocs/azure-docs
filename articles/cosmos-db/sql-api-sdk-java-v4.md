@@ -57,6 +57,17 @@ The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync 
 
 ## Release history
 
+### 4.2.0 (2020-07-14)
+* Added script logging enabled API to `CosmosStoredProcedureRequestOptions`.
+* Updated `DirectConnectionConfig` default `idleEndpointTimeout` to 1h and default `connectTimeout` to 5s.
+#### Key Bug Fixes
+* Fixed issue where `GatewayConnectionConfig` `idleConnectionTimeout` was overriding `DirectConnectionConfig` `idleConnectionTimeout`.
+* Fixed `responseContinuationTokenLimitInKb` get and set APIs in `CosmosQueryRequestOptions`.
+* Fixed issue in query and change feed when recreating the collection with same name.
+* Fixed issue with top query throwing ClassCastException.
+* Fixed issue with order by query throwing NullPointerException.
+* Fixed issue in handling of cancelled requests in direct mode causing reactor `onErrorDropped` being called. 
+
 ### 4.1.0 (2020-06-25)
 #### New Features
 * Added support for `GROUP BY` query.

@@ -67,7 +67,7 @@ This model defines a name and a unique ID for the patient room, and properties t
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
 > [!TIP]
-> There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. For more information about this library and access to a sample built on it for a DTDL Validator, see [How-to: Parse and validate models](how-to-use-parser.md).
+> There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. For more information about this library and access to a sample built on it for a DTDL Validator, see [*How-to: Parse and validate models*](how-to-use-parser.md).
 
 ## Manage models with APIs.
 
@@ -253,4 +253,4 @@ Models can also be managed using the Azure Digital Twins CLI. The commands can b
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage digital twins](how-to-manage-twin.md)
+* [*How-to: Manage digital twins*](how-to-manage-twin.md)

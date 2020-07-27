@@ -66,6 +66,9 @@
     items:
     - name: Overview
       href: best-practices.md
+    - name: Baseline architecture for an AKS cluster
+      href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks/
+      maintainContext: True
     - name: For cluster operators
       items:
       - name: Multi-tenancy and cluster isolation
@@ -193,8 +196,6 @@
       href: internal-lb.md
     - name: Use a Standard Load Balancer
       href: load-balancer-standard.md
-    - name: Use a user defined route for egress
-      href: egress-outboundtype.md
     - name: Use a static IP address
       href: static-ip.md
     - name: Ingress
@@ -216,8 +217,14 @@
             href: ingress-tls.md
           - name: Use a static public IP address
             href: ingress-static-ip.md
-    - name: Egress traffic
-      href: egress.md
+    - name: Egress
+      items:
+        - name: Restrict and control cluster egress traffic
+          href: limit-egress-traffic.md
+        - name: Use a user defined route for egress
+          href: egress-outboundtype.md
+        - name: Use a basic load balancer and static IP address
+          href: egress.md
     - name: Customize CoreDNS
       href: coredns-custom.md
   - name: Security and authentication
@@ -240,13 +247,11 @@
       href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
     - name: Update cluster credentials
       href: update-credentials.md
-    - name: Restrict and control cluster egress traffic
-      href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:
-        - name: AKS-managed AAD (preview)
+        - name: AKS-managed AAD
           href: managed-aad.md
-        - name: Use the Azure CLI
+        - name: AAD integration (legacy)
           href: azure-ad-integration-cli.md
     - name: Use Azure RBAC for Kubernetes Authorization (preview)
       href: manage-azure-rbac.md
@@ -293,8 +298,6 @@
     items:
     - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
       href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
-    - name: Use Local Process with Kubernetes with Visual Studio (preview)
-      href: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
     - name: Install existing applications with Helm
       href: kubernetes-helm.md
     - name: Use OpenFaaS
@@ -385,10 +388,10 @@
     href: https://azure.microsoft.com/pricing/details/container-service/
   - name: Support policies
     href: support-policies.md
-  - name: Roadmap
+  - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Provide product feedback
-    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
+  - name: AKS Roadmap
+    href: https://github.com/Azure/AKS/projects/1
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-container-service
   - name: Videos

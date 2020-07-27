@@ -43,7 +43,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Kisi Physical Security supports **SP and IDP** initiated SSO
 * Kisi Physical Security supports **Just In Time** user provisioning
 
-* Once you configure Kisi Physical Security you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Kisi Physical Security you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Kisi Physical Security from the gallery
 
@@ -88,7 +88,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://api.kisi.io/saml/consume/<DOMAIN>`
 
-    *Note: `DOMAIN` is a lowercase alphanumeric identifier assigned to the organization by Kisi, it's **not** the same as the organization's DNS domain name.*
+    > [!NOTE] 
+    > `DOMAIN` is a lowercase alphanumeric identifier assigned to the organization by Kisi, it's **not** the same as the organization's DNS domain name.*
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
