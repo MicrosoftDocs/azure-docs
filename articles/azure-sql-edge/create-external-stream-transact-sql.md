@@ -15,7 +15,7 @@ ms.date: 07/25/2020
 
 The EXTERNAL STREAM object has a dual purpose of both an input and output stream. It can be used as an input to query streaming data from event ingestion services such as Azure Event Hub, Azure IoT Hub (or Edge Hub) or Kafka or it can be used as an output to specify where and how to store results from a streaming query.
 
-An EXTERNAL STREAM can also be specified and created as both an output and input for services such as Event Hub or Blob storage. This is for chaining scenarios where a streaming query is persisting results to the external stream as output and another streaming query reading from the same external stream as input. 
+An EXTERNAL STREAM can also be specified and created as both an output and input for services such as Event Hub or Blob storage. This facilitates chaining scenarios where a streaming query is persisting results to the external stream as output and another streaming query reading from the same external stream as input.
 
 Azure SQL Edge currently only supports the following data sources as stream inputs and outputs.
 
@@ -120,7 +120,7 @@ WITH  ( <with_options> )
     Minimum rows required per batch written to an output. For Parquet, every batch will create a new file. 
     - Applies to all supported outputs 
   - MAXIMUM_TIME:  
-    Maximum wait time in seconds per batch. After this time, the batch will be written to the output even if the minimum rows requirement is not met. 
+    Maximum wait time in minutes per batch. After this time, the batch will be written to the output even if the minimum rows requirement is not met. 
     - Applies to all supported outputs 
   - PARTITION_KEY_COLUMN:  
     The column that is used for the partition key. 
@@ -142,7 +142,7 @@ WITH  ( <with_options> )
     - Reserved for future usage. Does not apply to Azure SQL Edge. 
   - MAXIMUM_BATCH_COUNT:  
     Maximum number of events sent to the function per call for Azure function - default is 100. For SQL Database, this represents the maximum number of   records sent with every bulk insert transaction - default is 10,000. 
-    - Applies to SQL Database 
+    - Applies to all SQL based outputs 
   - STAGING_AREA: EXTERNAL DATA SOURCE object to Blob Storage 
     The staging area for high-throughput data ingestion into SQL Data Warehouse 
     - Reserved for future usage. Does not apply to Azure SQL Edge.
@@ -262,8 +262,9 @@ SECRET = 'AccountKey';
 CREATE EXTERNAL DATA SOURCE MyBlobStorage_tweets 
 WITH 
 (     
-  LOCATION = 'abfss://<storage_account_name>.blob.core.windows.net/container_Name', 
+  LOCATION = 'https://<storage_account_name>.blob.core.windows.net/container_Name', 
   CREDENTIAL = StorageAcctCredName 
+  Type = BLOB_STORAGE
 ); 
  
 CREATE EXTERNAL FILE FORMAT myFileFormat 
