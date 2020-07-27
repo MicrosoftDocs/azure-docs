@@ -1,7 +1,7 @@
 ---
 title: Hyperledger Fabric consortium on Azure Kubernetes Service (AKS)
 description: How to deploy and configure Hyperledger Fabric consortium network on Azure Kubernetes Service
-ms.date: 07/07/2020
+ms.date: 07/24/2020
 ms.topic: how-to
 ms.reviewer: ravastra
 ---
@@ -29,7 +29,10 @@ Solution templates | IaaS | Solution templates are Azure Resource Manager templa
 
 ## Hyperledger Fabric Consortium architecture
 
-To build Hyperledger Fabric network on Azure, you need to deploy Ordering Service and organization with peer nodes. The different fundamental components that are created as part of the template deployment are:
+To build Hyperledger Fabric network on Azure, you need to deploy Ordering Service and organization with peer nodes. Using the Hyperledger Fabric on Azure Kubernetes Service
+ solution template, you can create order nodes or peer nodes. You need to deploy the template for each node you want to create.
+
+The different fundamental components that are created as part of the template deployment are:
 
 - **Orderer nodes**: A node that is responsible for transaction ordering in the ledger. Along with other nodes, the ordered nodes form the ordering service of the Hyperledger Fabric network.
 
@@ -53,22 +56,13 @@ The template on deployment spins up various Azure resources in your subscription
 - **Azure Managed disk**: Azure Managed disk is for persistent store for ledger and peer node world state database.
 - **Public IP**: A public IP endpoint of the AKS cluster deployed for interfacing with the cluster.
 
-## Hyperledger Fabric Blockchain network setup
+## Deploy the orderer/peer organization
 
 To begin, you need an Azure subscription that can support deploying several virtual machines and standard storage accounts. If you do not have an Azure subscription, you can [create a free Azure account](https://azure.microsoft.com/free/).
 
-Setup Hyperledger Fabric Blockchain network using the following steps:
+To get started with the HLF network components deployment, navigate to the [Azure portal](https://portal.azure.com).
 
-- [Deploy the orderer/peer organization](#deploy-the-ordererpeer-organization)
-- [Build the consortium](#build-the-consortium)
-
-## Deploy the orderer/peer organization
-
-To get started with the HLF network components deployment, navigate to the [Azure portal](https://portal.azure.com). Select **Create a resource > Blockchain** > search for **Hyperledger Fabric on Azure Kubernetes Service**.
-
-1. Select **create** to start the template deployment. The **Create Hyperledger Fabric on Azure Kubernetes Service** displays.
-
-    ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
+1. Select **Create a resource > Blockchain** > search for **Hyperledger Fabric on Azure Kubernetes Service (preview)**.
 
 2. Enter the project details in **Basics** page.
 
@@ -142,17 +136,17 @@ The following image shows the step-by-step process to build consortium between a
 
 ![Hyperledger Fabric on Azure Kubernetes Service Template](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Follow the below commands for the initial setup of the client application: 
+Complete the sections for the initial setup of the client application: 
 
-1.	[Download client application files](#download-client-application-files)
-2.	[Setup environment variables](#setup-environment-variables)
-3.	[Import organization connection profile, admin user, and MSP](#import-organization-connection-profile-admin-user-identity-and-msp)
+1. Download client application files
+1. Setup environment variables
+1. Import organization connection profile, admin user, and MSP
 
-After completing the initial setup, you can use the client application to achieve the below operations:  
+After completing the initial setup, use the client application to achieve the following operations:  
 
-- [Channel management commands](#channel-management-commands)
-- [Consortium management commands](#consortium-management-commands)
-- [Chaincode management commands](#chaincode-management-commands)
+- Channel management
+- Consortium management
+- Chaincode management
 
 ### Download client application files
 
@@ -163,19 +157,16 @@ curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kuberne
 cd azhlfTool
 npm install
 npm run setup
-
 ```
-These commands will clone Azure HLF client application code from public GitHub repo followed by loading all the dependent npm packages. After successful execution of command, you can see a node_modules folder in the current directory. All the required packages are loaded in the node_modules folder.
 
+These commands will clone Azure HLF client application code from public GitHub repo followed by loading all the dependent npm packages. After successful execution of command, you can see a node_modules folder in the current directory. All the required packages are loaded in the node_modules folder.
 
 ### Setup environment variables
 
 > [!NOTE]
 > All environmental variables follow the Azure resource naming convention.
 
-
-**Set below environment variables for orderer organization client**
-
+#### Set environment variables for orderer organization client
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -184,7 +175,8 @@ ORDERER_ORG_NAME=<ordererOrgName>
 ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-**Set the below environment variables for peer organization client**
+
+#### Set the environment variables for peer organization client
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -197,7 +189,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > Based on the number of Peer Orgs in your consortium, you might be required to repeat the Peer commands and set the environment variable accordingly.
 
-**Set the below environment variables for setting up Azure Storage account**
+#### Set the environment variables for setting up Azure Storage account
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -207,7 +199,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Follow below steps for Azure Storage account creation. If you already have Azure Storage account created, skip these steps
+Use the following steps for Azure Storage account creation. If you already have Azure Storage account created, skip these steps.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -215,14 +207,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Follow below steps for a file share creation in Azure Storage account. If you already have a file share created, skip these steps
+Use the following steps for a file share creation in Azure Storage account. If you already have a file share created, skip these steps
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Follow below steps for generating Azure file share connection string
+Use the following steps for generating Azure file share connection string.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -254,13 +246,7 @@ For peer organization:
 ### Channel management commands
 
 > [!NOTE]
-> Before starting with any channel operation, ensure that the initial setup of the client application is done.  
-
-The following are the two channel management commands:
-
-1. [Create channel command](#create-channel-command)
-2. [Setting anchor peer(s) command](#setting-anchor-peers-command)
-
+> Before starting with any channel operation, ensure that the initial setup of the client application is done.
 
 #### Create channel command
 
@@ -271,7 +257,8 @@ From orderer organization client, issue command to create a new channel. This co
 ```
 
 #### Setting anchor peer(s) command
-From peer organization client, issue below command to set anchor peer(s) for the peer organization on the specified channel.
+
+From the peer organization client, issue the command to set anchor peer(s) for the peer organization on the specified channel.
 
 >[!NOTE]
 > Before executing this command, ensure that peer organization is added in the channel using Consortium management commands.
