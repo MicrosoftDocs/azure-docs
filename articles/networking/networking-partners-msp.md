@@ -5,7 +5,7 @@ services: networking
 author: skishen525
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 07/23/2020
 ms.author: sukishen
 ---
 
@@ -15,7 +15,7 @@ The [Azure Networking Managed Service Provider (MSP) Partner Program](https://az
 
 Azure Networking MSPs are a specialized set of managed service providers that address the enterprise cloud networking needs and challenges across all aspects of cloud and hybrid networking. The managed network services include one or more of the following services: network architecture, planning, deployment, operations, maintenance, and optimization.
 
-![MSP][0]
+:::image type="content" source="./media/networking-partners-msp/msp.jpg" alt-text="partners":::
 
 Customers can purchase MSP-managed services offers in the Azure Marketplace, or directly from the MSP. MSPs can deploy and manage Azure networking resources in the customers' subscriptions and resource groups by using [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/).
 
@@ -35,6 +35,7 @@ Use the links in this section for more information about managed cloud networkin
 |[NTT Data](https://us.nttdata.com/en/digital/cloud-transformation)|[Managed Services: 10-week Implementation](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/nttdata-2932930.managed_service)|||||
 |[Equinix](https://www.equinix.com/)|[Cloud Optimized WAN Workshop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.cloudoptimizedwan?tab=Overview)|[ExpressRoute Connectivity Strategy Workshop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/equinix.expressroutestrategy?tab=Overview)||||
 |[IIJ](https://www.iij.ad.jp/biz/cloudex/)|[ExpressRoute implementation: 1-Hr Briefing](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxm_consulting)|[ExpressRoute: 2-Wk Implementation](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/internet_initiative_japan_inc.iij_cxmer_consulting)||||
+|[Federated Wireless](https://www.federatedwireless.com/caas/)||||[Federated Wireless Connectivity-as-a-Service](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/federatedwireless1580839623708.fw_caas?tab=Overview)|
 |[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|[Infosys Integrate+ for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/infosysltd.infosys-integrate-for-azure?tab=Overview)|||||
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Azure Networking Assessment - 5 Days](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[Cloud Readiness - 2 Hour Assessment](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
@@ -50,7 +51,7 @@ Use the links in this section for more information about managed cloud networkin
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis Managed ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis Managed VWAN Powered by Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis Managed VWAN Powered by Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
 Azure Marketplace offers for Managed ExpressRoute, Virtual WAN, Security Services and Private Edge Zone Services from the following Azure Networking MSP Partners are on our roadmap:
-[Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/);  [InterCloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms); [Federated Wireless](https://www.federatedwireless.com/caas/)
+[Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/);  [InterCloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);
 
 ## <a name="expressroute"></a>ExpressRoute partners
 
@@ -59,6 +60,3 @@ For information about partners, see [ExpressRoute partners and locations](../exp
 ## <a name="vwan"></a>Virtual WAN partners
 
 For information about partners, see [Virtual WAN partners and providers](../virtual-wan/virtual-wan-locations-partners.md).
-
-<!--Image References-->
-[0]: ./media/networking-partners-msp/msp.png "MSP program description"

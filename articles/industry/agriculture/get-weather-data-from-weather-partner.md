@@ -21,7 +21,7 @@ To get weather data, ensure that you have [installed FarmBeats](https://aka.ms/f
 
 To start getting weather data on your FarmBeats Datahub:
 
-1. Go to your FarmBeats Datahub [Swagger](https://farmbeatswebsite-api.azurewebsites.net/swagger).
+1. Go to your FarmBeats Datahub Swagger `https://farmbeatswebsite-api.azurewebsites.net/swagger`.
 
 2. Go to the /Partner API and then make a POST request. Use the following input payload:
 

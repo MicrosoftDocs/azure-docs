@@ -83,7 +83,7 @@ To register an application in your Azure AD B2C tenant, you can use the **App re
 
 Next, expose the API by adding a scope:
 
-1. Under **Manage**, select **Expose an API**.
+1. In the left menu, under **Manage**, select **Expose an API**.
 1. Select **Add a scope**, then select **Save and continue** to accept the default application ID URI.
 1. Enter the following values to create a scope that allows custom policy execution in your Azure AD B2C tenant:
     * **Scope name**: `user_impersonation`
@@ -106,13 +106,13 @@ Next, expose the API by adding a scope:
 
 Next, specify that the application should be treated as a public client:
 
-1. Under **Manage**, select **Authentication**.
+1. In the left menu, under **Manage**, select **Authentication**.
 1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**). Ensure that **"allowPublicClient": true** is set in the application manifest. 
 1. Select **Save**.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
-1. Under **Manage**, select **API permissions**.
+1. In the left menu, under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
 1. Select the **My APIs** tab, then select the **IdentityExperienceFramework** application.
 1. Under **Permission**, select the **user_impersonation** scope that you defined earlier.

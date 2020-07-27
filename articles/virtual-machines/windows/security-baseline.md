@@ -560,7 +560,7 @@ Microsoft uses the Transport Layer Security (TLS) protocol to protect data when 
 
 * [Role-based access control (RBAC) for Azure resources](../../role-based-access-control/overview.md)
 
-* [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Azure built-in roles](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 
 **Azure Security Center monitoring**: Not Available
 
