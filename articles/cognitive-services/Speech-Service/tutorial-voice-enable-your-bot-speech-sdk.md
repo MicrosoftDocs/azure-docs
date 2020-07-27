@@ -25,7 +25,7 @@ This tutorial is designed for developers who are new to Azure, Bot Framework bot
 
 The voice-enabled chat bot you make in this tutorial follows these steps:
 
-1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot
+1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot.
 1. When the user presses a button, voice audio streams from the microphone. (Or audio is continuously recorded when a custom keyword is used.)
 1. If a custom keyword is used, keyword detection happens on the local device, gating audio streaming to the cloud.
 1. Using Speech SDK, the sample client application connects to Direct Line Speech channel and streams audio.
