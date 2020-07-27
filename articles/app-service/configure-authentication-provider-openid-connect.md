@@ -56,7 +56,7 @@ This section will walk you through updating the configuration to include your ne
        "registration" : {},
        "login": {
              "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
-             "loginScopes": [],
+             "scope": [],
              "loginParameterNames": [],
        }
     }
