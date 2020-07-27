@@ -168,7 +168,7 @@ In addition to the scenarios listed in the [Unsupported Scenarios](#unsupported-
 
 - VMs encrypted with Azure Disk Encryption with AAD (previous release)
 - NVMe disks with storage spaces
-- Azure Site Recovery of SKUs with NVMe disks (see [Support matrix for Azure VM disaster recovery between Azure regions: Replicated machines - storage]()../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)
+- Azure Site Recovery of SKUs with NVMe disks (see [Support matrix for Azure VM disaster recovery between Azure regions: Replicated machines - storage](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)
 
 ## New IaaS VMs created from customer-encrypted VHD and encryption keys
 
