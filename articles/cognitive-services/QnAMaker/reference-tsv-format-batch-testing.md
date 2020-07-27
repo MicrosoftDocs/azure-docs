@@ -3,13 +3,11 @@ title: Batch test TSV format - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Understand the TSV format for batch testing
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 10/24/2019
-ms.author: diberry
 ---
 
 # Batch testing TSV format

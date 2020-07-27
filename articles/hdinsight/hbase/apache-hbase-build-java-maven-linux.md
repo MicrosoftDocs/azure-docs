@@ -26,7 +26,7 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/overview).
+* If using PowerShell, you'll need the [AZ Module](https://docs.microsoft.com/powershell/azure/).
 
 * A text editor. This article uses Microsoft Notepad.
 

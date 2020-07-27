@@ -29,7 +29,7 @@ To assess physical servers, you create an Azure Migrate project, and add the Ser
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Physical server deployment**       | The physical server can be standalone, or deployed in a cluster. |
-| **Permissions**           | **Windows:** You need to be a domain admin on all the Windows servers you want to discover. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
+| **Permissions**           | **Windows:** Use a domain account for domain-joined machines, and a local account for machines that are domain-joined. The user account should be added to these groups: Remote Management Users, Performance Monitor Users, and Performance Log Users. <br/><br/> **Linux:** You need a root account on the Linux servers that you want to discover. |
 | **Operating system** | All operating systems except Windows Server 2003 and SUSE Linux can be assessed for migration. |
 
 

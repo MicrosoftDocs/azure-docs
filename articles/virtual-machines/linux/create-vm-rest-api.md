@@ -147,4 +147,4 @@ For more information on the Azure REST APIs or other management tools such as Az
 - [Azure Compute provider REST API](/rest/api/compute/)
 - [Get started with Azure REST API](/rest/api/azure/)
 - [Azure CLI](/cli/azure/)
-- [Azure PowerShell module](/powershell/azure/overview)
+- [Azure PowerShell module](/powershell/azure/)
