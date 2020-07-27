@@ -19,11 +19,11 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ## July 2020
 
 ### Read API v3.1 for Simplified Chinese Public Preview
-Computer Vision's Read API 3.1 public preview adds support for Simplified Chinese.
+Computer Vision's Read API 3.1 public preview adds support for Simplified Chinese for your OCR scenarios.
 
 * Languages supported are English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish.
 
-Learn more with the [Read API overview](concept-recognizing-text.md).
+See the [Read API overview](concept-recognizing-text.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Learn more about Read API v3.1 Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
