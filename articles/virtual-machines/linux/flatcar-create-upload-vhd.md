@@ -5,7 +5,7 @@ author: marga-kinvolk
 ms.author: danis
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/16/2020
 ms.reviewer: cynthn
 

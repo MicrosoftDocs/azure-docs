@@ -53,7 +53,7 @@ To learn how to assign a built-in RBAC role to a security principal, see one of 
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
 - [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
 
-For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating custom RBAC roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 ### Access permissions for data operations
 

@@ -102,7 +102,7 @@ For a list of scenarios for which acquiring tokens is supported, see the [Scenar
     This sample has been updated to use the latest **Azure.Messaging.EventHubs** library.
 
 ## Next steps
-- To learn more about RBAC, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md)?
+- To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)

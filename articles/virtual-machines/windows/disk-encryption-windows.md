@@ -142,6 +142,33 @@ The following table lists the Resource Manager template parameters for existing 
 | resizeOSDisk | Should the OS partition be resized to occupy full OS VHD before splitting system volume. |
 | location | Location for all resources. |
 
+## Enable encryption on NVMe disks for Lsv2 VMs
+
+This scenario describes enabling Azure Disk Encryption on NVMe disks for Lsv2 series VMs.  The Lsv2-series features local NVMe storage. Local NVMe Disks are temporary, and data will be lost on these disks if you stop/deallocate your VM (See: [Lsv2-series](../lsv2-series.md)).
+
+To enable encryption on NVMe disks:
+
+1. Initialize the NVMe disks and create NTFS volumes.
+1. Enable encryption on the VM with the VolumeType parameter set to All. This will enable encryption for all OS and data disks, including volumes backed by NVMe disks. For information, see [Enable encryption on an existing or running Windows VM](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+Encryption will persist on the NVMe disks in the following scenarios:
+- VM reboot
+- VMSS reimage
+- Swap OS
+
+NVMe disks will be uninitialized the following scenarios:
+
+- Start VM after deallocation
+- Service healing
+- Backup
+
+In these scenarios, the NVMe disks need to be initialized after the VM starts. To enable encryption on the NVMe disks, run command to enable Azure Disk Encryption again after the NVMe disks are initialized.
+
+In addition to the scenarios listed in the [Unsupported Scenarios](#unsupported-scenarios) section, encryption of NVMe disks is not supported for:
+
+- VMs encrypted with Azure Disk Encryption with AAD (previous release)
+- NVMe disks with storage spaces
+- Azure Site Recovery of SKUs with NVMe disks (see [Support matrix for Azure VM disaster recovery between Azure regions: Replicated machines - storage]()../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)
 
 ## New IaaS VMs created from customer-encrypted VHD and encryption keys
 

@@ -3,13 +3,13 @@ title: 'Tutorial 3: Deploy credit risk model'
 titleSuffix: Azure Machine Learning Studio (classic)
 description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic). This tutorial is part three of a three-part tutorial series. It shows how to deploy a model as a web service.
 keywords: credit risk, predictive analytics solution,risk assessment, deploy, web service
-author: sdgilley
-ms.author: sgilley
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 07/27/2020
 ---
 # Tutorial 3: Deploy credit risk model - Azure Machine Learning Studio (classic)
 
@@ -220,7 +220,10 @@ Now users are able to send data to it and receive results.
 The Web service is an Azure web service that can receive and return data using REST APIs in one of two ways:  
 
 * **Request/Response** - The user sends one or more rows of credit data to the service by using an HTTP protocol, and the service responds with one or more sets of results.
-* **Batch Execution** - The user stores one or more rows of credit data in an Azure blob and then sends the blob location to the service. The service scores all the rows of data in the input blob, stores the results in another blob, and returns the URL of that container.  
+* **Batch Execution** - The user stores one or more rows of credit data in an Azure blob and then sends the blob location to the service. The service scores all the rows of data in the input blob, stores the results in another blob, and returns the URL of that container. 
+
+> [!NOTE]
+> Feature column names in Studio (classic) are **case sensitive**. Make sure your input data for invoking the web service has the same column names as in the training dataset.
 
 For more information on accessing and consuming the web service, see [Consume an Azure Machine Learning Web service with a web app template](/azure/machine-learning/studio/consume-web-services).
 

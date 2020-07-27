@@ -64,6 +64,11 @@ The following configuration is required to enable tenant restrictions through yo
 
 For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
 
+> [!NOTE]
+> When configuring SSL interception and header injection, ensure that traffic to https://device.login.microsoftonline.com is excluded. This URL is used for device authentication and performing TLS break-and-inspect may interfere with Client Certificate authentication, which may cause issues with device registration and device-based Conditional Access.
+
+
+
 The headers should include the following elements:
 
 - For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list. For example, to permit access to both Contoso and Fabrikam tenants, the name/value pair looks like: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
