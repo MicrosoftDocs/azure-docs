@@ -53,9 +53,9 @@ az account list-locations \
     --out table
 ```
 
-After you have your azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
+After you have your Azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
 
-In the example below, replace the azure location `westus2` with one of the Azure locations available for your subscription.
+In the example below, replace the Azure location `westus2` with one of the Azure locations available for your subscription.
 
 ```azurecli-interactive
 az group create \
