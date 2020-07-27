@@ -49,7 +49,7 @@ DTDLValidator -i
 
 For more information about this sample, see the source code or run `DTDLValidator --help`.
 
-## About the .NET parser library 
+## Use the .NET parser library 
 
 The [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) library provides model access to the DTDL definitions, essentially acting as the equivalent of C# reflection for DTDL. This library can be used independently of any [Azure Digital Twins SDK](how-to-use-apis-sdks.md), especially for DTDL validation in a visual or text editor. It is useful for making sure your model definition files are valid before you try to upload them to the service.
 
@@ -70,7 +70,7 @@ The capabilities of the parser include:
 > [!NOTE]
 > [IoT Plug and Play (PnP)](../iot-pnp/overview-iot-plug-and-play.md) devices use a small syntax variant to describe their functionality. This syntax variant is a semantically compatible subset of the DTDL that is used in Azure Digital Twins. When using the parser library, you do not need to know which syntax variant was used to create the DTDL for your digital twin. The parser will always, by default, return the same model for both PnP and Azure Digital Twins syntax.
 
-### Use the parser library in code
+### Code with the parser library
 
 You can use the parser library directly, for things like validating models in your own application or for generating dynamic, model-driven UI, dashboards, and reports.
 
