@@ -72,7 +72,9 @@
     href: ./sql/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
-    - name: Predict NYC Taxi cab tips
+    - name: Run a regression experiment using Azure AutoML
+      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+    - name: Create a classification model using Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md 
   - name: Data Analyst
     items:
