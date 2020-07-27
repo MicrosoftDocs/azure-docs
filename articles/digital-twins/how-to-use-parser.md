@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# DTDL client-side parser library
+# Parse and validate models with the DTDL parser library
 
 [Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). **It is recommended to validate your models offline before uploading them to your Azure Digital Twins instance.**
 
