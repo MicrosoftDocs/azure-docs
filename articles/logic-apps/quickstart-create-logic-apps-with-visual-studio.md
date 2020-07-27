@@ -1,12 +1,14 @@
 ---
-title: Automate task workflows in Visual Studio
-description: Create, schedule, and run recurring workflows for enterprise integration by using Azure Logic Apps and Visual Studio
+title: Automate tasks and workflows with Visual Studio
+description: Create, schedule, and run automated workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2019
+ms.date: 07/22/2020
+
+# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 
 # Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
@@ -30,8 +32,7 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
   * [Visual Studio 2019, 2017, or 2015 - Community edition or greater](https://aka.ms/download-visual-studio). This quickstart uses Visual Studio Community 2017.
 
     > [!IMPORTANT]
-    > When you install Visual Studio 2019 or 2017, make sure 
-    > that you select the **Azure development** workload.
+    > When you install Visual Studio 2019 or 2017, make sure that you select the **Azure development** workload.
 
   * [Microsoft Azure SDK for .NET (2.9.1 or later)](https://azure.microsoft.com/downloads/). Learn more about [Azure SDK for .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
@@ -47,9 +48,15 @@ In this quickstart, you create the same logic app with Visual Studio as the Azur
   
     You can either download and install Azure Logic Apps Tools directly from the Visual Studio Marketplace, or learn [how to install this extension from inside Visual Studio](/visualstudio/ide/finding-and-using-visual-studio-extensions). Make sure that you restart Visual Studio after you finish installing.
 
+  * To use Azure Government subscriptions with Visual Studio, see these topics for additional setup:
+
+    * Visual Studio 2019: [Quickstart: Connect to Azure Government with Visual Studio](../azure-government/documentation-government-connect-vs.md)
+
+    * Visual Studio 2017: [Introducing the Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/), which you can download and install from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector).
+
 * Access to the web while using the embedded Logic App Designer
 
-  The designer needs an internet connection to create resources in Azure and to read properties and data from connectors in your logic app. For example, for Dynamics CRM Online connections, the designer checks your CRM instance for default and custom properties.
+  The designer needs an internet connection to create resources in Azure and to read properties and data from connectors in your logic app.
 
 * An email account that's supported by Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, review the [connectors list here](/connectors/). This example uses Office 365 Outlook. If you use a different provider, the overall steps are the same, but your UI might slightly differ.
 

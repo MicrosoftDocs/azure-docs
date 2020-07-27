@@ -44,9 +44,9 @@ The following example pod YAML manifest sets security context settings to define
 ```yaml
 apiVersion: v1
 kind: Pod
-metadata:
+metadata:
   name: security-context-demo
-spec:
+spec:
   containers:
     - name: security-context-demo
       image: nginx:1.15.5

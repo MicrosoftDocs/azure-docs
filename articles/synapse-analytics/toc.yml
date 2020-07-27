@@ -10,7 +10,7 @@
     items: 
     - name: Introduction
       href: get-started.md
-    - name: Step 1 Create and setup a Synapse workspace
+    - name: Step 1 Create a Synapse workspace
       href: get-started-create-workspace.md
     - name: Step 2 Analyze using a SQL Pool
       href: get-started-analyze-sql-pool.md
@@ -20,9 +20,9 @@
       href: get-started-analyze-sql-on-demand.md
     - name: Step 5 Analyze data in a storage account
       href: get-started-analyze-storage.md
-    - name: STEP 6 - Orchestrate with pipelines
+    - name: Step 6 - Orchestrate with pipelines
       href: get-started-pipelines.md
-    - name: STEP 7 - Visualize data with Power BI
+    - name: Step 7 - Visualize with Power BI
       href: get-started-visualize-power-bi.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
@@ -280,6 +280,8 @@
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
+      - name: Machine learning predictions
+        href: ./sql-data-warehouse/sql-data-warehouse-predict.md
       - name: Tables
         items:
         - name: Overview

@@ -79,7 +79,7 @@ This is your basic Azure function.
 
 You can now compile and run the function. While Azure functions are ultimately intended to run in the cloud, you can also run and debug Azure functions locally.
 
-For more information about this, see [Debug Event Grid trigger locally](../azure-functions/functions-debug-event-grid-trigger-local.md).
+For more information about this, see [*Debug Event Grid trigger locally*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ### Add the Azure Digital Twins SDK to your Azure function app
 
@@ -166,7 +166,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 For more information on managed identity, please see [*How to use managed identities for App Service and Azure Functions*](../app-service/overview-managed-identity.md).
 
-Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [Environment variables](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
+Lastly, you can make the URL of your Azure Digital Twins instance accessible to your function by setting an environment variable. For more information on this, see [*Environment variables*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
 
 > [!TIP]
 > The Azure Digital Twins instance's URL is made by adding *https://* to the beginning of your Azure Digital Twins instance's *hostName*. To see the hostName, along with all the properties of your instance, you can run `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.

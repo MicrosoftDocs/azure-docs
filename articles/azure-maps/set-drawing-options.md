@@ -1,8 +1,8 @@
 ---
 title: Drawing tools module | Microsoft Azure Maps
 description: In this article, you'll learn how to set drawing options data using the Microsoft Azure Maps Web SDK
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps

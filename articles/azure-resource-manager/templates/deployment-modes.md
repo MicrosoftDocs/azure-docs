@@ -2,7 +2,7 @@
 title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 07/22/2020
 ---
 # Azure Resource Manager deployment modes
 
@@ -47,6 +47,8 @@ In incremental mode, Resource Manager **leaves unchanged** resources that exist 
 
 > [!NOTE]
 > When redeploying an existing resource in incremental mode, all properties are reapplied. The **properties aren't incrementally added**. A common misunderstanding is to think properties that aren't specified in the template are left unchanged. If you don't specify certain properties, Resource Manager interprets the deployment as overwriting those values. Properties that aren't included in the template are reset to the default values. Specify all non-default values for the resource, not just the ones you're updating. The resource definition in the template always contains the final state of the resource. It can't represent a partial update to an existing resource.
+>
+> In rare cases, properties that you specify for a resource are actually implemented as a child resource. For example, when you provide site configuration values for a web app, those values are implemented in the child resource type `Microsoft.Web/sites/config`. If you redeploy the web app and specify an empty object for the site configuration values, the child resource isn't updated. However, if you provide new site configuration values, the child resource type is updated.
 
 ## Example result
 

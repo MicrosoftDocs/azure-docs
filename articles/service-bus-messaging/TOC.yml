@@ -110,6 +110,9 @@
           href: authenticate-application.md
     - name: Built-in security controls
       href: service-bus-messaging-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
 - name: How-to guides

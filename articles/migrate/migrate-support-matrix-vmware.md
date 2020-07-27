@@ -82,7 +82,7 @@ In addition to discovering machines, Server Assessment can discover apps, roles,
 **Windows VMs** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bit).
 **vCenter Server credentials** | Dependency visualization needs a vCenter Server account with read-only access, and privileges enabled for Virtual Machines > Guest Operations.
 **Windows VM permissions** |  For dependency analysis, the Azure Migrate appliance needs a domain administrator account, or a local admin account, to access Windows VMs.
-**Linux VM permissions** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
+**Linux VMs** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
 **Linux account** | For dependency analysis, on Linux machines the Azure Migrate appliance needs a user account with Root privilege.<br/><br/> Alternately, the user account needs these permissions on /bin/netstat and /bin/ls files: CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE.
 **Required agents** | No agent required on machines you want to analyze.
 **VMware Tools** | VMware Tools (later than 10.2) must be installed and running on each VM you want to analyze.

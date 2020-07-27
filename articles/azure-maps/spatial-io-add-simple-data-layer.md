@@ -1,8 +1,8 @@
 ---
 title: Add a simple data layer | Microsoft Azure Maps
 description: Learn how to add a simple data layer using the Spatial IO module, provided by Azure Maps Web SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
