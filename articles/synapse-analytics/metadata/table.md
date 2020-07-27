@@ -91,7 +91,7 @@ For more information on how to set permissions on the folders and files, see [Az
 
 ### Create a managed table backed by Parquet in Spark and query from SQL on-demand
 
-In this scenario, you have a Spark database named `mytestdb`. See [Create and connect to a Spark database with SQL on-demand](database.md#create--connect-to-a-spark-database-with-sql-on-demand).
+In this scenario, you have a Spark database named `mytestdb`. See [Create and connect to a Spark database with SQL on-demand](database.md#create-and-connect-to-spark-database-with-sql-on-demand).
 
 Create a managed Spark table with SparkSQL by running the following command:
 
