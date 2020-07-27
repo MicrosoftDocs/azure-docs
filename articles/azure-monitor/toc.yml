@@ -194,10 +194,10 @@
       items: 
       - name: Overview
         displayname: data collection rule
-        href: platform/data-collection-rule.md
+        href: platform/data-collection-rule-overview.md
       - name: Create
         displayname: data collection rule
-        href: platform/data-collection-portal.md
+        href: platform/data-collection-rule-portal.md
     - name: Custom metrics
       items:
       - name: Custom metrics
@@ -358,12 +358,6 @@
       items:
       - name: Overview
         href: platform/azure-monitor-agent-overview.md
-      - name: Data collections rules
-        items:
-        - name: Create using Azure portal
-          href: platform/data-collection-rule-portal.md
-        - name: Create using JSON
-          href: platform/data-collection-rule-json.md
     - name: Azure Diagnostics extension
       items:
       - name: Overview

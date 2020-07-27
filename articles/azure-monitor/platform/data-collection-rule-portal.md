@@ -9,7 +9,7 @@ ms.date: 06/11/2020
 ---
 
 # Configure data collection for the Azure Monitor agent (preview)
-[Data Collection Rules (DCR)](data-collection-rule-overview.md) define data sent to Azure Monitor and what should be done with it. This article describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
+Data Collection Rules (DCR) define data coming into Azure Monitor and specify where it should be sent. This article describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 
 For a complete description of data collection rules, see [Data collection rules in Azure Monitor (preview)](data-collection-rule-overview.md).
 
@@ -19,10 +19,10 @@ To apply a DCR to a virtual machine, you create an association between the two. 
 
 The following diagram shows an example of how you might define a set of DCRs and apply them to different virtual machines in your environment.
 
+<Diagram of DCR and VM associations>
 
 
-
-## Create data collection rule using the Azure portal
+## Create using the Azure portal
 You can use the Azure portal to create a data collection rule and assign it to virtual machines in your subscription. The Azure Monitor agent will be automatically installed and a managed identify 
 
 In the **Azure Monitor** menu in the Azure portal, select **Data Collection Rules** from the **Settings** section. Click **Add** to add a new Data Collection Rule and assignment.
@@ -51,6 +51,13 @@ One the **Destination** tab, add one or more destinations for the data source. W
 ![Destination](media/azure-monitor-agent/data-collection-rule-destination.png)
 
 Click **Add Data Source** and then **Review + create** to review the details of the data collection rule and association with the set of VMs. Click **Create** to create it.
+
+## Create using REST API
+Follow the steps below to create a DCR and associations using the REST API. 
+
+1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-overview.md#sample-dcr).
+2. Create the rule using the [REST API](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionrules/datacollectionrules_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#definitions).
+3. Create an association between the DCR and each virtual machine using the [REST API](https://review.docs.microsoft.com/en-us/rest/api/documentation-preview/datacollectionruleassociations/datacollectionruleassociations_create?view=azure-rest-preview&branch=openapiHub_production_ad39a35d2f16#examples).
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
 title: Data Collection Rules in Azure Monitor agent (preview)
-description: T
+description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -10,11 +10,17 @@ ms.date: 06/11/2020
 ---
 
 # Data collection rules in Azure Monitor (preview)
-Data Collection Rules (DCR) accept data coming into Azure Monitor and define where it should be sent. This article provides an overview of DCRs including their contents and structure and how you can create and work with them.
+Data Collection Rules (DCR) define data coming into Azure Monitor and specify where it should be sent. This article provides an overview of DCRs including their contents and structure and how you can create and work with them.
+
+## Input sources
+Data collection rules currently support the following input sources:
+
+- Azure Monitor agent installed on Azure virtual machine.
+
 
 
 ## Components of a DCR
-A Data Collection Rule (DCR) is made up of the following components.
+A DCR includes the following components.
 
 | Component | Description |
 |:---|:---|
@@ -24,8 +30,10 @@ A Data Collection Rule (DCR) is made up of the following components.
 | Data flows | Definition of which streams should be sent to which destinations. | 
 
 
+<Diagram of DCR and contents>
+
 ### Data source types
-Each data source has a Data Source Type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table:
+Each data source has a Data Source Type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown the following table. Follow the link for the set of properties that must be defined for each.
 
 | Data source type | Description | 
 |:---|:---|
@@ -40,17 +48,22 @@ The following table lists the limits that currently apply to DCRs.
 
 | Limit | Value |
 |:---|:---|
-| Number of data sources | 10 |
-| Maximum counter specifiers in perf | 10 |
+| Number of data sources in a | 10 |
+| Maximum counter specifiers in performance | 10 |
 | Maximum facility names in SysLog | 20 |
-| Maximum xPath queries in EventLog | 100 |
-| Maximum data Flows | 10 |
-| Maximum data Streams | 10 |
+| Maximum XPath queries in EventLog | 100 |
+| Maximum data flows | 10 |
+| Maximum data streams | 10 |
 | Maximum number of extensions | 10 |
 | Maximum size of extension settings | 32 Kb |
 | Maximum Log Analytics workspaces | 10 |
 
 
+## Create a DCR
+There are currently two available methods to create a DCR:
+
+- Use the Azure portal to create a DCR and assign to one or more virtual machines. See [Create using Azure portal](data-collection-rule-portal.md#create-using-the-azure-portal).
+- Directly edit the DCR in JSON and submit using the REST API. See [Create using REST API](data-collection-rule-portal.md#create-using-rest-api).
 
 ## Sample DCR
 The sample DCR below has the following details:
@@ -65,6 +78,7 @@ The sample DCR below has the following details:
   - Collects Alert, Critical, and Emergency events from syslog facility.
 - Destinations
   - Sends all data to a Log Analytics workspace named centralTeamWorkspace.
+  - Sends performance data to Azure Monitor Metrics in the current subscription.
 
 ```json
 {
