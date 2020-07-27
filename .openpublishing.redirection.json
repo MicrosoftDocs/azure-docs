@@ -25698,6 +25698,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-upload-image.md",
+      "redirect_url": "/azure/virtual-machines/windows/upload-generalized-managed",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/upload-specialized.md",
       "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized",
       "redirect_document_id": false
@@ -42670,6 +42675,11 @@
     {
       "source_path": "articles/virtual-machines/windows/classic/capture-image-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-linux-capture-image.md",
+      "redirect_url": "/azure/virtual-machines/linux/capture-image",
       "redirect_document_id": false
     },
     {
