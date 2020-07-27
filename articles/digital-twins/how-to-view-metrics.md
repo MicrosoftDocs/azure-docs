@@ -45,6 +45,8 @@ The following tables describe the metrics tracked by each Azure Digital Twins in
 
 #### API request metrics
 
+Metrics having to do with API requests:
+
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | ApiRequests | API Requests (Preview) | Count | Total | The number of API Requests made for Digital Twins read, write, delete and query operations. |  Authentication</br>Operation</br>Protocol</br>Status Code</br>Status Code Class</br>Status Text |
@@ -52,6 +54,8 @@ The following tables describe the metrics tracked by each Azure Digital Twins in
 | ApiRequestsFailureRate | API Requests Failure Rate (Preview) | Percent | Average | The percentage of API requests that the service receives for your instance that return an internal error (500) response code for Digital Twins read, write, delete and query operations. | Authentication</br>Operation</br>Protocol</br>Status Code</br>Status Code Class</br>Status Text
 
 #### Routing metrics
+
+Metrics having to do with routing:
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
@@ -61,15 +65,17 @@ The following tables describe the metrics tracked by each Azure Digital Twins in
 
 #### Billing metrics
 
+Metrics having to do with billing:
+
 >[!NOTE]
 > During preview, **billing is zero cost**. While these metrics still show up in the selectable list, they do not apply during preview and will remain at zero until the service moves beyond preview.
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Billing API Operations (Preview) | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | MeterId |
-| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/en-us/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | MeterId |
+| BillingQueryUnits | Billing Query Units (Preview) | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview) | MeterId |
 
-### Dimensions
+## Dimensions
 
 Dimensions help identify more details about the metrics. Some of the routing metrics provide information per endpoint. The table below lists possible values for these dimensions.
 
