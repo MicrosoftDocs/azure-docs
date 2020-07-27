@@ -19,11 +19,11 @@ ms.service: digital-twins
 
 You can choose to send your metrics data to [Log Analytics](../azure-monitor/log-query/get-started-portal.md), an [Event Hubs](../event-hubs/event-hubs-about.md) endpoint, or [Azure Storage](../storage/blobs/storage-blobs-overview.md) by enabling logging with diagnostics settings for your instance.
 
-## Turn on diagnostics settings with the Azure portal
+## Turn on diagnostic settings with the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Azure Digital Twins instance. You can find it by typing its name into the portal search bar. 
 
-2. Select **Diagnostics settings** from the menu, then **Add diagnostic setting**.
+2. Select **Diagnostic settings** from the menu, then **Add diagnostic setting**.
 
     :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
@@ -46,7 +46,7 @@ You can choose to send your metrics data to [Log Analytics](../azure-monitor/log
 
     :::image type="content" source="media/how-to-set-up-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
-New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostics settings** page for your instance. 
+New settings take effect in about 10 minutes. After that, logs appear in the configured target back on the **Diagnostic settings** page for your instance. 
 
 ## Next steps
 
