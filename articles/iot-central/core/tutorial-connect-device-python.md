@@ -211,7 +211,7 @@ The following steps show you how to create a Python client application that conn
 
     An operator can view the response payload in the command history.
 
-1. Add the following functions inside the `main` function to handle property updates sent from your IoT Central application:
+1. Add the following functions inside the `main` function to handle property updates sent from your IoT Central application. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
 
     ```python
       async def name_setting(value, version):

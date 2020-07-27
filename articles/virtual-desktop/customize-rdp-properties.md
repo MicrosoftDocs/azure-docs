@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 07/20/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -25,18 +25,6 @@ See [supported RDP file settings](https://docs.microsoft.com/windows-server/remo
 ## Prerequisites
 
 Before you begin, follow the instructions in [Set up the Windows Virtual Desktop PowerShell module](powershell-module.md) to set up your PowerShell module and sign in to Azure.
-
-## Default RDP properties
-
-By default, published RDP files contain the following properties:
-
-|RDP properties | Desktops | RemoteApps |
-|---|---| --- |
-| Multi-monitor mode | Enabled | N/A |
-| Drive redirections enabled | Drives, clipboard, printers, COM ports, USB devices and smartcards| Drives, clipboard, and printers |
-| Remote audio mode | Play locally | Play locally |
-
-Any custom properties you define for the host pool will override these defaults.
 
 ## Configure RDP properties in the Azure portal
 

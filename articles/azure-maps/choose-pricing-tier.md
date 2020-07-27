@@ -1,8 +1,8 @@
 ---
 title: Choose the right pricing tier | Microsoft Azure Maps
 description: In this article, you will learn about pricing tiers offered by Microsoft Azure Maps. 
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps

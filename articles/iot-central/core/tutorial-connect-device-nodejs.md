@@ -118,7 +118,7 @@ The following steps show you how to create a Node.js client application that con
 
     IoT Central uses device twins to synchronize property values between the device and the IoT Central application. Device property values use device twin reported properties. Writeable properties use both device twin reported and desired properties.
 
-1. To define and handle the writeable properties your device responds to, add the following code:
+1. To define and handle the writeable properties your device responds to, add the following code. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
 
     ```javascript
     // Add any writeable properties your device supports,

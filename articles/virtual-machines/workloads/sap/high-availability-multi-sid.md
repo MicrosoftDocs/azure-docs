@@ -72,7 +72,7 @@ ms.custom: H1Hack27Feb2017
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -361,7 +361,7 @@ ms.custom: H1Hack27Feb2017
 [sap-ha-guide-figure-6005]:media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md

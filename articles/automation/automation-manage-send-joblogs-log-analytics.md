@@ -23,7 +23,7 @@ Azure Automation can send runbook job status and job streams to your Log Analyti
 
 To start sending your Automation logs to Azure Monitor logs, you need:
 
-* The latest release of [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* The latest release of [Azure PowerShell](/powershell/azure/).
 * A Log Analytics workspace. For more information, see [Get started with Azure Monitor logs](../azure-monitor/overview.md).
 * The resource ID for your Azure Automation account.
 

@@ -1,10 +1,11 @@
 ---
-title: Upgrade a Managed Service Fabric cluster
+title: Upgrade a Managed Service Fabric cluster (preview)
 description: In this tutorial, learn how to upgrade Managed Service Fabric cluster.
 ms.topic: tutorial
 ms.date: 07/31/2020
 ---
 
+<<<<<<< HEAD
 # Tutorial: Upgrade a Managed Service Fabric cluster
 
 In this tutorial series we will discuss:
@@ -42,3 +43,6 @@ In this step we upgraded a Managed Service Fabric cluster. To learn more about M
 
 > [!div class="nextstepaction"]
 > [Managed Service Fabric clusters](./overview-managed-cluster.md)
+=======
+# Tutorial: Upgrade a Managed Service Fabric cluster (preview)
+>>>>>>> a0c8382674619dfbd421c58da9228103984def12

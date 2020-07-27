@@ -1,11 +1,11 @@
 ---
-title: Add and remove node types of a Managed Service Fabric cluster
+title: Add and remove node types of a Managed Service Fabric cluster (preview)
 description: In this tutorial, learn how to add and remove node types of a Managed Service Fabric cluster.
 ms.topic: tutorial
 ms.date: 07/31/2020
 ---
 
-# Tutorial: Add and remove node types of a Managed Service Fabric cluster
+# Tutorial: Add and remove node types of a Managed Service Fabric cluster (preview)
 
 In this tutorial series we will discuss:
 

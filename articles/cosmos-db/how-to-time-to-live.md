@@ -138,7 +138,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 {
     Id = "container",
     PartitionKeyPath = "/myPartitionKey",
-    DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+    DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 });
 ```
 ---

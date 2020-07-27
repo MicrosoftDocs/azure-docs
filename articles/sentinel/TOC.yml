@@ -86,7 +86,7 @@
         href: connect-okta-single-sign-on.md
       - name: Orca Security
         href: connect-orca-security-alerts.md
-      - name: Perimeter 81 logs
+      - name: Perimeter 81
         href: connect-perimeter-81-logs.md
       - name: Proofpoint TAP
         href: connect-proofpoint-tap.md
@@ -106,7 +106,7 @@
         href: connect-symantec-vip.md
       - name: Syslog
         href: connect-syslog.md
-      - name: VMware Carbon Black
+      - name: VMware Carbon Black Cloud Endpoint Standard
         href: connect-vmware-carbon-black.md
       - name: Zimperium Mobile Threat Defense
         href: connect-zimperium-mtd.md

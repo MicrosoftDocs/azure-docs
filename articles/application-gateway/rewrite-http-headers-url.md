@@ -24,6 +24,8 @@ HTTP headers allow a client and server to pass additional information with a req
 
 Application Gateway allows you to add, remove, or update HTTP request and response headers while the request and response packets move between the client and back-end pools.
 
+To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
+
 ![img](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
 
@@ -41,9 +43,12 @@ With URL rewrite capability in Application Gateway, you can:
 
 * Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL
 
+To learn how to rewrite URL with Application Gateway using Azure portal, see [here](rewrite-url-portal.md).
+
 ![img](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
-  
+>[!NOTE]
+> URL rewrite feature is in preview and is available only for Standard_v2 and WAF_v2 SKU of Application Gateway. It is not recommended for use in production environment. To learn more about previews, see [terms of use here](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Rewrite actions
 
@@ -245,7 +250,7 @@ In case of URL redirect, Application Gateway sends a redirect response to the cl
 - If a response has more than one header with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you are using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain two Set-Cookie headers: one used by the app service, for example: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, for example, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 - Rewrites are not supported when the application gateway is configured to redirect the requests or to show a custom error page.
 - Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (_) special character in Header names.
-- Connection header cannot be rewritten
+- Connection and upgrade headers cannot be rewritten
 
 ## Next steps
 

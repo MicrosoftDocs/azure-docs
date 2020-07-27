@@ -1,12 +1,12 @@
 ---
 title: Log in to a Linux VM with Azure Active Directory credentials 
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
+ms.author: sandeo
 ---
 
 # Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
@@ -109,7 +109,7 @@ The *provisioningState* of *Succeeded* is shown once the extension is successful
 
 ## Configure role assignments for the VM
 
-Azure Role-Based Access Control (RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
+Azure role-based access control (Azure RBAC) policy determines who can log in to the VM. Two RBAC roles are used to authorize VM login:
 
 - **Virtual Machine Administrator Login**: Users with this role assigned can log in to an Azure virtual machine with Windows Administrator or Linux root user privileges.
 - **Virtual Machine User Login**: Users with this role assigned can log in to an Azure virtual machine with regular user privileges.

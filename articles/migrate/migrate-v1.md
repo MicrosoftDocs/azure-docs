@@ -12,13 +12,13 @@ ms.custom: mvc
 
 # Work with the previous version of Azure Migrate
 
-This article provides information about working with the previous version of Azure Migrate.
+This article provides information about working with the previous version of Azure Migrate. 
 
 
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are also referred to as v1 projects in this article. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
+- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are referred to as Classic projects in this article. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
     - You can no longer create migration projects.
     - We recommend that you don't perform new discoveries.
     - You can still access existing projects.
@@ -27,7 +27,7 @@ There are two versions of the Azure Migrate service:
 
 ## Upgrade between versions
 
-You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a v1 project, you can attach it to a project of current version after you delete the v1 project.
+You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
 
 ## Find projects from previous version
 
@@ -35,7 +35,7 @@ Find projects from the previous version as follows:
 
 1. In the Azure portal > **All services**, search for and select **Azure Migrate**. 
 2. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
-3. Click the link to open v1 projects.
+3. Click the link to open Classic projects.
 
 ## Delete projects from previous version
 
@@ -43,7 +43,7 @@ Find and delete projects from the previous version as follows:
 
 1. In the Azure portal > **All services**, search for and select **Azure Migrate**. 
 2. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
-3. Click the link to open v1 projects.
+3. Click the link to open Classic projects.
 4. Select the project you would like to delete and delete it. 
 
 
