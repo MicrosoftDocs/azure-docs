@@ -130,7 +130,7 @@ This section provides an overview of how to troubleshoot pipelines in the design
 
 ### Enable logging for real-time endpoints
 
-In order to troubleshoot and debug real-time endpoints in the designer, you must enable logging using the SDK . Logging lets you troubleshoot and debug model deployment and usage errors. For more information, see [Logging for deployed models](how-to-enable-logging.md#logging-for-deployed-models). 
+In order to troubleshoot and debug real-time endpoints in the designer, you must enable Application Insight logging using the SDK . Logging lets you troubleshoot and debug model deployment and usage issues. For more information, see [Logging for deployed models](how-to-enable-logging.md#logging-for-deployed-models). 
 
 ### Get logs from the authoring page
 
