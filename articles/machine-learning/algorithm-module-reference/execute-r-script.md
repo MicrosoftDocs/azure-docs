@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
+ms.date: 07/27/2020
 ---
 
 # Execute R Script module
@@ -173,6 +173,25 @@ Datasets stored in the designer are automatically converted to an R data frame w
  
     > [!NOTE]
     > Existing R code might need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
+
+    If your script is larger than 16KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
+    
+    Bundle the script and other custom resouces to a zip file, connect script bundle to add the zipped file that contains these custom resources on Script bundle. The input to Script bundle must be a zipped file uploaded to your workspace as a file type dataset. You can upload the dataset on the Datasets asset page. You can drag the dataset module from the My datasets list in the left module tree on the designer authoring page.
+    
+    Following is the sample code to consume the script in the script bundle:
+
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
 
 1.  For **Random Seed**, enter a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
 
