@@ -34420,7 +34420,7 @@
     {
       "source_path": "articles/active-directory/manage-apps/add-non-gallery-app.md",
       "redirect_url": "/manage-apps/add-application-portal",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-application-proxy-get-started.md",
