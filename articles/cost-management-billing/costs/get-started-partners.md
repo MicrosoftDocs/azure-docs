@@ -3,7 +3,7 @@ title: Get started with Azure Cost Management for partners
 description: This article explains how partners use Azure Cost Management features and how they enable Cost Management access for their customers.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
@@ -118,7 +118,7 @@ Regardless of the policy, global admins and admin agents of the provider can vie
 
 ### Enable the policy to view Azure usage charges
 
-Partners use the following information to enable to the policy to view Azure usage charges for their customers.
+You need to be a member of the **admin agent** group to view and update the policy. Use the following information to enable the policy allowing customers to view Azure usage charges.
 
 In the Azure portal, sign in to the partner tenant and select **Cost Management + Billing**. Select the relevant Microsoft Partner Agreement billing account, and then select **Customers**. The list of customers is associated with the billing account.
 
