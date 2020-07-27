@@ -14,7 +14,7 @@ Azure Cosmos DB offers a rich set of database operations including relational an
 
 Reads in Azure Cosmos DB are typically ordered from fastest/most efficient to slower/less efficient in terms of throughput as follows:  
 
-* Point reads (GET operation on a single item ID and partition key).
+* Point reads (key/value lookup on a single item ID and partition key).
 
 * Query with a filter clause within a single partition key.
 
