@@ -112,7 +112,7 @@ On your vault page in the Azure portal, in the **Getting Started** section, sele
 
 On the **Protection Goal** page, select the following values:
 
-|    |  |
+| Step | Selection |
 |---------|-----------|
 | Where are your machines located? |Select **On-premises**.|
 | Where do you want to replicate your machines? |Select **To Azure**.|
@@ -178,7 +178,7 @@ Enable replication for each VM that you want to migrate. When replication is ena
 2. Under **For on-premises machines and Azure VMs**, select **Step 1: Replicate application**. Complete the wizard pages with the following information. Select **OK** on each page when you're done:
    - 1: Configure source
 
-     |  |  |
+     | Parameter | Value |
      |-----|-----|
      | Source: | Select **On Premises**.|
      | Source location:| Enter the name of your configuration server EC2 instance.|
@@ -187,7 +187,7 @@ Enable replication for each VM that you want to migrate. When replication is ena
 
    - 2: Configure target
 
-     |  |  |
+     | Parameter | Value |
      |-----|-----|
      | Target: | Leave the default.|
      | Subscription: | Select the subscription that you have been using.|

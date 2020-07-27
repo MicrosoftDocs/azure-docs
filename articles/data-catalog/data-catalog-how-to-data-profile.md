@@ -4,7 +4,7 @@ description: How-to article highlighting how to include table- and column-level 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 

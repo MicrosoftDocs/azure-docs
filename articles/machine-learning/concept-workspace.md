@@ -44,13 +44,19 @@ The diagram shows the following components of a workspace:
 
 You can interact with your workspace in the following ways:
 
+> [!IMPORTANT]
+> Tools marked (preview) below are currently in public preview.
+> The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer (preview)](concept-designer.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ In any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ In any R environment with the [Azure Machine Learning SDK for R (preview)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
+
 
 ## Machine learning with a workspace
 
@@ -108,6 +114,9 @@ When you create a new workspace, it automatically creates several Azure resource
 
 > [!NOTE]
 > In addition to creating new versions, you can also use existing Azure services.
+
+> [!IMPORTANT]
+> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the _default_ storage account of the workspace. You can use premium storage or hierarchical namespace with _non-default_ storage accounts.
 
 ## Next steps
 

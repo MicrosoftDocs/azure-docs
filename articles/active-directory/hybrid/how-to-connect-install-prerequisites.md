@@ -29,7 +29,7 @@ Before you install Azure AD Connect, there are a few things that you need.
   * The [Azure portal](https://portal.azure.com).
   * The [Office portal](https://portal.office.com).  
 * [Add and verify the domain](../active-directory-domains-add-azure-portal.md) you plan to use in Azure AD. For example, if you plan to use contoso.com for your users then make sure this domain has been verified and you are not only using the contoso.onmicrosoft.com default domain.
-* An Azure AD tenant allows by default 50k objects. When you verify your domain, the limit is increased to 300k objects. If you need even more objects in Azure AD, then you need to open a support case to have the limit increased even further. If you need more than 500k objects, then you need a license, such as Office 365, Azure AD Basic, Azure AD Premium, or Enterprise Mobility and Security.
+* An Azure AD tenant allows by default 50k objects. When you verify your domain, the limit is increased to 300k objects. If you need even more objects in Azure AD, then you need to open a support case to have the limit increased even further. If you need more than 500k objects, then you need a license, such as Office 365, Azure AD Premium, or Enterprise Mobility and Security.
 
 ### Prepare your on-premises data
 * Use [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) to identify errors such as duplicates and formatting problems in your directory before you synchronize to Azure AD and Office 365.
@@ -51,7 +51,7 @@ To read more about securing your Active Directory environment, see [Best Practic
 
 #### Installation prerequisites 
 
-- Azure AD Connect must be installed on a domain joined Windows Server 2012 or later. It is highly recommended that this server is a domain controller. 
+- Azure AD Connect must be installed on a domain joined Windows Server 2012 or later. 
 - Azure AD Connect cannot be installed on Small Business Server or Windows Server Essentials before 2019 (Windows Server Essentials 2019 is supported). The server must be using Windows Server standard or better.  
 - The Azure AD Connect server must have a full GUI installed. It is not supported to install Azure AD Connect on Windows Server Core. 
 - The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you are using Azure AD Connect wizard to manage ADFS configuration. You can enable PowerShell transcription if you are using Azure AD Connect wizard to manage sync configuration. 

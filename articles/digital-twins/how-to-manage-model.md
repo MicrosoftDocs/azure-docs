@@ -67,7 +67,7 @@ This model defines a name and a unique ID for the patient room, and properties t
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
 > [!TIP]
-> There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. For more information about this library and access to a sample built on it for a DTDL Validator, see [How-to: Parse and validate models](how-to-use-parser.md).
+> There is a client-side library available for parsing and validating DTDL. It generates a C# object model of the DTDL content, which can be used in model-driven development scenarios, like generating UI elements. You can also use this library to make sure your models have no syntax errors before you upload them. For more information about this library and access to a sample built on it for a DTDL Validator, see [*How-to: Parse and validate models*](how-to-use-parser.md).
 
 ## Manage models with APIs.
 
@@ -191,7 +191,7 @@ A model's decommissioning status is included in the `ModelData` records returned
 
 You can delete all models in your instance at once, or you can do it on an individual basis.
 
-For an example of how to delete all models, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
+For an example of how to delete all models, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllModels` function.
 
 The rest of this section breaks down model deletion into closer detail, and shows how to do it for an individual model.
 
@@ -248,9 +248,9 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 
 ## Manage models with CLI
 
-Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
 
 ## Next steps
 
 See how to create and manage digital twins based on your models:
-* [How-to: Manage digital twins](how-to-manage-twin.md)
+* [*How-to: Manage digital twins*](how-to-manage-twin.md)

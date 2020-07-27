@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance (preview)](concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 
@@ -125,6 +125,8 @@ Below are examples of creating and attaching compute targets for:
 * Azure Machine Learning Compute
 * Azure Databricks 
 * Azure Data Lake Analytics
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### Azure Machine Learning compute
 

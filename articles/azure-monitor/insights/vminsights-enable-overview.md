@@ -65,7 +65,7 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 
 If you don't have a Log Analytics workspace, you can create one by using one of the  resources:
 * [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
 * [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
 * [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
 

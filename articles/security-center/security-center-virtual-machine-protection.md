@@ -118,7 +118,7 @@ In a scenario where you have a recommendation, follow the steps in the recommend
 
 
 ### <a name="app-services"></a>App services
-To view the App Service information, you must be on Security Center's Standard pricing tier and enable App Service in your subscription. For instructions on enabling this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
+To view the App Service information, you must be on Security Center's standard pricing tier and enable App Service in your subscription. For instructions on enabling this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
 
 Under **App services**, you find a list of your App service environments and the health summary based on the assessment Security Center performed.
 

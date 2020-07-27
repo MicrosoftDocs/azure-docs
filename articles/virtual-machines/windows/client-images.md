@@ -53,5 +53,4 @@ You can also view the offer ID from the ['Subscriptions' tab](https://account.wi
 ![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## Next steps
-You can now deploy your VMs using [PowerShell](quick-create-powershell.md), [Resource Manager templates](ps-template.md), or [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-
+You can now deploy your VMs using [PowerShell](quick-create-powershell.md), [Resource Manager templates](ps-template.md), or [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

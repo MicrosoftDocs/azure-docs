@@ -34,7 +34,7 @@ Applications are only as reliable as their underlying infrastructure. Having mon
 - You automatically get [platform metrics, activity logs and diagnostics logs](platform/data-sources.md) from most of your Azure resources with no configuration.
 - Enable deeper monitoring for VMs with [Azure Monitor for VMs](insights/vminsights-overview.md).
 -  Enable deeper monitoring for AKS clusters with [Azure Monitor for containers](insights/container-insights-overview.md).
-- Add [monitoring solutions](insights/solutions-inventory.md) for different applications and services in your environment.
+- Add [monitoring solutions](./monitor-reference.md) for different applications and services in your environment.
 
 
 [Infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code) is the management of infrastructure in a descriptive model, using the same versioning as DevOps teams use for source code. It adds reliability and scalability to your environment and allows you to leverage similar processes that used to manage your applications.

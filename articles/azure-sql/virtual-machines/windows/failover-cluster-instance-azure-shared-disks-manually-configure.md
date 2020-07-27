@@ -154,7 +154,7 @@ To validate the cluster by using the UI, do the following on one of the virtual 
 1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
 1. Under **Testing options**, select **Run only tests I select**. 
 1. Select **Next**.
-1. Under **Test Selection**, select all tests *except* **Storage Spaces Direct**.
+1. Under **Test Selection**, select all tests *except* **Storage**
 
 ## Test cluster failover
 
@@ -178,9 +178,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-   The FCI data directories need to be on clustered storage. With Storage Spaces Direct, it's not a shared disk, but a mount point to a volume on each server. Storage Spaces Direct synchronizes the volume between both nodes. The volume is presented to the cluster as a Cluster Shared Volume (CSV). Use the CSV mount point for the data directories.
-
-   ![Data directories](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/20-data-dicrectories.png)
+The FCI data directories need to be on the Azure Shared Disks. 
 
 1. After you complete the instructions in the wizard, Setup will install a SQL Server FCI on the first node.
 

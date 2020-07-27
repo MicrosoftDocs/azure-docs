@@ -166,6 +166,8 @@ Select and verify target resources.
 - The policy is automatically associated with the configuration server.
 - A matching policy is automatically created for failback by default. For example, if the replication policy is **rep-policy**, then the failback policy is **rep-policy-failback**. This policy isn't used until you initiate a failback from Azure.
 
+Note: In VMware-to-Azure scenario the crash-consistent snapshot is taken at 5 min interval.
+
 ## Enable replication
 
 Enable replication for VMs as follows:

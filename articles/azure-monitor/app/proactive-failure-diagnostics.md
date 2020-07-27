@@ -57,13 +57,13 @@ The alerts are triggered by our proprietary machine learning algorithm so we can
 
 ## Configure alerts
 
-You can disable Smart Detection alert rule from the portal or using Azure Resource Manager ([see template example](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+You can disable Smart Detection alert rule from the portal or using Azure Resource Manager ([see template example](./proactive-arm-config.md)).
 
-This alert rule is created with an associated [Action Group](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
+This alert rule is created with an associated [Action Group](../platform/action-groups.md) named "Application Insights Smart Detection" that contains email and webhook actions, and can be extended to trigger additional actions when the alert fires.
 
 > [!NOTE]
-> Email notifications sent from this alert rule are now sent by default to users associated with the subscription's Monitoring Reader and Monitoring Contributor roles. More information on this is available [here](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-> Notifications sent from this alert rule follow the [common alert schema](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+> Email notifications sent from this alert rule are now sent by default to users associated with the subscription's Monitoring Reader and Monitoring Contributor roles. More information on this is available [here](./proactive-email-notification.md).
+> Notifications sent from this alert rule follow the [common alert schema](../platform/alerts-common-schema.md).
 >
 
 Open the Alerts page. Failure Anomalies alert rules are included along with any alerts that you have set manually, and you can see whether it is currently in the alert state.
@@ -344,7 +344,7 @@ Smart Detection of failure anomalies complements other similar but distinct feat
 
 *Some of the alerts are about known issues and I do not want to receive them.*
 
-* You can use [alert action rules](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) suppression feature.
+* You can use [alert action rules](../platform/alerts-action-rules.md) suppression feature.
 
 ## Next steps
 These diagnostic tools help you inspect the data from your app:

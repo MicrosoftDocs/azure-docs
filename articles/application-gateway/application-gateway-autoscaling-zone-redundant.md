@@ -143,7 +143,7 @@ However, creating a new instance can take some time (around six or seven minutes
 
 The following table compares the features available with each SKU.
 
-|                                                   | v1 SKU   | v2 SKU   |
+| Feature                                           | v1 SKU   | v2 SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Autoscaling                                       |          | &#x2713; |
 | Zone redundancy                                   |          | &#x2713; |

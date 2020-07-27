@@ -101,7 +101,7 @@ The answer depends on the type of offer you're publishing. Software as a service
 
 ### How can I find the test lead?
 
-Search for `"MSFT_TEST"` in your lead destination. Here's a sample test lead from Microsoft:
+Search for `"MSFT_TEST"` in your lead destination. Below is a sample test lead from Microsoft. Note that the format of the test lead varies depending on the lead destination.
 
 ```
 {

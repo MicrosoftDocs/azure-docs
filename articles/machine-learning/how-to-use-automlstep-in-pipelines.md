@@ -94,6 +94,8 @@ if not compute_name in ws.compute_targets :
 compute_target = ws.compute_targets[compute_name]
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 The intermediate data between the data preparation and the automated ML step can be stored in the workspace's default datastore, so we don't need to do more than call `get_default_datastore()` on the `Workspace` object. 
 
 After that, the code checks if the AML compute target `'cpu-cluster'` already exists. If not, we specify that we want a small CPU-based compute target. If you plan to use automated ML's deep learning features (for instance, text featurization with DNN support) you should choose a compute with strong GPU support, as described in [GPU optimized virtual machine sizes](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu). 
@@ -264,7 +266,7 @@ prepped_data = Dataset.get_by_name(ws, 'Data_prepared')
 
 Comparing the two techniques:
 
-| Technique |  | 
+| Technique | Benefits and drawbacks | 
 |-|-|
 |`PipelineOutputTabularDataset`| Higher performance | 
 || Natural route from `PipelineData` | 

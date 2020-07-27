@@ -85,7 +85,7 @@ The Snapshot Collector is implemented as an [Application Insights Telemetry Proc
 Each time your application calls [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions), the Snapshot Collector computes a Problem ID from the type of exception being thrown and the throwing method.
 Each time your application calls TrackException, a counter is incremented for the appropriate Problem ID. When the counter reaches the `ThresholdForSnapshotting` value, the Problem ID is added to a Collection Plan.
 
-The Snapshot Collector also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
+The Snapshot Collector also monitors exceptions as they're thrown by subscribing to the [AppDomain.CurrentDomain.FirstChanceException](/dotnet/api/system.appdomain.firstchanceexception) event. When that event fires, the Problem ID of the exception is computed and compared against the Problem IDs in the Collection Plan.
 If there's a match, then a snapshot of the running process is created. The snapshot is assigned a unique identifier and the exception is stamped with that identifier. After the FirstChanceException handler returns, the thrown exception is processed as normal. Eventually, the exception reaches the TrackException method again where it, along with the snapshot identifier, is reported to Application Insights.
 
 The main process continues to run and serve traffic to users with little interruption. Meanwhile, the snapshot is handed off to the Snapshot Uploader process. The Snapshot Uploader creates a minidump and uploads it to Application Insights along with any relevant symbol (.pdb) files.
@@ -113,7 +113,7 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
 For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
 
 > [!NOTE]
-> For more information on the different symbol options that are available consult the [Visual Studio documentation](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+> For more information on the different symbol options that are available consult the [Visual Studio documentation](/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
 ). For best results, we recommend using “Full”, “Portable” or “Embedded”.
 
 ### Optimized builds
@@ -134,6 +134,6 @@ Enable Application Insights Snapshot Debugger for your application:
 
 Beyond Application Insights Snapshot Debugger:
  
-* [Set snappoints in your code](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
+* [Set snappoints in your code](/visualstudio/debugger/debug-live-azure-applications) to get snapshots without waiting for an exception.
 * [Diagnose exceptions in your web apps](../../azure-monitor/app/asp-net-exceptions.md) explains how to make more exceptions visible to Application Insights.
 * [Smart Detection](../../azure-monitor/app/proactive-diagnostics.md) automatically discovers performance anomalies.

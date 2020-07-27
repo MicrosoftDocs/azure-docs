@@ -75,7 +75,11 @@ AKS has HA control planes that scale vertically according to the number of cores
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
     - https://github.com/helm/helm/issues/4543
+- **[Is internal traffic between nodes being blocked?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
+## I'm receiving `TCP timeouts`, such as `dial tcp <Node_IP>:10250: i/o timeout`
+
+These timeouts may be related to internal traffic between nodes being blocked. Verify that this traffic is not being blocked, such as by [network security groups](concepts-security.md#azure-network-security-groups) on the subnet for your cluster's nodes.
 
 ## I'm trying to enable Role-Based Access Control (RBAC) on an existing cluster. How can I do that?
 

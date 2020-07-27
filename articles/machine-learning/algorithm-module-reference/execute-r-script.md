@@ -316,9 +316,8 @@ You can pass R objects between instances of the Execute R Script module by using
 
 The following preinstalled R packages are currently available:
 
-|              |            | 
-|--------------|------------| 
 | Package      | Version    | 
+|--------------|------------| 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 

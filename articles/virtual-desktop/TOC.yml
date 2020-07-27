@@ -74,6 +74,8 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
+  - name: Scale session hosts automatically
+    href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics
@@ -110,6 +112,8 @@
     href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
+  - name: Windows Virtual Desktop FAQ
+    href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
   - name: Data locations

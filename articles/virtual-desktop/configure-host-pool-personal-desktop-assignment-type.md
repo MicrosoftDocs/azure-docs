@@ -1,6 +1,6 @@
 ---
 title: Windows Virtual Desktop personal desktop assignment type - Azure
-description: How to configure the assignment type for a Windows Virtual Desktop personal desktop host pool.
+description: How to configure automatic or direct assignment for a Windows Virtual Desktop personal desktop host pool.
 services: virtual-desktop
 author: HeidiLohr
 

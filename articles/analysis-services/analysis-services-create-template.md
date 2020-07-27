@@ -7,7 +7,7 @@ tags: azure-resource-manager
 ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.custom: subject-armqs
+ms.custom: subject-armqs, references_regions 
 
 #Customer intent: As a BI developer who is new to Azure, I want to use Azure Analysis Services to store and manage my organizations data models.
 

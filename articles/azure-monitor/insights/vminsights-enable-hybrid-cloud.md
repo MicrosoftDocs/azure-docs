@@ -15,7 +15,7 @@ ms.date: 10/15/2019
 
 This article explains how to enable Azure Monitor for VMs for virtual machines or physical computers hosted in your datacenter or other cloud environment. At the end of this process, you will have successfully begun monitoring your virtual machines in your environment and learn if they are experiencing any performance or availability issues.
 
-Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).
+Before you get started, be sure to review the [prerequisites](vminsights-enable-overview.md) and verify that your subscription and resources meet the requirements. Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../platform/log-analytics-agent.md).
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -152,7 +152,7 @@ If you don't know how to deploy resources by using a template, see:
 * [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+To use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.27 or later. To identify your version, run `az --version`. To install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create and execute a template
 
@@ -231,7 +231,7 @@ If your Dependency agent installation succeeded, but you don't see your computer
 
     **Linux**: Look for the running process "microsoft-dependency-agent."
 
-2. Are you on the [Free pricing tier of Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
+2. Are you on the [Free pricing tier of Log Analytics](./solutions.md)? The Free plan allows for up to five unique computers. Any subsequent computers won't show up on the map, even if the prior five are no longer sending data.
 
 3. Is the computer sending log and perf data to Azure Monitor Logs? Perform the following query for your computer:
 

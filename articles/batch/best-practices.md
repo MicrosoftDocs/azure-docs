@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solution.
-ms.date: 06/22/2020
+ms.date: 07/14/2020
 ms.topic: conceptual
 ---
 
@@ -145,6 +145,10 @@ Directory junctions, sometimes called directory hard-links, are difficult to dea
 ### Collect the Batch agent logs
 
 If you notice a problem involving the behavior of a node or tasks running on a node, collect the Batch agent logs prior to deallocating the nodes in question. The Batch agent logs can be collected using the Upload Batch service logs API. These logs can be supplied as part of a support ticket to Microsoft and will help with issue troubleshooting and resolution.
+
+### Manage OS upgrades
+
+For user subscription mode Batch accounts, automated OS upgrades can interrupt task progress, especially if the tasks are long-running. [Building idempotent tasks](#build-durable-tasks) can help to reduce errors caused by these interruptions. We also recommend [scheduling OS image upgrades for times where tasks aren't expected to run](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## Isolation security
 

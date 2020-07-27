@@ -175,9 +175,9 @@ Once you build the scala/java code along with the dependencies into an assembly 
 
 For Python, add the following configuration as well. 
 
-    ```python
-    --py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
-    ```
+```python
+--py-files /usr/hdp/current/hive_warehouse_connector/pyspark_hwc-<VERSION>.zip
+```
     
 ## Run queries on Enterprise Security Package (ESP) clusters
 
