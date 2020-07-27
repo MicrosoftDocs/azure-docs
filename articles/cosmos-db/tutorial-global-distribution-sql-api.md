@@ -51,7 +51,7 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
 
 # [.NET SDK V2](#tab/dotnetv2)
 
-If you are using the .Net V2 SDK, use the `PreferredLocations` property to set the preferred region.
+If you are using the .NET V2 SDK, use the `PreferredLocations` property to set the preferred region.
 
 ```csharp
 // Getting endpoints from application settings or other configuration location
@@ -98,7 +98,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 
 # [.NET SDK V3](#tab/dotnetv3)
 
-If you are using the .Net V3 SDK, use the `ApplicationPreferredRegions` property to set the preferred region.
+If you are using the .NET V3 SDK, use the `ApplicationPreferredRegions` property to set the preferred region.
 
 ```csharp
 
