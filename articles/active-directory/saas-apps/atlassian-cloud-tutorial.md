@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/27/2020
+ms.date: 07/27/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,7 +42,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Atlassian Cloud supports **SP and IDP** initiated SSO
 * Atlassian Cloud supports [Automatic user provisioning and deprovisioning](atlassian-cloud-provisioning-tutorial.md)
-* Once you configure Atlassian Cloud you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Atlassian Cloud you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+
 ## Adding Atlassian Cloud from the gallery
 
 To configure the integration of Atlassian Cloud into Azure AD, you need to add Atlassian Cloud from the gallery to your list of managed SaaS apps.
@@ -54,72 +55,131 @@ To configure the integration of Atlassian Cloud into Azure AD, you need to add A
 1. In the **Add from the gallery** section, type **Atlassian Cloud** in the search box.
 1. Select **Atlassian Cloud** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD SSO
 
 Configure and test Azure AD SSO with Atlassian Cloud using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Atlassian Cloud.
 
 To configure and test Azure AD SSO with Atlassian Cloud, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Atlassian Cloud SSO](#configure-atlassian-cloud-sso)** - to configure the single sign-on settings on application side.
-    * **[Create Atlassian Cloud test user](#create-atlassian-cloud-test-user)** - to have a counterpart of B.Simon in Atlassian Cloud that is linked to the Azure AD representation of user.
+1. **[Configure Azure AD with Atlassian Cloud SSO](#configure-azure-ad-sso)** - to enable your users to use Azure AD based SAML SSO with Atlassian Cloud.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+1. **[Create Atlassian Cloud test user](#create-atlassian-cloud-test-user)** - to have a counterpart of B.Simon in Atlassian Cloud that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Atlassian Cloud** application integration page, find the **Manage** section and select **Single sign-on**.
+1. Before you start go to your Atlassian product instance and copy/save the Instance URL
+   > [!NOTE]
+   > url should fit `https://<instancename>.atlassian.net` pattern
+
+   ![image](./media/atlassian-cloud-tutorial/get-atlassian-instance-name.png)
+
+1. Open the [Atlassian Admin Portal](https://admin.atlassian.com/) and click on your organization name
+
+   ![image](./media/atlassian-cloud-tutorial/click-on-organization-in-atlassian-access.png)
+
+1. You need to verify your domain before going to configure single sign-on. For more information, see [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) document.
+1. From the Atlassian Admin Portal Screen select **Security** from the left drawer
+
+   ![image](./media/atlassian-cloud-tutorial/click-on-security-in-atlassian-access.png)
+
+1. From the Atlassian Admin Portal Security Screen select **SAML single sign** on from the left drawer
+
+   ![image](./media/atlassian-cloud-tutorial/click-on-saml-sso-in-atlassian-access-security.png)
+
+1. Click on **Add SAML Configuration** and keep the page open
+
+   ![image](./media/atlassian-cloud-tutorial/saml-configuration-in-atlassian-access-security-saml-sso.png)
+
+   ![image](./media/atlassian-cloud-tutorial/add-saml-configuration.png)
+
+1. In the [Azure portal](https://portal.azure.com/), on the **Atlassian Cloud** application integration page, find the **Manage** section and select **Set up single sign-on**.
+
+   ![image](./media/atlassian-cloud-tutorial/set-up-sso.png)
+
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![image](./media/atlassian-cloud-tutorial/saml-in-azure.png)
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. On the **Set up Single Sign-On with SAML** page, scroll down to **Set Up Atlassian Cloud**
+   
+   a. Click on **Configuration URLs**
 
-    a. In the **Identifier** text box, type a URL using the following pattern: `https://auth.atlassian.com/saml/<unique ID>`
+   ![image](./media/atlassian-cloud-tutorial/configuration-urls.png)
+   
+   b. Copy **Azure AD Identifier** from Azure → **Identity Provider Entity ID** in Atlassian
+   
+   c. Copy **Login URL** from Azure → **Identity Provider SSO URL** in Atlassian
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`
+   ![image](./media/atlassian-cloud-tutorial/configuration-urls-azure.png)
 
-	c. Click **Set additional URLs**.
-
-	d. In the **Relay State** text box, type a URL using the following pattern:
-    `https://<instancename>.atlassian.net`
-
-    > [!NOTE]
-    > The preceding values are not real. Update these values with the actual identifier and reply URL. You will get these real values from the **Atlassian Cloud SAML Configuration** screen which is explained later at step 7 of **Configure Atlassian Cloud SSO** in the tutorial.
-
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<instancename>.atlassian.net`
-
-    > [!NOTE]
-	> The Sign on URL value is not real. Paste the  value from the instance which you use to signin to the Atlassian Cloud admin portal.
-
-    ![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-10.png)
-
-1. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Atlassian Cloud application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
-
-	![image](common/edit-attribute.png)
+   ![image](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+   ![image](./media/atlassian-cloud-tutorial/certificate.png)
 
-1. On the **Set up Atlassian Cloud** section, copy the appropriate URL(s) as per your requirement.
+   ![image](./media/atlassian-cloud-tutorial/certificate-1.png)
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+1. **Add/Save** the SAML Configuration in Atlassian
 
-	a. Login URL
+1. If you wish to configure the application in **IDP** initiated mode, edit the **Basic SAML Configuration** section of the **Set up Single Sign-On with SAML** page in Azure copy and open the **SAML single sign-on page** on the Atlassian Admin Portal
 
-	b. Azure AD Identifier
+   a. Copy **SP Entity ID** from Atlassian → **Identifier (Entity ID)** in Azure and set it as default
+   
+   b. Copy **SP Assertion Consumer Service URL** from Atlassian → **Reply URL (Assertion Consumer Service URL)** in Azure  and set it as default
+   
+   c. Copy your **Instance URL** (from step 1)  → **Relay State** in Azure
 
-	c. Logout URL
+   ![image](./media/atlassian-cloud-tutorial/copy-urls.png)
 
+   ![image](./media/atlassian-cloud-tutorial/edit-button.png)
+
+   ![image](./media/atlassian-cloud-tutorial/urls.png)
+   
+1. If you wish to configure the application in **SP** initiated mode, edit the **Basic SAML Configuration** section of the **Set up Single Sign-On with SAML** page in Azure. Copy your **Instance URL** (from step 1)  → **Sign On URL** in Azure
+
+   ![image](./media/atlassian-cloud-tutorial/edit-button.png)
+
+   ![image](./media/atlassian-cloud-tutorial/sign-on-URL.png)
+   
+1. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration.
+
+   1. **Edit** the attribute mappings
+
+   ![image](./media/atlassian-cloud-tutorial/default-attributes.png)
+   
+   1. Attribute mapping for an Azure AD tenant with an Office 365 license
+      
+      a. Click on the **Unique User Identifier (Name ID)** claim
+
+      ![image](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
+      
+      b. Atlassian Cloud expects the *nameidentifier* (**Unique User Identifier**) to be mapped to the user’s email (**user.email**). Edit the **Source attribute** and change it to **user.mail**. Save the changes to the claim.
+
+      ![image](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
+      
+      c. The final attribute mappings should look as follows.
+
+      ![image](common/default-attributes.png)
+      
+   1. Attribute mapping for an Azure AD tenant without an Office 365 license 
+
+      a. Click on the **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** claim.
+
+      ![image](./media/atlassian-cloud-tutorial/email-address.png)
+         
+      b. While Azure does not populate the **user.mail** attribute for users created in Azure AD tenants without Office 365 licenses and stores the email for such users in **userprincipalname** attribute. Atlassian Cloud expects the *nameidentifier* (**Unique User Identifier**) to be mapped to the user’s email (**user.userprincipalname**).  Edit the **Source attribute**  and change it to **user.userprincipalname**. Save the changes to the claim.
+
+      ![image](./media/atlassian-cloud-tutorial/set-email.png)
+         
+      c. The final attribute mappings should look as follows.
+
+      ![image](common/default-attributes.png)
+     
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -144,52 +204,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+	![The Add User link](./media/atlassian-cloud-tutorial/add-assign-user.png)
 
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
-
-## Configure Atlassian Cloud SSO
-
-1. To automate the configuration within Atlassian Cloud, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
-
-	![My apps extension](common/install-myappssecure-extension.png)
-
-1. After adding extension to the browser, click on **Setup Atlassian Cloud** will direct you to the Atlassian Cloud application. From there, provide the admin credentials to sign into Atlassian Cloud. The browser extension will automatically configure the application for you and automate steps 3-7.
-
-	![Setup configuration](common/setup-sso.png)
-
-1. If you want to setup Atlassian Cloud manually, open a new web browser window and sign into your Atlassian Cloud company site as an administrator and perform the following steps:
-
-1. You need to verify your domain before going to configure single sign-on. For more information, see [Atlassian domain verification](https://confluence.atlassian.com/cloud/domain-verification-873871234.html) document.
-
-1. In the left pane, select **Security** > **SAML single sign-on**. If you haven't already done so, subscribe to Atlassian Identity Manager.
-
-	![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-11.png)
-
-1. In the **Add SAML configuration** window, do the following:
-
-	![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-12.png)
-
-	a. In the **Identity provider Entity ID** box, paste the **Azure AD Identifier** that you copied from the Azure portal.
-
-    b. In the **Identity provider SSO URL** box, paste the **Login URL** that you copied from the Azure portal.
-
-    c. Open the downloaded certificate from the Azure portal in a .txt file, copy the value (without the *Begin Certificate* and *End Certificate* lines), and then paste it in the **Public X509 certificate** box.
-
-    d. Click **Save Configuration**.
-
-1. To ensure that you have set up the correct URLs, update the Azure AD settings by doing the following:
-
-    ![Configure single sign-on](./media/atlassian-cloud-tutorial/tutorial-atlassiancloud-13.png)
-
-	a. In the SAML window, copy the **SP Identity ID** and then, in the Azure portal, under Atlassian Cloud **Basic SAML Configuration**, paste it in the **Identifier** box.
-
-	b. In the SAML window, copy the **SP Assertion Consumer Service URL** and then, in the Azure portal, under Atlassian Cloud **Basic SAML Configuration**, paste it in the **Reply URL** box. The sign-on URL is the tenant URL of your Atlassian Cloud.
-
-	> [!NOTE]
-	> If you're an existing customer, after you update the **SP Identity ID** and **SP Assertion Consumer Service URL** values in the Azure portal, select **Yes, update configuration**. If you're a new customer, you can skip this step.
 
 ### Create Atlassian Cloud test user
 
@@ -225,7 +244,5 @@ When you select the Atlassian Cloud tile in the Access Panel, you should be auto
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Atlassian Cloud with Azure AD](https://aad.portal.azure.com/)
-
-- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Atlassian Cloud with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
