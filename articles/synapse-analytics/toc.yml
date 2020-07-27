@@ -24,6 +24,8 @@
       href: get-started-pipelines.md
     - name: 7 Visualize with Power BI
       href: get-started-visualize-power-bi.md
+    - name: 8 Monitor
+      href: get-started-monitor.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
