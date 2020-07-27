@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
+ms.date: 07/27/2020
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -232,8 +232,6 @@ The following two procedures show you how to provision an Azure Active Directory
 ### Azure portal
 
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, select your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with server making sure that the same subscription is used for both Azure AD and the server.
-
-    ![choose-ad][8]
 
 2. Search for and select **SQL server**.
 
@@ -535,8 +533,11 @@ Guidance on troubleshooting issues with Azure AD authentication can be found in 
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
+- For information about how to set an Azure AD guest user as the Azure AD admin, see [Create Azure AD guest users and set as an Azure AD admin](authentication-aad-guest-users.md).
+- For information on how to service principals with Azure SQL, see [Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md)
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png
