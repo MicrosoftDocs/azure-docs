@@ -9,6 +9,8 @@ ms.date: 06/15/2020
 
 Make sure your cluster is always running a supported Azure Service Fabric version. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://azure.microsoft.com/updates/?product=service-fabric).
 
+For a given version of the Service Fabric runtime you can use the specified or older versions of the SDK/NuGet packages. Newer versions of the packages are not supported and may have issues targeting older clusters as they may have feature or protocol changes not supported by those environments.
+
 Refer to the following documents for details on how to keep your cluster running a supported Service Fabric version:
 
 - [Upgrade an Azure Service Fabric cluster](service-fabric-cluster-upgrade.md)
