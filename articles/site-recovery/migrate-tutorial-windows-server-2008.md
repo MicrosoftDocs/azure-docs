@@ -13,7 +13,7 @@ ms.custom: MVC
 
 # Migrate servers running Windows Server 2008 to Azure
 
-This tutorial shows you how to migrate on-premises servers running Windows Server 2008 or 2008 R2 to Azure using Azure Site Recovery. 
+This tutorial shows you how to migrate on-premises servers running Windows Server 2008 or 2008 R2 to Azure, using Azure Site Recovery. 
 
 In this tutorial, you learn how to:
 
