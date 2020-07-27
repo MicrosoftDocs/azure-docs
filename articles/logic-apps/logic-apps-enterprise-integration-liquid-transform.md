@@ -1,6 +1,6 @@
 ---
-title: Convert JSON data with Liquid transforms
-description: Create transforms or maps for advanced JSON transformations using Logic Apps and Liquid template
+title: Convert JSON and XML with Liquid templates
+description: Transform JSON and XML by using Liquid templates as maps in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2020
 
-# Customer intent: As a developer, I want to perform more advanced JSON transformations by creating maps using Liquid.
+# Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps
 ---
 
-# Perform advanced JSON transformations with Liquid templates in Azure Logic Apps
+# Transform JSON and XML using Liquid templates as maps in Azure Logic Apps
 
 You can perform basic JSON transformations in your logic apps by using native data operation actions such as **Compose** or **Parse JSON**. To perform advanced JSON transformations, you can create templates, which you use as maps, with [Liquid](https://shopify.github.io/liquid/), which is an open-source template language for flexible web apps. A Liquid template defines how to transform JSON output and supports more complex JSON transformations, such as iterations, control flows, variables, and so on.
 
@@ -29,51 +29,10 @@ Before you can perform a Liquid transformation in your logic app, you must first
 * Basic knowledge about [Liquid template language](https://shopify.github.io/liquid/)
 
   > [!NOTE]
-  > The **Transform JSON to JSON - Liquid** action uses the [DotLiquid implementation for Liquid](http://dotliquidmarkup.org/) 
-  > and in specific cases, differs from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). For more information, 
-  > see [Liquid template considerations](#template-considerations).
-
-<a name="template-considerations"></a>
-
-## Liquid template considerations
-
-* A Liquid template uses the [file size limits for maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) in Azure Logic Apps.
-
-* The **Transform JSON to JSON - Liquid** action uses the [DotLiquid implementation](http://dotliquidmarkup.org/). In specific cases, this implementation differs from the [Shopify specification](https://shopify.github.io/liquid/basics/introduction/). Here are the known differences:
-
-  * Your template can use Liquid filters, which follow the [DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters) and C# naming conventions. In Azure Logic Apps, the **Transform JSON to JSON - Liquid** action uses *sentence casing*, so make sure that the filter names in your template also use sentence casing. Otherwise, the filters won't work.
-
-    For more information, see [Shopify Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters) and [DotLiquid Liquid filters](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters).
-
-  * The **Transform JSON to JSON - Liquid** action natively outputs a string. In Azure Logic Apps, the **Transform JSON to JSON - Liquid** action merely indicates that the template's text output must be interpreted as a string. You need to escape the backslash character (`\`) and any other reserved JSON characters.
-
-  * For the Replace standard filter, the [Shopify implementation](https://shopify.github.io/liquid/filters/replace/) uses [simple string matching](https://github.com/Shopify/liquid/issues/202), while the [DotLiquid implementation](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) uses regular expression (RegEx) matching. Both implementations seem to work the same way until you use an RegEx-reserved character or escape character in the match parameter.
-
-    To work around this behavior, rather than use rather than use `| Replace: '\\' , '\\'`, use `| Replace: '"' , '\"'` instead.
-
-    The `\\` is required for the `Replace` search "string" because the DotLiquid implementation is using RegEx pattern matching instead of the Shopify intended simple string matching.
-
-    > [!NOTE]
-    > Due to the Liquid transform action using sentence casing, the Replace filter appears as `Replace` in the following sample maps, 
-    > Shopify examples, and when you use [DotLiquid online](http://dotliquidmarkup.org/try-online).
-
-    These examples show the difference in Replace filter behaviors when you use the RegEx-reserved character, `\`:
-
-    * Shopify version:
-
-      `{ "Date": "{{ 'MMM "EEE - SS BNBN KLJLsample\\' | Replace: '\\', '\\' | Replace: '"', '\"'}}"}`
-
-      Succeeds with this result:
-
-      `{ "Date": "MMM \"EEE - SS BNBN KLJLsample\\\\"}`
-
-    * DotLiquid version:
-
-      `{ "Date": "{{ 'MMM "EEE - SS BNBN KLJLsample\\' | Replace: '\', '\\' | Replace: '"', '\"'}}"}`
-
-      Fails with this error:
-
-      `{ "Date": "Liquid error: parsing "\" - Illegal \ at end of pattern."}`
+  > The **Transform JSON to JSON - Liquid** action uses the 
+  > [DotLiquid implementation for Liquid](http://dotliquidmarkup.org/) 
+  > and in specific cases, differs from the [Shopify implementation for Liquid](https://shopify.github.io/liquid). 
+  > For more information, see [Liquid template considerations](#template-considerations).
 
 ## Create the template
 
@@ -171,49 +130,105 @@ The transformed JSON output from your logic app looks like this example:
   
 ![Example output](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
+<a name="template-considerations"></a>
+
+## Liquid template considerations
+
+* A Liquid template uses the [file size limits for maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) in Azure Logic Apps.
+
+* The **Transform JSON to JSON - Liquid** action uses the [DotLiquid implementation](http://dotliquidmarkup.org/). In specific cases, this implementation differs from the [Shopify specification](https://shopify.github.io/liquid/basics/introduction/). Here are the known differences:
+
+  * Your template can use Liquid filters, which follow the [DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters) and C# naming conventions. In Azure Logic Apps, the **Transform JSON to JSON - Liquid** action uses *sentence casing*, so make sure that the filter names in your template also use sentence casing. Otherwise, the filters won't work. For more information, see [Shopify Liquid filters](https://shopify.github.io/liquid/basics/introduction/#filters) and [DotLiquid Liquid filters](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters).
+
+  * The **Transform JSON to JSON - Liquid** action natively outputs a string. In Azure Logic Apps, the **Transform JSON to JSON - Liquid** action merely indicates that the template's text output must be interpreted as a string. You need to escape the backslash character (`\`) and any other reserved JSON characters.
+
+  * For the `Replace` standard filter, the [Shopify implementation](https://shopify.github.io/liquid/filters/replace/) uses [simple string matching](https://github.com/Shopify/liquid/issues/202), while the [DotLiquid implementation](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) uses regular expression (RegEx) matching. Both implementations appear to work the same way until you use an RegEx-reserved character or an escape character in the match parameter.
+
+    So, to work around this behavior, rather than use the Shopify version:
+
+    `| Replace: '"' , '\"'`
+
+    Use the DotLiquid version instead:
+
+    `| Replace: '\\' , '\\'`
+
+    The `\\` is required for the `Replace` search "string" because the DotLiquid implementation uses RegEx pattern matching, which differs from the Shopify implementation that uses simple string matching.
+
+    > [!NOTE]
+    > Due to the Liquid transform action using sentence casing, the Replace filter appears as `Replace` in the following 
+    > sample maps, Shopify examples, and when you use [DotLiquid online](http://dotliquidmarkup.org/try-online).
+
+    These examples show the difference in Replace filter behaviors when you use the RegEx-reserved character, `\`:
+
+    * Shopify version:
+
+      `{ "Date": "{{ 'MMM "EEE - SS BNBN KLJLsample\\' | Replace: '\\', '\\' | Replace: '"', '\"'}}"}`
+
+      Succeeds with this result:
+
+      `{ "Date": "MMM \"EEE - SS BNBN KLJLsample\\\\"}`
+
+    * DotLiquid version:
+
+      `{ "Date": "{{ 'MMM "EEE - SS BNBN KLJLsample\\' | Replace: '\', '\\' | Replace: '"', '\"'}}"}`
+
+      Fails with this error:
+
+      `{ "Date": "Liquid error: parsing "\" - Illegal \ at end of pattern."}`
+
 ## Other transformations using Liquid
 
-Liquid is not limited to only JSON transformations. Here are other available transformation actions that use Liquid:
+Liquid is not limited to only JSON transformations. You can also use Liquid to perform other transformations, for example:
 
-* Transform JSON to text
+* [JSON to text](#json-text)
+* [XML to JSON](#xml-json)
+* [XML to text](#xml-text)
 
-  Here is the Liquid template used for this example:
+<a name="json-text"></a>
 
-   ``` json
-   {{content.firstName | Append: ' ' | Append: content.lastName}}
-   ```
+### Transform JSON to text
 
-   Here are sample inputs and outputs:
-  
-   ![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+Here's the Liquid template that's used for this example:
 
-* Transform XML to JSON
+```json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
 
-  Here is the Liquid template used for this example:
+Here are the sample inputs and outputs:
 
-   ``` json
-   [{% JSONArrayFor item in content -%}
-        {{item}}
-    {% endJSONArrayFor -%}]
-   ```
+![Example output JSON to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
-   Here are sample inputs and outputs:
+<a name="xml-json"></a>
 
-   ![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+### Transform XML to JSON
 
-* Transform XML to text
+Here's the Liquid template that's used for this example:
 
-  Here is the Liquid template used for this example:
+``` json
+[{% JSONArrayFor item in content -%}
+      {{item}}
+  {% endJSONArrayFor -%}]
+```
 
-   ``` json
-   {{content.firstName | Append: ' ' | Append: content.lastName}}
-   ```
+Here are the sample inputs and outputs:
 
-   Here are sample inputs and outputs:
+![Example output XML to JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
-   ![Example output XML to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+<a name="xml-text"></a>
+
+### Transform XML to text
+
+Here's the Liquid template that's used for this example:
+
+``` json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
+
+Here are the sample inputs and outputs:
+
+![Example output XML to text](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## Next steps
 
-* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
-* [Learn more about maps](../logic-apps/logic-apps-enterprise-integration-maps.md "Learn about enterprise integration maps")  
+* [Learn more about maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
+* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
