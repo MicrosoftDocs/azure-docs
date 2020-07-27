@@ -113,7 +113,7 @@ Stay healthy!
 * JavaScript: Fixes playback issue in Firefox, and Safari on macOS and iOS. 
 
 ## Speech SDK 1.12.1: 2020-June release
-**Speech CLI (aka SPX)**
+**Speech CLI (also known as SPX)**
 -   Added in-CLI help search features:
     -   `spx help find --text TEXT`
     -   `spx help find --topic NAME`
@@ -126,7 +126,7 @@ Stay healthy!
 
 **Bug fixes**
 -   **C\#, C++**: Fixed microphone recording was not working in 1.12 in speaker recognition.
--   **JavaScript**: Fixes for Text-To-Speech in FireFox, and Safari on macOS and iOS.
+-   **JavaScript**: Fixes for Text-To-Speech in Firefox, and Safari on macOS and iOS.
 -   Fix for Windows application verifier access violation crash on conversation transcription when using 8-channel stream.
 -   Fix for Windows application verifier access violation crash on multi-device conversation translation.
 
