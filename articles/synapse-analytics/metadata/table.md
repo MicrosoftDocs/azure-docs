@@ -29,9 +29,9 @@ Use Spark to manage Spark created databases. For example, delete it through a Sp
 
 If you create objects in such a database from SQL on-demand or try to drop the database, the operation will succeed, but the original Spark database will not be changed.
 
-## Exposing a Spark table in SQL
+## Expose a Spark table in SQL
 
-### Which Spark tables are shared
+### Shared Spark tables
 
 Spark provides two types of tables that Azure Synapse exposes in SQL automatically:
 
@@ -45,7 +45,7 @@ Spark provides two types of tables that Azure Synapse exposes in SQL automatical
 
 Azure Synapse currently only shares managed and external Spark tables that store their data in Parquet format with the SQL engines. Tables backed by other formats are not automatically synced. You may be able to sync such tables explicitly yourself as an external table in your own SQL database if the SQL engine supports the table's underlying format.
 
-### How are Spark tables shared
+### Share Spark tables
 
 The shareable managed and external Spark tables exposed in the SQL engine as external tables with the following properties:
 
@@ -148,7 +148,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### Creating an external table backed by Parquet in Spark and querying it from SQL on-demand
+### Create an external table backed by Parquet in Spark and query from SQL on-demand
 
 In this example, create an external Spark table over the Parquet data files that got created in the previous example for the managed table.
 
