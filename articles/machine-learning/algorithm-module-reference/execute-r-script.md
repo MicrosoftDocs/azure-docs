@@ -115,6 +115,22 @@ After the pipeline run is finished, you can preview the image in the right panel
 > [!div class="mx-imgBorder"]
 > ![Preview of uploaded image](media/module/upload-image-in-r-script.png)
 
+## Access to registered dataset
+
+You can refer to the following sample code to [access to the registered datasets](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) in your workspace:
+
+```R
+		azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "simple-csv")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## How to configure Execute R Script
 
 The Execute R Script module contains sample code that you can use as a starting point. To configure the Execute R Script module, provide a set of inputs and code to run.
@@ -176,7 +192,7 @@ Datasets stored in the designer are automatically converted to an R data frame w
 
     If your script is larger than 16KB, use the **Script Bundle** port to avoid errors like *CommandLine exceeds the limit of 16597 characters*. 
     
-    Bundle the script and other custom resouces to a zip file, connect script bundle to add the zipped file that contains these custom resources on Script bundle. The input to Script bundle must be a zipped file uploaded to your workspace as a file type dataset. You can upload the dataset on the Datasets asset page. You can drag the dataset module from the My datasets list in the left module tree on the designer authoring page.
+    Bundle the script and other custom resources to a zip file, and upload the zip file as a **File Dataset** to the studio. Then you can drag the dataset module from the *My datasets* list in the left module pane in the designer authoring page. Connect the dataset module to the **Script Bundle** port of **Execute R Script** module.
     
     Following is the sample code to consume the script in the script bundle:
 
