@@ -464,7 +464,8 @@ productDirectory:
       imageSrc: https://static.docs.com/ui/media/product/azure/app-service.svg
       azureCategories:
         - featured
-        - compute        
+        - compute    
+        - mobile    
         - web
       url: app-service/index.yml
     # Card
