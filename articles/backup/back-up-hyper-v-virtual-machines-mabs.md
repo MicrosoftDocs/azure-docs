@@ -150,4 +150,4 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 ## Next steps
 
-[Recover data from Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)
+[Recover data from Azure Backup Server](./backup-azure-alternate-dpm-server.md)

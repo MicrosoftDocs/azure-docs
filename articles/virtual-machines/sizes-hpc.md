@@ -4,7 +4,7 @@ description: Lists the different sizes available for high performance computing 
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
@@ -44,7 +44,7 @@ On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Netwo
 
 - **InfiniBandDriver<Linux|Windows> VM extension** - On RDMA-capable VMs, add the InfiniBandDriver<Linux|Windows> extension to enable InfiniBand. On Linux, the InfiniBandDriverLinux VM extension installs the Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. On Windows, the InfiniBandDriverWindows VM extension installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity.
 In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated.
-To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/overview) cmdlets. 
+To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/) cmdlets. 
 
   The following command installs the latest version 1.0 InfiniBandDriverWindows extension on an existing RDMA-capable VM named *myVM* deployed in the resource group named *myResourceGroup* in the *West US* region:
 

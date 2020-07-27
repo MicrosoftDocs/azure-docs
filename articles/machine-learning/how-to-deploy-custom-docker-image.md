@@ -71,7 +71,7 @@ The information in this section assumes that you are using an Azure Container Re
 
     * Ubuntu 16.04 or greater.
     * Conda 4.5.# or greater.
-    * Python 3.5.# or 3.6.#.
+    * Python 3.5.#, 3.6.# or 3.7.#.
 
 <a id="getname"></a>
 

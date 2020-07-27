@@ -1,17 +1,16 @@
 ---
-title: Stream Azure monitoring data to event hub
+title: Stream Azure monitoring data to event hub and external partners
 description: Learn how to stream your Azure monitoring data to an event hub to get the data into a partner SIEM or analytics tool.
-author: bwren
 services: azure-monitor
-
-ms.topic: conceptual
-ms.date: 11/15/2019
+author: bwren
 ms.author: bwren
+ms.topic: conceptual
+ms.date: 07/15/2020
 ms.subservice: ""
 ---
-# Stream Azure monitoring data to an event hub
-Azure Monitor provides a complete full stack monitoring solution for applications and services in Azure, in other clouds, and on-premises. In addition to using Azure Monitor for analyzing that data and leveraging it for different monitoring scenarios, you may need to send it to other monitoring tools in your environment. The most effective method to stream monitoring data to external tools in most cases is using [Azure Event Hubs](../../event-hubs/index.yml). This article provides a brief description for how you can stream monitoring data from different sources to an event hub and links to detailed guidance.
+# Stream Azure monitoring data to an event hub or external partner
 
+Azure Monitor provides a complete full stack monitoring solution for applications and services in Azure, in other clouds, and on-premises. In addition to using Azure Monitor for analyzing that data and leveraging it for different monitoring scenarios, you may need to send it to other monitoring tools in your environment. In most cases, the most effective method to stream monitoring data to external tools is using [Azure Event Hubs](/azure/event-hubs/). This article provides a brief description on how to do this and then lists some of the partners where you can send data. Some have special integration with Azure Monitor and may be hosted on Azure.  
 
 ## Create an Event Hubs namespace
 
@@ -53,6 +52,7 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
 | LogRhythm | No| Instructions to set up LogRhythm to collect logs from an event hub are available [here](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Yes | For more information, see [Getting started with monitoring and logging using Logz.io for Java apps running on Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
+Other partners may also be available. For a more complete list of all Azure Monitor partners and their capabilities, see [Azure Monitor partner integrations](partners.md).
 
 ## Next Steps
 * [Archive the Activity log to a storage account](./activity-log.md#legacy-collection-methods)

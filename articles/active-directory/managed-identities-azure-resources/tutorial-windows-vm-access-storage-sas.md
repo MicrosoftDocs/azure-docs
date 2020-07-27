@@ -79,7 +79,7 @@ Azure Storage does not natively support Azure AD authentication.  However, you c
 
 For the remainder of the tutorial, we will work from the VM we created earlier.
 
-You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/overview) before continuing.
+You will need to use the Azure Resource Manager PowerShell cmdlets in this portion.  If you don’t have it installed, [download the latest version](https://docs.microsoft.com/powershell/azure/) before continuing.
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Windows virtual machine, then from the **Overview** page click **Connect** at the top.
 2. Enter in your **Username** and **Password** for which you added when you created the Windows VM. 

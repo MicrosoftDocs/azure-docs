@@ -146,6 +146,9 @@ secret_client = SecretClient(
 secret = secret_client.get_secret(my_secret_name)
 ```
 
+> [!IMPORTANT]
+> This example uses the DefaultAzureCredential. To grant your identity access using a specific access policy, see [Part 4: Retrieve the secret from you Azure Key Vault](../key-vault/general/authentication.md#part-4-retrieve-the-secret-from-your-azure-key-vault-in-an-application-python).
+
 ### Access Blob from your web service
 
 If you have given your Azure Identity read access to data inside a **Storage Blob**, your `score.py` can access it using the following code.

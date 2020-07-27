@@ -20,7 +20,7 @@ France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, C
 
 ## Prerequisites for moving Recovery Services vault
 
-- During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Only admin subscription has the permissions to move a vault.
 - For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state should be enabled.
 - You must have permission to perform write operations on the target resource group.
@@ -30,7 +30,7 @@ France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, C
 - Whether the VM is moved with the vault or not, you can always restore the VM from the retained backup history in the vault.
 - The Azure Disk Encryption requires that the key vault and VMs reside in the same Azure region and subscription.
 - To move a virtual machine with managed disks, see this [article](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
-- The options for moving resources deployed through the Classic model differ depending on whether you're moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+- The options for moving resources deployed through the Classic model differ depending on whether you're moving the resources within a subscription, or to a new subscription. For more information, see this [article](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 - Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
 - You can only move a vault that contains any of the following types of backup items. Any backup items of types not listed below will need to be stopped and the data permanently deleted before moving the vault.
   - Azure Virtual Machines
@@ -41,7 +41,7 @@ France Central, France South, Germany Northeast, Germany Central, US Gov Iowa, C
 
 > [!NOTE]
 > Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
-> If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using **Azure Site Recovery**, the move operation will be blocked. If you want to move vaults for Azure Site Recovery, review [this article](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions) to learn about moving vaults manually.
+> If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using **Azure Site Recovery**, the move operation will be blocked. If you want to move vaults for Azure Site Recovery, review [this article](../site-recovery/move-vaults-across-regions.md) to learn about moving vaults manually.
 
 ## Use Azure portal to move Recovery Services vault to different resource group
 
@@ -142,4 +142,4 @@ To move to a new subscription, provide the `--destination-subscription-id` param
 
 You can move many different types of resources between resource groups and subscriptions.
 
-For more information, see [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+For more information, see [Move resources to new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).

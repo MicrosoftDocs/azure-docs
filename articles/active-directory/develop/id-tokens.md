@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/21/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
@@ -83,10 +83,10 @@ This list shows the JWT claims that are in most id_tokens by default (except whe
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
 
 > [!NOTE]
-> The v1 and v2 id_token have differences in the amount of information they will carry as seen from the examples above. The version essentially specifies the Azure AD platform endpoint from where it was issued. [Azure AD Oauth implementation](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) have evolved through the years. Currently we have two different oAuth endpoints for AzureAD applications. You can use any of the new endpoints which are categorized as v2 or the old one which is said to be v1. The Oauth endpoints for both of them are different. The V2 endpoint is the newer one where we are trying to migrate all the features of v1 endpoint and recommend new developers to use the v2 endpoint.
+> The v1.0 and v2.0 id_token have differences in the amount of information they will carry as seen from the examples above. The version essentially specifies the Azure AD platform endpoint from where it was issued. [Azure AD OAuth implementation](about-microsoft-identity-platform.md) has evolved through the years. Currently there are two different Outh endpoints for Azure AD applications. You can use any of the new endpoints which are categorized as v2.0 or v1.0. The OAuth endpoints for both of these are different. The v2.0 endpoint is newer and features of the v1.0 endpoint are being migrated to this endpoint. New developers should use the v2.0 endpoint.
 >
-> - V1: Azure Active Directory Endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
-> - V2: Microsoft Identity Platform Endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v1.0: Azure AD endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - v2.0: Microsoft identitypPlatform endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## Validating an id_token
 

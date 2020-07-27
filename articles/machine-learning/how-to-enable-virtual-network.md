@@ -123,7 +123,7 @@ You can also override the default datastore on a per-module basis. This gives yo
 1. Expand the **Output settings** section.
 1. Select **Override default output settings**.
 1. Select **Set output settings**.
-1. Specify a new datstore.
+1. Specify a new datastore.
 
 ### Azure Data Lake Storage Gen2 access control
 
@@ -302,8 +302,8 @@ If you don't want to use the default outbound rules and you do want to limit the
 - Deny outbound internet connection by using the NSG rules.
 
 - For a __compute instance__ or a __compute cluster__, limit outbound traffic to the following items:
-   - Azure Storage, by using __Service Tag__ of __Storage__.
-   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry__.
+   - Azure Storage, by using __Service Tag__ of __Storage.RegionName__. Where `{RegionName}` is the name of an Azure region.
+   - Azure Container Registry, by using __Service Tag__ of __AzureContainerRegistry.RegionName__. Where `{RegionName}` is the name of an Azure region.
    - Azure Machine Learning, by using __Service Tag__ of __AzureMachineLearning__
    - Azure Resource Manager, by using __Service Tag__ of __AzureResourceManager__
    - Azure Active Directory, by using __Service Tag__ of __AzureActiveDirectory__
@@ -427,6 +427,8 @@ except ComputeTargetException:
 ```
 
 When the creation process finishes, you train your model by using the cluster in an experiment. For more information, see [Select and use a compute target for training](how-to-set-up-training-targets.md).
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### Access data in a Compute Instance notebook
 

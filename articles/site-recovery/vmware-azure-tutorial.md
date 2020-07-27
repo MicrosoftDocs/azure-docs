@@ -79,7 +79,7 @@ All of these components are installed together on the single on-premises machine
 ## Import the template in VMware
 
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
+1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**.
 
      ![OVF template](./media/vmware-azure-tutorial/vcenter-wizard.png)
@@ -108,7 +108,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 After the configuration server is set up, you register it in the vault.
 
-1. From the VMWare vSphere Client console, turn on the VM.
+1. From the VMware vSphere Client console, turn on the VM.
 2. The VM boots up into a Windows Server 2016 installation experience. Accept the license agreement, and enter an administrator password.
 3. After the installation finishes, sign in to the VM as the administrator.
 4. The first time you sign in, the Azure Site Recovery Configuration Tool starts within a few seconds.
