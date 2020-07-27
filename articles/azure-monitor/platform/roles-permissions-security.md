@@ -62,8 +62,8 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 > 
 > 
 
-## Monitoring permissions and custom RBAC roles
-If the above built-in roles don’t meet the exact needs of your team, you can [create a custom RBAC role](../../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
+## Monitoring permissions and Azure custom roles
+If the above built-in roles don’t meet the exact needs of your team, you can [create an Azure custom role](../../role-based-access-control/custom-roles.md) with more granular permissions. Below are the common Azure Monitor RBAC operations with their descriptions.
 
 | Operation | Description |
 | --- | --- |
@@ -92,7 +92,7 @@ If the above built-in roles don’t meet the exact needs of your team, you can [
 > 
 > 
 
-For example, using the above table you could create a custom RBAC role for an “Activity Log Reader” like this:
+For example, using the above table you could create an Azure custom role for an “Activity Log Reader” like this:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -130,7 +130,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 You can then give the token to the entity that needs to read from that storage account, and it can list and read from all blobs in that storage account.
 
-Alternatively, if you need to control this permission with RBAC, you can grant that entity the Microsoft.Storage/storageAccounts/listkeys/action permission on that particular storage account. This is necessary for users who need to be able to set a diagnostic setting or log profile to archive to a storage account. For example, you could create the following custom RBAC role for a user or application that only needs to read from one storage account:
+Alternatively, if you need to control this permission with RBAC, you can grant that entity the Microsoft.Storage/storageAccounts/listkeys/action permission on that particular storage account. This is necessary for users who need to be able to set a diagnostic setting or log profile to archive to a storage account. For example, you could create the following Azure custom role for a user or application that only needs to read from one storage account:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"

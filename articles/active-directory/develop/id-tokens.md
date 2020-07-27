@@ -83,7 +83,7 @@ This list shows the JWT claims that are in most id_tokens by default (except whe
 |`ver` | String, either 1.0 or 2.0 | Indicates the version of the id_token. |
 
 > [!NOTE]
-> The v1.0 and v22.0 id_token have differences in the amount of information they will carry as seen from the examples above. The version essentially specifies the Azure AD platform endpoint from where it was issued. [Azure AD OAuth implementation](about-microsoft-identity-platform.md) has evolved through the years. Currently there are two different Outh endpoints for Azure AD applications. You can use any of the new endpoints which are categorized as v2.0 or v1.0. The OAuth endpoints for both of these are different. The v2.0 endpoint is newer and features of the v1.0 endpoint are being migrated to this endpoint. New developers should use the v2.0 endpoint.
+> The v1.0 and v2.0 id_token have differences in the amount of information they will carry as seen from the examples above. The version essentially specifies the Azure AD platform endpoint from where it was issued. [Azure AD OAuth implementation](about-microsoft-identity-platform.md) has evolved through the years. Currently there are two different Outh endpoints for Azure AD applications. You can use any of the new endpoints which are categorized as v2.0 or v1.0. The OAuth endpoints for both of these are different. The v2.0 endpoint is newer and features of the v1.0 endpoint are being migrated to this endpoint. New developers should use the v2.0 endpoint.
 >
 > - v1.0: Azure AD endpoints: `https://login.microsoftonline.com/common/oauth2/authorize`
 > - v2.0: Microsoft identitypPlatform endpoints: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`

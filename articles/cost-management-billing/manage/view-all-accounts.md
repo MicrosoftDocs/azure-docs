@@ -34,7 +34,7 @@ A scope is a node within a billing account that you use to view and manage billi
 
 |Scope  |Definition  |
 |---------|---------|
-|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one ore more subscriptions.  |
+|Billing account     | Represents an agreement that a customer accepts to use Azure. It contains one or more subscriptions.  |
 |Subscription     |  Represents a grouping of Azure resources. Invoice is generated at this scope. Other billing information such as payment methods and usage address is associated to this scope.|
 
 ### Enterprise Agreement

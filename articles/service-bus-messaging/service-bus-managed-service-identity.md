@@ -55,7 +55,7 @@ The following list describes the levels at which you can scope access to Service
 > [!NOTE]
 > Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating custom RBAC roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 ## Enable managed identities on a VM
 Before you can use managed identities for Azure Resources to authorize Service Bus resources from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:

@@ -2,7 +2,7 @@
 title: Use Powershell to set alerts in Application Insights | Microsoft Docs
 description: Automate configuration of Application Insights to get emails about metric changes.
 ms.topic: conceptual
-ms.date: 10/31/2016
+ms.date: 07/23/2016
 
 ---
 
@@ -47,7 +47,7 @@ Get-AzAlertRule -ResourceGroup "Fabrikam" `
 Add-AzMetricAlertRule -Name "{ALERT NAME}" `
   -Description "{TEXT}" `
   -ResourceGroup "{GROUP NAME}" `
-  -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
+  -TargetResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
   -MetricName "{METRIC NAME}" `
   -Operator GreaterThan `
   -Threshold {NUMBER}  `
@@ -67,7 +67,7 @@ The GUID is the subscription ID (not the instrumentation key of the application)
 ```azurepowershell
 Add-AzMetricAlertRule -Name "slow responses" `
   -ResourceGroup "Fabrikam" `
-  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -TargetResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
   -MetricName "request.duration" `
   -Operator GreaterThan `
   -Threshold 1 `
@@ -84,7 +84,7 @@ I have an application in which I use [TrackMetric()](../../azure-monitor/app/api
 Add-AzMetricAlertRule -Name "poor sales" `
   -Description "slow sales alert" `
   -ResourceGroup "Fabrikam" `
-  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -TargetResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
   -MetricName "salesPerHour" `
   -Operator LessThan `
   -Threshold 100 `

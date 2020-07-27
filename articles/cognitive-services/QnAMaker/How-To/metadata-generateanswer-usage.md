@@ -3,13 +3,11 @@ title: Metadata with GenerateAnswer API - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker lets you add metadata, in the form of key/value pairs, to your question/answer pairs. You can filter results to user queries, and store additional information that can be used in follow-up conversations.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.author: diberry
 ---
 
 # Get an answer with the GenerateAnswer API and metadata

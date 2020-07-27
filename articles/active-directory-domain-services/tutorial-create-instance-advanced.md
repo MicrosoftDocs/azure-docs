@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create an Azure AD DS managed domain with advanced configuration
-description: In this tutorial, you learn how to create and configure an Azure Active Directory Domain Services managed domain and specify advanced configuration options using the Azure portal.
+title: Tutorial - Create a customized Azure Active Directory Domain Services managed domain | Microsoft Docs
+description: In this tutorial, you learn how to create and configure a customized Azure Active Directory Domain Services managed domain and specify advanced configuration options using the Azure portal.
 author: iainfoulds
 manager: daveba
 
@@ -129,7 +129,7 @@ Complete the fields in the *Network* window as follows:
     1. If you choose to create a virtual network, enter a name for the virtual network, such as *myVnet*, then provide an address range, such as *10.0.1.0/24*.
     1. Create a dedicated subnet with a clear name, such as *DomainServices*. Provide an address range, such as *10.0.1.0/24*.
 
-    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
+    [ ![Create a virtual network and subnet for use with Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Make sure to pick an address range that is within your private IP address range. IP address ranges you don't own that are in the public address space cause errors within Azure AD DS.
 
@@ -157,7 +157,7 @@ The wizard automatically creates the *AAD DC Administrators* group in your Azure
 
 ## Configure synchronization
 
-Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize *all* users and groups, you can't later choose to only perform a scoped synchronization. For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].
+Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. You can change the synchronize scope now, or once the managed domain is deployed. For more information, see [Azure AD Domain Services scoped synchronization][scoped-sync].
 
 1. For this tutorial, choose to synchronize **All** users and groups. This synchronization choice is the default option.
 
