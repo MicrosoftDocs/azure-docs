@@ -1,21 +1,30 @@
 - name: General
   href: index.yml
 - name: Overview 
-  expanded: true
   items:
   - name: About Azure Key Vault
     href: overview.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
 
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: CLI
+    href: quick-create-cli.md
+  - name: PowerShell
+    href: quick-create-powershell.md
+  - name: Portal
+    href: quick-create-portal.md
+
 - name: Tutorials 
   items:
   - name: Azure Virtual Machine
     items:
-    - name: Use Azure Key Vault with a Windows virtual machine in .NET
-      href: tutorial-net-windows-virtual-machine.md
-    - name: Use Azure Key Vault with a Windows virtual machine in Python
-      href: tutorial-python-windows-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in .NET
+      href: tutorial-net-virtual-machine.md
+    - name: Use Azure Key Vault with a virtual machine in Python
+      href: tutorial-python-virtual-machine.md
   - name: Azure Kubernetes Service
     items: 
     - name: Integrate Azure Key Vault with Kubernetes
@@ -121,15 +130,11 @@
   - name: Move Key Vault
     items: 
     - name: Move Key Vault to Another Resource Group
-      href: keyvault-moveresourcegroup.md
+      href: move-resourcegroup.md
     - name: Move Key Vault to Another Subscription
-      href: keyvault-move-subscription.md
+      href: move-subscription.md
     - name: Move Key Vault to Another Region
-      href: keyvault-moveregion.md
-  - name: Troubleshoot
-    items:
-    - name: Change the key vault tenant ID after a subscription move
-      href: subscription-move-fix.md
+      href: move-region.md
 
 - name: Reference
   items:

@@ -1,21 +1,21 @@
 ---
 title: Provide an encryption key on a request to Blob storage
 titleSuffix: Azure Storage
-description: Clients making requests against Azure Blob storage have the option to provide an encryption key on a per-request basis (preview). Including the encryption key on the request provides granular control over encryption settings for Blob storage operations.
+description: Clients making requests against Azure Blob storage have the option to provide an encryption key on a per-request basis. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 03/12/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ---
 
-# Provide an encryption key on a request to Blob storage (preview)
+# Provide an encryption key on a request to Blob storage
 
-Clients making requests against Azure Blob storage have the option to provide an encryption key on a per-request basis (preview). Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys can be stored in Azure Key Vault or in another key store.
+Clients making requests against Azure Blob storage have the option to provide an encryption key on a per-request basis. Including the encryption key on the request provides granular control over encryption settings for Blob storage operations. Customer-provided keys can be stored in Azure Key Vault or in another key store.
 
 ## Encrypting read and write operations
 

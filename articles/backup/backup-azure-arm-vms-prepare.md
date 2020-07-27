@@ -61,10 +61,10 @@ After the vault is created, it appears in the Recovery Services vaults list. If 
 
 ### Modify storage replication
 
-By default, vaults use [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+By default, vaults use [geo-redundant storage (GRS)](../storage/common/storage-redundancy.md).
 
 * If the vault is your primary backup mechanism, we recommend you use GRS.
-* You can use [locally-redundant storage (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
+* You can use [locally-redundant storage (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) for a cheaper option.
 
 Modify storage replication type as follows:
 
@@ -183,7 +183,7 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 **VM** | **Details**
 --- | ---
 **Windows** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file.<br/><br/> 2. Install with admin permissions on the machine.<br/><br/> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click **WaAppAgent.exe** > **Properties**. On the **Details** tab, **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure that no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
+**Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](../virtual-machines/linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
 
 >[!NOTE]
 > **Azure Backup now supports selective disk backup and restore using the Azure Virtual Machine backup solution.**

@@ -61,7 +61,7 @@ The list of authorities that are known and trusted by you. In addition to the au
     "type": "AAD",
     "audience": {
         "type": "AzureADMyOrg",
-        "tenantId": "contoso.com" // Provide your specific tenant ID here
+        "tenant_id": "contoso.com" // Provide your specific tenant ID here
     }
 },
 // Example AzureAD Multiple Organizations

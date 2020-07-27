@@ -31,6 +31,8 @@
       href: powershell-create-instance.md
     - name: Create a managed domain using a template
       href: template-create-instance.md
+    - name: Configure scoped synchronization using Azure AD PowerShell
+      href: powershell-scoped-synchronization.md
 - name: Concepts
   items:
     - name: Administration basics

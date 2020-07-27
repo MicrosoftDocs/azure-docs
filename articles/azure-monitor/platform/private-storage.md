@@ -50,7 +50,7 @@ The only method available to create and remove links is through the REST API. De
 ## Command line and REST API
 
 ### Command line
-To create and manage linked storage accounts, use [az monitor log-analytics workspace linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). This command can link and unlink storage accounts from a workspace and list the linked storage accounts.
+To create and manage linked storage accounts, use [az monitor log-analytics workspace linked-storage](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage). This command can link and unlink storage accounts from a workspace and list the linked storage accounts.
 
 ### Request and CLI values
 

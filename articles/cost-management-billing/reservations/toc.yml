@@ -19,30 +19,32 @@
       href: prepay-app-service-isolated-stamp.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cache for Redis reservation
       href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for MariaDB
+      href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for MySQL
+      href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Database for PostgreSQL
+      href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Synapse Analytics
+      href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Storage
+      href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Data Explorer
       href: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Disk Storage
-      href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Dedicated Host
       href: ../../virtual-machines/prepay-dedicated-hosts-reserved-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Disk Storage
+      href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: SAP HANA Large Instances
+      href: prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Software plans
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Storage
-      href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
       href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Database for PostgreSQL
-      href: ../../postgresql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Database for MySQL
-      href: ../../mysql/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Database for MariaDB
-      href: ../../mariadb/concept-reserved-pricing.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Azure Synapse Analytics
-      href: prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Virtual machines
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: View, Manage and Optimize after purchase

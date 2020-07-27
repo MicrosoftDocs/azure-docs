@@ -33,7 +33,7 @@ The MQTT port (8883) is blocked in many corporate and educational networking env
 
 ## Using the device SDKs
 
-[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+[Device SDKs](https://github.com/Azure/azure-iot-sdks) that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. You can also specify MQTT over Web Sockets in the client protocol parameter. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub. While it's possible to configure **QoS 0** for faster message exchange, you should note that the delivery isn't guaranteed nor acknowledged. For this reason, **QoS 0** is often referred as "fire and forget".
 
 When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to exchange messages with an IoT hub.
 
@@ -72,7 +72,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |Java     |    230 seconds     |     No    |
 |C     | 240 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (V2)   | 60 seconds |  No   |
+|Python   | 60 seconds |  No   |
 
 Following [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds) because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
 

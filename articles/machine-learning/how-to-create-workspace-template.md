@@ -27,7 +27,7 @@ For more information, see [Deploy an application with Azure Resource Manager tem
 
 * An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* To use a template from a CLI, you need either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) or the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Workspace Resource Manager template
 
@@ -116,6 +116,9 @@ New-AzResourceGroupDeployment `
 
 By default, all of the resources created as part of the template are new. However, you also have the option of using existing resources. By providing additional parameters to the template, you can use existing resources. For example, if you want to use an existing storage account set the **storageAccountOption** value to **existing** and provide the name of your storage account in the **storageAccountName** parameter.
 
+> [!IMPORTANT]
+> If you want to use an existing Azure Storage account, it cannot be a premium account (Premium_LRS and Premium_GRS). It also cannot have a hierarchical namespace (used with Azure Data Lake Storage Gen2). Neither premium storage or hierarchical namespace are supported with the default storage account of the workspace.
+
 # [Azure CLI](#tab/azcli)
 
 ```azurecli
@@ -151,6 +154,9 @@ The following example template demonstrates how to create a workspace with three
 * Enable high confidentiality settings for the workspace
 * Enable encryption for the workspace
 * Uses an existing Azure Key Vault to retrieve customer-managed keys
+
+> [!IMPORTANT]
+> Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
 For more information, see [Encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 
@@ -350,6 +356,9 @@ An additional configuration you can provide for your data is to set the **confid
 * Cleans up the local scratch disk between runs.
 * Securely passes credentials for the storage account, container registry, and SSH account from the execution layer to your compute clusters by using key vault.
 * Enables IP filtering to ensure the underlying batch pools cannot be called by any external services other than AzureMachineLearningService.
+
+    > [!IMPORTANT]
+    > Once a workspace has been created, you cannot change the settings for confidential data, encryption, key vault ID, or key identifiers. To change these values, you must create a new workspace using the new values.
 
   For more information, see [encryption at rest](concept-enterprise-security.md#encryption-at-rest).
 

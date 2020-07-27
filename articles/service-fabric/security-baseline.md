@@ -1,10 +1,10 @@
 ---
-title: Service Fabric security baseline for Azure Security Benchmark
+title: Azure security baseline for Service Fabric
 description: The Service Fabric security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 07/13/2020
+ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 
@@ -12,7 +12,7 @@ ms.custom: security-benchmark
 
 ---
 
-# Service Fabric security baseline for Azure Security Benchmark
+# Azure security baseline for Service Fabric
 
 The Azure Security Baseline for Service Fabric contains recommendations that will help you improve the security posture of your deployment.
 

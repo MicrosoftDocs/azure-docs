@@ -28,7 +28,7 @@ When creating custom presets, the following considerations apply:
 
 ## Prerequisites
 
-[Create a Media Services account](create-account-cli-how-to.md).
+[Create a Media Services account](./create-account-howto.md).
 
 Make sure to remember the resource group name and the Media Services account name.
 

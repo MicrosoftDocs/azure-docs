@@ -8,7 +8,7 @@ ms.topic: tutorial
 
 # Tutorial: Migrate captured Event Hubs data to a SQL Data Warehouse using Event Grid and Azure Functions
 
-Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as SQL Data Warehouse or Cosmos DB. In this tutorial, you learn how you to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an [event grid](https://docs.microsoft.com/azure/event-grid/overview).
+Event Hubs [Capture](./event-hubs-capture-overview.md) is the easiest way to automatically deliver streamed data in Event Hubs to an Azure Blob storage or Azure Data Lake store. You can subsequently process and deliver the data to any other storage destinations of your choice, such as SQL Data Warehouse or Cosmos DB. In this tutorial, you learn how you to capture data from your event hub into a SQL data warehouse by using an Azure function triggered by an [event grid](../event-grid/overview.md).
 
 ![Visual Studio](./media/store-captured-data-data-warehouse/EventGridIntegrationOverview.PNG)
 
@@ -173,7 +173,4 @@ After a couple of minutes, query the table in your SQL data warehouse. You obser
 ## Next steps 
 You can use powerful data visualization tools with your data warehouse to achieve actionable insights.
 
-This article shows how to use [Power BI with SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
-
-
-
+This article shows how to use [Power BI with SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-integrate-power-bi)
