@@ -22,7 +22,7 @@ In this article, you learn how to debug and troubleshoot [machine learning pipel
 * Debug using Application Insights
 * Debug interactively using Visual Studio Code (VS Code) and the Python Tools for Visual Studio (PTVSD)
 
-## Debug and troubleshoot in the Azure Machine Learning SDK
+## Azure Machine Learning SDK
 The following sections provide an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected.
 
 ### Testing scripts locally
@@ -124,9 +124,13 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-## Debug and troubleshoot in Azure Machine Learning designer (preview)
+## Azure Machine Learning designer (preview)
 
-This section provides an overview of how to troubleshoot  pipelines in the designer. For pipelines created in the designer, you can find the **70_driver_log** file in either the authoring page, or in the pipeline run detail page.
+This section provides an overview of how to troubleshoot pipelines in the designer. For pipelines created in the designer, you can find the **70_driver_log** file in either the authoring page, or in the pipeline run detail page.
+
+### Enable logging for real-time endpoints
+
+In order to troubleshoot and debug real-time endpoints in the designer, you must enable Application Insight logging using the SDK . Logging lets you troubleshoot and debug model deployment and usage issues. For more information, see [Logging for deployed models](how-to-enable-logging.md#logging-for-deployed-models). 
 
 ### Get logs from the authoring page
 
@@ -153,10 +157,10 @@ You can also find the log files for specific runs in the pipeline run detail pag
 > [!IMPORTANT]
 > To update a pipeline from the pipeline run details page, you must **clone** the pipeline run to a new pipeline draft. A pipeline run is a snapshot of the pipeline. It's similar to a log file, and cannot be altered. 
 
-## Debug and troubleshoot in Application Insights
+## Application Insights
 For more information on using the OpenCensus Python library in this manner, see this guide: [Debug and troubleshoot machine learning pipelines in Application Insights](how-to-debug-pipelines-application-insights.md)
 
-## Debug and troubleshoot in Visual Studio Code
+## Visual Studio Code
 
 In some cases, you may need to interactively debug the Python code used in your ML pipeline. By using Visual Studio Code (VS Code) and the Python Tools for Visual Studio (PTVSD), you can attach to the code as it runs in the training environment.
 

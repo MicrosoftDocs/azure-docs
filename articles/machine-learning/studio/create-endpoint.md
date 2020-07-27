@@ -13,7 +13,7 @@ ms.date: 02/15/2019
 ---
 # Create endpoints for deployed Azure Machine Learning Studio (classic) web services
 
-**APPLIES TO:** ![no](../media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
 
 
 > [!NOTE]
