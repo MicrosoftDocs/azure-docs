@@ -340,7 +340,7 @@ If you see the following error message when you initiate a remote desktop connec
 Verify that the Windows 10 PC you are using to initiate the remote desktop connection is one that is either Azure AD joined, or hybrid Azure AD joined to the same Azure AD directory where your VM is joined to. For more information about device identity, see the article [What is a device identity](/azure/active-directory/devices/overview).
 
 > [!NOTE]
-> Windows 10 Build 20H1 added support for an Azure AD registered PC to initiate RDP connection to your VM. When using an Azure AD registered (not Azure AD joined or hybrid Azure AD joined) PC as the RDP client to initiate connections to your VM, you must enter credentials in the format AzureAD\UPn (e.g. AzureAD\john\@contoso.com).
+> Windows 10 Build 20H1 added support for an Azure AD registered PC to initiate RDP connection to your VM. When using an Azure AD registered (not Azure AD joined or hybrid Azure AD joined) PC as the RDP client to initiate connections to your VM, you must enter credentials in the format AzureAD\UPn (e.g. AzureAD\john@contoso.com).
 
 Also, verify the AADLoginForWindows extension has not been uninstalled after Azure AD join has completed.
  
