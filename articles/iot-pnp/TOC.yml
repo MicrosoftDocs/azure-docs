@@ -67,8 +67,6 @@
     href: howto-use-iot-pnp-cli.md
   - name: Manage digital twins
     href: howto-manage-digital-twin.md
-  - name: Manage models in the repository
-    href: howto-manage-models.md
 - name: Reference
   items:
   - name: Libraries and SDKs

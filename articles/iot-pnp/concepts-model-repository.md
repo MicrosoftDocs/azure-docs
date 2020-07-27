@@ -1,89 +1,225 @@
 ---
 title: Understand concepts of the Azure IoT Model Repository | Microsoft Docs
-description: As a solution builder or an IT professional, learn about the basic concepts of the Azure IoT Model Repository.
+description: As a solution developer or an IT professional, learn about the basic concepts of the Azure IoT Model Repository.
 author: JimacoMS3
 ms.author: v-jambra
-ms.date: 04/10/2020
+ms.date: 07/24/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
 ---
 
-# Understand the Azure IoT Model Repository
+# Azure IoT model repository
 
-This article describes concepts behind the Azure IoT Model Repository.
+The Azure IoT model repository enables device builders to manage and share IoT Plug and Play device models. The device models are JSON LD documents defined using the [Digital Twins Modeling Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). The models stored in the model repository service can be shared with solution developers either privately through access control or publicly without requiring any authentication to integrate and develop the IoT Plug and Play cloud solution.
 
-## Azure IoT Model Repository
+You can access the model repository using the:
 
-The model repository stores the Digital Twin interfaces that describe the functionality of IoT Plug and Play devices. Models are secured with fine grained access control using role-based access control (RBAC).
+- [Azure IoT model repository](https://aka.ms/iotmodelrepo) portal
+- [Azure IoT model repository REST API](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync)
+- [Azure CLI IoT model repository commands](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp?view=azure-cli-latest)
 
-### Public models
+## Public models
 
-For any model that has been published in the model repository it becomes a public model. It does not require a user to sign in to browse any public models. The model repository offers an anonymous browsing experience with public models.
+The public digital twin models stored in the model repository are available to everyone to consume and integrate in their application without any authentication. Additionally, the public models make it possible for an open eco-system for device builders and solution developers to share and reuse their IoT Plug and Play device models.
 
-### Company models
+Refer to the [Publish a Model](#publish-a-model) section under the **Company Models** for instructions on how to publish a model in the model repository to make it public.
 
-Models authored by your organization. You can see a list of unpublished models of your company and a list of published models of your company.
+To view a public model using the model repository portal:
 
-#### Unpublished
+1. Go to [Azure IoT model repository portal](https://aka.ms/iotmodelrepo).
 
-Models that are created by users within your organization. These models are not published, and are only accessible by users within your organization by default. You can also share one or more unpublished models with external users.
+1. Select on **View public models**.
 
-#### Published
+    ![View public models](./media/concepts-model-repository/public-models.png)
 
-Models that are created and published by users within your organization. These models are public and can also be found by anyone under Public Models.
+To view a public model programmatically using the REST API, see [Get Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync) REST API documentation.
 
-### Shared Models
+```csharp
+var httpClient = new HttpClient();
+httpClient.BaseAddress = new Uri("<url>");
 
-The models that are shared with me from outside of my company. You can see a list of unpublished models that have been shared with you and a list of published models that have been shared with you.
+var modelId = "dtmi:com:mxchip:model;1";
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+```
 
-## Role-based access control (RBAC)
+To view a public model using the CLI, see the Azure CLI [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) command.
 
-The model repository uses RBAC to provide fine-grained access to models in the repository. There are two general types of roles available:
+## Company models
 
-- Tenant roles provide users in a company's Azure AD tenant with the ability to create interfaces, publish interfaces, manage the roles assigned to other users, and get metrics about the interfaces associated with the tenant.
-- Model roles exposed on individual interfaces enable the creator of an interface to manage the external users who are able to read private interfaces.
+The company model repository is a tenant in the Azure IoT model repository for your organization to create and manage digital twin models authored by users within your company or organization. Company models are available only to authenticated users of your company or organization. A model repository tenant administrator can assign permissions and control access of other users in the company or organization to the models in the company model repository.
 
-### Tenant roles and permissions
+### Set up your company model repository
 
-The following table describes the roles that can be assigned on the tenant.
+Use your *work or school Azure Active Directory (Azure AD) account* to access the model repository. If your organization already has an Azure AD tenant, you can use user account(s) and service principals from this Azure AD tenant.
 
-| Role | Permissions |
-|------|-------------|
-| Creator | CreateModel </br> ReadTenantModels |
-| Publisher | PublishModel </br> ReadTenantModels |
-| Tenant Administrator | CreateModel </br> ManageAccess </br> ReadTenantInformation </br> ReadTenantModels |
+To learn how to set up an Azure AD tenant and how to create a user or service principal in an Azure AD tenant, see [Additional information](#additional-information) section.
 
-The following table describes the permissions that can be granted in the tenant with the different roles.
+- If you're the first user from your organization to access the model repository or to sign into the portal, you're granted the **Tenant Administrator** role. This role allows you to assign roles to other users in your organization's repository tenant.
 
-| Permission | Description |
-|------------| ------------|
-| CreateModel | Allows the user to create  models in the tenant. |
-| ManageAccess | Allows the user to assign or remove other users to the *Administrator*, *Creator*, or *Publisher* roles in the tenant. |
-| PublishModel | Allows the user to publish models that exist in the tenant. |
-| ReadTenantInformation | Allows the user to read information about the tenant; for example, number of interfaces. |
-| ReadTenantModels | Allows the user to view all models in the tenant. |
+- You can be assigned other roles by a **Tenant Administrator** such as **Read Models** or **Create Models**.
 
-The first user in an organization's tenant to sign in to the [Azure IoT Model Repository portal](https://aka.ms/iotmodelrepo) is assigned the *Tenant Administrator* role. That person can then add other users in the tenant to tenant roles.
+### Understand access management
 
-### Model roles and permissions
+The following table summarizes the supported capabilities in the company model repository and their associated permissions:
 
-Once an interface is published, it's available publicly (anonymous authentication). Device manufacturers may, however, want to maintain private interfaces; for example, they may have customers who require that their device capabilities remain confidential. For this scenario, the model repository exposes permissions and roles that can be applied to individual  models.
+| Capability  | Permission| Description|
+|-------------|-----------|------------|
+|Read Models|Read Models|By default, all users in the company tenant can view their company models. Additionally, the user can also view the private model(s) shared to them by other companies.|
+|Manage Access|Manage Access|Manage the user role assignment (add or remove) for other users in the organization.|
+|Create Models|Create Models|Create models in the company model repository.|
+|Publish Models|Publish Models|Publish models to make them public for anyone to view the model.|
 
-The following table describes the roles that can be granted on an individual model.
+The following table summarizes the supported roles and their capabilities in the model repository that can be used for access management.
 
-| Role | Permissions | Remarks |
-|------|-------------|---------|
-| Model Administrator (owner) | ReadModel </br> ModelAdministrator | The *Model Administrator* role is automatically assigned to the user who creates the model. The user must be in either the *Tenant Administrator* or the *Creator* role on the tenant. |
-| Reader | ReadModel | The *Reader* role can only be assigned to service identities and external users. To read a model, users in the tenant must be either the owner of the model or be in one of the tenant roles that grants the *ReadTenantModels* permission. |
+|Role|Capability|
+|----|----------|
+|TenantAdministrator|Manage Access, Read Models|
+|Creator|Create Models, Read Models|
+|Publisher|Publish Models, Read Models|
 
-The following table describes the permissions that are granted on a model with the different roles.
+#### Passing a security token when accessing company models with a REST API
 
-| Permission | Description |
-|------------| ------------|
-| Model Administrator | Allows the user to add or remove access to the model on which it is granted by assigning the *Reader* role to an external user or service identity. </br></br> Allows the user to read sharing info about the model on which it is granted. For example, the number of times a model has been shared and who the model has been shared with. |
-| ReadModel | Allows the assigned user or service identity to view only the model on which it is granted. |
+When you call the REST APIs to manage company models that are private or shared, you must provide an authorization token for the user or service principal in JWT format. See the [Additional information](#additional-information) section to learn how to get a JWT token for a user or service principal.
 
-When a user in the *Tenant Creator* role adds a new model to the model repository, that user is automatically assigned the *Model Administrator* role on the model. The model administrator can add external users and service identities to the *Reader* role on the model. Typically a device manufacturer will generate a service identity (service principal) at the request of an external partner and add that service principal to the *Reader* role on the models that the partner needs access to.
+The JWT token must be passed in the Authorization HTTP header in the API when targeting company models or shared models. The JWT token isn't needed when targeting public models.
+
+```csharp
+// sample token
+var authorizationToken = "eyJhbGciOiJIUzI1NiIsInR5cCTI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
+httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authorizationToken);
+```
+
+### View company or shared models
+
+You must be a member of the repository tenant's *Reader* role or the model must be shared with you to read a model. You can see a list of unpublished models that have been shared with you and a list of published models that have been shared with you. By default, users can read their company's models, models that have been shared with them by other companies, and all public models.
+
+To view a company or shared model using the portal:
+
+1. Sign in to the [Azure IoT model repository portal](https://aka.ms/iotmodelrepo).
+
+1. Expand **Company Models** – **Unpublished** on the left pane
+
+    ![View company models](./media/concepts-model-repository/view-company-models.png)
+
+1. Expand **Shared models – Unpublished** on the left pane
+
+    ![View shared models](./media/concepts-model-repository/view-shared-models.png)
+
+To view a company or shared model using the REST API, see the [Get Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync) REST API documentation. See [Passing a security token when accessing company models with a REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
+
+```csharp
+var modelId = "dtmi:com:mxchip:model;1";
+var response = await httpClient.GetAsync($"/models/{modelId}?api-version=2020-05-01-preview").ConfigureAwait(false);
+```
+
+To view a company model or a shared model using the CLI, see the Azure CLI [Get Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-show) command.
+
+### Manage roles
+
+The tenant administrator can assign roles to users in the repository tenant so that they can create models private to the company or organization, publish models, or manage roles for other users.
+
+To add a user to a model repository tenant role using the portal:
+
+1. Sign in to the [Azure IoT model repository portal](https://aka.ms/iotmodelrepo).
+
+1. Select **Access management** on the left pane, then select **+Add**. On the **Add Permission** pane, type the work address of the user you want to add to the role:
+
+    ![Add work address](./media/concepts-model-repository/add-user.png)
+
+1. Choose the role you want to add the user to from the **Role** dropdown. Then select **Save**:
+
+    ![Choose role](./media/concepts-model-repository/choose-role.png)
+
+### Upload a model
+
+You must be a member of the repository tenant's **Creator** role to upload a model to the company model repository.
+
+These models are not published and are only accessible by users within your organization by default. You can also share one or more unpublished models with external users.
+
+Uploaded models are immutable.
+
+The model IDs for these models must be globally unique across all repository tenants for all uploaded models.
+
+To upload a model using the portal:
+
+1. Sign in to the [Azure IoT model repository portal](https://aka.ms/iotmodelrepo).
+
+1. Expand **Company Models** on the left pane and select **Create model**. Then select **Import Json**.
+
+    ![Create model](./media/concepts-model-repository/create-model.png)
+
+1. Select the file you want to upload. If the portal successfully validates your model, select **Save**.
+
+To upload a model using the REST API, see the [Create a Model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) API. See [Passing a security token when accessing company models with a REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
+
+```csharp
+var httpContent = new StringContent(jsonLdModel, Encoding.UTF8, "application/json");
+var modelId = "dtmi:com:mxchip:model;1";
+var response = await httpClient.PutAsync($"/models/{modelId}?api-version=2020-05-01-preview", httpContent).ConfigureAwait(false);
+```
+
+To upload a model using the CLI, see the Azure CLI [Create a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-create) command.
+
+### Publish a model
+
+To publish a model, the following requirements must be met:
+
+1. Your organization needs to be a member of the [Microsoft Partner Network](https://docs.microsoft.com/partner-center/) to publish a model. To create a partner center account, see [create a Partner Center account](https://docs.microsoft.com/partner-center/mpn-create-a-partner-center-account). After your account is approved, you can publish your models. For more information, see the [Partner Center FAQ](https://support.microsoft.com/help/4340639/partner-center-account-faqs).
+
+2. The user must be a member of the repository tenant's *Publisher* role.
+
+Models that are created and published by users within your organization are visible as *published models*. These models are public and can be found by anyone under **Public Models**.
+
+To publish a model using the portal:
+
+1. Sign in to the [Azure IoT model repository portal](https://aka.ms/iotmodelrepo).
+
+2. Expand **Company Models** on the left pane and select the model you want to publish. Then select **Publish**.
+
+    ![Publish model](./media/concepts-model-repository/publish-model.png)
+
+> [!NOTE]
+> If you get a notification saying that that you don't have a Microsoft Partner (MPN) ID, follow the registration steps in the notification. For more information, see the requirements at the beginning of this section.
+
+To publish a model using the REST API, see the [Publish a model](https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdateasync/createorupdateasync) REST API documentation. Supply the query string parameter `update-metadata=true` to publish a model using the REST API. See [Passing a security token when accessing company models with a REST API](#passing-a-security-token-when-accessing-company-models-with-a-rest-api) for information about how to pass in a JWT authorization header in the HTTP request.
+
+To publish a model using the CLI, see the Azure CLI [Publish a Model](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/pnp/model?view=azure-cli-latest#ext-azure-iot-az-iot-pnp-model-publish) command.
+
+### Share a model
+
+You can share company models that you've created with users of external organizations. In this way, you can allow collaborators to view and develop solutions with your private company models.
+
+For example, a device manufacturer may want to maintain models private to the company or organization. They may have customers who require that their device capabilities remain confidential.
+
+Sharing models across companies or organizations allows for secure access to models that aren't public.
+
+To share a company model using the portal:
+
+- If you're the creator of a model, the **Share** and **Shared with** buttons are active when you view the model in the **Company models** section.
+
+    ![Share model](./media/concepts-model-repository/share-model.png)
+
+- To share the model with an external user, select **Share**. In the **Share model** pane, enter the email address of the external user and select **Save**.
+
+- To see the users who you've shared the model with, select **Shared with**.
+
+- To stop sharing the model with a specific user, select the user from the list of users on the **Shared with** pane. Then select **Remove** and confirm your choice when prompted.
+
+    ![Stop sharing](./media/concepts-model-repository/stop-sharing.png)
+
+## Additional information
+
+You may find the following topics helpful when working with Azure AD:
+
+- To create a new Azure AD tenant, see [Create a new tenant in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant). Most organizations will already have Azure AD tenants.
+
+- To add users or guest users to an Azure AD tenant, see [Add or delete users using Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory).
+
+- To add a service principal to an Azure AD tenant, see [How to use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+- To learn how to get a JWT token from Azure AD to use when calling REST APIs, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app).
+
+## Next steps
+
+The suggested next step is to review the [IoT Plug and Play architecture](concepts-architecture.md).
