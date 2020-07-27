@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create an Azure AD Domain Services resource forest and one-way outbound forest from an Azure Active Directory Domain Services resource forest to an on-premises Active Directory Domain Services forest using Azure PowerShell to provide authentication and resource access between forests.
@@ -83,7 +83,7 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 ## Create a managed domain resource forest
 
-To create a managed domain resource forest, you use the `New-AzureAaddsForest` script. This script is part of a wider set of commands that support creating and managing managed domain resource forests, including create the one-way bound forest in a following section. These scripts are available from the [PowerShell Gallery](https://www.powershellgallery.com/).
+To create a managed domain resource forest, you use the `New-AzureAaddsForest` script. This script is part of a wider set of commands that support creating and managing managed domain resource forests, including create the one-way bound forest in a following section. These scripts are available from the [PowerShell Gallery](https://www.powershellgallery.com/) and are digitally signed by the Azure AD engineering team.
 
 1. First, create a resource group using the [New-AzResourceGroup][New-AzResourceGroup] cmdlet. In the following example, the resource group is named *myResourceGroup* and is created in the *westus* region. Use your own name and desired region:
 
@@ -91,6 +91,12 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
     New-AzResourceGroup `
       -Name "myResourceGroup" `
       -Location "WestUS"
+    ```
+
+1. Install the `New-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
+
+    ```powershell
+    Install-Script -Name New-AaddsResourceForestTrust
     ```
 
 1. Review the following parameters needed for the `New-AzureAaddsForest` script. Make sure you also have the prerequisite **Azure PowerShell** and **Azure AD PowerShell** modules. Make sure you have planned the virtual network requirements to provide application and on-premises connectivity.
@@ -114,8 +120,8 @@ To create a managed domain resource forest, you use the `New-AzureAaddsForest` s
     | Workload subnet name (optional)   | *-workloadSubnetName*             | Optional name of a subnet in the *aaddsVnetName* virtual network to create for your own application workloads. VMs and applications and also be connected to a peered Azure virtual network instead. |
     | Workload address range (optional) | *-workloadSubnetCIDRAddressRange* | Optional subnet address range in CIDR notation for application workload, such as *192.168.2.0/24*. Address range must be contained by the address range of the virtual network, and different from other subnets.|
 
-1. Create a managed domain resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *rf.addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
-1. 
+1. Now create a managed domain resource forest using the `New-AzureAaaddsForest` script. The following example creates a forest named *rf.addscontoso.com* and creates a workload subnet. Provide your own parameter names and IP address ranges or existing virtual networks.
+
     ```azure-powershell
     New-AzureAaddsForest `
         -azureSubscriptionId <subscriptionId> `
@@ -178,7 +184,13 @@ The forest trust has two parts - the one-way outbound forest trust in the manage
 
 ### Create the managed domain side of the trust relationship
 
-Use the `Add-AaddsResourceForestTrust` script to create the managed domain side of the trust relationship. Provide the script the following information:
+Use the `Add-AaddsResourceForestTrust` script to create the managed domain side of the trust relationship. First, install the `Add-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
+
+```powershell
+Install-Script -Name Add-AaddsResourceForestTrust
+```
+
+Now provide the script the following information:
 
 | Name                               | Script parameter     | Description |
 |:-----------------------------------|:---------------------|:------------|
@@ -189,7 +201,7 @@ Use the `Add-AaddsResourceForestTrust` script to create the managed domain side 
 | Trust password                     | *-TrustPassword*     | A complex password for the trust relationship. This password is also entered when creating the one-way inbound trust in the on-premises AD DS. |
 | Credentials                        | *-Credentials*       | The credentials used to authenticate to Azure. The user must be in the *AAD DC Administrators group*. If not provided, the script prompts for authentication. |
 
-The following example creates a trust relationship named *myAzureADDSTrust* to *onprem.contoso.com*. Use your own parameter names and passwords:
+The following example creates a trust relationship named *myAzureADDSTrust* to *onprem.contoso.com*. Use your own parameter names and passwords:.
 
 ```azure-powershell
 Add-AaddsResourceForestTrust `
@@ -330,7 +342,7 @@ In normal operation, the managed domain forest and on-premises forest negotiate 
 
 The following example steps show you how to update an existing trust relationship if you need to manually reset the outbound trust password:
 
-1. Install the `Get-AaddsResourceForestTrusts` and `Set-AaddsResourceForestTrust` scripts from the [PowerShell Gallery][powershell-script]. These PowerShell scripts are digitally signed by the Azure AD engineering team.
+1. Install the `Get-AaddsResourceForestTrusts` and `Set-AaddsResourceForestTrust` scripts from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
 
     ```powershell
     Install-Script -Name Get-AaddsResourceForestTrusts,Set-AaddsResourceForestTrust
@@ -357,7 +369,7 @@ The following example steps show you how to update an existing trust relationshi
 
 If you no longer need the one-way outbound forest trust from the managed domain to an on-premises AD DS forest, you can remove it. Make sure that no applications or services need to authenticate against the on-premises AD DS forest before you remove the trust. You must manually remove the one-way inbound trust in the on-premises AD DS forest, too.
 
-1. Install the `Remove-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script]. This PowerShell script is digitally signed by the Azure AD engineering team.
+1. Install the `Remove-AaddsResourceForestTrust` script from the [PowerShell Gallery][powershell-script] using the [Install-Script][Install-Script] cmdlet:
 
     ```powershell
     Install-Script -Name Remove-AaddsResourceForestTrust
@@ -404,4 +416,4 @@ For more conceptual information about forest types in Azure AD DS, see [What are
 [network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [New-AzureADServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal
 [Get-AzureRMSubscription]: /powershell/module/AzureRM.Profile/Get-AzureRmSubscription
-[forest-planning]: plan-resource-forest.md
+[Install-Script]: /powershell/module/powershellget/install-script
