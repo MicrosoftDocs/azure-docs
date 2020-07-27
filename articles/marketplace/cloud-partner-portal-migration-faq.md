@@ -4,7 +4,7 @@ description: Answers to commonly asked questions about transitioning offers from
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ---
