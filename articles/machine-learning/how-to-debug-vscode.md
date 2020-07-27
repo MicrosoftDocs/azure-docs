@@ -120,6 +120,12 @@ parser.add_argument('--remote_debug_connection_timeout', type=int,
                     default=300,
                     help=f'Defines how much time the AML compute target '
                     f'will await a connection from a debugger client (VSCODE).')
+parser.add_argument('--remote_debug_client_ip', type=str,
+                    help=f'Defines IP Address of VS Code client')
+parser.add_argument('--remote_debug_port', type=int,
+                    default=5678,
+                    help=f'Defines Port of VS Code client')
+
 # Get run object, so we can find and log the IP of the host instance
 global run
 run = Run.get_context()
@@ -130,9 +136,13 @@ args = parser.parse_args()
 if args.remote_debug:
     print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
     # Log the IP and port
-    ip = socket.gethostbyname(socket.gethostname())
+    # ip = socket.gethostbyname(socket.gethostname())
+    try:
+        ip = args.remote_debug_client_ip
+    except:
+        print("Need to supply IP address for VS Code client")
     print(f'ip_address: {ip}')
-    debugpy.listen(address=('0.0.0.0', 5678))
+    debugpy.listen(address=(ip, args.remote_debug_port))
     # Wait for the timeout for debugger to attach
     debugpy.wait_for_client()
     print(f'Debugger attached = {debugpy.is_client_connected()}')
@@ -147,7 +157,7 @@ if not (args.output_train is None):
 
 ### Configure ML pipeline
 
-To provide the Python packages needed to start PTVSD and get the run context, create an environment
+To provide the Python packages needed to start debugpy and get the run context, create an environment
 and set `pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>']`. Change the SDK version to match the one you are using. The following code snippet demonstrates how to create an environment:
 
 ```python
@@ -179,7 +189,7 @@ In the [Configure Python scripts](#configure-python-scripts) section, two new ar
 # Use RunConfig from a pipeline step
 step1 = PythonScriptStep(name="train_step",
                          script_name="train.py",
-                         arguments=['--remote_debug', '--remote_debug_connection_timeout', 300],
+                         arguments=['--remote_debug', '--remote_debug_connection_timeout', 300,'--remote_debug_client_ip','<VS-CODE-CLIENT-IP','--remote_debug_port',5678],
                          compute_target=aml_compute,
                          source_directory=source_directory,
                          runconfig=run_config,
@@ -269,7 +279,7 @@ Local web service deployments require a working Docker installation on your loca
     python -m pip install --upgrade debugpy
     ```
 
-    For more information on using PTVSD with VS Code, see [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
+    For more information on using debugpy with VS Code, see [Remote Debugging](https://code.visualstudio.com/docs/python/debugging#_debugging-by-attaching-over-a-network-connection).
 
 1. To configure VS Code to communicate with the Docker image, create a new debug configuration:
 
@@ -282,8 +292,10 @@ Local web service deployments require a working Docker installation on your loca
             "name": "Azure Machine Learning Deployment: Docker Debug",
             "type": "python",
             "request": "attach",
-            "port": 5678,
-            "host": "localhost",
+            "connect": {
+                "port": 5678,
+                "host": "0.0.0.0",
+            },
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",
@@ -318,12 +330,12 @@ Local web service deployments require a working Docker installation on your loca
         f.write(myenv.serialize_to_string())
     ```
 
-1. To start PTVSD and wait for a connection when the service starts, add the following to the top of your `score.py` file:
+1. To start debugpy and wait for a connection when the service starts, add the following to the top of your `score.py` file:
 
     ```python
     import debugpy
-    # Allows other computers to attach to ptvsd on this IP address and port.
-    ptvsd.enable_attach(('0.0.0.0', 5678))
+    # Allows other computers to attach to debugpy on this IP address and port.
+    debugpy.listen(('0.0.0.0', 5678))
     # Wait 30 seconds for a debugger to attach. If none attaches, the script continues as normal.
     debugpy.wait_for_client()
     print("Debugger attached...")
