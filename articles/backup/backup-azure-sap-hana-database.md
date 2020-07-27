@@ -20,7 +20,7 @@ In this article, you'll learn how to:
 > * Run an on-demand backup job
 
 >[!NOTE]
->[Get started](./tutorial-backup-sap-hana-db.md) with SAP HANA backup preview for RHEL (7.4, 7.6, 7.7 or 8.1). For further queries write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+>[Get started](./tutorial-backup-sap-hana-db.md) with SAP HANA backup for RHEL (7.4, 7.6, 7.7 or 8.1), which is now generally available. For further queries, write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
 
 >[!NOTE]
 >**Soft delete for SQL server in Azure VM and soft delete for SAP HANA in Azure VM workloads** is now available in preview.<br>
@@ -62,7 +62,7 @@ If you use Network Security Groups (NSG), use the *AzureBackup* service tag to a
 
 1. Click **Add**  to save the newly created outbound security rule.
 
-You can similarly create NSG outbound security rules for Azure Storage and Azure AD.
+You can similarly create NSG outbound security rules for Azure Storage and Azure AD. For more information on service tags, see [this article](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
 
 #### Azure Firewall tags
 
