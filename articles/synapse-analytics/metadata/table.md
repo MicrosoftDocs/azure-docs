@@ -19,7 +19,7 @@ Azure Synapse Analytics allows the different workspace computational engines to 
 
 Once a database has been created by a Spark job, you can create tables in it with Spark that use Parquet as the storage format. These tables will immediately become available for querying by any of the Azure Synapse workspace Spark pools. They can also be used from any of the Spark jobs subject to permissions.
 
-The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand. [Exposing a Spark table in SQL](#exposing-a-spark-table-in-sql) provides more detail on the table synchronization.
+The Spark created, managed, and external tables are also made available as external tables with the same name in the corresponding synchronized database in SQL on-demand. [Exposing a Spark table in SQL](#expose-a-spark-table-in-sql) provides more detail on the table synchronization.
 
 Since the tables are synchronized to SQL on-demand asynchronously, there will be a delay until they appear.
 
@@ -91,7 +91,7 @@ For more information on how to set permissions on the folders and files, see [Az
 
 ### Create a managed table backed by Parquet in Spark and query from SQL on-demand
 
-In this scenario, you have a Spark database named `mytestdb`. See [Create & connect to Spark database - SQL on-demand](database.md#create--connect-to-spark-database---sql-on-demand).
+In this scenario, you have a Spark database named `mytestdb`. See [Create and connect to a Spark database with SQL on-demand](database.md#create--connect-to-a-spark-database-with-sql-on-demand).
 
 Create a managed Spark table with SparkSQL by running the following command:
 
