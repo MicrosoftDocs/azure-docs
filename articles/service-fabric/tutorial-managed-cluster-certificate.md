@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 07/31/2020
 ---
 
-# Tutorial: Add a client certificate to a Managed Service Fabric cluster
+# Tutorial: Add a client certificate to a Managed Service Fabric cluster (preview)
 
 In this tutorial series we will discuss:
 

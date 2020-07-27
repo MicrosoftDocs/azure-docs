@@ -6,7 +6,7 @@ ms.date: 07/31/2020
 #Customer intent: As a service fabric customer, I want to learn about Managed SFRP so that I can deploy clusters without needing to manipulate numerous resources.
 ---
 
-# Tutorial: Deploy a Managed Service Fabric cluster
+# Tutorial: Deploy a Managed Service Fabric cluster (preview)
 
 In this tutorial series we will discuss:
 
