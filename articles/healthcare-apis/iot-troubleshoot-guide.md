@@ -69,6 +69,6 @@ Check out frequently asked questions on IoT Connector
 >[!div class="nextstepaction"]
 >[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
 
-In the Azure Portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
+In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
