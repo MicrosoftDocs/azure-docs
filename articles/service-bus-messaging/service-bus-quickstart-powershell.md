@@ -1,19 +1,14 @@
 ---
 title: Use Azure PowerShell to create a Service Bus queue
 description: In this quickstart, you learn how to use Azure PowerShell to creat a Service Bus queue. Then, you use a sample application to send messages to and receive messages from the queue. 
-services: service-bus-messaging
 author: spelluru
-manager: timlt
-
-ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 12/20/2019
+ms.date: 06/23/2020
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
-
 ---
+
 # Quickstart: Use Azure PowerShell to create a Service Bus queue
 This quickstart describes how to send and receive messages to and from a Service Bus queue, using PowerShell to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages from this queue using the [.NET Standard library](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 

@@ -159,10 +159,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Azure Backup pricing calculator
-            url: https://azure.microsoft.com/pricing/details/backup/
+          - text: Azure Backup pricing 
+            url: azure-backup-pricing.md
           - text: Azure Backup service updates
             url: https://azure.microsoft.com/updates/?product=backup
           - text: Azure Backup Microsoft Q&A question page
-            url: https://docs.microsoft.com/answers/topics/azure-backup.html
-                          
+            url: /answers/topics/azure-backup.html

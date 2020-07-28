@@ -23,7 +23,7 @@ Azure Key Vault's soft-delete feature allows recovery of deleted vaults and vaul
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+- Azure PowerShell 1.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/). 
 
 >[!NOTE]
 > There is an outdated version of our Key Vault PowerShell output formatting file that **may** be loaded into your environment instead of the correct version. We are anticipating an updated version of PowerShell to contain the needed correction for the output formatting and will update this topic at that time. 
@@ -203,7 +203,7 @@ Like keys, secrets are managed with their own commands:
 
 You can manage certificates using below commands:
 
-- Delete a Certificate named SQLPassword: 
+- Delete a Certificate: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
@@ -262,9 +262,9 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 
 ## Enabling Purge Protection
 
-When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
+When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed. The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
 
-You can enable purge protection only if soft-delete is also enabled. 
+You can enable purge protection only if soft-delete is also enabled. Disabling purge protection isn't supported. 
 
 To turn on both soft-delete and purge protection when creating a vault, use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
 

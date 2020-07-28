@@ -10,7 +10,7 @@ ms.date: 03/04/2019
 ---
 
 # Log Analytics data security
-This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](../../security/fundamentals/trust-center.md).  
+This document is intended to provide information specific to Log Analytics, which is a feature of Azure Monitor, to supplement the information on [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
 
 This article explains how data is collected, processed, and secured by Log Analytics. You can use agents to connect to the web service, use System Center Operations Manager to collect operational data, or retrieve data from Azure diagnostics for use by Log Analytics. 
 
@@ -38,9 +38,9 @@ We do not recommend explicitly setting your agent to only use TLS 1.2 unless abs
 |Platform/Language | Support | More Information |
 | --- | --- | --- |
 |Linux | Linux distributions tend to rely on [OpenSSL](https://www.openssl.org) for TLS 1.2 support.  | Check the [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) to confirm your version of OpenSSL is supported.|
-| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
+| Windows 8.0 - 10 | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 - 2016 | Supported, and enabled by default. | To confirm that you are still using the [default settings](/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 and Windows Server 2008 R2 SP1 | Supported, but not enabled by default. | See the [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings) page for details on how to enable.  |
 
 ## Data segregation
 After your data is ingested by the Log Analytics service, the data is kept logically separate on each component throughout the service. All data is tagged per workspace. This tagging persists throughout the data lifecycle, and it is enforced at each layer of the service. Your data is stored in a dedicated database in the storage cluster in the region you have selected.
@@ -144,7 +144,7 @@ For Operations Manager, the Operations Manager management group establishes a co
 
 All communication between connected systems and the Log Analytics service is encrypted. The TLS (HTTPS) protocol is used for encryption.  The Microsoft SDL process is followed to ensure Log Analytics is up-to-date with the most recent advances in cryptographic protocols.
 
-Each type of agent collects data for Log Analytics. The type of data that is collected is depends on the types of solutions used. You can see a summary of data collection at [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md). Additionally, more detailed collection information is available for most solutions. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only administrators can use Log Analytics to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to any agents that you have chosen. Afterward, the agents collect the data.
+Each type of agent collects data for Log Analytics. The type of data that is collected is depends on the types of solutions used. You can see a summary of data collection at [Add Log Analytics solutions from the Solutions Gallery](../insights/solutions.md). Additionally, more detailed collection information is available for most solutions. A solution is a bundle of predefined views, log search queries, data collection rules, and processing logic. Only administrators can use Log Analytics to import a solution. After the solution is imported, it is moved to the Operations Manager management servers (if used), and then to any agents that you have chosen. Afterward, the agents collect the data.
 
 ## 2. Send data from agents
 You register all agent types with an enrollment key and a secure connection is established between the agent and the Log Analytics service using certificate-based authentication and TLS with port 443. Log Analytics uses a secret store to generate and maintain keys. Private keys are rotated every 90 days and are stored in Azure and are managed by the Azure operations who follow strict regulatory and compliance practices.
@@ -168,7 +168,7 @@ The retention period of collected data stored in the database depends on the sel
 To access your Log Analytics workspace, you sign into the Azure portal using the organizational account or Microsoft account that you set up previously. All traffic between the portal and Log Analytics service is sent over a secure HTTPS channel. When using the portal, a session ID is generated on the user client (web browser) and data is stored in a local cache until the session is terminated. When terminated, the cache is deleted. Client-side cookies, which do not contain personally identifiable information, are not automatically removed. Session cookies are marked HTTPOnly and are secured. After a pre-determined idle period, the Azure portal session is terminated.
 
 ## Next steps
-* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../../azure-monitor/learn/quick-collect-azurevm.md).  
+* Learn how to collect data with Log Analytics for your Azure VMs following the [Azure VM quickstart](../learn/quick-collect-azurevm.md).  
 
-*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../../azure-monitor/learn/quick-collect-linux-computer.md) or [Quickstart for Windows computers](../../azure-monitor/learn/quick-collect-windows-computer.md)
+*  If you are looking to collect data from physical or virtual Windows or Linux computers in your environment, see the [Quickstart for Linux computers](../learn/quick-collect-linux-computer.md) or [Quickstart for Windows computers](../learn/quick-collect-windows-computer.md)
 

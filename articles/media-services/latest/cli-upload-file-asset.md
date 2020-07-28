@@ -23,7 +23,7 @@ The Azure CLI script in this article shows how to upload a local file to a stora
 
 ## Prerequisites
 
-* [Create a Media Services account](create-account-cli-how-to.md).
+* [Create a Media Services account](./create-account-howto.md).
 * Review [manage assets](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]

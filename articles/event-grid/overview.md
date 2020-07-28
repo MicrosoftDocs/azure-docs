@@ -1,15 +1,8 @@
 ---
 title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
-services: event-grid
-author: banisadr
-manager: timlt
-
-ms.service: event-grid
 ms.topic: overview
-ms.date: 02/20/2020
-ms.author: babanisa
-ms.custom: seodec18
+ms.date: 07/07/2020
 ---
 
 # What is Azure Event Grid?
@@ -99,7 +92,7 @@ Event Grid connects data sources and event handlers. For example, use Event Grid
 
 ![Operations automation](./media/overview/Ops_automation.png)
 
-Event Grid allows you to speed automation and simplify policy enforcement. For example, use Event Grid to notify Azure Automation when a virtual machine or SQL database is created. Use the events to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
+Event Grid allows you to speed automation and simplify policy enforcement. For example, use Event Grid to notify Azure Automation when a virtual machine or database in Azure SQL is created. Use the events to automatically check that service configurations are compliant, put metadata into operations tools, tag virtual machines, or file work items.
 
 ### Application integration
 

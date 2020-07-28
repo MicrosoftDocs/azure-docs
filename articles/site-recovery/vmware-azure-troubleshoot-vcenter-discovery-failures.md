@@ -19,12 +19,14 @@ On versions prior to 9.20, vCenter disconnects when it retrieves a non-numeric v
 
 This issue is identified by error ID 95126.
 
-    ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
-	System.FormatException: Input string was not in a correct format.
-	   at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
-	   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
-	   at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
-	
+```output
+ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
+System.FormatException: Input string was not in a correct format.
+    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+    at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+    at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
+```
+
 To resolve the issue:
 
 - Identify the VM and set the value to a numeric value (VM Edit settings in vCenter).
@@ -74,4 +76,4 @@ For DRA proxy configuration:
 
 ## Next steps
 
-[Manage the configuration server for VMware VM disaster recovery](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Manage the configuration server for VMware VM disaster recovery](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 

@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 05/20/2020
+  ms.date: 06/29/2020
 
 landingContent:
   - title: About Azure Policy
@@ -35,13 +35,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Assign a policy (portal)
+          - text: Assign a policy (Portal)
             url: ./assign-policy-portal.md
-          - text: Assign a policy (PowerShell)
-            url: ./assign-policy-powershell.md
           - text: Assign a policy (Azure CLI)
             url: ./assign-policy-azurecli.md
-          - text: Assign a policy (template)
+          - text: Assign a policy (Azure PowerShell)
+            url: ./assign-policy-powershell.md
+          - text: Assign a policy (ARM template)
             url: ./assign-policy-template.md
       - linkListType: tutorial
         links:
@@ -72,6 +72,8 @@ landingContent:
             url: ./how-to/author-policies-for-arrays.md
       - linkListType: concept
         links:
+          - text: Regulatory Compliance
+            url: ./concepts/regulatory-compliance.md
           - text: Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
           - text: Policy for VMs
@@ -93,7 +95,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Microsoft Q&A for Azure Policy
-            url: /answers/topics/azure-policy.html.html
+            url: /answers/topics/azure-policy.html
           - text: Azure Governance YouTube channel
             url: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
           - text: Request product feature
@@ -130,9 +132,9 @@ landingContent:
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
           - text: Azure SDK for .NET (Policy Definitions)
             url: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
-          - text: Azure SDK for Node (Policy)
+          - text: Azure SDK for JavaScript (Policy)
             url: /javascript/api/@azure/arm-policy
-          - text: Azure SDK for Node (Policy Insights)
+          - text: Azure SDK for JavaScript (Policy Insights)
             url: /javascript/api/@azure/arm-policyinsights
           - text: Azure SDK for Python (Policy)
             url: /python/api/azure-mgmt-resource/azure.mgmt.resource.policy

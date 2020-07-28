@@ -5,13 +5,13 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ---
 
-# Create an FSLogix profile container with Azure Files
+# Create a profile container with Azure Files and Azure AD DS
 
 This article will show you how to create an FSLogix profile container with Azure Files and Azure Active Directory Domain Services (AD DS).
 
@@ -37,7 +37,7 @@ To add an admin:
 
 ## Set up an Azure Storage account
 
-Now it's time to enable Azure AD DS authentication over Server Message Block (SMB). 
+Now it's time to enable Azure AD DS authentication over Server Message Block (SMB).
 
 To enable authentication:
 
@@ -89,7 +89,8 @@ To get the Storage Account access key:
 
     This will download an RDP file that will let you sign in to the VM with its own credentials.
 
-    ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
 
 6. When you've signed in to the VM, run a command prompt as an administrator.
 
@@ -104,8 +105,8 @@ To get the Storage Account access key:
     - Replace `<share-name>` with the name of the share you created earlier.
     - Replace `<storage-account-key>` with the storage account key from Azure.
 
-    For example:  
-  
+    For example:
+
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
      ```
@@ -120,7 +121,7 @@ To get the Storage Account access key:
     - Replace `<user-email>` with the UPN of the user who will use this profile to access the session host VMs.
 
     For example:
-     
+
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
      ```
@@ -152,11 +153,13 @@ To configure a FSLogix profile container:
 
 9.  Right-click on **Profiles**, select **New**, and then select **DWORD (32-bit) Value.** Name the value **Enabled** and set the **Data** value to **1**.
 
-    ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key. The REG_DWORD file is highlighted and its Data value is set to 1.](media/dword-value.png)
 
 10. Right-click on **Profiles**, select **New**, and then select **Multi-String Value**. Name the value **VHDLocations** and set enter the URI for the Azure Files share `\\fsprofile.file.core.windows.net\share` as the Data value.
 
-    ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Profiles key showing the VHDLocations file. Its Data value shows the URI for the Azure Files share.](media/multi-string-value.png)
 
 ## Assign users to a session host
 
@@ -199,13 +202,13 @@ To assign users:
 
      ```powershell
      $pool1 = "contoso"
-     
+
      $tenant = "contoso"
-     
+
      $appgroup = "Desktop Application Group"
-     
+
      $user1 = "jane.doe@contoso.com"
-     
+
      Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
      ```
 

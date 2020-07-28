@@ -7,7 +7,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date:  05/15/2020
+ms.date:  05/28/2020
 ---
 
 # Lookup transformation in mapping data flow
@@ -16,7 +16,9 @@ ms.date:  05/15/2020
 
 Use the lookup transformation to reference data from another source in a data flow stream. The lookup transformation appends columns from matched data to your source data.
 
-A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream. 
+A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
 
 ## Configuration
 

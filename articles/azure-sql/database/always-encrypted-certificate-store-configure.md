@@ -1,6 +1,6 @@
 ---
-title: Configure Always Encrypted using Windows certificate store
-description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted Wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
+title: Configure Always Encrypted by using the Windows certificate store
+description: This article shows you how to secure sensitive data in Azure SQL Database with database encryption by using the Always Encrypted wizard in SQL Server Management Studio (SSMS). It also shows you how to store your encryption keys in the Windows certificate store.
 keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted
 services: sql-database
 ms.service: sql-database
@@ -13,10 +13,12 @@ ms.author: vanto
 ms.reviwer: 
 ms.date: 04/23/2020
 ---
-# Configure Always Encrypted using Windows certificate store
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
 
-This tutorial shows you how to secure sensitive data in a database in Azure SQL Database or Azure SQL Managed Instance with database encryption using the [Always Encrypted Wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
+# Configure Always Encrypted by using the Windows certificate store
+
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+This article shows you how to secure sensitive data in Azure SQL Database or Azure SQL Managed Instance with database encryption by using the [Always Encrypted wizard](/sql/relational-databases/security/encryption/always-encrypted-wizard) in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). It also shows you how to store your encryption keys in the Windows certificate store.
 
 Always Encrypted is a data encryption technology that helps protect sensitive data at rest on the server, during movement between client and server, and while the data is in use, ensuring that sensitive data never appears as plaintext inside the database system. After you encrypt data, only client applications or app servers that have access to the keys can access plaintext data. For detailed information, see [Always Encrypted (Database Engine)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -50,7 +52,7 @@ To get the *Application ID* and *key*, follow the steps in [create an Azure Acti
 
 ## Connect with SSMS
 
-Open SQL Server Managed Studio (SSMS) and connect to the server or managed with your database.
+Open SQL Server Management Studio (SSMS) and connect to the server or managed with your database.
 
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials.
@@ -66,20 +68,22 @@ In this section, you will create a table to hold patient data. This will be a no
 1. Expand **Databases**.
 2. Right-click the **Clinic** database and click **New Query**.
 3. Paste the following Transact-SQL (T-SQL) into the new query window and **Execute** it.
-
-        CREATE TABLE [dbo].[Patients](
-         [PatientId] [int] IDENTITY(1,1),
-         [SSN] [char](11) NOT NULL,
-         [FirstName] [nvarchar](50) NULL,
-         [LastName] [nvarchar](50) NULL,
-         [MiddleName] [nvarchar](50) NULL,
-         [StreetAddress] [nvarchar](50) NULL,
-         [City] [nvarchar](50) NULL,
-         [ZipCode] [char](5) NULL,
-         [State] [char](2) NULL,
-         [BirthDate] [date] NOT NULL
-         PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-         GO
+    
+    ```tsql
+    CREATE TABLE [dbo].[Patients](
+    [PatientId] [int] IDENTITY(1,1),
+    [SSN] [char](11) NOT NULL,
+    [FirstName] [nvarchar](50) NULL,
+    [LastName] [nvarchar](50) NULL,
+    [MiddleName] [nvarchar](50) NULL,
+    [StreetAddress] [nvarchar](50) NULL,
+    [City] [nvarchar](50) NULL,
+    [ZipCode] [char](5) NULL,
+    [State] [char](2) NULL,
+    [BirthDate] [date] NOT NULL
+    PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
+    GO
+    ```
 
 ## Encrypt columns (configure Always Encrypted)
 
@@ -157,19 +161,21 @@ You can set this directly in the connection string, or you can set it by using a
 
 Add the following keyword to your connection string:
 
-    Column Encryption Setting=Enabled
+`Column Encryption Setting=Enabled`
 
 ### Enable Always Encrypted with a SqlConnectionStringBuilder
 
 The following code shows how to enable Always Encrypted by setting the [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
-    // Instantiate a SqlConnectionStringBuilder.
-    SqlConnectionStringBuilder connStringBuilder =
-       new SqlConnectionStringBuilder("replace with your connection string");
+```csharp
+// Instantiate a SqlConnectionStringBuilder.
+SqlConnectionStringBuilder connStringBuilder =
+    new SqlConnectionStringBuilder("replace with your connection string");
 
-    // Enable Always Encrypted.
-    connStringBuilder.ColumnEncryptionSetting =
-       SqlConnectionColumnEncryptionSetting.Enabled;
+// Enable Always Encrypted.
+connStringBuilder.ColumnEncryptionSetting =
+    SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## Always Encrypted sample console application
 
@@ -493,7 +499,9 @@ You can quickly check that the actual data on the server is encrypted by queryin
 
 Run the following query on the Clinic database.
 
-    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```tsql
+SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 You can see that the encrypted columns do not contain any plaintext data.
 
@@ -508,7 +516,9 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
     ![New console application](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Run the following query on the **Clinic** database.
 
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```tsql
+    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```
 
      You can now see the plaintext data in the encrypted columns.
 

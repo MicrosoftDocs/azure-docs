@@ -87,7 +87,7 @@
       href: concepts-pricing-tiers.md
     - name: Prepay for reserved capacity
       href: concept-reserved-pricing.md
-    - name: Limits
+    - name: Limitations
       href: concepts-limits.md
   - name: Data access & security
     items:
@@ -109,6 +109,8 @@
       href: concepts-data-encryption-mysql.md
     - name: Azure AD authentication
       href: concepts-azure-ad-authentication.md
+    - name: Infrastructure double encryption
+      href: concepts-infrastructure-double-encryption.md  
     - name: Security baseline
       href: security-baseline.md
   - name: Business continuity
@@ -132,6 +134,8 @@
       href: concepts-query-performance-insight.md
     - name: Performance Recommendations
       href: concepts-performance-recommendations.md
+    - name: Server parameters
+      href: concepts-server-parameters.md
   - name: Development
     items:
     - name: Drivers and tools compatibility
@@ -190,6 +194,8 @@
       href: howto-connection-string.md
     - name: Configure SSL
       href: howto-configure-ssl.md
+    - name: Configure TLS
+      href: howto-tls-configurations.md
     - name: Web apps
       href: howto-connect-webapp.md
     - name: Connect with redirection
@@ -272,6 +278,10 @@
       href: howto-data-encryption-cli.md
     - name: Data encryption validation
       href: howto-data-encryption-validation.md
+  - name: Infrastructure double encryption
+    items:
+    - name: Configure infrastructure double encryption
+      href: howto-double-encryption.md
   - name: Azure AD Integration
     items:
     - name: Configure Azure AD integration
@@ -290,6 +300,10 @@
       href: howto-restart-server-cli.md
     - name: Azure PowerShell
       href: howto-restart-server-powershell.md
+  - name: Move between regions
+    items:
+    - name: Azure portal
+      href: howto-move-regions-portal.md
 - name: Reference
   items:
   - name: Azure CLI

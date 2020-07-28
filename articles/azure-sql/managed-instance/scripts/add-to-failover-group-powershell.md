@@ -1,9 +1,9 @@
 ---
-title: "PowerShell: Add instance to auto-failover group"
+title: "PowerShell: Add a managed instance to an auto-failover group"
 titleSuffix: Azure SQL Managed Instance 
-description: Azure PowerShell example script to create an Azure SQL Managed Instance, add it to an auto-failover group, and test failover. 
+description: Azure PowerShell example script to create a managed instance, add it to an auto-failover group, and test failover. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-managed-instance
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: PowerShell
@@ -13,16 +13,17 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use PowerShell to add an Azure SQL Managed Instance to a failover group 
+# Use PowerShell to add a managed instance to a failover group 
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
-This PowerShell script example creates two SQL Managed Instances, adds them to a failover group, and then tests failover from the primary SQL Managed Instance to the secondary SQL Managed Instance. 
+This PowerShell script example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Azure PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample scripts
 
@@ -30,7 +31,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Clean up deployment
 
-Use the following command to remove  the resource group and all resources associated with it. You will need to remove the resource group twice. Removing the resource group the first time will remove the SQL Managed Instance and virtual clusters but will then fail with the error message `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`. Run the Remove-AzResourceGroup command a second time to remove any residual resources as well as the resource group.
+Use the following command to remove  the resource group and all resources associated with it. You will need to remove the resource group twice. Removing the resource group the first time will remove the managed instance and virtual clusters but will then fail with the error message `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'`. Run the Remove-AzResourceGroup command a second time to remove any residual resources as well as the resource group.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -56,8 +57,8 @@ This script uses the following commands. Each command in the table links to comm
 | [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | Updates a network security group.  | 
 | [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | Adds a route to a route table. |
 | [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | Updates a route table.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates an Azure SQL Managed Instance.  |
-| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Returns information about SQL Managed Instance. |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Creates a managed instance.  |
+| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Returns information about Azure SQL Managed Instance. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | Creates a public IP address.  | 
 | [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Creates an IP Configuration for a Virtual Network Gateway |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Creates a Virtual Network Gateway |
@@ -69,6 +70,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
-Additional SQL Managed Instance PowerShell script samples can be found in the [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).
+Additional PowerShell script samples for SQL Managed Instance can be found in [Azure SQL Managed Instance PowerShell scripts](../../database/powershell-script-content-guide.md).

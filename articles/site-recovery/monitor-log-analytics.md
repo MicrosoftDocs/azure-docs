@@ -63,8 +63,8 @@ You can capture the data churn rate information and source data upload rate info
 7. Once the installation is complete, go to Log Analytics workspace and click on **Advanced Settings**. Go to the **Data** page and further click on **Windows Performance Counters**. 
 8. Click on **'+'** to add the following two counters with sample interval of 300 seconds:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 The churn and upload rate data will start feeding into the workspace.
 
@@ -247,7 +247,7 @@ AzureDiagnostics 
 
 ## Set up alerts - examples
 
-You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) about setting up log alerts. 
+You can set up Site Recovery alerts based on Azure Monitor data. [Learn more](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) about setting up log alerts. 
 
 > [!NOTE]
 > Some of the examples use **replicationProviderName_s** set to **A2A**. This sets alerts for Azure VMs that are replicated to a secondary Azure region. In these examples, you can replace **A2A** with **InMageAzureV2** if you want to set alerts for on-premises VMware VMs or physical servers replicated to Azure.

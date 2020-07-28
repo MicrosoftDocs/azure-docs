@@ -6,7 +6,7 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -22,7 +22,7 @@ This article provides guidance on how to choose and use Azure Active Directory (
 You need the following to use Azure AD Connect cloud provisioning:
 	
 - A hybrid identity administrator account for your Azure AD tenant that is not a guest user.
-- An on-premises server for the provisioning agent with Windows 2012 R2 or later.
+- An on-premises server for the provisioning agent with Windows 2012 R2 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - On-premises firewall configurations.
 
 >[!NOTE]

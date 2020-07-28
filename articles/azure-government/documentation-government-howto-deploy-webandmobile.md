@@ -4,8 +4,6 @@ description: This tutorial describes how to deploy a Web App, API App, or Mobile
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: sdubeymsft
-manager: zakramer
 
 ms.service: azure-government
 ms.devlang: na
@@ -13,7 +11,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/10/2018
-ms.author: sdubey
 
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government and deploy an Azure App Services app in the Azure Government cloud because i want to be sure that my agency meets government security and compliance requirements.
 ---

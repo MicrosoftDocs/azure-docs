@@ -20,7 +20,7 @@ ms.custom: seodec18
 
 # Manage assets
 
-In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) is where you 
+In Azure Media Services, an [Asset](/rest/api/media/assets) is where you 
 
 * upload media files into an asset,
 * ingest and archive live streams into an asset,
@@ -54,13 +54,13 @@ After the digital files are uploaded into storage and associated with an Asset, 
     ```
 2. Get a SAS URL with read-write permissions that will be used to upload digital files into the Asset container.
 
-    You can use the Media Services API to [list the asset container URLs](https://docs.microsoft.com/rest/api/media/assets/listcontainersas).
+    You can use the Media Services API to [list the asset container URLs](/rest/api/media/assets/listcontainersas).
 
-    **AssetContainerSas.listContainerSas** takes a [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) parameter on which you set `expiryTime`. The time should be set to  < 24 hours.
+    **AssetContainerSas.listContainerSas** takes a [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) parameter on which you set `expiryTime`. The time should be set to  < 24 hours.
 
-    [ListContainerSasInput](https://docs.microsoft.com/rest/api/media/assets/listcontainersas#listcontainersasinput) returns multiple SAS URLs as there are two storage account keys for each storage account. A storage account has two keys because it helps with failover and seamless rotation of storage account keys. The first SAS URL represents the first storage account key and the second SAS URL represents the second key.
+    [ListContainerSasInput](/rest/api/media/assets/listcontainersas#listcontainersasinput) returns multiple SAS URLs as there are two storage account keys for each storage account. A storage account has two keys because it helps with failover and seamless rotation of storage account keys. The first SAS URL represents the first storage account key and the second SAS URL represents the second key.
 3. Use the Azure Storage APIs or SDKs (for example, the [Storage REST API](../../storage/common/storage-rest-api-auth.md) or [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) to upload files into the Asset container.
-4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](transform-concept.md).
+4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](./transforms-jobs-concept.md).
 5. Stream the content from the "output" asset.
 
 ### Create a new asset
@@ -74,7 +74,7 @@ After the digital files are uploaded into storage and associated with an Asset, 
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
 ```
 
-For a REST example, see the [Create an Asset with REST](https://docs.microsoft.com/rest/api/media/assets/createorupdate#examples) example.
+For a REST example, see the [Create an Asset with REST](/rest/api/media/assets/createorupdate#examples) example.
 
 The example shows how to create the **Request Body** where you can specify description, container name, storage account, and other useful info.
 
@@ -105,7 +105,7 @@ curl -X PUT \
 
 ## Ingest and archive live streams into an asset
 
-In Media Services, a [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) object is like a digital video recorder that will catch and record your live stream into an asset in your Media Services account. The recorded content is persisted into the container defined by the [Asset](https://docs.microsoft.com/rest/api/media/assets) resource.
+In Media Services, a [Live Output](/rest/api/media/liveoutputs) object is like a digital video recorder that will catch and record your live stream into an asset in your Media Services account. The recorded content is persisted into the container defined by the [Asset](/rest/api/media/assets) resource.
 
 For more information, see:
 
@@ -143,6 +143,6 @@ See [Filtering, ordering, paging of Media Services entities](entities-overview.m
 
 See the full code examples that demonstrate how to upload, encode, analyze, stream live and on-demand: 
 
-* [Java](https://docs.microsoft.com/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
-* [.NET](https://docs.microsoft.com/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
-* [REST](https://docs.microsoft.com/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).
+* [Java](/samples/azure-samples/media-services-v3-java/azure-media-services-v3-samples-using-java/), 
+* [.NET](/samples/azure-samples/media-services-v3-dotnet/azure-media-services-v3-samples-using-net/), 
+* [REST](/samples/azure-samples/media-services-v3-rest-postman/azure-media-services-postman-collection/).

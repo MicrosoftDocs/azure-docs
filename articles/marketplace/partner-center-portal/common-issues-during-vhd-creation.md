@@ -1,11 +1,11 @@
 ---
 title: Common issues during VHD creation (FAQ)
 description: Frequently asked questions about common issues when creating a virtual hard disk (VHD).
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/09/2020
 ---
 
@@ -15,7 +15,7 @@ These frequently asked questions (FAQ) cover common issues you might encounter w
 
 ## How do I create a VM from the Azure portal using a VHD in premium storage?
 
-Azure Marketplace does not currently support creating VM offers from images on managed storage or from Azure Premium Storage. For details, see [Azure Managed Disks Overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+Azure Marketplace does not currently support creating VM offers from images on managed storage or from Azure Premium Storage. For details, see [Azure Managed Disks Overview](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## Can I use Generation 2 VMs for offers?
 
@@ -40,9 +40,9 @@ Generation of certificates is explained in [Azure VM image certification](https:
 
 If you are using the Azure Resource Manager deployment model, you have three options:
 
-* [Create a route-based VPN gateway using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-* [Create a route-based VPN gateway using Azure PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-* [Create a route-based VPN gateway using CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+* [Create a route-based VPN gateway using the Azure portal](../../vpn-gateway/create-routebased-vpn-gateway-portal.md)
+* [Create a route-based VPN gateway using Azure PowerShell](../../vpn-gateway/create-routebased-vpn-gateway-powershell.md)
+* [Create a route-based VPN gateway using CLI](../../vpn-gateway/create-routebased-vpn-gateway-cli.md)
 
 ## What are Microsoft support policies for running Microsoft server software on Azure-based VMs?
 
@@ -70,4 +70,4 @@ For more information, see these articles:
 
 Every time I try to create an image from my VHDs, I get the error "VHD is already registered with image repository as the resource" in Azure PowerShell. I didn't create any image before nor did I find any image with this name in Azure. How do I resolve this?
 
-This issue usually appears if you created a VM from a VHD that has a lock on it. Confirm that there is no VM allocated from this VHD and then retry the operation. If this issue continues, open a support ticket. See [Support for Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support).
+This issue usually appears if you created a VM from a VHD that has a lock on it. Confirm that there is no VM allocated from this VHD and then retry the operation. If this issue continues, open a support ticket. See [Support for Partner Center](support.md).

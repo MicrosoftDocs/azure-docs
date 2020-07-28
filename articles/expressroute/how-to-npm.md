@@ -5,7 +5,7 @@ services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cherylmc
 

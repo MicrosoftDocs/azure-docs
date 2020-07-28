@@ -62,13 +62,21 @@ These libraries are installed automatically with the extension.
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is installed, if it is not already present, through a configuration script you run as part of the setup process. There is no need to install this module ahead of time if it is not already installed.
 
+You need to manually install the following library:
+
+- [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/download/details.aspx?id=48145)
+
 ### Azure Active Directory
 
 Everyone using the NPS extension must be synced to Azure Active Directory using Azure AD Connect, and must be registered for MFA.
 
-When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator. Search for and select the **Azure Active Directory**, then select **Properties**. Copy the GUID in the **Directory ID** box and save it. You use this GUID as the tenant ID when you install the NPS extension.
+When you install the extension, you need the *Tenant ID* and admin credentials for your Azure AD tenant. To get the tenant ID, complete the following steps:
 
-![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/properties-directory-id.png)
+1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of the Azure tenant.
+1. Search for and select the **Azure Active Directory**.
+1. On the **Overview** page, the *Tenant information* is shown. Next to the *Tenant ID*, select the **Copy** icon, as shown in the following example screenshot:
+
+   ![Getting the Tenant ID from the Azure portal](./media/howto-mfa-nps-extension/azure-active-directory-tenant-id-portal.png)
 
 ### Network requirements
 
@@ -183,14 +191,23 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 1. Run Windows PowerShell as an administrator.
 2. Change directories.
 
-   `cd "C:\Program Files\Microsoft\AzureMfa\Config"`
+   ```powershell
+   cd "C:\Program Files\Microsoft\AzureMfa\Config"
+   ```
 
 3. Run the PowerShell script created by the installer.
 
-   `.\AzureMfaNpsExtnConfigSetup.ps1`
+   > [!IMPORTANT]
+   > For customers that use the Azure Government or Azure China 21Vianet clouds, first edit the `Connect-MsolService` cmdlets in the *AzureMfaNpsExtnConfigSetup.ps1* script to include the *AzureEnvironment* parameters for the required cloud. For example, specify *-AzureEnvironment USGovernment* or *-AzureEnvironment AzureChinaCloud*.
+   >
+   > For more information, see [Connect-MsolService parameter reference](/powershell/module/msonline/connect-msolservice#parameters).
+
+   ```powershell
+   .\AzureMfaNpsExtnConfigSetup.ps1
+   ```
 
 4. Sign in to Azure AD as an administrator.
-5. PowerShell prompts for your tenant ID. Use the Directory ID GUID that you copied from the Azure portal in the prerequisites section.
+5. PowerShell prompts for your tenant ID. Use the *Tenant ID* GUID that you copied from the Azure portal in the prerequisites section.
 6. PowerShell shows a success message when the script is finished.  
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
@@ -198,22 +215,30 @@ Repeat these steps on any additional NPS servers that you want to set up for loa
 If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
 > [!NOTE]
-> If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+> If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**.
 
-### Microsoft Azure Government additional steps
+### Microsoft Azure Government or Azure China 21Vianet additional steps
 
-For customers that use Azure Government cloud, the following additional configuration steps are required on each NPS server.
+For customers that use the Azure Government or Azure China 21Vianet clouds, the following additional configuration steps are required on each NPS server.
 
 > [!IMPORTANT]
-> Only configure these registry settings if you're an Azure Government customer.
+> Only configure these registry settings if you're an Azure Government or Azure China 21Vianet customer.
 
-1. If you're an Azure Government customer, open **Registry Editor** on the NPS server.
-1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Set the following key values:
+1. If you're an Azure Government or Azure China 21Vianet customer, open **Registry Editor** on the NPS server.
+1. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`.
+1. For Azure Government customers, set the following key values.:
 
     | Registry key       | Value |
     |--------------------|-----------------------------------|
     | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
     | STS_URL            | https://login.microsoftonline.us/ |
+
+1. For Azure China 21Vianet customers, set the following key values:
+
+    | Registry key       | Value |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.cn   |
+    | STS_URL            | https://login.chinacloudapi.cn/   |
 
 1. Repeat the previous two steps to set the registry key values for each NPS server.
 1. Restart the NPS service for each NPS server.
@@ -278,7 +303,7 @@ Self-signed certificates generated by the *AzureMfaNpsExtnConfigSetup.ps1* scrip
 
 Open PowerShell command prompt and run the following commands:
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
@@ -288,7 +313,7 @@ These commands print all the certificates associating your tenant with your inst
 
 The following command will create a file named "npscertificate" on your "C:" drive in format .cer.
 
-``` PowerShell
+```powershell
 import-module MSOnline
 Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertificate.cer

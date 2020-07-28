@@ -53,7 +53,7 @@ You can now use the Data Explorer tool in the Azure portal to create a database 
 
    The **Add Container** area is displayed on the far right, you may need to scroll right to see it.
 
-   ![The Azure portal Data Explorer, Add Container pane](./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png)
+   :::image type="content" source="./media/create-sql-api-nodejs/azure-cosmosdb-data-explorer.png" alt-text="The Azure portal Data Explorer, Add Container pane":::
 
 2. In the **Add container** page, enter the settings for the new container.
 
@@ -169,7 +169,7 @@ Now go back to the Azure portal to get the connection string details of your Azu
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Keys** from the left navigation, and then select **Read-write Keys**. Use the copy buttons on the right side of the screen to copy the URI and Primary Key into the _app.js_ file in the next step.
 
-   ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
+   :::image type="content" source="./media/create-sql-api-dotnet/keys.png" alt-text="View and copy an access key in the Azure portal, Keys blade":::
 
 2. In Open the _config.js_ file.
 

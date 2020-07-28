@@ -10,7 +10,7 @@ ms.custom: mvc
 
 This article describes how you can enable the [Change Tracking and Inventory](change-tracking.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory. 
 
-The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../azure-resource-manager/templates/cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Change Tracking and Inventory. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
+The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../azure-resource-manager/templates/cross-scope-deployment.md). Resource Manager deployments, not to be confused with update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Change Tracking and Inventory. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
 
 > [!NOTE]
 > When enabling Change Tracking and Inventory, only certain regions are supported for linking a Log Analytics workspace and an Automation Account. For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
@@ -18,7 +18,7 @@ The number of resource groups that you can use for managing your VMs is limited 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to manage machines.
+* [Automation account](./index.yml) to manage machines.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
@@ -55,7 +55,4 @@ Sign in to Azure at https://portal.azure.com.
 ## Next steps
 
 * For details of working with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* To learn how to use the feature to identify software installed in your environment, see [Discover what software is installed on your VMs](automation-tutorial-installed-software.md).
-* If you don't want to integrate your Automation account with a Log Analytics workspace when enabling the feature, see [Unlink workspace from Automation account](automation-unlink-workspace-change-tracking.md).
-* When finished deploying changes to VMs, you can remove them as described in [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
 * To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

@@ -19,9 +19,9 @@ This article covers the background operations that can occur for pools and pool 
 
 ### Resize timeout or failure
 
-When creating a new pool or resizing an existing pool, you specify the target number of nodes.  The create or resize operation completes immediately, but the actual allocation of new nodes or the removal of existing nodes might take several minutes.  You specify the resize timeout in the [create](https://docs.microsoft.com/rest/api/batchservice/pool/add) or [resize](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API. If Batch can't obtain the target number of nodes during the resize timeout period the pool goes into a steady state and reports resize errors.
+When creating a new pool or resizing an existing pool, you specify the target number of nodes.  The create or resize operation completes immediately, but the actual allocation of new nodes or the removal of existing nodes might take several minutes.  You specify the resize timeout in the [create](/rest/api/batchservice/pool/add) or [resize](/rest/api/batchservice/pool/resize) API. If Batch can't obtain the target number of nodes during the resize timeout period the pool goes into a steady state and reports resize errors.
 
-The [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) property for the most recent evaluation lists the errors that occurred.
+The [ResizeError](/rest/api/batchservice/pool/get#resizeerror) property for the most recent evaluation lists the errors that occurred.
 
 Common causes for resize errors include:
 
@@ -29,31 +29,31 @@ Common causes for resize errors include:
   - Under most circumstances, the default timeout of 15 minutes is long enough for pool nodes to be allocated or removed.
   - If you're allocating a large number of nodes, we recommend setting the resize timeout to 30 minutes. For example, when you're resizing to more than 1,000 nodes from an Azure Marketplace image, or to more than 300 nodes from a custom VM image.
 - Insufficient core quota
-  - A Batch account is limited in the number of cores that it can allocate across all pools. Batch stops allocating nodes once that quota has been reached. You [can increase](https://docs.microsoft.com/azure/batch/batch-quota-limit) the core quota so that Batch can allocate more nodes.
-- Insufficient subnet IPs when a [pool is in a virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+  - A Batch account is limited in the number of cores that it can allocate across all pools. Batch stops allocating nodes once that quota has been reached. You [can increase](./batch-quota-limit.md) the core quota so that Batch can allocate more nodes.
+- Insufficient subnet IPs when a [pool is in a virtual network](./batch-virtual-network.md)
   - A virtual network subnet must have enough unassigned IP addresses to allocate to every requested pool node. Otherwise, the nodes can't be created.
-- Insufficient resources when a [pool is in a virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network)
+- Insufficient resources when a [pool is in a virtual network](./batch-virtual-network.md)
   - You might create resources such as load-balancers, public IPs, and network security groups in the same subscription as the Batch account. Check that the subscription quotas are sufficient for these resources.
 - Large pools with custom VM images
   - Large pools that use custom VM images can take longer to allocate and resize timeouts can occur.  See [Create a pool with the Shared Image Gallery](batch-sig-images.md) for recommendations on limits and configuration.
 
 ### Automatic scaling failures
 
-You can also set Azure Batch to automatically scale the number of nodes in a pool. You define the parameters for the [automatic scaling formula for a pool](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). The Batch service uses the formula to periodically evaluate the number of nodes in the pool and set a new target number. The following types of issues can occur:
+You can also set Azure Batch to automatically scale the number of nodes in a pool. You define the parameters for the [automatic scaling formula for a pool](./batch-automatic-scaling.md). The Batch service uses the formula to periodically evaluate the number of nodes in the pool and set a new target number. The following types of issues can occur:
 
 - The automatic scaling evaluation fails.
 - The resulting resize operation fails and times out.
 - A problem with the automatic scaling formula leads to incorrect node target values. The resize either works or times out.
 
-You can get information about the last automatic scaling evaluation by using the [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) property. This property reports the evaluation time, the values and result, and any performance errors.
+You can get information about the last automatic scaling evaluation by using the [autoScaleRun](/rest/api/batchservice/pool/get#autoscalerun) property. This property reports the evaluation time, the values and result, and any performance errors.
 
-The [pool resize complete event](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) captures information about all evaluations.
+The [pool resize complete event](./batch-pool-resize-complete-event.md) captures information about all evaluations.
 
 ### Delete
 
 When you delete a pool that contains nodes, first Batch deletes the nodes. Then it deletes the pool object itself. It can take a few minutes for the pool nodes to be deleted.
 
-Batch sets the [pool state](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) to **deleting** during the deletion process. The calling application can detect if the pool deletion is taking too long by using the **state** and **stateTransitionTime** properties.
+Batch sets the [pool state](/rest/api/batchservice/pool/get#poolstate) to **deleting** during the deletion process. The calling application can detect if the pool deletion is taking too long by using the **state** and **stateTransitionTime** properties.
 
 ## Pool compute node errors
 
@@ -126,7 +126,7 @@ Other files are written out for each task that is run on a node, such as stdout 
 The size of the temporary drive depends on the VM size. One consideration when picking a VM size is to ensure the temporary drive has enough space.
 
 - In the Azure portal when adding a pool, the full list of VM sizes can be displayed and there is a 'Resource Disk Size' column.
-- The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](/azure/virtual-machines/windows/sizes-compute)
+- The articles describing all VM sizes have tables with a 'Temp Storage' column; for example [Compute Optimized VM sizes](../virtual-machines/sizes-compute.md)
 
 For files written out by each task, a retention time can be specified for each task that determines how long the task files are kept before being automatically cleaned up. The retention time can be reduced to lower the storage requirements.
 
@@ -135,17 +135,17 @@ If the temporary disk runs out of space (or is very close to running out of spac
 
 ### What to do when a disk is full
 
-Determine why the disk is full: If you're not sure what is taking up space on the node, it is recommended to remote to the node and investigate manually where the space has gone. You can also make use of the [Batch List Files API](https://docs.microsoft.com/rest/api/batchservice/file/listfromcomputenode) to examine files in Batch managed folders (for example, task outputs). Note that this API only lists files in the Batch managed directories and if your tasks created files elsewhere you will not see them.
+Determine why the disk is full: If you're not sure what is taking up space on the node, it is recommended to remote to the node and investigate manually where the space has gone. You can also make use of the [Batch List Files API](/rest/api/batchservice/file/listfromcomputenode) to examine files in Batch managed folders (for example, task outputs). Note that this API only lists files in the Batch managed directories and if your tasks created files elsewhere you will not see them.
 
 Make sure that any data you need has been retrieved from the node or uploaded to a durable store. All mitigation of the disk-full issue involve deleting data to free up space.
 
 ### Recovering the node
 
-1. If your pool is a [C.loudServiceConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) pool, you can re-image the node via the [Batch re-image API](https://docs.microsoft.com/rest/api/batchservice/computenode/reimage).This will clean the entire disk. Re-image is not currently supported for [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
+1. If your pool is a [C.loudServiceConfiguration](/rest/api/batchservice/pool/add#cloudserviceconfiguration) pool, you can re-image the node via the [Batch re-image API](/rest/api/batchservice/computenode/reimage).This will clean the entire disk. Re-image is not currently supported for [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration) pools.
 
-2. If your pool is a [VirtualMachineConfiguration](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration), you can remove the node from the pool using the [remove nodes API](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes). Then, you can grow the pool again to replace the bad node with a fresh one.
+2. If your pool is a [VirtualMachineConfiguration](/rest/api/batchservice/pool/add#virtualmachineconfiguration), you can remove the node from the pool using the [remove nodes API](/rest/api/batchservice/pool/removenodes). Then, you can grow the pool again to replace the bad node with a fresh one.
 
-3.  Delete old completed jobs or old completed tasks whose task data is still on the nodes. For a hint at what jobs/tasks data is on the nodes you can look in the [RecentTasks collection](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskinformation) on the node, or at the [files on the node](https://docs.microsoft.com//rest/api/batchservice/file/listfromcomputenode). Deleting the job will delete all the tasks in the job, and deleting the tasks in the job will trigger data in the task directories on the node to be deleted, thus freeing up space. Once you've freed up enough space, reboot the node and it should move out of "Unusable" state and into "Idle" again.
+3.  Delete old completed jobs or old completed tasks whose task data is still on the nodes. For a hint at what jobs/tasks data is on the nodes you can look in the [RecentTasks collection](/rest/api/batchservice/computenode/get#taskinformation) on the node, or at the [files on the node](/rest/api/batchservice/file/listfromcomputenode). Deleting the job will delete all the tasks in the job, and deleting the tasks in the job will trigger data in the task directories on the node to be deleted, thus freeing up space. Once you've freed up enough space, reboot the node and it should move out of "Unusable" state and into "Idle" again.
 
 ## Next steps
 

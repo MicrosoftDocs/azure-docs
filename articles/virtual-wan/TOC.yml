@@ -36,20 +36,48 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
-  - name: IPsec policies
-    href: virtual-wan-ipsec.md
+  - name: Pricing concepts
+    href: pricing-concepts.md
+  - name: About NVA in a virtual hub
+    href: about-nva-hub.md
+  - name: Routing
+    items:
+    - name: About virtual hub routing
+      href: about-virtual-hub-routing.md
+    - name: Scenarios
+      items:
+      - name: Any-to-any
+        href: scenario-any-to-any.md
+      - name: Isolate VNets
+        href: scenario-isolate-vnets.md
+      - name: Isolate VNets - custom
+        href: scenario-isolate-vnets-custom.md
+      - name: Shared Services VNets
+        href: scenario-shared-services-vnet.md
+      - name: Route through NVA
+        href: scenario-route-through-nva.md
+      - name: Route through NVA - custom (Preview)
+        href: scenario-route-through-nvas-custom.md
+      - name: Azure Firewall - Interhub (Preview)
+        href: scenario-route-between-hubs-firewall.md
+      - name: Azure Firewall - custom
+        href: scenario-route-between-vnets-firewall.md
+  - name: Monitoring
+    items:
+    - name: About Azure Monitor Insights for Virtual WAN (Preview)
+      href: azure-monitor-insights.md
+  - name: Site-to-site
+    items:
+    - name: About IPsec policies
+      href: virtual-wan-ipsec.md
+    - name: Multiple ISP links - Azure path selection
+      href: path-selection-multiple-links.md
 - name: How-to guides
   items:
-  - name: Connect virtual network gateway to Virtual WAN
-    href: connect-virtual-network-gateway-vwan.md
-  - name: Configure Global VNet peering
-    href: global-peering-vnet.md
   - name: Upgrade a virtual WAN SKU
     href: upgrade-virtual-wan.md
-  - name: Configure custom IPsec policy
-    href: virtual-wan-custom-ipsec-portal.md
-  - name: Install Azure Firewall in a hub
-    href: howto-firewall.md
+  - name: Create NVA in a virtual hub (Preview)
+    href: How-to-nva-hub.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -60,6 +88,10 @@
     items:
     - name: Create a site-to-site connection
       href: virtual-wan-site-to-site-portal.md
+    - name: Connect virtual network gateway to Virtual WAN
+      href: connect-virtual-network-gateway-vwan.md
+    - name: Configure custom IPsec policy
+      href: virtual-wan-custom-ipsec-portal.md
   - name: User VPN (point-to-site)
     items:
     - name: Create a User VPN connection
@@ -86,22 +118,26 @@
       href: openvpn-azure-ad-client.md
     - name: Configure Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Install Azure Firewall in a hub
-      href: howto-firewall.md 
   - name: Routing
     items:
-    - name: Route traffic from a virtual hub to an NVA
+    - name: How to configure virtual hub routing
+      href: how-to-virtual-hub-routing.md
+    - name: How to view virtual hub effective routes
+      href: effective-routes-virtual-hub.md
+    - name: Route traffic from a virtual hub to an NVA (legacy)
       items:
         - name: Azure portal
-          href: virtual-wan-route-table-portal.md
+          href: virtual-wan-route-table-nva-portal.md
         - name: Azure PowerShell
-          href: virtual-wan-route-table.md
-    - name: View virtual hub effective routes
-      href: effective-routes-virtual-hub.md
+          href: virtual-wan-route-table-nva.md
   - name: Security
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+  - name: Monitoring
+    items:
+    - name: Logs and metrics
+      href: logs-metrics.md
 - name: Reference
   items:
   - name: Azure PowerShell

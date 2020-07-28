@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
 ---
@@ -105,13 +105,13 @@ New-AzResourceGroupDeployment `
 
 You can use Data Lake Storage Gen1 as additional storage for the cluster as well. In such cases, the cluster default storage can either be an Azure Storage Blob or a Data Lake Storage account. When running HDInsight jobs against the data stored in Data Lake Storage as additional storage, use the fully qualified path. For example:
 
-	adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 There's no **cluster_root_path** in the URL now. That's because Data Lake Storage isn't a default storage in this case. So all you need to do is provide the path to the files.
 
 To use a Data Lake Storage Gen1 as additional storage, grant the service principal access to the paths where your files are stored.  For example:
 
-    adl://mydatalakestore.azuredatalakestore.net/<file_path>
+`adl://mydatalakestore.azuredatalakestore.net/<file_path>`
 
 For more information for creating service principal and grant access, see Configure Data Lake Storage access.
 

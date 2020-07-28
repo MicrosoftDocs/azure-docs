@@ -8,9 +8,9 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.date: 05/20/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Configure automated ML experiments in Python
@@ -34,7 +34,7 @@ If you prefer a no code experience, you can also [Create your automated machine 
 
 ## Select your experiment type
 
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression, and forecasting. Learn more about [task types](how-to-define-task-type.md).
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression, and forecasting. Learn more about [task types](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
 Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
@@ -53,12 +53,10 @@ Classification | Regression | Time Series Forecasting
 [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier) |[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
-[DNN Linear Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor) |[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast Linear Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* |[Online Gradient Descent Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
-|[Averaged Perceptron Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)||ForecastTCN
-|[Linear SVM Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)* ||
+[Averaged Perceptron Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest)|[Online Gradient Descent Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast Linear Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
+|[Linear SVM Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest)*||
 
 Use the `task` parameter in the `AutoMLConfig` constructor to specify your experiment type.
 
@@ -112,20 +110,21 @@ See the [how-to](how-to-train-with-datasets.md#mount-files-to-remote-compute-tar
 
 ## Train and validation data
 
-You can specify separate train and validation sets directly in the `AutoMLConfig` constructor.
+You can specify separate train and validation sets directly in the `AutoMLConfig` constructor with the following options. Learn more about [how to configure data splits and cross validation](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
 
 ### K-Folds Cross Validation
 
 Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
 Learn more about how autoML applies cross validation to [prevent over-fitting models](concept-manage-ml-pitfalls.md#prevent-over-fitting).
+
 ### Monte Carlo Cross Validation (Repeated Random Sub-Sampling)
 
 Use `validation_size` to specify the percentage of the training dataset that should be used for validation, and use `n_cross_validations` to specify the number of cross validations. During each cross validation round, a subset of size `validation_size` will be randomly selected for validation of the model trained on the remaining data. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set. Monte Carlo is not supported for time series forecasting.
 
 ### Custom validation dataset
 
-Use custom validation dataset if random split is not acceptable, usually time series data or imbalanced data. You can specify your own validation dataset. The model will be evaluated against the validation dataset specified instead of random dataset.
+Use custom validation dataset if random split is not acceptable, usually time series data or imbalanced data. You can specify your own validation dataset. The model will be evaluated against the validation dataset specified instead of random dataset. Learn more about [how to configure a custom validation set with the SDK](how-to-configure-cross-validation-data-splits.md#provide-validation-data).
 
 ## Compute to run experiment
 
@@ -211,26 +210,26 @@ When configuring your experiments in your `AutoMLConfig` object, you can enable/
 The time series `forecasting` task requires additional parameters in the configuration object:
 
 1. `time_column_name`: Required parameter that defines the name of the column in your training data containing a valid time-series.
-1. `max_horizon`: Defines the length of time you want to predict out based on the periodicity of the training data. For example if you have training data with daily time grains, you define how far out in days you want the model to train for.
-1. `grain_column_names`: Defines the name of columns that contain individual time series data in your training data. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your grain columns. Separate time-series and forecasts will be created for each grain/grouping. 
+1. `forecast_horizon`: Defines how many periods forward you would like to forecast. The integer horizon is in units of the timeseries frequency. For example if you have training data with daily frequency, you define how far out in days you want the model to train for.
+1. `time_series_id_column_names`: Defines the columns that uniquely identify the time series in data that has multiple rows with the same timestamp. For example, if you are forecasting sales of a particular brand by store, you would define store and brand columns as your time series identifiers. Separate forecasts will be created for each grouping. If the time series identifiers are not defined, the data set is assumed to be one time series.
 
 For examples of the settings used below, see the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
+# Setting Store and Brand as time series identifiers for training.
+time_series_id_column_names = ['Store', 'Brand']
+nseries = data.groupby(time_series_id_column_names).ngroups
 
-# View the number of time series data with defined grains
+# View the number of time series data with defined time series identifiers
 print('Data contains {0} individual time-series.'.format(nseries))
 ```
 
 ```python
 time_series_settings = {
     'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
+    'time_series_id_column_names': time_series_id_column_names,
     'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
+    'forecast_horizon': n_test_periods
 }
 
 automl_config = AutoMLConfig(task = 'forecasting',
@@ -343,6 +342,8 @@ There are a few options you can define to end your experiment.
 
 You can view your training results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
 
+For details on how to download or register a model for deployment to a web service, see [how and where to deploy a model](how-to-deploy-and-where.md).
+
 ## Understand automated ML models
 
 Any model produced using automated ML includes the following steps:
@@ -430,7 +431,7 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
    |Transformations|List of transformations applied to input features to generate engineered features.|
 ### Scaling/Normalization and algorithm with hyperparameter values:
 
-To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](). Here is a sample output:
+To understand the scaling/normalization and algorithm/hyperparameter values for a pipeline, use fitted_model.steps. [Learn more about scaling/normalization](how-to-configure-auto-features.md). Here is a sample output:
 
 ```
 [('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
@@ -507,6 +508,9 @@ Model interpretability allows you to understand why your models made predictions
 See the [how-to](how-to-machine-learning-interpretability-automl.md) for code samples on how to enable interpretability features specifically within automated machine learning experiments.
 
 For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](how-to-machine-learning-interpretability.md) article on interpretability.
+
+> [!NOTE]
+> The ForecastTCN model is not currently supported by the Explanation Client. This model will not return an explanation dashboard if it is returned as the best model, and does not support on-demand explanation runs.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: how-to
-ms.subservice:
+ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
@@ -36,7 +36,9 @@ FROM
 
 ## Access elements from nested columns
 
-The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column:
+The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
+- Specifying the nested value path expression after type specification.
+- Formatting the column name as nested path using do "." to reference the fields.
 
 ```sql
 SELECT
@@ -48,15 +50,15 @@ FROM
         FORMAT='PARQUET'
     )
     WITH (
-        -- you can see original n"sted columns values by uncommenting lines below
+        -- you can see original nested columns values by uncommenting lines below
         --DateStruct VARCHAR(8000),
-        [DateStruct.Date] DATE,
+        [DateValue] DATE '$.DateStruct.Date',
         --TimeStruct VARCHAR(8000),
         [TimeStruct.Time] TIME,
         --TimestampStruct VARCHAR(8000),
         [TimestampStruct.Timestamp] DATETIME2,
         --DecimalStruct VARCHAR(8000),
-        [DecimalStruct.Decimal] DECIMAL(18, 5),
+        DecimalValue DECIMAL(18, 5) '$.DecimalStruct.Decimal',
         --FloatStruct VARCHAR(8000),
         [FloatStruct.Float] FLOAT
     ) AS [r];
@@ -92,6 +94,39 @@ FROM
         DATA_SOURCE = 'SqlOnDemandDemo',
         FORMAT='PARQUET'
     ) AS [r];
+```
+
+You can also explicitly reference the columns that you want to return in `WITH` clause:
+
+```sql
+SELECT DocId,
+    MapOfPersons,
+    JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/mapExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) 
+    WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
+```
+
+The structure `MakOfPersons` is returned as `VARCHAR` column and formatted as JSON string.
+
+## Projecting values from repeated columns
+
+If you have an array of scalar values (for example `[1,2,3]`) in some columns, you can easily expand them and join them with the main row using the following script:
+
+```sql
+SELECT
+    SimpleArray, Element
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/justSimpleArray.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    ) AS arrays
+    CROSS APPLY OPENJSON (SimpleArray) WITH (Element int '$') as array_values
 ```
 
 ## Next steps

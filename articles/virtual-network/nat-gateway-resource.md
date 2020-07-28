@@ -8,9 +8,10 @@ documentationcenter: na
 author: asudbring
 manager: KumudD
 ms.service: virtual-network
+ms.subservice: nat
 Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2020
@@ -322,8 +323,7 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
-
-## Feedback
+## Suggestions
 
 We want to know how we can improve the service. Are missing a capability? Make your case for what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 

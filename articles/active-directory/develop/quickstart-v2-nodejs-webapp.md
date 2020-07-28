@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-javascript
 #Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
 ---
 
@@ -25,7 +25,7 @@ To run this sample, you will need:
 
 * Install Node.js from http://nodejs.org/
 
-* Either a [Microsoft account](https://www.outlook.com) or [ Office 365 Developer Program](/office/developer-program/office-365-developer-program)
+* Either a [Microsoft account](https://www.outlook.com) or [Microsoft 365 Developer Program](/office/developer-program/office-365-developer-program)
 
 ## Register your application
 1. Sign in to the [Azure portal](https://portal.azure.com/) using either a work or school account, or a personal Microsoft account.

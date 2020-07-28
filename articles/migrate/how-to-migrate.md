@@ -9,7 +9,7 @@ ms.date: 04/26/2020
 
 # Add migration tools
 
-This article describes how to add migration tools in [Azure Migrate](migrate-overview.md).
+This article describes how to add migration tools in [Azure Migrate](./migrate-services-overview.md).
 
 - If you want to add a migration tool and haven't yet set up an Azure Migrate project, follow this [article](how-to-add-tool-first-time.md).
 - If you've added an ISV tool for migration, [follow the steps](prepare-isv-movere.md), to prepare to work with the tool.
@@ -20,7 +20,7 @@ This article describes how to add migration tools in [Azure Migrate](migrate-ove
 2. Select the migration scenario you want to use:
 
     - To migrate machines and workloads to Azure, select **Assess and migrate servers**.
-    - To migrate on-premises SQL machines, select **Assess and migrate databases**.
+    - To migrate on-premises SQL Server databases, select **Assess and migrate databases**.
     - To migrate on-premises web apps, select **Assess and migrate web apps**.
     - To migrate large amounts of on-premises data to Azure in offline mode, select **Order a Data Box**.
 

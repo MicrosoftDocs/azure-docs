@@ -8,7 +8,7 @@ ms.author: mhopkins
 ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Manage blob properties and metadata with .NET

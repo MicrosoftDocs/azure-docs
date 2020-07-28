@@ -14,6 +14,9 @@
       href: automation-quickstart-create-runbook.md
     - name: Enable Desired State Configuration for a machine
       href: automation-quickstart-dsc-configuration.md
+    - name: Create Automation account - ARM template
+      displayName: Resource Manager
+      href: quickstart-create-automation-account-template.md
 - name: Tutorials
   items:
     - name: Create a graphical runbook
@@ -41,6 +44,13 @@
       href: automation-runbook-types.md
     - name: PowerShell DSC
       href: /powershell/scripting/dsc/overview/overview
+    - name: Security
+      items:
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./security-controls-policy.md
+      - name: Security baseline
+        href: security-baseline.md
     - name: Data security
       items:
         - name: Encryption of secure assets
@@ -54,13 +64,17 @@
         - name: Create Automation account using Azure portal
           href: automation-create-standalone-account.md
         - name: Create Automation account with Resource Manager template
-          href: automation-create-account-template.md
+          href: quickstart-create-automation-account-template.md
         - name: Configure authentication with Amazon Web Services
           href: automation-config-aws-account.md
         - name: Configure authentication with Azure AD
           href: automation-use-azure-ad.md
+        - name: Manage DNS record used by Automation
+          href: how-to/automation-region-dns-records.md
         - name: Manage an Automation Run As account
           href: manage-runas-account.md
+        - name: Connect privately to Automation account
+          href: how-to/private-link-security.md
         - name: Manage role permissions and security
           href: automation-role-based-access-control.md
         - name: Move Automation account to another subscription
@@ -169,6 +183,18 @@
               href: automation-dsc-extension-history.md
             - name: Troubleshoot State Configuration issues
               href: troubleshoot/desired-state-configuration.md
+            - name: Scenarios
+              items:
+                - name: Configure data based on STIG
+                  href: automation-dsc-configuration-based-on-stig.md
+                - name: Configure data at scale
+                  href: automation-dsc-config-data-at-scale.md
+                - name: Create config from existing servers
+                  href: automation-dsc-config-from-server.md
+                - name: Convert configurations to composite resources
+                  href: automation-dsc-create-composite.md
+                - name: Remediate non-compliant servers
+                  href: automation-dsc-remediate.md 
         - name: Change tracking and inventory
           items:
             - name: Overview
@@ -300,7 +326,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=management-tools&query=automation
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/en-us/answers/topics/azure-automation.html
+    href: /answers/topics/azure-automation.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/automation/
   - name: Pricing calculator

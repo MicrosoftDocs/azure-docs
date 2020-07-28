@@ -3,7 +3,7 @@ title: Monitor performance using DMVs
 titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn how to detect and diagnose common performance problems by using dynamic management views to monitor Microsoft Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
@@ -37,7 +37,7 @@ GRANT VIEW DATABASE STATE TO database_user;
 
 In Azure SQL Managed Instance, querying a dynamic management view requires **VIEW SERVER STATE** permissions. For more information, see [System Dynamic Management Views](/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views#required-permissions).
 
-In an instance of on-premises SQL Server and in Azure SQL Managed Instance, dynamic management views return server state information. In Azure SQL Database, they return information regarding your current logical database only.
+In an instance of SQL Server and in Azure SQL Managed Instance, dynamic management views return server state information. In Azure SQL Database, they return information regarding your current logical database only.
 
 This article contains a collection of DMV queries that you can execute using SQL Server Management Studio or Azure Data Studio to detect the following types of query performance issues:
 
@@ -358,7 +358,7 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### Identity high memory-consuming statements
+### Identify high memory-consuming statements
 
 Use the following query to identify high memory-consuming statements:
 
@@ -667,7 +667,7 @@ SELECT COUNT(*) AS [Concurrent_Requests]
 FROM sys.dm_exec_requests R;
 ```
 
-To analyze the workload of an on-premises SQL Server database, modify this query to filter on the specific database you want to analyze. For example, if you have an on-premises database named MyDatabase, this Transact-SQL query returns the count of concurrent requests in that database:
+To analyze the workload of a SQL Server database, modify this query to filter on the specific database you want to analyze. For example, if you have an on-premises database named MyDatabase, this Transact-SQL query returns the count of concurrent requests in that database:
 
 ```sql
 SELECT COUNT(*) AS [Concurrent_Requests]
@@ -696,7 +696,7 @@ SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections
 ```
 
-If you're analyzing an on-premises SQL Server workload, modify the query to focus on a specific database. This query helps you determine possible session needs for the database if you are considering moving it to Azure.
+If you're analyzing a SQL Server workload, modify the query to focus on a specific database. This query helps you determine possible session needs for the database if you are considering moving it to Azure.
 
 ```sql
 SELECT COUNT(*) AS [Sessions]

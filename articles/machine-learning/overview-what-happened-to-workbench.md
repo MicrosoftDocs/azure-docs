@@ -6,6 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: how-to
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens

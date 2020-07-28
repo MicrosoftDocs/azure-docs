@@ -1,19 +1,23 @@
 ---
 title: 'Quickstart: Cassandra API with Python - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB's Apache Cassandra API to create a profile application with Python.
-author: SnehaGunda
-ms.author: sngun
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/18/2020
+ms.custom: tracking-python
+
 ---
 # Quickstart: Build a Cassandra app with Python SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
-> * [Java](create-cassandra-java.md)
+> * [.NET Core](create-cassandra-dotnet-core.md)
+> * [Java v3](create-cassandra-java.md)
+> * [Java v4](create-cassandra-java-v4.md)
 > * [Node.js](create-cassandra-nodejs.md)
 > * [Python](create-cassandra-python.md)
 >  
@@ -128,31 +132,31 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-    Use the ![Copy button](./media/create-cassandra-python/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
+1. Use the :::image type="icon" source="./media/create-cassandra-python/copy.png"::: button on the right side of the screen to copy the top value, the CONTACT POINT. 
 
-    ![View and copy an access user name, password and contact point in the Azure portal, connection string blade](./media/create-cassandra-python/keys.png)
+   :::image type="content" source="./media/create-cassandra-python/keys.png" alt-text="View and copy an access user name, password and contact point in the Azure portal, connection string blade":::
 
-2. Open the *config.py* file. 
+1. Open the *config.py* file. 
 
-3. Paste the CONTACT POINT value from the portal over `<FILLME>` on line 10.
+1. Paste the CONTACT POINT value from the portal over `<FILLME>` on line 10.
 
     Line 10 should now look similar to 
 
     `'contactPoint': 'cosmos-db-quickstarts.cassandra.cosmosdb.azure.com:10350'`
 
-4. Copy the USERNAME value from the portal and paste it over `<FILLME>` on line 6.
+1. Copy the USERNAME value from the portal and paste it over `<FILLME>` on line 6.
 
     Line 6 should now look similar to 
 
     `'username': 'cosmos-db-quickstart',`
     
-5. Copy the PASSWORD value from the portal and paste it over `<FILLME>` on line 8.
+1. Copy the PASSWORD value from the portal and paste it over `<FILLME>` on line 8.
 
     Line 8 should now look similar to
 
     `'password' = '2Ggkr662ifxz2Mg==`';`
 
-6. Save the *config.py* file.
+1. Save the *config.py* file.
     
 ## Use the X509 certificate
 
@@ -187,11 +191,11 @@ Now go back to the Azure portal to get your connection string information and co
 
     Press CTRL+C to stop execution of the program and close the console window. 
 
-    ![View and verify the output](./media/create-cassandra-python/output.png)
+    :::image type="content" source="./media/create-cassandra-python/output.png" alt-text="View and verify the output":::
     
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
-    ![View the data in Data Explorer](./media/create-cassandra-python/data-explorer.png)
+    :::image type="content" source="./media/create-cassandra-python/data-explorer.png" alt-text="View the data in Data Explorer":::
 
 ## Review SLAs in the Azure portal
 

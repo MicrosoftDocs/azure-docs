@@ -12,7 +12,7 @@ This article assumes that you have an Azure account and Speech service subscript
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">JavaScript Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Depending on your platform, use the following instructions:
+Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a>. Depending on your platform, use the following instructions:
 
 - <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span 
 class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -20,18 +20,21 @@ class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 Additionally, depending on the target environment use one of the following:
 
+# [script](#tab/script)
+
+Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">Speech SDK for JavaScript <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.sdk.bundle.js* file, and place it in a folder accessible to your HTML file.
+
+```html
+<script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
+```
+
+> [!TIP]
+> If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
+
 # [import](#tab/import)
 
 ```javascript
-import {
-    AudioConfig,
-    CancellationDetails,
-    CancellationReason,
-    PhraseListGrammar,
-    ResultReason,
-    SpeechConfig,
-    SpeechRecognizer
-} from "microsoft-cognitiveservices-speech-sdk";
+import * from "microsoft-cognitiveservices-speech-sdk";
 ```
 
 For more information on `import`, see <a href="https://javascript.info/import-export" target="_blank">export and import <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
@@ -43,18 +46,6 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 ```
 
 For more information on `require`, see <a href="https://nodejs.org/en/knowledge/getting-started/what-is-require/" target="_blank">what is require? <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
-
-
-# [script](#tab/script)
-
-Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">JavaScript Speech SDK <span class="docon docon-navigate-external x-hidden-focus"></span></a> *microsoft.cognitiveservices.speech.bundle.js* file, and place it in a folder accessible to your HTML file.
-
-```html
-<script src="microsoft.cognitiveservices.speech.bundle.js"></script>;
-```
-
-> [!TIP]
-> If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
 
 ---
 
@@ -109,7 +100,7 @@ const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
 ## Recognize speech
 
-The [Recognizer class](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) for the Speech SDK for C# exposes a few methods that you can use for speech recognition.
+The [Recognizer class](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest) for the Speech SDK for JavaScript exposes a few methods that you can use for speech recognition.
 
 * Single-shot recognition (async) - Performs recognition in a non-blocking (asynchronous) mode. This will recognize a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 * Continuous recognition (async) - Asynchronously initiates continuous recognition operation. The user registers to events and handles various application state. To stop asynchronous continuous recognition, call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync).
@@ -153,7 +144,6 @@ switch (result.reason) {
         }
         break;
     }
-}
 ```
 
 ### Continuous recognition
@@ -205,7 +195,7 @@ recognizer.sessionStopped = (s, e) => {
 };
 ```
 
-With everything set up, we can call [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#stopcontinuousrecognitionasync).
+With everything set up, we can call [`startContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest#startcontinuousrecognitionasync).
 
 ```javascript
 // Starts continuous recognition. Uses stopContinuousRecognitionAsync() to stop recognition.

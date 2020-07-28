@@ -1,6 +1,6 @@
 ---
 title: Monitor SQL Data Sync with Azure Monitor logs
-description: "Learn how to monitor SQL Data Sync by using Azure Monitor logs"
+description: "Learn how to monitor SQL Data Sync by using Azure Monitor logs."
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -13,7 +13,6 @@ ms.reviewer: carlrab
 ms.date: 12/20/2018
 ---
 # Monitor SQL Data Sync with Azure Monitor logs 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 To check the SQL Data Sync activity log and detect errors and warnings, you previously had to check SQL Data Sync manually in the Azure portal, or use PowerShell or the REST API. Follow the steps in this article to configure a custom solution that improves the Data Sync monitoring experience. You can customize this solution to fit your scenario.
 
@@ -24,9 +23,9 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 > [!IMPORTANT]
 > SQL Data Sync does **not** support Azure SQL Managed Instance at this time.
 
-## Monitoring Dashboard for all your Sync Groups 
+## Monitoring Dashboard for all your sync groups 
 
-You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom Azure Monitor view. This view surfaces the information that matters to SQL Data Sync customers.
+You no longer need to look through the logs of each sync group individually to look for issues. You can monitor all your sync groups from any of your subscriptions in one place by using a custom Azure Monitor view. This view surfaces the information that matters to SQL Data Sync customers.
 
 ![Data Sync monitoring dashboard](./media/sql-data-sync-monitor-sync/sync-monitoring-dashboard.png)
 
@@ -74,7 +73,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
 1.  Under your Azure Automation account, select the **Runbooks** tab under Process Automation.
 
-2.  Select **Add a Runbook** at the top left corner of the Runbooks page.
+2.  Select **Add a Runbook** at the top-left corner of the Runbooks page.
 
 3.  Select **Import an existing Runbook**.
 
@@ -94,7 +93,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     1.  Azure information.
 
-    2.  Sync Group information.
+    2.  sync group information.
 
     3.  Azure Monitor logs information. Find this information in Azure portal | Settings | Connected Sources. For more information about sending data to Azure Monitor logs, see [Send data to Azure Monitor logs with the HTTP Data Collector API (preview)](../../azure-monitor/platform/data-collector-api.md).
 
@@ -154,7 +153,7 @@ This step creates an Azure Monitor view to visually monitor all the specified sy
 
 -   A tile for all sync groups, which shows the count of errors and warnings per sync group. Groups with no issues don't appear on this tile.
 
--   A tile for each Sync Group, which shows the number of errors, successes, and warnings, and the recent error messages.
+-   A tile for each sync group, which shows the number of errors, successes, and warnings, and the recent error messages.
 
 To configure the Azure Monitor view, do the following things:
 
@@ -170,7 +169,7 @@ To configure the Azure Monitor view, do the following things:
 
         1.  On each tile, change the TimeStamp_t interval as desired.
 
-        2.  On the tiles for each Sync Group, update the Sync Group names.
+        2.  On the tiles for each sync group, update the sync group names.
 
     3.  On each tile, update the title as needed.
 
@@ -182,7 +181,7 @@ In most cases, this solution is free.
 
 **Azure Automation:** There may be a cost incurred with the Azure Automation account, depending on your usage. The first 500 minutes of job run time per month are free. In most cases, this solution is expected to use less than 500 minutes per month. To avoid charges, schedule the runbook to run at an interval of two hours or more. For more info, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
 
-**Azure Monitor logs:** There may be a cost associated with Azure Monitor logs depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you are using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Azure Monitor logs pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Azure Monitor logs:** There may be a cost associated with Azure Monitor logs depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you're using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Azure Monitor logs pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## Code samples
 
@@ -197,7 +196,7 @@ For more info about SQL Data Sync, see:
 
 -   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server](sql-data-sync-sql-server-configure.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

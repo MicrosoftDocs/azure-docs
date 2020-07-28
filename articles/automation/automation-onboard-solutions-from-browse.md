@@ -10,7 +10,7 @@ ms.custom: mvc
 
 This article describes how you can enable the [Update Management](automation-update-management.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Update Management. 
 
-The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../azure-resource-manager/templates/cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with Update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Update Management. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
+The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../azure-resource-manager/templates/cross-scope-deployment.md). Resource Manager deployments, not to be confused with Update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Update Management. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
 
 > [!NOTE]
 > When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation Account. For a list of the supported mapping pairs, see [Region mapping for Automation Account and Log Analytics workspace](how-to/region-mappings.md).
@@ -18,7 +18,7 @@ The number of resource groups that you can use for managing your VMs is limited 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to manage machines.
+* [Automation account](./index.yml) to manage machines.
 * A [virtual machine](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
@@ -57,8 +57,6 @@ Sign in to Azure at https://portal.azure.com.
 ## Next steps
 
 * To use Update Management for VMs, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
-* If you no longer need the Log Analytics workspace, see instructions in [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
-* To delete VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
 * To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
-* To troubleshoot problems with the Linux update agent, see[Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
+ms.date: 07/15/2020
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory
@@ -20,7 +20,7 @@ ms.date: 03/12/2020
 > - [Version 1](v1/data-factory-azure-sql-connector.md)
 > - [Current version](connector-azure-sql-database.md)
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Database, and use Data Flow to transform data in Azure SQL Database. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
@@ -37,13 +37,13 @@ For Copy activity, this Azure SQL Database connector supports these functions:
 
 - Copying data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieving data by using a SQL query or a stored procedure.
-- As a sink, appending data to a destination table or invoking a stored procedure with custom logic during the copy.
+- As a sink, automatically creating destination table if not exists based on the source schema; appending data to a table or invoking a stored procedure with custom logic during the copy.
 
 >[!NOTE]
-> Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) with ODBC driver download and connection string configurations.
+> Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver via a self-hosted integration runtime. Learn more from [Using Always Encrypted](#using-always-encrypted) section. 
 
 > [!IMPORTANT]
-> If you copy data by using the Azure Data Factory integration runtime, configure a [server-level firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) so that Azure services can access the server.
+> If you copy data by using the Azure integration runtime, configure a [server-level firewall rule](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) so that Azure services can access the server.
 > If you copy data by using a self-hosted integration runtime, configure the firewall to allow the appropriate IP range. This range includes the machine's IP that's used to connect to Azure SQL Database.
 
 ## Get started
@@ -76,7 +76,7 @@ For different authentication types, refer to the following sections on prerequis
 
 ### SQL authentication
 
-#### Linked service example that uses SQL authentication
+**Example: using SQL authentication**
 
 ```json
 {
@@ -84,7 +84,7 @@ For different authentication types, refer to the following sections on prerequis
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -94,7 +94,7 @@ For different authentication types, refer to the following sections on prerequis
 }
 ```
 
-**Password in Azure Key Vault**
+**Example: password in Azure Key Vault**
 
 ```json
 {
@@ -102,7 +102,7 @@ For different authentication types, refer to the following sections on prerequis
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30",
             "password": {
                 "type": "AzureKeyVaultSecret",
                 "store": {
@@ -124,7 +124,7 @@ For different authentication types, refer to the following sections on prerequis
 
 To use a service principal-based Azure AD application token authentication, follow these steps:
 
-1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key
@@ -154,7 +154,7 @@ To use a service principal-based Azure AD application token authentication, foll
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30",
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -200,7 +200,7 @@ To use managed identity authentication, follow these steps.
     "properties": {
         "type": "AzureSqlDatabase",
         "typeProperties": {
-            "connectionString": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;Connection Timeout=30"
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;Connection Timeout=30"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -258,7 +258,7 @@ To copy data from Azure SQL Database, the following properties are supported in 
 | sqlReaderQuery | This property uses the custom SQL query to read data. An example is `select * from MyTable`. | No |
 | sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No |
 | storedProcedureParameters | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
-| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted** (default), **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
+| isolationLevel | Specifies the transaction locking behavior for the SQL source. The allowed values are: **ReadCommitted**, **ReadUncommitted**, **RepeatableRead**, **Serializable**, **Snapshot**. If not specified, the database's default isolation level is used. Refer to [this doc](https://docs.microsoft.com/dotnet/api/system.data.isolationlevel) for more details. | No |
 
 **Points to note:**
 
@@ -362,14 +362,14 @@ To copy data to Azure SQL Database, the following properties are supported in th
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to **AzureSqlSink**. "SqlSink" type is still supported for backward compatibility. | Yes |
-| writeBatchSize | Number of rows to insert into the SQL table *per batch*.<br/> The allowed value is **integer** (number of rows). By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. | No |
-| writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for the copy activity to run before writing data into Azure SQL Database. It's invoked only once per copy run. Use this property to clean up the preloaded data. | No |
-| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
+| tableOption | Specifies whether to [automatically create the sink table](copy-activity-overview.md#auto-create-sink-tables) if not exists based on the source schema. <br>Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. <br>Allowed values are: `none` (default), `autoCreate`. | No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property.<br>See example from [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink). | No |
 | storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
 | sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
 | storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
-| tableOption | Specifies whether to automatically create the sink table if not exists based on the source schema. Auto table creation is not supported when sink specifies stored procedure or staged copy is configured in copy activity. Allowed values are: `none` (default), `autoCreate`. |No |
+| writeBatchSize | Number of rows to insert into the SQL table *per batch*.<br/> The allowed value is **integer** (number of rows). By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size. | No |
+| writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. An example is “00:30:00” (30 minutes). | No |
 | disableMetricsCollection | Data Factory collects metrics such as Azure SQL Database DTUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 **Example 1: Append data**
@@ -397,8 +397,8 @@ To copy data to Azure SQL Database, the following properties are supported in th
             },
             "sink": {
                 "type": "AzureSqlSink",
-                "writeBatchSize": 100000,
-                "tableOption": "autoCreate"
+                "tableOption": "autoCreate",
+                "writeBatchSize": 100000
             }
         }
     }
@@ -462,12 +462,11 @@ Appending data is the default behavior of this Azure SQL Database sink connector
 
 ### Upsert data
 
-**Option 1:** When you have a large amount of data to copy, use the following approach to do an upsert:
+**Option 1:** When you have a large amount of data to copy, you can bulk load all records into a staging table by using the copy activity, then run a stored procedure activity to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) or INSERT/UPDATE statement in one shot. 
 
-- First, use a [database scoped temporary table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) to bulk load all records by using the copy activity. Because operations against database scoped temporary tables aren't logged, you can load millions of records in seconds.
-- Run a stored procedure activity in Azure Data Factory to apply a [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) or INSERT/UPDATE statement. Use the temp table as the source to perform all updates or inserts as a single transaction. In this way, the number of round trips and log operations is reduced. At the end of the stored procedure activity, the temp table can be truncated to be ready for the next upsert cycle.
+Copy activity currently doesn't natively support loading data into a database temporary table. There is an advanced way to set it up with a combination of multiple activities, refer to [Optimize Azure SQL Database Bulk Upsert scenarios](https://github.com/scoriani/azuresqlbulkupsert). Below shows a sample of using a permanent table as staging.
 
-As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Database temporary table, for example, **##UpsertTempTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the temp table into the target table and clean up the temp table.
+As an example, in Azure Data Factory, you can create a pipeline with a **Copy activity** chained with a **Stored Procedure activity**. The former copies data from your source store into an Azure SQL Database staging table, for example, **UpsertStagingTable**, as the table name in the dataset. Then the latter invokes a stored procedure to merge source data from the staging table into the target table and clean up the staging table.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -478,18 +477,20 @@ CREATE PROCEDURE [dbo].[spMergeData]
 AS
 BEGIN
    MERGE TargetTable AS target
-   USING ##UpsertTempTable AS source
+   USING UpsertStagingTable AS source
    ON (target.[ProfileID] = source.[ProfileID])
    WHEN MATCHED THEN
       UPDATE SET State = source.State
     WHEN NOT matched THEN
        INSERT ([ProfileID], [State], [Category])
       VALUES (source.ProfileID, source.State, source.Category);
-    TRUNCATE TABLE ##UpsertTempTable
+    TRUNCATE TABLE UpsertStagingTable
 END
 ```
 
-**Option 2:** You also can choose to [invoke a stored procedure within the copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each batch (as governed by the `writeBatchSize` property) in the source table instead of using bulk insert as the default approach in the copy activity.
+**Option 2:** You can choose to [invoke a stored procedure within the copy activity](#invoke-a-stored-procedure-from-a-sql-sink). This approach runs each batch (as governed by the `writeBatchSize` property) in the source table instead of using bulk insert as the default approach in the copy activity.
+
+**Option 3:** You can use [Mapping Data Flow](#sink-transformation) which offers built-in insert/upsert/update methods.
 
 ### Overwrite the entire table
 
@@ -497,10 +498,7 @@ You can configure the **preCopyScript** property in the copy activity sink. In t
 
 ### Write data with custom logic
 
-The steps to write data with custom logic are similar to those described in the [Upsert data](#upsert-data) section. When you need to apply extra processing before the final insertion of source data into the destination table, for large scale, you can do one of two things:
-
-- Load to a database scoped temporary table and then invoke a stored procedure.
-- Invoke a stored procedure during copy.
+The steps to write data with custom logic are similar to those described in the [Upsert data](#upsert-data) section. When you need to apply extra processing before the final insertion of source data into the destination table, you can load to a staging table then invoke stored procedure activity, or invoke a stored procedure in copy activity sink to apply data, or use Mapping Data Flow.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
@@ -641,7 +639,7 @@ When data is copied from or to Azure SQL Database, the following mappings are us
 | xml |Xml |
 
 >[!NOTE]
-> For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data with precision larger than 28, consider converting to a string in SQL query.
+> For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data with precision larger than 28, consider converting to a string in SQL query.
 
 ## Lookup activity properties
 
@@ -650,6 +648,35 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 ## GetMetadata activity properties
 
 To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md)
+
+## Using Always Encrypted
+
+When you copy data from/to Azure SQL Database with [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current), use [generic ODBC connector](connector-odbc.md) and SQL Server ODBC driver via Self-hosted Integration Runtime. This Azure SQL Database connector does not support Always Encrypted now. 
+
+More specifically:
+
+1. Set up a Self-hosted Integration Runtime if you don't have one. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article for details.
+
+2. Download the 64-bit ODBC driver for SQL Server from [here](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current), and install on the Integration Runtime machine. Learn more about how this driver works from [Using Always Encrypted with the ODBC Driver for SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current#using-the-azure-key-vault-provider).
+
+3. Create linked service with ODBC type to connect to your SQL database, refer to the following samples:
+
+    - To use **SQL authentication**: Specify the ODBC connection string as below, and select **Basic** authentication to set the user name and password.
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
+        ```
+
+    - To use **Data Factory Managed Identity authentication**: 
+
+        1. Follow the same [prerequisites](#managed-identity) to create database user for the managed identity and grant the proper role in your database.
+        2. In linked service, specify the ODBC connection string as below, and select **Anonymous** authentication as the connection string itself indicates`Authentication=ActiveDirectoryMsi`.
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>; Authentication=ActiveDirectoryMsi;
+        ```
+
+4. Create dataset and copy activity with ODBC type accordingly. Learn more from [ODBC connector](connector-odbc.md) article.
 
 ## Next steps
 

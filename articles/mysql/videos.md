@@ -13,7 +13,7 @@ ms.date: 02/28/2018
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 
-Azure Database for PostgreSQL and Azure Database for MySQL bring together community edition database engines and capabilities of a fully managed service—so you can focus on your apps instead of having to manage a database. Tune in to get a quick overview of the advantages of using the service, and see some of the capabilities in action.
+Azure Database for PostgreSQL and Azure Database for MySQL bring together community edition database engines and capabilities of a fully managed service—so you can focus on your apps instead of having to manage a database. Tune in to get a quick overview of the advantages of using the service, and see some of the capabilities in action. See how to create a [Azure Database for PostgreSQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-postgresql-server-in-the-azure-portal) and [Azure Database for MySQL](https://azure.microsoft.com/resources/videos/create-an-azure-database-for-mysql-server-by-using-the-azure-portal).
 
 [Deep dive on managed service capabilities for MySQL and PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
 

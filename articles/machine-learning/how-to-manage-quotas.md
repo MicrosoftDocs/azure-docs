@@ -5,27 +5,29 @@ description: Learn about the quotas on resources for Azure Machine Learning and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
-ms.custom: contperfq4 
+ms.topic: conceptual
+ms.custom: troubleshooting,contperfq4 
 ---
 
 # Manage & increase quotas for resources with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This article provides [Azure Machine Learning](overview-what-is-azure-ml.md) users with details on preconfigured limits on Azure resources for your subscription. Also included are instructions on how to request quota enhancements for each type of resource. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints.
+In this article, you will learn about preconfigured limits on Azure resources for your [Azure Machine Learning](overview-what-is-azure-ml.md) subscription and what quotas you can manage. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints. 
 
 As with other Azure services, there are limits on certain resources associated with Azure Machine Learning. These limits range from a cap on the number of [workspaces](concept-workspace.md) to limits on the actual underlying compute that gets used for model training or inference/scoring. 
 
 As you design and scale your Azure Machine Learning resources for production workloads, consider these limits. For example, if your cluster doesn't reach the target number of nodes, then you may have reached an Azure Machine Learning Compute cores limit for your subscription. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables due to Azure Capacity constraints. If there is no Maximum Limit column, then the resource doesn't have adjustable limits.
 
+
+Along with managing quotas, you can also learn how to [plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md).
+
 ## Special considerations
 
-+ A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support.
++ A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support. You can also [increase your quotas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
 + Your quota is shared across all the services in your subscriptions including Azure Machine Learning. The only exception is Azure Machine Learning compute which has a separate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
 
@@ -65,7 +67,7 @@ Available resources:
 | Maximum nodes in a single Azure Machine Learning Compute (AmlCompute) resource | 100 nodes |
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
-| Maximum job lifetime | 90 days<sup>1</sup> |
+| Maximum job lifetime | 21 days<sup>1</sup> |
 | Maximum job lifetime on a Low-Priority Node | 7 days<sup>2</sup> |
 | Maximum parameter servers per node | 1 |
 

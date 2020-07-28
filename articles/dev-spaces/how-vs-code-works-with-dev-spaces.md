@@ -38,7 +38,6 @@ For .NET Core projects, you must have the [C# extension][csharp-extension] insta
 
 After you launch your project, you can debug your Java, Node.js, and .NET Core services running in a dev space directly from Visual Studio Code. The launch configuration in the `.vscode` directory provides the additional debugging information for running a service with debugging enabled in a dev space. Visual Studio Code also attaches to the debug process in the running container in your dev spaces, allowing you to set break points, inspect variables, and perform other debugging operations.
 
-
 ## Use Visual Studio Code with Azure Dev Spaces
 
 You can see Visual Studio Code and the Azure Dev Spaces extension working with Azure Dev Spaces in the following quickstarts:

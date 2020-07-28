@@ -531,7 +531,7 @@ Additionally, use Virtual network service endpoint policies to filter egress vir
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through role-based access control (RBAC). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob or queue data. 
+**Guidance**: Azure Active Directory (Azure AD) authorizes access rights to secured resources through role-based access control (RBAC). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob or queue data. 
 
 - [How to assign RBAC roles for Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-rbac-roles-using-the-azure-portal)
 
@@ -782,10 +782,10 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure Policy definitions for Azure Storage account such as: 
 
-Audit unrestricted network access to storage accounts 
-Deploy Advanced Threat Protection on Storage Accounts 
-Storage accounts should be migrated to new Azure Resource Manager resources 
-Secure transfer to storage accounts should be enabled 
+Audit unrestricted network access to storage accounts  
+Deploy Advanced Threat Protection on Storage Accounts  
+Storage accounts should be migrated to new Azure Resource Manager resources  
+Secure transfer to storage accounts should be enabled  
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Storage accounts. 
 

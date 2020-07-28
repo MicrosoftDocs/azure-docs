@@ -1,23 +1,14 @@
 ---
 title: Use Azure Service Bus queues in Node.js using azure-sb package
 description: Learn how to create Node.js applications to send messages to and receive messages from an Azure Service Bus queue using the azure-sb package.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
+ms.date: 06/23/2020
+ms.author: spelluru
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-
 ---
+
 # Quickstart: Use Service Bus queues in Azure with Node.js and the azure-sb package
 In this tutorial, you learn how to create Node.js applications to send messages to and receive messages from an Azure Service Bus queue using the [azure-sb](https://www.npmjs.com/package/azure-sb) package. The samples are written in JavaScript and use the Node.js [Azure module](https://www.npmjs.com/package/azure) which internally uses the azure-sb package.
 

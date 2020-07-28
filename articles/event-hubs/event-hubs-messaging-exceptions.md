@@ -1,20 +1,8 @@
 ---
 title: Azure Event Hubs - exceptions
 description: This article provides a list of Azure Event Hubs messaging exceptions and suggested actions.
-services: event-hubs
-documentationcenter: na
-author: ShubhaVijayasarathy
-manager: timlt
-
-ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.custom: seodec18
-ms.date: 01/16/2020
-ms.author: shvija
-
+ms.date: 06/23/2020
 ---
 
 # Event Hubs messaging exceptions - .NET
@@ -26,10 +14,10 @@ The Event Hubs .NET APIs generate exceptions that can fall into the following ca
 
  - User coding error: 
  
-   - [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)
-   - [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)
-   - [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)
-   - [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx)
+   - [System.ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)
+   - [System.InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1)
+   - [System.OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1)
+   - [System.Runtime.Serialization.SerializationException](/dotnet/api/system.runtime.serialization.serializationexception?view=netcore-3.1)
    
    General action: Try to fix the code before proceeding.
  
@@ -37,7 +25,7 @@ The Event Hubs .NET APIs generate exceptions that can fall into the following ca
  
    - [Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception)
    - [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception)
-   - [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx)
+   - [System.UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1)
    
    General action: Review your configuration and change if necessary.
    
@@ -52,7 +40,7 @@ The Event Hubs .NET APIs generate exceptions that can fall into the following ca
  
  - Other exceptions: 
  
-   - [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)
+   - [System.Transactions.TransactionException](/dotnet/api/system.transactions.transactionexception?view=netcore-3.1)
    - [System.TimeoutException](#timeoutexception)
    - [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception)
    - [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception)
@@ -64,11 +52,11 @@ The following table lists messaging exception types, and their causes, and notes
 
 | Exception Type | Description/Cause/Examples | Suggested Action | Note on automatic/immediate retry |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |The server didn't respond to the requested operation within the specified time, which is controlled by [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). The server may have completed the requested operation. This exception can happen because of network or other infrastructure delays. |Check the system state for consistency and retry if necessary.<br /> See [TimeoutException](#timeoutexception). | Retry might help in some cases; add retry logic to code. |
-| [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |The requested user operation isn't allowed within the server or service. See the exception message for details. For example, [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) generates this exception if the message was received in [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) mode. | Check the code and the documentation. Make sure the requested operation is valid. | Retry won't help. |
-| [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) | An attempt is made to invoke an operation on an object that has already been closed, aborted, or disposed. In rare cases, the ambient transaction is already disposed. | Check the code and make sure it doesn't invoke operations on a disposed object. | Retry won't help. |
-| [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) | The [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object couldn't acquire a token, the token is invalid, or the token doesn't contain the claims required to do the operation. | Make sure the token provider is created with the correct values. Check the configuration of the Access Control Service. | Retry might help in some cases; add retry logic to code. |
-| [ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)<br /> [ArgumentNullException](https://msdn.microsoft.com/library/system.argumentnullexception.aspx)<br />[ArgumentOutOfRangeException](https://msdn.microsoft.com/library/system.argumentoutofrangeexception.aspx) | One or more arguments supplied to the method are invalid. The URI supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contains path segment(s). The URI scheme supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) is invalid. The property value is larger than 32 KB. | Check the calling code and make sure the arguments are correct. | Retry will not help. |
+| [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) |The server didn't respond to the requested operation within the specified time, which is controlled by [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). The server may have completed the requested operation. This exception can happen because of network or other infrastructure delays. |Check the system state for consistency and retry if necessary.<br /> See [TimeoutException](#timeoutexception). | Retry might help in some cases; add retry logic to code. |
+| [InvalidOperationException](/dotnet/api/system.invalidoperationexception?view=netcore-3.1) |The requested user operation isn't allowed within the server or service. See the exception message for details. For example, [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) generates this exception if the message was received in [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) mode. | Check the code and the documentation. Make sure the requested operation is valid. | Retry won't help. |
+| [OperationCanceledException](/dotnet/api/system.operationcanceledexception?view=netcore-3.1) | An attempt is made to invoke an operation on an object that has already been closed, aborted, or disposed. In rare cases, the ambient transaction is already disposed. | Check the code and make sure it doesn't invoke operations on a disposed object. | Retry won't help. |
+| [UnauthorizedAccessException](/dotnet/api/system.unauthorizedaccessexception?view=netcore-3.1) | The [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) object couldn't acquire a token, the token is invalid, or the token doesn't contain the claims required to do the operation. | Make sure the token provider is created with the correct values. Check the configuration of the Access Control Service. | Retry might help in some cases; add retry logic to code. |
+| [ArgumentException](/dotnet/api/system.argumentexception?view=netcore-3.1)<br /> [ArgumentNullException](/dotnet/api/system.argumentnullexception?view=netcore-3.1)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1) | One or more arguments supplied to the method are invalid. The URI supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contains path segment(s). The URI scheme supplied to [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) or [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) is invalid. The property value is larger than 32 KB. | Check the calling code and make sure the arguments are correct. | Retry will not help. |
 | [Microsoft.ServiceBus.Messaging MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception) <br /><br/> [Microsoft.Azure.EventHubs MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception) | Entity associated with the operation does not exist or it has been deleted. | Make sure the entity exists. | Retry will not help. |
 | [MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) | Client is not able to establish a connection to Event Hub. |Make sure the supplied host name is correct and the host is reachable. | Retry might help if there are intermittent connectivity issues. |
 | [Microsoft.ServiceBus.Messaging ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) <br /> <br/>[Microsoft.Azure.EventHubs ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) | Service is not able to process the request at this time. | Client can wait for a period of time, then retry the operation. <br /> See [ServerBusyException](#serverbusyexception). | Client may retry after certain interval. If a retry results in a different exception, check retry behavior of that exception. |
@@ -87,7 +75,7 @@ This exception can happen if the maximum number of receivers (5) has already bee
 Event Hubs has a limit of 20 consumer groups per Event Hub. When you attempt to create more, you receive a [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## TimeoutException
-A [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) indicates that a user-initiated operation is taking longer than the operation timeout. 
+A [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1) indicates that a user-initiated operation is taking longer than the operation timeout. 
 
 For Event Hubs, the timeout is specified either as part of the connection string, or through [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.servicebus.servicebusconnectionstringbuilder). The error message itself might vary, but it always contains the timeout value specified for the current operation. 
 
@@ -129,6 +117,6 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](./event-hubs-about.md)
 * [Create an Event Hub](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)

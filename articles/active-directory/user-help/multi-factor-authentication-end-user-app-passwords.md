@@ -11,7 +11,7 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/13/2019
+ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: "user-help, seo-update-azuread-jan"
 ---

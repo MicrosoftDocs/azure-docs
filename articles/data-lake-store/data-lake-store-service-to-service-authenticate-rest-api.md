@@ -4,7 +4,7 @@ description: Learn how to achieve service-to-service authentication with Azure D
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 
@@ -30,15 +30,19 @@ In this article, you learn how to use the REST API to do service-to-service auth
 
 In this scenario, the application provides its own credentials to perform the operations. For this, you must issue a POST request like the one shown in the following snippet:
 
-    curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
-      -F grant_type=client_credentials \
-      -F resource=https://management.core.windows.net/ \
-      -F client_id=<CLIENT-ID> \
-      -F client_secret=<AUTH-KEY>
+```console
+curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
+  -F grant_type=client_credentials \
+  -F resource=https://management.core.windows.net/ \
+  -F client_id=<CLIENT-ID> \
+  -F client_secret=<AUTH-KEY>
+```
 
 The output of the request includes an authorization token (denoted by `access-token` in the output below) that you subsequently pass with your REST API calls. Save the authentication token in a text file; you will need it when making REST calls to Data Lake Storage Gen1.
 
-    {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```output
+{"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
+```
 
 This article uses the **non-interactive** approach. For more information on non-interactive (service-to-service calls), see [Service to service calls using credentials](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 

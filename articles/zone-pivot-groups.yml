@@ -320,8 +320,8 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-more
-    title: More languages...
+  - id: programming-language-python
+    title: Python
 - id: programming-languages-set-eighteen
   title: Programming languages
   prompt: Choose a programming language
@@ -471,3 +471,37 @@ groups:
     title: Python
   - id: programming-language-objectivec
     title: Objective-C
+- id: programming-languages-set-twenty
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
+  - id: programming-language-swift
+    title: Swift (iOS)
+- id: programming-languages-set-twenty-one
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+- id: programming-languages-set-twenty-two
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python

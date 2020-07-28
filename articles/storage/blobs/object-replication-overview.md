@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -40,7 +40,7 @@ After you configure object replication, Azure Storage checks the change feed for
 
 When you configure object replication, a replication policy is created on both the source account and the destination account via the Azure Storage resource provider. The replication policy is identified by a policy ID. The policy on the source and destination accounts must have the same policy ID in order for replication to take place.
 
-A storage account can serve as the source account for up to two destination accounts. The source and destination accounts may all be in different regions. You can configure separate replication policies to replicate data to each of the destination accounts.
+A storage account can serve as the source account for up to two destination accounts. And a destination account may have no more than two source accounts. The source and destination accounts may all be in different regions. You can configure separate replication policies to replicate data to each of the destination accounts.
 
 ### Replication rules
 
@@ -50,7 +50,7 @@ When you create a replication rule, by default only new block blobs that are sub
 
 You can also specify one or more filters as part of a replication rule to filter block blobs by prefix. When you specify a prefix, only blobs matching that prefix in the source container will be copied to the destination container.
 
-The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to a different access tier. For example, you can move blobs in the destination container to the archive tier to save costs.
+The source and destination containers must both exist before you can specify them in a rule. After you create the replication policy, the destination container becomes read-only. Any attempts to write to the destination container fail with error code 409 (Conflict). However, you can call the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation on a blob in the destination container to move it to the archive tier. For more information about the archive tier, see [Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## About the preview
 
@@ -59,6 +59,8 @@ Object replication is supported for general-purpose v2 storage accounts only. Ob
 - France Central
 - Canada East
 - Canada Central
+- US East 2
+- US Central
 
 Both the source and destination accounts must reside in one of these regions in order to use object replication. The accounts can be in two different regions.
 
@@ -69,7 +71,9 @@ During the preview, there are no additional costs associated with replicating da
 
 ### Prerequisites for object replication
 
-Object replication requires that the following Azure Storage features are enabled:
+Object replication requires that the following Azure Storage features are enabled: 
+- [Change feed](storage-blob-change-feed.md)
+- [Versioning](versioning-overview.md)
 
 Before you configure object replication, enable its prerequisites. Change feed must be enabled on the source account, and blob versioning must be enabled on both the source and destination account. For more information about enabling these features, see these articles:
 
@@ -153,3 +157,5 @@ To ask questions about the object replication preview, or to provide feedback, c
 ## Next steps
 
 - [Configure object replication (preview)](object-replication-configure.md)
+- [Change feed support in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
+- [Enable and manage blob versioning](versioning-enable.md)

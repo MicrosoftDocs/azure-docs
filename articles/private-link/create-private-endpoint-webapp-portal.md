@@ -3,8 +3,8 @@ title: Connect privately to a Web App using Azure Private Endpoint
 description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
-ms.topic: article
-ms.date: 03/12/2020
+ms.topic: how-to
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -19,7 +19,7 @@ In this Quickstart, you will learn how to deploy a Web App with Private Endpoint
 For more information, see [Using Private Endpoints for Azure Web App][privatenedpointwebapp].
 
 > [!Note]
->The preview is available in East US and West US 2 regions for all PremiumV2 Windows and Linux Web Apps. 
+>The preview is available in public regions for PremiumV2 Windows and Linux Web Apps and Elastic Premium functions. 
 
 ## Sign in to Azure
 

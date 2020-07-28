@@ -1,7 +1,7 @@
 ---
 title: Manage after migration
 titleSuffix: Azure SQL Database
-description: Learn how to manage your single and pooled database after migration to Azure SQL Database.
+description: Learn how to manage your single and pooled databases after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -16,7 +16,7 @@ ms.date: 02/13/2019
 # New DBA in the cloud – Managing Azure SQL Database after migration
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database with single and pooled databases to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
+Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of Azure SQL Database with single and pooled databases to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
 
 - Are evaluating migration of their application(s) to Azure SQL Database – Modernizing your application(s).
 - Are In the process of migrating their application(s) – On-going migration scenario.
@@ -24,7 +24,7 @@ Moving from the traditional self-managed, self-controlled environment to a PaaS 
 
 This article discusses some of the core characteristics of Azure SQL Database as a platform that you can readily leverage when working with single databases and pooled databases in elastic pools. They are the following:
 
-- Monitor database using the Azure portal
+- Monitor databases using the Azure portal
 - Business continuity and disaster recovery (BCDR)
 - Security and compliance
 - Intelligent database monitoring and maintenance
@@ -76,7 +76,7 @@ If an auto-failover group is not configured, then your application needs to acti
 
 ### How does my disaster recovery plan change from on-premises to SQL Database
 
-In summary, the traditional on-premises SQL Server setup required you to actively manage your Availability by using features such as Failover Clustering, Database Mirroring, Transaction Replication, or Log Shipping and maintain and manage backups to ensure Business Continuity. With SQL Database, the platform manages these for you, so you can focus on developing and optimizing your database application and not worry about disaster management as much. You can have backup and disaster recovery plans configured and working with just a few clicks on the Azure portal (or a few commands using the PowerShell APIs).
+In summary, SQL Server setup requires you to actively manage your Availability by using features such as Failover Clustering, Database Mirroring, Transaction Replication, or Log Shipping and maintain and manage backups to ensure Business Continuity. With SQL Database, the platform manages these for you, so you can focus on developing and optimizing your database application and not worry about disaster management as much. You can have backup and disaster recovery plans configured and working with just a few clicks on the Azure portal (or a few commands using the PowerShell APIs).
 
 To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recovery 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
@@ -84,7 +84,7 @@ To learn more about Disaster recovery, see: [Azure SQL Database Disaster Recover
 
 SQL Database takes Security and Privacy very seriously. Security within SQL Database is available at the database level and at the platform level and is best understood when categorized into several layers. At each layer you get to control and provide optimal security for your application. The layers are:
 
-- Identity & authentication ([SQL authentication and Azure Active Directory [AAD] authentication](logins-create-manage.md)).
+- Identity & authentication ([SQL authentication and Azure Active Directory [Azure AD] authentication](logins-create-manage.md)).
 - Monitoring activity ([Auditing](../../azure-sql/database/auditing-overview.md) and [threat detection](threat-detection-configure.md)).
 - Protecting actual data ([Transparent Data Encryption [TDE]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) and [Always Encrypted [AE]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)).
 - Controlling Access to sensitive and privileged data ([Row Level security](/sql/relational-databases/security/row-level-security) and [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)).
@@ -98,13 +98,13 @@ There are two authentication methods offered in SQL Database:
 - [Azure Active Directory Authentication](authentication-aad-overview.md)
 - [SQL authentication](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-The traditional windows authentication is not supported. Azure Active Directory (AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. AAD supports [MFA (Multi Factor Authentication)](authentication-mfa-ssms-overview.md) and with a [few clicks](../../active-directory/hybrid/how-to-connect-install-express.md) AAD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given server. This also allows SQL Database and SQL Data Warehouse to offer multi-factor authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
+The traditional windows authentication is not supported. Azure Active Directory (Azure AD) is a centralized identity and access management service. With this you can very conveniently provide a Single Sign-on Access (SSO) to all the personnel in your organization. What this means is that the credentials are shared across all Azure services for simpler authentication. Azure AD supports [Azure Multi-Factor Authentication](authentication-mfa-ssms-overview.md) and with a [few clicks](../../active-directory/hybrid/how-to-connect-install-express.md) Azure AD can be integrated with Windows Server Active Directory. SQL Authentication works exactly like you’ve been using it in the past. You provide a username/password and you can authenticate users to any database on a given server. This also allows SQL Database and SQL Data Warehouse to offer Multi-Factor Authentication and guest user accounts within an Azure AD domain. If you already have an Active Directory on-premises, you can federate the directory with Azure Active Directory to extend your directory to Azure.
 
 |**If you...**|**SQL Database / SQL Data Warehouse**|
 |---|---|
-|Prefer not to use Azure Active Directory (AD) in Azure|Use [SQL authentication](security-overview.md)|
+|Prefer not to use Azure Active Directory (Azure AD) in Azure|Use [SQL authentication](security-overview.md)|
 |Used AD on SQL Server on-premises|[Federate AD with Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md), and use Azure AD authentication. With this, you can use Single Sign-On.|
-|Need to enforce multi-factor authentication (MFA)|Require MFA as a policy through [Microsoft Conditional Access](conditional-access-configure.md), and use [Azure AD Universal authentication with MFA support](authentication-mfa-ssms-overview.md).|
+|Need to enforce Multi-Factor Authentication|Require Multi-Factor Authentication as a policy through [Microsoft Conditional Access](conditional-access-configure.md), and use [Azure AD Universal authentication with Multi-Factor Authentication support](authentication-mfa-ssms-overview.md).|
 |Have guest accounts from Microsoft accounts (live.com, outlook.com) or other domains (gmail.com)|Use [Azure AD Universal authentication](authentication-mfa-ssms-overview.md) in SQL Database/Data Warehouse, which leverages [Azure AD B2B Collaboration](../../active-directory/b2b/what-is-b2b.md).|
 |Are logged in to Windows using your Azure AD credentials from a federated domain|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
 |Are logged in to Windows using credentials from a domain not federated with Azure|Use [Azure AD integrated authentication](authentication-aad-configure.md).|
@@ -127,7 +127,7 @@ You can create firewall rules at the server level or at the database level. Serv
 
 #### Service endpoints
 
-By default, your SQL database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNet Service Endpoints](vnet-service-endpoint-rule-overview.md).
+By default, your database is configured to “Allow Azure services to access server” – which means any Virtual Machine in Azure may attempt to connect to your database. These attempts still do have to get authenticated. However, if you would not like your database to be accessible by any Azure IPs, you can disable “Allow Azure services to access server”. Additionally, you can configure [VNet Service Endpoints](vnet-service-endpoint-rule-overview.md).
 
 Service endpoints (SE) allow you to expose your critical Azure resources only to your own private virtual network in Azure. By doing so, you essentially eliminate public access to your resources. The traffic between your virtual network to Azure stays on the Azure backbone network. Without SE you get forced-tunneling packet routing. Your virtual network forces the internet traffic to your organization and the Azure Service traffic to go over the same route. With Service Endpoints, you can optimize this since the packets flow straight from your virtual network to the service on Azure backbone network.
 
@@ -205,13 +205,13 @@ The following diagram shows the key store options for the column master keys in 
 
 ### How can I optimize and secure the traffic between my organization and SQL Database
 
-The network traffic between your organization and SQL Database would generally get routed over the public network. However, if you choose to optimize this path and make it more secure, you can look into Express Route. Express route essentially lets you extend your corporate network into the Azure platform over a private connection. By doing so, you do not go over the public Internet. You also get higher security, reliability, and routing optimization that translates to lower network latencies and much faster speeds than you would normally experience going over the public internet. If you are planning on transferring a significant chunk of data between your organization and Azure, using Express Route can yield cost benefits. You can choose from three different connectivity models for the connection from your organization to Azure:
+The network traffic between your organization and SQL Database would generally get routed over the public network. However, if you choose to optimize this path and make it more secure, you can look into Azure ExpressRoute. ExpressRoute essentially lets you extend your corporate network into the Azure platform over a private connection. By doing so, you do not go over the public Internet. You also get higher security, reliability, and routing optimization that translates to lower network latencies and much faster speeds than you would normally experience going over the public internet. If you are planning on transferring a significant chunk of data between your organization and Azure, using ExpressRoute can yield cost benefits. You can choose from three different connectivity models for the connection from your organization to Azure:
 
 - [Cloud Exchange Co-location](../../expressroute/expressroute-connectivity-models.md#CloudExchange)
 - [Any-to-any](../../expressroute/expressroute-connectivity-models.md#IPVPN)
 - [Point-to-Point](../../expressroute/expressroute-connectivity-models.md#Ethernet)
 
-Express Route also allows you to burst up to 2x the bandwidth limit you purchase for no additional charge. It is also possible to configure cross region connectivity using Express route. To see a list of ER connectivity providers, see: [Express Route Partners and Peering Locations](../../expressroute/expressroute-locations.md). The following articles describe Express Route in more detail:
+ExpressRoute also allows you to burst up to 2x the bandwidth limit you purchase for no additional charge. It is also possible to configure cross region connectivity using ExpressRoute. To see a list of ExpressRoute connectivity providers, see: [ExpressRoute Partners and Peering Locations](../../expressroute/expressroute-locations.md). The following articles describe Express Route in more detail:
 
 - [Introduction on Express Route](../../expressroute/expressroute-introduction.md)
 - [Prerequisites](../../expressroute/expressroute-prerequisites.md)
@@ -231,7 +231,7 @@ Once you’ve migrated your database to SQL Database, you are going to want to m
 
 ### Performance monitoring and optimization
 
-With Query Performance Insights, you can get tailored recommendations for your database workload so that your applications can keep running at an optimal level - always. You can also set it up so that these recommendations get applied automatically and you do not have to bother performing maintenance tasks. With Index Advisor, you can automatically implement index recommendations based on your workload - this is called Auto-Tuning. The recommendations evolve as your application workload changes to provide you with the most relevant suggestions. You also get the option to manually review these recommendations and apply them at your discretion.  
+With Query Performance Insights, you can get tailored recommendations for your database workload so that your applications can keep running at an optimal level - always. You can also set it up so that these recommendations get applied automatically and you do not have to bother performing maintenance tasks. With SQL Database Advisor, you can automatically implement index recommendations based on your workload - this is called Auto-Tuning. The recommendations evolve as your application workload changes to provide you with the most relevant suggestions. You also get the option to manually review these recommendations and apply them at your discretion.  
 
 ### Security optimization
 
@@ -263,7 +263,7 @@ The Azure portal shows a database’s utilization by selecting the database and 
 
 From this chart, you can also configure alerts by resource. These alerts allow you to respond to resource conditions with an email, write to an HTTPS/HTTP endpoint or perform an action. For more information, see [Create alerts](alerts-insights-configure-portal.md).
 
-#### Dynamic Management Views
+#### Dynamic management views
 
 You can query the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view to return resource consumption statistics history from the last hour and the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalog view to return history for the last 14 days.
 
@@ -275,11 +275,11 @@ You can query the [sys.dm_db_resource_stats](/sql/relational-databases/system-dy
 
 #### Azure SQL Analytics (Preview) in Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Database performance metrics, supporting up to 150,000 SQL Databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
+[Azure Monitor logs](../../azure-monitor/insights/azure-sql.md) allows you to collect and visualize key Azure SQL Database performance metrics, supporting up to 150,000 databases and 5,000 SQL Elastic pools per workspace. You can use it to monitor and receive notifications. You can monitor SQL Database and elastic pool metrics across multiple Azure subscriptions and elastic pools and can be used to identify issues at each layer of an application stack.
 
 ### I am noticing performance issues: How does my SQL Database troubleshooting methodology differ from SQL Server
 
-A major portion of the troubleshooting techniques you would use for diagnosing query and database performance issues remain the same. After all the same SQL database engine powers the cloud. However, the platform - Azure SQL Database has built in ‘intelligence’. It can help you troubleshoot and diagnose performance issues even more easily. It can also perform some of these corrective actions on your behalf and in some cases, proactively fix them - automatically.
+A major portion of the troubleshooting techniques you would use for diagnosing query and database performance issues remain the same. After all the same database engine powers the cloud. However, the platform - Azure SQL Database has built in ‘intelligence’. It can help you troubleshoot and diagnose performance issues even more easily. It can also perform some of these corrective actions on your behalf and in some cases, proactively fix them - automatically.
 
 Your approach towards troubleshooting performance issues can significantly benefit by using intelligent features such as [Query Performance Insight(QPI)](query-performance-insight-use.md) and [Database Advisor](database-advisor-implement-performance-recommendations.md) in conjunction and so the difference in methodology differs in that respect – you no longer need to do the manual work of grinding out the essential details that might help you troubleshoot the issue at hand. The platform does the hard work for you. One example of that is QPI. With QPI, you can drill all the way down to the query level and look at the historical trends and figure out when exactly the query regressed. The Database Advisor gives you recommendations on things that might help you improve your overall performance in general like - missing indexes, dropping indexes, parameterizing your queries etc.
 
@@ -324,8 +324,8 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 You have several ways to achieve this:
 
-- **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL Database with the on-premises being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
+- **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – This feature helps you synchronize data bi-directionally between multiple SQL Server databases and SQL Database. To sync with SQL Server databases, you need to install and configure sync agent on a local computer or a virtual machine and open the outbound TCP port 1433.
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from a SQL Server database to Azure SQL Database with the SQL Server instance being the publisher and the Azure SQL Database being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from a SQL Server database to Azure SQL with minimal downtime, see: [Use Transaction Replication](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
 ## Next steps
 

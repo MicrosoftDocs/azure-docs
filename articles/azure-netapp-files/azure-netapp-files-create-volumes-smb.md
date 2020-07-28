@@ -12,8 +12,8 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 05/19/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -171,9 +171,6 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
     ![Active Directory Connections](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
 
-> [!NOTE] 
-> You can edit the username and password fields after saving the Active Directory connection. No other values can be edited after saving the connection. If you need to change any other values, you must first delete any deployed SMB volumes, then delete and re-create the Active Directory connection.
-
 ## Add an SMB volume
 
 1. Click the **Volumes** blade from the Capacity Pools blade. 
@@ -213,6 +210,12 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ![Create a volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+    * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
+
+        For information about creating a snapshot policy, see [Manage snapshots](azure-netapp-files-manage-snapshots.md).
+
+        ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
 4. Click **Protocol** and complete the following information:  
     * Select **SMB** as the protocol type for the volume. 

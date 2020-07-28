@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Slack | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Slack.
 services: active-directory
@@ -37,7 +37,10 @@ To get started, you need the following items:
 * Slack single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+> If you need to integrate with more than one Slack instance in one tenant, the identifier for each application can be a variable.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -84,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://< DOMAIN NAME>.slack.com/sso/saml/start`
 
     b. In the **Identifier (Entity ID)** text box, type a URL:
@@ -92,20 +95,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> The Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Slack Client support team](https://slack.com/help/contact) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	
+	> [!NOTE]
+	> The value for **Identifier (Entity ID)** can be a variable if you have more than one Slack instance that you need to integrate with the tenant. Use the pattern `https://<DOMAIN NAME>.slack.com`. In this scenario, you also must pair with another setting in Slack by using the same value.
 
 1. Slack application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
 	![image](common/edit-attribute.png)
 
-1. In addition to above, Slack application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements. If the users do not have email address then map the **emailaddress** to **user.userprincipalname**.
+1. In addition to above, Slack application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements. You also must add the `email` attribute. If the user does not have an email address, map **emailaddress** to **user.userprincipalname** and map **email** to **user.userprincipalname**.
 
     | Name | Source Attribute |
     | -----|---------|
     | emailaddress | user.userprincipalname |
+    | email | user.userprincipalname |
     | | |
 
-> [!NOTE]
-	> In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
+   > [!NOTE]
+   > In order to set up the service provider (SP) configuration, you must click on **Expand** next to **Advanced Options** in the SAML configuration page. In the **Service Provider Issuer** box, enter the workspace URL. The default is slack.com. 
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -165,15 +172,18 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b.  In the **Identity Provider Issuer** textbox, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
 
-    c.  Open your downloaded certificate file in notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
+    c.  Open your downloaded certificate file in Notepad, copy the content of it into your clipboard, and then paste it to the **Public Certificate** textbox.
 
     d. Configure the above three settings as appropriate for your Slack team. For more information about the settings, please find the **Slack's SSO configuration guide** here. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     ![Configure single sign-on On App Side](./media/slack-tutorial/tutorial-slack-004.png)
 
-    e. Click on **expand** and enter `https://slack.com` in the **Identity provider issuer** textbox.
+    e. Click on **expand** and enter `https://slack.com` in the **Service provider issuer** textbox.
 
     f.  Click **Save Configuration**.
+    
+    > [!NOTE]
+    > If you have more than one Slack instance that you need to integrate with Azure AD, set `https://<DOMAIN NAME>.slack.com` to **Service provider issuer** so that it can pair with the Azure application **Identifier** setting.
 
 ### Create Slack test user
 

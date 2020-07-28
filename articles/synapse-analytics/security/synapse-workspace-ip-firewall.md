@@ -1,15 +1,14 @@
 ---
-title: Configure IP firewall rules in Azure Synapse Analytics 
+title: Configure IP firewall rules 
 description: An article that teaches you to configure IP firewall rules in Azure Synapse Analytics 
 author: RonyMSFT 
 ms.service: synapse-analytics 
-ms.topic: overview 
+ms.topic: overview
+ms.subservice: security 
 ms.date: 04/15/2020 
 ms.author: ronytho 
 ms.reviewer: jrasnick
 ---
-
-
 
 # Azure Synapse Analytics IP firewall rules (preview)
 
@@ -45,4 +44,4 @@ If you're using the default Redirect connection policy setting, you may need to 
 
 Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
 
-Create an Azure Synapse workspace with a [Managed workspace VNet](./synapse-workspace-managed-vnet.md)
+Create an Azure Synapse workspace with a [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/27/2020
 ---
@@ -57,6 +57,9 @@ From the **Basics** tab, provide the following information:
 Select **Next: Storage >>** to advance to the next tab.
 
 ## Storage
+
+> [!WARNING] 
+> Starting June 15th, 2020 customers will not be able to create new service principal using HDInsight. See [Create Service Principal and Certificates](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) using Azure Active Directory.
 
 ![HDInsight create cluster storage](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Creating a new cluster in the Azure portal - storage")
 

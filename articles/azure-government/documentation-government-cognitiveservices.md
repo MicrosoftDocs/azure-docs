@@ -4,18 +4,14 @@ description: This provides a comparison of features and guidance on developing a
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: yujhongmicrosoft
 
-
-ms.assetid: cba97199-851d-43ae-a75a-c601f3f81601
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 9/28/2018
-ms.author: femila
-
+ms.custom: references_regions
 ---
 
 # Cognitive Services on Azure Government – Computer Vision, Face, Translator Text APIs

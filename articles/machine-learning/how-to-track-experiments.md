@@ -3,16 +3,14 @@ title: Log ML experiments & metrics
 titleSuffix: Azure Machine Learning
 description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script and view the logged results of a run.  Use run.log, Run.start_logging, or ScriptRunConfig.
 services: machine-learning
-author: sdgilley
-ms.author: sgilley
-ms.reviewer: sgilley
+author: likebupt
+ms.author: keli19
+ms.reviewer: peterlu
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
+ms.date: 07/14/2020
 ms.topic: conceptual
-ms.date: 03/12/2020
-
-ms.custom: seodec18
+ms.custom: how-to
 ---
 
 # Monitor Azure ML experiment runs and metrics
@@ -105,7 +103,7 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
 
 Use the __Execute Python Script__ module to add logging logic to your designer experiments. You can log any value using this workflow, but it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across different runs.
 
-1. Connect an __Execute Python Script__ module to the output of your __Evaluate Model__ module.
+1. Connect an __Execute Python Script__ module to the output of your __Evaluate Model__ module. __Evaluate Model__ can output evaluation results of 2 models. The following example shows how to log the metrics of 2 output ports in parent run level. 
 
     ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/designer-logging-pipeline.png)
 
@@ -113,21 +111,29 @@ Use the __Execute Python Script__ module to add logging logic to your designer e
 
     ```python
     # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1 = None, dataframe2 = None):
+    def azureml_main(dataframe1=None, dataframe2=None):
         print(f'Input pandas.DataFrame #1: {dataframe1}')
-
+    
         from azureml.core import Run
-
+    
         run = Run.get_context()
-
-        # Log the mean absolute error to the current run to see the metric in the module detail pane.
-        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
-
+    
         # Log the mean absolute error to the parent run to see the metric in the run details page.
-        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
+        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
+
+        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
+        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
+
+        # Log right output port result of Evaluate Model.
+        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
     
         return dataframe1,
     ```
+
+1. After the pipeline run is completed, you can see the *Mean_Absolute_Error* in the Experiment page.
+
+    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
 
 ## Manage a run
 
@@ -204,9 +210,11 @@ You can view the metrics of a trained model using ```run.get_metrics()```. You c
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history from the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the Experiments tab and select your experiment. You are brought to the experiment run dashboard, where you can see tracked metrics and charts that are logged for each run. In this case, we logged MSE and the alpha values.
+Navigate to the Experiments tab and select your experiment. You are brought to the experiment run dashboard, where you can see tracked metrics and charts that are logged for each run. 
 
-  ![Run details in the Azure Machine Learning studio](./media/how-to-track-experiments/experiment-dashboard.png)
+You can edit the run list table to display either the last, minimum or maximum logged value for your runs. You can select or deselect multiple runs in the run list and the selected runs will populate the charts with your data. You can also add new charts or edit charts to compare the logged metrics (minimum, maximum, last or all values) across multiple runs. To explore your data more effectively, you can also maximize your charts.
+
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
 
 You can drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 

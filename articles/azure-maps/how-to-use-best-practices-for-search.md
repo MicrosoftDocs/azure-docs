@@ -1,8 +1,8 @@
 ---
 title: Best practices for Azure Maps Search Service | Microsoft Azure Maps 
 description: Learn how to apply the best practices when using the Search Service from Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -12,23 +12,23 @@ manager: philmea
 
 # Best practices for Azure Maps Search Service
 
-Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs that offer various capabilities. For example, the Search Address API can find points of interest (POI) or data around a specific location. 
+Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs that offer various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example,[Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) allows users to search for an address or Point of Interest (POI).
 
 This article explains how to apply sound practices when you call data from Azure Maps Search Service. You'll learn how to:
 
-* Build queries to return relevant matches.
-* Limit search results.
-* Learn the differences between result types.
-* Read the address search-response structure.
+* Build queries to return relevant matches
+* Limit search results
+* Learn the differences between result types
+* Read the address search-response structure
 
 ## Prerequisites
 
-To make calls to the Azure Maps service APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+To make calls to the Azure Maps service APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
 For information about authentication in Azure Maps, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 > [!TIP]
-> To query Search Service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST calls. Or you can use any API development environment that you prefer.
+> To query Search Service, you can use the [Postman app](https://www.getpostman.com/apps) to build REST API calls. Or you can use any API development environment that you prefer.
 
 ## Best practices to geocode addresses
 
@@ -56,7 +56,7 @@ To geobias results to the relevant area for your user, always add as many locati
 
 #### Fuzzy search parameters
 
-We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) when you don't know your user inputs for a search query. The API combines POI searching and geocoding into a canonical *single-line search*: 
+We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) when you don't know your user inputs for a search query. For example, input from the user could be an address or the type of Point of Interest (POI), like *shopping mall*. The API combines POI searching and geocoding into a canonical *single-line search*: 
 
 * The `minFuzzyLevel` and `maxFuzzyLevel` parameters help return relevant matches even when query parameters don't exactly match the information that the user wants. To maximize performance and reduce unusual results, set search queries to defaults of `minFuzzyLevel=1` and `maxFuzzyLevel=2`. 
 
@@ -80,7 +80,7 @@ We recommend that you use the Azure Maps [Search Fuzzy API](https://docs.microso
 
 ### Reverse-geocode and filter for a geography entity type
 
-When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests. 
+When you do a reverse-geocode search in the [Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse), the service can return polygons for administrative areas. For example, you might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests. 
 
 The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, then the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service](https://docs.microsoft.com/rest/api/maps/search/getsearchpolygon).
 
@@ -962,7 +962,7 @@ Responses for the [Search Address](https://docs.microsoft.com/rest/api/maps/sear
 
 ## Next steps
 
-To learn more, please see :
+To learn more, please see:
 
 > [!div class="nextstepaction"]
 > [How to build Azure Maps Search Service requests](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)

@@ -12,10 +12,10 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/10/2020
+ms.date: 05/29/2020
 ---
-# Quickstart: Use SSMS to connect to and query Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# Quickstart: Use SSMS to connect to and query Azure SQL Database or Azure SQL Managed Instance
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 In this quickstart, you'll learn how to use SQL Server Management Studio (SSMS) to connect to Azure SQL Database or Azure SQL Managed Instance and run some queries.
 
@@ -27,7 +27,7 @@ Completing this quickstart requires the following items:
 
 - A database in Azure SQL Database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-  || SQL Database | SQL Managed Instance | SQL Server on Azure VM |
+  | Action | SQL Database | SQL Managed Instance | SQL Server on Azure VM |
   |:--- |:--- |:---|:---|
   | Create| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [CLI](scripts/create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -41,7 +41,7 @@ Completing this quickstart requires the following items:
   > [!IMPORTANT]
   > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a SQL database](connect-query-portal.md).
+If you simply want to run some ad-hoc queries without installing SSMS, see [Quickstart: Use the Azure portal's query editor to query a database in Azure SQL Database](connect-query-portal.md).
 
 ## Get server connection information
 
@@ -90,7 +90,7 @@ In SSMS, connect to your server.
 
 ## Query data
 
-Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL code to query for the top 20 products by category.
+Run this [SELECT](/sql/t-sql/queries/select-transact-sql/) Transact-SQL code to query for the top 20 products by category.
 
 1. In Object Explorer, right-click **mySampleDatabase** and select **New Query**. A new query window connected to your database opens.
 
@@ -109,7 +109,7 @@ Run this [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL
 
 ### Insert data
 
-Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL code to create a new product in the `SalesLT.Product` table.
+Run this [INSERT](/sql/t-sql/statements/insert-transact-sql/) Transact-SQL code to create a new product in the `SalesLT.Product` table.
 
 1. Replace the previous query with this one.
 
@@ -149,7 +149,7 @@ Run this [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL
 
 ### Update data
 
-Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
+Run this [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one that returns the new record created previously:
 
@@ -163,7 +163,7 @@ Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL
 
 ### Delete data
 
-Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL code to remove your new product.
+Run this [DELETE](/sql/t-sql/statements/delete-transact-sql/) Transact-SQL code to remove your new product.
 
 1. Replace the previous query with this one.
 
@@ -176,7 +176,7 @@ Run this [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL
 
 ## Next steps
 
-- For information about SSMS, see [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx).
+- For information about SSMS, see [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms/).
 - To connect and query using the Azure portal, see [Connect and query with the Azure portal SQL Query editor](connect-query-portal.md).
 - To connect and query using Visual Studio Code, see [Connect and query with Visual Studio Code](connect-query-vscode.md).
 - To connect and query using .NET, see [Connect and query with .NET](connect-query-dotnet-visual-studio.md).

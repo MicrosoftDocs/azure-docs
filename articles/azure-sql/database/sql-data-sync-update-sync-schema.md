@@ -203,7 +203,7 @@ If you want to clean up the records in the schema change tracking table, use DEL
 
 -   You can only make schema changes in the database where the DDL trigger is created.
 
--   If you are making a change in an on-premises SQL Server database, make sure the schema change is supported in Azure SQL Database.
+-   If you are making a change in a SQL Server database, make sure the schema change is supported in Azure SQL Database.
 
 -   If schema changes are made in databases other than the database where the DDL trigger is created, the changes are not replicated. To avoid this issue, you can create DDL triggers to block changes on other endpoints.
 
@@ -219,7 +219,7 @@ For more info about SQL Data Sync, see:
 
 -   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server](sql-data-sync-sql-server-configure.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

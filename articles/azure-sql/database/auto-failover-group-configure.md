@@ -3,7 +3,7 @@ title: Configure a failover group
 titleSuffix: Azure SQL Database & SQL Managed Instance 
 description: Learn how to configure an auto-failover group for an Azure SQL Database (both single and pooled) and SQL Managed Instance, using the Azure portal, the Azure CLI, and PowerShell. 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2
 ms.devlang: 
@@ -125,7 +125,7 @@ Test failover of your failover group using the Azure portal.
    ![Fail over your failover group containing your database](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Review which server is now primary and which server is secondary. If failover succeeded, the two servers should have swapped roles.
-1. Select **Failover** again to fail the servers back to their originally roles.
+1. Select **Failover** again to fail the servers back to their original roles.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -289,7 +289,7 @@ Fail your failover group over to the secondary server, and then fail back using 
 1. Select **Failover** from the task pane to fail over your failover group containing your elastic pool.
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected.
 
-   ![Fail over your failover group containing your SQL database](./media/auto-failover-group-configure/failover-sql-db.png)
+   ![Fail over your failover group containing your database](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Review which server is primary, which server is secondary. If failover succeeded, the two servers should have swapped roles.
 1. Select **Failover** again to fail the failover group back to the original settings.
@@ -338,9 +338,9 @@ Fail over to the secondary server:
 
 ## SQL Managed Instance
 
-Create a failover group between two managed instances in SQL Managed Instance using the Azure portal  or PowerShell.
+Create a failover group between two managed instances in Azure SQL Managed Instance by using the Azure portal  or PowerShell.
 
-You will either need to configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or to create a gateway for the virtual network of each managed instance, connect the two gateways, and then create the failover group.
+You will need to either configure [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) or create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group.
 
 ### Prerequisites
 
@@ -547,11 +547,11 @@ Create connections between the two gateways using PowerShell.
 
 ### Create the failover group
 
-Create the failover group for your managed instances using the Azure portal or PowerShell.
+Create the failover group for your managed instances by using the Azure portal or PowerShell.
 
 # [Portal](#tab/azure-portal)
 
-Create the failover group for your managed instances using Azure portal.
+Create the failover group for your SQL Managed Instances by using the Azure portal.
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation.
 1. Select the primary managed instance you want to add to the failover group.  

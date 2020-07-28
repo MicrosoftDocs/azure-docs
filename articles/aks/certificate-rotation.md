@@ -2,10 +2,8 @@
 title: Rotate certificates in Azure Kubernetes Service (AKS)
 description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
-ms.author: zarhoads
 ---
 
 # Rotate certificates in Azure Kubernetes Service (AKS)
@@ -36,8 +34,7 @@ AKS generates and uses the following certificates, Certificate Authorities, and 
 > 
 > Additionally, you can check the expiration date of your cluster's certificate. For example, the following command displays the certificate details for the *myAKSCluster* cluster.
 > ```console
-> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d > my-cert.crt
-> openssl x509 -in my-cert.crt -text
+> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d | openssl x509 -text | grep -A2 Validity
 > ```
 
 ## Rotate your cluster certificates
@@ -92,5 +89,5 @@ This article showed you how to automatically rotate your cluster's certificates,
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
-[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces]: ../dev-spaces/index.yml
 [dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates

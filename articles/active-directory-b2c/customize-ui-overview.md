@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/04/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -209,19 +210,19 @@ The image source is replaced with that of the background image and banner logo. 
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](user-flow-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](user-flow-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
 For example, your custom page URI might look like:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 ```
 
 You can load the page in French by pulling content from:
 
-```HTTP
+```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 

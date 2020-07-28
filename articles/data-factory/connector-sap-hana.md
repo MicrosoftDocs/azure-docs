@@ -294,7 +294,7 @@ When copying data from SAP HANA, the following mappings are used from SAP HANA d
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
-### SAP HANA sink
+## SAP HANA sink
 
 Currently, the SAP HANA connector is not supported as sink, while you can use generic ODBC connector with SAP HANA driver to write data into SAP HANA. 
 

@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
@@ -90,7 +90,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 >  const msalConfig = {
 >    auth: {
 >      clientId: "Enter_the_Application_Id_Here",
->      authority: "Enter_the_Cloud_Instance_Id_Here_OR_Enter_the_Tenant_Info_Here",
+>      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >      redirectUri: "Enter_the_Redirect_Uri_Here",
 >    },
 >    cache: {
@@ -128,8 +128,8 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > ```javascript
 >   // Add here the endpoints for MS Graph API services you would like to use.
 >   const graphConfig = {
->     graphMeEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me",
->     graphMailEndpoint: "Enter_the_Graph_Endpoint_Herev1.0/me/messages"
+>     graphMeEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me",
+>     graphMailEndpoint: "Enter_the_Graph_Endpoint_Here/v1.0/me/messages"
 >   };
 >
 >   // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -202,7 +202,7 @@ The quickstart code also shows how to initialize the MSAL library:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > |`clientId`     | The application ID of the application that's registered in the Azure portal.|
 > |`authority`    | (Optional) The authority URL that supports account types, as described previously in the configuration section. The default authority is `https://login.microsoftonline.com/common`. |
@@ -230,7 +230,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `scopes`   | (Optional) Contains scopes that are being requested for user consent at sign-in time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (that is, `api://<Application ID>/access_as_user`). |
 
@@ -260,7 +260,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Where  |  |
+> |Where  | Description |
 > |---------|---------|
 > | `scopes`   | Contains scopes being requested to be returned in the access token for API. For example, `[ "mail.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (that is, `api://<Application ID>/access_as_user`).|
 

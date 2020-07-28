@@ -24,6 +24,8 @@
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
+  - name: About VPN Gateway design
+    href: design.md
   - name: About VPN Gateway settings
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About VPN devices
@@ -208,6 +210,8 @@
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
   - name: Monitoring and alerts
     items:
+    - name: View VPN Gateway metrics
+      href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
     - name: Set up alerts based on metrics
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on resource logs
@@ -260,7 +264,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure
+    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)

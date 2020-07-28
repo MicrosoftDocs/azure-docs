@@ -6,7 +6,7 @@ author: anumjs
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
@@ -31,7 +31,7 @@ To restore from a geo-backup, use the [Get-AzSqlDatabaseGeoBackup](/powershell/m
 > You can perform a geo-restore to Gen2! To do so, specify an Gen2 ServiceObjectiveName (e.g. DW1000**c**) as an optional parameter.
 >
 
-1. Before you begin, make sure to [install Azure PowerShell](/powershell/azure/overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+1. Before you begin, make sure to [install Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Open PowerShell.
 3. Connect to your Azure account and list all the subscriptions associated with your account.
 4. Select the subscription that contains the data warehouse to be restored.

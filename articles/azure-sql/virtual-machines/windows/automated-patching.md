@@ -1,10 +1,9 @@
 ---
 title: Automated Patching for SQL Server VMs (Resource Manager) | Microsoft Docs
-description: Explains the Automated Patching feature for SQL Server Virtual Machines running in Azure using Resource Manager.
+description: This article explains the Automated Patching feature for SQL Server virtual machines running on Azure using Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 58232e92-318f-456b-8f0a-2201a541e08d
@@ -17,24 +16,20 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ---
-# Automated Patching for SQL Server in Azure Virtual Machines (Resource Manager)
+# Automated Patching for SQL Server on Azure virtual machines (Resource Manager)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-> [!div class="op_single_selector"]
-> * [Resource Manager](automated-patching.md)
-> * [Classic](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
-
-Automated Patching establishes a maintenance window for an Azure Virtual Machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this restriction ensures that system updates and any associated restarts occur at the best possible time for the database. 
+Automated Patching establishes a maintenance window for an Azure virtual machine running SQL Server. Automated Updates can only be installed during this maintenance window. For SQL Server, this restriction ensures that system updates and any associated restarts occur at the best possible time for the database. 
 
 > [!IMPORTANT]
-> Only Windows and SQL Server updates marked as **Important** or **Critical** are installed. Other SQL Server updates, such as service packs and cumulative updates that are not marked as **Important** or **Critical** must be installed manually. 
+> Only Windows and SQL Server updates marked as **Important** or **Critical** are installed. Other SQL Server updates, such as service packs and cumulative updates that are not marked as **Important** or **Critical**, must be installed manually. 
 
-Automated Patching depends on the [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
+Automated Patching depends on the [SQL Server infrastructure as a service (IaaS) Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
 ## Prerequisites
 To use Automated Patching, consider the following prerequisites:
 
-**Operating System**:
+**Operating system**:
 
 * Windows Server 2008 R2
 * Windows Server 2012
@@ -51,7 +46,7 @@ To use Automated Patching, consider the following prerequisites:
 
 **Azure PowerShell**:
 
-* [Install the latest Azure PowerShell commands](/powershell/azure/overview) if you plan to configure Automated Patching with PowerShell.
+* [Install the latest Azure PowerShell commands](/powershell/azure/) if you plan to configure Automated Patching with PowerShell.
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -71,17 +66,17 @@ The following table describes the options that can be configured for Automated P
 | **Maintenance window duration** |30-180 |The number of minutes permitted to complete the download and installation of updates. |
 | **Patch Category** |Important | The category of Windows updates to download and install.|
 
-## Configuration in the Portal
+## Configure in the Azure portal
 You can use the Azure portal to configure Automated Patching during provisioning or for existing VMs.
 
 ### New VMs
-Use the Azure portal to configure Automated Patching when you create a new SQL Server Virtual Machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Patching when you create a new SQL Server virtual machine in the Resource Manager deployment model.
 
 In the **SQL Server settings** tab, select **Change configuration** under **Automated patching**. The following Azure portal screenshot shows the **SQL Automated Patching** blade.
 
-![SQL Automated Patching in Azure portal](./media/automated-patching/azure-sql-arm-patching.png)
+![SQL Automated Patching in the Azure portal](./media/automated-patching/azure-sql-arm-patching.png)
 
-For context, see the complete topic on [provisioning a SQL Server virtual machine in Azure](create-sql-vm-portal.md).
+For more information, see [Provision a SQL Server virtual machine on Azure](create-sql-vm-portal.md).
 
 ### Existing VMs
 
@@ -92,23 +87,25 @@ For existing SQL Server virtual machines, open your [SQL virtual machines resour
 ![SQL Automatic Patching for existing VMs](./media/automated-patching/azure-sql-rm-patching-existing-vms.png)
 
 
-When finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
+When you're finished, click the **OK** button on the bottom of the **SQL Server configuration** blade to save your changes.
 
-If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed, configured. After that the Azure portal reflects the new settings.
+If you are enabling Automated Patching for the first time, Azure configures the SQL Server IaaS Agent in the background. During this time, the Azure portal might not show that Automated Patching is configured. Wait several minutes for the agent to be installed and configured. After that the Azure portal reflects the new settings.
 
-## Configuration with PowerShell
+## Configure with PowerShell
 After provisioning your SQL VM, use PowerShell to configure Automated Patching.
 
 In the following example, PowerShell is used to configure Automated Patching on an existing SQL Server VM. The **New-AzVMSqlServerAutoPatchingConfig** command configures a new maintenance window for automatic updates.
 
-    $vmname = "vmname"
-    $resourcegroupname = "resourcegroupname"
-    $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+```azurepowershell
+$vmname = "vmname"
+$resourcegroupname = "resourcegroupname"
+$aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 s
-    Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
+```
 
 > [!IMPORTANT]
-> If the extension is not already installed, installing the extension restarts the SQL Server service.
+> If the extension is not already installed, installing it restarts SQL Server.
 
 Based on this example, the following table describes the practical effect on the target Azure VM:
 
@@ -126,5 +123,5 @@ To disable Automated Patching, run the same script without the **-Enable** param
 ## Next steps
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
-For more information about running SQL Server on Azure VMs, see [SQL Server on Azure Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).
+For more information about running SQL Server on Azure VMs, see [SQL Server on Azure virtual machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).
 

@@ -3,10 +3,10 @@ title: Enable resource logging in Azure Traffic Manager
 description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
 author: rohinkoul
-manager: twooley
+
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
@@ -66,9 +66,8 @@ For top-level resource logs schema, see [Supported services, schemas, and catego
 
 The following table includes logs schema specific to the Azure Traffic Manager profile resource.
 
-|||||
+|Field Name|Field Type|Definition|Example|
 |----|----|---|---|
-|**Field Name**|**Field Type**|**Definition**|**Example**|
 |EndpointName|String|The name of the Traffic Manager endpoint whose health status is being recorded.|*myPrimaryEndpoint*|
 |Status|String|The health status of the Traffic Manager endpoint that was probed. The status can either be **Up** or **Down**.|**Up**|
 |||||

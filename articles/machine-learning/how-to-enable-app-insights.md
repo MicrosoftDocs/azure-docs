@@ -5,11 +5,12 @@ description: Monitor web services deployed with Azure Machine Learning using Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 03/12/2020
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Monitor and collect data from ML web service endpoints
@@ -38,10 +39,12 @@ In addition to collecting an endpoint's output data and response, you can monito
 
 ## Web service metadata and response data
 
->[!Important]
-> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then only the most recent outputs of the model are logged. 
+> [!IMPORTANT]
+> Azure Application Insights only logs payloads of up to 64kb. If this limit is reached then you may see errors such as out of memory, or no information may be logged.
 
-The metadata and response to the service - corresponding to the web service metadata and the model's predictions - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
+To log information for a request to the web service, add `print` statements to your score.py file. Each `print` statement results in one entry in the trace table in Application Insights, under the message `STDOUT`. The contents of the `print` statement will be contained under `customDimensions` and then `Contents` in the trace table. If you print a JSON string, it produces a hierarchical data structure in the trace output under `Contents`.
+
+You can query Azure Application Insights directly to access this data, or set up a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure Machine Learning to set up labeling, retraining, explainability, data analysis, or other use. 
 
 <a name="python"></a>
 
@@ -65,10 +68,51 @@ The metadata and response to the service - corresponding to the web service meta
 
 If you want to log custom traces, follow the standard deployment process for AKS or ACI in the [How to deploy and where](how-to-deploy-and-where.md) document. Then use the following steps:
 
-1. Update the scoring file by adding print statements
+1. To send data to Application Insights during inference, update the scoring file by adding print statements. To log more complex information, such as the request data and the response, us a JSON structure. The following example score.py file logs the time the model is initialized, the input and output during inference, and the time any errors occur:
+
+    > [!IMPORTANT]
+    > Azure Application Insights only logs payloads of up to 64kb. If this limit is reached, you may see errors such as out of memory, or no information may be logged. If the data you want to log is larger 64kb, you should instead store it to blob storage using the information in [Collect Data for models in production](how-to-enable-data-collection.md).
     
     ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
+    import pickle
+    import json
+    import numpy 
+    from sklearn.externals import joblib
+    from sklearn.linear_model import Ridge
+    from azureml.core.model import Model
+    import time
+
+    def init():
+        global model
+        #Print statement for appinsights custom traces:
+        print ("model initialized" + time.strftime("%H:%M:%S"))
+        
+        # note here "sklearn_regression_model.pkl" is the name of the model registered under the workspace
+        # this call should return the path to the model.pkl file on the local disk.
+        model_path = Model.get_model_path(model_name = 'sklearn_regression_model.pkl')
+        
+        # deserialize the model file back into a sklearn model
+        model = joblib.load(model_path)
+    
+
+    # note you can pass in multiple rows for scoring
+    def run(raw_data):
+        try:
+            data = json.loads(raw_data)['data']
+            data = numpy.array(data)
+            result = model.predict(data)
+            # Log the input and output data to appinsights:
+            info = {
+                "input": raw_data,
+                "output": result.tolist()
+                }
+            print(json.dumps(info))
+            # you can return any datatype as long as it is JSON-serializable
+            return result.tolist()
+        except Exception as e:
+            error = str(e)
+            print (error + time.strftime("%H:%M:%S"))
+            return error
     ```
 
 2. Update the service configuration
@@ -104,27 +148,32 @@ You can also enable Azure Application Insights from Azure Machine Learning studi
 1. Select **Enable Application Insights diagnostics and data collection**
 
     ![Enable App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
-## Evaluate data
+
+## View metrics and logs
+
 Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
 
-1. Go to your Azure Machine Learning workspace in the [Azure portal](https://ms.portal.azure.com/) and click on the Application Insights link
+1. Go to your Azure Machine Learning workspace in the [studio](https://ml.azure.com/).
+1. Select **Endpoints**.
+1. Select your deployed service.
+1. Scroll down to find the **Application Insights url** and click on the link.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Locate Application Insights url](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. Select the **Overview** tab to see a basic set of metrics for your service
+1. In Application Isights, from the **Overview** tab or the __Monitoring__ section in the list on the left, select __Logs__.
 
-   [![Overview](./media/how-to-enable-app-insights/overview.png)](././media/how-to-enable-app-insights/overview.png#lightbox)
+    [![Overview tab of monitoring](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. To look into your web service request metadata and response, select the **requests** table in the **Logs (Analytics)** section and select **Run** to view requests
+1. To view information logged from the score.py file, look at the __traces__ table. The following query searches for logs where the __input__ value was logged:
 
-   [![Model data](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+    ```kusto
+    traces
+    | where customDimensions contains "input"
+    | limit 10
+    ```
 
-
-3. To look into your custom traces, select **Analytics**
-4. In the schema section, select **Traces**. Then select **Run** to run your query. Data should appear in a table format and should map to your custom calls in your scoring file
-
-   [![Custom traces](./media/how-to-enable-app-insights/logs.png)](././media/how-to-enable-app-insights/logs.png#lightbox)
+   [![trace data](./media/how-to-enable-app-insights/model-data-trace.png)](././media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 To learn more about how to use Azure Application Insights, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
@@ -133,11 +182,11 @@ To learn more about how to use Azure Application Insights, see [What is Applicat
 >[!Important]
 > Azure Application Insights only supports exports to blob storage. Additional limits of this export capability are listed in [Export telemetry from App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-You can use Azure Application Insights' [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to send messages to a supported storage account, where a longer retention can be set. The `"model_data_collection"` messages are stored in JSON format and can be easily parsed to extract model data. 
+You can use Azure Application Insights' [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to send messages to a supported storage account, where a longer retention can be set. The data is stored in JSON format and can be easily parsed to extract model data. 
 
 Azure Data Factory, Azure ML Pipelines, or other data processing tools can be used to transform the data as needed. When you have transformed the data, you can then register it with the Azure Machine Learning workspace as a dataset. To do so, see [How to create and register datasets](how-to-create-register-datasets.md).
 
-   [![Continuous Export](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Continuous export":::
 
 
 ## Example notebook

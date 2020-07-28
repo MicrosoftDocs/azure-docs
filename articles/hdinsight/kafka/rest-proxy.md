@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.topic: how-to
+ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
 ---
 

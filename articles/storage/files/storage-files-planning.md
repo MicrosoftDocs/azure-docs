@@ -179,17 +179,12 @@ New file shares start with the full number of credits in its burst bucket. Burst
 [!INCLUDE [storage-files-redundancy-overview](../../../includes/storage-files-redundancy-overview.md)]
 
 ## Migration
-In many cases, you will not be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. There are many tools, provided both by Microsoft and 3rd parties, to do a migration to a file share, but they can roughly be divided into two categories:
+In many cases, you will not be establishing a net new file share for your organization, but instead migrating an existing file share from an on-premises file server or NAS device to Azure Files. Picking the right migration strategy and tool for your scenario is important for the success of your migration. 
 
-- **Tools which maintain file system attributes such as ACLs and timestamps**:
-    - **[Azure File Sync](storage-sync-files-planning.md)**: Azure File Sync can be used as a method to ingest data into an Azure file share, even when the desired end deployment isn't to maintain an on-premises presence. Azure File Sync can be installed in place on existing Windows Server 2012 R2, Windows Server 2016, and Windows Server 2019 deployments. An advantage to using Azure File Sync as an ingest mechanism is that end users can continue to use the existing file share in place; cut-over to the Azure file share can occur after all of the data is finished uploading in the background.
-    - **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**: Robocopy is a well-known copy tool that ships with Windows and Windows Server. Robocopy may be used to transfer data into Azure Files by mounting the file share locally, and then using the mounted location as the destination in the Robocopy command.
-
-- **Tools which do not maintain file system attributes**:
-    - **Data Box**: Data Box provides an offline data transfer mechanism to physical ship data into Azure. This method is designed to increase throughput and save bandwidth, but does not currently support file system attributes like timestamps and ACLs.
-    - **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)**: AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance.
+The [migration overview article](storage-files-migration-overview.md) briefly covers the basics and contains a table that leads you to migration guides that likely cover your scenario.
 
 ## Next steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)
 * [Deploying Azure Files](storage-files-deployment-guide.md)
 * [Deploying Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Check out the migration overview article to find the migration guide for your scenario](storage-files-migration-overview.md)

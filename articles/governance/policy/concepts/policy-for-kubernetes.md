@@ -1,7 +1,7 @@
 ---
 title: Preview - Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises. This is a preview feature.
-ms.date: 05/20/2020
+ms.date: 06/12/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Kubernetes clusters (preview)
@@ -27,9 +27,9 @@ Azure Policy for Kubernetes supports the following cluster environments:
 > [!IMPORTANT]
 > Azure Policy for Kubernetes is in Preview and only supports Linux node pools and built-in policy
 > definitions. Built-in policy definitions are in the **Kubernetes** category. The limited preview
-> policy definitions with **EnforceRegoPolicy** effect and the related **Kubernetes Service**
-> category are _deprecated_. Instead, use the updated
-> [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+> policy definitions with **EnforceOPAConstraint** and **EnforceRegoPolicy** effect and the related
+> **Kubernetes Service** category are _deprecated_. Instead, use the effects _audit_ and _deny_ with
+> Resource Provider mode `Microsoft.Kubernetes.Data`.
 
 ## Overview
 
@@ -39,6 +39,10 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Azure Arc enabled Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [AKS Engine](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > For common issues with installation, see
+   > [Troubleshoot - Azure Policy add-on](../troubleshoot/general.md#add-on-installation-errors).
 
 1. [Understand the Azure Policy language for Kubernetes](#policy-language)
 
@@ -55,12 +59,6 @@ must enable the **Microsoft.ContainerService** and **Microsoft.PolicyInsights** 
    find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 1. Register the resource providers and preview features.
-
-   > [!CAUTION]
-   > When you register a feature on a subscription, you can't un-register that feature. After you
-   > enable some preview features, defaults may be used for all AKS clusters then created in the
-   > subscription. Don't enable preview features on production subscriptions. Use a separate
-   > subscription to test preview features and gather feedback.
 
    - Azure portal:
 
@@ -427,11 +425,12 @@ kubectl get pods -n gatekeeper-system
 ## Policy language
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. The effect _EnforceOPAConstraint_ is used to manage your Kubernetes clusters and takes
-details properties specific to working with
+definitions. With a [Resource Provider mode](./definition-structure.md#resource-provider-modes) of
+`Microsoft.Kubernetes.Data`, the effects [audit](./effects.md#audit) and [deny](./effects.md#deny)
+are used to manage your Kubernetes clusters. _Audit_ and _deny_ must provide **details** properties
+specific to working with
 [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint)
-and Gatekeeper v3. For details and examples, see the
-[EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect.
+and Gatekeeper v3.
 
 As part of the _details.constraintTemplate_ and _details.constraint_ properties in the policy
 definition, Azure Policy passes the URIs of these
@@ -445,7 +444,7 @@ compliance reporting experience. For more information, see
 ## Assign a built-in policy definition
 
 To assign a policy definition to your Kubernetes cluster, you must be assigned the appropriate
-role-based access control (RBAC) policy assignment operations. The built-in RBAC roles **Resource
+role-based access control (RBAC) policy assignment operations. The Azure built-in roles **Resource
 Policy Contributor** and **Owner** have these operations. To learn more, see
 [RBAC permissions in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 

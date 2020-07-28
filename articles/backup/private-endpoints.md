@@ -7,7 +7,7 @@ ms.date: 05/07/2020
 
 # Private Endpoints for Azure Backup
 
-Azure Backup allows you to securely back up and restore your data from your Recovery Services vaults using [private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). Private endpoints use one or more private IP addresses from your VNet, effectively bringing the service into your VNet.
+Azure Backup allows you to securely back up and restore your data from your Recovery Services vaults using [private endpoints](../private-link/private-endpoint-overview.md). Private endpoints use one or more private IP addresses from your VNet, effectively bringing the service into your VNet.
 
 This article will help you understand the process of creating private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 
@@ -16,9 +16,11 @@ This article will help you understand the process of creating private endpoints 
 - Private endpoints can be created for new Recovery Services vaults only (that don't have any items registered to the vault). So private endpoints must be created before you attempt to protect any items to the vault.
 - One virtual network can contain private endpoints for multiple Recovery Services vaults. Also, one Recovery Services vault can have private endpoints for it in multiple virtual networks. However, the maximum number of private endpoints that can be created for a vault is 12.
 - Once a private endpoint is created for a vault, the vault will be locked down. It won't be accessible (for backups and restores) from networks apart from ones that contain a private endpoint for the vault. If all private endpoints for the vault are removed, the vault will be accessible from all networks.
+- A private endpoint connection for Backup uses a total of 11 private IPs in your subnet. This number may be higher (up to 15) for certain Azure regions. So we suggest that you have enough private IPs available when you attempt to create private endpoints for Backup.
 - While a Recovery Services vault is used by (both) Azure Backup and Azure Site Recovery, this article discusses use of private endpoints for Azure Backup only.
 - Azure Active Directory doesn't currently support private endpoints. So IPs and FQDNs required for Azure Active Directory to work in a region will need to be allowed outbound access from the secured network when performing backup of databases in Azure VMs and backup using the MARS agent. You can also use NSG tags and Azure Firewall tags for allowing access to Azure AD, as applicable.
 - Virtual networks with Network Policies aren't supported for Private Endpoints. You'll need to disable Network Polices before continuing.
+- You need to re-register the Recovery Services resource provider with the subscription if you registered it before May 1 2020. To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and click **Re-register**.
 
 ## Recommended and supported scenarios
 
@@ -36,12 +38,9 @@ This section talks about the steps involved in creating and using private endpoi
 >[!IMPORTANT]
 > It is highly recommended that you follow steps in the same sequence as mentioned in this document. Failure to do so may lead to the vault being rendered incompatible to use private endpoints and requiring you to restart the process with a new vault.
 
->[!NOTE]
-> Certain elements of the Azure portal experience may not be currently available. Please refer to the alternate experiences in such scenarios until full availability in your region.
-
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
-See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) to learn how to create a vault using the Azure Resource Manager client. This creates a vault with its managed identity already enabled. Learn more about Recovery Services vaults [here](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview).
+See [this section](#create-a-recovery-services-vault-using-the-azure-resource-manager-client) to learn how to create a vault using the Azure Resource Manager client. This creates a vault with its managed identity already enabled. Learn more about Recovery Services vaults [here](./backup-azure-recovery-services-vault-overview.md).
 
 ## Enable Managed Identity for your vault
 
@@ -105,11 +104,11 @@ If you wish to create a separate private DNS zone in Azure, you can do the same 
 
 Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
 
-For URL naming conventions in national geos:
+For URL naming conventions in national regions:
 
-- [China](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Germany](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
-- [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 ### Linking private DNS zones with your virtual network
 

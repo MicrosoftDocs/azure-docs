@@ -28,6 +28,8 @@
     href: Quickstarts/batch-testing.md
 - name: Concepts
   items:
+  - name: Plan your knowledge base
+    href: Concepts/plan.md
   - name: Azure resources
     href: Concepts/azure-resources.md
   - name: Collaborate with others
@@ -72,8 +74,6 @@
     - name: Manage resources
       href: How-To/set-up-qnamaker-service-azure.md
       displayName: azure, resource, key, upgrade, pricing, tier,
-    - name: Create a business continuity plan
-      href: How-To/business-continuity-plan.md
     - name: Collaborate
       href: How-To/collaborate-knowledge-base.md
     - name: Turn on active learning
@@ -201,12 +201,14 @@
         href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-go
-    - name: Node.js
+    - name: JavaScript
       items:
       - name: Reference Documentation
         href: https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest
-      - name: NPM
-        href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+      - name: NPM - Authoring
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker
+      - name: NPM - Query runtime
+        href: https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker-runtime
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs
     - name: Python

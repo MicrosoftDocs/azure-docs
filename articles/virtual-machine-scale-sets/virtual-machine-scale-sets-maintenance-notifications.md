@@ -108,7 +108,7 @@ After you start maintenance, the affected VMs in your virtual machine scale set 
  
 ## Check maintenance status by using PowerShell
 
-You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
+You can use Azure PowerShell to see when VMs in your virtual machine scale sets are scheduled for maintenance. Planned maintenance information is available by using the [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cmdlet when you use the `-InstanceView` parameter.
  
 Maintenance information is returned only if maintenance is planned. If no maintenance is scheduled that affects the VM instance, the cmdlet doesn't return any maintenance information. 
 

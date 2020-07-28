@@ -22,9 +22,9 @@ We recommend that new users choose Azure Machine Learning for the widest range o
 
 The following table summarizes some of the key differences between Azure Machine Learning and Studio (classic):
 
-| | Machine Learning Studio (classic) | Azure Machine Learning |
+| Feature | Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Supported | Supported - [Azure Machine Learning designer (preview)](concept-designer.md) | 
+| Drag and drop interface | Supported | Supported - [Azure Machine Learning designer (preview)](concept-designer.md) <br/>(Requires Enterprise workspace) | 
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Training compute targets | Proprietary compute target, CPU support only | Wide range of customizable [training compute targets](concept-compute-target.md#train). Includes GPU and CPU support | 
 | Deployment compute targets | Proprietary web service format, not customizable | Wide range of customizable [deployment compute targets](concept-compute-target.md#deploy). Includes GPU and CPU support |

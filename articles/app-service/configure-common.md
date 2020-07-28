@@ -163,9 +163,9 @@ Here, you can configure some common settings for the app. Some settings require 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **Bitness**: 32-bit or 64-bit.
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
-    - **Always On**: Keep the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
+    - **Always On**: Keeps the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
       > [!NOTE]
-      > With the Always On feature, you can’t control the endpoint. It always sends a request to the application root.
+      > With the Always On feature, the front end load balancer sends a request to the application root. This application endpoint of the App Service can't be configured.
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]

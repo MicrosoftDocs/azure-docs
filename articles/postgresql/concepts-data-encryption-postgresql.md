@@ -10,9 +10,6 @@ ms.date: 01/13/2020
 
 # Azure Database for PostgreSQL Single server data encryption with a customer-managed key
 
-> [!NOTE]
-> At this time, you must request access to use this capability. To do so, contact AskAzureDBforPostgreSQL@service.microsoft.com.
-
 Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server enables you to bring your own key (BYOK) for data protection at rest. It also allows organizations to implement separation of duties in the management of keys and data. With customer-managed encryption, you are responsible for, and in a full control of, a key's lifecycle, key usage permissions, and auditing of operations on keys.
 
 Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server, is set at the server-level. For a given server, a customer-managed key, called the key encryption key (KEK), is used to encrypt the data encryption key (DEK) used by the service. The KEK is an asymmetric key stored in a customer-owned and customer-managed [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instance. The Key Encryption Key (KEK) and Data Encryption Key (DEK) is described in more detail later in this article.
@@ -20,7 +17,7 @@ Data encryption with customer-managed keys for Azure Database for PostgreSQL Sin
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, imported it, or [have it transferred from an on-premises HSM device](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for PostgreSQL Single server supports "General Purpose" and "Memory Optimized" pricing tiers.
+> This feature is available in all Azure regions where Azure Database for PostgreSQL Single server supports "General Purpose" and "Memory Optimized" pricing tiers. For other limitations, refer to the [limitation](concepts-data-encryption-postgresql.md#limitations) section.
 
 ## Benefits
 
@@ -49,7 +46,7 @@ For a PostgreSQL server to use customer-managed keys stored in Key Vault for enc
 * **wrapKey**: To be able to encrypt the DEK.
 * **unwrapKey**: To be able to decrypt the DEK.
 
-The key vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
+The key vault administrator can also [enable logging of Key Vault audit events](../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
 When the server is configured to use the customer-managed key stored in the key vault, the server sends the DEK to the key vault for encryptions. Key Vault returns the encrypted DEK, which is stored in the user database. Similarly, when needed, the server sends the protected DEK to the key vault for decryption. Auditors can use Azure Monitor to review Key Vault audit event logs, if logging is enabled.
 
@@ -124,6 +121,19 @@ To avoid issues while setting up customer-managed data encryption during restore
 * Initiate the restore or read replica creation process from the master Azure Database for PostgreSQL Single server.
 * Keep the newly created server (restored/replica) in an inaccessible state, because its unique identity hasn't yet been given permissions to Key Vault.
 * On the restored/replica server, revalidate the customer-managed key in the data encryption settings. This ensures that the newly created server is given wrap and unwrap permissions to the key stored in Key Vault.
+
+## Limitations
+
+For Azure Database for PostgreSQL, the support for encryption of data at rest using customers managed key (CMK) has few limitations -
+
+* Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
+* This feature is only supported in regions and servers which support storage up to 16TB. For the list of Azure regions supporting storage up to 16TB, refer to the storage section in documentation [here](concepts-pricing-tiers.md#storage)
+
+    > [!NOTE]
+    > - All new PostgreSQL servers created in the regions listed above, support for encryption with customer manager keys is **available**. Point In Time Restored (PITR) server or read replica will not qualify though in theory they are ‘new’.
+    > - To validate if your provisioned server supports up to 16TB, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server may not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforPostgreSQL@service.microsoft.com if you have any questions.
+
+* Encryption is only supported with RSA 2048 cryptographic key.
 
 ## Next steps
 
