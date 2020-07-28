@@ -64,4 +64,30 @@ For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.8901`
 
 ## Upload an SSH key
 
-You can also upload an SSH key to store for use in Azure. 
+You can also upload a public SSH key to store in Azure. For information about how to create an SSH key pair, see XXXXXXXX.
+
+1. Open the [Azure portal](https://portal.azure.com.
+
+1. At the top of the page, type *SSH* to search. Under **Marketplace*, select **SSH keys**.
+
+1. On the **SSH Key** page, select **Create**.
+
+:::image type="content" source="./media/ssh-keys/upload.png" alt-text="Upload an SSH public key to be stored in Azure":::
+
+1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
+
+1. In **Region** select a region to store your keys. You can use the keys in any region, this is just the region where they will be stored.
+
+1. Type a name for your key in **Key pair name**.
+
+1. In **SSH public key source**, select **Upload existing public key**. 
+
+1. Paste the full contents of the public key into **Upload key** and then select **Review + create**.
+
+1. After validation completes, select **Create**. 
+
+Once the key has been uploaded, you can choose to use it when you create a VM.
+
+## Next steps
+
+To learn more about using SSH keys with Azure VMs, see 
