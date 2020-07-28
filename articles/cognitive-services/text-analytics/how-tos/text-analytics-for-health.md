@@ -76,8 +76,8 @@ Fill out and submit the [Cognitive Services containers request form](https://aka
 
 There are multiple ways you can install and run the container. 
 
-1. Using the [Azure portal](text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
-2. Using the below PowerShell and [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) scripts to automate resource deployment container configuration.
+- Use the [Azure portal](text-analytics-how-to-install-containers.md?tabs=healthcare) to create a Text Analytics resource, and use Docker to get your container.
+- Use the following PowerShell and [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) scripts to automate resource deployment container configuration.
 
 ### Install the container using Azure Web App for Containers
 
