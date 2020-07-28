@@ -36414,7 +36414,7 @@
     {
       "source_path": "articles/active-directory/active-directory-saas-custom-apps.md",
       "redirect_url": "/azure/active-directory/manage-apps/view-applications-portal",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-customizing-attribute-mappings.md",
