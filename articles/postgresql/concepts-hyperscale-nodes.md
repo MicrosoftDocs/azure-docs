@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/28/2020
 ---
 
 # Nodes in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -31,5 +31,7 @@ a single node or multiple. The coordinator decides what to do by consulting
 metadata tables. These tables track the DNS names and health of worker
 nodes, and the distribution of data across nodes.
 
+[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+
 ## Next steps
-- Learn how nodes store [distributed data](concepts-hyperscale-distributed-data.md)
+- Learn the ways you can [distribute data](concepts-hyperscale-distributed-data.md) across nodes
