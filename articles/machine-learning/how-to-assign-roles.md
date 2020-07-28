@@ -5,12 +5,12 @@ description: Learn how to access to an Azure Machine Learning workspace using ro
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.reviewer: Blackmist
 ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
-ms.custom: seodec18
+ms.custom: how-to, seodec18
 
 ---
 
