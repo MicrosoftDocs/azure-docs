@@ -107,7 +107,7 @@ For small and medium size clusters, it takes a few moments for the service princ
 
 ## Update AKS Cluster with new AAD Application credentials
 
-You may create new AAD Server and Client applications by following the [AAD integration steps][create-aad-app]. Or reset your existing AAD Applications following the [same method as for service principal reset](#reset-existing-service-principal-credential). After that you just need to update your cluster AAD Application credentials using the same [az aks update-credentials][az-aks-update-credentials] command but using the *--reset-aad* variables.
+You may create new AAD Server and Client applications by following the [AAD integration steps][create-aad-app]. Or reset your existing AAD Applications following the [same method as for service principal reset](#reset-the-existing-service-principal-credential). After that you just need to update your cluster AAD Application credentials using the same [az aks update-credentials][az-aks-update-credentials] command but using the *--reset-aad* variables.
 
 ```azurecli-interactive
 az aks update-credentials \
