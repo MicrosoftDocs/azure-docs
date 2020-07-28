@@ -21,6 +21,8 @@ This article offers examples and more detail for using the [Azure Digital Twins 
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
+The rest of this article provides examples of how to use these operations.
+
 ## Query syntax
 
 Here are some sample queries that illustrate the query language structure and perform possible query operations.
