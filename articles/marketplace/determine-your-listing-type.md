@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 06/22/2020
+ms.date: 07/28/2020
 ---
 
 # Determine your publishing option
@@ -44,14 +44,122 @@ The following table shows the publishing options for offer types in Microsoft Ap
 
 ## Selecting a storefront
 
-Before you select a publishing option, it's important to understand the storefront eligibility requirements for commercial marketplace solutions, apps, and services. Each storefront serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and category or industry will determine where to publish your offer.
+Each storefront serves unique customer requirements and targets specific audiences. Your offer type, transact capabilities, and category or industry will determine where your offer will be published. Categories and subcategories are mapped to each storefront based on the target audience:
 
-**Microsoft AppSource** applications are line-of-business solutions that can be built-on Azure or built-for: Dynamics 365, Office 365, Power BI, or Power Apps. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
+**Microsoft AppSource** targets business users looking for line-of-business or industry solutions and consulting services for Dynamics 365, Microsoft 365, and Power Platform.
 
-**Azure Marketplace** applications are technical "building-block" solutions built-on or built-for Azure and intended for an IT or developer audience. Azure Marketplace consulting services are professional services offerings that help customers get started with or accelerate the use of Azure.
+**Azure Marketplace** targets IT professionals and developers looking for solutions built for or on Azure as well as consulting services that accelerate their use of Azure.
 
->[!Note]
->"Cross-listing" (for SaaS Apps only): if your SaaS offer is intended for a technical audience (Azure Marketplace) and a business audience (AppSource), you can select a category and/or subcategory applicable to either Storefronts. Be mindful that the intent of "cross-listing" your offer should be based on a value proposition that extends to both audiences. Click [here](./gtm-offer-listing-best-practices.md#categories) to view categories applicable to each Storefront.
+For example, a web application firewall should be published to Azure Marketplace, under the Security category, as the intended audience is IT professionals. A contract management app should instead be published to AppSource under the Sales category, since the intended audience is business users. Selecting the incorrect category or subcategory may result in your offer being published to the wrong storefront.
+
+### Publishing to both Storefronts (SaaS offers only)
+
+SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS offer is intended for *both* a technical audience (Azure Marketplace) and a business audience (AppSource), select a category and/or a subcategory applicable to either storefront. Offers published to both storefronts should have a value proposition that extends to IT professionals *and* business users.
+
+> [!IMPORTANT]
+> Transactable SaaS offers with metered billing and/or private plans are available only through Azure Marketplace and/or the Azure portal.
+
+| Metered billing | Public plan | Private plan | Available in: |
+|---|---|---|---|
+| Yes             | Yes         | No           | Azure Marketplace and Azure portal |
+| Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
+| Yes             | No          | Yes          | Azure portal only |
+| No              | No          | Yes          | Azure portal only |
+
+&#42; The private plan of the offer will only be available via the Azure portal
+
+For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure Portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
+
+### Categories
+
+Categories and subcategories are mapped to each storefront based on the target audience. Select the categories and subcategories that best align with your offer and the intended audience. You can select:
+
+* At least one and up to two categories. You have the option to choose a primary and a secondary category.
+* Up to two subcategories for each primary and/or secondary category. If you don’t select any subcategory, your offer will still be discoverable under the selected category.
+
+| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) |
+| :------------------- |:----------------|
+|**Analytics** | **Analytics** |
+| &nbsp;&nbsp;Data Insights | &nbsp;&nbsp;Advanced Analytics  |
+| &nbsp;&nbsp;Data Analytics |  &nbsp;&nbsp;Visualization & Reporting |
+| &nbsp;&nbsp;Big Data | **AI + Machine Learning**  |
+| &nbsp;&nbsp;Predictive Analytics | &nbsp;&nbsp;AI for Business |
+| &nbsp;&nbsp;Real-time/Streaming Analytics | &nbsp;&nbsp;Bot Apps |
+| **AI + Machine Learning** | **Collaboration** |
+| &nbsp;&nbsp;Bot Service | &nbsp;&nbsp;Contact & People |
+| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Meeting Management |
+| &nbsp;&nbsp;ML Service | &nbsp;&nbsp;Site Design & Management |
+| &nbsp;&nbsp;Automated ML | &nbsp;&nbsp;Task & Project Management |
+| &nbsp;&nbsp;Business/Robotic Process Automation | &nbsp;&nbsp;Voice & Video Conferencing |
+| &nbsp;&nbsp;Data Labeling | **Compliance & Legal** |
+| &nbsp;&nbsp;Data Preparation | &nbsp;&nbsp;Tax & Audit |
+| &nbsp;&nbsp;Knowledge Mining | &nbsp;&nbsp;Legal |
+| &nbsp;&nbsp;ML Operations | &nbsp;&nbsp;Data, Governance & Privacy |
+| **Blockchain**  | &nbsp;&nbsp;Health & Safety |
+| &nbsp;&nbsp;App Accelerators | **Customer Service**  |
+| &nbsp;&nbsp;Single-node Ledger | &nbsp;&nbsp;Contact Center |
+| &nbsp;&nbsp;Multi-node Ledger | &nbsp;&nbsp;Face to Face Service |
+| &nbsp;&nbsp;Tools | &nbsp;&nbsp;Back Office & Employee Service |
+| **Compute**  | &nbsp;&nbsp;Knowledge & Case Management |
+| &nbsp;&nbsp;Application Infrastructure | &nbsp;&nbsp;Social Media & Omnichannel Engagement |
+| &nbsp;&nbsp;Operating Systems | **Finance** |
+| &nbsp;&nbsp;Cache | &nbsp;&nbsp;Accounting |
+| **Containers**  | &nbsp;&nbsp;Asset Management |
+| &nbsp;&nbsp;Get Started with Containers | &nbsp;&nbsp;Analytics, Consolidation & Reporting |
+| &nbsp;&nbsp;Container Apps | &nbsp;&nbsp;Credit & Collections |
+| &nbsp;&nbsp;Container Images | &nbsp;&nbsp;Compliance & Risk Management |
+| **Databases**  | **Geolocation** |
+| &nbsp;&nbsp;NoSQL Databases | &nbsp;&nbsp;Maps |
+| &nbsp;&nbsp;Relational Databases | &nbsp;&nbsp;News & Weather |
+| &nbsp;&nbsp;Ledger/Blockchain Databases | **Human Resources** |
+| &nbsp;&nbsp;Data Lakes | &nbsp;&nbsp;Talent Acquisition |
+| &nbsp;&nbsp;Data Warehouse | &nbsp;&nbsp;Talent Management |
+| **Developer Tools**  | &nbsp;&nbsp;HR Operations |
+| &nbsp;&nbsp;Tools | &nbsp;&nbsp;Workforce Planning & Analytics |
+| &nbsp;&nbsp;Scripts | **IT & Management Tools** |
+| &nbsp;&nbsp;Developer Service | &nbsp;&nbsp;Management Solutions |
+| **DevOps**  | &nbsp;&nbsp;Business Applications |
+| **Integration**  | **Internet of Things** |
+| &nbsp;&nbsp;Messaging | &nbsp;&nbsp;Asset Management & Operations |
+| **IT & Management Tools**  | &nbsp;&nbsp;Connected Products |
+| &nbsp;&nbsp;Management Solutions | &nbsp;&nbsp;Intelligent Supply Chain |
+| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Predictive Maintenance |
+| **Identity**  | &nbsp;&nbsp;Remote Monitoring |
+| &nbsp;&nbsp;Access Management | &nbsp;&nbsp;Safety & Security |
+| **Internet of Things**  | &nbsp;&nbsp;Smart Infrastructure & Resources |
+| &nbsp;&nbsp;IoT Connectivity | &nbsp;&nbsp;Vehicles & Mobility |
+| &nbsp;&nbsp;IoT Core Services | **Marketing** |
+| &nbsp;&nbsp;IoT Edge Modules | &nbsp;&nbsp;Advertisement |
+| &nbsp;&nbsp;IoT Solutions | &nbsp;&nbsp;Analytics |
+| &nbsp;&nbsp;Data Analytics & Visualization | &nbsp;&nbsp;Campaign Management & Automation |
+| **Media**  | &nbsp;&nbsp;Email Marketing |
+| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Events & Resource Management |
+| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Research & Analysis |
+| &nbsp;&nbsp;Live & On-Demand Streaming | &nbsp;&nbsp;Social Media |
+| **Monitoring & Diagnostics**  | **Operations & Supply Chain** |
+| **Migration**  | &nbsp;&nbsp;Asset & Production Management |
+| &nbsp;&nbsp;Data Migration | &nbsp;&nbsp;Demand Forecasting |
+| **Mixed Reality**  | &nbsp;&nbsp;Information Management & Connectivity |
+| **Networking**  | &nbsp;&nbsp;Planning, Purchasing & Reporting |
+| &nbsp;&nbsp;Appliance Managers | &nbsp;&nbsp;Quality & Service Management |
+| &nbsp;&nbsp;Connectivity | &nbsp;&nbsp;Sales & Order Management |
+| &nbsp;&nbsp;Firewalls | &nbsp;&nbsp;Transportation & Warehouse Management |
+| &nbsp;&nbsp;Load Balancers | **Productivity** |
+| **Security**  | &nbsp;&nbsp;Content Creation & Management |
+| &nbsp;&nbsp;Identity & Access Management | &nbsp;&nbsp;Document Management |
+| &nbsp;&nbsp;Threat Protection | &nbsp;&nbsp;Email Management |
+| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Language & Translation |
+| **Storage**  | &nbsp;&nbsp;Search & Reference |
+| &nbsp;&nbsp;Backup & Recovery | &nbsp;&nbsp;Gamification |
+| &nbsp;&nbsp;Enterprise Hybrid Storage | **Sales** |
+| &nbsp;&nbsp;File Sharing | &nbsp;&nbsp;Telesales |
+| &nbsp;&nbsp;Data Life-cycle Management | &nbsp;&nbsp;Configure, Price, Quote (CPQ) |
+| **Web**  | &nbsp;&nbsp;Contract Management |
+| &nbsp;&nbsp;Blogs & CMSs | &nbsp;&nbsp;CRM |
+| &nbsp;&nbsp;Starter Web Apps | &nbsp;&nbsp;E-commerce |
+| &nbsp;&nbsp;E-commerce | &nbsp;&nbsp;Business Data Enrichment  |
+| &nbsp;&nbsp;Web App Frameworks | &nbsp;&nbsp;Sales Enablement  |
+| &nbsp;&nbsp;Web Apps |  |
 
 ## Choose a publishing option
 
