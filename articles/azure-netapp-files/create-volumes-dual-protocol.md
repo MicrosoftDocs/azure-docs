@@ -33,9 +33,6 @@ This article shows you how to create a volume that uses the dual protocol of NFS
 * Ensure that you meet the [Requirements for Active Directory connections](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
 * Ensure that the NFS client is up-to-date and running the latest updates for the operating system.
 
-
-
-
 ## Create a dual-protocol volume
 
 1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
@@ -132,10 +129,9 @@ You can manage POSIX attributes such as UID, Home Directory, and other values by
 
 ## Configure the NFS client 
 
-Follow instructions in [Configure an NFS client to use with Azure NetApp Files](????????) for NFS client configuration.  
+Follow instructions in [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) to configure the NFS client.  
 
 ## Next steps  
 
-* [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
-* [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
+* [Dual-protocol FAQs](azure-netapp-files-faqs.md#dual-protocol-faqs)
+* [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md) 
