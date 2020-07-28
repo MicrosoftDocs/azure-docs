@@ -95,7 +95,7 @@ Operation (for Routing) | Event Grid </br>Event Hub </br>Service Bus |
 
 ## Next steps
 
-To learn more about managing recorded metrics for Azure Digital Twins, see [*How-to: Set up diagnostics*](how-to-set-up-diagnostics.md).
+To learn more about managing recorded metrics for Azure Digital Twins, see [*Troubleshoot: Set up diagnostics*](troubleshoot-diagnostics.md).
 
 Or, now that you’ve seen an overview of Azure Digital Twins metrics, follow these links to learn more about managing Azure Digital Twins:
 
