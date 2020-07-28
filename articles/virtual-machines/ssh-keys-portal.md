@@ -15,7 +15,7 @@ ms.author: cynthn
 You can create and reuse SSH keys in the Azure portal. You can create a SSH keys when you first create a VM, and reuse them for other VMs. You can also create SSH keys separately, so that you have a set of keys stored in Azure to fit your organizations needs. And, if you have existing keys and you want to simplify using the with Azure VMs, you can upload them and store them in Azure for reuse.
 
 
-************ Portal currently links to https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-ssh-keys-detailed from the SSH thing using this fwlink: https://go.microsoft.com/fwlink/?linkid=2118349.**********
+************ Portal currently links to https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-ssh-keys-detailed from the SSH thing using this fwlink: https://go.microsoft.com/fwlink/?linkid=2118349  Owners are listed as mdepiet;arunrab;venkatb.**********
 
 
 SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. SSH is the default connection protocol for Linux VMs hosted in Azure. Although SSH itself provides an encrypted connection, using passwords with SSH connections still leaves the VM vulnerable to brute-force attacks or guessing of passwords. A more secure and preferred method of connecting to a VM using SSH is by using a public-private key pair, also known as SSH keys.
@@ -23,19 +23,45 @@ SSH is an encrypted connection protocol that allows secure sign-ins over unsecur
 The public key is stored in Azure. The private key remains on your local system. Protect this private key. Do not share it.
 
 
-## Create keys
+## Generate new keys
 
-Open the Azure portal.
+1. Open the [Azure portal](https://portal.azure.com.
 
-At the top of the page, type *SSH* to search. Under **Marketplace*, select **SSH keys**.
+1. At the top of the page, type *SSH* to search. Under **Marketplace*, select **SSH keys**.
 
-On the **SSH Key** page, select **Create**.
+1. On the **SSH Key** page, select **Create**.
 
-Downloads as *frontend.pem* file.
+:::image type="content" source="./media/ssh-keys/portal-sshkey.png" alt-text="Create a new resource group and generate an SSH key pair":::
+
+1. In **Resource group** select **Create new** to create a new resource group to store your keys. Type a name for your resource group and select **OK**.
+
+1. In **Region** select a region to store your keys. You can use the keys in any region, this is just the region where they will be stored.
+
+1. Type a name for your key in **Key pair name**.
+
+1. In **SSH public key source**, select **Generate public key source**. 
+
+1. When you are done, select **Review + create**.
+
+1. After it passes validation, select **Create**.
+
+1. You will then get a pop-up window to, select **Download private key and create resource**. This will download the SSH key as a .pem file.
+
+:::image type="content" source="./media/ssh-keys/download-key.png" alt-text="Download the private key as a .pem file":::
+
+1. Once the .pem file is downloaded, you might want to move it somewhere on your computer where it is easy to point to from your SSH client.
 
 
-The SSH key can now be used to create VMs in your subscription, in any region.
+## Connect to the VM
 
+On your local computer, open a PowerShell prompt and type:
 
+```powershell
+ssh -i <path to the .pem file> username@<ipaddress of the VM>
+```
 
-During VM creation
+For example, type: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.8901`
+
+## Upload an SSH key
+
+You can also upload an SSH key to store for use in Azure. 
