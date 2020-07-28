@@ -93,7 +93,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<SUBDOMAIN>.blogin.co/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [BlogIn Client support team](mailto:support@blogin.co) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. You can get the exact values for these fields on the **Settings** page on BlogIn (User Athentication tab > Configure SSO and User Provisioning). Alternatively, you can contact [BlogIn Client support team](mailto:support@blogin.co) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. BlogIn application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -142,7 +142,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure BlogIn SSO
 
-To configure single sign-on on **BlogIn** side, you need to send the **App Federation Metadata Url** to [BlogIn support team](mailto:support@blogin.co). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **BlogIn** side login to your BlogIn account and go to Settings > User Authentication tab > Configure SSO & User provisioning.
+
+On the next screen, change Single Sign-On status to **On** and choose a custom name for SSO Login button that will be displayed on the login screen.
+
+If you saved the **App Federation Metadata Url** in the last step of the previous section, choose Configuration method **Metadata URL** and paste **App Federation Metadata Url** into the Metadata URL field. 
+
+Otherwise, change the Configuration method to manual and manually populate **Identity Provider SSO URL (Login URL)** and **Identity Provider Issuer (entity ID)** and upload the **Certificate (base64)** you got from Azure AD.
+
+Choose default user role for new users joining BlogIn using SSO.
+
+Click **Save changes**.
+
+For a more detailed explanation on setting up SSO on BlogIn, please visit this guide: [How to set up SSO for Microsoft Azure AD on BlogIn](https://blogin.co/blog/how-to-set-up-single-sign-on-sso-for-microsoft-azure-active-directory-azure-ad-267/)
+
+Feel free to contact [BlogIn support team](mailto:support@blogin.co) at any time if you have any questions or need help.
 
 ### Create BlogIn test user
 
