@@ -1,5 +1,5 @@
 ---
-title: Rotation tutorial for resources with one set of authentication credentials
+title: Rotation tutorial for resources with one set of authentication credentials stored in Azure Key Vault
 description: Use this tutorial to learn how to automate the rotation of a secret for resources that use one set of authentication credentials.
 services: key-vault
 author: msmbaldwin
