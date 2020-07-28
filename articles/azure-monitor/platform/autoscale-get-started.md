@@ -111,7 +111,7 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 
 App Service can perform health checks on your instances to ensure traffic is only routed to healthy instances. To do so, open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
 
-### Healthcheck path
+### Health check path
 
 The path must respond within two minutes with a status code between 200 and 299 (inclusive). If the path does not respond within two minutes, or returns a status code outside the range, then the instance is considered "unhealthy". Health Check integrates with App Service's authentication and authorization features, the system will reach the endpoint even if these secuity features are enabled. If you are using your own authentication system, the health check path must allow anonymous access. If the site has HTTP**S** enabled, then the healthcheck will honor HTTP**S** and send the request using that protocol.
 
@@ -125,7 +125,7 @@ If an instance remains unhealthy for one hour, it will be replaced with new inst
 
 ### Monitoring
 
-After providing your application's health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, select the **Metrics** shortcut. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](../articles/app-service/web-sites-monitor.md).
+After providing your application's health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, select the **Metrics** shortcut. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](../../app-service/web-sites-monitor.md).
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
