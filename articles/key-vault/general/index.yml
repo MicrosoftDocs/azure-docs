@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What is Azure Key Vault?
             url: overview.md
+          - text: Important news about soft-delete
+            url: soft-delete-change.md
       - linkListType: concept
         links:
           - text: Basic concepts

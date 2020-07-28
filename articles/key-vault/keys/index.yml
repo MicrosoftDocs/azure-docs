@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What are Key Vault keys?
             url: about-keys.md
+          - text: Important news about soft-delete
+            url: soft-delete-change.md
 
   # Card
   - title: Get started

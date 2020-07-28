@@ -13,7 +13,7 @@ ms.date: 03/19/2019
 # Azure Key Vault soft-delete overview
 
 > [!IMPORTANT]
-> Text here
+> You must enable soft delete on your key vaults immediately. The ability to opt out of soft delete will be deprecated by the end of the year, and soft-delete protection will automatically be turned on for all key vaults.  See full details [here](soft-delete-change.md)
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
 

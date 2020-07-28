@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What are Key Vault certificates?
             url: about-certificates.md
+          - text: Important news about soft-delete
+            url: soft-delete-change.md
           - text: Get started with Key Vault certificates
             url: certificate-scenarios.md
           - text: Certificate creation methods
