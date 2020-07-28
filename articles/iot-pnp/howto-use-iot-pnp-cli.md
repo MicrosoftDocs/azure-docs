@@ -151,8 +151,10 @@ az iot pnp model list -q {search_keyword}
 
 Publish a device model located in the company repository to public repository:
 
+For example, public model with Id being dtmi:com:example:ClimateSensor;1
+
 ```azurecli
-az iot pnp model publish --dtmi {model_id}
+az iot pnp model publish --dtmi "dtmi:com:example:ClimateSensor;1"
 ```
 To publish a model, the following requirements must be met:
 1. The company (or organization) tenant must be a Microsoft Partner. 
