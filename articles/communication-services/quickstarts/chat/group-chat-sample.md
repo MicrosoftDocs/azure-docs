@@ -3,12 +3,12 @@ title: Get Started With Chat 2
 description: TODO
 author: mikben    
 manager: jken
-services: azure-project-spool
+services: azure-communication-services
 
 ms.author: juramir
 ms.date: 07/13/2020
 ms.topic: overview
-ms.service: azure-project-spool
+ms.service: azure-communication-services
 
 ---
 
@@ -38,7 +38,7 @@ Before you get started, make sure to:
 ## Setup the solution
 1. After the .zip is extracted, open the solution in visual studio.
 ![SolutionFile](../media/chat-groupsample4.png)
-2. Open the appSettings.json file under the Chat folder, and replace the AcsResourceConnectionString and AcsResourceId from your Azure Communication Resource found in the Azure Portal (http://portal.azure.com/) as showed below:
+2. Open the appSettings.json file under the Chat folder, and replace the AcsResourceConnectionString and AcsResourceId from your Azure Communication Resource found in the Azure Portal (https://portal.azure.com/) as showed below:
 
 
 ![AcsResourceConnectionString](../media/chat-groupsample0.png)

@@ -1,14 +1,14 @@
 ---
 title: Get Started With Chat
 description: TODO
-author: mikben    
+author: gelli, juramir  
 manager: jken
-services: azure-project-spool
+services: azure-communication-services
 
-ms.author: gelli, juramir
+ms.author: gelli
 ms.date: 06/26/2020
 ms.topic: overview
-ms.service: azure-project-spool
+ms.service: azure-communication-services
 
 ---
 
