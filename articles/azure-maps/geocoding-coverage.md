@@ -1,6 +1,6 @@
 ---
 title: Geocoding coverage in Microsoft Azure Maps Search Service
-description: In this article, you'll learn about regions with Geocoding Coverage in Microsoft Azure Maps.
+description: In this article, you'll learn about regions with Geocoding Coverage in Microsoft Azure Maps Search Service.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/28/2019
@@ -14,7 +14,7 @@ manager: philmea
 
 The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) supports geocoding location searches.  Geocoding is a type of location search that returns results as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) receives queries that contain location information such as a partial or full address, street intersection, city centers, counties, or states. The query response will then return the results of the query in latitude/longitude coordinates.
 
-However, Azure Maps doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
+However, the Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
 
 The ability to geocode in a country/region is dependent upon the road data coverage and  geocoding precision of the geocoding service. The following categorizations are used to specify the level of geocoding support in each country/region.
 
