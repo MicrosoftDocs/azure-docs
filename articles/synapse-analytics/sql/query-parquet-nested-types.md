@@ -14,7 +14,7 @@ ms.reviewer: jrasnick, carlrab
 # Query nested types in Parquet and JSON files using SQL on-demand (preview) in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. This query will read Parquet nested types.
-Nested types are complex structures that represent objects or arrays. Nested types can be stored in [PARQUET](query-parquet-files.md) or hierachical [JSON files](query-json-files.md).
+Nested types are complex structures that represent objects or arrays. Nested types can be stored in [PARQUET](query-parquet-files.md) or hierarchical [JSON files](query-json-files.md).
 
 Synapse SQL on-demand formats all nested types as JSON objects and arrays, so you can use [Extract, or modify complex objects using JSON functions](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data using OPENJSON function](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server).
 
@@ -67,7 +67,7 @@ FROM
     ) AS [r];
 ```
 
-## Access elements from repeated (array) columns
+## Access elements from repeated columns
 
 The following query reads the *justSimpleArray.parquet* file and uses [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a **scalar** element from within a repeated column, such as an Array or Map:
 
