@@ -79,7 +79,7 @@ One Azure resource is defined in the template:
    :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager template, Create budget, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
     * **Subscription**: select an Azure subscription.
-    * **Resource group**: select and existing resource group, or **Create new**.
+    * **Resource group**: if required, select an existing resource group, or **Create new**.
     * **Region**: select an Azure region. For example, **Central US**.
     * **Budget Name**: enter a name for the budget. It should be unique within a resource group. Only alphanumeric, underscore, and hyphen characters are allowed.
     * **Amount**: enter the total amount of cost to track with the budget.
@@ -95,8 +95,8 @@ One Azure resource is defined in the template:
     * **Meter Category Filter Values** enter a list of Azure service meter categories. Expected format is `["Meter Category1","Meter Category2"]`. If you didn't want to apply a filter, enter `[]`.
    
 3. Depending on your Azure subscription type, do one of the following actions:
-  - Select **Review + create**.
-  - Review the terms and conditions, select **I agree to the terms and conditions stated above**, and then select **Purchase**.
+   - Select **Review + create**.
+   - Review the terms and conditions, select **I agree to the terms and conditions stated above**, and then select **Purchase**.
 
 4. If you selected **Review + create**, your template is validated. Select **Create**.  
 
