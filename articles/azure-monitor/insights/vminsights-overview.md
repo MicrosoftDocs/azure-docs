@@ -48,7 +48,7 @@ The steps to configure Azure Monitor for VMs are as follows. Follow each link fo
 
 - [Create Log Analytics workspace.](vminsights-configure-workspace.md#create-log-analytics-workspace)
 - [Add VMInsights solution to workspace.](vminsights-configure-workspace.md#add-vminsights-solution-to-workspace)
-- [Install agents on VM and VMSS to be monitored.](vminsights-enable-overview.md)
+- [Install agents on virtual machine and virtual machine scale set to be monitored.](vminsights-enable-overview.md)
 
 
 

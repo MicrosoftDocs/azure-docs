@@ -3,6 +3,7 @@ title: Configure Log Analytics workspace for Azure Monitor for VMs
 description: Describes how to create and configure the Log Analytics workspace used by Azure Monitor for VMs.
 ms.subservice:
 ms.topic: conceptual
+ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
@@ -28,7 +29,7 @@ Once the workspace has been configured, you can use any of the available options
 
 Access Log Analytics workspaces in the Azure portal from the **Log Analytics workspaces** menu.
 
-![Log Anlytics workspaces](media/vminsights-configure-workspace/log-analytics-workspaces.png)
+[![Log Anlytics workspaces](media/vminsights-configure-workspace/log-analytics-workspaces.png)](media/vminsights-configure-workspace/log-analytics-workspaces.png#lightbox)
 
 You can create a new Log Analytics workspace using any of the following methods. See [Designing your Azure Monitor Logs deployment](../platform/design-logs-deployment.md) for guidance on determining the number of workspaces you should use in your environment and how to design their access strategy.
 
@@ -77,16 +78,16 @@ There are three options for configuring an existing workspace from the Azure por
 
 To configure a single workspace, select the **Other onboarding options** and then **Configure a workspace**. Select a subscription and a workspace and then click **Configure**.
 
-![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)
+[![Configure workspace](media/vminsights-enable-at-scale-policy/configure-workspace.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
 To configure multiple workspaces, select the **Workspace configuration** tab in the **Virtual Machines** menu in the **Monitor** menu in the Azure portal. Set the filter values to display a list of existing workspaces. Select the box next to each workspace to enable and then click **Configure selected** .
 
-![Workspace configuration](media/vminsights-enable-at-scale-policy/workspace-configuration.png)
+[![Workspace configuration](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
 
 When you enable Azure Monitor for VMs on a single VM or VMMS using the Azure portal, you're given the option to select an existing workspace or create a new one. The *VMInsights* solution will be installed in this workspace if it isn't already. You can then use this workspace for other agents.
 
-![Enable single VM in portal](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+[![Enable single VM in portal](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-at-scale-policy/configure-workspace.png#lightbox)
 
 
 ### Resource Manager template

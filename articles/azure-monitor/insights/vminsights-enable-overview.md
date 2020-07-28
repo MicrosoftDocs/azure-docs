@@ -97,9 +97,9 @@ Azure Monitor for VMs is available for Azure Arc enabled servers in regions wher
 
 
 ## Agents
-Azure Monitor for VMs requires the following two agents to be installed on each VM or VMSS to be monitored. Installing these agents and connecting them to the workspace is the only requirement to onboard the resource.
+Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. Installing these agents and connecting them to the workspace is the only requirement to onboard the resource.
 
-- [Log Analytics agent](../platform/log-analytics-agent.md). Collects events and performance data from the VM or VMSS and delivers it to the Log Analytics workspace. Deployment methods for the Log Analytics agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md).
+- [Log Analytics agent](../platform/log-analytics-agent.md). Collects events and performance data from the virtual machine or virtual machine scale set and delivers it to the Log Analytics workspace. Deployment methods for the Log Analytics agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md).
 - Dependency agent. Collects discovered data about processes running on the virtual machine and external process dependencies, which is used by the [Map feature in Azure Monitor for VMs](vminsights-maps.md). The Dependency agent relies on the Log Analytics agent to deliver its data to Azure Monitor. Deployment methods for the the Dependency agent on Azure resources use the VM extension for [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) and [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
 
 > [!NOTE]
@@ -111,7 +111,7 @@ The following are multiple methods for deploying these agents.
 |:---|:---|
 | [Azure portal](vminsights-enable-single-vm.md) | Install both agents on a single virtual machine, virtual machine scale set, or hybrid virtual machines connected with Azure Arc. |
 | [Resource Manager templates](vminsights-enable-powershell.md) | Install both agents using any of the supported methods to deploy a Resource Manager template including CLI and PowerShell. |
-| [Azure Policy](vminsights-enable-at-scale-policy.md) | Assign  Azure Policy initiative to automatically install the agents when a VM or VMSS is created. |
+| [Azure Policy](vminsights-enable-at-scale-policy.md) | Assign  Azure Policy initiative to automatically install the agents when a virtual machine or virtual machine scale set is created. |
 | [Manual install](vminsights-enable-hybrid-cloud.md) | Install the agents in the guest operating system on computers hosted outside of Azure including in your datacenter or other cloud environments. |
 
 

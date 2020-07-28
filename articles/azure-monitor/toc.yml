@@ -916,7 +916,7 @@
       - name: Azure PowerShell
         href: insights/vminsights-enable-powershell.md
       - name: ARM templates
-        href: insights/vminsights-enable-arm.md
+        href: insights/vminsights-enable-resource-manager.md
       - name: Azure Policy
         href: insights/vminsights-enable-policy.md
       - name: Hybrid VMs

@@ -19,14 +19,14 @@ This article describes how to enable Azure Monitor for VMs for a virtual machine
 ## Prerequisites
 
 - [Create and configure a Log Analytics workspace](vminsights-configure-workspace.md). 
-- See [Supported operating systems](vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the VM or VMSS you're enabling is supported. 
+- See [Supported operating systems](vminsights-enable-overview.md#supported-operating-systems) to ensure that the operating system of the virtual machine or virtual machine scale set you're enabling is supported. 
 
 ## Resource Manager templates
 
 We have created example Azure Resource Manager templates for onboarding your virtual machines and virtual machine scale sets. These templates include scenarios you can use to enable monitoring on an existing resource and create a new resource that has monitoring enabled.
 
 >[!NOTE]
->The template needs to be deployed in the same resource group as the VM or VMSS being enabled.
+>The template needs to be deployed in the same resource group as the virtual machine or virtual machine scale set being enabled.
 
 
 The Azure Resource Manager templates are provided in an archive file (.zip) that you can [download](https://aka.ms/VmInsightsARMTemplates) from our GitHub repo. Contents of the file include folders that represent each deployment scenario with a template and parameter file. Before you run them, modify the parameters file and specify the values required. 
