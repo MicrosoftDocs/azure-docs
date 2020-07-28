@@ -109,7 +109,7 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 
 ## Route traffic to healthy instances (App Service)
 
-App Service can perform health checks on your instances to ensure traffic is only routed to healthy instances. To do so, open the Portal to your App Service, then select **Health Check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
+App Service can perform health checks on your instances to ensure traffic is only routed to healthy instances. To do so, open the Portal to your App Service, then select **Health check** under **Monitoring**. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`. Click **Save**.
 
 ### Healthcheck path
 
@@ -122,6 +122,10 @@ The health check path should check the critical components of your application. 
 When the health check path is provided, App Service will ping the path on all instances. If a successful response code is not received after 5 pings, that instance is considered "unhealthy". Unhealthy instance(s) will be excluded from the load balancer rotation. The remaining healthy instances may experience increased load. To avoid overwhelming the remaining instances, no more than half of your instances will be excluded. For example, if an (App Service Plan) is configured for 4 instances and 3 of which are unhealthy, at most 2 will be excluded from the loadbalancer rotation. The other 2 instances (1 healthy and 1 unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded.
 
 If an instance remains unhealthy for one hour, it will be replaced with new instance. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+
+### Monitoring
+
+After providing your application's health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, select the **Metrics** shortcut. This will open a new blade where you can see the site's historical health status and create a new alert rule. For more information on monitoring your sites, [see the guide on Azure Monitor](../../articles/app-service/web-sites-monitor.md).
 
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
