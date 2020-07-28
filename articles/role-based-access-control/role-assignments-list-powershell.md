@@ -142,7 +142,7 @@ PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGr
 To list role assignments for a specific resource, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) and the `-Scope` parameter. The scope will be different depending on the resource. To get the scope, you can run `Get-AzRoleAssignment` without any parameters to list all of the role assignments and then find the scope you want to list.
 
 ```azurepowershell
-Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource_path>
+Get-AzRoleAssignment -Scope "/subscriptions/<subscription_id>/resourcegroups/<resource_group_name>/providers/<provider_name>/<resource_type>/<resource>
 ```
 
 This following example shows how to list the role assignments for a storage account. Note that this command also lists role assignments at higher scopes, such as resource groups and subscriptions, that apply to this storage account.
