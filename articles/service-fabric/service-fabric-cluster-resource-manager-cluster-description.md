@@ -4,7 +4,7 @@ description: Describe a Service Fabric cluster by specifying fault domains, upgr
 author: masnider
 
 ms.topic: conceptual
-ms.date: 08/18/2017
+ms.date: 07/28/2020
 ms.author: masnider
 ---
 
@@ -540,23 +540,52 @@ Cluster Resource Manager continually calculates the capacity and consumption of 
 
 Because the requirement is only that 15 units will be available, you can allocate this space in many different ways. For example, there might be one remaining unit of capacity on 15 different nodes, or three remaining units of capacity on five different nodes. If Cluster Resource Manager can rearrange things so there are five units available on three nodes, it places the service. Rearranging the cluster is usually possible unless the cluster is almost full or the existing services can't be consolidated for some reason.
 
-## Buffered capacity
-Buffered capacity is another feature of Cluster Resource Manager. It allows reservation of some portion of the overall node capacity. This capacity buffer is used only to place services during upgrades and node failures. 
+## Node buffer and overbooking capacity
 
-Buffered capacity is specified globally per metric for all nodes. The value that you pick for the reserved capacity is a function of the number of fault and upgrade domains that you have in the cluster. More fault and upgrade domains mean that you can pick a lower number for your buffered capacity. If you have more domains, you can expect smaller amounts of your cluster to be unavailable during upgrades and failures. Specifying buffered capacity makes sense only if you have also specified the node capacity for a metric.
+If a node capacity for a metric is specified, Cluster Resource Manager will never place or move replicas to a node if total load would go above the specified node capacity. This can sometimes prevent placement of new replicas or replacing failed replicas if the cluster is near full capacity and a replica with a large load must be placed, replaced or moved.
 
-Here's an example of how to specify buffered capacity in ClusterManifest.xml:
+In order to provide more flexibility you can specify either node buffer or overbooking capacity. When node buffer or overbooking capacity is specified for a metric, the Cluster Resource Manager will attempt to place or move replicas in such a way that the buffer or overbooking capacity remains unused, but allows the buffer or overbooking capacity to be used if necessary for actions that increase service availability such as:
+
+* New replica placement or replacing failed replicas
+* Placement during upgrades
+* Fixing of soft and hard constraint violations
+* Defragmentation
+
+Node buffer capacity represents a reserved portion of capacity below specified node capacity and overbooking capacity represents a portion of extra capacity above specified node capacity. In both cases the Cluster Resource Manager will attempt to keep this capacity free.
+
+For example, if a node has a specified capacity for metric *CpuUtilization* of 100 and node buffer percentage for that metric is set to 20%, then total and unbuffered capacities will be 100 and 80, respectively, and the Cluster Resource Manager will not place more than 80 units of load onto the node during normal circumstances.
+
+![Total capacity equals node capacity (Node buffer + Unbuffered)](./media/service-fabric-cluster-resource-manager-cluster-description/node-capacity.png)
+
+Node buffer should be used when you want to reserve a portion of node capacity that will only be used for actions that increase service availability mentioned above.
+
+On the other hand, if node overbooking percentage is used and set to 20% then total and unbuffered capacities will be 120 and 100, respectively.
+
+![Total capacity equals overbooking capacity plus node capacity (Overbooking + Unbuffered)](./media/service-fabric-cluster-resource-manager-cluster-description/node-capacity-with-overbooking.png)
+
+Overbooking capacity should be used when you want to allow Cluster Resource Manager to place replicas on a node even if their total resource usage would exceed capacity. This can be used to provide additional availability for services at the expense of performance. If overbooking is used, user application logic needs to be able to function with fewer physical resources than it might require.
+
+If node buffer or overbooking capacities are specified, Cluster Resource Manager will not move or place replicas if the total load on target node would go over total capacity (node capacity in case of node buffer and node capacity + overbooking capacity in case of overbooking).
+
+Overbooking capacity can also be specified to be infinite. In this case, Cluster Resource Manager will attempt to keep the total load on the node below the specified node capacity but is allowed to potentially place a far greater load on the node which might lead to serious performance degradation.
+
+A metric cannot have both node buffer and overbooking capacity specified for it at the same time.
+
+Here's an example of how to specify node buffer or overbooking capacities in *ClusterManifest.xml*: 
 
 ```xml
-        <Section Name="NodeBufferPercentage">
-            <Parameter Name="SomeMetric" Value="0.15" />
-            <Parameter Name="SomeOtherMetric" Value="0.20" />
-        </Section>
+<Section Name="NodeBufferPercentage">
+    <Parameter Name="SomeMetric" Value="0.15" />
+</Section>
+<Section Name="NodeOverbookingPercentage">
+    <Parameter Name="SomeOtherMetric" Value="0.2" />
+    <Parameter Name=”MetricWithInfiniteOverbooking” Value=”-1.0” />
+</Section>
 ```
 
-Here's an example of how to specify buffered capacity via ClusterConfig.json for standalone deployments or Template.json for Azure-hosted clusters:
+Here's an example of how to specify node buffer or overbooking capacities via *ClusterConfig.json* for standalone deployments or *Template.json* for Azure-hosted clusters:
 
-```json
+```xml
 "fabricSettings": [
   {
     "name": "NodeBufferPercentage",
@@ -564,52 +593,23 @@ Here's an example of how to specify buffered capacity via ClusterConfig.json for
       {
           "name": "SomeMetric",
           "value": "0.15"
-      },
+      }
+    ]
+  },
+  {
+    "name": "NodeOverbookingPercentage",
+    "parameters": [
       {
           "name": "SomeOtherMetric",
           "value": "0.20"
+      },
+      {
+          "name": "MetricWithInfiniteOverbooking ",
+          "value": "-1.0"
       }
     ]
   }
 ]
-```
-
-The creation of new services fails when the cluster is out of buffered capacity for a metric. Preventing the creation of new services to preserve the buffer ensures that upgrades and failures don’t cause nodes to go over capacity. Buffered capacity is optional, but we recommend it in any cluster that defines a capacity for a metric.
-
-Cluster Resource Manager exposes this load information. For each metric, this information includes: 
-- The buffered capacity settings.
-- The total capacity.
-- The current consumption.
-- Whether each metric is considered balanced or not.
-- Statistics about the standard deviation.
-- The nodes that have the most and least load.  
-  
-The following code shows an example of that output:
-
-```PowerShell
-PS C:\Users\user> Get-ServiceFabricClusterLoadInformation
-LastBalancingStartTimeUtc : 9/1/2016 12:54:59 AM
-LastBalancingEndTimeUtc   : 9/1/2016 12:54:59 AM
-LoadMetricInformation     :
-                            LoadMetricName        : Metric1
-                            IsBalancedBefore      : False
-                            IsBalancedAfter       : False
-                            DeviationBefore       : 0.192450089729875
-                            DeviationAfter        : 0.192450089729875
-                            BalancingThreshold    : 1
-                            Action                : NoActionNeeded
-                            ActivityThreshold     : 0
-                            ClusterCapacity       : 189
-                            ClusterLoad           : 45
-                            ClusterRemainingCapacity : 144
-                            NodeBufferPercentage  : 10
-                            ClusterBufferedCapacity : 170
-                            ClusterRemainingBufferedCapacity : 125
-                            ClusterCapacityViolation : False
-                            MinNodeLoadValue      : 0
-                            MinNodeLoadNodeId     : 3ea71e8e01f4b0999b121abcbf27d74d
-                            MaxNodeLoadValue      : 15
-                            MaxNodeLoadNodeId     : 2cc648b6770be1bc9824fa995d5b68b1
 ```
 
 ## Next steps
