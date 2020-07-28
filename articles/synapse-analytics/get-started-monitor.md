@@ -27,7 +27,7 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 1. Navigate to **Orchestration > Pipeline**. In this view, you can see every time a pipeline has run in your workspace. 
 1. Find the pipeline that you ran in the previous step and click on its **Pipeline name**.
 1. Now you can see how individual activities inside that pipeline run.
-1. Click **Breadcumb bar** near the top of Synapse Studio, click **All pipeline runs** to return to the previous view.
+1. Click **Breadcrumb bar** near the top of Synapse Studio, click **All pipeline runs** to return to the previous view.
 
 ## Apache Spark Activities
 
@@ -40,7 +40,7 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 1. Navigate to **Orchestration > Activities > SQL requests**.
 1. In this view you can see SQL requests.
 1. Select a **Pool** to monitor. Now you can see all SQL requests that are running or have run in your workspace in that pool.
-1. Find a specific SQL request and hover the mouse on that item. Once you hober, you will see a SQL script icon appear.
+1. Find a specific SQL request and hover the mouse on that item. Once you hover, you will see a SQL script icon appear.
 1. Click on the SQL script icon to see the full text of the SQL request.
 
 ## Next steps
