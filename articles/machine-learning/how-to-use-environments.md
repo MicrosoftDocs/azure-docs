@@ -8,9 +8,9 @@ ms.author: roastala
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 07/23/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
