@@ -390,7 +390,7 @@
         "articles/storsimple/**/*.md": "https://feedback.azure.com/forums/257791-storsimple",
         "articles/stream-analytics/**/*.md": "https://feedback.azure.com/forums/270577-stream-analytics",
         "articles/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/time-series-insights/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/time-series-insights/**/*.md": "https://feedback.azure.com/forums/906859-azure-time-series-insights",
         "articles/traffic-manager/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77466",
         "articles/virtual-desktop/**/*.md": "https://windowsvirtualdesktop.uservoice.com/forums/921118-general",
         "articles/virtual-machine-scale-sets/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
