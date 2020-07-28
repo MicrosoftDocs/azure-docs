@@ -157,3 +157,10 @@ The indexer should be created successfully, and should be making progress - inde
 Obtain the status of the shared private link resource using the [GET API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get). If it has been *Approved* check the `provisioningState` of the resource. If it is `Incomplete`, this means some of the underlying dependencies for the resource failed to provision - re-issue the `PUT` request to "re-create" the shared private link resource which should fix the issue. A re-approval might be necessary, check the status of the resource once again to verify.
 - If the indexer is created without setting its `executionEnvironment`, the indexer creation might succeed, but its execution history will show that indexer runs are unsuccessful. You should [update the indexer](https://docs.microsoft.com/rest/api/searchservice/update-indexer) to specify the execution environment.
 - If the indexer is created without setting the `executionEnvironment` and it runs successfully, it means that Azure Cognitive Search has decided that its execution environment is the search service specific "private" environment. However, this can change based on a variety of factors (resources consumed by the indexer, the load on the search service etc.,) and can fail in the future - we highly recommend you set the `executionEnvironment` as `"Private"` to ensure that it will not fail in the future.
+
+## Next steps
+
+Learn more about what are private endpoints:
+
+- [What are private endpoints?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- [DNS configurations needed for private endpoints](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)
