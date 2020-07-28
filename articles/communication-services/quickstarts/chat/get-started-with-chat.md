@@ -1,7 +1,7 @@
 ---
-title: Get Started With Chat
+title: Get Started With Chat (JS)
 description: TODO
-author: gelli, juramir  
+author: gelli  
 manager: jken
 services: azure-communication-services
 

@@ -1,5 +1,5 @@
 ---
-title: Get Started With Chat 2
+title: Get Started With Chat (Group Chat Sample)
 description: TODO
 author: mikben    
 manager: jken
