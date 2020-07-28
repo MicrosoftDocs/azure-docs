@@ -29,7 +29,7 @@ Privileged Identity Management in Azure Active Directory (Azure AD) now supports
 > [!NOTE]
 > Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience. If you see the following banner, these roles should be managed [in the built-in roles experience](pim-how-to-activate-role.md) and this article does not apply:
 >
-> [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
+> ::: image type="content" source="media/pim-how-to-add-role-to-user/pim-new-version.png" alt-text="Select Privileged Identity Management in Azure AD." lightbox="media/pim-how-to-add-role-to-user/pim-new-version.png" :::
 
 ## Activate a role
 
