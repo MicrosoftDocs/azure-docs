@@ -37,7 +37,7 @@ Metrics are enabled by default. You can view Azure Digital Twins metrics from th
 
     :::image type="content" source="media/how-to-view-metrics/diagnostic-settings.png" alt-text="Screenshot showing the diagnostic settings page and button to add":::
 
-    For more information about this process, see [*How-to: Set up diagnostics*](how-to-set-up-diagnostics.md).
+    For more information about this process, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
 
 ## Azure Digital Twins metrics and how to use them
 
@@ -95,7 +95,7 @@ Operation (for Routing) | Event Grid </br>Event Hub </br>Service Bus |
 
 ## Next steps
 
-To learn more about managing recorded metrics for Azure Digital Twins, see [*How-to: Set up diagnostics*](how-to-set-up-diagnostics.md).
+To learn more about managing recorded metrics for Azure Digital Twins, see [*Troubleshooting: Set up diagnostics*](troubleshoot-diagnostics.md).
 
 Or, now that you’ve seen an overview of Azure Digital Twins metrics, follow these links to learn more about managing Azure Digital Twins:
 
