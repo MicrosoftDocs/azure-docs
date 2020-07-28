@@ -657,7 +657,7 @@ To view the full details of the list of these libraries, please visit the links 
 The Functions Python worker requires a specific set of libraries. You can also use these libraries in your functions, but they aren't a part of the Python standard. If your functions rely on any of these libraries, they may not be available to your code when running outside of Azure Functions. You can find a detailed list of dependencies in the **install\_requires** section in the [setup.py](https://github.com/Azure/azure-functions-python-worker/blob/dev/setup.py#L282) file.
 
 > [!NOTE]
-> If your function app's requirements.txt contains an `azure-functions-worker` entry, we highly recommend removing it. The functions worker is automatically managed by Azure Functions platform and we regularly update it with new features and bug fixes. Manually installing a previous version may cause unexpected issues.
+> If your function app's requirements.txt contains an `azure-functions-worker` entry, we highly recommend removing it. The functions worker is automatically managed by Azure Functions platform and we regularly update it with new features and bug fixes. Manually installing an old version of worker in requirements.txt may cause unexpected issues.
 
 ### Azure Functions Python library
 
