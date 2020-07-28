@@ -41653,6 +41653,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-policy.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-policy",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-powershell.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-powershell",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-single-vm.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-hybrid-cloud.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/azure-monitor/platform/resource-logs-append-blobs.md",
       "redirect_url": "/azure/azure-monitor/platform/resource-logs-blob-format",
       "redirect_document_id": false
@@ -54764,6 +54784,11 @@
       "source_path": "articles/virtual-desktop/connect-windows-7-and-10.md",
       "redirect_url": "/azure/virtual-desktop/connect-windows-7-10",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/data-share/azure-cli-references-for-data-share.md",
+      "redirect_url": "https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",

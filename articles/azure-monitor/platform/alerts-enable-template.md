@@ -10,7 +10,7 @@ ms.subservice: alerts
 # Create a classic metric alert with a Resource Manager template
 > [!WARNING]
 > 
-> This article describes creating **classic metric alerts** using Resource Manager templates. Classic alerts were retired in August 2019 and set to be fully deprecated in June 2020. You cannot create new classic alerts public Azure. Some regional versions of Azure may still have the option, but we suggest you instead create [newer metric alerts](../../azure-monitor/platform/alerts-metric-near-real-time.md) using templates if at all possible. [This article](alerts-metric-create-templates.md) provides the details.
+> This article describes creating **classic metric alerts** using Resource Manager templates. Classic alerts were retired in August 2019 and set to be fully deprecated in June 2020. You cannot create new classic alerts public Azure. Some regional versions of Azure may still have the option, but we suggest you instead create [newer metric alerts](./alerts-metric-near-real-time.md) using templates if at all possible. [This article](alerts-metric-create-templates.md) provides the details.
 >
 
 This article shows how you can use an [Azure Resource Manager template](../../azure-resource-manager/templates/template-syntax.md) to configure Azure classic metric alerts. This enables you to automatically set up alerts on your resources when they are created to ensure that all resources are monitored correctly.
@@ -394,5 +394,6 @@ An alert on a Resource Manager template is most often useful when creating an al
 
 ## Next Steps
 * [Read more about Alerts](alerts-overview.md)
-* [Add Diagnostic Settings](../../azure-monitor/platform/diagnostic-settings-template.md) to your Resource Manager template
+* [Add Diagnostic Settings](./diagnostic-settings-template.md) to your Resource Manager template
 * For the JSON syntax and properties, see [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) template reference.
+
