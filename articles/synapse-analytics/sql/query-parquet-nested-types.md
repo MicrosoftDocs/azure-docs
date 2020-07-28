@@ -11,9 +11,12 @@ ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
 ---
 
-# Query Parquet nested types using SQL on-demand (preview) in Azure Synapse Analytics
+# Query nested types in Parquet and JSON files using SQL on-demand (preview) in Azure Synapse Analytics
 
-In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics.  This query will read Parquet nested types.
+In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. This query will read Parquet nested types.
+Nested types are complex structures that represent objects or arrays. Nested types can be stored in [PARQUET](query-parquet-files.md) or hierachical [JSON files](query-json-files.md).
+
+Synapse SQL on-demand formats all nested types as JSON objects and arrays, so you can use [Extract, or modify complex objects using JSON functions](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data using OPENJSON function](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server).
 
 ## Prerequisites
 
@@ -34,7 +37,7 @@ FROM
     ) AS [r];
 ```
 
-## Access elements from nested columns
+## Read properties from nested object columns
 
 The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
 - Specifying the nested value path expression after type specification.
@@ -64,7 +67,7 @@ FROM
     ) AS [r];
 ```
 
-## Access elements from repeated columns
+## Access elements from repeated (array) columns
 
 The following query reads the *justSimpleArray.parquet* file and uses [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a **scalar** element from within a repeated column, such as an Array or Map:
 
@@ -81,6 +84,8 @@ FROM
         FORMAT='PARQUET'
     ) AS [r];
 ```
+
+## Access sub-objets from complex columns
 
 The following query reads the *mapExample.parquet* file and uses [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a **non-scalar** element from within a repeated column, such as an Array or Map:
 
@@ -111,7 +116,7 @@ FROM
     WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
 ```
 
-The structure `MakOfPersons` is returned as `VARCHAR` column and formatted as JSON string.
+The structure `MapOfPersons` is returned as `VARCHAR` column and formatted as JSON string.
 
 ## Projecting values from repeated columns
 
