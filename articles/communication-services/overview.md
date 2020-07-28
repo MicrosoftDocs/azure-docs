@@ -1,5 +1,5 @@
 ---
-title: What Is Azure Communication Services?
+title: What is Azure Communication Services?
 description: Learn how Azure Communication Services helps you develop rich user experiences with real-time communications.
 author: mikben
 manager: jken
@@ -10,7 +10,7 @@ ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
 
---- 
+---
 
 
 # What Is Azure Communication Services?
@@ -29,20 +29,20 @@ You can mix communication types intuitively, for example a single call may have 
 
 In this section we introduce some scenarios you can build with ACS. The first step for using ACS is making a resource in the Azure portal or via Azure Resource Management APIs:
 
-- **Quick Start:** [Create an Azure Communication Resource](./quickstarts/create-a-communication-resource.md)
+- **Quickstart:** [Create an Azure Communication Resource](./quickstarts/create-a-communication-resource.md)
 
 ### Browser communication
 ACS JavaScript SDKs enable browser applications with rich text, voice, and video interaction. A typical browser application will include at least 2 components in addition to the ACS service:
 
-1. User Management Service. This is a trusted service you operate for managing user accounts in ACS. This service uses ACS APIs to create ACS user access tokens and shares those tokens with endpoint devices so they can access ACS securely.
-2. Endpoint application. This is the browser application you operate delivering end-user communication. This uses ACS SDKs to access the ACS dataplane and accomplish real-time text, voice, and video communication.
+ - **User Management Service**. This is a trusted service you operate for managing user accounts in ACS. This service uses ACS APIs to create ACS user access tokens and shares those tokens with endpoint devices so they can access ACS securely.
+ - **Endpoint application**. This is the browser application you operate delivering end-user communication. This uses ACS SDKs to access the ACS data plane and accomplish real-time text, voice, and video communication.
 
 ![Browser architecture](./media/archdiagram-browser.png)
 
 **Resources** 
 - **Concept:** [Identity model](./concepts/identity-model.md)
 - **Concept:** [User access tokens (UAT)](./concepts/user-access-tokens.md)
-- **Quick Start:** [Implement browser voice chat](./quickstarts/get-started-with-voice.md)
+- **Quickstart:** [Implement browser voice chat](./quickstarts/get-started-with-voice.md)
 - **Concept:** [Calling client samples](./concepts/calling-client-samples.md)
 
 ### Native app communication
@@ -64,10 +64,10 @@ Communicating over the phone system can dramatically increase the reach of your 
 ![PSTN architecture](./media/archdiagram-pstn.png)
 
 **Resources** 
-- **Quick Start:** [Search and acquire a phone number](./quickstarts/search-and-aquire-phone-number.md)
-- **Quick Start:** [Send an SMS message](./quickstarts/get-started-with-sms.md)
-- **Quick Start:** [Place an outgoing telephone call](./quickstarts/get-started-with-phone.md)
-- **Quick Start:** [Assigning a phone number to a bot](./quickstarts/assign-a-telephone-number-to-an-acs-bot.md)
+- **Quickstart:** [Search and acquire a phone number](./quickstarts/search-and-aquire-phone-number.md)
+- **Quickstart:** [Send an SMS message](./quickstarts/get-started-with-sms.md)
+- **Quickstart:** [Place an outgoing telephone call](./quickstarts/get-started-with-phone.md)
+- **Quickstart:** [Assigning a phone number to a bot](./quickstarts/assign-a-telephone-number-to-an-acs-bot.md)
 
 ### Networking 
 You may want to exchange arbitrary data between users, for example to synchronize a shared mixed reality or gaming experience. The real-time dataplane used for text, voice, and video communication is available to you directly in two ways:
@@ -77,7 +77,7 @@ You may want to exchange arbitrary data between users, for example to synchroniz
 
 
 ## Automation and Webhooks
-You may want to configure automated workflows based on ACS activity, for example sending an email to an end-user when they are the recipient of a PSTN call. To support these sceanrios ACS generates Azure Event Grid events. You can configure subscriptions to these events and use those subscriptions to fire customized webhooks and drive other automation. 
+You may want to configure automated workflows based on ACS activity, for example sending an email to an end-user when they are the recipient of a PSTN call. To support these scenarios ACS generates Azure Event Grid events. You can configure subscriptions to these events and use those subscriptions to fire customized webhooks and drive other automation. 
 
 - [Concept: React to ACS Events using Event Grid](./concepts/acs-event-grid.md)
 
