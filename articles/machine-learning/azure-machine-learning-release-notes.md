@@ -30,8 +30,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Unhandled exceptions in AutoML now point to a known issues HTTP page, where more information about the errors can be found.
   + **azureml-parallel-run**
     + Don't create empty stdout/stderr file.
-  + **azureml-automl-runtime**
-    + The error handling during model fitting was improved.
   + **azureml-core**
     + Model names can be 255 characters long.
     + Environment.get_image_details() return object type changed. `DockerImageDetails` class replaced `dict`, image details are available from the new class properties. Changes are backward compatible.
@@ -43,7 +41,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Unhandled exceptions in AutoML now point to a known issues HTTP page, where more information about the errors can be found.
     + Added get_best_child () to AutoMLRun for fetching the best child run for an AutoML Run without downloading the associated model.
     + Added ModelProxy object which allow predict or forecast to be run on a remote training environment without downloading the model locally.
-    + The error handling during model fitting was improved.
   + **azureml-pipeline-steps**
     + Added `enable_default_model_output` and `enable_default_metrics_output` flags to `AutoMLStep`. These flags can be used to enable/disable the default outputs.
 
