@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 06/17/2020
+ms.date: 07/28/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -36,24 +36,46 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Raketa single sign-on (SSO) enabled subscription.
 
+We provide:
+
+* Reply URL in the following format https://raketa.travel/sso/acs?clientId=YOUR_CLIENT_ID.
+* Logout URL  in the following format https://raketa.travel/sso/slo?clientId=YOUR_CLIENT_ID.
+
+After all the necessary settings you should provide:
+
+1. Certificate (Base64) – download and transfer to Raketa.
+1. Azure AD Identifier –  Azure AD Identifier.
+1. Login URL – your authorization web-page URL, which we will use to redirect users to your authentication system.
+1. Logout URL – your web-page URL, which we will use to redirect users after the logout.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Raketa supports **SP** initiated SSO
+* Raketa supports **SP** initiated SSO.
 
-* Once you configure Raketa you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Raketa you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Raketa from the gallery
 
 To configure the integration of Raketa into Azure AD, you need to add Raketa from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Raketa** in the search box.
-1. Select **Raketa** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. On the left navigation pane, select the **Azure Active Directory** service [1].
+
+    ![rkt_1](./media/raketa-tutorial/87418173-b650f700-c5ea-11ea-95c3-f937db96c4eb.png)
+
+1. Navigate to **Enterprise Applications** [2] and then select **All Applications** [3].
+
+1. To add new application, select **New application** [4]. 
+
+    ![rkt_2](./media/raketa-tutorial/87418177-b6e98d80-c5ea-11ea-8cd0-d64025d1ad69.png)
+
+1. In the **Add from the gallery** [5] section, type **Raketa** in the search box [6].
+
+1. Select **Raketa** from results panel [7] and then add the app [8]. Wait a few seconds while the app is added to your tenant.
+
+    ![rkt_3](./media/raketa-tutorial/87418179-b7822400-c5ea-11ea-96b0-f127d3e23a55.png)
 
 
 ## Configure and test Azure AD single sign-on for Raketa
@@ -73,59 +95,88 @@ To configure and test Azure AD SSO with Raketa, complete the following building 
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Raketa** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. In the [Azure portal](https://portal.azure.com/), on the **Raketa** application integration page, find the **Manage** section and select **single sign-on** [9].
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![rkt_4](./media/raketa-tutorial/87418180-b81aba80-c5ea-11ea-8c11-07a15586026b.png)
+
+1. On the **Select a single sign-on method** page [9], select **SAML** [10].
+
+    ![rkt_5](./media/raketa-tutorial/87418181-b81aba80-c5ea-11ea-8ca0-c4e46ae1e7c8.png)
+
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** [11] to edit the settings.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://raketa.travel/`
+    1. In the **Identifier (Entity ID)** [12] and **Sign on URL** [14] text boxes, type the URL: `https://raketa.travel/`.
 
-	b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://raketa.travel/sso/acs?clientId=<CLIENT_ID>`
+    1. In the **Reply URL** text box [13], type a URL using the following pattern: `https://raketa.travel/sso/acs?clientId=<CLIENT_ID>`.  
+
+    ![rkt_6](./media/raketa-tutorial/87418182-b8b35100-c5ea-11ea-85cd-4ae226bc7164.png)
 
 	> [!NOTE]
 	> The Reply URL value is not real. Update the value with the actual Reply URL. Contact [Raketa Client support team](mailto:help@raketa.travel) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
-
-	![The Certificate download link](common/certificatebase64.png)
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** [15] to download the certificate and save it on your computer.
 
 1. On the **Set up Raketa** section, copy the appropriate URL(s) based on your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    1. Login URL [16] – your authorization web-page URL, which we will use to redirect users to your authentication system.
+
+    1. Azure AD Identifier [17] – Azure AD Identifier.
+
+    1. Logout URL [18] – your web-page URL, which we will use to redirect users after the logout.
+
+    ![rkt_7](./media/raketa-tutorial/87418184-b94be780-c5ea-11ea-9d54-615be53ed60e.png)
+
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
+1. From the left pane in the Azure portal, select **Azure Active Directory** [1], select **Users** [19], and then select **All users** [20].
+
+1. Select **New user** [21] at the top of the screen.
+
+    ![rkt_8](./media/raketa-tutorial/87418185-b94be780-c5ea-11ea-8c30-e33cc8f21e77.png)
+
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+
+   1. In the **User name** field [22], enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+
+   1. In the **Name** field [23], enter `B.Simon`.
+
+   1. Select the **Show password** check box [25], and then write down the value that's displayed in the **Password** box [24].
+
+   1. Click **Create** [26]. 
+
+    ![rkt_9](./media/raketa-tutorial/87418187-b9e47e00-c5ea-11ea-86e1-59c7b9d73767.png)
+
 
 ### Assign the Azure AD test user
 
 In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Raketa.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Raketa**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the Azure portal, select **Enterprise Applications** [2], and then select **All applications** [3].
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+1. In the applications list, select **Raketa** [27].  
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+    ![rkt_10](./media/raketa-tutorial/87418189-b9e47e00-c5ea-11ea-8c33-8ecd817dd355.png)
 
-	![The Add User link](common/add-assign-user.png)
+1. In the app's overview page, find the **Manage** section and select **Users and groups** [28]. 
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+    ![rkt_11](./media/raketa-tutorial/87418193-ba7d1480-c5ea-11ea-8a6e-37541202ad28.png)
+
+1. Select **Add user** [29], then select **Users and groups** [30] in the **Add Assignment** dialog.
+
+    ![rkt_12](./media/raketa-tutorial/87418195-ba7d1480-c5ea-11ea-9526-58568eb259ed.png)
+
+1. In the **Users and groups** dialog, select **B.Simon** [31] from the Users list, then click the **Select** [32] button at the bottom of the screen.
+
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+
+1. In the **Add Assignment** dialog, click the **Assign** button [33]. 
+
+    ![rkt_13](./media/raketa-tutorial/87418196-bb15ab00-c5ea-11ea-85d4-a91f179ae18a.png)
 
 ## Configure Raketa SSO
 
@@ -133,7 +184,7 @@ To configure single sign-on on **Raketa** side, you need to send the downloaded 
 
 ### Create Raketa test user
 
-In this section, you create a user called B.Simon in Raketa. Work with [Raketa support team](mailto:help@raketa.travel) to add the users in the Raketa platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Raketa. Work with [Raketa support team](mailto:help@raketa.travel) to add the users in the Raketa platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
@@ -154,4 +205,3 @@ When you click the Raketa tile in the Access Panel, you should be automatically 
 - [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Raketa with advanced visibility and controls](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
