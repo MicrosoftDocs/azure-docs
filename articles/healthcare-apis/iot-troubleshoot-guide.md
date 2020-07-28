@@ -60,11 +60,11 @@ You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-
 5. Do a paste operation (for example: Select Ctrl + v) into a new file within an editor (for example: Visual Studio Code, Notepad) and save the file with an *.json extension.
 
 > [!TIP]
-> If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT Connector, make sure to include copies of your mapping files to help with the troubleshooting process.
+> If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the Azure IoT Connector for FHIR, make sure to include copies of your mapping files to help with the troubleshooting process.
 
 ## Next steps
 
-Check out frequently asked questions on IoT Connector
+Check out frequently asked questions about the Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
 >[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
