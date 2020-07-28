@@ -12,7 +12,7 @@ manager: philmea
 
 # Azure Maps geocoding coverage
 
-The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) supports geocoding location searches.  Geocoding is a type of location search that returns results as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) receives queries that contain location information such as a partial or full address, street intersection, city centers, counties, or states. The query response will then return the results of the query in latitude/longitude coordinates.
+The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) supports geocoding location searches.  Geocoding is a type of location search that returns results as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) receives queries that contain location information, and returns results as latitude/longitude coordinates.
 
 However, the Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
 
@@ -212,7 +212,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Uzbekistan                                          |                 |                |              |      ✓     |          ✓         |
 | Vatican City                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## Middle East and Africa
 
 | Country/Region                                      | Address points |House numbers | Street level | City level | Points of interest |
@@ -295,9 +294,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 
 ## Next steps
 
-For more information about Azure Maps geocoding:
+Learn more about Azure Maps geocoding:
 > [!div class="nextstepaction"]
-> [Search reference pages](https://docs.microsoft.com/rest/api/maps/search)
-
-> [!div class="nextstepaction"]
-> [Coverage areas for Traffic Service](traffic-coverage.md)
+> [Azure Maps Search Service](https://docs.microsoft.com/rest/api/maps/search)
