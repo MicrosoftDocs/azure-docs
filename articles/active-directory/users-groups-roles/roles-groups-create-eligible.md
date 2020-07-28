@@ -25,20 +25,20 @@ You can only assign a role to a group that was created with the ‘isAssignableT
 1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Groups** > **All groups** > **New group**.
 
-    [![](media/roles-groups-create-eligible/new-group.png "Open Azure Active Directory and create a new group.")](media/roles-groups-create-eligible/new-group.png#<lightbox>)
+    [![Open Azure Active Directory and create a new group.](media/roles-groups-create-eligible/new-group.png "Open Azure Active Directory and create a new group.")](media/roles-groups-create-eligible/new-group.png#<lightbox>)
 
 1. On the **New Group** tab, provide group type, name and description.
 1. Turn on **Azure AD roles can be assigned to the group**. This switch is visible to only Privileged Role Administrators and Global Administrators because these are only two roles that can set the switch.
 
-    [![](media/roles-groups-create-eligible/eligible-switch.png "Make the new group eligible for role assignment")](media/roles-groups-create-eligible/eligible-switch.png#<lightbox>)
+    [![Make the new group eligible for role assignment](media/roles-groups-create-eligible/eligible-switch.png "Make the new group eligible for role assignment")](media/roles-groups-create-eligible/eligible-switch.png#<lightbox>)
 
 1. Select the members and owners for the group. You also have the option to assign roles to the group, but assigning a role isn't required here.
 
-    [![](media/roles-groups-create-eligible/specify-members.png "Add members to the role-assignable group and assign roles.")](media/roles-groups-create-eligible/specify-members.png#<lightbox>)
+    [![Add members to the role-assignable group and assign roles.](media/roles-groups-create-eligible/specify-members.png "Add members to the role-assignable group and assign roles.")](media/roles-groups-create-eligible/specify-members.png#<lightbox>)
 
 1. After the members and owners are specified, select **Create**.
 
-    [![](media/roles-groups-create-eligible/create-button.png "The Create button is at the bottom of the page.")](media/roles-groups-create-eligible/create-button.png#<lightbox>)
+    [![The Create button is at the bottom of the page.](media/roles-groups-create-eligible/create-button.png "The Create button is at the bottom of the page.")](media/roles-groups-create-eligible/create-button.png#<lightbox>)
 
 The group is created with any roles you might have assigned to it.
 

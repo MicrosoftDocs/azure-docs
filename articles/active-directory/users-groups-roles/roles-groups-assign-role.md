@@ -34,7 +34,7 @@ Assigning a group to an Azure AD role is similar to assigning users and service 
 
 1. Select the group. Only the groups that can be assigned to Azure AD roles are displayed.
 
-    [![](media/roles-groups-assign-role/eligible-groups.png "Only groups that are assignable are shown for a new role assignment.")](media/roles-groups-assign-role/eligible-groups.png#lightbox)
+    [![Only groups that are assignable are shown for a new role assignment.](media/roles-groups-assign-role/eligible-groups.png "Only groups that are assignable are shown for a new role assignment.")](media/roles-groups-assign-role/eligible-groups.png#lightbox)
 
 1. Select **Add**.
 
