@@ -4,8 +4,8 @@ description: Learn how to test and submit a virtual machine offer in the commerc
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: emuench
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah 
 ms.date: 04/09/2020
 ---
 
