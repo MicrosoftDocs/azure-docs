@@ -61,7 +61,7 @@ Upon deleting a key vault, the service creates a proxy resource under the subscr
 
 ### Key vault object recovery
 
-Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered, or forcefully/permanently deleted. 
+Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered, or forcefully/permanently deleted. To view the objects, make sure to use the `-InRemovedState` parameter as [described here for Azure PowerShell commands](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#secrets).  
 
 At the same time, Key Vault will schedule the deletion of the underlying data corresponding to the deleted key vault or key vault object for execution after a predetermined retention interval. The DNS record corresponding to the vault is also retained for the duration of the retention interval.
 

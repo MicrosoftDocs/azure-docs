@@ -1,6 +1,5 @@
 ---
-title: Consume web service
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Consume web services - Azure'
 description: Once a machine learning service is deployed from Azure Machine Learning Studio (classic), the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 ms.service: machine-learning
@@ -12,7 +11,10 @@ ms.author: keli19
 ms.custom: seodec18, tracking-python
 ms.date: 05/29/2020
 ---
-# How to consume an Azure Machine Learning Studio (classic) web service
+# How to consume a Machine Learning Studio (classic) web service
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 Once you deploy an Azure Machine Learning Studio (classic) predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 

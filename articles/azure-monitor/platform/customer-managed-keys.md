@@ -195,7 +195,7 @@ These settings can be updated via CLI and PowerShell:
 
 This resource is used as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. After you receive confirmation that your subscriptions were allowed, create a Log Analytics *Cluster* resource at the region where your workspaces are located.
 
-You must specify the *capacity reservation* level (sku) when creating a *Cluster* resource. The *capacity reservation* level can be in the range of 1,000 to 2,000 GB per day and you can update it in steps of 100 later. If you need capacity reservation level higher than 2,000 GB per day, contact us at LAIngestionRate@microsoft.com. [Learn more](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+You must specify the *capacity reservation* level (sku) when creating a *Cluster* resource. The *capacity reservation* level can be in the range of 1000 to 3000 GB per day and you can update it in steps of 100. If you need capacity reservation level higher than 3000 GB per day, contact us at LAIngestionRate@microsoft.com. [Learn more](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 The *billingType* property determines the billing attribution for the *Cluster* resource and its data:
 - *Cluster* (default) -- The Capacity Reservation costs for your Cluster are attributed to the *Cluster* resource.
@@ -469,9 +469,9 @@ All your data remains accessible after the key rotation operation, since data al
 The query language used in Log Analytics is expressive and can contain sensitive information in comments you add to queries or in the query syntax. Some organizations require that such information is kept protected as part of the CMK policy and you need save your queries encrypted with your key. Azure Monitor enables you to store *saved-searches* and *log-alerts* queries encrypted with your key in your own storage account when connected to your workspace. 
 
 > [!NOTE]
-> CMK for queries used in workbooks and Azure dashboards isn't supported yet. These queries remain encrypted with Microsoft key.  
+> Log Analytics queries can be saved in various stores depending on the scenario used. Queries remain encrypted with Microsoft key (MMK) in the following scenarios regardless CMK configuration: Workbooks in Azure Monitor, Azure dashboards, Azure Logic App, Azure Notebooks and Automation Runbooks.
 
-When you [Bring Your Own Storage](./private-storage.md) (BYOS) and associate it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/encryption-customer-managed-keys.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
+When you Bring Your Own Storage (BYOS) and associate it to your workspace, the service uploads *saved-searches* and *log-alerts* queries to your storage account. That means that you control the storage account and the [encryption-at-rest policy](../../storage/common/encryption-customer-managed-keys.md) either using the same key that you use to encrypt data in Log Analytics cluster, or a different key. You will, however, be responsible for the costs associated with that storage account. 
 
 **Considerations before setting CMK for queries**
 * You need to have 'write' permissions to both your workspace and Storage Account
@@ -601,7 +601,7 @@ After the configuration, any new alert query will be saved in your storage.
 
 - **Update *capacity reservation* in *Cluster* resource**
 
-  When the data volume to your associated workspaces change over time and you want to update the capacity reservation level appropriately. Follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new capacity value. It can be in the range of 1,000 to 2,000 GB per day and in steps of 100. For level higher than 2,000 GB per day, reach your Microsoft contact to enable it. Note that you don’t have to provide the full REST request body and should include the sku:
+  When the data volume to your associated workspaces change over time and you want to update the capacity reservation level appropriately. Follow the [update *Cluster* resource](#update-cluster-resource-with-key-identifier-details) and provide your new capacity value. It can be in the range of 1000 to 3000 GB per day and in steps of 100. For level higher than 3000 GB per day, reach your Microsoft contact to enable it. Note that you don’t have to provide the full REST request body but should include the sku:
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"

@@ -5,12 +5,12 @@ description: 'Learn how and where to deploy your Azure Machine Learning models, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
-ms.custom: seoapril2019, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ---
 
@@ -27,6 +27,11 @@ The workflow is similar no matter [where you deploy](#target) your model:
 1. Test the deployed model, also called a web service.
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
+
+> [!IMPORTANT]
+> It is highly advised to debug locally before deploying to the web service, for more information see [Debug Locally](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+>
+> You can also refer to Azure Machine Learning - [Deploy to Local Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
 ## Prerequisites
 

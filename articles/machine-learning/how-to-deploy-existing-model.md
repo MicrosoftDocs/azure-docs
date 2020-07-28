@@ -5,12 +5,12 @@ description: 'Learn how you can use Azure Machine Learning with models that were
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 03/17/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Use an existing model with Azure Machine Learning

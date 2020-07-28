@@ -36,9 +36,9 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Diagnostic logs|Generally available|Preview <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Azure Storage analytics logging](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Archive Access Tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Logging in Azure Monitor|Preview |Not yet supported|[Monitoring Azure Storage](../common/monitor-storage.md)|
-|Snapshots|Preview|Not yet supported|[Blob snapshots](snapshots-overview.md)|
-|Static websites|Preview|Not yet supported|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
-|Immutable storage|Preview|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
+|Snapshots|Preview<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Not yet supported|[Blob snapshots](snapshots-overview.md)|
+|Static websites|Preview<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Not yet supported|[Static website hosting in Azure Storage](storage-blob-static-website.md)|
+|Immutable storage|Preview<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Not yet supported|[Store business-critical blob data with immutable storage](storage-blob-immutable-storage.md)|
 |Lifecycle management policies|Preview|Not yet supported|[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)|
 |Blobfuse|Preview|Not yet supported|[How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md)|
 |Change feed|Not yet supported|Not yet supported|[Change feed support in Azure Blob storage](storage-blob-change-feed.md)|
@@ -47,9 +47,11 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 |Custom domains|Not yet supported|Not yet supported|[Map a custom domain to an Azure Blob storage endpoint](storage-custom-domain-name.md)|
 |Soft Delete|Not yet supported|Not yet supported|[Soft delete for Azure Storage blobs](storage-blob-soft-delete.md)|
 
-<div id="diagnostic-logging"><sup>1</sup> For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div>
+<div id="diagnostic-logging"><sup>1</sup> For premium block blob storage accounts, diagnostic logs (classic) can't be enabled by using the Azure portal. Enable them by using PowerShell.</div><br>
 
-<div id="blob-container-ACL"><sup>2</sup> You can set ACLs on the root folder of the container but not the container itself.</div>
+<div id="blob-container-ACL"><sup>2</sup> You can set ACLs on the root folder of the container but not the container itself.</div><br>
+
+<div id="preview-form"><sup>3</sup>To use snapshots, immutable storage, or static websites with Data Lake Storage Gen2, you need to enroll in the preview by completing this <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>form</a>.  </div>
 
 ## See also
 
