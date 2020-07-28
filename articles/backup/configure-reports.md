@@ -118,6 +118,8 @@ Using this view, you can identify database workloads that have been configured f
 
 Clicking on the **Policy Optimizations** tile followed by the **Backup Schedule Optimizations** tile displays a grid containing all databases with a daily full backup policy. You can choose to navigate to a particular backup item and modify the policy to use daily differential backup with weekly full backup.
 
+Note that the **Backup Management Type** filter at the top of the tab should have the items **SQL in Azure VM** and **SAP HANA in Azure VM** selected, for the grid to be able to display database workloads as expected.
+
 ![Optimize tab - Backup Schedule Optimizations](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
 
 ## Export to Excel
