@@ -41,8 +41,8 @@ Error code: VMRestorePointInternalError
 If at the time of backup, the **Event Viewer Application logs** displays the message **Faulting application name: IaaSBcdrExtension.exe** then it is confirmed that the antivirus configured in the VM is restricting the execution of backup extension.
 To resolve this issue, exclude below directories in the antivirus configuration and retry the backup operation.
 
-*	`C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
-*	`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+* `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+* `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
 
 ### CopyingVHDsFromBackUpVaultTakingLongTime - Copying backed up data from vault timed out
 
@@ -105,7 +105,7 @@ Restart VSS writers that are in a bad state. From an elevated command prompt, ru
 
 Another procedure that can help is to run the following command from an elevated command-prompt (as an administrator).
 
-```CMD
+```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
@@ -117,7 +117,8 @@ Error code: ExtensionConfigParsingFailure<br/>
 Error message: Failure in parsing the config for the backup extension.
 
 This error happens because of changed permissions on the **MachineKeys** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
-Run the following command and verify that permissions on the **MachineKeys** directory are default ones:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Run the following command and verify that permissions on the **MachineKeys** directory are default ones:
+`icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys`.
 
 Default permissions are as follows:
 
@@ -180,7 +181,7 @@ Backup operation on the VM failed due to delay in network calls while performing
 
 From an elevated (admin) command-prompt, run the below command:
 
-```text
+```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotMethod /t REG_SZ /d firstHostThenGuest /f
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTimeFromHost /t REG_SZ /d True /f
 ```
@@ -323,7 +324,7 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 
 * **VMs with SQL Server backup configured can cause snapshot task delay**. By default, VM backup creates a VSS full backup on Windows VMs. VMs that run SQL Server, with SQL Server backup configured, can experience snapshot delays. If snapshot delays cause backup failures, set following registry key:
 
-   ```text
+   ```console
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
