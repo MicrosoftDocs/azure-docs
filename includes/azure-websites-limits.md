@@ -23,7 +23,7 @@ ms.author: jroth
 | App Service Certificates per subscription<sup>9</sup>| Not supported | Not supported |10 |10 |10 |10 |
 | Custom domains per app</a> |0 (azurewebsites.net subdomain only)|500 |500 |500 |500 |500 |
 | Custom domain [SSL support](../articles/app-service/configure-ssl-certificate.md) |Not supported, wildcard certificate for \*.azurewebsites.net available by default|Not supported, wildcard certificate for \*.azurewebsites.net available by default|Unlimited SNI SSL connections |Unlimited SNI SSL and 1 IP SSL connections included |Unlimited SNI SSL and 1 IP SSL connections included | Unlimited SNI SSL and 1 IP SSL connections included|
-| Hybrid connections per plan | | | 5 | 25 | 200 | 200 |
+| Hybrid connections | | | 5 per plan | 25 per plan | 200 per app | 200 per app |
 | [Virtual Network Integration](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Integrated load balancer | |X |X |X |X |X<sup>10</sup> |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
