@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 06/25/2020
+ms.date: 07/28/2020
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -394,8 +394,9 @@ This section lists the outbound IP addresses for the Azure Logic Apps service an
 > To help reduce complexity when you create security rules, you can optionally use the
 > [service tag](../virtual-network/service-tags-overview.md), **LogicApps**,
 > rather than specify outbound Logic Apps IP address prefixes for each region.
-> This tag works across the regions where the Logic Apps service is available.
-> For managed connectors, you must continue to use the IP addresses.
+> For managed connectors, you can optionally use the **AzureConnectors** service tag, 
+> rather than specify outbound managed connector IP address prefixes for each region. 
+> These tags work across the regions where the Logic Apps service is available. 
 
 <a name="multi-tenant-outbound"></a>
 
