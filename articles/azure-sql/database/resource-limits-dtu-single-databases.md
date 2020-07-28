@@ -11,6 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 ms.date: 03/20/2019
+ms.custom: references_regions
 ---
 # Resource limits for single databases using the DTU purchasing model - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
