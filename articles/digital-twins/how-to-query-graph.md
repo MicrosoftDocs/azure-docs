@@ -58,25 +58,30 @@ WHERE property = 42
 
 The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](concepts-models.md). It supports inheritance and has several overload options.
 
-The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter. Here is a query example:
+The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter: `IS_OF_MODEL(twinTypeName)`.
+Here is a query example that passes a value in this parameter:
 
 ```sql
 SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
 ```
 
-To specify a twin collection to search when there is more than one (like when a `JOIN` is used), add the `twinCollection` parameter: 
+To specify a twin collection to search when there is more than one (like when a `JOIN` is used), add the `twinCollection` parameter: `IS_OF_MODEL(twinCollection, twinTypeName)`.
+Here is a query example that adds a value for this parameter:
 
 ```sql
 SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
 ```
 
-To do an exact match, add the `exact` parameter:
+To do an exact match, add the `exact` parameter: `IS_OF_MODEL(twinTypeName, exact)`.
+Here is a query example that adds a value for this parameter:
 
 ```sql
 SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
 ```
 
-You can also pass all three arguments together:
+You can also pass all three arguments together: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`.
+Here is a query example specifying a value for all three parameters:
+
 ```sql
 SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
 ```
