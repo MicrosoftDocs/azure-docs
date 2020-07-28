@@ -68,7 +68,7 @@ SaaS offers can be published to Azure Marketplace or AppSource. If your SaaS off
 
 &#42; The private plan of the offer will only be available via the Azure portal
 
-For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure Portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
+For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
 
 ### Categories
 
