@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 07/23/2020
 ms.author: victorh
 ---
 
@@ -17,15 +17,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ## What capabilities are supported in Azure Firewall?
 
-* Stateful firewall as a service
-* Built-in high availability with unrestricted cloud scalability
-* FQDN filtering
-* FQDN tags
-* Network traffic filtering rules
-* Outbound SNAT support
-* Inbound DNAT support
-* Centrally create, enforce, and log application and network connectivity policies across Azure subscriptions and VNETs
-* Fully integrated with Azure Monitor for logging and analytics
+To learn about Azure Firewall features, see [Azure Firewall features](features.md).
 
 ## What is the typical deployment model for Azure Firewall?
 
@@ -192,9 +184,10 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 
 ## Or Update FQDNs and IpAddresses separately
 
-$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
-$fw.ThreatIntelWhitelist.FQDNs = @("fqdn1", "fqdn2", …)
-$fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
+$fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses )
+$fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
+
 
 Set-AzFirewall -AzureFirewall $fw
 ```
@@ -214,3 +207,11 @@ No, moving an IP Group to another resource group isn't currently supported.
 ## What is the TCP Idle Timeout for Azure Firewall?
 
 A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+
+## Can I deploy Azure Firewall without a public IP address?
+
+No, currently you must deploy Azure Firewall with a public IP address.
+
+## Where does Azure Firewall store customer data?
+
+Azure Firewall doesn't move or store customer data out of the region it is deployed in.

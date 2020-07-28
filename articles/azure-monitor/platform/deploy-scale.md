@@ -27,7 +27,7 @@ Azure Policy consists of the objects in the following table. See [Azure Policy o
 | Assignment | A policy definition or initiative doesn't take effect until it's assigned to a scope. For example, assign a policy to a resource group to apply it to all resources created in that resource, or apply it to a subscription to apply it to all resources in that subscription.  For more details, see [Azure Policy assignment structure](../../governance/policy/concepts/assignment-structure.md). |
 
 ## Built-in policy definitions for Azure Monitor
-Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in politics in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](../policy-samples.md).
+Azure Policy includes several prebuilt definitions related to Azure Monitor. You can assign these policy definitions to your existing subscription or use them as a basis to create your own custom definitions. For a complete list of the built-in politics in the **Monitoring** category, see [Azure Policy built-in policy definitions for Azure Monitor](../samples/policy-samples.md).
 
 To view the built-in policy definitions related to monitoring, perform the following:
 
@@ -39,7 +39,7 @@ To view the built-in policy definitions related to monitoring, perform the follo
 
 
 ## Diagnostic settings
-[Diagnostic settings](../platform/diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
+[Diagnostic settings](./diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
 
 Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
@@ -56,7 +56,7 @@ For resource types that don't have a built-in policy, you need to create a custo
 The script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) creates policy files for a particular resource type that you can install using PowerShell or CLI. Use the following procedure to create a custom policy definition for diagnostic settings.
 
 
-1. Ensure that you have [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) installed.
+1. Ensure that you have [Azure PowerShell](/powershell/azure/install-az-ps) installed.
 2. Install the script with the following command:
   
     ```azurepowershell
@@ -131,3 +131,4 @@ For details of this process, see [Enable Azure Monitor for VMs by using Azure Po
 
 - Read more about [Azure Policy](../../governance/policy/overview.md).
 - Read more about [diagnostic settings](diagnostic-settings.md).
+

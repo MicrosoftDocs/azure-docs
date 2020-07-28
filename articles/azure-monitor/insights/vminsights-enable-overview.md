@@ -5,20 +5,26 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/29/2020
+ms.date: 06/25/2020
 
 
 ---
 
 # Enable Azure Monitor for VMs overview
 
-This article provides an overview of the options available to enable Azure Monitor for VMs on your virtual machines to monitor health and performance. Discover application dependencies that run on Azure virtual machines (VMs) and virtual machine scale sets, on-premises VMs, or VMs hosted in another cloud environment.  
+This article provides an overview of the options available to enable Azure Monitor for VMs to monitor health and performance of the following:
+
+- Azure virtual machines 
+- Azure virtual machine scale sets
+- Hybrid virtual machines connected with Azure Arc
+- On-premises virtual machines
+- Virtual machines hosted in another cloud environment.  
 
 To set up Azure Monitor for VMs:
 
-* Enable a single Azure VM or virtual machine scale set by selecting **Insights** directly from the VM or virtual machine scale set.
-* Enable two or more Azure VMs and virtual machine scale sets by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant VMs and scale sets are reported, so you can decide whether to enable them and to remediate them.
-* Enable two or more Azure VMs or virtual machine scale sets across a specified subscription or resource group by using PowerShell.
+* Enable a single Azure VM, Azure VMSS, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
+* Enable multiple Azure VMs, Azure VMSS, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant VMs and scale sets are reported, so you can decide whether to enable them and to remediate them.
+* Enable multiple Azure VMs, Azure Arc VMs, Azure VMSS, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
 * Enable Azure Monitor for VMs to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
 
 ## Prerequisites
@@ -40,6 +46,7 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - East US2
 - Central US
 - North Central US
+- US Gov Az
 - US Gov Va
 - Canada Central
 - UK South
@@ -57,22 +64,20 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 >
 
 If you don't have a Log Analytics workspace, you can create one by using one of the  resources:
-* [Azure CLI](../../azure-monitor/learn/quick-create-workspace-cli.md)
-* [PowerShell](../../azure-monitor/learn/quick-create-workspace-posh.md)
-* [Azure portal](../../azure-monitor/learn/quick-create-workspace.md)
-* [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)
+* [Azure CLI](../learn/quick-create-workspace-cli.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
+* [Azure portal](../learn/quick-create-workspace.md)
+* [Azure Resource Manager](../platform/template-workspace-configuration.md)
 
 You can also create a workspace while you're enabling monitoring for a single Azure VM or virtual machine scale set in the Azure portal.
 
-To set up an at-scale scenario that uses Azure Policy, Azure PowerShell, or Azure Resource Manager templates, in your Log Analytics workspace:
-
-* Install the *ServiceMap* and *InfrastructureInsights* solutions. You can complete this installation by using a provided Azure Resource Manager template. Or on the **Get Started** tab in the Azure portal, select **Configure Workspace**.
-* Configure the Log Analytics workspace to collect performance counters.
-
-To configure your workspace for the at-scale scenario, use one of the following methods:
+To set up an at-scale scenario that uses Azure Policy, Azure PowerShell, or Azure Resource Manager templates, you must install the *VMInsights* solution. You can do this with one of the following methods:
 
 * Use [Azure PowerShell](vminsights-enable-at-scale-powershell.md#set-up-a-log-analytics-workspace).
 * On the Azure Monitor for VMs [**Policy Coverage**](vminsights-enable-at-scale-policy.md#manage-policy-coverage-feature-overview) page, select **Configure Workspace**. 
+
+### Azure Arc machines
+Azure Monitor for VMs is available for Azure Arc enabled servers in regions where the Arc extension service is available. Users must be running version 0.9 or above of the Arc Agent to enable Azure Monitor for VMs on their Arc enabled servers.
 
 ### Supported operating systems
 
@@ -165,8 +170,8 @@ The following table describes the connected sources that the Map feature support
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
-| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
 | System Center Operations Manager management group | No | |
 
 You can download the Dependency agent from these locations:
@@ -180,7 +185,7 @@ You can download the Dependency agent from these locations:
 
 To enable and access the features in Azure Monitor for VMs, you must have the *Log Analytics contributor* role. To view performance, health, and map data, you must have the *monitoring reader* role for the Azure VM. The Log Analytics workspace must be configured for Azure Monitor for VMs.
 
-For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
+For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md).
 
 ## How to enable Azure Monitor for VMs
 
@@ -188,14 +193,14 @@ Enable Azure Monitor for VMs by using one of the methods described in this table
 
 | Deployment state | Method | Description |
 |------------------|--------|-------------|
-| Single Azure VM or virtual machine scale set | [Enable from the VM](vminsights-enable-single-vm.md) | You can enable a single Azure VM by selecting **Insights** directly from the VM or virtual machine scale set. |
-| Multiple Azure VMs or virtual machine scale sets | [Enable through Azure Policy](vminsights-enable-at-scale-policy.md) | You can enable multiple Azure VMs by using Azure Policy and available policy definitions. |
-| Multiple Azure VMs or virtual machine scale sets | [Enable through Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md) | You can enable multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group by using Azure PowerShell or Azure Resource Manager templates. |
-| Hybrid cloud | [Enable for the hybrid environment](vminsights-enable-hybrid-cloud.md) | You can deploy to VMs or physical computers that are hosted in your datacenter or other cloud environments. |
+| Single Azure VM, Azure VMSS, or Azure Arc machine | [Enable from the portal](vminsights-enable-single-vm.md) | Select **Insights** directly from the menu in the Azure portal. |
+| Multiple Azure VM, Azure VMSS, or Azure Arc machine | [Enable through Azure Policy](vminsights-enable-at-scale-policy.md) | Use Azure Policy to automatically enable when a VM or VMSS is created. |
+| | [Enable through Azure PowerShell or Azure Resource Manager templates](vminsights-enable-at-scale-powershell.md) | Use Azure PowerShell or Azure Resource Manager templates to enable multiple Azure VM, Azure Arc VM, or Azure VMSS across a specified subscription or resource group by . |
+| Hybrid cloud | [Enable for the hybrid environment](vminsights-enable-hybrid-cloud.md) | Deploy to VMs or physical computers that are hosted in your datacenter or other cloud environments. |
 
 ## Management packs
 
-When Azure Monitor for VMs is enabled and configured with a Log Analytics workspace, a management pack is forwarded to all the Windows computers reporting to that workspace. If you have [integrated your System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md) with the Log Analytics workspace, the Service Map management pack is deployed from the management group to the Windows computers reporting to the management group.  
+When Azure Monitor for VMs is enabled and configured with a Log Analytics workspace, a management pack is forwarded to all the Windows computers reporting to that workspace. If you have [integrated your System Center Operations Manager management group](../platform/om-agents.md) with the Log Analytics workspace, the Service Map management pack is deployed from the management group to the Windows computers reporting to the management group.  
 
 The management pack is named *Microsoft.IntelligencePacks.ApplicationDependencyMonitor*. Its written to `%Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\` folder. The data source that the management pack uses is `%Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll`.
 
@@ -214,3 +219,4 @@ Now that you've enabled monitoring for your VM, monitoring information is availa
 ## Next steps
 
 To learn how to use the Performance monitoring feature, see [View Azure Monitor for VMs Performance](vminsights-performance.md). To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
+

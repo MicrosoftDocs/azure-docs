@@ -4,7 +4,7 @@ description: Use Azure Data Lake Storage Gen1 to capture data that's received by
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 

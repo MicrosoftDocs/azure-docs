@@ -31,7 +31,8 @@ To install language packs:
 4. Under **Country or region**, select your preferred country or region from the drop-down menu.
     In this example, we're going to select **France**, as shown in the following screenshot:
 
-    ![A screenshot of the Region page. The region currently selected is France.](media/region-page-france.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Region page. The region currently selected is France.](media/region-page-france.png)
 
 5. After that, select **Language**, then select **Add a language**. Choose the language you want to install from the list, then select **Next**.
 6. When the **Install language features** window opens, select the check box labeled **Install language pack and set as my Windows display language**.
@@ -40,15 +41,19 @@ To install language packs:
 
     Let's run through a quick visual demonstration. The following images show how to install the French and Dutch language packs, then set French as the display language.
 
-    ![A screenshot of the Language page at the beginning of the process. The selected Windows display language is English.](media/language-page-default.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Language page at the beginning of the process. The selected Windows display language is English.](media/language-page-default.png)
 
-    ![A screenshot of the language selection window. The user has entered "french" into the search bar to find the French language packages.](media/select-language-french.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the language selection window. The user has entered "french" into the search bar to find the French language packages.](media/select-language-french.png)
 
-    ![A screenshot of the Install language features page. French is selected as the preferred language. The options selected are "Set my display language," "Install language pack," "Speech recognition," and "Handwriting."](media/install-language-features.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Install language features page. French is selected as the preferred language. The options selected are "Set my display language," "Install language pack," "Speech recognition," and "Handwriting."](media/install-language-features.png)
 
     After your language packs have installed, you should see the names of your language packs appear in the list of languages.
 
-    ![A screenshot of the language page with the new language packs installed. The French and Netherlands language packs are listed under "preferred languages."](media/language-page-complete.png)
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the language page with the new language packs installed. The French and Netherlands language packs are listed under "preferred languages."](media/language-page-complete.png)
 
 9. If a window appears asking you to sign out of your session. Sign out, then sign in again. Your display language should now be the language you selected.
 
@@ -108,7 +113,8 @@ If you see an error message during the sysprep process, here's what you should d
 
    The text in the error file will tell you that you need to uninstall a specific language package, as shown in the following image. Copy the language package name for the next step.
 
-   ![A screenshot of the setuperr file. The text with the package name is highlighted in dark blue.](media/setuperr-package-name.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the setuperr file. The text with the package name is highlighted in dark blue.](media/setuperr-package-name.png)
 
 2. Open a new PowerShell window and run the following cmdlet with the package name you copied in step 2 to remove the language package:
 
@@ -132,7 +138,8 @@ To capture an image:
 
 3. Enter a name for your image into the **Name** field and assign it to the resource group using the **Resource group** drop-down menu, as shown in the following image.
 
-   ![A screenshot of the Create image window. The name the user has given to this test image is "vmwvd-image-fr," and they've assigned it to the "testwvdimagerg" resource group.](media/create-image.png)
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Create image window. The name the user has given to this test image is "vmwvd-image-fr," and they've assigned it to the "testwvdimagerg" resource group.](media/create-image.png)
 
 4. Select **Create**.
 

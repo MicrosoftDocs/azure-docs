@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 03/15/2020
+ms.date: 07/14/2020
 ms.author: memildin
 ---
 # Security alerts in Azure Security Center
 
 In Azure Security Center, there are a variety of alerts for many different resource types. Security Center generates alerts for resources deployed on Azure, and also for resources deployed on on-premises and hybrid cloud environments.
 
-Security alerts are triggered by advanced detections and are available only in the Standard Tier of Azure Security Center. A free trial is available. You can upgrade from the Pricing Tier selection in the [Security Policy](security-center-pricing.md). Visit [Security Center page](https://azure.microsoft.com/pricing/details/security-center/) to learn more about pricing.
+Security alerts are triggered by advanced detections and are available only in the standard tier of Azure Security Center. A free trial is available. You can upgrade from the **Pricing & settings** page. Learn more about [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Responding to today's threats <a name="respond-threats"> </a>
 

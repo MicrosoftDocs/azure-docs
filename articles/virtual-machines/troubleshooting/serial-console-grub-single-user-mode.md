@@ -34,7 +34,7 @@ To enter single-user mode, enter GRUB when your VM is booting, and modify the bo
 ## General GRUB access
 To access GRUB, reboot your VM while the Serial Console pane is open. Some distributions require keyboard input to show GRUB, and others automatically show GRUB for a few seconds to allow user keyboard input to cancel the timeout.
 
-To be able to access single-user mode, you want to ensure that GRUB is enabled on your VM. Depending on your distribution, some setup work might be necessary to ensure that GRUB is enabled. For distribution-specific information, see the next section and our [Support for Linux on Azure](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/) page.
+To be able to access single-user mode, you want to ensure that GRUB is enabled on your VM. Depending on your distribution, some setup work might be necessary to ensure that GRUB is enabled. For distribution-specific information, see the next section.
 
 ### Restart your VM to access GRUB in Serial Console
 You can restart your VM within Serial Console by hovering over the **Restart** button and then selecting **Restart VM**. A notification about the restart is displayed at the bottom of the pane.
@@ -110,7 +110,7 @@ If you've set up GRUB and root access by using the preceding instructions, you c
 
    You'll be prompted for the administrator password before you can enter single-user mode. This password is the one you created in the previous instructions.
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Animated image showing a command-line interface. The user selects a server, locates the end of the kernel line, and then enters the specified text.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### Enter single-user mode without root account enabled in RHEL
 If you didn't enable the root user by following the earlier instructions, you can still reset your root password by doing the following:
@@ -134,7 +134,7 @@ If you didn't enable the root user by following the earlier instructions, you ca
 1. You're now at root. You can reset your root password by entering `passwd` and then use the preceding instructions to enter single-user mode. 
 1. After you're done, enter `reboot -f` to reboot.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Animated image showing a command-line interface. The user selects a server, locates the end of the kernel line, and enters the specified commands.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > [!NOTE]
 > Running through the preceding instructions drops you into the emergency shell so that you can also perform tasks such as editing `fstab`. However, we ordinarily suggest that you reset your root password and use it to enter single-user mode.
@@ -238,7 +238,7 @@ To enable single-user mode in Oracle Linux, follow the earlier instructions for 
 ## Next steps
 To learn more about Serial Console, see:
 * [Linux Serial Console documentation](serial-console-linux.md)
-* [Use Serial Console to enable GRUB in various distributions](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
+* [Use Serial Console to enable GRUB in various distributions](http://linuxonazure.azurewebsites.net/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * [Use Serial Console for NMI and SysRq calls](serial-console-nmi-sysrq.md)
 * [Serial Console for Windows VMs](serial-console-windows.md)
 * [Boot diagnostics](boot-diagnostics.md)

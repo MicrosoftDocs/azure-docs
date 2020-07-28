@@ -112,12 +112,12 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 **Q:** How is quota managed for Spot?
 
-**A:** Spot instances and standard instances will have separate quota pools. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Spot instances and standard instances will have separate quota pools. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q:** Can I request for additional quota for Spot?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **Q:** Can I convert existing scale sets to Spot scale sets?
@@ -155,7 +155,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 |------------------------------|-----------------------------------|
 | Enterprise Agreement         | Yes                               |
 | Pay As You Go                | Yes                               |
-| Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Cloud Service Provider (CSP) | [Contact your partner](/partner-center/azure-plan-get-started) |
 | Benefits                     | Not available                     |
 | Sponsored                    | Yes                               |
 | Free Trial                   | Not available                     |
@@ -163,7 +163,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 **Q:** Where can I post questions?
 
-**A:** You can post and tag your question with `azure-spot` at [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** You can post and tag your question with `azure-spot` at [Q&A](/answers/topics/azure-spot.html). 
 
 ## Next steps
 

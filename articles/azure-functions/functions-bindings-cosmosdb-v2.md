@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB bindings for Functions 2.x
+title: Azure Cosmos DB bindings for Functions 2.xd and higher
 description: Understand how to use Azure Cosmos DB triggers and bindings in Azure Functions.
 author: craigshoemaker
 ms.topic: reference
@@ -7,13 +7,13 @@ ms.date: 02/24/2017
 ms.author: cshoe
 ---
 
-# Azure Cosmos DB trigger and bindings for Azure Functions 2.x overview
+# Azure Cosmos DB trigger and bindings for Azure Functions 2.x and higher overview
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-bindings-cosmosdb.md)
-> * [Version 2](functions-bindings-cosmosdb-v2.md)
+> * [Version 2 and higher](functions-bindings-cosmosdb-v2.md)
 
-This set of articles explains how to work with [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindings in Azure Functions 2.x. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This set of articles explains how to work with [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindings in Azure Functions 2.x and higher. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 | Action | Type |
 |---------|---------|
@@ -22,9 +22,9 @@ This set of articles explains how to work with [Azure Cosmos DB](../cosmos-db/se
 | Save changes to an Azure Cosmos DB document  |[Output binding](./functions-bindings-cosmosdb-v2-output.md) |
 
 > [!NOTE]
-> This reference is for [Azure Functions version 2.x](functions-versions.md).  For information about how to use these bindings in Functions 1.x, see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> This reference is for [Azure Functions version 2.x and higher](functions-versions.md).  For information about how to use these bindings in Functions 1.x, see [Azure Cosmos DB bindings for Azure Functions 1.x](functions-bindings-cosmosdb.md).
 >
-> This binding was originally named DocumentDB. In Functions version 2.x, the trigger, bindings, and package are all named Cosmos DB.
+> This binding was originally named DocumentDB. In Functions version 2.x and higher, the trigger, bindings, and package are all named Cosmos DB.
 
 ## Supported APIs
 

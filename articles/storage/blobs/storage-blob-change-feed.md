@@ -66,7 +66,7 @@ Enable change feed on your storage account by using Azure portal:
 
 4. Choose the **Save** button to confirm your **Data Protection** settings.
 
-    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
+    ![Screenshot that shows the data protection settings.](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### [PowerShell](#tab/azure-powershell)
 

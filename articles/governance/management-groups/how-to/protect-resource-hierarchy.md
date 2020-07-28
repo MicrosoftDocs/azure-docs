@@ -7,7 +7,7 @@ ms.topic: conceptual
 # How to protect your resource hierarchy
 
 Your resources, resource groups, subscriptions, management groups, and tenant collectively make up
-your resource hierarchy. Settings at the root management group, such as custom RBAC roles or Azure
+your resource hierarchy. Settings at the root management group, such as Azure custom roles or Azure
 Policy policy assignments, can impact each and every resource in your resource hierarchy. It's
 important to protect the resource hierarchy from changes that could negatively impact all resources.
 

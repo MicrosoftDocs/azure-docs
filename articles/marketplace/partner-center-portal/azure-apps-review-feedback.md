@@ -1,8 +1,6 @@
 ---
 title: Review feedback for Azure apps offers - Microsoft commercial marketplace 
 description: How to handle feedback for your Azure application offer from the Microsoft Azure Marketplace review team. You can access feedback in Azure DevOps with your Partner Center credentials. 
-author: dsindona 
-ms.author: dsindona
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

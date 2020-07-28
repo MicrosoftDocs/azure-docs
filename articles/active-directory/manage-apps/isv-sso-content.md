@@ -57,4 +57,4 @@ There are many advantages to enabling SSO in your multi-tenant application. When
 1. [Create your Azure Tenant](isv-tenant-multi-tenant-app.md) and test your application
 1. [Create and publish SSO documentation on your site](isv-create-sso-documentation.md).
 1. [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)  and partner with Microsoft to create documentation on Microsoft’s site.
-1. [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial#gtm).
+1. [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/explore/commercial#gtm).

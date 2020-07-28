@@ -62,6 +62,9 @@ No. Azure Availability Zones aren't supported for Azure Migrate migration.
 
 Azure Migrate uses the Network Block Device (NBD) protocol with TLS encryption.
 
+## How is the data transmitted from on-prem environment to Azure? Is it encrypted before transmission? 
+The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it is persisted it to the cloud (encryption-at-rest).  
+
 ## What is the minimum vCenter Server version required for migration?
 
 You must have at least vCenter Server 5.5 and vSphere ESXi host version 5.5.
@@ -98,7 +101,7 @@ Migrating machines by treating them as physical servers is useful in a number of
 
 ## I deployed two (or more) appliances to discover VMs in my vCenter Server. However, when I try to migrate the VMs, I only see VMs corresponding to one of the appliance.
 
-While this may be a good use case, we currently do not support it. Deploying two (or more) appliances to discover same set of VMs causes a service issue in which VM ownership keeps toggling between the two appliances. This is the reason you see VMs appearing and disappearing. In such cases, to resolve the issue, you must delete one appliance and do a hard refresh.
+If there are multiple appliances set up, it is required there is no overlap among the VMs on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario.
 
 ## Do I need VMware vCenter to migrate VMware VMs?
 To [migrate VMware VMs](server-migrate-overview.md) using VMware agent-based or agentless migration, ESXi hosts on which VMs are located must be managed by vCenter Server. If you don't have vCenter Server, you can migrate VMware VMs by migrating them as physical servers. [Learn more](migrate-support-matrix-physical-migration.md).

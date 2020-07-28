@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to develop multi-service applications using A
 
 In this section you're going to create a second service, `mywebapi`, and have `webfrontend` call it. Each service will run in separate containers. You'll then debug across both containers.
 
-![](media/common/multi-container.png)
+![The diagram shows the webfrontend service calling (as indicated by an arrow) the mywebapi service.](media/common/multi-container.png)
 
 ### Open sample code for *mywebapi*
 You should already have the sample code for `mywebapi` for this guide under a folder named `samples` (if not, go to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository.) The code for this section is in `samples/nodejs/getting-started/mywebapi`.

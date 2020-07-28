@@ -4,7 +4,7 @@ description: Learn how to create export jobs in Azure portal to transfer data fr
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common

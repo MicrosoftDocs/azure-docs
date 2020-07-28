@@ -3,7 +3,7 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 10/04/2019
+ms.date: 06/25/2020
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
@@ -19,7 +19,7 @@ If you're looking for information about an error code and that information isn't
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Follow naming restrictions for storage accounts. | [Resolve storage account name](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Provisioning and allocation issues for Windows](../../virtual-machines/windows/troubleshoot-deployment-new-vm.md) and [Troubleshoot allocation failures](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Provisioning and allocation issues for Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) and [Troubleshoot allocation failures](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
 | AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure Role-Based Access Control](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
@@ -108,7 +108,7 @@ To see deployment error codes and messages with PowerShell, use:
 To see deployment error codes and messages with Azure CLI, use:
 
 ```azurecli-interactive
-az deployment group operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+az deployment operation group list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
 ```
 
 In the portal, select the notification.
@@ -166,7 +166,7 @@ Currently, Azure CLI doesn't support turning on debug logging, but you can retri
 Examine the deployment operations with the following command:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --resource-group examplegroup \
   --name exampledeployment
 ```
@@ -174,7 +174,7 @@ az deployment group operation list \
 Examine the request content with the following command:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.request
@@ -183,7 +183,7 @@ az deployment group operation list \
 Examine the response content with the following command:
 
 ```azurecli
-az deployment group operation list \
+az deployment operation group list \
   --name exampledeployment \
   -g examplegroup \
   --query [].properties.response

@@ -11,7 +11,7 @@ ms.custom: legacy
 
 # Create a copy of a Linux VM by using Azure CLI and Managed Disks
 
-This article shows you how to create a copy of your Azure virtual machine (VM) running Linux by using the Azure CLI. To copy, create, store and share VM images at scale, see [Shared Image Galleries](shared-images.md).
+This article shows you how to create a copy of your Azure virtual machine (VM) running Linux by using the Azure CLI. To copy, create, store and share VM images at scale, see [Shared Image Galleries](../shared-images-cli.md).
 
 You can also [upload and create a VM from a VHD](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -142,4 +142,4 @@ az vm create --resource-group myResourceGroup \
 
 ## Next steps
 
-To learn how to use a [shared image gallery](shared-images.md) to manage VM images.
+To learn how to use a [shared image gallery](../shared-images-cli.md) to manage VM images.

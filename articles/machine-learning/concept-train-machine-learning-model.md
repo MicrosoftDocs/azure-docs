@@ -25,7 +25,7 @@ Azure Machine Learning provides several ways to train your models, from code fir
     | [Estimators](#estimators) | Estimator classes **make it easy to train models based on popular machine learning frameworks**. There are estimator classes for **Scikit-learn**, **PyTorch**, **TensorFlow**, **Chainer**, and **Ray RLlib**. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class. You don't have to worry about defining a run configuration when using estimators. |
     | [Machine learning pipeline](#machine-learning-pipeline) | Pipelines are not a different training method, but a **way of defining a workflow using modular, reusable steps**, that can include training as part of the workflow. Machine learning pipelines support using automated machine learning, estimators, and run configuration to train models. Since pipelines are not focused specifically on training, the reasons for using a pipeline are more varied than the other training methods. Generally, you might use a pipeline when:<br>* You want to **schedule unattended processes** such as long running training jobs or data preparation.<br>* Use **multiple steps** that are coordinated across heterogeneous compute resources and storage locations.<br>* Use the pipeline as a **reusable template** for specific scenarios, such as retraining or batch scoring.<br>* **Track and version data sources, inputs, and outputs** for your workflow.<br>* Your workflow is **implemented by different teams that work on specific steps independently**. Steps can then be joined together in a pipeline to implement the workflow. |
 
-+ [Azure Machine Learning SDK for Python](#r-sdk): The SDK uses the reticulate package to bind to Azure Machine Learning's Python SDK. This allows you access to core objects and methods implemented in the Python SDK from any R environment.
++ [Azure Machine Learning SDK for R](#r-sdk): The SDK for R uses the reticulate package to bind to Azure Machine Learning's Python SDK. This allows you access to core objects and methods implemented in the Python SDK from any R environment.
 
 + **Designer**: Azure Machine Learning designer (preview) provides an easy entry-point into machine learning for building proof of concepts, or for users with little coding experience. It allows you to train models using a drag and drop web-based UI. You can use Python code as part of the design, or train models without writing any code.
 
@@ -101,7 +101,7 @@ For more information, see the following articles:
 The designer lets you to train models using a drag and drop interface in your web browser.
 
 + [What is the designer?](concept-designer.md)
-+ [Tutorial : Predict automobile price](tutorial-designer-automobile-price-train-score.md)
++ [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 + [Regression: Predict price](how-to-designer-sample-regression-automobile-price-basic.md)
 + [Classification: Predict income](how-to-designer-sample-classification-predict-income.md)
 + [Classification: Predict churn, appetency, and up-selling](how-to-designer-sample-classification-churn.md)
@@ -126,6 +126,10 @@ The machine learning CLI is an extension for the Azure CLI. It provides cross-pl
 
 * [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md)
 * [MLOps on Azure](https://github.com/microsoft/MLOps)
+
+## VS Code
+
+You can use the VS Code extension to run and manage your training jobs. See the [VS Code resource management how-to guide](how-to-manage-resources-vscode.md#experiments) to learn more.
 
 ## Next steps
 

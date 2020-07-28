@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
-ms.author: dapine
+ms.author: trbye
 ms.custom: tracking-python
 zone_pivot_groups: programming-languages-speech-services-one-nomore
 ---

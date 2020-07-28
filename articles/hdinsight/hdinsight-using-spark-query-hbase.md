@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
 ---
@@ -108,15 +108,51 @@ exit
 
 ## Run Spark Shell referencing the Spark HBase Connector
 
-1. From your open SSH session to the Spark cluster, enter the command below to start a spark shell:
+After you complete the preceding step, you should be able to run Spark shell, referencing the appropriate version of Spark HBase Connector. To find the most recent appropriate Spark HBase Connector core version for your cluster scenario, see [SHC Core Repository](https://repo.hortonworks.com/content/groups/public/com/hortonworks/shc/shc-core/).
+
+As an example, the following table lists two versions and the corresponding commands the HDInsight team currently uses. You can use the same versions for your clusters if the versions of HBase and Spark are same as indicated in the table. 
+
+
+1. In your open SSH session to the Spark cluster, enter the following command to start a Spark shell:
+
+    |Spark version| HDI HBase version  | SHC version    |  Command  |
+    | :-----------:| :----------: | :-----------: |:----------- |
+    |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+
+2. Keep this Spark shell instance open and continue to [Define a catalog and query](#define-a-catalog-and-query). If you don't find the jars that correspond to your versions in the SHC Core respository, continue reading. 
+
+You can build the jars directly from the [spark-hbase-connector](https://github.com/hortonworks-spark/shc) GitHub branch. For example, if you are running with Spark 2.3 and HBase 1.1, complete these steps:
+
+1. Clone the repo:
 
     ```bash
-    spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
-    ```  
+    git clone https://github.com/hortonworks-spark/shc
+    ```
+    
+2. Go to branch-2.3:
 
-2. Keep this Spark Shell instance open and continue to the next step.
+    ```bash
+    git checkout branch-2.3
+    ```
 
-## Define a Catalog and Query
+3. Build from the branch (creates a .jar file):
+
+    ```bash
+    mvn clean package -DskipTests
+    ```
+    
+3. Run the following command (be sure to change the .jar name that corresponds to the .jar file you built):
+
+    ```bash
+    spark-shell --jars <path to your jar>,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar,/usr/hdp/current/hbase-client/lib/hbase-client.jar,/usr/hdp/current/hbase-client/lib/hbase-common.jar,/usr/hdp/current/hbase-client/lib/hbase-server.jar,/usr/hdp/current/hbase-client/lib/hbase-protocol.jar,/usr/hdp/current/hbase-client/lib/htrace-core-3.1.0-incubating.jar
+    ```
+    
+4. Keep this Spark shell instance open and continue to the next section. 
+
+
+
+## Define a catalog and query
 
 In this step, you define a catalog object that maps the schema from Apache Spark to Apache HBase.  
 
@@ -145,11 +181,11 @@ In this step, you define a catalog object that maps the schema from Apache Spark
     |}""".stripMargin
     ```
 
-    The code does the following acts:  
+    The code:  
 
-     a. Define a catalog schema for the HBase table named `Contacts`.  
-     b. Identify the rowkey as `key`, and map the column names used in Spark to the column family, column name, and column type as used in HBase.  
-     c. The rowkey also has to be defined in detail as a named column (`rowkey`), which has a specific column family `cf` of `rowkey`.  
+    1. Defines a catalog schema for the HBase table named `Contacts`.  
+    1. Identifies the rowkey as `key`, and map the column names used in Spark to the column family, column name, and column type as used in HBase.  
+    1. Defines the rowkey in detail as a named column (`rowkey`), which has a specific column family `cf` of `rowkey`.  
 
 1. Enter the command below to define a method that provides a DataFrame around your `Contacts` table in HBase:
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -64,7 +64,7 @@ For more information about deploying resources with templates in the Azure porta
 
 ## Modify a blob to trigger a new version
 
-The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET version 12. Before running this example, make sure you have enabled versioning for your storage account.
+The following code example shows how to trigger the creation of a new version with the Azure Storage client library for .NET, version [12.5.0-preview.5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) or later. Before running this example, make sure you have enabled versioning for your storage account.
 
 The example creates a block blob, and then updates the blob's metadata. Updating the blob's metadata triggers the creation of a new version. The example retrieves the initial version and the current version, and shows that only the current version includes the metadata.
 

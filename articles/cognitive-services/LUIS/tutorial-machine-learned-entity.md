@@ -94,7 +94,7 @@ The previous steps create the entity and subentity. To improve extraction, add f
 
 1. Select **Create new phrase list** from the drop-down menu.
 
-1. In the **Create new phrase list** box, enter the name `SizePhraselist` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Save** to create the new phrase list.
+1. In the **Create new phrase list** box, enter the name `SizePhraselist` then enter values of: `small`, `medium`, and `large`. When the **Suggestions** box fills in, select `extra large`, and `xl`. Select **Create** to create the new phrase list.
 
     This phrase list feature helps the `Size` subentity find words related to size by providing it with example words. This phrase list doesn't need to include every size word but should include words that are expected to indicate size.
 
@@ -104,7 +104,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 1. Select **Entities** from the left menu then select **+ Create**.
 
-1. Set the entity name as `SizeListentity` so it is easy to identify when compared to the `SizePhraselist` created in the previous section.
+1. Set the entity name as `SizeListentity` and set the Type as **List** so it is easy to identify when compared to the `SizePhraselist` created in the previous section.
 
 1. Add the sizes the client application expects: `Small`, `Medium`, `Large`, and `XLarge` then add synonyms for each. The synonyms should be the terms that a user enters in the chat bot. The entity is extracted with a list entity when it matched exactly to the normalized value or synonyms.
 
@@ -127,7 +127,7 @@ Adding a list of known sizes the client application recognizes will also help ex
 
 1. On the **Schema and features** tab, select the **Size** entity, then select **+ Add feature**.
 
-1. Select **@ SizeList** from the drop-down list.
+1. Select **@ SizeListentity** from the drop-down list.
 
 <a name="add-prebuilt-number-entity-to-app"></a>
 

@@ -1,17 +1,9 @@
 ---
 title: Azure PowerShell - subscribe to Azure subscription
 description: This article provides a sample Azure PowerShell script that shows how to subscribe to Event Grid events for an Azure subscription. 
-services: event-grid
-documentationcenter: na
-author: spelluru
-
-ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/23/2020
-ms.author: spelluru
+ms.date: 07/08/2020
 ---
 
 # Subscribe to events for an Azure subscription with PowerShell

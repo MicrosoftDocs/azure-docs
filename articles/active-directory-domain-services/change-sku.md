@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/31/2020
+ms.date: 07/09/2020
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to change the SKU for my Azure AD Domain Services managed domain to use different features as my business requirements change.
@@ -17,7 +17,9 @@ ms.author: iainfou
 
 # Change the SKU for an existing Azure Active Directory Domain Services managed domain
 
-In Azure Active Directory Domain Services (Azure AD DS), the available performance and features are based on the SKU type. These feature differences include the backup frequency or maximum number of one-way outbound forest trusts (currently in preview). You select a SKU when you create the managed domain, and you can switch SKUs up or down as your business needs change after the managed domain has been deployed. Changes in business requirements could include the need for more frequent backups or to create additional forest trusts. For more information on the limits and pricing of the different SKUs, see [Azure AD DS SKU concepts][concepts-sku] and [Azure AD DS pricing][pricing] pages.
+In Azure Active Directory Domain Services (Azure AD DS), the available performance and features are based on the SKU type. These feature differences include the backup frequency or maximum number of one-way outbound forest trusts (currently in preview).
+
+You select a SKU when you create the managed domain, and you can switch SKUs up or down as your business needs change after the managed domain has been deployed. Changes in business requirements could include the need for more frequent backups or to create additional forest trusts. For more information on the limits and pricing of the different SKUs, see [Azure AD DS SKU concepts][concepts-sku] and [Azure AD DS pricing][pricing] pages.
 
 This article shows you how to change the SKU for an existing Azure AD DS managed domain using the Azure portal.
 

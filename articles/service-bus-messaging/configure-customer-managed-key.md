@@ -1,15 +1,8 @@
 ---
 title: Configure your own key for encrypting Azure Service Bus data at rest
 description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
-services: service-bus-messaging
-ms.service: service-bus
-documentationcenter: ''
-author: axisc
-
 ms.topic: conceptual
-ms.date: 02/25/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Configure customer-managed keys for encrypting Azure Service Bus data at rest by using the Azure portal
@@ -95,7 +88,7 @@ After you enable customer-managed keys, you need to associate the customer manag
 
 ## Rotate your encryption keys
 
-You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. For more information, see [Set up key rotation and auditing](../key-vault/secrets/key-rotation-log-monitoring.md). Activation and expiration dates can also be set to automate key rotation. The Service Bus service will detect new key versions and start using them automatically.
+You can rotate your key in the key vault by using the Azure Key Vaults rotation mechanism. Activation and expiration dates can also be set to automate key rotation. The Service Bus service will detect new key versions and start using them automatically.
 
 ## Revoke access to keys
 

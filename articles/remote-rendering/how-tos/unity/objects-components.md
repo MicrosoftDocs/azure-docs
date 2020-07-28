@@ -117,4 +117,4 @@ if (cutplane != null)
 ## Next steps
 
 * [Set up Remote Rendering for Unity](unity-setup.md)
-* [Tutorial: Working with remote entities in Unity](../../tutorials/unity/working-with-remote-entities.md)
+* [Tutorial: Manipulate remote entities in Unity](../../tutorials/unity/manipulate-models/manipulate-models.md)

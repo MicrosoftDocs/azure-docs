@@ -1,11 +1,11 @@
 ---
 title: Payout policy details - Azure Marketplace
 description: Details concerning payout policies, including schedules and recoupment.
-author: mingshen
-ms.author: mingshen
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: mingshen
+ms.author: mingshen
 ms.date: 04/24/2020
 ---
 

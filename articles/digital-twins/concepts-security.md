@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Secure Azure Digital Twins with role-based access control
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 For security, Azure Digital Twins enables precise access control over specific data, resources, and actions in your deployment. It does this through a granular role and permission management strategy called **role-based access control (RBAC)**. You can read about the general principles of RBAC for Azure [here](../role-based-access-control/overview.md).
 
@@ -39,7 +36,7 @@ The authentication step requires any application request to contain an OAuth 2.0
 
 The authorization step requires that an RBAC role be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal will have. Azure Digital Twins provides RBAC roles that encompass sets of permissions for Azure Digital Twins resources. These roles are described later in this article.
 
-To learn more about roles and role assignments supported in Azure, see [Understand the different roles](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
+To learn more about roles and role assignments supported in Azure, see [*Understand the different roles*](../role-based-access-control/rbac-and-directory-admin-roles.md) in the Azure RBAC documentation.
 
 ### Authentication with managed identities
 
@@ -50,16 +47,19 @@ With managed identities, the Azure platform manages this runtime identity. You d
 ### Authorization: RBAC roles for Azure Digital Twins
 
 Azure provides the below built-in RBAC roles for authorizing access to an Azure Digital Twins resource:
-* Azure Digital Twins Owner (Preview) – Use this role to give full access over Azure Digital Twins resources.
-* Azure Digital Twins Reader (Preview) – Use this role to give read-only access to Azure Digital Twins resources.
+* *Azure Digital Twins Owner (Preview)* – Use this role to give full access over Azure Digital Twins resources.
+* *Azure Digital Twins Reader (Preview)* – Use this role to give read-only access to Azure Digital Twins resources.
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating custom RBAC roles, see [Custom roles for Azure resources](../role-based-access-control/custom-roles.md).
+> [!TIP]
+> The *Azure Digital Twins Reader (Preview)* role now also supports browsing relationships.
+
+For more information about how built-in roles are defined, see [*Understand role definitions*](../role-based-access-control/role-definitions.md) in the Azure RBAC documentation. For information about creating Azure custom roles, see [*Azure custom roles*](../role-based-access-control/custom-roles.md).
 
 You can assign roles in two ways:
-* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [Add or remove role assignments using Azure RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md))
+* via the access control (IAM) pane for Azure Digital Twins in the Azure portal (see [*Add or remove role assignments using Azure RBAC and the Azure portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI commands to add or remove a role
 
-For more detailed steps on how to do this, try it out in the [Azure Digital Twins tutorial: Connect an end-to-end solution](tutorial-end-to-end.md).
+For more detailed steps on how to do this, try it out in the Azure Digital Twins [*Tutorial: Connect an end-to-end solution*](tutorial-end-to-end.md).
 
 ## Permission scopes
 
@@ -72,8 +72,14 @@ The following list describes the levels at which you can scope access to Azure D
 * Digital Twin relationship: The actions for this resource define control over CRUD operations on [relationships](concepts-twins-graph.md) between digital twins in the twin graph.
 * Event route: The actions for this resource determine permissions to [route events](concepts-route-events.md) from Azure Digital Twins to an endpoint service like [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
+## Troubleshooting
+
+If a user attempts to perform an action not allowed by their role, they may receive an error from the service request reading `403 (Forbidden)`. For more information and troubleshooting steps, see [*Troubleshooting: Azure Digital Twins request failed with Status: 403 (Forbidden)*](troubleshoot-error-403.md).
+
 ## Next steps
 
-* See how to walk through these steps with a sample client application in [How-to: Authenticate a client application](how-to-authenticate-client.md).
+* See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md).
+
+* See how to interact with these concepts from client application code in [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
 * Read more about [RBAC for Azure](../role-based-access-control/overview.md).

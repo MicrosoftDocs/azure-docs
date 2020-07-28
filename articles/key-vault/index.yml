@@ -139,7 +139,3 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/databricks/security/secrets/secret-scopes
           itemType: overview
           text: Azure Databricks - Secrets Management with Key Vault
-
-
-
-

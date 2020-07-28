@@ -27,6 +27,16 @@ When you want to update the credentials for an AKS cluster, you can choose to:
 * update the credentials for the existing service principal used by the cluster, or
 * create a service principal and update the cluster to use these new credentials.
 
+### Check the expiration date of your service principal
+
+To check the expiration date of your service principal, use the [az ad sp credential list][az-ad-sp-credential-list] command. The following example gets the service principal ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group using the [az aks show][az-aks-show] command. The service principal ID is set as a variable named *SP_ID* for use with the [az ad sp credential list][az-ad-sp-credential-list] command.
+
+```azurecli
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
+```
+
 ### Reset Existing Service Principal Credential
 
 To update the credentials for the existing service principal, get the service principal ID of your cluster using the [az aks show][az-aks-show] command. The following example gets the ID for the cluster named *myAKSCluster* in the *myResourceGroup* resource group. The service principal ID is set as a variable named *SP_ID* for use in additional command. These commands use Bash syntax.
@@ -84,7 +94,7 @@ az aks update-credentials \
     --name myAKSCluster \
     --reset-service-principal \
     --service-principal $SP_ID \
-    --client-secret $SP_SECRET
+    --client-secret "$SP_SECRET"
 ```
 
 It takes a few moments for the service principal credentials to be updated in the AKS.
@@ -113,7 +123,8 @@ In this article, the service principal for the AKS cluster itself and the AAD In
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-update-credentials]: /cli/azure/aks#az-aks-update-credentials
 [best-practices-identity]: operator-best-practices-identity.md
-[aad-integration]: azure-ad-integration.md
-[create-aad-app]: azure-ad-integration.md#create-the-server-application
+[aad-integration]: ./azure-ad-integration-cli.md
+[create-aad-app]: ./azure-ad-integration-cli.md#create-azure-ad-server-component
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

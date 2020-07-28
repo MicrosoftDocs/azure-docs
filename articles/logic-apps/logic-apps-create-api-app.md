@@ -90,8 +90,8 @@ and makes those connectors available for users in Power Automate and Microsoft P
 For more information about custom connectors, see 
 
 * [Custom connectors overview](../logic-apps/custom-connector-overview.md)
-* [Create custom connectors from Web APIs](../logic-apps/custom-connector-build-web-api-app-tutorial.md)
-* [Register custom connectors in Azure Logic Apps](../logic-apps/logic-apps-custom-connector-register.md)
+* [Create custom connectors from Web APIs](/connectors/custom-connectors/create-web-api-connector)
+* [Register custom connectors in Azure Logic Apps](/connectors/custom-connectors/)
 
 ## Helpful tools
 
@@ -381,7 +381,7 @@ register your APIs as Logic App connectors, and nominate your connectors for the
   contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
 
 * For questions, visit the 
-  [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+  [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 
 * To help improve Logic Apps, vote on or submit ideas at the 
   [Logic Apps user feedback site](https://aka.ms/logicapps-wish). 

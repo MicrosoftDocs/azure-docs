@@ -4,7 +4,7 @@ description: Use the Azure Data Lake Storage Gen1 .NET SDK for filesystem operat
 
 author: twooley
 ms.service: data-lake-store
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 

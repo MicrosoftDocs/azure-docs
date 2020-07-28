@@ -42,7 +42,7 @@ This error is easy to make because template expressions can be intricate. For ex
 
 If you don't provide the matching syntax, the template produces a value that is different than your intention.
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](create-visual-studio-deployment-project.md) or [Visual Studio Code](use-vs-code-to-create-template.md), which can warn you about syntax errors.
+When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](create-visual-studio-deployment-project.md) or [Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md), which can warn you about syntax errors.
 
 <a id="incorrect-segment-lengths"></a>
 

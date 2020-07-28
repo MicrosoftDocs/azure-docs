@@ -12,7 +12,6 @@ ms.author: sngun
 
 > [!IMPORTANT] 
 > The S1, S2, and S3 performance levels discussed in this article are being retired and are no longer available for new Azure Cosmos DB accounts.
->
 
 This article provides an overview of S1, S2, and S3 performance levels, and discusses how the collections that use these performance levels can be migrated to single partitioned collections. After reading this article, you'll be able to answer the following questions:
 
@@ -38,7 +37,7 @@ The S1, S2, and S3 performance levels do not offer the flexibility that the stan
 
 The following table compares the throughput and storage options available in single partition collections, partitioned collections, and S1, S2, S3 performance levels. Here is an example for US East 2 region:
 
-|   |Partitioned collection|Single partition collection|S1|S2|S3|
+| Quota name  |Partitioned collection|Single partition collection|S1|S2|S3|
 |---|---|---|---|---|---|
 |Maximum throughput|Unlimited|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Minimum throughput|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|

@@ -1,13 +1,13 @@
 ---
 title: Recommended security practices
-description: When using Azure delegated resource management, it's important to consider security and access control.
-ms.date: 03/24/2020
+description: When using Azure Lighthouse, it's important to consider security and access control.
+ms.date: 07/06/2020
 ms.topic: conceptual
 ---
 
 # Recommended security practices
 
-When using [Azure delegated resource management](azure-delegated-resource-management.md), it's important to consider security and access control. Users in your tenant will have direct access to customer subscriptions and resource groups, so you'll want to take steps to maintain your tenant's security. You'll also want to make sure you only allow the access that's needed to effectively manage your customers' resources. This topic provides recommendations to help you do so.
+When using [Azure Lighthouse](../overview.md), it's important to consider security and access control. Users in your tenant will have direct access to customer subscriptions and resource groups, so you'll want to take steps to maintain your tenant's security. You'll also want to make sure you only allow the access that's needed to effectively manage your customers' resources. This topic provides recommendations to help you do so.
 
 ## Require Azure Multi-Factor Authentication
 

@@ -164,7 +164,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-1. Use the ![Copy button](./media/create-cassandra-nodejs/copy.png) button on the right side of the screen to copy the top value, the CONTACT POINT.
+1. Use the :::image type="icon" source="./media/create-cassandra-nodejs/copy.png"::: button on the right side of the screen to copy the top value, the CONTACT POINT.
 
     :::image type="content" source="./media/create-cassandra-nodejs/keys.png" alt-text="View and copy the CONTACT POINT, USERNAME,and PASSWORD from the Azure portal, connection string page":::
 

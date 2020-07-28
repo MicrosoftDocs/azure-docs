@@ -1,5 +1,5 @@
 ---
-title: Example designer pipelines & datasets
+title: Example pipelines & datasets for the designer (preview)
 titleSuffix: Azure Machine Learning
 description: Use samples in Azure Machine Learning designer to jumps-start your machine learning pipelines.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
 ---
-# Example pipelines & datasets for Azure Machine Learning Designer
+# Example pipelines & datasets for Azure Machine Learning designer (preview)
 
 Use the built-in examples in Azure Machine Learning designer to quickly get started building your own machine learning pipelines. The Azure Machine Learning designer [GitHub repository](https://github.com/Azure/MachineLearningDesigner) contains detailed documentation to help you understand some common  machine learning scenarios.
 
@@ -20,6 +20,8 @@ Use the built-in examples in Azure Machine Learning designer to quickly get star
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 * An Azure Machine Learning workspace with the Enterprise SKU.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Use sample pipelines
 

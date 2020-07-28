@@ -61,6 +61,10 @@
               href: api-management-security-controls.md
       - name: Subscriptions
         href: api-management-subscriptions.md
+      - name: Versions
+        href: api-management-versions.md
+      - name: Revisions
+        href: api-management-revisions.md
       - name: Manage using automation
         href: automation-manage-api-management.md
       - name: Error handling
@@ -69,6 +73,8 @@
         href: api-management-api-import-restrictions.md
       - name: Self-hosted gateway overview
         href: self-hosted-gateway-overview.md
+      - name: Observability
+        href: observability.md
 
 - name: How-to guides
   items:
@@ -273,12 +279,12 @@
       - name: Videos
         href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
       - name: Microsoft Q&A question page
-        href: https://docs.microsoft.com/answers/topics/azure-api-management.html
+        href: /answers/topics/azure-api-management.html
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
       - name: API design guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
+        href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: API implementation guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+        href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
       - name: Troubleshoot failed to update hostnames error
         href: api-management-troubleshoot-cannot-add-custom-domain.md
