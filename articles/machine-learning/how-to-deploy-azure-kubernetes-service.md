@@ -5,7 +5,8 @@ description: 'Learn how to deploy your Azure Machine Learning models as a web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr

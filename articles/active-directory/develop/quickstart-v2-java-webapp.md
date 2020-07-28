@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev, scenarios:getting-started, languages:Java
+ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Java web app

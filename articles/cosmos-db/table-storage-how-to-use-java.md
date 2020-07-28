@@ -8,7 +8,9 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
+ms.custom: devx-track-java
 ---
+
 # How to use Azure Table storage or Azure Cosmos DB Table API from Java
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
