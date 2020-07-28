@@ -18,7 +18,7 @@ ms.date: 06/07/2020
 
 You might encounter connectivity problems while executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. These problems can occur when your SSIS integration runtime joins the Azure virtual network.
 
-Troubleshoot connectivity problems by using the *diagnose connectivity* feature to test connections. The feature is located on the monitoring SSIS integration runtime page of the Azure Data Factory portal.
+Troubleshoot connectivity problems by using the *diagnose connectivity* feature to test connections. The feature is located on the monitoring SSIS integration runtime page of the Azure Data Factory portal. 
 
  ![Monitor page - diagnose connectivity](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png)
 
