@@ -271,7 +271,7 @@ If you encounter errors when building and pushing your module image, it often ha
 
 You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running.
 
-1. In the Visual Studio Code explorer, expand the Azure IoT Hub Devices section.
+1. In the Visual Studio Code explorer, expand the **Azure IoT Hub / Devices** section.
 
 2. Right-click the IoT Edge device that you want to deploy to, then select **Create Deployment for Single Device**.
 
