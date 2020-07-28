@@ -17,7 +17,11 @@ ms.reviewer: arvinh,luleon
 
 In the [Add an app](add-application-portal.md) quickstart, you learn how to add an app to your Azure AD tenant.
 
-In addition to the choices in the [Azure AD application gallery](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/), you have the option to add a **non-gallery application**. You can add any application that already exists in your organization, or any third-party application  from a vendor who is not already part of the Azure AD gallery. Depending on your [license agreement](https://azure.microsoft.com/pricing/details/active-directory/), the following capabilities are available:
+In addition to the choices in the [Azure AD application gallery](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/), you have the option to add a **non-gallery application**. 
+
+## Capabilities for apps not listed in the Azure AD gallery
+
+You can add any application that already exists in your organization, or any third-party application  from a vendor who is not already part of the Azure AD gallery. Depending on your [license agreement](https://azure.microsoft.com/pricing/details/active-directory/), the following capabilities are available:
 
 - Self-service integration of any application that supports [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) identity providers (SP-initiated or IdP-initiated)
 - Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
