@@ -5,11 +5,11 @@ description: Debug your Azure Machine Learning pipelines in Python. Learn common
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: troubleshooting, tracking-python
 ---
 
 # Debug and troubleshoot machine learning pipelines
