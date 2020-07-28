@@ -16,7 +16,27 @@ ms.reviewer: jrasnick, carlrab
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. This query will read Parquet nested types.
 Nested types are complex structures that represent objects or arrays. Nested types can be stored in [PARQUET](query-parquet-files.md) or hierarchical [JSON files](query-json-files.md).
 
-Synapse SQL on-demand formats all nested types as JSON objects and arrays, so you can use [Extract, or modify complex objects using JSON functions](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data using OPENJSON function](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server).
+Synapse SQL on-demand formats all nested types as JSON objects and arrays, so you can use [Extract, or modify complex objects using JSON functions](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data using OPENJSON function](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+
+One example of query that extracts scalar and objects values from [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) JSON file with nested objects is shown below. 
+
+```sql
+SELECT
+    title = JSON_VALUE(doc, '$.metadata.title'),
+    first_author = JSON_QUERY(doc, '$.metadata.authors[0]'),
+    first_author_name = JSON_VALUE(doc, '$.metadata.authors[0].first')
+FROM
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json',
+        FORMAT='CSV', FIELDTERMINATOR ='0x0b', FIELDQUOTE = '0x0b', ROWTERMINATOR = '0x0b'
+    )
+    WITH ( doc varchar(MAX) ) AS docs;
+```
+
+`JSON_VALUE` function returns a scalar value from the field at the specified path. `JSON_QUERY` function returns an object formated as JSON from the field at the specified path.
+
+> [!IMPORTANT]
+> This example uses a file from [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). See ths licence and the structure of data on this page.
 
 ## Prerequisites
 
@@ -24,7 +44,7 @@ Your first step is to **create a database**  with a datasource that references. 
 
 ## Project nested or repeated data
 
-The following query reads the *justSimpleArray.parquet* file. It projects all columns from the Parquet file including nested or repeated data.
+PARQUET file can have multiple columns with complex types. The values from these columns are formatted as JSON text and returned as VARCHAR column. The following query reads the *justSimpleArray.parquet* file. It projects all columns from the Parquet file including nested or repeated data.
 
 ```sql
 SELECT
