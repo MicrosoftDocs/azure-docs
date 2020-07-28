@@ -108,11 +108,11 @@ Application Insights can gather telemetry data from any internet-connected appli
    </script>
    ```
 
-5. On the left, select **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can select **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by selecting "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer, visit [Getting started with Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+5. On the left, select **Metrics**. Use the metrics explorer to investigate the health and utilization of your resource. You can select **Add new chart** to create additional custom views or select **Edit** to modify the existing chart types, height, color palette, groupings, and metrics. For example, you can make a chart that displays the average browser page load time by selecting "Browser page load time" from the metrics drop down and "Avg" from aggregation. To learn more about Azure Metrics Explorer, visit [Getting started with Azure Metrics Explorer](../platform/metrics-getting-started.md).
 
    ![Application Insights Server metrics graph](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-To learn more about monitoring Node.js, check out the [additional AppInsights Node.js documentation](../../azure-monitor/app/nodejs.md).
+To learn more about monitoring Node.js, check out the [additional AppInsights Node.js documentation](../app/nodejs.md).
 
 ## Clean up resources
 
@@ -128,3 +128,4 @@ When you're done testing, you can delete the resource group and all related reso
 
 > [!div class="nextstepaction"]
 > [Find and diagnose performance problems](../log-query/log-query-overview.md)
+
