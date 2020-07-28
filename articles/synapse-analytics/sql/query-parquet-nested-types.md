@@ -15,7 +15,7 @@ ms.reviewer: jrasnick, carlrab
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. This query will read Parquet nested types.
 Nested types are complex structures that represent objects or arrays. Nested types can be stored in 
-- [PARQUET](query-parquet-files.md) where you cna have multiple complex columns containing arrays and objects.
+- [PARQUET](query-parquet-files.md) where you can have multiple complex columns containing arrays and objects.
 - Hierarchical [JSON files](query-json-files.md) where you can read complex JSON documents as single column.
 
 Synapse SQL on-demand formats all nested types as JSON objects and arrays, so you can [extract or modify complex objects using JSON functions](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data using OPENJSON function](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
@@ -63,6 +63,7 @@ FROM
 This query will return the following result:
 
 |SimpleArray|
+|---|
 |[11,12,13]|
 |[21,22,23]}
 
@@ -80,7 +81,7 @@ FROM
                 FORMAT='CSV', FIELDTERMINATOR ='0x0b', FIELDQUOTE = '0x0b', ROWTERMINATOR = '0x0b' ) WITH ( complex_column varchar(MAX) ) AS docs;
 ```
 
-Unline JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complexcolumns. The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
+Unline JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complexc. The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
 - Specifying the nested value path expression after type specification.
 - Formatting the column name as nested path using do "." to reference the fields.
 
