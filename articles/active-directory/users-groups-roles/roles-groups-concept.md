@@ -46,25 +46,20 @@ We designed how groups are assigned to roles to prevent that sort of potential b
 
 ## Limitations
 
-Following scenarios are not supported right now:  
+The following scenarios are not supported right now:  
 
 - Assign cloud groups to Azure AD custom roles
-- Assign cloud groups to Azure AD roles (built-in or custom) over an Admin Unit
+- Assign cloud groups to Azure AD roles (built-in or custom) over an administrative unit.
 - Assign on-premises groups to Azure AD roles (built-in or custom)
 
-We are working on these capabilities.
-
-## Known Issues
+## Known issues
 
 - You can't create or modify a dynamic group when the role is assigned via a group.
 - Azure Information Protection doesn't recognize role membership via group yet. Direct role assignments still work. Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. Direct role assignments still work. You can [migrate to the unified sensitivity labeling platform](https://docs.microsoft.com/azure/information-protection/configure-policy-migrate-labels) and then use the [Office 365 Security & Compliance center](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center) to use group assignments to manage roles.
 - The **Enable staged rollout for managed user sign-in** feature doesn't support assignment via group.
 - *Azure AD P2 licensed customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
-
-  - End time of the assignment might end up showing incorrectly
-
-  - In the PIM UI, My Roles can only show one role assignment regardless of how many methods the assignment is granted (through one or more groups and directly)
-
+  - End time for the role assignment might display incorrectly.
+  - In the PIM portal, **My Roles** can show only one role assignment regardless of how many methods by which the assignment is granted (through one or more groups and directly).
 - *Azure AD P2 licensed customers only* Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.
 
 We are fixing these issues.
