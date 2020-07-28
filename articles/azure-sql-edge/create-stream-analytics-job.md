@@ -130,7 +130,7 @@ The following example creates an external stream object to the local database in
 
 ### Example: Create an external stream object for Kafka
 
-The following example creates an external stream object to the local database in Azure SQL Edge. 
+The following example creates an external stream object to the local database in Azure SQL Edge. This example assumes that the kafka server is configured for anonymous access. 
 
 1. Create an external data source with CREATE EXTERNAL DATA SOURCE. The following example:
 
