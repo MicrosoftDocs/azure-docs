@@ -58,7 +58,7 @@ A development machine:
 
 * You can use your own computer or a virtual machine, depending on your development preferences.
   * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
-* Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on MacOS or Linux.
+* Most operating systems that can run a container engine can be used to develop IoT Edge modules for Linux devices. This tutorial uses a Windows computer, but points out known differences on macOS or Linux.
 * Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
