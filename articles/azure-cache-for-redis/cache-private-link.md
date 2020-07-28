@@ -144,3 +144,9 @@ In this section, you'll create a private endpoint and connect it to the cache yo
 11. Select **Review + create**. You're taken to the **Review + create** tab where Azure validates your configuration.
 
 12. Once the green **Validation passed** message appears, select **Create**.
+
+
+## Next Steps
+
+To learn more about Private Link, see the [Azure Private Link documentation](https://docs.microsoft.com/azure/private-link/private-link-overview). 
+
