@@ -39,7 +39,7 @@ Here are the officially supported IBM WebSphere MQ versions:
 
   * For the MQ connector to work, the server where you install the on-premises data gateway also needs to have .NET Framework 4.6 installed.
   
-  * After you install the on-premises data gatey, you also need to [create an Azure gateway resource for the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md) that the MQ connector uses to access your on-premises MQ server.
+  * After you install the on-premises data gateway, you also need to [create an Azure gateway resource for the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md) that the MQ connector uses to access your on-premises MQ server.
 
 * The logic app where you want to use the MQ connector. The MQ connector doesn't have any triggers, so you must add a trigger to your logic app first. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md). If you're new to logic apps, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
