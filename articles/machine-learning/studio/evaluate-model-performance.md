@@ -1,6 +1,5 @@
 ---
-title: Evaluate & cross-validate models
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Evaluate & cross-validate models - Azure'
 description: Learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,9 @@ ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapir
 ms.date: 03/20/2017
 ---
 # Evaluate model performance in Azure Machine Learning Studio (classic)
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 In this article, you can learn about the metrics you can use to monitor model performance in Azure Machine Learning Studio (classic).  Evaluating the performance of a model is one of the core stages in the data science process. It indicates how successful the scoring (predictions) of a dataset has been by a trained model. Azure Machine Learning Studio (classic) supports model evaluation through two of its main machine learning modules: 
 + [Evaluate Model][evaluate-model] 

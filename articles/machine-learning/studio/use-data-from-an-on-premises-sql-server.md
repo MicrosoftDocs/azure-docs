@@ -1,6 +1,5 @@
 ---
-title: On-premises SQL Server
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): On-premises SQL Server - Azure'
 description: Use data from a SQL Server database to perform advanced analytics with Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,9 @@ ms.custom: seodec18
 ms.date: 03/13/2017
 ---
 # Perform analytics with Azure Machine Learning Studio (classic) using a SQL Server database
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 Often enterprises that work with on-premises data would like to take advantage of the scale and agility of the cloud for their machine learning workloads. But they don't want to disrupt their current business processes and workflows by moving their on-premises data to the cloud. Azure Machine Learning Studio (classic) now supports reading your data from a SQL Server database and then training and scoring a model with this data. You no longer have to manually copy and sync the data between the cloud and your on-premises server. Instead, the **Import Data** module in Azure Machine Learning Studio (classic) can now read directly from your SQL Server database for your training and scoring jobs.
 

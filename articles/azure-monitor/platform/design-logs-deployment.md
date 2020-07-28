@@ -43,12 +43,12 @@ IT organizations today are modeled following either a centralized, decentralized
 
 When using the Log Analytics agents to collect data, you need to understand the following in order to plan your agent deployment:
 
-* To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](../../azure-monitor/platform/agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
+* To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](./agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
 * The Linux agent does not support multi-homing and can only report to a single workspace.
 
 If you are using System Center Operations Manager 2012 R2 or later:
 
-* Each Operations Manager management group can be [connected to only one workspace](../platform/om-agents.md). 
+* Each Operations Manager management group can be [connected to only one workspace](./om-agents.md). 
 * Linux computers reporting to a management group must be configured to report directly to a Log Analytics workspace. If your Linux computers are already reporting directly to a workspace and you want to monitor them with Operations Manager, follow these steps to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * You can install the Log Analytics Windows agent on the Windows computer and have it report to both Operations Manager integrated with a workspace, and a different workspace.
 
@@ -162,3 +162,4 @@ While planning your migration to this model, consider the following:
 ## Next steps
 
 To implement the security permissions and controls recommended in this guide, review [manage access to logs](manage-access.md).
+

@@ -153,7 +153,7 @@ Learn more about the [ProcessFrame](https://docs.microsoft.com/dotnet/api/micros
 Learn more about the [SessionUpdatedDelegate](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.sessionupdateddelegate) delegate.
 
 ```csharp
-    this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args)
+    this.cloudSession.SessionUpdated += (object sender, SessionUpdatedEventArgs args) =>
     {
         var status = args.Status;
         if (status.UserFeedback == SessionUserFeedback.None) return;

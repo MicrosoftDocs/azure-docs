@@ -32,7 +32,7 @@ In this architecture, a workspace is deployed in the customer's tenant that is u
 There are two ways that service provider administrators can gain access to a Log Analytics workspace in a customer tenant:
 
 - A customer can add individual users from the service provider as [Azure Active Directory guest users (B2B)](../../active-directory/b2b/what-is-b2b.md). The service provider administrators will have to sign in to each customer's directory in the Azure portal to be able to access these workspaces. This also requires the customers to manage individual access for each service provider administrator.
-- For greater scalability and flexibility, service providers can use the [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md) capability of [Azure Lighthouse](../../lighthouse/overview.md) to access the customer’s tenant. With this method, the service provider administrators are included in an Azure AD user group in the service provider’s tenant, and this group is granted access during the onboarding process for each customer. These administrators can then access each customer’s workspaces from within their own service provider tenant, rather than having to log into each customer’s tenant individually. Accessing your customers’ Log Analytics workspaces resources in this way reduces the work required on the customer side, and can make it easier to gather and analyze data across multiple customers managed by the same service provider via tools such as [Azure Monitor Workbooks](../..//azure-monitor/platform/workbooks-overview.md). For more info, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
+- For greater scalability and flexibility, service providers can use the [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md) capability of [Azure Lighthouse](../../lighthouse/overview.md) to access the customer’s tenant. With this method, the service provider administrators are included in an Azure AD user group in the service provider’s tenant, and this group is granted access during the onboarding process for each customer. These administrators can then access each customer’s workspaces from within their own service provider tenant, rather than having to log into each customer’s tenant individually. Accessing your customers’ Log Analytics workspaces resources in this way reduces the work required on the customer side, and can make it easier to gather and analyze data across multiple customers managed by the same service provider via tools such as [Azure Monitor Workbooks](./workbooks-overview.md). For more info, see [Monitor customer resources at scale](../../lighthouse/how-to/monitor-at-scale.md).
 
 The advantages of the distributed architecture are:
 
@@ -71,18 +71,19 @@ The third architecture mix between the two options. It is based on the first dis
 
 There are two options to implement logs in a central location:
 
-1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](../../azure-monitor/platform/data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
+1. Central workspace: The service provider can create a workspace in its tenant and use a script that utilizes the [Query API](https://dev.loganalytics.io/) with the [Data Collection API](./data-collector-api.md) to bring the data from the various workspaces to this central location. Another option, other than a script, is to use [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
-2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between the Log Analytics workspace and [Power BI](../../azure-monitor/platform/powerbi.md).
+2. Power BI as a central location: Power BI can act as the central location when the various workspaces export data to it using the integration between the Log Analytics workspace and [Power BI](./powerbi.md).
 
 ## Next steps
 
 * Automate creation and configuration of workspaces using [Resource Manager templates](template-workspace-configuration.md)
 
-* Automate creation of workspaces using [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md)
+* Automate creation of workspaces using [PowerShell](./powershell-workspace-configuration.md)
 
-* Use [Alerts](../../azure-monitor/platform/alerts-overview.md) to integrate with existing systems
+* Use [Alerts](./alerts-overview.md) to integrate with existing systems
 
-* Generate summary reports using [Power BI](../../azure-monitor/platform/powerbi.md)
+* Generate summary reports using [Power BI](./powerbi.md)
 
 * Onboard customers to [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
+
