@@ -47,7 +47,27 @@ Your first step is to **create a database**  with a datasource that references. 
 
 ## Project nested or repeated data
 
-PARQUET file can have multiple columns with complex types. The values from these columns are formatted as JSON text and returned as VARCHAR column. The following query reads the *justSimpleArray.parquet* file. It projects all columns from the Parquet file including nested or repeated data.
+PARQUET file can have multiple columns with complex types. The values from these columns are formatted as JSON text and returned as VARCHAR column. The following query reads the *structExample.parquet* file and shows how to read the values of the nested columns: 
+
+```sql
+SELECT
+    DateStruct, TimeStruct, TimestampStruct, DecimalStruct, FloatStruct
+FROM
+    OPENROWSET(
+        BULK 'parquet/nested/structExample.parquet',
+        DATA_SOURCE = 'SqlOnDemandDemo',
+        FORMAT='PARQUET'
+    )
+    WITH (
+        DateStruct VARCHAR(8000),
+        TimeStruct VARCHAR(8000),
+        TimestampStruct VARCHAR(8000),
+        DecimalStruct VARCHAR(8000),
+        FloatStruct VARCHAR(8000)
+    ) AS [r];
+```
+
+The following query reads the *justSimpleArray.parquet* file. It projects all columns from the Parquet file including nested or repeated data.
 
 ```sql
 SELECT
