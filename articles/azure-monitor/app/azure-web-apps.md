@@ -400,10 +400,11 @@ PHP and WordPress sites are not supported. There is currently no officially supp
 When codeless monitoring is being used, only the connection string is required. However, we still recommend setting the instrumentation key to preserve backwards compatibility with older versions of the SDK when manual instrumentation is being performed.
 
 ## Next steps
-* [Run the profiler on your live app](../app/profiler.md).
+* [Run the profiler on your live app](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitor Azure Functions with Application Insights
 * [Enable Azure diagnostics](../platform/diagnostics-extension-to-application-insights.md) to be sent to Application Insights.
 * [Monitor service health metrics](../platform/data-platform.md) to make sure your service is available and responsive.
 * [Receive alert notifications](../platform/alerts-overview.md) whenever operational events happen or metrics cross a threshold.
 * Use [Application Insights for JavaScript apps and web pages](javascript.md) to get client telemetry from the browsers that visit a web page.
 * [Set up Availability web tests](monitor-web-app-availability.md) to be alerted if your site is down.
+

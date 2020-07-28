@@ -1,6 +1,5 @@
 ---
-title: Enable web service logging
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Enable web service logging - Azure'
 description: Learn how to enable logging for Machine Learning Studio (classic) web services. Logging provides additional information to help troubleshoot the APIs.
 services: machine-learning
 author: likebupt
@@ -14,6 +13,9 @@ ms.topic: how-to
 ms.date: 06/15/2017
 ---
 # Enable logging for Azure Machine Learning Studio (classic) web services
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 This document provides information on the logging capability of Machine Learning Studio (classic) web services. Logging provides additional information, beyond just an error number and a message, that can help you troubleshoot your calls to the Machine Learning Studio (classic) APIs.  
 

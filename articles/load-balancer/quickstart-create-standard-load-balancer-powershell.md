@@ -630,7 +630,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 It takes a few minutes to create and configure the three VMs.
 
 ## Create outbound rule configuration
-Load balancer outbound rules configure outbound SNAT for VMs in the backend pool. 
+Load balancer outbound rules configure outbound source network address translation (SNAT) for VMs in the backend pool. 
 
 For more information on outbound connections, see [Outbound connections in Azure](load-balancer-outbound-connections.md).
 
@@ -685,7 +685,7 @@ Get-AzLoadBalancer -Name $lbn -ResourceGroupName $rg | Add-AzLoadBalancerFronten
 
 Create a new outbound pool with [Add-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/add-azloadbalancerbackendaddresspoolconfig). 
 
-Apply the pool and frontend IP address to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer)::
+Apply the pool and frontend IP address to the load balancer with [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer):
 
 * Named **myBackEndPoolOutbound**.
 
@@ -1273,7 +1273,7 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic3 -Public
 
 ### Create availability set for virtual machines
 
-Use [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) to create a availability set for the virtual machines:
+Use [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) to create an availability set for the virtual machines:
 
 * Named **myAvSet**.
 * In resource group **myResourceGroupLB**.
@@ -1404,7 +1404,7 @@ It takes a few minutes to create and configure the three VMs.
 
 Install IIS with a custom web page on both back-end VMs as follows:
 
-1. Get the public IP addresses of the three VMs using [Get-AzPublicIPAddress](/powershell/module/az.compute/get-azpublicipaddress).
+1. Get the public IP addresses of the three VMs using [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress).
 
    ```azurepowershell-interactive
    ## Variables for commands. ##

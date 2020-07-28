@@ -264,7 +264,7 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 
 ## Next steps
 
-- [Learn more about Azure Monitor](../../azure-monitor/overview.md)
+- [Learn more about Azure Monitor](../overview.md)
 - [Access metrics using the REST API](rest-api-walkthrough.md)
 - [Stream the Activity Log to a non-Microsoft service](./activity-log.md#legacy-collection-methods)
 - [Stream resource logs to a non-Microsoft service](./resource-logs.md#send-to-azure-event-hubs)
@@ -277,13 +277,13 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric introduction."
 [circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
-[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
+[cloudhealth-doc]: https://www.cloudhealthtech.com/products/azure-management
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog documentation."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentation."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic documentation."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana integration."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influx data Telegraf integration."
+[influxdata-doc]: ./collect-custom-metrics-linux-telegraf.md "Azure Monitor Influx data Telegraf integration."
 [logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Logic Monitor documentation."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentation."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic documentation."
@@ -298,3 +298,4 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation."
 [turbonomic-doc]: https://turbonomic.com/ "Turbonomic introduction."
+

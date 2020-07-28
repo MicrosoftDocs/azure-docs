@@ -21,6 +21,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/ephemeral-os-disks.md",
+      "redirect_url": "/azure/virtual-machines/ephemeral-os-disks",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/infrastructure-automation.md",
       "redirect_url": "/azure/virtual-machines/infrastructure-automation",
       "redirect_document_id": false
@@ -25688,6 +25703,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/virtual-machines-windows-upload-image.md",
+      "redirect_url": "/azure/virtual-machines/windows/upload-generalized-managed",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/upload-specialized.md",
       "redirect_url": "/azure/virtual-machines/windows/create-vm-specialized",
       "redirect_document_id": false
@@ -41638,6 +41658,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-policy.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-policy",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-at-scale-powershell.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-powershell",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-single-vm.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/vminsights-enable-hybrid-cloud.md",
+      "redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid",
+      "redirect_document_id": false
+    },  
+    {
       "source_path": "articles/azure-monitor/platform/resource-logs-append-blobs.md",
       "redirect_url": "/azure/azure-monitor/platform/resource-logs-blob-format",
       "redirect_document_id": false
@@ -42660,6 +42700,11 @@
     {
       "source_path": "articles/virtual-machines/windows/classic/capture-image-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/virtual-machines-linux-capture-image.md",
+      "redirect_url": "/azure/virtual-machines/linux/capture-image",
       "redirect_document_id": false
     },
     {
@@ -54746,6 +54791,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/data-share/azure-cli-references-for-data-share.md",
+      "redirect_url": "https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/dev-spaces/how-to/local-process-kubernetes-vs-code.md",
       "redirect_url": "https://code.visualstudio.com/docs/containers/local-process-kubernetes",
       "redirect_document_id": false
@@ -54768,6 +54818,21 @@
     {
       "source_path": "articles/azure-sql/database/service-tiers-prs.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/configure-load-balancer-outbound-portal.md",
+      "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/configure-load-balancer-outbound-cli.md",
+      "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/load-balancer/configure-load-balancer-outbound-powershell.md",
+      "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
       "redirect_document_id": false
     }
   ]

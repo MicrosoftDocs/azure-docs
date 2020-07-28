@@ -1,19 +1,9 @@
 ---
 title: Azure Linux VM Agent Overview 
 description: Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller.
-services: virtual-machines-linux
-documentationcenter: ''
-
 author: axayjo
-manager: gwallace
-
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
@@ -69,8 +59,7 @@ The information flow from the platform to the agent occurs via two channels:
 The following systems have been tested and are known to work with the Azure Linux Agent:
 
 > [!NOTE]
-> This list may differ from the official list of supported systems on the Microsoft Azure Platform, as described here:
-> [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> This list may differ from the official list of [supported distros](../linux/endorsed-distros.md).
 > 
 > 
 

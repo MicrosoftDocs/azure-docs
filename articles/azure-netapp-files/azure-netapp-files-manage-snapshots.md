@@ -42,6 +42,9 @@ You can create volume snapshots on demand.
 
 You can schedule for volume snapshots to be taken automatically by using snapshot policies. You can also modify a snapshot policy as needed, or delete a snapshot policy that you no longer need.  
 
+> [!IMPORTANT] 
+> Using the snapshot policy functionality requires whitelisting. Email anffeedback@microsoft.com with your subscription ID to request this feature.
+
 ### Create a snapshot policy 
 
 A snapshot policy enables you to specify the snapshot creation frequency in hourly, daily, weekly, or monthly cycles. You also need to specify the maximum number of snapshots to retain for the volume.  
