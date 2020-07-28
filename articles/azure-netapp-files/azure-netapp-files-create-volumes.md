@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ms.author: b-juche
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -100,6 +100,10 @@ A subnet must be delegated to Azure NetApp Files.
         The file path must be unique within each subscription and each region. 
 
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
+    * Indicate whether you want to enable Kerberos encryption for the NFS volume (supported for NFSv4.1 only).  
+
+        Additional configurations are required if you use Kerberos with NFSv4.1. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
+
     * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)

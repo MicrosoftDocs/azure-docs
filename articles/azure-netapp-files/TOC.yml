@@ -57,14 +57,18 @@
     href: azure-netapp-files-set-up-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
+  - name: Create and manage NFS volumes
+    items:
+    - name: Create an NFS volume
+      href: azure-netapp-files-create-volumes.md
+    - name: Configure NFSv4.1 default domain
+      href: azure-netapp-files-configure-nfsv41-domain.md
+    - name: Configure NFSv4.1 Kerberos encryption
+      href: configure-kerberos-encryption.md
+    - name: Configure export policy for an NFS volume
+      href: azure-netapp-files-configure-export-policy.md
   - name: Create an SMB volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes-smb.md
-  - name: Create an NFS volume for Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
-  - name: Configure NFSv4.1 default domain for Azure NetApp Files
-    href: azure-netapp-files-configure-nfsv41-domain.md
-  - name: Configure export policy for an NFS volume
-    href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
     href: azure-netapp-files-manage-volumes.md
   - name: Mount or unmount a volume for Windows or Linux virtual machines
