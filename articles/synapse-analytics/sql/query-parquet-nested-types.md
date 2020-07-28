@@ -68,7 +68,7 @@ FROM
     ) AS [r];
 ```
 
-This query will return the following result where the conect of every nested object is returned as JSON text:
+This query will return the following result where the content of every nested object is returned as JSON text:
 
 | DateStruct	| TimeStruct	| TimestampStruct	| DecimalStruct	| FloatStruct |
 | --- | --- | --- | --- | --- |
@@ -158,6 +158,13 @@ FROM
         FORMAT='PARQUET'
     ) AS [r];
 ```
+
+The result is shown in the following table:
+
+|SimpleArray	| FirstElement	| SecondElement	| ThirdElement |
+| --- | --- | --- | --- |
+| [11,12,13] | 11	| 12 | 13 |
+| [21,22,23] | 21	| 22 | 23 |
 
 ## Access sub-objects from complex columns
 
