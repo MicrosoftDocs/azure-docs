@@ -43,7 +43,7 @@ AND T.roomSize > 50
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
-## Query based on relationships
+### Query based on relationships
 
 When querying based on digital twins' relationships, Azure Digital Twins Query Store language has a special syntax.
 
@@ -57,7 +57,7 @@ The following section gives several examples of what this looks like.
 > [!TIP]
 > Conceptually, this feature mimics the document-centric functionality of CosmosDB, where `JOIN` can be performed on child objects within a document. CosmosDB uses the `IN` keyword to indicate the `JOIN` is intended to iterate over array elements within the current context document.
 
-### Relationship-based query examples
+#### Relationship-based query examples
 
 To get a dataset that includes relationships, use a single `FROM` statement followed by N `JOIN` statements, where the `JOIN` statements express relationships on the result of a previous `FROM` or `JOIN` statement.
 
@@ -73,7 +73,7 @@ WHERE T.$dtId = 'ABC'
 >[!NOTE] 
 > The developer does not need to correlate this `JOIN` with a key value in the `WHERE` clause (or specify a key value inline with the `JOIN` definition). This correlation is computed automatically by the system, as the relationship properties themselves identify the target entity.
 
-### Query the properties of a relationship
+#### Query the properties of a relationship
 
 Similarly to the way digital twins have properties described via DTDL, relationships can also have properties. 
 The Azure Digital Twins Query Store language allows filtering and projection of relationships, by assigning an alias to the relationship within the `JOIN` clause. 
