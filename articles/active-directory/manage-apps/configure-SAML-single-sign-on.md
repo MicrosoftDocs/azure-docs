@@ -93,44 +93,22 @@ To make certificate changes, click the Edit button. There are several things you
    - Configure advanced certificate signing. For more information on these options, see [Advanced certificate signing options](certificate-signing-options.md).
    - Notify additional people when the active certificate is near its expiration date: enter the email addresses in the **Notification email addresses** fields.
 
-
-
-
-
-
-
-
-
-
-
 ## Set up the application to use Azure AD
 
-The **Set up \<applicationName>** section lists the values that need to be configured in the application so it will use Azure AD as a SAML identity provider. The required values vary according to the application. For details, see the application's SAML documentation. To find the documentation, go to the **Set up \<application name>** heading and select **View step-by-step instructions**. The documentation appears in the **Configure sign-on** page. That page guides you in filling out the **Login URL**, **Azure AD Identifier**, and **Logout URL** values in the **Set up \<application name>** heading.
+The **Set up \<applicationName>** section lists the values that need to be configured in the application so it will use Azure AD as a SAML identity provider. You set the values on the configuration page on the applications website. For example, if you are setting up GitHub then you would go to the github.com site and set the values. If the application is already pre-configured and in the Azure AD gallery then you will find a link to **View step-by-step instructions**. Otherwise, you will need to find the documentation for the application you are setting up. 
 
-1. Scroll down to the **Set up \<applicationName>** section. 
-   
-   ![Step 4 Set up the application](media/configure-single-sign-on-non-gallery-applications/step-four-app-config.png)
+The **Login URL** and **Logout URL** values both resolve to the same endpoint, which is the SAML request-handling endpoint for Azure AD tenant. 
 
-1. Copy the value from each row in this section as needed and follow the application-specific instructions for adding the value to the application. For gallery apps, you can view the documentation by selecting **View step-by-step instructions**. 
-   - The **Login URL** and **Logout URL** values both resolve to the same endpoint, which is the SAML request-handling endpoint for your instance of Azure AD. 
-   - The **Azure AD Identifier** is the value of the **Issuer** in the SAML token issued to the application.
-2. When you've pasted all the values into the appropriate fields, select **Save**.
-
-
+The **Azure AD Identifier** is the value of the **Issuer** in the SAML token issued to the application.
 
 ## Test single sign-on
 
 Once you've configured your application to use Azure AD as a SAML-based identity provider, you can test the settings to see if single sign-on works for your account. 
 
-2. Scroll to the **Validate single sign-on with <applicationName>** section.
+Select **Test** and then choose to test with the currently signed in user or as someone else. 
 
-   ![Step 5 Validate single sign-on](media/configure-single-sign-on-non-gallery-applications/step-five-validate.png)
+If sign-on is successful, you're ready to assign users and groups to your SAML application. Congratulations!
 
-3. Select **Validate**. The testing options appear.
-
-4. Select **Sign in as current user**. 
-
-If sign-on is successful, you're ready to assign users and groups to your SAML application.
 If an error message appears, complete the following steps:
 
 1. Copy and paste the specifics into the **What does the error look like?** box.
@@ -139,17 +117,16 @@ If an error message appears, complete the following steps:
 
 2. Select **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
 
-3. Read the resolution guidance and then, if possible, fix the issue.
+3. Read the resolution guidance and then attempt to fix the issue.
 
 4. Run the test again until it completes successfully.
 
 For more information, see [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md).
 
 
-
 ## Next steps
 
-To learn more about the SAML standard, see [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md). To learn 
-
+- [Quickstart Series on Application Management](view-applications-portal.md)
 - [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
 - [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+- [Single Sign-On SAML protocol](../develop/single-sign-on-saml-protocol.md)
