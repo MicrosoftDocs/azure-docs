@@ -1,0 +1,168 @@
+- name: Azure Communication Services Documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What Is Azure Communication Services?
+    href: overview.md
+  - name: Compare Communication Services
+    href: compare.md
+- name: Quickstarts
+  expanded: true
+  items: 
+  - name: Chat
+    items:
+      - name: Get Started with Chat APIs (JavaScript)
+        href: quickstarts/chat/get-started-with-chat.md
+      - name: Build a Chat browser sample
+        href: quickstarts/chat/group-chat-sample.md
+  - name: Networking
+    items:
+      - name: Route Events
+        href: quickstarts/networking/route-events.md
+  - name: Telephony and SMS 
+    items:
+      - name: Request A Telephone Number
+        href: quickstarts/telephony-and-sms/request-phone-numbers.md
+      - name: Buy A Telephone Number
+        href: quickstarts/telephony-and-sms/search-and-acquire-phone-number.md
+      - name: Place a Telephone Call
+        href: quickstarts/telephony-and-sms/place-a-telephone-call.md
+      - name: Send an SMS (JS)
+        href: quickstarts/telephony-and-sms/send-sms-js.md
+      - name: Send an SMS (.NET)
+        href: quickstarts/telephony-and-sms/send-sms-net.md
+      - name: Assign A Telephone Number To A Bot
+        href: quickstarts/telephony-and-sms/assign-a-telephone-number-to-an-acs-bot.md
+      - name: Handle SMS Events
+        href: quickstarts/telephony-and-sms/handle-sms-events.md
+  - name: Voice and Video Calling
+    items:
+    - name: Get Started With Voice and Video
+      href: quickstarts/voice-and-video-calling/get-started-with-voice-and-video.md
+    - name: Place a Voice Call
+      href: quickstarts/voice-and-video-calling/place-a-voice-call.md
+  - name: Get Started
+    href: quickstarts/get-started.md
+  - name: Create a Communication Services Resource
+    href: quickstarts/create-a-communication-resource.md
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Chat
+    items:
+    - name: Placeholder
+      href: quickstarts/acs-events-quickstart.md
+  - name: Networking
+    items:
+    - name: Placeholder
+      href: quickstarts/acs-events-quickstart.md
+  - name: Telephony and SMS
+    items:
+    - name: Add Two-Factor Authentication To Your App
+      href: tutorials/telephony-and-sms/add-2fa-to-your-app.md
+    - name: Add SMS To Your Web App
+      href: tutorials/telephony-and-sms/add-sms-to-your-web-app.md
+  - name: Voice and Video Calling
+    items:
+    - name: Using the Calling Client API
+      href: quickstarts/voice-and-video-calling/calling-client-samples.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Chat
+    items: 
+      - name: About Chat
+        href: concepts/chat/about-chat.md
+  - name: Networking
+    items: 
+      - name: Client and Server Architecture
+        href: concepts/networking/client-and-server-architecture.md
+      - name: ICE, STUN, NAT, TURN, and SDP
+        href: concepts/networking/ice-stun-nat-turn-sdp.md
+  - name: Telephony and SMS
+    items: 
+      - name: About Telephony and SMS
+        href: concepts/telephony-and-sms/about-telephony-sms.md
+      - name: Phone Numbers
+        href: concepts/telephony-and-sms/phone-numbers.md
+      - name: Phone Trees
+        href: concepts/telephony-and-sms/phone-trees.md
+      - name: SMS
+        href: concepts/telephony-and-sms/sms.md
+      - name: Push Notifications Overview
+        href: concepts/telephony-and-sms/push-notifications-overview.md
+      - name: Push Notifications Overview 2
+        href: concepts/telephony-and-sms/push-notifications-overview-2.md
+      - name: Registering For Push Notifications
+        href: concepts/telephony-and-sms/notifications-azure-portal-registration.md
+      - name: Plan Your Telephony and SMS Solution 
+        href: concepts/telephony-and-sms/plan-your-telephony-and-sms-solution.md
+      - name: Call Flows
+        href: concepts/telephony-and-sms/call-flows.md
+      - name: Call Analytics
+        href: concepts/telephony-and-sms/call-analytics.md
+      - name: Call Detail Records
+        href: concepts/telephony-and-sms/call-detail-records.md
+      - name: SIP, VOIP, and PSTN
+        href: concepts/telephony-and-sms/sip-voip-pstn.md
+      - name: Spam and Robocall Protection
+        href: concepts/telephony-and-sms/spam-robocall.md
+  - name: Voice and Video Calling
+    items:
+      - name: About Voice and Video
+        href: concepts/voice-and-video-calling/about-voice.md
+      - name: Introduction to WebRTC
+        href: concepts/voice-and-video-calling/intro-to-webrtc.md
+  - name: Diagnostics and metrics
+    items:
+    - name: Metrics definitions 
+      href: concepts/azure-communication-metric-definitions.md
+    - name: Leveraging metrics and logs
+      href: concepts/most-out-of-metrics-logs.md
+    - name: Logging
+      href: concepts/logging-diagnostics.md
+  - name: SDK Options
+    href: concepts/sdk-options.md
+  - name: Pricing Model
+    href: concepts/pricing.md
+  - name: Authentication and Authorization
+    href: concepts/authentication.md
+  - name: Event Handling
+    href: concepts/event-handling.md
+  - name: User Access Tokens
+    href: concepts/user-access-tokens.md
+  - name: Identity Model
+    href: concepts/identity-model.md
+- name: Samples
+  items:
+  - name: Build and deploy a video calling browser app
+    href: samples/calling-hero-sample.md
+- name: References
+  items:
+  - name: Chat SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: Networking SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: Telephony and SMS SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+  - name: Voice and Video SDKs
+    items:
+    - name: Placeholder
+      href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/
+- name: Resources
+  items:
+  - name: Roadmap
+    href: roadmap.md
+  - name: Troubleshooting
+    href: troubleshooting.md
+  - name: FAQ
+    href: faq.md
+  - name: Provide Product Feedback
+    href: product-feedback.md
