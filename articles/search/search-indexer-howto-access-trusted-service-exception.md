@@ -22,13 +22,15 @@ To utilize this capability the indexer's data source must access storage via the
 
 ## Step 1: Configure connection to the storage account via identity
 
-Follow the details outlined in [this how-to guide](search-howto-managed-identities-storage.md) to configure indexers to access storage accounts via the search service's managed identity.
+Follow the details outlined in [the managed identity access guide](search-howto-managed-identities-storage.md) to configure indexers to access storage accounts via the search service's managed identity.
 
 ## Step 2: Allow trusted Microsoft services to access the storage account
 
-In the Azure portal, via the "Firewalls and Virtual Networks" tab of the storage account management blade, ensure that the option "Allow trusted Microsoft services to access this storage account" is checked. This will only permit the specific search service instance with appropriate role based access to the storage account to bypass the firewall rules.
+In the Azure portal, navigate to the "Firewalls and Virtual Networks" tab of the storage account. Ensure that the option "Allow trusted Microsoft services to access this storage account" is checked. This will only permit the specific search service instance with appropriate role based access to the storage account to bypass IP firewall rules.
 
 ![Exception](media\search-indexer-howto-secure-access\exception.png "Exception")
+
+Indexers will now be able to access data in the storage account, even if the account is secured via IP firewall rules.
 
 ## Next steps
 
