@@ -215,13 +215,17 @@ The *doubleVecList* value is converted to a single *doubleVec* before evaluation
 
 ## Obtain sample data
 
-Autoscale formulas act on metrics data (samples) provided by the Batch service. A formula will grow or shrink the pool size based on the values that it obtains. Service-defined variables are objects that provide various methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
+The core operation of an autoscale formula is to obtain task and resource metric data (samples), and then adjust pool size based on that data. As such, it is important to have a clear understanding of how autoscale formulas interact with samples.
+
+### Methods
+
+Autoscale formulas act on samples of metric data provided by the Batch service. An  formula will grow or shrink the pool size based on the values that it obtains. Service-defined variables are objects that provide methods to access data that is associated with that object. For example, the following expression shows a request to get the last five minutes of CPU usage:
 
 ```
 $CPUPercent.GetSample(TimeInterval_Minute * 5)
 ```
 
-The following methods may be used to obtain sample data.
+The following methods may be used to obtain sample data about service-defined variables.
 
 | Method | Description |
 | --- | --- |
@@ -231,22 +235,19 @@ The following methods may be used to obtain sample data.
 | HistoryBeginTime() |Returns the time stamp of the oldest available data sample for the metric. |
 | GetSamplePercent() |Returns the percentage of samples that are available for a given time interval. For example, `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. Because the `GetSample` method fails if the percentage of samples returned is less than the `samplePercent` specified, you can use the `GetSamplePercent` method to check first. Then you can perform an alternate action if insufficient samples are present, without halting the automatic scaling evaluation. |
 
-### Samples, sample percentage, and the *GetSample()* method
-The core operation of an autoscale formula is to obtain task and resource metric data and then adjust pool size based on that data. As such, it is important to have a clear understanding of how autoscale formulas interact with metrics data (samples).
-
-**Samples**
+### Samples
 
 The Batch service periodically takes samples of task and resource metrics and makes them available to your autoscale formulas. These samples are recorded every 30 seconds by the Batch service. However, there is typically a delay between when those samples were recorded and when they are made available to (and can be read by) your autoscale formulas. Additionally, due to various factors such as network or other infrastructure issues, samples may not be recorded for a particular interval.
 
-**Sample percentage**
+### Sample percentage
 
 When `samplePercent` is passed to the `GetSample()` method or the `GetSamplePercent()` method is called, _percent_ refers to a comparison between the total possible number of samples that are recorded by the Batch service and the number of samples that are available to your autoscale formula.
 
-Let's look at a 10-minute timespan as an example. Because samples are recorded every 30 seconds within a 10-minute timespan, the maximum total number of samples that are recorded by Batch would be 20 samples (2 per minute). However, due to the inherent latency of the reporting mechanism and other issues within Azure, there may be only 15 samples that are available to your autoscale formula for reading. So, for example, for that 10-minute period, only 75% of the total number of samples recorded may be available to your formula.
+Let's look at a 10-minute timespan as an example. Because samples are recorded every 30 seconds within that 10-minute timespan, the maximum total number of samples that are recorded by Batch would be 20 samples (2 per minute). However, due to the inherent latency of the reporting mechanism and other issues within Azure, there may be only 15 samples that are available to your autoscale formula for reading. So, for example, for that 10-minute period, only 75% of the total number of samples recorded may be available to your formula.
 
-**GetSample() and sample ranges**
+### GetSample() and sample ranges
 
-Your autoscale formulas are going to be growing and shrinking your pools &mdash; adding nodes or removing nodes. Because nodes cost you money, you want to ensure that your formulas use an intelligent method of analysis that is based on sufficient data. Therefore, we recommend that you use a trending-type analysis in your formulas. This type grows and shrinks your pools based on a range of collected samples.
+Your autoscale formulas will grow and shrink your pools by adding or removing nodes. Because nodes cost you money, be sure that your formulas use an intelligent method of analysis that is based on sufficient data. We recommend that you use a trending-type analysis in your formulas. This type grows and shrinks your pools based on a range of collected samples.
 
 To do so, use `GetSample(interval look-back start, interval look-back end)` to return a vector of samples:
 
@@ -268,7 +269,7 @@ For additional security, you can force a formula evaluation to fail if less than
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
 ```
 
-Because there may be a delay in sample availability, it is important to always specify a time range with a look-back start time that is older than one minute. It takes approximately one minute for samples to propagate through the system, so samples in the range `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` may not be available. Again, you can use the percentage parameter of `GetSample()` to force a particular sample percentage requirement.
+Because there may be a delay in sample availability, you should always specify a time range with a look-back start time that is older than one minute. It takes approximately one minute for samples to propagate through the system, so samples in the range `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` may not be available. Again, you can use the percentage parameter of `GetSample()` to force a particular sample percentage requirement.
 
 > [!IMPORTANT]
 > We **strongly recommend** that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you retrieved it." Since it is only a single sample, and it may be an older sample, it may not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
