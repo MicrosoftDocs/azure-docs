@@ -83,13 +83,15 @@ FROM
                 FORMAT='CSV', FIELDTERMINATOR ='0x0b', FIELDQUOTE = '0x0b', ROWTERMINATOR = '0x0b' ) WITH ( complex_column varchar(MAX) ) AS docs;
 ```
 
-The result is shown in the followng table:
+The result is shown in the following table:
 
 |title	| first_author_name	| body_text	| complex_column |
 | --- | --- | --- | --- |
 | Supplementary Information An eco-epidemiolo... | Julien	| - Figure S1 : Phylogeny of... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-Unlike JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complex. The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
+Unlike JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complex. You can read the properties of nested column using `JSON_VALUE` function on each column. `OPENROWSET` enables you to directly specify the paths of the nested properties in `WITH` clause. Paths can be set as a name of the column or you can add [JSON path expression](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) after column type.
+
+The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
 - Specifying the nested value path expression after type specification.
 - Formatting the column name as nested path using do "." to reference the fields.
 
@@ -103,16 +105,10 @@ FROM
         FORMAT='PARQUET'
     )
     WITH (
-        -- you can see original nested columns values by uncommenting lines below
-        --DateStruct VARCHAR(8000),
         [DateValue] DATE '$.DateStruct.Date',
-        --TimeStruct VARCHAR(8000),
         [TimeStruct.Time] TIME,
-        --TimestampStruct VARCHAR(8000),
         [TimestampStruct.Timestamp] DATETIME2,
-        --DecimalStruct VARCHAR(8000),
         DecimalValue DECIMAL(18, 5) '$.DecimalStruct.Decimal',
-        --FloatStruct VARCHAR(8000),
         [FloatStruct.Float] FLOAT
     ) AS [r];
 ```
