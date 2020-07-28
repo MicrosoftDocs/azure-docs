@@ -8,9 +8,9 @@ ms.author: roastala
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.topic: how-to
 ms.date: 06/04/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Track model metrics and deploy ML models with MLflow and Azure Machine Learning (preview)

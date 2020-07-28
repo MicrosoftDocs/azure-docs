@@ -5,12 +5,11 @@ description: Learn how to transform data in Azure Machine Learning designer (pre
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 author: peterclu
 ms.author: peterlu
 ms.date: 06/28/2020
-ms.custom: designer
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Transform data in Azure Machine Learning designer (preview)
@@ -27,6 +26,8 @@ In this article, you learn how to:
 1. View results.
 
 This how-to is a prerequisite for the [how to retrain designer models](how-to-retrain-designer.md) article. In that article, you will learn how to use the transformed datasets to train multiple models with pipeline parameters.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Transform a dataset
 

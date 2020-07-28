@@ -8,7 +8,7 @@ ms.date: 06/26/2020
 
 # Dependency Tracking in Azure Application Insights 
 
-A *dependency* is a component that is called by your application. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](../../azure-monitor/app/app-insights-overview.md) measures the duration of dependency calls, whether its failing or not, along with additional information like name of dependency and so on. You can investigate specific dependency calls, and correlate them to requests and exceptions.
+A *dependency* is a component that is called by your application. It's typically a service called using HTTP, or a database, or a file system. [Application Insights](./app-insights-overview.md) measures the duration of dependency calls, whether its failing or not, along with additional information like name of dependency and so on. You can investigate specific dependency calls, and correlate them to requests and exceptions.
 
 ## Automatically tracked dependencies
 
@@ -198,6 +198,7 @@ Like every Application Insights SDK, dependency collection module is also open-s
 
 ## Next steps
 
-* [Exceptions](../../azure-monitor/app/asp-net-exceptions.md)
-* [User & page data](../../azure-monitor/app/javascript.md)
-* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Exceptions](./asp-net-exceptions.md)
+* [User & page data](./javascript.md)
+* [Availability](./monitor-web-app-availability.md)
+

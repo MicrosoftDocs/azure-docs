@@ -20,7 +20,7 @@ Each action is made up of the following properties:
 * **Action type**: The action performed. Examples include sending a voice call, SMS, email; or triggering various types of automated actions. See types later in this article.
 * **Details**: The corresponding details that vary by *action type*.
 
-For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](./action-groups-create-resource-manager-template.md).
 
 ## Create an action group by using the Azure portal
 
@@ -80,12 +80,12 @@ Emails will be sent from the following email addresses. Ensure that your email f
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
+You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Email Azure Resource Manager Role
 Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email will not be sent to Azure AD groups or service principals.
 
-You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
+You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
@@ -93,7 +93,7 @@ Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functio
 You may have a limited number of Function actions in an Action Group.
 
 ### ITSM
-ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
+ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](./itsmc-overview.md).
 
 You may have a limited number of ITSM actions in an Action Group. 
 
@@ -103,8 +103,8 @@ You may have a limited number of Logic App actions in an Action Group.
 ### Secure Webhook
 The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
-1. Create an Azure AD Application for your protected web API. See [Protected web API: App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration).
-    - Configure your protected API to be [called by a daemon app](https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-app-registration#if-your-web-api-is-called-by-a-daemon-app).
+1. Create an Azure AD Application for your protected web API. See [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
+    - Configure your protected API to be [called by a daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
     
 2. Enable Action Groups to use your Azure AD Application.
 
@@ -190,7 +190,7 @@ Write-Host $myApp.AppRoles
 ```
 
 ### SMS
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information. 
+See the [rate limiting information](./alerts-rate-limiting.md) and [SMS alert behavior](./alerts-sms-behavior.md) for additional important information. 
 
 You may have a limited number of SMS actions in an Action Group.
 
@@ -201,7 +201,7 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
   
 
 ### Voice
-See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article for additional important behavior.
+See the [rate limiting information](./alerts-rate-limiting.md) article for additional important behavior.
 
 You may have a limited number of Voice actions in an Action Group.
 
@@ -242,9 +242,10 @@ You may have a limited number of Webhook actions in an Action Group.
 
 
 ## Next steps
-* Learn more about [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md).  
-* Gain an [understanding of the activity log alert webhook schema](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Learn more about [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md).
-* Learn more about [rate limiting](../../azure-monitor/platform/alerts-rate-limiting.md) on alerts.
-* Get an [overview of activity log alerts](../../azure-monitor/platform/alerts-overview.md), and learn how to receive alerts.  
+* Learn more about [SMS alert behavior](./alerts-sms-behavior.md).  
+* Gain an [understanding of the activity log alert webhook schema](./activity-log-alerts-webhook.md).  
+* Learn more about [ITSM Connector](./itsmc-overview.md).
+* Learn more about [rate limiting](./alerts-rate-limiting.md) on alerts.
+* Get an [overview of activity log alerts](./alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).
+
