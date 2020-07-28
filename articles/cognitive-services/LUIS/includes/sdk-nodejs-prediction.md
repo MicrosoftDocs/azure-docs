@@ -30,8 +30,6 @@ Use the Language Understanding (LUIS) runtime client library for Node.js to:
 
 Get your [runtime key](../luis-how-to-azure-subscription.md) by creating a LUIS runtime resource. Keep your key, and the endpoint of the key for the next step.
 
-[!INCLUDE [Set up environment variables for prediction quickstart](sdk-prediction-environment-variables.md)]
-
 ### Create a new JavaScript (Node.js) file
 
 Create a new JavaScript file in your preferred editor or IDE, named `luis_prediction.js`.
@@ -69,13 +67,11 @@ From the project directory, open the `luis_prediction.js` file in your preferred
 
 1. Create variables for your own required LUIS information:
 
-    Add variables to manage your prediction key pulled from an environment variable named `LUIS_RUNTIME_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
-
-    Create a variable to hold your resource name `LUIS_RUNTIME_ENDPOINT`.
-
+    Add variables to manage your prediction key and endpoint key. 
+    
     [!code-javascript [Azure resource variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=Variables)]
 
-1. Create a variable for the app ID as an environment variable named `LUIS_APP_ID`. Set the environment variable to the public IoT app, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Create a variable to set the `production` published slot.
+1. Create a variable for the app ID named `LUIS_APP_ID`. Set the variable to the public IoT app, **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Create a variable to set the `production` published slot.
 
     [!code-javascript [LUIS app variables](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_prediction.js?name=OtherVariables)]
 
