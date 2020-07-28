@@ -227,9 +227,10 @@ View the [Beverage Production Forecasting notebook](https://github.com/Azure/Mac
 ### Customize featurization
 You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions. 
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
 Supported customizations include:
+
 |Customization|Definition|
 |--|--|
 |**Column purpose update**|Override the feature type for the specified column.|
