@@ -68,7 +68,7 @@ Create a FileDataset with the [Python SDK](#create-a-filedataset) or the [Azure 
 
 ### TabularDataset
 
-A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas or Spark DataFrame so you can work with familiar data preparation and training libraries without having to leave your notebook. You can create a `TabularDataset` object from .csv, .tsv, .parquet, .jsonl files, and from [SQL query results]((https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-)). For a complete list, see [TabularDatasetFactory class](https://aka.ms/tabulardataset-api-reference).
+A [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas or Spark DataFrame so you can work with familiar data preparation and training libraries without having to leave your notebook. You can create a `TabularDataset` object from .csv, .tsv, .parquet, .jsonl files, and from [SQL query results]((https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none--query-timeout-30-)). For a complete list, see [TabularDatasetFactory class](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py).
 
 With TabularDatasets, you can specify a time stamp from a column in the data or from wherever the path pattern data is stored to enable a time series trait. This specification allows for easy and efficient filtering by time. For an example, see [Tabular time series-related API demo with NOAA weather data](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb).
 
@@ -80,6 +80,8 @@ Create a TabularDataset with [the Python SDK](#create-a-tabulardataset) or [Azur
 ## Access datasets in a virtual network
 
 If your workspace is in a virtual network, you must configure the dataset to skip validation. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#use-datastores-and-datasets).
+
+<a name="datasets-sdk"></a>
 
 ## Create datasets via the SDK
 
@@ -197,7 +199,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
                                  name='titanic_ds',
                                  description='titanic training data')
 ```
-
+<a name="datasets-ui"></a>
 ## Create datasets in the studio
 
 The following steps and animation show how to create a dataset in [Azure Machine Learning studio](https://ml.azure.com).
