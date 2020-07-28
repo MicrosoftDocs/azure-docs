@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation runbook issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation runbooks.
 services: automation
-ms.date: 07/27/2020
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
