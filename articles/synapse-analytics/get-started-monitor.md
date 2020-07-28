@@ -33,15 +33,15 @@ Open Synapse Studio and navigate to the **Monitor** hub. Here, you can see a his
 
 1. Navigate to **Orchestration > Activities > Apache Spark applications**. Now you can see all the Spark applications that are running or have run in your workspace.
 1. Find an application that is no longer running and click on its **Application name**. Now you can see the details of the spark application.
-1. If you are familiar with Apache Spark, you can find the standard Spark history server UI by clicking on **Spark history server**
+1. If you are familiar with Apache Spark, you can find the standard Apache Spark history server UI by clicking on **Spark history server**.
 
 ## SQL Activities
 
 1. Navigate to **Orchestration > Activities > SQL requests**.
 1. In this view you can see SQL requests.
-1. Select a **Pool** to monitor. Now you can see all SQL  Spark applications that are running or have run in your workspace in that pool.
+1. Select a **Pool** to monitor. Now you can see all SQL requests that are running or have run in your workspace in that pool.
 1. Find a specific SQL request and hover the mouse on that item. Once you hober, you will see a SQL script icon appear.
-1. Click on the SQL script icon to see the full text of the SQL request
+1. Click on the SQL script icon to see the full text of the SQL request.
 
 ## Next steps
 
