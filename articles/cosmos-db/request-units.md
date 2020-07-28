@@ -45,7 +45,7 @@ While you estimate the number of RUs per second to provision, consider the follo
 
 * **Data consistency**: The strong and bounded staleness consistency levels consume approximately two times more RUs while performing read operations when compared to that of other relaxed consistency levels.
 
-* **Types of read**: Point reads cost significantly fewer RU's than queries.
+* **Type of reads**: Point reads cost significantly fewer RU's than queries.
 
 * **Query patterns**: The complexity of a query affects how many RUs are consumed for an operation. Factors that affect the cost of query operations include: 
     
