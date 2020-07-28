@@ -119,7 +119,7 @@ Right now, the Read operation supports extracting handwritten text exclusively i
 
 ### Printed text in supported languages
 
-The Read 3.0 API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. [Read 3.1-preview.1 API Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
+The Read 3.0 API supports extracting printed text in English, Spanish, German, French, Italian, Portuguese, and Dutch languages. [Read 3.1 API public preview] (https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005) adds support for Simplified Chinese. If your scenario requires supporting more languages, see the OCR API overview in this document. Refer to the list of all [OCR supported languages](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr)
 
 ![An image being rotated and its text being read and delineated](./Images/supported-languages-example.png)
 
