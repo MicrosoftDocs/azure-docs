@@ -67,7 +67,7 @@ You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-
 Check out frequently asked questions about the Azure IoT Connector for FHIR.
 
 >[!div class="nextstepaction"]
->[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
+>[Azure IoT Connector for FHIR FAQs](fhir-faq.md#iot-connector-preview)
 
 In the Azure portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 
