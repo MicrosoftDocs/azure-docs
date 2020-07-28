@@ -4,7 +4,6 @@ description: Learn how to generate and use SSH keys from a Windows computer to c
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
 ms.date: 07/09/2020
 ms.topic: how-to
 ms.author: cynthn
