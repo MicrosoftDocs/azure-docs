@@ -29,5 +29,5 @@ You can further enhance your queries with the following operations:
 * Select only the top query results (`Select TOP` operator)
 * Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTSWITH`, `ENDSWITH`.
 * Use query comparison operators: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
-* Use any combination (`AND`, `OR`, `NOT` operator) of IS_OF_MODEL, scalar functions, and comparison operators.
+* Use any combination (`AND`, `OR`, `NOT` operator) of `IS_OF_MODEL`, scalar functions, and comparison operators.
 * Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time by providing the continuation token in subsequent calls to the API.
