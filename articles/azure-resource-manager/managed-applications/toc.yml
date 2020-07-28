@@ -81,24 +81,44 @@
   - name: REST
     href: /rest/api/resources/
   - name: User interface functions
-    href: create-uidefinition-functions.md
+    items:
+    - name: All functions
+      href: create-uidefinition-functions.md
+    - name: Collection functions
+      href: create-ui-definition-collection-functions.md
+    - name: Conversion functions
+      href: create-ui-definition-conversion-functions.md
+    - name: Date functions
+      href: create-ui-definition-date-functions.md
+    - name: Logical functions
+      href: create-ui-definition-logical-functions.md
+    - name: Math functions
+      href: create-ui-definition-math-functions.md
+    - name: Referencing functions
+      href: create-ui-definition-referencing-functions.md
+    - name: String functions
+      href: create-ui-definition-string-functions.md
   - name: User interface elements
     href: create-uidefinition-elements.md
     items:
     - name: Common
       items:
+      - name: CheckBox
+        href: microsoft-common-checkbox.md
       - name: DropDown
         href: microsoft-common-dropdown.md
       - name: FileUpload
         href: microsoft-common-fileupload.md
       - name: InfoBox
         href: microsoft-common-infobox.md
-      - name: OptionsGroup
+      - name: OptionsGroup (radio button)
         href: microsoft-common-optionsgroup.md
       - name: PasswordBox
         href: microsoft-common-passwordbox.md
       - name: Section
         href: microsoft-common-section.md
+      - name: Slider
+        href: microsoft-common-slider.md
       - name: TagsByResource
         href: microsoft-common-tagsbyresource.md
       - name: TextBlock
@@ -123,6 +143,12 @@
         href: microsoft-network-publicipaddresscombo.md
       - name: VirtualNetworkCombo
         href: microsoft-network-virtualnetworkcombo.md
+    - name: Solutions
+      items:
+      - name: ArmApiControl
+        href: microsoft-solutions-armapicontrol.md
+      - name: ResourceSelector
+        href: microsoft-solutions-resourceselector.md
     - name: Storage
       items:
       - name: MultiStorageAccountCombo

@@ -60,7 +60,7 @@ You can't use access control lists to provide a level of access that is lower th
 
 To set file and directory level permissions, see any of the following articles:
 
-|||
+| Environment | Article |
 |--------|-----------|
 |Azure Storage Explorer |[Use Azure Storage Explorer to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|

@@ -6,14 +6,15 @@
     href: devtest-lab-overview.md
   - name: Azure DevTest Labs and Lab Services
     href: lab-services-overview.md
+- name: Quickstart
+  items:
+  - name: Create a lab - ARM template
+    displayName: Resource Manager
+    href: create-lab-windows-vm-template.md  
 - name: Tutorials
   items:
   - name: Set up a lab
-    items: 
-    - name: Use Azure portal
-      href: tutorial-create-custom-lab.md 
-    - name: Use Resource Manager template
-      href: create-lab-windows-vm-template.md 
+    href: tutorial-create-custom-lab.md 
   - name: Access a lab
     href: tutorial-use-custom-lab.md
 - name: Samples
@@ -126,18 +127,26 @@
       href: personal-data-delete-export.md
   - name: Use VMs in a lab
     items: 
-    - name: Create a VM - Azure portal
-      href: devtest-lab-add-vm.md
-    - name: Create a VM - Azure PowerShell
-      href: devtest-lab-vm-powershell.md
-    - name: Create a VM - Azure CLI
-      href: devtest-lab-vmcli.md        
-    - name: Create a VM - Resource Manager template
-      href: devtest-lab-use-resource-manager-template.md
-    - name: Create a VM using an image from shared image gallery
-      href: add-vm-use-shared-image.md
-    - name: Connect to your VM through a browser
-      href: connect-virtual-machine-through-browser.md           
+    - name: Create a VM
+      items:
+      - name: Azure portal
+        href: devtest-lab-add-vm.md
+      - name: Azure PowerShell
+        href: devtest-lab-vm-powershell.md
+      - name: Azure CLI
+        href: devtest-lab-vmcli.md        
+      - name: Resource Manager template
+        href: devtest-lab-use-resource-manager-template.md
+      - name: Create a VM using an image from shared image gallery
+        href: add-vm-use-shared-image.md
+    - name: Connect to a VM
+      items:  
+      - name: Connect to a Windows VM
+        href: connect-windows-virtual-machine.md
+      - name: Connect to a Linux VM
+        href: connect-linux-virtual-machine.md
+      - name: Connect to your VM through a browser
+        href: connect-virtual-machine-through-browser.md           
     - name: Start or stop a VM using PowerShell or CLI
       href: use-command-line-start-stop-virtual-machines.md
     - name: Restart a VM
@@ -282,7 +291,7 @@
   - name: PowerShell - sample Az.DevTestLabs2 module
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/dtl/
+    href: /rest/api/dtl/
   - name: Resource Manager template
     href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources
@@ -292,7 +301,7 @@
   - name: Pricing 
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-devtestlabs.html
+    href: /answers/topics/azure-devtestlabs.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-devtest-labs
   - name: Videos

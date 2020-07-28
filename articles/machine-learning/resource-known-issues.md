@@ -91,6 +91,22 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
     ```bash
     automl_setup
     ```
+    
+* **KeyError: 'brand' when running AutoML on local compute or Azure Databricks cluster**
+
+    If a new environment was created after June 10, 2020, by using SDK 1.7.0 or earlier, training might fail with this error due to an update in the py-cpuinfo package. (Environments created on or before June 10, 2020, are unaffected, as are experiments run on remote compute because cached training images are used.) To work around this issue, take either of the following two steps:
+    
+    * Update the SDK version to 1.8.0 or later (this also downgrades py-cpuinfo to 5.0.0):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Downgrade the installed version of py-cpuinfo to 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Error message: Cannot uninstall 'PyYAML'**
 
@@ -141,6 +157,12 @@ Sometimes it can be helpful if you can provide diagnostic information when askin
 > Moving your Azure Machine Learning workspace to a different subscription, or moving the owning subscription to a new tenant, is not supported. Doing so may cause errors.
 
 * **Azure portal**: If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal **Overview** page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
+
+* **Supported browsers in Azure Machine Learning studio web portal**: We recommend that you use the most up-to-date browser that's compatible with your operating system. The following browsers are supported:
+  * Microsoft Edge (The new Microsoft Edge, latest version. Not Microsoft Edge legacy)
+  * Safari (latest version, Mac only)
+  * Chrome (latest version)
+  * Firefox (latest version)
 
 ## Set up your environment
 
@@ -212,9 +234,16 @@ Limitations and known issues for data drift monitors:
 
 ## Azure Machine Learning designer
 
-Known issues:
+* **Long compute preparation time:**
 
-* **Long compute preparation time**: It may be a few minutes or even longer when you first connect to or create a compute target. 
+It may be a few minutes or even longer when you first connect to or create a compute target. 
+
+From the Model Data Collector, it can take up to (but usually less than) 10 minutes for data to arrive in your blob storage account. Wait 10 minutes to ensure cells below will run.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## Train models
 
@@ -335,6 +364,12 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
+## Missing user interface items in studio
+
+Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from showing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio.
+
+For more information, see [Manage users and roles](how-to-assign-roles.md).
 
 ## Next steps
 

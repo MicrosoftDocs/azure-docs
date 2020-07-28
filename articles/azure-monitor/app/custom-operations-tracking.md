@@ -343,7 +343,7 @@ When you instrument message deletion, make sure you set the operation (correlati
 
 ### Dependency Types
 
-Application Insights uses dependency type to customize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights uses dependency type to customize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](./transaction-diagnostics.md):
 - `Azure queue` for Azure Storage Queues
 - `Azure Event Hubs` for Azure Event Hubs
 - `Azure Service Bus` for Azure Service Bus
@@ -422,7 +422,7 @@ public async Task RunMyTaskAsync()
 
 Disposing operation causes operation to be stopped, so you may do it instead of calling `StopOperation`.
 
-*Warning*: in some cases unhanded exception may [prevent](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
+*Warning*: in some cases unhanded exception may [prevent](/dotnet/csharp/language-reference/keywords/try-finally) `finally` to be called so operations may not be tracked.
 
 ### Parallel operations processing and tracking
 

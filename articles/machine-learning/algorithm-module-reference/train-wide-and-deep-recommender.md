@@ -1,5 +1,5 @@
 ---
-title: "Score Image Model"
+title: Use the Train Wide & Deep Recommender module
 titleSuffix: Azure Machine Learning
 description: Learn how to use the Train Wide & Deep Recommender module to train a recommendation model.
 services: machine-learning

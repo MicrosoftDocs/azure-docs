@@ -7,6 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
+ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support']
 ---
 
 # Reference - IoT Hub quotas and throttling

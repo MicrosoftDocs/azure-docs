@@ -2,7 +2,7 @@
 title: "Tutorial: Create a content library to deploy VMs in Azure VMware Solution (AVS)"
 description: In this Azure VMware Solution (AVS) tutorial, you create a content library to deploy a VM in an AVS private cloud.
 ms.topic: tutorial
-ms.date: 07/10/2020
+ms.date: 07/16/2020
 ---
 
 # Tutorial: Create a content library to deploy VMs in Azure VMware Solution (AVS)

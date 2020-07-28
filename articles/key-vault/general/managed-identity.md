@@ -31,7 +31,7 @@ To complete this guide, you must have the following resources.
    - [Create a key vault with Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Create a key vault with the Azure portal](../secrets/quick-create-portal.md).
 - An existing App Service application to which to grant key vault access. You can quickly create one by following the steps in the [App Service documentation](../../app-service/overview.md).
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview). Alternatively, you can use the [Azure portal](https://portal.azure.com).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/). Alternatively, you can use the [Azure portal](https://portal.azure.com).
 
 
 ## Adding a system-assigned identity 

@@ -30,7 +30,7 @@ The best experience is obtained by installing Application Insights both in your 
     </script>
     ```
 
-    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+    To learn more advanced configurations for monitoring websites, check out the [JavaScript SDK reference article](./javascript.md).
 
 3. **Mobile app code:** Use the App Center SDK to collect events from your app, then send copies of these events to Application Insights for analysis by [following this guide](../../azure-monitor/learn/mobile-center-quickstart.md).
 
@@ -41,7 +41,7 @@ The best experience is obtained by installing Application Insights both in your 
 ## Include user and session ID in your telemetry
 To track users over time, Application Insights requires a way to identify them. The Events tool is the only Usage tool that does not require a user ID or a session ID.
 
-Start sending user and session IDs using [this process](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context).
+Start sending user and session IDs using [this process](./usage-send-user-context.md).
 
 ## Explore usage demographics and statistics
 Find out when people use your app, what pages they're most interested in, where your users are located, what browsers and operating systems they use. 

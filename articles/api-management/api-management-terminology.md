@@ -15,7 +15,7 @@ ms.date: 10/11/2017
 ms.author: apimpm
 ---
 
-# Terminology
+# Azure API Management terminology
 
 This article gives definitions for the terms that are specific to API Management (APIM).
 

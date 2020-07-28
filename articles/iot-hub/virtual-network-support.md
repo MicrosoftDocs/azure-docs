@@ -44,6 +44,8 @@ Before proceeding ensure that the following prerequisites are met:
 
 ### Set up a private endpoint for IoT Hub ingress
 
+Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) as well as service APIs (like creating and updating devices).
+
 1. In Azure portal, select **Networking**, **Private endpoint connections**, and click the **+ Private endpoint**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot showing where to add private endpoint for IoT Hub":::

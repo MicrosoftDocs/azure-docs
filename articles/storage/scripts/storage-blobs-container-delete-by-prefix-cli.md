@@ -12,7 +12,7 @@ ms.date: 06/22/2017
 ms.author: tamram
 ---
 
-# Delete containers based on container name prefix
+# Use an Azure CLI script to delete containers based on container name prefix
 
 This script first creates a few sample containers in Azure Blob storage, then deletes some of the containers based on a prefix in the container name.
 

@@ -8,9 +8,9 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 06/03/2020
 ms.author: anfeldma
-
-
+ms.custom: devx-track-java
 ---
+
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
@@ -111,7 +111,7 @@ This is the original Azure Cosmos DB Sync Java SDK v2 for SQL API which supports
 ### <a name="1.16.4"></a>1.16.4
 * Fixed a bug in Read partition Key ranges for a query.
 
-### <a name="1.16.3"/>1.16.3
+### <a name="1.16.3"></a>1.16.3
 * Fixed a bug in setting continuation token header size in DirectHttps mode.
 
 ### <a name="1.16.2"></a>1.16.2
