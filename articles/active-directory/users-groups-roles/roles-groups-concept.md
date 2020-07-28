@@ -57,14 +57,15 @@ We are working on these capabilities.
 ## Known Issues
 
 - You can't create or modify a dynamic group when the role is assigned via a group.
-- Azure Information Protection doesn't recognize role membership via group yet. Direct role assignments still work.
-- *Azure AD P2 license customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
+- Azure Information Protection doesn't recognize role membership via group yet. Direct role assignments still work. Azure Information Protection Portal (the classic portal) doesn't recognize role membership via group yet. Direct role assignments still work. You can [migrate to the unified sensitivity labeling platform](../../information-protection/configure-policy-migrate-labels.md) and then use the [Microsoft 365 Security & Compliance center](https://docs.microsoft.com/microsoft-365/security/office-365-security/grant-access-to-the-security-and-compliance-center) to use group assignments to manage roles.
+- The **Enable staged rollout for managed user sign-in** feature doesn't support assignment via group.
+- *Azure AD P2 licensed customers only*: Don't assign a group as Active to a role through both Azure AD and Privileged Identity Management. This will lead to issues where users can’t see their active role assignments in the PIM as well as the inability to remove that PIM assignment. Eligible assignments are not affected in this scenario. If you do attempt to make this assignment, you might see unexpected behavior such as:
 
   - End time of the assignment might end up showing incorrectly
 
   - In the PIM UI, My Roles can only show one role assignment regardless of how many methods the assignment is granted (through one or more groups and directly)
 
-- [*Azure AD P2 license customers only*] Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.
+- *Azure AD P2 licensed customers only* Even after deleting the group, it is still shown an eligible member of the role in PIM UI. Functionally there's no problem; it's just a cache issue in the Azure portal.
 
 We are fixing these issues.
 
