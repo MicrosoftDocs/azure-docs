@@ -33,8 +33,10 @@ Here are the operations available in Azure Digital Twins Query Store language:
 * Get twins by digital twins' interfaces.
 * Get twins by relationship properties.
 * Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview).
-* Use custom function `IS_OF_MODEL(twinCollection, twinTypeName)`, which allows filtering based on the twin's [model](concepts-models.md). It supports inheritance.
-* Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTS_WITH`, `ENDS_WITH`.
+* Use the `IS_OF_MODEL(twinCollection, twinTypeName)` operator to filter based on the twin's [model](concepts-models.md). It supports inheritance.
+  - To do an exact match, pass the `exact` argument as well: `IS_OF_MODEL(twinCollection, twinTypeName, exact)`
+* Use the `Select TOP` clause
+* Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTSWITH`, `ENDSWITH`.
 * Use query comparison operators: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
 * Use any combination (`AND`, `OR`, `NOT` operator) of the above.
 * Use continuation: The query object is instantiated with a page size (up to 100). You can retrieve the digital twins one page at a time by providing the continuation token in subsequent calls to the API.
