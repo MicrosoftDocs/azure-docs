@@ -42,6 +42,8 @@
         href: connect-azure-active-directory.md
       - name: Office 365
         href: connect-office-365.md
+      - name: Office 365 ATP
+        href: connect-office-365-advanced-threat-protection.md
       - name: Cloud App Security
         href: connect-cloud-app-security.md
       - name: Azure Activity Log
