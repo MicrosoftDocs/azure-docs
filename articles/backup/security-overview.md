@@ -43,7 +43,7 @@ Encryption protects your data and helps you to meet your organizational security
 
 * Within Azure, data in transit between Azure storage and the vault is [protected by HTTPS](backup-support-matrix.md#network-traffic-to-azure). This data remains on the Azure backbone network.
 
-* Backup data is automatically encrypted using [Microsoft-managed keys](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys). You can also encrypt your backed up managed disk VMs in the Recovery Services Vault using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. You don't need to take any explicit action to enable this encryption. It applies to all workloads being backed up to your Recovery Services vault.
+* Backup data is automatically encrypted using [Microsoft-managed keys](backup-encryption.md#encryption-of-backup-data-using-platform-managed-keys), and you don't need to take any explicit action to enable it. You can also encrypt your backed up data using [customer managed keys](encryption-at-rest-with-cmk.md) stored in the Azure Key Vault. It applies to all workloads being backed up to your Recovery Services vault.
 
 * Azure Backup supports backup and restore of Azure VMs that have their OS/data disks encrypted with [Azure Disk Encryption (ADE)](backup-encryption.md#backup-of-vms-encrypted-using-ade) and [VMs with CMK encrypted disks](backup-encryption.md#backup-of-managed-disk-vms-encrypted-using-customer-managed-keys). For more information, [learn more about encrypted Azure VMs and Azure Backup](./backup-azure-vms-encryption.md).
 
