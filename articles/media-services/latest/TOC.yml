@@ -284,7 +284,10 @@
     - name: Encode with a custom transform
       items:
       - name: With .NET
-        displayName: encode, encoding, custom, transform  
+        displayName: encode, encoding, custom, transform
+        items:
+        - name: Create an overlay transform
+          href: how-to-create-an-overlay.md  
         href: customize-encoder-presets-how-to.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
