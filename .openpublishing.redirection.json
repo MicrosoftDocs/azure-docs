@@ -45753,12 +45753,12 @@
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-central/howto-connect-devkit-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46113,7 +46113,7 @@
     },
     {
       "source_path": "articles/iot-central/core/tutorial-connect-pnp-device-pnp.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46138,7 +46138,7 @@
     },
     {
       "source_path": "articles/iot-central/core/howto-connect-devkit-pnp.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46363,7 +46363,7 @@
     },
     {
       "source_path": "articles/iot-central/preview/howto-connect-devkit.md",
-      "redirect_url": "/azure/iot-central/core/howto-connect-devkit/",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
@@ -46538,7 +46538,12 @@
     },
     {
       "source_path": "articles/iot-central/preview/tutorial-connect-pnp-device.md",
-      "redirect_url": "/azure/iot-central/core/tutorial-connect-pnp-device/",
+      "redirect_url": "/azure/iot-central/core/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-connect-pnp-device.md",
+      "redirect_url": "/azure/iot-central/core/",
       "redirect_document_id": false
     },
     {
