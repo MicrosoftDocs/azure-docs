@@ -24,6 +24,9 @@ A device template includes the following sections:
 - _Customizations_. This part of the device template lets the solution developer override some of the definitions in the DCM. Customizations are useful if the solution developer wants to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. Customizations don't affect the code that a device developer writes to implement the DCM.
 - _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. The views use the DCM, cloud properties, and customizations. Views don't affect the code that a device developer writes to implement the DCM.
 
+> [!NOTE]
+> The [IoT Plug and Play public preview refresh release](../../iot-pnp/overview-iot-plug-and-play.md) targets device developers and OEMs to begin building devices they can certify for IoT Plug and Play ahead of the GA launch.
+
 ## Device capability models
 
 A DCM defines how a device interacts with your IoT Central application. The device developer must make sure that the device implements the behaviors defined in the DCM so that IoT Central can monitor and manage the device. A DCM is made up of one or more _interfaces_, and each interface can define a collection of _telemetry_ types, _device properties_, and _commands_. A solution developer can import a JSON file that defines the DCM into a device template, or use the web UI in IoT Central to create or edit a DCM. Changes to a DCM made using the Web UI require the [device template to be versioned](./howto-version-device-template.md).

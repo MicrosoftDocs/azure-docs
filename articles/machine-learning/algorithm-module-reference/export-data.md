@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
+ms.date: 07/28/2020
 ---
 # Export Data module
 
@@ -36,6 +36,9 @@ Before exporting your data, you need to first register a datastore in your Azure
 1. Select **Export Data** to open the **Properties** pane.
 
 1. For **Datastore**, select an existing datastore from the dropdown list. You can also create a new datastore. Check how by visiting [Access data in Azure storage services](../how-to-access-data.md).
+
+    > [!NOTE]
+    > Exporting data of a certain data type to a SQL database column specified as another data type is not supported.
 
 1. The checkbox, **Regenerate output**, decides whether to execute the module to regenerate output at running time. 
 
