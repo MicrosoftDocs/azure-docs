@@ -10,7 +10,6 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.custom: seodec18
 ---
 
 # Install and run the People Analytics container (Preview)
@@ -344,6 +343,7 @@ az iot edge deployment create --deployment-id "<deployment name>" --hub-name "<I
 
 This command starts the deployment. Navigate to the page of your Azure IoT Hub instance in the Azure Portal to see the deployment status. The status may show as "417 – The device’s deployment configuration is not set" until the device finishes downloading the container images and starts running.
 
+You can [add AI skills](people-analytics-ai-skills.md) for detection and tracking for each camera device you configure. 
 
 ## Validate that the deployment is successful
 
