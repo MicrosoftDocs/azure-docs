@@ -5,12 +5,12 @@ description: Create and run a machine learning pipeline with the Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.reviewer: sgilley
-ms.author: sanpil
-author: sanpil
+ms.author: nilsp
+author: NilsPohlmann
 ms.date: 12/05/2019
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ---
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a free account before you begin.
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance (preview)](concept-compute-instance.md) with the SDK already installed.
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use an [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
 Start by attaching your workspace:
 
@@ -125,6 +125,8 @@ Below are examples of creating and attaching compute targets for:
 * Azure Machine Learning Compute
 * Azure Databricks 
 * Azure Data Lake Analytics
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### Azure Machine Learning compute
 
@@ -444,7 +446,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
 
 ### Run a published pipeline
 
-All published pipelines have a REST endpoint. This endpoint invokes the run of the pipeline from external systems, such as non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
+All published pipelines have a REST endpoint. With the pipeline endpoint, you can trigger a run of the pipeline from any external systems, including non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
 To invoke the run of the preceding pipeline, you need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py) reference or get more details in the [Authentication in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 

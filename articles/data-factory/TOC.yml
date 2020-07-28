@@ -23,8 +23,11 @@
     href: quickstart-create-data-factory-python.md
   - name: Create data factory - REST
     href: quickstart-create-data-factory-rest-api.md
-  - name: Create data factory - Resource Manager template
+  - name: Create data factory - ARM template
+    displayName: Resource Manager
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Security - Enable Customer Managed Key Encryption
+    href: enable-customer-managed-key.md
   - name: Create data flow
     href: data-flow-create.md
 - name: Tutorials
@@ -39,7 +42,7 @@
         href: tutorial-copy-data-portal.md
       - name: .NET
         href: tutorial-copy-data-dot-net.md
-    - name: From an on-premises SQL Server database to Azure Blob Storage
+    - name: From a SQL Server database to Azure Blob Storage
       items:
       - name: Copy Data tool
         href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +79,7 @@
           href: tutorial-incremental-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-powershell.md
-      - name: From multiple on-premises SQL Server tables
+      - name: From multiple SQL Server database tables
         items:
         - name: User interface (UI)
           href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -88,10 +91,16 @@
           href: tutorial-incremental-copy-change-tracking-feature-portal.md
         - name: Azure PowerShell
           href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+      - name: Using CDC in Azure SQL MI
+        items:
+        - name: User interface (UI)
+          href: tutorial-incremental-copy-change-data-capture-feature-portal.md
       - name: New files by last modified data
         href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
       - name: New files by time partitioned file name
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+    - name: Build a copy pipeline using managed VNet and private endpoints
+      href: tutorial-copy-data-portal-private.md
   - name: Transform data
     items:
     - name: Transform data with mapping data flows
@@ -120,6 +129,8 @@
           href: tutorial-transform-data-hive-virtual-network-portal.md
         - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
+    - name: Build mapping dataflow pipeline using managed VNet and private endpoints
+      href: tutorial-data-flow-private.md
   - name: Control Flow
     items:
     - name: User interface (UI)
@@ -156,6 +167,12 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Managed Virtual Network
+    href: managed-virtual-network-private-endpoint.md
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
   - name: Data flows
     items:
     - name: Transform data with mapping data flows
@@ -194,6 +211,8 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Management hub
+      href: author-management-hub.md
     - name: Source control
       href: source-control.md
     - name: Continuous integration and delivery
@@ -246,6 +265,8 @@
       href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
+    - name: Common Data Model format
+      href: format-common-data-model.md
     - name: Common Data Service for Apps
       href: connector-dynamics-crm-office-365.md
     - name: Concur
@@ -256,6 +277,8 @@
       href: connector-db2.md
     - name: Delimited text format
       href: format-delimited-text.md
+    - name: Delta format
+      href: format-delta.md
     - name: Drill
       href: connector-drill.md
     - name: Dynamics 365
@@ -264,10 +287,14 @@
       href: connector-dynamics-ax.md
     - name: Dynamics CRM
       href: connector-dynamics-crm-office-365.md
+    - name: Excel format
+      href: format-excel.md
     - name: File System
       href: connector-file-system.md
     - name: FTP
       href: connector-ftp.md
+    - name: GitHub
+      href: connector-github.md
     - name: Google AdWords
       href: connector-google-adwords.md
     - name: Google BigQuery
@@ -370,6 +397,8 @@
       href: connector-sharepoint-online-list.md      
     - name: Shopify
       href: connector-shopify.md
+    - name: Snowflake
+      href: connector-snowflake.md
     - name: Spark
       href: connector-spark.md
     - name: SQL Server
@@ -386,6 +415,8 @@
       href: connector-web-table.md
     - name: Xero
       href: connector-xero.md
+    - name: XML format
+      href: format-xml.md
     - name: Zoho
       href: connector-zoho.md
   - name: Move data
@@ -447,12 +478,12 @@
       href: transform-data-using-spark.md
     - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: Machine Learning Batch Execution Activity
-      href: transform-data-using-machine-learning.md
-    - name: Machine Learning Update Resource Activity
-      href: update-machine-learning-models.md
     - name: Machine Learning Execute Pipeline Activity
-      href: transform-data-machine-learning-service.md
+      href: transform-data-machine-learning-service.md      
+    - name: Machine Learning Studio (classic) Batch Execution Activity
+      href: transform-data-using-machine-learning.md
+    - name: Machine Learning Studio (classic) Update Resource Activity
+      href: update-machine-learning-models.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -556,13 +587,15 @@
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
     - name: Customer managed key encryption
-      href: quickstart-enable-customer-managed-key.md
+      href: enable-customer-managed-key.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
       href: monitor-visually.md
     - name: Monitor with Azure Monitor
       href: monitor-using-azure-monitor.md
+    - name: Monitor SSIS with Azure Monitor
+      href: monitor-using-azure-monitor.md#monitor-ssis-operations-with-azure-monitor
     - name: Monitor with SDKs
       href: monitor-programmatically.md
     - name: Monitor integration runtime
@@ -605,6 +638,10 @@
       href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
+    - name: Connect to data with Windows Authentication
+      href: ssis-azure-connect-with-windows-auth.md
+    - name: Save files and connect to file shares
+      href: ssis-azure-files-file-shares.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
       href: how-to-configure-azure-ssis-ir-enterprise-edition.md
     - name: Built-in and preinstalled components on Azure-SSIS IR
@@ -623,6 +660,8 @@
       href: how-to-use-sql-managed-instance-with-ir.md
     - name: Migrate SSIS jobs with SSMS
       href: how-to-migrate-ssis-job-ssms.md
+    - name: Manage packages with Azure-SSIS IR package store
+      href: azure-ssis-integration-runtime-package-store.md
   - name: Create triggers
     items:
     - name: Create an event-based trigger
@@ -633,6 +672,32 @@
       href: how-to-create-tumbling-window-trigger.md
     - name: Create a tumbling window trigger dependency
       href: tumbling-window-trigger-dependency.md
+  - name: Scenarios
+    items:    
+    - name: Data migration for data lake & EDW
+      items:
+      - name: Why Azure Data Factory
+        href: data-migration-guidance-overview.md
+      - name: Migrate data from AWS S3 to Azure
+        href: data-migration-guidance-s3-azure-storage.md
+      - name: Migrate data from on-premises Hadoop cluster to Azure
+        href: data-migration-guidance-hdfs-azure-storage.md
+      - name: Migrate data from on-premises Netezza server to Azure
+        href: data-migration-guidance-netezza-azure-sqldw.md
+    - name: Transformation using mapping data flow
+      items:
+      - name: Process fixed-width text files
+        href: how-to-fixed-width.md
+      - name: Error row handling
+        href: how-to-data-flow-error-rows.md
+      - name: Azure SQL DB to Azure Cosmos DB
+        href: how-to-sqldb-to-cosmosdb.md
+    - name: SSIS migration from on-premises
+      items:
+      - name: SSIS migration overview
+        href: scenario-ssis-migration-overview.md
+      - name: SSISDB migration to Azure SQL Managed Instance
+        href: scenario-ssis-migration-ssisdb-mi.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -673,32 +738,8 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
-- name: Scenarios
-  items:
-  - name: Data migration for data lake & EDW
-    items:
-    - name: Why Azure Data Factory
-      href: data-migration-guidance-overview.md
-    - name: Migrate data from AWS S3 to Azure
-      href: data-migration-guidance-s3-azure-storage.md
-    - name: Migrate data from on-premises Hadoop cluster to Azure
-      href: data-migration-guidance-hdfs-azure-storage.md
-    - name: Migrate data from on-premises Netezza server to Azure
-      href: data-migration-guidance-netezza-azure-sqldw.md
-  - name: Transformation using mapping data flow
-    items:
-    - name: Process fixed-width text files
-      href: how-to-fixed-width.md
-    - name: Error row handling
-      href: how-to-data-flow-error-rows.md
-    - name: Azure SQL DB to CosmosDB
-      href: how-to-sqldb-to-cosmosdb.md
-  - name: SSIS migration from on-premises
-    items:
-    - name: SSIS migration overview
-      href: scenario-ssis-migration-overview.md
-    - name: SSISDB migration to Azure SQL Managed Instance
-      href: scenario-ssis-migration-ssisdb-mi.md
+    - name: Diagnose connectivity in Azure-SSIS IR
+      href: ssis-integration-runtime-diagnose-connectivity-faq.md
 - name: Reference
   items:
   - name: Data flow script

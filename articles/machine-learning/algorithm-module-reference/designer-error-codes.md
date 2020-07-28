@@ -1,12 +1,12 @@
 ---
-title: Troubleshoot module errors
+title: Troubleshoot designer (preview) module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
+description: Troubleshoot module error codes in Azure Machine Learning designer (preview)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: reference
-
+ms.topic: conceptual
+ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
@@ -1559,7 +1559,7 @@ Resolution:
 
 
 ## Error 0159
- Exception occurs if passed to module model directory is invalid. 
+ Exception occurs if module model directory is invalid. 
 
 |Exception Messages|
 |------------------------------------------------------------|
@@ -1574,7 +1574,7 @@ Internal library exception.
 
 This error is provided to capture otherwise unhandled internal engine errors. Therefore, the cause for this error might be different depending on the module that generated the error.  
 
-To get more help, we recommend that you post the detailed message that accompanies the error to the Azure Machine Learning forum, together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
+To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
 
 |Exception Messages|
 |------------------------|

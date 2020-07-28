@@ -1,6 +1,6 @@
 ---
 title: "PowerShell: Create a single database" 
-description: Azure PowerShell example script to create a single Azure SQL Database. 
+description: Use an Azure PowerShell example script to create a single database in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -12,16 +12,17 @@ ms.author: sstein
 ms.reviewer:
 ms.date: 03/12/2019
 ---
-# Use PowerShell to create a single Azure SQL Database and configure a server-level firewall rule
+# Use PowerShell to create a single database and configure a server-level firewall rule
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This PowerShell script example creates an Azure SQL Database and configures a server-level firewall rule. Once the script has been successfully run, the SQL Database can be accessed from all Azure services and the configured IP address.
+This Azure PowerShell script example creates a single database in Azure SQL Database and configures a server-level firewall rule. After the script has been successfully run, the database can be accessed from all Azure services and the configured IP address.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Az PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample script
 
@@ -37,7 +38,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands. Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|
@@ -50,6 +51,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
+For more information on Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/).
 
 Additional SQL Database PowerShell script samples can be found in the [Azure SQL Database PowerShell scripts](../powershell-script-content-guide.md).

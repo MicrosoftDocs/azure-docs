@@ -13,7 +13,7 @@ Backing up SharePoint to Azure with MABS is a similar process to backing up Shar
 
 ## SharePoint supported versions and related protection scenarios
 
-For a list of supported SharePoint versions and the MABS versions required to back them up see [the MABS protection matrix](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix)
+For a list of supported SharePoint versions and the MABS versions required to back them up see [the MABS protection matrix](./backup-mabs-protection-matrix.md)
 
 ## Before you start
 
@@ -63,10 +63,9 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
     * Enter the farm administrator credentials. This account should be a member of the local Administrator group on the WFE server. If the farm administrator isn't a local admin, grant the following permissions on the WFE server:
 
-        * Grant the WSS\_Admin\_WPG group full control to the MABS folder \(%Program Files%\\Data Protection Manager\\DPM\).
-            -A
+        * Grant the **WSS_Admin_WPG** group full control to the MABS folder (`%Program Files%\Data Protection Manager\DPM\`).
 
-        * Grant the WSS\_Admin\_WPG group read access to the MABS Registry key \(HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager\).
+        * Grant the **WSS_Admin_WPG** group read access to the MABS Registry key (`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager`).
 
         After running ConfigureSharePoint.exe, you'll need to rerun it if there's a change in the SharePoint farm administrator credentials.
 
@@ -96,7 +95,7 @@ To back up the SharePoint farm, configure protection for SharePoint by using Con
 
 1. In **Specify online retention policy**, you can specify how the recovery points created from the daily/weekly/monthly/yearly backups are retained in Azure.
 
-1. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](https://azure.microsoft.com/documentation/articles/backup-azure-backup-import-export/).
+1. In **Choose online replication**, specify how the initial full replication of data will occur. You can replicate over the network, or do an offline backup (offline seeding). Offline backup uses the Azure Import feature. [Read more](./backup-azure-backup-import-export.md).
 
 1. On the  **Summary** page, review your settings. After you click **Create Group**, initial replication of the data occurs. When it finishes, the protection group status will show as **OK** on the **Status** page. Backup then takes place in line with the protection group settings.
 

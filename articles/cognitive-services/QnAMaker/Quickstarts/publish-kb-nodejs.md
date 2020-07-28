@@ -4,7 +4,7 @@ description: This quickstart shows how to get started with the QnA Maker REST AP
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Quickstart: QnA Maker REST APIs for Node.js

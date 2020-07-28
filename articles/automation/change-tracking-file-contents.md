@@ -3,7 +3,7 @@ title: Manage Change Tracking and Inventory in Azure Automation
 description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 07/03/2018
+ms.date: 06/15/2020
 ms.topic: conceptual
 ---
 
@@ -17,6 +17,10 @@ Before using the procedures in this article, ensure that you've enabled Change T
 * [Enable Change Tracking and Inventory by browsing the Azure portal](automation-enable-changes-from-browse.md)
 * [Enable Change Tracking and Inventory from a runbook](automation-enable-changes-from-runbook.md)
 * [Enable Change Tracking and Inventory from an Azure VM](automation-enable-changes-from-vm.md)
+
+## <a name="scope-configuration"></a>Limit the scope for the deployment
+
+Change Tracking and Inventory uses a scope configuration within the workspace to target the computers to receive changes. For more information, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
 
 ## Track files
 
@@ -70,10 +74,10 @@ Use the following steps to configure file tracking on Linux computers:
 
 ## Track file contents
 
-File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](https://docs.microsoft.com/azure/storage/common/storage-account-overview) after each change occurs. Here are some rules to follow for tracking file contents:
+File content tracking allows you to view the contents of a file before and after a tracked change. The feature saves the file contents to a [storage account](../storage/common/storage-account-overview.md) after each change occurs. Here are some rules to follow for tracking file contents:
 
 * A standard storage account using the Resource Manager deployment model is required for storing file content. 
-* Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../storage/common/storage-create-storage-account.md).
+* Don't use premium and classic deployment model storage accounts. See [About Azure Storage accounts](../storage/common/storage-account-create.md).
 * You can connect the storage account to only one Automation account.
 * [Change Tracking and Inventory](change-tracking.md) must be enabled in your Automation account.
 
@@ -134,7 +138,7 @@ You can do various searches against the Azure Monitor logs for change records. W
 
 |Query  |Description  |
 |---------|---------|
-|`ConfigurationData`<br>&#124; `where ConfigDataType == "Microsoft services" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Shows the most recent inventory records for Microsoft services that were set to Auto but were reported as being Stopped. Results are limited to the most recent record for the specified software name and computer.    |
+|`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Shows the most recent inventory records for Microsoft services that were set to Auto but were reported as being Stopped. Results are limited to the most recent record for the specified software name and computer.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Shows change records for removed software.|
 
 ## Create alerts on changes
@@ -160,5 +164,8 @@ Let's use this example to discuss the steps for creating alerts on a change.
 
 ## Next steps
 
-* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
+* For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](automation-scope-configurations-change-tracking.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+* If finished with deployments, see [Unlink workspace from Automation account for Change Tracking and Inventory](automation-unlink-workspace-change-tracking.md).
+* To delete your VMs from Change Tracking and Inventory, see [Remove VMs from Change Tracking and Inventory](automation-remove-vms-from-change-tracking.md).
 * To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).

@@ -1,16 +1,8 @@
 ---
 title: Move an Azure Event Hubs namespace to another region | Microsoft Docs
 description: This article shows you how to move an Azure Event Hubs namespace from the current region to another region. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
 ms.topic: how-to
-ms.custom: subject-moving-resources
-ms.date: 04/14/2020
-ms.author: spelluru 
-ms.reviewer: shvija
-#Customer intent: As an Azure administrator, I want to move an Event Hubs namespace to a different region so that it's closer to customers.
+ms.date: 06/23/2020
 ---
 
 # Move an Azure Event Hubs namespace to another region
@@ -111,5 +103,5 @@ To delete an Event Hubs namespace (source or target) by using the Azure portal:
 In this tutorial, you moved an Azure Event Hubs namespace from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Move Azure VMs to another region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)

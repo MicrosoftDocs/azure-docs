@@ -91,9 +91,7 @@ When you see the following notification, the scale operation is complete.
 
 ## Get domain verification ID
 
-To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. In the left navigation of your app page, click **Resource explorer** under **Development Tools**, then click **Go**.
-
-In the JSON view of your app's properties, search for `customDomainVerificationId`, and copy its value inside the double quotes. You need this verification ID for the next step.
+To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. In the left navigation of your app page, click **Custom Domains** under **Settings**. Copy value of Custom Domain Verification ID from here. You need this verification ID for the next step.
 
 ## Map your domain
 
@@ -109,6 +107,8 @@ You can use either a **CNAME record** or an **A record** to map a custom DNS nam
 ### Map a CNAME record
 
 In the tutorial example, you add a CNAME record for the `www` subdomain (for example, `www.contoso.com`).
+
+If you have a subdomain other than `www`, replace `www` with your subdomain (for example, with `sub` if your custom domain is `sub.constoso.com`).
 
 #### Access DNS records with domain provider
 
@@ -325,7 +325,7 @@ Once the operation completes, your app should return the right page at the root 
 
 ## Automate with scripts
 
-You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview). 
+You can automate management of custom domains with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/). 
 
 ### Azure CLI 
 

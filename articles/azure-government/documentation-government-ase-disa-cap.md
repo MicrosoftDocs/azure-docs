@@ -3,18 +3,14 @@ title: ASE deployment with DISA CAP
 description: This document provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
-author: jftl6y
-manager: 
+documentationcenter: '' 
 
-ms.assetid: 
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 11/29/2018
-ms.author: joscot
 
 ---
 

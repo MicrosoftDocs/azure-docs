@@ -3,6 +3,7 @@ title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
 ms.date: 03/01/2019
+ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
 
@@ -230,7 +231,7 @@ If you run the script on a computer with restricted access, ensure there is acce
 
 > [!NOTE]
 >
-> - The downloaded script file name will have the **geo-name** to be filled in the URL. For exampple: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
+> - The downloaded script file name will have the **geo-name** to be filled in the URL. For example: The downloaded script name begins with \'VMname\'\_\'geoname\'_\'GUID\', like *ContosoVM_wcus_12345678*
 > - The URL would be <https://pod01-rec2.wcus.backup.windowsazure.com>"
 >
 
@@ -240,9 +241,9 @@ The access to `download.microsoft.com` is required to download components used t
 
 ## File recovery from Virtual machine backups having large disks
 
-This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks and each disk size is greater than 32 TB.
+This section explains how to perform file recovery from backups of Azure Virtual machines with more than 16 disks or each disk size is greater than 4 TB.
 
-Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 32 TB each) are used, the following action points are recommended:
+Since file recovery process attaches all disks from the backup, when large number of disks (>16) or large disks (> 4 TB each) are used, the following action points are recommended:
 
 - Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only for file recovery and then shut it down when not required. Restoring on the original machine isn't recommended since it will have significant impact on the VM itself.
 - Then run the script once to check if the file recovery operation succeeds.
@@ -322,6 +323,6 @@ The script gives read-only access to a recovery point and is valid for only 12 h
 ## Next steps
 
 - For any problems while restoring files, refer to the [Troubleshooting](#troubleshooting) section
-- Learn how to [restore files via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
-- Learn how to [restore files via Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
-- After VM is restored, learn how to [manage backups](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)
+- Learn how to [restore files via PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+- Learn how to [restore files via Azure CLI](./tutorial-restore-files.md)
+- After VM is restored, learn how to [manage backups](./backup-azure-manage-vms.md)

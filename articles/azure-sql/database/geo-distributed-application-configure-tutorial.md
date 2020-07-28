@@ -34,10 +34,10 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To complete the tutorial, make sure you've installed the following items:
 
-- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+- [Azure PowerShell](/powershell/azure/)
 - A single database in Azure SQL Database. To create one use,
-  - [Portal](single-database-create-quickstart.md)
-  - [CLI](az-cli-script-samples-content-guide.md)
+  - [The Azure Portal](single-database-create-quickstart.md)
+  - [The Azure CLI](az-cli-script-samples-content-guide.md)
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
@@ -86,7 +86,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
     Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
 ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
 > Run `az login` to sign in to Azure.
@@ -338,7 +338,7 @@ To test a failover:
     -ServerName $server -FailoverGroupName $failoverGroup
    ```
 
-# [Azure CLI](#tab/azure-cli)
+# [The Azure CLI](#tab/azure-cli)
 
 You can check the role of the disaster recovery server during the test with the following command:
 
@@ -364,7 +364,7 @@ To test a failover:
 
 ## Next steps
 
-In this tutorial, you configured an Azure SQL Database and application for failover to a remote region and tested a failover plan. You learned how to:
+In this tutorial, you configured a database in Azure SQL Database and an application for failover to a remote region and tested a failover plan. You learned how to:
 
 > [!div class="checklist"]
 >
@@ -372,7 +372,7 @@ In this tutorial, you configured an Azure SQL Database and application for failo
 > - Run a Java application to query a database in SQL Database
 > - Test failover
 
-Advance to the next tutorial on how to add an Azure SQL Managed Instance to a failover group:
+Advance to the next tutorial on how to add an instance of Azure SQL Managed Instance to a failover group:
 
 > [!div class="nextstepaction"]
-> [Add an Azure SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)
+> [Add an instance of Azure SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md)

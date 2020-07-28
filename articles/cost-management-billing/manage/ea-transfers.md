@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: baolcsva
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 07/13/2020
 ms.author: banders
 
 ---
@@ -45,7 +45,7 @@ Other points to keep in mind before an account transfer:
 
 An enrollment transfer is considered when:
 
-- A current enrollment's commitment term has come to an end.
+- A current enrollment's Prepayment term has come to an end.
 - An enrollment is in expired/extended status and a new agreement is negotiated.
 - You have multiple enrollments and want to combine all the accounts and billing under a single enrollment.
 
@@ -56,7 +56,7 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to _Transferred_. The transferred enrollment is available for historic usage reporting purposes only.
 - You can't add roles or subscriptions to a transferred enrollment. Transferred status prevents additional usage against the enrollment.
-- Any remaining monetary commitment balance in the agreement is lost, including future terms.
+- Any remaining Azure Prepayment balance in the agreement is lost, including future terms.
 -    If the enrollment you're transferring from has RI purchases, the RI purchasing fee will remain in the source enrollment however all RI benefits will be transferred across for utilization in the new enrollment.
 -    The marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment will not be transferred to the new enrollment. Consumption-based marketplace charges will be transferred.
 
@@ -64,7 +64,7 @@ When you request to transfer an entire enterprise enrollment to an enrollment, t
 
 The effective transfer day can be on or after the start date of the target enrollment.
 
-The source enrollment usage is charged against monetary commitment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
+The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
 
 ### Prerequisites
 
@@ -80,9 +80,9 @@ Other points to keep in mind before an enrollment transfer:
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - The source enrollment status will be updated to transferred and will only be available for historic usage reporting purposes.
 
-### Monetary commitment
+### Azure Prepayment
 
-Monetary commitment isn't transferrable between enrollments. Monetary commitment balances are tied contractually to the enrollment where it was ordered. Monetary commitment isn't transferred as part of the account or enrollment transfer process.
+Azure Prepayment isn't transferrable between enrollments. Azure Prepayment balances are tied contractually to the enrollment where it was ordered. Azure Prepayment isn't transferred as part of the account or enrollment transfer process.
 
 ### No services affected for account and enrollment transfers
 

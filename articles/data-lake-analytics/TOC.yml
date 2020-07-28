@@ -21,6 +21,12 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-samples.md
+- name: Concepts
+  items:
+  - name: Security
+    items:
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
 - name: How to
   items:
   - name: Manage Data Lake Analytics
@@ -151,7 +157,7 @@
     href: /rest/api/datalakeanalytics/
   - name: Resource Manager template
     href: /azure/templates/microsoft.datalakeanalytics/allversions
-  - name: CLI
+  - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/dla
 - name: Resources
   items:

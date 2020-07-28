@@ -3,7 +3,7 @@ title: Provision container throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the container level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mjbrown
 ---
@@ -26,7 +26,7 @@ This article explains how to provision standard (manual) throughput on a contain
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-    ![Screenshot of Data Explorer, with New Collection highlighted](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png" alt-text="Screenshot of Data Explorer, with New Collection highlighted":::
 
 ## Azure CLI or PowerShell
 
@@ -41,9 +41,9 @@ To create a container with dedicated throughput see,
 ## .NET SDK
 
 > [!Note]
-> Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra API.
+> Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra and MongoDB API.
 
-### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin, and Table APIs
+### <a id="dotnet-most"></a>SQL, Gremlin, and Table APIs
 
 # [.NET SDK V2](#tab/dotnetv2)
 
@@ -92,6 +92,27 @@ offer.content.offerThroughput = 2000;
 
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
+```
+
+### <a id="dotnet-mongodb"></a>MongoDB API
+
+```csharp
+// refer to MongoDB .NET Driver
+// https://docs.mongodb.com/drivers/csharp
+
+// Create a new Client
+String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+mongoUrl = new MongoUrl(mongoConnectionString);
+mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
+mongoClient = new MongoClient(mongoClientSettings);
+
+// Change the database name
+mongoDatabase = mongoClient.GetDatabase("testdb");
+
+// Change the collection name, throughput value then update via MongoDB extension commands
+// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
+
+var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
 ### <a id="dotnet-cassandra"></a>Cassandra API

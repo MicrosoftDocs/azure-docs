@@ -2,10 +2,10 @@
 title: 'Enable MFA for VPN users: Azure AD authentication'
 description: Enable multi-factor authentication for VPN users
 services: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: alzam
 

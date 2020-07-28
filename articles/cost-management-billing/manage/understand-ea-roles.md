@@ -5,7 +5,7 @@ author: bandersmsft
 ms.reviewer: adwise
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 07/13/2020
 ms.author: banders
 ---
 # Managing Azure Enterprise roles
@@ -22,7 +22,11 @@ To help manage your organization's usage and spend, Azure customers with an Ente
 
 <sup>2</sup> The Bill-To contact cannot be added or changed in the Azure EA Portal and will be added to the EA enrollment based on the user who is set up as the Bill-To contact on agreement level. To change the Bill-To contact, a request needs to be made through a partner/software advisor to the Regional Operations Center (ROC).
 
-These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
+The first enrollment administrator that is set up during the enrollment provisioning determines the authentication type of the Bill-to contact account. When the bill-to contact gets added to the EA Portal as a read-only administrator, they are given Microsoft account authentication. 
+
+For example, if the initial authentication type is set to Mixed, the EA will be added as a Microsoft account and the Bill-to contact will have read-only EA admin privileges. If the EA admin doesn’t approve Microsoft account authorization for an existing Bill-to contact, the EA admin may delete the user in question and ask the customer to add the user back as a read-only administrator with a Work or School account Only set at enrollment level in the EA portal.
+
+These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
 The following sections describe the limitations and capabilities of each role.
 
@@ -74,7 +78,7 @@ For more information about adding a department admin, see [Create an Azure EA de
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)|Department Administrator|Department Administrator (read only) |Account Owner| Partner|
 |---|---|---|---|---|---|---|
-|View credit balance including monetary commitment|✔|✔|✘|✘|✘|✔|
+|View credit balance including Azure Prepayment|✔|✔|✘|✘|✘|✔|
 |View department spending quotas|✔|✔|✘|✘|✘|✔|
 |Set department spending quotas|✔|✘|✘|✘|✘|✘|
 |View organization's EA price sheet|✔|✔|✘|✘|✘|✔|
@@ -111,4 +115,4 @@ You set the Enterprise admin role and view charges policies in the Enterprise po
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
 - [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md)
-- [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md)
+- [Azure built-in roles](../../role-based-access-control/built-in-roles.md)

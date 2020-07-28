@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Bulk register SQL virtual machines in Azure with the SQL VM resource provider
-[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)][!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+# Register multiple SQL virtual machines in Azure with the SQL VM resource provider
+[!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider using the `Register-SqlVMs` PowerShell cmdlet.
+This article describes how to register your SQL Server virtual machines (VMs) in bulk in Azure with the SQL VM resource provider by using the `Register-SqlVMs` PowerShell cmdlet.
 
 The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
 
@@ -35,17 +35,17 @@ To register your SQL Server VM with the resource provider, you'll need the follo
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - The latest version of [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
-## Getting started
+## Get started
 
 Before proceeding, you must first create a local copy of the script, import it as a PowerShell module, and connect to Azure. 
 
-### Create script
+### Create the script
 
 To create the script, copy the [full script](#full-script) from the end of this article and save it locally as `RegisterSqlVMs.psm1`. 
 
-### Import script
+### Import the script
 
-Once the script is created, you can import it as a module in the Powershell terminal. 
+After the script is created, you can import it as a module in the PowerShell terminal. 
 
 Open an administrative PowerShell terminal and navigate to where you saved the `RegisterSqlVMs.psm1` file. Then, run the following PowerShell cmdlet to import the script as a module: 
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 ```
 
 
-## All VMs in list of subscriptions 
+## Register all VMs in a list of subscriptions 
 
 Use the following cmdlet to register all SQL Server virtual machines in a list of subscriptions:
 
@@ -73,7 +73,7 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Example output: 
 
 ```
-Number of Subscriptions registration failed for 
+Number of subscriptions registration failed for 
 because you do not have access or credentials are wrong: 1
 Total VMs Found: 10
 VMs Already registered: 1
@@ -86,7 +86,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## All VMs in a single subscription
+## Register all VMs in a single subscription
 
 Use the following cmdlet to register all SQL Server virtual machines in a single subscription: 
 
@@ -108,7 +108,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## All VMs in multiple resource groups
+## Register all VMs in multiple resource groups
 
 Use the following cmdlet to register all SQL Server virtual machines in multiple resource groups within a single subscription:
 
@@ -129,7 +129,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## All VMs in a resource group
+## Register all VMs in a resource group
 
 Use the following cmdlet to register all SQL Server virtual machines in a single resource group: 
 
@@ -150,7 +150,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Specific VMs in single resource group
+## Register specific VMs in a single resource group
 
 Use the following cmdlet to register specific SQL Server virtual machines within a single resource group:
 
@@ -171,7 +171,7 @@ Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
 Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
-## Specific VM
+## Register a specific VM
 
 Use the following cmdlet to register a specific SQL Server virtual machine: 
 
@@ -192,7 +192,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 ## Output description
 
-Both a report and log file is generated every time the `Register-SqlVMs` cmdlet is used. 
+Both a report and a log file are generated every time the `Register-SqlVMs` cmdlet is used. 
 
 ### Report
 
@@ -212,11 +212,11 @@ The report is generated as a `.txt` file named `RegisterSqlVMScriptReport<Timest
 
 ### Log 
 
-Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.log` where timestamp is the time when the script started. If the error is at the subscription level, the log contains the comma-separated SubscriptionID and the error message. If the error is with the virtual machine registration, the log contains the Subscription ID, Resource group name, virtual machine name, error code and message separated by commas. 
+Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.log`, where timestamp is the time when the script started. If the error is at the subscription level, the log contains the comma-separated Subscription ID and the error message. If the error is with the virtual machine registration, the log contains the Subscription ID, Resource group name, virtual machine name, error code, and message separated by commas. 
 
 ## Remarks
 
-When you register SQL Server VMs with the resource provider using the provided script, consider the following:
+When you register SQL Server VMs with the resource provider by using the provided script, consider the following:
 
 - Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](sql-vm-resource-provider-register.md#management-modes).
 - There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 

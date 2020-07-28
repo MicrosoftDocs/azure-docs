@@ -28,7 +28,9 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy API Server for FHIR
-            url: fhir-paas-portal-quickstart.md 
+            url: fhir-paas-portal-quickstart.md
+          - text: Deploy IoT Connector (preview)
+            url: iot-fhir-portal-quickstart.md 
 
   - title: Set-up tutorials
     linkLists:

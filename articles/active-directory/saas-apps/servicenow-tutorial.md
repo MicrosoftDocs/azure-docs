@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ServiceNow | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow.
 services: active-directory
@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 03/25/2020
+ms.date: 06/19/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -40,6 +40,9 @@ To get started, you need the following items:
 * The ServiceNow tenant must have the [Multiple Provider Single Sign On Plugin](https://wiki.servicenow.com/index.php?title=Multiple_Provider_Single_Sign-On#gsc.tab=0) enabled. You can do this by [submitting a service request](https://hi.service-now.com).
 * For automatic configuration, enable the multi-provider plugin for ServiceNow.
 * To install the ServiceNow Classic (Mobile) application, go to the appropriate store, and search for the ServiceNow Classic application. Then download it.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -100,8 +103,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. For **Reply URL**, enter one of the following URL:
 
-	|||
-	|-|-|
+	| Reply URL|
+	|----------|
 	| `https://instancename.service-now.com/navpage.do` |
 	| `https://instancename.service-now.com/customer.do` | 
 
@@ -174,8 +177,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	c. For **Reply URL**, enter one of the following URL:
 
-	|||
-	|-|-|
+	| Reply URL |
+	|-----------|
 	| `https://instancename.service-now.com/navpage.do` |
 	| `https://instancename.service-now.com/customer.do` |
 

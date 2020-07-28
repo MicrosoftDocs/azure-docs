@@ -5,12 +5,12 @@ services: lighthouse
 author: JnHs
 ms.service: lighthouse
 ms.topic: include
-ms.date: 12/19/2019
+ms.date: 07/07/2020
 ms.author: jenhayes
 ms.custom: include file
 ---
 
-These samples show how to use Azure Policy with subscriptions that have been onboarded for Azure delegated resource management.
+These samples show how to use Azure Policy with subscriptions that have been onboarded to Azure Lighthouse.
 
 | **Template** | **Description** |
 |---------|---------|

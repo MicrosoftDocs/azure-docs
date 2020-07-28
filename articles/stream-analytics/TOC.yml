@@ -9,14 +9,21 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a job - Azure portal
-    href: stream-analytics-quick-create-portal.md
-  - name: Create a job - PowerShell
-    href: stream-analytics-quick-create-powershell.md
-  - name: Create a job - Visual Studio
-    href: stream-analytics-quick-create-vs.md
-  - name: Create a job - Visual Studio Code
-    href: quick-create-vs-code.md
+  - name: Create a job
+    items:
+    - name: Azure portal
+      href: stream-analytics-quick-create-portal.md
+    - name: Azure CLI
+      href: quick-create-azure-cli.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quick-create-azure-resource-manager.md
+    - name: PowerShell
+      href: stream-analytics-quick-create-powershell.md
+    - name: Visual Studio
+      href: stream-analytics-quick-create-vs.md
+    - name: Visual Studio Code
+      href: quick-create-vs-code.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -44,6 +51,13 @@
     href: feature-comparison.md
   - name: Develop locally
     href: develop-locally.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -77,6 +91,8 @@
       href: stream-analytics-edge-csharp-udf-methods.md
     - name: Machine learning UDF
       href: machine-learning-udf.md
+    - name: Debug UDFs
+      href: debug-user-defined-functions.md
   - name: Optimize your Stream Analytics job
     items:
     - name: Understand and adjust Streaming Units
@@ -110,6 +126,8 @@
   items:
   - name: Manage
     items:
+    - name: Autoscale jobs
+      href: stream-analytics-autoscale.md
     - name: Update credentials
       href: stream-analytics-login-credentials-inputs-outputs.md
     - name: Configure event ordering policies
@@ -217,6 +235,8 @@
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
       href: visual-studio-code-local-run-live-input.md
+    - name: Debug queries using job diagram 
+      href: debug-locally-using-job-diagram-vs-code.md
     - name: Set up CI/CD pipeline
       href: setup-cicd-vs-code.md
     - name: Explore jobs
@@ -607,6 +627,8 @@
     href: /rest/api/streamanalytics
   - name: Resource Manager template
     href: /azure/templates/microsoft.streamanalytics/allversions
+  - name: Azure CLI
+    href: /cli/azure/ext/stream-analytics/stream-analytics
 - name: Resources
   items:
   - name: Stream Analytics previews

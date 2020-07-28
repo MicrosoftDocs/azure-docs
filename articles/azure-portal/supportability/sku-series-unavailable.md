@@ -4,7 +4,7 @@ description: Some SKU series are unavailable for the selected subscription for t
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/27/2020
 ms.author: xingwan
 

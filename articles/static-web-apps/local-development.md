@@ -59,7 +59,7 @@ The Live Server extension for Visual Studio Code provides a local development we
 
 #### Create a repository
 
-1. Navigate to [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) and create a new GitHub project named **vanilla-api**, using this template.
+1. Make sure you are logged in to GitHub and, navigate to [https://github.com/staticwebdev/vanilla-api/generate](https://github.com/staticwebdev/vanilla-api/generate) and create a new GitHub project named **vanilla-api**, using this template.
 
     :::image type="content" source="media/local-development/vanilla-api.png" alt-text="GitHub new repo window":::
 

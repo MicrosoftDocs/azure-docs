@@ -10,6 +10,14 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: June 2020 new and updated features
+      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-feature-updates-june-2020/
+    - name: June 2020 UI and documentation updates
+      href: https://azure.microsoft.com/en-us/updates/azure-iot-central-ui-documenation-updates-june-2020/
+    - name: May 2020 jobs and metrics updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-jobs-and-metrics-feature-updates-may-2020/
+    - name: May 2020 dashboard updates
+      href: https://azure.microsoft.com/updates/azure-iot-central-may-2020-dashboard-updates/
     - name: April 2020 new features
       href: https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/
     - name: April 2020 updates
@@ -35,8 +43,6 @@
         href: tutorial-connect-device-nodejs.md
       - name: Connect a  device (Python)
         href: tutorial-connect-device-python.md
-      - name: Connect a Plug and Play (preview) device
-        href: tutorial-connect-pnp-device.md
       - name: Create a gateway device template
         href: tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
@@ -57,6 +63,10 @@
       href: concepts-architecture.md
     - name: What are application templates?
       href: concepts-app-templates.md
+    - name: What are device templates?
+      href: concepts-device-templates.md
+    - name: Message payloads
+      href: concepts-telemetry-properties-commands.md
     - name: Device connectivity
       href: concepts-get-connected.md
     - name: Connect IoT Edge devices
@@ -67,8 +77,6 @@
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
-        - name: Prepare and connect an MXChip IoT DevKit
-          href: howto-connect-devkit.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
@@ -87,8 +95,6 @@
           href: howto-manage-devices.md
         - name: Configure rules
           href: howto-configure-rules.md
-        - name: Use workflows to integrate with other services
-          href: howto-configure-rules-advanced.md
         - name: Analyze your device data
           href: howto-create-analytics.md
         - name: Add tiles to your dashboard
@@ -103,12 +109,16 @@
           href: howto-export-data.md
         - name: Create webhooks on rules
           href: howto-create-webhooks.md
+        - name: Use workflows to integrate with other services
+          href: howto-configure-rules-advanced.md
         - name: Connect Azure Monitor action groups on rules
           href: howto-use-action-groups.md
         - name: Create custom rules
           href: howto-create-custom-rules.md
         - name: Create custom analytics with Databricks
           href: howto-create-custom-analytics.md
+        - name: Visualize your data in Power BI
+          href: howto-connect-powerbi.md
     - name: Administration
       items:
         - name: Manage your application
@@ -123,6 +133,10 @@
               href: howto-customize-ui.md
             - name: Export your application
               href: howto-use-app-templates.md
+            - name: Monitor application health
+              href: howto-monitor-application-health.md
+            - name: About your application
+              href: howto-get-app-info.md
         - name: Manage from other places
           items:
             - name: Manage from the Azure portal
@@ -142,6 +156,10 @@
             - name: Toggle live chat
               href: howto-show-hide-chat.md
 
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options

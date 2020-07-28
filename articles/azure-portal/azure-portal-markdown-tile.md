@@ -6,7 +6,7 @@ keywords:
 author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
-ms.topic: conceptual
+ms.topic: how-to
 
 ms.service: azure-portal
 manager: mtillman

@@ -71,7 +71,7 @@ Also, the REST APIs can be seen in GitHub at:
 
 - [Azure SQL Database DNS alias REST APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
 
-<a name="anchor-powershell-code-62x"/>
+<a name="anchor-powershell-code-62x"></a>
 
 ### PowerShell for managing your DNS aliases
 
@@ -106,6 +106,8 @@ Presently, a DNS alias has the following limitations:
 ## Related resources
 
 - [Overview of business continuity with Azure SQL Database](business-continuity-high-availability-disaster-recover-hadr-overview.md), including disaster recovery.
+- [Azure REST API reference](https://docs.microsoft.com/rest/api/azure/)
+- [Server Dns Aliases API](https://docs.microsoft.com/rest/api/sql/serverdnsaliases)
 
 ## Next steps
 

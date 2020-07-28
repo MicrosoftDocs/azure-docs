@@ -2,7 +2,7 @@
 title: Enable automatic tuning
 description: You can enable automatic tuning on your database easily using the Azure portal.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
@@ -20,7 +20,6 @@ Azure SQL Database automatically manages data services that constantly monitor y
 
 Automatic tuning can be enabled at the server or the database level through:
 
-
 - The [Azure portal](automatic-tuning-enable.md#azure-portal)
 - [REST API](automatic-tuning-enable.md#rest-api) calls
 - [T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) commands
@@ -36,7 +35,7 @@ Automatic tuning can be enabled at the server or the database level through:
 On the server level you can choose to inherit automatic tuning configuration from "Azure Defaults" or not to inherit the configuration. Azure defaults are FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is disabled, and DROP_INDEX is disabled.
 
 > [!IMPORTANT]
-> As of March, 2020 the Azure defaults for automatic tuning are as follows:
+> As of March, 2020 new Azure defaults for automatic tuning are as follows:
 >
 > - FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled.
 > - Existing servers with no automatic tuning preferences configured are automatically configured to INHERIT the Azure defaults. This applies to all customers currently having server settings for automatic tuning in an undefined state.
@@ -112,7 +111,7 @@ Automatic tuning is monitoring all the actions it takes on the database and in s
 
 ## Permissions
 
-As automatic tuning is an Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from the Azure portal.
+As automatic tuning is an Azure feature, to use it you will need to use Azure's built-in roles. Using SQL Authentication only will not be sufficient to use the feature from the Azure portal.
 
 To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such as SQL Server Contributor, SQL Managed Instance Contributor, Contributor, and Owner.
 

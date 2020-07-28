@@ -22,7 +22,7 @@ The elastic query feature (in preview) enables you to run a Transact-SQL query t
 
 ### Azure SQL Database
 
-Query across databases in Azure SQL Database completely in T-SQL. This allows for read-only querying of remote databases and provides an option for current on-premises SQL Server customers to migrate applications using three- and four-part names or linked server to SQL Database.
+Query across databases in Azure SQL Database completely in T-SQL. This allows for read-only querying of remote databases and provides an option for current SQL Server customers to migrate applications using three- and four-part names or linked server to SQL Database.
 
 ### Available on standard tier
 
@@ -141,9 +141,9 @@ Elastic query is included in the cost of Azure SQL Database. Note that topologie
 * Except for nvarchar(max), LOB types (including spatial types) are not supported in external table definitions. As a workaround, you can create a view on the remote database that casts the LOB type into nvarchar(max), define your external table over the view instead of the base table and then cast it back into the original LOB type in your queries.
 * Columns of nvarchar(max) data type in result set disable advanced batching technics used in Elastic Query implementation and may affect performance of query for an order of magnitude, or even two orders of magnitude in non-canonical use cases where large amount of non-aggregated data is being transferred as a result of query.
 * Column statistics over external tables are currently not supported. Table statistics are supported, but need to be created manually.
-* Elastic query works with Azure SQL Database only. You cannot use it for querying on-premises SQL Server, or SQL Server in a VM.
+* Elastic query works with Azure SQL Database only. You cannot use it for querying a SQL Server instance.
 
-## Feedback
+## Share your Feedback
 
 Share feedback on your experience with elastic queries with us below, on the MSDN forums, or on Stack Overflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
 

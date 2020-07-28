@@ -1,35 +1,21 @@
 ---
-title: Deployment troubleshooting guide
+title: Docker deployment troubleshooting
 titleSuffix: Azure Machine Learning
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using  Azure Machine Learning.
+description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 author: clauren42
 ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: seodec18
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4, tracking-python
 ---
 
-# Troubleshooting Azure Machine Learning Azure Kubernetes Service and Azure Container Instances deployment
+# Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
 
-Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
-
-When deploying a model in Azure Machine Learning, the system performs a number of tasks.
-
-The recommended and the most up to date approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case our service will create a base docker image for you during deployment stage and mount the required models all in one call. The basic deployment tasks are:
-
-1. Register the model in the workspace model registry.
-
-2. Define Inference Configuration:
-    1. Create an [Environment](how-to-use-environments.md) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
-    2. Create an inference configuration (InferenceConfig object) based on the environment and the scoring script.
-
-3. Deploy the model to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
-
-Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
+Learn how to troubleshoot and solve, or work around, common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
 ## Prerequisites
 
@@ -40,6 +26,22 @@ Learn more about this process in the [Model Management](concept-model-management
 * To debug locally, you must have a working Docker installation on your local system.
 
     To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
+
+## Steps for Docker deployment of machine learning models
+
+When deploying a model in Azure Machine Learning, the system performs a number of tasks.
+
+The recommended approach for model deployment is via the [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API using an [Environment](how-to-use-environments.md) object as an input parameter. In this case, the service creates a base docker image during deployment stage and mounts the required models all in one call. The basic deployment tasks are:
+
+1. Register the model in the workspace model registry.
+
+2. Define Inference Configuration:
+    1. Create an [Environment](how-to-use-environments.md) object based on the dependencies you specify in the environment yaml file or use one of our procured environments.
+    2. Create an inference configuration (InferenceConfig object) based on the environment and the scoring script.
+
+3. Deploy the model to Azure Container Instance (ACI) service or to Azure Kubernetes Service (AKS).
+
+Learn more about this process in the [Model Management](concept-model-management-and-deployment.md) introduction.
 
 ## Before you begin
 
@@ -94,6 +96,8 @@ Once you have broken down the deployment process into individual tasks, we can l
 
 If you encounter problems deploying a model to ACI or AKS, try deploying it as a local web service. Using a local web service makes it easier to troubleshoot problems. The Docker image containing the model is downloaded and started on your local system.
 
+You can find a sample [local deployment notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) in the  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) repo to explore a runnable example.
+
 > [!WARNING]
 > Local web service deployments are not supported for production scenarios.
 
@@ -119,7 +123,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Please note that if you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
+If you are defining your own conda specification YAML, you must list azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service.
 
 At this point, you can work with the service as normal. For example, the following code demonstrates sending data to the service:
 
@@ -175,11 +179,14 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+If you see the line `Booting worker with pid: <pid>` occurring multiple times in the logs, it means, there isn't enough memory to start the worker.
+You can address the error by increasing the value of `memory_gb` in `deployment_config`
+ 
 ## Container cannot be scheduled
 
-When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If, after 5 minutes, there are no nodes available in the cluster with the appropriate amount of resources available, the deployment will fail with the message `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes or changing the resource requirements of your service. 
+When deploying a service to an Azure Kubernetes Service compute target, Azure Machine Learning will attempt to schedule the service with the requested amount of resources. If after 5 minutes, there are no nodes available in the cluster with the appropriate amount of resources available, the deployment will fail with the message `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00`. You can address this error by either adding more nodes, changing the SKU of your nodes or changing the resource requirements of your service. 
 
-The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are 3 nodes in the cluster that do not have available GPUs. This could be addressed by adding more nodes if you are using a GPU SKU, switching to a GPU enabled SKU if you are not or changing your environment to not require GPUs.  
+The error message will typically indicate which resource you need more of - for instance, if you see an error message indicating `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` that means that the service requires GPUs and there are three nodes in the cluster that do not have available GPUs. This could be addressed by adding more nodes if you are using a GPU SKU, switching to a GPU enabled SKU if you are not or changing your environment to not require GPUs.  
 
 ## Service launch fails
 
@@ -270,7 +277,7 @@ For more information on setting `autoscale_target_utilization`, `autoscale_max_r
 
 A 504 status code indicates that the request has timed out. The default timeout is 1 minute.
 
-You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a hung state or an infinite loop.
+You can increase the timeout or try to speed up the service by modifying the score.py to remove unnecessary calls. If these actions do not correct the problem, use the information in this article to debug the score.py file. The code may be in a non-responsive state or an infinite loop.
 
 ## Advanced debugging
 

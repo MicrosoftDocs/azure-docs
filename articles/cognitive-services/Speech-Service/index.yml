@@ -122,10 +122,13 @@ conceptualContent:
       links:
         - itemType: how-to-guide
           text: About Speaker Recognition
-          url: ../Speaker-recognition/Home.md
+          url: speaker-recognition-overview.md
+        - itemType: how-to-guide
+          text: Speaker Recognition basics          
+          url: speaker-recognition-basics.md
         - itemType: how-to-guide
           text: Speaker Recognition API reference
-          url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
+          url: https://docs.microsoft.com/rest/api/speakerrecognition/
     - title: Tools
       links:
         - itemType: overview
@@ -212,6 +215,8 @@ additionalContent:
           url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
       - title: Resources
         links:
+        - text: What's new in docs?
+          url: whats-new.md
         - text: Pricing
           url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
         - text: Regions

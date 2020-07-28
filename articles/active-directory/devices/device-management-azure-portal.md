@@ -5,8 +5,8 @@ description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
-ms.date: 06/04/2019
+ms.topic: how-to
+ms.date: 05/28/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,6 +25,8 @@ This article:
 
 - Assumes that you are familiar with the [introduction to device identity management in Azure Active Directory](overview.md)
 - Provides you with information about managing your device identities using the Azure AD portal
+
+![All devices view in the Azure portal](./media/device-management-azure-portal/all-devices-azure-portal.png)
 
 ## Manage device identities
 
@@ -46,17 +48,17 @@ To manage your device identities using the Azure AD portal, your devices need to
 
 The device settings page enables you to configure settings related to device identities:
 
-![Manage an Intune device](./media/device-management-azure-portal/21.png)
+![Device settings related to Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Users may join devices to Azure AD** - This setting enables you to select the users who can register their devices as Azure AD joined devices. The default is **All**.
 
-> [!NOTE]
+> [!TIP]
 > **Users may join devices to Azure AD** setting is only applicable to Azure AD join on Windows 10.
 
 - **Additional local administrators on Azure AD joined devices** - You can select the users that are granted local administrator rights on a device. Users added here are added to the *Device Administrators* role in Azure AD. Global administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products such as Azure AD Premium or the Enterprise Mobility Suite (EMS).
-- **Users may register their devices with Azure AD** - You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOs devices to be registered with Azure AD. If you select **None**, devices are not allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
-- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure multi-factor authentication services, see [getting started with Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Users may register their devices with Azure AD** - You need to configure this setting to allow Windows 10 personal, iOS, Android, and macOS devices to be registered with Azure AD. If you select **None**, devices are not allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Office 365 requires registration. If you have configured either of these services, **ALL** is selected and **NONE** is not available.
+- **Require Multi-Factor Auth to join devices** - You can choose whether users are required to provide an additional authentication factor to join their device to Azure AD. The default is **No**. We recommend requiring multi-factor authentication when registering a device. Before you enable multi-factor authentication for this service, you must ensure that multi-factor authentication is configured for the users that register their devices. For more information on different Azure Multi-Factor Authentication services, see [getting started with Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
 
 > [!NOTE]
 > **Require Multi-Factor Auth to join devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting does not apply to hybrid Azure AD joined devices.
@@ -82,13 +84,9 @@ With both options, you can get to a view that:
 - Provides you with detailed overview of registered and joined devices
 - Enables you to perform common device management tasks
 
-![All devices](./media/device-management-azure-portal/51.png)
-
 >[!TIP]
 >
 >* If you see a device that is "Hybrid Azure AD joined" with a state "Pending" under the REGISTERED column, it indicates that the device has been synchronized from Azure AD connect and is waiting to complete registration from the client. Read more on how to [plan your Hybrid Azure AD join implementation](hybrid-azuread-join-plan.md). Additional information can be found in the article, [Devices frequently asked questions](faq.md).
->
->   ![Pending devices](./media/device-management-azure-portal/75.png)
 >
 >* For some iOS devices, the device names containing apostrophes can potentially use different characters that look like apostrophes. So searching for such devices is a little tricky - if you are not seeing search results correctly, ensure that the search string contains matching apostrophe character.
 
@@ -96,14 +94,14 @@ With both options, you can get to a view that:
 
 As a global administrator or cloud device administrator, you can manage the registered or joined devices. Intune Service administrators can:
 
-- Update devices  - Examples are daily operations such as enabling/disabling devices
-- Delete devices – When a device is retired and should be deleted in Azure AD
+- Update devices - Examples are daily operations such as enabling/disabling devices
+- Delete devices - When a device is retired and should be deleted in Azure AD
 
 This section provides you with information about common device identity management tasks.
 
 ### Manage an Intune device
 
-If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. If the device is not enrolled with Microsoft Intune the "Manage" option will be greyed out.
+If you are an Intune administrator, you can manage devices marked as **Microsoft Intune**. If the device is not enrolled with Microsoft Intune, the "Manage" option will be greyed out.
 
 ![Manage an Intune device](./media/device-management-azure-portal/31.png)
 
@@ -145,7 +143,7 @@ To delete a device, you have two options:
    - Removes all details that are attached to the device, for example, BitLocker keys for Windows devices.  
    - Represents a non-recoverable activity and is not recommended unless it is required.
 
-If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](device-management-azure-portal.md) before deleting any devices.
+If a device is managed by another management authority (for example, Microsoft Intune), make sure that the device has been wiped / retired before deleting the device in Azure AD. Review how to [manage stale devices](manage-stale-devices.md) before deleting any devices.
 
 ### View or copy device ID
 
@@ -170,6 +168,27 @@ To view or copy the BitLocker keys, you need to be either the owner of the devic
 
 > [!NOTE]
 > Hybrid Azure AD Joined Windows 10 devices do not have an owner. So, if you are looking for a device by owner and didn't find it, search by the device ID.
+
+### Device list filtering (preview)
+
+Previously, you could only filter the devices list by activity and enabled state. This preview now allows you to filter the devices list by the following attributes on a device:
+
+- Enabled state
+- Compliant state
+- Join type (Azure AD joined, Hybrid Azure AD joined, Azure AD registered)
+- Activity timestamp
+- OS
+- Device type (Printers, Secure VMs, Shared devices, Registered devices)
+
+To enable the preview filtering functionality in the **All devices** view:
+
+![Enable filtering preview functionality](./media/device-management-azure-portal/device-filter-preview-enable.png)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Devices**.
+1. Select the banner that says, **Try out the new devices filtering improvements. Click to enable the preview.**
+
+You will now have the ability to **Add filters** to your **All devices** view.
 
 ## Audit logs
 

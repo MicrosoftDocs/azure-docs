@@ -1,9 +1,9 @@
 ---
-author: sptramer
-ms.service: azure
 ms.topic: include
 ms.date: 06/13/2019
-ms.author: sttramer
+author: dbradish-microsoft
+ms.author: dbradish
+manager: barbkess
 ---
 
 ## Use Azure Cloud Shell

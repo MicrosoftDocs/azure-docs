@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: trbye
+ms.custom: tracking-python
 ---
 
 # Get the list of text-to-speech voices using Python

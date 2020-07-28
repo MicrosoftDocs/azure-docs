@@ -24,7 +24,7 @@ when manually correcting configuration drift.
 
 ## Correct drift of Windows virtual machines using PowerShell
 
-You can correct drift of Windows virtual machines using the `Run` command feature. See [Run PowerShell scripts in your Windows VM with Run command](/azure/virtual-machines/windows/run-command).
+You can correct drift of Windows virtual machines using the `Run` command feature. See [Run PowerShell scripts in your Windows VM with Run command](../virtual-machines/windows/run-command.md).
 
 To force an Azure Automation State Configuration node to download the latest configuration and apply it, use the [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration) cmdlet.
 
@@ -42,5 +42,5 @@ For hybrid nodes, you can correct drift using the Python scripts. See [Performin
 
 ## Next steps
 
-- For a PowerShell cmdlet reference, see [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).

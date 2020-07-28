@@ -40,7 +40,7 @@ New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -
 
 ## Azure Service Fabric resources
 
-You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. See [Manage applications and services as Azure Resource Manager resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-arm-resource) for details. The following are best practice Service Fabric application specific resources to include in your  Resource Manager template resources.
+You can deploy applications and services onto your Service Fabric cluster via Azure Resource Manager. See [Manage applications and services as Azure Resource Manager resources](./service-fabric-application-arm-resource.md) for details. The following are best practice Service Fabric application specific resources to include in your  Resource Manager template resources.
 
 ```json
 {
@@ -69,7 +69,7 @@ You can deploy applications and services onto your Service Fabric cluster via Az
 }
 ```
 
-To deploy your application using Azure Resource Manager, you first must [create a sfpkg](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
+To deploy your application using Azure Resource Manager, you first must [create a sfpkg](./service-fabric-package-apps.md#create-an-sfpkg) Service Fabric Application package. The following python script is an example of how to create a sfpkg:
 
 ```python
 # Create SFPKG that needs to be uploaded to Azure Storage Blob Container
@@ -87,7 +87,7 @@ microservices_sfpkg.close()
 ```
 
 ## Azure Virtual Machine Operating System Automatic Upgrade Configuration 
-Upgrading your virtual machines is a user initiated operation, and it is recommended that you use [Virtual Machine Scale Set Automatic Operating System upgrade](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) for Azure Service Fabric clusters host patch management; Patch Orchestration Application is an alternative solution that is intended for when hosted outside of Azure, although POA can be used in Azure, with overhead of hosting POA in Azure being a common reason to prefer Virtual Machine Operating System Automatic Upgrade over POA. The following are the Compute Virtual Machine Scale Set Resource Manager template properties to enable Auto OS upgrade:
+Upgrading your virtual machines is a user initiated operation, and it is recommended that you use [Virtual Machine Scale Set Automatic Operating System upgrade](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) for Azure Service Fabric clusters host patch management; Patch Orchestration Application is an alternative solution that is intended for when hosted outside of Azure, although POA can be used in Azure, with overhead of hosting POA in Azure being a common reason to prefer Virtual Machine Operating System Automatic Upgrade over POA. The following are the Compute Virtual Machine Scale Set Resource Manager template properties to enable Auto OS upgrade:
 
 ```json
 "upgradePolicy": {

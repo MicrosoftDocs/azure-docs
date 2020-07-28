@@ -123,7 +123,7 @@
         href: partitioning-overview.md
       - name: Partitioning and horizontal scaling
         href: partition-data.md
-      - name: Create a synthetic partition key
+      - name: Synthetic partition key
         href: synthetic-partition-keys.md
     - name: Provisioned throughput
       items:
@@ -229,6 +229,15 @@
             - name: GetCurrentTimestamp
               displayName: GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime
               href: sql-query-getcurrenttimestamp.md
+            - name: DateTimeFromParts
+              displayName: DateTimeFromParts, date time from parts, date and time functions, datetime
+              href: sql-query-datetimefromparts.md
+            - name: DateTimeAdd
+              displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
+              href: sql-query-datetimeadd.md
+            - name: DateTimeDiff
+              displayName: DateTimeDiff, date time diff, date and time functions, datetime
+              href: sql-query-datetimediff.md
           - name: Mathematical functions
             items:
             - name: Mathematical functions
@@ -565,6 +574,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ./security-controls-policy.md
         - name: Security baseline
           href: security-baseline.md
     - name: Enterprise readiness
@@ -592,12 +604,18 @@
         items:
         - name: .NET
           href: create-cassandra-dotnet.md
-        - name: Java
-          href: create-cassandra-java.md
+        - name: .NET Core
+          href: create-cassandra-dotnet-core.md          
+        - name: Java v3
+          href: create-cassandra-java.md         
+        - name: Java v4        
+          href: create-cassandra-java-v4.md
         - name: Node.js
           href: create-cassandra-nodejs.md
         - name: Python
           href: create-cassandra-python.md
+        - name: Golang
+          href: create-cassandra-go.md
       - name: Tutorials
         items:
         - name: 1 - Create and manage data
@@ -615,6 +633,8 @@
           href: cassandra-faq.md           
         - name: Elastic scale
           href: manage-scale-cassandra.md
+        - name: Partitioning
+          href: cassandra-partitioning.md          
         - name: Secondary Indexes
           href: cassandra-secondary-index.md          
       - name: How-to guides
@@ -971,45 +991,66 @@
         href: how-to-manage-indexing-policy.md
       - name: Define unique keys
         href: how-to-define-unique-keys.md
-    - name: Best practices
+    - name: Performance
       items:
-      - name: Performance tips
-        items:
+      - name: Query
+        items: 
         - name: Get query execution metrics
-          displayName: query profile, profile
           href: profile-sql-api-query.md
         - name: Tune query performance
           href: sql-api-query-metrics.md
-        - name: Performance tips for .NET SDK
+      - name: .NET
+        items: 
+        - name: Performance tips for .NET SDK v3
+          href: performance-tips-dotnet-sdk-v3-sql.md
+        - name: Performance tips for .NET SDK v2
           href: performance-tips.md
+      - name: Java
+        items: 
         - name: Performance tips for Java SDK v4
           href: performance-tips-java-sdk-v4-sql.md  
-        - name: Performance tips for older Java SDKs
-          items:
-          - name: Async Java SDK v2
-            href: performance-tips-async-java.md          
-          - name: Sync Java SDK v2
-            href: performance-tips-java.md
-        - name: Performance test - sample app
-          href: performance-testing.md
+        - name: Async Java SDK v2
+          href: performance-tips-async-java.md          
+        - name: Sync Java SDK v2
+          href: performance-tips-java.md
+      - name: Performance test - sample app
+        href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
-    - name: Troubleshoot
-      items:
-      - name: Troubleshoot query performance
-        href: troubleshoot-query-performance.md
-      - name: Troubleshoot Java SDK v4
-        href: troubleshoot-java-sdk-v4-sql.md  
-      - name: Troubleshoot older Java SDKs
-        items:
-        - name: Async Java SDK v2
-          href: troubleshoot-java-async-sdk.md
-      - name: Troubleshoot .NET SDK
-        href: troubleshoot-dot-net-sdk.md
     - name: Migrate to newer SDKs
       items:
       - name: Migrate to Java V4 SDK
         href: migrate-java-v4-sdk.md
+    - name: Troubleshooting
+      items:
+      - name: Common errors
+        items:
+        - name: Troubleshoot query performance
+          href: troubleshoot-query-performance.md
+        - name : Troubleshoot service request timeout
+          href: troubleshoot-request-timeout.md
+        - name : Troubleshoot request rate too large
+          href: troubleshoot-request-rate-too-large.md
+        - name : Troubleshoot not found
+          href: troubleshoot-not-found.md
+        - name : Troubleshoot unauthorized
+          href: troubleshoot-unauthorized.md
+      - name: .NET
+        items: 
+        - name: General Troubleshooting .NET SDK
+          href: troubleshoot-dot-net-sdk.md
+        - name : Troubleshoot request header too large
+          href: troubleshoot-dot-net-sdk-request-header-too-large.md
+        - name : Troubleshoot request timeout
+          href: troubleshoot-dot-net-sdk-request-timeout.md
+        - name : Troubleshoot service unavailable
+          href: troubleshoot-service-unavailable.md 
+      - name: .Java
+        items: 
+        - name: Troubleshoot Java SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md  
+        - name: Troubleshoot- Async Java SDK v2
+          href: troubleshoot-java-async-sdk.md
     - name: Change Feed
       items:
       - name: Azure Cosmos DB Trigger logs
@@ -1088,6 +1129,8 @@
       items:
       - name: Restore data from a backup
         href: how-to-backup-and-restore.md
+      - name: Request quota increase
+        href: create-support-request-quota-increase.md
     - name : Monitor
       items:
       - name: Monitor Cosmos DB
@@ -1096,6 +1139,8 @@
         items:
         - name: Azure Monitor for Cosmos (preview)
           href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Scenarios to monitor 
+          href: use-metrics.md
         - name: Monitor server-side latency
           href: monitor-server-side-latency.md
         - name: Monitor request unit usage
@@ -1108,8 +1153,8 @@
           href: cosmosdb-monitor-resource-logs.md
         - name: Audit control plane logs
           href: audit-control-plane-logs.md
-      - name: View metrics from Cosmos DB account
-        href: use-metrics.md
+      - name: Configure alerts
+        href: create-alerts.md
       - name: Monitoring data reference
         href: monitor-cosmos-db-reference.md
       - name: Application logging with Logic Apps
@@ -1150,6 +1195,8 @@
         href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
       - name: Azure Stream Analytics
         href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+      - name: Azure Data Explorer
+        href: https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
@@ -1188,28 +1235,30 @@
         href: how-to-migrate-from-bulk-executor-library.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
-  - name: Reference
+  - name: References for SQL API SDKs
     items:
-    - name: .NET
-      href: sql-api-sdk-dotnet.md
-    - name: .NET Core
-      href: sql-api-sdk-dotnet-core.md
-    - name: .NET Standard
-      href: sql-api-sdk-dotnet-standard.md
-    - name: .NET change feed library
-      href: sql-api-sdk-dotnet-changefeed.md
-    - name: .NET bulk executor library
-      href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java bulk executor library
-      href: sql-api-sdk-bulk-executor-java.md
-    - name: Java SDK v4 for Core
-      href: sql-api-sdk-java-v4.md
-    - name: Older Java SDKs for Core
+    - name: .NET SDKs
       items:
+      - name: .NET SDK v3
+        href: sql-api-sdk-dotnet-standard.md
+      - name: .NET SDK v2
+        href: sql-api-sdk-dotnet.md
+      - name: .NET Core SDK v2
+        href: sql-api-sdk-dotnet-core.md
+      - name: .NET change feed library v2
+        href: sql-api-sdk-dotnet-changefeed.md
+      - name: .NET bulk executor library v2
+        href: sql-api-sdk-bulk-executor-dot-net.md
+    - name: Java SDKs
+      items:
+      - name: Java SDK v4
+        href: sql-api-sdk-java-v4.md
       - name: Async Java SDK v2
         href: sql-api-sdk-async-java.md
       - name: Sync Java SDK v2
-        href: sql-api-sdk-java.md        
+        href: sql-api-sdk-java.md  
+      - name: Java bulk executor library v2
+        href: sql-api-sdk-bulk-executor-java.md      
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python
@@ -1237,6 +1286,8 @@
       href: whitepapers.md
     - name: Partners
       href: partners-migration-cosmosdb.md
+    - name: Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-cosmos-db.html
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
     - name: Azure Roadmap

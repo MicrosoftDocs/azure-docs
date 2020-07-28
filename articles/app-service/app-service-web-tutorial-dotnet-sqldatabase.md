@@ -405,3 +405,13 @@ Advance to the next tutorial to learn how to easily improve the security of your
 
 > [!div class="nextstepaction"]
 > [Access SQL Database securely using managed identities for Azure resources](app-service-web-tutorial-connect-msi.md)
+
+More resources:
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET app](configure-language-dotnet-framework.md)
+
+Want to optimize and save on your cloud spending?
+
+> [!div class="nextstepaction"]
+> [Start analyzing costs with Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

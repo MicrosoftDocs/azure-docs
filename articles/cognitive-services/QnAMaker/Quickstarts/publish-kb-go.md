@@ -4,7 +4,7 @@ description: This Go REST-based quickstart publishes your knowledge base and cre
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Quickstart: Publish a knowledge base in QnA Maker using Go

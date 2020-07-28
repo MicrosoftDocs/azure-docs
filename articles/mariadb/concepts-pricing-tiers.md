@@ -5,14 +5,14 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
+ms.date: 6/9/2020
 ---
 
 # Azure Database for MariaDB pricing tiers
 
 You can create an Azure Database for MariaDB server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MariaDB server level. A server can have one or many databases.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Resource | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -38,7 +38,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 The storage you provision is the amount of storage capacity available to your Azure Database for MariaDB server. The storage is used for the database files, temporary files, transaction logs, and the MariaDB server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Storage attributes   | Basic | General Purpose | Memory Optimized |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
@@ -53,6 +53,20 @@ You can add additional storage capacity during and after the creation of the ser
 The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
+
+### Large storage (Preview)
+
+We are increasing the storage limits in our General Purpose and Memory Optimized tiers. Newly created servers that opt-in to the preview can provision up to 16 TB of storage. The IOPS scale at a 3:1 ratio up to 20,000 IOPS. As with the current generally available storage, you can add additional storage capacity after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
+
+| Storage attributes | General Purpose | Memory Optimized |
+|:-------------|:--------------------|:---------------------|
+| Storage type | Azure Premium Storage | Azure Premium Storage |
+| Storage size | 32 GB to 16 TB| 32 to 16 TB |
+| Storage increment size | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+> [!IMPORTANT]
+> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, North Central US, South Central US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East, West US 2 and West Central US.
 
 ### Reaching the storage limit
 

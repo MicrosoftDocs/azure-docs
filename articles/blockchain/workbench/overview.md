@@ -44,13 +44,13 @@ Azure Blockchain Workbench makes it easier to analyze blockchain events and data
 
 For Azure Blockchain news, visit the [Azure Blockchain blog](https://azure.microsoft.com/blog/topics/blockchain/) to stay up to date on blockchain service offerings and information from the Azure Blockchain engineering team.
 
-To provide product feedback or to request new features, post of vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
+To provide product feedback or to request new features, post or vote for an idea via the [Azure feedback forum for blockchain](https://aka.ms/blockchainuservoice).
 
 ### Community support
 
 Engage with Microsoft engineers and Azure Blockchain community experts.
 
-* [Microsoft Q&A question page for Azure Blockchain Workbench](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)
+* [Microsoft Q&A question page for Azure Blockchain Workbench](/answers/topics/azure-blockchain-workbench.html)
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

@@ -28,7 +28,7 @@ start using management groups, we allow the creation of the initial management g
 level.
 
 You can create the management group by using the portal, a
-[Resource Manager template](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group),
+[Azure Resource Manager template](../../azure-resource-manager/templates/deploy-to-tenant.md#create-management-group),
 PowerShell, or Azure CLI.
 
 ### Create in portal
@@ -37,9 +37,7 @@ PowerShell, or Azure CLI.
 
 1. Select **All services** > **Management + governance**.
 
-1. Select **Cost Management + Billing**
-
-1. On the Cost Management + Billing - Management groups page, select **Management Groups**
+1. Select **Management Groups**.
 
 1. Select **+ Add management group**.
 

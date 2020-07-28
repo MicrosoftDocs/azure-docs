@@ -1,6 +1,6 @@
 ---
-title: Use Azure SQL Database Managed Instance with Azure-SQL Server Integration Services (SSIS) in Azure Data Factory
-description: Learn how to use Azure SQL Database Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
+title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services (SSIS) in Azure Data Factory
+description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -13,43 +13,43 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
 ---
-# Use Azure SQL Database Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory
+# Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-You can now move your SQL Server Integration Services (SSIS) projects, packages, and workloads to the Azure cloud. Deploy, run, and manage SSIS projects and packages on Azure SQL Database or SQL Database Managed Instance with familiar tools such as SQL Server Management Studio (SSMS). This article highlights the following specific areas when using Azure SQL Database Managed Instance with Azure-SSIS integration runtime (IR):
+You can now move your SQL Server Integration Services (SSIS) projects, packages, and workloads to the Azure cloud. Deploy, run, and manage SSIS projects and packages on Azure SQL Database or SQL Managed Instance with familiar tools such as SQL Server Management Studio (SSMS). This article highlights the following specific areas when using Azure SQL Managed Instance with Azure-SSIS integration runtime (IR):
 
-- [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Database managed instance](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
+- [Provision an Azure-SSIS IR with SSIS catalog (SSISDB) hosted by Azure SQL Managed Instance](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Execute SSIS packages by Azure SQL Managed Instance Agent job](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Clean up SSISDB logs by Azure SQL Managed Instance Agent job](#clean-up-ssisdb-logs)
-- [Azure-SSIS IR failover with Azure SQL Database Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Database managed instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
+- [Azure-SSIS IR failover with Azure SQL Managed Instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Migrate on-premises SSIS workloads to SSIS in ADF with Azure SQL Managed Instance as database workload destination](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## Provision Azure-SSIS IR with SSISDB hosted by Azure SQL Managed Instance
 
 ### Prerequisites
 
-1. [Enable Azure Active Directory (Azure AD) on Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Azure Active Directory authentication.
+1. [Enable Azure Active Directory (Azure AD) on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), when choosing Azure Active Directory authentication.
 
-1. Choose how to connect SQL managed instance, over private endpoint or over public endpoint:
+1. Choose how to connect SQL Managed Instance, over private endpoint or over public endpoint:
 
     - Over private endpoint (preferred)
 
         1. Choose the virtual network for Azure-SSIS IR to join:
-            - Inside the same virtual network as SQL managed instance, with **different subnet**.
-            - Inside a different virtual network than the SQL managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
+            - Inside the same virtual network as the managed instance, with **different subnet**.
+            - Inside a different virtual network than the the managed instance, via virtual network peering (which is limited to the same region due to Global VNet peering constraints) or a connection from virtual network to virtual network.
 
-            For more info on SQL managed instance connectivity, see [Connect your application to Azure SQL Database managed instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
+            For more info on SQL Managed Instance connectivity, see [Connect your application to Azure SQL Managed Instance](https://review.docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app).
 
         1. [Configure virtual network](#configure-virtual-network).
 
     - Over public endpoint
 
-        Azure SQL Database managed instances can provide connectivity over [public endpoints](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Inbound and outbound requirements need to meet to allow traffic between SQL managed instance and Azure-SSIS IR:
+        Azure SQL Managed Instances can provide connectivity over [public endpoints](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure). Inbound and outbound requirements need to meet to allow traffic between SQL Managed Instance and Azure-SSIS IR:
 
         - when Azure-SSIS IR not inside a virtual network (preferred)
 
-            **Inbound requirement of SQL managed instance**, to allow inbound traffic from Azure-SSIS IR.
+            **Inbound requirement of SQL Managed Instance**, to allow inbound traffic from Azure-SSIS IR.
 
             | Transport protocol | Source | Source port range | Destination | Destination port range |
             |---|---|---|---|---|
@@ -59,19 +59,19 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
         - when Azure-SSIS IR inside a virtual network
 
-            There is a special scenario when SQL managed instance is in a region that Azure-SSIS IR does not support, Azure-SSIS IR is inside a virtual network without VNet peering due to Global VNet peering limitation. In this scenario, **Azure-SSIS IR inside a virtual network** connects SQL managed instance **over public endpoint**. Use below Network Security Group(NSG) rules to allow traffic between SQL managed instance and Azure-SSIS IR:
+            There is a special scenario when SQL Managed Instance is in a region that Azure-SSIS IR does not support, Azure-SSIS IR is inside a virtual network without VNet peering due to Global VNet peering limitation. In this scenario, **Azure-SSIS IR inside a virtual network** connects SQL Managed Instance **over public endpoint**. Use below Network Security Group(NSG) rules to allow traffic between SQL Managed Instance and Azure-SSIS IR:
 
-            1. **Inbound requirement of SQL managed instance**, to allow inbound traffic from Azure-SSIS IR.
+            1. **Inbound requirement of SQL Managed Instance**, to allow inbound traffic from Azure-SSIS IR.
 
                 | Transport protocol | Source | Source port range | Destination |Destination port range |
                 |---|---|---|---|---|
                 |TCP|Static IP address of Azure-SSIS IR <br> For details, see [Bring Your Own Public IP for Azure-SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md#publicIP).|*|VirtualNetwork|3342|
 
-             1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL managed instance.
+             1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL Managed Instance.
 
                 | Transport protocol | Source | Source port range | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|VirtualNetwork|*|[SQL managed instance public endpoint IP address](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
+                |TCP|VirtualNetwork|*|[SQL Managed Instance public endpoint IP address](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address)|3342|
 
 ### Configure virtual network
 
@@ -97,18 +97,18 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
         - Microsoft.Network/LoadBalancers
         - Microsoft.Network/NetworkSecurityGroups
 
-    1. Allow traffic on Network Security Group (NSG) rule, to allow traffic between SQL managed instance and Azure-SSIS IR, and traffic needed by Azure-SSIS IR.
-        1. **Inbound requirement of SQL managed instance**, to allow inbound traffic from Azure-SSIS IR.
+    1. Allow traffic on Network Security Group (NSG) rule, to allow traffic between SQL Managed Instance and Azure-SSIS IR, and traffic needed by Azure-SSIS IR.
+        1. **Inbound requirement of SQL Managed Instance**, to allow inbound traffic from Azure-SSIS IR.
 
             | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
             |---|---|---|---|---|---|
             |TCP|VirtualNetwork|*|VirtualNetwork|1433, 11000-11999|If your SQL Database server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed.|
 
-        1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL managed instance, and other traffic needed by Azure-SSIS IR.
+        1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL Managed Instance, and other traffic needed by Azure-SSIS IR.
 
         | Transport protocol | Source | Source port range | Destination | Destination port range | Comments |
         |---|---|---|---|---|---|
-        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Allow outbound traffic to SQL managed instance. If connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
+        | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Allow outbound traffic to SQL Managed Instance. If connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | The nodes of your Azure-SSIS IR in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
         | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, refer to [Use Azure ExpressRoute or User Defined Route(UDR)](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#route).|
         | TCP | VirtualNetwork | * | Storage | 445 | (Optional) This rule is only required when you want to execute SSIS package stored in Azure Files. |
@@ -130,9 +130,9 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
 ### Provision Azure-SSIS Integration Runtime
 
-1. Select SQL managed instance private endpoint or public endpoint.
+1. Select SQL Managed Instance private endpoint or public endpoint.
 
-    When [provisioning Azure-SSIS IR](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime) in Azure portal/ADF app, on SQL Settings page, use SQL managed instance **private endpoint** or **public endpoint** when creating SSIS catalog (SSISDB).
+    When [provisioning Azure-SSIS IR](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime) in Azure portal/ADF app, on SQL Settings page, use SQL Managed Instance **private endpoint** or **public endpoint** when creating SSIS catalog (SSISDB).
 
     Public endpoint host name comes in the format <mi_name>.public.<dns_zone>.database.windows.net and that the port used for the connection is 3342.  
 
@@ -142,13 +142,13 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Database managed instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
+    For more info about how to enable Azure AD authentication, see [Enable Azure AD on Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Join Azure-SSIS IR to the virtual network when applies.
 
     On advanced setting page, select the Virtual Network and subnet to join.
     
-    When inside the same virtual network as SQL managed instance, choose a **different subnet** than SQL managed instance. 
+    When inside the same virtual network as SQL Managed Instance, choose a **different subnet** than SQL Managed Instance. 
 
     For more information about how to join Azure-SSIS IR into a virtual network, see [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 
@@ -168,7 +168,7 @@ SSISDB logs retention policy are defined by below properties in [catalog.catalog
 
     The number of days that operation details and operation messages are stored in the catalog. When the value is -1, the retention window is infinite. Note: If no cleanup is desired, set OPERATION_CLEANUP_ENABLED to FALSE.
 
-To remove SSISDB logs that are outside the retention window set by the administrator, you can trigger the stored procedure `[internal].[cleanup_server_retention_window_exclusive]`. Optionally, you can schedule SQL managed instance agent job execution to trigger the stored procedure.
+To remove SSISDB logs that are outside the retention window set by the administrator, you can trigger the stored procedure `[internal].[cleanup_server_retention_window_exclusive]`. Optionally, you can schedule SQL Managed Instance agent job execution to trigger the stored procedure.
 
 ## Next steps
 

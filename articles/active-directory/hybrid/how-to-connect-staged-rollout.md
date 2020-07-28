@@ -5,8 +5,8 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 05/12/2020
+ms.topic: how-to
+ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -15,8 +15,8 @@ ms.collection: M365-identity-device-management
 
 # Migrate to cloud authentication using staged rollout (preview)
 
-By using a staged rollout approach, you can migrate from federated authentication to cloud authentication. This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
-	
+Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
+    
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
@@ -34,14 +34,14 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 -   You have an Azure Active Directory (Azure AD) tenant with federated domains.
 
 -   You have decided to move to either of two options:
-    - **Option A** - *password hash synchronization (sync)* + *seamless single sign-on (SSO)*
-    - **Option B** - *pass-through authentication* + *seamless SSO*
+    - **Option A** - *password hash synchronization (sync)* + *seamless single sign-on (SSO)*.  For more information, see [What is password hash sync](whatis-phs.md) and [What is seamless SSO](how-to-connect-sso.md)
+    - **Option B** - *pass-through authentication* + *seamless SSO*.  For more information, see [What is pass-through authentication](how-to-connect-pta.md)  
     
     Although *seamless SSO* is optional, we recommend enabling it to achieve a silent sign-in experience for users who are running domain-joined machines from inside a corporate network.
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [converged registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
+-   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
 
 -   To use the staged rollout feature, you need to be a global administrator on your tenant.
 
@@ -72,12 +72,14 @@ The following scenarios are not supported for staged rollout:
     - Dynamic groups are *not supported* for staged rollout.
     - Contact objects inside the group will block the group from being added.
 
-- You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from federated to managed.
+- You still need to make the final cutover from federated to cloud authentication by using Azure AD Connect or PowerShell. Staged rollout doesn't switch domains from federated to managed.  For more information about domain cutover, see [Migrate from federation to password hash synchronization](plan-migrate-adfs-password-hash-sync.md) and [Migrate from federation to pass-through authentication](plan-migrate-adfs-pass-through-authentication.md)
+
+
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
->[!NOTE]
-> Because tenanted endpoints do not send login hints, they are not supported for staged rollout.  SAML applications use the tenanted endpoints and are also not support for staged rollout.
+- While users are in Staged Rollout, password expiration policy is set to 90 days with no option to customize it. 
+
 
 ## Get started with staged rollout
 
@@ -169,6 +171,7 @@ Do the following:
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
 
 ## Auditing
 

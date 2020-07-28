@@ -1,6 +1,6 @@
 ---
-title: Private Link
-description: Overview of Private endpoint feature
+title: Azure Private Link
+description: Overview of Private endpoint feature.
 author: rohitnayakmsft
 ms.author: rohitna
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
@@ -11,29 +11,29 @@ ms.reviewer: vanto
 ms.date: 03/09/2020
 ---
 
-# Private Link for Azure SQL Database and Azure Synapse Analytics
+# Azure Private Link for Azure SQL Database and Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../index.yml) page. A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and subnet.
+Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 > [!IMPORTANT]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
+> This article applies to both Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL Data Warehouse). For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
 
 ## Data exfiltration prevention
 
 Data exfiltration in Azure SQL Database is when an authorized user, such as a database admin is able extract data from one system and move it another location or system outside the organization. For example, the user moves the data to a storage account owned by a third party.
 
-Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure VM connecting to a SQL Database. This SQL Database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
+Consider a scenario with a user running SQL Server Management Studio (SSMS) inside an Azure virtual machine connecting to a database in SQL Database. This database is in the West US data center. The example below shows how to limit access with public endpoints on SQL Database using network access controls.
 
 1. Disable all Azure service traffic to SQL Database via the public endpoint by setting Allow Azure Services to **OFF**. Ensure no IP addresses are allowed in the server and database level firewall rules. For more information, see [Azure SQL Database and Azure Synapse Analytics network access controls](network-access-controls-overview.md).
-1. Only allow traffic to the SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](vnet-service-endpoint-rule-overview.md) and [VNet firewall rules](firewall-configure.md).
+1. Only allow traffic to the database in SQL Database using the Private IP address of the VM. For more information, see the articles on [Service Endpoint](vnet-service-endpoint-rule-overview.md) and [virtual network firewall rules](firewall-configure.md).
 1. On the Azure VM, narrow down the scope of outgoing connection by using [Network Security Groups (NSGs)](../../virtual-network/manage-network-security-group.md) and Service Tags as follows
     - Specify an NSG rule to allow traffic for Service Tag = SQL.WestUs - only allowing connection to SQL Database in West US
     - Specify an NSG rule (with a **higher priority**) to deny traffic for Service Tag = SQL - denying connections to SQL Database in all regions
 
-At the end of this setup, the Azure VM can connect only to SQL Databases in the West US region. However, the connectivity isn't restricted to a single SQL Database. The VM can still connect to any SQL Databases in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
+At the end of this setup, the Azure VM can connect only to a database in SQL Database in the West US region. However, the connectivity isn't restricted to a single database in SQL Database. The VM can still connect to any database in the West US region, including the databases that aren't part of the subscription. While we've reduced the scope of data exfiltration in the above scenario to a specific region, we haven't eliminated it altogether.
 
-With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a SQL Database) and no other resource. 
+With Private Link, customers can now set up network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are then mapped to specific private endpoints. A malicious insider can only access the mapped PaaS resource (for example a database in SQL Database) and no other resource. 
 
 ## On-premises connectivity over private peering
 
@@ -44,15 +44,15 @@ With Private Link, customers can enable cross-premises access to the private end
 ## How to set up Private Link for Azure SQL Database 
 
 ### Creation Process
-Private Endpoints can be created using the portal, PowerShell, or Azure CLI:
-- [Portal](../../private-link/create-private-endpoint-portal.md)
+Private Endpoints can be created using the Azure portal, PowerShell, or the Azure CLI:
+- [The portal](../../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [CLI](../../private-link/create-private-endpoint-cli.md)
 
-### Approval Process
+### Approval process
 Once the network admin creates the Private Endpoint (PE), the SQL admin can manage the Private Endpoint Connection (PEC) to SQL Database.
 
-1. Navigate to the SQL server resource in the Azure portal as per steps shown in the screenshot below
+1. Navigate to the server resource in the Azure portal as per steps shown in the screenshot below
 
     - (1) Select the Private endpoint connections in the left pane
     - (2) Shows a list of all Private Endpoint Connections (PECs)
@@ -70,11 +70,11 @@ Once the network admin creates the Private Endpoint (PE), the SQL admin can mana
 
 ## Use cases of Private Link for Azure SQL Database 
 
-Clients can connect to the Private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
+Clients can connect to the Private endpoint from the same virtual network, peered virtual network in same region, or via virtual network to virtual network connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 
  ![Diagram of connectivity options][1]
 
-## Test connectivity to SQL Database from an Azure VM in same Virtual Network (VNet)
+## Test connectivity to SQL Database from an Azure VM in same virtual network
 
 For this scenario, assume you've created an Azure Virtual Machine (VM) running Windows Server 2016. 
 
@@ -89,7 +89,7 @@ For this scenario, assume you've created an Azure Virtual Machine (VM) running W
 
 [Telnet Client](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754293%28v%3dws.10%29) is a Windows feature that can be used to test connectivity. Depending on the version of the Windows OS, you may need to enable this feature explicitly. 
 
-Open a Command Prompt window after you have installed Telnet. Run the Telnet command and specify the IP address and private endpoint of the SQL Database.
+Open a Command Prompt window after you have installed Telnet. Run the Telnet command and specify the IP address and private endpoint of the database in SQL Database.
 
 ```
 >telnet 10.1.1.5 1433
@@ -140,9 +140,9 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 The result shows that one IP address is up; which corresponds to the IP address for the private endpoint.
 
-### Check Connectivity using SQL Server Management Studio (SSMS)
+### Check connectivity using SQL Server Management Studio (SSMS)
 > [!NOTE]
-> Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients. Any login attempts made directly to the IP address shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the FQDN needs to be specified for logins to succeed.
+> Use the **Fully Qualified Domain Name (FQDN)** of the server in connection strings for your clients (`<server>.database.windows.net`). Any login attempts made directly to the IP address or using the private link FQDN (`<server>.privatelink.database.windows.net`) shall fail. This behavior is by design, since private endpoint routes traffic to the SQL Gateway in the region and the correct FQDN needs to be specified for logins to succeed.
 
 Follow the steps here to use [SSMS to connect to the SQL Database](connect-query-ssms.md). After you connect to the SQL Database using SSMS, verify that you're connecting from the private IP address of the Azure VM by running the following query:
 
@@ -155,17 +155,17 @@ where session_id=@@SPID
 Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
 
 
-## Connecting from an Azure VM in Peered Virtual Network (VNet) 
+## Connecting from an Azure VM in Peered Virtual Network 
 
-Configure [VNet peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) to establish connectivity to the SQL Database from an Azure VM in a peered VNet.
+Configure [virtual network peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) to establish connectivity to the SQL Database from an Azure VM in a peered virtual network.
 
-## Connecting from an Azure VM in VNet-to-VNet environment
+## Connecting from an Azure VM in virtual network to virtual network environment
 
-Configure [VNet-to-VNet VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to a SQL Database from an Azure VM in a different region or subscription.
+Configure [virtual network to virtual network VPN gateway connection](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) to establish connectivity to a database in SQL Database from an Azure VM in a different region or subscription.
 
 ## Connecting from an on-premises environment over VPN
 
-To establish connectivity from an on-premises environment to the SQL Database, choose and implement one of the options:
+To establish connectivity from an on-premises environment to the database in SQL Database, choose and implement one of the options:
 - [Point-to-Site connection](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 - [Site-to-Site VPN connection](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 - [ExpressRoute circuit](../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
@@ -173,7 +173,7 @@ To establish connectivity from an on-premises environment to the SQL Database, c
 
 ## Connecting from Azure Synapse Analytics to Azure Storage using Polybase
 
-PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you are loading data from limits access only to a set of VNet-subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a VNet, follow the steps provided [here](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
+PolyBase is commonly used to load data into Azure Synapse Analytics from Azure Storage accounts. If the Azure Storage account that you're loading data from limits access only to a set of virtual network subnets via Private Endpoints, Service Endpoints, or IP-based firewalls, the connectivity from PolyBase to the account will break. For enabling both PolyBase import and export scenarios with Azure Synapse Analytics connecting to Azure Storage that's secured to a virtual network, follow the steps provided [here](vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## Next steps
 

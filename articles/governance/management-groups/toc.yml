@@ -24,7 +24,7 @@
     href: /powershell/module/az.resources/#resources
   - name: Azure SDK for .NET
     href: /dotnet/api/overview/azure/managementgroups
-  - name: Azure SDK for Node
+  - name: Azure SDK for JavaScript
     href: /javascript/api/@azure/arm-managementgroups/managementgroups
   - name: REST
     href: /rest/api/resources/managementgroups

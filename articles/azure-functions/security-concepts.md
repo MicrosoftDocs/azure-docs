@@ -9,11 +9,11 @@ ms.topic: conceptual
 
 # Securing Azure Functions
 
-In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud hosted application. [Azure App Service](/azure/app-service/) provides the hosting infrastructure for your function apps. This article provides security strategies for running your function code, and how App Service can help you secure your functions. 
+In many ways, planning for secure development, deployment, and operation of serverless functions is much the same as for any web-based or cloud hosted application. [Azure App Service](../app-service/index.yml) provides the hosting infrastructure for your function apps. This article provides security strategies for running your function code, and how App Service can help you secure your functions. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-For a set of security recommendations that follow the [Azure Security Benchmark](/azure/security/benchmarks/overview), see [Azure Security Baseline for Azure Functions](security-baseline.md).
+For a set of security recommendations that follow the [Azure Security Benchmark](../security/benchmarks/overview.md), see [Azure Security Baseline for Azure Functions](security-baseline.md).
 
 ## Secure operation 
 
@@ -80,7 +80,7 @@ As with any application or service, the goal is run your function app with the l
 
 #### User management permissions
 
-Functions supports build-in [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). RBAC roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
+Functions supports built-in [Azure role-based access control (RBAC)](../role-based-access-control/overview.md). RBAC roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
 Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. Only the Owner role can delete a function app. 
 

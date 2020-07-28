@@ -2,7 +2,7 @@
 title: Use availability zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
 services: container-service
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 ms.topic: article
 ms.date: 02/27/2020
 
@@ -44,7 +44,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 
 ### Azure disks limitations
 
-Volumes that use Azure managed disks are currently not zone-redundant resources. Volumes cannot be attached across zones and must be co-located in the same zone as a given node hosting a the target pod.
+Volumes that use Azure managed disks are currently not zone-redundant resources. Volumes cannot be attached across zones and must be co-located in the same zone as a given node hosting the target pod.
 
 If you must run stateful workloads, use node pool taints and tolerations in  pod specs to group pod scheduling in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
 
@@ -95,7 +95,7 @@ First, get the AKS cluster credentials using the [az aks get-credentials][az-aks
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster. Filter on the *failure-domain.beta.kubernetes.io/zone* value as shown in the following example:
+Next, use the [kubectl describe][kubectl-describe] command to list the nodes in the cluster and filter on the *failure-domain.beta.kubernetes.io/zone* value. The following example is for a Bash shell.
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
@@ -127,7 +127,7 @@ az aks scale \
     --node-count 5
 ```
 
-When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` should give an output similar to this sample:
+When the scale operation completes after a few minutes, the command `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` in a Bash shell should give an output similar to this sample:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -148,7 +148,7 @@ We now have two additional nodes in zones 1 and 2. You can deploy an application
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` you would get an output similar to this:
+By viewing nodes where your pods are running, you see pods are running on the nodes corresponding to three different availability zones. For example, with the command `kubectl describe pod | grep -e "^Name:" -e "^Node:"` in a Bash shell you would get an output similar to this:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
