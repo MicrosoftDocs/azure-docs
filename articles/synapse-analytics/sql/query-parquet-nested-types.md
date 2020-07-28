@@ -63,9 +63,9 @@ FROM
 This query will return the following result:
 
 |SimpleArray|
-|---|
+| --- |
 |[11,12,13]|
-|[21,22,23]}
+|[21,22,23]|
 
 ## Read properties from nested object columns
 
@@ -77,12 +77,19 @@ SELECT
     title = JSON_VALUE(complex_column, '$.metadata.title'),
     first_author_name = JSON_VALUE(complex_column, '$.metadata.authors[0].first'),
     body_text = JSON_VALUE(complex_column, '$.body_text.text'),
+    complex_column
 FROM
     OPENROWSET( BULK 'https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json',
                 FORMAT='CSV', FIELDTERMINATOR ='0x0b', FIELDQUOTE = '0x0b', ROWTERMINATOR = '0x0b' ) WITH ( complex_column varchar(MAX) ) AS docs;
 ```
 
-Unline JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complex. The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
+The result is shown in the followng table:
+
+|title	| first_author_name	| body_text	| complex_column |
+| --- | --- | --- | --- |
+| Supplementary Information An eco-epidemiolo... | Julien	| - Figure S1 : Phylogeny of... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
+
+Unlike JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complex. The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
 - Specifying the nested value path expression after type specification.
 - Formatting the column name as nested path using do "." to reference the fields.
 
