@@ -5,12 +5,12 @@ description: Monitor web services deployed with Azure Machine Learning using Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
 ms.date: 07/23/2020
-ms.custom: tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 ---
 
 # Monitor and collect data from ML web service endpoints
