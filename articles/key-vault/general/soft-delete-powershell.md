@@ -203,7 +203,7 @@ Like keys, secrets are managed with their own commands:
 
 You can manage certificates using below commands:
 
-- Delete a Certificate named SQLPassword: 
+- Delete a Certificate: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```

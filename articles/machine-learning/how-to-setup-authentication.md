@@ -8,9 +8,9 @@ ms.author: larryfr
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 06/17/2020
-ms.custom: has-adal-ref
+ms.topic: conceptual
+ms.custom: how-to, has-adal-ref
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows
