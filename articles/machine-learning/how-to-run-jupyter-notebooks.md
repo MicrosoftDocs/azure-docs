@@ -190,13 +190,13 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
     ```shell
     conda activate newenv
     ```
-1. Install ipykernel package to the new environment and create a kernel for that conda env
+1. Install pip and ipykernel package to the new environment and create a kernel for that conda env
 
     ```shell
+    conda install pip
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
-
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
