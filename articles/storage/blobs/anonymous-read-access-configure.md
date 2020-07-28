@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 07/28/2020
 ms.author: tamram
 ms.reviewer: fryu
 ---
@@ -46,7 +46,7 @@ Disallowing public access for the storage account prevents anonymous access to a
 > [!IMPORTANT]
 > Disallowing public access for a storage account overrides the public access settings for all containers in that storage account. When public access is disallowed for the storage account, any future anonymous requests to that account will fail. Before changing this setting, be sure to understand the impact on client applications that may be accessing data in your storage account anonymously. For more information, see [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
 
-To allow or disallow public access for a storage account, use the Azure portal or Azure CLI to configure the account's **blobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
+To allow or disallow public access for a storage account, use the Azure portal or Azure CLI to configure the account's **AllowBlobPublicAccess** property. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information, see [Storage account overview](../common/storage-account-overview.md).
 
 # [Azure portal](#tab/portal)
 
@@ -58,25 +58,81 @@ To allow or disallow public access for a storage account in the Azure portal, fo
 
     :::image type="content" source="media/anonymous-read-access-configure/blob-public-access-portal.png" alt-text="Screenshot showing how to allow or disallow blob public access for account":::
 
+# [PowerShell](#tab/powershell)
+
+To allow or disallow public access for a storage account with PowerShell, install [Azure PowerShell version 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) or later. Next, configure the **AllowBlobPublicAccess** property for a new or existing storage account.
+
+The following example creates a storage account and sets the **AllowBlobPublicAccess** property to **false**. The example then retrieves the property value. Remember to replace the placeholder values in brackets with your own values:
+
+```powershell
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$location = "<location>"
+
+# Create a storage account with AllowBlobPublicAccess set to false.
+New-AzStorageAccount -ResourceGroupName $rgName -AccountName $accountName -Location $location -SkuName Standard_GRS -AllowBlobPublicAccess $false
+# Read the AllowBlobPublicAccess property for the newly created storage account.
+(Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).AllowBlobPublicAccess
+```
+
 # [Azure CLI](#tab/azure-cli)
 
-To allow or disallow public access for a storage account with Azure CLI, first get the resource ID for your storage account by calling the [az resource show](/cli/azure/resource#az-resource-show) command. Next, call the [az resource update](/cli/azure/resource#az-resource-update) command to set the **allowBlobPublicAccess** property for the storage account. To permit public access, set the **allowBlobPublicAccess** property to true; to disallow, set it to **false**.
+To allow or disallow public access for a storage account with Azure CLI, install Azure CLI version 2.9.0 or later. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli). Next, configure the **allowBlobPublicAccess** property for a new or existing storage account.
 
-The following example disallows public blob access for the storage account. Remember to replace the placeholder values in brackets with your own values:
+The following example creates a storage account and sets the **allowBlobPublicAccess** to **false**. The example also retrieves the property value. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
-storage_account_id=$(az resource show \
-    --name anonpublicaccess \
-    --resource-group storagesamples-rg \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --kind StorageV2 \
+    --location <location> \
+    ----allow-blob-public-access false
 
-az resource update \
-    --ids $storage_account_id \
-    --set properties.allowBlobPublicAccess=false
-    ```
+az resource show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --resource-type Microsoft.Storage/storageAccounts \
+    --query properties.allowBlobPublicAccess \
+    --output tsv
 ```
+
+# [Template](#tab/template)
+
+To allow or disallow public access for a storage account with a template, create a template with the **AllowBlobPublicAccess** property set to **true** or **false**. The following steps describe how to create a template in the Azure portal.
+
+1. In the Azure portal, choose **Create a resource**.
+1. In **Search the Marketplace**, type **template deployment**, and then press **ENTER**.
+1. Choose **Template deployment (deploy using custom templates)**, choose **Create**, and then choose **Build your own template in the editor**.
+1. In the template editor, paste in the following JSON to create a new account and set the **AllowBlobPublicAccess** property to **true** or **false**. Remember to replace the placeholders in angle brackets with your own values.
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {},
+        "variables": {
+            "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+        },
+        "resources": [
+            {
+            "name": "[variables('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "location": "<location>",
+            "properties": {
+                "allowBlobPublicAccess": $false
+            },
+            "dependsOn": [],
+            "tags": {}
+            }
+        ]
+    }
+    ```
+
+1. Save the template.
+1. Specify resource group parameter, then choose the **Review + create** button to deploy the template and create a storage account with the **MinimumTLSVersion** property configured.
+
 
 ---
 
