@@ -45,7 +45,7 @@ Here are the officially supported IBM WebSphere MQ versions:
 
 ## Limitations
 
-The MQ connector doesn't support or use the message **Format** field and doesn't perform any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
+The MQ connector doesn't support or use the message's **Format** field and doesn't perform any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
 
 <a name="create-connection"></a>
 
