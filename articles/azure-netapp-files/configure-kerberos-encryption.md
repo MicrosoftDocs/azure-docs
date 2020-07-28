@@ -31,6 +31,25 @@ The following requirements apply to NFSv4.1 client encryption:
 * NTP server access  
     You can use one of the commonly used Active Directory Domain Controller (AD DC) domain controllers.
 
+## Create an NFS Kerberos Volume
+
+1.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create the NFSv4.1 volume.   
+
+    On the Create a Volume page, set the NFS version to **NFSv4.1**, and set Kerberos to **Enabled**.
+
+    > [!IMPORTANT] 
+    > You cannot modify the Kerberos enablement selection after the volume is created.
+
+    ![Create NFSv4.1 Kerberos volume](../media/azure-netapp-files/create-kerberos-volume.png)  
+
+2. Select **Export Policy** to match the desired level of access and security option (Kerberos 5, Kerberos 5i, or Kerberos 5p) for the volume.   
+
+    For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1](#kerberos_performance).  
+
+    You can also modify the Kerberos security methods for the volume by clicking Export Policy in the Azure NetApp Files navigation pane.
+
+3.	Click **Review + Create** to create the NFSv4.1 volume.
+
 ## Configure the Azure portal 
 
 1.	Follow the instructions in [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection).  
@@ -90,26 +109,7 @@ Regardless of the Linux flavor you use, the following configurations are require
 3. Join the Active Directory Domain:  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
 
-## Create an NFS Kerberos Volume
-
-1.	Follow steps in [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) to create the NFSv4.1 volume.   
-
-    On the Create a Volume page, set the NFS version to **NFSv4.1**, and set Kerberos to **Enabled**.
-
-    > [!IMPORTANT] 
-    > You cannot modify the Kerberos enablement selection after the volume is created.
-
-    ![Create NFSv4.1 Kerberos volume](../media/azure-netapp-files/create-kerberos-volume.png)  
-
-2. Select **Export Policy** to match the desired level of access and security option (Kerberos 5, Kerberos 5i, or Kerberos 5p) for the volume.   
-
-    For performance impact of Kerberos, see [Performance impact of Kerberos on NFSv4.1](#kerberos_performance).  
-
-    You can also modify the Kerberos security methods for the volume by clicking Export Policy in the Azure NetApp Files navigation pane.
-
-3.	Click **Review + Create** to create the NFSv4.1 volume.
-
-## Mount the NFS Kerberos volume
+## <a name="kerberos_mount"></a>Mount the NFS Kerberos volume
 
 1. From the **Volumes** page, select the NFS volume that you want to mount.
 
@@ -161,7 +161,7 @@ This section describes the single client-side performance impact of the various 
 
 ### Expected performance impact 
 
-There are two area of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario. All comparisons are made against the `sec=sys` security parameter.
+There are two areas of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario. All comparisons are made against the `sec=sys` security parameter.
 
 Performance impact of krb5:
 
