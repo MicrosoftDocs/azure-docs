@@ -5,6 +5,8 @@
   items:
   - name: What are Cognitive Services?
     href: Welcome.md
+  - name: What's new in Cognitive Services docs?
+    href: whats-new-docs.md
   - name: Cognitive Services and Machine learning
     href: cognitive-services-and-machine-learning.md
   - name: Custom subdomains for Cognitive Services

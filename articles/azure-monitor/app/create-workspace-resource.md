@@ -21,7 +21,7 @@ To test out the new experience, sign in to the [Azure portal](https://portal.azu
 
 ![Workspace-based Application Insights resource](./media/create-workspace-resource/create-workspace-based.png)
 
-If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+If you don't already have an existing Log Analytics Workspace, [consult the Log Analytics workspace creation documentation](../learn/quick-create-workspace.md).
 
 For the public preview **workspace-based resources are currently limited to West US 2, East US, and South Central US.**
 
@@ -36,7 +36,7 @@ Clicking the blue link text will take you to the associated Log Analytics worksp
 
 ## Copy the connection string
 
-The [connection string](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+The [connection string](./sdk-connection-string.md?tabs=net) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 
 ## Monitoring configuration
 
@@ -48,14 +48,14 @@ For code-based application monitoring, you would just install the appropriate Ap
 
 For detailed documentation on setting up an Application Insights SDK for code-based monitoring consult the language/framework specific documentation:
 
-- [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-- [ASP.NET Core ](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-- [Background tasks & modern console applications (.NET/.NET Core)](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)
-- [Classic console applications (.NET)](https://docs.microsoft.com/azure/azure-monitor/app/console) 
-- [Java ](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
-- [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-- [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+- [ASP.NET](./asp-net.md)
+- [ASP.NET Core ](./asp-net-core.md)
+- [Background tasks & modern console applications (.NET/.NET Core)](./worker-service.md)
+- [Classic console applications (.NET)](./console.md) 
+- [Java ](./java-get-started.md?tabs=maven)
+- [JavaScript](./javascript.md)
+- [Node.js](./nodejs.md)
+- [Python](./opencensus-python.md)
 
 ### Codeless monitoring and Visual Studio resource creation
 
@@ -98,7 +98,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+For the full Azure CLI documentation for this command,  consult the [Azure CLI documentation](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ### Azure PowerShell
 
@@ -193,10 +193,11 @@ The legacy continuous export functionality is not supported for workspace-based 
 
 ## Next steps
 
-* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
-* [Write Analytics queries](../../azure-monitor/app/analytics.md)
+* [Explore metrics](../platform/metrics-charts.md)
+* [Write Analytics queries](../log-query/log-query-overview.md)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../platform/metrics-charts.md
+[start]: ./app-insights-overview.md
+

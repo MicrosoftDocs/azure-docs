@@ -156,4 +156,4 @@ Configs with defaults impacting the activation/decativation.
 [a3]: service-fabric-package-apps.md
 [a4]: service-fabric-deploy-remove-applications.md
 
-[p1]: https://docs.microsoft.com/powershell/module/servicefabric/copy-servicefabricservicepackagetonode
+[p1]: /powershell/module/servicefabric/copy-servicefabricservicepackagetonode

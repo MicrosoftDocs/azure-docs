@@ -25,11 +25,14 @@ The Microsoft Azure Data Box solution consists of four main components that inte
 - **Clients/hosts connected to the device** – The clients in your infrastructure that connect to the Data Box device and contain data that needs to be protected.
 - **Cloud storage** – The location in the Azure cloud where data is stored. This is typically the storage account linked to the Azure Data Box resource that you created.
 
-The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure.
+The following diagram indicates the flow of data through the Azure Data Box solution from on-premises to Azure. This flow is for an import order for your Data Box.
 
 ![Data Box security](media/data-box-security/data-box-security-2.png)
 
-As the data flows through this solution, events are logged and logs are generated. For more information, go to [Tracking and event logging for your Azure Data Box](data-box-logs.md).
+As the data flows through this solution, events are logged and logs are generated. For more information, go to:
+
+- [Tracking and event logging for your Azure Data Box import orders](data-box-logs.md).
+- [Tracking and event logging for your Azure Data Box export orders](data-box-export-logs.md)
 
 ## Security features
 

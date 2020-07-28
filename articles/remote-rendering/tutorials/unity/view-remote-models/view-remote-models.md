@@ -96,7 +96,7 @@ The following steps ensure that your project is using the latest version of the 
 
 1. Set **Clear flags** to *Solid Color*
 
-1. Set **Background** to *Black* (#000000), with full (255) alpha (A)
+1. Set **Background** to *Black* (#000000), with fully transparent (0) alpha (A)
 
     ![Color wheel](./media/color-wheel-black.png)
 

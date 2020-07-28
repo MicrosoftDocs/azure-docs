@@ -382,7 +382,7 @@ This error can occur for one of the following reasons:
 * The machine is turned off and unreachable.
 * The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
 * There was an update to the MMA that changed the source computer ID.
-* Your update run was throttled if you hit the limit of 2000 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
+* Your update run was throttled if you hit the limit of 200 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
 
 ### Resolution
 

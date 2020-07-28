@@ -1,19 +1,20 @@
 ---
-title: How to preserve data privacy using the WhiteNoise packages
+title: How to preserve data privacy using the WhiteNoise packages (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to apply differential privacy best practices to Azure Machine Learning models by using the WhiteNoise packages.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
-ms.date: 05/17/2020
+ms.date: 07/09/2020
 # Customer intent: As an experienced data scientist, I want to use differential privacy in Azure Machine Learning.
 ---
 
-# Use differential privacy in Azure Machine Learning
+# Use differential privacy in Azure Machine Learning (preview)
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

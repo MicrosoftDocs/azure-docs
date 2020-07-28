@@ -111,7 +111,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/
+    href: /samples/browse/
   - name: Azure PowerShell
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
@@ -143,6 +143,11 @@
       href: cluster-security-certificates.md
     - name: Certificate management in Service Fabric
       href: cluster-security-certificate-management.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline for Azure Security Benchmark
+      href: security-baseline.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -492,7 +497,7 @@
       - name: Configure ReliableDictionaryActorStateProvider
         href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md    
     - name: Build an ASP.NET Core service
-      href: service-fabric-add-a-web-frontend.md
+      href: ./service-fabric-reliable-services-communication-aspnetcore.md
     - name: Build an Apache Tomcat server container on Linux
       href: service-fabric-get-started-tomcat.md
     - name: Configure security
@@ -629,7 +634,7 @@
     - name: Set up continuous integration
       items:
       - name: Set up continuous integration with Azure Pipelines
-        href: service-fabric-set-up-continuous-integration.md
+        href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
       - name: Deploy your Linux applications using Jenkins
         href: service-fabric-cicd-your-linux-applications-with-jenkins.md
   - name: Set up and configure reverse proxy
@@ -899,7 +904,7 @@
   - name: Common questions
     href: service-fabric-common-questions.md
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-service-fabric.html
+    href: /answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails
     href: service-fabric-azure-resource-manager-guardrails.md
   - name: Pricing

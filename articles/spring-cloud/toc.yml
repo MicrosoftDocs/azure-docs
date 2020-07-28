@@ -36,6 +36,8 @@
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD with Jenkins
       href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+    - name: Use managed identity to connect Key Vault to Azure Spring Cloud app
+      href: spring-cloud-tutorial-managed-identities-key-vault.md
 - name: Samples
   items:  
   - name: Azure Policy built-ins

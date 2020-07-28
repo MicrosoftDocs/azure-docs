@@ -44,7 +44,7 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
     az extension add --name stream-analytics
     ```
 
-   Install the [extension for Azure IoT](/cli/azure/ext/azure-iot/azure-iot) by running the following command:
+   Install the [extension for Azure IoT](/cli/azure/ext/azure-iot) by running the following command:
 
     ```azurecli
     az extension add --name azure-iot
@@ -149,7 +149,7 @@ az stream-analytics job create \
 
 ## Configure input to the job
 
-Add an input to your job by using the [az stream-analytics input](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job’s input. In this example, you'll create an IoT Hub as an input.
+Add an input to your job by using the [az stream-analytics input](/cli/azure/ext/stream-analytics/stream-analytics/input?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-input-create) cmdlet. This cmdlet takes the job name, job input name, resource group name, and the job input definition as parameters. The job input definition is a JSON file that contains the properties required to configure the job's input. In this example, you'll create an IoT Hub as an input.
 
 On your local machine, create a file named `datasource.json` and add the following JSON data to it. Make sure to replace the value for `sharedAccessPolicyKey` with the `SharedAccessKey` portion of the IoT Hub connection string you saved in a previous section.
 
@@ -191,9 +191,9 @@ az stream-analytics input create
 
 ## Configure output to the job
 
-Add an output to your job by using the [az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. The job output definition is a JSON file that contains the properties required to configure job’s output. This example uses blob storage as output.
+Add an output to your job by using the [az stream-analytics output create](/cli/azure/ext/stream-analytics/stream-analytics/output?view=azure-cli-latest#ext-stream-analytics-az-stream-analytics-output-create) cmdlet. This cmdlet takes the job name, job output name, resource group name, and the job output definition as parameters. The job output definition is a JSON file that contains the properties required to configure job's output. This example uses blob storage as output.
 
-On your local machine, create a file named `datasink.json`, and add the following JSON data to it. Make sure to replace the value for `accountKey` with your storage account’s access key that is the value stored in $storageAccountKey value.
+On your local machine, create a file named `datasink.json`, and add the following JSON data to it. Make sure to replace the value for `accountKey` with your storage account's access key that is the value stored in $storageAccountKey value.
 
 ```json
 {

@@ -51,9 +51,12 @@ Managed identities don't have an application object in the directory, which is w
 
 No, there are no plans to support managed identities for Azure resources in Azure Cloud Services.
 
-### Does managed identities for Azure resources work with the Active Directory Authentication Library (ADAL) or the Microsoft Authentication Library (MSAL)?
+### What is the credential associated with a managed identity? How long is it valid and how often is it rotated?
 
-No, managed identities for Azure resources is not yet integrated with ADAL or MSAL. For details on acquiring a token for managed identities for Azure resources using the REST endpoint, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](how-to-use-vm-token.md).
+> [!NOTE]
+> How managed identities authenticate is an internal implementation detail that is subject to change without notice.
+
+Managed identities use certificate-based authentication. Each managed identity’s credential has an expiration of 90 days and it is rolled after 45 days.
 
 ### What is the security boundary of managed identities for Azure resources?
 

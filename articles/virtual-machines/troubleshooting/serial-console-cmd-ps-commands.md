@@ -21,7 +21,7 @@ ms.author: alsin
 
 This section includes example commands for performing common tasks in scenarios where you may need to use SAC to access your Windows VM, such as when you need to troubleshoot RDP connection failures.
 
-SAC has been included in all versions of Windows since Windows Server 2003 but is disabled by default. SAC relies on the `sacdrv.sys` kernel driver, the `Special Administration Console Helper` service (`sacsvr`), and the `sacsess.exe` process. For more information, see [Emergency Management Services Tools and Settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
+SAC has been included in all versions of Windows since Windows Server 2003 but is disabled by default. SAC relies on the `sacdrv.sys` kernel driver, the `Special Administration Console Helper` service (`sacsvr`), and the `sacsess.exe` process. For more information, see [Emergency Management Services Tools and Settings](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v%3dws.10)).
 
 SAC allows you to connect to your running OS via serial port. When you launch CMD from SAC, `sacsess.exe` launches `cmd.exe` within your running OS. You can see that in Task Manager if you RDP to your VM at the same time you are connected to SAC via the serial console feature. The CMD you access via SAC is the same `cmd.exe` you use when connected via RDP. All the same commands and tools are available, including the ability to launch PowerShell from that CMD instance. That is a major difference between SAC and the Windows Recovery Environment (WinRE) in that SAC is letting you manage your running OS, where WinRE boots into a different, minimal OS. While Azure VMs do not support the ability to access WinRE, with the serial console feature, Azure VMs can be managed via SAC.
 
@@ -88,7 +88,7 @@ or
 ### Set NIC to use DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
 
-For more information about `netsh`, [click here](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
+For more information about `netsh`, [click here](/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Azure VMs should always be configured in the guest OS to use DHCP to obtain an IP address. The Azure static IP setting still uses DHCP to give the static IP to the VM.
 ### Ping
@@ -180,11 +180,11 @@ This example returns the file version of the virtual NIC driver, which is netvsc
 ### Scan for system file corruption
 `sfc /scannow`
 
-See also [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+See also [Repair a Windows Image](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### Scan for system file corruption
 `dism /online /cleanup-image /scanhealth`
 
-See also [Repair a Windows Image](https://docs.microsoft.com/windows-hardware/manufacture/desktop/repair-a-windows-image).
+See also [Repair a Windows Image](/windows-hardware/manufacture/desktop/repair-a-windows-image).
 ### Export file permissions to text file
 `icacls %programdata%\Microsoft\Crypto\RSA\MachineKeys /t /c > %temp%\MachineKeys_permissions_before.txt`
 ### Save file permissions to ACL file
@@ -433,7 +433,7 @@ You can query Azure instance metadata from within your Azure VM to view details 
 
 Querying instance metadata requires healthy guest network connectivity, because it makes a REST call through the Azure host to the instance metadata service. So if you are able to query instance metadata, that tells you the guest is able to communicate over the network to an Azure-hosted service.
 
-For more information, see [Azure Instance Metadata service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service).
+For more information, see [Azure Instance Metadata service](../windows/instance-metadata-service.md).
 
 ### Instance metadata
 `$im = invoke-restmethod -headers @{"metadata"="true"} -uri http://169.254.169.254/metadata/instance?api-version=2017-08-01 -method get`

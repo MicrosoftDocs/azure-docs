@@ -30,8 +30,8 @@ For more information about operating systems that are supported on Azure virtu
 ## References
 
 * [Learn more about free Extended Security Updates for Windows Server 2008/R2 in Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Learn more about support for Windows Server 2008 SP2 32-bit specialized images in Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Learn more about support for migration of Windows Server 2008 images to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Learn more about support for Windows Server 2008 SP2 32-bit specialized images in Azure](/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Learn more about support for migration of Windows Server 2008 images to Azure using Azure Site Recovery](../../site-recovery/migrate-tutorial-windows-server-2008.md)
 * [Learn more about Azure Extension supported operating systems](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
 * [Learn more about running Windows Server 2003 on Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 

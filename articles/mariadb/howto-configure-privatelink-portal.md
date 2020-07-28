@@ -204,7 +204,7 @@ After you've created **myVm**, connect to it from the internet as follows:
 
 ## Access the MariaDB server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
 

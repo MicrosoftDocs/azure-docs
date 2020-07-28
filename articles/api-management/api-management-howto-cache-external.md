@@ -102,5 +102,5 @@ Once the external cache is configured in Azure API Management, it can be used th
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
-[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-caching-policies.md

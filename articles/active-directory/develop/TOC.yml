@@ -4,8 +4,6 @@
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
-  - name: Evolution of Microsoft identity platform
-    href: about-microsoft-identity-platform.md
 - name: Quickstarts
   expanded: true
   items:
@@ -345,8 +343,6 @@
           href: msal-js-use-ie-browser.md
         - name: Known issues - IE and Microsoft Edge
           href: msal-js-known-issues-ie-edge-browsers.md
-        - name: Known issues - Safari
-          href: msal-js-known-issues-safari-browser.md
         - name: Handle errors and exceptions
           href: msal-handling-exceptions.md?tabs=javascript
         - name: Logging
@@ -622,6 +618,14 @@
       href: vs-active-directory-webapi-what-happened.md
     - name: Diagnose errors during authentication
       href: vs-active-directory-error.md
+  - name: Bring an app to market
+    items:
+    - name: Publish to App Source
+      href: v2-howto-get-appsource-certified.md
+    - name: Publish to Azure AD App Gallery
+      href: v2-howto-app-gallery-listing.md
+    - name: Publish to the Office 365 Seller Dashboard
+      href: https://docs.microsoft.com/office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: Reference
   items:
   - name: Application manifest

@@ -196,7 +196,7 @@ If multiple people are editing runbooks in your source control repository using 
 Currently, you can't use the Azure portal to update the PAT in source control. When your PAT is expired or revoked, you can update source control with a new access token in one of these ways:
 
 * Use the [REST API](/rest/api/automation/sourcecontrol/update).
-* Use the [Update-AzAutomationSourceControl](//powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
+* Use the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps
 

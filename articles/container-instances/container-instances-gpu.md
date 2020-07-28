@@ -58,7 +58,7 @@ When deploying GPU resources, set CPU and memory resources appropriate for the w
 
 * **CUDA drivers** - Container instances with GPU resources are pre-provisioned with NVIDIA CUDA drivers and container runtimes, so you can use container images developed for CUDA workloads.
 
-  We support CUDA 9.0 at this stage. For example, you can use following base images for your Docker file:
+  We support only CUDA 9.0 at this stage. For example, you can use the following base images for your Docker file:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     
@@ -220,7 +220,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 ## Next steps
 
 * Learn more about deploying a container group using a [YAML file](container-instances-multi-container-yaml.md) or [Resource Manager template](container-instances-multi-container-group.md).
-* Learn more about [GPU optimized VM sizes](../virtual-machines/linux/sizes-gpu.md) in Azure.
+* Learn more about [GPU optimized VM sizes](../virtual-machines/sizes-gpu.md) in Azure.
 
 
 <!-- IMAGES -->

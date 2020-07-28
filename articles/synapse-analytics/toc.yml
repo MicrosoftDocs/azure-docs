@@ -6,6 +6,26 @@
   items:
   - name: What is Azure Synapse Analytics?
     href: overview-what-is.md
+  - name: Get Started
+    items: 
+    - name: Introduction
+      href: get-started.md
+    - name: 1 Create a Synapse workspace
+      href: get-started-create-workspace.md
+    - name: 2 Analyze using a SQL Pool
+      href: get-started-analyze-sql-pool.md
+    - name: 3 Analyze using Spark
+      href: get-started-analyze-spark.md
+    - name: 4 Analyze using SQL on-demand
+      href: get-started-analyze-sql-on-demand.md
+    - name: 5 Analyze data in a storage account
+      href: get-started-analyze-storage.md
+    - name: 6 Orchestrate with pipelines
+      href: get-started-pipelines.md
+    - name: 7 Visualize with Power BI
+      href: get-started-visualize-power-bi.md
+    - name: 8 Monitor
+      href: get-started-monitor.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -14,9 +34,9 @@
     href: release-notes.md
 - name: Quickstarts
   items:
-  - name: Create an Azure Synapse workspace
+  - name: Create a Synapse workspace
     href: quickstart-create-workspace.md
-  - name: Use Azure Synapse Studio 
+  - name: Use Synapse Studio 
     href: quickstart-synapse-studio.md
   - name: Link a Power BI workspace
     href: quickstart-power-bi.md
@@ -46,8 +66,6 @@
     href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutorials
   items:
-  - name: Get started
-    href: get-started.md
   - name: Run Apache Spark applications for Spark pools
     href: ./spark/intellij-tool-synapse.md
   - name: Spark job definitions
@@ -264,6 +282,8 @@
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Result set caching
         href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json 
+      - name: Machine learning predictions
+        href: ./sql-data-warehouse/sql-data-warehouse-predict.md
       - name: Tables
         items:
         - name: Overview
@@ -421,7 +441,7 @@
         - name: SSIS
           href: /sql/integration-services/load-data-to-sql-data-warehouse
         - name: New York taxi cab data
-          href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Contoso public data
           href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Load WideWorldImporters
@@ -716,6 +736,8 @@
         href: ../data-factory/connector-web-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Xero
         href: ../data-factory/connector-xero.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: XML format
+        href: ../data-factory/format-xml.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Zoho
         href: ../data-factory/connector-zoho.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Move data
@@ -773,9 +795,11 @@
         href: ../data-factory/transform-data-using-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: HDInsight Streaming Activity
         href: ../data-factory/transform-data-using-hadoop-streaming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: ML Batch Execution Activity
+      - name: Machine Learning Execute Pipeline Activity
+        href: ../data-factory/transform-data-machine-learning-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Machine Learning Studio (classic) Batch Execution Activity
         href: ../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      - name: ML Update Resource Activity
+      - name: Machine Learning Studio (classic) Update Resource Activity
         href: ../data-factory/update-machine-learning-models.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Stored Procedure Activity
         href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -874,7 +898,7 @@
   - name: PowerShell 
     href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: REST APIs
-    href: ./sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    href: /rest/api/synapse/
   - name: System views
     href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: T-SQL

@@ -191,6 +191,8 @@ def manage_directory_permissions():
      print(e) 
 ```
 
+You can also get and set the ACL of the root directory of a container. To get the root directory, call the **FileSystemClient._get_root_directory_client** method.
+
 ## Upload a file to a directory 
 
 First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the **DataLakeFileClient.append_data** method. Make sure to complete the upload by calling the **DataLakeFileClient.flush_data** method.

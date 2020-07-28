@@ -149,7 +149,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 ## Access the PostgreSQL server privately from the VM
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
+1. In the Remote Desktop of *myVM*, open PowerShell.
 
 2. Enter  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 

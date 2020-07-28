@@ -9,7 +9,7 @@ ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/02/2020
+ms.date: 07/11/2020
 ---
 
 # How to index Cosmos DB data using an indexer in Azure Cognitive Search 

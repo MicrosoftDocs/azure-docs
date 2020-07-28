@@ -37,10 +37,10 @@ Recovery Services vaults have the following features:
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - In each Azure subscription, you can create up to 500 vaults.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with Azure [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- You can manage vault access with Azure [role-based access control (RBAC)](../role-based-access-control/role-assignments-portal.md).
 - You specify how data in the vault is replicated for redundancy:
-  - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Locally redundant storage (LRS)**: To protect against failure in a datacenter, you can use LRS. LRS replicates data to a storage scale unit. [Learn more](../storage/common/storage-redundancy.md).
+  - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md).
   - By default, Recovery Services vaults use GRS.
 
 ## Backup agents
@@ -115,6 +115,17 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - When a vault is created, a "DefaultPolicy" is also created and can be used to back up resources.
 - Any changes made to the retention period of a backup policy will be applied retroactively to all the older recovery points aside from the new ones.
 
+### Additional reference 
+
+-	Azure VM machine: How to [create](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) and [modify](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) policy? 
+-	SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-policy) policy? 
+-	Azure File share: How to [create](./backup-afs.md#discover-file-shares-and-configure-backup) and [modify](./manage-afs-backup.md#modify-policy) policy? 
+-	SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy? 
+-	MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy? 
+-	[Are there any limitations on scheduling backup based on the type of workload?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [What happens to the existing recovery points if I change the retention policy?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## Architecture: Built-in Azure VM Backup
 
 1. When you enable backup for an Azure VM, a backup runs according to the schedule you specify.
@@ -129,7 +140,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
     - Only blocks of data that changed since the last backup are copied.
     - Data isn't encrypted. Azure Backup can back up Azure VMs that were encrypted by using Azure Disk Encryption.
     - Snapshot data might not be immediately copied to the vault. At peak times, the backup might take some hours. Total backup time for a VM will be less than 24 hours for daily backup policies.
-1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. After the data is sent to the vault, a recovery point is created. By default, snapshots are retained for two days before they are deleted. This feature allows restore operation from these snapshots, thereby cutting down the restore times. It reduces the time that's required to transform and copy data back from the vault. See [Azure Backup Instant Restore Capability](./backup-instant-restore-capability.md).
 
 You do not need to explicitly allow internet connectivity to back up your Azure VMs.
 

@@ -30,7 +30,7 @@ In this quickstart, you:
 - An active Event Hubs namespace and event hub.
 [Create an Event Hubs namespace and an event hub in the namespace](event-hubs-create.md). Record the name of the Event Hubs namespace, the name of the event hub, and the primary access key for the namespace. To get the access key, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). The default key name is *RootManageSharedAccessKey*. For this quickstart, you need only the primary key. You don't need the connection string.  
 - An Azure storage account, a blob container in the storage account, and a connection string to the storage account. If you don't have these items, do the following:  
-    1. [Create an Azure storage account](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)  
+    1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal)  
     1. [Create a blob container in the storage account](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)  
     1. [Get the connection string to the storage account](../storage/common/storage-configure-connection-string.md)
 
@@ -177,4 +177,4 @@ Check out [Python samples on GitHub](https://github.com/Azure/azure-sdk-for-pyth
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
+[Event Hubs overview]: ./event-hubs-about.md

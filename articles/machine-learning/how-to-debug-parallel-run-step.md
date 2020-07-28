@@ -5,11 +5,12 @@ description: Debug and troubleshoot ParallelRunStep in machine learning pipeline
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.reviewer: trbye, jmartens, larryfr, vaidyas, laobri
+ms.topic: conceptual
+ms.custom: troubleshooting
+ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ---
 
 # Debug and troubleshoot ParallelRunStep
@@ -31,7 +32,7 @@ Because of the distributed nature of ParallelRunStep jobs, there are logs from s
 
 - `~/logs/overview.txt`: This file provides a high-level info about the number of mini-batches (also known as tasks) created so far and number of mini-batches processed so far. At this end, it shows the result of the job. If the job failed, it will show the error message and where to start the troubleshooting.
 
-- `~/logs/sys/master.txt`: This file provides the master node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
+- `~/logs/sys/master.txt`: This file provides the principal node (also known as the orchestrator) view of the running job. Includes task creation, progress monitoring, the run result.
 
 Logs generated from entry script using EntryScript helper and print statements will be found in following files:
 
@@ -56,11 +57,11 @@ When you need a full understanding of how each node executed the score script, l
 You can also find information on the resource usage of the processes for each worker. This information is in CSV format and is located at `~/logs/sys/perf/overview.csv`. Information about each process is available under `~logs/sys/processes.csv`.
 
 ### How do I log from my user script from a remote context?
-You can get a logger from EntryScript as shown in below sample code to make the logs show up in **logs/user** folder in the portal.
+ParallelRunStep may run multiple processes on one node based on process_count_per_node. In order to organize logs from each process on node and combine print and log statement, we recommend using ParallelRunStep logger as shown below. You get a logger from EntryScript and make the logs show up in **logs/user** folder in the portal.
 
 **A sample entry script using the logger:**
 ```python
-from entry_script import EntryScript
+from azureml_user.parallel_run import EntryScript
 
 def init():
     """ Initialize the node."""
@@ -82,7 +83,9 @@ def run(mini_batch):
 
 ### How could I pass a side input such as, a file or file(s) containing a lookup table, to all my workers?
 
-Construct a [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) containing the side input and register it with your workspace. Pass it to the `side_input` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access it's mounted path:
+User can pass reference data to script using side_inputs parameter of ParalleRunStep. All datasets provided as side_inputs will be mounted on each worker node. User can get the location of mount by passing argument.
+
+Construct a [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) containing the reference data and register it with your workspace. Pass it to the `side_inputs` parameter of your `ParallelRunStep`. Additionally, you can add its path in the `arguments` section to easily access its mounted path:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")

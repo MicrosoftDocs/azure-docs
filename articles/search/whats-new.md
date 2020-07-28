@@ -7,57 +7,65 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/15/2020
 ---
 # What's new in Azure Cognitive Search
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
-## Feature announcements
+## Feature announcements in 2020
+
+### July 2020
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [Azure.Search.Documents client library](https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet) | Azure SDK for .NET | .NET client library released by the Azure SDK team, designed for consistency with other .NET client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30, but does not yet support knowledge store, geo-filters, or [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). | Generally available. </br> Install the [Azure.Search.Documents package](https://www.nuget.org/packages/Azure.Search.Documents/) from NuGet. |
+| [azure.search.documents client library](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python)  | Azure SDK for Python| Python client library released by the Azure SDK team, designed for consistency with other Python client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from PyPI. |
+| [@azure/search-documents client library](https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest)  | Azure SDK for JavaScript | JavaScript client library released by the Azure SDK team, designed for consistency with other JavaScript client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [@azure/search-documents package](https://www.npmjs.com/package/@azure/search-documents) from npm. |
 
 ### June 2020
 
-+ [Knowledge store](knowledge-store-concept-intro.md) is now generally available.
-
-+ [Search Service REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) is the new stable version of the REST APIs. In addition to knowledge store, this generally available version includes enhancements to search relevance and scoring.
-
-+ New relevance ranking algorithm is now [BM25](https://en.wikipedia.org/wiki/Okapi_BM25) for any new service you create. For existing services, you can opt in by setting the `similarity` property on index fields. This property is generally available.
-
-+ New indexer `executionEnvironment` can be explicitly set to `private`. This capability supports indexer access to external data over private endpoints, and it is generally available.
-
-+ [Azure Machine Learning (AML)](cognitive-search-aml-skill.md) is a new skill type to integrate an inferencing endpoint from Azure Machine Learning. The portal experience supports discovery and integration of your Azure Machine Learning endpoint within a Cognitive Search skillset. The discovery requires your Cognitive Search and Azure ML services be deployed in the same subscription. This skill is generally available. Get started with [this tutorial](cognitive-search-tutorial-aml-custom-skill.md).
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+[**Knowledge store**](knowledge-store-concept-intro.md) | AI enrichment | Output of an AI-enriched indexer, storing content in Azure Storage for use in other apps and processes. | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or later, or the portal. |
+| [**Search REST API 2020-06-30**](https://docs.microsoft.com/rest/api/searchservice/) | REST | A new stable version of the REST APIs. In addition to knowledge store, this version includes enhancements to search relevance and scoring. | Generally available. |
+| [**Okapi BM25 relevance algorithm**](https://en.wikipedia.org/wiki/Okapi_BM25) | Query | New relevance ranking algorithm automatically used for all new search services created after July 15. For services created earlier, you can opt in by setting the `similarity` property on index fields. | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or later, or REST API 2019-05-06. |
+| **executionEnvironment** | Security (indexers) | Explicitly set this indexer configuration property to `private` to force all connections to external data sources over a private endpoint. Applicable only to search services that leverage Azure Private Link. | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) to set this general configuration parameter. |
 
 ### May 2020 (Microsoft Build)
 
-+ [Debug sessions](cognitive-search-debug-session.md) feature is now in preview. Debug sessions provide a portal-based interface to investigate and resolve issues with a skillset. Fixes created in the debug session can be saved to production skillsets. Get started with [this tutorial](cognitive-search-tutorial-debug-sessions.md).
-
-+ Shield a search service endpoint from the public internet by [configuring IP rules for in-bound firewall support](service-configure-firewall.md) or by leveraging [Azure Private Link for a private search endpoint](service-create-private-endpoint.md). Both capabilities are generally available.
-
-+ Use a [system-managed identity (preview)](search-howto-managed-identities-data-sources.md) to set up a connection to an Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage.
-
-+ Change the basis for how search scores are computed, from per-shard to all-shards, using [sessionId](index-similarity-and-scoring.md)  and the [scoringStatistics=global](index-similarity-and-scoring.md#scoring-statistics)query parameters. These parameters are generally available.
-
-+ Add a [featuresMode (preview)](index-similarity-and-scoring.md#featuresMode-param) query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial).
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**Debug sessions**](cognitive-search-debug-session.md) | AI enrichment | Debug sessions provide a portal-based interface to investigate and resolve issues with an existing skillset. Fixes created in the debug session can be saved to production skillsets. Get started with [this tutorial](cognitive-search-tutorial-debug-sessions.md). | Public preview, in the portal. |
+| [**IP rules for in-bound firewall support**](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. | Generally available. </br> Use [Management REST API 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) or later, or the portal. |
+| [**Azure Private Link for a private search endpoint**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Generally available. </br> Use [Management REST API 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/) or later, or the portal. |
+| [**system-managed identity (preview)**](search-howto-managed-identities-data-sources.md) | Security (indexers) | Register a search service as a trusted service with Azure Active Directory to set up connections to supported Azure data source for indexing. Applies to [indexers](search-indexer-overview.md) that ingest content from Azure data sources such as Azure SQL Database, Azure Cosmos DB, and Azure Storage. | Public preview. </br> Use the portal to register the search service. |
+| [**sessionId query parameter**](index-similarity-and-scoring.md), [scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | Query (relevance) | Add sessionID to a query to establish a session for computing search scores, with scoringStatistics=global to collect scores from all shards, for more consistent search score calculations. | Generally available. </br> Use [Search REST API 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) or later, or REST API 2019-05-06. |
+| [**featuresMode (preview)**](index-similarity-and-scoring.md#featuresMode-param) | Query | Add this query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial). | Public preview. </br> Use [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
 ### March 2020
 
-+ [Native blob soft delete (preview)](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) means that the Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing.
-
-+ New stable [Management REST API (2020-03-13)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) is now generally available. 
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**Native blob soft delete (preview)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexers | An Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing. | Public preview. </br> Use the [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) and REST API 2019-05-06-Preview, with Run Indexer against an Azure Blob data source that has native "soft delete" enabled. |
+| [**Management REST API (2020-03-13)**](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API for creating and managing a search service. Adds IP firewall and Private Link support | Generally available. |
 
 ### February 2020
 
-+ [PII Detection (preview)](cognitive-search-skill-pii-detection.md) is a cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways.
-
-+ [Custom Entity Lookup (preview)](cognitive-search-skill-custom-entity-lookup.md ) looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact. 
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**PII Detection (preview)**](cognitive-search-skill-pii-detection.md) | AI enrichment | A new cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
+| [**Custom Entity Lookup (preview)**](cognitive-search-skill-custom-entity-lookup.md )| AI enrichment | A new cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](https://docs.microsoft.com/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
 ### January 2020
 
-+ [Customer-managed encryption keys](search-security-manage-encryption-keys.md) is now generally available. If you are using REST, you can access the feature using `api-version=2019-05-06` or later. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. 
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
+|---------|------------------|-------------|---------------|
+| [**Customer-managed encryption keys**](search-security-manage-encryption-keys.md) |Security | Adds an extra layer of encryption in addition to the platform's built-in encryption. Using an encryption key that you create and manage, you can encrypt index content and synonym maps before the payload reaches a search service. | Generally available. </br> Use Search REST API 2019-05-06 or later. For managed code, the correct package is still [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md) even though the feature is out of preview. |
+| [**IP rules for in-bound firewall support (preview)**](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. |  Public preview using api-version=2019-10-01-Preview.  |
+| [**Azure Private Link for a private search endpoint (preview)**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Public preview using api-version=2019-10-01-Preview.  |
 
-+ Private access to a search service is available through two mechanisms, both currently in preview:
-
-  + You can restrict access to specific IP addresses by using the Management REST API  `api-version=2019-10-01-Preview` to create the service. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. For more information, see [How to use the Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+## Feature announcements in 2019
 
 ### December 2019
 

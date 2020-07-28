@@ -115,7 +115,7 @@ No, this is an unsupported scenario. However, if you accidentally move storage a
 A replication policy defines the settings for the retention history of recovery points. The policy also defines the frequency of app-consistent snapshots. By default, Azure Site Recovery creates a new replication policy with default settings of:
 
 - 24 hours for the retention history of recovery points.
-- 60 minutes for the frequency of app-consistent snapshots.
+- 4 hours for the frequency of app-consistent snapshots.
 
 [Learn more about replication settings](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 

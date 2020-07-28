@@ -1,5 +1,5 @@
 ---
-title: Optimizing transactions for SQL pool
+title: Optimize transactions for SQL pool
 description: Learn how to optimize the performance of your transactional code in SQL pool (data warehouse) while minimizing risk for long rollbacks.
 services: synapse-analytics
 author: XiaoyuMSFT 

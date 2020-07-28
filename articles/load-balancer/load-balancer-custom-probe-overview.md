@@ -24,8 +24,8 @@ Health probes support multiple protocols. The availability of a specific health 
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
-| [Probe types](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
+| **[Probe types](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Probe down behavior](#probedown)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 
 >[!IMPORTANT]
@@ -87,8 +87,8 @@ The available protocols depend on the Load Balancer SKU used:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| Standard SKU | 	&#9989; | 	&#9989; | 	&#9989; |
-| Basic SKU | 	&#9989; | 	&#9989; | &#10060; |
+| **Standard SKU** | 	&#9989; | 	&#9989; | 	&#9989; |
+| **Basic SKU** | 	&#9989; | 	&#9989; | &#10060; |
 
 ### <a name="tcpprobe"></a> TCP probe
 

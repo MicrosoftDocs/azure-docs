@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ---
-# Disk bursting
+# Managed disk bursting
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
 
 ## Virtual Machine level bursting

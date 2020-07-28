@@ -5,12 +5,12 @@ description: Learn how to deploy a web service with a model running on an FPGA w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jordane
 author: jpe316
 ms.date: 06/03/2020
-ms.custom: seodec18, contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy
@@ -60,7 +60,7 @@ The following diagram and table show how FPGAs compare to other processors.
 
 ![Diagram of Azure Machine Learning FPGA comparison](./media/how-to-deploy-fpga-web-service/azure-machine-learning-fpga-comparison.png)
 
-|Processor||Description|
+|Processor| Abbreviation |Description|
 |---|:-------:|------|
 |Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
 |Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|
