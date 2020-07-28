@@ -52,14 +52,6 @@ The output is similar to the following example. Make a note of the *loginServer*
 }
 ```
 
-To use the ACR instance, you must first sign in. Use the [az acr login][az-acr-login] command to sign in. The below example will sign in to an ACR named *MyHelmACR*.
-
-```azurecli
-az acr login --name MyHelmACR
-```
-
-The command returns a *Login Succeeded* message once completed.
-
 ## Create an Azure Kubernetes Service cluster
 
 Create an AKS cluster. The below command creates an AKS cluster called MyAKS and attaches MyHelmACR.
@@ -206,16 +198,10 @@ For more information about using Helm, see the Helm documentation.
 > [!div class="nextstepaction"]
 > [Helm documentation][helm-documentation]
 
-[az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-create]: /cli/azure/acr#az-acr-create
-[az-acr-show]: /cli/azure/acr#az-acr-show
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
-
-[docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
-[docker-for-mac]: https://docs.docker.com/docker-for-mac/
-[docker-for-windows]: https://docs.docker.com/docker-for-windows/
 [example-nodejs]: https://github.com/Azure/dev-spaces/tree/master/samples/nodejs/getting-started/webfrontend
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [helm]: https://helm.sh/
