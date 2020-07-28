@@ -34,24 +34,24 @@ Application Insights SDKs are available for a range of application types: web se
 ## What data does it collect?
 There are three sources of data:
 
-* The SDK, which you integrate with your app either [in development](../../azure-monitor/app/asp-net.md) or [at run time](../../azure-monitor/app/monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](../../azure-monitor/app/javascript.md), which loads into the end user's browser along with the page.
+* The SDK, which you integrate with your app either [in development](./asp-net.md) or [at run time](./monitor-performance-live-website-now.md). There are different SDKs for different application types. There's also an [SDK for web pages](./javascript.md), which loads into the end user's browser along with the page.
   
-  * Each SDK has a number of [modules](../../azure-monitor/app/configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
+  * Each SDK has a number of [modules](./configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java EE servers](../../azure-monitor/app/java-agent.md) can have such agents.
-* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java EE servers](./java-agent.md) can have such agents.
+* [Availability tests](./monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
 
 ### What kinds of data are collected?
 The main categories are:
 
-* [Web server telemetry](../../azure-monitor/app/asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. `Session id`.
-* [Web pages](../../azure-monitor/app/javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
+* [Web server telemetry](./asp-net.md) - HTTP requests.  Uri, time taken to process the request, response code, client IP address. `Session id`.
+* [Web pages](./javascript.md) - Page, user and session counts. Page load times. Exceptions. Ajax calls.
 * Performance counters - Memory, CPU, IO, Network occupancy.
 * Client and server context - OS, locale, device type, browser, screen resolution.
-* [Exceptions](../../azure-monitor/app/asp-net-exceptions.md) and crashes - **stack dumps**, `build id`, CPU type. 
-* [Dependencies](../../azure-monitor/app/asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
-* [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) - duration of test and steps, responses.
-* [Trace logs](../../azure-monitor/app/asp-net-trace-logs.md) and [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
+* [Exceptions](./asp-net-exceptions.md) and crashes - **stack dumps**, `build id`, CPU type. 
+* [Dependencies](./asp-net-dependencies.md) - calls to external services such as REST, SQL, AJAX. URI or connection string, duration, success, command.
+* [Availability tests](./monitor-web-app-availability.md) - duration of test and steps, responses.
+* [Trace logs](./asp-net-trace-logs.md) and [custom telemetry](./api-custom-events-metrics.md) - **anything you code into your logs or telemetry**.
 
 [More detail](#data-sent-by-application-insights).
 
@@ -67,16 +67,16 @@ For web pages, open your browser's debugging window.
 ![Press F12 and open the Network tab.](./media/data-retention-privacy/08-browser.png)
 
 ### Can I write code to filter the telemetry before it is sent?
-This would be possible by writing a [telemetry processor plugin](../../azure-monitor/app/api-filtering-sampling.md).
+This would be possible by writing a [telemetry processor plugin](./api-filtering-sampling.md).
 
 ## How long is the data kept?
-Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](./pricing.md#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](../../azure-monitor/app/export-telemetry.md) to copy it to a storage account during data ingestion. 
+Raw data points (that is, items that you can query in Analytics and inspect in Search) are kept for up to 730 days. You can [select a retention duration](./pricing.md#change-the-data-retention-period) of 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. If you need to keep data longer than 730 days, you can use [Continuous Export](./export-telemetry.md) to copy it to a storage account during data ingestion. 
 
 Data kept longer than 90 days will incur addition charges. Learn more about Application Insights pricing on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
 
-[Debug snapshots](../../azure-monitor/app/snapshot-debugger.md) are stored for 15 days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
+[Debug snapshots](./snapshot-debugger.md) are stored for 15 days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
 ## Who can access the data?
 The data is visible to you and, if you have an organization account, your team members. 
@@ -230,7 +230,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](../../azure-monitor/platform/personal-data-mgmt.md) discusses this issue in-depth.
+Our [Application Insights personal data article](../platform/personal-data-mgmt.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
@@ -283,7 +283,7 @@ For [SDKs for other platforms][platforms], see their documents.
 You can [switch off some of the data by editing ApplicationInsights.config][config]
 
 > [!NOTE]
-> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../../azure-monitor/platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
+> Client IP is used to infer geographic location, but by default IP data is no longer stored and all zeroes are written to the associated field. To understand more about personal data handling we recommend this [article](../platform/personal-data-mgmt.md#application-data). If you need to store IP address data our [IP address collection article](./ip-collection.md) will walk you through your options.
 
 ## Credits
 This product includes GeoLite2 data created by MaxMind, available from [https://www.maxmind.com](https://www.maxmind.com).
@@ -292,13 +292,14 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiproperties]: ../../azure-monitor/app/api-custom-events-metrics.md#properties
-[client]: ../../azure-monitor/app/javascript.md
-[config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[api]: ./api-custom-events-metrics.md
+[apiproperties]: ./api-custom-events-metrics.md#properties
+[client]: ./javascript.md
+[config]: ./configuration-with-applicationinsights-config.md
+[greenbrown]: ./asp-net.md
+[java]: ./java-get-started.md
+[platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

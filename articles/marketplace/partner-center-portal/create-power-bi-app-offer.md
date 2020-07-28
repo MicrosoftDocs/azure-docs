@@ -1,8 +1,8 @@
 ---
 title: Create a Power BI app offer in Microsoft AppSource
 description: Learn how to create and publish a Power BI app offer to Microsoft AppSource.
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual

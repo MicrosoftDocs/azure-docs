@@ -89,8 +89,6 @@ For Human Resources focused applications, or other applications with a large set
 
 ## Next steps
 
-- [View applications already configured in your Azure AD tenant](view-applications-portal.md)
-- [Quickstart: Add a gallery application to your Azure AD tenant](add-application-portal.md)
-- [Add a gallery app to your Azure AD organization](add-gallery-app.md)
+- [Quickstart Series on App Managemement in Azure AD](view-applications-portal.md)
 - [Get started with application integration](plan-an-application-integration.md)
 - [Learn how to automate provisioning](../app-provisioning/user-provisioning.md)

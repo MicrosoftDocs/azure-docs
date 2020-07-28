@@ -525,6 +525,10 @@
         href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs show
         href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy load
+        href: ../common/storage-ref-azcopy-load.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy load clfs
+        href: ../common/storage-ref-azcopy-load-avere-cloud-file-system.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy list
         href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy login

@@ -4,8 +4,8 @@ description: Learn how to create a virtual machine offer on Azure Marketplace wi
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: emuench
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah 
 ms.date: 07/17/2020
 ---
 

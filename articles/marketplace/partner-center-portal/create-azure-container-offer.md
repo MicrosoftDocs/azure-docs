@@ -4,8 +4,8 @@ description: Learn how to create and publish a container offer to Azure Marketpl
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 06/17/2020
 ---
 
