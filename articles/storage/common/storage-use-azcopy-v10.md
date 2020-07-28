@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ---
@@ -106,7 +106,7 @@ After you've verified that your user identity has been given the necessary autho
 azcopy login
 ```
 
-If you belong to more than one organization, include the tenant ID of the organization to which the storage account belongs.
+If you receive an error, try including the tenant ID of the organization to which the storage account belongs.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

@@ -155,7 +155,7 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
 ## Send correlated messages in order
 
-When you need to send related messages in a specific order, you can use the [*sequential convoy* pattern](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
+When you need to send related messages in a specific order, you can use the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
 
 When you create a logic app, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
 
@@ -170,3 +170,4 @@ For other technical details about triggers, actions, and limits, which are descr
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

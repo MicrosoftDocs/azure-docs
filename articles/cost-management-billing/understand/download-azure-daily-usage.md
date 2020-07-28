@@ -7,7 +7,7 @@ ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/27/2020
 ---
 
 # View and download your Azure usage and charges
@@ -16,7 +16,7 @@ You can download a daily breakdown of your Azure usage and charges in the Azure 
 
 If you have a Microsoft Customer Agreement (MCA), you must be a billing profile Owner, Contributor, Reader, or Invoice manager to view your Azure usage and charges.  If you have a Microsoft Partner Agreement (MPA), only the Global Admin and Admin Agent role in the partner organization Microsoft can view and download Azure usage and charges. [Check your billing account type in the Azure portal](#check-your-billing-account-type).
 
-Based on the type of subscription that you use, options to download your usage and charges vary. 
+Based on the type of subscription that you use, options to download your usage and charges vary.
 
 ## Download usage from the Azure portal (.csv)
 
@@ -29,7 +29,6 @@ Based on the type of subscription that you use, options to download your usage a
 1. Select the **download icon** or the ellipsis (`...`) on the right.  
   ![Screenshot showing Usage + charges download location](./media/download-azure-daily-usage/download-usage-others.png)  
 1. The Download pane opens on the right. Select **Download** from the **Usage Details** section.  
-
 
 ## Download usage for EA customers
 
@@ -49,10 +48,9 @@ If you have a Microsoft Customer Agreement, you can download month-to-date usage
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search for *Cost Management + Billing*.
 3. Select a billing profile. Depending on your access, you might need to select a billing account first.
-4. In the **Overview** area, find the download links beneath the month-to-date charges.
-5. Select **Azure usage and charges**.
-
-    ![Screenshot that shows download from Overview](./media/download-azure-daily-usage/open-usage01.png)
+4. In the **Overview** area, find the download links beneath the recent charges.
+5. Select **Download usage and prices**.  
+    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Screenshot that shows download from Overview" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::
 
 ## Check your billing account type
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

@@ -365,6 +365,12 @@ If you perform a management operation on a compute target from a remote job, you
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
 
+## Missing user interface items in studio
+
+Azure role-based access control can be used to restrict actions that you can perform with Azure Machine Learning. These restrictions can prevent user interface items from showing in the Azure Machine Learning studio. For example, if you are assigned a role that cannot create a compute instance, the option to create a compute instance will not appear in the studio.
+
+For more information, see [Manage users and roles](how-to-assign-roles.md).
+
 ## Next steps
 
 See more troubleshooting articles for Azure Machine Learning:
