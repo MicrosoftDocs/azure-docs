@@ -21,10 +21,10 @@ ms.author: b-juche
 Azure NetApp Files supports NFS (NFSv3 and NFSv4.1) and SMBv3 volumes. A volume's capacity consumption counts against its pool's provisioned capacity. This article shows you how to create an NFS volume. If you want to create an SMB volume, see [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
 
 ## Before you begin 
-You must have already set up a capacity pool.   
-[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)   
-A subnet must be delegated to Azure NetApp Files.  
-[Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+* You must have already set up a capacity pool.  
+    See [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
+* A subnet must be delegated to Azure NetApp Files.  
+    See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
 
 ## Considerations 
 
@@ -47,14 +47,11 @@ A subnet must be delegated to Azure NetApp Files.
 
 ## Create an NFS volume
 
-1.	Click the **Volumes** blade from the Capacity Pools blade. 
+1.	Click the **Volumes** blade from the Capacity Pools blade. Click **+ Add volume** to create a volume. 
 
-    ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
+    ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.	Click **+ Add volume** to create a volume.  
-    The Create a Volume window appears.
-
-3.	In the Create a Volume window, click **Create**, and provide information for the following fields:   
+2.	In the Create a Volume window, click **Create**, and provide information for the following fields:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
@@ -91,7 +88,7 @@ A subnet must be delegated to Azure NetApp Files.
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
-4. Click **Protocol**, and then complete the following actions:  
+3. Click **Protocol**, and then complete the following actions:  
     * Select **NFS** as the protocol type for the volume.   
     * Specify the **file path** that will be used to create the export path for the new volume. The export path is used to mount and access the volume.
 
@@ -109,7 +106,7 @@ A subnet must be delegated to Azure NetApp Files.
 
     ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-5. Click **Review + Create** to review the volume details.  Then click **Create** to create the NFS volume.
+4. Click **Review + Create** to review the volume details.  Then click **Create** to create the volume.
 
     The volume you created appears in the Volumes page. 
  
