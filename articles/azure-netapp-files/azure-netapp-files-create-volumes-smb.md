@@ -213,7 +213,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
 
-        For information about creating a snapshot policy, see [Manage snapshots](azure-netapp-files-manage-snapshots.md).
+        For information about creating a snapshot policy, see [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 

@@ -87,7 +87,7 @@ A subnet must be delegated to Azure NetApp Files.
 
     * If you want to apply an existing snapshot policy to the volume, click **Show advanced section** to expand it, and select a snapshot policy in the pull-down menu. 
 
-        For information about creating a snapshot policy, see [Manage snapshots](azure-netapp-files-manage-snapshots.md).
+        For information about creating a snapshot policy, see [Manage snapshot policies](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies).
 
         ![Show advanced selection](../media/azure-netapp-files/volume-create-advanced-selection.png)
 
@@ -101,7 +101,7 @@ A subnet must be delegated to Azure NetApp Files.
 
     * Select the NFS version (**NFSv3** or **NFSv4.1**) for the volume.  
 
-    * Indicate whether you want to enable Kerberos encryption for the NFS volume (supported for NFSv4.1 only).  
+    * If you are using NFSv4.1, indicate whether you want to enable **Kerberos** encryption for the volume.  
 
         Additional configurations are required if you use Kerberos with NFSv4.1. Follow the instructions in [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md).
 
