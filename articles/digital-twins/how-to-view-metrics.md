@@ -98,8 +98,8 @@ To learn more about managing recorded metrics for Azure Digital Twins, see [*How
 
 Or, now that you’ve seen an overview of Azure Digital Twins metrics, follow these links to learn more about managing Azure Digital Twins:
 
-* [Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
-* [Manage custom models](how-to-manage-model.md)
-* [Manage digital twins](how-to-manage-twin.md)
-* [Manage the twin graph with relationships](how-to-manage-graph.md)
-* [Manage endpoints and routes](how-to-manage-routes.md)
+* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)
+* [*How-to: Manage custom models*](how-to-manage-model.md)
+* [*How-to: Manage digital twins*](how-to-manage-twin.md)
+* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes.md)
