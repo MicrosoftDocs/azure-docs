@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Understand and invoke direct methods from IoT Hub
