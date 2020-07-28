@@ -10,7 +10,7 @@ ms.date: 07/27/2020
 
 # How to create an overlay with Media Encoder Standard
 
-The Media Encoder Standard allows you to overlay an image onto an existing video. Currently, the following formats are supported: png, jpg, gif, and bmp. The preset defined below is a basic example  of a video overlay.
+The Media Encoder Standard allows you to overlay an image onto an existing video. Currently, the following formats are supported: png, jpg, gif, and bmp.
 
 ## Prerequisites
 
