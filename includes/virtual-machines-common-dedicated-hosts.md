@@ -48,7 +48,7 @@ If you assign a host group to an availability zone, all VMs created on that host
 
 A host can be created in a specific fault domain. Just like VM in a scale set or availability set, hosts in different fault domains will be placed on different physical racks in the data center. When you create a host group, you are required to specify the fault domain count. When creating hosts within the host group, you assign fault domain for each host. The VMs do not require any fault domain assignment.
 
-Fault domains are not the same as collocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.
+Fault domains are not the same as colocation. Having the same fault domain for two hosts does not mean they are in proximity with each other.
 
 Fault domains are scoped to the host group. You should not make any assumption on anti-affinity between two host groups (unless they are in different availability zones).
 
