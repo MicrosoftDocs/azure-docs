@@ -144,19 +144,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **BlogIn** side login to your BlogIn account and go to Settings > User Authentication tab > Configure SSO & User provisioning.
 
-On the next screen, change Single Sign-On status to **On** and choose a custom name for SSO Login button that will be displayed on the login screen.
+1. On the next screen, change Single Sign-On status to **On** and choose a custom name for SSO Login button that will be displayed on the login screen.
 
-If you saved the **App Federation Metadata Url** in the last step of the previous section, choose Configuration method **Metadata URL** and paste **App Federation Metadata Url** into the Metadata URL field. 
+2. If you saved the **App Federation Metadata Url** in the last step of the previous section, choose Configuration method **Metadata URL** and paste **App Federation Metadata Url** into the Metadata URL field. 
 
-Otherwise, change the Configuration method to manual and manually populate **Identity Provider SSO URL (Login URL)** and **Identity Provider Issuer (entity ID)** and upload the **Certificate (base64)** you got from Azure AD.
+    Otherwise, change the Configuration method to manual and manually populate **Identity Provider SSO URL (Login URL)** and **Identity Provider Issuer (entity ID)** and upload the **Certificate (base64)** you got from Azure AD.
 
-Choose default user role for new users joining BlogIn using SSO.
+4. Choose default user role for new users joining BlogIn using SSO.
 
-Click **Save changes**.
+5. Click **Save changes**.
 
-For a more detailed explanation on setting up SSO on BlogIn, please visit this guide: [How to set up SSO for Microsoft Azure AD on BlogIn](https://blogin.co/blog/how-to-set-up-single-sign-on-sso-for-microsoft-azure-active-directory-azure-ad-267/)
-
-Feel free to contact [BlogIn support team](mailto:support@blogin.co) at any time if you have any questions or need help.
+For a more detailed explanation on setting up SSO on BlogIn, please visit this guide: [How to set up SSO for Microsoft Azure AD on BlogIn](https://blogin.co/blog/how-to-set-up-single-sign-on-sso-for-microsoft-azure-active-directory-azure-ad-267/). Feel free to contact [BlogIn support team](mailto:support@blogin.co) at any time if you have any questions or need help.
 
 ### Create BlogIn test user
 
