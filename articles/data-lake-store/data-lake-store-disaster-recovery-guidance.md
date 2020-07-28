@@ -1,22 +1,17 @@
 ---
 title: Disaster recovery guidance for Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Guidance on disaster recovery for Azure Data Lake Storage Gen1
-services: data-lake-store
-documentationcenter: ''
-author: twooley
-manager: mtillman
-editor: cgronlun
 
+author: twooley
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 
 ---
-# Disaster recovery guidance for data in Azure Data Lake Storage Gen1
+# High availability and disaster recovery guidance for data in Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 provides locally-redundant storage (LRS). Hence, the data in your Data Lake Storage Gen1 account is resilient to transient hardware failures within a datacenter through automated replicas. This ensures durability and high availability, meeting the Data Lake Storage Gen1 SLA. This article provides guidance on how to further protect your data from rare region-wide outages or accidental deletions.
+Data Lake Storage Gen1 provides locally-redundant storage (LRS). Hence, the data in your Data Lake Storage Gen1 account is resilient to transient hardware failures within a datacenter through automated replicas. This ensures durability and high availability, meeting the Data Lake Storage Gen1 SLA. This article provides guidance on how to further protect your data from rare region-wide outages or accidental deletions.
 
 ## Disaster recovery guidance
 It is critical for every customer to prepare their own disaster recovery plan. Read the information in this article to build your disaster recovery plan. Here are some resources that can help you create your own plan.
