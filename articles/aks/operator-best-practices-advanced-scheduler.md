@@ -60,14 +60,14 @@ spec:
   - key: "sku"
     operator: "Equal"
     value: "gpu"
+When you apply taints, work with your application developers and owners to allow them to define the required tolerations in their deployments.
+
+For more information about taints and tolerations, see [applying taints and tolerations][k8s-taints-tolerations].
+
     effect: "NoSchedule"
 ```
 
 When this pod is deployed, such as using `kubectl apply -f gpu-toleration.yaml`, Kubernetes can successfully schedule the pod on the nodes with the taint applied. This logical isolation lets you control access to resources within a cluster.
-
-When you apply taints, work with your application developers and owners to allow them to define the required tolerations in their deployments.
-
-For more information about taints and tolerations, see [applying taints and tolerations][k8s-taints-tolerations].
 
 For more information about how to use multiple node pools in AKS, see [Create and manage multiple node pools for a cluster in AKS][use-multiple-node-pools].
 
