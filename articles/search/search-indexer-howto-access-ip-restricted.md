@@ -13,10 +13,13 @@ ms.date: 03/13/2020
 
 # Setting up IP firewall rules to enable indexer access
 
-Azure resources such as storage accounts, CosmosDB accounts and Azure SQL servers allow configuring a set of IP addresses as part of firewall rules. Only requests originating from these specified IP addresses will be allowed access to data in those resources.
+IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts and Azure SQL servers restrict only those traffic originating from those specific IP ranges to access data.
 
 This guide will describe how to configure the IP rules for a storage account so that indexers can have access to the data in the storage account.
-While specific to storage account, this example can be directly translated for CosmosDB, Azure SQL server and other such services which also utilize IP firewall as a mechanism to offer network level security. Note that when using a storage account, it should be in a different region than the search service, but this restriction does not apply to other resources.
+While specific to storage account, this example can be directly translated for CosmosDB, Azure SQL server and other such services which also utilize IP firewall as a mechanism to offer network level security.
+
+> [!NOTE]
+> IP firewall rules for storage account are only effective if the storage account and the search service are in different regions.
 
 ## Obtain the IP address of the search service
 

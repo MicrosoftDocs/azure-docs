@@ -208,13 +208,13 @@
         href: search-howto-managed-identities-cosmos-db.md
       - name: SQL Database
         href: search-howto-managed-identities-sql.md
-    - name: Accessing network secured indexer resource  
+    - name: Access secured data  
       items:
-      - name: Grant access from an IP range
+      - name: Access over an IP range
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Grant access via trusted Microsoft service exception
+      - name: Access through trusted service exception
         href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Grant access via private endpoints
+      - name: Access through private endpoints
         href: search-indexer-howto-access-private.md
   - name: Ingest using AI
     items:

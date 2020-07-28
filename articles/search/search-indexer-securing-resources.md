@@ -48,7 +48,7 @@ When considering the secure access mechanism that an indexer should use, conside
 
 - [Service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) will not be supported for any Azure resource.
 - A search service cannot be provisioned into a specific virtual network - this functionality will not be offered by Azure Cognitive Search.
-- When indexers utilize private endpoints to access resources, additional [private link charges](https://azure.microsoft.com/pricing/details/private-link) may apply.
+- When indexers utilize private endpoints to access resources, additional [private link charges](https://azure.microsoft.com/pricing/details/search/) may apply.
 
 ## Indexer execution environment
 
@@ -92,11 +92,6 @@ Azure Cognitive Search will validate that callers of this API have permissions t
 When the call to create or update a shared private link resource succeeds, a private endpoint connection will be created in a "Pending" state. No traffic flows over the connection yet.
 The caller is then expected to locate this request on their secure resource and "Approve" it. Typically, this can be done either via the Portal or via the [REST API](https://docs.microsoft.com/rest/api/virtualnetwork/privatelinkservices/updateprivateendpointconnection).
 
-> [!NOTE]
-> Azure Cognitive Search will poll the status of the private endpoint connection periodically. To not spam the secure resource, this polling interval (for now) is quite conservative. It can take up to 30 minutes for Azure Cognitive Search to pick up the modified state of a private endpoint connection. To find out what Azure Cognitive Search thinks is the state of the private endpoint connection, utilize the [GET API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/get).
-
-Once Azure Cognitive Search has picked up the "Approved" state of a private endpoint, traffic will flow over the connection.
-
 ### Step 3: Force indexers to run in the "private" environment
 
 Customers can override the default indexer execution environment behavior (in which Azure Cognitive Search determines the best environment in which to run indexers), by setting the indexer configuration property `executionEnvironment`.
@@ -117,20 +112,15 @@ To enable indexers to access resources via private endpoint connections, it is m
     }
 ```
 
-Doing so has performance implications on the stability of the search service and therefore the ability to force indexers to run in the "private" environment is restricted to certain search service SKUs, outlined below:
-
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Private endpoint indexer support | N/A | Yes | Yes | Yes | Yes | No | No | No |
-| Private endpoint indexer support with cognitive search skillsets | N/A | No | No | Yes | Yes | No | No | No |
-
-Once you have an approved private endpoint to a resource, indexers that are set to be "private" attempt to obtain access via the private endpoint connection.
-
-Customers can only create a fixed number of private endpoint connections based on their service SKU, which may limit how many secure resources indexers can access.
-This limit is outined below:
-
-| Resource | Free | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Maximum private endpoints | N/A | 10 or 30 | 100 | 400 | 400 | N/A | N/A | N/A |
-
 These steps are described in greater detail in the [how to guide](search-indexer-howto-access-private.md).
+Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private endpoint connection.
+
+### Limits
+
+To ensure optimal performance and stability of the search service, restrictions are imposed (by search service SKU):
+
+- The kinds of indexers which can be set to be *private*.
+- The number of shared private link resources that can be created.
+- The number of distinct resource types for which shared private link resources can be created.
+
+All these limits are documented in [service limits](search-limits-quotas-capacity.md).
