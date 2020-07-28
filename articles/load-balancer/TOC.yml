@@ -95,14 +95,6 @@
       href: upgrade-basicInternal-standard.md
     - name: Upgrade an Internal Load Balancer - Outbound Connection Required
       href: upgrade-InternalBasic-To-PublicStandard.md
-  - name: Configure outbound rules
-    items:
-    - name: Portal
-      href: configure-load-balancer-outbound-portal.md
-    - name: Azure CLI
-      href: configure-load-balancer-outbound-cli.md
-    - name: Azure PowerShell
-      href: configure-load-balancer-outbound-powershell.md
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI

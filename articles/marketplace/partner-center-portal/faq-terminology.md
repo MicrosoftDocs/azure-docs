@@ -5,6 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
+author: shganesh-dev
+ms.author: shganesh
 ---
 
 # Commercial marketplace analytics terminology and common questions
