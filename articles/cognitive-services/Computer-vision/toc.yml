@@ -129,6 +129,8 @@
     items:
     - name: Setup the host machine and run the container
       href: people-analytics-container.md
+    - name: Configure AI skills
+      href: people-analytics-skills.md
 - name: How-to guides
   items:
   - name: Call the Computer Vision API
