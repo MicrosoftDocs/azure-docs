@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 07/27/2020
 ---
 # Use tags to organize your Azure resources and management hierarchy
 
@@ -591,7 +591,7 @@ The following limitations apply to tags:
    >
    > Azure Front Door doesn't support the use of `#` in the tag name.
    >
-   > Azure Automation only supports 15 tags on its resources.
+   > Azure Automation and Azure CDN only support 15 tags on resources.
 
 ## Next steps
 

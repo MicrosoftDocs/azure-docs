@@ -27,7 +27,7 @@ The following diagram shows the connection between the management servers and ag
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
-If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to Azure Monitor, see [Connect computers to Azure Monitor using the Log Analytics gateway](../../azure-monitor/platform/gateway.md).  
+If your IT security policies do not allow computers on your network to connect to the Internet, management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data depending on the solutions enabled. For more information and steps on how to configure your Operations Manager management group to communicate through a Log Analytics gateway to Azure Monitor, see [Connect computers to Azure Monitor using the Log Analytics gateway](./gateway.md).  
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ The information below list the proxy and firewall configuration information requ
 
 ### TLS 1.2 protocol
 
-To insure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12).
+To insure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent and management group to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. For additional information, review [Sending data securely using TLS 1.2](./data-security.md#sending-data-securely-using-tls-12).
 
 ## Connecting Operations Manager to Azure Monitor
 
@@ -340,4 +340,5 @@ In the future if you plan on reconnecting your management group to a Log Analyti
 
 ## Next steps
 
-To add functionality and gather data, see [Add Azure Monitor solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+To add functionality and gather data, see [Add Azure Monitor solutions from the Solutions Gallery](../insights/solutions.md).
+

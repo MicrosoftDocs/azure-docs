@@ -1,6 +1,5 @@
 ---
-title: 'Tutorial 1: Predict credit risk'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic) tutorial: Predict credit risk - Azure'
 description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic). This tutorial is part one of a three-part tutorial series.  It shows how to create a workspace, upload data, and create an experiment.
 keywords: credit risk, predictive analytics solution,risk assessment
 author: sdgilley
@@ -12,6 +11,9 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ---
 # Tutorial 1: Predict credit risk - Azure Machine Learning Studio (classic)
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
