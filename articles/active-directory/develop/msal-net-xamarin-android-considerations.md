@@ -17,8 +17,8 @@ ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about considerations for using Xamarin Android and MSAL.NET so that I can decide if this platform meets my application development needs.
 ---
 
-# Considerations for using Xamarin Android with MSAL.NET
-This article discusses what you should consider when you use Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET).
+# Configuration tips and troubleshooting for Xamarin Android with MSAL.NET
+This article discusses the necessary configurations you need to make when using Xamarin Android with Microsoft Authentication Library for .NET (MSAL.NET). There is also a section about troubleshooting at the bottom of the page.
 
 ## Set the parent activity
 
@@ -126,16 +126,13 @@ var authResult = AcquireTokenInteractive(scopes)
 For more information, see [Use web browsers for MSAL.NET](msal-net-web-browsers.md) and [Xamarin Android system browser considerations](msal-net-system-browser-android-considerations.md).
 
 
-## Troubleshoot
-You can create a new Xamarin.Forms application and add a reference to the MSAL.NET NuGet package.
-But you might have build issues if you upgrade an existing Xamarin.Forms application to MSAL.NET preview 1.1.2 or later.
+## Troubleshooting
+General tips:
 
-To troubleshoot build issues:
-
-- Update the existing MSAL.NET NuGet package to MSAL.NET preview 1.1.2 or later.
-- Check that Xamarin.Forms automatically updated to version 2.5.0.122203. If necessary, update Xamarin.Forms to this version.
-- Check that Xamarin.Android.Support.v4 automatically updated to version 25.4.0.2. If necessary, update to version 25.4.0.2.
-- Ensure all the Xamarin.Android.Support packages target version 25.4.0.2.
+- Update the existing MSAL.NET NuGet package [to the latest version of MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
+- Check that Xamarin.Forms is on the latest version.
+- Check that Xamarin.Android.Support.v4 is on the latest version.
+- Ensure all the Xamarin.Android.Support packages target the latest version.
 - Clean or rebuild the application.
 - In Visual Studio, try setting the maximum number of parallel project builds to 1. To do that, select **Options** > **Projects and Solutions** > **Build and Run** > **Maximum number of parallel projects builds**.
 - If you're building from the command line and your command uses `/m`, try removing this element from the command.
