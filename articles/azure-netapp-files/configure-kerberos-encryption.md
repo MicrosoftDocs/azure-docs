@@ -163,7 +163,7 @@ This section describes the single client-side performance impact of the various 
 
 There are two area of focus: light load and upper limit. The following lists describe the performance impact security setting by security setting and scenario by scenario. All comparisons are made against the `sec=sys` security parameter.
 
-Performance impact of `krb5`:
+Performance impact of krb5:
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.3 ms.
@@ -174,7 +174,7 @@ Performance impact of `krb5`:
     * Maximum random I/O decreased by 30% for pure read workloads with the overall impact dropping to zero as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
 
-Performance impact of `krb5i`: 
+Performance impact of krb5i: 
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.5 ms.
@@ -185,7 +185,7 @@ Performance impact of `krb5i`:
     * Maximum random I/O decreased by 50% for pure read workloads with the overall impact decreasing to 25% as the workload shifts to pure write. 
     * Maximum metadata workload decreased 30%.
 
-Performance impact of `krb5p`:
+Performance impact of krb5p:
 
 * Low concurrency (r/w):
     * Sequential latency increased 0.8 ms.
