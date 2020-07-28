@@ -1,8 +1,8 @@
 ---
 title: Understand concepts of the Azure IoT Model Repository | Microsoft Docs
 description: As a solution developer or an IT professional, learn about the basic concepts of the Azure IoT Model Repository.
-author: JimacoMS3
-ms.author: v-jambra
+author: prashmo
+ms.author: prashmo
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: iot-pnp
