@@ -32,9 +32,9 @@
     href: release-notes.md
 - name: Quickstarts
   items:
-  - name: Create an Azure Synapse workspace
+  - name: Create a Synapse workspace
     href: quickstart-create-workspace.md
-  - name: Use Azure Synapse Studio 
+  - name: Use Synapse Studio 
     href: quickstart-synapse-studio.md
   - name: Link a Power BI workspace
     href: quickstart-power-bi.md
