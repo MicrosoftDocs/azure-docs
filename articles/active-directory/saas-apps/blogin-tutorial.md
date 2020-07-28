@@ -147,7 +147,7 @@ To configure single sign-on on **BlogIn** side login to your BlogIn account and 
 1. Go to **Settings** > **User Authentication** > **Configure SSO & User provisioning**.
 2. On the next screen, change Single Sign-On status to **On** and choose a custom name for the SSO login button that will be displayed on the login screen.
 
-3. If you saved the **App Federation Metadata Url** in the last step of the previous section, choose the configuration method **Metadata URL** and paste **App Federation Metadata Url** into the Metadata URL field. Otherwise, change the Configuration method to *manual* and manually populate **Identity Provider SSO URL (Login URL)** and **Identity Provider Issuer (entity ID)** and upload the **Certificate (base64)** you got from Azure AD.
+3. If you saved the **App Federation Metadata Url** in the last step of the previous section, choose the configuration method **Metadata URL** and paste **App Federation Metadata Url** into the Metadata URL field. Otherwise, change the Configuration method to **manual**, manually populate **Identity Provider SSO URL (Login URL)** and **Identity Provider Issuer (entity ID)**, and upload the **Certificate (base64)** you got from Azure AD.
 
 4. Choose the default user role for new users joining BlogIn using SSO.
 
