@@ -69,7 +69,8 @@ This query will return the following result:
 
 ## Read properties from nested object columns
 
-`JSON_VALUE` function enables you to return values from complex column formatted as JSON text:
+`JSON_VALUE` function enables you to return values from 
+column formatted as JSON text:
 
 ```sql
 SELECT
@@ -81,7 +82,7 @@ FROM
                 FORMAT='CSV', FIELDTERMINATOR ='0x0b', FIELDQUOTE = '0x0b', ROWTERMINATOR = '0x0b' ) WITH ( complex_column varchar(MAX) ) AS docs;
 ```
 
-Unline JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complexc. The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
+Unline JSON files that in most cases return single column containing complex JSON object. PARQUET files may have multiple complex. The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
 - Specifying the nested value path expression after type specification.
 - Formatting the column name as nested path using do "." to reference the fields.
 
