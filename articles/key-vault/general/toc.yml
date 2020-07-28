@@ -4,8 +4,6 @@
   items:
   - name: About Azure Key Vault
     href: overview.md
-  - name: Important news about soft-delete
-    href: soft-delete-change.md
   - name: About keys, secrets, and certificates
     href: about-keys-secrets-certificates.md
 
