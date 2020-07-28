@@ -11,7 +11,7 @@ ms.author: twooley
 ---
 # High availability and disaster recovery guidance for data in Data Lake Storage Gen1
 
-Data Lake Storage Gen1 provides locally-redundant storage (LRS). Hence, the data in your Data Lake Storage Gen1 account is resilient to transient hardware failures within a datacenter through automated replicas. This ensures durability and high availability, meeting the Data Lake Storage Gen1 SLA. This article provides guidance on how to further protect your data from rare region-wide outages or accidental deletions.
+Data Lake Storage Gen1 provides locally redundant storage (LRS). Hence, the data in your Data Lake Storage Gen1 account is resilient to transient hardware failures within a datacenter through automated replicas. This ensures durability and high availability, meeting the Data Lake Storage Gen1 SLA. This article provides guidance on how to further protect your data from rare region-wide outages or accidental deletions.
 
 ## Disaster recovery guidance
 It is critical for every customer to prepare their own disaster recovery plan. Read the information in this article to build your disaster recovery plan. Here are some resources that can help you create your own plan.
@@ -30,9 +30,8 @@ While Data Lake Storage Gen1 provides data resiliency through automated replicas
 ### Best practices
 To prevent accidental deletion, we recommend that you first set the correct access policies for your Data Lake Storage Gen1 account.  This includes applying [Azure resource locks](../azure-resource-manager/management/lock-resources.md) to lock down important resources as well as applying account and file level access control using the available [Data Lake Storage Gen1 security features](data-lake-store-security-overview.md). We also recommend that you routinely create copies of your critical data using [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) or [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) in another Data Lake Storage Gen1 account, folder, or Azure subscription.  This can be used to recover from a data corruption or deletion incident. Azure Data Factory is a useful service for creating and deploying data movement pipelines on a recurring basis.
 
-Organizations can also enable [diagnostic logging](data-lake-store-diagnostic-logs.md) for their Data Lake Storage Gen1 account to collect data access audit trails that provides information about who might have deleted or updated a file.
+You can also enable [diagnostic logging](data-lake-store-diagnostic-logs.md) for a Data Lake Storage Gen1 account to collect data access audit trails. The audit trails provide information about who might have deleted or updated a file.
 
 ## Next steps
-* [Get Started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
-
