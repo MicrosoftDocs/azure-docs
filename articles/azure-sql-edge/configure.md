@@ -109,6 +109,51 @@ traceflag1 = 3605
 traceflag2 = 1204
 ```
 
+## Run Azure SQL Edge as difference non-root user on the host
+
+Starting with Azure SQL Edge CTP2.2, SQL Edge containers can run with a non-root user/group. When deployed through the Azure Market place, unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the example below SQL Edge is configured to start as the user `*IoTAdmin*`.
+
+```json
+{
+    ..
+    ..
+    ..
+    "User": "IoTAdmin",
+    "Env": [
+        "MSSQL_AGENT_ENABLED=TRUE",
+        "ClientTransportType=AMQP_TCP_Only",
+        "MSSQL_PID=Premium"
+    ]
+}
+```
+
+To allow the non-root user to access DB files that are on mounted volumes, ensure that the user/group you run the container under, has read & write permissions on the persistent file storage. In the example belwo we set the non-root user with user_id 10001 as the owner of the files. 
+
+```bash
+chown -R 10001:0 <database file dir>
+```
+
+### Upgrading from earlier CTP releases
+
+Earlier CTP's of Azure SQL Edge were configured to run as the root users. The following options are available when upgrading from earlier CTP's
+
+- Continue to use the root user - To continue using the root user, add the `*"User": "0:0"*` key-value pair under container create options.
+- Use the default mssql user - To use the default mssql user, follow the steps below
+  - Add a user named mssql on the docker host. In the example below, we add a user mssql with id 10001. This user is also added to the root group.
+    ```bash
+    sudo useradd -M -s /bin/bash -u 10001 -g 0 mssql
+    ```
+  - Change the permission on the directory/mount volume where the database file reside 
+    ```bash
+    sudo chgrp -R 0 /var/lib/docker/volumes/kafka_sqldata/
+    sudo chmod -R g=u /var/lib/docker/volumes/kafka_sqldata/
+    ```
+- Use a different non-root user account - To use a different non-root user account
+  - Update the container create options to specify add `*"User": "user_name | user_id*` key-value pair under container create options. Please replace user_name or user_id with an actual user_name or user_id from your docker host. 
+  - Change the permissions on the directory/mount volume.
+
+
+
 ## Next steps
 
 - [Connect to Azure SQL Edge](connect.md)
