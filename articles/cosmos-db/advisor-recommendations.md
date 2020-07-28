@@ -1,6 +1,6 @@
 ---
 title: Automated advisor performance recommendations for Azure Cosmos DB
-description: 
+description: Learn how to view customized performance, cost, security, and other recommendations for Azure Cosmos DB based on your workload patterns.
 author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
@@ -20,9 +20,15 @@ You can view recommendations for Azure Cosmos DB in the following three ways:
 
 1. One way to view the recommendations is within the notifications tab. Sign into your [Azure portal](https://portal.azure.com) and navigate to your Azure Cosmos account.  If there are new recommendations, you will see a message bar. You can select the message and view recommendations.
 
+   :::image type="content" source="./media/advisor-recommendations/notification-bar.png" alt-text="Got to recommendation from notification bar":::
+
 1. Another option is within your Azure Cosmos account, open the **Notifications** pane and then select the **Recommendations** tab.
 
+   :::image type="content" source="./media/advisor-recommendations/cosmos-db-pane-recommendations.png" alt-text="View recommendations from Azure Cosmos DB pane":::
+
 1. You can also find the recommendations through [Azure Advisor](../advisor/advisor-overview.md) in categorized by different buckets such as cost, security, reliability, performance, and operational excellence. You can select specific subscriptions and filter by the resource type, which is **Azure Cosmos DB accounts**.  When you select a specific recommendation, it displays the actions you can take to benefit your workloads.
+
+   :::image type="content" source="./media/advisor-recommendations/advisor-pane-recommendations.png" alt-text="View recommendations from Azure Advisor pane":::
 
 Not all recommendations shown in the Azure Cosmos DB pane are available in the Azure Advisor and vice versa. That’s because based on the type of recommendation they fit in either the Azure Advisor pane, Azure Cosmo DB pane or both.
 
@@ -77,3 +83,4 @@ In this category, the advisor detects the query execution and identifies that th
 | QueryPageSize | Detects queries issued with a fixed page size and recommends using -1 (no limit on the page size) instead of defining a specific value. This option reduces the number of network round trips required to retrieve all results. |
 
 ## Next steps
+
