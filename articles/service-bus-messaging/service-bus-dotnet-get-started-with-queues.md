@@ -1,22 +1,11 @@
 ---
 title: Get started with Azure Service Bus queues | Microsoft Docs
 description: In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
-services: service-bus-messaging
-documentationcenter: .net
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus-messaging
-ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
-ms.workload: na
-ms.date: 01/24/2020
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
+
 # Get started with Service Bus queues
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.

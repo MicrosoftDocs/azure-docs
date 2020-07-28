@@ -2,7 +2,7 @@
 title: Enable automatic tuning
 description: You can enable automatic tuning on your database easily using the Azure portal.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 

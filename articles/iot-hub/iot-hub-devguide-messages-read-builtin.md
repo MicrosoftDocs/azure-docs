@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: amqp
+ms.custom: [amqp, 'Role: Cloud Development']
 ---
 
 # Read device-to-cloud messages from the built-in endpoint
@@ -52,7 +52,7 @@ In the portal, the Event Hub-compatible endpoint field contains a complete Event
 | Hostname | abcd1234namespace.servicebus.windows.net |
 | Namespace | abcd1234namespace |
 
-You can then use any shared access policy that has the **ServiceConnect** permissions to connect to the specified Event Hub.
+You can then choose any shared access policy from the drop-down as shown in the screenshot above. It only shows policies that have the **ServiceConnect** permissions to connect to the specified Event Hub.
 
 The SDKs you can use to connect to the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
 

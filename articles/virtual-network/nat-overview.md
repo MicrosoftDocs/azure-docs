@@ -140,7 +140,7 @@ Virtual Network NAT and the NAT gateway resource are available in all Azure publ
 
 NAT is supported through normal support channels.
 
-## Feedback
+## Suggestions
 
 We want to know how we can improve the service. Propose and vote on what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 

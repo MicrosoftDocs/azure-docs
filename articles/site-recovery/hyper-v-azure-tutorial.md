@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Enable replication for a VM.
 
 > [!NOTE]
-> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](https://docs.microsoft.com/azure/site-recovery).
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](./index.yml).
 
 
 
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 This is the third tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials:
 
 1. [Prepare Azure](tutorial-prepare-azure.md)
-2. [Prepare on-premises Hyper-V](tutorial-prepare-on-premises-hyper-v.md)
+2. [Prepare on-premises Hyper-V](./hyper-v-prepare-on-premises-tutorial.md)
 
 ## Select a replication goal
 

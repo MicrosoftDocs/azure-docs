@@ -13,7 +13,10 @@ manager: lizross
 # Use Microsoft Teams on Windows Virtual desktop
 
 >[!IMPORTANT]
->Media optimization for Microsoft Teams is currently in public preview. We recommend evaluating the optimized Teams user experience before deploying Teams for production workloads. Certain features might not be supported or might have constrained capabilities.
+>Media optimization for Teams is currently in **public preview**. We recommend evaluating the optimized Teams user experience before deploying Teams for production workloads. Certain features might not be supported or might have constrained capabilities.
+
+>[!IMPORTANT]
+>Media optimization for Teams is not supported for Microsoft 365 Government environments.
 
 >[!NOTE]
 >Media optimization for Microsoft Teams is only available for the Windows Desktop client on Windows 10 machines. Media optimizations require Windows Desktop client version 1.2.1026.0 or later.
@@ -27,7 +30,7 @@ With media optimization for Microsoft Teams, the Windows Desktop client handles 
 Before you can use Microsoft Teams on Windows Virtual Desktop, you'll need to do these things:
 
 - [Prepare your network](/microsoftteams/prepare-network/) for Microsoft Teams.
-- Install the [Windows Desktop client](connect-windows-7-and-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
+- Install the [Windows Desktop client](connect-windows-7-10.md) on a Windows 10 or Windows 10 IoT Enterprise device that meets the Microsoft Teams [hardware requirements for Teams on a Windows PC](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connect to a Windows 10 Multi-session or Windows 10 Enterprise virtual machine (VM).
 - Install the Teams desktop app on the host using per-machine installation. Media optimization for Microsoft Teams requires Teams desktop app version 1.3.00.4461 or later.
 
@@ -49,6 +52,14 @@ To enable media optimization for Teams, set the following registry key on the ho
 ### Install the Teams WebSocket Service
 
 Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+
+#### Latest WebSocket Service versions
+
+The following table lists the latest versions of the WebSocket Service:
+
+|Version    |Release date  |
+|-----------|--------------|
+|0.11.0     |05/29/2020    |
 
 ### Install Microsoft Teams
 
@@ -130,7 +141,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 
 For Teams known issues that aren't related to virtualized environments, see [Support Teams in your organization](/microsoftteams/known-issues/)
 
-## Feedback
+## UserVoice site
 
 Provide feedback for Microsoft Teams on Windows Virtual Desktop on the Teams [UserVoice site](https://microsoftteams.uservoice.com/).
 

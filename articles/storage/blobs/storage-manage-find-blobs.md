@@ -59,7 +59,7 @@ You can apply multiple tags on your blob to be more descriptive of the data.
 > "Priority" = '01' 
 >
 
-To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time.
+To modify the existing index tag attributes, you must first retrieve the existing tag attributes, modify the tag attributes, and replace with the SetBlobTags operation. To remove all index tags from the blob, call the SetBlobTags operation with no tag attributes specified. As blob index tags are a sub-resource to the blob data contents, SetBlobTags does not modify any underlying content and does not change the blob's last-modified-time or ETag (entity tag). You can create or modify index tags for all current base blobs and previous versions; however tags on snapshots or soft deleted blobs cannot be modified. 
 
 The following limits apply to Blob Index tags:
 - Each blob can have up to 10 blob index tags

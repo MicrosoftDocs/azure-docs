@@ -3,21 +3,33 @@ title: Create resource provider
 description: Describes how to create a resource provider and deploy its custom resource types.
 author: MSEvanhi
 ms.topic: tutorial
-ms.date: 06/19/2020
+ms.date: 06/24/2020
 ms.author: evanhi
 ---
 
-# Quickstart: Create custom provider and deploy custom resources
+# Quickstart: Create a custom provider and deploy custom resources
 
 In this quickstart, you create your own resource provider and deploy custom resource types for that resource provider. For more information about custom providers, see [Azure Custom Providers Preview overview](overview.md).
 
 ## Prerequisites
 
-To complete the steps in this quickstart, you need to call `REST` operations. There are [different ways of sending REST requests](/rest/api/azure/).
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- To complete the steps in this quickstart, you need to call `REST` operations. There are [different ways of sending REST requests](/rest/api/azure/).
 
-To run Azure CLI commands, use [Bash in Azure Cloud Shell](/azure/cloud-shell/quickstart). The [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands require an extension. For more information, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+# [Azure CLI](#tab/azure-cli)
 
-To run PowerShell commands locally, use PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps). If you don't already have a tool for `REST` operations, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
+- The [custom-providers](/cli/azure/ext/custom-providers/custom-providers/resource-provider) commands require an extension. For more information, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- Azure CLI examples use `az rest` for `REST` requests. For more information, see [az rest](/cli/azure/reference-index#az-rest).
+
+# [PowerShell](#tab/azure-powershell)
+
+- The PowerShell commands are run locally using PowerShell 7 or later and the Azure PowerShell modules. For more information, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
+- If you don't already have a tool for `REST` operations, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
+- After the **ARMClient** is installed you can display usage information from a PowerShell command prompt by typing: `armclient.exe`. Or, go to the [ARMClient wiki](https://github.com/projectkudu/ARMClient/wiki).
+
+---
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## Deploy custom provider
 
@@ -25,14 +37,16 @@ To set up the custom provider, deploy an [example template](https://github.com/A
 
 After deploying the template, your subscription has the following resources:
 
-* Function App with the operations for the resources and actions.
-* Storage Account for storing users that are created through the custom provider.
-* Custom Provider that defines the custom resource types and actions. It uses the function app endpoint for sending requests.
-* Custom resource from the custom provider.
+- Function App with the operations for the resources and actions.
+- Storage Account for storing users that are created through the custom provider.
+- Custom Provider that defines the custom resource types and actions. It uses the function app endpoint for sending requests.
+- Custom resource from the custom provider.
 
-To deploy the custom provider, use Azure CLI or PowerShell:
+To deploy the custom provider, use Azure CLI, PowerShell, or the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
+
+This example prompts you to enter a resource group, location, and provider's function app name. The names are stored in variables that are used in other commands. The [az group create](/cli/azure/group#az-group-create) and [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) commands deploy the resources.
 
 ```azurecli-interactive
 read -p "Enter a resource group name:" rgName &&
@@ -47,6 +61,8 @@ read
 
 # [PowerShell](#tab/azure-powershell)
 
+This example prompts you to enter a resource group, location, and provider's function app name. The names are stored in variables that are used in other commands. The [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) and [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) commands deploy the resources.
+
 ```powershell
 $rgName = Read-Host -Prompt "Enter a resource group name"
 $location = Read-Host -Prompt "Enter the location (i.e. eastus)"
@@ -59,7 +75,7 @@ Read-Host -Prompt "Press [ENTER] to continue ..."
 
 ---
 
-Or, you can deploy the solution from the Azure portal with the following button:
+You can also deploy the solution from the Azure portal. Select the **Deploy to Azure** button to open the template in the Azure portal.
 
 [![Deploy to Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json)
 
@@ -247,7 +263,7 @@ Use the [custom-providers](/cli/azure/ext/custom-providers/custom-providers/reso
 
 ### List custom resource providers
 
-List all the custom resource providers in a subscription. The default lists custom resource providers for the current subscription, or you can specify the `--subscription` parameter. To list for a resource group, use the `--resource-group` parameter.
+Use the `list` command to display all the custom resource providers in a subscription. The default lists the current subscription's custom resource providers, or you can specify the `--subscription` parameter. To list for a resource group, use the `--resource-group` parameter.
 
 ```azurecli-interactive
 az custom-providers resource-provider list --subscription $subID
@@ -284,7 +300,7 @@ az custom-providers resource-provider list --subscription $subID
 
 ### Show the properties
 
-Show the properties of a custom resource provider. The output format resembles the `list` output.
+Use the `show` command to display the custom resource provider's properties. The output format resembles the `list` output.
 
 ```azurecli-interactive
 az custom-providers resource-provider show --resource-group $rgName --name $funcName

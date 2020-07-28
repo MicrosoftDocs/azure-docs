@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot module errors
+title: Troubleshoot designer (preview) module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
+description: Troubleshoot module error codes in Azure Machine Learning designer (preview)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

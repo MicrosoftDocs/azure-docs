@@ -19,8 +19,8 @@ This page explains how you can use alerts suppression rules to suppress false po
 - Release state: **Preview**
 - Required roles: **Security admin** and **Owner** can create/delete rules. **Security reader** and **Reader** can view rules.
 - Clouds: 
-    - ✔ Commercial clouds
-    - ✔ National/Sovereign (US Gov, China Gov, Other Gov)
+  ✔ Commercial clouds
+  ✔ National/Sovereign (US Gov, China Gov, Other Gov)
 
 
 ## What are suppression rules?
@@ -38,7 +38,7 @@ Your suppression rules define the criteria for which alerts should be automatica
 > [!CAUTION]
 > Suppressing security alerts reduces the threat protection of Security Center. You should carefully check the potential impact of any suppression rule, and monitor it over time.
 
-[![Azure Security Center security alerts page with alerts suppression options](media/alerts-suppression-rules/alerts-screen-with-options.png)](media/alerts-suppression-rules/alerts-screen-with-options.png#lightbox)
+![Create alert suppression rule](media\alerts-suppression-rules\create-suppression-rule.gif)
 
 ## Create a suppression rule
 

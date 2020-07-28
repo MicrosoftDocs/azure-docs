@@ -1,15 +1,8 @@
 ---
 title: Authenticate an application to access Azure Service Bus entities
 description: This article provides information about authenticating an application with Azure Active Directory to access Azure Service Bus  entities (queues, topics, etc.)
-services: service-bus-messaging
-ms.service: event-hubs
-documentationcenter: ''
-author: axisc
-
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
 ---
 
 # Authenticate and authorize an application with Azure Active Directory to access Azure Service Bus entities
@@ -53,7 +46,7 @@ The following list describes the levels at which you can scope access to Service
 > [!NOTE]
 > Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating custom RBAC roles, see [Create custom roles for Azure Role-Based Access Control](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 
 ## Assign RBAC roles using the Azure portal  
@@ -152,7 +145,7 @@ When you run the console application, you are prompted to select a scenario. Sel
 
 
 ## Next steps
-- To learn more about RBAC, see [What is role-based access control (RBAC)](../role-based-access-control/overview.md)?
+- To learn more about RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Manage role-based access control (RBAC) with Azure CLI](../role-based-access-control/role-assignments-cli.md)

@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid - Troubleshooting guide
 description: This article provides a list of error codes, error messages, descriptions, and recommended actions. 
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 # Troubleshoot Azure Event Grid errors

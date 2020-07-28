@@ -323,8 +323,7 @@ A SNAT port is available for reuse to the same destination IP address and destin
 - NSG flow logging isn't supported when using NAT.
 - NAT can't span multiple virtual networks.
 
-
-## Feedback
+## Suggestions
 
 We want to know how we can improve the service. Are missing a capability? Make your case for what we should build next at [UserVoice for NAT](https://aka.ms/natuservoice).
 

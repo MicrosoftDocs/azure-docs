@@ -7,7 +7,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/17/2020
+ms.date: 07/03/2020
 ---
 
 # Monitor Data Flows
@@ -51,12 +51,31 @@ When your Data Flow is executed in Spark, Azure Data Factory determines optimal 
   * Cluster startup time: Amount of time to acquire the JIT Spark compute environment for your data flow execution
   * Number of transforms: How many transformation steps are being executed in your flow
   
-![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")  
+![Data Flow Monitoring](media/data-flow/monitornew.png "Data Flow Monitoring New")
+
+## Total Sink Processing Time vs. Transformation Processing Time
+
+Each transformation stage includes a total time for that stage to complete with each partition execution time totaled together. When you click on the Sink you will see "Sink Processing Time". This time includes the total of the transformation time *plus* the I/O time it took to write your data to your destination store. The difference between the Sink Processing Time and the total of the transformation is the I/O time to write the data.
+
+You can also see detailed timing for each partition transformation step if you open the JSON output from your data flow activity in the ADF pipeline monitoring view. The JSON contains millisecond timing for each partition, whereas the UX monitoring view is an aggregate timing of partitions added together:
+
+```
+ {
+     "stage": 4,
+     "partitionTimes": [
+          14353,
+          14914,
+          14246,
+          14912,
+          ...
+         ]
+}
+```
   
 ## Monitor Icons
 
 This icon means that the transformation data was already cached on the cluster, so the timings and execution path have taken that into account:
 
-![Data Flow Monitoring](media/data-flow/mon004.png "Data Flow Monitoring")
+![Data Flow Monitoring](media/data-flow/mon005.png "Data Flow Monitoring")
 
 You also see green circle icons in the transformation. They represent a count of the number of sinks that data is flowing into.

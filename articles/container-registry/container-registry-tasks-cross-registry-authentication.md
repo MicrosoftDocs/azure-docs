@@ -2,7 +2,7 @@
 title: Cross-registry authentication from ACR task
 description: Configure an Azure Container Registry Task (ACR Task) to access another private Azure container registry by using a managed identity for Azure resources
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 07/06/2020
 ---
 
 # Cross-registry authentication in an ACR task using an Azure-managed identity 
@@ -39,6 +39,7 @@ First, create a working directory and then create a file named Dockerfile with t
 ```bash
 echo FROM node:9-alpine > Dockerfile
 ```
+
 In the current directory, run the [az acr build][az-acr-build] command to build and push the base image to the base registry. In practice, another team or process in the organization might maintain the base registry.
     
 ```azurecli
@@ -80,6 +81,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
+### Give identity pull permissions to the base registry
+
+In this section, give the managed identity permissions to pull from the base registry, *mybaseregistry*.
+
+Use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
+
+```azurecli
+baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
+```
+
+Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
+
+```azurecli
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
+```
+
+Proceed to [Add target registry credentials to task](#add-target-registry-credentials-to-task).
+
 ## Option 2: Create task with system-assigned identity
 
 The steps in this section create a task and enable a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
@@ -98,7 +120,7 @@ az acr task create \
 ```
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## Give identity pull permissions to the base registry
+### Give identity pull permissions to the base registry
 
 In this section, give the managed identity permissions to pull from the base registry, *mybaseregistry*.
 

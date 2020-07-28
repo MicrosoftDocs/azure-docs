@@ -1,8 +1,9 @@
 ---
 title: Customer-managed transparent data encryption (TDE)
 description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption (TDE) with Azure Key Vault for SQL Database and Azure Synapse Analytics. TDE with BYOK overview, benefits, how it works, considerations, and recommendations."
+titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: seo-lt-2019, azure-synapse
 ms.devlang:
@@ -23,6 +24,9 @@ For Azure SQL Database and Azure Synapse Analytics, the TDE protector is set at 
 
 > [!IMPORTANT]
 > For those using service-managed TDE who would like to start using customer-managed TDE, data remains encrypted during the process of switching over, and there is no downtime nor re-encryption of the database files. Switching from a service-managed key to a customer-managed key only requires re-encryption of the DEK, which is a fast and online operation.
+
+> [!NOTE]
+> To provide Azure SQL customers with two layers of encryption of data at rest, infrastructure encryption (using AES-256 encryption algorithm) with platform managed keys is being rolled out. This provides an addition layer of encryption at rest along with TDE with customer-managed keys, which is already available. At this time, customers must request access to this capability. If you are interested in this capability, contact AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## Benefits of the customer-managed TDE
 
@@ -52,7 +56,7 @@ For server to be able to use TDE protector stored in AKV for encryption of the D
 
 - **unwrapKey** - to be able to unprotect (decrypt) DEK
 
-Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/azure-key-vault.md), so they can be audited later.
+Key vault administrator can also [enable logging of key vault audit events](../../azure-monitor/insights/key-vault-insights-overview.md), so they can be audited later.
 
 When server is configured to use a TDE protector from AKV, the server sends the DEK of each TDE-enabled database to the key vault for encryption. Key vault returns the encrypted DEK, which is then stored in the user database.
 

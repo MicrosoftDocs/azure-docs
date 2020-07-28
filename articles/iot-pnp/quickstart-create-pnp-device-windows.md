@@ -75,7 +75,7 @@ In this quickstart, you use the [Vcpkg](https://github.com/microsoft/vcpkg) libr
 1. Install Azure IoT C device SDK Vcpkg:
 
     ```cmd
-    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
+    .\vcpkg.exe install azure-iot-sdk-c[public-preview,use-prov-client]
     ```
 
 ## Author your model
@@ -84,7 +84,7 @@ In this quickstart, you use an existing sample device capability model and assoc
 
 1. Create a `pnp_app` folder in your local drive. You use this folder for the device model files and device code stub.
 
-1. Download the [device capability model and interface sample files](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/SampleDevice.model.json) and [interface sample](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/EnvironmentalSensor.interface.json) and save the files into the `pnp_app` folder.
+1. Download the [device capability model](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/opendigitaltwins-dtdl/blob/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensor.interface.json) files and save them into the `pnp_app` folder.
 
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.

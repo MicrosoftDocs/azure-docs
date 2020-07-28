@@ -1,6 +1,6 @@
 ---
-title: Deploy the diagnostics tool for Windows Virtual Desktop - Azure
-description: How to deploy the diagnostics UX tool for Windows Virtual Desktop.
+title: Deploy the diagnostics tool for Windows Virtual Desktop (classic) - Azure
+description: How to deploy the diagnostics UX tool for Windows Virtual Desktop (classic).
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,10 +11,10 @@ ms.author: helohr
 manager: lizross
 ---
 
-# Deploy the diagnostics tool
+# Deploy the Windows Virtual Desktop (classic) diagnostics tool
 
 >[!IMPORTANT]
->This content applies to the Fall 2019 release that doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
 
 >[!IMPORTANT]
 >As of March 16, 2020, we've temporarily disabled diagnostic queries that impacted user experience due to increased demand on the service. This will cause the tool to stop working because it relies on those queries to function. We'll update this article when diagnostic queries are available again.
@@ -191,7 +191,8 @@ To set the Redirect URI:
 6. Select **Web** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![The redirect URI page](../media/redirect-uri-page.png)
+   > [!div class="mx-imgBorder"]
+   > ![The redirect URI page](../media/redirect-uri-page.png)
 
 8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <https://contosoapp45.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
