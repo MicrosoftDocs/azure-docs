@@ -39,7 +39,7 @@ To view the built-in policy definitions related to monitoring, perform the follo
 
 
 ## Diagnostic settings
-[Diagnostic settings](../platform/diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
+[Diagnostic settings](./diagnostic-settings.md) collect resource logs and metrics from Azure resources to multiple locations, typically to a Log Analytics workspace which allows you to analyze the data with [log queries](../log-query/log-query-overview.md) and [log alerts](alerts-log.md). Use Policy to automatically create a diagnostic setting each time you create a resource.
 
 Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
@@ -176,3 +176,4 @@ You may have scenarios where you want to install the Log Analytics agent but not
 
 - Read more about [Azure Policy](../../governance/policy/overview.md).
 - Read more about [diagnostic settings](diagnostic-settings.md).
+

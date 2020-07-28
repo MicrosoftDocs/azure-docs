@@ -485,7 +485,7 @@
       - name: View notifications
         href: ../service-health/service-notifications.md
       - name: Configure alerts on notification events
-        href: platform/alerts-activity-log-service-notifications.md     
+        href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Notifications and actions
       items:
       - name: Action rules (Preview)
@@ -1319,3 +1319,4 @@
     href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: News
     href: https://azure.microsoft.com/updates/?product=monitor
+

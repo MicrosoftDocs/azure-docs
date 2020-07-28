@@ -20,34 +20,34 @@ Some features of Computer Vision support multiple languages; any features not me
 
 Computer Vision's OCR APIs support several languages. They do not require you to specify a language code. See [Optical Character Recognition (OCR)](concept-recognizing-text.md) for more information.
 
-|Language| Language code | OCR API | Read API |
-|:-----|:----:|:-----:|:---:|
-|Arabic | `ar`|✔ | |
-|Chinese (Simplified) | `zh-Hans`|✔ | |
-|Chinese (Traditional) | `zh-Hant`|✔ | |
-|Czech | `cs` |✔ | |
-|Danish | `da` |✔ | |
-|Dutch | `nl` |✔ |✔ |
-|English | `en` |✔ |✔ |
-|Finnish | `fi` |✔ | |
-|French | `fr` |✔ |✔ |
-|German | `de` |✔ |✔ |
-|Greek | `el` |✔ | |
-|Hungarian | `hu` |✔ | |
-|Italian | `it` |✔ |✔ |
-|Japanese | `ja` |✔ | |
-|Korean | `ko` |✔ | |
-|Norwegian | `nb` |✔ | |
-|Polish | `pl` |✔ | |
-|Portuguese | `pt` |✔ |✔ |
-|Romanian | `ro` |✔ | |
-|Russian | `ru` |✔ | |
-|Serbian (Cyrillic) | `sr-Cyrl` |✔ | |
-|Serbian (Latin) | `sr-Latn` |✔ | |
-|Slovak | `sk` |✔ | |
-|Spanish | `es` |✔ |✔ |
-|Swedish | `sw` |✔ | |
-|Turkish | `tr` |✔ | |
+|Language| Language code | OCR API | Read v3.0 | Read v3.1-preview.1 |
+|:-----|:----:|:-----:|:---:|:---:|
+|Arabic | `ar`|✔ | | |
+|Chinese (Simplified) | `zh-Hans`|✔ | |✔ |
+|Chinese (Traditional) | `zh-Hant`|✔ | | |
+|Czech | `cs` |✔ | | |
+|Danish | `da` |✔ | | |
+|Dutch | `nl` |✔ |✔ |✔ |
+|English | `en` |✔ |✔ |✔ |
+|Finnish | `fi` |✔ | | |
+|French | `fr` |✔ |✔ |✔ |
+|German | `de` |✔ |✔ |✔ |
+|Greek | `el` |✔ | | |
+|Hungarian | `hu` |✔ | | |
+|Italian | `it` |✔ |✔ |✔ |
+|Japanese | `ja` |✔ | | |
+|Korean | `ko` |✔ | | |
+|Norwegian | `nb` |✔ | | |
+|Polish | `pl` |✔ | | |
+|Portuguese | `pt` |✔ |✔ |✔ |
+|Romanian | `ro` |✔ | | |
+|Russian | `ru` |✔ | | |
+|Serbian (Cyrillic) | `sr-Cyrl` |✔ | | |
+|Serbian (Latin) | `sr-Latn` |✔ | | |
+|Slovak | `sk` |✔ | | |
+|Spanish | `es` |✔ |✔ |✔ |
+|Swedish | `sw` |✔ | | |
+|Turkish | `tr` |✔ | | |
 
 ## Image analysis
 

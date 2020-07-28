@@ -3,6 +3,7 @@ title: How to use Micrometer with Azure Application Insights Java SDK
 description: A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications.
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
 

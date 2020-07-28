@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy

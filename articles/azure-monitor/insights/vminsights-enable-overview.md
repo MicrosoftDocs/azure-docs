@@ -9,8 +9,64 @@ ms.date: 07/27/2020
 
 ---
 
-# Onboard agents to Azure Monitor for VMs
-To use Azure Monitor for VMs, you must first configure it and then onboard your virtual machines and virtual machine scale sets. This article provides the details for enabling Azure Monitor for VMs in your Azure subscription and gives an overview of the different options available for enabling Windows and Linux agents for the following:
+# Enable Azure Monitor for VMs overview
+
+This article provides an overview of the options available to enable Azure Monitor for VMs to monitor health and performance of the following:
+
+- Azure virtual machines 
+- Azure virtual machine scale sets
+- Hybrid virtual machines connected with Azure Arc
+- On-premises virtual machines
+- Virtual machines hosted in another cloud environment.  
+
+To set up Azure Monitor for VMs:
+
+* Enable a single Azure VM, Azure VMSS, or Azure Arc machine by selecting **Insights** directly from their menu in the Azure portal.
+* Enable multiple Azure VMs, Azure VMSS, or Azure Arc machines by using Azure Policy. This method ensures that on existing and new VMs and scale sets, the required dependencies are installed and properly configured. Noncompliant VMs and scale sets are reported, so you can decide whether to enable them and to remediate them.
+* Enable multiple Azure VMs, Azure Arc VMs, Azure VMSS, or Azure Arc machines across a specified subscription or resource group by using PowerShell.
+* Enable Azure Monitor for VMs to monitor VMs or physical computers hosted in your corporate network or other cloud environment.
+
+## Prerequisites
+
+Before you start, make sure that you understand the information in the following sections. 
+
+>[!NOTE]
+>The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
+
+### Log Analytics
+
+Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
+
+- West Central US
+- West US
+- West US 2
+- South Central US
+- East US
+- East US2
+- Central US
+- North Central US
+- US Gov Az
+- US Gov Va
+- Canada Central
+- UK South
+- North Europe
+- West Europe
+- East Asia
+- Southeast Asia
+- Central India
+- Japan East
+- Australia East
+- Australia Southeast
+
+>[!NOTE]
+>You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
+>
+
+If you don't have a Log Analytics workspace, you can create one by using one of the  resources:
+* [Azure CLI](../learn/quick-create-workspace-cli.md)
+* [PowerShell](../platform/powershell-workspace-configuration.md)
+* [Azure portal](../learn/quick-create-workspace.md)
+* [Azure Resource Manager](../platform/template-workspace-configuration.md)
 
 - Azure virtual machine
 - Azure virtual machine scale set
@@ -95,6 +151,11 @@ The following table lists the Windows and Linux operating systems that Azure Mon
 ## Supported Azure Arc machines
 Azure Monitor for VMs is available for Azure Arc enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
 
+| Connected source | Supported | Description |
+|:--|:--|:--|
+| Windows agents | Yes | Along with the [Log Analytics agent for Windows](../platform/log-analytics-agent.md), Windows agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| Linux agents | Yes | Along with the [Log Analytics agent for Linux](../platform/log-analytics-agent.md), Linux agents need the Dependency agent. For more information, see [supported operating systems](#supported-operating-systems). |
+| System Center Operations Manager management group | No | |
 
 ## Agents
 Azure Monitor for VMs requires the following two agents to be installed on each virtual machine or virtual machine scale set to be monitored. Installing these agents and connecting them to the workspace is the only requirement to onboard the resource.
