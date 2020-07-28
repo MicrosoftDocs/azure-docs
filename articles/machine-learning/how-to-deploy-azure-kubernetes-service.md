@@ -241,15 +241,17 @@ In Azure Machine Learning, "deployment" is used in the more general sense of mak
         - The base image 
         - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
-        - The spark definition tk Is this `spark-defaults.conf`? I can't find any docs tk 
+        - The spark definition `spark-defaults.conf`
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
-    1. If it is not found, it looks for a match in the global ACR (tk What registry is this? Global to your RG? Tenant? The Internet? tk)
+    1. If it is not found, it looks for a match in the global ACR
     1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
 1. Downloading your zipped project file to temporary storage on the compute node
 1. Unzipping the project file
 1. The compute node executing `python <entry script> <arguments>`
 1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
-1. Compute scales down, including removing temporary storage (Relates to Kubernetes) 
+1. Compute scales down, including removing temporary storage (Relates to Kubernetes)
+
+When you're using AKS, the scaling up and down of the compute is controlled by Kubernetes, using the dockerfile built or found as described above. 
 
 ## Deploy models to AKS using controlled rollout (preview)
 
