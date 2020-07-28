@@ -71,7 +71,7 @@ To give a user permissions to manage an Azure Digital Twins instance, you must a
 
 Note that this role is different from...
 * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Owner (Preview)* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
-* the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Owner (Preview)* is the role that should be used for management during preview.
+* the *Owner* role assignable for Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Owner (Preview)* is the role that should be used for management during preview.
 
 Use the following command to assign the role (must be run by an owner of the Azure subscription):
 
