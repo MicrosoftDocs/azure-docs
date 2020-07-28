@@ -12,13 +12,13 @@ manager: philmea
 
 # Azure Maps geocoding coverage
 
-The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) supports geocoding location searches.  Geocoding is a type of location search that returns results as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) can receive a query that contains a location in the form of a partial or full address, street intersection, city centers, counties, or states. The query response will return the results of the location search in latitude and longitude coordinates.
+The Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) supports geocoding location searches.  Geocoding is a type of location search that returns results as latitude and longitude coordinates. For example, the Azure Maps [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) receives queries that contain location information such as a partial or full address, street intersection, city centers, counties, or states. The query response will then return the results of the query in latitude/longitude coordinates.
 
-However, Azure Maps does not have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
+However, Azure Maps doesn't have the same level of information and accuracy for all regions and countries. Use this article to determine what kind of locations you can reliably search for in each region.
 
-The ability to geocode in a country/region is dependent upon the road data coverage and the geocoding precision of the geocoding service. The following categorizations are used to specify the level of geocoding support in each country/region.
+The ability to geocode in a country/region is dependent upon the road data coverage and  geocoding precision of the geocoding service. The following categorizations are used to specify the level of geocoding support in each country/region.
 
-* **Address points** - Addresses data can be resolved to a latitude/longitude coordinate within the address parcel (property boundary). Sometimes referred to as 'Rooftop' accurate. This is the highest level of accuracy available for addresses.
+* **Address points** - Address data can be resolved to a latitude/longitude coordinate within the address parcel (property boundary). Address points are often referred to as being 'Rooftop' accurate, which is the highest level of accuracy available for addresses.
 * **House numbers** - Addresses are interpolated to a latitude/longitude coordinate on the street.
 * **Street level** - Addresses are resolved to the latitude/longitude coordinate of the street that contains the address. The house number may not be processed.
 * **City level** - City place names are supported.
