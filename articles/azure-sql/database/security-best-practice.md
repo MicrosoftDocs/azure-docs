@@ -319,7 +319,7 @@ Separation of Duties, also called Segregation of Duties describes the requiremen
 
 - Always make sure to have an Audit trail for security-related actions.
 
-- You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
+- You can retrieve the definition of the Azure built-in roles to see the permissions used and create a custom role based on excerpts and cumulations of these via PowerShell.
 
 - Because any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. However, there are many tasks that require db_owner privileges. Task like changing any database setting such as changing DB options. Auditing plays a key role in any solution.
 

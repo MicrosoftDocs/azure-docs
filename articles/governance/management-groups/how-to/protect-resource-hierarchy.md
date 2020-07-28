@@ -24,7 +24,7 @@ management group:
 
 These operations only allow a user to read and update the hierarchy settings. The operations don't
 provide any other access to the management group hierarchy or resources in the hierarchy. Both of
-these operations are available in the built-in RBAC role **Hierarchy Settings Administrator**.
+these operations are available in the Azure built-in role **Hierarchy Settings Administrator**.
 
 ## Setting - Default management group
 
