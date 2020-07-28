@@ -16,70 +16,47 @@ ms.custom: how-to
 # Monitor Azure ML experiment runs and metrics
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning.
+In this article, you learn how to add custom logging to Azure Machine Learning training runs. Use custom logs to monitor and track key metrics across multiple runs.
 
-> [!NOTE]
-> Azure Machine Learning may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+
+Azure Machine Learning can also log information from other sources during training, such as automated machine learning runs, or Docker containers that run the jobs. These logs aren't documented, but if you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 > [!TIP]
-> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
-## Available metrics to track
+## Prerequisites
 
-The following metrics can be added to a run while training an experiment. To view a more detailed list of what can be tracked on a run, see the [Run class reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
-
-|Type| Python function | Notes|
-|----|:----|:----|
-|Scalar values |Function:<br>`run.log(name, value, description='')`<br><br>Example:<br>run.log("accuracy", 0.95) |Log a numerical or string value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
-|Lists|Function:<br>`run.log_list(name, value, description='')`<br><br>Example:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Log a list of values to the run with the given name.|
-|Row|Function:<br>`run.log_row(name, description=None, **kwargs)`<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
-|Table|Function:<br>`run.log_table(name, value, description='')`<br><br>Example:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Log a dictionary object to the run with the given name. |
-|Images|Function:<br>`run.log_image(name, path=None, plot=None)`<br><br>Example:<br>`run.log_image("ROC", plot=plt)` | Log an image to the run record. Use log_image to log a .PNG image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
-|Tag a run|Function:<br>`run.tag(key, value=None)`<br><br>Example:<br>run.tag("selected", "yes") | Tag the run with a string key and optional string value.|
-|Upload file or directory|Function:<br>`run.upload_file(name, path_or_stream)`<br> <br> Example:<br>run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
-
-> [!NOTE]
-> Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
+- Create an Azure Machine Learning workspace, and install the Azure Machine Learning SDK for Python. To learn more, see [How to configure a development environment](how-to-configure-environment.md).
 
 ## Choose a logging option
 
-If you want to track or monitor your experiment, you must add code to start logging when you submit the run. The following are ways to trigger the run submission:
-* __Run.start_logging__ - Add logging functions to your training script and start an interactive logging session in the specified experiment. **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
-* __ScriptRunConfig__ - Add logging functions to your training script and load the entire script folder with the run.  **ScriptRunConfig** is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
-* __Designer logging__ - Add logging functions to a drag-&-drop designer pipeline by using the __Execute Python Script__ module. Add Python code to log designer experiments. 
-
-## Set up the workspace
-Before adding logging and submitting an experiment, you must set up the workspace.
-
-1. Load the workspace. To learn more about setting the workspace configuration, see [workspace configuration file](how-to-configure-environment.md#workspace).
-
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_ws)]
+This articles shows you two ways to trigger run submissions. The logging experience is different depending on which method you use.
+* `Run.start_logging` - Add logging functions to your training script and start an interactive logging session. Any metrics that are logged during the session are added to the run record in the experiment. Useful for notebook scenarios.
+* `ScriptRunConfig` - Add logging functions to your training script and load the entire script folder with the run.  ScriptRunConfig is a class for setting up configurations for script runs. Use this option to add code to be notified of completion or to show a visual widget for monitoring.
 
 
-## Option 1: Use start_logging
+### Data types
 
-**start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
+You can log different data types including scalar values, lists, tables, images, directories, and more. For more information, and Python code examples for each data type, see the [Run class reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-set-up-training-targets).
 
-### Load the data
+## Logging option 1: Use start_logging
 
-This example uses the diabetes dataset, a well-known small dataset that comes with scikit-learn. This cell loads the dataset and splits it into random training and testing sets.
+The method [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) starts an interactive logging session. Any metrics logged during the session are added to the run record in the experiment. The logging session ends with [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-), which marks the run as completed, and is typical of interactive notebook scenarios.
 
-[!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=load_data)]
-
-### Add tracking
-Add experiment tracking using the Azure Machine Learning SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
+The following code snippet starts an interactive logging session, logs run parameters **alpha** and **mse**, and uploads the trained model to a specified output location.
 
 [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb?name=create_experiment)]
 
-The script ends with ```run.complete()```, which marks the run as completed.  This function is typically used in interactive notebook scenarios.
+For a complete sample notebook that uses `run.start_logging()`, see [Train a model in a notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb).
 
-## Option 2: Use ScriptRunConfig
+## Logging option 2: Use ScriptRunConfig
 
-[**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) is a class for setting up configurations for script runs. With this option, you can add monitoring code to be notified of completion or to get a visual widget to monitor.
+You can use the [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) class to set up and encapsulate scripts for repeatable runs.
 
-This example expands on the basic sklearn Ridge model from above. It does a simple parameter sweep to sweep over alpha values of the model to capture metrics and trained models in runs under the experiment. The example runs locally against a user-managed environment. 
+This example expands on the basic example from above. It performs a parameter sweep over alpha values and captures the results using logs under runs in the experiment. The example runs locally against a user-managed environment. 
+
+For a complete sample notebook that uses ScriptRunConfigs logs, see [Train a mode locally](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local/train-on-local.ipynb).
 
 1. Create a training script `train.py`.
 
@@ -99,51 +76,16 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)]
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
-## Option 3: Log designer experiments
 
-Use the __Execute Python Script__ module to add logging logic to your designer experiments. You can log any value using this workflow, but it's especially useful to log metrics from the __Evaluate Model__ module to track model performance across different runs.
+## Monitor an experiment run
 
-1. Connect an __Execute Python Script__ module to the output of your __Evaluate Model__ module. __Evaluate Model__ can output evaluation results of 2 models. The following example shows how to log the metrics of 2 output ports in parent run level. 
+In this section, you learn how to view your custom logs during run execution.
 
-    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/designer-logging-pipeline.png)
+For general information on how to manage your experiments, see [Start, monitor, and cancel training runs](how-to-manage-runs.md).
 
-1. Paste the following code into the __Execute Python Script__ code editor to log the mean absolute error for your trained model:
+### Monitor runs from the studio
 
-    ```python
-    # dataframe1 contains the values from Evaluate Model
-    def azureml_main(dataframe1=None, dataframe2=None):
-        print(f'Input pandas.DataFrame #1: {dataframe1}')
-    
-        from azureml.core import Run
-    
-        run = Run.get_context()
-    
-        # Log the mean absolute error to the parent run to see the metric in the run details page.
-        # Note: 'run.parent.log()' should not be called multiple times because of performance issues.
-        # If repeated calls are necessary, cache 'run.parent' as a local variable and call 'log()' on that variable.
-
-        # Log left output port result of Evaluate Model. This also works when evaluate only 1 model.
-        run.parent.log(name='Mean_Absolute_Error (left port)', value=dataframe1['Mean_Absolute_Error'][0])
-
-        # Log right output port result of Evaluate Model.
-        run.parent.log(name='Mean_Absolute_Error (right port)', value=dataframe1['Mean_Absolute_Error'][1])
-    
-        return dataframe1,
-    ```
-
-1. After the pipeline run is completed, you can see the *Mean_Absolute_Error* in the Experiment page.
-
-    ![Connect Execute Python Script module to Evaluate Model module](./media/how-to-track-experiments/experiment-page-metrics-across-runs.png)
-
-## Manage a run
-
-The [Start, monitor, and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
-
-## View run details
-
-### View active/queued runs from the browser
-
-Compute targets used to train models are a shared resource. As such, they may have multiple runs queued or active at a given time. To see the runs for a specific compute target from your browser, use the following steps:
+To see the runs for a specific compute target from your browser, use the following steps:
 
 1. From the [Azure Machine Learning studio](https://ml.azure.com/), select your workspace, and then select __Compute__ from the left side of the page.
 
@@ -156,73 +98,77 @@ Compute targets used to train models are a shared resource. As such, they may ha
     ![Select runs for training cluster](./media/how-to-track-experiments/show-runs-for-compute.png)
     
     > [!TIP]
+    > Since training compute targets are a shared resource, they can have multiple runs queued or active at a given time.
+    > 
     > A run can contain child runs, so one training job can result in multiple entries.
 
-Once a run completes, it is no longer displayed on this page. To view information on completed runs, visit the __Experiments__ section of the studio and select the experiment and run. For more information, see the [Query run metrics](#queryrunmetrics) section.
+Once a run completes, it is no longer displayed on this page. To view information on completed runs, visit the __Experiments__ section of the studio and select the experiment and run. For more information, see the [View metrics for completed runs](#view-metrics-for-completed-runs) section.
 
-### Monitor run with Jupyter notebook widget
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run with a [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+### Monitor runs using the Jupyter notebook widget
 
-1. View the Jupyter widget while waiting for the run to complete.
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
-   ```python
-   from azureml.widgets import RunDetails
-   RunDetails(run).show()
-   ```
+View the Jupyter widget while waiting for the run to complete.
+    
+```python
+from azureml.widgets import RunDetails
+RunDetails(run).show()
+```
 
-   ![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
+![Screenshot of Jupyter notebook widget](./media/how-to-track-experiments/run-details-widget.png)
 
-   You can also get a link to the same display in your workspace.
+You can also get a link to the same display in your workspace.
 
-   ```python
-   print(run.get_portal_url())
-   ```
+```python
+print(run.get_portal_url())
+```
 
-2. **[For automated machine learning runs]** To access the charts from a previous run. Replace `<<experiment_name>>` with the appropriate experiment name:
+#### Monitor automated machine learning runs
 
-   ``` 
-   from azureml.widgets import RunDetails
-   from azureml.core.run import Run
+For automated machine learning runs, to access the charts from a previous run, replace `<<experiment_name>>` with the appropriate experiment name:
 
-   experiment = Experiment (workspace, <<experiment_name>>)
-   run_id = 'autoML_my_runID' #replace with run_ID
-   run = Run(experiment, run_id)
-   RunDetails(run).show()
-   ```
+```python
+from azureml.widgets import RunDetails
+from azureml.core.run import Run
 
-   ![Jupyter notebook widget for Automated Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
+experiment = Experiment (workspace, <<experiment_name>>)
+run_id = 'autoML_my_runID' #replace with run_ID
+run = Run(experiment, run_id)
+RunDetails(run).show()
+```
 
+![Jupyter notebook widget for Automated Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
-To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure Machine Learning studio.
+## View metrics for completed runs
 
-### Get log results upon completion
+### Show output upon completion
 
-Model training and monitoring occur in the background so that you can run other tasks while you wait. You can also wait until the model has completed training before running more code. When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. 
+When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. 
 
 <a id="queryrunmetrics"></a>
-
 ### Query run metrics
 
-You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
+You can view the metrics of a trained model using ```run.get_metrics()```. For example, you could use this with the example above to determine the best model by looking for the model with the lowest mean square error (mse) value.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## View the experiment in your workspace in [Azure Machine Learning studio](https://ml.azure.com)
+### View run records in the studio
 
-When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history from the [Azure Machine Learning studio](https://ml.azure.com).
+You can browse completed run records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the Experiments tab and select your experiment. You are brought to the experiment run dashboard, where you can see tracked metrics and charts that are logged for each run. 
-
-You can edit the run list table to display either the last, minimum or maximum logged value for your runs. You can select or deselect multiple runs in the run list and the selected runs will populate the charts with your data. You can also add new charts or edit charts to compare the logged metrics (minimum, maximum, last or all values) across multiple runs. To explore your data more effectively, you can also maximize your charts.
-
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
+Navigate to the **Experiments** tab and select your experiment. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
 
 You can drill down to a specific run to view its outputs or logs, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
-### Viewing charts in run details
+You can edit the run list table to select multiple runs and display either the last, minimum or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
 
-There are various ways to use the logging APIs to record different types of metrics during a run and view them as charts in Azure Machine Learning studio.
+:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
 
-|Logged Value|Example code| View in portal|
+
+### Format charts in the studio
+
+You can use the following methods in the logging APIs to influence how metrics are visualized in the Azure Machine Learning studio.
+
+|Logged Value|Example code| Format in portal|
 |----|----|----|
 |Log an array of numeric values| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|single-variable line chart|
 |Log a single numeric value with the same metric name repeatedly used (like from within a for loop)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Single-variable line chart|
