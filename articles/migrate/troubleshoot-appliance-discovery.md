@@ -172,9 +172,9 @@ Typical app discovery errors are summarized in the table.
 
 **Error** | **Cause** | **Action**
 --- | --- | ---
-9000: VMware tool status cannot be detected.	 | 	 VMWare tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
-9001: VMware tools is not installed.	 | 	 VMWare tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
-9002: VMware tools is not running.	 | 	 VMWare tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
+9000: VMware tool status cannot be detected.	 | 	 VMware tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
+9001: VMware tools is not installed.	 | 	 VMware tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
+9002: VMware tools is not running.	 | 	 VMware tools might not be installed or is corrupted.	 | 	 Ensure VMware tools is installed and running on the VM.
 9003: Operating system type not supported for guest VM discovery.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only. If the server is indeed Windows or Linux, check the operating system type specified in vCenter Server.
 9004: VM is not running.	 | 	 VM is powered off.	 | 	 Ensure the VM is powered on.
 9005: Operating system type not supported for guest VM discovery.	 | 	 Operating system type not supported for guest VM discovery.	 | 	 Supported operating system types are Windows and Linux only.
@@ -188,12 +188,12 @@ Typical app discovery errors are summarized in the table.
 9013: A new temporary profile is created for every login.	 | 	 A new temporary profile is created for every login to the VMware VM.	 | 	 Contact Microsoft Support for a resolution.
 9014: Unable to retrieve metadata from guest VM file system.	 | 	 No connectivity to ESXi host	 | 	 Ensure the appliance can connect to port 443 on the ESXi host running the VM
 9015: Guest Operations role is not enabled on the vCenter user account	 | 	 Guest Operations role is not enabled on the vCenter user account.	 | 	 Ensure Guest Operations role is enabled on the vCenter user account.
-9016: Unable to discover as guest operations agent is out of date.	 | 	 Vmware tools is not properly installed or is not up to date.	 | 	 Ensure the VMware  tools is properly installed and up to date.
+9016: Unable to discover as guest operations agent is out of date.	 | 	 VMware tools is not properly installed or is not up to date.	 | 	 Ensure the VMware  tools is properly installed and up to date.
 9017: File with discovered metadata is not found on the VM.	 | 	 The issue can occur due to an internal error.	 | 	 Contact Microsoft Support for a resolution.
 9018: PowerShell is not installed in the Guest VMs.	 | 	 PowerShell is not available in the guest VM.	 | 	 Install PowerShell in the guest VM.
 9019: Unable to discover due to guest VM operation failures.	 | 	 VMware Guest operation failed on the VM.	 | 	 Ensure that the VM credentials are valid and user name provided in the guest VM credentials is in UPN format.
 9020: File creation permission is denied.	 | 	 The role associated to the user or the group policy is restricting the user from creating the file in folder 	 | 	 Check if the guest user provided has create permission for the file in folder. See **Notifications** in Server Assessment for the name of the folder.
-9021: Unable to create file in System Temp path.	 | 	 VMware tool reports System Temp path instead of Users Temp Path.	 | 	 Upgrade your vmware tool version above 10287 (NGC/VI Client format).
+9021: Unable to create file in System Temp path.	 | 	 VMware tool reports System Temp path instead of Users Temp Path.	 | 	 Upgrade your VMware tool version above 10287 (NGC/VI Client format).
 9022: Access to WMI object is denied.	 | 	 The role associated to the user or the group policy is restricting the user from accessing WMI object.	 | 	 Please contact Microsoft Support.
 9023: Unable to run PowerShell as SystemRoot environment variable value is empty.	 | 	 The value of SystemRoot environment variable is empty for the guest VM.	 | 	 Contact Microsoft Support for a resolution.
 9024: Unable to discover as TEMP environment variable value is empty.	 | 	 The value of TEMP environment variable is empty for the guest VM.	 | 	 Please contact Microsoft Support.
