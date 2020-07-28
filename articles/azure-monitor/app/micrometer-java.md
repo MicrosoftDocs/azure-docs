@@ -18,7 +18,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
   2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
-* [ApplicationInsights Resource](../../azure-monitor/app/create-new-resource.md )
+* [ApplicationInsights Resource](./create-new-resource.md)
 
 Steps
 
@@ -56,7 +56,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
 * Azure-spring-boot-metrics-starters 2.0.7 or later
-* [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights Resource](./create-new-resource.md)
 
 Steps:
 
@@ -115,7 +115,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Web Auto 2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
-* [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
+* [Application Insights Resource](./create-new-resource.md)
 
 Steps:
 
@@ -270,3 +270,4 @@ Add the following binding code to the configuration  file:
 
 * To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
 * To learn about Spring on Azure, see the official [Spring on Azure documentation](/java/azure/spring-framework/?view=azure-java-stable).
+
