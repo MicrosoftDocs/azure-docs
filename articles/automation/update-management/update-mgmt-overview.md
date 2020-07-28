@@ -12,15 +12,15 @@ You can use Update Management in Azure Automation to manage operating system upd
 
 You can enable Update Management for VMs in the following ways:
 
-* From your [Azure Automation account](automation-onboard-solutions-from-automation-account.md) for one or more Azure machines.
+* From your [Azure Automation account](../automation-onboard-solutions-from-automation-account.md) for one or more Azure machines.
 * Manually for non-Azure machines.
-* For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
-* For [multiple Azure VMs](manage-update-multi.md) by selecting them from the Virtual machines page in the Azure portal.
+* For a single Azure VM from the Virtual machine page in the Azure portal. This scenario is available for [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) and [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management) VMs.
+* For [multiple Azure VMs](update-mgmt-onboard-portal.md) by selecting them from the Virtual machines page in the Azure portal.
 
 > [!NOTE]
 > Update Management requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
-An [Azure Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
+An [Azure Resource Manager template](update-mgmt-enable-template.md) is available to help you deploy Update Management to a new or existing Automation account and Log Analytics workspace in your subscription.
 
 > [!NOTE]
 > You can't use a machine configured with Update Management to run custom scripts from Azure Automation. This machine can only run the Microsoft-signed update script.
@@ -36,7 +36,7 @@ Machines that are managed by Update Management use the following configurations 
 
 The following diagram illustrates how Update Management assesses and applies security updates to all connected Windows Server and Linux machines in a workspace:
 
-![Update Management workflow](./media/automation-update-management/update-mgmt-updateworkflow.png)
+![Update Management workflow](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
 Update Management can be used to natively deploy machines in multiple subscriptions in the same tenant.
 
@@ -51,11 +51,11 @@ For a Linux machine, the compliance scan is performed every hour by default. If 
 Update Management reports how up to date the machine is based on what source you're configured to sync with. If the Windows machine is configured to report to WSUS, depending on when WSUS last synced with Microsoft Update, the results might differ from what Microsoft Update shows. This behavior is the same for Linux machines that are configured to report to a local repo instead of to a public repo.
 
 > [!NOTE]
-> To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network configuration](./automation-hybrid-runbook-worker.md#network-planning).
+> To properly report to the service, Update Management requires certain URLs and ports to be enabled. To learn more about these requirements, see [Network configuration](../automation-hybrid-runbook-worker.md#network-planning).
 
 You can deploy and install software updates on machines that require the updates by creating a scheduled deployment. Updates classified as optional aren't included in the deployment scope for Windows machines. Only required updates are included in the deployment scope.
 
-The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of machines (or on an [Azure query](automation-update-management-query-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](../azure-monitor/insights/solution-targeting.md), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
+The scheduled deployment defines which target machines receive the applicable updates. It does so either by explicitly specifying certain machines or by selecting a [computer group](../../azure-monitor/platform/computer-groups.md) that's based on log searches of a specific set of machines (or on an [Azure query]update-mgmt-view-logs.md) that dynamically selects Azure VMs based on specified criteria). These groups differ from [scope configuration](../../azure-monitor/insights/solution-targeting.md), which is used to control the targeting of machines that receive the configuration to enable Update Management. This prevents them from performing and reporting update compliance, and install approved required updates.
 
 While defining a deployment, you also specify a schedule to approve and set a time period during which updates can be installed. This period is called the maintenance window. A 20-minute span of the maintenance window is reserved for reboots, assuming one is needed and you selected the appropriate reboot option. If patching takes longer than expected and there's less than 20 minutes in the maintenance window, a reboot won't occur.
 
@@ -69,22 +69,22 @@ Having a machine registered for Update Management in more than one Log Analytics
 
 ### Supported client types
 
-The following table lists the supported operating systems for update assessments and patching. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see [Deploy a Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) and a [Deploy a Linux Hybrid Runbook Worker](automation-linux-hrw-install.md).
+The following table lists the supported operating systems for update assessments and patching. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) and a [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](./how-to/region-mappings.md#supported-mappings). 
+> Update assessment of Linux machines is only supported in certain regions as listed in the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings). 
 
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 ||
-|Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](automation-view-update-assessments.md#linux-2).          |
+|Windows Server 2008 R2 (RTM and SP1 Standard)| Update Management supports assessments and patching for this operating system. The [Hybrid Runbook Worker](../automation-windows-hrw-install.md) is supported for Windows Server 2008 R2. |
+|CentOS 6 (x86/x64) and 7 (x64)      | Linux agents require access to an update repository. Classification-based patching requires `yum` to return security data that CentOS doesn't have in its RTM releases. For more information on classification-based patching on CentOS, see [Update classifications on Linux](../automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents require access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents require access to an update repository.        |
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents require access to an update repository.         |
 
 > [!NOTE]
-> Azure virtual machine scale sets can be managed through Update Management. Update Management works on the instances themselves and not on the base image. You'll need to schedule the updates in an incremental way, so that not all the VM instances are updated at once. You can add nodes for virtual machine scale sets by following the steps under [Add a non-Azure machine to Change Tracking and Inventory](automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
+> Azure virtual machine scale sets can be managed through Update Management. Update Management works on the instances themselves and not on the base image. You'll need to schedule the updates in an incremental way, so that not all the VM instances are updated at once. You can add nodes for virtual machine scale sets by following the steps under [Add a non-Azure machine to Change Tracking and Inventory](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
 ### Unsupported client types
 
@@ -92,19 +92,19 @@ The following table lists unsupported operating systems:
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br> For Azure Windows Virtual Desktop (WVD), the recommended method<br> to manage updates is [Microsoft Endpoint Configuration Manager](../virtual-desktop/configure-automatic-updates.md) for Windows 10 client machine patch management. |
+|Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.<br> For Azure Windows Virtual Desktop (WVD), the recommended method<br> to manage updates is [Microsoft Endpoint Configuration Manager](../../virtual-desktop/configure-automatic-updates.md) for Windows 10 client machine patch management. |
 |Windows Server 2016 Nano Server     | Not supported.       |
-|Azure Kubernetes Service Nodes | Not supported. Use the patching process described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
+|Azure Kubernetes Service Nodes | Not supported. Use the patching process described in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../../aks/node-updates-kured.md)|
 
 ### Client requirements
 
-The following information describes operating system-specific client requirements. For additional guidance, see [Network planning](#ports). To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+The following information describes operating system-specific client requirements. For additional guidance, see [Network planning](#ports). To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
 #### Windows
 
-Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For information about how to install the Log Analytics agent for Windows, see [Connect Windows computers to Azure Monitor](../azure-monitor/platform/agent-windows.md).
+Windows agents must be configured to communicate with a WSUS server, or they require access to Microsoft Update. For information about how to install the Log Analytics agent for Windows, see [Connect Windows computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md).
 
-You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Endpoint Configuration Manager](updatemgmt-mecmintegration.md). The [Log Analytics agent for Windows](../azure-monitor/platform/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment. 
+You can use Update Management with Microsoft Endpoint Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Endpoint Configuration Manager](update-mgmt-mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/platform/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment. 
 
 By default, Windows VMs that are deployed from the Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
 
@@ -116,15 +116,15 @@ By default, Windows VMs that are deployed from the Azure Marketplace are set to 
 For Linux, the machine requires access to an update repository, either private or public. TLS 1.1 or TLS 1.2 is required to interact with Update Management. Update Management doesn't support a Log Analytics agent for Linux that's configured to report to more than one Log Analytics workspace. The machine must also have Python 2.x installed.
 
 > [!NOTE]
-> Update assessment of Linux machines is only supported in certain regions. See the Automation account and Log Analytics workspace [mappings table](./how-to/region-mappings.md#supported-mappings). 
+> Update assessment of Linux machines is only supported in certain regions. See the Automation account and Log Analytics workspace [mappings table](../how-to/region-mappings.md#supported-mappings).
 
-For information about how to install the Log Analytics agent for Linux and to download the latest version, see [Log Analytics agent for Linux](../azure-monitor/platform/agent-linux.md). 
+For information about how to install the Log Analytics agent for Linux and to download the latest version, see [Log Analytics agent for Linux](../../azure-monitor/platform/agent-linux.md).
 
-VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in the Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../virtual-machines/workloads/redhat/redhat-rhui.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by the distribution.
+VMs created from the on-demand Red Hat Enterprise Linux (RHEL) images that are available in the Azure Marketplace are registered to access the [Red Hat Update Infrastructure (RHUI)](../../virtual-machines/workloads/redhat/redhat-rhui.md) that's deployed in Azure. Any other Linux distribution must be updated from the distribution's online file repository by using methods supported by the distribution.
 
 ## Permissions
 
-To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](automation-role-based-access-control.md#update-management-permissions).
+To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
 ## Update Management components
 
@@ -140,7 +140,7 @@ You can add the Windows machine to a Hybrid Runbook Worker group in your Automat
 
 ### Management packs
 
-If your Operations Manager management group is [connected to a Log Analytics workspace](../azure-monitor/platform/om-agents.md), the following management packs are installed in Operations Manager. These management packs are also installed for Update Management on directly connected Windows machines. You don't need to configure or manage these management packs.
+If your Operations Manager management group is [connected to a Log Analytics workspace](../../azure-monitor/platform/om-agents.md), the following management packs are installed in Operations Manager. These management packs are also installed for Update Management on directly connected Windows machines. You don't need to configure or manage these management packs.
 
 * Microsoft System Center Advisor Update Assessment Intelligence Pack (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -149,7 +149,7 @@ If your Operations Manager management group is [connected to a Log Analytics wor
 > [!NOTE]
 > If you have an Operations Manager 1807 or 2019 management group connected to a Log Analytics workspace with agents configured in the management group to collect log data, you need to override the parameter `IsAutoRegistrationEnabled` and set it to True in the **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init** rule.
 
-For more information about updates to management packs, see [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
+For more information about updates to management packs, see [Connect Operations Manager to Azure Monitor logs](../../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
 > For Update Management to fully manage machines with the Log Analytics agent, you must update to the Log Analytics agent for Windows or the Log Analytics agent for Linux. To learn how to update the agent, see [How to upgrade an Operations Manager agent](/system-center/scom/deploy-upgrade-agents). In environments that use Operations Manager, you must be running System Center Operations Manager 2012 R2 UR 14 or later.
@@ -174,7 +174,7 @@ Update Management scans managed machines for data using the following rules. It 
 
 * Each Linux machine - Update Management does a scan every hour.
 
-The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information to analyze data usage, see [Manage usage and cost](../azure-monitor/platform/manage-cost-storage.md).
+The average data usage by Azure Monitor logs for a machine using Update Management is approximately 25 MB per month. This value is only an approximation and is subject to change, depending on your environment. We recommend that you monitor your environment to keep track of your exact usage. For more information to analyze data usage, see [Manage usage and cost](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="ports"></a>Network planning
 
@@ -187,15 +187,15 @@ The following addresses are required specifically for Update Management. Communi
 |`*.blob.core.windows.net` | `*.blob.core.usgovcloudapi.net`|
 |`*.azure-automation.net` | `*.azure-automation.us`|
 
-When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tag](../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+When you create network group security rules or configure Azure Firewall to allow traffic to the Automation service and the Log Analytics workspace, use the [service tag](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** and **AzureMonitor**. This simplifies the ongoing management of your network security rules. To connect to the Automation service from your Azure VMs securely and privately, review [Use Azure Private Link](../how-to/private-link-security.md). To obtain the current service tag and range information to include as part of your on-premises firewall configurations, see [downloadable JSON files](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 For Windows machines, you must also allow traffic to any endpoints required by Windows Update. You can find an updated list of required endpoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
+For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux distributions, see your provider documentation.
 
-For more information about ports required for the Hybrid Runbook Worker, see [Update Management addresses for Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
+For more information about ports required for the Hybrid Runbook Worker, see [Update Management addresses for Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../azure-monitor/platform/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
+If your IT security policies do not allow machines on the network to connect to the internet, you can set up a [Log Analytics gateway](../../azure-monitor/platform/gateway.md) and then configure the machine to connect through the gateway to Azure Automation and Azure Monitor.
 
 ## Update classifications
 
@@ -238,7 +238,7 @@ To classify updates on Red Hat Enterprise version 6, you need to install the yum
 
 ## Integrate Update Management with Configuration Manager
 
-Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Update Management with Windows Endpoint Configuration Manager](updatemgmt-mecmintegration.md).
+Customers who have invested in Microsoft Endpoint Configuration Manager for managing PCs, servers, and mobile devices also rely on the strength and maturity of Configuration Manager to help manage software updates. To learn how to integrate Update Management with Configuration Manager, see [Integrate Update Management with Windows Endpoint Configuration Manager](update-mgmt-mecmintegration.md).
 
 ## Third-party updates on Windows
 
@@ -246,16 +246,16 @@ Update Management relies on the locally configured update repository to update s
 
 ## Enable Update Management
 
-An Azure [Resource Manager template](automation-update-management-deploy-template.md) is available to help you deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
+An Azure [Resource Manager template](update-mgmt-enable-template.md) is available to help you deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
 
 Here are the ways that you can enable Update Management and select machines to be managed:
 
-* [From a virtual machine](automation-onboard-solutions-from-vm.md)
-* [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
-* [From an Azure Automation account](automation-onboard-solutions.md)
+* [From a virtual machine](update-mgmt-enable-vm.md)
+* [From browsing multiple machines](update-mgmt-enable-portal.md)
+* [From an Azure Automation account](update-mgmt-enable-automation-account.md)
 
 ## Next steps
 
-* For details of working with Update Management, see [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+* For details of working with Update Management, see [Manage updates and patches for your Azure VMs](update-mgmt-manage-updates-for-vm.md).
 
-* Review commonly asked questions about Update Management in the [Azure Automation frequently asked questions](automation-faq.md).
+* Review commonly asked questions about Update Management in the [Azure Automation frequently asked questions](../automation-faq.md).

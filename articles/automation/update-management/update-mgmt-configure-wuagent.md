@@ -56,4 +56,4 @@ To restrict machines to the internal update service, set [Do not connect to any 
 
 ## Next steps
 
-Schedule an update deployment by following instructions in [Manage updates and patches for your Azure VMs](automation-tutorial-update-management.md).
+Schedule an update deployment by following instructions in [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
