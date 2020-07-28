@@ -25,9 +25,6 @@ In general, there are two types of authentication that you can use with Azure Ma
 
 Regardless of the authentication type used, role-based access control (RBAC) is used to scope the level of access allowed to the resources. For example, an account that is used to get the access token for a deployed model only needs read access to the workspace. For more information on RBAC, see [Manage access to Azure Machine Learning workspace](how-to-assign-roles.md).
 
-> [!TIP]
-> There is also an __Azure Machine Learning__ app (managed identity) that is created automatically in your subscription. It is automatically added as __Contributor__ to the resource group that contains your Azure Machine Learning workspace. This identity is used to create and manage compute resources for Azure Machine Learning.
-
 ## Prerequisites
 
 * Create an [Azure Machine Learning workspace](how-to-manage-workspace.md).
