@@ -18,7 +18,7 @@ ms.custom: seodec18, tracking-python
 # Connect to Azure storage services
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, learn how to **connect to Azure storage services via Azure Machine Learning datastores**. Datastores store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can use the [Azure Machine Learning Python SDK](#python) or the [Azure Machine Learning studio](#studio) to create and register datastores.
+In this article, learn how to **connect to Azure storage services via Azure Machine Learning datastores**. Datastores securely connect to your Azure storage service without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can use the [Azure Machine Learning Python SDK](#python) or the [Azure Machine Learning studio](#studio) to create and register datastores.
 
 If you prefer to create and manage datastores using the Azure Machine Learning VS Code extension; visit the [VS Code resource management how-to guide](how-to-manage-resources-vscode.md#datastores) to learn more.
 
@@ -31,7 +31,7 @@ To understand where datastores fit in Azure Machine Learning's overall data acce
 You'll need:
 - An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
-- An Azure storage account with an [Azure blob container](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) or [Azure file share](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
+- An Azure storage account with a [supported storage type](#matrix).
 
 - The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -81,7 +81,7 @@ We recommend creating a datastore for an [Azure Blob container](https://docs.mic
 
 ## Storage access and permissions
 
-Datastores allow you to securely connect to your Azure storage service without putting your authentication credentials and the integrity of your original data source at risk. When using a datastore to access data, you must have permission to access the corresponding  data storage container, which depends on the credentials registered with the datastore. 
+To ensure you securely connect to your Azure storage service, Azure Machine Learning  requires that you  have permission to access the corresponding data storage container. This access depends on the authentication credentials used to register the datastore. 
 
 ### Virtual network 
 
@@ -110,9 +110,7 @@ You can find account key, SAS token and service principal information on your [A
 
 ### Permissions
 
-The following summarizes 
-
-
+For Azure blob contatiner and Azure Data Lake Gen 2 storage make sure your authentication credentials  has **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
 
 <a name="python"></a>
 

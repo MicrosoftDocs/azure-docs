@@ -4,7 +4,7 @@ description: Learn about the regions for running virtual machines in Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/28/2019
 ---
