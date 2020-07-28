@@ -22,8 +22,8 @@ highlightedContent:
       itemType: overview
       url: ./general/overview.md
     - title: Important changes to soft delete
-      itemType: whats-new
-      url: ./general/overview-soft-delete.md
+      itemType: overview
+      url: ./general/soft-delete-change.md
     - title: Authentication
       itemType: overview
       url: ./general/authentication.md
