@@ -104,6 +104,7 @@ Get started using your own HTML and CSS in your user experience pages by followi
     <html>
       <head>
         <title>!Add your title here!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://mystore1.blob.core.windows.net/b2c/style.css">
       </head>
       <body>
