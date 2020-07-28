@@ -13,12 +13,13 @@ ms.date: 03/19/2019
 # Azure Key Vault soft-delete overview
 
 > [!IMPORTANT]
-> You must enable soft delete on your key vaults immediately. The ability to opt out of soft delete will be deprecated by the end of the year, and soft-delete protection will automatically be turned on for all key vaults.  See full details [here](soft-delete-change.md)
+> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated by the end of the year, and soft-delete protection will automatically be turned on for all key vaults.  See full details [here](soft-delete-change.md)
 
-Key Vault's soft-delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
+Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 
-- Support for recoverable deletion of a key vault
-- Support for recoverable deletion of key vault objects (ex. keys, secrets, certificates)
+1. Once a secret, key, certificate, or key vault is deleted, it will remain recoverable for a configurable period of 7 to 90 calendar days. If no configuration is specified the default recovery period will be set to 90 days. This provides users with sufficient time to notice an accidental secret deletion and respond.
+2. Two operations must be made to permanently delete a secret. First a user must delete the object, which puts it into the soft-deleted state. Second, a user must purge the object in the soft-deleted state. The purge operation requires additional access policy permissions. These additional protections reduce the risk of a user accidentally or maliciously deleting a secret or a key vault.  
+3. To purge a secret in the soft-deleted state, a service principal must be granted an additional "purge" access policy permission. The purge access policy permission is not granted by default to any service principal including key vault and subscription owners and must be deliberately set. By requiring an elevated access policy permission to purge a soft-deleted secret, it reduces the probability of accidentally deleting a secret.
 
 ## Supporting interfaces
 
