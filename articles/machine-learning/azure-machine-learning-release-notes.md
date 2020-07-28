@@ -36,7 +36,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fix bug for Environment.from_pip_requirements() to preserve dependencies structure
     + Fixed a bug where log_list would fail if an int and double were included in the same list.
     + While enabling private link on an existing workspace, please note that if there are compute targets associated with the workspace, those targets will not work if they are not behind the same virtual network as the workspace private endpoint.
-    + Made `as_named_input` optional when using dataset in experiments and added `as_mount` and `as_download` to `FileDataset`. The input name will automatically generated if `as_mount` or `as_download` is called.
+    + Made `as_named_input` optional when using datasets in experiments and added `as_mount` and `as_download` to `FileDataset`. The input name will automatically generated if `as_mount` or `as_download` is called.
   + **azureml-automl-core**
     + Unhandled exceptions in AutoML now point to a known issues HTTP page, where more information about the errors can be found.
     + Added get_best_child () to AutoMLRun for fetching the best child run for an AutoML Run without downloading the associated model.
