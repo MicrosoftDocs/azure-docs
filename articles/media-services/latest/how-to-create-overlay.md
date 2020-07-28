@@ -4,7 +4,7 @@ description: Learn how to create an overlay with Media Encoder Standard.
 author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/27/2020
 ---
 
