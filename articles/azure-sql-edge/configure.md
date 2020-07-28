@@ -109,7 +109,7 @@ traceflag1 = 3605
 traceflag2 = 1204
 ```
 
-## Run Azure SQL Edge as difference non-root user on the host
+## Run Azure SQL Edge as non-root user
 
 Starting with Azure SQL Edge CTP2.2, SQL Edge containers can run with a non-root user/group. When deployed through the Azure Market place, unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the example below SQL Edge is configured to start as the user `*IoTAdmin*`.
 
