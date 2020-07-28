@@ -22,6 +22,43 @@ Windows Virtual Desktop updates on a regular basis. This article is where you'll
 
 This article is updated monthly. Make sure to check back here often to keep up with new updates.
 
+
+## July 2020  
+
+Within July, new capabilities of Windows Virtual Desktop entered General Availability. Many new features were enabled as part of this release: 
+
+What was known previously as the Spring 2020 Update set of capabilities has now been released into General Availability. In this process this set of updates has had a name change. The Spring 2020 Update capability will now simply be referred to as ‘Windows Virtual Desktop’. What was referred to as Fall 2019 Release is now known as ‘Windows Virtual Desktop (classic)’. Please see this [article](https://azure.microsoft.com/en-us/blog/new-windows-virtual-desktop-capabilities-now-generally-available/) for further information. 
+
+For more information about the new features, check out [our blog post](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245). 
+
+###Updated Autoscaling tool.  
+An updated version of the autoscaling tool has been made generally available. This tool makes use of an Azure automation account and an Azure Logic App to provide the autoscaling capability that will automatically shut down and restart session host VMs within a host pool, allowing you to reduce your infrastructure costs. More information is available here.   
+
+###Quality improvements 
+
+Improvements in reliability, performance and capacity, and multi-geo DB improvements. 
+
+###Azure portal 
+Within the Windows Virtual Desktop section of the Azure portal it is now possible to enable: 
+
+- Direct user assignment of users to personal desktop session hosts  
+- The Validation Environment setting for host pools 
+ 
+
+###Diagnostics 
+We have released a handful of prebuilt queries directly into your Log Analytics workspace. To access, go to Logs and select Category Windows Virtual Desktop. More information is available here. 
+
+###Client for Android 
+
+The new [Remote Desktop client for Android](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) now supports Windows Virtual Desktop connections. In this new client (version 10.0.7 or later) we have brought in refreshed UI flows for improved user-experiences. The app also integrates with Microsoft Authenticator on the device to enable conditional access when subscribing to Windows Virtual Desktop workspaces.  
+
+The older Remote Desktop client is now renamed to “Remote Desktop 8” and your existing connections will be transferred over to the new client seamlessly. The new client has been re-written to the same underlying RDP core engine as the iOS and macOS clients, which enables us to deliver new features at a faster cadence across all platforms. 
+
+###Teams with Media Optimizations GA  
+
+We've made improvements to Microsoft Teams for Windows Virtual Desktop. Most importantly, Windows Virtual Desktop now supports audio and video optimization for the Windows Desktop client. Redirection improves latency by creating direct paths between users when they call using audio or video in calls and meetings. Less distance means fewer hops, which makes calls look and sound smoother. More information is available [here](https://aka.ms/wvdteams).
+
+
 ## June 2020
 
 Last month, we introduced Windows Virtual Desktop with Azure Resource Manager integration in preview. This update has lots of exciting new features we'd love to tell you about. Here's what's new for this version of Windows Virtual Desktop.
