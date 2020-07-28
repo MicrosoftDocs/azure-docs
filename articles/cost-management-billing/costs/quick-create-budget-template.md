@@ -93,9 +93,6 @@ One Azure resource is defined in the template:
     * **Resource Group Filter Values** enter a list of resource group names to filter. Expected format is `["Resource Group Name1","Resource Group Name2"]`. If you don't want to apply a filter, enter `[]`. 
     * **Meter Category Filter Values** enter a list of Azure service meter categories. Expected format is `["Meter Category1","Meter Category2"]`. If you didn't want to apply a filter, enter `[]`.
 
-
-    * **I agree to the terms and conditions state above**: Select.
-
 3. Select **Review + create**.
 
 4. After the template input is validated, select **Create**.  
