@@ -10,20 +10,20 @@ ms.date: 07/20/2020
 ---
 # Quickstart: Deploy an Azure IoT Hub and a storage account using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT Hub that will route messages to Azure Storage, and a storage account to hold them. After manually adding a virtual IoT device to the hub to use to submit the messages, you configure that connection information in the arm-read-write application to submit messages to the hub using that device. The hub has the routing configured, so the messages sent to the hub are automatically routed by the hub to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent. 
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT Hub that will route messages to Azure Storage, and a storage account to hold them. After manually adding a virtual IoT device to the hub to use to submit the messages, you configure that connection information in the arm-read-write application to submit messages to the hub using that device. The hub has the routing configured, so the messages sent to the hub are automatically routed by the hub to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## Overview
 
-1. Start by creating the resoures by loading the ARM template. Click [here](wherever). how to specify the resource group?
+1. Start by creating the resources by loading the ARM template. Click [here](wherever). how to specify the resource group?
 
 1. Download and unzip the c# IoT samples zip file which is [here](https://Azure-Samples/azure-iot-samples-csharp)
 
 1. Open a text editor such as notepad and paste the following into it. Then we'll retrieve the values needed.
 
 ```cmd
-SET ENV_HUB_URI = <hub-name-goes-here>.azure.devices.net 
+SET ENV_HUB_URI = <hub-name-goes-here>.azure.devices.net
 SET ENV_DEVICE_KEY = "device-key-goes-here"
 SET ENV_DEVICE_ID = "Contoso-Test-Device"
 ```
@@ -90,9 +90,11 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
   The syntax for the code fence is:
 
-```text
-:::code language="json" source="~/quickstart-templates/<TEMPLATE NAME>/azuredeploy.json" range="000-000" highlight="000-000":::
-```
+//
+//```text
+//:::code language="json" source="~/quickstart-templates/<TEMPLATE NAME>/azuredeploy.json" range="000-000"
+//highlight="000-000":::
+//```
 
 - After the JSON code fence, a list of each `resourceType` from the JSON must exist with a link to the template reference starting with **/azure/templates**. List the `resourceType` links in the same order as in the template.
 I DON'T EVEN KNOW WHAT THAT MEANS 
