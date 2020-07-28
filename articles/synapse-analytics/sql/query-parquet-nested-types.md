@@ -14,9 +14,10 @@ ms.reviewer: jrasnick, carlrab
 # Query nested types in Parquet and JSON files using SQL on-demand (preview) in Azure Synapse Analytics
 
 In this article, you'll learn how to write a query using SQL on-demand (preview) in Azure Synapse Analytics. This query will read Parquet nested types.
-Nested types are complex structures that represent objects or arrays. Nested types can be stored in 
+Nested types are complex structures that represent objects or arrays. Nested types can be stored in: 
 - [PARQUET](query-parquet-files.md) where you can have multiple complex columns containing arrays and objects.
 - Hierarchical [JSON files](query-json-files.md) where you can read complex JSON documents as single column.
+- CosmosDB collection where every document can contain complex nested properties (currently under gated public preview).
 
 Synapse SQL on-demand formats all nested types as JSON objects and arrays, so you can [extract or modify complex objects using JSON functions](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) or [parse JSON data using OPENJSON function](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
@@ -66,6 +67,13 @@ FROM
         FloatStruct VARCHAR(8000)
     ) AS [r];
 ```
+
+This query will return the following result where the conect of every nested object is returned as JSON text:
+
+| DateStruct	| TimeStruct	| TimestampStruct	| DecimalStruct	| FloatStruct |
+| --- | --- | --- | --- | --- |
+|{"Date":"2009-04-25"}|	{"Time":"20:51:54.3598000"}|	{"Timestamp":"5501-04-08 12:13:57.4821000"}|	{"Decimal":11143412.25350}|	{"Float":0.5}|
+|{"Date":"1916-04-29"}|	{"Time":"00:16:04.6778000"}|	{"Timestamp":"1990-06-30 20:50:52.6828000"}|	{"Decimal":1963545.62800}|	{"Float":-2.125}|
 
 The following query reads the *justSimpleArray.parquet* file. It projects all columns from the Parquet file including nested or repeated data.
 
