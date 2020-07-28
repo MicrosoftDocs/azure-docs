@@ -3,7 +3,7 @@ title: Application Map in Azure Application Insights | Microsoft Docs
 description: Monitor complex application topologies with the application map
 ms.topic: conceptual
 ms.date: 03/15/2019
-
+ms.custom: devx-track-javascript
 ms.reviewer: sdash
 ---
 
