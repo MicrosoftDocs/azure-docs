@@ -71,7 +71,7 @@ For more information about encryption in transit, see [requiring secure transfer
 ### Encryption at rest
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-## Data Protection
+## Data protection
 Azure Files has a multi-layered approach to ensuring your data is backed up, recoverable, and protected from security threats.
 
 ### Soft delete
