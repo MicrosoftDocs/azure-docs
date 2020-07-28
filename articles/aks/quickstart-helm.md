@@ -199,6 +199,7 @@ For more information about using Helm, see the Helm documentation.
 > [Helm documentation][helm-documentation]
 
 [az-acr-create]: /cli/azure/acr#az-acr-create
+[az-acr-build]: /cli/azure/acr#az-acr-build
 [az-group-delete]: /cli/azure/group#az-group-delete
 [az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az aks install-cli]: /cli/azure/aks#az-aks-install-cli
