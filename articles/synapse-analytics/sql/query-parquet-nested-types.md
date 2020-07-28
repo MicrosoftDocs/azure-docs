@@ -24,7 +24,8 @@ One example of query that extracts scalar and objects values from [COVID-19 Open
 SELECT
     title = JSON_VALUE(doc, '$.metadata.title'),
     first_author = JSON_QUERY(doc, '$.metadata.authors[0]'),
-    first_author_name = JSON_VALUE(doc, '$.metadata.authors[0].first')
+    first_author_name = JSON_VALUE(doc, '$.metadata.authors[0].first'),
+    complex_object = doc
 FROM
     OPENROWSET(
         BULK 'https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json',
@@ -33,7 +34,7 @@ FROM
     WITH ( doc varchar(MAX) ) AS docs;
 ```
 
-`JSON_VALUE` function returns a scalar value from the field at the specified path. `JSON_QUERY` function returns an object formated as JSON from the field at the specified path.
+`JSON_VALUE` function returns a scalar value from the field at the specified path. `JSON_QUERY` function returns an object formatted as JSON from the field at the specified path.
 
 > [!IMPORTANT]
 > This example uses a file from [COVID-19 Open Research Dataset](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). See ths licence and the structure of data on this page.
@@ -58,6 +59,18 @@ FROM
 ```
 
 ## Read properties from nested object columns
+
+`JSON_VALUE` function enables you to return values from complex column formatted as JSON text:
+
+```sql
+SELECT
+    title = JSON_VALUE(complex_column, '$.metadata.title'),
+    first_author_name = JSON_VALUE(complex_column, '$.metadata.authors[0].first'),
+    body_text = JSON_VALUE(complex_column, '$.body_text.text'),
+FROM
+    OPENROWSET( BULK 'https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json',
+                FORMAT='CSV', FIELDTERMINATOR ='0x0b', FIELDQUOTE = '0x0b', ROWTERMINATOR = '0x0b' ) WITH ( complex_column varchar(MAX) ) AS docs;
+```
 
 The following query reads the *structExample.parquet* file and shows how to surface elements of a nested column. You have two ways to reference nested value:
 - Specifying the nested value path expression after type specification.
@@ -105,7 +118,7 @@ FROM
     ) AS [r];
 ```
 
-## Access sub-objets from complex columns
+## Access sub-objects from complex columns
 
 The following query reads the *mapExample.parquet* file and uses [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to retrieve a **non-scalar** element from within a repeated column, such as an Array or Map:
 
