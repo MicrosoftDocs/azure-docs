@@ -66,6 +66,10 @@
       href: how-to-create-azure-function.md
     - name: Query the twin graph
       href: how-to-query-graph.md
+    - name: View metrics in Azure Monitor
+      href: how-to-view-metrics.md
+    - name: Set up diagnostic logs
+      href: how-to-set-up-diagnostics.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
