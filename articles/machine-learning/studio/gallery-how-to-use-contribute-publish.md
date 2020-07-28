@@ -1,6 +1,5 @@
 ---
-title: Azure AI Gallery
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Azure AI Gallery - Azure'
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,9 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 

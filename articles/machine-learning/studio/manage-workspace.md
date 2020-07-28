@@ -1,6 +1,5 @@
 ---
-title: Manage workspaces
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Manage workspaces - Azure'
 description: Manage access to Azure Machine Learning Studio (classic) workspaces, and deploy and manage Machine Learning API web services
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,9 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
 ---
 # Manage an Azure Machine Learning Studio (classic) workspace
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 > [!NOTE]
 > For information on managing Web services in the Machine Learning Web Services portal, see [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).

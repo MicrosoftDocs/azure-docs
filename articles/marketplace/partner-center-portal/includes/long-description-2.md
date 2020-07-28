@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 05/19/2020
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
 ---
 

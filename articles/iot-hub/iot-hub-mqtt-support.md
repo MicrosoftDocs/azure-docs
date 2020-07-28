@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.custom: [amqp, mqtt]
+ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development']
 ---
 # Communicate with your IoT hub using the MQTT protocol
 

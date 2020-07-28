@@ -11,6 +11,7 @@ ms.date: 05/11/2017
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
+ms.custom: devx-track-java
 ---
 
 # Client-Side Encryption and Azure Key Vault with Java for Microsoft Azure Storage
