@@ -30,7 +30,7 @@ If you don't already have a container registry, follow these steps to create a n
 
 4. After your container registry is created, browse to it, and from the left pane select **Access keys** from the menu located under **Settings**. 
 
-5. Set Admin user to Enable to view the **Username** and **Password**.
+5. Click to Enable Admin user to view the **Username** and **Password** for your container registry.
 
 6. Copy the values for **Login server**, **Username**, and **Password** and save them somewhere convenient. You use these values throughout this tutorial to provide access to the container registry.
 
