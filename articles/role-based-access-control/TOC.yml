@@ -37,6 +37,11 @@
     href: best-practices.md
   - name: Conditional Access for Azure management
     href: conditional-access-azure-management.md
+  - name: Security
+    items:
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
 - name: How-to guides
   items:
   - name: List role definitions

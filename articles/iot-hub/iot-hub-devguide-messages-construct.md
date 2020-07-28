@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: asrastog
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Create and read IoT Hub messages
