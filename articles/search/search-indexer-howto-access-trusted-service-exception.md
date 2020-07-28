@@ -13,14 +13,16 @@ ms.date: 03/13/2020
 
 # Accessing data in storage accounts securely via trusted service exception
 
-Indexers whose data sources use the search service's identity to access storage account data, can utilize the ["trusted service exception"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) capability offered by Azure storage to bypass IP firewall rules. This mechanism enables customers who are unable to grant [indexer access via IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, free alternative to access data in network secured storage accounts.
+Indexers that access data in storage accounts can make use of the [trusted service exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) capability to bypass IP firewall rules. This mechanism offers customers who are unable to grant [indexer access via IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, secure and free alternative to access data in storage accounts.
+
+To utilize this capability the indexer's data source must access storage via the search service's system identity.
 
 > [!NOTE]
 > Accessing storage account via the system assigned identity of a search service is still in preview. This preview feature is provided without a service level agreement, and is not recommended for production workloads.
 
 ## Step 1: Configure connection to the storage account via identity
 
-Follow the details outlined in [this how-to guide](search-howto-managed-identities-storage.md) to set up the indexers to access storage accounts via the search service's identity.
+Follow the details outlined in [this how-to guide](search-howto-managed-identities-storage.md) to configure indexers to access storage accounts via the search service's managed identity.
 
 ## Step 2: Allow trusted Microsoft services to access the storage account
 

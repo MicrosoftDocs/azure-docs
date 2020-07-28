@@ -15,19 +15,18 @@ ms.date: 03/13/2020
 
 IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts and Azure SQL servers only permit traffic originating from specific IP ranges to access data.
 
-This guide will describe how to configure the IP rules for a storage account so that Azure Cognitive Search indexers can access the data securely.
-While specific to storage, this example can be directly translated for CosmosDB, Azure SQL server and other such services which offer IP firewall rules to restrict traffic at a network level.
+This guide will describe how to configure the IP rules for a storage account so that Azure Cognitive Search indexers can access the data securely. While specific to storage, this guide can be directly translated to other Azure resources that also offer IP firewall rules for securing access to data.
 
 > [!NOTE]
 > IP firewall rules for storage account are only effective if the storage account and the search service are in different regions. If your setup does not permit this, we recommend utilizing the [trusted service exception option](search-indexer-howto-access-trusted-service-exception.md).
 
-## Obtain the IP address of the search service
+## Get the IP address of the search service
 
 Obtain the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find out the FQDN by looking up your search service on the Azure portal.
 
    ![Obtain service FQDN](media\search-indexer-howto-secure-access\search-service-portal.PNG "Obtain service FQDN")
 
-Using the FQDN, the search service's IP address can be obtained using `nslookup` (amongst other ways)
+The IP address of the search service can be obtained by performing a `nslookup` (or a `ping`) of the FQDN. This will be one of the IP addresses to add to the firewall rules.
 
 ```azurepowershell
 
@@ -37,21 +36,19 @@ Address:  10.50.10.50
 
 Non-authoritative answer:
 Name:    <name>
-Address:  <IP address of search service>
+Address:  150.0.0.1
 Aliases:  contoso.search.windows.net
 ```
 
-Note down the IP address obtained above. Hypothetically, say it is 150.0.0.1.
-
 ## Get the IP address ranges for "AzureCognitiveSearch" service tag
 
-The IP address ranges for the `AzureCognitiveSearch` service tag can be either obtained via the [discovery API (preview)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) or a [downloadable JSON file](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
+The IP address ranges for the `AzureCognitiveSearch` service tag can be either obtained via the [discovery API (preview)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview) or the [downloadable JSON file](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files).
 
 For this walkthrough, assuming the search service is the Azure Public cloud, the [Azure Public JSON file](https://www.microsoft.com/download/details.aspx?id=56519) should be downloaded.
 
    ![Download JSON file](media\search-indexer-howto-secure-access\service-tag.PNG "Download JSON file")
 
-From that JSON file, assuming the search service is in West Central US, the following is the list of IP address ranges from which requests can originate, if the indexer is running in the multi-tenant environment.
+From that JSON file, assuming the search service is in West Central US, the following is the list of IP address ranges for the multi-tenant indexer execution environment.
 
 ```json
     {
