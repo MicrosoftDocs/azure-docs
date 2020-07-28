@@ -13,21 +13,21 @@ ms.date: 03/13/2020
 
 # Setting up IP firewall rules to enable indexer access
 
-IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts and Azure SQL servers restrict only those traffic originating from those specific IP ranges to access data.
+IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts and Azure SQL servers only permit traffic originating from specific IP ranges to access data.
 
-This guide will describe how to configure the IP rules for a storage account so that indexers can have access to the data in the storage account.
-While specific to storage account, this example can be directly translated for CosmosDB, Azure SQL server and other such services which also utilize IP firewall as a mechanism to offer network level security.
+This guide will describe how to configure the IP rules for a storage account so that Azure Cognitive Search indexers can access the data securely.
+While specific to storage, this example can be directly translated for CosmosDB, Azure SQL server and other such services which offer IP firewall rules to restrict traffic at a network level.
 
 > [!NOTE]
-> IP firewall rules for storage account are only effective if the storage account and the search service are in different regions.
+> IP firewall rules for storage account are only effective if the storage account and the search service are in different regions. If your setup does not permit this, we recommend utilizing the [trusted service exception option](search-indexer-howto-access-trusted-service-exception.md).
 
 ## Obtain the IP address of the search service
 
-Obtain the fully qualified domain name (FQDN) of your search service, which is of the format `<search-service-name>.search.windows.net`. You can easily find this out by looking up your search service on the Azure portal.
+Obtain the fully qualified domain name (FQDN) of your search service. This will look like `<search-service-name>.search.windows.net`. You can find out the FQDN by looking up your search service on the Azure portal.
 
    ![Obtain service FQDN](media\search-indexer-howto-secure-access\search-service-portal.PNG "Obtain service FQDN")
 
-With the FQDN, there are several ways to get the IP address associated with it - the simplest option would be to utilize `nslookup`
+Using the FQDN, the search service's IP address can be obtained using `nslookup` (amongst other ways)
 
 ```azurepowershell
 

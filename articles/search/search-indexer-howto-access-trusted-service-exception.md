@@ -13,10 +13,10 @@ ms.date: 03/13/2020
 
 # Accessing data in storage accounts securely via trusted service exception
 
-Indexers whose data sources use the search service's identity to access storage account data, can utilize the ["trusted service exception"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) capability offered by Azure storage to "by pass" any firewall rules. This mechanism enables customers who are unable to grant [indexer access via IP firewall rules](search-indexer-howto-access-ip-restricted.md) (presumably because the search service and storage accounts are in the same region) a simple, no-cost alternative to access data in network secured storage accounts.
+Indexers whose data sources use the search service's identity to access storage account data, can utilize the ["trusted service exception"](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) capability offered by Azure storage to bypass IP firewall rules. This mechanism enables customers who are unable to grant [indexer access via IP firewall rules](search-indexer-howto-access-ip-restricted.md) a simple, free alternative to access data in network secured storage accounts.
 
 > [!NOTE]
-> Accessing storage account via the system assigned identity of a search service is still in preview, provided without a service level agreement, and is not recommended for production workloads.
+> Accessing storage account via the system assigned identity of a search service is still in preview. This preview feature is provided without a service level agreement, and is not recommended for production workloads.
 
 ## Step 1: Configure connection to the storage account via identity
 
@@ -24,7 +24,7 @@ Follow the details outlined in [this how-to guide](search-howto-managed-identiti
 
 ## Step 2: Allow trusted Microsoft services to access the storage account
 
-In the Azure portal, via the "Firewalls and Virtual Networks" tab of the storage account management blade, ensure that the option "Allow trusted Microsoft services to access this storage account" is checked. This will only permit the specific instance of the search service, which has been assigned the appropriate access permissions to the storage account, to bypass the firewall rules.
+In the Azure portal, via the "Firewalls and Virtual Networks" tab of the storage account management blade, ensure that the option "Allow trusted Microsoft services to access this storage account" is checked. This will only permit the specific search service instance with appropriate role based access to the storage account to bypass the firewall rules.
 
 ![Exception](media\search-indexer-howto-secure-access\exception.png "Exception")
 
