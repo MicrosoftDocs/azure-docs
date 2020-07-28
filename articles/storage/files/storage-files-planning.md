@@ -79,7 +79,7 @@ Soft delete for file shares (preview) is a storage-account level setting that al
 
 We recommend turning on soft delete for most file shares. If you have a workflow where share deletion is common and expected, you may decide to have a very short retention period or not have soft delete enabled at all.
 
-For more information about soft delete, see [Prevent accidental data deletion](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-prevent-file-share-deletion).
+For more information about soft delete, see [Prevent accidental data deletion](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion).
 
 ### Backup
 You can back up your Azure file share via [share snapshots](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files), which are read-only, point-in-time copies of your share. Snapshots are incremental, meaning they they only contain as much data as has changed since the previous snapshot. You can have up to 200 snapshots per file share and retain them for up to 10 years. You can either manually take these snapshots in the Azure portal, via PowerShell, or command-line interface (CLI), or you can use [Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json). Snapshots are stored within your file share, meaning that if you delete your file share, your snapshots will also be deleted. To protect your snapshot backups from accidental deletion, ensure soft delete is enabled for your share.
