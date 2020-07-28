@@ -329,10 +329,10 @@ You build an autoscale formula by forming statements that use the above componen
 
 First, let's define the requirements for our new autoscale formula. The formula should:
 
-1. Increase the target number of dedicated compute nodes in a pool if CPU usage is high.
-1. Decrease the target number of dedicated compute nodes in a pool when CPU usage is low.
-1. Always restrict the maximum number of dedicated nodes to 400.
-1. When reducing the number of nodes, don't remove nodes that are running tasks; if necessary, wait until tasks have finished before removing nodes.
+- Increase the target number of dedicated compute nodes in a pool if CPU usage is high.
+- Decrease the target number of dedicated compute nodes in a pool when CPU usage is low.
+- Always restrict the maximum number of dedicated nodes to 400.
+- When reducing the number of nodes, don't remove nodes that are running tasks; if necessary, wait until tasks have finished before removing nodes.
 
 The first statement in our formula will increase the number of nodes during high CPU usage. We'll define a statement that populates a user-defined variable (`$totalDedicatedNodes`) with a value that is 110 percent of the current target number of dedicated nodes, but only if the minimum average CPU usage during the last 10 minutes was above 70 percent. Otherwise, it uses the value for the current number of dedicated nodes.
 
@@ -481,7 +481,7 @@ When you enable autoscaling on an existing pool, keep in mind:
   - If you omit either the autoscale formula or interval, the Batch service will continue to use the current value of that setting.
 
 > [!NOTE]
-> If you specified values for the *targetDedicatedNodes* or *targetLowPriorityNodes* parameters of the **CreatePool** method when you created the pool in .NET, or for the comparable parameters in another language, then those values are ignored when the autoscale formula is evaluated.]
+> If you specified values for the *targetDedicatedNodes* or *targetLowPriorityNodes* parameters of the **CreatePool** method when you created the pool in .NET, or for the comparable parameters in another language, then those values are ignored when the autoscale formula is evaluated.
 
 This C# example uses the [Batch .NET](/dotnet/api/microsoft.azure.batch) library to enable autoscaling on an existing pool.
 
