@@ -132,7 +132,7 @@ Add-Content -Path C:\inetpub\wwwroot\video\test.htm -Value $($env:computername)`
 
 2. Add the backend pools. You will need to add three new backend pools in an existing application gateway instance. Select **Backend pools** from the left menu. Select **Add** and enter the details of the first pool, **contoso-web**. Add one VM as the target. Select **Add**. Repeat this process for **contoso-images** and **contoso-video**, adding one unique VM to each as target. 
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-02.png" alt-text="Backend pool creation":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-02.png" alt-text="Backend pool creation" lightbox="media/protect-avs-web-apps-with-app-gw/app-gw-url-route-backendpool-avs-02.png":::
 
 3. In the **Listeners** section, create a new listener of type Basic using port 8080.
 
