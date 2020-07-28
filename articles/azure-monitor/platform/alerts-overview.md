@@ -48,11 +48,11 @@ The following are key attributes of an alert rule:
 - Sev 3 = Informational
 - Sev 4 = Verbose 
 
-**Action**: A specific action taken when the alert is fired. For more information, see [Action Groups](../../azure-monitor/platform/action-groups.md).
+**Action**: A specific action taken when the alert is fired. For more information, see [Action Groups](./action-groups.md).
 
 ## What you can alert on
 
-You can alert on metrics and logs, as described in [monitoring data sources](../../azure-monitor/platform/data-sources.md). These include but are not limited to:
+You can alert on metrics and logs, as described in [monitoring data sources](./data-sources.md). These include but are not limited to:
 
 - Metric values
 - Log search queries
@@ -65,7 +65,7 @@ Previously, Azure Monitor metrics, Application Insights, Log Analytics, and Serv
 | **Monitor source** | **Signal type**  | **Description** |
 |-------------|----------------|-------------|
 | Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
-| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+| Application Insights | Web availability tests | Not supported. See [Web test alerts](../app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
 
 ## Manage alerts
 You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, and it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
@@ -133,9 +133,9 @@ Here's how to create a new alert rule:
  
 This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you are guided through defining the logic of the alert rule automatically.  
 
-You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](./alerts-metric.md).
 
-Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../../azure-monitor/overview.md). 
+Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../overview.md). 
 
 
 ## All Alerts page 
@@ -204,7 +204,8 @@ Use the [Alert Management REST API](https://aka.ms/alert-management-api) to get 
 ## Next steps
 
 - [Learn more about Smart Groups](https://aka.ms/smart-groups)
-- [Learn about action groups](../../azure-monitor/platform/action-groups.md)
+- [Learn about action groups](./action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
 - [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
+

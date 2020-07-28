@@ -21,8 +21,6 @@
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: Add an app not listed in the gallery
-      href: add-non-gallery-app.md
     - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
@@ -42,6 +40,8 @@
       items:
       - name: Get started with app integration
         href: plan-an-application-integration.md
+      - name: Plan for apps not listed in the gallery
+        href: non-gallery-apps.md
       - name: Plan an access panel deployment
         href: access-panel-deployment-plan.md
       - name: Guidance for developers

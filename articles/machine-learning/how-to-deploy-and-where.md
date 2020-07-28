@@ -5,12 +5,12 @@ description: 'Learn how and where to deploy your Azure Machine Learning models, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
-ms.custom: seoapril2019, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, tracking-python
 
 ---
 
