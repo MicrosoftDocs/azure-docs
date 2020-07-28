@@ -13,15 +13,15 @@ tags: connectors
 
 # Connect to an IBM MQ server from Azure Logic Apps
 
-The IBM MQ connector sends and retrieves messages stored in an IBM MQ server on premises or in Azure. This connector includes a Microsoft MQ client that communicates with a remote IBM MQ server across a TCP/IP network. This article provides a starter guide to use the MQ connector. You can start by browsing a single message on a queue and then try other actions.
+The MQ connector sends and retrieves messages stored in an MQ server on premises or in Azure. This connector includes a Microsoft MQ client that communicates with a remote IBM MQ server across a TCP/IP network. This article provides a starter guide to use the MQ connector. You can start by browsing a single message on a queue and then try other actions.
 
-The IBM MQ connector includes these actions but provides no triggers:
+The MQ connector includes these actions but provides no triggers:
 
-- Browse a single message without deleting the message from the IBM MQ server.
-- Browse a batch of messages without deleting the messages from the IBM MQ server.
-- Receive a single message and delete the message from the IBM MQ server.
-- Receive a batch of messages and delete the messages from the IBM MQ server.
-- Send a single message to the IBM MQ server.
+- Browse a single message without deleting the message from the MQ server.
+- Browse a batch of messages without deleting the messages from the MQ server.
+- Receive a single message and delete the message from the MQ server.
+- Receive a batch of messages and delete the messages from the MQ server.
+- Send a single message to the MQ server.
 
 Here are the officially supported IBM WebSphere MQ versions:
 
@@ -34,7 +34,7 @@ Here are the officially supported IBM WebSphere MQ versions:
 
 * If you're using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. The server where the on-premises data gateway is installed must also have .NET Framework 4.6 installed for the MQ connector to work.
 
-  After you finish installing the gateway, you must also create a resource in Azure for the on-premises data gateway. For more information, see [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md).
+  After you finish installing the gateway, you must also create a gateway resource in Azure for the on-premises data gateway. For more information, see [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md).
 
   If your MQ server is publicly available or available within Azure, you don't have to use the data gateway.
 
@@ -179,10 +179,13 @@ The **Receive messages** action has the same inputs and outputs as the **Browse 
 
    ![Sample "Send message" output](media/connectors-create-api-mq/send-message-output.png)
 
+## Limitations
+
+The MQ connector doesn't support the `Message Format` field and doesn't perform any character set conversions. The connector puts whatever data appears in the message field into a JSON message and sends the message along.
+
 ## Connector reference
 
-For technical details about actions and limits, which are described by the connector's Swagger description, 
-review the connector's [reference page](/connectors/mq/).
+For technical details, such as actions and limits, which are described in the connector's Swagger file, review the [connector's reference page](/connectors/mq/).
 
 ## Next steps
 
