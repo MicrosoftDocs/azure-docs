@@ -15,7 +15,7 @@ ms.author: avgupta
 #Customer intent: I want to store JSON configuration settings in App Configuration store without losing the data type of each setting.
 ---
 
-# Leverage content type field to store JSON configuration data
+# Leverage content type to store JSON settings in App Configuration
 
 Your configuration data is stored in App Configuration as key-value pairs, where the values assigned to keys are unicode strings. However, configuration settings are not confined to having a string value. If you need to preserve the data type of your value, you can do so by leveraging the content type associated with each setting.
 
@@ -111,6 +111,11 @@ az appconfig kv set --content-type application/dummysubtype+json --key ObjectVal
 > [!IMPORTANT]
 > If you are using Azure CLI or Azure Cloud Shell to manually create JSON settings, the value provided must be an escaped JSON string.
 
+Your settings will look like this in App Configuration:
+
+![Config store containing JSON settings](./media/create-json-settings.png)
+
+
 ## Import JSON settings from a file
 
 Create a JSON file called `Import.json` with the following settings and import the settings into App Configuration.
@@ -142,6 +147,11 @@ Create a JSON file called `Import.json` with the following settings and import t
 ```azurecli-interactive
 az appconfig kv import -s file --format json --path "~/Import.json" --content-type "application/json" --separator : -y
 ```
+
+Your settings will look like this in App Configuration:
+
+![Config store containing JSON settings](./media/import-json-settings.png)
+
 
 ## Export JSON settings to a file
 
@@ -194,6 +204,10 @@ Your JSON file should look like this:
   "StringValue": "The quick brown fox."
 }
 ```
+
+> [!NOTE]
+> If your App Configuration store has JSON and non-JSON settings, the non-JSON settings will also be exported as strings. If you want to export only the JSON settings, assign a unique label or prefix to your JSON settings and use label or prefix filtering during export.
+
 
 ## Clean up resources
 
