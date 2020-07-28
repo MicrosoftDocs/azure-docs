@@ -37,7 +37,7 @@ In the [quickstart series](view-applications-portal.md) there is an article on c
 You should get the values from the application vendor. You can manually enter the values or upload a metadata file to extract the value of the fields.
 
 > [!TIP]
-> Many apps have already been pre-integrated to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](view-applications-portal.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, setup instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
+> Many apps have already been pre-configured to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](view-applications-portal.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, setup instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
 
 | Basic SAML Configuration setting | SP-Initiated | idP-Initiated | Description |
 |:--|:--|:--|:--|
@@ -58,7 +58,7 @@ When a user authenticates to the application, Azure AD issues the application a 
 
 The **Unique User Identifier (Name ID)** identifier value is a required claim and is important. The default value is *user.userprincipalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-To learn more about customizing SAML claims, see [How to: customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization).
+To learn more about customizing SAML claims, see [How to: customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md).
 
 You can add new claims, for details see [Adding application-specific claims](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims) or to add group claims, see [Configure group claims](../hybrid/how-to-connect-fed-group-claims.md).
 
@@ -79,21 +79,24 @@ Azure AD uses a certificate to sign the SAML tokens it sends to the application.
 
 From Azure AD, you can download the active certificate in Base64 or Raw format directly from the main **Set up Single Sign-On with SAML** page. Alternatively, you can get the active certificate by downloading the application metadata XML file or by using the App federation metadata URL. To view, create, or download your certificates (active or inactive), follow these steps.
 
-Verify the certificate by checking the following:
+Some common things to check to verify a certificate include: 
    - *The desired expiration date.* You can configure the expiration date for up to three years into the future.
    - *A status of active for the desired certificate.* If the status is **Inactive**, change the status to **Active**. To change the status, right-click the desired certificate's row and select **Make certificate active**.
    - *The correct signing option and algorithm.*
    - *The correct notification email address(es).* When the active certificate is near the expiration date, Azure AD sends a notification to the email address configured in this field.
 
-To download the certificate, select one of the options for Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+Sometimes you might need to download the certificate. Be careful where you save it though! To download the certificate, select one of the options for Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
-To make changes, click the Edit button. There are a number of things you can do on the **SAML Signing Certificate** page, these include:
-   - Create a new certificate; select **New Certificate**, select the **Expiration Date**, and then select **Save**. To activate the certificate, select the context menu (**...**) and select **Make certificate active**.
-   - Upload a certificate with private key and pfx credentials; select **Import Certificate** and browse to the certificate. Enter the **PFX Password**, and then select **Add**.  
-   - To configure advanced certificate signing, see the following options. For descriptions of these options, see the [Advanced certificate signing options](certificate-signing-options.md) article.
-      - In the **Signing Option** drop-down list, choose **Sign SAML response**, **Sign SAML assertion**, or **Sign SAML response and assertion**.
-      - In the **Signing Algorithm** drop-down list, choose **SHA-1** or **SHA-256**.
-   - Notify additional people when the active certificate is near its expiration date; enter the email addresses in the **Notification email addresses** fields.
+To make certificate changes, click the Edit button. There are several things you can do on the **SAML Signing Certificate** page, these include:
+   - Create a new certificate: select **New Certificate**, select the **Expiration Date**, and then select **Save**. To activate the certificate, select the context menu (**...**) and select **Make certificate active**.
+   - Upload a certificate with private key and pfx credentials: select **Import Certificate** and browse to the certificate. Enter the **PFX Password**, and then select **Add**.  
+   - Configure advanced certificate signing. For more information on these options, see [Advanced certificate signing options](certificate-signing-options.md).
+   - Notify additional people when the active certificate is near its expiration date: enter the email addresses in the **Notification email addresses** fields.
+
+
+
+
+
 
 
 
