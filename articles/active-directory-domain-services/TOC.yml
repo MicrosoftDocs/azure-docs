@@ -49,6 +49,8 @@
       href: synchronization.md
     - name: How password hash synchronization works
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Virtual network considerations
+      href: network-considerations.md
     - name: Classic deployment migration benefits
       href: concepts-migration-benefits.md
     - name: What is Azure Active Directory?
@@ -65,10 +67,6 @@
           href: create-ou.md
         - name: Create a group managed service account (gMSA)
           href: create-gmsa.md
-    - name: Plan for Azure AD DS
-      items: 
-        - name: Virtual network considerations
-          href: network-considerations.md
     - name: Manage Azure AD DS
       items: 
         - name: Administer Group Policy
