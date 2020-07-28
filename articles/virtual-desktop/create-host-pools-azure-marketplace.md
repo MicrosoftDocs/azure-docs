@@ -144,7 +144,7 @@ To set up your virtual machine within the host pool setup process:
 10. After that, select whether you want the virtual machines to be joined to a specific domain and organizational unit. If you choose **Yes**, specify the domain to join. You can also add a specific organizational unit you want the virtual machines to be in.
 
     >[!NOTE]
-    >When specifying the Organizational Unit (OU) for the virtual machine, it must be specified by the Distinguished Name (DN). The DN must not be specified in quotations. The domain join process does not check this. If the DN is specified in quotations, the domain join will fail. 
+    >**DO NOT** enter the Active Directory Organizational Unit Distinguished Name in quotations. If entered in quotations, the domain join deployment activity will fail. 
 
 11. Under Administrator account, enter the credentials for the Active Directory Domain admin of the virtual network you selected.
 
