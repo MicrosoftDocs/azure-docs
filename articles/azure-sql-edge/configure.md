@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
+ms.date: 07/28/2020
 ---
 
 # Configure Azure SQL Edge (Preview)
@@ -127,7 +127,7 @@ Starting with Azure SQL Edge CTP2.2, SQL Edge containers can run with a non-root
 }
 ```
 
-To allow the non-root user to access DB files that are on mounted volumes, ensure that the user/group you run the container under, has read & write permissions on the persistent file storage. In the example belwo we set the non-root user with user_id 10001 as the owner of the files. 
+To allow the non-root user to access DB files that are on mounted volumes, ensure that the user/group you run the container under, has read & write permissions on the persistent file storage. In the example below we set the non-root user with user_id 10001 as the owner of the files. 
 
 ```bash
 chown -R 10001:0 <database file dir>
