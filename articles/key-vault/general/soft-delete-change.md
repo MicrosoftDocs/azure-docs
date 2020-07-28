@@ -115,7 +115,5 @@ If you do not take any action, soft-delete will automatically be turned on for a
 
 ## Next steps
 
-- Contact us with any questions regarding this change at [akvsoftdelete@microsoft.com(mailto:akvsoftdelete@microsoft.com).
+- Contact us with any questions regarding this change at [akvsoftdelete@microsoft.com](mailto:akvsoftdelete@microsoft.com).
 - Read the [Soft-delete overview](soft-delete-overview.md)
-
-I
