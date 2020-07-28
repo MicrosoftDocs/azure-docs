@@ -67,7 +67,7 @@
       href: configure-kerberos-encryption.md
     - name: Configure export policy for an NFS volume
       href: azure-netapp-files-configure-export-policy.md
-  - name: Create an SMB volume for Azure NetApp Files
+  - name: Create an SMB volume
     href: azure-netapp-files-create-volumes-smb.md
   - name: Manage volumes
     href: azure-netapp-files-manage-volumes.md
