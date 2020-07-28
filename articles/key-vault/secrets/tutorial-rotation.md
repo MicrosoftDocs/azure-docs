@@ -38,7 +38,7 @@ This tutorial shows how to automate the periodic rotation of secrets for databas
 
 Below deployment link can be used, if you don't have existing Key Vault and SQL Server:
 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
 1. Under **Resource group**, select **Create new**. Name the group **akvrotation**.
 1. Under **Sql Admin Login**, type Sql administrator login name. 
 1. Select **Review + create**.
@@ -74,7 +74,7 @@ The function app requires these components:
 - An EventGrid event subscription for **SecretNearExpiry** event
 
 1. Select the Azure template deployment link: 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
 1. In the **Resource group** list, select **akvrotation**.
 1. In the **Sql Server Name**, type the Sql Server name with password to rotate
 1. In the **Key Vault Name**,  type the key vault name
@@ -109,7 +109,7 @@ akvrotation-fnapp        akvrotation       eastus      Microsoft.insights/compon
 For information on how to create a function app and use managed identity to access Key Vault, see [Create a function app from the Azure portal](../../azure-functions/functions-create-function-app-portal.md) and [Provide Key Vault authentication with a managed identity](../general/managed-identity.md).
 
 ### Rotation function
-Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database.
+Deployed in previous step function uses an event to trigger the rotation of a secret by updating Key Vault and the SQL database. 
 
 #### Function trigger event
 
@@ -215,7 +215,7 @@ The web app requires these components:
 - An access policy to access secrets in Key Vault via web app managed identity
 
 1. Select the Azure template deployment link: 
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
+<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp-WebApp%2Fmaster%2Farm-templates%2FWeb-App%2Fazuredeploy.json" target="_blank"> <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png" alt="Deploy to Azure"/></a>
 1. Select the **akvrotation** resource group.
 1. In the **Sql Server Name**, type the Sql Server name with password to rotate
 1. In the **Key Vault Name**,  type the key vault name
