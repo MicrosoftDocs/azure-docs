@@ -163,4 +163,5 @@ To delete the Application Insights resource:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Understand how customers are using your app](../../azure-monitor/app/usage-overview.md)
+> [Understand how customers are using your app](../app/usage-overview.md)
+

@@ -1,10 +1,10 @@
-- name: Windows Virtual Desktop Fall 2019 Release
+- name: Windows Virtual Desktop (classic)
   href: ../index.yml
 - name: Overview
   items:
   - name: What is Windows Virtual Desktop?
     href: ../overview.md
-  - name: Spring 2020 Release documentation
+  - name: Windows Virtual Desktop documentation
     href: ../create-host-pools-azure-marketplace.md
 - name: Tutorials
   items:

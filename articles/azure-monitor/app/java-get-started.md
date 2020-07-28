@@ -3,6 +3,7 @@ title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
 
@@ -129,7 +130,7 @@ Application Insights SDK looks for the key in this order:
 2. Environment variable: APPINSIGHTS_INSTRUMENTATIONKEY
 3. Configuration file: *ApplicationInsights.xml*
 
-You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
+You can also [set it in code](./api-custom-events-metrics.md#ikey):
 
 ```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
@@ -306,16 +307,17 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor dependency calls](java-agent.md)
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
-* Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
+* Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
 * Use  [Analytics](../log-query/log-query-overview.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#trackexception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md
+

@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: robinsh
-ms.custom: amqp
+ms.custom: [amqp, 'Role: Cloud Development', 'Role: Technical Support']
 ---
 # Monitor the health of Azure IoT Hub and diagnose problems quickly
 
