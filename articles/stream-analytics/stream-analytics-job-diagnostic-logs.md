@@ -53,7 +53,7 @@ Activity logs are on by default and give high-level insights into operations per
 
 Turning on resource logs and sending them to Azure Monitor logs is highly recommended. They are **off** by default. To turn them on, complete these steps:
 
-1.  [Create a Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) if you don't already have one. It is recommended to have your Log Analytics workspace in the same region as your Stream Analytics job.
+1.  Create a Log Analytics workspace if you don't already have one. It is recommended to have your Log Analytics workspace in the same region as your Stream Analytics job.
 
 2.  Sign in to the Azure portal, and navigate to your Stream Analytics job. Under **Monitoring**, select **Diagnostics logs**. Then select **Turn on diagnostics**.
 
