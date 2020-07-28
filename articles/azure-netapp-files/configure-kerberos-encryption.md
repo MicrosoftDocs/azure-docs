@@ -33,7 +33,7 @@ The following requirements apply to NFSv4.1 client encryption:
 
 ## Configure the Azure portal 
 
-1.	Follow the steps to [create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection).  
+1.	Follow the instructions in [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection).  
 
     Kerberos requires that you create at least one machine account in Active Directory. The account information you provide is used for creating the accounts for both SMB *and* NFSv4.1 Kerberos volumes. This machine is account is created automatically during volume creation.
 
@@ -74,7 +74,7 @@ Regardless of the Linux flavor you use, the following configurations are require
     `sudo yum -y install realmd sssd adcli samba-common krb5-workstation chrony`
 
 2. Configure the NTP client:  
-    RHEL 8 uses Chrony by default.  Following the configuration guidelines in [Using the Chrony suite to configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp).
+    RHEL 8 uses `chrony` by default.  Following the configuration guidelines in [Using the Chrony suite to configure NTP](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_basic_system_settings/using-chrony-to-configure-ntp).
 
 3. Join the Active Directory domain:  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
@@ -85,7 +85,7 @@ Regardless of the Linux flavor you use, the following configurations are require
     `sudo yum -y install realmd packagekit sssd adcli samba-common krb5-workstation chrony`
 
 2. Configure the NTP client.  
-    Ubuntu 18.04 uses Chrony by default.  Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
+    Ubuntu 18.04 uses `chrony` by default.  Following the configuration guidelines in [Ubuntu Bionic: Using chrony to configure NTP](https://ubuntu.com/blog/ubuntu-bionic-using-chrony-to-configure-ntp).
 
 3. Join the Active Directory Domain:  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
@@ -200,4 +200,4 @@ Performance impact of `krb5p`:
 
 * [FAQs About Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
+* [Create an Active Directory connection](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)

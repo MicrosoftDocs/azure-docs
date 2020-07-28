@@ -39,11 +39,11 @@ A subnet must be delegated to Azure NetApp Files.
 
 ## Best practice
 
-* You should ensure that you’re using the proper mount instructions for the volume.  See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Ensure that you’re using the proper mount instructions for the volume.  See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
-* You should ensure that the NFS client is up-to-date and running the latest updates for the operating system.
+* Ensure that the NFS client is up-to-date and running the latest updates for the operating system.
 
 ## Create an NFS volume
 
@@ -54,7 +54,7 @@ A subnet must be delegated to Azure NetApp Files.
 2.	Click **+ Add volume** to create a volume.  
     The Create a Volume window appears.
 
-3.	In the Create a Volume window, click **Create** and provide information for the following fields:   
+3.	In the Create a Volume window, click **Create**, and provide information for the following fields:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 

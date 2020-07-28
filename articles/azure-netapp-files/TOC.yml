@@ -57,7 +57,7 @@
     href: azure-netapp-files-set-up-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
-  - name: Create and manage NFS volumes
+  - name: Create and manage an NFS volume
     items:
     - name: Create an NFS volume
       href: azure-netapp-files-create-volumes.md
