@@ -319,7 +319,7 @@ Jump to a resource provider namespace:
 > | automationAccounts / webhooks | No | No |
 
 >[!NOTE]
->Azure Automation only supports creating a maximum of 15 tags per Automation resource.
+>Azure Automation only supports creating a maximum of 15 tags for each Automation resource that support tags.
 > 
 
 ## Microsoft.AVS
