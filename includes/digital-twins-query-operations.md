@@ -16,12 +16,17 @@ Azure Digital Twins provides extensive query capabilities against the twin graph
 
 Here are the operations available in Azure Digital Twins Query Store language.
 
-* Get twins by digital twins' properties (including [tag properties](../articles/digital-twins/how-to-use-tags.md)).
-* Get twins by digital twins' interfaces.
-* Get twins by relationship properties.
-* Get twins over multiple relationship types (`JOIN` queries). There are limitations on the number of `JOIN`s allowed (one level for public preview).
-* Use the `Select TOP` clause
-* Use the `IS_OF_MODEL` operator to filter based on the twin's [model](../articles/digital-twins/concepts-models.md).
+Get digital twins by their...
+* model (using `IS_OF_MODEL` operator)
+* properties (including [tag properties](../articles/digital-twins/how-to-use-tags.md))
+* interfaces
+* relationships
+  - properties of the relationships
+
+You can further enhance your queries with the following operations:
+* Get twins over multiple relationship types (`JOIN` queries). 
+  - There are limitations on the number of `JOIN`s allowed (one level for public preview).
+* Select only the top query results (`Select TOP` operator)
 * Use scalar functions: `IS_BOOL`, `IS_DEFINED`, `IS_NULL`, `IS_NUMBER`, `IS_OBJECT`, `IS_PRIMITIVE`, `IS_STRING`, `STARTSWITH`, `ENDSWITH`.
 * Use query comparison operators: `IN`/`NIN`, `=`, `!=`, `<`, `>`, `<=`, `>=`.
 * Use any combination (`AND`, `OR`, `NOT` operator) of IS_OF_MODEL, scalar functions, and comparison operators.
