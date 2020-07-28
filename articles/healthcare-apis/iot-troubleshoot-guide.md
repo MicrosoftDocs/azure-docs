@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 07/28/2020
 ms.author: jasteppe
 ---
-# IoT Connector (preview) troubleshooting guide
+# Azure IoT Connector for FHIR troubleshooting guide
 
-This article provides steps for troubleshooting common IoT Connector (preview) error messages and conditions.  
+This article provides steps for troubleshooting common Azure IoT Connector for FHIR error messages and conditions.  
 
-You'll also learn how to create copies of the IoT Connector (preview) JSON-mapping files for editing and archiving outside of the Azure portal.
+You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-mapping files for editing and archiving outside of the Azure portal.
 
 ## Error messages and fixes
 
@@ -29,14 +29,14 @@ You'll also learn how to create copies of the IoT Connector (preview) JSON-mappi
 |Account does not exist|Attempting to add an IoT Connector and the Azure API for FHIR resource doesn't exist|Create the Azure API for FHIR resource and then reattempt the operation|
 |Azure API for FHIR resource FHIR version is not supported for IoT Connector|Attempting to use an IoT Connector with an incompatible version of the Azure API for FHIR resource|Create a new Azure API for FHIR resource (version R4) or use an existing Azure API for FHIR resource (version R4)
 
-## Creating copies of the IoT Connector (preview) mapping files
+## Creating copies of the Azure IoT Connector for FHIR mapping files
 > [!NOTE]
 > JSON is the only supported format for Device and FHIR mapping files at this time.
 
 > [!TIP]
-> The copying of IoT Connector mapping files can be useful for editing and archiving outside of the Azure Portal website and  for providing to Azure Technical Support when opening a support ticket.
+> The copying of Azure IoT Connector for FHIR mapping files can be useful for editing and archiving outside of the Azure Portal website and  for providing to Azure Technical Support when opening a support ticket.
 > 
-> Learn more about the IoT Connector [Device and FHIR mapping JSON files](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Learn more about the Azure IoT Connector for FHIR [Device and FHIR mapping JSON files](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
 
 1. Select **"IoT Connector (preview)"** on the lower left side of the Azure API for FHIR resource dashboard in the **"Add-ins"** section.
 
@@ -69,5 +69,6 @@ Check out frequently asked questions on IoT Connector
 >[!div class="nextstepaction"]
 >[IoT Connector FAQs](fhir-faq.md#iot-connector-preview)
 
+In the Azure Portal, the Azure IoT Connector for FHIR is referred to as IoT Connector (preview).
 
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
