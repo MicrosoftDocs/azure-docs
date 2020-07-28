@@ -36,7 +36,7 @@ ms.author: jroth
 | [Diagnostic Logs](../articles/app-service/troubleshoot-diagnostic-logs.md) | X | X | X | X | X | X |
 | Kudu | X | X | X | X | X | X |
 | [Authentication and Authorization](../articles/app-service/overview-authentication-authorization.md) | X | X | X | X | X | X |
-| [App Service Managed Certificates (Public Preview)]()<sup>12</sup> | |  | X | X | X | X |
+| [App Service Managed Certificates (Public Preview)](https://azure.microsoft.com/en-us/updates/secure-your-custom-domains-at-no-cost-with-app-service-managed-certificates-preview/)<sup>12</sup> | |  | X | X | X | X |
 | SLA | |  |99.95%|99.95%|99.95%|99.95%|  
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
