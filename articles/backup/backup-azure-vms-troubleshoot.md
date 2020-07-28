@@ -16,13 +16,13 @@ This section covers backup operation failure of Azure Virtual machine.
 
 ### Basic troubleshooting
 
-* Ensure that the VM Agent (WA Agent) is the [latest version](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
-* Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
+* Ensure that the VM Agent (WA Agent) is the [latest version](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+* Ensure that the Windows or Linux VM OS version is supported, refer to the [IaaS VM Backup Support Matrix](./backup-support-matrix-iaas.md).
 * Verify that another backup service is not running.
-  * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
+  * To ensure there are no snapshot extension issues, [uninstall extensions to force reload and then retry the backup](./backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md).
 * Verify that the VM has internet connectivity.
   * Make sure another backup service is not running.
-* From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and are not due to Azure backup. Use the following steps to determine whether the issue is with Azure Backup:
   * If there is an error with an entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
   * If Azure Backup is working, then the issue is likely with another backup solution.
@@ -128,7 +128,7 @@ If you see permissions in the **MachineKeys** directory that are different than 
    * Read permissions
 2. Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:
 
-   * [Open certificates on a local computer console](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
+   * [Open certificates on a local computer console](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
    * Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
 
@@ -232,7 +232,7 @@ Error code: ExtensionVCRedistInstallationFailure <br/> Error message: The snapsh
 ## UserErrorRequestDisallowedByPolicy - An invalid policy is configured on the VM which is preventing Snapshot operation
 Error code:  UserErrorRequestDisallowedByPolicy <BR> Error message: An invalid policy is configured on the VM which is preventing Snapshot operation.
 
-If you have an Azure Policy that [governs tags within your environment](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags), either consider changing the policy from a [Deny effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) to a [Modify effect](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify), or create the resource group manually according to the [naming schema required by Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
+If you have an Azure Policy that [governs tags within your environment](../governance/policy/tutorials/govern-tags.md), either consider changing the policy from a [Deny effect](../governance/policy/concepts/effects.md#deny) to a [Modify effect](../governance/policy/concepts/effects.md#modify), or create the resource group manually according to the [naming schema required by Azure Backup](./backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
 ## Jobs
 
@@ -273,12 +273,12 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 #### Windows VMs
 
 * Download and install the [agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to finish the installation.
-* For virtual machines created by using the classic deployment model, [update the VM property](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
+* For virtual machines created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) to indicate that the agent is installed. This step isn't required for Azure Resource Manager virtual machines.
 
 #### Linux VMs
 
 * Install the latest version of the agent from the distribution repository. For details on the package name, see the [Linux Agent repository](https://github.com/Azure/WALinuxAgent).
-* For VMs created by using the classic deployment model, [update the VM property](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
+* For VMs created by using the classic deployment model, [update the VM property](../virtual-machines/troubleshooting/install-vm-agent-offline.md#use-the-provisionguestagent-property-for-classic-vms) and verify that the agent is installed. This step isn't required for Resource Manager virtual machines.
 
 ### Update the VM Agent
 
@@ -288,7 +288,7 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 
 #### Linux VMs
 
-* To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* To update the Linux VM Agent, follow the instructions in the article [Updating the Linux VM Agent](../virtual-machines/extensions/update-linux-agent.md?toc=/azure/virtual-machines/linux/toc.json).
 
     > [!NOTE]
     > Always use the distribution repository to update the agent.
@@ -322,5 +322,5 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 DHCP must be enabled inside the guest for IaaS VM backup to work. If you need a static private IP, configure it through the Azure portal or PowerShell. Make sure the DHCP option inside the VM is enabled.
 Get more information on how to set up a static IP through PowerShell:
 
-* [How to add a static internal IP to an existing VM](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description)
+* [How to add a static internal IP to an existing VM](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description)
 * [Change the allocation method for a private IP address assigned to a network interface](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)

@@ -4,8 +4,8 @@ description: How to create a new Managed Service offer for listing in Azure Mark
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs 
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
 ---
 
@@ -37,7 +37,7 @@ Enter an **Offer ID**. This is a unique identifier for each offer in your accoun
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
 
 * This name isn't used in the marketplace and is different from the offer name and other values shown to customers.
-* Th Offer alias can't be changed after you select **Create**.
+* The Offer alias can't be changed after you select **Create**.
 
 Select **Create** to generate the offer and continue.
 

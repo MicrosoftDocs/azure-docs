@@ -193,10 +193,11 @@ The legacy continuous export functionality is not supported for workspace-based 
 
 ## Next steps
 
-* [Explore metrics](../../azure-monitor/platform/metrics-charts.md)
+* [Explore metrics](../platform/metrics-charts.md)
 * [Write Analytics queries](../log-query/log-query-overview.md)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../platform/metrics-charts.md
+[start]: ./app-insights-overview.md
+

@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/22/2020
+ms.date: 07/16/2020
 ms.author: sedusch
 ---
 # Azure Virtual Machines deployment for SAP NetWeaver
@@ -70,7 +70,7 @@ ms.author: sedusch
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -281,15 +281,15 @@ ms.author: sedusch
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
 [virtual-machines-manage-availability]:../../linux/manage-availability.md
-[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
+[virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../windows/quick-create-powershell.md
 [virtual-machines-sizes]:../../linux/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
 [virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
 [virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
 [virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
-[virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
-[virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
+[virtual-machines-upload-image-windows-resource-manager]:../../windows/upload-image.md
+[virtual-machines-windows-tutorial]:../../windows/quick-create-portal.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
@@ -932,7 +932,7 @@ To install the Azure Extension for SAP by using PowerShell:
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].  
 1. Run the following PowerShell cmdlet.
-    For a list of available environments, run `commandlet Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
+    For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
 
     ```powershell
     $env = Get-AzEnvironment -Name <name of the environment>
@@ -1022,45 +1022,21 @@ To install the Azure Extension for SAP by using Azure CLI:
 
 The new VM Extension for SAP uses a Managed Identity assigned to the VM to access monitoring and configuration data of the VM. To install the new Azure Extension for SAP by using PowerShell, you first have to assign such an identity to the VM and grant that identity access to all resources that are in use by that VM, for example disks and network interfaces.
 
-The process will be automated in the next version of Azure PowerShell (> 4.2.0). We will update this article once the new version is available. Until then, please follow these steps to install the extension manually.
-
 > [!NOTE]
 > The following steps require Owner privileges over the resource group or individual resources (virtual machine, data disks etc.)
 
 1. Make sure to use SAP Host Agent 7.21 PL 47 or higher.
 1. Make sure to uninstall the current version of the VM Extension for SAP. It is not supported to install both versions of the VM Extension for SAP on the same virtual machine.
-1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
-1. Follow the steps in the [Configure managed identities for Azure resources on an Azure VM using PowerShell][qs-configure-powershell-windows-vm] article to enable a System-Assigned Managed Identity to the VM. User-Assigned Managed Identities are not supported by the VM extension for SAP. However, you can enable both, a system-assigned and a user-assigned identity.
-    
-    Example:
-    ```powershell
-    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
-    Update-AzVM -ResourceGroupName $vm.ResourceGroupName -VM $vm -IdentityType SystemAssigned
-    ```
-
-1. Assign the Managed Identity access to the resource group of the VM or to all network interfaces, managed disks and the VM itself as described in [Assign a managed identity access to a resource using PowerShell][howto-assign-access-powershell]
-    Example:
+1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet (at least 4.3.0). For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
+1. Run the following PowerShell cmdlet.
+    For a list of available environments, run cmdlet `Get-AzEnvironment`. If you want to use global Azure, your environment is **AzureCloud**. For Azure China 21Vianet, select **AzureChinaCloud**.
 
     ```powershell
-    $spID = (Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>).identity.principalid
-    $rg = Get-AzResourceGroup -Name $vm.ResourceGroupName
-    New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope $rg.ResourceId
-    ```
-
-1. Run the following PowerShell cmdlet to install the Azure Extension for SAP.
-    The extension is currently only supported in AzureCloud. Azure China 21Vianet, Azure Government or any of the other special environments are not yet supported.
-
-    ```powershell
-    $env = Get-AzEnvironment -Name AzureCloud
+    $env = Get-AzEnvironment -Name <name of the environment>
     Connect-AzAccount -Environment $env
     Set-AzContext -SubscriptionName <subscription name>
 
-    $vm = Get-AzVM -ResourceGroupName <resource-group-name> -Name <vm name>
-    if ($vm.StorageProfile.OsDisk.OsType -eq "Windows") {
-      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Windows -Name MonitorX64Windows -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
-    } else {
-      Set-AzVMExtension -Publisher Microsoft.AzureCAT.AzureEnhancedMonitoring -ExtensionType MonitorX64Linux -Name MonitorX64Linux -TypeHandlerVersion "1.0" -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Settings @{"system" = "SAP"} -Location $vm.Location
-    }
+    Set-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name> -InstallNewExtension
     ```
 
 #### <a name="c8749c24-fada-42ad-b114-f9aae2dc37da"></a>Configure the new Azure Extension for SAP with Azure CLI
@@ -1116,7 +1092,10 @@ Run the readiness check for the Azure Extension for SAP as described in [Readine
 
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Readiness check for the Azure Extension for SAP
 
-This check makes sure that all performance metrics that appear inside your SAP application are provided by the underlying Azure Extension for SAP. If you deployed the new Azure Extension for SAP, follow chapter [Readiness check for the new Azure Extension for SAP][deployment-guide-5.1-new] in this guide.
+> [!NOTE]
+> There are two versions of the VM extension. This chapter covers the default VM extension. If you have installed the new VM extension, please see chapter [Readiness check for the new Azure Extension for SAP][deployment-guide-5.1-new]
+
+This check makes sure that all performance metrics that appear inside your SAP application are provided by the underlying Azure Extension for SAP.
 
 #### Run the readiness check on a Windows VM
 
@@ -1216,7 +1195,10 @@ If any of these checks fail, and for detailed information about how to redeploy 
 
 ### <a name="7bf24f59-7347-4c7a-b094-4693e4687ee5"></a>Readiness check for the new Azure Extension for SAP
 
-This check makes sure that all performance metrics that appear inside your SAP application are provided by the underlying Azure Extension for SAP. If you deployed the old Azure Extension for SAP, follow chapter [Readiness check for Azure Extension for SAP][deployment-guide-5.1] in this guide.
+> [!NOTE]
+> There are two versions of the VM extension. This chapter covers the new VM extension. If you have installed the default VM extension, please see chapter [Readiness check for Azure Extension for SAP][deployment-guide-5.1].
+
+This check makes sure that all performance metrics that appear inside your SAP application are provided by the underlying Azure Extension for SAP.
 
 #### Run the readiness check on a Windows VM
 
@@ -1278,6 +1260,9 @@ If any of these checks fail, and for detailed information about how to redeploy 
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health check for the Azure Extension for SAP configuration
 
+> [!NOTE]
+> There are two versions of the VM extension. This chapter covers the default VM extension. If you have installed the new VM extension, please see chapter [Health check for the new Azure Extension for SAP configuration][deployment-guide-5.2-new].
+
 If some of the infrastructure data is not delivered correctly as indicated by the test described in [Readiness check for Azure Extension for SAP][deployment-guide-5.1], run the `Test-AzVMAEMExtension` cmdlet to check whether the Azure infrastructure and the Azure Extension for SAP are configured correctly.
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
@@ -1302,6 +1287,9 @@ Make sure that every health check result is **OK**. If some checks do not displa
 
 ### <a name="464ac96d-7d3c-435d-a5ae-3faf3bfef4b3"></a>Health check for the new Azure Extension for SAP configuration
 
+> [!NOTE]
+> There are two versions of the VM extension. This chapter covers the new VM extension. If you have installed the default VM extension, please see chapter [Health check for the Azure Extension for SAP configuration][deployment-guide-5.2].
+
 If some of the infrastructure data is not delivered correctly as indicated by the test described in [Readiness check for Azure Extension for SAP][deployment-guide-5.1-new], run the `Get-AzVMExtension` cmdlet to check whether the Azure Extension for SAP is installed. The `Test-AzVMAEMExtension` does not yet support the new extension. Once the cmdlet supports the new extension, we will update this article.
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
@@ -1311,12 +1299,15 @@ If some of the infrastructure data is not delivered correctly as indicated by th
    $env = Get-AzEnvironment -Name <name of the environment>
    Connect-AzAccount -Environment $env
    Set-AzContext -SubscriptionName <subscription name>
-   Get-AzVMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
+   Test-AzVMAEMExtension -ResourceGroupName <resource group name> -VMName <virtual machine name>
    ```
 
-1. The cmdlet lists all extensions of the selected virtual machine. Make sure that the Azure Extension for SAP is installed on the VM.
+1. The cmdlet tests the configuration of the VM extension for SAP on virtual machine you select.
 
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Troubleshooting Azure Extension for SAP
+
+> [!NOTE]
+> There are two versions of the VM extension. This chapter covers the default VM extension. If you have installed the new VM extension, please see chapter [Troubleshooting the new Azure Extension for SAP][deployment-guide-5.3-new].
 
 #### ![Windows][Logo_Windows] Azure performance counters do not show up at all
 
@@ -1409,6 +1400,9 @@ For a complete and up-to-date list of known issues, see SAP Note [1999351], whic
 If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun the `Set-AzVMAEMExtension` configuration script as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. You might have to wait for an hour because storage analytics or diagnostics counters might not be created immediately after they are enabled. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
 
 ### <a name="b7afb8ef-a64c-495d-bb37-2af96688c530"></a>Troubleshooting the new Azure Extension for SAP
+
+> [!NOTE]
+> There are two versions of the VM extension. This chapter covers the new VM extension. If you have installed the default VM extension, please see chapter [Troubleshooting the Azure Extension for SAP][deployment-guide-5.3].
 
 #### ![Windows][Logo_Windows] Azure performance counters do not show up at all
 

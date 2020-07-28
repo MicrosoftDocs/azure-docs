@@ -5,11 +5,16 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/01/2020
+author: parthpandyaMSFT
+ms.author: parthp
 ---
 
 # Create a commercial marketplace account in Partner Center
 
-To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), you need to create an account in the commercial marketplace program in Partner Center. This article covers how to create a Partner Center account and how to add new publishers to the commercial marketplace program.
+To publish your offers to [Azure Marketplace](https://azuremarketplace.microsoft.com/) or [Microsoft AppSource](https://appsource.microsoft.com/), you must create an account in the commercial marketplace program in Partner Center. This article covers how to create a Partner Center account and how to add new publishers to the commercial marketplace program.
+
+>[!IMPORTANT]
+>To publish offers in the commercial marketplace you must use a work account, associated with a company or organization. Personal accounts aren't supported.
 
 >[!IMPORTANT]
 >If you had an account in the Cloud Partner Portal (CPP), we moved it to Partner Center; you don't need to create a new account. For more information, see [For publishers who moved from the Cloud Partner Portal](#for-publishers-who-moved-from-the-cloud-partner-portal).

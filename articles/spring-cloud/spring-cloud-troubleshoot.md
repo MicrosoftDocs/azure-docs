@@ -6,8 +6,9 @@ ms.service: spring-cloud
 ms.topic: troubleshooting
 ms.date: 11/04/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
+
 # Troubleshoot common Azure Spring Cloud issues
 
 This article provides instructions for troubleshooting Azure Spring Cloud development issues. For additional information, see [Azure Spring Cloud FAQ](spring-cloud-faq.md).

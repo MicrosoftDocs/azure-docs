@@ -323,6 +323,6 @@ The script gives read-only access to a recovery point and is valid for only 12 h
 ## Next steps
 
 - For any problems while restoring files, refer to the [Troubleshooting](#troubleshooting) section
-- Learn how to [restore files via PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup)
-- Learn how to [restore files via Azure CLI](https://docs.microsoft.com/azure/backup/tutorial-restore-files)
-- After VM is restored, learn how to [manage backups](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms)
+- Learn how to [restore files via PowerShell](./backup-azure-vms-automation.md#restore-files-from-an-azure-vm-backup)
+- Learn how to [restore files via Azure CLI](./tutorial-restore-files.md)
+- After VM is restored, learn how to [manage backups](./backup-azure-manage-vms.md)

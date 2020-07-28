@@ -11,7 +11,7 @@ ms.custom: seodec18
 ---
 
 
-# Azure Disk Encryption sample scripts 
+# Azure Disk Encryption sample scripts for Linux VMs
 
 This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 

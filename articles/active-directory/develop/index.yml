@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft identity platform documentation
-summary: The Microsoft identity platform is an authentication service, open source libraries, and application management tools. Learn to create modern, standards-based authentication solutions with our quickstarts, tutorials, and code samples. Build applications your users and customers sign in to using their Microsoft identities or social accounts, and authorize access to your APIs or Microsoft APIs like Microsoft Graph.
+summary: The Microsoft identity platform is an authentication service, open-source libraries, and application management tools. Learn to create modern, standards-based authentication solutions with our quickstarts, tutorials, and code samples. Build applications your users and customers sign in to using their Microsoft identities or social accounts, and authorize access to your APIs or Microsoft APIs like Microsoft Graph.
 
 metadata:
    ms.topic: landing-page
@@ -77,7 +77,7 @@ landingContent:
           - text: Windows desktop (WPF)
             url: quickstart-v2-windows-desktop.md
 ## ROW 3 ################################################### ROW 3 ##
-  - title: Secure web API
+  - title: Web API
     linkLists:
       - linkListType: get-started
         links:
@@ -93,11 +93,28 @@ landingContent:
             url: microsoft-graph-intro.md
           - text: Microsoft Graph auth overview
             url: https://docs.microsoft.com/graph/auth/
-  - title: SAML 2.0
+  - title: Protocols
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: OAuth 2.0 and OpenID Connect
+            url: active-directory-v2-protocols.md
+          - text: SAML 2.0
+            url: active-directory-saml-protocol-reference.md
+## ROW 4 ################################################### ROW 4 ##
+  - title: Business to customer (B2C)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AD B2C?
+            url: ../../active-directory-b2c/overview.md
+          - text: Technical and feature overview
+            url: ../../active-directory-b2c/technical-overview.md
+  - title: Managed identities
     linkLists:
       - linkListType: get-started
         links:
-          - text: How Azure AD uses the SAML  protocol
-            url: active-directory-saml-protocol-reference.md
-          - text: SAML SSO in Azure AD
-            url: single-sign-on-saml-protocol.md
+          - text: About managed identities for Azure resources
+            url: ../managed-identities-azure-resources/overview.md
+          - text: Managed identities and Azure VMs
+            url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md

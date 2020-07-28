@@ -1,5 +1,5 @@
 ---
-title: Transform data using a mapping data flow
+title: Transform data with an Azure Data Factory managed VNet mapping data flow
 description:  This tutorial provides step-by-step instructions for using Azure Data Factory to transform data with mapping data flow
 author: djpmsft
 ms.author: daperlov
@@ -16,7 +16,7 @@ ms.date: 05/19/2019
 
 If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction).
 
-In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data **from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink (both allowing access to only selected networks)** using mapping data flow in [Azure Data Factory managed VNet](https://aka.ms/managed-vnet). The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow.
+In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data **from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink (both allowing access to only selected networks)** using mapping data flow in [Azure Data Factory managed Virtual Network](managed-virtual-network-private-endpoint.md). The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow.
 
 In this tutorial, you do the following steps:
 
@@ -32,15 +32,13 @@ In this tutorial, you do the following steps:
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) for steps to create one. **Ensure the Storage account allows access only from 'Selected networks'.** 
 
-The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). The examples will be referencing a container named 'sample-data'.
+The file that we are transforming in this tutorial is MoviesDB.csv, which can be found [here](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv). To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). The examples will be referencing a container named 'sample-data'.
 
 ## Create a data factory
 
 In this step, you create a data factory and open the Data Factory UX to create a pipeline in the data factory.
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in the Microsoft Edge and Google Chrome web browsers.
-> [!NOTE]
-> During Private Preview, use [aka.ms/adfVnet](https://aka.ms/adfVnet) for creating a new data factory
 2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**.
 3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
@@ -56,14 +54,22 @@ In this step, you create a data factory and open the Data Factory UX to create a
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/management/overview.md). 
 6. Under **Version**, select **V2**.
 7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. Data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
-8. Select the checkbox for **Enable Managed Virtual Network (Preview)**.
-9. Select **Create**.
 
-   ![Create data factory](./media/tutorial-data-flow-private/new-data-factory.png)
-> [!NOTE]
-> If you do not see 'Enable Managed VNet (Preview)' option, then use [aka.ms/adfVnet](https://aka.ms/adfVnet) for creating a new data factory
-10. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
-11. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+8. Select **Create**.
+
+9. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
+10. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
+
+## Create an Azure Integration Runtime in ADF Managed Virtual Network
+In this step, you create an Azure Integration Runtime and enable Managed Virtual Network.
+
+1. In ADF portal, go to **Manage Hub** and click **New** to create a new Azure Integration Runtime.
+   ![Create new Azure Integration Runtime](./media/tutorial-copy-data-portal-private/create-new-azure-ir.png)
+2. Choose to create an **Azure** Integration Runtime.
+   ![New Azure Integration Runtime](./media/tutorial-copy-data-portal-private/azure-ir.png)
+3. Enable **Virtual Network**.
+   ![New Azure Integration Runtime](./media/tutorial-copy-data-portal-private/enable-managed-vnet.png)
+4. Select **Create**.
 
 ## Create a pipeline with a Data Flow activity
 
@@ -240,4 +246,4 @@ If you followed this tutorial correctly, you should have written 83 rows and 2 c
 
 ## Summary
 
-In this tutorial, you'll used the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data **from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink (both allowing access to only selected networks)** using mapping data flow in [Azure Data Factory managed VNet](https://aka.ms/managed-vnet).
+In this tutorial, you'll used the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data **from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink (both allowing access to only selected networks)** using mapping data flow in [Azure Data Factory managed Virtual Network](managed-virtual-network-private-endpoint.md).

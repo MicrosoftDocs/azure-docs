@@ -22,6 +22,9 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
+The following video walks you through routing platform logs with diagnostic settings.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AvVO]
+
 > [!NOTE]
 > [Platform metrics](metrics-supported.md) are sent automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to send metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md) with certain limitations. 
 >  

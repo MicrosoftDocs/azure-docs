@@ -380,12 +380,6 @@
     href: /powershell/module/az.search 
   - name: Resource Manager template
     href: /azure/templates/microsoft.search/searchservices
-  - name: .NET
-    items:
-    - name: microsoft.azure.search
-      href: /dotnet/api/overview/azure/search?view=azure-dotnet
-    - name: microsoft.azure.management.search
-      href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
   - name: REST
     items:
     - name: Search 2020-06-30
@@ -396,10 +390,28 @@
       href: /rest/api/searchmanagement
     - name: Management 2019-10-01-Preview
       href: /rest/api/searchmanagement/index-2019-10-01-preview
-  - name: Python
+  - name: .NET
+    items:
+    - name: Search API
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+    - name: Management API
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet
+  - name: Java
     items:
     - name: Management API
-      href: /python/api/overview/azure/search?view=azure-python
+      href: https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable
+  - name: JavaScript
+    items:
+    - name: Search API
+      href: https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+    - name: Management API
+      href: https://docs.microsoft.com/javascript/api/overview/azure/search/management?view=azure-node-latest
+  - name: Python
+    items:
+    - name: Search API
+      href: https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python
+    - name: Management API
+      href: https://docs.microsoft.com/python/api/overview/azure/search/management?view=azure-python
   - name: OData language reference
     items:
     - name: Overview

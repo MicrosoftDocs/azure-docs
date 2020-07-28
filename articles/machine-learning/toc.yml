@@ -96,6 +96,7 @@
     - name: Enterprise vs. Basic editions
       href: concept-editions.md
     - name: Plan and manage costs
+      displayName: low priority VM
       href: concept-plan-manage-cost.md
     - name: Designer (drag-n-drop ML)
       items: 
@@ -199,396 +200,6 @@
           href: concept-differential-privacy.md
 - name: How-to guides
   items:
-  - name: Create & manage workspaces
-    items:
-    - name: Use Azure portal
-      href: how-to-manage-workspace.md
-    - name: Use Azure CLI
-      href: how-to-manage-workspace-cli.md
-    - name: Use REST
-      href: how-to-manage-rest.md
-    - name: Use Resource Manager template
-      displayName: arm
-      href: how-to-create-workspace-template.md
-  - name: Set up your environment 
-    items:
-    - name: Set up dev environments
-      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-      href: how-to-configure-environment.md
-    - name: Set up software environments
-      displayName: pip, Conda, anaconda
-      href: how-to-use-environments.md
-    - name: Use private Python packages
-      displayName: pip, Conda, anaconda
-      href: how-to-use-private-python-packages.md
-    - name: Enable logging
-      displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md
-    - name: Set input & output directories
-      displayName: large data, write, experiment files, size limit
-      href: how-to-save-write-experiment-files.md
-    - name: Interactive debugging
-      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
-      href: how-to-set-up-vs-code-remote.md
-    - name: Git integration
-      displayName: github gitlab
-      href: concept-train-model-git-integration.md 
-  - name: Work with data
-    items:
-    - name: Connect to data in Azure Storage
-      displayName: blob, get, fileshare, access storage, mount, download
-      href: how-to-access-data.md
-    - name: Get data from a datastore
-      displayName: data, data set, register, access data
-      href: how-to-create-register-datasets.md
-    - name: Train with datasets
-      displayName: data, dataset, mount
-      href: how-to-train-with-datasets.md
-    - name: Import data in the designer
-      displayName: designer, data, import, dataset, datastore
-      href: how-to-designer-import-data.md
-    - name: Detect drift on datasets
-      displayName: data, dataset
-      href: how-to-monitor-datasets.md
-    - name: Version & track datasets
-      displayName: data, data set
-      href: how-to-version-track-datasets.md     
-    - name: Get data labeled
-      displayName: data, dataset, labeling
-      href: how-to-create-labeling-projects.md
-    - name: Label images
-      displayName: data, dataset, labeling
-      href: how-to-label-images.md
-    - name: Create datasets with labels
-      displayName: data, labels, torchvision
-      href: how-to-use-labeled-dataset.md
-    - name: Data ingestion with Azure Data Factory
-      displayName: data, ingestion, adf
-      href: how-to-data-ingest-adf.md
-    - name: DevOps for data ingestion
-      displayName: data, ingestion, devops
-      href: how-to-cicd-data-ingestion.md
-  - name: Train models
-    items:
-    - name: Use estimators for ML
-      items:
-      - name: Create estimators in training
-        href: how-to-train-ml-models.md
-      - name: Set up training environments
-        displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-        href: how-to-set-up-training-targets.md
-      - name: Tune hyperparameters
-        displayName: parameter
-        href: how-to-tune-hyperparameters.md
-      - name: Use Key Vault when training
-        displayName: secrets keyvault
-        href: how-to-use-secrets-in-runs.md
-    - name: Scikit-learn
-      href: how-to-train-scikit-learn.md
-    - name: TensorFlow
-      href: how-to-train-tensorflow.md
-    - name: Keras
-      href: how-to-train-keras.md
-    - name: PyTorch
-      href: how-to-train-pytorch.md
-    - name: Chainer
-      href: how-to-train-chainer.md
-  - name: Interpret models
-    displayName: interpretability
-    items:
-    - name: Interpret local and remote models
-      displayName: SDK, interpret
-      href: how-to-machine-learning-interpretability-aml.md
-    - name: Interpret automated ML models
-      displayName: SDK, interpret, automl
-      href: how-to-machine-learning-interpretability-automl.md
-  - name: Automate machine learning
-    displayName: automl, auto ml
-    items:
-    - name: Use automated ML (Python)
-      displayName: SDK automl
-      href: how-to-configure-auto-train.md
-    - name: Use automated ML (interface)
-      href: how-to-use-automated-ml-for-ml-models.md
-    - name: Use remote compute targets
-      displayName: automl automated auto ml
-      href: how-to-auto-train-remote.md
-    - name: Define ML tasks
-      displayName: machine learning, task type
-      href: how-to-define-task-type.md
-    - name: Auto-train a forecast model
-      displayName: time series
-      href: how-to-auto-train-forecast.md
-    - name: Understand charts and metrics
-      href: how-to-understand-automated-ml.md
-  - name: Track & monitor experiments
-    items:
-    - name: Start, monitor or cancel runs
-      displayName: cancel, fail, status, child run
-      href: how-to-manage-runs.md
-    - name: Log metrics for training runs
-      href: how-to-track-experiments.md
-    - name: Track experiments with MLflow
-      displayName: log, monitor, metrics, Databricks
-      href: how-to-use-mlflow.md
-    - name: Visualize runs with TensorBoard
-      displayName: log, monitor, metrics
-      href: how-to-monitor-tensorboard.md
-  - name: Deploy & serve models
-    items:
-    - name: Where and how to deploy
-      displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-      href: how-to-deploy-and-where.md
-    - name: Azure Kubernetes Service
-      displayName: aks, aad, authentication, azure active directory
-      href: how-to-deploy-azure-kubernetes-service.md
-    - name: Azure Container Instances
-      displayName: aci
-      href: how-to-deploy-azure-container-instance.md
-    - name: IoT Edge
-      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: FPGA inference
-      href: how-to-deploy-fpga-web-service.md
-    - name: GPU inference
-      href: how-to-deploy-inferencing-gpus.md
-    - name: Azure App Service
-      displayName: web app
-      href: how-to-deploy-app-service.md
-    - name: Azure Functions
-      displayName: functions app
-      href: how-to-deploy-functions.md
-    - name: Compute instances
-      href: how-to-deploy-local-container-notebook-vm.md
-    - name: Use custom Docker image
-      href: how-to-deploy-custom-docker-image.md
-    - name: Use existing models
-      displayName: publish existing model
-      href: how-to-deploy-existing-model.md
-    - name: Troubleshoot & debug
-      href: how-to-troubleshoot-deployment.md
-    - name: Create clients
-      displayName: create client consume request response synchronous
-      href: how-to-consume-web-service.md
-    - name: Monitor models
-      items:
-      - name: Collect & evaluate model data
-        displayName: track production
-        href: how-to-enable-data-collection.md
-      - name: Monitor with Application Insights
-        href: how-to-enable-app-insights.md
-
-  - name: Build & use ML pipelines
-    displayName: pipelines
-    items:
-    - name: Create ML pipelines (Python)
-      href: how-to-create-your-first-pipeline.md
-    - name: Schedule a pipeline (Python)
-      href: how-to-schedule-pipelines.md
-    - name: Trigger a pipeline
-      href: how-to-trigger-published-pipeline.md
-    - name: Debug & troubleshoot pipelines
-      href: how-to-debug-pipelines.md
-    - name: Debug pipelines in Application Insights
-      displayname: pipelines, log, monitor
-      href: how-to-debug-pipelines-application-insights.md
-    - name: 'Azure Pipelines for CI/CD'
-
-  - name: Create & manage workspaces
-    items:
-    - name: Use Azure portal
-      href: how-to-manage-workspace.md
-    - name: Use Azure CLI
-      href: how-to-manage-workspace-cli.md
-    - name: Use REST
-      href: how-to-manage-rest.md
-    - name: Use Resource Manager template
-      displayName: arm
-      href: how-to-create-workspace-template.md
-  - name: Set up your environment 
-    items:
-    - name: Set up dev environments
-      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-      href: how-to-configure-environment.md
-    - name: Set up software environments
-      displayName: pip, Conda, anaconda
-      href: how-to-use-environments.md
-    - name: Use private Python packages
-      displayName: pip, Conda, anaconda
-      href: how-to-use-private-python-packages.md
-    - name: Enable logging
-      displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md
-    - name: Set input & output directories
-      displayName: large data, write, experiment files, size limit
-      href: how-to-save-write-experiment-files.md
-    - name: Interactive debugging
-      displayName: Visual Studio Code, VSCode, debug, bugs, remote, compute, instance
-      href: how-to-set-up-vs-code-remote.md
-    - name: Git integration
-      displayName: github gitlab
-      href: concept-train-model-git-integration.md 
-  - name: Work with data
-    items:
-    - name: Connect to data in Azure Storage
-      displayName: blob, get, fileshare, access storage, mount, download
-      href: how-to-access-data.md
-    - name: Get data from a datastore
-      displayName: data, data set, register, access data
-      href: how-to-create-register-datasets.md
-    - name: Train with datasets
-      displayName: data, dataset, mount
-      href: how-to-train-with-datasets.md
-    - name: Import data in the designer
-      displayName: designer, data, import, dataset, datastore
-      href: how-to-designer-import-data.md
-    - name: Detect drift on datasets
-      displayName: data, dataset
-      href: how-to-monitor-datasets.md
-    - name: Version & track datasets
-      displayName: data, data set
-      href: how-to-version-track-datasets.md     
-    - name: Get data labeled
-      displayName: data, dataset, labeling
-      href: how-to-create-labeling-projects.md
-    - name: Label images
-      displayName: data, dataset, labeling
-      href: how-to-label-images.md
-    - name: Create datasets with labels
-      displayName: data, labels, torchvision
-      href: how-to-use-labeled-dataset.md
-    - name: Data ingestion with Azure Data Factory
-      displayName: data, ingestion, adf
-      href: how-to-data-ingest-adf.md
-    - name: DevOps for data ingestion
-      displayName: data, ingestion, devops
-      href: how-to-cicd-data-ingestion.md
-  - name: Train models
-    items:
-    - name: Use estimators for ML
-      items:
-      - name: Create estimators in training
-        href: how-to-train-ml-models.md
-      - name: Set up training environments
-        displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-        href: how-to-set-up-training-targets.md
-      - name: Tune hyperparameters
-        displayName: parameter
-        href: how-to-tune-hyperparameters.md
-      - name: Use Key Vault when training
-        displayName: secrets keyvault
-        href: how-to-use-secrets-in-runs.md
-    - name: Scikit-learn
-      href: how-to-train-scikit-learn.md
-    - name: TensorFlow
-      href: how-to-train-tensorflow.md
-    - name: Keras
-      href: how-to-train-keras.md
-    - name: PyTorch
-      href: how-to-train-pytorch.md
-    - name: Chainer
-      href: how-to-train-chainer.md
-  - name: Interpret models
-    displayName: interpretability
-    items:
-    - name: Interpret local and remote models
-      displayName: SDK, interpret
-      href: how-to-machine-learning-interpretability-aml.md
-    - name: Interpret automated ML models
-      displayName: SDK, interpret, automl
-      href: how-to-machine-learning-interpretability-automl.md
-  - name: Automate machine learning
-    displayName: automl, auto ml
-    items:
-    - name: Use automated ML (Python)
-      displayName: SDK automl
-      href: how-to-configure-auto-train.md
-    - name: Use automated ML (interface)
-      href: how-to-use-automated-ml-for-ml-models.md
-    - name: Use remote compute targets
-      displayName: automl automated auto ml
-      href: how-to-auto-train-remote.md
-    - name: Define ML tasks
-      displayName: machine learning, task type
-      href: how-to-define-task-type.md
-    - name: Auto-train a forecast model
-      displayName: time series
-      href: how-to-auto-train-forecast.md
-    - name: Understand charts and metrics
-      href: how-to-understand-automated-ml.md
-  - name: Track & monitor experiments
-    items:
-    - name: Start, monitor or cancel runs
-      displayName: cancel, fail, status, child run
-      href: how-to-manage-runs.md
-    - name: Log metrics for training runs
-      href: how-to-track-experiments.md
-    - name: Track experiments with MLflow
-      displayName: log, monitor, metrics, Databricks
-      href: how-to-use-mlflow.md
-    - name: Visualize runs with TensorBoard
-      displayName: log, monitor, metrics
-      href: how-to-monitor-tensorboard.md
-  - name: Deploy & serve models
-    items:
-    - name: Where and how to deploy
-      displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-      href: how-to-deploy-and-where.md
-    - name: Azure Kubernetes Service
-      displayName: aks, aad, authentication, azure active directory
-      href: how-to-deploy-azure-kubernetes-service.md
-    - name: Azure Container Instances
-      displayName: aci
-      href: how-to-deploy-azure-container-instance.md
-    - name: IoT Edge
-      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: FPGA inference
-      href: how-to-deploy-fpga-web-service.md
-    - name: GPU inference
-      href: how-to-deploy-inferencing-gpus.md
-    - name: Azure App Service
-      displayName: web app
-      href: how-to-deploy-app-service.md
-    - name: Azure Functions
-      displayName: functions app
-      href: how-to-deploy-functions.md
-    - name: Compute instances
-      href: how-to-deploy-local-container-notebook-vm.md
-    - name: Use custom Docker image
-      href: how-to-deploy-custom-docker-image.md
-    - name: Use existing models
-      displayName: publish existing model
-      href: how-to-deploy-existing-model.md
-    - name: Troubleshoot & debug
-      href: how-to-troubleshoot-deployment.md
-    - name: Create clients
-      displayName: create client consume request response synchronous
-      href: how-to-consume-web-service.md
-    - name: Monitor models
-      items:
-      - name: Collect & evaluate model data
-        displayName: track production
-        href: how-to-enable-data-collection.md
-      - name: Detect data drift
-        href: how-to-monitor-data-drift.md
-      - name: Monitor with Application Insights
-        href: how-to-enable-app-insights.md
-
-  - name: Build & use ML pipelines
-    displayName: pipelines
-    items:
-    - name: Create ML pipelines (Python)
-      href: how-to-create-your-first-pipeline.md
-    - name: Schedule a pipeline (Python)
-      href: how-to-schedule-pipelines.md
-    - name: Trigger a pipeline
-      href: how-to-trigger-published-pipeline.md
-    - name: Debug & troubleshoot pipelines
-      href: how-to-debug-pipelines.md
-    - name: Debug pipelines in Application Insights
-      displayname: pipelines, log, monitor
-      href: how-to-debug-pipelines-application-insights.md
-    - name: 'Azure Pipelines for CI/CD'
-
     - name: Create & manage workspaces
       items: 
         - name: Use Azure portal
@@ -610,6 +221,9 @@
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
+        - name: Use private Python packages
+          displayName: pip, Conda, anaconda
+          href: how-to-use-private-python-packages.md
         - name: Enable logging
           displayName: troubleshoot, log, files, tracing
           href: how-to-enable-logging.md
@@ -743,56 +357,54 @@
         - name: Understand charts and metrics
           href: how-to-understand-automated-ml.md
     - name: Deploy & serve models
-      items: 
-        - name: Where and how to deploy
-          displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-          href: how-to-deploy-and-where.md
-        - name: Deployment scenarios
-          items: 
-            - name: Azure ML compute instances
-              href: how-to-deploy-local-container-notebook-vm.md
-            - name: Azure Kubernetes Service
-              displayName: aks, aad, authentication, azure active directory
-              href: how-to-deploy-azure-kubernetes-service.md
-            - name: Azure Container Instances
-              displayName: aci
-              href: how-to-deploy-azure-container-instance.md
-            - name: GPU inference
-              href: how-to-deploy-inferencing-gpus.md
-            - name: Azure App Service
-              displayName: web app
-              href: how-to-deploy-app-service.md
-            - name: Azure Functions
-              displayName: functions app
-              href: how-to-deploy-functions.md
-            - name: Azure Cognitive Search
-              href: how-to-deploy-model-cognitive-search.md
-            - name: Azure IoT Edge devices
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
-            - name: FPGA inference
-              href: how-to-deploy-fpga-web-service.md
-            - name: Custom Docker images
-              href: how-to-deploy-custom-docker-image.md
-            - name: Non-Azure ML models
-              displayName: publish existing model
-              href: how-to-deploy-existing-model.md
-        - name: Troubleshoot & debug
-          href: how-to-troubleshoot-deployment.md
-        - name: Call service endpoint
-          displayName: create client consume request response synchronous
-          href: how-to-consume-web-service.md
-        - name: Monitor models
-          items: 
-            - name: Collect & evaluate model data
-              displayName: track production
-              href: how-to-enable-data-collection.md
-            - name: Detect data drift
-              href: how-to-monitor-data-drift.md
-            - name: Monitor with Application Insights
-              href: how-to-enable-app-insights.md
-        - name: Deploy encrypted inferencing service
-          displayName: homomorhic,encryption,deployment
-          href: how-to-homomorphic-encryption-seal.md
+      items:
+      - name: Where and how to deploy
+        displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
+        href: how-to-deploy-and-where.md
+      - name: Deployment scenarios
+        items:
+        - name: Use existing models
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
+        - name: Azure ML compute instances
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: Azure Kubernetes Service
+          displayName: aks, aad, authentication, azure active directory
+          href: how-to-deploy-azure-kubernetes-service.md
+        - name: Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: GPU inference
+          href: how-to-deploy-inferencing-gpus.md
+        - name: Azure App Service
+          displayName: web app
+          href: how-to-deploy-app-service.md
+        - name: Azure Functions
+          displayName: functions app
+          href: how-to-deploy-functions.md
+        - name: Azure Cognitive Search
+          href: how-to-deploy-model-cognitive-search.md
+        - name: Use custom Docker image
+          href: how-to-deploy-custom-docker-image.md
+        - name: IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: FPGA inference
+          href: how-to-deploy-fpga-web-service.md
+      - name: Troubleshoot & debug
+        href: how-to-troubleshoot-deployment.md
+      - name: Create clients
+        displayName: create client consume request response synchronous
+        href: how-to-consume-web-service.md
+      - name: Monitor models
+        items:
+        - name: Collect & evaluate model data
+          displayName: track production
+          href: how-to-enable-data-collection.md
+        - name: Monitor with Application Insights
+          href: how-to-enable-app-insights.md
+      - name: Deploy encrypted inferencing service
+        displayName: homomorhic,encryption,deployment
+        href: how-to-homomorphic-encryption-seal.md
     - name: Build & use ML pipelines
       displayName: pipelines
       items: 

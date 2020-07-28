@@ -4,8 +4,8 @@ description: Private offers in the Microsoft commercial marketplace for app and 
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
-author: qianw211
-ms.author: dsindona
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 07/01/2020
 ---
 

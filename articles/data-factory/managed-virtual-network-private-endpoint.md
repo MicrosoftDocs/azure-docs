@@ -1,6 +1,6 @@
 ---
-title: Integration runtime
-description: 'Learn about integration runtime in Azure Data Factory.'
+title: Managed virtual network & managed private endpoints
+description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -22,26 +22,25 @@ This article will explain Managed Virtual Network and Managed Private endpoints 
 
 ## Managed virtual network
 
-When you create an Azure Integration Runtime (IR) within Azure Data Factory Managed Virtual Network (VNet), the integration runtime will be provisioned with the managed Virtual Network and will leverage private endpoints to securely connect to supported data stores. 
+When you create an Azure Integration Runtime (IR) within Azure Data Factory Managed Virtual Network (VNET), the integration runtime will be provisioned with the managed Virtual Network and will leverage private endpoints to securely connect to supported data stores. 
 
 Creating an Azure IR within managed Virtual Network ensures that data integration process is isolated and secure. 
 
-Benefits of using Managed Virtual Network :
+Benefits of using Managed Virtual Network:
 
-- With a Managed Virtual Network you can offload the burden of managing the Virtual Network to Azure Data Factory. You don't need to create a subnet for Azure Integration Runtime that could eventually use many private IPs from your Virtual Network and would require prior network infrastructure planning. 
+- With a Managed Virtual Network, you can offload the burden of managing the Virtual Network to Azure Data Factory. You don't need to create a subnet for Azure Integration Runtime that could eventually use many private IPs from your Virtual Network and would require prior network infrastructure planning. 
 - It does not require deep Azure networking knowledge to do data integrations securely. Instead getting started with secure ETL is much simplified for data engineers. 
 - Managed Virtual Network along with Managed private endpoints protects against data exfiltration. 
 
 > [!IMPORTANT]
-> During the preview, to enable this feature you will have to create a new data factory with 'enabled managed virtual network (preview)' configuration enabled. 
 >Currently, the managed VNet is only supported in the same region as Azure Data Factory region.
-> Both these limitations will be removed in the coming months.  
+ 
 
 ![ADF Managed Virtual Network architecture](./media/managed-vnet/managed-vnet-architecture-diagram.png)
 
 ## Managed private endpoints
 
-Managed private endpoints are private endpoints created in the Azure Data Factory Managed Virtual Network (VNet) establishing a private link to Azure resources. Azure Data Factory manages these private endpoints on your behalf. 
+Managed private endpoints are private endpoints created in the Azure Data Factory Managed Virtual Network establishing a private link to Azure resources. Azure Data Factory manages these private endpoints on your behalf. 
 
 ![New Managed private endpoint](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
@@ -53,8 +52,9 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 
 > [!NOTE]
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
->
-> **Warning**: If a PaaS data store (Blob, ADLS Gen2, SQL DW) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
+ 
+> [!WARNING]
+> If a PaaS data store (Blob, ADLS Gen2, SQL DW) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using managed private endpoint. Make sure you create a Private endpoint in such scenarios. 
 
 A private endpoint connection is created in a "Pending" state when you create a Managed private endpoint in Azure Data Factory. An approval workflow is initiated. The private link resource owner is responsible to approve or reject the connection.
 
@@ -88,5 +88,5 @@ Debug run for CosmosDB connectivity doesn't work including both DataFlow debug a
 
 ## Next steps
 
-- Tutorial: [Build a copy pipeline using managed VNet and private endpoints](tutorial-copy-data-portal-private.md) 
-- Tutorial: [Build mapping dataflow pipeline using managed VNet and private endpoints](tutorial-data-flow-private.md)
+- Tutorial: [Build a copy pipeline using managed Virtual Network and private endpoints](tutorial-copy-data-portal-private.md) 
+- Tutorial: [Build mapping dataflow pipeline using managed Virtual Network and private endpoints](tutorial-data-flow-private.md)
