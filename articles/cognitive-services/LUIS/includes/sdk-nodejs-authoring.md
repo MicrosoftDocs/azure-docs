@@ -30,46 +30,7 @@ Use the Language Understanding (LUIS) authoring client library for Node.js to:
 
 ### Get your Language Understanding (LUIS) starter key
 
-Get your [starter key](../luis-how-to-azure-subscription.md#starter-key) by creating a LUIS authoring resource. Keep your key, and the endpoint of the key for the next step.
-
-### Create an environment variable
-
-Using your key, and the region for the key, create two environment variables for authentication:
-
-* `LUIS_AUTHORING_KEY` - The resource key for authenticating your requests.
-* `LUIS_AUTHORING_ENDPOINT` - The endpoint associated with your key.
-
-Use the instructions for your operating system.
-
-#### [Windows](#tab/windows)
-
-```console
-setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
-setx LUIS_AUTHORING_ENDPOINT <replace-with-your-luis-authoring-endpoint>
-```
-
-After you add the environment variable, restart the console window.
-
-#### [Linux](#tab/linux)
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-After you add the environment variable, run `source ~/.bashrc` from your console window to make the changes effective.
-
-#### [macOS](#tab/unix)
-
-Edit your `.bash_profile`, and add the environment variable:
-
-```bash
-export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
-export LUIS_AUTHORING_ENDPOINT=<replace-with-your-luis-authoring-endpoint>
-```
-
-After you add the environment variable, run `source .bash_profile` from your console window to make the changes effective.
-***
+Get your [authoring key](../luis-how-to-azure-subscription.md) by creating a LUIS authoring resource. Keep your key, and the endpoint of the key, you need to add these are strings at the top of the code file.
 
 ### Install the NPM library for LUIS authoring
 
@@ -112,8 +73,6 @@ These code snippets show you how to do the following with the Language Understan
 Create a new text file in your preferred editor or IDE named `luis_authoring_quickstart.js`. Then add the following dependencies.
 
 [!code-javascript[Create a new application in your preferred editor or IDE.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Dependencies)]
-
-Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 [!code-javascript[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/javascript/LUIS/node-sdk-authoring-prediction/luis_authoring_quickstart.js?name=Variables)]
 
