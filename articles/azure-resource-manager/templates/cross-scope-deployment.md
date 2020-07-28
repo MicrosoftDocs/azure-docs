@@ -13,7 +13,7 @@ You use [nested or linked templates](linked-templates.md) to specify scopes that
 
 ## Available scopes
 
-The scope that you use for the deployment operation determines which other scopes are available. You can deploy to the [tenant](deploy-to-tenant.md), [management group](deploy-to-management-group.md), [subscription](deploy-to-subscription), or [resource group](deploy-powershell.md). From the primary deployment level, you can't go up levels in the hierarchy. For example, if you deploy to a subscription, you can't step up a level to deploy resources to a management group. However, you can deploy to the management group and step down levels to deploy to a subscription or resource group.
+The scope that you use for the deployment operation determines which other scopes are available. You can deploy to the [tenant](deploy-to-tenant.md), [management group](deploy-to-management-group.md), [subscription](deploy-to-subscription.md), or [resource group](deploy-powershell.md). From the primary deployment level, you can't go up levels in the hierarchy. For example, if you deploy to a subscription, you can't step up a level to deploy resources to a management group. However, you can deploy to the management group and step down levels to deploy to a subscription or resource group.
 
 For every scope, the user deploying the template must have the required permissions to create resources.
 
