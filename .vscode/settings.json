@@ -63,5 +63,8 @@
         "covid",
         "onboarded"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "markdown.previewFeatures": true,
+    "markdown.replaceSmartQuotes": true,
+    "markdown.showToolbar": true
 }
