@@ -87,6 +87,27 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 * [Examples: Pipeline with automated machine learning](https://aka.ms/pl-automl)
 * [Examples: Pipeline with estimators](https://aka.ms/pl-estimator)
 
+### Understand what happens when you submit a training job
+
+The Azure training lifecycle consists of:
+
+1. Zipping the files in your project folder, ignoring those specified in _.amlignore_ or _.gitignore_
+1. Scaling up your compute cluster 
+1. Building or downloading the dockerfile to the compute node 
+    1. The system calculates a hash of: 
+        - The base image 
+        - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - The spark definition `spark-defaults.conf`
+    1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
+    1. If it is not found, it looks for a match in the global ACR
+    1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
+1. Downloading your zipped project file to temporary storage on the compute node
+1. Unzipping the project file
+1. The compute node executing `python <entry script> <arguments>`
+1. Saving logs, model files, and other files written to `./outputs` to the storage account associated with the workspace
+1. Scaling down compute, including removing temporary storage 
+
 ## R SDK
 
 The R SDK enables you to use the R language with Azure Machine Learning. The SDK uses the reticulate package to bind to Azure Machine Learning's Python SDK. This allows you access to core objects and methods implemented in the Python SDK from any R environment.
