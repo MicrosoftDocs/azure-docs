@@ -1,6 +1,6 @@
 ---
 title: Soft Delete Update | Microsoft Docs
-description: Use this document to adopt soft-delete on for all key vaults.
+description: Use this document to adopt soft-delete for all key vaults.
 services: key-vault
 author: ShaneBala-keyvault
 manager: ravijan
@@ -20,7 +20,7 @@ ms.author: sudbalas
 > [!WARNING]
 > **Breaking Change**: The ability to opt out of soft-delete will be deprecated by the end of the year and soft-delete protection will automatically be turned on for all key vaults.  Azure Key Vault users and administrators should enable soft-delete on their key vaults immediately.
 
-When a secret is deleted from a key vault without soft-delete protection, the secret is permanently and irrecoverably deleted. Users can currently opt-out of soft-delete during key vault creation but, to protect your secrets from accidental or malicious deletion by a user, Microsoft will soon enable soft-delete protection on **all** key vaults, and users will no longer have the option to opt-out or turn soft-delete off.
+When a secret is deleted from a key vault without soft-delete protection, the secret is permanently deleted. Users can currently opt out of soft-delete during key vault creation but, to protect your secrets from accidental or malicious deletion by a user, Microsoft will soon enable soft-delete protection on **all** key vaults, and users will no longer have the option to opt out or turn soft-delete off.
 
 :::image type="content" source="../media/softdeletediagram.png" alt-text="<alt text>":::
 
@@ -28,7 +28,7 @@ For full details on the soft-delete functionality, see [Azure Key Vault soft-del
 
 ## How do I respond to breaking changes
 
-An key vault object cannot be created with with the same name as a key vault object in the soft-deleted state.  For example, if you delete a key named `test key` in key vault A, you will not be able to create a new key named `test key` in key vault A until the soft-deleted `test key` object is purged.
+A key vault object cannot be created with the same name as a key vault object in the soft-deleted state.  For example, if you delete a key named `test key` in key vault A, you will not be able to create a new key named `test key` in key vault A until the soft-deleted `test key` object is purged.
 
 ### Application changes
 
@@ -81,7 +81,7 @@ You should now be able to filter and see which of your key vaults have soft-dele
 2. Search for your Key Vault.
 3. Select "Access Policies" under settings.
 4. Select the service principal you would like to grant access to.
-5. For each dropdown under key, secret, and certificate permissions scroll all the way down to "Privileged Operations" and select the "Purge" permission.
+5. For each dropdown under key, secret, and certificate permissions scroll down to "Privileged Operations" and select the "Purge" permission.
 
 ## Frequently Asked Questions
 
@@ -107,7 +107,7 @@ Make sure that you do not have to make changes to your application logic. Once y
 
 ### By when do I need to take action?
 
-Soft delete will be turned on for all key vaults by the end of the year. To make sure that your applications are not affected, please turn on soft-delete on your key vaults as soon as possible.
+Soft delete will be turned on for all key vaults by the end of the year. To make sure that your applications are not affected, turn on soft-delete on your key vaults as soon as possible.
 
 ## What will happen if I don’t take any action?
 
