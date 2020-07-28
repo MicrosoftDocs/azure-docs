@@ -50,6 +50,5 @@ You can create up to five export policy rules.
 
 
 ## Next steps 
-* [Manage volumes](azure-netapp-files-manage-volumes.md)
 * [Mount or unmount a volume for virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Manage snapshots](azure-netapp-files-manage-snapshots.md)
