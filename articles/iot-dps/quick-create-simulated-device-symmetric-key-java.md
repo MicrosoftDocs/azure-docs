@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 manager: eliotgra
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 #Customer intent: As a new IoT developer, I want simulate a device using Java so that I can learn how secure provisioning works with symmetric keys.
 ---
 
