@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 07/29/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
@@ -298,6 +298,21 @@ response_type=token            //code or a hybrid flow is also possible here
 
 This produces a consent screen for all registered permissions (if applicable based on the above descriptions of consent and `/.default`), then returns an id_token, rather than an access token.  This behavior exists for certain legacy clients moving from ADAL to MSAL, and **should not** be used by new clients targeting the Microsoft identity platform endpoint.
 
+### Application permissions and /.default
+
+There is no mechanism to dynamically *request* application-only permissions. App-only permissions are those that are included in access tokens obtained through the [client credentials](v2-oauth2-client-creds-grant-flow.md) grant flow.
+
+All client credentials requests must include `scope={resource}/.default` where `{resource}` is the API the app intends to call. All granted app-only permissions (roles) for that API will be included in the returned access token.
+
+The only methods for *granting* app-only permissions are:
+
+* During an interactive sign-in (such as with the authorization code flow) using the `/.default` "scope," if (and only if) the authorization request resulted in a consent prompt and the signed-in user happens to be an admin.
+* At the [../adminconsent endpoint](#using-the-admin-consent-endpoint).
+* From **App registrations** > **API permissions** if the app is registered in the same tenant, or from **Enterprise apps** > **Permissions** if the app has already been instantiated in the tenant, both of which are equivalent to using the `../adminconsent` endpoint.
+* Manually through creation of app role assignments using the Microsoft Graph API which, if the assigned principal is an app's ServicePrincipal object, _are_ app-only permission grants.
+
+You must identify only one resource (API) if you're using `/.default`.
+
 ### Trailing slash and /.default
 
 Some resource URIs have a trailing slash (`https://contoso.com/` as opposed to `https://contoso.com`), which can cause problems with token validation.  This can occur primarily when requesting a token for Azure Resource Management (`https://management.azure.com/`), which has a trailing slash on their resource URI and requires it to be present when the token is requested.  Thus, when requesting a token for `https://management.azure.com/` and using `/.default`, you must request `https://management.azure.com//.default` - note the double slash!
@@ -307,3 +322,8 @@ In general - if you've validated that the token is being issued, and the token i
 ## Troubleshooting permissions and consent
 
 If you or your application's users are seeing unexpected errors during the consent process, see this article for troubleshooting steps: [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## Next steps
+
+* [ID tokens | Microsoft identity platform](id-tokens.md)
+* [Access tokens | Microsoft identity platform](access-tokens.md)
