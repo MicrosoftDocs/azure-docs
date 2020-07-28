@@ -6,14 +6,11 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
 ---
 # Use Microsoft Teams on Windows Virtual desktop
-
->[!IMPORTANT]
->Media optimization for Teams is currently in **public preview**. We recommend evaluating the optimized Teams user experience before deploying Teams for production workloads. Certain features might not be supported or might have constrained capabilities.
 
 >[!IMPORTANT]
 >Media optimization for Teams is not supported for Microsoft 365 Government environments.
@@ -51,15 +48,21 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest [WebSocket Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
 The following table lists the latest versions of the WebSocket Service:
 
-|Version    |Release date  |
-|-----------|--------------|
-|0.11.0     |05/29/2020    |
+|Version        |Release date  |
+|---------------|--------------|
+|1.0.2006.11001 |07/28/2020    |
+|0.11.0         |05/29/2020    |
+
+#### Updates for version 1.0.2006.11001
+
+- Fixed an issue where minimizing the Teams app during a call or meeting caused incoming video to drop.
+- Added support for selecting one monitor to share in multi-monitor desktop sessions.
 
 ### Install Microsoft Teams
 
@@ -115,7 +118,7 @@ After installing the WebSocket Service and the Teams desktop app, follow these s
 
 3. Select your user profile image, then select **Settings**.
 
-      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, go back to [Install Microsoft Teams](#install-microsoft-teams) and make sure you've completed the installation process.
+      If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions** the setting **Allow apps to access your microphone** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
 
 ## Known issues and limitations
 
@@ -131,9 +134,7 @@ Using Teams in a virtualized environment is different from using Teams in a non-
 ### Calls and meetings
 
 - The Teams desktop client in Windows Virtual Desktop environments doesn't support live events. For now, we recommend you join live events from the [Teams web client](https://teams.microsoft.com) in your remote session instead.
-- Minimizing the Teams app during a call or meeting may result in the incoming video feed disappearing when you expand the app.
 - Calls or meetings don't currently support application sharing. Desktop sessions support desktop sharing.
-- When desktop sharing in a multi-monitor setup, all monitors are shared.
 - Give control and take control aren't currently supported.
 - Teams on Windows Virtual Desktop only supports one incoming video input at a time. This means that whenever someone tries to share their screen, their screen will appear instead of the meeting leader's screen.
 - Due to WebRTC limitations, incoming and outgoing video stream resolution is limited to 720p.

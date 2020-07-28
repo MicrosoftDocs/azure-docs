@@ -9,7 +9,7 @@ ms.subservice: alerts
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../../azure-monitor/platform/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](../../azure-monitor/platform/alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](./metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](./alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 ## How do metric alerts work?
 
@@ -148,7 +148,7 @@ You can specify the scope of monitoring by a single metric alert rule in one of 
 >
 > The scope of a multi-resource metric alert rule must contain at least one resource of the selected resource type.
 
-Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
+Creating metric alert rules that monitor multiple resources is like [creating any other metric alert](alerts-metric.md) that monitors a single resource. Only difference is that you would select all the resources you want to monitor. You can also create these rules through [Azure Resource Manager templates](./alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources). You will receive individual notifications for each monitored resource.
 
 > [!NOTE]
 >
@@ -160,12 +160,13 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 ## Supported resource types for metric alerts
 
-You can find the full list of supported resource types in this [article](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+You can find the full list of supported resource types in this [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](alerts-metric.md)
-- [Learn how to deploy metric alerts using Azure Resource Manager templates](../../azure-monitor/platform/alerts-metric-create-templates.md)
+- [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](alerts-dynamic-thresholds.md)
+
