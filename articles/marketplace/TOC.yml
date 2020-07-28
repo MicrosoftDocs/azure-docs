@@ -168,8 +168,9 @@
       - name: Plan a SaaS offer
         href: plan-saas-offer.md
       - name: Create a SaaS offer
-        href: create-new-saas-offer.md
         items:
+        - name: Create the SaaS offer 
+          href: create-new-saas-offer.md
         - name: Configure offer listing
           href: create-new-saas-offer-listing.md
         - name: Preview audience and technical details
@@ -180,6 +181,14 @@
           href: create-new-saas-offer-marketing.md      
       - name: SaaS metered billing
         href: ./partner-center-portal/saas-metered-billing.md
+      - name: Azure AD auth for SaaS
+        items:
+          - name: Azure AD and SaaS overview
+            href: ./azure-ad-saas.md
+          - name: Landing page for transactable offers 
+            href: ./azure-ad-transactable-saas-landing-page.md
+          - name: Landing page for free or trial offers
+            href: ./azure-ad-free-or-trial-landing-page.md
       - name: SaaS Fulfillment APIs
         href: ./partner-center-portal/pc-saas-fulfillment-apis.md
         items:

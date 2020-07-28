@@ -23,6 +23,8 @@ The default execution environment uses the Anacondas distribution of Python. For
 
 ![Execute Python input map](media/how-to-designer-python/execute-python-map.png)
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## Execute Python written in the designer
 
 ### Add the Execute Python Script module
