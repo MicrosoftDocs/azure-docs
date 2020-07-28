@@ -102,6 +102,8 @@ If you're using the Local Cache feature with Staging Environments, the swap oper
 ### I just published new changes, but my app does not seem to have them. Why?
 If your app uses Local Cache, then you need to restart your site to get the latest changes. Don’t want to publish changes to a production site? See the slot options in the previous best practices section.
 
+[!NOTE] > 'Run from package' deployment option is not compatible with Local Cache.
+
 ### Where are my logs?
 With Local Cache, your logs and data folders do look a little different. However, the structure of your subfolders remains the same, except that the subfolders are nestled under a subfolder with the format "unique VM identifier" + time stamp.
 
