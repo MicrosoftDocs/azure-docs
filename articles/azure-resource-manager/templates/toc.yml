@@ -366,8 +366,8 @@
       href: deploy-to-management-group.md
     - name: Tenant
       href: deploy-to-tenant.md
-    - name: Cross resource group
-      href: cross-resource-group-deployment.md
+    - name: Cross scope deployments
+      href: cross-scope-deployment.md
   - name: Provide parameters
     items:
     - name: Create parameter file
