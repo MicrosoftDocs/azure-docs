@@ -37,7 +37,7 @@ In the [quickstart series](view-applications-portal.md) there is an article on c
 You should get the values from the application vendor. You can manually enter the values or upload a metadata file to extract the value of the fields.
 
 > [!TIP]
-> Many apps have already been pre-integrated to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The have [quickstart series](view-applications-portal.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, setup instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app conifguration tutorials](../saas-apps/tutorial-list.md).
+> Many apps have already been pre-integrated to work with Azure AD. These apps are listed in the gallery of apps that you can browse when you add an app to your Azure AD tenant. The [quickstart series](view-applications-portal.md) walks you through the process. For the apps in the gallery you will find detailed, step-by-step, setup instructions. To access the steps you can click the link on the SAML configuration page for the app as described in the quickstart series or you can browse a list of all app configuration tutorials at [SaaS app configuration tutorials](../saas-apps/tutorial-list.md).
 
 | Basic SAML Configuration setting | SP-Initiated | idP-Initiated | Description |
 |:--|:--|:--|:--|
@@ -50,64 +50,53 @@ You should get the values from the application vendor. You can manually enter th
 
 ## User attributes and claims 
 
-When a user authenticates to the application, Azure AD issues the application a SAML token with information (or claims) about the user that uniquely identifies them. By default, this information includes the user's username, email address, first name, and last name. You might need to customize these claims if, for example, the application requires specific claim values or a **Name** format other than username. Requirements for gallery apps are described in the [application-specific tutorials](../saas-apps/tutorial-list.md), or you can ask the application vendor. The general steps for configuring user attributes and claims are described below.
+When a user authenticates to the application, Azure AD issues the application a SAML token with information (or claims) about the user that uniquely identifies them. By default, this information includes the user's username, email address, first name, and last name. You might need to customize these claims if, for example, the application requires specific claim values or a **Name** format other than username. 
 
-1. In the **User Attributes and Claims** section, select the **Edit** icon (a pencil) in the upper-right corner.
+> [!IMPORTANT]
+> Many apps are already pre-configured and in the app gallery and you don't need to worry about setting user and group claims. The [quickstart series](view-applications-portal.md) walks you through adding and configuring apps.
 
-   ![Step 2 Configure User attributes and claims](media/configure-single-sign-on-non-gallery-applications/step-two-user-attributes-claims.png)
 
-2. Verify the **Name Identifier Value**. The default value is *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
+The **Unique User Identifier (Name ID)** identifier value is a required claim and is important. The default value is *user.userprincipalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-3. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. For details, see [Editing NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Save the changes when you're done. 
- 
-4. To configure group claims, select the **Edit** icon for the **Groups returned in claim** field. For details, see [Configure group claims](../hybrid/how-to-connect-fed-group-claims.md).
+To learn more about customizing SAML claims, see [How to: customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization).
 
-5. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use. For details, see [Adding application-specific claims](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Save the changes when you're done. 
+You can add new claims, for details see [Adding application-specific claims](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims) or to add group claims, see [Configure group claims](../hybrid/how-to-connect-fed-group-claims.md).
 
-6. Select **Save**. The new claim appears in the table.
 
-   > [!NOTE]
-   > For additional ways to customize the SAML token from Azure AD to your application, see the following resources.
-   >- To create custom roles via the Azure portal, see [Configure role claims](../develop/active-directory-enterprise-app-role-management.md).
-   >- To customize the claims via PowerShell, see [Customize claims - PowerShell](../develop/active-directory-claims-mapping.md).
-   >- To modify the application manifest to configure optional claims for your application, see [Configure optional claims](../develop/active-directory-optional-claims.md).
-   >- To set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens, see [Configure token lifetimes](../develop/active-directory-configurable-token-lifetimes.md). Or, to restrict authentication sessions via Azure AD Conditional Access, see [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106).
-
+> [!NOTE]
+> For additional ways to customize the SAML token from Azure AD to your application, see the following resources.
+>- To create custom roles via the Azure portal, see [Configure role claims](../develop/active-directory-enterprise-app-role-management.md).
+>- To customize the claims via PowerShell, see [Customize claims - PowerShell](../develop/active-directory-claims-mapping.md).
+>- To modify the application manifest to configure optional claims for your application, see [Configure optional claims](../develop/active-directory-optional-claims.md).
+>- To set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens, see [Configure token lifetimes](../develop/active-directory-configurable-token-lifetimes.md). Or, to restrict authentication sessions via Azure AD Conditional Access, see [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106).
 
 ## SAML signing certificate
 
 Azure AD uses a certificate to sign the SAML tokens it sends to the application. You need this certificate to set up the trust between Azure AD and the application. For details on the certificate format, see the application’s SAML documentation. For more information, see [Manage certificates for federated single sign-on](manage-certificates-for-federated-single-sign-on.md) and [Advanced certificate signing options in the SAML token](certificate-signing-options.md).
 
+> [!IMPORTANT]
+> Many apps are already pre-configured and in the app gallery and you don't need to dive into certificates. The [quickstart series](view-applications-portal.md) walks you through adding and configuring apps.
+
 From Azure AD, you can download the active certificate in Base64 or Raw format directly from the main **Set up Single Sign-On with SAML** page. Alternatively, you can get the active certificate by downloading the application metadata XML file or by using the App federation metadata URL. To view, create, or download your certificates (active or inactive), follow these steps.
 
-1. Go to the **SAML Signing Certificate** section. 
-
-   ![Step 3 Manage the SAML signing certificate](./media/configure-single-sign-on-non-gallery-applications/step-three-certificate.png)
-
-2. Verify the certificate has:
-
+Verify the certificate by checking the following:
    - *The desired expiration date.* You can configure the expiration date for up to three years into the future.
    - *A status of active for the desired certificate.* If the status is **Inactive**, change the status to **Active**. To change the status, right-click the desired certificate's row and select **Make certificate active**.
    - *The correct signing option and algorithm.*
    - *The correct notification email address(es).* When the active certificate is near the expiration date, Azure AD sends a notification to the email address configured in this field.
 
-2. To download the certificate, select one of the options for Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+To download the certificate, select one of the options for Base64 format, Raw format, or Federation Metadata XML. Azure AD also provides the **App Federation Metadata Url** where you can access the metadata specific to the application in the format `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
-3. To manage, create, or import a certificate, select the **Edit** icon (a pencil) in the upper-right corner of the **SAML Signing Certificate** section.
-
-   ![SAML signing certificate](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
-
-
-   Take any of the following actions:
-
-   - To create a new certificate, select **New Certificate**, select the **Expiration Date**, and then select **Save**. To activate the certificate, select the context menu (**...**) and select **Make certificate active**.
-   - To upload a certificate with private key and pfx credentials, select **Import Certificate** and browse to the certificate. Enter the **PFX Password**, and then select **Add**.  
-   - To configure advanced certificate signing options, use the following options. For descriptions of these options, see the [Advanced certificate signing options](certificate-signing-options.md) article.
+To make changes, click the Edit button. There are a number of things you can do on the **SAML Signing Certificate** page, these include:
+   - Create a new certificate; select **New Certificate**, select the **Expiration Date**, and then select **Save**. To activate the certificate, select the context menu (**...**) and select **Make certificate active**.
+   - Upload a certificate with private key and pfx credentials; select **Import Certificate** and browse to the certificate. Enter the **PFX Password**, and then select **Add**.  
+   - To configure advanced certificate signing, see the following options. For descriptions of these options, see the [Advanced certificate signing options](certificate-signing-options.md) article.
       - In the **Signing Option** drop-down list, choose **Sign SAML response**, **Sign SAML assertion**, or **Sign SAML response and assertion**.
       - In the **Signing Algorithm** drop-down list, choose **SHA-1** or **SHA-256**.
-   - To notify additional people when the active certificate is near its expiration date, enter the email addresses in the **Notification email addresses** fields.
+   - Notify additional people when the active certificate is near its expiration date; enter the email addresses in the **Notification email addresses** fields.
 
-4. If you made changes, select **Save** at the top of the **SAML Signing Certificate** section. 
+
+
 
 
 
