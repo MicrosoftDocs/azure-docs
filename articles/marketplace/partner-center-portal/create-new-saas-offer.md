@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/22/2020
-author: minghsen-ms
+author: mingshen-ms
 ms.author: mingshen
 ---
 
