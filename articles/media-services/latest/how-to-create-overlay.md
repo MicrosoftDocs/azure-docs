@@ -14,71 +14,13 @@ The Media Encoder Standard allows you to overlay an image onto an existing video
 
 In addition to defining a preset file, you also have to let Media Services know which file in the asset is the overlay image and which file is the source video onto which you want to overlay the image. The video file has to be the **primary** file.
 
-If you are using .NET, add the following two functions to the .NET example defined in [this](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) topic. 
+## Prerequisites
 
-The **UploadMediaFilesFromFolder** function uploads files from a folder (for example, BigBuckBunny.mp4 and Image001.png) and sets the mp4 file to be the primary file in the asset. The **EncodeWithOverlay** function uses the custom preset file that was passed to it (for example, the preset that follows) to create the encoding task.
+Read [How to encode with a custom transform - .NET](customize-encoder-presets-how-to). Follow the steps in this article to set up the .NET needed to work with transforms, then return here to try out an overlays preset.
 
-```csharp
-static public IAsset UploadMediaFilesFromFolder(string folderPath)
-{
-    IAsset asset = _context.Assets.CreateFromFolder(folderPath, AssetCreationOptions.None);
+## Sample
 
-    foreach (var af in asset.AssetFiles)
-    {
-        // The following code assumes 
-        // you have an input folder with one MP4 and one overlay image file.
-        if (af.Name.Contains(".mp4"))
-            af.IsPrimary = true;
-        else
-            af.IsPrimary = false;
-
-        af.Update();
-    }
-
-    return asset;
-}
-
-static public IAsset EncodeWithOverlay(IAsset assetSource, string customPresetFileName)
-{
-    // Declare a new job.
-    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-    // Get a media processor reference, and pass to it the name of the 
-    // processor to use for the specific task.
-    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-    // Load the XML (or JSON) from the local file.
-    string configuration = File.ReadAllText(customPresetFileName);
-
-    // Create a task
-    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-        processor,
-        configuration,
-        TaskOptions.None);
-
-    // Specify the input assets to be encoded.
-    // This asset contains a source file and an overlay file.
-    task.InputAssets.Add(assetSource);
-
-    // Add an output asset to contain the results of the job. 
-    task.OutputAssets.AddNew("Output asset",
-        AssetCreationOptions.None);
-
-    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-    job.Submit();
-    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-    return job.OutputMediaAssets[0];
-}
-```
-
-> [!NOTE]
-> Current limitations:
->
-> The overlay opacity setting is not supported.
->
-> Your source video file and the overlay image file have to be in the same asset, and the video file needs to be set as the primary file in this asset.
->
->
+Download the [media-services-overlay sample](https://github.com/Azure-Samples/media-services-overlays) to get started with overlays.
 
 ### JSON preset
 
