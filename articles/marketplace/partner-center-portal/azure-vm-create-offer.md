@@ -3,7 +3,6 @@ title: Create an Azure virtual machine offer on Azure Marketplace
 description: Learn how to publish a virtual machine offer to Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.service: marketplace
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
