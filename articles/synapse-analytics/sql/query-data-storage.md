@@ -48,7 +48,7 @@ Review the [Query Parquet files](query-parquet-files.md) article for usage examp
 
 ## Query CSV files
 
-To query Parquet source data, use FORMAT = 'CSV'. You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
+To query CSV source data, use FORMAT = 'CSV'. You can specify schema of the CSV file as part of `OPENROWSET` function when you query CSV files:
 
 ```sql
 SELECT * FROM
