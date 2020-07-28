@@ -233,7 +233,7 @@ Supported customizations include:
 
 |Customization|Definition|
 |--|--|
-|**Column purpose update**|Override the feature type for the specified column.|
+|**Column purpose update**|Override the auto-detected feature type for the specified column.|
 |**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (fill_value and median) and *HashOneHotEncoder*.|
 |**Drop columns** |Specifies columns to drop from being featurized.|
 
