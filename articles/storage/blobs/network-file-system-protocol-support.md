@@ -82,10 +82,8 @@ The following Azure Storage features aren't supported when you enable the NFS 3.
 
 - The ability to disable NFS 3.0 support in a storage account (after you've enabled it)
 
-- Ability to write to blobs by using both NFS 3.0 and other REST APIs or SDKs. 
-
-  If you want to use REST APIs or SDKs to write to a blob, then make sure that you use NFS 3.0 only to perform read operations otherwise blobs might become corrupt.
-
+- Ability to write to blobs by using REST APIs or SDKs. 
+  
 ## NFS 3.0 features not yet supported
 
 The following NFS 3.0 features aren't yet supported with Azure Data Lake Storage Gen2.
