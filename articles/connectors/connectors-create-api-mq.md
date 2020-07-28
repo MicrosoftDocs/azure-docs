@@ -7,7 +7,7 @@ author: ChristopherHouser
 ms.author: chrishou
 ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 05/14/2020
+ms.date: 07/28/2020
 tags: connectors
 ---
 
@@ -32,15 +32,20 @@ Here are the officially supported IBM WebSphere MQ versions:
 
 ## Prerequisites
 
-* If you're using an on-premises MQ server, [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network. The server where the on-premises data gateway is installed must also have .NET Framework 4.6 installed for the MQ connector to work.
+* If you use an on-premises MQ server, you need to [install the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a server within your network.
 
-  After you finish installing the gateway, you must also create a gateway resource in Azure for the on-premises data gateway. For more information, see [Set up the data gateway connection](../logic-apps/logic-apps-gateway-connection.md).
+  > [!NOTE]
+  > If your MQ server is publicly available or available within Azure, you don't have to use the data gateway.
 
-  If your MQ server is publicly available or available within Azure, you don't have to use the data gateway.
+  * For the MQ connector to work, the server where you install the on-premises data gateway also needs to have .NET Framework 4.6 installed.
+  
+  * After you install the on-premises data gatey, you also need to [create an Azure gateway resource for the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md) that the MQ connector uses to access your on-premises MQ server.
 
-* The logic app where you want to add the MQ action. This logic app must use the same location as your on-premises data gateway connection and must already have a trigger that starts your workflow.
+* The logic app where you want to use the MQ connector. The MQ connector doesn't have any triggers, so you must add a trigger to your logic app first. For example, you can use the [Recurrence trigger](../connectors/connectors-native-recurrence.md). If you're new to logic apps, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-  The MQ connector doesn't have any triggers, so you must add a trigger to your logic app first. For example, you can use the Recurrence trigger. If you're new to logic apps, try this [quickstart to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## Limitations
+
+The MQ connector doesn't support or use the message **Format** field and doesn't perform any character set conversions. The connector only puts whatever data appears in the message field into a JSON message and sends the message along.
 
 <a name="create-connection"></a>
 
@@ -56,13 +61,13 @@ If you don't already have an MQ connection when you add an MQ action, you're pro
 
    * For **Server**, you can enter the MQ server name, or enter the IP address followed by a colon and the port number.
 
-   * To use Secure Sockets Layer (SSL), select **Enable SSL?**.
+   * To use Transport Layer Security (TLS) or Secure Sockets Layer (SSL), select **Enable SSL?**.
 
      The MQ connector currently supports only server authentication, not client authentication. For more information, see [Connection and authentication problems](#connection-problems).
 
 1. In the **gateway** section, follow these steps:
 
-   1. From the **Subscription** list, select the Azure subscription associated with your Azure gateway resource.
+   1. From the **Subscription** list, select the Azure subscription that's associated with your Azure gateway resource.
 
    1. From the **Connection Gateway** list, select the Azure gateway resource that you want to use.
 
@@ -178,10 +183,6 @@ The **Receive messages** action has the same inputs and outputs as the **Browse 
    After the logic app finishes running, here is some sample output from the **Send message** action:
 
    ![Sample "Send message" output](media/connectors-create-api-mq/send-message-output.png)
-
-## Limitations
-
-The MQ connector doesn't support the `Message Format` field and doesn't perform any character set conversions. The connector puts whatever data appears in the message field into a JSON message and sends the message along.
 
 ## Connector reference
 
