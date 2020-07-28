@@ -4,7 +4,7 @@ description: Use Helm with AKS and Azure Container Registry to package and run a
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 07/28/2020
 ms.author: zarhoads
 ---
 
