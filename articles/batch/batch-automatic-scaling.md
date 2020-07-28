@@ -38,7 +38,7 @@ $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 
 Include these statements in your autoscale formula to arrive at a target number of compute nodes. Dedicated nodes and low-priority nodes each have their own target settings. An autoscale formula can include a target value for dedicated nodes, a target value for low-priority nodes, or both.
 
-The target number of nodes may be higher, lower, or the same as the current number of nodes of that type in the pool. Batch evaluates a pool's autoscale formula at a specific automatic scaling intervals](#automatic-scaling-interval). Batch adjusts the target number of each type of node in the pool to the number that your autoscale formula specifies at the time of evaluation.
+The target number of nodes may be higher, lower, or the same as the current number of nodes of that type in the pool. Batch evaluates a pool's autoscale formula at a specific [automatic scaling intervals](#automatic-scaling-interval). Batch adjusts the target number of each type of node in the pool to the number that your autoscale formula specifies at the time of evaluation.
 
 ### Sample autoscale formulas
 
@@ -390,7 +390,6 @@ The minimum interval is five minutes, and the maximum is 168 hours. If an interv
 > [!NOTE]
 > Autoscaling is not currently intended to respond to changes in less than a minute, but rather is intended to adjust the size of your pool gradually as you run a workload.
 
-
 ## Create an autoscale-enabled pool with Batch SDKs
 
 Pool autoscaling can be configured using any of the [Batch SDKs](batch-apis-tools.md#azure-accounts-for-batch-development), the [Batch REST API](/rest/api/batchservice/) [Batch PowerShell cmdlets](batch-powershell-cmdlets-get-started.md), and the [Batch CLI](batch-cli-get-started.md). In this section, you can see examples for both .NET and Python.
@@ -405,7 +404,7 @@ To create a pool with autoscaling enabled in .NET, follow these steps:
 1. (Optional) Set the [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) property (default is 15 minutes).
 1. Commit the pool with [CloudPool.Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) or [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-The following example creates an autoscale-enabled pool in .NET. The pool's autoscale formula sets the target number of dedicated nodes to 5 on Mondays, and to1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, `myBatchClient` is a properly initialized instance of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) class.
+The following example creates an autoscale-enabled pool in .NET. The pool's autoscale formula sets the target number of dedicated nodes to 5 on Mondays, and to 1 on every other day of the week. The [automatic scaling interval](#automatic-scaling-interval) is set to 30 minutes. In this and the other C# snippets in this article, `myBatchClient` is a properly initialized instance of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) class.
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
