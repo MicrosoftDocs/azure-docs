@@ -21,7 +21,7 @@ Azure Active Directory (Azure AD) External Identities now offers pricing on a mo
 > [!NOTE]
 > For details about the MAU pricing model, see [Azure AD External Identities pricing](link).
 
-This article describes how to switch to the new pricing model by linking your External Identities tenant to your Azure AD subscription.
+To take advantage of MAU pricing for External Identities, your tenant must be linked to an Azure Active Directory subscription. Follow these steps if your tenant isn't currently linked to a subscription.
 
 ## Link your External Identities tenant to a subscription
 
@@ -33,7 +33,7 @@ This article describes how to switch to the new pricing model by linking your Ex
 
     In the Azure portal toolbar, select the **Directory + Subscription** icon, and then select the directory that contains your subscription. This directory is different from the one that will contain your Azure AD B2C tenant.
 
-    ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/link-subscription/portal-01-pick-directory.png)
+    ![Subscription tenant, Directory + Subscription filter with subscription tenant selected](media/external-identities-pricing/portal-01-pick-directory.png)
 
 1. Select **External Identities**.
  
