@@ -7,7 +7,8 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 03/09/2020
 ---
 

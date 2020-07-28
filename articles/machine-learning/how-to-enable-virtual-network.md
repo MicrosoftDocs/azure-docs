@@ -5,13 +5,12 @@ description: Use an isolated Azure Virtual Network with Azure Machine Learning t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 07/07/2020
-ms.custom: contperfq4, tracking-python
+ms.topic: conceptual
+ms.custom: how-to, contperfq4, tracking-python
 
 ---
 

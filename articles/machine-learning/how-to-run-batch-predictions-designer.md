@@ -5,11 +5,11 @@ description: Learn how to train a model and set up a batch prediction pipeline u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 02/24/2020
-ms.custom: Ignite2019, designer
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer (preview)
