@@ -43,40 +43,6 @@ AND T.roomSize > 50
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
-## Run queries with an API call
-
-Once you have decided on a query string, you execute it by making a call to the **Query API**.
-The following code snippet illustrates this call from the client app:
-
-```csharp
-var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
-client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
-
-QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
-QueryResult result = await client.Query.QueryTwinsAsync(spec);
-```
-
-This call returns query results in the form of a QueryResult object. 
-
-Query calls support paging. Here is a complete example with error handling and paging:
-
-```csharp
-string query = "SELECT * FROM digitaltwins";
-try
-{
-    AsyncPageable<string> qresult = client.QueryAsync(query);
-    await foreach (string item in qresult) 
-    {
-        // Do something with each result
-    }
-}
-catch (RequestFailedException e)
-{
-    Log.Error($"Error {e.Status}: {e.Message}");
-    return null;
-}
-```
-
 ## Query based on relationships
 
 When querying based on digital twins' relationships, Azure Digital Twins Query Store language has a special syntax.
@@ -124,7 +90,41 @@ AND R.reportedCondition = 'clean'
 
 In the example above, note how *reportedCondition* is a property of the *servicedBy* relationship itself (NOT of some digital twin that has a *servicedBy* relationship).
 
-### Query limitations
+## Run queries with an API call
+
+Once you have decided on a query string, you execute it by making a call to the **Query API**.
+The following code snippet illustrates this call from the client app:
+
+```csharp
+var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
+client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
+
+QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
+QueryResult result = await client.Query.QueryTwinsAsync(spec);
+```
+
+This call returns query results in the form of a QueryResult object. 
+
+Query calls support paging. Here is a complete example with error handling and paging:
+
+```csharp
+string query = "SELECT * FROM digitaltwins";
+try
+{
+    AsyncPageable<string> qresult = client.QueryAsync(query);
+    await foreach (string item in qresult) 
+    {
+        // Do something with each result
+    }
+}
+catch (RequestFailedException e)
+{
+    Log.Error($"Error {e.Status}: {e.Message}");
+    return null;
+}
+```
+
+## Query limitations
 
 There may be a delay of up to 10 seconds before changes in your instance are reflected in queries. For example, if you complete an operation like creating or deleting twins with the DigitalTwins API, the result may not be immediately reflected in Query API requests. Waiting for a short period should be sufficient to resolve.
 
