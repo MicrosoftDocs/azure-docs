@@ -107,10 +107,11 @@ Make sure that you do not have to make changes to your application logic. Once y
 
 ### By when do I need to take action?
 
-    Soft delete will be turned on for all key vaults by the end of the year. To make sure that your applications are not affected, please turn on soft-delete on your key vaults as soon as possible.
+Soft delete will be turned on for all key vaults by the end of the year. To make sure that your applications are not affected, please turn on soft-delete on your key vaults as soon as possible.
 
 ## What will happen if I don’t take any action?
-    If you do not take any action, soft-delete will automatically be turned on for all of your key vaults at the end of the year. This may result in conflict errors if you attempt to delete a key vault object and recreate it with the same name without purging it from the soft-deleted state first. This may cause your applications or automation to fail.
+
+If you do not take any action, soft-delete will automatically be turned on for all of your key vaults at the end of the year. This may result in conflict errors if you attempt to delete a key vault object and recreate it with the same name without purging it from the soft-deleted state first. This may cause your applications or automation to fail.
 
 ## Next steps
 
