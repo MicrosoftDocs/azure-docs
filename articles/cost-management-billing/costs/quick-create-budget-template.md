@@ -76,7 +76,7 @@ One Azure resource is defined in the template:
 
 2. Select or enter the following values.
 
-   :::image type="content" source="../media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager template, Create budget, deploy portal]" lightbox="../media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Resource Manager template, Create budget, deploy portal]" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
    
     * **Subscription**: select an Azure subscription.
     * **Region**: select an Azure region. For example, **Central US**.
