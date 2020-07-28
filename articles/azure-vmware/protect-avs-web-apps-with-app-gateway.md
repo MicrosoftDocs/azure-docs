@@ -87,7 +87,7 @@ You can use the Azure portal to configure hosting multiple websites when you cre
 
 2. Add the backend pools. In an existing application gateway instance, select **Backend pools** from the left menu, select  **Add**, and enter the details of the new pools. Select **Add** in the right pane.
 
-    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-02.png" alt-text="Backend pool configuration":::
+    :::image type="content" source="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-02.png" alt-text="Backend pool configuration" lightbox="media/protect-avs-web-apps-with-app-gw/app-gw-multi-backendpool-avs-02.png":::
 
 3. In the **Listeners** section, create a new listener for each website. Enter the details for each listener and select **Add**.
 
