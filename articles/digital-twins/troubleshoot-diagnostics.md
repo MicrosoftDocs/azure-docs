@@ -7,6 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 7/28/2020
 ms.topic: troubleshooting
+ms.service: digital-twins
 ---
 
 # Troubleshooting Azure Digital Twins with diagnostics logging
