@@ -189,7 +189,6 @@ Exceptions submitted via loggers will be displayed on the portal as Exception Te
 
 <!--Link references-->
 
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[diagnostic]: ./diagnostic-search.md
 [java]: java-get-started.md
-
 

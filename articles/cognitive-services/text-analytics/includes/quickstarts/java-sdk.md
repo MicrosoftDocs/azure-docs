@@ -7,6 +7,7 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
 ms.date: 07/27/2020
+ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
 ---
