@@ -45,6 +45,43 @@ AND T.roomSize > 50
 > [!TIP]
 > The ID of a digital twin is queried using the metadata field `$dtId`.
 
+### Select top items
+
+You can select the several "top" items in a query using the `Select TOP` clause.
+
+```sql
+SELECT TOP (5)
+FROM DIGITALTWINS
+WHERE property = 42
+```
+
+### Query by model
+
+The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](../articles/digital-twins/concepts-models.md). It supports inheritance and has several overload options.
+
+The simplest use of `IS_OF_MODEL` takes only a `twinTypeName` parameter. Here is a query example:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+To specify a twin collection to search when there is more than one (like when a `JOIN` is used), add the `twinCollection` parameter: 
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+```
+
+To do an exact match, add the `exact` parameter:
+
+```sql
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+```
+
+You can also pass all three arguments together:
+```sql
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+```
+
 ### Query based on relationships
 
 When querying based on digital twins' relationships, Azure Digital Twins Query Store language has a special syntax.
