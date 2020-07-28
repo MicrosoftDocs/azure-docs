@@ -213,6 +213,53 @@ Some of the functions that are described in the previous table can accept a list
 
 The *doubleVecList* value is converted to a single *doubleVec* before evaluation. For example, if `v = [1,2,3]`, then calling `avg(v)` is equivalent to calling `avg(1,2,3)`. Calling `avg(v, 7)` is equivalent to calling `avg(1,2,3,7)`.
 
+## Metrics
+
+You can use both resource and task metrics when you're defining a formula. You adjust the target number of dedicated nodes in the pool based on the metrics data that you obtain and evaluate. See the [Variables](#variables) section above for more information on each metric.
+
+<table>
+  <tr>
+    <th>Metric</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><b>Resource</b></td>
+    <td><p>Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.</p>
+        <p> These service-defined variables are useful for making adjustments based on node count:</p>
+    <p><ul>
+            <li>$TargetDedicatedNodes</li>
+            <li>$TargetLowPriorityNodes</li>
+            <li>$CurrentDedicatedNodes</li>
+            <li>$CurrentLowPriorityNodes</li>
+            <li>$PreemptedNodeCount</li>
+            <li>$SampleNodeCount</li>
+    </ul></p>
+    <p>These service-defined variables are useful for making adjustments based on node resource usage:</p>
+    <p><ul>
+      <li>$CPUPercent</li>
+      <li>$WallClockSeconds</li>
+      <li>$MemoryBytes</li>
+      <li>$DiskBytes</li>
+      <li>$DiskReadBytes</li>
+      <li>$DiskWriteBytes</li>
+      <li>$DiskReadOps</li>
+      <li>$DiskWriteOps</li>
+      <li>$NetworkInBytes</li>
+      <li>$NetworkOutBytes</li></ul></p>
+  </tr>
+  <tr>
+    <td><b>Task</b></td>
+    <td><p>Task metrics are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics:</p>
+    <p><ul>
+      <li>$ActiveTasks</li>
+      <li>$RunningTasks</li>
+      <li>$PendingTasks</li>
+      <li>$SucceededTasks</li>
+            <li>$FailedTasks</li></ul></p>
+        </td>
+  </tr>
+</table>
+
 ## Obtain sample data
 
 The core operation of an autoscale formula is to obtain task and resource metric data (samples), and then adjust pool size based on that data. As such, it is important to have a clear understanding of how autoscale formulas interact with samples.
@@ -272,54 +319,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 Because there may be a delay in sample availability, you should always specify a time range with a look-back start time that is older than one minute. It takes approximately one minute for samples to propagate through the system, so samples in the range `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` may not be available. Again, you can use the percentage parameter of `GetSample()` to force a particular sample percentage requirement.
 
 > [!IMPORTANT]
-> We **strongly recommend** that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you retrieved it." Since it is only a single sample, and it may be an older sample, it may not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
-
-## Metrics
-
-You can use both resource and task metrics when you're defining a formula. You adjust the target number of dedicated nodes in the pool based on the metrics data that you obtain and evaluate. See the [Variables](#variables) section above for more information on each metric.
-
-<table>
-  <tr>
-    <th>Metric</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><b>Resource</b></td>
-    <td><p>Resource metrics are based on the CPU, the bandwidth, the memory usage of compute nodes, and the number of nodes.</p>
-        <p> These service-defined variables are useful for making adjustments based on node count:</p>
-    <p><ul>
-            <li>$TargetDedicatedNodes</li>
-            <li>$TargetLowPriorityNodes</li>
-            <li>$CurrentDedicatedNodes</li>
-            <li>$CurrentLowPriorityNodes</li>
-            <li>$PreemptedNodeCount</li>
-            <li>$SampleNodeCount</li>
-    </ul></p>
-    <p>These service-defined variables are useful for making adjustments based on node resource usage:</p>
-    <p><ul>
-      <li>$CPUPercent</li>
-      <li>$WallClockSeconds</li>
-      <li>$MemoryBytes</li>
-      <li>$DiskBytes</li>
-      <li>$DiskReadBytes</li>
-      <li>$DiskWriteBytes</li>
-      <li>$DiskReadOps</li>
-      <li>$DiskWriteOps</li>
-      <li>$NetworkInBytes</li>
-      <li>$NetworkOutBytes</li></ul></p>
-  </tr>
-  <tr>
-    <td><b>Task</b></td>
-    <td><p>Task metrics are based on the status of tasks, such as Active, Pending, and Completed. The following service-defined variables are useful for making pool-size adjustments based on task metrics:</p>
-    <p><ul>
-      <li>$ActiveTasks</li>
-      <li>$RunningTasks</li>
-      <li>$PendingTasks</li>
-      <li>$SucceededTasks</li>
-            <li>$FailedTasks</li></ul></p>
-        </td>
-  </tr>
-</table>
+> We strongly recommend that you **avoid relying *only* on `GetSample(1)` in your autoscale formulas**. This is because `GetSample(1)` essentially says to the Batch service, "Give me the last sample you have, no matter how long ago you retrieved it." Since it is only a single sample, and it may be an older sample, it may not be representative of the larger picture of recent task or resource state. If you do use `GetSample(1)`, make sure that it's part of a larger statement and not the only data point that your formula relies on.
 
 ## Write an autoscale formula
 
