@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/25/2020
+ms.date: 07/27/2020
 ---
 
 # CREATE EXTERNAL STREAM (Transact-SQL)
@@ -42,11 +42,11 @@ WITH  ( <with_options> )
     [ ( precision [ , scale ] | max ) ]
 
 <with_options> ::=
-  DATA_SOURCE = <data_source_name>, 
-  LOCATION = <location_name>, 
-  FILE_FORMAT = <external_file_format_name>, --Used for Inputs - optional 
-  <optional_input_options>,
-  <optional_output_options>, 
+  DATA_SOURCE = data_source_name, 
+  LOCATION = location_name, 
+  [FILE_FORMAT = external_file_format_name], --Used for Inputs - optional 
+  [<optional_input_options>],
+  [<optional_output_options>], 
   TAGS = <tag_column_value>
 
 <optional_input_options> ::= 
@@ -56,7 +56,7 @@ WITH  ( <with_options> )
       <input_option_values> [ , <input_option_values> ]
 
 <input_option_values> ::=
-  PARTITIONS: [number of partitions for the input topic]
+  PARTITIONS: [number_of_partitions]
   | CONSUMER_GROUP: [ consumer_group_name ] 
   | TIME_POLICY: [ time_policy ] 
   | LATE_EVENT_TOLERANCE: [ late_event_tolerance_value ] 
