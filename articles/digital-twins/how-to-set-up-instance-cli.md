@@ -64,7 +64,7 @@ You now have an Azure Digital Twins instance ready to go. Next, you'll give the 
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Use the following command to assign the role (must be run by an owner of the Azure subscription):
+Use the following command to assign the role (must be run by an Owner of the Azure subscription):
 
 ```azurecli
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-email-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"

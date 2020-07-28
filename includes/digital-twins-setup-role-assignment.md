@@ -18,6 +18,4 @@ This section will show you how to create a role assignment for a user in your Az
 To give a user permissions to manage an Azure Digital Twins instance, you must assign them the _**Azure Digital Twins Owner (Preview)**_ role within the instance.
 
 > [!NOTE]
-> This role is different from...
-> * the *Owner* role on the entire Azure subscription. *Azure Digital Twins Owner (Preview)* is a role within Azure Digital Twins and is scoped to this individual Azure Digital Twins instance.
-> * the *Owner* role in Azure Digital Twins. These are two distinct Azure Digital Twins management roles, and *Azure Digital Twins Owner (Preview)* is the role that should be used for management during preview.
+> Note that this role is different from the Azure AD *Owner* role, which can also be assigned at the scope of the Azure Digital Twins instance. These are two distinct management roles, and Azure AD *Owner* does not grant access to data plane features that are granted with *Azure Digital Twins Owner (Preview)*.
