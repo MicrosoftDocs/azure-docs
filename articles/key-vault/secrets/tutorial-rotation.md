@@ -30,13 +30,14 @@ This tutorial shows how to automate the periodic rotation of secrets for databas
 > There could be a lag between steps 3 and 4. During that time, the secret in Key Vault won't be able to authenticate to SQL Server. 
 > In case of a failure of any of the steps, Event Grid retries for two hours.
 
-## Create a key vault and SQL Server instance
+## Prerequisites
 
-The first step is to create a key vault and a SQL Server instance and database and store the SQL Server admin password in Key Vault.
+* An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Azure Key Vault
+* SQL Server
 
-This tutorial uses an existing Azure Resource Manager template to create components. You can find the code here: [SQL Password Rotation Templates](https://github.com/jlichwa/KeyVault-Rotation-SQLPassword-Csharp/tree/master/arm-templates).
+Below deployment link can be used, if you don't have existing Key Vault and SQL Server:
 
-1. Select the Azure template deployment link: 
 <br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-SQLPassword-Csharp%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank"><img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/></a>
 1. Under **Resource group**, select **Create new**. Name the group **akvrotation**.
 1. Under **Sql Admin Login**, type Sql administrator login name. 
@@ -45,7 +46,7 @@ This tutorial uses an existing Azure Resource Manager template to create compone
 
     ![Create a resource group](../media/rotate2.png)
 
-You'll now have a key vault, and a SQL Server instance. You can verify this setup in the Azure CLI by running the following command:
+You'll now have a Key Vault, and a SQL Server instance. You can verify this setup in the Azure CLI by running the following command:
 
 ```azurecli
 az resource list -o table
@@ -61,9 +62,9 @@ akvrotation-sql         akvrotation      eastus      Microsoft.Sql/servers
 akvrotation-sql/master  akvrotation      eastus      Microsoft.Sql/servers/databases
 ```
 
-## Create a function app
+## Create and deploy sql server password rotation function
 
-Next, create a function app with a system-managed identity, in addition to the other required components.
+Next, create a function app with a system-managed identity, in addition to the other required components, and deploy sql server password rotation functions
 
 The function app requires these components:
 - An Azure App Service plan
