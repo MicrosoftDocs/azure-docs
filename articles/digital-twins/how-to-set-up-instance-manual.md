@@ -36,7 +36,7 @@ In this section, you will **create a new instance of Azure Digital Twins** using
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * A region for the deployment. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
-* A name for your instance. The name of the new instance must be unique within the region (meaning that if another Azure Digital Twins instance in that region is already using the name you choose, you'll be asked to pick a different name).
+* A name for your instance. The name of the new instance must be unique within the region for your subscription (meaning that if your subscription has another Azure Digital Twins instance in the region that's already using the name you choose, you'll be asked to pick a different name).
 
 Use these values in the following command to create the instance:
 
@@ -101,7 +101,7 @@ Once you set up an Azure Digital Twins instance, it is common to interact with t
 This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, the client app will authenticate against the app registration, and as a result be granted the configured access permissions to the APIs.
 
 >[!TIP]
-> As a subscription Owner, you may prefer to set up a new app registration for every new Azure Digital Twins instance, *or* to do this only once and establish a single app registration that will be shared among all Azure Digital Twins instances in the subscription. This is how it's done within Microsoft's own tenant.
+> As a subscription Owner, you may prefer to set up a new app registration for every new Azure Digital Twins instance, *or* to do this only once and establish a single app registration that will be shared among all Azure Digital Twins instances in the subscription.
 
 ### Create the registration
 
