@@ -66,7 +66,7 @@ If this method does not the resolve the problem, follow these steps to restore t
     ```
      You cannot attach a managed disk to a VM that was restored from a blob image.
 
-3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](/powershell/azure/overview) installed on the recovery VM.
+3. After the disk is attached, make a remote desktop connection to the recovery VM so that you can run some Azure PowerShell scripts. Make sure that you have the [latest version of Azure PowerShell](/powershell/azure/) installed on the recovery VM.
 
 4. Open an elevated Azure PowerShell session (Run as administrator). Run the following commands to sign in to Azure subscription:
 

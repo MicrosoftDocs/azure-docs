@@ -4,7 +4,7 @@ description: Specifications for the H-series VMs.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: jushiman
 ---

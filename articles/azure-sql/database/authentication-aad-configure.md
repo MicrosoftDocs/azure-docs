@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 03/27/2020
+ms.date: 07/27/2020
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -43,7 +43,7 @@ For more information on Azure AD hybrid identities, setup, and synchronization, 
 
 Create an Azure AD instance and populate it with users and groups. Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview), and [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../../active-directory/fundamentals/add-custom-domain.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../../active-directory/fundamentals/active-directory-whatis.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/), and [Hybrid Identity Required Ports and Protocols](../../active-directory/hybrid/reference-connect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
 
@@ -171,7 +171,7 @@ else {
 
 # [PowerShell](#tab/azure-powershell)
 
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Managed Instance, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
@@ -233,8 +233,6 @@ The following two procedures show you how to provision an Azure Active Directory
 
 1. In the [Azure portal](https://portal.azure.com/), in the upper-right corner, select your connection to drop down a list of possible Active Directories. Choose the correct Active Directory as the default Azure AD. This step links the subscription-associated Active Directory with server making sure that the same subscription is used for both Azure AD and the server.
 
-    ![choose-ad][8]
-
 2. Search for and select **SQL server**.
 
     ![Search for and select SQL servers](./media/authentication-aad-configure/search-for-and-select-sql-servers.png)
@@ -267,7 +265,7 @@ To later remove an Admin, at the top of the **Active Directory admin** page, sel
 
 # [PowerShell](#tab/azure-powershell)
 
-To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). To provision an Azure AD admin, execute the following Azure PowerShell commands:
+To run PowerShell cmdlets, you need to have Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/). To provision an Azure AD admin, execute the following Azure PowerShell commands:
 
 - Connect-AzAccount
 - Select-AzSubscription
@@ -535,8 +533,11 @@ Guidance on troubleshooting issues with Azure AD authentication can be found in 
 - For more information about database principals, see [Principals](https://msdn.microsoft.com/library/ms181127.aspx).
 - For more information about database roles, see [Database roles](https://msdn.microsoft.com/library/ms189121.aspx).
 - For more information about firewall rules in SQL Database, see [SQL Database firewall rules](firewall-configure.md).
+- For information about how to set an Azure AD guest user as the Azure AD admin, see [Create Azure AD guest users and set as an Azure AD admin](authentication-aad-guest-users.md).
+- For information on how to service principals with Azure SQL, see [Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md)
 
 <!--Image references-->
+
 [11]: ./media/authentication-aad-configure/active-directory-integrated.png
 [12]: ./media/authentication-aad-configure/12connect-using-pw-auth2.png
 [13]: ./media/authentication-aad-configure/13connect-to-db2.png

@@ -1,7 +1,7 @@
 ---
 title: Use Azure CLI to assign an RBAC role for data access 
 titleSuffix: Azure Storage
-description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and custom RBAC roles for authentication via Azure AD.
+description: Learn how to use Azure CLI to assign permissions to an Azure Active Directory security principal with role-based access control (RBAC). Azure Storage supports built-in and Azure custom roles for authentication via Azure AD.
 services: storage
 author: tamram
 

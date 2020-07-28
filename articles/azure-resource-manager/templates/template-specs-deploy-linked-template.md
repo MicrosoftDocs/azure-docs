@@ -21,7 +21,7 @@ An Azure account with an active subscription. [Create an account for free](https
 
 Follow [Quickstart: Create and deploy template spec](quickstart-create-template-specs.md) to create a template spec for deploying a storage account. You need the resource group name of the template spec, template spec name, and template spec version in the next section.
 
-## Create a linked template
+## Create the main template
 
 To deploy a template spec in an ARM template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the resource ID of a template spec. Create a template with the following JSON called **azuredeploy.json**. This tutorial assumes you've saved to a path **c:\Templates\deployTS\azuredeploy.json** but you can use any path.
 

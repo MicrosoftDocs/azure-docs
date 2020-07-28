@@ -101,15 +101,15 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Analytics graph of user requests over a period of time](./media/website-monitoring/analytics-query.png)
 
-1. Go back to the **Overview** page. Under the **Investigate** header, select **Browser**, and then select **Performance**.  Metrics related to the performance of your website appear. There's a corresponding view for analyzing failures and exceptions in your website. You can select **Samples** to access the [end-to-end transaction details](../../azure-monitor/app/transaction-diagnostics.md).
+1. Go back to the **Overview** page. Under the **Investigate** header, select **Browser**, and then select **Performance**.  Metrics related to the performance of your website appear. There's a corresponding view for analyzing failures and exceptions in your website. You can select **Samples** to access the [end-to-end transaction details](./transaction-diagnostics.md).
 
    ![Server metrics graph](./media/website-monitoring/browser-performance.png)
 
-1. On the main Application Insights menu, under the **Usage** header, select [**Users**](../../azure-monitor/app/usage-segmentation.md) to begin exploring the [user behavior analytics tools](../../azure-monitor/app/usage-overview.md). Because we're testing from a single machine, we'll only see data for one user. For a live website, the distribution of users might look like this:
+1. On the main Application Insights menu, under the **Usage** header, select [**Users**](./usage-segmentation.md) to begin exploring the [user behavior analytics tools](./usage-overview.md). Because we're testing from a single machine, we'll only see data for one user. For a live website, the distribution of users might look like this:
 
      ![User graph](./media/website-monitoring/usage-users.png)
 
-1. For a more complex website with multiple pages, you can use the [**User Flows**](../../azure-monitor/app/usage-flows.md) tool to track the pathway that visitors take through the various parts of your website.
+1. For a more complex website with multiple pages, you can use the [**User Flows**](./usage-flows.md) tool to track the pathway that visitors take through the various parts of your website.
 
    ![User Flows visualization](./media/website-monitoring/user-flows.png)
 
@@ -129,3 +129,4 @@ If you plan to continue working with additional quickstarts or tutorials, don't 
 
 > [!div class="nextstepaction"]
 > [Find and diagnose performance problems](../log-query/log-query-overview.md)
+

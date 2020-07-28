@@ -992,5 +992,4 @@ The following configuration file is for the asset transfer sample:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Blockchain Workbench REST API reference](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)
-
+> [Azure Blockchain Workbench REST API reference](/rest/api/azure-blockchain-workbench)

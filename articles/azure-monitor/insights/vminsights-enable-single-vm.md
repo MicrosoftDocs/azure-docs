@@ -30,7 +30,7 @@ Before you begin, review the [prerequisites](vminsights-enable-overview.md) and 
 
     ![Enable Azure Monitor for VMs for a VM](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
-1. If the VM isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../../azure-monitor/learn/quick-create-workspace.md), then you can select a default for the location where the VM or VMSS is deployed in the subscription. This workspace will be created and configured if it doesn't already exist.
+1. If the VM isn't already connected to a Log Analytics workspace, then you'll be prompted to select one. If you haven't previously [created a workspace](../learn/quick-create-workspace.md), then you can select a default for the location where the VM or VMSS is deployed in the subscription. This workspace will be created and configured if it doesn't already exist.
 
 2. You will receive status messages as the configuration is performed.
 
@@ -45,3 +45,4 @@ Before you begin, review the [prerequisites](vminsights-enable-overview.md) and 
 
 * To view discovered application dependencies, see [Use Azure Monitor for VMs Map](vminsights-maps.md). 
 * To identify bottlenecks, overall utilization, and your VM's performance, see [View Azure VM performance](vminsights-performance.md).
+

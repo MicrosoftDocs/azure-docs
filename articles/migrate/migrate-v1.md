@@ -12,13 +12,13 @@ ms.custom: mvc
 
 # Work with the previous version of Azure Migrate
 
-This article provides information about working with the previous version of Azure Migrate.
+This article provides information about working with the previous version of Azure Migrate. 
 
 
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are also referred to as v1 projects in this article. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
+- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are referred to as Classic projects in this article. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
     - You can no longer create migration projects.
     - We recommend that you don't perform new discoveries.
     - You can still access existing projects.
@@ -27,7 +27,7 @@ There are two versions of the Azure Migrate service:
 
 ## Upgrade between versions
 
-You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a v1 project, you can attach it to a project of current version after you delete the v1 project.
+You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
 
 ## Find projects from previous version
 
@@ -35,7 +35,7 @@ Find projects from the previous version as follows:
 
 1. In the Azure portal > **All services**, search for and select **Azure Migrate**. 
 2. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
-3. Click the link to open v1 projects.
+3. Click the link to open Classic projects.
 
 ## Delete projects from previous version
 
@@ -43,7 +43,7 @@ Find and delete projects from the previous version as follows:
 
 1. In the Azure portal > **All services**, search for and select **Azure Migrate**. 
 2. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
-3. Click the link to open v1 projects.
+3. Click the link to open Classic projects.
 4. Select the project you would like to delete and delete it. 
 
 
@@ -123,7 +123,7 @@ Windows Client 7, 8 and 10 | Azure provides support with [Visual Studio subscrip
 Windows 10 Pro Desktop | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure
 Windows Vista, XP Professional | Out-of-support. The machine might boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Linux | Azure endorses these [Linux operating systems](../virtual-machines/linux/endorsed-distros.md). Other Linux operating systems might boot in Azure, but we recommend upgrading the OS to an endorsed version, before migrating to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version is not endorsed.
-Other operating systems<br/><br/> For example,  Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | Azure doesn't endorse these operating systems. The machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to install a supported OS before migrating to Azure.  
+Other operating systems<br/><br/> For example,  Oracle Solaris, Apple macOS etc., FreeBSD, etc. | Azure doesn't endorse these operating systems. The machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to install a supported OS before migrating to Azure.  
 OS specified as **Other** in vCenter Server | Azure Migrate cannot identify the OS in this case. | Unknown readiness. Ensure that the OS running inside the VM is supported in Azure.
 32-bit operating systems | The machine may boot in Azure, but Azure may not provide full support. | Conditionally ready for Azure, consider upgrading the OS of the machine from 32-bit OS to 64-bit OS before migrating to Azure.
 
@@ -206,7 +206,7 @@ To use dependency visualization, you associate a Log Analytics workspace with a 
 1. To attach a Log Analytics workspace to a project, in **Overview**, > **Essentials**, click **Requires configuration**.
 2. You can create a new workspace, or attach an existing one:
   - To create a new workspace, specify a name. The workspace is created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). To attach a workspace, ensure that you have 'Reader' access to the workspace.
+  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). To attach a workspace, ensure that you have 'Reader' access to the workspace.
 
 > [!NOTE]
 > You can't change the workspace associated with a migration project.

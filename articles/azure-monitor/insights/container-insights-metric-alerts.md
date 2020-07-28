@@ -2,7 +2,7 @@
 title: Metric alerts from Azure Monitor for containers | Microsoft Docs
 description: This article reviews the recommended metric alerts available from Azure Monitor for containers in public preview.
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 07/21/2020
 
 ---
 
@@ -22,8 +22,13 @@ Before you start, confirm the following:
 
 * To support metric alerts and the introduction of additional metrics, the minimum agent version required is **microsoft/oms:ciprod05262020**.
 
-    To verify your cluster is running the newer version of the agent, run the command: `kubectl logs omsagent-484hw --namespace=kube-system`. In the status returned, note the value for *omi* and *omsagent*. They should match the latest version.
+    To verify your cluster is running the newer version of the agent, you can either:
 
+    * Run the command: `kubectl describe <omsagent-pod-name> --namespace=kube-system`. In the status returned, note the value under **Image** for omsagent in the *Containers* section of the output. 
+    * On the **Nodes** tab, select the cluster node and on the **Properties** pane to the right, note the value under **Agent Image Tag**.
+
+    The value shown should be a version later than **ciprod05262020**. If your cluster has an older version, follow the [upgrade agent on AKS cluster](container-insights-manage-agent.md#upgrade-agent-on-aks-cluster) steps to get the latest version.
+    
     For more information related to the agent release, see [agent release history](https://github.com/microsoft/docker-provider/tree/ci_feature_prod). To verify metrics are being collected, you can use Azure Monitor metrics explorer and verify from the **Metric namespace** that **insights** is listed. If it is, you can go ahead and start setting up the alerts.
 
 ## Alert rules overview

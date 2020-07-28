@@ -9,7 +9,7 @@ ms.author: kgremban
 ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: [mvc, mqtt]
+ms.custom: [mvc, mqtt, devx-track-java]
 ---
 
 # Tutorial: Develop a Java IoT Edge module for Linux devices

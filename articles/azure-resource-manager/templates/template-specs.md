@@ -113,8 +113,7 @@ The following example consists of a main template with two linked templates. The
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "artifacts/webapp.json",
-                    "contentVersion": "1.0.0.0"
+                    "relativePath": "artifacts/webapp.json"
                 }
             }
         },
@@ -125,8 +124,7 @@ The following example consists of a main template with two linked templates. The
             "properties": {
                 "mode": "Incremental",
                 "templateLink": {
-                    "relativePath": "artifacts/database.json",
-                    "contentVersion": "1.0.0.0"
+                    "relativePath": "artifacts/database.json"
                 }
             }
         }

@@ -39,7 +39,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
-* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer.
+* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/) article to install latest version of Azure PowerShell on your computer.
 * See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/templates/template-syntax.md) to learn about Azure Resource Manager templates. 
 
 ## In this tutorial
