@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot connectivity problems in the SSIS integration runtime
-description: Troubleshoot connection issues in the SSIS integration runtime with the diagnose connectivity feature. 
+description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -12,13 +12,13 @@ manager: yidetu
 ms.date: 06/07/2020
 ---
 
-# Troubleshoot connectivity problems in the SQL Server Integration Services (SSIS) integration runtime.
+# Troubleshoot connectivity problems in the SSIS integration runtime.
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-You might encounter connectivity problems while executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. These problems can occur when your SSIS integration runtime joins the Azure virtual network.
+You might find connectivity problems while executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. These problems occur especially if your SSIS integration runtime joins the Azure virtual network.
 
-Troubleshoot connectivity problems by using the *diagnose connectivity* feature to test connections. The feature is located on the monitoring SSIS integration runtime page of the Azure Data Factory portal. 
+Troubleshoot connectivity problems by using the *diagnose connectivity* feature to test connections. The feature is located on the monitoring SSIS integration runtime page of the Azure Data Factory portal.
 
  ![Monitor page - diagnose connectivity](media/ssis-integration-runtime-diagnose-connectivity-faq/ssis-monitor-diagnose-connectivity.png)
 
@@ -57,7 +57,7 @@ Use the following sections to learn about the most common errors that occur when
   -  You aren't using a fully qualified domain name (FQDN) for your private host name.
 - **Recommendations:**
   -  Fix your custom DNS problem to make sure it can resolve the host name.
-  -  Use the FQDN. Azure-SSIS IR won't automatically append your own DNS suffix. For example, use <your_private_server>.contoso.com instead of <your_private_server>.
+  -  Use the FQDN. Azure-SSIS IR won't automatically append your own DNS suffix. For example, use **<your_private_server>.contoso.com** instead of **<your_private_server>**.
 
 ## Error code: ServerNotAllowRemoteConnection
 
