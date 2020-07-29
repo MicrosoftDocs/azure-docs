@@ -127,7 +127,7 @@ Available automation and deployment options depend on which OS and version you c
 
 |Operating system|Azure Image Gallery|Manual VM deployment|Azure Resource Manager template integration|Provision host pools on Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Yes|Yes|Yes|Yes|
+|Windows 10 multi-session, version 1903+|Yes|Yes|Yes|Yes|
 |Windows 10 multi-session, version 1809|Yes|Yes|No|No|
 |Windows 10 Enterprise, version 1903|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise, version 1809|Yes|Yes|No|No|
