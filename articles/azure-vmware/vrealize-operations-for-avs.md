@@ -1,15 +1,15 @@
 ---
-title: Set up vRealize Operations for AVS
+title: Set up vRealize Operations for Azure VMware Solution (AVS)
 description:  
 ms.topic: how-to
 ms.date: 08/04/2020
 ---
 
-# Set up vRealize Operations for AVS
+# Set up vRealize Operations for Azure VMware Solution (AVS)
 
-vRealize Operations Manager (vROps) is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual infrastructure) objects. Most VMware administrators have historically used vROps to monitor and manage the VMware Private Cloud components – VCenter, ESXi, NSX-T, vSAN, and HCX. To learn more about vRealize Operations, refer to the product documentation. 
+vRealize Operations Manager is an operations management platform that allows VMware infrastructure administrators to monitor system resources. These system resources could be application-level or infrastructure level (both physical and virtual infrastructure) objects. Most VMware administrators have historically used vROps to monitor and manage the VMware Private Cloud components – VCenter, ESXi, NSX-T, vSAN, and HCX. 
  
-Each AVS Private Cloud is provisioned with a dedicated vCenter, NSX-T, vSAN, and HCX deployment. For customers looking to use vROps to monitor the AVS Private Cloud resources, we describe below the commonly used deployment options.
+Each AVS Private Cloud is provisioned with a dedicated vCenter, NSX-T, vSAN, and HCX deployment. For customers looking to use vROps to monitor the AVS private cloud resources, we describe below the commonly used deployment options.
 
 ## Before you begin
 * Review the [vRealize Operations product documentation](https://docs.vmware.com/en/vRealize-Operations-Manager/8.1/vrealize-operations-manager-81-vapp-deploy-guide.pdf) to learn more. 
