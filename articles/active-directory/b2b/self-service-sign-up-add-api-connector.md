@@ -44,7 +44,7 @@ To use an [API connector](api-connectors-overview.md), you first create the API 
 
 ### Selection of 'Claims to send' and 'Claims to receive'
 > [!IMPORTANT]
-> You may see all the claims selected by default as illustrated below. All API connectors will be updated to behave this way. Your API will receive all available claims and send back any supported claim without configuring them in the API connector definition. 
+> You may see all the claims selected by default as illustrated below. All API connectors will be updated to behave this way. Your API will receive all available claims and can send back any supported claim without configuring them in the API connector definition. 
 
 ![Set API connector claims](./media/self-service-sign-up-add-api-connector/api-connector-claims-new.png)
 
