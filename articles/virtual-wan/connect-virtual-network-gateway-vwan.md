@@ -60,7 +60,7 @@ To create Virtual WAN VPN sites, navigate your to your virtual WAN and, under **
    * **Device vendor** - Enter the device vendor (any name)
    * **Private address space** - (Enter a value, or leave blank when BGP is enabled)
    * **Border Gateway Protocol** - (Set to **Enable** if the Azure VPN Gateway virtual network gateway has BGP enabled)
-   * **Connect to Hubs** (Select hub you created in the prerequisites from the dropdown)
+   * **Connect to Hubs** (Select hub you created in the prerequisites from the dropdown. If you don't see a hub in the dropdown, verify that you created a site-to-site VPN gateway for your hub.)
 3. Under **Links**, enter the following values:
 
    * **Provider Name** - Enter a Link name and a Provider name (any name)
