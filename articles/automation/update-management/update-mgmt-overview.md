@@ -256,6 +256,6 @@ Here are the ways that you can enable Update Management and select machines to b
 
 ## Next steps
 
-* For details of working with Update Management, see [Manage updates and patches for your Azure VMs](update-mgmt-manage-updates-for-vm.md).
+* For details of working with Update Management, see [Manage updates for your VMs](update-mgmt-manage-updates-for-vm.md).
 
 * Review commonly asked questions about Update Management in the [Azure Automation frequently asked questions](../automation-faq.md).
