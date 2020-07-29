@@ -147,7 +147,7 @@ Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Env
 Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
 
 ```
-
+---
 
 That's it. If you need to open ports or do any troubleshooting, be sure to check out [On-premises data gateway](analysis-services-gateway.md).
 
