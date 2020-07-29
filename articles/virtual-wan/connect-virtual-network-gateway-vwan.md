@@ -58,16 +58,16 @@ To create Virtual WAN VPN sites, navigate your to your virtual WAN and, under **
 1. Select **+Create site**.
 2. On the **Create VPN sites** page, type the following values:
 
-   * **Region** - (The same region as the Azure VPN Gateway virtual network gateway)
-   * **Device vendor** - Enter the device vendor (any name)
-   * **Private address space** - (Enter a value, or leave blank when BGP is enabled)
-   * **Border Gateway Protocol** - (Set to **Enable** if the Azure VPN Gateway virtual network gateway has BGP enabled)
-   * **Connect to Hubs** (Select hub you created in the prerequisites from the dropdown)
+   * **Region** - The same region as the Azure VPN Gateway virtual network gateway.
+   * **Device vendor** - Enter the device vendor (any name).
+   * **Private address space** - Enter a value, or leave blank when BGP is enabled.
+   * **Border Gateway Protocol** - Set to **Enable** if the Azure VPN Gateway virtual network gateway has BGP enabled.
+   * **Connect to Hubs** - Select the hub you created in the prerequisites from the dropdown. If you don't see a hub, verify that you created a site-to-site VPN gateway for your hub.
 3. Under **Links**, enter the following values:
 
-   * **Provider Name** - Enter a Link name and a Provider name (any name)
-   * **Speed** - Speed (any number)
-   * **IP Address** - Enter IP address (same as the first public IP address shown under the (VPN Gateway) virtual network gateway properties)
+   * **Provider Name** - Enter a Link name and a Provider name (any name).
+   * **Speed** - Speed (any number).
+   * **IP Address** - Enter IP address (same as the first public IP address shown under the (VPN Gateway) virtual network gateway properties).
    * **BGP Address** and **ASN** - BGP address and ASN. These must be the same as one of the BGP peer IP addresses, and ASN from the VPN Gateway virtual network gateway that you configured in [Step 1](#vnetgw).
 4. Review and select **Confirm** to create the site.
 5. Repeat the previous steps to create the second site to match with the second instance of the VPN Gateway virtual network gateway. You'll keep the same settings, except using second public IP address and second BGP peer IP address from VPN Gateway configuration.
@@ -112,7 +112,7 @@ In this section, you create a connection between the VPN Gateway local network g
    * **Local network gateway:** This connection will connect the virtual network gateway to the local network gateway. Choose one of the local network gateways that you created earlier.
    * **Shared Key:** Enter a shared key.
    * **IKE Protocol:** Choose the IKE protocol.
-   * **BGP:** Choose **Enable BGP** if the connection is over BGP.
+   * **BGP:** Choose **Enable BGP** if the connection is over BGP and you have already configured your gateways for BGP.
 3. Click **OK** to create your connection.
 4. You can view the connection in the **Connections** page of the virtual network gateway.
 
