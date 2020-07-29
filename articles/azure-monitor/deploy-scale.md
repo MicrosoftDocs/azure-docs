@@ -1,4 +1,3 @@
-@@ -1,180 +0,0 @@
 ---
 title: Deploy Azure Monitor at scale using Azure Policy
 description: Deploy Azure Monitor features at scale using Azure Policy.
