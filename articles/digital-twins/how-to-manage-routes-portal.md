@@ -1,12 +1,12 @@
 ---
 # Mandatory fields.
-title: Manage endpoints and routes
+title: Manage endpoints and routes using Azure portal
 titleSuffix: Azure Digital Twins
 description: See how to set up and manage endpoints and event routes for Azure Digital Twins data using Azure portal.
 author: v-lakast
 ms.author: v-lakast # Microsoft employees only
 ms.date: 7/22/2020
-ms.topic: how-to-manage-routes-portal
+ms.topic: how-to
 ms.service: digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -111,7 +111,7 @@ Event routes are defined using data plane APIs. A route definition can contain t
 
 **Prerequisites**: 
 * You'll need endpoints to set up an event route. Refer to _Create an endpoint for Azure Digital Twins_ portion of this article to create endpoints
-* You need to be an 'owner' in your Azure subscription. For more details on getting and assigning permissions, refer _Prerequisites:Permission_ requirements section of [*how-to: set-up-instance-using-portal*](how-to-set-up-instance-using-portal.md)
+* You need to be an 'owner' in your Azure subscription. For more details on getting and assigning permissions, refer _Prerequisites:Permission_ requirements section of [*how-to: set-up-instance*](how-to-set-up-instance.md)
 
 >[!NOTE]
 >If you have recently deployed your endpoints, validate that they're finished deploying **before** attempting to use them for a new event route. If route deployment fails because the endpoints aren't ready, wait a few minutes and try again.
