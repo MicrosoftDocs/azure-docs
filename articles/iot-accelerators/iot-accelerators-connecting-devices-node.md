@@ -8,8 +8,7 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.custom:  mqtt
-ms.custom: devx-track-javascript
+ms.custom:  mqtt, devx-track-javascript
 
 ---
 
