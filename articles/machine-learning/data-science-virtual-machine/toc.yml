@@ -48,8 +48,6 @@
       items:
         - name: Track Experiments
         - href: how-to-track-experiments.md
-        - name: Deploy models
-        - href: how-to-deploy-models.md
   - name: Enterprise guidance
       items:
         - name: Create an autoscaled Data Science Virtual Machine pool 

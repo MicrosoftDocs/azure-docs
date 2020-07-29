@@ -23,8 +23,22 @@ The DSVM is available on:
 + Windows Server 2019
 + Ubuntu 18.04 LTS
 
-## Comparison with Azure Machine Learning Compute Instance
+## Comparison with Azure Machine Learning
+The DSVM is a customized VM image for Data Science whereas Azure Machine Learning (AzureML) is an end-to-end platform that encompasses:
 
+- Fully Managed Compute
+    - Compute Instances
+    - Compute Clusters for distributed ML tasks
+    - Inference Clusters for real-time scoring
+- Datastores (e.g. Blob, ADLS Gen2, SQL DB)
+- Experiment tracking
+- Model management
+- Notebooks
+- Environments (manage conda and R dependencies)
+- Labelling
+- Pipelines (automate End-to-End Data science workflows)
+
+### Comparison with AzureML Compute Instances
 [Azure Machine Learning Compute Instances](https://docs.microsoft.com/en-us/azure/machine-learning/concept-compute-instance) are a fully configured and __managed__ VM image whereas the DSVM is an __unmanaged__ VM.
 
 The key differences between these two product offerings are detailed below:
@@ -43,8 +57,6 @@ The key differences between these two product offerings are detailed below:
 |Built-in SSO     | No <br>(requires additional configuration)         |    Yes     |
 |Built-in Collaboration     | No         | Yes        |
 |Pre-installed Tools     |  Jupyter(lab), RStudio Server, VSCode,<br> Visual Studio, PyCharm, Juno,<br>PowerBI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(lab)<br> RStudio Server   |
-
-
 
 
 ## Sample Use Cases
