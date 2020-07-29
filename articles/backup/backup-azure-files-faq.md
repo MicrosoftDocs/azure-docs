@@ -31,7 +31,7 @@ When trying to back up, selecting a Storage Account to discover file shares with
 
 ### Why can't I change the vault to configure backup for the file share?
 
-If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault , you are not given an option to change it as all file shares in a storage account can be protected only by the same vault. Incase you want to change the vault , you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
+If the storage account is already registered with a vault or other file shares in the storage account are protected using a vault , you are not given an option to change it as all file shares in a storage account can be protected only by the same vault. Incase you want to change the vault, you'll need to [stop protection for all file shares in the storage account](manage-afs-backup.md#stop-protection-on-a-file-share) from the connected vault, [unregister](manage-afs-backup.md#unregister-a-storage-account) the Storage Account, and then choose a different vault for protection.
 
 ### Can I change the Vault to which I back up my file shares?
 
