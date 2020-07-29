@@ -61,7 +61,7 @@ On the Chat project, update the following 2 settings on the appSettings.json fil
 
 ## Running the chat application
 ### 1. Set the Chat project as the 'Startup project' in Visual Studio.
-![StartUp](../media/chat-group-sample-5.png)
+![StartUp](../media/chat-group-sample-5.png) 
 
 ### 2. Hit F5 to start a debugging session
 
