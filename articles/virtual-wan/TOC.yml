@@ -36,8 +36,12 @@
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
-  - name: IPsec policies
-    href: virtual-wan-ipsec.md
+  - name: Site-to-site
+    items:
+    - name: About IPsec policies
+      href: virtual-wan-ipsec.md
+    - name: Multiple ISP links - Azure path selection
+      href: path-selection-multiple-links.md
 - name: How-to guides
   items:
   - name: Connect virtual network gateway to Virtual WAN
@@ -48,8 +52,6 @@
     href: upgrade-virtual-wan.md
   - name: Configure custom IPsec policy
     href: virtual-wan-custom-ipsec-portal.md
-  - name: Install Azure Firewall in a hub
-    href: howto-firewall.md
   - name: ExpressRoute
     items:
     - name: Create an ExpressRoute connection
@@ -86,8 +88,6 @@
       href: openvpn-azure-ad-client.md
     - name: Configure Multi-application Azure AD authentication
       href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Install Azure Firewall in a hub
-      href: howto-firewall.md 
   - name: Routing
     items:
     - name: Route traffic from a virtual hub to an NVA
@@ -102,6 +102,10 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+  - name: Monitoring
+    items:
+    - name: Logs and metrics
+      href: logs-metrics.md
 - name: Reference
   items:
   - name: Azure PowerShell

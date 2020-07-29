@@ -155,6 +155,8 @@
       displayname: VM
   - name: Manage and configure
     items:
+    - name: Deploy at scale
+      href: platform/deploy-scale.md
     - name: Roles permissions and security
       href: platform/roles-permissions-security.md
     - name: IP addresses
@@ -230,7 +232,7 @@
           - name: Version history
             href: platform/diagnostics-extension-versions.md
           - name: JSON Lines resource logs format
-            href: platform/diagnostic-logs-append-blobs.md
+            href: platform/resource-logs-append-blobs.md
           - name: Troubleshooting
             href: platform/diagnostics-extension-troubleshooting.md
         - name: Linux
@@ -464,6 +466,8 @@
         href: platform/alerts-metric-logs.md
       - name: Using Resource Manager template
         href: platform/alerts-metric-create-templates.md
+      - name: Troubleshoot metric alerts
+        href: platform/alerts-troubleshoot-metric.md
     - name: Log alert rules
       items:  
       - name: Configure alerts on analytics query
@@ -620,6 +624,10 @@
           href: app/javascript.md
         - name: Source map for JavaScript
           href: app/source-map-support.md
+        - name: Troubleshoot
+          items: 
+          - name: SDK load failure 
+            href: app/javascript-sdk-load-failure.md
       - name: Application Insights API summary
         displayname: SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency
         href: app/api-custom-events-metrics.md
@@ -741,6 +749,8 @@
         href: app/profiler-settings.md 
       - name: Track Requests for Profiling
         href: app/profiler-trackrequests.md 
+      - name: Configure BYOS (Bring Your Own Storage)
+        href: app/profiler-bring-your-own-storage.md 
       - name: Profiler Troubleshooting
         href: app/profiler-troubleshooting.md 
     - name: Snapshot Debugger
@@ -754,6 +764,8 @@
         href: app/snapshot-debugger-vm.md
       - name: Upgrade Snapshot Debugger
         href: app/snapshot-debugger-upgrade.md
+      - name: Configure BYOS (Bring Your Own Storage)
+        href: app/profiler-bring-your-own-storage.md
       - name: Snapshot Debugger troubleshooting
         displayname: troubleshoot, troubleshooting
         href: app/snapshot-debugger-troubleshoot.md
@@ -934,6 +946,8 @@
         href: insights/container-insights-enable-new-cluster.md
       - name: Enable for existing AKS cluster
         href: insights/container-insights-enable-existing-clusters.md
+      - name: Enable for Arc enabled cluster
+        href: insights/container-insights-enable-arc-enabled-clusters.md
       - name: Enable for hybrid cluster
         href: insights/container-insights-hybrid-setup.md
       - name: Enable for Azure Red Hat OpenShift v3
@@ -992,10 +1006,10 @@
       href: insights/redis-cache-insights-overview.md
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
-    - name: Key Vault
-      href: insights/key-vaults-insights-overview.md
     - name: Networks
       href: insights/network-insights-overview.md
+    - name: Key Vault
+      href: insights/key-vault-insights-overview.md
     - name: Storage
       displayname: storage, monitor, insights, storage accounts, azure storage
       href: insights/storage-insights-overview.md
@@ -1079,23 +1093,10 @@
         href: platform/view-designer-parts.md
       - name: Filters
         href: platform/view-designer-filters.md
-    - name: Custom solutions
-      items:
-      - name: Design and build
-        href: insights/solutions-creating.md
-      - name: Solution file
-        href: insights/solutions-solution-file.md
-      - name: Automation resources
-        href: insights/solutions-resources-automation.md
-      - name: Log searches and alerts
-        href: insights/solutions-resources-searches-alerts.md
-      - name: Views
-        href: insights/solutions-resources-views.md
-      - name: Best practices
-        href: insights/solutions-best-practices.md
   - name: Workbooks
     items:
     - name: Overview
+      displayname: Workbooks
       href: platform/workbooks-overview.md
     - name: Visualizations
       href: platform/workbooks-visualizations.md
@@ -1184,8 +1185,10 @@
       href: platform/alerts-metric-near-real-time.md
   - name: Platform logs
     items:
+    - name: Supported resource log types and categories
+      href: platform/resource-logs-categories.md
     - name: Resource log schemas
-      href: platform/diagnostic-logs-schema.md
+      href: platform/resource-logs-schema.md
     - name: Activity log schema
       href: platform/activity-log-schema.md
   - name: Diagnostic extension schemas

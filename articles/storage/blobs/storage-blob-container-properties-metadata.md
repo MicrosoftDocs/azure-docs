@@ -66,7 +66,7 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
 
-The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage returns HTTP error code 400 (Bad Request).
+The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names preserve the case with which they were created, but are case-insensitive when set or read. If two or more metadata headers with the same name are submitted for a resource, Blob storage comma-separates and concatenates the two values and return HTTP response code 200 (OK).
 
 The following code example sets metadata on a container. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
 
@@ -128,4 +128,4 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 - [Get Container Properties operation](/rest/api/storageservices/get-container-properties)
 - [Set Container Metadata operation](/rest/api/storageservices/set-container-metadata)
-- [Get Container Metadata operation](/rest/api/storageservices/set-container-metadata)
+- [Get Container Metadata operation](/rest/api/storageservices/get-container-metadata)

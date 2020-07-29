@@ -1,5 +1,5 @@
 ---
-title: "PowerShell: Add elastic pool to an auto-failover group" 
+title: "PowerShell: Add an elastic pool to an auto-failover group" 
 description: Azure PowerShell example script to create an Azure SQL Database elastic pool, add it to an auto-failover group, and test failover. 
 services: sql-database
 ms.service: sql-database
@@ -12,16 +12,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use PowerShell to add an Azure SQL Database elastic pool to a failover group
+# Use PowerShell to add an elastic pool to a failover group
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-This PowerShell script example creates a single database, adds it to an elastic pool, creates a failover group, and tests failover.
+This Azure PowerShell script example creates a database in Azure SQL Database, adds it to an elastic pool, creates a failover group, and tests failover.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this tutorial requires Az PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sample scripts
 
@@ -37,7 +37,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 ## Script explanation
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This script uses the following commands. Each command in the table links to command-specific documentation.
 
 | Command | Notes |
 |---|---|

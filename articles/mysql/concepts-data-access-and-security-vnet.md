@@ -19,7 +19,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 > This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
 > In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for MySQL server.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## Terminology and description
 
@@ -39,7 +39,7 @@ A virtual network rule tells your Azure Database for MySQL server to accept comm
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## Benefits of a virtual network rule
 
@@ -63,7 +63,7 @@ If your **Microsoft.Sql** server was a node on a subnet in your virtual network,
 
 However as of August 2018, the Azure Database for MySQL service is not yet among the services that can be assigned directly to a subnet.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## Details about virtual network rules
 

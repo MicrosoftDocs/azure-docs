@@ -3,6 +3,7 @@ title: View Live Data (preview) with Azure Monitor for containers | Microsoft Do
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Azure Monitor for containers.
 ms.topic: conceptual
 ms.date: 10/15/2019
+ms.custom: references_regions
 ---
 
 # How to view Kubernetes logs, events, and pod metrics in real-time

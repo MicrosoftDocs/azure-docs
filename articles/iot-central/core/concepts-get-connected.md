@@ -255,7 +255,7 @@ The following table summarizes how Azure IoT Central device features map on to I
 | Property (writeable) | Device twin desired and reported properties |
 | Command | Direct methods |
 
-To learn more about using the Device SDKs, see [Connect a DevDiv kit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
+To learn more about using the Device SDKs, see [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md) for example code.
 
 ### Protocols
 

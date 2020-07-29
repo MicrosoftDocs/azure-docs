@@ -4,6 +4,7 @@ description: Learn about the optional Uptime SLA offering for the Azure Kubernet
 services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
+ms.custom: references_regions
 ---
 
 # Azure Kubernetes Service (AKS) Uptime SLA
@@ -20,18 +21,6 @@ Customers can still create unlimited free clusters with a service level objectiv
 ## SLA terms and conditions
 
 Uptime SLA is a paid feature and enabled per cluster. Uptime SLA pricing is determined by the number of discrete clusters, and not by the size of the individual clusters. You can view [Uptime SLA pricing details](https://azure.microsoft.com/pricing/details/kubernetes-service/) for more information.
-
-## Region Availability
-
-Uptime SLA is available in the following regions:
-
-* Australia East
-* Canada Central
-* East US
-* East US 2
-* South Central US
-* South East Asia
-* West US 2
 
 ## Before you begin
 

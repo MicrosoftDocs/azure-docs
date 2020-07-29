@@ -29,7 +29,7 @@ The following versions of Windows support Storage Explorer:
 * Windows 8
 * Windows 7
 
-For all versions of Windows, Storage Explorer requires .NET Framework 4.6.2 or later.
+For all versions of Windows, Storage Explorer requires .NET Framework 4.7.2 at a minimum.
 
 # [macOS](#tab/macos)
 

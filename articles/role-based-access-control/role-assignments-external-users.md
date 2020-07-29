@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: role-based-access-control
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 11/25/2019

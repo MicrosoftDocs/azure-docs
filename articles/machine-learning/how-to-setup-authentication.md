@@ -8,7 +8,7 @@ ms.author: trbye
 ms.reviewer: trbye
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/17/2019
 ms.custom: has-adal-ref
 ---
@@ -66,9 +66,14 @@ While useful for testing and learning, interactive authentication will not help 
 
 This process is necessary for enabling authentication that is decoupled from a specific user login, which allows you to authenticate to the Azure Machine Learning Python SDK in automated workflows. Service principal authentication will also allow you to [authenticate to the REST API](#azure-machine-learning-rest-api-auth).
 
-To set up service principal authentication, you first create an app registration in Azure Active Directory, and then grant your app role-based access to your ML workspace. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
+> [!TIP]
+> Service principals must have access to your workspace through [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
+>
+> Using the built-in roles of **owner** or **contributor** to your workspace enables the service principal to perform all activities such as training a model, deploying a model, etc. For more information on using roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md).
 
-If you haven't used the cloud shell before in your Azure account, you will need to create a storage account resource for storing any files that are written. In general this storage account will incur a negligible monthly cost. Additionally, install the machine learning extension if you haven't used it previously with the following command.
+To set up service principal authentication, you first create an app registration in Azure Active Directory, and then assign a role to your app. The easiest way to complete this setup is through the [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the Azure portal. After you login to the portal, click the `>_` icon in the top right of the page near your name to open the shell.
+
+If you haven't used the Cloud Shell before in your Azure account, you will need to create a storage account resource for storing any files that are written. In general this storage account will incur a negligible monthly cost. Additionally, install the machine learning extension if you haven't used it previously with the following command.
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
@@ -303,6 +308,9 @@ To control token authentication, use the `token_auth_enabled` parameter when you
 
 If token authentication is enabled, you can use the `get_token` method to retrieve a JSON Web Token (JWT) and that token's expiration time:
 
+> [!TIP]
+> If you use a service principal to get the token, and want it to have the minimum required access to retrieve a token, assign it to the **reader** role for the workspace.
+
 ```python
 token, refresh_by = service.get_token()
 print(token)
@@ -319,5 +327,6 @@ print(token)
 
 ## Next steps
 
+* [How to use secrets in training](how-to-use-secrets-in-runs.md).
 * [Train and deploy an image classification model](tutorial-train-models-with-aml.md).
 * [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).

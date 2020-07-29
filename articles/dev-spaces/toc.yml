@@ -73,8 +73,8 @@
         href: how-dev-spaces-works-routing.md
       - name: Remote debugging
         href: how-dev-spaces-works-remote-debugging.md
-      - name: Connecting your development computer to AKS
-        href: how-dev-spaces-works-connect.md
+      - name: Local Process with Kubernetes
+        href: how-dev-spaces-works-local-process-kubernetes.md
     - name: How VS Code works with Dev Spaces
       href: how-vs-code-works-with-dev-spaces.md
     - name: Networking configuration in different network topologies
@@ -111,8 +111,10 @@
       href: how-to/ingress-https-traefik.md
     - name: Use NGINX for custom ingress and HTTPS
       href: how-to/ingress-https-nginx.md
-    - name: Connect your development computer to an AKS cluster (preview)
-      href: how-to/connect.md
+    - name: Use Local Process with Kubernetes with Visual Studio Code (preview)
+      href: how-to/local-process-kubernetes-vs-code.md
+    - name: Use Local Process with Kubernetes with Visual Studio (preview)
+      href: how-to/local-process-kubernetes-visual-studio.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: FAQ

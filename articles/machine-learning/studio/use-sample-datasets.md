@@ -5,7 +5,7 @@ description: Descriptions of the datasets used in sample models included in Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: sample
 
 author: likebupt
 ms.author: keli19

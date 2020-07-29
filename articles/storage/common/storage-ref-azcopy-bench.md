@@ -10,15 +10,15 @@ ms.subservice: common
 ms.reviewer: zezha-msft
 ---
 
-# azcopy bench
+# azcopy benchmark
 
 Runs a performance benchmark by uploading test data to a specified destination. The test data is automatically generated.
 
 The benchmark command runs the same upload process as 'copy', except that:
 
-  - There's no source parameter.  The command requires only a destination URL. In the current release, this destination URL must refer to a blob container.
+  - There's no source parameter.  The command requires only a destination URL. 
   
-  - The payload is described by command line parameters, which control how many files are auto-generated and how big they are. The generation process takes place entirely in memory. Disk is not used.
+  - The payload is described by command-line parameters, which control how many files are automatically generated and their size. The generation process takes place entirely in memory. Disk is not used.
   
   - Only a few of the optional parameters that are available to the copy command are supported.
   
@@ -26,7 +26,7 @@ The benchmark command runs the same upload process as 'copy', except that:
   
   - By default, the transferred data is deleted at the end of the test run.
 
-Benchmark mode will automatically tune itself to the number of parallel TCP connections that gives the maximum throughput. It will display that number at the end. To prevent auto-tuning, set the AZCOPY_CONCURRENCY_VALUE environment variable to a specific number of connections.
+Benchmark mode will automatically tune itself to the number of parallel TCP connections that gives the maximum throughput. It will display that number at the end. To prevent autotuning, set the AZCOPY_CONCURRENCY_VALUE environment variable to a specific number of connections.
 
 All the usual authentication types are supported. However, the most convenient approach for benchmarking is typically
 to create an empty container with a SAS token and use SAS authentication.
@@ -34,19 +34,19 @@ to create an empty container with a SAS token and use SAS authentication.
 ## Examples
 
 ```azcopy
-azcopy bench [destination] [flags]
+azcopy benchmark [destination] [flags]
 ```
 
 Run a benchmark test with default parameters (suitable for benchmarking networks up to 1 Gbps):'
 
 - azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"
 
-Run a benchmark test that uploads 100 files, each 2 GiB in size: (suitable for benchmarking on a fast network, e.g. 10 Gbps):'
+Run a benchmark test that uploads 100 files, each 2 GiB in size: (suitable for benchmarking on a fast network, for example, 10 Gbps):'
 
-- azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 100 --size-per-file 2G
+- azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"--file-count 100 --size-per-file 2G
 
-Same as above, but use 50,000 files, each 8 MiB in size and compute their MD5 hashes (in the same way that the --put-md5 flag does this
-in the copy command). The purpose of --put-md5 when benchmarking is to test whether MD5 computation affects throughput for the 
+Run a benchmark test but use 50,000 files, each 8 MiB in size and compute their MD5 hashes (in the same way that the `--put-md5` flag does this
+in the copy command). The purpose of `--put-md5` when benchmarking is to test whether MD5 computation affects throughput for the 
 selected file count and size:
 
 - azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 50000 --size-per-file 8M --put-md5
@@ -74,6 +74,8 @@ selected file count and size:
 **--cap-mbps uint32**  Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
 
 **--output-type** string  Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text").
+
+**--trusted-microsoft-suffixes** string   Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

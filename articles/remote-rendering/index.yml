@@ -58,6 +58,8 @@ landingContent:
             url: quickstarts/deploy-to-hololens.md
           - text: Deploy Unity sample to Desktop
             url: quickstarts/deploy-to-desktop.md
+          - text: Deploy native C++ sample to HoloLens
+            url: quickstarts/native-cpp/hololens/deploy-native-cpp-tutorial.md
           - text: Convert a model for rendering
             url: quickstarts/convert-model.md
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
+ms.date: 06/12/2020
 ---
 # Troubleshoot Azure SQL Database and Azure SQL Managed Instance performance issues with Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -19,6 +19,8 @@ This page provides information on Azure SQL Database and Azure SQL Managed Insta
 
 > [!NOTE]
 > For a quick performance troubleshooting guide using Intelligent Insights, see the [Recommended troubleshooting flow](intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) flowchart in this document.
+>
+> Intelligent insights is a preview feature, not available in the following regions: West Europe, North Europe, West US 1 and East US 1.
 
 ## Detectable database performance patterns
 
@@ -68,7 +70,7 @@ If you have reached the available session limits, you can optimize your applicat
 
 For more suggestions on resolving session limits, see [How to deal with the limits of maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). See [Overview of resource limits on a server](resource-limits-logical-server.md) for information about limits at the server and subscription levels.
 
-## Workload Increase
+## Workload increase
 
 ### What is happening
 
@@ -84,7 +86,7 @@ The diagnostics log outputs the number of queries whose execution has increased 
 
 You might consider distributing the workloads more evenly to the database. Consider optimizing the query that is affecting the performance by adding indexes. You also might distribute your workload among multiple databases. If these solutions aren't possible, consider increasing the pricing tier of your database subscription to increase the amount of resources available.
 
-## Memory Pressure
+## Memory pressure
 
 ### What is happening
 
@@ -140,7 +142,7 @@ First, optimize or simplify complex queries. Good practice is to break up long b
 
 Setting the MAXDOP server configuration option to zero (0) as a default value denotes that database can use all available CPU cores to parallelize threads for executing a single query. Setting MAXDOP to one (1) denotes that only one core can be used for a single query execution. In practical terms, this means that parallelism is turned off. Depending on the case-per-case basis, available cores to the database, and diagnostics log information, you can tune the MAXDOP option to the number of cores used for parallel query execution that might resolve the issue in your case.
 
-## Pagelatch Contention
+## Pagelatch contention
 
 ### What is happening
 
@@ -162,7 +164,7 @@ One method for handling latch contention is to replace a sequential index key wi
 
 For more information, see [Diagnose and resolve latch contention on SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (PDF download).
 
-## Missing Index
+## Missing index
 
 ### What is happening
 
@@ -182,7 +184,7 @@ The diagnostics log outputs query hashes for the queries that were identified to
 > For continuous performance optimization, we recommend that you enable [automatic tuning](automatic-tuning-overview.md). This unique built-in intelligence feature continuously monitors your database and automatically tunes and creates indexes for your databases.
 >
 
-## New Query
+## New query
 
 ### What is happening
 
@@ -196,7 +198,7 @@ The diagnostics log outputs information up to two new most CPU-consuming queries
 
 In Azure SQL Database, consider using [Query Performance Insight](query-performance-insight-use.md).
 
-## Increased Wait Statistic
+## Increased wait statistic
 
 ### What is happening
 
@@ -212,7 +214,7 @@ Because the system couldn't successfully identify the root cause for the poor-pe
 
 For more information on optimizing query performance, see [Query tuning](https://msdn.microsoft.com/library/ms176005.aspx).
 
-## TempDB Contention
+## TempDB contention
 
 ### What is happening
 
@@ -240,7 +242,7 @@ Because this performance condition is related to multiple databases using the sa
 
 If reduction and optimization of the current workload on your top DTU-consuming databases aren't possible, consider increasing your elastic pool pricing tier. Such increase results in the increase of the available DTUs in the elastic pool.
 
-## Plan Regression
+## Plan regression
 
 ### What is happening
 
@@ -267,7 +269,7 @@ For more information, see [Learn how SQL Server prevents plan regressions](https
 >
 > For continuous performance optimization, we recommend that you enable [automatic tuning](automatic-tuning-overview.md). This built-in intelligence feature continuously monitors your database and automatically tunes and creates best-performing query execution plans for your databases.
 
-## Database-Scoped Configuration Value Change
+## Database-scoped configuration value change
 
 ### What is happening
 
@@ -277,11 +279,11 @@ Database-scoped configuration changes can be set for each individual database. T
 
 ### Troubleshooting
 
-The diagnostics log outputs database-scoped configuration changes that were made recently that caused performance degradation compared to the previous seven-day workload behavior. You can revert the configuration changes to the previous values. You also can tune value by value until the desired performance level is reached. You can copy database-scope configuration values from a similar database with satisfactory performance. If you're unable to troubleshoot the performance, revert to the default default values and attempt to fine-tune starting from this baseline.
+The diagnostics log outputs database-scoped configuration changes that were made recently that caused performance degradation compared to the previous seven-day workload behavior. You can revert the configuration changes to the previous values. You also can tune value by value until the desired performance level is reached. You can copy database-scope configuration values from a similar database with satisfactory performance. If you're unable to troubleshoot the performance, revert to the default values and attempt to fine-tune starting from this baseline.
 
 For more information on optimizing database-scoped configuration and T-SQL syntax on changing the configuration, see [Alter database-scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 
-## Slow Client
+## Slow client
 
 ### What is happening
 
@@ -295,7 +297,7 @@ This detectable performance pattern indicates a client-side condition. Troublesh
 
 You can optimize performance of your application for consumption of these queries. You also can consider possible network latency issues. Because the performance degradation issue was based on change in the last seven-day performance baseline, you can investigate whether recent application or network condition changes caused this performance regression event.
 
-## Pricing Tier Downgrade
+## Pricing tier downgrade
 
 ### What is happening
 

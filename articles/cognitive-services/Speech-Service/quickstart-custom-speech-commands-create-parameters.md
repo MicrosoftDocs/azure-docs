@@ -3,13 +3,13 @@ title: 'Quickstart: Create a Custom Commands Preview app with parameters - Speec
 titleSuffix: Azure Cognitive Services
 description: In this article, you'll add parameters to a Custom Commands application so it can turn multiple devices on and off.
 services: cognitive-services
-author: don-d-kim
+author: nitinme
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: donkim
+ms.author: nitinme
 ---
 
 # Quickstart: Create a Custom Commands Preview application with parameters

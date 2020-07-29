@@ -9,6 +9,7 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
+ms.custom: tracking-python
 ---
 
 # Connect to Azure Databricks from Excel, Python, or R

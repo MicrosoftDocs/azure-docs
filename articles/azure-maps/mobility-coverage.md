@@ -1,9 +1,9 @@
 ---
-title: Mobility (transit) coverage | Microsoft Azure Maps
-description: In this article, you'll learn about Mobility coverage in Microsoft Azure Maps
-author: philmea
-ms.author: philmea
-ms.date: 06/05/2019
+title: Mobility (transit) coverage
+description: In this article, you'll learn about public transit coverage in Microsoft Azure Maps Mobility service.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,12 +12,11 @@ manager: philmea
 
 # Azure Maps Mobility coverage
 
-Azure Maps offers a [Mobility service](https://aka.ms/AzureMapsMobilityService). The Mobility service improves the development time for applications with public transit, bike share, and scooter share features. Features for public transit include search for nearby stations, search for stops, search for transit lines, retrieve schedule information, retrieve real-time public transit arrivals, list stops, and list route guides. The service returns real-time and static availability information to shared vehicles, such as, cars, bikes, and scooters. Additionally, the Mobility service provides routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates bicycling, ride-hailing and transit options, all into one trip. Users cam access detailed and multimodal step-by-step itineraries and service alerts.
+The Azure Maps [Mobility service](https://aka.ms/AzureMapsMobilityService) improves the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility service also allows users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility service provides routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries. 
 
-Azure Maps doesn't have the same level of information and accuracy for all cities and countries/regions. The ability to call transit data depends on the city. And, the data may not include all public transit options and agencies that serve the city.
+Azure Maps doesn't provide the same level of information and accuracy for all cities and countries/regions. The ability to call public transit data depends on the metro area. In addition, the map data may not include all public transit options and agencies that serve the metro area.
 
 The following table provides coverage information for Azure Maps Mobility service.
-
 
 | Symbol | Meaning |
 |--------|---------|
@@ -114,7 +113,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Switzerland | Basel, Geneva, Yverdon-les-Bains, Zurich | 
 | Turkey | Adana-Mersin, Ankara, Antalya, Balıkesir, Bilecik, Bolu, Bursa, Denizli, Duzce, Elazig, Eskisehir, Istanbul, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
 | United Kingdom | East Anglia, East Midlands, London and South East, North East, North West, Northern Ireland, Scotland, South West, Wales, West Midlands, Yorkshire |
-| Ukraine | Kharkiv, Zhytomyr, Kiev, Lviv, Chernivtsi |
+| Ukraine | Kharkiv, Zhytomyr, Kyiv, Lviv, Chernivtsi |
 
 
 ## Middle East and Africa

@@ -47,8 +47,9 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
 13. [Download the Windows Virtual Desktop Agent for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Download the Windows Virtual Desktop Agent Manager for Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 12.
-16. Open the Windows Virtual Desktop installer and follow the instructions.
+16. Open the Windows Virtual Desktop Agent Manager and follow the instructions.
 17. Optionally, block the TCP/3389 port to remove direct Remote Desktop Protocol access to the VM.
+18. Optionally, confirm that your .NET framework is at least version 4.7.2. This is especially important if you're creating a custom image.
 
 ## Next steps
 

@@ -140,7 +140,7 @@
       items:
         - name: Diagnostic and audit logs
           href: container-registry-diagnostics-audit-logs.md  
-        - name: Audit compliance using Azure Policy (preview)
+        - name: Audit compliance using Azure Policy
           href: container-registry-azure-policy.md 
     - name: Troubleshoot
       expanded: false

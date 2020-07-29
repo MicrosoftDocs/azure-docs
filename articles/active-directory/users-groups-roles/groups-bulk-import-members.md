@@ -6,7 +6,7 @@ author: curtand
 ms.author: curtand
 manager: mtillman
 ms.date: 04/27/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
@@ -39,6 +39,7 @@ The rows in a downloaded CSV template are as follows:
 - The required columns are listed first.
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
+- Add at least two users' UPNs or object IDs to successfully upload the file.
 
 ## To bulk import group members
 

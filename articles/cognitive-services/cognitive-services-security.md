@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: dapine
+ms.custom: tracking-python
 ---
 
 # Azure Cognitive Services security

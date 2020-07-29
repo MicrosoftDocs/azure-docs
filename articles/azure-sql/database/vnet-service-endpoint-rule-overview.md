@@ -202,7 +202,7 @@ Connection error 40914 relates to *virtual network rules*, as specified on the F
 
 *Error resolution:* Enter the client's IP address as an IP rule. Do this by using the Firewall pane in the Azure portal.
 
-<a name="anchor-how-to-by-using-firewall-portal-59j" />
+<a name="anchor-how-to-by-using-firewall-portal-59j"></a>
 
 ## Portal can create a virtual network rule
 
@@ -230,7 +230,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 - The relevant endpoint type name is **Microsoft.Sql**.
 - If your subnet might not be tagged with the type name, see [Verify your subnet is an endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
-<a name="a-portal-steps-for-vnet-rule-200" />
+<a name="a-portal-steps-for-vnet-rule-200"></a>
 
 ## Azure portal steps
 
@@ -269,7 +269,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 > - **Deleted:** Only applies to the Delete operation, and indicates that the rule has been deleted and no longer applies.
 > - **InProgress:** Indicates that the operation is in progress. The old rule applies while the operation is in this state.
 
-<a name="anchor-how-to-links-60h" />
+<a name="anchor-how-to-links-60h"></a>
 
 ## Related articles
 

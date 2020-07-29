@@ -84,14 +84,13 @@ If a user is in the scope of password hash synchronization, by default the cloud
 
 You can continue to sign in to your cloud services by using a synchronized password that is expired in your on-premises environment. Your cloud password is updated the next time you change the password in the on-premises environment.
 
-##### Public preview of the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature
+##### EnforceCloudPasswordPolicyForPasswordSyncedUsers
 
 If there are synchronized users that only interact with Azure AD integrated services and must also comply with a password expiration policy, you can force them to comply with your Azure AD password expiration policy by enabling the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature.
 
 When *EnforceCloudPasswordPolicyForPasswordSyncedUsers* is disabled (which is the default setting), Azure AD Connect sets the PasswordPolicies attribute of synchronized users to "DisablePasswordExpiration". This is done every time a user's password is synchronized and instructs Azure AD to ignore the cloud password expiration policy for that user. You can check the value of the attribute using the Azure AD PowerShell module with the following command:
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
-
 
 To enable the EnforceCloudPasswordPolicyForPasswordSyncedUsers feature, run the following command using the MSOnline PowerShell module as shown below. You would have to type yes for the Enable parameter as shown below :
 
@@ -121,7 +120,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 > This feature is in Public Preview right now.
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
 
-#### Public Preview of synchronizing temporary passwords and "Force Password Change on Next Logon"
+#### Synchronizing temporary passwords and "Force Password Change on Next Logon"
 
 It is typical to force a user to change their password during their first logon, especially after an admin password reset occurs.  It is commonly known as setting a "temporary" password and is completed by checking the "User must change password at next logon" flag on a user object in Active Directory (AD).
   

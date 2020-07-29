@@ -8,9 +8,11 @@
   expanded: true
   items:
   - name: Create a workspace
-    items:
+    items: 
     - name: Portal
       href: quickstart-create-databricks-workspace-portal.md
+    - name: PowerShell
+      href: quickstart-create-databricks-workspace-powershell.md
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-create-databricks-workspace-resource-manager-template.md
@@ -257,7 +259,7 @@
         - name: Handle bad records and files
           href: /azure/databricks/spark/latest/spark-sql/handling-bad-records
           maintainContext: true 
-        - name: Task p for high concurrency
+        - name: Task preemption for high concurrency
           href: /azure/databricks/spark/latest/spark-sql/preemption
           maintainContext: true
         - name: Handle large queries in interactive workflows
@@ -368,6 +370,9 @@
       maintainContext: true
     - name: Use notebooks
       href: /azure/databricks/notebooks/notebooks-use
+      maintainContext: true
+    - name: Notebook-scoped Python libraries
+      href: /azure/databricks/notebooks/notebooks-python-libraries
       maintainContext: true
     - name: Version control
       items:
@@ -1029,7 +1034,7 @@
         href: /azure/databricks/security/access-control/pool-acl
         maintainContext: true  
       - name: Jobs access control
-        href: /azure/databricks/security/access-control/jobs-acl
+        href: /azure/databricks/security/access-control/job-acl
         maintainContext: true
       - name: Table access control
         items:
@@ -1067,6 +1072,8 @@
         maintainContext: true
     - name: GDPR best practices
       href: /azure/databricks/security/privacy/gdpr-delta
+    - name: IP access list
+      href: /azure/databricks/security/network/ip-access-list     
     - name: Encrypt traffic between cluster worker nodes
       href: /azure/databricks/security/encryption/encrypt-otw
     - name: Enable customer-managed keys for notebooks
@@ -1155,10 +1162,13 @@
       - name: Manage access to notebook features
         href: /azure/databricks/administration-guide/workspace/notebooks
         maintainContext: true
-    - name: Enable cluster configurations
+    - name: Manage clusters
       items:
-      - name: Cluster configuration overview
+      - name: Manage cluster configuration options
         href: /azure/databricks/administration-guide/clusters/index
+        maintainContext: true
+      - name: Manage cluster policies
+        href: /azure/databricks/administration-guide/clusters/policies
         maintainContext: true
       - name: Enable Container Services
         href: /azure/databricks/administration-guide/clusters/container-services
@@ -1250,6 +1260,18 @@
       - name: Apache Spark UI show less than total node memory
         href: /azure/databricks/kb/clusters/spark-shows-less-memory
         maintainContext: true
+      - name: CPU core limit prevents cluster creation
+        href: /azure/databricks/kb/clusters/azure-core-limit
+        maintainContext: true
+      - name: IP address limit prevents cluster creation
+        href: /azure/databricks/kb/clusters/azure-ip-limit
+        maintainContext: true
+      - name: Slow cluster launch and missing nodes
+        href: /azure/databricks/kb/clusters/azure-nodes-not-acquired
+        maintainContext: true
+      - name: Configure a cluster to use a custom NTP server
+        href: /azure/databricks/kb/clusters/use-internal-ntp
+        maintainContext: true
     - name: Data management
       items:
       - name: Append to a DataFrame
@@ -1325,6 +1347,9 @@
         maintainContext: true
       - name: Optimize read performance from JDBC data sources
         href: /azure/databricks/kb/data-sources/jdbc-optimize-read
+        maintainContext: true
+      - name: ADLS and WASB writes throttled
+        href: /azure/databricks/kb/data-sources/azure-storage-throttling
         maintainContext: true
     - name: DBFS
       items:
@@ -1493,6 +1518,9 @@
       - name: Troubleshoot cancel command
         href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
         maintainContext: true
+      - name: Retrieve the current username for the notebook
+        href: /azure/databricks/kb/notebooks/get-notebook-username
+        maintainContext: true
     - name: Security and permissions
       items:
       - name: Table creation failure with security exception
@@ -1635,28 +1663,31 @@
           - name: Troubleshoot Azure AD access tokens
             href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
             maintainContext: true
-      - name: Clusters
+      - name: Clusters API
         href: /azure/databricks/dev-tools/api/latest/clusters
-        maintainContext: true 
-      - name: DBFS
+        maintainContext: true
+      - name: Cluster Policies APIs
+        href: /azure/databricks/dev-tools/api/latest/policies
+        maintainContext: true
+      - name: DBFS API
         href: /azure/databricks/dev-tools/api/latest/dbfs
         maintainContext: true 
-      - name: Groups
+      - name: Groups API
         href: /azure/databricks/dev-tools/api/latest/groups
         maintainContext: true
       - name: Instance Pools API
         href: /azure/databricks/dev-tools/api/latest/instance-pools
         maintainContext: true 
-      - name: Jobs
+      - name: Jobs API
         href: /azure/databricks/dev-tools/api/latest/jobs
         maintainContext: true 
-      - name: Libraries
+      - name: Libraries API
         href: /azure/databricks/dev-tools/api/latest/libraries
         maintainContext: true 
-      - name: MLflow
+      - name: MLflow API
         href: /azure/databricks/dev-tools/api/latest/mlflow
         maintainContext: true
-      - name: SCIM
+      - name: SCIM APIs
         items:
           - name: SCIM API overview
             href: /azure/databricks/dev-tools/api/latest/scim/index
@@ -1665,20 +1696,17 @@
           - name: SCIM API (Users)
             href: /azure/databricks/dev-tools/api/latest/scim/scim-users
           - name: SCIM API (Groups)
-            href: /azure/databricks/dev-tools/api/latest/scim/scim-groups
+            href: /azure/databricks/dev-tools/api/latest/scim/scim-group
         maintainContext: true 
-      - name: Secrets
+      - name: Secrets API
         href: /azure/databricks/dev-tools/api/latest/secrets
         maintainContext: true 
-      - name: Tokens
+      - name: Tokens API
         href: /azure/databricks/dev-tools/api/latest/tokens
         maintainContext: true 
-      - name: Workspace
+      - name: Workspace API
         href: /azure/databricks/dev-tools/api/latest/workspace
         maintainContext: true
-      - name: Runtime version string for REST API calls
-        href: /azure/databricks/dev-tools/api/latest/runtime-version-string
-        maintainContext: true 
     - name: REST API 1.2
       href: /azure/databricks/dev-tools/api/1.2/index
       maintainContext: true
@@ -1720,7 +1748,9 @@
   - name: Azure Databricks REST API
     href: /rest/api/databricks
   - name: Resource Manager template
-    href: /azure/templates/microsoft.databricks/workspaces  
+    href: /azure/templates/microsoft.databricks/workspaces
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/ext/databricks/databricks?view=azure-cli-latest
 - name: Resources
   items:
   - name: Apache Spark
@@ -1758,6 +1788,9 @@
       items:
       - name: Platform release notes 
         href: /azure/databricks/release-notes/product/index
+        maintainContext: true
+      - name: June 2020
+        href: /azure/databricks/release-notes/product/2020/june
         maintainContext: true
       - name: May 2020
         href: /azure/databricks/release-notes/product/2020/may
@@ -1862,13 +1895,13 @@
         - name: Databricks Runtime 7.0 Genomics (Beta)
           href: /azure/databricks/release-notes/runtime/7.0genomics
           maintainContext: true
-        - name: Databricks Runtime 6.6 (Beta)
+        - name: Databricks Runtime 6.6
           href: /azure/databricks/release-notes/runtime/6.6
           maintainContext: true
-        - name: Databricks Runtime 6.6 ML (Beta)
+        - name: Databricks Runtime 6.6 ML
           href: /azure/databricks/release-notes/runtime/6.6ml
           maintainContext: true
-        - name: Databricks Runtime 6.6 Genomics (Beta)
+        - name: Databricks Runtime 6.6 Genomics
           href: /azure/databricks/release-notes/runtime/6.6genomics
           maintainContext: true
         - name: Databricks Runtime 6.5

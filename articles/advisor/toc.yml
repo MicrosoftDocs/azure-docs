@@ -40,7 +40,7 @@
     href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
   - name: REST API
     href: https://docs.microsoft.com/rest/api/advisor/
-  - name: CLI
+  - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
   - name: PowerShell
     href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0

@@ -32,7 +32,7 @@ In this article, you'll learn how to:
 
 - For preview features, ensure that your subscription is whitelisted for the target region.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## Prepare
 
@@ -169,7 +169,7 @@ To deploy the template by using PowerShell:
     ```
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## Move
 

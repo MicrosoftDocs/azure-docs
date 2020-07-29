@@ -10,6 +10,7 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
+ms.custom: tracking-python
 ---
 # Extend U-SQL scripts with Python code in Azure Data Lake Analytics
 

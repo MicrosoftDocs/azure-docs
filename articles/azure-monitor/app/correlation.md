@@ -5,8 +5,8 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
-
 ms.reviewer: sergkanz
+ms.custom: tracking-python
 ---
 
 # Telemetry correlation in Application Insights

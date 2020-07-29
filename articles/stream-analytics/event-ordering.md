@@ -10,7 +10,7 @@ ms.date: 03/12/2019
 ---
 # Configuring event ordering policies for Azure Stream Analytics
 
-This article describes how to setup and use late arrival and out-of-order event policies in Azure Stream Analytics. These policies are applied only when you use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query.
+This article describes how to setup and use late arrival and out-of-order event policies in Azure Stream Analytics. These policies are applied only when you use the [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) clause in your query, and they are only applied for cloud input sources.
 
 ## Event time and Arrival Time
 

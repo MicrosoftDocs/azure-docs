@@ -24,6 +24,9 @@ conceptualContent:
     # Card
     - title: Global
       links:
+        - url: ../governance/policy/concepts/regulatory-compliance.md
+          itemType: concept
+          text: Azure Policy Regulatory Compliance (preview)
         - url: https://docs.microsoft.com/microsoft-365/compliance/offering-cis-benchmark
           itemType: concept
           text: CIS benchmark
@@ -375,20 +378,28 @@ additionalContent:
 
         - title: Compliance blueprints
           links:
+            - text: Azure Security Benchmark
+              url: ../governance/blueprints/samples/azure-security-benchmark.md
+            - text: Canada Federal PBMM
+              url: ../governance/blueprints/samples/canada-federal-pbmm/index.md
             - text: CIS benchmarks
-              url: ../governance/blueprints/samples/cis-azure-1.1.0/index.md
-            - text: FedRAMP moderate
+              url: ../governance/blueprints/samples/cis-azure-1-1-0.md
+            - text: FedRAMP Moderate
               url: ../governance/blueprints/samples/fedramp-m/index.md
+            - text: FedRAMP High
+              url: ../governance/blueprints/samples/fedramp-h/index.md
             - text: HIPAA HITRUST
               url: ../governance/blueprints/samples/hipaa-hitrust/index.md
             - text: IRS 1075
               url: ../governance/blueprints/samples/irs-1075/index.md
             - text: ISO 27001
               url: ../governance/blueprints/samples/iso27001/index.md
-            - text: NIST SP 800-53
-              url: ../governance/blueprints/samples/nist-sp-800-53-rev4/index.md
-            - text: PCI DSS v3.2.1
+            - text: NIST SP 800-53 R4
+              url: ../governance/blueprints/samples/nist-sp-800-53-r4.md
+            - text: PCI-DSS v3.2.1
               url: ../governance/blueprints/samples/pci-dss-3.2.1/index.md
+            - text: SWIFT CSP-CSCF v2020
+              url: ../governance/blueprints/samples/swift-2020/index.md
             - text: UK NHS and UK OFFICIAL (G-Cloud)
               url: ../governance/blueprints/samples/ukofficial/index.md
 

@@ -1,10 +1,9 @@
 ---
-title: Move virtual machine to another region (Azure Site Recovery)
+title: Move a virtual machine to another region (Azure Site Recovery)
 description: Learn how you can migrate your SQL Server virtual machine from one region to another within Azure.  
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -18,17 +17,17 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Move SQL Server VM to another region within Azure with Azure Site Recovery services
+# Move a SQL Server VM to another region within Azure with Azure Site Recovery
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article teaches you how to use Azure Site Recovery to migrate your SQL Server virtual machine (VM) from one region to another within Azure. 
 
 Moving a SQL Server VM to a different region requires doing the following:
-1. [**Preparing**](#prepare-to-move): Confirm that both your source SQL Server VM and target region are adequately prepared for the move. 
-1. [**Configuring**](#configure-azure-site-recovery-vault): Moving your SQL Server VM requires that it is a replicated object within the Azure Site Recovery vault. You need to add your SQL Server VM to the Azure Site Recovery vault. 
-1. [**Testing**](#test-move-process): Migrating the SQL Server VM requires failing it over from the source region to the replicated target region. To ensure that the move process will succeed, you need to first test that your SQL Server VM can successfully failover to the target region. This will help expose any issues and avoid them when performing the actual move. 
-1. [**Moving**](#move-the-sql-server-vm): Once your test failover passed, and you know that you are safe to migrate your SQL Server VM, you can perform the move of the VM to the target region. 
-1. [**Cleaning up**](#clean-up-source-resources): To avoid billing charges, remove the SQL Server VM from the vault, and any unnecessary resources that are left over in the resource group. 
+1. [Preparing](#prepare-to-move): Confirm that both your source SQL Server VM and target region are adequately prepared for the move. 
+1. [Configuring](#configure-azure-site-recovery-vault): Moving your SQL Server VM requires that it is a replicated object within the Azure Site Recovery vault. You need to add your SQL Server VM to the Azure Site Recovery vault. 
+1. [Testing](#test-move-process): Migrating the SQL Server VM requires failing it over from the source region to the replicated target region. To ensure that the move process will succeed, you need to first test that your SQL Server VM can successfully fail over to the target region. This will help expose any issues and avoid them when performing the actual move. 
+1. [Moving](#move-the-sql-server-vm): Once your test failover passed, and you know that you are safe to migrate your SQL Server VM, you can perform the move of the VM to the target region. 
+1. [Cleaning up](#clean-up-source-resources): To avoid billing charges, remove the SQL Server VM from the vault, and any unnecessary resources that are left over in the resource group. 
 
 ## Verify prerequisites 
 
@@ -47,7 +46,7 @@ Prepare both the source SQL Server VM and the target region for the move.
 ### Prepare the source SQL Server VM
 
 - Ensure that all the latest root certificates are on the SQL Server VM that you want to move. If the latest root certificates are not there, security constraints will prevent data copy to the target region. 
-- For Windows VMs, install all of the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows UPdate and certificate update process for your organization. 
+- For Windows VMs, install all of the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate update process for your organization. 
 - For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM. 
 - Make sure you're not using an authentication proxy to control network connectivity for the VMs that you want to move. 
 - If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, check the requirements. 
@@ -70,7 +69,7 @@ Prepare both the source SQL Server VM and the target region for the move.
 
 The following steps show you how to use Azure Site Recovery to copy data to the target region. Create the Recovery Services vault in any region other than the source region. 
 
-1. Sign into the [Azure portal](https://portal.azure.com). 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
 1. Choose to **Create a resource** from the upper-left hand corner of the navigation pane. 
 1. Select **IT & Management tools** and then select **Backup and Site Recovery**. 
 1. On the **Basics** tab, under **Project details**, either create a new resource group in the target region, or select an existing resource group in the target region. 
@@ -123,12 +122,12 @@ The following steps show you how to move the SQL Server VM from your source regi
    ![Initiate failover](./media/move-sql-vm-different-region/initiate-failover.png)
 
 1. Select the **latest app-consistent** recover point under **Recovery Point**. 
-1. Select the checkbox next to **Shut down the machine before beginning failover**. Site Recovery will attempt to shut down the source VM before triggering the failover. Failover will continue even if shut down fails. 
+1. Select the check box next to **Shut down the machine before beginning failover**. Site Recovery will attempt to shut down the source VM before triggering the failover. Failover will continue even if shut down fails. 
 1. Select **OK** to start the failover.
 1. You can monitor the failover process from the same **Site Recovery jobs** page you viewed when monitoring the failover test in the previous section. 
 1. After the job completes, check that the SQL Server VM appears in the target region as expected. 
 1. Navigate back to the vault, select **Replicated Items**, select the SQL Server VM, and select **Commit** to finish the move process to the target region. Wait until the commit job finishes. 
-1. Register your SQL Server VM with the SQL VM resource provider to enable **SQL virtual machine** manageability in the Azure portal and features associated with the resource provider. For more information, see [Register SQL Server VM with SQL VM resource provider](sql-vm-resource-provider-register.md). 
+1. Register your SQL Server VM with the SQL VM resource provider to enable **SQL virtual machine** manageability in the Azure portal and features associated with the resource provider. For more information, see [Register SQL Server VM with the SQL VM resource provider](sql-vm-resource-provider-register.md). 
 
   > [!WARNING]
   > SQL Server data consistency is only guaranteed with app-consistent snapshots. The **latest processed** snapshot can't be used for SQL Server failover as a crash recovery snapshot can't guarantee SQL Server data consistency. 

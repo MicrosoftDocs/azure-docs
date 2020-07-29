@@ -6,6 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
+ms.custom: tracking-python
 ---
 
 # How to connect applications to Azure Database for MariaDB

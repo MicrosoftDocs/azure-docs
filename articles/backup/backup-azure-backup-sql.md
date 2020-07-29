@@ -37,7 +37,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 1. Select **Servers**.
 
     ![Select the Servers protection group type](./media/backup-azure-backup-sql/pg-servers.png)
-1. Expand the SQL Server machine where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Then select **Next**.
+1. Expand the SQL Server virtual machine where the databases that you want to back up are located. You see the data sources that can be backed up from that server. Expand **All SQL Shares** and then select the databases that you want to back up. In this example, we select ReportServer$MSDPM2012 and ReportServer$MSDPM2012TempDB. Then select **Next**.
 
     ![Select a SQL Server database](./media/backup-azure-backup-sql/pg-databases.png)
 1. Name the protection group and then select **I want online protection**.
@@ -66,7 +66,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
     ![Choose a replica-creation method](./media/backup-azure-backup-sql/pg-manual.png)
 
-    The initial backup copy requires the transfer of the entire data source (SQL Server database). The backup data moves from the production server (SQL Server machine) to the DPM server. If this backup is large, then transferring the data over the network could cause bandwidth congestion. For this reason, administrators can choose to use removable media to transfer the initial backup **Manually**. Or they can transfer the data **Automatically over the network** at a specified time.
+    The initial backup copy requires the transfer of the entire data source (SQL Server database). The backup data moves from the production server (SQL Server computer) to the DPM server. If this backup is large, then transferring the data over the network could cause bandwidth congestion. For this reason, administrators can choose to use removable media to transfer the initial backup **Manually**. Or they can transfer the data **Automatically over the network** at a specified time.
 
     After the initial backup finishes, backups continue incrementally on the initial backup copy. Incremental backups tend to be small and are easily transferred across the network.
 
@@ -74,7 +74,7 @@ To protect SQL Server databases in Azure, first create a backup policy:
 
     ![Choose when to run a consistency check](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    DPM can run a consistency check on the integrity of the backup point. It calculates the checksum of the backup file on the production server (the SQL Server machine in this example) and the backed-up data for that file in DPM. If the check finds a conflict, then the backed-up file in DPM is assumed to be corrupt. DPM fixes the backed-up data by sending the blocks that correspond to the checksum mismatch. Because the consistency check is a performance-intensive operation, administrators can choose to schedule the consistency check or run it automatically.
+    DPM can run a consistency check on the integrity of the backup point. It calculates the checksum of the backup file on the production server (the SQL Server computer in this example) and the backed-up data for that file in DPM. If the check finds a conflict, then the backed-up file in DPM is assumed to be corrupt. DPM fixes the backed-up data by sending the blocks that correspond to the checksum mismatch. Because the consistency check is a performance-intensive operation, administrators can choose to schedule the consistency check or run it automatically.
 
 1. Select the data sources to protect in Azure. Then select **Next**.
 

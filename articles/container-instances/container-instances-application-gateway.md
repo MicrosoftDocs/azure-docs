@@ -12,7 +12,7 @@ This article shows one way to expose a static, public IP address for a [containe
 In this article you use the Azure CLI to create the resources for this scenario:
 
 * An Azure virtual network
-* A container group deployed [in the virtual network (preview)](container-instances-vnet.md) that hosts a small web app
+* A container group deployed [in the virtual network](container-instances-vnet.md) that hosts a small web app
 * An application gateway with a public frontend IP address, a listener to host a website on the gateway, and a route to the backend container group
 
 As long as the application gateway runs and the container group exposes a stable private IP address in the network's delegated subnet, the container group is accessible at this public IP address.

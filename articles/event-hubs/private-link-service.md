@@ -18,7 +18,7 @@ A private endpoint is a network interface that connects you privately and secure
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
+> This feature is supported for both **standard** and **dedicated** tiers. 
 
 >[!WARNING]
 > Enabling private endpoints can prevent other Azure services from interacting with Event Hubs.
@@ -58,7 +58,7 @@ If you already have an Event Hubs namespace, you can create a private link conne
 2. In the search bar, type in **event hubs**.
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select the **Networking** tab under **Settings**.
-5. Select the **Private endpoint connections** tab at the top of the page. If you aren't using a dedicated tier of Event Hubs, you see a message: **Private endpoint connections on Event Hubs are only supported by namespaces created under a dedicated cluster**.
+5. Select the **Private endpoint connections** tab at the top of the page. 
 6. Select the **+ Private Endpoint** button at the top of the page.
 
     ![Image](./media/private-link-service/private-link-service-3.png)

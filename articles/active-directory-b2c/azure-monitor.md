@@ -21,8 +21,8 @@ Use Azure Monitor to route Azure Active Directory B2C (Azure AD B2C) sign-in and
 You can route log events to:
 
 * An Azure [storage account](../storage/blobs/storage-blobs-introduction.md).
+* A [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) (to analyze data, create dashboards, and alert on specific events).
 * An Azure [event hub](../event-hubs/event-hubs-about.md) (and integrate with your Splunk and Sumo Logic instances).
-* An [Log Analytics workspace](../azure-monitor/platform/resource-logs-collect-workspace.md) (to analyze data, create dashboards, and alert on specific events).
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 

@@ -1,8 +1,8 @@
 ---
 title: Event Handlers and destinations - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Event Handlers and destinations in Event Grid on Edge 
-author: banisadr
-ms.author: babanisa
+author: femila
+ms.author: femila
 ms.reviewer: spelluru
 ms.date: 01/09/2020
 ms.topic: article

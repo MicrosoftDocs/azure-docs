@@ -51,7 +51,7 @@ You can have up to 200 Snapshots for a file share at any point in time. The limi
 
 ### Can I recover from a deleted Azure file share?
 
-When an Azure file share is deleted, you're shown the list of backups that will be deleted and a confirmation is requested. Currently, a deleted Azure file share can't be restored.
+If the file share is in the soft deleted state, you need to first undelete the file share to perform the restore operation. The undelete operation will bring the file share into the active state where you can restore to any point in time. To learn how to undelete your file share, visit [this link](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) or see the [Undelete File Share Script](./scripts/backup-powershell-script-undelete-file-share.md). If the file share is permanently deleted, you won't be able restore the contents and snapshots.
 
 ### Can I restore from backups if I stopped protection on an Azure file share?
 

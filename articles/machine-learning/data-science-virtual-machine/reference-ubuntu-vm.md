@@ -5,6 +5,7 @@ description: Details on tools included in the Ubuntu Data Science Virtual Machin
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
+ms.custom: tracking-python
 
 ms.author: gopalv
 ms.date: 09/11/2019

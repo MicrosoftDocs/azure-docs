@@ -5,7 +5,7 @@ description: Create, review, and deploy automated machine learning models with A
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
 manager: cgronlun

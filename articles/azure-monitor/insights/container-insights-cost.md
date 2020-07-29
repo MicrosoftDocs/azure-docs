@@ -2,7 +2,7 @@
 title: Monitoring cost for Azure Monitor for containers | Microsoft Docs
 description: This article describes the monitoring cost for metrics & inventory data collected by Azure Monitor for containers to help customers manage their usage and associated costs. 
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 05/29/2020
 
 ---
 # Understand monitoring costs for Azure Monitor for containers
@@ -135,6 +135,8 @@ Consider a scenario where your organization's different business unit shares Kub
 - Billable container log data ingested by logsource entry
 
 - Billable diagnostic data ingested by diagnostic master node logs
+
+To learn about managing rights and permissions to the workbook, review [Access control](../platform/workbooks-access-control.md).
 
 After completing your analysis to determine which source or sources are generating the most data or more data that are exceeding your requirements, you can reconfigure data collection. Details on configuring collection of stdout, stderr, and environmental variables is described in the [Configure agent data collection settings](container-insights-agent-config.md) article.
 

@@ -4,8 +4,8 @@ description: How to manage and update Azure HPC Cache using the Azure portal
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/29/2020
-ms.author: rohogue
+ms.date: 06/01/2020
+ms.author: v-erkel
 ---
 
 # Manage your cache from the Azure portal
@@ -25,6 +25,10 @@ The buttons at the top of the page can help you manage the cache:
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
 Read more about these options below.
+
+Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
+
+[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
 
 ## Stop the cache
 

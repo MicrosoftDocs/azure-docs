@@ -10,7 +10,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-
+ms.custom: tracking-python
 ---
 
 # Train a Form Recognizer model with labels using REST API and Python

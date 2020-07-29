@@ -4,15 +4,16 @@ title: Clouds and regions in which Azure Media Services v3 is available
 description: This article talks about Azure clouds and regions in which Azure Media Services v3 is available.  
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
+ms.date: 5/28/2020
+ms.author: inhenkel
+ms.custom: references_regions
 ---
 
 # Clouds and regions in which Azure Media Services v3 exists
@@ -29,6 +30,19 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 | [StandardEncoderPreset](encoding-concept.md) | Available | Available | Available | Available |
 | [LiveEvents](live-streaming-overview.md) | Available | Available | Available | Available |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Available | Available | Available | Available |
+
+## Feature availability in preview
+
+[LiveTranscription](live-transcription.md) is available in the following regions:
+
+- Southeast Asia
+- West Europe
+- North Europe
+- East US
+- Central US
+- South Central US
+- West US 2
+- Brazil South
 
 ## Regions/geographies/locations
 

@@ -5,7 +5,7 @@ services: networking
 author: rambk
 
 ms.service: expressroute
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/05/2020
 ms.author: rambala
 

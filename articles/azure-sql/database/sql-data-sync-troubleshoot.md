@@ -117,7 +117,7 @@ To troubleshoot issues with the client agent, see [Troubleshoot Data Sync Agent 
 
 - [I can't delete my sync group](#setup-delete)
 
-- [I can't unregister an on-premises SQL Server database](#setup-unreg)
+- [I can't unregister a SQL Server database](#setup-unreg)
 
 - [I don't have sufficient privileges to start system services](#setup-perms)
 
@@ -160,11 +160,11 @@ Your attempt to delete a sync group fails. Any of the following scenarios might 
 
 - **Resolution**. Wait until the provisioning or sync process finishes and then retry deleting the sync group.
 
-### <a name="setup-unreg"></a> I can't unregister an on-premises SQL Server database
+### <a name="setup-unreg"></a> I can't unregister a SQL Server database
 
 - **Cause**. Most likely, you are trying to unregister a database that has already been deleted.
 
-- **Resolution**. To unregister an on-premises SQL Server database, select the database and then select **Force Delete**.
+- **Resolution**. To unregister a SQL Server database, select the database and then select **Force Delete**.
 
   If this operation fails to remove the database from the sync group:
 
@@ -238,7 +238,7 @@ For more information about SQL Data Sync, see:
 
 -   Overview - [Sync data across multiple cloud and on-premises databases with SQL Data Sync in Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Set up Data Sync
-    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md)
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server](sql-data-sync-sql-server-configure.md)
     - With PowerShell
         -  [Use PowerShell to sync between multiple databases in Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Use PowerShell to sync between a database in Azure SQL Database and a database in a SQL Server instance](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

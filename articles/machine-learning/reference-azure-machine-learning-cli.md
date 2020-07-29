@@ -4,7 +4,7 @@ description: Learn how to install and use the Azure Machine Learning CLI extensi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 
 ms.reviewer: jmartens
 ms.author: jordane

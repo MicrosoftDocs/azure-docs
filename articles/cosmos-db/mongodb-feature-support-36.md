@@ -101,7 +101,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 |top     |    No     |
 |whatsmyuri     |   Yes      |
 
-<a name="aggregation-pipeline"/>
+<a name="aggregation-pipeline"></a>
 
 ## Aggregation pipeline</a>
 

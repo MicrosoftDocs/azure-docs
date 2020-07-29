@@ -21,7 +21,7 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](htt
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Power BI Service App**.
 
-   ![Illustrates the left-navigation menu.](./media/new-offer-pbi-app.png)
+   ![Illustrates the left-navigation menu.](./media/new-offer-power-bi-app.png)
 
 > [!NOTE]
 > After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
@@ -140,6 +140,24 @@ Define marketplace details (such as offer name, description, and images) for eac
 > [!NOTE]
 > Offer details are not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It's also okay to provide a Useful Link to offer content in a language that's different from the one used in the offer listing.
 
+Here's an example of how offer information appears in Microsoft AppSource:
+
+:::image type="content" source="media/example-power-bi-app.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
+
+#### Call-out descriptions
+
+1. Logo
+2. Products
+3. Categories
+4. Industries
+5. Support address (link)
+6. Terms of use
+7. Privacy policy
+8. Offer name
+9. Summary
+10. Description
+11. Screenshots/videos
+
 ### Name
 
 The name you enter here displays as the title of your offer. This field is pre-filled with the text you entered in the **Offer alias** box when you created the offer. You can change this name later.
@@ -194,14 +212,14 @@ Provide at least one and up to three related marketing documents in PDF format. 
 
 ### Marketplace images
 
-Provide logos and images to use with your offer. All images must be in .png format. Blurry images will be rejected.
+Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
 >[!NOTE]
->If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
+>If you have an issue uploading files, make sure your local network does not block the `https://upload.xboxlive.com` service used by Partner Center.
 
 #### Store logos
 
-Provide .png files of your offer's logo in two pixel sizes:
+Provide PNG files of your offer's logo in two pixel sizes:
 - **Small** (48 x 48)
 - **Large** (216 x 216)
 
@@ -209,11 +227,11 @@ Both logos are required and are used in different places in the marketplace list
 
 #### Screenshots
 
-Add at least one and up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in .png format.
+Add at least one and up to five screenshots that show how your offer works. Each must be 1280 x 720 pixels in size and in PNG format.
 
 #### Videos (optional)
 
-Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and thumbnail .png image of the video at 1280 x 720 pixels in size.
+Add up to five videos that demonstrate your offer. Enter the video's name, its web address, and thumbnail PNG image of the video at 1280 x 720 pixels in size.
 
 #### Additional marketplace listing resources
 

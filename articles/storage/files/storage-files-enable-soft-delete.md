@@ -4,7 +4,7 @@ description: Learn how to enable soft delete (preview) on Azure file shares for 
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage

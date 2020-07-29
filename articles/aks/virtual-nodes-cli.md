@@ -5,7 +5,7 @@ description: Learn how to use the Azure CLI to create an Azure Kubernetes Servic
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-
+ms.custom: references_regions
 ---
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI

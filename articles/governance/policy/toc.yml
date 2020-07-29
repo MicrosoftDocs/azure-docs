@@ -60,20 +60,36 @@
       href: ./samples/pattern-group-with-initiative.md
     - name: Deploy resources
       href: ./samples/pattern-deploy-resources.md
+  - name: Regulatory Compliance built-ins
+    items:
+    - name: Azure Security Benchmark
+      href: ./samples/azure-security-benchmark.md
+    - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+      href: ./samples/cis-azure-1-1-0.md
+    - name: NIST SP 800-53 R4
+      href: ./samples/nist-sp-800-53-r4.md
+    - name: NIST SP 800-171 R2
+      href: ./samples/nist-sp-800-171-r2.md
 - name: Concepts
   items:
-  - name: Azure Policy definition structure
+  - name: Definition structure
     displayName: parameters, location, rule, alias, initiatives
     href: ./concepts/definition-structure.md
-  - name: Understand Policy effects
+  - name: Understand effects
     displayName: order, evaluation
     href: ./concepts/effects.md
-  - name: Azure Policy assignment structure
+  - name: Initiative structure
+    displayName: parameters, groups, domains, policies
+    href: ./concepts/initiative-definition-structure.md
+  - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
+  - name: Regulatory Compliance
+    displayName: standards, domains, controls
+    href: ./concepts/regulatory-compliance.md
   - name: Design Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
@@ -124,9 +140,14 @@
       href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Monitor integration
     items:
+    - name: Deploy Azure Monitor at scale
+      displayName: monitor, diagnostic settings, dependency agent
+      href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Enable Azure Monitor for VMs (preview)
       displayName: monitor, insights, log analytics, builtin
       href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Troubleshoot
+  href: ./troubleshoot/general.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -198,7 +219,7 @@
   - name: GitHub - Community Policy repo
     href: https://github.com/Azure/Community-Policy
   - name: Microsoft Q&A for Azure Policy
-    href: /answers/topics/azure-policy.html.html
+    href: /answers/topics/azure-policy.html
   - name: Governance YouTube Channel
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Guest Configuration videos

@@ -3,23 +3,12 @@ title: Add custom analyzers to string fields
 titleSuffix: Azure Cognitive Search
 description: Configure text tokenizers and character filters used in Azure Cognitive Search full text search queries.
 
+author: HeidiSteen
 manager: nitinme
-author: Yahnoosh
-ms.author: jlembicz
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/27/2020
-translation.priority.mt:
-  - "de-de"
-  - "es-es"
-  - "fr-fr"
-  - "it-it"
-  - "ja-jp"
-  - "ko-kr"
-  - "pt-br"
-  - "ru-ru"
-  - "zh-cn"
-  - "zh-tw"
+ms.date: 06/05/2020
 ---
 # Add custom analyzers to string fields in an Azure Cognitive Search index
 

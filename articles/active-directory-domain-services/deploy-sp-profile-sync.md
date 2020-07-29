@@ -29,7 +29,7 @@ To complete this article, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
-    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+    * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
     * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
@@ -38,7 +38,7 @@ To complete this article, you need the following resources and privileges:
 
 ## Service accounts overview
 
-In an Azure AD DS managed domain, a security group named **AAD DC Service Accounts** exists as part of the *Users* organizational unit (OU). Members of this security group are delegated the following privileges:
+In a managed domain, a security group named **AAD DC Service Accounts** exists as part of the *Users* organizational unit (OU). Members of this security group are delegated the following privileges:
 
 - **Replicate Directory Changes** privilege on the root DSE.
 - **Replicate Directory Changes** privilege on the *Configuration* naming context (`cn=configuration` container).
@@ -54,11 +54,11 @@ The service account for SharePoint Server needs adequate privileges to replicate
 From your Azure AD DS management VM, complete the following steps:
 
 > [!NOTE]
-> To edit group membership in an Azure AD DS managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
+> To edit group membership in a managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To manage group membership, select **Active Directory Administrative Center** from the list of administrative tools.
-1. In the left pane, choose your Azure AD DS managed domain, such as *aaddscontoso.com*. A list of existing OUs and resources is shown.
+1. In the left pane, choose your managed domain, such as *aaddscontoso.com*. A list of existing OUs and resources is shown.
 1. Select the **Users** OU, then choose the *AAD DC Service Accounts* security group.
 1. Select **Members**, then choose **Add...**.
 1. Enter the name of the SharePoint service account, then select **OK**. In the following example, the SharePoint service account is named *spadmin*:

@@ -12,7 +12,7 @@ ms.date: 03/11/2020
 ms.author: travisw
 ---
 
-# What are Custom Commands (Preview)?
+# What is Custom Commands (Preview)?
 
 Voice applications such as [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md). Devices connect to assistants with the Speech SDK's `DialogServiceConnector` object.
 

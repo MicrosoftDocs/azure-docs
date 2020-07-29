@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 03/12/2020
 ms.author: pafarley
+ms.custom: tracking-python
 zone_pivot_groups: programming-languages-set-one
 ---
 

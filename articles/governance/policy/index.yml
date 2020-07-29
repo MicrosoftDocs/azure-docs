@@ -72,6 +72,8 @@ landingContent:
             url: ./how-to/author-policies-for-arrays.md
       - linkListType: concept
         links:
+          - text: Regulatory Compliance
+            url: ./concepts/regulatory-compliance.md
           - text: Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
           - text: Policy for VMs

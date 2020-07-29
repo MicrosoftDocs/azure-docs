@@ -20,7 +20,7 @@ In this documentation, you'll go over each feature in detail.
 
 > [!NOTE]
 > Azure Resource Graph powers Azure portal's search bar, the new browse 'All resources' experience,
-> and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
+> and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]

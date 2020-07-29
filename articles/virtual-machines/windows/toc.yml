@@ -13,6 +13,9 @@
     href: quick-create-powershell.md
   - name: Create VM - Azure CLI
     href: quick-create-cli.md
+  - name: Create VM - ARM template
+    displayName: Resource Manager, template, json
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a VM
@@ -189,6 +192,10 @@
         href: ../dv3-dsv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Dav4 and Dasv4-series
         href: ../dav4-dasv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Ddv4 and Ddsv4-series
+        href: ../ddv4-ddsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Dv4 and Dsv4-series
+        href: ../dv4-dsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Compute optimized
       items:
       - name: Overview
@@ -206,6 +213,10 @@
         href: ../ev3-esv3-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Eav4 and Easv4-series
         href: ../eav4-easv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Edv4 and Edsv4-series
+        href: ../edv4-edsv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+      - name: Ev4 and Esv4-series
+        href: ../ev4-esv4-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: M-series
         href: ../m-series.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Mv2-series
@@ -270,6 +281,8 @@
     - name: Spot VMs
       href: spot-vms.md
       displayName: pre-empt, preempt
+    - name: Azure VMs with no temp disk
+      href: ../azure-vms-no-temp-disk.md
     - name: Previous generations
       href: ../sizes-previous-gen.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       displayName: D-series Ds-series A-series Basic
@@ -424,7 +437,7 @@
           - name: Migrate from a managed image
             href: ../image-version-managed-image-powershell.md
           - name: Copy from another gallery
-            href: ../image-version-another-gallery-powershell.md             
+            href: ../image-version-another-gallery-powershell.md
         - name: Create a VM
           items:
           - name: Generalized
@@ -442,13 +455,15 @@
           - name: From a VM
             href: ../image-version-vm-cli.md
           - name: Migrate from a managed image
-            href: ../image-version-managed-image-cli.md 
+            href: ../image-version-managed-image-cli.md
           - name: Copy from another gallery
             href: ../image-version-another-gallery-cli.md
           - name: Copy from another gallery
-            href: ../image-version-another-gallery-cli.md   
+            href: ../image-version-another-gallery-cli.md
         - name: Create a VM
           items:
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
         - name: Update image resources
@@ -478,6 +493,8 @@
         href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: Use Azure CLI
         href: image-builder.md
+      - name: Use Azure PowerShell
+        href: image-builder-powershell.md
       - name: Build for image galleries
         href: image-builder-gallery.md
       - name: Update an existing image
@@ -512,7 +529,7 @@
     - name: Use Bastion
       items:
       - name: Create a Bastion host
-        items: 
+        items:
         - name: Portal
           href: ../../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: PowerShell
@@ -661,11 +678,11 @@
           href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           items:
           - name: Send to Azure Monitor Metrics
-            items:   
-            - name: Virtual Machine 
-              href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json 
-            - name: VM scale set 
-              href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json  
+            items:
+            - name: Virtual Machine
+              href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vm.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Scale set
+              href: ../../azure-monitor/platform/collect-custom-metrics-guestos-resource-manager-vmss.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           - name: Send to Event Hubs
             href: ../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
           - name: Send to Logs
@@ -725,7 +742,7 @@
       - name: Overview
         href: ../../azure-monitor/insights/vminsights-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: General Availability FAQ
-        href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json  
+        href: ../../azure-monitor/insights/vminsights-ga-release-faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
       - name: FAQ
         href: ../../azure-monitor/faq.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json#azure-monitor-for-vms
       - name: Enable monitoring
@@ -854,8 +871,10 @@
           href: disks-enable-ultra-ssd.md
         - name: Benchmark a disk
           href: disks-benchmarks.md
-    - name: Find unattached disks
+    - name: Find unattached disks - PowerShell
       href: find-unattached-disks.md
+    - name: Find unattached disks - Portal
+      href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Disks FAQs
       href: faq-for-disks.md
   - name: Manage networking

@@ -250,6 +250,9 @@ options:
 When creating value options in an initiative definition, you're unable to input a different value
 during the initiative assignment because it's not part of the list.
 
+To learn more about the structures of initiative definitions, review
+[Initiative Definition Structure](./concepts/initiative-definition-structure.md).
+
 ### Assignments
 
 An assignment is a policy definition or initiative that has been assigned to take place within a
@@ -273,9 +276,10 @@ on the child management group or subscription level. If any assignment results i
 denied, then the only way to allow the resource is to modify the denying assignment.
 
 For more information on setting assignments through the portal, see [Create a policy assignment to
-identify non-compliant resources in your Azure environment](assign-policy-portal.md). Steps for
-[PowerShell](assign-policy-powershell.md) and [Azure CLI](assign-policy-azurecli.md) are also
-available.
+identify non-compliant resources in your Azure environment](./assign-policy-portal.md). Steps for
+[PowerShell](./assign-policy-powershell.md) and [Azure CLI](./assign-policy-azurecli.md) are also
+available. For information on the assignment structure, see
+[Assignments Structure](./concepts/assignment-structure.md).
 
 ## Maximum count of Azure Policy objects
 

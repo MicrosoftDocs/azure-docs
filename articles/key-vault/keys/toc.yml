@@ -20,12 +20,13 @@
     href: quick-create-python.md
 - name: Tutorials 
   items:
-  - name: Import HSM-protected keys
+  - name: Import HSM-protected keys (overview)
     href: hsm-protected-keys.md
-  - name: Import HSM-protected keys (preview)
-    href: hsm-protected-keys-vendor-agnostic-byok.md
-  - name: Import HSM-protected keys (legacy)
-    href: hsm-protected-keys-legacy.md
+  - name: Import HSM-protected keys (BYOK)
+    href: hsm-protected-keys-byok.md
+  - name: Import HSM-protected keys (nCipher)
+    href: hsm-protected-keys-ncipher.md
+
 
 - name: Samples
   items:
@@ -52,6 +53,9 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
     displayName: ARM
+  - name: Bring your own key specification
+    href: byok-specification.md
+
 
 - name: Resources
   items:

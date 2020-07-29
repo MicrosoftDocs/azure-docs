@@ -379,6 +379,8 @@
       items:
         - name: Device disconnects
           href: iot-hub-troubleshoot-connectivity.md
+        - name: Troubleshoot message routing
+          href: troubleshoot-message-routing.md
         - name: Problem resolution
           items:          
             - name: 400027 ConnectionForcefullyClosedOnNewConnection
@@ -503,16 +505,12 @@
       href: https://github.com/Azure/azure-iot-explorer
     - name: iothub-diagnostics tool
       href: https://github.com/Azure/iothub-diagnostics
-    - name: Microsoft Q&A question page
-      href: https://docs.microsoft.com/answers/topics/azure-iot-hub.html
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/iot-hub/
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=iot-hub
-    - name: Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/azure-iot-hub
     - name: Technical case studies
       href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
     - name: Videos

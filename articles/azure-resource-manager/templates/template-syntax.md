@@ -2,7 +2,7 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 06/16/2020
 ---
 
 # Understand the structure and syntax of ARM templates
@@ -86,7 +86,7 @@ When specifying boolean and integer values in your template, don't surround the 
 
 Objects start with a left brace and end with a right brace. Arrays start with a left bracket and end with a right bracket.
 
-Secure strings and secure objects can't be read after resource deployment.
+When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 For samples of formatting data types, see [Parameter type formats](parameter-files.md#parameter-type-formats).
 
@@ -277,7 +277,7 @@ The following example shows the structure of an output definition:
 
 For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
 
-<a id="comments" />
+<a id="comments"></a>
 
 ## Comments and metadata
 
@@ -285,7 +285,7 @@ You have a few options for adding comments and metadata to your template.
 
 ### Comments
 
-For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. You can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. If you add this style of comment, be sure the tools you use support inline JSON comments.
 
 > [!NOTE]
 > To deploy templates with comments by using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.

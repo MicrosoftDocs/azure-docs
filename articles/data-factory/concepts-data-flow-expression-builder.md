@@ -71,16 +71,12 @@ Some examples of string interpolation:
 
 Add comments to your expressions by using single-line and multiline comment syntax.
 
-![Single-line and multiline comment syntax](media/data-flow/comments.png "Comments")
-
 The following examples are valid comments:
 
 * ```/* This is my comment */```
 
 * ```/* This is a```
 *   ```multi-line comment */```
-   
-* ```// This is a single line comment```
 
 If you put a comment at the top of your expression, it appears in the transformation text box to document your transformation expressions.
 

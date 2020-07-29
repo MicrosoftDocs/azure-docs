@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: has-adal-ref
+ms.custom: has-adal-ref, tracking-python
 ms.date: 04/03/2020
 ---
 

@@ -4,11 +4,11 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, references_regions
 
 ---
 
@@ -16,7 +16,8 @@ ms.custom: fasttrack-edit
 
 > [!Note]
 > With the preview refresh, we released the data exfiltration protection feature.
-> The preview is available in East US and West US 2 regions for all PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
+>
+> The preview is available in all public regions for PremiumV2 Windows and Linux Web Apps and Elastic Premium Functions. 
 
 You can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link. The Private Endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Web App traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet.
 
@@ -40,7 +41,7 @@ The Subnet where you plug the Private Endpoint can have other resources in it, y
 You can also deploy the Private Endpoint in a different region than the Web App. 
 
 > [!Note]
->The VNet integration feature cannot use the same subnet than Private Endpoint, this is a limitation of the VNet integration feature.
+>The VNet integration feature cannot use the same subnet as Private Endpoint, this is a limitation of the VNet integration feature.
 
 From a security perspective:
 

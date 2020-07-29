@@ -4,13 +4,29 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.author: rohogue
+ms.date: 06/01/2020
+ms.author: v-erkel
 ---
 
 # Prerequisites for Azure HPC Cache
 
 Before using the Azure portal to create a new Azure HPC Cache, make sure your environment meets these requirements.
+
+## Video overviews
+
+Watch these videos for a quick overview of the system's components and what they need to work together.
+
+(Click the video image or the link to watch.)
+
+* [How it works](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/) - Explains how Azure HPC Cache interacts with storage and clients
+
+  [![video thumbnail image: Azure HPC Cache: How it works (click to visit video page)](media/video-2-components.png)](https://azure.microsoft.com/resources/videos/how-hpc-cache-works/)  
+
+* [Prerequisites](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/) - Describes requirements for NAS storage, Azure Blob storage, network access, and client access
+
+  [![video thumbnail image: Azure HPC Cache: Prerequisites (click to visit video page)](media/video-3-prerequisites.png)](https://azure.microsoft.com/resources/videos/hpc-cache-prerequisites/)
+
+Read the rest of this article for specific recommendations.
 
 ## Azure subscription
 

@@ -5,7 +5,7 @@ description: Set up event-driven applications, processes, or CI/CD machine learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr

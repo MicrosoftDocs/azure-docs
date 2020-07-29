@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 5/13/2020
+ms.date: 6/10/2020
 ---
 # Azure SQL Database serverless
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -19,7 +19,7 @@ Serverless is a compute tier for single Azure SQL Databases that automatically s
 
 ## Serverless compute tier
 
-The serverless compute tier for single Azure SQL Databases is parameterized by a compute autoscaling range and an autopause delay.  The configuration of these parameters shape the database performance experience and compute cost.
+The serverless compute tier for single databases in Azure SQL Database is parameterized by a compute autoscaling range and an autopause delay. The configuration of these parameters shapes the database performance experience and compute cost.
 
 ![serverless billing](./media/serverless-tier-overview/serverless-billing.png)
 
@@ -60,7 +60,7 @@ The following table summarizes distinctions between the serverless compute tier 
 
 | | **Serverless compute** | **Provisioned compute** |
 |:---|:---|:---|
-|**Database usage pattern**| Intermittent, unpredictable usage with lower average compute utilization over time. |	More regular usage patterns with higher average compute utilization over time, or multiple databases using elastic pools.|
+|**Database usage pattern**| Intermittent, unpredictable usage with lower average compute utilization over time. | More regular usage patterns with higher average compute utilization over time, or multiple databases using elastic pools.|
 | **Performance management effort** |Lower|Higher|
 |**Compute scaling**|Automatic|Manual|
 |**Compute responsiveness**|Lower after inactive periods|Immediate|
@@ -155,19 +155,8 @@ If using [customer managed transparent data encryption](transparent-data-encrypt
 
 Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps.
 
-1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. The following table shows the service objective options:
+1. Specify the service objective. The service objective prescribes the service tier, hardware generation, and max vCores. For service objective options, see [serverless resource limits](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5)
 
-   |Service objective name|Service tier|Hardware generation|Max vCores|
-   |---|---|---|---|
-   |GP_S_Gen5_1|General Purpose|Gen5|1|
-   |GP_S_Gen5_2|General Purpose|Gen5|2|
-   |GP_S_Gen5_4|General Purpose|Gen5|4|
-   |GP_S_Gen5_6|General Purpose|Gen5|6|
-   |GP_S_Gen5_8|General Purpose|Gen5|8|
-   |GP_S_Gen5_10|General Purpose|Gen5|10|
-   |GP_S_Gen5_12|General Purpose|Gen5|12|
-   |GP_S_Gen5_14|General Purpose|Gen5|14|
-   |GP_S_Gen5_16|General Purpose|Gen5|16|
 
 2. Optionally, specify the min vCores and autopause delay to change their default values. The following table shows the available values for these parameters.
 
@@ -177,11 +166,11 @@ Creating a new database or moving an existing database into a serverless compute
    |Autopause delay|Minimum: 60 minutes (1 hour)<br>Maximum: 10080 minutes (7 days)<br>Increments: 10 minutes<br>Disable autopause: -1|60 minutes|
 
 
-### Create new database in serverless compute tier 
+### Create a new database in the serverless compute tier
 
 The following examples create a new database in the serverless compute tier.
 
-#### Use Azure portal
+#### Use the Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](single-database-create-quickstart.md).
 
@@ -193,7 +182,7 @@ New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
   -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
-#### Use Azure CLI
+#### Use the Azure CLI
 
 ```azurecli
 az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
@@ -212,7 +201,7 @@ CREATE DATABASE testdb
 
 For details, see [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
 
-### Move database from provisioned compute tier into serverless compute tier
+### Move a database from the provisioned compute tier into the serverless compute tier
 
 The following examples move a database from the provisioned compute tier into the serverless compute tier.
 
@@ -225,7 +214,7 @@ Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName 
   -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
 
-#### Use Azure CLI
+#### Use the Azure CLI
 
 ```azurecli
 az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
@@ -244,7 +233,7 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 For details, see [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
 
-### Move database from serverless compute tier into provisioned compute tier
+### Move a database from the serverless compute tier into the provisioned compute tier
 
 A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
@@ -254,7 +243,7 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore`, `MinVcore`, and `AutoPauseDelayInMinutes` arguments.
 
-### Use Azure CLI
+### Use the Azure CLI
 
 Modifying the maximum or minimum vCores, and autopause delay, is performed by using the [az sql db update](/cli/azure/sql/db#az-sql-db-update) command in Azure CLI using the `capacity`, `min-capacity`, and `auto-pause-delay` arguments.
 
@@ -301,7 +290,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername 
   | Select -ExpandProperty "Status"
 ```
 
-#### Use Azure CLI
+#### Use the Azure CLI
 
 ```azurecli
 az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json

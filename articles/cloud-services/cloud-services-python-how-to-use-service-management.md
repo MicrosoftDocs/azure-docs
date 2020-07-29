@@ -15,6 +15,7 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
+ms.custom: tracking-python
 
 ---
 # Use service management from Python

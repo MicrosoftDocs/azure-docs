@@ -90,9 +90,6 @@ conceptualContent:
         - url: ./speech-service/index.yml
           itemType: overview
           text: Speech service
-        - url: ./speaker-recognition/home.md
-          itemType: overview
-          text: Speaker Recognition (Preview)
 #        - url: ./speech/home.md
 #          itemType: overview
 #          text: Bing Speech (Retiring)

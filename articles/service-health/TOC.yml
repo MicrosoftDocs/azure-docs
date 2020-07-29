@@ -30,8 +30,6 @@
     href: service-health-alert-webhook-pagerduty.md
   - name: Send alerts to OpsGenie
     href: service-health-alert-webhook-opsgenie.md
-  - name: Retrieve health events with REST
-    href: service-health-rest.md
   - name: Configure alerts for resource health events
     href: resource-health-alert-arm-template-guide.md
 - name: Reference

@@ -3,7 +3,7 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
@@ -219,7 +219,7 @@ For those services where zone and region affect pricing, see the following table
 | Zone 2 | Asia Pacific East <br> Asia Pacific Southeast <br> Japan East <br> Japan West <br> Australia East <br> Australia Southeast | Asia Pacific <br> Japan <br> Latin America <br> Middle East / Africa <br> Australia East <br> Australia Southeast |
 | Zone 3 | Brazil South |   |
 
-There are no charges for data egress between services housed within the same data center. For example, Office 365 and Azure.
+There are no charges for data egress between services housed within the same data center. For example, Microsoft 365 and Azure.
 
 ### Monetary commitment and unbilled usage
 

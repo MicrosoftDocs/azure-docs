@@ -249,6 +249,13 @@ productDirectory:
         - ai-machine-learning
       url: cognitive-services/personalizer/index.yml
     # Card
+    - title: Project Bonsai (Preview)
+      summary: A machine teaching service for creating intelligent industrial control systems using simulations
+      imageSrc: https://static.docs.com/ui/media/product/azure/bonsai.svg
+      azureCategories:
+        - ai-machine-learning
+      url: https://docs.microsoft.com/bonsai/
+    # Card
     - title: QnA Maker
       summary: Distill information into conversational, easy-to-navigate answers
       imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -415,13 +422,6 @@ productDirectory:
         - blockchain
       url: blockchain/service/index.yml
     # Card
-    - title: Azure Blockchain Tokens (Preview)
-      summary: Easily define, create, and manage ledger-based tokens
-      imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-token.svg
-      azureCategories:
-        - blockchain
-      url: blockchain/tokens/index.yml
-    # Card
     - title: Azure Blockchain Workbench (Preview)
       summary: Easily prototype blockchain apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/blockchain-workbench.svg
@@ -561,7 +561,7 @@ productDirectory:
         - containers
       url: service-fabric/index.yml
     # Card
-    - title: SQL Server on Virtual Machines
+    - title: SQL Server on Azure Virtual Machines
       summary: Host enterprise SQL Server apps in the cloud
       imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
       azureCategories:
@@ -688,7 +688,7 @@ productDirectory:
     # Card
     - title: Azure SQL 
       summary: Modern SQL family for migration and app modernization
-      imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
+      imageSrc:  https://static.docs.com/ui/media/product/azure/sql.svg
       azureCategories:
         - featured
         - hybrid
@@ -730,6 +730,13 @@ productDirectory:
       azureCategories:
         - developer-tools
       url: azure-app-configuration/index.yml
+   # Card
+    - title: Azure Data Studio
+      summary: A lightweight editor that can run on-demand SQL queries and view and save results as text, JSON, or Excel.
+      imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+      azureCategories:
+        - developer-tools
+      url: https://docs.microsoft.com/sql/azure-data-studio/
     # Card
     - title: Azure DevOps
       summary: Services for teams to share code, track work, and ship software
@@ -827,6 +834,14 @@ productDirectory:
       azureCategories:
         - devops
       url: https://docs.microsoft.com/azure/devops/test/
+    # Card
+    - title: GitHub Actions for Azure
+      summary: Build, test and deploy any app from GitHub to Azure
+      imageSrc: ./media/index/github-actions-icon.svg
+      azureCategories:
+        - devops
+        - developer-tools
+      url: https://docs.microsoft.com/en-us/azure/developer/github/github-actions
     # Card
     - title: Azure Active Directory (AD)
       summary: Synchronize on-premises directories and enable single sign-on
@@ -1383,7 +1398,7 @@ productDirectory:
         - storage
       url: virtual-machines/windows/managed-disks-overview.md
     # Card
-    - title: File Storage
+    - title: Azure Files
       summary: File shares that use the standard SMB 3.0 protocol
       imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg
       azureCategories:

@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
 ms.subservice: common
 ---
 

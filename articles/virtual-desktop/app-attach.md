@@ -6,14 +6,14 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
 ---
 # Set up MSIX app attach
 
 > [!IMPORTANT]
-> MSIX app attach is currently in private preview.
+> MSIX app attach is currently in public preview.
 > This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -24,13 +24,32 @@ This topic will walk you through how to set up MSIX app attach in a Windows Virt
 Before you get started, here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
-- The MSIX packaging tool
-- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
+- A functioning Windows Virtual Desktop deployment. To learn how to deploy the Windows Virtual Desktop Fall 2019 release, see [Create a tenant in Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). To learn how to deploy the Windows Virtual Desktop Spring 2020 release, see [Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
+- The MSIX packaging tool.
+- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored.
 
 ## Get the OS image
 
-First, you need to get the OS image you'll use for the MSIX app. To get the OS image:
+First, you need to get the OS image. You can get the OS image through the Azure portal. However, if you're a member of the Windows Insider program, you have the option to use the Windows Insider portal instead.
+
+### Get the OS image from the Azure portal
+
+To get the OS image from the Azure portal:
+
+1. Open the [Azure portal](https://portal.azure.com) and sign in.
+
+2. Go to **Create a virtual machine**.
+
+3. In the **Basic** tab, select **Windows 10 enterprise multi-session, version 2004**.
+      
+4. Follow the rest of the instructions to finish creating the virtual machine.
+
+     >[!NOTE]
+     >You can use this VM to directly test MSIX app attach. To learn more, skip ahead to [Generate a VHD or VHDX package for MSIX](#generate-a-vhd-or-vhdx-package-for-msix). Otherwise, keep reading this section.
+
+### Get the OS image from the Windows Insider portal
+
+To get the OS image from the Windows Insider Portal:
 
 1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
@@ -48,7 +67,7 @@ First, you need to get the OS image you'll use for the MSIX app. To get the OS i
 
 ## Prepare the VHD image for Azure 
 
-Before you get started, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
+Next, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
 
 After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
 
@@ -70,10 +89,10 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mound-VHD command to stage and and Dismount-VHD to destage. 
+After you've disabled automatic updates, you must enable Hyper-V because you'll be using the Mount-VHD command to stage and and Dismount-VHD to destage. 
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 >[!NOTE]
 >This change will require that you restart the virtual machine.

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/11/2020
+ms.date: 06/10/2020
 ---
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -19,7 +19,7 @@ This article provides the detailed resource limits for single databases in Azure
 
 For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
 
-You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](single-database-manage.md#azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), the [Azure CLI](single-database-manage.md#azure-cli), or the [REST API](single-database-manage.md#rest-api).
+You can set the service tier, compute size (service objective), and storage amount for a single database using the [Azure portal](single-database-manage.md#the-azure-portal), [Transact-SQL](single-database-manage.md#transact-sql-t-sql), [PowerShell](single-database-manage.md#powershell), the [Azure CLI](single-database-manage.md#the-azure-cli), or the [REST API](single-database-manage.md#rest-api).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](single-database-scale.md).
@@ -30,12 +30,12 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 1)
 
-|Compute size|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|Compute size (service objective)|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
 |:--- | --: |--: |--: |--: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|
 |Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
 |Min-max memory (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
-|Min auto-pause delay (minutes)|60|60|60|60|60|
+|Min-max auto-pause delay (minutes)|60-10080|60-10080|60-10080|60-10080|60-10080|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|512|1024|1024|1024|1536|
@@ -56,12 +56,12 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 2)
 
-|Compute size|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|Compute size (service objective)|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
 |:--- | --: |--: |--: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|
 |Min-max vCores|1.25-10|1.50-12|1.75-14|2.00-16|
 |Min-max memory (GB)|3.75-30|4.50-36|5.25-42|6.00-48|
-|Min auto-pause delay (minutes)|60|60|60|60|
+|Min-max auto-pause delay (minutes)|60-10080|60-10080|60-10080|60-10080|
 |Columnstore support|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1536|3072|3072|3072|
@@ -80,11 +80,38 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 \* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
 
+### Gen5 compute generation (part 3)
+
+|Compute size (service objective)|GP_S_Gen5_18|GP_S_Gen5_20|GP_S_Gen5_24|GP_S_Gen5_32|GP_S_Gen5_40|
+|:--- | --: |--: |--: |--: |--:|
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Min-max vCores|2.25-18|2.5-20|3-24|4-32|5-40|
+|Min-max memory (GB)|6.75-54|7.5-60|9-72|12-96|15-120|
+|Min-max auto-pause delay (minutes)|60-10080|60-10080|60-10080|60-10080|60-10080|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
+|Max data size (GB)|3072|3072|4096|4096|4096|
+|Max log size (GB)|922|922|1229|1229|1229|
+|TempDB max data size (GB)|576|640|768|1024|1280|
+|Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data IOPS *|5760|6400|7680|10240|12800|
+|Max log rate (MBps)|30|30|30|30|30|
+|Max concurrent workers (requests)|1350|1500|1800|2400|3000|
+|Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
+|Number of replicas|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+\* The maximum value for IO sizes ranging between 8 KB and 64 KB. Actual IOPS are workload-dependent. For details, see [Data IO Governance](resource-limits-logical-server.md#resource-governance).
+
+
 ## Hyperscale - provisioned compute - Gen4
 
 ### Gen4 compute generation (part 1)
 
-|Performance level|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
+|Compute size (service objective)|HS_Gen4_1|HS_Gen4_2|HS_Gen4_3|HS_Gen4_4|HS_Gen4_5|HS_Gen4_6|
 |:--- | --: |--: |--: |---: | --: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -109,7 +136,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen4 compute generation (part 2)
 
-|Performance level|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
+|Compute size (service objective)|HS_Gen4_7|HS_Gen4_8|HS_Gen4_9|HS_Gen4_10|HS_Gen4_16|HS_Gen4_24|
 |:--- | ---: |--: |--: | --: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -138,7 +165,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 1)
 
-|Performance level|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
+|Compute size (service objective)|HS_Gen5_2|HS_Gen5_4|HS_Gen5_6|HS_Gen_8|HS_Gen5_10|HS_Gen5_12|HS_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -165,7 +192,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 2)
 
-|Performance level|HS_Gen5_16|HS_Gen5_18|HS_Gen5_20|HS_Gen_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|Compute size (service objective)|HS_Gen5_16|HS_Gen5_18|HS_Gen5_20|HS_Gen_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: |--: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -205,7 +232,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen4 compute generation (part 1)
 
-|Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
+|Compute size (service objective)|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -230,7 +257,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen4 compute generation (part 2)
 
-|Compute size|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
+|Compute size (service objective)|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -257,7 +284,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 1)
 
-|Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
+|Compute size (service objective)|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -282,7 +309,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 2)
 
-|Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Compute size (service objective)|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -294,7 +321,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |TempDB max data size (GB)|512|576|640|768|1024|1280|2560|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS *|5120|5760|6400|7680|10240|12800|25600|
+|Max data IOPS *|5120|5760|6400|7680|10240|12800|12800|
 |Max log rate (MBps)|30|30|30|30|30|30|30|
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -309,7 +336,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Fsv2-series compute generation (preview)
 
-|Compute size|GP_Fsv2_72|
+|Compute size (service objective)|GP_Fsv2_72|
 |:--- | --: |
 |Compute generation|Fsv2-series|
 |vCores|72|
@@ -340,7 +367,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen4 compute generation (part 1)
 
-|Compute size|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
+|Compute size (service objective)|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
@@ -366,7 +393,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen4 compute generation (part 2)
 
-|Compute size|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Compute size (service objective)|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
@@ -394,7 +421,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 1)
 
-|Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
+|Compute size (service objective)|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
@@ -420,7 +447,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### Gen5 compute generation (part 2)
 
-|Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Compute size (service objective)|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
@@ -448,7 +475,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 
 ### M-series compute generation (preview)
 
-|Compute size|BC_M_128|
+|Compute size (service objective)|BC_M_128|
 |:--- | --: |
 |Compute generation|M-series|
 |vCores|128|

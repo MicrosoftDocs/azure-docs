@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
+ms.custom: tracking-python
 ---
 
 # How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB

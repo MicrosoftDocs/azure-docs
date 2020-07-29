@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 06/15/2020
 ms.author: memildin
 
 ---
 
-# Enhanced secure score (preview) in Azure Security Center
+# Enhanced secure score in Azure Security Center
 
 ## Introduction to secure score
 
 Azure Security Center has two main goals: to help you understand your current security situation, and to help you efficiently and effectively improve your security. The central aspect of Security Center that enables you to achieve those goals is secure score.
 
-Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. Use the score to track security efforts and projects in your organization. 
+Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
 The secure score page of Security Center includes:
 
@@ -34,20 +34,33 @@ The secure score page of Security Center includes:
 
     To immediately see how well your organization is securing each individual attack surface, review the scores for each security control.
 
-    For more information, see [How the secure score is calculated](secure-score-security-controls.md#how-the-secure-score-is-calculated) below. 
+    For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
 
 >[!TIP]
 > Earlier versions of Security Center awarded points at the recommendation level: when you remediated a recommendation for a single resource, your secure score improved. 
 > Today, your score only improves if you remediate *all* of the recommendations for a single resource within a control. So your score only improves when you've improved the security of a resource.
-> While this enhanced version is still in preview, the earlier secure score experience is available as an option from the Azure Portal. 
 
 
-## Locating your secure score
+## Accessing your secure score
 
-Security Center displays your score prominently: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+You can find your overall secure score, as well as your score per subscription, through the Azure portal or programatically with the Azure Security Center REST API.
 
-## How the secure score is calculated 
+### Getting your secure score from the portal
+
+Security Center displays your score prominently in the portal: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+
+![Overall secure score as shown in the portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
+
+### Getting your secure score from the REST API
+
+You can access your score via the [secure score API](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (currently in preview). The API methods provide the flexibility to query the data and build your own reporting mechanism of your secure scores over time. For example, you can use the **Secure Scores** API to get the score for a specific subscription. In addition, you can use the **Secure Score Controls** API to list the security controls and the current score of your subscriptions.
+
+![Retrieving a single secure score via the API](media/secure-score-security-controls/single-secure-score-via-api.png)
+
+For examples of tools built on top of the secure score API, see [the secure score area of our GitHub community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+## How your secure score is calculated 
 
 The contribution of each security control towards the overall secure score is shown clearly on the recommendations page.
 
@@ -82,6 +95,7 @@ To improve your secure score, remediate security recommendations from your recom
 >[!IMPORTANT]
 > Only built-in recommendations have an impact on the secure score.
 
+
 ## Security controls and their recommendations
 
 The table below lists the security controls in Azure Security Center. For each control, you can see the maximum number of points you can add to your secure score if you remediate *all* of the recommendations listed in the control, for *all* of your resources. 
@@ -111,7 +125,7 @@ The table below lists the security controls in Azure Security Center. For each c
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Secure management ports (max score 8)</p></strong>Brute force attacks target management ports to gain access to a VM. Since the ports don’t always need to be open, one mitigation strategy is to reduce exposure to the ports using just-in-time network access controls, network security groups, and virtual machine port management.<br>Since many IT organizations don't block SSH communications outbound from their network, attackers can create encrypted tunnels that allow RDP ports on infected systems to communicate back to the attacker command to control servers. Attackers can use the Windows Remote Management subsystem to move laterally across your environment and use stolen credentials to access other resources on a network.</td>
-    <td class="tg-lboi"; width=55%>- Just-In-Time network access control should be applied on virtual machines<br>- Virtual machines should be associated with a Network Security Group<br>- Management ports should be closed on your virtual machines</td>
+    <td class="tg-lboi"; width=55%>- Management ports of virtual machines should be protected with just-in-time network access control<br>- Virtual machines should be associated with a Network Security Group<br>- Management ports should be closed on your virtual machines</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Apply system updates (max score 6)</p></strong>System updates provide organizations with the ability to maintain operational efficiency, reduce security vulnerabilities, and provide a more stable environment for end users. Not applying updates leaves unpatched vulnerabilities and results in environments that are susceptible to attacks. These vulnerabilities can be exploited and lead to data loss, data exfiltration, ransomware, and resource abuse. To deploy system updates, you can use the <a href="https://docs.microsoft.com/azure/automation/automation-update-management">Update Management solution to manage patches and updates</a> for your virtual machines. Update management is the process of controlling the deployment and maintenance of software releases.</td>
@@ -119,7 +133,7 @@ The table below lists the security controls in Azure Security Center. For each c
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Remediate vulnerabilities (max score 6)</p></strong>A vulnerability is a weakness that a threat actor could leverage, to compromise the confidentiality, availability, or integrity of a resource. <a href="https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt">Managing vulnerabilities</a> reduces organizational exposure, hardens endpoint surface area, increases organizational resilience, and reduces the attack surface of your resources. Threat and Vulnerability Management provides visibility into software and security misconfigurations and provide recommendations for mitigations.</td>
-    <td class="tg-lboi"; width=55%>- Advanced data security should be enabled on your SQL servers<br>- Vulnerabilities in Azure Container Registry images should be remediated<br>- Vulnerabilities on your SQL databases should be remediated<br>- Vulnerabilities should be remediated by a Vulnerability Assessment solution<br>- Vulnerability assessment should be enabled on your SQL managed instances<br>- Vulnerability assessment should be enabled on your SQL servers<br>- Vulnerability assessment solution should be installed on your virtual machines</td>
+    <td class="tg-lboi"; width=55%>- Advanced data security should be enabled on SQL Database<br>- Vulnerabilities in Azure Container Registry images should be remediated<br>- Vulnerabilities on your SQL databases should be remediated<br>- Vulnerabilities should be remediated by a Vulnerability Assessment solution<br>- Vulnerability assessment should be enabled on SQL Managed Instance<br>- Vulnerability assessment should be enabled on your SQL servers<br>- Vulnerability assessment solution should be installed on your virtual machines</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Enable encryption at rest (max score 4)</p></strong><a href="https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest">Encryption at rest</a> provides data protection for stored data. Attacks against data at rest include attempts to gain physical access to the hardware on which the data is stored. Azures use symmetric encryption to encrypt and decrypt large amounts of data at rest. A symmetric encryption key is used to encrypt data as it is written to storage. That encryption key is also used to decrypt that data as it is readied for use in memory. Keys must be stored in a secure location with identity-based access control and audit policies. One such secure location is Azure Key Vault. If an attacker obtains the encrypted data but not the encryption keys, the attacker can't access the data without breaking the encryption.</td>
@@ -163,7 +177,7 @@ The table below lists the security controls in Azure Security Center. For each c
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Implement security best practices (max score 0)</p></strong>Modern security practices “assume breach” of the network perimeter. For that reason, many of the best practices in this control focus on managing identities.<br>Losing keys and credentials is a common problem. <a href="https://docs.microsoft.com/azure/key-vault/key-vault-overview">Azure Key Vault</a> protects keys and secrets by encrypting keys, .pfx files, and passwords.<br>Virtual private networks (VPNs) are a secure way to access your virtual machines. If VPNs aren't available, use complex passphrases and two-factor authentication such as <a href="https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks">Azure Multi-Factor Authentication</a>. Two-factor authentication avoids the weaknesses inherent in relying only on usernames and passwords.<br>Using strong authentication and authorization platforms is another best practice. Using federated identities allows organizations to delegate management of authorized identities. This is also important when employees are terminated, and their access needs to be revoked.</td>
-    <td class="tg-lboi"; width=55%>- A maximum of 3 owners should be designated for your subscription<br>- External accounts with read permissions should be removed from your subscription<br>- MFA should be enabled on accounts with read permissions on your subscription<br>- Access to storage accounts with firewall and virtual network configurations should be restricted<br>- All authorization rules except RootManageSharedAccessKey should be removed from Event Hub namespace<br>- An Azure Active Directory administrator should be provisioned for SQL servers<br>- Authorization rules on the Event Hub instance should be defined<br>- Storage accounts should be migrated to new Azure Resource Manager resources<br>- Virtual machines should be migrated to new Azure Resource Manager resources<br>- Advanced data security settings for SQL server should contain an email address to receive security alerts<br>- Advanced data security should be enabled on your managed instances<br>- All advanced threat protection types should be enabled in SQL managed instance advanced data security settings<br>- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings<br>- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings<br>- Subnets should be associated with a Network Security Group<br>- All advanced threat protection types should be enabled in SQL server advanced data security settings<br>- [Preview] Windows exploit guard should be enabled <br>- [Preview] Guest configuration agent should be installed</td>
+    <td class="tg-lboi"; width=55%>- A maximum of 3 owners should be designated for your subscription<br>- External accounts with read permissions should be removed from your subscription<br>- MFA should be enabled on accounts with read permissions on your subscription<br>- Access to storage accounts with firewall and virtual network configurations should be restricted<br>- All authorization rules except RootManageSharedAccessKey should be removed from Event Hub namespace<br>- An Azure Active Directory administrator should be provisioned for SQL servers<br>- Authorization rules on the Event Hub instance should be defined<br>- Storage accounts should be migrated to new Azure Resource Manager resources<br>- Virtual machines should be migrated to new Azure Resource Manager resources<br>- Advanced data security settings for SQL Database should contain an email address to receive security alerts<br>- Advanced data security should be enabled on your managed instances<br>- All advanced threat protection types should be enabled in SQL Managed Instance advanced data security settings<br>- Email notifications to admins and subscription owners should be enabled in SQL server advanced data security settings<br>- Advanced Threat Protection types should be set to 'All' in SQL server Advanced Data Security settings<br>- Subnets should be associated with a Network Security Group<br>- All advanced threat protection types should be enabled in SQL Database advanced data security settings for your server<br>- [Preview] Windows exploit guard should be enabled <br>- [Preview] Guest configuration agent should be installed</td>
   </tr>
 </tbody>
 </table>
@@ -177,13 +191,13 @@ The table below lists the security controls in Azure Security Center. For each c
 ## Secure score FAQ
 
 ### Why has my secure score gone down?
-Security Center has switched to an enhanced secure score (currently in preview status) which includes changes in the way the score is calculated. Now, you must solve all recommendation for a resource to receive points. The scores also changed to a scale of 0-10.
+Security Center has switched to an enhanced secure score which includes changes in the way the score is calculated. Now, you must solve all recommendation for a resource to receive points. The scores also changed to a scale of 0-10.
 
 ### If I address only three out of four recommendations in a security control, will my secure score change?
 No. It won't change until you remediate all of the recommendations for a single resource. To get the maximum score for a control, you must remediate all recommendations, for all resources.
 
 ### Is the previous experience of the secure score still available? 
-Yes. For a while they'll be running side by side to ease the transition. Expect the previous model to be phased out in time. 
+No. For a while they ran side by side to ease the transition. The previous model has now been deprecated. 
 
 ### If a recommendation isn't applicable to me, and I disable it in the policy, will my security control be fulfilled and my secure score updated?
 Yes. We recommend disabling recommendations when they're inapplicable in your environment. For instructions on how to disable a specific recommendation, see [Disable security policies](https://docs.microsoft.com/azure/security-center/tutorial-security-policy#disable-security-policies).

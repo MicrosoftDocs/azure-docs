@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Secure virtual hub
+  - name: Secure virtual hub - ARM template
     displayName: Resource Manager
     href: quick-secure-virtual-hub.md
 - name: Tutorials
@@ -24,7 +24,7 @@
     href: secured-virtual-hub.md
   - name: General deployment process
     href: deployment-overview.md
-  - name: Trusted security partners
+  - name: Security partner providers
     href: trusted-security-partners.md
   - name: Rule processing logic
     href: rule-processing.md
@@ -32,7 +32,7 @@
     href: vhubs-and-vnets.md
 - name: How-to guides
   items:
-  - name: Deploy trusted security partners
+  - name: Deploy security partner providers
     href: deploy-trusted-security-partner.md
   - name: Migrate to Firewall policy - PowerShell
     href: migrate-to-policy.md

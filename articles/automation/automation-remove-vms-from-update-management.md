@@ -10,6 +10,8 @@ ms.custom: mvc
 
 When you're finished deploying updates to VMs in your environment, you can remove them from the [Update Management](automation-update-management.md) feature.
 
+## To remove your VMs
+
 1. From your Automation account, select **Update management** under **Update management**.
 
 2. Use the following command to identify the UUID of a VM that you want to remove from management.

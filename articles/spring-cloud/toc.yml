@@ -49,6 +49,8 @@
       href: spring-cloud-quotas.md
     - name: Understanding metrics in Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Manage and monitor app with Azure Spring Boot Actuator
+      href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
     - name: Security controls for Azure Spring Cloud Service
       href: spring-cloud-concept-security-controls.md
     - name: Understanding app status in Azure Spring Cloud
@@ -75,6 +77,8 @@
       href: spring-cloud-howto-integrate-azure-load-balancers.md
     - name: Enable system-assigned managed identity for Azure Spring Cloud application
       href: spring-cloud-howto-enable-system-assigned-managed-identity.md
+    - name: Self diagnose and solve problems in Azure Spring Cloud
+      href: spring-cloud-howto-self-diagnose-solve.md
 - name: DevOps Deployment to Azure Spring Cloud
   items:
     - name: CI/CD with Azure DevOps
@@ -88,7 +92,7 @@
 - name: Reference
   items: 
     - name: Azure CLI Plugin
-      href: spring-cloud-cli-reference.md
+      href: https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud
     - name: Resources
       href: spring-cloud-resources.md
     - name: Frequently Asked Questions

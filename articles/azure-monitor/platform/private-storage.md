@@ -11,7 +11,7 @@ ms.date: 05/20/2020
 
 # Customer-owned storage accounts for log ingestion in Azure Monitor
 
-Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](azure-storage-iis-table.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account give you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
+Azure Monitor uses storage accounts in the ingestion process of some data types such as [custom logs](data-sources-custom-logs.md) and some [Azure logs](azure-storage-iis-table.md). During the ingestion process, logs are first sent to a storage account and later ingested into Log Analytics or Application Insights. If you want control over your data during ingestion, you can use your own storage accounts instead of the service-managed storage. Using your own storage account gives you control over the access, content, encryption, and retention of the logs during ingestion. We refer to this as Bring Your Own Storage, or BYOS. 
 
 One scenario that requires BYOS is network isolation through Private Links. When using a VNet, network isolation is often a requirement, and access to the public internet is limited. In such cases, accessing Azure Monitor service storage for log ingestion is either completely blocked, or considered a bad practice. Instead, Logs should be ingested through a customer-owned storage account inside the VNet or easily accessible from it.
 
@@ -206,7 +206,7 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 
 ## Replace a storage account
 
-To replace a storage account used for ingestion, first create a link for a new storage account. The logging  agents will get the updated configuration and start sending data to the new storage as well.
+To replace a storage account used for ingestion, first create a link for a new storage account. The logging agents will get the updated configuration and start sending data to the new storage as well.
 
 Next unlink the old storage account so agents will stop writing to the removed account. The ingestion process keeps reading data from this account until it’s all ingested. Don’t delete the storage account until you see all logs were ingested.
 
@@ -228,4 +228,4 @@ If the registered storage account of your workspace is on another region, you wi
 
 ## Next steps
 
-- For more information on setting up a private link, see [Use Azure Private Link to securely connect networks to Azure Monitor}(private-link-security.md)
+- For more information on setting up a private link, see [Use Azure Private Link to securely connect networks to Azure Monitor](private-link-security.md)

@@ -71,7 +71,7 @@ Also, the REST APIs can be seen in GitHub at:
 
 - [Azure SQL Database DNS alias REST APIs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/sql/resource-manager/Microsoft.Sql/preview/2017-03-01-preview/serverDnsAliases.json)
 
-<a name="anchor-powershell-code-62x"/>
+<a name="anchor-powershell-code-62x"></a>
 
 ### PowerShell for managing your DNS aliases
 

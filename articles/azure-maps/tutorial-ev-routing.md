@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Tutorial: Route electric vehicles by using Azure Notebooks (Python)

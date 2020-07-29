@@ -4,7 +4,7 @@ description: Overview of maintenance and updates for virtual machines running in
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2020
 ms.author: shants
 #pmcontact:shants

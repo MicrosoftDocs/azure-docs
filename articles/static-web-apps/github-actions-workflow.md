@@ -100,7 +100,7 @@ In the Static Web Apps workflow file, there are two available jobs.
 | Name  | Description |
 |---------|---------|
 |`build_and_deploy_job` | Executes when you push commits or open a pull request against the branch listed in the `on` property. |
-|`close_pull_request_job` | Executes ONLY when you close a pull request. |
+|`close_pull_request_job` | Executes ONLY when you close a pull request which removes the staging environment created from pull requests. |
 
 ## Steps
 

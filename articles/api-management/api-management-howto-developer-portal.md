@@ -64,7 +64,7 @@ The portal is based on an adapted fork of the [Paperbits framework](https://pape
 
 In this section, we answer common questions about the developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a id="preview-to-ga"/> How can I migrate from the preview version of the portal?
+### <a id="preview-to-ga"></a> How can I migrate from the preview version of the portal?
 
 By using the preview version of the developer portal, you provisioned the preview content in your API Management service. The default content has been significantly modified in the generally available version for better user experience. It also includes new widgets.
 

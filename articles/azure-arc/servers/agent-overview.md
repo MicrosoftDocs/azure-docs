@@ -6,7 +6,7 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 06/16/2020
 ms.topic: conceptual
 ---
 
@@ -128,11 +128,11 @@ After installing the Connected Machine agent for Linux, the following additional
 The following versions of the Windows and Linux operating system are officially supported for the Azure Connected Machine agent: 
 
 - Windows Server 2012 R2 and higher (including Windows Server Core)
-- Ubuntu 16.04 and 18.04
-- CentOS Linux 7
-- SUSE Linux Enterprise Server (SLES) 15
-- Red Hat Enterprise Linux (RHEL) 7
-- Amazon Linux 2
+- Ubuntu 16.04 and 18.04 (x64)
+- CentOS Linux 7 (x64)
+- SUSE Linux Enterprise Server (SLES) 15 (x64)
+- Red Hat Enterprise Linux (RHEL) 7 (x64)
+- Amazon Linux 2 (x64)
 
 >[!NOTE]
 >This preview release of the Connected Machine agent for Windows only supports Windows Server configured to use the English language.

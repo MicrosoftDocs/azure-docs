@@ -201,7 +201,10 @@
         "articles/virtual-machines-scale-sets/*.md": "ju-shim",
         "articles/service-fabric/*.md": "athinanthny",
         "articles/service-fabric-mesh/*.md": "athinanthny",
-        "articles/aks/**/*.md": "mlearned"
+        "articles/aks/**/*.md": "mlearned",
+        "articles/media-services/**/*.md": "Juliako",
+        "articles/media-services/**/**/*.md": "Juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
@@ -389,7 +392,9 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "manager": {
-        "articles/sql-database/**/*.md": "jroth",
+        "articles/azure-sql/**/*.md": "jroth",
+        "articles/synapse-analytics/**/*.md": "jroth",
+        "articles/azure-sql-edge/**/*.md" : "jroth",
         "articles/azure-functions/**/*.md": "gwallace",
         "articles/app-service/**/*.md": "gwallace",
         "articles/app-service-mobile/**/*.md": "crdun",
@@ -403,8 +408,29 @@
         "articles/batch/**/*.md": "evansma",
         "articles/virtual-machines/**/*.md": "gwallace",
         "articles/virtual-machine-scale-sets/**/*.md": "gwallace",
-		"articles/remote-rendering/**/*.md": "jlyons"
-   },
+		  "articles/remote-rendering/**/*.md": "jlyons"
+      },
+      "ms.collection": {
+        "articles/application-gateway/*.md": "networking",
+        "articles/cdn/*.md": "networking",
+        "articles/bastion/*.md": "networking",
+        "articles/dns/*.md": "networking",
+        "articles/expressroute/*.md": "networking",
+        "articles/firewall/*.md": "networking",
+        "articles/firewall-manager/*.md": "networking",
+        "articles/frontdoor/*.md": "networking",
+        "articles/internet-peering/*.md": "networking",        
+        "articles/internet-analyzer/*.md": "networking",
+        "articles/networking/*.md": "networking",
+        "articles/network-watcher/*.md": "networking",
+        "articles/peering-service/*.md": "networking",        
+        "articles/private-link/*.md": "networking",
+        "articles/traffic-manager/*.md": "networking",
+        "articles/virtual-network/*.md": "networking",                       
+        "articles/virtual-wan/*.md": "networking",
+        "articles/vpn-gateway/*.md": "networking", 
+        "articles/web-application-firewall/*.md": "networking"       
+      },   
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
         "articles/connectors/*.md": "estfan",
@@ -463,7 +489,9 @@
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/managed-applications/**/*.md": "tomfitz",
         "articles/azure-resource-manager/custom-providers/**/*.md": "tomfitz",
-        "articles/dev-spaces/**/*.md": "zarhoads",
+	"articles/machine-learning/*.md": "jmartens",
+	"articles/machine-learning/studio/*.md": "jmartens",
+	"articles/dev-spaces/**/*.md": "zarhoads",
         "articles/site-recovery/*.md": "raynew",
         "articles/migrate/*.md": "raynew",
         "articles/virtual-machines/linux/*.md": "cynthn",
@@ -477,7 +505,8 @@
         "articles/service-health/*.md": "stbaron",
         "articles/aks/**/*.md": "mlearned",
         "articles/media-services/*.md": "juliako",
-        "articles/media-services/**/*.md": "juliako"	      
+        "articles/media-services/**/*.md": "juliako",
+        "articles/azure-government/**/*.md": "stevevi"
       },
       "ms.service": {
         "articles/batch/**/*.md": "batch",
@@ -521,7 +550,8 @@
         "articles/aks/**/*.md": "container-service",
         "articles/remote-rendering/**/*.md": "azure-remote-rendering",
         "articles/media-services/*.md": "media-services",
-        "articles/media-services/**/*.md": "media-services"
+        "articles/media-services/**/*.md": "media-services",
+        "articles/azure-government/**/*.md": "azure-government"
       },
       "ms.subservice": {
         "articles/industry/agriculture/**/*.md": "agriculture",
@@ -556,7 +586,12 @@
         "articles/cognitive-services/Speech/**/*.md": "bing-speech",
         "articles/cognitive-services/Speech-Service/**/*.md": "speech-service",
         "articles/cognitive-services/text-analytics/**/*.md": "text-analytics",
-        "articles/cognitive-services/Translator/**/*.md": "translator-text"
+        "articles/cognitive-services/Translator/**/*.md": "translator-text",
+        "articles/media-services/latest/*.md": "rest-v3",
+        "articles/media-services/previous/*.md": "rest-v2",
+        "articles/media-services/video-indexer/*.md": "video-indexer",
+        "articles/media-services/azure-media-player/*.md": "media-player",
+        "articles/media-services/live-video-analytics-edge/*.md": "lva-edge"
       },
       "searchScope": {
         "articles/app-service/**/*.md": ["Azure","App Service"],
@@ -684,8 +719,11 @@
         "articles/remote-rendering/**/*.yml": "Azure Remote Rendering",
         "articles/media-services/*.yml": "Azure Media Services",
         "articles/media-services/*.md": "Azure Media Services",
-        "articles/media-services/video-indexer/*.yml": "Azure Media Services Video Indexer",
-        "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer"
+        "articles/media-services/latest/*.md": "Azure Media Services v3",
+        "articles/media-services/video-indexer/*.md": "Azure Media Services Video Indexer",
+        "articles/media-services/azure-media-player/*.md": "Azure Media Player",
+        "articles/media-services/live-video-analytics-edge/*.md": "Live Video Analytics on IoT Edge",
+        "articles/azure-government/**/*.md": "Azure Government"
       },
       "featureFlags": {
         "articles/**/*.md": [

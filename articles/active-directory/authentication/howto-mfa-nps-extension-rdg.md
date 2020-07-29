@@ -127,9 +127,10 @@ As part of the configuration of the NPS extension, you need to supply admin cred
 
 Install the NPS extension on a server that has the Network Policy and Access Services (NPS) role installed. This functions as the RADIUS server for your design.
 
-> [!Important]
-> Be sure you do not install the NPS extension on your Remote Desktop Gateway server.
+> [!IMPORTANT]
+> Don't install the NPS extension on your Remote Desktop Gateway (RDG) server. The RDG server doesn't use the RADIUS protocol with its client, so the extension can't interpret and perform the MFA.
 >
+> When the RDG server and NPS server with NPS extension are different servers, RDG uses NPS internally to talk to other NPS servers and uses RADIUS as the protocol to correctly communicate.
 
 1. Download the [NPS extension](https://aka.ms/npsmfa).
 1. Copy the setup executable file (NpsExtnForAzureMfaInstaller.exe) to the NPS server.

@@ -2,15 +2,14 @@
 title: Understand how Azure AD provisioning works | Microsoft Docs
 description: Understand how Azure AD provisioning works 
 services: active-directory
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/20/2020
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
@@ -169,7 +168,7 @@ All operations run by the user provisioning service are recorded in the Azure AD
 
 The Azure AD provisioning service keeps source and target systems in sync by de-provisioning accounts when users should not have access anymore. 
 
-The Azure AD provisioning service will soft delete a user in an application when the application suupports soft deletes (update request with active = false) and any of the following events occur:
+The Azure AD provisioning service will soft delete a user in an application when the application supports soft deletes (update request with active = false) and any of the following events occur:
 
 * The user account is deleted in Azure AD
 *	The user is unassigned from the application

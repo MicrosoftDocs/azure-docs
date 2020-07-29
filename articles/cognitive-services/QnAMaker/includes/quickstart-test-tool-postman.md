@@ -103,7 +103,7 @@ In a previous quickstart, metadata was added to two QnA pairs to distinguish bet
 ## Use debug query property
 
 > [!NOTE]
->We don't recommend to use Debug poreperty for any dependency. This property has been added to help the product team in troubleshooting.
+>We don't recommend to use Debug property for any dependency. This property has been added to help the product team in troubleshooting.
 
 Debug information helps you understand how the returned answer was determined. While it is helpful, it is not necessary. To generate an answer with debug information, add the `debug` property:
 

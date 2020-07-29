@@ -46,12 +46,13 @@ For help with choosing algorithms, see
 
 | Functionality | Description | Module |
 | --- |--- | --- |
-| Model Training | Run data through the algorithm. |  [Train Clustering Model](train-clustering-model.md) <br/> [Train Model](train-model.md)  <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) |
-| Model Scoring and Evaluation | Measure the accuracy of the trained model. | [Apply Transformation](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) <br/> [Cross Validate Model](cross-validate-model.md) <br/> [Evaluate Model](evaluate-model.md) <br/> [Score Model](score-model.md) |
+| Model Training | Run data through the algorithm. |  [Train Clustering Model](train-clustering-model.md) <br/> [Train Model](train-model.md) <br/> [Train Pytorch Model](train-pytorch-model.md) <br/> [Tune Model Hyperparameters](tune-model-hyperparameters.md) |
+| Model Scoring and Evaluation | Measure the accuracy of the trained model. | [Apply Transformation](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) <br/> [Cross Validate Model](cross-validate-model.md) <br/> [Evaluate Model](evaluate-model.md) <br/> [Score Image Model](score-image-model.md) <br/> [Score Model](score-model.md) |
 | Python Language | Write code and embed it in a module to integrate Python with your pipeline. | [Create Python Model](create-python-model.md) <br/> [Execute Python Script](execute-python-script.md) |
 | R Language | Write code and embed it in a module to integrate R with your pipeline. | [Execute R Script](execute-r-script.md) |
 | Text Analytics | Provide specialized computational tools for working with both structured and unstructured text. |  [Convert Word to Vector](convert-word-to-vector.md) <br/> [Extract N Gram Features from Text](extract-n-gram-features-from-text.md) <br/> [Feature Hashing](feature-hashing.md) <br/> [Preprocess Text](preprocess-text.md) <br/> [Latent Dirichlet Allocation](latent-dirichlet-allocation.md) |
-| Recommendation | Build recommendation models. | [Evaluate Recommender](evaluate-recommender.md) <br/> [Score SVD Recommender](score-svd-recommender.md) <br/> [Train SVD Recommender](train-SVD-recommender.md) |
+| Computer Vision | Image data preprocessing and Image recognition related modules. |  [Apply Image Transformation](apply-image-transformation.md) <br/> [Convert to Image Directory](convert-to-image-directory.md) <br/> [Init Image Transformation](init-image-transformation.md) <br/> [Split Image Directory](split-image-directory.md) <br/> [DenseNet](densenet.md) <br/> [ResNet](resnet.md) |
+| Recommendation | Build recommendation models. | [Evaluate Recommender](evaluate-recommender.md) <br/> [Score SVD Recommender](score-svd-recommender.md) <br/> [Score Wide and Deep Recommender](score-wide-and-deep-recommender.md)<br/> [Train SVD Recommender](train-SVD-recommender.md) <br/> [Train Wide and Deep Recommender](train-wide-and-deep-recommender.md)|
 | Anomaly Detection | Build anomaly detection models. | [PCA-Based Anomaly Detection](pca-based-anomaly-detection.md) <br/> [Train Anomaly Detection Model](train-anomaly-detection-model.md) |
 
 

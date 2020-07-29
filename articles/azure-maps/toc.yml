@@ -59,6 +59,8 @@
       href: drawing-conversion-error-codes.md  
   - name: Coverage
     items:
+    - name: Coverage
+      href: geographic-coverage.md
     - name: Geocoding coverage
       href: geocoding-coverage.md
     - name: Traffic coverage
@@ -177,6 +179,14 @@
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
         href: map-route.md
+    - name: Indoor Maps module
+      items:
+      - name: Indoor Maps module
+        href: how-to-use-indoor-module.md
+      - name: Dynamic styling for indoor maps
+        href: indoor-map-dynamic-styling.md
+      - name: Drawing error visualizer
+        href: drawing-error-visualizer.md
     - name: Spatial IO module 
       items:
       - name: Use the spatial IO module
@@ -211,14 +221,6 @@
       href: how-to-add-tile-layer-android-map.md
     - name: Show traffic data 
       href: how-to-show-traffic-android.md
-  - name: Develop with Creator Indoor maps
-    items:
-    - name: Indoor Maps module
-      href: how-to-use-indoor-module.md
-    - name: Dynamic styling for indoor maps
-      href: indoor-map-dynamic-styling.md
-    - name: Drawing error visualizer
-      href: drawing-error-visualizer.md
   - name: Provide data feedback
     href: how-to-use-feedback-tool.md
 - name: Reference
@@ -289,6 +291,8 @@
       href: https://aka.ms/am-indoor-module-websdk/
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
+  - name: Azure CLI
+    href: /cli/azure/maps
 - name: Resources
   items:
   - name: Support and help options
@@ -323,10 +327,6 @@
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-maps.html
   - name: Azure Maps videos
     href: https://aka.ms/AzureMapsVideos
   - name: Open source projects

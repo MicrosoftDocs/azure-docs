@@ -34,7 +34,7 @@ To complete this article, you need the following resources:
 
 ## DNS naming requirements
 
-When you create an Azure AD DS instance, you specify a DNS name. There are some considerations when you choose this DNS name:
+When you create an Azure AD DS managed domain, you specify a DNS name. There are some considerations when you choose this DNS name:
 
 * **Built-in domain name:** By default, the built-in domain name of the directory is used (a *.onmicrosoft.com* suffix). If you wish to enable secure LDAP access to the managed domain over the internet, you can't create a digital certificate to secure the connection with this default domain. Microsoft owns the *.onmicrosoft.com* domain, so a Certificate Authority (CA) won't issue a certificate.
 * **Custom domain names:** The most common approach is to specify a custom domain name, typically one that you already own and is routable. When you use a routable, custom domain, traffic can correctly flow as needed to support your applications.
@@ -43,7 +43,7 @@ When you create an Azure AD DS instance, you specify a DNS name. There are some 
 > [!TIP]
 > If you create a custom domain name, take care with existing DNS namespaces. It's recommended to use a domain name separate from any existing Azure or on-premises DNS name space.
 >
-> For example, if you have an existing DNS name space of *contoso.com*, create an Azure AD DS managed domain with the custom domain name of *aaddscontoso.com*. If you need to use secure LDAP, you must register and own this custom domain name to generate the required certificates.
+> For example, if you have an existing DNS name space of *contoso.com*, create a managed domain with the custom domain name of *aaddscontoso.com*. If you need to use secure LDAP, you must register and own this custom domain name to generate the required certificates.
 >
 > You may need to create some additional DNS records for other services in your environment, or conditional DNS forwarders between existing DNS name spaces in your environment. For example, if you run a webserver that hosts a site using the root DNS name, there can be naming conflicts that require additional DNS entries.
 >
@@ -59,7 +59,7 @@ The following DNS name restrictions also apply:
 
 ## Create required Azure AD resources
 
-Azure AD DS requires a service principal and an Azure AD group. These resources let the Azure AD DS managed domain synchronize data, and define which users have administrative permissions in the managed domain.
+Azure AD DS requires a service principal and an Azure AD group. These resources let the managed domain synchronize data, and define which users have administrative permissions in the managed domain.
 
 First, register the Azure AD Domain Services resource provider using the [Register-AzResourceProvider][Register-AzResourceProvider] cmdlet:
 
@@ -73,7 +73,7 @@ Create an Azure AD service principal using the [New-AzureADServicePrincipal][New
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
-Now create an Azure AD group named *AAD DC Administrators* using the [New-AzureADGroup][New-AzureADGroup] cmdlet. Users added to this group are then granted permissions to perform administration tasks on the Azure AD DS managed domain.
+Now create an Azure AD group named *AAD DC Administrators* using the [New-AzureADGroup][New-AzureADGroup] cmdlet. Users added to this group are then granted permissions to perform administration tasks on the managed domain.
 
 ```powershell
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -121,10 +121,10 @@ As part of the Resource Manager resource definition, the following configuration
 |-------------------------|---------|
 | domainName              | The DNS domain name for your managed domain, taking into consideration the previous points on naming prefixes and conflicts. |
 | filteredSync            | Azure AD DS lets you synchronize *all* users and groups available in Azure AD, or a *scoped* synchronization of only specific groups. If you choose to synchronize all users and groups, you can't later choose to only perform a scoped synchronization.<br /> For more information about scoped synchronization, see [Azure AD Domain Services scoped synchronization][scoped-sync].|
-| notificationSettings    | If there are any alerts generated in the Azure AD DS managed domain, email notifications can be sent out. <br />*Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.<br /> If desired, you can add additional recipients for notifications when there are alerts that require attention.|
-| domainConfigurationType | By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. You don't need to specify a *domainConfiguration* value to create a user forest.<br /> A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. Set the value to *ResourceTrusting* to create a resource forest.<br />For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].|
+| notificationSettings    | If there are any alerts generated in the managed domain, email notifications can be sent out. <br />*Global administrators* of the Azure tenant and members of the *AAD DC Administrators* group can be *Enabled* for these notifications.<br /> If desired, you can add additional recipients for notifications when there are alerts that require attention.|
+| domainConfigurationType | By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. You don't need to specify a *domainConfiguration* value to create a user forest.<br /> A *Resource* forest only synchronizes users and groups created directly in Azure AD. Resource forests are currently in preview. Set the value to *ResourceTrusting* to create a resource forest.<br />For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].|
 
-The following condensed parameters definition shows how these values are declared. A user forest named *aaddscontoso.com* is created with all users from Azure AD synchronized to the Azure AD DS managed domain:
+The following condensed parameters definition shows how these values are declared. A user forest named *aaddscontoso.com* is created with all users from Azure AD synchronized to the managed domain:
 
 ```json
 "parameters": {
@@ -145,7 +145,7 @@ The following condensed parameters definition shows how these values are declare
 }
 ```
 
-The following condensed Resource Manager template resource type is then used to define and create the Azure AD DS managed domain. An Azure virtual network and subnet must already exist, or be created as part of Resource Manager template. The Azure AD DS managed domain is connected to this subnet.
+The following condensed Resource Manager template resource type is then used to define and create the managed domain. An Azure virtual network and subnet must already exist, or be created as part of Resource Manager template. The managed domain is connected to this subnet.
 
 ```json
 "resources": [
@@ -172,7 +172,7 @@ These parameters and resource type can be used as part of a wider Resource Manag
 
 ## Create a managed domain using sample template
 
-The following complete Resource Manager sample template creates an Azure AD DS managed domain and the supporting virtual network, subnet, and network security group rules. The network security group rules are required to secure the managed domain and make sure traffic can flow correctly. A user forest with the DNS name of *aaddscontoso.com* is created, with all users synchronized from Azure AD:
+The following complete Resource Manager sample template creates a managed domain and the supporting virtual network, subnet, and network security group rules. The network security group rules are required to secure the managed domain and make sure traffic can flow correctly. A user forest with the DNS name of *aaddscontoso.com* is created, with all users synchronized from Azure AD:
 
 ```json
 {
@@ -321,17 +321,17 @@ This template can be deployed using your preferred deployment method, such as th
 New-AzResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateFile <path-to-template>
 ```
 
-It takes a few minutes to create the resource and return control to the PowerShell prompt. The Azure AD DS managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your Azure AD DS managed domain shows the current status throughout this deployment stage.
+It takes a few minutes to create the resource and return control to the PowerShell prompt. The managed domain continues to be provisioned in the background, and can take up to an hour to complete the deployment. In the Azure portal, the **Overview** page for your managed domain shows the current status throughout this deployment stage.
 
-When the Azure portal shows that the Azure AD DS managed domain has finished provisioning, the following tasks need to be completed:
+When the Azure portal shows that the managed domain has finished provisioning, the following tasks need to be completed:
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-    * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+    * To configure DNS, select your managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
 * [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
 
-To see the Azure AD DS managed domain in action, you can [domain-join a Windows VM][windows-join], [configure secure LDAP][tutorial-ldaps], and [configure password hash sync][tutorial-phs].
+To see the managed domain in action, you can [domain-join a Windows VM][windows-join], [configure secure LDAP][tutorial-ldaps], and [configure password hash sync][tutorial-phs].
 
 <!-- INTERNAL LINKS -->
 [windows-join]: join-windows-vm.md

@@ -7,7 +7,7 @@ ms.assetid: a7738a24-89ef-43d3-bff1-77f43d5a3952
 ms.topic: article
 ms.date: 05/10/2020
 ms.author: ccompy
-ms.custom: seodec18
+ms.custom: seodec18, references_regions
 ---
 # App Service Environment management addresses
 

@@ -74,11 +74,11 @@ This deployment model may be suited to scenarios where an ISV provides a hosted 
 
 The following important considerations apply when administering a managed domain in an Azure CSP subscription:
 
-* **CSP admin agents can provision a managed domain using their credentials:** Azure AD DS supports Azure CSP subscriptions. Users belonging to a CSP partner's admin agents group can provision a new Azure AD DS managed domain.
+* **CSP admin agents can provision a managed domain using their credentials:** Azure AD DS supports Azure CSP subscriptions. Users belonging to a CSP partner's admin agents group can provision a new managed domain.
 
 * **CSPs can script creation of new managed domains for their customers using PowerShell:** See [how to enable Azure AD DS using PowerShell](powershell-create-instance.md) for details.
 
-* **CSP admin agents can't perform ongoing management tasks on the managed domain using their credentials:** CSP admin users can't perform routine management tasks within the managed domain using their credentials. These users are external to the customer's Azure AD tenant and their credentials aren't available within the customer's Azure AD tenant. Azure AD DS doesn't have access to the Kerberos and NTLM password hashes for these users, so users can't be authenticated on Azure AD DS managed domains.
+* **CSP admin agents can't perform ongoing management tasks on the managed domain using their credentials:** CSP admin users can't perform routine management tasks within the managed domain using their credentials. These users are external to the customer's Azure AD tenant and their credentials aren't available within the customer's Azure AD tenant. Azure AD DS doesn't have access to the Kerberos and NTLM password hashes for these users, so users can't be authenticated on managed domains.
 
   > [!WARNING]
   > You must create a user account within the customer's directory to perform ongoing administration tasks on the managed domain.

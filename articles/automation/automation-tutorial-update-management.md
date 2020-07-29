@@ -21,6 +21,10 @@ Before using the procedures in this article, ensure that you've enabled Update M
 * [Enable Update Management from a runbook](automation-onboard-solutions.md)
 * [Enable Update Management from an Azure VM](automation-onboard-solutions-from-vm.md)
 
+## <a name="scope-configuration"></a>Limit the scope for the deployment
+
+Update Management uses a scope configuration within the workspace to target the computers to receive updates. For more information, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
+
 ## View update assessment
 
 To view an update assessment:
@@ -195,5 +199,10 @@ When your update deployment is finished, you receive the alert that you've speci
 
 ## Next steps
 
+* For information about scope configurations, see [Limit Update Management deployment scope](automation-scope-configurations-update-management.md).
+* If you need to search logs stored in your Log Analytics workspace, see [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md).
 * If finished with deployments, see [Unlink workspace from Automation account for Update Management](automation-unlink-workspace-update-management.md).
 * To delete your VMs from Update Management, see [Remove VMs from Update Management](automation-remove-vms-from-update-management.md).
+* To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](troubleshoot/update-management.md).
+* To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).

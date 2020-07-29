@@ -65,11 +65,8 @@ conceptualContent:
           itemType: quickstart
           text:  Set and retrieve a key from Azure Key Vault using the Azure portal
         - url: ./keys/hsm-protected-keys.md
-          itemType: tutorial
-          text:  Import HSM-protected keys to Key Vault
-        - url: ./keys/hsm-protected-keys-vendor-agnostic-byok.md
           itemType: overview
-          text:  Import vendor-agnostic HSM-protected keys
+          text:  Import HSM-protected keys (overview)
       footerLink:
         url: ./keys/index.yml
         text: See more

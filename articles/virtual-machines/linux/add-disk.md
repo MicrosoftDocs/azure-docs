@@ -4,11 +4,10 @@ description: Learn to add a persistent data disk to your Linux VM with the Azure
 author: roygara
 manager: twooley
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.subservice: disks
-
 ---
 # Add a disk to a Linux VM
 This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing.

@@ -1,28 +1,28 @@
 ---
-title: What are Azure Firewall Manager trusted security partners (preview)
-description: Learn about Azure Firewall Manager trusted security partners
+title: What are Azure Firewall Manager security partner providers (preview)
+description: Learn about Azure Firewall Manager security partner providers
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 06/15/2020
 ms.author: victorh
 ---
 
-# What are trusted security partners (preview)?
+# What are security partner providers (preview)?
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-*Trusted security partners (preview)* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
+*Security partners providers (preview)* in Azure Firewall Manager allows you to use your familiar, best-in-breed, third-party security as a service (SECaaS) offerings to protect Internet access for your users.
 
 With a quick configuration, you can secure a hub with a supported security partner, and route and filter Internet traffic from your Virtual Networks (VNets) or branch locations within a region. This is done using automated route management, without setting up and managing User Defined Routes (UDRs).
 
 You can deploy secured hubs configured with the security partner of your choice in multiple Azure regions to get connectivity and security for your users anywhere across the globe in those regions. With the ability to use the security partner’s offering for Internet/SaaS application traffic, and Azure Firewall for private traffic in the secured hubs, you can now start building your security edge on Azure that is close to your globally distributed users and applications.
 
-For this preview, the supported security partners are **ZScaler** and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
+For this preview, the supported security partners are **ZScaler**, **Check Point**, and **iboss**. Supported regions are WestCentralUS, NorthCentralUS, WestUS, WestUS2, and EastUS.
 
-![Trusted security partners](media/trusted-security-partners/trusted-security-partners.png)
+![Security partner providers](media/trusted-security-partners/trusted-security-partners.png)
 
 ## Key scenarios
 
@@ -75,4 +75,4 @@ Furthermore Office 365 connections are strongly encrypted for privacy and use ef
 
 ## Next steps
 
-[Deploy a trusted security offering in a secured hub, using Azure Firewall Manager](deploy-trusted-security-partner.md).
+[Deploy a security partner offering in a secured hub, using Azure Firewall Manager](deploy-trusted-security-partner.md).

@@ -4,6 +4,8 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
   - name: Fall 2019 Release documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
@@ -50,6 +52,8 @@
         href: create-fslogix-profile-container.md
       - name: Use Azure Files and Azure AD DS
         href: create-profile-container-adds.md
+      - name: Use Azure Files and AD DS
+        href: create-file-share.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -80,6 +84,8 @@
     href: teams-on-wvd.md
   - name: Set up Azure Multi-Factor Authentication
     href: set-up-mfa.md
+  - name: Configure automatic updates
+    href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
 - name: Concepts
@@ -108,7 +114,7 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
-  - name: Tenant and host pool creation
+  - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
@@ -134,6 +140,8 @@
     href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
 - name: Resources
   items:
+  - name: PowerShell
+    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator

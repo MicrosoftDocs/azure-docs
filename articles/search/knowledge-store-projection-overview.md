@@ -1,5 +1,5 @@
 ---
-title: Projections in a knowledge store (preview)
+title: Projection concepts (preview)
 titleSuffix: Azure Cognitive Search
 description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search. Knowledge store is currently in public preview.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 01/08/2020
 ---
 
-# Projections in a knowledge store in Azure Cognitive Search
+# Knowledge store "projections" in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 

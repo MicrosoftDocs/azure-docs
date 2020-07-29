@@ -12,7 +12,7 @@ ms.custom: seo-dt-2019
 ms.date: 01/04/2018
 ---
 
-# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
+# Transform data in Azure Virtual Network using Hive activity in Azure Data Factory using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 

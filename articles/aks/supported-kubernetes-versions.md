@@ -97,10 +97,10 @@ New Supported Version List
 * For new **minor** versions of Kubernetes
   * All users are notified publicly of the new version and what version will be removed.
   * When a new patch version is released, the oldest patch release is removed at the same time.
-  * Customers have **30 days** from the public notification date to upgrade to a supported minor version release.
+  * Azure support provides customers **30 days** from the public notification date to upgrade to a supported minor version release. Once 30 days have passed, you are required to update your minor version to continue receiving support.
 * For new **patch** versions of Kubernetes
   * All users are notified of the new patch version being released and to upgrade to the latest patch release.
-  * Users have **30 days** to upgrade to a newer, supported patch release before the oldest is removed.
+  * Azure support provides customers **30 days** to upgrade to a supported patch release, after removal of an older patch version. Once 30 days have passed, you are required to update your patch version to continue receiving support.
 
 AKS defines a "released version" as the generally available versions, enabled in all SLO / Quality of Service measurements and available in all regions. AKS may also support preview versions which are explicitly labeled and subject to Preview terms and conditions.
 
@@ -160,8 +160,7 @@ For minor versions not supported by AKS, scaling in or out should continue to wo
 
 **Can a customer stay on a Kubernetes version forever?**
 
-Yes. However, if the cluster is not on one of the versions supported by AKS, the cluster is out of the AKS support
-policies. Azure does not automatically upgrade your cluster or delete it.
+If a cluster has been out of support for more than 3 minor versions and has been found to carry security risks, Azure contacts you to proactively upgrade your cluster. If you do not take further action, Azure reserves the right to force upgrade your cluster on your behalf.
 
 **What version does the control plane support if the node pool is not in one of the supported AKS versions?**
 

@@ -28,13 +28,13 @@ To complete this article, you need to:
 
 ### Review the template
 
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-databricks-workspace/).
 
-:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53":::
+:::code language="json" source="~/quickstart-templates/101-databricks-workspace/azuredeploy.json" range="1-53" highlight="33-46":::
 
-The Azure resource defined in the template is Microsoft.Databricks/workspaces: create an Azure Databricks workspace. 
+The Azure resource defined in the template is [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces): create an Azure Databricks workspace.
 
-## Deploy the template
+### Deploy the template
 
 In this section, you create an Azure Databricks workspace using the Azure Resource Manager template.
 

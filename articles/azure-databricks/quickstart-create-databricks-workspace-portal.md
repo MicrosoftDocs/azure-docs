@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.workload: big-data
 ms.topic: quickstart
 ms.date: 03/23/2020
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal

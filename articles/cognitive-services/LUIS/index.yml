@@ -5,7 +5,7 @@ summary: Learn how Language Understanding enables your applications to understan
 
 metadata:
   ms.topic: landing-page
-  ms.date: 02/11/2020
+  ms.date: 06/15/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -32,6 +32,8 @@ landingContent:
             url: luis-how-plan-your-app.md
           - text: Iterative app design
             url: luis-concept-app-iteration.md
+          - text: DevOps practices
+            url: luis-concept-devops-sourcecontrol.md
       - linkListType: whats-new
         links:
           - text: What's new?

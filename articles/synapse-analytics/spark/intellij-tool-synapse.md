@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ---
 
-# Tutorial: Use Azure Toolkit for IntelliJ to create Apache Spark applications for Spark pools (preview)
+# Tutorial: Create an Apache Spark applications with IntelliJ using a Synapse workspace
 
 This tutorial demonstrates how to use the Azure Toolkit for IntelliJ plug-in to develop Apache Spark applications, which are written in [Scala](https://www.scala-lang.org/), and then submit them to a Spark pool (preview) directly from the IntelliJ integrated development environment (IDE). You can use the plug-in in a few ways:
 
@@ -141,7 +141,7 @@ After creating a Scala application, you can remotely run it.
     |Command line arguments|You can enter arguments separated by space for the main class if needed.|
     |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. You can also browse files in the Azure virtual file system, which currently only supports ADLS Gen2 cluster. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) and [How to upload resources to cluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Job Upload Storage|Expand to reveal additional options.|
-    |Storage Type|Select **Use Azure Blob to upload** from the drop-down list.|
+    |Storage Type|Select **Use Azure Blob to upload** or **Use cluster default storage account to upload** from the drop-down list.|
     |Storage Account|Enter your storage account.|
     |Storage Key|Enter your storage key.|
     |Storage Container|Select your storage container from the drop-down list once **Storage Account** and **Storage Key** has been entered.|
@@ -245,6 +245,7 @@ It's only supported on IntelliJ 2018.2 and 2018.3.
 
     |Property |Value |
     |----|----|
+    |Main class name| Select the Main class name.| 
     |Spark pools|Select the Spark pools on which you want to run your application.|
     ||
 

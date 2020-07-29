@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
+ms.custom: tracking-python
 
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the SQL API
@@ -105,18 +106,17 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## Java V4 SDK
+## <a id="java4-preferred-locations"></a> Java V4 SDK
 
 The following code shows how to set preferred locations by using the Java SDK:
 
-### <a id="java4-preferred-locations"></a>
-#### [Async](#tab/api-async)
+# [Async](#tab/api-async)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Async API
 
    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=TutorialGlobalDistributionPreferredLocationAsync)]
 
-#### [Sync](#tab/api-sync)
+# [Sync](#tab/api-sync)
 
    [Java SDK V4](sql-api-sdk-java-v4.md) (Maven [com.azure::azure-cosmos](https://mvnrepository.com/artifact/com.azure/azure-cosmos)) Sync API
 

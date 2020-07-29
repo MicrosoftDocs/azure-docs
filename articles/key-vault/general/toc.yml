@@ -1,6 +1,7 @@
 - name: General
   href: index.yml
 - name: Overview 
+  expanded: true
   items:
   - name: About Azure Key Vault
     href: overview.md
@@ -15,6 +16,10 @@
       href: tutorial-net-windows-virtual-machine.md
     - name: Use Azure Key Vault with a Windows virtual machine in Python
       href: tutorial-python-windows-virtual-machine.md
+  - name: Azure Kubernetes Service
+    items: 
+    - name: Integrate Azure Key Vault with Kubernetes
+      href: key-vault-integrate-kubernetes.md
   - name:  Connect Key Vault to an Web App with a managed identity and .NET
     href: tutorial-net-create-vault-azure-web-app.md
 
@@ -65,6 +70,8 @@
   items:
   - name: Authenticate
     items:
+    - name: Authenticate to Key Vault
+      href: authentication.md
     - name: Use an App Service managed identity
       href: managed-identity.md
     - name: Use an access control policy

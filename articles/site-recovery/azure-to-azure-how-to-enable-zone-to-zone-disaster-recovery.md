@@ -16,7 +16,7 @@ This article describes how to replicate, failover, and failback Azure virtual ma
 
 >[!NOTE]
 >
->- Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery. 
+>- Site Recovery currently does not support Recovery Plans for Zone to Zone Disaster Recovery via portal. Please use PowerShell or REST API to leverage Recovery Plans for Zone to Zone Disaster Recovery. 
 >- Support for Zone to Zone disaster recovery is currently limited to two regions: Southeast Asia and UK South.  
 
 Site Recovery service contributes to your business continuity and disaster recovery strategy by keeping your business apps up and running, during planned and unplanned outages. It is the recommended Disaster Recovery option to keep your applications up and running if there are regional outages.

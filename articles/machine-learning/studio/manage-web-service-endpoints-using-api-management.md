@@ -5,7 +5,7 @@ description: A guide showing how to manage AzureML web services using API Manage
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19

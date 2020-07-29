@@ -1,6 +1,6 @@
 ---
-title: Audit Log Format
-description: Understand how Azure SQL and Azure Synapse audit logs are structured.
+title: SQL Database audit log format
+description: Understand how Azure SQL Database audit logs are structured.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,25 +9,26 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
-ms.date: 04/28/2020
+ms.date: 06/03/2020
 ---
-# SQL Database Audit Log Format
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
+# SQL Database audit log format
+
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 [Azure SQL Database auditing](auditing-overview.md) tracks database events and writes them to an audit log in your Azure storage account, or sends them to Event Hub or Log Analytics for downstream processing and analysis.
 
-## Naming Conventions
+## Naming conventions
 
-### Blob Audit
+### Blob audit
 
-Audit logs stored in Blob storage are stored in a container named `sqldbauditlogs` in the Azure Storage account. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/`. The Blob filename format is `<CreationTime>_<FileNumberInSession>.xel`, where `CreationTime` is in UTC `hh_mm_ss_ms` format, and `FileNumberInSession` is a running index in case session logs spans across multiple Blob files.
+Audit logs stored in Azure Blob storage are stored in a container named `sqldbauditlogs` in the Azure storage account. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/`. The Blob file name format is `<CreationTime>_<FileNumberInSession>.xel`, where `CreationTime` is in UTC `hh_mm_ss_ms` format, and `FileNumberInSession` is a running index in case session logs spans across multiple Blob files.
 
 For example, for database `Database1` on `Server1` the following is a possible valid path:
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Read-only Replicas](read-scale-out.md) Audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob filename shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
+[Read-only Replicas](read-scale-out.md) audit logs are stored in the same container. The directory hierarchy within the container is of the form `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`. The Blob file name shares the same format. The Audit Logs of Read-only Replicas are stored in the same container.
 
 
 ### Event Hub
@@ -38,9 +39,9 @@ Audit events are written to the namespace and event hub that was defined during 
 
 Audit events are written to Log Analytics workspace defined during auditing configuration, to the `AzureDiagnostics` table with the category `SQLSecurityAuditEvents`. For additional useful information about Log Analytics search language and commands, see [Log Analytics search reference](../../azure-monitor/log-query/log-query-overview.md).
 
-## <a id="subheading-1"></a>Audit Log Fields
+## <a id="subheading-1"></a>Audit log fields
 
-| Name (Blob) | Name (Event Hubs/Log Analytics) | Description | Blob Type | Event Hubs/Log Analytics Type |
+| Name (blob) | Name (Event Hubs/Log Analytics) | Description | Blob type | Event Hubs/Log Analytics type |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID of the action | varchar(4) | string |
 | action_name | action_name_s | Name of the action | N/A | string |
@@ -86,6 +87,6 @@ Audit events are written to Log Analytics workspace defined during auditing conf
 | user_defined_event_id | user_defined_event_id_d | User defined event ID passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | User defined information passed as an argument to sp_audit_write. NULL for system events (default) and non-zero for user-defined event. For more information, see [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar(4000) | string |
 
-## Next Steps
+## Next steps
 
 Learn more about [Azure SQL Database auditing](auditing-overview.md).

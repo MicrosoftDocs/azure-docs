@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, tracking-python
 ---
 
 # Azure Event Grid trigger for Azure Functions

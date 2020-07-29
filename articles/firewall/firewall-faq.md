@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 06/08/2020
 ms.author: victorh
 ---
 
@@ -171,7 +171,7 @@ Azure Firewall's initial throughput capacity is 2.5 - 3 Gbps and it scales out t
 
 ## How long does it take for Azure Firewall to scale out?
 
-Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. Scale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and initiate new connections to take advantage of newly created Firewall nodes.
+Azure Firewall gradually scales when average throughput or CPU consumption is at 60%. Scale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Firewall nodes.
 
 ## Does Azure Firewall allow access to Active Directory by default?
 
@@ -206,3 +206,11 @@ A TCP ping isn't actually connecting  to the target FQDN. This happens because A
 ## Are there limits for the number of IP addresses supported by IP Groups?
 
 Yes. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+
+## Can I move an IP Group to another resource group?
+
+No, moving an IP Group to another resource group isn't currently supported.
+
+## What is the TCP Idle Timeout for Azure Firewall?
+
+A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't configurable. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](https://docs.microsoft.com/dotnet/api/system.net.servicepoint.settcpkeepalive?redirectedfrom=MSDN&view=netcore-3.1#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).

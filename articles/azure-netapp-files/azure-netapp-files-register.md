@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 06/09/2020
 ms.author: b-juche
 ---
 # Register for Azure NetApp Files
@@ -25,7 +25,7 @@ In this article, learn how to register for Azure NetApp Files so that you can be
 
 ## <a name="waitlist"></a>Submit a waitlist request for accessing the service
 
-1. Submit a waitlist request for accessing the Azure NetApp Files service through the [Azure NetApp Files waitlist submission page](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8cq17Xv9yVBtRCSlcD_gdVUNUpUWEpLNERIM1NOVzA5MzczQ0dQR1ZTSS4u). 
+1. Submit a waitlist request for accessing the Azure NetApp Files service through the [Azure NetApp Files waitlist submission page](https://aka.ms/azurenetappfiles). 
 
     Waitlist signup does not guarantee immediate service access. 
 

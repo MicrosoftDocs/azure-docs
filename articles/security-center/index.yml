@@ -55,7 +55,7 @@ landingContent:
           - text: Configure your security policies
             url: tutorial-security-policy.md
           - text: Evaluate your security posture
-            url: security-center-secure-score.md
+            url: secure-score-security-controls.md
           - text: Upgrade to advanced security
             url: security-center-onboarding.md
 

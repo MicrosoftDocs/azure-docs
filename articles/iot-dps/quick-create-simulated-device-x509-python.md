@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
 ms.devlang: python
-ms.custom: mvc
+ms.custom: mvc, tracking-python
 ---
 
 # Quickstart: Create and provision a simulated X.509 device using Python device SDK for IoT Hub Device Provisioning Service

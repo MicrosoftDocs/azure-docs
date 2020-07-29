@@ -26,25 +26,25 @@ This article uses GitHub template repositories to make it easy for you to create
 
 # [Angular](#tab/angular)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/angular-basic/generate
 - Name your repository **my-first-static-web-app**
 
 # [React](#tab/react)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/react-basic/generate
 - Name your repository **my-first-static-web-app**
 
 # [Vue](#tab/vue)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vue-basic/generate
 - Name your repository **my-first-static-web-app**
 
 # [No Framework](#tab/vanilla-javascript)
 
-- Navigate to the following location to create a new repository
+- Make sure you are logged in to GitHub and, navigate to the following location to create a new repository
   - https://github.com/staticwebdev/vanilla-basic/generate
 - Name your repository **my-first-static-web-app**
 

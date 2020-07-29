@@ -147,7 +147,8 @@ The following FQDN / application rules are required for AKS clusters that have t
 | cloudflare.docker.com | HTTPS:443 | This address is used to pull linux alpine and other Azure Dev Spaces images |
 | gcr.io | HTTPS:443 | This address is used to pull helm/tiller images |
 | storage.googleapis.com | HTTPS:443 | This address is used to pull helm/tiller images |
-| azds-\<guid\>.\<location\>.azds.io | HTTPS:443 | To communicate with Azure Dev Spaces backend services for your controller. The exact FQDN can be found in the "dataplaneFqdn" in %USERPROFILE%\.azds\settings.json |
+
+Update your firewall or security configuration to allow network traffic to and from the all of the above FQDNs and [Azure Dev Spaces infrastructure services][dev-spaces-service-tags].
 
 ## Required addresses and ports for AKS clusters with Azure Policy (in public preview) enabled
 
@@ -189,3 +190,4 @@ In this article, you learned what ports and addresses to allow if you restrict e
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations

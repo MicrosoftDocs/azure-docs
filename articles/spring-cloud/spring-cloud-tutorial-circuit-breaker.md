@@ -54,7 +54,7 @@ After all the apps are running and discoverable, access `user-service` with the 
 Verify using public endpoints or private test endpoints.
 
 ### Using public endpoints
-Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
+Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
 
 ![Hystrix dashboard](media/spring-cloud-circuit-breaker/hystrix-dashboard.png)
 

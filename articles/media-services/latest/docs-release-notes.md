@@ -21,6 +21,10 @@ ms.author: juliako
 
 This article talks about the most recent Media Services v3 documentation updates.
 
+## June 2020
+
+The preview of Live Video Analytics on IoT Edge went public. See details in the [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/) documentation.
+
 ## April 2020
 
 * Azure Media Player docs were migrated to the [Azure documentation](../azure-media-player/azure-media-player-overview.md).

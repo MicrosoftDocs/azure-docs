@@ -4,7 +4,7 @@ description: This article provides documentation on how to troubleshoot common q
 services: application-gateway
 author: caya
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/4/2019
 ms.author: caya
 ---

@@ -782,10 +782,10 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 **Guidance**: Use Azure Policy aliases in the "Microsoft.Storage" namespace to create custom policies to audit or enforce the configuration of your Storage account instances. You may also use built-in Azure Policy definitions for Azure Storage account such as: 
 
-Audit unrestricted network access to storage accounts 
-Deploy Advanced Threat Protection on Storage Accounts 
-Storage accounts should be migrated to new Azure Resource Manager resources 
-Secure transfer to storage accounts should be enabled 
+Audit unrestricted network access to storage accounts  
+Deploy Advanced Threat Protection on Storage Accounts  
+Storage accounts should be migrated to new Azure Resource Manager resources  
+Secure transfer to storage accounts should be enabled  
 
 Use recommendations from Azure Security Center as a secure configuration baseline for your Storage accounts. 
 

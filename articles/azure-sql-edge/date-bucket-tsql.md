@@ -2,8 +2,8 @@
 title: Date_Bucket (Transact-SQL) - Azure SQL Edge (Preview)
 description: Learn about using Date_Bucket in Azure SQL Edge (Preview)
 keywords: Date_Bucket, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha

@@ -23,12 +23,12 @@ This article lists the common boot errors that you may receive when you start a 
 ## Boot errors and solutions
 
 * [BitLocker boot errors](troubleshoot-bitlocker-boot-error.md) 
+* [VM is not booting after Windows update](troubleshoot-stuck-updating-boot-error.md)
 * [Windows show "Checking file system" during boot](troubleshoot-check-disk-boot-error.md)
 * [Blue screen errors](troubleshoot-common-blue-screen-error.md)
 * [VM startup is stuck on "Getting Windows Ready](troubleshoot-vm-boot-configure-update.md)
 * ["CRITICAL SERVICE FAILED" error on blue screen](troubleshoot-critical-service-failed-boot-error.md)
 * [Reboot loop problem](troubleshoot-reboot-loop.md)
-* [VM startup is stuck at Windows update stage](troubleshoot-stuck-updating-boot-error.md)
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: 'Use Azure Private Link to securely access your Azure Machine Learn
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
@@ -94,14 +94,13 @@ For more information, see [Deploy resources with Resource Manager templates and 
 
 ## Using a workspace over a private endpoint
 
-Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network or a machine connected to the virtual network using a VPN gateway.
+Since communication to the workspace is only allowed from the virtual network, any development environments that use the workspace must be members of the virtual network. For example, a virtual machine in the virtual network.
 
 > [!IMPORTANT]
 > To avoid temporary disruption of connectivity, Microsoft recommends flushing the DNS cache on machines connecting to the workspace after enabling Private Link. 
 
 For information on Azure Virtual Machines, see the [Virtual Machines documentation](/azure/virtual-machines/).
 
-For information on VPN gateways, see [What is VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## Using Azure Storage
 

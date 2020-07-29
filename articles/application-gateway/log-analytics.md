@@ -5,7 +5,7 @@ description: This article shows you how you can use Azure Log Analytics to exami
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: victorh
 ---
