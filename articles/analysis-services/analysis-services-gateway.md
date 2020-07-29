@@ -22,7 +22,7 @@ For Azure Analysis Services, getting setup with the gateway the first time is a 
 
 - **Create a gateway resource in Azure** - In this step, you create a gateway resource in Azure.
 
-- **Connect your servers to your gateway resource** - Once you have a gateway resource, you can begin connecting servers to it. You can connect multiple servers and other resources provided they are in the same region.
+- **Connect the gateway resource to servers** - Once you have a gateway resource, you can begin connecting servers to it. You can connect multiple servers and other resources provided they are in the same region.
 
 
 
@@ -46,23 +46,7 @@ When installing for an Azure Analysis Services environment, it's important you f
 
 ## Connecting to a gateway resource in a different subscription
 
-It's recommended you create your Azure gateway resource in the same subscription as your servers. However, you can configure your servers to connect to a gateway resource in another subscription. Connecting to a gateway resource in another subscription is not supported when configuring existing server settings or creating a new server in the portal. Use PowerShell [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) to get the the gateway ResourceID. Then connect the gateway resource to an existing or new server by specifying **-GatewayResourceID** in [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) or [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
-
-To get the gateway resource ID:
-
-```powershell
-Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
-$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
-
-```
-
-To configure an existing server:
-
-```powershell
-Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
-Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
-
-```
+It's recommended you create your Azure gateway resource in the same subscription as your server. However, you can configure your servers to connect to a gateway resource in another subscription. Connecting to a gateway resource in another subscription is not supported when configuring existing server settings or creating a new server in the portal, but can be configured by using PowerShell. To learn more, see [Connect gateway resource to server](analysis-services-gateway-install.md#connect-gateway-resource-to-server).
 
 ## Ports and communication settings
 
