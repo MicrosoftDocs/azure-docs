@@ -28,9 +28,27 @@ This page is updated regularly, so revisit it often. If you're looking for items
 ## July 2020
 
 Updates in July include:
+- [Vulnerability assessment for virtual machines is now available for non-marketplace images](#vulnerability-assessment-for-virtual-machines-is-now-available-for-non-marketplace-images)auto        
 - [Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)](#threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview)
+- [Eight new recommendations to enable threat protection features](#eight-new-recommendations-to-enable-threat-protection-features)
 - [Container security improvements - faster registry scanning and refreshed documentation](#container-security-improvements---faster-registry-scanning-and-refreshed-documentation)
+- [New recommendation to updated your adaptive application controls rules](#new-recommendation-to-update-your-adaptive-application-controls-rules)
 - [Six policies for SQL advanced data security deprecated](#six-policies-for-sql-advanced-data-security-deprecated)
+
+
+
+
+### Vulnerability assessment for virtual machines is now available for non-marketplace images
+
+When deploying a vulnerability assessment solution, Security Center previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
+
+From this update, the check has been removed and you can now deploy vulnerability assessment tools to 'custom' Windows and Linux machines. Custom images are ones that you've modified from the marketplace defaults.
+
+Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploying the Qualys built-in vulnerability scanner](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+
+Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](built-in-vulnerability-assessment.md).
+
+Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](partner-vulnerability-assessment.md).
 
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
@@ -40,6 +58,39 @@ Threat protection for Azure Storage detects potentially harmful activity on your
 Your data can be protected whether it's stored as blob containers, file shares, or data lakes. 
 
 Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+
+
+
+
+### Eight new recommendations to enable threat protection features
+
+Eight new recommendations have been added to provide a simple way to enable Azure Security Center's threat protection features for the following resource types: virtual machines, App Service plans, Azure SQL Database servers, SQL servers on machines, Azure Storage accounts, Azure Kubernetes Service clusters, Azure Container Registry registries, and Azure Key Vault vaults.
+
+The new recommendations are:
+
+- **Advanced data security should be enabled on Azure SQL Database servers**
+- **Advanced data security should be enabled on SQL servers on machines**
+- **Advanced threat protection should be enabled on Azure App Service plans**
+- **Advanced threat protection should be enabled on Azure Container Registry registries**
+- **Advanced threat protection should be enabled on Azure Key Vault vaults**
+- **Advanced threat protection should be enabled on Azure Kubernetes Service clusters**
+- **Advanced threat protection should be enabled on Azure Storage accounts**
+- **Advanced threat protection should be enabled on virtual machines**
+
+These new recommendations belong to the **Enable Advanced Threat Protection** security control.
+
+The recommendations also include the quick fix capability. 
+
+> [!IMPORTANT]
+> Remediating any of these recommendations will result in charges for protecting the relevant resources. These charges will begin immediately if you have related resources in the current subscription. Or in the future, if you add them at a later date.
+> 
+> For example, if you don't have any Azure Kubernetes Service clusters in your subscription and you enable the threat protection, no charges will be incurred. If, in the future, you add a cluster on the same subscription, it will automatically be protected and charges will begin at that time.
+
+Learn more about each of these in the [security recommendations reference page](recommendations-reference.md).
+
+Learn more about [threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+
+
 
 
 ### Container security improvements - faster registry scanning and refreshed documentation
@@ -58,6 +109,15 @@ Learn more about Security Center's container security in the following articles:
 - [Security alerts from the threat protection features for Azure Kubernetes Service hosts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
 - [Security recommendations for containers](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
 
+
+
+### New recommendation to update your adaptive application controls rules
+
+The adaptive application controls feature continuously monitors the activity of machines in configured groups. From this update, you'll be notified of potentially legitimate behavior that hasn't previously been allowed, and which might cause false positive alerts.
+
+The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
+
+[Learn more about adaptive application controls](security-center-adaptive-application.md).
 
 
 
@@ -181,9 +241,9 @@ The policies can be found in Azure policy:
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [Advanced data security should be enabled on Azure SQL Database servers](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [Advanced data security should be enabled on SQL servers on machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
-| [Advanced threat protection should be enabled on Storage accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
+| [Advanced threat protection should be enabled on Azure Storage accounts](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f308fbb08-4ab8-4e67-9b29-592e93fb94fa)           | 308fbb08-4ab8-4e67-9b29-592e93fb94fa |
 | [Advanced threat protection should be enabled on Azure Key Vault vaults](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f0e6763cc-5078-4e64-889d-ff4d9a839047)           | 0e6763cc-5078-4e64-889d-ff4d9a839047 |
-| [Advanced threat protection should be enabled on App Service plans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
+| [Advanced threat protection should be enabled on Azure App Service plans](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2913021d-f2fd-4f3d-b958-22354e2bdbcb)                | 2913021d-f2fd-4f3d-b958-22354e2bdbcb |
 | [Advanced threat protection should be enabled on Azure Container Registry registries](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4)   | c25d9a16-bc35-4e15-a7e5-9db606bf9ed4 |
 | [Advanced threat protection should be enabled on Azure Kubernetes Service clusters](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a)   | 523b5cd1-3e23-492f-a539-13118b6d1e3a |
 | [Advanced threat protection should be enabled on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |

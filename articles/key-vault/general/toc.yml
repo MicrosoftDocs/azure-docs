@@ -71,7 +71,9 @@
   - name: Soft-delete
     items:
     - name: Azure Key Vault soft-delete
-      href: overview-soft-delete.md
+      href: soft-delete-overview.md
+    - name: Soft-delete on by default
+      href: soft-delete-change.md
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Azure Key Vault throttling guidance
