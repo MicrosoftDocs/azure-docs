@@ -48,9 +48,9 @@ For instance, a user can have a grid that shows a list of requests and some stat
     1. Field to export: `Request`
     2. Parameter name: `SelectedRequest`
     3. Default value: `All requests`
-9. Click Save
+9. Select Save
 
-    ![Image showing the advanced editor with settings for exporting fields as parameters](./media/workbooks-interactive/export-parameters-add.png)
+    ![Screenshot showing the advanced editor with settings for exporting fields as parameters.](./media/workbooks-interactive/export-parameters-add.png)
 
 10. Select `Done Editing`.
 11. Add another query control using steps 2 and 3.
@@ -66,11 +66,11 @@ For instance, a user can have a grid that shows a list of requests and some stat
 
 The resulting report looks like this in edit mode:
 
-![Image showing the creation an interactive experience using grid row clicks](./media/workbooks-interactive//interactivity-grid-create.png)
+![Screenshot of the first two query in edit mode.](./media/workbooks-interactive//interactivity-grid-create.png)
 
 The image below shows a more elaborate interactive report in read mode based on the same principles. The report uses grid clicks to export parameters - which in turn is used in two charts and a text block.
 
-![Image showing the creation an interactive experience using grid row clicks](./media/workbooks-interactive/interactivity-grid-read-mode.png)
+![Screenshot a report using grid clicks in read mode.](./media/workbooks-interactive/interactivity-grid-read-mode.png)
 
 ### Exporting the contents of an entire row
 
@@ -96,18 +96,18 @@ Workbooks allow authors to add interactivity via a special type of grid column r
     ```
 
 5. `Run query` to see the results
-6. Click _Column Settings_ to open the settings pane.
+6. Select _Column Settings_ to open the settings pane.
 7. In the _Columns_ section, set:
     1. _Sample_ - Column Renderer: `Link`, View to open: `Cell Details`, Link Label: `Sample`
     2. _Count_ - Column Renderer: `Bar`, Color palette: `Blue`, Minimum value: `0`
     3. _Request_ - Column Renderer: `Automatic`
-    4. Click _Save and Close_ to apply changes
+    4. Select _Save and Close_ to apply changes
 
-    ![Picture of the column setting's tab](./media/workbooks-interactive/column-settings.png)
+    ![Screenshot of the column setting's tab.](./media/workbooks-interactive/column-settings.png)
 
 8. Click on one of the `Sample` links in the grid. This opens up a pane with the details of a sampled request.
 
-    ![Image showing the creation an interactive experience using grid cell clicks](./media/workbooks-interactive/details.png)
+    ![Screenshot of the detail pane of the sampled request.](./media/workbooks-interactive/details.png)
 
 ### Link Renderer Actions
 
@@ -145,26 +145,26 @@ Workbook allows users to make certain controls appear or disappear based on valu
 
     ![Above the done editing button is the a drop down that will let you set the parameter value](./media/workbooks-interactive/set-parameter.png)
 
-4. In the query control with the area chart, click the _Advanced Settings_ icon (gear icon)
+4. In the query control with the area chart, select the _Advanced Settings_ icon (gear icon)
 5. Check the setting `Make this item conditionally visible`
     1. This item is visible if `ShowDetails` parameter value `equals` `Yes`
-6. Click _Done Editing_ to commit changes.
-7. Click _Done Editing_ on the workbook tool bar to enter read mode.
+6. Select _Done Editing_ to commit changes.
+7. Select _Done Editing_ on the workbook tool bar to enter read mode.
 8. Switch the value of parameter `ShowDetails` to `No`. Notice that the chart below disappears.
 
 The image below shows the visible case where `ShowDetails` is `Yes`
 
-![Image showing the conditional visibility where the chart is visible](./media/workbooks-interactive/interactivity-conditional-visibility-visible.png)
+![Screenshot showing the conditional visibility where the chart is visible](./media/workbooks-interactive/interactivity-conditional-visibility-visible.png)
 
 The image below shows the hidden case where `ShowDetails` is `No`
 
-![Image showing the conditional visibility where the chart is hidden](./media/workbooks-interactive/interactivity-conditional-visibility-invisible.png)
+![Screenshot showing the conditional visibility where the chart is hidden](./media/workbooks-interactive/interactivity-conditional-visibility-invisible.png)
 
 ## Interactivity with multiple selections in grids and charts
 
 Query and metrics steps can also export one or more parameters when a row (or multiple rows) is selected.
 
-![Image showing the export parameters settings ](./media/workbooks-interactive/interactivity-export-parameters.png)
+![Screenshot showing the export parameters settings with multiple parameters. ](./media/workbooks-interactive/interactivity-export-parameters.png)
 
 1. In the query step displaying the grid, go to the advanced settings.
 2. Check the `When items are selected, export parameters` checkbox. Additional controls will appear.
