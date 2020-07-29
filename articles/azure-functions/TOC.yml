@@ -341,10 +341,8 @@
       items:
         - name: Troubleshoot storage
           href: functions-recover-storage-account.md
-        - name: Troubleshoot Python dependencies
-          href: recover-module-not-found.md
-        - name: Troubleshoot Python cygrpc reference errors
-          href: recover-cygrpc-reference-error.md
+        - name: Troubleshoot Python functions
+          href: recover-python-functions.md
 - name: Reference
   items:
     - name: API references

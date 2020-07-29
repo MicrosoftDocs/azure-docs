@@ -1,17 +1,24 @@
 ---
-title: Troubleshoot Python ModuleNotFoundError in Azure Functions
-description: Learn how to troubleshoot Azure Functions module not found errors in Python functions.
+title: Troubleshoot Python Functions
+description: Learn how to troubleshoot Python functions.
 author: Hazhzeng
 
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 07/29/2020
 ms.author: hazeng
 ms.custom: tracking-python
 ---
 
-# Troubleshoot Python module errors in Azure Functions
+# Troubleshoot Python errors in Azure Functions
 
-This article helps you troubleshoot module-related errors in your Python function app. These errors typically result in the following Azure Functions error message:
+Following is a list of troubleshooting guides for common issues in Python functions:
+
+* [ModuleNotFoundError and ImportError](#troubleshoot-module-not-found-error)
+* [Module 'cygrpc' reference error](#troubleshoot-cygrpc-module-reference-error)
+
+## Troubleshoot module not found error
+
+This section helps you troubleshoot module-related errors in your Python function app. These errors typically result in the following Azure Functions error message:
 
 > `Exception: ModuleNotFoundError: No module named 'module_name'.`
 
@@ -23,7 +30,7 @@ This error issue occurs when a Python function app fails to load a Python module
 - [The package conflicts with other packages](#the-package-conflicts-with-other-packages)
 - [The package only supports Windows or macOS platforms](#the-package-only-supports-windows-or-macos-platforms)
 
-## View project files
+### View project files
 
 To identify the actual cause of your issue, you need to get the Python project files that run on your function app. If you don't have the project files on your local computer, you can get them in one of the following ways:
 
@@ -34,11 +41,11 @@ To identify the actual cause of your issue, you need to get the Python project f
 
 The rest of this article helps you troubleshoot potential causes of this error by inspecting your function app's content, identifying the root cause, and resolving the specific issue.
 
-## Diagnose ModuleNotFoundError
+### Diagnose ModuleNotFoundError
 
 This section details potential root causes of module-related errors. After you figure out which is the likely root cause, you can go to the related mitigation.
 
-### The package can't be found
+#### The package can't be found
 
 Browse to `.python_packages/lib/python3.6/site-packages/<package-name>` or `.python_packages/lib/site-packages/<package-name>`. If the file path doesn't exist, this missing path is likely the root cause.
 
@@ -46,7 +53,7 @@ Using third-party or outdated tools during deployment may cause this issue.
 
 See [Enable remote build](#enable-remote-build) or [Build native dependencies](#build-native-dependencies) for mitigation.
 
-### The package isn't resolved with proper Linux wheel
+#### The package isn't resolved with proper Linux wheel
 
 Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Use your favorite text editor to open the **wheel** file and check the **Tag:** section. If the value of the tag doesn't contain **linux**, this could be the issue.
 
@@ -54,7 +61,7 @@ Python functions run only on Linux in Azure: Functions runtime v2.x runs on Debi
 
 See [Enable remote build](#enable-remote-build) or [Build native dependencies](#build-native-dependencies) for mitigation.
 
-### The package is incompatible with the Python interpreter version
+#### The package is incompatible with the Python interpreter version
 
 Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. Using a text editor, open the METADATA file and check the **Classifiers:** section. If the section doesn't contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, or `Python :: 3.8`, this means the package version is either too old, or most likely, the package is already out of maintenance.
 
@@ -66,7 +73,7 @@ After the explorer loads, search for **LinuxFxVersion**, which shows the Python 
 
 See [Update your package to the latest version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
 
-### The package conflicts with other packages
+#### The package conflicts with other packages
 
 If you have verified that the package is resolved correctly with the proper Linux wheels, there may be a conflict with other packages. In certain packages, the PyPi documentations may clarify the incompatible modules. For example in [`azure 4.0.0`](https://pypi.org/project/azure/4.0.0/), there's a statement as follows:
 
@@ -78,7 +85,7 @@ You can find the documentation for your package version in `https://pypi.org/pro
 
 See [Update your package to the latest version](#update-your-package-to-the-latest-version) or [Replace the package with equivalents](#replace-the-package-with-equivalents) for mitigation.
 
-### The package only supports Windows or macOS platforms
+#### The package only supports Windows or macOS platforms
 
 Open the `requirements.txt` with a text editor and check the package in `https://pypi.org/project/<package-name>`. Some packages only run on Windows or macOS platforms. For example, pywin32 only runs on Windows.
 
@@ -86,44 +93,44 @@ The `Module Not Found` error may not occur when you're using Windows or macOS fo
 
 See [Replace the package with equivalents](#replace-the-package-with-equivalents) or [Handcraft requirements.txt](#handcraft-requirementstxt) for mitigation.
 
-## Mitigate ModuleNotFoundError
+### Mitigate ModuleNotFoundError
 
 The following are potential mitigations for module-related issues. Use the [diagnoses above](#diagnose-modulenotfounderror) to determine which of these mitigations to try.
 
-### Enable remote build
+#### Enable remote build
 
 Make sure that remote build is enabled. The way that you do this depends on your deployment method.
 
-# [Visual Studio Code](#tab/vscode)
+## [Visual Studio Code](#tab/vscode)
 Make sure that the latest version of the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) is installed. Verify that `.vscode/settings.json` exists and it contains the setting `"azureFunctions.scmDoBuildDuringDeployment": true`. If not, please create this file with the `azureFunctions.scmDoBuildDuringDeployment` setting enabled and redeploy the project.
 
-# [Azure Functions Core Tools](#tab/coretools)
+## [Azure Functions Core Tools](#tab/coretools)
 
 Make sure that the latest version of [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases) is installed. Go to your local function project folder, and use `func azure functionapp publish <app-name>` for deployment.
 
-# [Manual publishing](#tab/manual)
+## [Manual publishing](#tab/manual)
 
 If you're manually publishing your package into the `https://<app-name>.scm.azurewebsites.net/api/zipdeploy` endpoint, make sure that both **SCM_DO_BUILD_DURING_DEPLOYMENT** and **ENABLE_ORYX_BUILD** are set to **true**. To learn more, see [how to work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
 
 ---
 
-### Build native dependencies
+#### Build native dependencies
 
 Make sure that the latest version of both **docker** and [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools/releases) is installed. Go to your local function project folder, and use `func azure functionapp publish <app-name> --build-native-deps` for deployment.
 
-### Update your package to the latest version
+#### Update your package to the latest version
 
 Browse the latest package version in `https://pypi.org/project/<package-name>` and check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the Programming Language should contains `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, or `Python :: 3.8`.
 
 If these are correct, you can update the package to the latest version by changing the line `<package-name>~=<latest-version>` in requirements.txt.
 
-### Handcraft requirements.txt
+#### Handcraft requirements.txt
 
 Some developers use `pip freeze > requirements.txt` to generate the list of Python packages for their developing environments. Although this convenience should work in most cases, there can be issues in cross-platform deployment scenarios, such as developing functions locally on Windows or macOS, but publishing to a function app, which runs on Linux. In this scenario, `pip freeze` can introduce unexpected operating system-specific dependencies or dependencies for your local development environment. These dependencies can break the Python function app when running on Linux.
 
 The best practice is to check the import statement from each .py file in your project source code and only check-in those modules in requirements.txt file. This guarantees the resolution of packages can be handled properly on different operating systems.
 
-### Replace the package with equivalents
+#### Replace the package with equivalents
 
 First, we should take a look into the latest version of the package in `https://pypi.org/project/<package-name>`. Usually, this package has their own GitHub page, go to the **Issues** section on GitHub and search if your issue has been fixed. If so, update the package to the latest version.
 
@@ -131,9 +138,47 @@ Sometimes, the package may have been integrated into [Python Standard Library](h
 
 However, if you're facing an issue that it has not been fixed and you're on a deadline. I encourage you to do some research and find a similar package for your project. Usually, the Python community will provide you with a wide variety of similar libraries that you can use.
 
+---
+
+## Troubleshoot cygrpc module reference error
+
+This section helps you troubleshoot 'cygrpc' related errors in your Python function app. These errors typically result in the following Azure Functions error message:
+
+> `Cannot import name 'cygrpc' from 'grpc._cython'`
+
+This error issue occurs when a Python function app fails to start with a proper Python interpreter. The root cause for this error is one of the following issues:
+
+- [The Python interpreter mismatches OS architecture](#the-python-interpreter-mismatches-os-architecture)
+- [The Python interpreter is not supported by Azure Functions Python Worker](#the-python-interpreter-is-not-supported-by-azure-functions-python-worker)
+
+### Diagnose 'cygrpc' reference error
+
+#### The Python interpreter mismatches OS architecture
+
+This is most likely caused by a 32-bit Python interpreter is installed on your 64-bit operating system.
+
+If you're running on an x64 operating system, please ensure your Python 3.6, 3.7, or 3.8 interpreter is also on 64-bit version.
+
+You can check your Python interpreter bitness by the following commands:
+
+On Windows in PowerShell: `py -c 'import platform; print(platform.architecture()[0])'`
+
+On Unix-like shell: `python3 -c 'import platform; print(platform.architecture()[0])'`
+
+If there's a mismatch between Python interpreter bitness and operating system architecture, please download a proper Python interpreter from [Python Software Foundation](https://python.org/downloads/release).
+
+#### The Python interpreter is not supported by Azure Functions Python Worker
+
+The Azure Functions Python Worker only supports Python 3.6, 3.7, and 3.8.
+Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, or Python 3.8.x.
+
+If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, or 3.8 interpreter from [Python Software Foundation](https://python.org/downloads/release).
+
+---
+
 ## Next steps
 
-If you're unable to resolve your module-related issue, please report this to the Functions team:
+If you're unable to resolve your issue, please report this to the Functions team:
 
 > [!div class="nextstepaction"]
 > [Report an unresolved issue](https://github.com/Azure/azure-functions-python-worker/issues)
