@@ -50,11 +50,11 @@ Version 3.x/2.x of the tools uses the Azure Functions runtime that is built on .
 
 # [Windows](#tab/windows)
 
-The following steps use a Windows installer (MSI) to install Core Tools v3.x. You can also use [npm](https://www.npmjs.com/) or [Chocolatey](https://chocolatey.org/). For more information on other installers or other Core Tools versions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+The following steps use a Windows installer (MSI) to install Core Tools v3.x. You can also use [npm](https://www.npmjs.com/) or [Chocolatey](https://chocolatey.org/). For more information about other installers, which are required to install Core Tools v2.x, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Download and run the installer:
+1. Download and run the Core Tools installer, based on your version of Windows:
 
-    - [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended, VS Code debugging requires 64-bit)
+    - [v3.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2135274) (Recommended. [Visual Studio Code debugging](functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
     - [v3.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. If you don't plan to use [extension bundles](functions-bindings-register.md#extension-bundles), install the [.NET Core 3.x SDK for Windows](https://dotnet.microsoft.com/download).
