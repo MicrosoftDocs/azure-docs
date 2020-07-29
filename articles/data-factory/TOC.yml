@@ -732,6 +732,8 @@
       href: connector-troubleshoot-guide.md
     - name: Data Flows
       href: data-flow-troubleshoot-guide.md
+    - name: Copy Data tool
+      href: copy-data-tool-troubleshoot-guide.md
     - name: Self-hosted Integration Runtimes
       href: self-hosted-integration-runtime-troubleshoot-guide.md
     - name: Azure-SSIS Integration Runtime
