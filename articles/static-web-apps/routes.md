@@ -175,7 +175,7 @@ The `mimeTypes` object, listed at the same level as the `routes` array, allows y
 }
 ```
 
-In the example above, all files with the `js` extension are served with the `application/javascript` MIME type.
+In the example above, all files with the `.custom` extension are served with the `text/html` MIME type.
 
 The following considerations are important as you work with MIME types:
 
@@ -290,7 +290,7 @@ The following examples describe what happens when a request matches a rule.
 | _/unknown-folder_ | The _/custom-404.html_ file is served. |
 | Files with the `.custom` extension | Are served with the `text/html` MIME type |
 
-- All responses include the `content-security-policy` headers with a value of `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
+All responses include the `content-security-policy` headers with a value of `default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'`.
 
 <sup>1</sup> Route rules for API functions only support [redirects](#redirects) and [securing routes with roles](#securing-routes-with-roles).
 

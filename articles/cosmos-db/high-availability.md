@@ -22,7 +22,7 @@ Azure Cosmos DB transparently replicates your data across all the Azure regions 
 
 - Each partition across all the regions is replicated. Each region contains all the data partitions of an Azure Cosmos container and can accept writes and serve reads.  
 
-If your Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. Generally having an Azure Cosmos account in more than 2 regions improves the availability of your application and provides low latency across the associated regions. 
+If your Azure Cosmos account is distributed across *N* Azure regions, there will be at least *N* x 4 copies of all your data. Generally having an Azure Cosmos account in more than 2 regions improves the availability of your application and provides low latency across the associated regions. 
 
 ## SLAs for availability
 

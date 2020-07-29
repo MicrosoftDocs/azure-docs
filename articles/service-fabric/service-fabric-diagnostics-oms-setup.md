@@ -87,7 +87,7 @@ Azure Resource Manager detects that this command is an update to an existing res
 
 ## Deploy Azure Monitor logs with Azure PowerShell
 
-You can also deploy your log analytics resource via PowerShell by using the `New-AzOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
+You can also deploy your log analytics resource via PowerShell by using the `New-AzOperationalInsightsWorkspace` command. To use this method, make sure you have installed [Azure PowerShell](/powershell/azure/install-az-ps). Use this script to create a new Log Analytics workspace and add the Service Fabric solution to it: 
 
 ```powershell
 
@@ -119,5 +119,5 @@ You can also add other solutions or make other modifications to your Log Analyti
 
 ## Next steps
 * [Deploy the Log Analytics agent](service-fabric-diagnostics-oms-agent.md) onto your nodes to gather performance counters and collect docker stats and logs for your containers
-* Get familiarized with the [log search and querying](../log-analytics/log-analytics-log-searches.md) features offered as part of Azure Monitor logs
+* Get familiarized with the [log search and querying](../azure-monitor/log-query/log-query-overview.md) features offered as part of Azure Monitor logs
 * [Use View Designer to create custom views in Azure Monitor logs](../azure-monitor/platform/view-designer.md)

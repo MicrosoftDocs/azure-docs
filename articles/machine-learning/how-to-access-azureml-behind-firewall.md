@@ -5,12 +5,12 @@ description: 'Control access to Azure Machine Learning workspaces with Azure Fir
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 04/27/2020
-ms.custom: tracking-python
+ms.date: 07/17/2020
+ms.custom: how-to, tracking-python
 ---
 
 # Use workspace behind Azure Firewall for Azure Machine Learning
@@ -55,8 +55,9 @@ The hosts in this section are used to install Python packages. They are required
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **anaconda.com** | Used when installing conda packages |
-| **pypi.org** | Used when installing pip packages |
+| **anaconda.com** | Used to install default packages. |
+| **\*.anaconda.org** | Used to get repo data. |
+| **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
 
 ## R hosts
 

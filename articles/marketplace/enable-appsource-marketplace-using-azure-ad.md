@@ -1,13 +1,12 @@
 ---
 title: Integrate your Microsoft commercial marketplace offer with Azure Active Directory
 description: Use Azure Active Directory to authenticate your Microsoft AppSource and Azure Marketplace offers.
-author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/15/2020
-ms.author: dsindona
-
+author: keferna
+ms.author: keferna
+ms.date: 07/24/2020
 ---
 # Integrate your commercial marketplace listing with Azure Active Directory
 
@@ -35,10 +34,11 @@ The various commercial marketplace [listing options and offer types](determine-y
 | Containers  | N/A | N/A | N/A | No |
 | Consulting Services  | No | N/A | N/A | N/A |
 
-For more information about SaaS technical requirements, see [SaaS applications Offer Publishing Guide](marketplace-saas-applications-technical-publishing-guide.md).
+For more information about SaaS technical requirements, see [Azure AD and transactable SaaS offers in the commercial marketplace](./azure-ad-saas.md).
 
 ## Azure AD integration
 
+- For details about how to integrate Azure AD for your transactable software as a service (SaaS) offers, see [Azure AD and transactable SaaS offers in the commercial marketplace](./azure-ad-saas.md).
 - For information on how to enable single sign-on by integrating Azure AD into your listing, see [Azure Active Directory for developers](../active-directory/develop/index.yml).
 - To get details about Azure AD single sign-on, see [What is application access and single sign-on with Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md).
 

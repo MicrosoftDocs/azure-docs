@@ -184,7 +184,7 @@ The next template shows an example creating an Azure Batch Pool (the backend mac
 
 Finally, we have a template that acts similar to an orchestrator. This template is responsible for deploying the capability templates.
 
-You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) in a separate article.
+You can also find out more about [creating linked Azure Resource Manager templates](../azure-resource-manager/templates/deployment-tutorial-linked-template.md) in a separate article.
 
 ```json
 {

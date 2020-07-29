@@ -195,6 +195,10 @@ Follow these steps to clean up resources you no longer need.
 
 5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
 
+Want to optimize and save on your cloud spending?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
+
 ## Next steps
 
 To learn more about loading data into your SQL pool, continue to the [Load data into SQL pool](load-data-from-azure-blob-storage-using-polybase.md) article.

@@ -1,5 +1,5 @@
 ---
-title: Release notes
+title: 'Release notes: Azure Synapse Analytics (workspaces)'
 description: Release notes for Azure Synapse Analytics (workspaces) 
 services: synapse-analytics
 author: julieMSFT

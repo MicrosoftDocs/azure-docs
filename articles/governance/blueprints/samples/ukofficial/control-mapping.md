@@ -1,7 +1,7 @@
 ---
 title: UK OFFICIAL & UK NHS blueprint sample controls
 description: Control mapping of the UK OFFICIAL and UK NHS blueprint samples. Each control is mapped to one or more Azure Policies that assist with assessment.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
 ---
 # Control mapping of the UK OFFICIAL and UK NHS blueprint samples
@@ -37,6 +37,9 @@ definitions that audit insecure connections to storage accounts and Redis Cache.
 - Secure transfer to storage accounts should be enabled
 - Show audit results from Windows web servers that are not using secure communication protocols
 - Deploy prerequisites to audit Windows web servers that are not using secure communication protocols
+- Web Application should only be accessible over HTTPS
+- Function App should only be accessible over HTTPS
+- API App should only be accessible over HTTPS
 
 ## 2.3 Data at rest protection
 
@@ -144,33 +147,33 @@ This blueprint also assigns an Azure Policy definition that audits Linux VM pass
 permissions to alert if they're set incorrectly. This design enables you to take corrective action
 to ensure authenticators aren't compromised.
 
-- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
+- Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
 
 This blueprint helps you enforce strong passwords by assigning Azure Policy definitions that
 audit Windows VMs that don't enforce minimum strength and other password requirements. Awareness of
 VMs in violation of the password strength policy helps you take corrective actions to ensure
 passwords for all VM user accounts are compliant with policy.
 
-- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
-- \[Preview\]: Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
-- \[Preview\]: Show audit results from Windows VMs that do not have the password complexity setting enabled
-- \[Preview\]: Show audit results from Windows VMs that do not have a maximum password age of 70 days
-- \[Preview\]: Show audit results from Windows VMs that do not have a minimum password age of 1 day
-- \[Preview\]: Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
-- \[Preview\]: Show audit results from Windows VMs that allow re-use of the previous 24 passwords
+- Deploy prerequisites to audit Windows VMs that do not have the password complexity setting enabled
+- Deploy prerequisites to audit Windows VMs that do not have a maximum password age of 70 days
+- Deploy prerequisites to audit Windows VMs that do not have a minimum password age of 1 day
+- Deploy prerequisites to audit Windows VMs that do not restrict the minimum password length to 14 characters
+- Deploy prerequisites to audit Windows VMs that allow re-use of the previous 24 passwords
+- Show audit results from Windows VMs that do not have the password complexity setting enabled
+- Show audit results from Windows VMs that do not have a maximum password age of 70 days
+- Show audit results from Windows VMs that do not have a minimum password age of 1 day
+- Show audit results from Windows VMs that do not restrict the minimum password length to 14 characters
+- Show audit results from Windows VMs that allow re-use of the previous 24 passwords
 
 This blueprint also helps you control access to Azure resources by assigning Azure Policy
 definitions. These policies audit use of resource types and configurations that may allow more
 permissive access to resources. Understanding resources that are in violation of these policies can
 help you take corrective actions to ensure access Azure resources is restricted to authorized users.
 
-- \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
-- \[Preview\]: Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
-- \[Preview\]: Show audit results from Linux VMs that have accounts without passwords
-- \[Preview\]: Show audit results from Linux VMs that allow remote connections from accounts without passwords
+- Deploy requirements to audit Linux VMs that have accounts without passwords
+- Deploy requirements to audit Linux VMs that allow remote connections from accounts without passwords
+- Show audit results from Linux VMs that have accounts without passwords
+- Show audit results from Linux VMs that allow remote connections from accounts without passwords
 - Storage accounts should be migrated to new Azure Resource Manager resources
 - Virtual machines should be migrated to new Azure Resource Manager resources
 - Audit VMs that do not use managed disks
@@ -192,56 +195,6 @@ also assigns a policy that enables adaptive application controls on virtual mach
 - Remote debugging should be turned off for Function App
 - Remote debugging should be turned off for Web Application
 - Remote debugging should be turned off for API App
-- Web Application should only be accessible over HTTPS
-- Function App should only be accessible over HTTPS
-- API App should only be accessible over HTTPS
-
-## 12 Secure Service Administration
-
-Azure implements role-based access control (RBAC) to helps you manage who has access to resources in
-Azure. Using the Azure portal, you can review who has access to Azure resources and their
-permissions. This blueprint helps you restrict and control privileged access rights by assigning
-five [Azure Policy](../../../policy/overview.md) definitions to audit external accounts with owner
-and/or write permissions and accounts with owner, and/or write permissions that do not have
-multi-factor authentication enabled.
-
-Systems used for administration of a cloud service will have highly privileged access to that
-service. Their compromise would have significant impact, including the means to bypass security
-controls and steal or manipulate large volumes of data. The methods used by the service provider's
-administrators to manage the operational service should be designed to mitigate any risk of
-exploitation that could undermine the security of the service. If this principle isn't implemented,
-an attacker may have the means to bypass security controls and steal or manipulate large volumes of
-data.
-
-- MFA should be enabled on accounts with owner permissions on your subscription
-- MFA should be enabled accounts with write permissions on your subscription
-- External accounts with owner permissions should be removed from your subscription
-- External accounts with write permissions should be removed from your subscription
-
-This blueprint assigns Azure Policy definitions to audit use of Azure Active Directory
-authentication for SQL servers and Service Fabric. Using Azure Active Directory authentication
-enables simplified permission management and centralized identity management of database users and
-other Microsoft services.
-
-- An Azure Active Directory administrator should be provisioned for SQL servers
-- Service Fabric clusters should only use Azure Active Directory for client authentication
-
-This blueprint also assigns Azure Policy definitions to audit accounts that should be
-prioritized for review, including depreciated accounts and external accounts with elevated
-permissions. When needed, accounts can be blocked from signing in (or removed), which immediately
-removes access rights to Azure resources. This blueprint assigns two Azure Policy definitions to
-audit depreciated account that should be considered for removal.
-
-- Deprecated accounts should be removed from your subscription
-- Deprecated accounts with owner permissions should be removed from your subscription
-- External accounts with owner permissions should be removed from your subscription
-- External accounts with write permissions should be removed from your subscription
-
-This blueprint also assigns an Azure Policy definition that audits Linux VM password file
-permissions to alert if they're set incorrectly. This design enables you to take corrective action
-to ensure authenticators aren't compromised.
-
-- \[Preview\]: Show audit results from Linux VMs that do not have the passwd file permissions set to 0644
 
 ## 13 Audit Information for Users
 

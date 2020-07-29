@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: View the list of applications that are using your Azure Active Directory (Azure AD) tenant for identity management
 
-Get started using Azure AD as your Identity and Authorization Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already set up to use Azure AD tenant as their identity provider.
+Get started using Azure AD as your Identity and Access Management (IAM) system for the applications your organization uses. In this quickstart you will view the applications, also known as apps, that are already set up to use Azure AD tenant as their identity provider.
 
 ## Prerequisites
 

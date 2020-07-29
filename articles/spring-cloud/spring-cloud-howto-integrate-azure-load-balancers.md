@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
+ms.custom: devx-track-java
 ---
 
 # Integrate Azure Spring Cloud with Azure Load Balance Solutions

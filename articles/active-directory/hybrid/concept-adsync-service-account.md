@@ -41,9 +41,9 @@ Microsoft recommends running the ADSync service in the context of either a Virtu
 - managed service account – use a standalone or group MSA provisioned by your administrator
 - domain account – use a domain service account provisioned by your administrator
 
-![](media/concept-adsync-service-account/adsync1.png)
+![Screenshot of the Azure AD Connect Express Settings page with "Customize" or "Use express settings" option buttons.](media/concept-adsync-service-account/adsync1.png)
 
-![](media/concept-adsync-service-account/adsync2.png)
+![Screenshot of Azure AD Connect "Install required components" page with the option to use an existing Managed Service Account selected.](media/concept-adsync-service-account/adsync2.png)
 
 ## Diagnosing ADSync service account changes
 Changing the credentials for the ADSync service after installation will result in the service failing to start, losing access to the synchronization database, and failing to authenticate with your connected directories (Azure and AD DS).  Granting database access to the new ADSync service account is insufficient to recover from this issue. No synchronization will occur until the original credentials are restored.

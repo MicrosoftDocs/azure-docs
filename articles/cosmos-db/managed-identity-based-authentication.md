@@ -49,6 +49,8 @@ In this step, you'll assign a role to the function app's system-assigned managed
 
 In this scenario, the function app will read the temperature of the aquarium, then write back that data to a container in Azure Cosmos DB. Because the function app must write the data, you'll need to assign the **DocumentDB Account Contributor** role. 
 
+### Assign the role using Azure portal
+
 1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane and then the **Role assignments** tab:
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot showing the Access control pane and the Role assignments tab.":::
@@ -66,6 +68,18 @@ In this scenario, the function app will read the temperature of the aquarium, th
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot showing the Add role assignment pane populated with examples.":::
 
 1. After you have selected your function app, select **Save**.
+
+### Assign the role using Azure CLI
+
+To assign the role by using Azure CLI, use the following commands:
+
+```azurecli-interactive
+$scope = az cosmosdb show --name '<Your_Azure_Cosmos_account_name>' --resource-group '<CosmosDB_Resource_Group>' --query id
+
+$principalId = az webapp identity show -n '<Your_Azure_Function_name>' -g '<Azure_Function_Resource_Group>' --query principalId
+
+az role assignment create --assignee $principalId --role "DocumentDB Account Contributor" --scope $scope
+```
 
 ## Programmatically access the Azure Cosmos DB keys
 

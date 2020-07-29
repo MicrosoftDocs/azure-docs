@@ -66,7 +66,8 @@ As an admin in the Active Directory, connect to your on-premises network, open P
     > [!NOTE]
     > The reason for changing a user’s password twice is to mitigate the risk of pass-the-hash, especially if there are delays in on-premises password replication. If you can safely assume this account isn't compromised, you may reset the password only once.
 
-    Don't use the example passwords in the following cmdlets. Be sure to change the passwords to a random string.
+    > [!IMPORTANT] 
+    > Don't use the example passwords in the following cmdlets. Be sure to change the passwords to a random string.
 
     ```PowerShell
     Set-ADAccountPassword -Identity johndoe -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "p@ssw0rd1" -Force)

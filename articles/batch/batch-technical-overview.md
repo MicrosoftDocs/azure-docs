@@ -29,7 +29,7 @@ Some examples of intrinsically parallel workloads you can bring to Batch:
 * Data ingestion, processing, and ETL operations
 * Software test execution
 
-You can also use Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](/message-passing-interface/microsoft-mpi) or Intel MPI. Improve application performance with specialized [HPC](../virtual-machines/linux/sizes-hpc.md) and [GPU-optimized](../virtual-machines/linux/sizes-gpu.md) VM sizes.
+You can also use Batch to [run tightly coupled workloads](batch-mpi.md); these are workloads where the applications you run need to communicate with each other, as opposed to run independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](/message-passing-interface/microsoft-mpi) or Intel MPI. Improve application performance with specialized [HPC](../virtual-machines/sizes-hpc.md) and [GPU-optimized](../virtual-machines/sizes-gpu.md) VM sizes.
 
 Some examples of tightly coupled workloads:
 * Finite element analysis
@@ -78,4 +78,3 @@ Get started with Azure Batch with one of these quickstarts:
 * [Run your first Batch job with the Azure portal](quick-create-portal.md)
 * [Run your first Batch job using the .NET API](quick-run-dotnet.md)
 * [Run your first Batch job using the Python API](quick-run-python.md)
-

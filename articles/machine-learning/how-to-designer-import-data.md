@@ -1,16 +1,15 @@
 ---
-title: Import data
+title: Import data into the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to import data into Azure Machine Learning designer from various data sources.
+description: Learn how to import data into Azure Machine Learning designer (preview) from various data sources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.custom: designer
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Import data into Azure Machine Learning designer (preview)
@@ -19,6 +18,8 @@ In this article, you learn how to import your own data in the designer to create
 
 * **Azure Machine Learning datasets** - Register [datasets](concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
 * **Import Data module** - Use the [Import Data](algorithm-module-reference/import-data.md) module to directly access data from online datasources.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Use Azure Machine Learning datasets
 

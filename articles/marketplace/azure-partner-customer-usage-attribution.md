@@ -1,12 +1,13 @@
 ---
 title: Commercial Marketplace partner and customer usage attribution
 description: Get an overview of tracking customer usage for Azure Marketplace solutions.
-author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
+author: vikrambmsft
+ms.author: vikramb
 ms.date: 04/14/2020
-ms.author: dsindona
+ms.custom: devx-track-terraform
 ---
 
 # Commercial Marketplace partner and customer usage attribution

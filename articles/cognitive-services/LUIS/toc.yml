@@ -106,9 +106,6 @@
       href: luis-concept-test.md
     - name: Batch testing
       href: luis-concept-batch-test.md
-  - name: Authoring and runtime keys
-    displayName: shared, transfer, ownership, author, access, import
-    href: luis-concept-keys.md
   - name: Data management
     items:
     - name: Altering data

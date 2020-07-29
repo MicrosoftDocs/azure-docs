@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
 ms.author: pasta
+ms.custom: devx-track-javascript
 ---
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
@@ -300,7 +301,8 @@ When you click on the "Immersive Reader" button, you'll see the Immersive Reader
 
 ## Next steps
 
-* View the [Node.js quickstart](../../quickstart-nodejs.md) to see what else you can do with the Immersive Reader client library using Node.js
+* View the [Node.js quickstart](../../tutorial-nodejs.md) to see what else you can do with the Immersive Reader client library using Node.js
+* View the [Android tutorial](../../tutorial-android.md) to see what else you can do with the Immersive Reader SDK using Java or Kotlin for Android
+* View the [iOS tutorial](../../tutorial-ios.md) to see what else you can do with the Immersive Reader SDK using Swift for iOS
 * View the [Python tutorial](../../tutorial-python.md) to see what else you can do with the Immersive Reader client library using Python
-* View the [iOS tutorial](../../tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader client library using Swift
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](../../reference.md)

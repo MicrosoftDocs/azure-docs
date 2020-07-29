@@ -20,33 +20,20 @@ ms.author: yexu
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-When you move data from source to destination store, Azure Data Factory copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent data have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent data. You can get the skipped object names by enabling session log setting in copy activity. 
+When you move data from source to destination store, Azure Data Factory copy activity provides an option for you to do additional data consistency verification to ensure the data is not only successfully copied from source to destination store, but also verified to be consistent between source and destination store. Once inconsistent files have been found during the data movement, you can either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. You can get the skipped file names by enabling session log setting in copy activity. 
 
 > [!IMPORTANT]
 > This feature is currently in preview with the following limitations we are actively working on:
->- Data consistency verification is available only on binary files copying between file-based stores with 'PreserveHierarchy' behavior in copy activity. For copying tabular data, data consistency verification is not available in copy activity yet.
 >- When you enable session log setting in copy activity to log the inconsistent files being skipped, the completeness of log file can not be 100% guaranteed if copy activity failed.
 >- The session log contains inconsistent files only, where the successfully copied files are not logged so far.
 
-## Supported data stores
+## Supported data stores and scenarios
 
-### Source data stores
-
--   [Azure Blob storage](connector-azure-blob-storage.md)
--   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure File Storage](connector-azure-file-storage.md)
--   [Amazon S3](connector-amazon-simple-storage-service.md)
--   [File System](connector-file-system.md)
--   [HDFS](connector-hdfs.md)
-
-### Destination data stores
-
--   [Azure Blob storage](connector-azure-blob-storage.md)
--   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
--   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
--   [Azure File Storage](connector-azure-file-storage.md)
--   [File System](connector-file-system.md)
+-   Data consistency verification is supported by all the connectors except FTP, sFTP, and HTTP. 
+-   Data consistency verification is not supported in staging copy scenario.
+-   When copying binary files, data consistency verification is only available when 'PreserveHierarchy' behavior is set in copy activity.
+-   When copying multiple binary files in single copy activity with data consistency verification enabled, you have an option to either abort the copy activity or continue to copy the rest by enabling fault tolerance setting to skip inconsistent files. 
+-   When copying a table in single copy activity with data consistency verification enabled, copy activity fails if the number of rows read from the source is different from the number of rows copied to the destination plus the number of incompatible rows that were skipped.
 
 
 ## Configuration
@@ -83,16 +70,15 @@ The following example provides a JSON definition to enable data consistency veri
 
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | -------- 
-validateDataConsistency | If you set true for this property, copy activity will check file size, lastModifiedDate, and MD5 checksum for each object copied from source to destination store to ensure the data consistency between source and destination store. Be aware the copy performance will be affected by enabling this option.  | True<br/>False (default) | No
-dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent data.<br/> -True: you want to copy the rest by skipping inconsistent data.<br/> - False: you want to abort the copy activity once inconsistent data found.<br/>Be aware this property is only valid when you set validateDataConsistency as True.  | True<br/>False (default) | No
-logStorageSettings | A group of properties that can be specified to enable session log to log skipped objects. | | No
+validateDataConsistency | If you set true for this property, when copying binary files, copy activity will check file size, lastModifiedDate, and MD5 checksum for each binary file copied from source to destination store to ensure the data consistency between source and destination store. When copying tabular data, copy activity will check the total row count after job completes to ensure the total number of rows read from the source is same as the number of rows copied to the destination plus the number of incompatible rows that were skipped. Be aware the copy performance will be affected by enabling this option.  | True<br/>False (default) | No
+dataInconsistency | One of the key-value pairs within skipErrorFile property bag to determine if you want to skip the inconsistent files. <br/> -True: you want to copy the rest by skipping inconsistent files.<br/> - False: you want to abort the copy activity once inconsistent file found.<br/>Be aware this property is only valid when you are copying binary files and set validateDataConsistency as True.  | True<br/>False (default) | No
+logStorageSettings | A group of properties that can be specified to enable session log to log skipped files. | | No
 linkedServiceName | The linked service of [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) or [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) to store the session log files. | The names of an `AzureBlobStorage` or `AzureBlobFS` types linked service, which refers to the instance that you use to store the log files. | No
 path | The path of the log files. | Specify the path that you want to store the log files. If you do not provide a path, the service creates a container for you. | No
 
 >[!NOTE]
->- Data consistency is not supported in staging copy scenario. 
->- When copying files from, or to Azure Blob or Azure Data Lake Storage Gen2, ADF does block level MD5 checksum verification leveraging [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) and [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, ADF does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, ADF writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
->- ADF does file size verification when copying files between any storage stores.
+>- When copying binary files from, or to Azure Blob or Azure Data Lake Storage Gen2, ADF does block level MD5 checksum verification leveraging [Azure Blob API](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions?view=azure-dotnet-legacy) and [Azure Data Lake Storage Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update#request-headers). If ContentMD5 on files exist on Azure Blob or Azure Data Lake Storage Gen2 as data sources, ADF does file level MD5 checksum verification after reading the files as well. After copying files to Azure Blob or Azure Data Lake Storage Gen2 as data destination, ADF writes ContentMD5 to Azure Blob or Azure Data Lake Storage Gen2 which can be further consumed by downstream applications for data consistency verification.
+>- ADF does file size verification when copying binary files between any storage stores.
 
 ## Monitoring
 

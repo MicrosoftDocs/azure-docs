@@ -1,11 +1,11 @@
 ---
 title: Common issues during VHD creation (FAQ)
 description: Frequently asked questions about common issues when creating a virtual hard disk (VHD).
-author: emuench
-ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/09/2020
 ---
 

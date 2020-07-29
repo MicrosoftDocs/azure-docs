@@ -41,7 +41,7 @@
     href: ./concepts/managed-applications.md
 - name: How-to guides
   items:
-  - name: Onboard a customer to Azure delegated resource management
+  - name: Onboard a customer to Azure Lighthouse
     displayName: resource management
     href: ./how-to/onboard-customer.md
   - name: Publish Managed Service offers to Azure Marketplace 

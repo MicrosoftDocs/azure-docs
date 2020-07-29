@@ -1,12 +1,12 @@
 ---
 title: SaaS fulfillment API FAQ - Microsoft commercial marketplace
 description: Learn about several of the integration requirements for the Microsoft commercial marketplace to enable Azure customers to subscribe to SaaS offers.
-author: dsindona
-ms.author: dsindona 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
+author: mingshen-ms
+ms.author: mingshen
 ---
 
 # Common questions about SaaS fulfillment APIs
