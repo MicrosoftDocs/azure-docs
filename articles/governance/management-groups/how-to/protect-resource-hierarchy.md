@@ -38,7 +38,7 @@ both use cases.
 
 By allowing the default management group for new subscriptions to be defined, organization-wide
 governance constructs can be applied at the root management group, and a separate management group
-with policy assignments or RBAC assignments more suited to a new subscription can be defined.
+with policy assignments or Azure role assignments more suited to a new subscription can be defined.
 
 To configure this setting, the [Hierarchy Settings](/rest/api/resources/hierarchysettings) REST API
 endpoint is called. To do so, use the following REST API URI and body format. Replace `{rootMgID}`
