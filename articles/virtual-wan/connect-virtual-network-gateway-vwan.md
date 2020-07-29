@@ -35,11 +35,13 @@ Create a **VPN Gateway** virtual network gateway in active-active mode for your 
 
 ### <a name="active-active"></a>Active-active mode setting
 
+On the Virtual network gateway **Configuration** page, enable active-active mode.
+
 ![active-active](./media/connect-virtual-network-gateway-vwan/active.png "active-active")
 
 ### <a name="BGP"></a>BGP setting
 
-The BGP ASN cannot be 65515. 66515 will be used by Azure Virtual WAN.
+On the Virtual network gateway **Configuration** page, you can configure the **BGP ASN**. Change the BGP ASN. The BGP ASN cannot be 65515. 66515 will be used by Azure Virtual WAN.
 
 ![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
