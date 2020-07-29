@@ -36,10 +36,11 @@ Some monitoring of Azure resources is available automatically with no configurat
 ### No configuration
 The following features of Azure Monitor are enabled with no configuration required when you create an Azure subscription. There is no cost associated with this monitoring.
 
+[Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) - Provides tenant-level history of sign-in activity and audit trail of changes made in Azure Active Directory. See [Audit activity reports in the Azure Active Directory portal](../active-directory/reports-monitoring/concept-audit-logs.md) and [Sign-in activity reports in the Azure Active Directory portal](../active-directory/reports-monitoring/concept-sign-ins.md) for details of the Azure Active Directory logs and how to view them in the Azure portal.
+
 [Activity log](platform/platform-logs-overview.md) - Provides insight into subscription-level events that have occurred in Azure. Events are automatically written to the Activity log when you create a new Azure resource, modify a resource, or perform a significant activity. You can view events in the Azure portal and create Activity log alerts when particular events are created. See [Azure Activity log](platform/activity-log.md) for details of the Activity log and how to view it in the Azure portal.
 
 [Platform metrics](platform/metrics-supported.md) - Collected automatically from Azure services into [Azure Monitor Metrics](platform/data-platform-metrics.md). This data is often presented on the **Overview** page in the Azure portal for different services. Metrics can be analyzed using [Metrics explorer](platform/metrics-getting-started.md) and can also be used for [metrics alerts](platform/alerts-metric-overview.md). 
-
 
 
 ### Create Log Analytics workspace
@@ -49,10 +50,10 @@ There is no cost for creating a Log Analytics workspace, but there is a potentia
 
 See [Create a Log Analytics workspace in the Azure portal](learn/quick-create-workspace.md) to create an initial Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](platform/manage-access.md) to configure access to the workspace. 
 
-### Create diagnostic setting to collect subscription and tenant logs
-While the [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [Activity log](platform/platform-logs-overview.md) for your subscription are collected automatically, sending them to a Log Analytics workspace enables you to analyze these events with other log data using log queries in Log Analytics and to create log query alerts which provide more complex logic than Activity log alerts. 
+### Create diagnostic setting to collect tenant and subscription logs
+While the [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) for your tenant and the [Activity log](platform/platform-logs-overview.md) for your subscription are collected automatically, sending them to a Log Analytics workspace enables you to analyze these events with other log data using log queries in Log Analytics. This also allows you to create log query alerts which is the only way to alert on Azure Active Directory logs and provide more complex logic than Activity log alerts.
 
-There's no cost for this collection. 
+There's no cost for sending the Activity log to a workspace, but there is a data ingestion and retention charge for Azure Active Directory logs. 
 
 See [Integrate Azure AD logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) and [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) to create a diagnostic setting for your tenant and subscription to send log entries to your Log Analytics workspace. 
 
