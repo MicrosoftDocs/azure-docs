@@ -1,5 +1,5 @@
 ---
-title: Paging in Azure Cosmos DB
+title: Pagination in Azure Cosmos DB
 description: Learn about paging concepts and continuation tokens
 author: timsander1
 ms.author: tisande
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ---
 
-# Paging in Azure Cosmos DB
+# Pagination in Azure Cosmos DB
 
 In Azure Cosmos DB, queries may have multiple pages of results. This document explains criteria that Azure Cosmos DB's query engine uses to decide whether to split query results into multiple pages. You can optionally use continuation tokens to manage query results that span multiple pages.
 

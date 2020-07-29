@@ -34,7 +34,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
   Both the `OFFSET` count and the `LIMIT` count are required in the `OFFSET LIMIT` clause. If an optional `ORDER BY` clause is used, the result set is produced by doing the skip over the ordered values. Otherwise, the query will return a fixed order of values.
 
-  The RU charge of a query with `OFFSET LIMIT` will increase as the number of terms being offset increases. For queries that have [multiple pages of results](sql-query-paging.md), we typically recommend using [continuation tokens](sql-query-paging.md#continuation-tokens). Continuation tokens are a "bookmark" for the place where the query can later resume. If you use `OFFSET LIMIT`, there is no "bookmark". If you wanted to return the query's next page, you would have to start from the beginning.
+  The RU charge of a query with `OFFSET LIMIT` will increase as the number of terms being offset increases. For queries that have [multiple pages of results](sql-query-pagination.md), we typically recommend using [continuation tokens](sql-query-pagination.md#continuation-tokens). Continuation tokens are a "bookmark" for the place where the query can later resume. If you use `OFFSET LIMIT`, there is no "bookmark". If you wanted to return the query's next page, you would have to start from the beginning.
   
   You should use `OFFSET LIMIT` for cases when you would like to skip items entirely and save client resources. For example, you should use `OFFSET LIMIT` if you want to skip to the 1000th query result and have no need to view results 1 through 999. On the backend, `OFFSET LIMIT` still loads each item, including those that are skipped. The performance advantage is a savings in client resources by avoiding processing items that are not needed.
 
