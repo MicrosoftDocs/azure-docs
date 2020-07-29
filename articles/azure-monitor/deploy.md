@@ -54,7 +54,7 @@ While the [Azure Active Directory logs](../active-directory/reports-monitoring/o
 
 There's no cost for this collection. 
 
-See [Integrate Azure AD logs with Azure Monitor logs](..active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) and [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) to create a diagnostic setting for your tenant and subscription to send log entries to your Log Analytics workspace. 
+See [Integrate Azure AD logs with Azure Monitor logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) and [Create diagnostic settings to send platform logs and metrics to different destinations](platform/diagnostic-settings.md) to create a diagnostic setting for your tenant and subscription to send log entries to your Log Analytics workspace. 
 
 ### Create diagnostic setting to collect resource logs and platform metrics
 Resources in Azure automatically generate [resource logs](platform/platform-logs-overview.md) that provide details of operations performed within the resource. Unlike platform metrics though, you need to configure resource logs to be collected. A diagnostic setting sends them to a Log Analytics workspace to combine it with the other data used with Azure Monitor Logs. The same diagnostic setting can be used for most resources to also send their platform metrics to the same workspace, which allows you to analyze metric data using log queries with other collected data.
