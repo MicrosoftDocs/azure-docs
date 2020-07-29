@@ -98,7 +98,6 @@ The Azure training lifecycle consists of:
         - The base image 
         - Custom docker steps (see [Deploy a model using a custom Docker base image](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
         - The conda definition YAML (see [Create & use software environments in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
-        - The spark definition `spark-defaults.conf`
     1. The system uses this hash as the key in a lookup of the workspace Azure Container Registry (ACR)
     1. If it is not found, it looks for a match in the global ACR
     1. If it is not found, the system builds a new image (which will be cached and registered with the workspace ACR)
