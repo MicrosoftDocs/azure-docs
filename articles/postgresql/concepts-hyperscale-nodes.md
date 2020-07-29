@@ -25,13 +25,16 @@ send their queries to the coordinator node, which relays it to the relevant
 workers and accumulates their results. Applications are not able to connect
 directly to workers.
 
-For each query, the coordinator either routes it to a single worker node, or
-parallelizes it across several depending on whether the required data lives on
-a single node or multiple. The coordinator decides what to do by consulting
-metadata tables. These tables track the DNS names and health of worker
-nodes, and the distribution of data across nodes.
+Hyperscale (Citus) allows the database administrator to *distribute* tables,
+storing different rows on different worker nodes. Distributed tables are the
+key to Hyperscale peformance. Failing to distribute tables leaves them entirely
+on the coordinator node and cannot take advantage of cross-machine parallelism.
 
-[!INCLUDE [azure-postgresql-hyperscale-dist-alert](../../includes/azure-postgresql-hyperscale-dist-alert.md)]
+For each query on distributed tables, the coordinator either routes it to a
+single worker node, or parallelizes it across several depending on whether the
+required data lives on a single node or multiple. The coordinator decides what
+to do by consulting metadata tables. These tables track the DNS names and
+health of worker nodes, and the distribution of data across nodes.
 
 ## Next steps
-- Learn the ways you can [distribute data](concepts-hyperscale-distributed-data.md) across nodes
+- Learn about [distributed tables](concepts-hyperscale-distributed-data.md)
