@@ -26,7 +26,7 @@ You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-
 |Azure API for FHIR resource has Private Link enabled.  Private Link is not supported with IoT Connector|Attempting to add an Azure IoT Connector for FHIR connector to an Azure API for FHIR resource that has private link enabled|Select or create an Azure API for FHIR resource (version R4) which does not have private link enabled|
 |IoT Connector not provisioned|Attempting to use child services (connections & mappings) when parent (Azure IoT Connector for FHIR connector) hasn't been provisioned|Provision an Azure IoT Connector for FHIR connector|
 |The request is not supported|Specific API request isn't supported|Use the correct API request|
-|Account does not exist|Attempting to add an IoT Connector and the Azure API for FHIR resource doesn't exist|Create the Azure API for FHIR resource and then reattempt the operation|
+|Account does not exist|Attempting to add an Azure IoT Connector for FHIR connector and the Azure API for FHIR resource doesn't exist|Create the Azure API for FHIR resource and then reattempt the operation|
 |Azure API for FHIR resource FHIR version is not supported for IoT Connector|Attempting to use an Azure IoT Connector for FHIR connector with an incompatible version of the Azure API for FHIR resource|Create a new Azure API for FHIR resource (version R4) or use an existing Azure API for FHIR resource (version R4)
 
 ## Creating copies of the Azure IoT Connector for FHIR mapping files
