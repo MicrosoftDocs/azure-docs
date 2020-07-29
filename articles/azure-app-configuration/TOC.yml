@@ -4,6 +4,8 @@
   items:
     - name: About Azure App Configuration
       href: overview.md
+    - name: Best practices
+      href: howto-best-practices.md
     - name: FAQ
       href: faq.md
 - name: Quickstarts
@@ -111,8 +113,6 @@
       href: howto-app-configuration-event.md
     - name: Backup configuration store automatically
       href: howto-backup-config-store.md
-    - name: Best practices
-      href: howto-best-practices.md
 - name: Reference
   items:
     - name: Configuration
