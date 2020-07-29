@@ -32,7 +32,7 @@ ms.author: anfeldma
 |---------|---------|
 |Download SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |API Documentation  |  [JavaScript SDK reference documentation](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
-|SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-cosmos-js#installation)
+|SDK installation instructions  |  [Installation instructions](https://github.com/Azure/azure-sdk-for-js)
 |Contribute to SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Samples | [Node.js code samples](sql-api-nodejs-samples.md)
 | Getting started tutorial | [Get started with the JavaScript SDK](sql-api-nodejs-get-started.md)

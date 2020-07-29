@@ -93,11 +93,11 @@ After creating the Recovery Services vault, the next step is to configure the va
 
      After creating the backup policy, associate the policy with the virtual machines.
 
-1. Under **Virtual Machines**, select **Add".
+1. Under **Virtual Machines**, select **Add**.
 
      ![Add virtual machines](./media/tutorial-backup-vm-at-scale/add-virtual-machines.png)
 
-1. The **Select virtual machines** pane will open. select *myVM* and select **OK** to deploy the backup policy to the virtual machines.
+1. The **Select virtual machines** pane will open. Select *myVM* and select **OK** to deploy the backup policy to the virtual machines.
 
     All virtual machines that are in the same location, and aren't already associated with a backup policy, appear. *myVMH1* and *myVMR1* are selected to be associated with the *Finance* policy.
 

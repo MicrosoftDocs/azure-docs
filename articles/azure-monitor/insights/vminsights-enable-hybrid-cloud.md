@@ -20,7 +20,7 @@ Before you get started, be sure to review the [prerequisites](vminsights-enable-
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 >[!NOTE]
->The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../../azure-monitor/platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
+>The Azure Monitor for VMs Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports. The Map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [Operations Management Suite gateway](../platform/gateway.md) if your IT security policies don't allow computers on the network to connect to the internet.
 
 The steps to complete this task are summarized as follows:
 
@@ -141,7 +141,7 @@ configuration VMInsights {
 ## Enable performance counters
 
 If the Log Analytics workspace that's referenced by the solution isn't already configured to collect the performance counters required by the solution, you need to enable them. You can do so in one of two ways:
-* Manually, as described in [Windows and Linux performance data sources in Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
+* Manually, as described in [Windows and Linux performance data sources in Log Analytics](../platform/data-sources-performance-counters.md)
 * By downloading and running a PowerShell script that's available from the [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
 ## Deploy Azure Monitor for VMs
@@ -255,3 +255,4 @@ Now that monitoring is enabled for your virtual machines, this information is av
 - To view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).
 
 - To identify bottlenecks and overall utilization with your VM's performance, see [View Azure VM performance](vminsights-performance.md).
+

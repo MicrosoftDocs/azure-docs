@@ -4,8 +4,8 @@ description: How to create a new Managed Service offer for listing in Azure Mark
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs 
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
 ---
 
