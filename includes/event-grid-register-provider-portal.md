@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: event-grid
- author: tfitzmac
+ author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 07/05/2018
- ms.author: tomfitz
+ ms.date: 04/16/2020
+ ms.author: spelluru
  ms.custom: include file
 ---
 
@@ -16,9 +16,9 @@ If you haven't previously used Event Grid in your Azure subscription, you may ne
 
 In the Azure portal:
 
-1. Select **Subscriptions**.
+1. Select **Subscriptions** on the left menu.
 1. Select the subscription you're using for Event Grid.
-1. Under **Settings**, select **Resource providers**.
+1. On the left menu, under **Settings**, select **Resource providers**.
 1. Find **Microsoft.EventGrid**.
 1. If not registered, select **Register**. 
 

@@ -34,6 +34,9 @@ This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to 
 
 ## Enable application logging (Windows)
 
+> [!NOTE]
+> Application logging for blob storage can only use storage accounts in the same region as the App Service
+
 To enable application logging for Windows apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
 
 Select **On** for either **Application Logging (Filesystem)** or **Application Logging (Blob)**, or both. 
@@ -183,8 +186,10 @@ The following table shows the supported log types and descriptions:
 | AppServiceHTTPLogs | Yes | Yes | Web server logs |
 | AppServiceEnvironmentPlatformLogs | Yes | Yes | App Service Environment: scaling, configuration changes, and status logs|
 | AppServiceAuditLogs | Yes | Yes | Login activity via FTP and Kudu |
-| AppServiceFileAuditLogs | TBA | Yes | File changes via FTP and Kudu |
+| AppServiceFileAuditLogs | Yes | TBD | File changes via FTP and Kudu |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Application logs |
+| AppServiceIPSecAuditLogs  | Yes | Yes | Requests from IP Rules |
+| AppServicePlatformLogs  | TBA | Yes | Container logs |
 
 ## <a name="nextsteps"></a> Next steps
 * [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

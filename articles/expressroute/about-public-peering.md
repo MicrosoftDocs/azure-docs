@@ -173,7 +173,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    The response is similar to the following example:
 
-   ```azurecli
+   ```output
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
@@ -235,7 +235,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 The output is similar to the following example:
 
-```azurecli
+```output
 {
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",

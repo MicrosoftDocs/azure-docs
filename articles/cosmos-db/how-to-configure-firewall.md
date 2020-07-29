@@ -3,7 +3,7 @@ title: Configure an IP firewall for your Azure Cosmos DB account
 description: Learn how to configure IP access control policies for firewall support on Azure Cosmos accounts.
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/31/2019
 ms.author: mjbrown
 ---
@@ -20,7 +20,7 @@ You can secure the data stored in your Azure Cosmos DB account by using IP firew
 
 To set the IP access control policy in the Azure portal, go to the Azure Cosmos DB account page and select **Firewall and virtual networks** on the navigation menu. Change the **Allow access from** value to **Selected networks**, and then select **Save**.
 
-![Screenshot showing how to open the Firewall page in the Azure portal](./media/how-to-configure-firewall/azure-portal-firewall.png)
+:::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot showing how to open the Firewall page in the Azure portal":::
 
 When IP access control is turned on, the Azure portal provides the ability to specify IP addresses, IP address ranges, and switches. Switches enable access to other Azure services and the Azure portal. The following sections give details about these switches.
 
@@ -38,20 +38,20 @@ When you enable an IP access control policy programmatically, you need to add th
 |US Gov|52.244.48.71|
 |All other regions|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-You can enable access to the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
+You can enable requests to access the Azure portal by selecting the **Allow access from Azure portal** option, as shown in the following screenshot:
 
-![Screenshot showing how to enable Azure portal access](./media/how-to-configure-firewall/enable-azure-portal.png)
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-portal.png" alt-text="Screenshot showing how to enable Azure portal access":::
 
 ### Allow requests from global Azure datacenters or other sources within Azure
 
-If you access your Azure Cosmos DB account from services that don’t provide a static IP (for example, Azure Stream Analytics and Azure Functions), you can still use the IP firewall to limit access. To allow access to the Azure Cosmos DB account from such services, add the IP address 0.0.0.0 to the list of allowed IP addresses. The 0.0.0.0 address restricts requests to your Azure Cosmos DB account from Azure datacenter IP range. This setting does not allow access for any other IP ranges to your Azure Cosmos DB account.
+If you access your Azure Cosmos DB account from services that don’t provide a static IP (for example, Azure Stream Analytics and Azure Functions), you can still use the IP firewall to limit access. You can enable access from other sources within the Azure by selecting the **Accept connections from within Azure datacenters** option, as shown in the following screenshot:
+
+:::image type="content" source="./media/how-to-configure-firewall/enable-azure-services.png" alt-text="Screenshot showing how to open the Firewall page in the Azure portal":::
+
+When you enable this option, the IP address `0.0.0.0` is added to the list of allowed IP addresses. The `0.0.0.0` IP address restricts requests to your Azure Cosmos DB account from Azure datacenter IP range. This setting does not allow access for any other IP ranges to your Azure Cosmos DB account.
 
 > [!NOTE]
 > This option configures the firewall to allow all requests from Azure, including requests from the subscriptions of other customers deployed in Azure. The list of IPs allowed by this option is wide, so it limits the effectiveness of a firewall policy. Use this option only if your requests don’t originate from static IPs or subnets in virtual networks. Choosing this option automatically allows access from the Azure portal because the Azure portal is deployed in Azure.
-
-You can enable access to the Azure portal by selecting the **Accept connections from within Azure datacenters** option, as shown in the following screenshot:
-
-![Screenshot showing how to open the Firewall page in the Azure portal](./media/how-to-configure-firewall/enable-azure-services.png)
 
 ### Requests from your current IP
 
@@ -61,7 +61,7 @@ The portal automatically detects the client IP address. It might be the client I
 
 To add your current IP to the list of IPs, select **Add my current IP**. Then select **Save**.
 
-![Screenshot showing a how to configure firewall settings for the current IP](./media/how-to-configure-firewall/enable-current-ip.png)
+:::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Screenshot showing a how to configure firewall settings for the current IP":::
 
 ### Requests from cloud services
 
@@ -69,7 +69,7 @@ In Azure, cloud services are a common way for hosting middle-tier service logic 
 
 You can retrieve IP addresses for your cloud services in the Azure portal, as shown in the following screenshot:
 
-![Screenshot showing the public IP address for a cloud service displayed in the Azure portal](./media/how-to-configure-firewall/public-ip-addresses.png)
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses.png" alt-text="Screenshot showing the public IP address for a cloud service displayed in the Azure portal":::
 
 When you scale out your cloud service by adding role instances, those new instances will automatically have access to the Azure Cosmos DB account because they're part of the same cloud service.
 
@@ -79,7 +79,7 @@ You can also use [virtual machines](https://azure.microsoft.com/services/virtual
 
 You can retrieve IP addresses for virtual machines in the Azure portal, as shown in the following screenshot:
 
-![Screenshot showing a public IP address for a virtual machine displayed in the Azure portal](./media/how-to-configure-firewall/public-ip-addresses-dns.png)
+:::image type="content" source="./media/how-to-configure-firewall/public-ip-addresses-dns.png" alt-text="Screenshot showing a public IP address for a virtual machine displayed in the Azure portal":::
 
 When you add virtual machine instances to the group, they automatically receive access to your Azure Cosmos DB account.
 

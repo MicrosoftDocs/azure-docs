@@ -3,8 +3,8 @@ title: 'Azure AD Application Proxy: Version release history | Microsoft Docs'
 description: This article lists all releases of Azure AD Application Proxy and describes new features and fixed issues
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 editor: ''
 ms.assetid: 
 ms.service: active-directory
@@ -12,10 +12,9 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 07/22/2020
 ms.subservice: app-mgmt
-ms.author: mimart
-
+ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Application Proxy: Version release history
@@ -30,6 +29,49 @@ Resource |  Details
 How to enable Application Proxy | Pre-requisites for enabling Application Proxy and installing and registering a connector are described in this [tutorial](application-proxy-add-on-premises-application.md).
 Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors [auto-upgrade](application-proxy-connectors.md#automatic-updates).
 Azure AD Application Proxy Connector Download |  [Download the latest connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
+
+## 1.5.1975.0
+
+### Release status
+
+July 22, 2020: Released for download
+This version is only available for install via the download page. An auto-upgrade release of this version will be released at a later time.
+
+### New features and improvements
+-	Improved support for Azure Government cloud environments. For steps on how to properly install the connector for Azure Government cloud review the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#allow-access-to-urls) and [installation steps](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud#install-the-agent-for-the-azure-government-cloud).
+- Support for using the Remote Desktop Services web client with Application Proxy. See [Publish Remote Desktop with Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md) for more details.
+- Improved websocket extension negotiations. 
+
+### Fixed issues
+- Fixed a websocket issue that forced lowercase strings.
+- Fixed an issue that caused connectors to be occassionally unresponsive.
+
+## 1.5.1626.0
+
+### Release status
+
+July 17, 2020: Released for download. 
+This version is only available for install via the download page. An auto-upgrade release of this version will be released at a later time.
+
+### Fixed issues
+- Resolved memory leak issue present in previous version
+- General improvements for websocket support
+
+## 1.5.1526.0
+
+### Release status
+
+April 07, 2020: Released for download
+
+### New features and improvements
+-	Connectors only use TLS 1.2 for all connections. See [Connector pre-requisites](application-proxy-add-on-premises-application.md#before-you-begin) for more details.
+- Improved signaling between the Connector and Azure services. This includes supporting reliable sessions for WCF communication between the Connector and Azure services and DNS caching improvements for WebSocket communications.
+- Support for configuring a proxy between the Connector and the backend application. For more information see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md).
+
+### Fixed issues
+- Removed falling back to port 8080 for communications from the Connector to Azure services.
+- Added debug traces for WebSocket communications. 
+- Resolved preserving the SameSite attribute when set on backend application cookies.
 
 ## 1.5.612.0
 

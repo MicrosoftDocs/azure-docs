@@ -1,19 +1,22 @@
 ---
-title: Web service logging - Azure Machine Learning Studio (classic) | Microsoft Docs
+title: 'ML Studio (classic): Enable web service logging - Azure'
 description: Learn how to enable logging for Machine Learning Studio (classic) web services. Logging provides additional information to help troubleshoot the APIs.
 services: machine-learning
-author: xiaoharper
-ms.custom: seodec18
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 
 editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/15/2017
 ---
 # Enable logging for Azure Machine Learning Studio (classic) web services
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
+
 This document provides information on the logging capability of Machine Learning Studio (classic) web services. Logging provides additional information, beyond just an error number and a message, that can help you troubleshoot your calls to the Machine Learning Studio (classic) APIs.  
 
 ## How to enable logging for a Web service
@@ -56,7 +59,7 @@ You enable logging from the [Azure Machine Learning Studio (classic) Web Service
 
 
 ## The effects of enabling logging
-When logging is enabled, the diagnostics and errors from the web service endpoint are logged in the **ml-diagnostics** blob container in the Azure Storage Account linked with the user’s workspace. 
+When logging is enabled, the diagnostics and errors from the web service endpoint are logged in the **ml-diagnostics** blob container in the Azure Storage Account linked with the user's workspace. 
 This container holds all the diagnostics information for all the web service endpoints for all the workspaces associated with this storage account.
 
 The logs can be viewed using any of the several tools available to explore an Azure Storage Account. The easiest may be to navigate to the storage account in the Azure portal, click **Containers**, and then click the container **ml-diagnostics**.  

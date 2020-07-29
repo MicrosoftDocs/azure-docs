@@ -1,14 +1,14 @@
 ---
 title: Networking for Azure virtual machine scale sets
 description: How to configuration some of the more advanced networking properties for Azure virtual machine scale sets.
-author: mayanknayar
-tags: azure-resource-manager
-
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 07/17/2017
-ms.author: manayar
+ms.subservice: networking
+ms.date: 06/25/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
 
 ---
 # Networking for Azure virtual machine scale sets
@@ -19,6 +19,7 @@ You can configure all of the features covered in this article using Azure Resour
 
 ## Accelerated Networking
 Azure Accelerated Networking improves network performance by enabling single root I/O virtualization (SR-IOV) to a virtual machine. To learn more about using Accelerated networking, see Accelerated networking for [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) or [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) virtual machines. To use accelerated networking with scale sets, set enableAcceleratedNetworking to **true** in your scale set's networkInterfaceConfigurations settings. For example:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -36,33 +37,33 @@ Azure Accelerated Networking improves network performance by enabling single roo
 }
 ```
 
-## Create a scale set that references an existing Azure Load Balancer
-When a scale set is created using the Azure portal, a new load balancer is created for most configuration options. If you create a scale set, which needs to reference an existing load balancer, you can do this using the CLI. The following example script creates a load balancer and then creates a scale set, which references it:
-```bash
-az network lb create \
-    -g lbtest \
-    -n mylb \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --public-ip-address-allocation Static \
-    --backend-pool-name mybackendpool
+## Azure virtual machine scale sets with Azure Load Balancer
 
-az vmss create \
-    -g lbtest \
-    -n myvmss \
-    --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --admin-username negat \
-    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
-    --upgrade-policy-mode Automatic \
-    --instance-count 3 \
-    --vnet-name myvnet \
-    --subnet mysubnet \
-    --lb mylb \
-    --backend-pool-name mybackendpool
-```
+When working with virtual machine scale sets and load balancer, the following items should be considered:
+
+* **Multiple virtual machine scale sets can't use the same load balancer**.
+* **Port Forwarding and inbound NAT rules**:
+  * Each virtual machine scale set must have an inbound NAT rule.
+  * After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+  * When using the virtual machine scale set in the backend pool of the load balancer the default inbound NAT rules get created automatically.
+* **Inbound NAT pool**:
+  * Inbound NAT pool is a collection of inbound NAT rules. One inbound NAT pool cannot support multiple virtual machine scale sets.
+* **Load balancing rules**:
+  * When using the virtual machine scale set in the backend pool of the load balancer the default load balancing rule gets created automatically.
+* **Outbound rules**:
+  *  To create outbound rule for a backend pool which is already referenced by a load balancing rule, you need to first mark **"Create implicit outbound rules"** as **No** in the portal when the inbound load balancing rule is created.
+
+  :::image type="content" source="./media/vmsslb.png" alt-text="Load balancing rule creation" border="true":::
+
+The following methods can be used to deploy a virtual machine scale set with an existing Azure load balancer.
+
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure portal](../load-balancer/configure-vm-scale-set-portal.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using Azure PowerShell](../load-balancer/configure-vm-scale-set-powershell.md).
+* [Configure a virtual machine scale set with an existing Azure Load Balancer using the Azure CLI](../load-balancer/configure-vm-scale-set-cli.md).
 
 ## Create a scale set that references an Application Gateway
 To create a scale set that uses an application gateway, reference the backend address pool of the application gateway in the ipConfigurations section of your scale set as in this ARM template config:
+
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
@@ -85,10 +86,13 @@ By default, scale sets take on the specific DNS settings of the VNET and subnet 
 
 ### Creating a scale set with configurable DNS servers
 To create a scale set with a custom DNS configuration using the Azure CLI, add the **--dns-servers** argument to the **vmss create** command, followed by space separated server ip addresses. For example:
+
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
+
 To configure custom DNS servers in an Azure template, add a dnsSettings property to the scale set networkInterfaceConfigurations section. For example:
+
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -130,13 +134,14 @@ To set the domain name in an Azure template, add a **dnsSettings** property to t
 }
 ```
 
-The output, for an individual virtual machine dns name would be in the following form: 
-```
+The output, for an individual virtual machine dns name would be in the following form:
+
+```output
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
 ## Public IPv4 per virtual machine
-In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (aka a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
+In general, Azure scale set virtual machines do not require their own public IP addresses. For most scenarios, it is more economical and secure to associate a public IP address to a load balancer or to an individual virtual machine (also known as a jumpbox), which then routes incoming connections to scale set virtual machines as needed (for example, through inbound NAT rules).
 
 However, some scenarios do require scale set virtual machines to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine, which is doing game physics processing. Another example is where virtual machines need to make external connections to one another across regions in a distributed database.
 
@@ -153,17 +158,20 @@ To create a scale set using an Azure template, make sure the API version of the 
     }
 }
 ```
+
 Example template: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### Querying the public IP addresses of the virtual machines in a scale set
 To list the public IP addresses assigned to scale set virtual machines using the CLI, use the **az vmss list-instance-public-ips** command.
 
 To list scale set public IP addresses using PowerShell, use the _Get-AzPublicIpAddress_ command. For example:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 You can also query the public IP addresses by referencing the resource ID of the public IP address configuration directly. For example:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -189,6 +197,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 Example output from the [Azure Resource Explorer](https://resources.azure.com) and Azure REST API:
+
 ```json
 {
   "value": [
@@ -312,7 +321,8 @@ Network Security Groups can be applied directly to a scale set, by adding a refe
 
 Application Security Groups can also be specified directly to a scale set, by adding a reference to the network interface ip configurations section of the scale set virtual machine properties.
 
-For example: 
+For example:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -356,7 +366,7 @@ For example:
 
 To verify your Network Security Group is associated with your scale set, use the `az vmss show` command. The below example uses `--query` to filter the results and only show the relevant section of the output.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \
@@ -372,7 +382,7 @@ az vmss show \
 
 To verify your Application Security Group is associated with your scale set, use the `az vmss show` command. The below example uses `--query` to filter the results and only show the relevant section of the output.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \

@@ -103,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| Name | Namespace  |  Transformation | Parameter 1 |
 	| ---------------| --------------- | --------- |
-	| wanshort | http://appinux.com/windowsaccountname2 | ExtractMailPrefix() | user.userprincipalname |
+	| wanshort | http:\//appinux.com/windowsaccountname2 | ExtractMailPrefix() | user.userprincipalname |
 
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.

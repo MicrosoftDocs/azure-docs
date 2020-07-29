@@ -3,7 +3,7 @@ title: Serverless database computing with Azure Cosmos DB and Azure Functions
 description: Learn how Azure Cosmos DB and Azure Functions can be used together to create event-driven serverless computing apps.
 author: SnehaGunda
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
 ---
@@ -28,7 +28,7 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 
 The following diagram illustrates each of these three integrations: 
 
-![How Azure Cosmos DB and Azure Functions integrate](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-azure-functions-integration.png" alt-text="How Azure Cosmos DB and Azure Functions integrate" border="false":::
 
 The Azure Functions trigger, input binding, and output binding for Azure Cosmos DB can be used in the following combinations:
 
@@ -56,7 +56,7 @@ In IoT implementations, you can invoke a function when the check engine light is
 
 The following image shows the code written in the Azure portal for this trigger.
 
-![Create an Azure Functions trigger for Cosmos DB in the Azure portal](./media/serverless-computing-database/cosmos-db-trigger-portal.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Create an Azure Functions trigger for Cosmos DB in the Azure portal":::
 
 ### Financial use case - Timer trigger and input binding
 
@@ -70,13 +70,13 @@ In financial implementations, you can invoke a function when a bank account bala
 
 The following images show the code in the Azure portal for this scenario.
 
-![Index.js file for a Timer trigger for a financial scenario](./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png)
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js file for a Timer trigger for a financial scenario":::
 
-![Run.csx file for a Timer trigger for a financial scenario](./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png)
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Run.csx file for a Timer trigger for a financial scenario":::
 
 ### Gaming use case - Azure Functions trigger and output binding for Cosmos DB 
 
-In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Gremlin API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB SQL database] for easy retrieval.
+In gaming, when a new user is created you can search for other users who might know them by using the [Azure Cosmos DB Gremlin API](graph-introduction.md). You can then write the results to an [Azure Cosmos DB or SQL database]() for easy retrieval.
 
 **Implementation:** Use an Azure Functions trigger and output binding for Cosmos DB
 
@@ -99,13 +99,13 @@ In retail implementations, when a user adds an item to their basket you now have
 
      Any department can create an Azure Functions for Cosmos DB by listening to the change feed, and be sure they won't delay critical order processing events in the process.
 
-In all of these use cases, because the function has decoupled the app itself, you don’t need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
+In all of these use cases, because the function has decoupled the app itself, you don't need to spin up new app instances all the time. Instead, Azure Functions spins up individual functions to complete discrete processes as needed.
 
 ## Tooling
 
 Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2019.
 
-* In the Azure Functions portal, you can create a trigger. For quickstart instructions, see [Create an Azure Functions trigger for Cosmos DB in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc).
+* In the Azure Functions portal, you can create a trigger. For quickstart instructions, see [Create an Azure Functions trigger for Cosmos DB in the Azure portal](../azure-functions/functions-create-cosmos-db-triggered-function.md).
 * In the Azure Cosmos DB portal, you can add an Azure Functions trigger for Cosmos DB to an existing Azure Function app in the same resource group.
 * In Visual Studio 2019, you can create the trigger using the [Azure Functions Tools](../azure-functions/functions-develop-vs.md):
 
@@ -141,12 +141,6 @@ If you're not sure whether Flow, Logic Apps, Azure Functions, or WebJobs are bes
 
 Now let's connect Azure Cosmos DB and Azure Functions for real: 
 
-* [Create an Azure Functions trigger for Cosmos DB in the Azure portal](https://aka.ms/cosmosdbtriggerportalfunc)
-* [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind)
-* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb.md)
-
-
- 
-
-
-
+* [Create an Azure Functions trigger for Cosmos DB in the Azure portal](../azure-functions/functions-create-cosmos-db-triggered-function.md)
+* [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](../azure-functions/functions-bindings-cosmosdb.md?tabs=csharp)
+* [Azure Cosmos DB bindings and triggers](../azure-functions/functions-bindings-cosmosdb-v2.md)

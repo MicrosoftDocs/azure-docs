@@ -5,8 +5,14 @@ author: tesych
 ms.author: tesych
 ms.prod: kinect-dk
 ms.topic: quickstart
-ms.date: 06/26/2019
+ms.date: 02/12/2020
 keywords: azure, kinect, dev kit, azure dk, set up, hardware, quick, usb, power, viewer, sensor, streaming, setup, SDK, firmware
+ms.custom: 
+- CI 114092
+- CSSTroubleshooting
+audience: ITPro
+manager: dcscontentpm
+ms.localizationpriority: high
 
 #Customer intent: As an Azure Kinect DK developer, I want to set up Azure Kinect DK device before starting my development.
 
@@ -27,13 +33,16 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 > [!NOTE]
 > Make sure to remove the camera protective film before using the device.
 
-1. Plug the power connector into the power jack on the back of your device. Connect the USB power adapter to the other end of the cable, and then plug it into a power outlet.
+1. Plug the power connector into the power jack on the back of your device. Connect the USB power adapter to the other end of the cable, and then plug the adapter into a power outlet.
 2. Connect the USB data cable into your device, and then to a USB 3.0 port on your PC.
    >[!NOTE]
-   >Use a direct cable from the PC to the back of the device, as this works better than connecting through adapters or extensions.
+   >For best results, connect the cable directly to the device and to the PC. Avoid using extensions or extra adapters in the connection.
 
-3. Verify the power indicator LED next to the USB cable is solid white.
-4. Device power-on takes a few seconds. The device is ready to use when the front-facing LED streaming indicator turns off.
+3. Verify that the power indicator LED (next to the USB cable) is solid white.
+  
+   Device power-on takes a few seconds. The device is ready to use when the front-facing LED streaming indicator turns off.  
+
+   For more information about the power indicator LED, see [What does the light mean?](hardware-specification.md#what-does-the-light-mean)
 
     ![Full device features](./media/quickstarts/full-device-features.png)
 
@@ -44,35 +53,35 @@ Check [System requirements](system-requirements.md) to verify that your host PC 
 
 ## Update Firmware
 
-New version of Sensor SDK 1.2 requires the firmware update that is included with the download. You can follow steps in [How to update firmware guide](update-device-firmware.md) to update the device firmware.
+To work properly, the SDK requires the latest version of the device firmware. To check and update your firmware version,follow the steps in [Update Azure Kinect DK firmware](update-device-firmware.md).
 
 ## Verify that the device streams data
 
-1. Launch the [Azure Kinect Viewer](azure-kinect-viewer.md), located under the installed tools directory as `k4aviewer.exe` (for example, `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4aviewer.exe`, where `X.Y.Z` is the installed version of the SDK). You can launch the viewer either from the command line or by double-clicking the executable. It is also available as a link in the start menu.
-2. Select **Open Device**, then **Start**.
+1. Launch the [Azure Kinect Viewer](azure-kinect-viewer.md). You can start this tool by using one of these methods:
+   - You can launch the viewer from the command line or by double-clicking the executable file. The file, `k4aviewer.exe`, resides in the SDK tools directory (for example, `C:\Program Files\Azure Kinect SDK vX.Y.Z\tools\k4aviewer.exe`, where `X.Y.Z` is the installed version of the SDK).
+   - You can launch Azure Kinect Viewer from the device **Start** menu.
+2. In Azure Kinect Viewer, select **Open Device** > **Start**.
 
     ![Azure Kinect Viewer](./media/quickstarts/viewer.png)
 
-3. Verify each sensor stream is visualized in the tool.
-    - Depth camera
-    - Color camera
-    - Infrared camera
-    - IMU
-    - Microphones
+3. Verify that the tool visualizes each sensor stream:
+   - Depth camera
+   - Color camera
+   - Infrared camera
+   - IMU
+   - Microphones
 
     ![Visualization Tool](./media/quickstarts/visualization-tool.png)
 
-4. You're done with your Azure Kinect DK setup. Now you can start developing your application or integrating services.
+You're done with your Azure Kinect DK setup. Now you can start developing your application or integrating services.
 
 If you have any issues, check [Troubleshooting](troubleshooting.md).
 
 ## See also
 
-[Azure Kinect DK hardware information](hardware-specification.md)
-
-[Update device firmware](update-device-firmware.md)
-
-Learn more about [Azure Kinect Viewer](azure-kinect-viewer.md)
+- [Azure Kinect DK hardware information](hardware-specification.md)
+- [Update device firmware](update-device-firmware.md)
+- Learn more about [Azure Kinect Viewer](azure-kinect-viewer.md)
 
 ## Next steps
 

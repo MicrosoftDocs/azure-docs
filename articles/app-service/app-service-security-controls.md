@@ -1,5 +1,5 @@
 ﻿---
-title: Security controls
+title: Security controls for Azure App Service
 description: Find a checklist of security controls for evaluating Azure App Service for your organization.
 author: msmbaldwin
 
@@ -35,8 +35,8 @@ This article documents the security controls built into Azure App Service.
 
 | Security control | Yes/No | Notes |  Documentation
 |---|---|--|
-| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles. | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
-| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure Resource Manager RBAC roles.  | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
+| Authentication| Yes | Customers can build applications on App Service that automatically integrate with [Azure Active Directory (Azure AD)](../active-directory/index.yml) as well as other OAuth compatible identity providers For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure RBAC. | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
+| Authorization| Yes | For management access to App Service assets, all access is controlled by a combination of Azure AD authenticated principal and Azure RBAC.  | [Authentication and authorization in Azure App Service](overview-authentication-authorization.md)
 
 ## Data protection
 

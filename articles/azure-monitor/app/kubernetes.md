@@ -1,8 +1,6 @@
 ---
 title: Use Application Insights to monitor your Azure Kubernetes Service (AKS) or other Kubernetes hosted applications - Azure Monitor | Microsoft Docs
 description: Azure Monitor uses service mesh technology, Istio, on your Kubernetes cluster to provide application monitoring for any Kubernetes hosted application. This allows you to collect Application Insights telemetry pertaining to incoming and outgoing requests to and from pods running in your cluster.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
@@ -10,35 +8,34 @@ ms.date: 04/25/2019
 
 ---
 
-# Zero instrumentation application monitoring for Kubernetes hosted applications
+# Zero instrumentation application monitoring for Kubernetes hosted applications with Istio - DEPRECATED
 
 > [!IMPORTANT]
-> This functionality is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This functionality is currently being deprecated and will no longer be supported after August 1st, 2020.
+> Currently the codeless monitoring can only be enabled for [Java through standalone agent](./java-in-process-agent.md). For other languages, use the SDKs to monitor your apps on AKS: [ASP.Net Core](./asp-net-core.md), [ASP.Net](./asp-net.md), [Node.js](./nodejs.md), [JavaScript](./javascript.md), and [Python](./opencensus-python.md).
 
-Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. With default Application Insight features like [Application Map](../../azure-monitor/app/app-map.md) to model your dependencies, [Live Metrics Stream](../../azure-monitor/app/live-stream.md) for real-time monitoring, powerful visualizations with the [default dashboard](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md), and [Workbooks](../../azure-monitor/app/usage-workbooks.md). This feature will help users spot performance bottlenecks and failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By capitalizing on your existing service mesh investments with technologies like Istio, Azure Monitor enables auto-instrumented app monitoring without any modification to your application's code.
+Azure Monitor now leverages service mesh tech on your Kubernetes cluster to provide out of the box application monitoring for any Kubernetes hosted app. With default Application Insight features like [Application Map](./app-map.md) to model your dependencies, [Live Metrics Stream](./live-stream.md) for real-time monitoring, powerful visualizations with the [default dashboard](./overview-dashboard.md), [Metric Explorer](../platform/metrics-getting-started.md), and [Workbooks](../platform/workbooks-overview.md). This feature will help users spot performance bottlenecks and failure hotspots across all of their Kubernetes workloads within a selected Kubernetes namespace. By capitalizing on your existing service mesh investments with technologies like Istio, Azure Monitor enables auto-instrumented app monitoring without any modification to your application's code.
 
 > [!NOTE]
-> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../../azure-monitor/azure-monitor-app-hub.yml) without the need for a service mesh. To monitor Kubernetes without instrumenting the application with an SDK you can use the below method.
+> This is one of many ways to perform application monitoring on Kubernetes​​​​​​​. You can also instrument any app hosted in Kubernetes by using the [Application Insights SDK](../azure-monitor-app-hub.yml) without the need for a service mesh. To monitor Kubernetes without instrumenting the application with an SDK you can use the below method.
 
 ## Prerequisites
 
-- A [Kubernetes cluster](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads).
+- A [Kubernetes cluster](../../aks/concepts-clusters-workloads.md).
 - Console access to the cluster to run *kubectl*.
 - An [Application Insight resource](create-new-resource.md)
-- Have a service mesh. If your cluster doesn't have Istio deployed, you can learn how to [install and use Istio in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/istio-install).
+- Have a service mesh. If your cluster doesn't have Istio deployed, you can learn how to [install and use Istio in Azure Kubernetes Service](../../aks/servicemesh-istio-install.md).
 
 ## Capabilities
 
 By using zero instrumentation application monitoring for Kubernetes hosted apps, you will be able to use:
 
-- [Application Map](../../azure-monitor/app/app-map.md)
-- [Live Stream Metrics](../../azure-monitor/app/live-stream.md)
-- [Dashboards](../../azure-monitor/app/overview-dashboard.md)
-- [Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md)
-- [Distributed-tracing](../../azure-monitor/app/distributed-tracing.md)
-- [End-to-end transaction monitoring](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
+- [Application Map](./app-map.md)
+- [Live Stream Metrics](./live-stream.md)
+- [Dashboards](./overview-dashboard.md)
+- [Metrics Explorer](../platform/metrics-getting-started.md)
+- [Distributed-tracing](./distributed-tracing.md)
+- [End-to-end transaction monitoring](../learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## Installation steps
 
@@ -57,7 +54,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 ```
 
 > [!NOTE]
-> Since service mesh lifts data off the wire, we cannot intercept the encrypted traffic. For traffic that doesn't leave the cluster, use  an unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up SSL termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
+> Since service mesh lifts data off the wire, we cannot intercept the encrypted traffic. For traffic that doesn't leave the cluster, use  an unencrypted protocol (for example, HTTP). For external traffic that must be encrypted, consider [setting up TLS termination](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls) at the ingress controller.
 
 Applications running outside of the service mesh are not affected.
 
@@ -110,7 +107,7 @@ Below is the troubleshooting flow to use when telemetry doesn't appear in the Az
    ```
    Verify that there is a container named *istio-proxy* running on the pod.
 
-5. View the Application Insights adapter’s traces.
+5. View the Application Insights adapter's traces.
 
    ```console
    kubectl get pods -n istio-system -l "app=application-insights-istio-mixer-adapter"
@@ -142,4 +139,5 @@ kubectl delete -f <filename.yaml>
 
 ## Next steps
 
-To learn more about how Azure Monitor and containers work together visit [Azure Monitor for containers overview](../../azure-monitor/insights/container-insights-overview.md)
+To learn more about how Azure Monitor and containers work together visit [Azure Monitor for containers overview](../insights/container-insights-overview.md)
+

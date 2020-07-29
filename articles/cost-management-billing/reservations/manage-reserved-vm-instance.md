@@ -4,9 +4,8 @@ description: Learn how you can manage Azure Reservations.
 ms.service: cost-management-billing
 author: bandersmsft
 ms.reviewer: yashesvi
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -15,12 +14,13 @@ After you buy an Azure reservation, you may need to apply the reservation to a d
 
 If you bought Azure Reserved Virtual Machine Instances, you may change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations so that they are fully used.
 
+*Permission needed to manage a reservation is separate from subscription permission.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 
-When you purchase of a reservation, two objects are created: **Reservation Order** and **Reservation**.
+When you purchase a reservation, two objects are created: **Reservation Order** and **Reservation**.
 
 At the time of purchase, a Reservation Order has one Reservation under it. Actions such as split, merge, partial refund, or exchange create new reservations under the **Reservation Order**.
 
@@ -50,10 +50,9 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 You can delegate reservation management by adding people to roles on the reservation order or the reservation. By default, the person that places the reservation order and the account administrator have the Owner role on the reservation order and the reservation.
 
-You can manage access to reservations orders and reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation order or the reservation, it doesn't give them permission to manage the subscription. Similarly, if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
+You can manage access to reservations orders and reservations *independently from the subscriptions* that get the reservation discount. When you give someone permissions to manage a reservation order or the reservation, it doesn't give them permission to manage the subscription. Similarly, if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
 
 To perform an exchange or refund, the user must have access to the reservation order. When granting someone permissions, it’s best to grant permissions to the reservation order, not the reservation.
-
 
 To delegate access management for a reservation:
 
@@ -115,8 +114,10 @@ To update the optimize setting for the reservation:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
-4. Select **Settings** > **Configuration**.
-5. Change the **Optimize for** setting.
+4. Select **Settings** > **Configuration**.  
+  ![Example showing the Configuration item](./media/manage-reserved-vm-instance/add-product03.png)
+5. Change the **Optimize for** setting.  
+  ![Example showing the Optimize for setting](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## Optimize reservation use
 
@@ -161,7 +162,7 @@ To learn more about Azure Reservations, see the following articles:
 
 Buy a service plan:
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Buy a software plan:

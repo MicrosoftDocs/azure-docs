@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Resource Manager template documentation
-summary: Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project.
+title: ARM template documentation
+summary: Azure Resource Manager templates are JavaScript Object Notation (JSON) files that define the infrastructure and configuration for your project.
 
 metadata:
-  title: Azure Resource Manager documentation
+  title: ARM template documentation
   description: "Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources"
   services: azure-resource-manager
   ms.service: azure-resource-manager
@@ -13,13 +13,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 12/19/2019
+  ms.date: 07/07/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: About Azure Resource Manager templates
+  - title: About ARM templates
     linkLists:
       - linkListType: overview
         links:
@@ -29,16 +29,16 @@ landingContent:
         links:
           - text: Best practices
             url: template-best-practices.md
+          - text: Frequently asked questions
+            url: frequently-asked-questions.md
           - text: Deployment modes
             url: deployment-modes.md
           - text: Linked templates
             url: linked-templates.md
-          - text: Subscription level deployment
-            url: deploy-to-subscription.md
       - linkListType: video
         links:
-          - text: What's new?
-            url: https://youtu.be/3D-JIKShrws
+          - text: Build 2020 presentation
+            url: https://mybuild.microsoft.com/sessions/82984db4-37a4-4ed3-bf8b-13298841ed18?source=sessions
 
   # Card (optional)
   - title: Get started
@@ -68,8 +68,6 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use VS Code
-            url: use-vs-code-to-create-template.md
           - text: Use functions
             url: template-functions.md
           - text: Define parameters
@@ -92,30 +90,29 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: By using PowerShell
+          - text: PowerShell
             url: deploy-powershell.md
-          - text: By using CLI
+          - text: Azure CLI
             url: deploy-cli.md
-          - text: By using portal
+          - text: Portal
             url: deploy-portal.md
-          - text: By using REST API
+          - text: REST API
             url: deploy-rest.md
           - text: What-if deployment
             url: template-deploy-what-if.md
-          - text: View deployment history
-            url: deployment-history.md
-
+          
   # Card
-  - title: Manage templates
+  - title: Scoped deployments
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Export templates
-            url: export-template-portal.md
-          - text: CI/CD
-            url: add-template-to-azure-pipelines.md
+          - text: Subscription
+            url: deploy-to-subscription.md
+          - text: Management group
+            url: deploy-to-management-group.md
+          - text: Tenant
+            url: deploy-to-tenant.md
 
-  
   # Card
   - title: Explore reference content
     linkLists:
@@ -135,3 +132,16 @@ landingContent:
           url: /java/api/com.microsoft.azure.management.resources
         - text: Python
           url: /python/api/overview/azure/resources?view=azure-python
+
+
+  # Card
+  - title: Manage templates
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Export templates
+            url: export-template-portal.md
+          - text: CI/CD
+            url: add-template-to-azure-pipelines.md
+          - text: View deployment history
+            url: deployment-history.md

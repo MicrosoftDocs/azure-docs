@@ -1,7 +1,6 @@
 ---
 title: Viewing and analyzing data in Azure Log Analytics | Microsoft Docs
 description: Assistance for users of Log Analytics log search to Azure Monitor log query experience.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -41,7 +40,7 @@ To save the current query in Azure Monitor logs, select **Save**. Change **Save 
 ![Save log query](media/log-search-transition/save-query-logs.png)
 
 ## Saved queries
-In Log Search, your saved queries are available through the action bar item **Saved searches**. In Azure Monitor logs, access saved queries from [Query Explorer](../log-query/get-started-portal.md#save-queries).
+In Log Search, your saved queries are available through the action bar item **Saved searches**. In Azure Monitor logs, access saved queries from [Query Explorer](./get-started-portal.md#save-queries).
 
 ![Query explorer](media/log-search-transition/query-explorer.png)
 
@@ -55,7 +54,7 @@ In Azure Monitor logs, you must modify the query to return these records. Expand
 ![Azure Monitor logs drilldown](media/log-search-transition/drilldown-logs.png)
 
 ## Take action
-In Log Search, you can [start a runbook](take-action.md) from a search result by selecting **Take action**.
+In Log Search, you can [start a runbook](../platform/action-groups.md) from a search result by selecting **Take action**.
 
 ![Take action](media/log-search-transition/take-action-log-search.png)
 
@@ -66,3 +65,4 @@ In Azure Monitor logs, [create an alert from the log query](../platform/alerts-l
 ## Next steps
 
 - Learn more about the new [Azure Monitor logs experience](get-started-portal.md).
+

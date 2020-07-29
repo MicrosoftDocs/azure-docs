@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/07/2020
+ms.date: 02/18/2020
 ---
 
 # Debug WASB file operations in Azure HDInsight
@@ -21,19 +21,17 @@ A produced log will look similar to:
 
 ## Turn on WASB debug log for file operations
 
-1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net`, where `CLUSTERNAME` is the name of your Spark cluster.
+1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`, where `CLUSTERNAME` is the name of your Spark cluster.
 
-1. Navigate to **Spark2** > **Configs** > **advanced spark2-log4j-properties**.
+1. Navigate to **advanced spark2-log4j-properties**.
 
-1. Modify `log4j.appender.console.Threshold=INFO` to `log4j.appender.console.Threshold=DEBUG`.
+    1. Modify `log4j.appender.console.Threshold=INFO` to `log4j.appender.console.Threshold=DEBUG`.
+
+    1. Add `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Navigate to **Advanced livy2-log4j-properties**.
 
-1. Add the following property:
-
-    ```
-    log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG
-    ```
+    Add `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`.
 
 1. Save changes.
 

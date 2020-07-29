@@ -4,10 +4,10 @@ description: Set up your mobile application developed using Visual Studio Mobile
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
-manager: twooley
+
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 03/16/2018

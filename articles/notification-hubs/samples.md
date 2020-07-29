@@ -23,7 +23,7 @@ This article provides links to samples that demonstrate key features in Azure No
 ## Samples
 
 - [.NET](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples)
-- [Android](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples)
+- [Android](https://github.com/Azure/azure-notificationhubs-android/)
 - [Apache Cordova](https://github.com/Azure/azure-notificationhubs-samples/tree/master/apache-cordova)
 - [Ionic](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Ionic)
 - [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)

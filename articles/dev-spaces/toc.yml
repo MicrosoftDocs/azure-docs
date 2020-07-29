@@ -3,7 +3,7 @@
   items:
   - name: Overview
     items: 
-    - name: About Azure Dev Spaces
+    - name: What is Azure Dev Spaces?
       href: about.md
   - name: Quickstarts
     items:
@@ -21,6 +21,8 @@
         href: quickstart-netcore-visualstudio.md
     - name: Develop using the CLI
       href: quickstart-cli.md
+    - name: Develop using existing Helm chart
+      href: quickstart-existing-helm-chart.md
   - name: Tutorials
     items:
     - name: Java (VS Code & CLI)
@@ -58,7 +60,19 @@
   - name: Concepts
     items:
     - name: How Dev Spaces works
-      href: how-dev-spaces-works.md
+      items:
+      - name: Overview
+        href: how-dev-spaces-works.md
+      - name: Setting up a cluster
+        href: how-dev-spaces-works-cluster-setup.md
+      - name: Preparing a project
+        href: how-dev-spaces-works-prep.md
+      - name: Running your code
+        href: how-dev-spaces-works-up.md
+      - name: Routing between dev spaces
+        href: how-dev-spaces-works-routing.md
+      - name: Remote debugging
+        href: how-dev-spaces-works-remote-debugging.md
     - name: How VS Code works with Dev Spaces
       href: how-vs-code-works-with-dev-spaces.md
     - name: Networking configuration in different network topologies
@@ -95,8 +109,6 @@
       href: how-to/ingress-https-traefik.md
     - name: Use NGINX for custom ingress and HTTPS
       href: how-to/ingress-https-nginx.md
-    - name: Connect your development machine to an AKS cluster (preview)
-      href: how-to/connect.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: FAQ

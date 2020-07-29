@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/13/2020
 ---
@@ -56,7 +56,7 @@ Either:
 
     You receive a response similar to the following JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -78,9 +78,7 @@ Either:
      * **class**: The class that contains the MapReduce logic
      * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
-    This command should return a job ID that can be used to check the status of the job:
-
-       job_1415651640909_0026
+    This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
 1. To check the status of the job, use the following command. Replace the value for `JOBID` with the **actual** value returned in the previous step. Revise location of **jq** as needed.
 
@@ -100,7 +98,7 @@ Either:
     $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-1. use the following command to verify that you can connect to your HDInsight cluster:
+1. Use the following command to verify that you can connect to your HDInsight cluster:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -111,7 +109,7 @@ Either:
 
     You receive a response similar to the following JSON:
 
-    ```output
+    ```json
     {"version":"v1","status":"ok"}
     ```
 
@@ -141,9 +139,7 @@ Either:
     * **class**: The class that contains the MapReduce logic
     * **arg**: The arguments to be passed to the MapReduce job. In this case, the input text file and the directory that are used for the output
 
-   This command should return a job ID that can be used to check the status of the job:
-
-       job_1415651640909_0026
+   This command should return a job ID that can be used to check the status of the job: `job_1415651640909_0026`.
 
 1. To check the status of the job, use the following command:
 
@@ -166,7 +162,7 @@ Either:
 
 1. When the state of the job has changed to `SUCCEEDED`, you can retrieve the results of the job from Azure Blob storage. The `statusdir` parameter that is passed with the query contains the location of the output file. In this example, the location is `/example/curl`. This address stores the output of the job in the clusters default storage at `/example/curl`.
 
-You can list and download these files by using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). For more information on working with blobs from the Azure CLI, see the [Using the Azure CLI with Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) document.
+You can list and download these files by using the [Azure CLI](/cli/azure/install-azure-cli). For more information on using the Azure CLI to work with Azure Blob storage, see [Quickstart: Create, download, and list blobs with Azure CLI](../../storage/blobs/storage-quickstart-blobs-cli.md).
 
 ## Next steps
 

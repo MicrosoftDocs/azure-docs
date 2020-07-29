@@ -3,7 +3,6 @@
 Thumbs.db
 
 # Visual Studio and VS Code files
-.settings.json
 .vscode/*
 .vs/*
 log/
@@ -24,3 +23,4 @@ AzureMigration.ps1
 !/.vscode/extensions.json
 .gitignore
 **/.vscode/settings.json
+!/.vscode/settings.json

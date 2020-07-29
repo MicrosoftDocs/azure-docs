@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen
+ms.custom: codepen, devx-track-javascript
 ---
 
 # Data-driven Style Expressions (Web SDK)
@@ -67,7 +67,7 @@ All examples in this document use the following feature to demonstrate different
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-		"zoneColor": "red"
+        "zoneColor": "red"
 	}
 }
 ```
@@ -86,6 +86,8 @@ Data expressions provide access to the property data in a feature.
 | `['has', string, object]` | boolean | Determines if the properties of the object have the specified property. |
 | `['id']` | value | Gets the feature's ID if it has one. |
 | `['length', string | array]` | number | Gets the length of a string or an array. |
+| `['in', boolean | string | number, array]` | boolean | Determines whether an item exists in an array |
+| `['in', substring, string]` | boolean | Determines whether a substring exists in a string |
 
 **Examples**
 
@@ -97,7 +99,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-The above example will work fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fallback to "black". To modify the fallback color, use a `case` expression in combination with the `has` expression to check if the property exists. If the property doesn’t exist, return a fallback color.
+The above example will work fine, if all the point features have the `zoneColor` property. If they don't, the color will likely fallback to "black". To modify the fallback color, use a `case` expression in combination with the `has` expression to check if the property exists. If the property doesn't exist, return a fallback color.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -403,7 +405,7 @@ Type expressions provide tools for testing and converting different data types l
 | `['typeof', value]` | string | Returns a string describing the type of the given value. |
 
 > [!TIP]
-> If an error message similar to `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console, then it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
+> If an error message similar to `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console, then it means that there is an expression somewhere in your code that has an array that doesn't have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -740,7 +742,7 @@ This layer will render the point feature as shown in the image below:
 
 ### Number format expression
 
-The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript’s [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function and supports the following set of options.
+The `number-format` expression can only be used with the `textField` option of a symbol layer. This expression converts the provided number into a formatted string. This expression wraps JavaScript's [Number.toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) function and supports the following set of options.
 
  * `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) into this option.
  * `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes](https://en.wikipedia.org/wiki/ISO_4217), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
@@ -772,7 +774,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
         textField: [
             'number-format', 
             ['get', 'revenue'], 
-            { ‘currency’: 'USD' }
+            { ‘currency': 'USD' }
         ],
 
         offset: [0, 0.75]
@@ -786,13 +788,51 @@ This layer will render the point feature as shown in the image below:
 
 ![Number format expression example](media/how-to-expressions/number-format-expression.png) </center>
 
+### Image expression
+
+An image expression can be used with the `image` and `textField` options of a symbol layer, and the `fillPattern` option of the polygon layer. This expression checks that the requested image exists in the style and will return either the resolved image name or `null`, depending on whether or not the image is currently in the style. This validation process is synchronous and requires the image to have been added to the style before requesting it in the image argument.
+
+**Example**
+
+The following example uses an `image` expression to add an icon inline with text in a symbol layer. 
+
+```javascript
+ //Load the custom image icon into the map resources.
+map.imageSprite.add('wifi-icon', 'wifi.png').then(function () {
+
+	//Create a data source and add it to the map.
+	datasource = new atlas.source.DataSource();
+	map.sources.add(datasource);
+
+	//Create a point feature and add it to the data source.
+	datasource.add(new atlas.data.Point(map.getCamera().center));
+
+	//Add a layer for rendering point data as symbols.
+	map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+		iconOptions: {
+			image: 'none'
+		},
+		textOptions: {
+			//Create a formatted text string that has an icon in it.
+			textField: ["format", 'Ricky\'s ', ["image", "wifi-icon"], ' Palace']
+		}
+	}));
+});
+```
+
+This layer will render the text field in the symbol layer as shown in the image below:
+
+<center>
+
+![Image expression example](media/how-to-expressions/image-expression.png) </center>
+
 ## Zoom expression
 
 A `zoom` expression is used to retrieve the current zoom level of the map at render time and is defined as `['zoom']`. This expression returns a number between the minimum and maximum zoom level range of the map. The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Using the `zoom` expression allows styles to be modified dynamically as the zoom level of the map is changed. The `zoom` expression may only be used with `interpolate` and `step` expressions.
 
 **Example**
 
-By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, will create a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression as shown below. 
+By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed, the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. It will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius, such that it doubles with each zoom level, will create a heat map that looks consistent on all zoom levels. It can be accomplished using the `zoom` expression with a `base 2 exponential interpolation` expression, with the pixel radius set for the minimum zoom level and a scaled radius for the maximum zoom level calculated as `2 * Math.pow(2, minZoom - maxZoom)` as shown below.
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -804,8 +844,8 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
         //For zoom level 1 set the radius to 2 pixels.
         10, 2,
 
-        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 10,000 pixels.
-        19, 10000
+        //Between zoom level 1 and 19, exponentially scale the radius from 2 pixels to 2 * Math.pow(2, 19 - 1) pixels (524,288 pixels).
+        19, 2 * Math.pow(2, 19 - 1)
     ]
 };
 ```
@@ -883,4 +923,4 @@ Learn more about the layer options that support expressions:
 > [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest) 
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)

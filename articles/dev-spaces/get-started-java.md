@@ -2,6 +2,7 @@
 title: "Create a Kubernetes dev space: Visual Studio Code & Java"
 services: azure-dev-spaces
 author: stepro
+ms.custom: devx-track-java
 ms.author: stephpr
 ms.date: 09/26/2018
 ms.topic: tutorial
@@ -26,7 +27,7 @@ Azure Dev Spaces requires minimal local machine setup. Most of your dev space's 
 ### Sign in to Azure CLI
 Sign in to Azure. Type the following command in a terminal window:
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -36,14 +37,14 @@ az login
 #### If you have multiple Azure subscriptions...
 You can view your subscriptions by running: 
 
-```cmd
+```azurecli
 az account list --output table
 ```
 
 Locate the  subscription which has *True* for *IsDefault*.
 If this isn't the subscription you want to use, you can change the default subscription:
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
@@ -51,14 +52,14 @@ az account set --subscription <subscription ID>
 
 At the command prompt, create the resource group in a [region that supports Azure Dev Spaces][supported-regions].
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 Create a Kubernetes cluster with the following command:
 
-```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --disable-rbac --generate-ssh-keys
+```azurecli
+az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
 It takes a few minutes to create the cluster.
@@ -67,7 +68,7 @@ It takes a few minutes to create the cluster.
 
 Enter the following Azure CLI command, using the resource group that contains your AKS cluster, and your AKS cluster name. The command configures your cluster with support for Azure Dev Spaces.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
 
@@ -97,7 +98,7 @@ So far, you have a basic web app that can run locally. You'll now containerize i
 1. Run this command (be sure that **webfrontend** is your current folder):
 
     ```cmd
-    azds prep --public
+    azds prep --enable-ingress
     ```
 
 The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with default settings:
@@ -105,7 +106,7 @@ The Azure CLI's `azds prep` command generates Docker and Kubernetes assets with 
 * A [Helm chart](https://docs.helm.sh) under `./charts/webfrontend` describes how to deploy the container to Kubernetes.
 
 > [!TIP]
-> The [Dockerfile and Helm chart](how-dev-spaces-works.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
+> The [Dockerfile and Helm chart](how-dev-spaces-works-prep.md#prepare-your-code) for your project is used by Azure Dev Spaces to build and run your code, but you can modify these files if you want to change how the project is built and ran.
 
 For now, it isn't necessary to understand the full content of these files. It's worth pointing out, however, that **the same Kubernetes and Docker configuration-as-code assets can be used from development through to production, thus providing better consistency across different environments.**
  
@@ -165,7 +166,7 @@ But there is an even *faster method* for developing code, which you'll explore i
 
 In this section, you'll use VS Code to directly debug our container running in Azure. You'll also learn how to get a faster edit-run-test loop.
 
-![](media/common/edit-refresh-see.png)
+![Diagram showing the Edit Code, Refresh Container, See Update cycle.](media/common/edit-refresh-see.png)
 
 > [!Note]
 > **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
@@ -177,13 +178,13 @@ Open the **Command Palette** (using the **View | Command Palette** menu), and us
 
 This adds debug configuration for Azure Dev Spaces under the `.vscode` folder. This command is not to be confused with the `azds prep` command, which configures the project for deployment.
 
-![](media/common/command-palette.png)
+![Screenshot showing the Azure Dev Spaces option in the VS Code Command Pallet](media/common/command-palette.png)
 
 ### Select the AZDS debug configuration
 1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
 1. Select **Launch Java Program (AZDS)** as the active debug configuration.
 
-![](media/get-started-java/debug-configuration.png)
+![Screenshot of the VS Code debug feature with the Launch Java Program option outlined in red.](media/get-started-java/debug-configuration.png)
 
 > [!Note]
 > If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces. Be sure the workspace you opened in VS Code is the folder that contains `azds.yaml`.
@@ -196,7 +197,7 @@ As with the `up` command, code is synced to the dev space, and a container is bu
 > [!Tip]
 > The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to open your application.
 
-![](media/common/vscode-status-bar-url.png)
+![Screenshot of the VS Code status bar after it has turned orange.](media/common/vscode-status-bar-url.png)
 
 Set a breakpoint in a server-side code file, for example within the `greeting()` function in the `src/main/java/com/ms/sample/webfrontend/Application.java` source file. Refreshing the browser page causes the breakpoint to hit.
 
@@ -214,7 +215,7 @@ public String greeting()
 
 Save the file, and in the **Debug actions pane**, click the **Restart** button.
 
-![](media/common/debug-action-refresh.png)
+![Screenshot of the VS Code Debug actions pane with the restart option outlined in red.](media/common/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
 

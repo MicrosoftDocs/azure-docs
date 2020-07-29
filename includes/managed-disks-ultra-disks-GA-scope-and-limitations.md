@@ -5,31 +5,49 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/18/2019
+ms.date: 06/25/2020
 ms.author: rogarana
 ms.custom: include file
 ---
 For now, ultra disks have additional limitations, they are as follows:
 
-- Are supported in the following regions, with a varying number of availability zones per region:
-    - East US 2
-    - East US
-    - West US 2
-    - SouthEast Asia
-    - North Europe
-    - West Europe
-    - UK South 
-- Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
+The only infrastructure redundancy options currently available to ultra disks are availability zones. VMs using any other redundancy options cannot attach an ultra disk.
+
+The following table outlines the regions ultra disks are available in, as well as their corresponding availability options:
+
+> [!NOTE]
+> If a region in the following list has no ultra disk capable availability zones, then VMs in that region must be deployed without any infrastructure redundancy options in order to attach an ultra disk.
+
+|Regions  |Number of availability zones supporting ultra disks  |
+|---------|---------|
+|US Gov Virginia     |None         |
+|South Central US     |None         |
+|Central US     |Three zones         |
+|West US     |None         |
+|West US 2    |Three zones         |
+|East US     |Three zones         |
+|East US 2     |Two zones         |
+|SouthEast Asia     |Three zones         |
+|North Europe     |Three zones          |
+|West Europe     |Three zones          |
+|UK South     |Three zones          |
+|Japan East     |Two zones         |
+|France Central    |Two zones        |
+
+
 - Are only supported on the following VM series:
-    - [ESv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - [DSv3](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/)
-    - FSv2
+    - [ESv3](../articles/virtual-machines/ev3-esv3-series.md#esv3-series)
+    - [DSv3](../articles/virtual-machines/dv3-dsv3-series.md#dsv3-series)
+    - [FSv2](../articles/virtual-machines/fsv2-series.md)
+    - [LSv2](../articles/virtual-machines/lsv2-series.md)
     - [M](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Not every VM size is available in every supported region with ultra disks
 - Are only available as data disks and only support 4k physical sector size. Due to the 4K native sector size of Ultra Disk, there are some applications that won't be compatible with ultra disks. One example would be Oracle Database, which requires release 12.2 or later in order to support ultra disks.  
 - Can only be created as empty disks  
-- Do not yet support disk snapshots, VM images, availability sets, and Azure disk encryption
-- Do not yet support integration with Azure Backup or Azure Site Recovery
+- Doesn't currently support disk snapshots, VM images, availability sets, Azure Dedicated Hosts, or Azure disk encryption
+- Doesn't currently support integration with Azure Backup or Azure Site Recovery
+- Only supports un-cached reads and un-cached writes
 - The current maximum limit for IOPS on GA VMs is 80,000.
-- If you would like to participate in a limited preview of a VM that can accomplish 160,000 IOPS with ultra disks, please email UltraDiskFeedback@microsoft .com
+
+Azure ultra disks offer up to 16 TiB per region per subscription by default, but ultra disks support higher capacity by request. To request an increase in capacity, contact Azure Support.

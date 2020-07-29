@@ -38,7 +38,7 @@ Within a service, content creation and management is through [Search Service RES
 
 ## Check versions and load modules
 
-The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/overview).
+The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/).
 
 ### PowerShell version check (5.1 or later)
 
@@ -244,12 +244,11 @@ HostingMode       : Default
 Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
-
 ## Next steps
 
 Build an [index](search-what-is-an-index.md), [query an index](search-query-overview.md) using the portal, REST APIs, or the .NET SDK.
 
-* [Create an Azure Cognitive Search index in the Azure portal](search-create-index-portal.md)
+* [Create an Azure Cognitive Search index in the Azure portal](search-get-started-portal.md)
 * [Set up an indexer to load data from other services](search-indexer-overview.md)
 * [Query an Azure Cognitive Search index using Search explorer in the Azure portal](search-explorer.md)
 * [How to use Azure Cognitive Search in .NET](search-howto-dotnet-sdk.md)

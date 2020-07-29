@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/18/2019
+ms.date: 05/12/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -90,7 +90,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<tenant>.talentsoft.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Talentsoft Client support team](mailto:jlegoff@talentsoft.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Talentsoft Client support team](mailto:advancedservices@talentsoft.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -132,11 +132,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Talentsoft SSO
 
-To configure single sign-on on **Talentsoft** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Talentsoft support team](mailto:jlegoff@talentsoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Talentsoft** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Talentsoft support team](mailto:advancedservices@talentsoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Talentsoft test user
 
-In this section, you create a user called B.Simon in Talentsoft. Work with [Talentsoft support team](mailto:jlegoff@talentsoft.com) to add the users in the Talentsoft platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Talentsoft. Work with [Talentsoft support team](mailto:advancedservices@talentsoft.com) to add the users in the Talentsoft platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 

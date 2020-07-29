@@ -1,23 +1,25 @@
 ---
-title: Import data
+title: Import data into the designer (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to import your data into Azure Machine Learning designer from various data sources.
+description: Learn how to import data into Azure Machine Learning designer (preview) from various data sources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
-# Import your data into Azure Machine Learning designer (preview)
+# Import data into Azure Machine Learning designer (preview)
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
 * **Azure Machine Learning datasets** - Register [datasets](concept-data.md#datasets) in Azure Machine Learning to enable advanced features that help you manage your data.
 * **Import Data module** - Use the [Import Data](algorithm-module-reference/import-data.md) module to directly access data from online datasources.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## Use Azure Machine Learning datasets
 
@@ -42,7 +44,6 @@ Your registered datasets can be found in the module palette, under **Datasets** 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
-
 > [!NOTE]
 > The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
 
@@ -52,10 +53,12 @@ While we recommend that you use datasets to import data, you can also use the [I
 
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
+> [!NOTE]
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#use-the-ui).
 
 ## Supported sources
 
-This section lists the data sources supported by the designer. Data comes into into the designer from either a datastore or from [tabular dataset](how-to-create-register-datasets.md#dataset-types).
+This section lists the data sources supported by the designer. Data comes into the designer from either a datastore or from [tabular dataset](how-to-create-register-datasets.md#dataset-types).
 
 ### Datastore sources
 For a list of supported datastore sources, see [Access data in Azure storage services](how-to-access-data.md#supported-data-storage-service-types).
@@ -83,6 +86,10 @@ The designer uses an internal data type to pass data between modules. You can ex
 ## Data constraints
 
 Modules in the designer are limited by the size of the compute target. For larger datasets, you should use a larger Azure Machine Learning compute resource. For more information on Azure Machine Learning compute, see [What are compute targets in Azure Machine Learning?](concept-compute-target.md#azure-machine-learning-compute-managed)
+
+## Access data in a virtual network
+
+If your workspace is in a virtual network, you must perform additional configuration steps to  visualize data in the designer. For more information on how to use datastores and datasets in a virtual network, see [Network isolation during training & inference with private virtual networks](how-to-enable-virtual-network.md#machine-learning-studio).
 
 ## Next steps
 

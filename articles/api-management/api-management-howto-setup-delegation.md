@@ -70,7 +70,7 @@ Now you need to create the **delegation endpoint**. It has to perform a number o
    * [request a single-sign-on (SSO) token] via the API Management REST API
    * append a returnUrl query parameter to the SSO URL you have received from the API call above:
      
-     > for example, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > for example, `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * redirect the user to the above produced URL
@@ -182,10 +182,10 @@ For more information on delegation, see the following video:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
-[create a user]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
-[calling the REST API for subscriptions]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
+[request a single-sign-on (SSO) token]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[create a user]: /rest/api/apimanagement/2019-12-01/user/createorupdate
+[calling the REST API for subscriptions]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 
-[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 
+[api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png

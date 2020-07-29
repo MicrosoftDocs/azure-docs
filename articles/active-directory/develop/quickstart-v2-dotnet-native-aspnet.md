@@ -1,5 +1,5 @@
 ---
-title: Call a ASP.NET Web API protected by Microsoft identity platform
+title: Call an ASP.NET web API protected by Microsoft identity platform
 description: In this quickstart, learn how to call an ASP.NET web API protected by Microsoft identity platform from a Windows Desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
 author: jmprieur
@@ -15,11 +15,11 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
 ---
 
-# Quickstart: Call an ASP.NET Web API protected by Microsoft identity platform
+# Quickstart: Call an ASP.NET web API protected by Microsoft identity platform
 
-In this quickstart, you expose a Web API and protect it so that only authenticated user can access it. This sample shows how to expose a ASP.NET Web API so it can accept tokens issued by personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Microsoft identity platform.
+In this quickstart, you expose a web API and protect it so that only authenticated user can access it. This sample shows how to expose an ASP.NET web API so it can accept tokens issued by personal accounts (including outlook.com, live.com, and others) as well as work and school accounts from any company or organization that has integrated with Microsoft identity platform.
 
-The sample also includes a Windows Desktop application (WPF) client that demonstrates how you can request an access token to access a Web API.
+The sample also includes a Windows Desktop application (WPF) client that demonstrates how you can request an access token to access a web API.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ To run this sample, you will need the following:
 
 * Visual Studio 2017 or 2019.  Download [Visual Studio for free](https://www.visualstudio.com/downloads/).
 
-* Either a [Microsoft account](https://www.outlook.com) or [ Office 365 Developer Program](/office/developer-program/office-365-developer-program)
+* Either a [Microsoft account](https://www.outlook.com) or [Microsoft 365 Developer Program](/office/developer-program/office-365-developer-program)
 
 ## Download or clone this sample
 
@@ -39,7 +39,7 @@ You can clone this sample from your shell or command line:
 
 Or, you can [download the sample as a ZIP file](https://github.com/AzureADQuickStarts/AppModelv2-NativeClient-DotNet/archive/complete.zip).
 
-## Register your Web API in the application registration portal
+## Register your web API in the application registration portal
 
 ### Choose the Azure AD tenant where you want to create your applications
 
@@ -66,13 +66,13 @@ If you want to register your apps manually, as a first step you'll need to:
      - for **Scope name** use `access_as_user`
      - Ensure the **Admins and users** option is selected for **Who can consent**
      - in **Admin consent display name** type `Access TodoListService as a user`
-     - in **Admin consent description** type `Accesses the TodoListService Web API as a user`
+     - in **Admin consent description** type `Accesses the TodoListService web API as a user`
      - in **User consent display name** type `Access TodoListService as a user`
-     - in **User consent description** type `Accesses the TodoListService Web API as a user`
+     - in **User consent description** type `Accesses the TodoListService web API as a user`
      - Keep **State** as **Enabled**
      - Select **Add scope**
 
-### Configure the service project to match the registered Web API 
+### Configure the service project to match the registered web API
 
 1. Open the solution in Visual Studio and then open the **Web.config** file under the root of **TodoListService** project.
 1. Replace the value of `ida:ClientId` parameter with the **Client ID (Application ID)** from the application you just registered in the Application Registration Portal.
@@ -83,7 +83,7 @@ If you want to register your apps manually, as a first step you'll need to:
 
    > Note: Make sure it uses the following format:
    >
-   > `api://{TodoListService-Application-ID}/access_as_user` 
+   > `api://{TodoListService-Application-ID}/access_as_user`
    >
    >(where {TodoListService-Application-ID} is the GUID representing the Application ID for your TodoListService).
 
@@ -105,7 +105,7 @@ In this step, you configure your *TodoListClient* project by registering a new a
 1. Select the **API permissions** section
    - Click the **Add a permission** button and then,
    - Select the **My APIs** tab.
-   - In the list of APIs, select the `AppModelv2-NativeClient-DotNet-TodoListService API`, or the name you entered for the Web API.
+   - In the list of APIs, select the `AppModelv2-NativeClient-DotNet-TodoListService API`, or the name you entered for the web API.
    - Check the **access_as_user** permission if it's not already checked. Use the search box if necessary.
    - Select the **Add permissions** button
 
@@ -123,12 +123,12 @@ In this step, you configure your *TodoListClient* project by registering a new a
 
 ## Pre-authorize your client application
 
-One of the ways to allow users from other directories to access your Web API is by *pre-authorizing* the client applications to access your Web API by adding the Application IDs from client applications in the list of *pre-authorized* applications for your Web API. By adding a pre-authorized client, you will not require user to consent to use your Web API. Follow the steps below to pre-authorize your Web Application::
+One of the ways to allow users from other directories to access your web API is by *pre-authorizing* the client applications to access your web API by adding the Application IDs from client applications in the list of *pre-authorized* applications for your web API. By adding a pre-authorized client, you will not require user to consent to use your web API. Follow the steps below to pre-authorize your Web Application::
 
 1. Go back to the *Application registration portal* and open the properties of your **TodoListService**.
 1. In the **Expose an API** section, click on **Add a client application** under the *Authorized client applications* section.
 1. In the *Client ID* field, paste the application ID of the `TodoListClient` application.
-1. In the *Authorized scopes* section, select the scope for this Web API `api://<Application ID>/access_as_user`.
+1. In the *Authorized scopes* section, select the scope for this web API `api://<Application ID>/access_as_user`.
 1. Press the **Add application** button at the bottom of the page.
 
 ## Run your project
@@ -138,7 +138,7 @@ One of the ways to allow users from other directories to access your Web API is 
 
 ## Optional: Restrict sign-in access to your application
 
-By default, when you download this code sample and configure the application to use the Azure Active Directory v2 endpoint following the preceding steps, both personal accounts - like outlook.com, live.com, and others - as well as Work or school accounts from any organizations that are integrated with Azure AD can request tokens and access your Web API. 
+By default, when you download this code sample and configure the application to use the Azure Active Directory v2 endpoint following the preceding steps, both personal accounts - like outlook.com, live.com, and others - as well as Work or school accounts from any organizations that are integrated with Azure AD can request tokens and access your web API.
 
 To restrict who can sign in to your application, use one of the options:
 

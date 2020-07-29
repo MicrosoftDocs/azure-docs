@@ -1,19 +1,11 @@
 ---
 title: Resize a Windows VM in Azure 
 description: Change the VM size used for an Azure virtual machine.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
-ms.workload: na
-ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.subservice: sizes
+ms.workload: infrastructure
+ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: cynthn
 
@@ -129,5 +121,4 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## Next steps
 
-For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
-
+For additional scalability, run multiple VM instances and scale out. For more information, see [Automatically scale Windows machines in a Virtual Machine Scale Set](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md).

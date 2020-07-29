@@ -1,6 +1,6 @@
 ---
 title: Authentication - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: mitigations for threats exposed in the Threat Modeling Tool
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,10 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: has-adal-ref
 ---
 
-# Security Frame: Authentication | Mitigations 
+# Security Frame: Authentication | Mitigations
 
 | Product/Service | Article |
 | --------------- | ------- |
@@ -41,8 +41,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -52,8 +52,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -63,8 +63,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -74,8 +74,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -85,8 +85,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -96,8 +96,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -107,8 +107,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web Application |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -118,8 +118,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | OnPrem |
 | **Attributes**              | SQL Version - All |
 | **References**              | [SQL Server - Choose an Authentication Mode](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -129,8 +129,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
 | **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -140,8 +140,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [SQL Server password policy](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -151,8 +151,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Database | 
-| **SDL Phase**               | Build |  
+| **Component**               | Database |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | OnPrem, SQL Azure |
 | **Attributes**              | SQL Version - MSSQL2012, SQL Version - V12 |
 | **References**              | [Security Best Practices with Contained Databases](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -162,8 +162,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Event Hub | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure Event Hub |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Event Hubs authentication and security model overview](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -173,8 +173,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Azure Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [What is Azure Multi-Factor Authentication?](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
@@ -184,8 +184,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure  |
 | **References**              | [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
@@ -195,8 +195,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure, Environment - Stand alone |
 | **References**              | [Service Fabric Client-to-node certificate security](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#_client-to-node-certificate-security), [Connect to a secure cluster using client certificate](https://azure.microsoft.com/documentation/articles/service-fabric-connect-to-secure-cluster/) |
@@ -206,8 +206,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
 | **References**              | [Cluster security scenarios - Security Recommendations](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#security-recommendations) |
@@ -217,8 +217,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Service Fabric Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Service Fabric Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
 | **References**              | [X.509 certificates and Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/#x509-certificates-and-service-fabric) |
@@ -228,8 +228,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Identity Server | 
-| **SDL Phase**               | Build |  
+| **Component**               | Identity Server |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [IdentityServer3 - The Big Picture](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -239,8 +239,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Identity Server | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Identity Server |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Identity Server Deployment - Caching](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
@@ -250,8 +250,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Machine Trust Boundary | 
-| **SDL Phase**               | Deployment |  
+| **Component**               | Machine Trust Boundary |
+| **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -261,8 +261,8 @@ ms.author: jegeib
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
-| **SDL Phase**               | Build |  
+| **Component**               | WCF |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic, NET Framework 3 |
 | **Attributes**              | N/A |
 | **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -301,8 +301,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
-| **SDL Phase**               | Build |  
+| **Component**               | WCF |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | .NET Framework 3 |
 | **Attributes**              | Client Credential Type - None |
 | **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
@@ -317,8 +317,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | WCF | 
-| **SDL Phase**               | Build |  
+| **Component**               | WCF |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic, .NET Framework 3 |
 | **Attributes**              | Client Credential Type - None |
 | **References**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
@@ -333,8 +333,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Web API | 
-| **SDL Phase**               | Build |  
+| **Component**               | Web API |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
@@ -344,8 +344,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Authentication Scenarios for Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory Code Samples](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory developer's guide](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -355,8 +355,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -366,8 +366,8 @@ The `<netMsmqBinding/>` element of the WCF configuration file below instructs WC
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -427,8 +427,8 @@ Please note that to test the effectiveness of this configuration, login into you
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure AD | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure AD |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -438,8 +438,8 @@ Please note that to test the effectiveness of this configuration, login into you
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | IoT Field Gateway | 
-| **SDL Phase**               | Build |  
+| **Component**               | IoT Field Gateway |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | N/A  |
@@ -449,11 +449,11 @@ Please note that to test the effectiveness of this configuration, login into you
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | IoT Cloud Gateway | 
-| **SDL Phase**               | Build |  
+| **Component**               | IoT Cloud Gateway |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic, C#, Node.JS,  |
 | **Attributes**              | N/A, Gateway choice - Azure IoT Hub |
-| **References**              | N/A, [Azure IoT hub with .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Getting Started with IoT hub and Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Securing IoT with SAS and certificates](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git repository](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
+| **References**              | N/A, [Azure IoT hub with .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [Getting Started with IoT hub and Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [Securing IoT with SAS and certificates](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [Git repository](https://github.com/Azure/azure-iot-sdks/) |
 | **Steps** | <ul><li>**Generic:** Authenticate the device using Transport Layer Security (TLS) or IPSec. Infrastructure should support using pre-shared key (PSK) on those devices that cannot handle full asymmetric cryptography. Leverage Azure AD, Oauth.</li><li>**C#:** When creating a DeviceClient instance, by default, the Create method creates a DeviceClient instance that uses the AMQP protocol to communicate with IoT Hub. To use the HTTPS protocol, use the override of the Create method that enables you to specify the protocol. If you use the HTTPS protocol, you should also add the `Microsoft.AspNet.WebApi.Client` NuGet package to your project to include the `System.Net.Http.Formatting` namespace.</li></ul>|
 
 ### Example
@@ -509,9 +509,9 @@ await deviceClient.SendEventAsync(message);
     if (policyName) token += "&skn="+policyName;
     return token;
     ```
-* Connect using sas token: 
+* Connect using sas token:
     ```javascript
-    Client.fromSharedAccessSignature(sas, Http); 
+    Client.fromSharedAccessSignature(sas, Http);
     ```
   #### Certificates
 * Generate a self signed X509 certificate using any tool such as OpenSSL to generate a .cert and .key files to store the certificate and the key respectively
@@ -538,7 +538,7 @@ await deviceClient.SendEventAsync(message);
     var options = {
         key: fs.readFileSync('./key.pem', 'utf8'),
         cert: fs.readFileSync('./server.crt', 'utf8')
-    }; 
+    };
     // Calling setOptions with the x509 certificate and key (and optionally, passphrase) will configure the client //transport to use x509 when connecting to IoT Hub
     client.setOptions(options);
     //call fn to execute after the connection is set up
@@ -549,8 +549,8 @@ await deviceClient.SendEventAsync(message);
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | IoT Cloud Gateway  | 
-| **SDL Phase**               | Build |  
+| **Component**               | IoT Cloud Gateway  |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Gateway choice - Azure IoT Hub |
 | **References**              | [Azure IoT Hub Security Tokens](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -560,8 +560,8 @@ await deviceClient.SendEventAsync(message);
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Storage | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure Storage |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | StorageType - Blob |
 | **References**              | [Manage anonymous read access to containers and blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [Shared Access Signatures, Part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -571,8 +571,8 @@ await deviceClient.SendEventAsync(message);
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
-| **Component**               | Azure Storage | 
-| **SDL Phase**               | Build |  
+| **Component**               | Azure Storage |
+| **SDL Phase**               | Build |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A |
 | **References**              | [Shared Access Signatures, Part 1: Understanding the SAS model](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [Shared Access Signatures, Part 2: Create and use a SAS with Blob storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [How to delegate access to objects in your account using Shared Access Signatures and Stored Access Policies](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

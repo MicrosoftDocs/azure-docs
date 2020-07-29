@@ -14,6 +14,9 @@ ms.custom: mvc
 
 This quickstart shows you how to create and run an Azure Stream Analytics job by using the Azure Stream Analytics Tools extension for Visual Studio Code. The example job reads streaming data from an Azure IoT Hub device. You define a job that calculates the average temperature when over 27° and writes the resulting output events to a new file in blob storage.
 
+> [!NOTE]
+> Visual Studio and Visual Studio Code tools don't support jobs in the China East, China North, Germany Central, and Germany NorthEast regions.
+
 ## Before you begin
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
@@ -137,14 +140,6 @@ Before you define the Stream Analytics job, you should prepare the data that's l
    FROM Input
    HAVING Temperature > 27
    ```
-
-## Test the query locally with sample data
-
-Before you run the query in the cloud, you can test it locally with a local sample data file or with data captured from live input to verify the query logic.
-
-Follow the instructions in [Test queries locally with sample data](visual-studio-code-local-run.md) for more details.
-
- ![Test with sample data in Visual Studio Code](./media/vscode-local-run/localrun-localinput.gif)
 
 ## Define a live input
 
@@ -276,6 +271,8 @@ If you're planning to use the job in the future, you can stop it and restart it 
 In this quickstart, you deployed a simple Stream Analytics job by using Visual Studio Code. You can also deploy Stream Analytics jobs by using the [Azure portal](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md), and [Visual Studio](stream-analytics-quick-create-vs.md).
 
 To learn about Azure Stream Analytics Tools for Visual Studio Code, continue to the following articles:
+
+* [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 
 * [Test Azure Stream Analytics jobs locally against live input with Visual Studio Code](visual-studio-code-local-run-live-input.md)
 

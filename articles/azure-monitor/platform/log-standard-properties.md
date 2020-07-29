@@ -1,17 +1,19 @@
 ---
 title: Standard properties in Azure Monitor log records | Microsoft Docs
 description: Describes properties that are common to multiple data types in Azure Monitor logs.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
+ms.date: 05/01/2020
 
 ---
 
 # Standard properties in Azure Monitor Logs
 Data in Azure Monitor Logs is [stored as a set of records in either a Log Analytics workspace or Application Insights application](../log-query/logs-structure.md), each with a particular data type that has a unique set of properties. Many data types will have standard properties that are common across multiple types. This article describes these properties and provides examples of how you can use them in queries.
+
+> [!IMPORTANT]
+> If you are using APM 2.1, then Application Insights applications are stored in a Log Analytics workspace with all other log data. The tables have been renamed and restructured but have the same information as the tables in the Application Insights application. These new tables have the same standard properties as other tables in the Log Analytics workspace.
 
 > [!NOTE]
 > Some of the standard properties will not show in the schema view or intellisense in Log Analytics, and they won't show in query results unless you explicitly specify the property in the output.
@@ -45,7 +47,7 @@ exceptions
 ## \_TimeReceived
 The **\_TimeReceived** property contains the date and time that the record was received by the Azure Monitor ingestion point in the Azure cloud. This can be useful for identifying latency issues between the data source and the cloud. An example would be a networking issue causing a delay with data being sent from an agent. See [Log data ingestion time in Azure Monitor](data-ingestion-time.md) for more details.
 
-The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and and the total time for the record to be available for log queries.
+The following query gives the average latency by hour for event records from an agent. This includes the time from the agent to the cloud and the total time for the record to be available for log queries.
 
 ```Kusto
 Event
@@ -57,7 +59,7 @@ Event
 ``` 
 
 ## Type and itemType
-The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple table, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
+The **Type** (Log Analytics workspace) and **itemType** (Application Insights application) properties hold the name of the table that the record was retrieved from which can also be thought of as the record type. This property is useful in queries that combine records from multiple tables, such as those that use the `search` operator, to distinguish between records of different types. **$table** can be used in place of **Type** in some places.
 
 ### Examples
 The following query returns the count of records by type collected over the past hour.
@@ -119,7 +121,7 @@ union withsource = tt *
 Use these `union withsource = tt *` queries sparingly as scans across data types are expensive to execute.
 
 ## \_IsBillable
-The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to _false_ are collected for free and not billed to your Azure account.
+The **\_IsBillable** property specifies whether ingested data is billable. Data with **\_IsBillable** equal to `false` are collected for free and not billed to your Azure account.
 
 ### Examples
 To get a list of computers sending billed data types, use the following query:
@@ -205,5 +207,6 @@ union withsource = tt *
 ## Next steps
 
 - Read more about how [Azure Monitor log data is stored](../log-query/log-query-overview.md).
-- Get a lesson on [writing log queries](../../azure-monitor/log-query/get-started-queries.md).
-- Get a lesson on [joining tables in log queries](../../azure-monitor/log-query/joins.md).
+- Get a lesson on [writing log queries](../log-query/get-started-queries.md).
+- Get a lesson on [joining tables in log queries](../log-query/joins.md).
+

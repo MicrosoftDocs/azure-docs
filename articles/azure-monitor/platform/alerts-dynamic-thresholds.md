@@ -2,12 +2,9 @@
 title: Creating Alerts with Dynamic Thresholds in Azure Monitor
 description: Create Alerts with machine learning based Dynamic Thresholds
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 04/26/2019
 ms.author: yalavi
-ms.reviewer: mbullwin
+ms.topic: conceptual
+ms.date: 02/16/2020
 ---
 
 # Metric Alerts with Dynamic Thresholds in Azure Monitor
@@ -87,11 +84,12 @@ Probably not. Dynamic Thresholds are good for detecting significant deviations r
 
 ## How much data is used to preview and then calculate thresholds?
 
-When and alert is first creates, the thresholds appearing in the chart are calculated based on enough historical data to calculate hour or daily seasonal patterns (10 days). Once an alert rule is created, Dynamic Thresholds uses all needed historical data that is available and will continuously learn and adapt based on new data to make the thresholds more accurate. This means that after this calculation, the chart will also display weekly patterns.
+When an alert rule is first created, the thresholds appearing in the chart are calculated based on enough historical data to calculate hour or daily seasonal patterns (10 days). Once an alert rule is created, Dynamic Thresholds uses all needed historical data that is available and will continuously learn and adapt based on new data to make the thresholds more accurate. This means that after this calculation, the chart will also display weekly patterns.
 
 ## How much data is needed to trigger an alert?
 
-If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days of data are available to ensure accurate thresholds.
+If you have a new resource or missing metric data, Dynamic Thresholds won't trigger alerts before three days and at least 30 samples of metric data are available, to ensure accurate thresholds.
+For existing resources with sufficient metric data, Dynamic Thresholds can trigger alerts immediately.
 
 ## Dynamic Thresholds best practices
 

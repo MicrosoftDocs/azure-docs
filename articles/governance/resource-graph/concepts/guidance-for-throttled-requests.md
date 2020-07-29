@@ -1,7 +1,7 @@
 ---
 title: Guidance for throttled requests
 description: Learn to group, stagger, paginate, and query in parallel to avoid requests being throttled by Azure Resource Graph.
-ms.date: 12/02/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
 ---
 # Guidance for throttled requests in Azure Resource Graph
@@ -21,7 +21,7 @@ Graph:
 
 ## Understand throttling headers
 
-Azure Resource Graph allocates quota number for each user based on a time window. For example, a
+Azure Resource Graph allocates a quota number for each user based on a time window. For example, a
 user can send at most 15 queries within every 5-second window without being throttled. The quota
 value is determined by many factors and is subject to change.
 
@@ -256,7 +256,7 @@ Provide these details:
 - Your specific use-case and business driver needs for a higher throttling limit.
 - How many resources do you have access to? How many of the are returned from a single query?
 - What types of resources are you interested in?
-- What's your query pattern? X queries per Y seconds etc.
+- What's your query pattern? X queries per Y seconds, and so on.
 
 ## Next steps
 

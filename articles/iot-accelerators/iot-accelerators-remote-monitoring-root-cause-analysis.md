@@ -1,8 +1,8 @@
 ---
 title: Conduct a root cause analysis on an alert - Azure | Microsoft Docs
 description: In this tutorial you learn how to conduct a root cause analysis on an alert using Azure Time Series Insights.
-author: aditidugar
-ms.author: adugar
+author: Philmea
+ms.author: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018

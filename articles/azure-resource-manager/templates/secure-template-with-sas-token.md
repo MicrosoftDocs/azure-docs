@@ -4,9 +4,9 @@ description: Deploy resources to Azure with an Azure Resource Manager template t
 ms.topic: conceptual
 ms.date: 08/14/2019
 ---
-# Deploy private Resource Manager template with SAS token
+# Deploy private ARM template with SAS token
 
-When your template is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to deploy a template with a SAS token.
+When your Azure Resource Manager (ARM) template is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to deploy a template with a SAS token.
 
 ## Create storage account with secured container
 
@@ -123,7 +123,7 @@ url=$(az storage blob url \
     --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create \
+az deployment group create \
   --resource-group ExampleGroup \
   --template-uri $url?$token
 ```
@@ -134,5 +134,5 @@ For an example of using a SAS token with linked templates, see [Using linked tem
 
 
 ## Next steps
-* For an introduction to deploying templates, see [Deploy resources with Resource Manager templates and Azure PowerShell](deploy-powershell.md).
+* For an introduction to deploying templates, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
 * To define parameters in template, see [Authoring templates](template-syntax.md#parameters).

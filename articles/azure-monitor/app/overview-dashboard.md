@@ -1,11 +1,7 @@
 ---
 title: Azure Application Insights Overview Dashboard | Microsoft Docs
 description: Monitor applications with Azure Application Insights and Overview Dashboard functionality.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/03/2019
 
 ---
@@ -57,6 +53,7 @@ If you select **Configure tile settings** and set a custom time range in excess 
 
 ## Next steps
 
-- [Funnels](../../azure-monitor/app/usage-funnels.md)
-- [Retention](../../azure-monitor/app/usage-retention.md)
-- [User Flows](../../azure-monitor/app/usage-flows.md)
+- [Funnels](./usage-funnels.md)
+- [Retention](./usage-retention.md)
+- [User Flows](./usage-flows.md)
+

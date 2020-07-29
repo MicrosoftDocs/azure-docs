@@ -2,7 +2,7 @@
 title: 'Azure VPN Gateway: Troubleshoot Point-to-Site connections: Mac OS X clients'
 description: Steps to troubleshoot P2S Mac OS X VPN client connections
 services: vpn-gateway
-author: anzaman
+author: kumudD
 
 ms.service: vpn-gateway
 ms.topic: troubleshooting
@@ -44,7 +44,7 @@ This article helps you troubleshoot Point-to-Site connectivity issues from Mac O
 4. The **Local ID** can be blank.
 5. Click the **Authentication Setting** button and verify that "Username" is selected from the dropdown.
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verify that the correct credentials are entered.
 
 ## <a name="additional"></a>Additional steps
@@ -56,7 +56,7 @@ If you try the previous steps and everything is configured properly, download [W
 
    ![packet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. If there is no server response on the network traces, verify you enabled IKEv2 protocol on the Azure Gateway Configuration page on the Azure Portal website.
+3. If there is no server response on the network traces, verify you enabled IKEv2 protocol on the Azure Gateway Configuration page on the Azure portal website.
 
 ## Next steps
 For additional help, see [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

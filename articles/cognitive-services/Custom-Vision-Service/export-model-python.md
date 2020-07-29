@@ -3,14 +3,15 @@ title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
 titleSuffix: Azure Cognitive Services
 description: Run a TensorFlow model in Python. This article only applies to models exported from image classification projects in the Custom Vision service.
 services: cognitive-services
-author: areddish
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/05/2019
-ms.author: areddish
+ms.date: 04/14/2020
+ms.author: pafarley
+ms.custom: tracking-python
 ---
 
 # Tutorial: Run TensorFlow model in Python
@@ -179,7 +180,7 @@ input_node = 'Placeholder:0'
 with tf.compat.v1.Session() as sess:
     try:
         prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-        predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
+        predictions = sess.run(prob_tensor, {input_node: [augmented_image] })
     except KeyError:
         print ("Couldn't find classification output layer: " + output_layer + ".")
         print ("Verify this a model exported from an Object Detection project.")

@@ -1,9 +1,9 @@
 ---
 title: Integrate Time Series Insights with Remote Monitoring - Azure | Microsoft Docs
 description: In this how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that doesn't already include Time Series Insights.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
@@ -239,7 +239,7 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 Configure the environment of `standard` deployment for the updated micro services above
 
-1. At the command line, run `kubectl proxy`. For more information, see [accessing the Kubernetes API](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. At the command line, run `kubectl proxy`. For more information, see [accessing the Kubernetes API](https://kubernetes.io/docs/reference/access-authn-authz/#using-kubectl-to-start-a-proxy-server).
 
 1. Open the Kubernetes management console.
 

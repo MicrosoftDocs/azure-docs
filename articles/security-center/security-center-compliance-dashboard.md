@@ -30,7 +30,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To step through the features covered in this tutorial, you must have Security Center’s Standard pricing tier. You can try Security Center Standard at no cost.
+To step through the features covered in this tutorial, you must have Security Center’s standard pricing tier. You can try Security Center Standard at no cost.
 To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 walks you through how to upgrade to Standard.
 
@@ -99,6 +99,4 @@ To learn more see:
 
 -   [Managing security recommendations in Azure Security Center](security-center-recommendations.md) - Learn how to use recommendations in Azure Security Center to help protect your Azure resources.
 
--   [Improve your secure score in Azure Security Center](security-center-secure-score.md) - Learn how to prioritize vulnerabilities and security recommendations to most improve your security posture.
-
--   [Azure Security Center FAQ](security-center-faq.md) - Find frequently asked questions about using the service.
+-   [Improve your Secure Score in Azure Security Center](secure-score-security-controls.md) - Learn how to prioritize vulnerabilities and security recommendations to most improve your security posture.

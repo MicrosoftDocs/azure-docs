@@ -1,5 +1,5 @@
 ---
-title: Roll back on error to successful deployment 
+title: Roll back on error to successful deployment
 description: Specify that a failed deployment should roll back to a successful deployment.
 ms.topic: conceptual
 ms.date: 10/04/2019
@@ -41,7 +41,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment02 `
 To redeploy the last successful deployment, add the `--rollback-on-error` parameter as a flag.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
   --template-file storage.json \
@@ -52,7 +52,7 @@ az group deployment create \
 To redeploy a specific deployment, use the `--rollback-on-error` parameter and provide the name of the deployment. The specified deployment must have succeeded.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment02 \
   --resource-group ExampleGroup \
   --template-file storage.json \

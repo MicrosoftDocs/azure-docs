@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 06/17/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -23,9 +23,8 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate GitHub with Azure Active Directory (Azure AD). When you integrate GitHub with Azure AD, you can:
 
-* Control in Azure AD who has access to GitHub.
-* Enable your users to be automatically signed-in to GitHub with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Control in Azure AD who has access to your GitHub Enterprise Cloud Organization.
+* Manage access to your GitHub Enterprise Cloud Organization in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -42,7 +41,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * GitHub supports **SP** initiated SSO
 
-* GitHub supports [**Automated** user provisioning](github-provisioning-tutorial.md)
+* GitHub supports [**Automated** user provisioning (organization invitations)](github-provisioning-tutorial.md)
 * Once you configure GitHub you can enforce Session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## Adding GitHub from the gallery
@@ -55,7 +54,6 @@ To configure the integration of GitHub into Azure AD, you need to add GitHub fro
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **GitHub** in the search box.
 1. Select **GitHub** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD single sign-on for GitHub
 
@@ -83,15 +81,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
    a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<entity-id>/sso`
+    `https://github.com/orgs/<Organization ID>/sso`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://github.com/orgs/<entity-id>`
+    `https://github.com/orgs/<Organization ID>`
+
+    c. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://github.com/orgs/<Organization ID>/saml/consume`
+
 
 	> [!NOTE]
-	> Please note that these are not the real values. You have to update these values with the actual Sign on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Go to GitHub Admin section to retrieve these values.
+	> Please note that these are not the real values. You have to update these values with the actual Sign on URL, Identifier and Reply URL. Here we suggest you to use the unique value of string in the Identifier. Go to GitHub Admin section to retrieve these values.
 
-5. Your GitHub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. GitHub application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+5. Your GitHub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **Unique User Identifier (Name ID)** is mapped with **user.userprincipalname**. GitHub application expects **Unique User Identifier (Name ID)** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
@@ -141,15 +143,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure GitHub SSO
 
-1. In a different web browser window, log into your GitHub organization site as an administrator.
+1. In a different web browser window, sign into your GitHub organization site as an administrator.
 
 2. Navigate to **Settings** and click **Security**
 
     ![Settings](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-3. Check the **Enable SAML authentication** box, revealing the Single Sign-on configuration fields. Then, use the single sign-on URL value to update the Single sign-on URL on Azure AD configuration.
+3. Check the **Enable SAML authentication** box, revealing the Single Sign-on configuration fields. perform the following steps:
 
     ![Settings](./media/github-tutorial/tutorial_github_config_github_13.png)
+
+    a. Copy **single sign-on URL** value and paste this value into the **Sign on URL** text box in the **Basic SAML Configuration** in the Azure portal.
+    
+    b. Copy **assertion consumer service URL** value and paste this value into the **Reply URL** text box in the **Basic SAML Configuration** in the Azure portal.
 
 4. Configure the following fields:
 
@@ -162,6 +168,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     c. Open the downloaded certificate from Azure portal in notepad, paste the content into the **Public Certificate** textbox.
 
     d. Click on **Edit** icon to edit the **Signature Method** and **Digest Method** from **RSA-SHA1** and **SHA1** to **RSA-SHA256** and **SHA256** as shown below.
+    
+    e. Update the **assertion consumer service URL (Reply URL)** from the default URL so that it the URL in GitHub matches the URL in the Azure app registration.
 
     ![image](./media/github-tutorial/tutorial_github_sha.png)
 

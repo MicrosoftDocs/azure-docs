@@ -70,7 +70,7 @@ Under the actions list, select the action you want.
    | **User Name** | Yes | Your username for your SMTP account | 
    | **Password** | Yes | Your password for your SMTP account | 
    | **SMTP Server Port** | No | A specific port on your SMTP server you want to use | 
-   | **Enable SSL?** | No | Turn on or turn off SSL encryption. | 
+   | **Enable SSL?** | No | Turn on or turn off TLS/SSL encryption. | 
    |||| 
 
 1. Provide the necessary details for your selected action. 
@@ -79,14 +79,11 @@ Under the actions list, select the action you want.
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are 
-described by the connector's OpenAPI (formerly Swagger) description, 
-review the connector's [reference page](/connectors/smtpconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/smtpconnector/).
 
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

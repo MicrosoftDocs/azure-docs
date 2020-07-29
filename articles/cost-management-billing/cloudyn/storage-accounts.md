@@ -1,14 +1,14 @@
 ---
-title: Configure storage accounts for Cloudyn in Azure | Microsoft Docs
+title: Configure storage accounts for Cloudyn in Azure
 description: This article describes how you configure Azure storage accounts and AWS storage buckets for Cloudyn.
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
+ROBOTS: NOINDEX
 ---
 
 # Configure storage accounts for Cloudyn
@@ -16,6 +16,8 @@ ms.custom: secdec18
 <!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
 You can save Cloudyn reports in the Cloudyn portal, Azure storage, or AWS storage buckets. Saving your reports to the Cloudyn portal is free of charge. However, saving your reports to your cloud service provider's storage is optional and incurs additional cost. This article helps you configure Azure storage accounts and Amazon Web Services (AWS) storage buckets to store your reports.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Prerequisites
 
@@ -64,18 +66,18 @@ bucket.
 
    ```json
    {
-	"Version": "2012-10-17",
-	"Statement": [
-	  {
-		"Sid":  "CloudynSaveReport2S3",
-		"Effect":      "Allow",
-		"Action": [
-		  "s3:PutObject"
-		],
-		"Resource": [
-		  "arn:aws:s3:::<bucketname>/*"
-		]
-	  }
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Sid":  "CloudynSaveReport2S3",
+        "Effect":      "Allow",
+        "Action": [
+          "s3:PutObject"
+        ],
+        "Resource": [
+          "arn:aws:s3:::<bucketname>/*"
+        ]
+      }
     ]
    }
    ```

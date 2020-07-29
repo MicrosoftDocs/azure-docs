@@ -5,7 +5,7 @@ services: azure-portal
 keywords: 
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/20/2019
+ms.date: 05/11/2020
 ms.topic: conceptual
 
 ms.service: azure-portal
@@ -17,18 +17,17 @@ The Azure portal how-to video series showcases how to work with Azure services i
 
 ## Featured video
 
-In this featured video, we explore how to troubleshoot common issues with virtual machines.
+In this featured video, we show you how to connect to a storage account using Azure Private Link.
 
-> [!VIDEO https://www.youtube.com/embed/MAJrN-2IPY8]
+> [!VIDEO https://www.youtube.com/embed/vM7yDwHSc_o]
 
-[Troubleshoot common problems with virtual machines](https://www.youtube.com/watch?v=MAJrN-2IPY8)
+[How to connect to a storage account using Azure Private Link](https://www.youtube.com/watch?v=vM7yDwHSc_o)
 
 Catch up on these recent videos you may have missed:
 
-|   |   |   |
+| [The new Azure Functions experience](https://www.youtube.com/watch?v=0bdT_9uOqkg)  | [Deploying your web app using GitHub Actions](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Using service information cards](https://www.youtube.com/watch?v=u00TU531qsQ)  |
 | ------| ------ | ------ |
-| [![Image of YouTube video about how to create a function app](https://i.ytimg.com/vi/BEIZKCDElMs/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=BEIZKCDElMs) | [![Image of YouTube video about how to use the new Azure home screen](https://i.ytimg.com/vi/Ddo__jkzgVo/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=Ddo__jkzgVo) | [![Image of YouTube video about making the most of Azure Advisor](https://i.ytimg.com/vi/ANz3cCiFsJw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
-| [How to create a function app](https://www.youtube.com/watch?v=BEIZKCDElMs) | [How to use the new Azure home](https://www.youtube.com/watch?v=Ddo__jkzgVo) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
+| [![Image of YouTube video about the new Azure Functions experience](https://i.ytimg.com/vi/0bdT_9uOqkg/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=0bdT_9uOqkg) | [![Image of YouTube video deploying your web app using GitHub Actions](https://i.ytimg.com/vi/b2oyxbSbLPA/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=b2oyxbSbLPA) | [![Image of YouTube video about using service information cards](https://i.ytimg.com/vi/u00TU531qsQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](http://www.youtube.com/watch?v=u00TU531qsQ) |
 
 ## Video playlist
 

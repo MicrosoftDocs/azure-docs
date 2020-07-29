@@ -1,6 +1,6 @@
 ---
-title: Linux Virtual machines overview | Microsoft Docs
-description: Help content for Linux Virtual machines overview within Azure portal
+title: Linux virtual machines overview | Microsoft Docs
+description: Help content for Linux virtual machines overview within Azure portal
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -19,9 +19,10 @@ Azure Linux Virtual Machines provides on-demand, high-scale, secure, virtualized
 
 Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:
 
-- [Azure Portal](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure CLI](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure CLI](../../articles/virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure Portal](../../articles//virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Azure PowerShell](../../articles//virtual-machines/quick-create-powershell.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
 
 ## Step-by-Step Tutorials
 
@@ -38,7 +39,7 @@ Learn how to deploy, manage, and scale Linux VMs on Azure.
 - [Backup VMs](/azure/virtual-machines/linux/tutorial-backup-vms)
 - [Monitor VMs](/azure/virtual-machines/linux/tutorial-monitoring)
 - [Manage security on VMs](/azure/virtual-machines/linux/tutorial-azure-security)
-- [Create a CI/CD infrastructure with Jenkins, Docker, and GitHub](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
+- [Create a CI/CD infrastructure with Jenkins, Docker, and GitHub](/azure/jenkins/tutorial-jenkins-github-docker-cicd)
 
 ## Free Pluralsight Video Training
 

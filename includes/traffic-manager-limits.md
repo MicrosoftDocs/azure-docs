@@ -10,7 +10,7 @@ ms.author:
 ms.custom: include file
 ---
 
-| Resource | Default/maximum limit |
+| Resource | Limit |
 | --- | --- |
 | Profiles per subscription |200 |
 | Endpoints per profile |200 |

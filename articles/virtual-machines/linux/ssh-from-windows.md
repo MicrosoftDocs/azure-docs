@@ -1,19 +1,11 @@
 ---
 title: Use SSH keys with Windows for Linux VMs 
 description: Learn how to generate and use SSH keys on a Windows computer to connect to a Linux virtual machine on Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-
-ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/26/2018
 ms.author: cynthn
 
@@ -29,7 +21,7 @@ This article describes ways to generate and use *secure shell* (SSH) keys on a W
 ## Windows packages and SSH clients
 You connect to and manage Linux VMs in Azure using an *SSH client*. Computers running Linux or macOS usually have a suite of SSH commands to generate and manage SSH keys and to make SSH connections. 
 
-Windows computers do not always have comparable SSH commands installed. Recent versions of Windows 10 provide [OpenSSH client commands](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) to create and manage SSH keys and make SSH connections from a command prompt. Recent Windows 10 versions also include the [Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/about) to run and access utilities such as an SSH client natively within a Bash shell. 
+Windows computers do not always have comparable SSH commands installed. Recent versions of Windows 10 provide [OpenSSH client commands](https://devblogs.microsoft.com/commandline/windows10v1803/) to create and manage SSH keys and make SSH connections from a command prompt. Recent Windows 10 versions also include the [Windows Subsystem for Linux](/windows/wsl/about) to run and access utilities such as an SSH client natively within a Bash shell. 
 
 Other common Windows SSH clients you can install locally are included in the following packages:
 
@@ -66,15 +58,15 @@ To create an SSH RSA key pair with PuTTYgen:
 
 2. Click **Generate**. By default PuTTYgen generates a 2048-bit SSH-2 RSA key.
 
-4. Move the mouse around in the blank area to provide randomness for the key.
+3. Move the mouse around in the blank area to provide randomness for the key.
 
-5. After the public key is generated, optionally enter and confirm a passphrase. You will be prompted for the passphrase when you authenticate to the VM with your private SSH key. Without a passphrase, if someone obtains your private key, they can sign in to any VM or service that uses that key. We recommend you create a passphrase. However, if you forget the passphrase, there is no way to recover it.
+4. After the public key is generated, optionally enter and confirm a passphrase. You will be prompted for the passphrase when you authenticate to the VM with your private SSH key. Without a passphrase, if someone obtains your private key, they can sign in to any VM or service that uses that key. We recommend you create a passphrase. However, if you forget the passphrase, there is no way to recover it.
 
-6. The public key is displayed at the top of the window. You can copy this entire public key and then paste it into the Azure portal or an Azure Resource Manager template when you create a Linux VM. You can also select **Save public key** to save a copy to your computer:
+5. The public key is displayed at the top of the window. You can copy this entire public key and then paste it into the Azure portal or into an Azure Resource Manager template when you create a Linux VM. You can also select **Save public key** to save a copy to your computer. Note that when saving to a file, PuTTY converts the public key to a different format, [RFC4716](https://tools.ietf.org/html/rfc4716). The RFC4716 format might not be compatible with all APIs. So, to use in the Azure portal, we recommend that you copy the public key that's displayed in the PuTTY window.
 
     ![Save PuTTY public key file](./media/ssh-from-windows/save-public-key.png)
 
-7. Optionally, to save the private key in PuTTy private key format (.ppk file), select **Save private key**. You will need the .ppk file later to use PuTTY to make an SSH connection to the VM.
+6. Optionally, to save the private key in PuTTy private key format (.ppk file), select **Save private key**. You will need the .ppk file later to use PuTTY to make an SSH connection to the VM.
 
     ![Save PuTTY private key file](./media/ssh-from-windows/save-ppk-file.png)
 
@@ -126,4 +118,4 @@ If you installed the [PuTTY download package](https://www.chiark.greenend.org.uk
 
 * You can also use PowerShell in Azure Cloud Shell to generate SSH keys and make SSH connections to Linux VMs. See the [PowerShell quickstart](../../cloud-shell/quickstart-powershell.md#ssh).
 
-* If you have difficulty using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* If you have difficulty using SSH to connect to your Linux VMs, see [Troubleshoot SSH connections to an Azure Linux VM](../troubleshooting/troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json).

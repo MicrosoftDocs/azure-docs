@@ -6,8 +6,6 @@ summary: Monitoring Azure and on-premises services. Aggregate and analyze metric
 metadata:
   title: Azure Monitor documentation
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
-  services: azure-monitor
-  ms.service: azure-monitor
   ms.topic: landing-page
   author: rboucher
   ms.author: robb
@@ -25,10 +23,8 @@ landingContent:
         links:
           - text: What is Azure Monitor?
             url: overview.md
-          - text: What is Azure Monitor logs / Log Analytics?
-            url: overview.md
-          - text: Azure Monitor logs / Log Analytics content hub page
-            url: azure-monitor-log-hub.md
+          - text: What is Azure Monitor Logs / Log Analytics?
+            url: platform/data-platform-logs.md
           - text: What is Application Insights?
             url: app/app-insights-overview.md
           - text: Application Insights content hub page
@@ -83,20 +79,20 @@ landingContent:
     linkLists: 
       - linkListType: learn
         links:
-          - text: Free Pluralsite Training - Azure Administrator
+          - text: Free Pluralsight Training - Azure Administrator
             url: https://go.microsoft.com/fwlink/?linkid=2012827
 
   # Card
   - title: Reference - CLI
-    linkLists: 
+    linkLists:
       - linkListType: reference
         links:
-          - text: Metrics, Autoscale, Diagnostics settings, Alerts
-            url:  /cli/azure/monitor?view=azure-cli-latest
+          - text: Action Groups, Activity Logs, Autoscale, Diagnostic Settings, Metrics, Private Link Scope
+            url:  /cli/azure/azure-cli-reference-for-monitor
           - text: Log Analytics
-            url:  /cli/azure/ext/log-analytics/monitor?view=azure-cli-latest    
-          - text: Application Insights 
-            url:  /cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
+            url:  /cli/azure/ext/log-analytics/monitor
+          - text: Application Insights
+            url:  /cli/azure/ext/application-insights/monitor/app-insights
 
   # Card
   - title: Reference - PowerShell

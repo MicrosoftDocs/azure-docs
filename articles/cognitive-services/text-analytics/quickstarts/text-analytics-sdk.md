@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 01/23/2020
+ms.date: 07/27/2020
 ms.author: aahi
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
@@ -27,7 +28,7 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-csharp"
 
 > [!IMPORTANT]
-> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
@@ -35,22 +36,10 @@ Use the Text Analytics client library to perform:
 
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-
-> [!IMPORTANT]
-> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
->    * Be sure to only follow the instructions for the version you are using.
-> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
-
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
-
-::: zone-end
-
 ::: zone pivot="programming-language-java"
 
 > [!IMPORTANT]
-> * This quickstart is only for version `3.0-preview` of the Text Analytics client library, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
->    * Be sure to only follow the instructions for the version you are using.
+> * The latest stable version of the Text Analytics API is `3.0`.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
 
 [!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
@@ -60,11 +49,23 @@ Use the Text Analytics client library to perform:
 ::: zone pivot="programming-language-javascript"
 
 > [!IMPORTANT]
-> * The latest preview version of the Text Analytics API is `3.0-preview`, which includes a public preview for improved [Sentiment Analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) and [Named Entity Recognition (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features). The latest stable version is `2.1`.
+> * The latest stable version of the Text Analytics API is `3.0`.
 >    * Be sure to only follow the instructions for the version you are using.
 > * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below.
+> * You can also run this version of the Text Analytics client library [in your browser](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 [!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+> [!IMPORTANT]
+> * The latest stable version of the Text Analytics API is `3.0`.
+>    * Be sure to only follow the instructions for the version you are using.
+> * The code in this article uses synchronous methods and un-secured credentials storage for simplicity reasons. For production scenarios, we recommend using the batched asynchronous methods for performance and scalability. See the reference documentation below. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
@@ -76,8 +77,8 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 
 | Language | Available version | 
 |----------|------------------------|
-| Ruby     | [Version 2.1](ruby-sdk.md)          | 
-| Go       | [Version 2.1](go-sdk.md)          | 
+| Ruby     | [Version 2.1](ruby-sdk.md) | 
+| Go       | [Version 2.1](go-sdk.md) | 
 
 ::: zone-end
 

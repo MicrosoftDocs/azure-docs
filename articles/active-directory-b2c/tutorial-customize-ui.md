@@ -3,14 +3,14 @@ title: "Tutorial: Customize the user interface"
 titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface (UI) of your applications in Azure Active Directory B2C by using the Azure portal.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 02/01/2019
-ms.author: marsma
+ms.topic: tutorial
+ms.date: 05/11/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -162,4 +162,4 @@ In this article, you learned how to:
 > * Test the customized UI
 
 > [!div class="nextstepaction"]
-> [Language customization in Azure Active Directory B2C](user-flow-language-customization.md)
+> [Customize the UI in Azure Active Directory B2C](customize-ui-overview.md)

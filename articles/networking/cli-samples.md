@@ -1,11 +1,11 @@
 ---
 title: Azure CLI Samples - Networking
-description: Azure CLI Samples
+description: Learn about Azure CLI samples for networking, including samples for connectivity between Azure resources and samples for load balancing and traffic direction.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 manager: timlt
-editor: tysonn
+
 tags:
 ms.assetid:
 ms.service: virtual-network
@@ -21,7 +21,7 @@ ms.author: kumud
 
 The following table includes links to bash scripts built using the Azure CLI.
 
-| | |
+| Script | Description |
 |-|-|
 |**Connectivity between Azure resources**||
 | [Create a virtual network for multi-tier applications](./scripts/virtual-network-cli-sample-multi-tier-application.md?toc=%2fazure%2fnetworking%2ftoc.json) | Creates a virtual network with front-end and back-end subnets. Traffic to the front-end subnet is limited to HTTP and SSH, while traffic to the back-end subnet is limited to MySQL, port 3306. |

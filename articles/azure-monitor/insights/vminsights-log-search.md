@@ -1,18 +1,17 @@
 ---
-title: How to Query Logs from Azure Monitor for VMs (preview) | Microsoft Docs
+title: How to Query Logs from Azure Monitor for VMs
 description: Azure Monitor for VMs solution collects metrics and log data to and this article describes the records and includes sample queries.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
+ms.date: 03/12/2020
 
 ---
 
-# How to query logs from Azure Monitor for VMs (preview)
+# How to query logs from Azure Monitor for VMs
 
-Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../../azure-monitor/log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics workspace in Azure Monitor.  This data is available for [query](../log-query/log-query-overview.md) in Azure Monitor. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Map records
 
@@ -205,13 +204,13 @@ Records with a type of *VMComputer* have inventory data for servers with the Dep
 |AzureCloudServiceRoleType | Cloud Service role type: *worker* or *web* |
 |AzureCloudServiceInstanceId | Cloud Service role instance ID |
 |AzureVmScaleSetName | The name of the virtual machine scale set |
-|AzureVmScaleSetDeployment | VM scale set deployment ID |
+|AzureVmScaleSetDeployment | Virtual machine scale set deployment ID |
 |AzureVmScaleSetResourceId | The unique identifier of the virtual machine scale set resource.|
 |AzureVmScaleSetInstanceId | The unique identifier of the virtual machine scale set |
 |AzureServiceFabricClusterId | The unique identifer of the Azure Service Fabric cluster | 
 |AzureServiceFabricClusterName | The name of the Azure Service Fabric cluster |
 
-### VMProcess record
+### VMProcess records
 
 Records with a type of *VMProcess* have inventory data for TCP-connected processes on servers with the Dependency agent. These records have the properties in the following table:
 
@@ -244,7 +243,8 @@ Records with a type of *VMProcess* have inventory data for TCP-connected process
 |UserDomain | The domain under which the process is executing |
 |_ResourceId | The unique identifier for a process within the workspace |
 
-## Sample log searches
+
+## Sample map queries
 
 ### List all known machines
 
@@ -261,7 +261,7 @@ let Today = now(); VMComputer | extend DaysSinceBoot = Today - BootTime | summar
 ### Summary of Azure VMs by image, location, and SKU
 
 ```kusto
-VMComputer | where AzureLocation != "" | summarize by ComputerName, AzureImageOffering, AzureLocation, AzureImageSku
+VMComputer | where AzureLocation != "" | summarize by Computer, AzureImageOffering, AzureLocation, AzureImageSku
 ```
 
 ### List the physical memory capacity of all managed computers
@@ -279,7 +279,7 @@ VMComputer | summarize arg_max(TimeGenerated, *) by _ResourceId | project Comput
 ### Find all processes with "sql" in the command line
 
 ```kusto
-VMComputer | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
+VMProcess | where CommandLine contains_cs "sql" | summarize arg_max(TimeGenerated, *) by _ResourceId
 ```
 
 ### Find a machine (most recent record) by resource name
@@ -303,7 +303,7 @@ VMProcess | where Machine == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summariz
 ### List all computers running SQL Server
 
 ```kusto
-VMComputer | where AzureResourceName in ((search in (VMProcess) "\*sql\*" | distinct Machine)) | distinct Computer
+VMComputer | where AzureResourceName in ((search in (VMProcess) "*sql*" | distinct Machine)) | distinct Computer
 ```
 
 ### List all unique product versions of curl in my datacenter
@@ -315,7 +315,7 @@ VMProcess | where ExecutableName == "curl" | distinct ProductVersion
 ### Create a computer group of all computers running CentOS
 
 ```kusto
-VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct ComputerName
+VMComputer | where OperatingSystemFullName contains_cs "CentOS" | distinct Computer
 ```
 
 ### Bytes sent and received trends
@@ -426,8 +426,50 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
+## Performance records
+Records with a type of *InsightsMetrics* have performance data from the guest operating system of the virtual machine. These records have the properties in the following table:
+
+
+| Property | Description |
+|:--|:--|
+|TenantId | Unique identifier for the workspace |
+|SourceSystem | *Insights* | 
+|TimeGenerated | Time the value was collected (UTC) |
+|Computer | The computer FQDN | 
+|Origin | *vm.azm.ms* |
+|Namespace | Category of the performance counter | 
+|Name | Name of the performance counter |
+|Val | Collected value | 
+|Tags | Related details about the record. See the table below for tags used with different record types.  |
+|AgentId | Unique identifier for each computer's agent |
+|Type | *InsightsMetrics* |
+|_ResourceId_ | Resource ID of the virtual machine |
+
+The performance counters currently collected into the *InsightsMetrics* table are listed in the following table:
+
+| Namespace | Name | Description | Unit | Tags |
+|:---|:---|:---|:---|:---|
+| Computer    | Heartbeat             | Computer Heartbeat                        | | |
+| Memory      | AvailableMB           | Memory Available Bytes                    | Megabytes      | memorySizeMB - Total memory size|
+| Network     | WriteBytesPerSecond   | Network Write Bytes Per Second            | BytesPerSecond | NetworkDeviceId - Id of the device<br>bytes - Total sent bytes |
+| Network     | ReadBytesPerSecond    | Network Read Bytes Per Second             | BytesPerSecond | networkDeviceId - Id of the device<br>bytes - Total received bytes |
+| Processor   | UtilizationPercentage | Processor Utilization Percentage          | Percent        | totalCpus - Total CPUs |
+| LogicalDisk | WritesPerSecond       | Logical Disk Writes Per Second            | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | WriteLatencyMs        | Logical Disk Write Latency Millisecond    | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | WriteBytesPerSecond   | Logical Disk Write Bytes Per Second       | BytesPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | TransfersPerSecond    | Logical Disk Transfers Per Second         | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | TransferLatencyMs     | Logical Disk Transfer Latency Millisecond | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | ReadsPerSecond        | Logical Disk Reads Per Second             | CountPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | ReadLatencyMs         | Logical Disk Read Latency Millisecond     | MilliSeconds   | mountId - Mount ID of the device |
+| LogicalDisk | ReadBytesPerSecond    | Logical Disk Read Bytes Per Second        | BytesPerSecond | mountId - Mount ID of the device |
+| LogicalDisk | FreeSpacePercentage   | Logical Disk Free Space Percentage        | Percent        | mountId - Mount ID of the device |
+| LogicalDisk | FreeSpaceMB           | Logical Disk Free Space Bytes             | Megabytes      | mountId - Mount ID of the device<br>diskSizeMB - Total disk size |
+| LogicalDisk | BytesPerSecond        | Logical Disk Bytes Per Second             | BytesPerSecond | mountId - Mount ID of the device |
+
+
 ## Next steps
 
-* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../../azure-monitor/log-query/get-started-portal.md) in the Azure portal to write log queries.
+* If you are new to writing log queries in Azure Monitor, review [how to use Log Analytics](../log-query/get-started-portal.md) in the Azure portal to write log queries.
 
-* Learn about [writing search queries](../../azure-monitor/log-query/search-queries.md).
+* Learn about [writing search queries](../log-query/search-queries.md).
+

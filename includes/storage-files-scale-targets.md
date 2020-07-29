@@ -16,9 +16,9 @@ ms.author: rogarana
 | Target throughput for a single file share | up to 300 MiB/sec*, Up to 60 MiB/sec ,  | See premium file share ingress and egress values|
 | Maximum egress for a single file share | See standard file share target throughput | Up to 6,204 MiB/s |
 | Maximum ingress for a single file share | See standard file share target throughput | Up to 4,136 MiB/s |
-| Maximum open handles per file | 2,000 open handles | 2,000 open handles |
+| Maximum open handles per file or directory | 2,000 open handles | 2,000 open handles |
 | Maximum number of share snapshots | 200 share snapshots | 200 share snapshots |
 | Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |
 | Maximum pathname component (in the path \A\B\C\D, each letter is a component) | 255 characters | 255 characters |
 
-\* Available in most regions, see [Regional availability](../articles/storage/files/storage-files-planning.md#regional-availability) for the details on available regions.
+\* Default on standard file shares is 5 TiB, see [Enable and create large file shares](../articles/storage/files/storage-files-how-to-create-large-file-share.md) for the details on how to increase the standard file shares scale up to 100 TiB.

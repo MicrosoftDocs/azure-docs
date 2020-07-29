@@ -15,13 +15,14 @@ ms.author: alkohli
 
 ## Overview
 
-This tutorial describes how to provision a Data Box Gateway on a host system running Hyper-V on Windows Server 2016, Windows Server 2012 R2, or Windows Server 2012. 
+This tutorial describes how to provision a Data Box Gateway on a host system running Hyper-V on Windows Server 2016, Windows Server 2012 R2, or Windows Server 2012.
 
-You need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
+You need administrator privileges to provision and configure a virtual device. The provisioning and initial setup can take around 10 minutes to complete. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Ensure host meets minimum device requirements
 > * Provision a virtual device in hypervisor
 > * Start the virtual device and get the IP address
@@ -41,7 +42,7 @@ Before you begin, make sure that:
 
   > [!IMPORTANT]
   > The software running on the Data Box Gateway may only be used with the Data Box Gateway resource.
- 
+
 ### For the Data Box Gateway virtual device
 
 Before you deploy a device, make sure that:
@@ -50,7 +51,7 @@ Before you deploy a device, make sure that:
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
-  * At least 8 GB of RAM. 
+  * At least 8 GB of RAM.
   * One network interface.
   * A 250 GB OS disk.
   * A 2 TB virtual disk for data.
@@ -59,9 +60,8 @@ Before you deploy a device, make sure that:
 
 Before you begin:
 
-- Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-port-requirements).
-- Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
-
+* Review the networking requirements to deploy a Data Box Gateway and configure the datacenter network as per the requirements. For more information, see [Data Box Gateway networking requirements](data-box-gateway-system-requirements.md#networking-port-requirements).
+* Make sure that the minimum Internet bandwidth is 20 Mbps to allow for optimal working of the device.
 
 ## Check the host system
 
@@ -71,11 +71,17 @@ To create a virtual device, you need:
 * Microsoft Hyper-V Manager on a Microsoft Windows client connected to the host.
 * Make sure that the underlying hardware (host system) on which you are creating the virtual device is able to dedicate the following resources to your virtual device:
 
-    * A minimum of 4 virtual processors.
-    * At least 8 GB of RAM.
-    * One network interface connected to the network capable of routing traffic to Internet. 
-    * A 250 GB OS disk.
-    * A 2 TB virtual disk for system data.
+  * A minimum of 4 virtual processors.
+  * At least 8 GB of RAM.
+  * One network interface connected to the network capable of routing traffic to Internet.
+  * A 250 GB OS disk.
+  * A 2 TB virtual disk for system data.
+
+## BitLocker Considerations
+
+* We recommend that you enable BitLocker on your Data Box Gateway virtual machine. By default, BitLocker is not enabled. For more information, see:
+  * [Encryption support settings in Hyper-V Manager](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [BitLocker support in a virtual machine](https://kb.vmware.com/s/article/2036142)
 
 ## Provision a virtual device in hypervisor
 
@@ -123,18 +129,17 @@ Perform the following steps to provision a device in your hypervisor.
 14. On the **Hard drive** page, select the **Virtual hard disk** option and click **New**. The **New Virtual Hard Disk Wizard** starts.
 
     ![New Virtual Hard Disk Wizard](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
-1. On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
-2. On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**.
-   
-17. On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). **Fixed size** disk would work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**. 
+15. On the **Before you begin** page of the New Virtual Hard Disk Wizard, click **Next**.
+16. On the **Choose Disk Format page**, accept the default option of **VHDX** format. Click **Next**.
+17. On the **Choose Disk Type page**, set virtual hard disk type as **Dynamically expanding** (recommended). **Fixed size** disk would work but you may need to wait a long time. We recommend that you do not use the **Differencing** option. Click **Next**.
 
     ![Choose Disk Type page](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. On the **Specify Name and Location** page, provide a **name** as well as **location** (you can browse to one) for the data disk. Click **Next**.
 
     ![Specify Name and Location page](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **2 TB** (or more). 
-    
-    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. You can however expand the disk by adding a data disk. Click **Next**.
+19. On the **Configure Disk** page, select the option **Create a new blank virtual hard disk** and specify the size as **2 TB** (or more).
+
+    While 2 TB is the minimum requirement, you can always provision a larger disk. Note that you cannot shrink the disk once provisioned. Attempting to shrink the disk results in a loss of all the local data on the device. Expansion of data disk is not supported. Click **Next**.
 
     ![Configure Disk page](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. On the **Summary** page, review the details of your virtual data disk and if satisfied, click **Finish** to create the disk. The wizard closes and a virtual hard disk is added to your machine.
@@ -145,9 +150,11 @@ Perform the following steps to provision a device in your hypervisor.
     ![Settings page](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## Start the virtual device and get the IP
+
 Perform the following steps to start your virtual device and connect to it.
 
 #### To start the virtual device
+
 1. Start the virtual device.
 
    ![Start virtual device](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
@@ -156,26 +163,25 @@ Perform the following steps to start your virtual device and connect to it.
 3. You may have to wait 10-15 minutes for the device to be ready. A status message is displayed on the console to indicate the progress. After the device is ready, go to **Action**. Press `Ctrl + Alt + Delete` to sign in to the virtual device. The default user is *EdgeUser* and the default password is *Password1*.
 
    ![Sign in to the virtual device](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-   
-6. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps. If you booted up your device in non-DHCP environment, you will see a message to the effect.
-    
-7. To configure the network, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
 
-8. Use the `Set-HcsIpAddress` cmdlet to configure the network. See the following example:
+4. Steps 5-7 only apply when booting up in a non-DHCP environment. If you are in a DHCP environment, then skip these steps. If you booted up your device in non-DHCP environment, you will see a message to the effect.
+
+5. To configure the network, use the `Get-HcsIpAddress` command to list the network interfaces enabled on your virtual device. If your device has a single network interface enabled, the default name assigned to this interface is `Ethernet`.
+
+6. Use the `Set-HcsIpAddress` cmdlet to configure the network. See the following example:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
-    
-9. After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. Use this IP address to connect to the web UI of your virtual device and complete the local setup and activation.
+
+7. After the initial setup is complete and the device has booted up, you will see the device banner text. Make a note of the IP address and the URL displayed in the banner text to manage the device. Use this IP address to connect to the web UI of your virtual device and complete the local setup and activation.
 
    ![Virtual device banner with IP address and connection URL](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
-      
 
 If your device does not meet the minimum configuration requirements, you see an error in the banner text. Modify the device configuration so that the machine has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Check the host system meets minimum virtual device requirements](#check-the-host-system).
 
 If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
-- [Run diagnostic tests to troubleshoot web UI setup](data-box-gateway-troubleshoot.md#run-diagnostics).
-- [Generate log package and view log files](data-box-gateway-troubleshoot.md#collect-support-package).
+* [Run diagnostic tests to troubleshoot web UI setup](data-box-gateway-troubleshoot.md#run-diagnostics).
+* [Generate log package and view log files](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## Next steps
 
@@ -190,5 +196,3 @@ Advance to the next tutorial to learn how to connect, set up, and activate your 
 
 > [!div class="nextstepaction"]
 > [Connect and set up your Data Box Gateway](./data-box-gateway-deploy-connect-setup-activate.md)
-
-

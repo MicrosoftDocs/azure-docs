@@ -2,12 +2,12 @@
 title: Create and manage Azure Migrate projects
 description: Find, create, manage, and delete projects in Azure Migrate.
 ms.topic: how-to
-ms.date: 01/01/2020
+ms.date: 07/23/2020
 ---
 
 # Create and manage Azure Migrate projects
 
-This article describes how to create, manage, and delete [Azure Migrate](migrate-services-overview.md) projects
+This article describes how to create, manage, and delete [Azure Migrate](migrate-services-overview.md) projects.
 
 
 ## Create a project for the first time
@@ -18,7 +18,7 @@ The first time you set up Azure Migrate, you create a project and add an assessm
 
 If you already have an Azure Migrate project and you want to create an additional project, do the following:  
 
-1. In the [Azure portal](https://portal.azure.com), search for **Azure Migrate**.
+1. In the [Azure public portal](https://portal.azure.com) or [Azure Government](https://portal.azure.us), search for **Azure Migrate**.
 2. On the Azure Migrate dashboard > **Servers**, select **change** in the upper-right corner.
 
    ![Change Azure Migrate project](./media/create-manage-projects/switch-project.png)
@@ -60,7 +60,6 @@ Delete as follows:
     - The resource type is **Microsoft.Migrate/migrateprojects**.
     - If the resource group is exclusively used by the Azure Migrate project, you can delete the entire resource group.
 
-
 Note that:
 
 - When you delete, both the project and the metadata about discovered machines are deleted.
@@ -68,6 +67,7 @@ Note that:
 - If you're using dependency analysis with an Azure Log Analytics workspace:
     - If you've attached a Log Analytics workspace to the Server Assessment tool, the workspace isn't automatically deleted. The same Log Analytics workspace can be used for multiple scenarios.
     - If you want to delete the Log Analytics workspace, do that manually.
+- Project deletion is irreversible. Deleted objects can't be recovered.
 
 ### Delete a workspace manually
 
@@ -78,7 +78,7 @@ Note that:
        
     - If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
-2. [Follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete the workspace.
+2. [Follow the instructions](../azure-monitor/platform/delete-workspace.md) to delete the workspace.
 
 ## Next steps
 

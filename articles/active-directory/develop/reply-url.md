@@ -5,7 +5,7 @@ description: Reply URLs/redirect URls restrictions & limitations
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 06/29/2019
+ms.date: 07/17/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev 
@@ -18,8 +18,9 @@ A redirect URI, or reply URL, is the location that the authorization server will
 
  The following restrictions apply to reply URLs:
 
-    * The reply URL must begin with the scheme `https`.
-    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+* The reply URL must begin with the scheme `https`.
+
+* The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  do not specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
     
 ## Maximum number of redirect URIs
 
@@ -35,25 +36,42 @@ The following table shows the maximum number of redirect URIs that you can add w
 You can use a maximum of 256 characters for each redirect URI that you add to an app registration.
 
 ## Supported schemes
+
 The Azure AD application model today supports both HTTP and HTTPS schemes for apps that sign in Microsoft work or school accounts in any organization's Azure Active Directory (Azure AD) tenant. That is `signInAudience` field in the application manifest is set to either *AzureADMyOrg* or *AzureADMultipleOrgs*. For the apps that sign in Personal Microsoft accounts and work and school accounts (that is `signInAudience` set to *AzureADandPersonalMicrosoftAccount*) only HTTPS scheme is allowed.
 
 > [!NOTE]
 > The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience doesn't allow developers to add URIs with HTTP scheme on the UI. Adding HTTP URIs for apps that sign in work or school accounts is supported only through the app manifest editor. Going forward, new apps won't be able to use HTTP schemes in the redirect URI. However, older apps that contain HTTP schemes in redirect URIs will continue to work. Developers must use HTTPS schemes in the redirect URIs.
 
+## Localhost exceptions
+
+Per [RFC 8252 sections 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) and [7.3](https://tools.ietf.org/html/rfc8252#section-7.3), "loopback" or "localhost" redirect URIs come with two special considerations:
+
+1. `http` URI schemes are acceptable, since the redirect never leaves the device.  This means `http://127.0.0.1/myApp` is acceptable, as well as `https://127.0.0.1/myApp`. 
+1. Due to ephemeral port ranges often needed by native applications, the port component (e.g. `:5001`, or `:443`) is ignored for the purposes of matching a redirect URI.  As a result, `http://127.0.0.1:5000/MyApp` and `http://127.0.0.1:1234/MyApp` both match `http://127.0.0.1/MyApp` as well as `http://127.0.0.1:8080/MyApp`
+
+From a development standpoint, this means a few things:
+
+1. Do not register multiple reply URIs where only the port differs.  The login server will pick one arbitrarily, and use the behavior associated with that reply URI (for example, whether it is a `web`, `native`, and `spa` -type redirect.
+1. If you need to register multiple redirect URIs on localhost to test different flows during development, differentiate them using the *path* component of the URI.  `http://127.0.0.1/MyWebApp` does not match `http://127.0.0.1/MyNativeApp`.  
+1. Per RFC guidance, you should not use `localhost` in the redirect URI.  Instead, use the actual loopback IP address - `127.0.0.1`. This prevents your app from being broken by misconfigured firewalls or renamed network interfaces.
+
+>[!NOTE]
+> At this time, IPv6 loopback (`[::1]`) is not supported at this time.  This will added at a later date.
+
 ## Restrictions using a wildcard in URIs
 
-Wildcard URIs, such as `https://*.contoso.com`, are convenient but should be avoided. Using wildcards in the redirect URI has security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI. 
+Wildcard URIs, such as `https://*.contoso.com`, are convenient but should be avoided. Using wildcards in the redirect URI has security implications. According to the OAuth 2.0 specification ([section 3.1.2 of RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), a redirection endpoint URI must be an absolute URI.
 
-The Azure AD application model doesn't support wildcard URIs for apps that are configured to sign in personal Microsoft accounts and work or school accounts. However, wildcard URIs are allowed for apps that are configured to sign in work or school accounts in an organization's Azure AD tenant today. 
- 
+The Azure AD application model doesn't support wildcard URIs for apps that are configured to sign in personal Microsoft accounts and work or school accounts. However, wildcard URIs are allowed for apps that are configured to sign in work or school accounts in an organization's Azure AD tenant today.
+
 > [!NOTE]
 > The new [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience doesn't allow developers to add wildcard URIs on the UI. Adding wilcard URI for apps that sign in work or school accounts is supported only through the app manifest editor. Going forward, new apps won't be able to use wildcards in the redirect URI. However, older apps that contain wildcards in redirect URIs will continue to work.
 
-If your scenario requires more redirect URIs than the maximum limit allowed, instead of adding a wildcard redirect URI, consider one of the following approaches.
+If your scenario requires more redirect URIs than the maximum limit allowed, instead of adding a wildcard redirect URI, consider the following approach.
 
 ### Use a state parameter
 
-If you have a number of sub-domains, and if your scenario requires you to redirect users upon successful authentication to the same page where they started, using a state parameter might be helpful. 
+If you have a number of sub-domains, and if your scenario requires you to redirect users upon successful authentication to the same page where they started, using a state parameter might be helpful.
 
 In this approach:
 
@@ -65,10 +83,6 @@ In this approach:
 
 > [!NOTE]
 > This approach allows a compromised client to modify the additional parameters sent in the state parameter, thereby redirecting the user to a different URL, which is the [open redirector threat](https://tools.ietf.org/html/rfc6819#section-4.2.4) described in RFC 6819. Therefore, the client must protect these parameters by encrypting the state or verifying it by some other means such as validating domain name in the redirect URI against the token.
-
-### Add redirect URIs to service principals
-
-Another approach is to add redirect URIs to the [service principals](app-objects-and-service-principals.md#application-and-service-principal-relationship) that represent your app registration in any Azure AD tenant. You can use this approach when you can't use a state parameter or your scenario requires you to add new redirect URIs to your app registration for every new tenant you support. 
 
 ## Next steps
 

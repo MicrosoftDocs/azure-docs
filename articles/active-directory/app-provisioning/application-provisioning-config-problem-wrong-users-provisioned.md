@@ -2,22 +2,15 @@
 title: Wrong set of users are provisioned to an Azure AD Gallery app
 description: Learn how to find out why a different set of users are being provisioned to an application than those you expected
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: celestedg
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/20/2018
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: asteen
-
-ms.collection: M365-identity-device-management
 ---
 
 # Wrong set of users are being provisioned to an Azure AD Gallery application

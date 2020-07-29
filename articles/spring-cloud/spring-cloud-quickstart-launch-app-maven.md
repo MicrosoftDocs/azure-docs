@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Quickstart: Launch an Azure Spring Cloud app using the Maven plug-in
@@ -73,13 +73,13 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 1. Clone the Git repository by running the following command:
 
-    ```azurecli
+    ```console
     git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
 1. Change directory and build the project by running the following command:
 
-    ```azurecli
+    ```console
     cd piggymetrics
     mvn clean package -DskipTests
     ```
@@ -88,8 +88,8 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 1. Generate configurations by running the following command in the root folder of PiggyMetrics containing the parent POM:
 
-    ```azurecli
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.0.0:config
+    ```console
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
     ```
 
     a. Select the modules `gateway`,`auth-service`, and `account-service`.
@@ -102,7 +102,7 @@ It takes about 5 minutes for the service to be deployed. After the service is de
 
 1. The POM now contains the plugin dependencies and configurations. Deploy the apps using the following command:
 
-   ```azurecli
+   ```console
    mvn azure-spring-cloud:deploy
    ```
 
@@ -117,6 +117,6 @@ In this quickstart, you've deployed a Spring Cloud application from a Maven repo
 
 > [!div class="nextstepaction"]
 > [Prepare your Azure Spring Cloud application for deployment](spring-cloud-tutorial-prepare-app-deployment.md)
-> [Learn more about Maven plug-ins for Azure](https://github.com/microsoft/azure-maven-plugin)
+> [Learn more about Maven plug-ins for Azure](https://github.com/microsoft/azure-maven-plugins)
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

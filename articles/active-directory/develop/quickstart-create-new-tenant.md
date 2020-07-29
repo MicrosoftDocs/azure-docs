@@ -1,16 +1,15 @@
 ---
-title: Create an Azure Active Directory tenant | Microsoft Docs
+title: Create an Azure Active Directory tenant
 description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -32,7 +31,7 @@ There are two types of environments you can create. Deciding which you need is b
 * Work and school (Azure AD accounts) or Microsoft accounts (such as outlook.com and live.com)
 * Social and local accounts (Azure AD B2C)
 
-The quickstart is broken into two scenarios depending on the type of app you want to build. If you need more help targeting an identity type, take a look at [about Microsoft identity platform](about-microsoft-identity-platform.md)
+The quickstart is broken into two scenarios depending on the type of app you want to build.
 
 ## Work and school accounts, or personal Microsoft accounts
 
@@ -69,6 +68,6 @@ To begin building apps that sign in social and local accounts, you'll need to cr
 
 ## Next steps
 
-* Try a coding quickstart and begin authenticating users. 
-* For more in-depth code samples, check out the **Tutorials** section of the documentation.
-* Want to deploy your app to the cloud? Check out [deploying containers to Azure](https://docs.microsoft.com/azure/index#pivot=products&panel=containers). 
+* [Register an app](quickstart-register-app.md) and integrate with Microsoft identity platform. 
+* Learn the [basics of authentication](authentication-scenarios.md).
+* See [Associate or add an Azure subscription to your Azure Active Directory tenant](../fundamentals/active-directory-how-subscriptions-associated-directory.md) for details on the relationship between subscriptions and an Azure AD tenant.

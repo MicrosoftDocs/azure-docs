@@ -1,11 +1,10 @@
 ---
-title: "Understand how the voluntary migration tool works for Azure Monitor alerts"
+title: Understand migration tool for Azure Monitor alerts
 description: Understand how the alerts migration tool works and troubleshoot problems.
-author: yalavi
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
+author: yalavi
 ms.subservice: alerts
 ---
 # Understand how the migration tool works
@@ -59,7 +58,7 @@ All classic alerts on storage accounts can be migrated except alerts on these me
 - SASThrottlingError
 - ThrottlingError
 
-Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
+Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError and ThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 

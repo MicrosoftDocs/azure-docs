@@ -41,8 +41,6 @@ Azure Media Services recommends using one of following live encoders that have R
 
   Encoders must support TLS 1.2 when using RTMPS protocols.
 - Teradek Slice 756
-- TriCaster 8000
-- Tricaster Mini HD-4
 - OBS Studio
 - VMIX
 - xStream

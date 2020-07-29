@@ -1,9 +1,10 @@
 ---
 title: Programmatically create Azure subscriptions
 description: Learn how to create additional Azure subscriptions programmatically.
-author: amberbhargava
+author: anuragdalmia
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 07/09/2020
+ms.reviewer: andalmia
 ms.author: banders
 ---
 
@@ -17,6 +18,8 @@ When you create an Azure subscription programmatically, that subscription is gov
 
 
 ## Create subscriptions for an EA billing account
+
+Use the information in the following sections to create EA subscriptions.
 
 ### Prerequisites
 
@@ -148,11 +151,11 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 | `offerType`   | Yes      | String | The offer of the subscription. The two options for EA are [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (production use) and [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (dev/test, needs to be [turned on using the EA portal](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | No       | String | The Object ID of any user that you'd like to add as an RBAC Owner on the subscription when it's created.  |
 
-In the response, you get back a `subscriptionOperation` object for monitoring. When the subscription creation is finished, the `subscriptionOperation` object would return a `subscriptionLink` object, which has the subscription ID.
+In the response, as part of the header `Location`, you get back a url that you can query for status on the subscription creation operation. When the subscription creation is finished, a GET on `Location` url will return a `subscriptionLink` object, which has the subscription ID. For more details, refer [Subscription API documentation](https://docs.microsoft.com/rest/api/subscription/)
 
 ### [PowerShell](#tab/azure-powershell)
 
-First, install this preview module by running `Install-Module Az.Subscription -AllowPrerelease`. To make sure `-AllowPrerelease` works, install a recent version of PowerShellGet from [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
+To install the latest version of the module that contains the `New-AzSubscription` cmdlet, run `Install-Module Az.Subscription`. To install a recent version of PowerShellGet, see [Get PowerShellGet Module](/powershell/scripting/gallery/installing-psget).
 
 Run the [New-AzSubscription](/powershell/module/az.subscription) command below, replacing `<enrollmentAccountObjectId>` with the `ObjectId` collected in the first step (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). If you'd like to specify owners, learn [how to get user object IDs](grant-access-to-create-subscription.md#userObjectId).
 
@@ -169,7 +172,8 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).|
 
-To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription).
+To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription/New-AzSubscription).
+
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -197,7 +201,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 ### Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using this API.
-- There's a limit of 200 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account.
+- There's a limit of 2000 subscriptions per enrollment account. After that, more subscriptions for the account can only be created in the Azure portal. If you want to create more subscriptions through the API, create another enrollment account.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions in the Azure portal.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -269,34 +273,34 @@ The API response lists all the invoice sections and their billing profiles on wh
 
 ```json
 {
-	"value": [{
-		"billingProfileDisplayName": "Contoso finance",
-		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
-		"enabledAzurePlans": [{
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0001",
-			"skuDescription": "Microsoft Azure Plan"
-		}, {
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0002",
-			"skuDescription": "Microsoft Azure Plan for DevTest"
-		}],
-		"invoiceSectionDisplayName": "Development",
-		"invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/invoiceSections/GJ77-xxxx-xxx-xxx"
-	}, {
-		"billingProfileDisplayName": "Contoso finance",
-		"billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
-		"enabledAzurePlans": [{
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0001",
-			"skuDescription": "Microsoft Azure Plan"
-		}, {
-			"productId": "DZH318Z0BPS6",
-			"skuId": "0002",
-			"skuDescription": "Microsoft Azure Plan for DevTest"
-		}],
-		"invoiceSectionDisplayName": "Testing",
-		"invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX"
+    "value": [{
+        "billingProfileDisplayName": "Contoso finance",
+        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
+        "enabledAzurePlans": [{
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0001",
+            "skuDescription": "Microsoft Azure Plan"
+        }, {
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0002",
+            "skuDescription": "Microsoft Azure Plan for DevTest"
+        }],
+        "invoiceSectionDisplayName": "Development",
+        "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx/invoiceSections/GJ77-xxxx-xxx-xxx"
+    }, {
+        "billingProfileDisplayName": "Contoso finance",
+        "billingProfileId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-xxxx-xxx-xxx",
+        "enabledAzurePlans": [{
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0001",
+            "skuDescription": "Microsoft Azure Plan"
+        }, {
+            "productId": "DZH318Z0BPS6",
+            "skuId": "0002",
+            "skuDescription": "Microsoft Azure Plan for DevTest"
+        }],
+        "invoiceSectionDisplayName": "Testing",
+        "invoiceSectionId": "/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/PBFV-XXXX-XXX-XXX/invoiceSections/GJGR-XXXX-XXX-XXX"
   }]
 }
 
@@ -347,7 +351,7 @@ In the response, you get back a `subscriptionCreationResult` object for monitori
 
 ### Prerequisites
 
-You must have a Global Admin or  Admin Agent role in your organization's cloud solution provider account to create subscription for your billing account. For more information, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
+You must have a Global Admin or  Admin Agent role in your organization's cloud solution provider account to create subscription for your billing account. For more information, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
 The example shown below use REST APIs. Currently, PowerShell and Azure CLI are not supported.
 

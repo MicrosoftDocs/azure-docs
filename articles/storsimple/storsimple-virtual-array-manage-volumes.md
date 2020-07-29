@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: caa6a26b-b7ba-4a05-b092-1a79450225cf
 ms.service: storsimple
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
@@ -39,7 +39,7 @@ Refer to the following table for maximum provisioned capacity for each volume ty
 | Minimum size of a tiered volume                            | 500 GB        |
 | Maximum size of a tiered volume                            | 5 TB          |
 | Minimum size of a locally pinned volume                    | 50 GB         |
-| Maximum size of a locally pinned volume                    | 500 GB        |
+| Maximum size of a locally pinned volume                    | 200 GB        |
 
 ## The Volumes blade
 The **Volumes** menu on your StorSimple service summary blade displays the list of storage volumes on a given StorSimple array and allows you to manage them.

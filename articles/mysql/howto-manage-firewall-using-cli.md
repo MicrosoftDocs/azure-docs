@@ -5,8 +5,8 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
-ms.topic: conceptual
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 3/18/2020
 ---
 
 # Create and manage Azure Database for MySQL firewall rules by using the Azure CLI

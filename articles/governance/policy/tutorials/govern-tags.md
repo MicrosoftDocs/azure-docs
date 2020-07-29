@@ -1,18 +1,19 @@
 ---
 title: "Tutorial: Manage tag governance"
 description: In this tutorial, you use the Modify effect of Azure Policy to create and enforce a tag governance model on new and existing resources.
-ms.date: 11/25/2019
+ms.date: 04/21/2020
 ms.topic: tutorial
 ---
 # Tutorial: Manage tag governance with Azure Policy
 
-[Tags](../../../azure-resource-manager/management/tag-resources.md) are a crucial part of
-organizing your Azure resources into a taxonomy. When following
+[Tags](../../../azure-resource-manager/management/tag-resources.md) are a crucial part of organizing
+your Azure resources into a taxonomy. When following
 [best practices for tag management](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources),
 tags can be the basis for applying your business policies with Azure Policy or
-[tracking costs with Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[tracking costs with Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#tag-shared-resources).
 No matter how or why you use tags, it's important that you can quickly add, change, and remove those
-tags on your Azure resources.
+tags on your Azure resources. To see if your Azure resource supports tagging, see
+[Tag support](../../../azure-resource-manager/management/tag-support.md).
 
 Azure Policy's [Modify](../concepts/effects.md#modify) effect is designed to aid in the governance
 of tags no matter what stage of resource governance you are in. **Modify** helps when:

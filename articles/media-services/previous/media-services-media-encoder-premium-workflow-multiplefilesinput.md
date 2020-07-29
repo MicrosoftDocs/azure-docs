@@ -362,7 +362,7 @@ Now add the **ISO Mpeg-4 Multiplexer** and **File Output** components and connec
 
 You need to set the name for the output file. Click the **File Output** component and edit the expression for the file:
 
-    ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4
+`${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_withoverlay.mp4`
 
 ![File output name](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture17_filenameoutput.png)
 

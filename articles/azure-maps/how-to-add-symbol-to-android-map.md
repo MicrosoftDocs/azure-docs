@@ -1,8 +1,8 @@
 ---
 title: Add a symbol layer to Android maps | Microsoft Azure Maps
 description: In this article, you will learn how to render point data on a map by adding a symbol layer to it using the Microsoft Azure Maps Android SDK.
-author: walsehgal
-ms.author: v-musehg
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
@@ -167,6 +167,8 @@ At this point, if you run your application you should see a marker on the map, a
 
 ![Android map pin](./media/how-to-add-symbol-to-android-map/android-map-pin.png)</center>
 
+> [!TIP]
+> By default, symbol layers optimize the rendering of symbols by hiding symbols that overlap. As you zoom in, the hidden symbols become visible. To disable this feature and render all symbols at all times, set the `iconAllowOverlap` option to `true`.
 
 ## Next steps
 

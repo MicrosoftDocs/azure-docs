@@ -1,21 +1,16 @@
 ---
-title: Geographic availability and Currency Support | Azure
-description: Geographic availability in Azure Marketplace and AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
-
-author: qianw211
-
-
+title: Geographic availability and currency support for Microsoft commercial marketplace
+description: The geographic availability and currency support for transactions in the commercial marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: reference
+author: keferna
+ms.author: keferna
 ms.date: 01/29/2020
-ms.author: ellacroi
-
 ---
-# Geographic availability and currency support
+# Geographic availability and currency support for commercial marketplace
 
-Azure Marketplace and AppSource offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The table below lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
+Commercial marketplace offerings can be purchased in 141 geographies as defined by the customer's billing address, and transactions can be completed in 17 currencies. The table below lists each supported geographic location, its [ISO 3166 two-digit alpha code](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes), and the assigned currency.
 
 |   Country/Region Name               |   ISO-2   |   Currency   |
 |-------------------------------------|-----------|--------------|
@@ -42,9 +37,9 @@ Azure Marketplace and AppSource offerings can be purchased in 141 geographies as
 | Brazil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
+| Cabo Verde                          | CV        | USD          |
 | Cameroon                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
-| Cabo Verde                          | CV        | USD          |
 | Cayman Islands                      | KY        | USD          |
 | Chile                               | CL        | USD          |
 | China\**                            | CN        | N/A          |
@@ -109,8 +104,8 @@ Azure Marketplace and AppSource offerings can be purchased in 141 geographies as
 | Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Netherlands                         | NL        | EUR          |
-| Nicaragua                           | NI        | USD          |
 | New Zealand                         | NZ        | NZD          |
+| Nicaragua                           | NI        | USD          |
 | Nigeria                             | NG        | USD          |
 | Norway                              | NO        | NOK          |
 | Oman                                | OM        | USD          |
@@ -147,15 +142,15 @@ Azure Marketplace and AppSource offerings can be purchased in 141 geographies as
 | Tunisia                             | TN        | USD          |
 | Turkey                              | TR        | USD          |
 | Turkmenistan                        | TM        | USD          |
-| Vatican City (Holy See)             | VA        | EUR          |
-| Virgin Islands of the United States | VI        | USD          |
 | Uganda                              | UG        | USD          |
 | Ukraine                             | UA        | USD          |
 | United Arab Emirates                | AE        | USD          |
 | United Kingdom                      | GB        | GBP          |
 | United States                       | US        | USD          |
+| U.S. Virgin Islands                 | VI        | USD          |
 | Uruguay                             | UY        | USD          |
 | Uzbekistan                          | UZ        | USD          |
+| Vatican City (Holy See)             | VA        | EUR          |
 | Venezuela                           | VE        | USD          |
 | Vietnam                             | VN        | USD          |
 | Yemen                               | YE        | USD          |

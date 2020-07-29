@@ -2,22 +2,15 @@
 title: Application Provisioning status of Quarantine | Microsoft Docs
 description: When you've configured an application for automatic user provisioning, learn what a provisioning status of Quarantine means and how to clear it.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: celestedg
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 10/03/2019
-ms.author: mimart
+ms.topic: troubleshooting
+ms.date: 04/28/2020
+ms.author: kenwith
 ms.reviewer: arvinh
-
-ms.collection: M365-identity-device-management
 ---
 
 # Application provisioning in quarantine status
@@ -30,13 +23,17 @@ While in quarantine, the frequency of incremental cycles is gradually reduced to
 
 There are three ways to check whether an application is in quarantine:
   
-- In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and scroll to the progress bar at the bottom.  
+- In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and review the progress bar for a quarantine message.   
 
   ![Provisioning status bar showing quarantine status](./media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
+- In the Azure portal, navigate to **Azure Active Directory** > **Audit Logs** > filter on **Activity: Quarantine** and review the quarantine history. While the view in the progress bar as described above shows whether provisioning is currently in quarantine, the audit logs allow you to see the quarantine history for an application. 
+
 - Use the Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to programmatically get the status of the provisioning job:
 
-        `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
+```microsoft-graph
+        GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/
+```
 
 - Check your email. When an application is placed in quarantine, a one-time notification email is sent. If the quarantine reason changes, an updated email is sent showing the new reason for quarantine. If you don't see an email:
 
@@ -46,7 +43,13 @@ There are three ways to check whether an application is in quarantine:
 
 ## Why is my application in quarantine?
 
-A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
+|Description|Recommended Action|
+|---|---|
+|**SCIM Compliance issue:** An HTTP/404 Not Found response was returned rather than the expected HTTP/200 OK response. In this case the Azure AD provisioning service has made a request to the target application and received an unexpected response.|Check the admin credentials section to see if the application requires specifying the tenant URL and ensure that the URL is correct. If you don't see an issue, please contact the application developer to ensure that their service is SCIM-compliant. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
+|**Invalid credentials:** When attempting to authorize access to the target application we received a response from the target application that indicates the credentials provided are invalid.|Please navigate to the admin credentials section of the provisioning configuration UI and authorize access again with valid credentials. If the application is in the gallery, review the application configuration tutorial for any additional steps required.|
+|**Duplicate roles:** Roles imported from certain applications like Salesforce and Zendesk must be unique. |Navigate to the application [manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) in the Azure portal and remove the duplicate role.|
+
+ A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
 
 - `EncounteredQuarantineException` indicates that invalid credentials were provided. The provisioning service is unable to establish a connection between the source system and the target system.
 
@@ -68,4 +71,9 @@ After you've resolved the issue, restart the provisioning job. Certain changes t
 
 - Use Microsoft Graph to [restart the provisioning job](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). You'll have full control over what you restart. You can choose to clear escrows (to restart the escrow counter that accrues toward quarantine status), clear quarantine (to remove the application from quarantine), or clear watermarks. Use the following request:
  
-       `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
+```microsoft-graph
+        POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart
+```
+
+Replace "{id}" with the value of the Application ID, and replace "{jobId}" with the [ID of the synchronization job](https://docs.microsoft.com/graph/api/resources/synchronization-configure-with-directory-extension-attributes?view=graph-rest-beta&tabs=http#list-synchronization-jobs-in-the-context-of-the-service-principal). 
+

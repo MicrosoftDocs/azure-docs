@@ -8,6 +8,7 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
+ms.custom: tracking-python
 ---
 
 # What is Azure Machine Learning?
@@ -18,7 +19,7 @@ Azure Machine Learning can be used for any kind of machine learning, from classi
 
 Start training on your local machine and then scale out to the cloud. 
 
-The service also interoperates with popular open-source tools, such as PyTorch, TensorFlow, and scikit-learn.
+The service also interoperates with popular deep learning and reinforcement open-source tools such as PyTorch, TensorFlow, scikit-learn, and Ray RLlib. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -41,11 +42,15 @@ Azure Machine Learning provides all the tools developers and data scientists nee
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
++ + The [Many Models Solution Accelerator](https://aka.ms/many-models) (preview) builds on Azure Machine Learning and enables you to train, operate, and manage hundreds or even thousands of machine learning models.
+
 + [Visual Studio Code extension](tutorial-setup-vscode-extension.md)
 
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
 + Open-source frameworks such as PyTorch, TensorFlow, and scikit-learn and many more
+
++ [Reinforcement learning](how-to-use-reinforcement-learning.md) with Ray RLlib
 
 You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
@@ -114,16 +119,11 @@ Your Azure Storage account, compute targets, and other resources can be used sec
 ## <a name="sku"></a>Basic & Enterprise editions
 
 Azure Machine Learning offers two editions tailored for your machine learning needs:
-+ Basic (generally available)
-+ Enterprise (preview)
++ **Basic**: Great for open-source development at cloud scale with a code-first experience.
 
-These editions determine which machine learning tools are available to developers and data scientists from their workspace.   
++ **Enterprise**: All of Basic plus a web interface (studio) + secure, comprehensive ML lifecycle management for all skill levels.
 
-Basic workspaces allow you to continue using Azure Machine Learning and pay for only the Azure resources consumed during the machine learning process. Enterprise edition workspaces will be charged only for their Azure consumption while the edition is in preview. Learn more about what's available in the Azure Machine Learning [edition overview & pricing page](https://azure.microsoft.com/pricing/details/machine-learning/). 
-
-You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
-
-Customers are responsible for costs incurred on compute and other Azure resources during this time.
+To learn more about these editions and what capabilities they unlock, read the ["Azure Machine Learning Editions" article](concept-editions.md).
 
 ## Next steps
 

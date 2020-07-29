@@ -1,16 +1,14 @@
 ---
 title: Vertically scale Azure virtual machine scale sets
 description: How to vertically scale a Virtual Machine in response to monitoring alerts with Azure Automation
-author: mayanknayar
-tags: azure-resource-manager
-
-ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 04/18/2019
-ms.author: manayar
+ms.reviewer: avverma
+ms.custom: avverma
 
 ---
 # Vertical autoscale with virtual machine scale sets
@@ -36,7 +34,7 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 > [!NOTE]
 > Because of the size of the first Virtual Machine, the sizes it can be scaled to, may be limited due to the availability of the other sizes in the cluster current Virtual Machine is deployed in. In the published automation runbooks used in this article we take care of this case and only scale within the below VM size pairs. This means that a Standard_D1v2 Virtual Machine will not suddenly be scaled up to Standard_G5 or scaled down to Basic_A0. Also constrained Virtual Machine sizes scale up/down is not supported. You can choose to scale between the following pairs of sizes:
 > 
-> | VM sizes scaling pair |  |
+> | VM sizes scaling pair member | Member |
 > | --- | --- |
 > | Basic_A0 |Basic_A4 |
 > | Standard_A0 |Standard_A4 |
@@ -86,7 +84,7 @@ You can set up vertical scaling to be triggered based on metric based alerts fro
 ## Create an Azure Automation Account with run-as capability
 The first thing you need to do is create an Azure Automation account that hosts the runbooks used to scale the virtual machine scale set instances. Recently [Azure Automation](https://azure.microsoft.com/services/automation/) introduced the "Run As account" feature that makes setting up the Service Principal for automatically running the runbooks on a user's behalf. For more information, see:
 
-* [Authenticate Runbooks with Azure Run As account](../automation/automation-sec-configure-azure-runas-account.md)
+* [Authenticate Runbooks with Azure Run As account](../automation/manage-runas-account.md)
 
 ## Import Azure Automation Vertical Scale runbooks into your subscription
 
@@ -151,8 +149,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 For more information on how to create alerts, see the following articles:
 
-* [Azure Monitor PowerShell quickstart samples](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Azure Monitor Cross-platform CLI quickstart samples](../azure-monitor/platform/cli-samples.md)
+* [Azure Monitor PowerShell samples](../azure-monitor/samples/powershell-samples.md)
+* [Azure Monitor Cross-platform CLI samples](../azure-monitor/samples/cli-samples.md)
 
 ## Summary
 

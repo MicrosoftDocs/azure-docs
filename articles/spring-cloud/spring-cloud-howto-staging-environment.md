@@ -6,7 +6,7 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Set up a staging environment in Azure Spring Cloud
@@ -31,7 +31,7 @@ Install the Azure Spring Cloud extension for the Azure CLI by using the followin
 ```azurecli
 az extension add --name spring-cloud
 ```
-	
+    
 ## View all deployments
 
 Go to your service instance in the Azure portal, and select **Deployment management** to view all deployments. To view more details, you can select each deployment.
@@ -40,7 +40,7 @@ Go to your service instance in the Azure portal, and select **Deployment managem
 
 1. In your local development environment, make a small modification to the PiggyMetrics gateway application. For instance, change the color in the *gateway/src/main/resources/static/css/launch.css* file. Doing so lets you easily differentiate the two deployments. To build the jar package, run the following command: 
 
-    ```azurecli
+    ```console
     mvn clean package
     ```
 

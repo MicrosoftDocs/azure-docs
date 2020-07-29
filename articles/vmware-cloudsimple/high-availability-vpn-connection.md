@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - Configure high availability from on-premises to AVS VPN gateway
-description: Describes how to configure a high availability connection from your on-premises environment to an AVS VPN gateway enabled for high availability
+title: Azure VMware Solution by CloudSimple - Configure high availability from on-premises to CloudSimple VPN gateway
+description: Describes how to configure a high availability connection from your on-premises environment to a CloudSimple VPN gateway enabled for high availability
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/14/2019 
@@ -10,9 +10,9 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Configure a high availability connection from on-premises to an AVS VPN gateway
+# Configure a high availability connection from on-premises to CloudSimple VPN gateway
 
-Network administrators can configure a high availability IPsec Site-to-Site VPN connection from their on-premises environment to an AVS VPN gateway.
+Network administrators can configure a high availability IPsec Site-to-Site VPN connection from their on-premises environment to a CloudSimple VPN gateway.
 
 This guide presents steps to configure an on-premises firewall for an IPsec Site-to-Site VPN high availability connection. The detailed steps are specific to the type of on-premises firewall. As examples, this guide presents steps for two types of firewalls: Cisco ASA and Palo Alto Networks.
 
@@ -20,8 +20,8 @@ This guide presents steps to configure an on-premises firewall for an IPsec Site
 
 Complete the following tasks before you configure the on-premises firewall.
 
-1. Verify that your organization has [provisioned](create-nodes.md) the required nodes and created at least one AVS Private Cloud.
-2. [Configure a Site-to-Site VPN gateway](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises network and your AVS Private Cloud.
+1. Verify that your organization has [provisioned](create-nodes.md) the required nodes and created at least one CloudSimple Private Cloud.
+2. [Configure a Site-to-Site VPN gateway](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises network and your CloudSimple Private Cloud.
 
 See [VPN gateways overview](cloudsimple-vpn-gateways.md) for supported phase 1 and phase 2 proposals.
 
@@ -29,7 +29,7 @@ See [VPN gateways overview](cloudsimple-vpn-gateways.md) for supported phase 1 a
 
 The instructions in this section apply to Cisco ASA version 8.4 and later. In the configuration example, Cisco Adaptive Security Appliance Software Version 9.10 is deployed and configured in IKEv1 mode.
 
-For the Site-to-Site VPN to work, you must allow UDP 500/4500 and ESP (IP protocol 50) from the AVS primary and secondary public IP (peer IP) on the outside interface of the on-premises Cisco ASA VPN gateway.
+For the Site-to-Site VPN to work, you must allow UDP 500/4500 and ESP (IP protocol 50) from the CloudSimple primary and secondary public IP (peer IP) on the outside interface of the on-premises Cisco ASA VPN gateway.
 
 ### 1. Configure phase 1 (IKEv1)
 
@@ -66,7 +66,7 @@ ikev1 pre-shared-key *****
 
 ### 4. Configure phase 2 (IPsec)
 
-To configure phase 2 (IPsec), create an access control list (ACL) that defines the traffic to be encrypted and tunneled. In the following example, the traffic of interest is from the tunnel that is sourced from the on-premises local subnet (10.16.1.0/24) to the AVS Private Cloud remote subnet (192.168.0.0/24). The ACL can contain multiple entries if there are multiple subnets between the sites.
+To configure phase 2 (IPsec), create an access control list (ACL) that defines the traffic to be encrypted and tunneled. In the following example, the traffic of interest is from the tunnel that is sourced from the on-premises local subnet (10.16.1.0/24) to the Private Cloud remote subnet (192.168.0.0/24). The ACL can contain multiple entries if there are multiple subnets between the sites.
 
 In Cisco ASA versions 8.4 and later, objects or object groups can be created that serve as containers for the networks, subnets, host IP addresses, or multiple objects. Create an object for the local and an object for the remote subnets and use them for the crypto ACL and the NAT statements.
 
@@ -77,7 +77,7 @@ object network AZ_inside
 subnet 10.16.1.0 255.255.255.0
 ```
 
-#### Define the AVS remote subnet as an object
+#### Define the CloudSimple remote subnet as an object
 
 ```
 object network CS_inside
@@ -92,7 +92,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### 5. Configure the transform set
 
-Configure the transform set (TS), which must involve the keyword ```ikev1```. The encryption and hash attributes specified in the TS must match with the parameters listed in [Default configuration for AVS VPN gateways](cloudsimple-vpn-gateways.md#cryptographic-parameters).
+Configure the transform set (TS), which must involve the keyword ```ikev1```. The encryption and hash attributes specified in the TS must match with the parameters listed in [Default configuration for CloudSimple VPN gateways](cloudsimple-vpn-gateways.md).
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -138,13 +138,13 @@ Phase 2 output:
 
 The instructions in this section apply to Palo Alto Networks version 7.1 and later. In this configuration example, Palo Alto Networks VM-Series Software Version 8.1.0 is deployed and configured in IKEv1 mode.
 
-For the Site-to-Site VPN to work, you must allow UDP 500/4500 and ESP (IP protocol 50) from the AVS primary and secondary public IP (peer IP) on the outside interface of the on-premises Palo Alto Networks gateway.
+For the Site-to-Site VPN to work, you must allow UDP 500/4500 and ESP (IP protocol 50) from the CloudSimple primary and secondary public IP (peer IP) on the outside interface of the on-premises Palo Alto Networks gateway.
 
 ### 1. Create primary and secondary tunnel interfaces
 
 Sign in to the Palo Alto firewall, select **Network** > **Interfaces** > **Tunnel** > **Add**, configure the following fields, and click **OK**.
 
-* Interface Name. The first field is autopopulated with keyword 'tunnel'. In the adjacent field, enter any number between from 1 to 9999. This interface will be used as a primary tunnel interface to carry Site-to-Site traffic between the on-premises datacenter and the AVS Private Cloud.
+* Interface Name. The first field is autopopulated with keyword 'tunnel'. In the adjacent field, enter any number between from 1 to 9999. This interface will be used as a primary tunnel interface to carry Site-to-Site traffic between the on-premises datacenter and the Private Cloud.
 * Comment. Enter comments for easy identification of the purpose of the tunnel
 * Netflow Profile. Leave default.
 * Config.
@@ -155,16 +155,14 @@ Sign in to the Palo Alto firewall, select **Network** > **Interfaces** > **Tunne
 
 Because this configuration is for a high availability VPN, two tunnel interfaces are required: One primary and one secondary. Repeat the previous steps to create the secondary tunnel interface. Select a different tunnel ID and a different unused /32 ip address.
 
-### 2. Set up static routes for AVS Private Cloud subnets to be reached over the Site-to-Site VPN
+### 2. Set up static routes for Private Cloud subnets to be reached over the Site-to-Site VPN
 
-Routes are necessary for the on-premises subnets to reach AVS private cloud subnets.
+Routes are necessary for the on-premises subnets to reach CloudSimple private cloud subnets.
 
 Select **Network** > **Virtual Routers** > *default* > **Static Routes** > **Add**, configure the following fields, and click **OK**.
 
 * Name. Enter any name for easy identification of the purpose of the route.
-
-* Destination. Specify the AVS private cloud subnets to be reached over S2S tunnel interfaces from on-premises
-
+* Destination. Specify the CloudSimple private cloud subnets to be reached over S2S tunnel interfaces from on-premises
 * Interface. Select the primary tunnel interface created in step-1(Section-2) from the dropdown. In this example, it is tunnel.20.
 * Next Hop. Select **None**.
 * Admin Distance. Leave default.
@@ -173,7 +171,7 @@ Select **Network** > **Virtual Routers** > *default* > **Static Routes** > **Add
 * BFD Profile. Leave default.
 * Path monitoring. Leave unchecked.
 
-Repeat the previous steps to create another route for AVS Private Cloud subnets to use as a secondary/backup route via secondary tunnel interface. This time, select different tunnel ID and a higher metric than for the primary route.
+Repeat the previous steps to create another route for Private Cloud subnets to use as a secondary/backup route via secondary tunnel interface. This time, select different tunnel ID and a higher metric than for the primary route.
 
 ### 3. Define the cryptographic profile
 
@@ -196,17 +194,17 @@ Select **Network** > **Expand Network Profiles** > **IKE Gateways** > **Add**, c
 
 General tab:
 
-* Name. Enter the name for the IKE gateway to be peered with the primary AVS VPN peer.
+* Name. Enter the name for the IKE gateway to be peered with the primary CloudSimple VPN peer.
 * Version. Select **IKEv1 only mode**.
 * Address Type. Select **IPv4**.
 * Interface. Select the public facing or outside interface.
 * Local IP Address. Leave default.
 * Peer IP Address Type. Select **IP**.
-* Peer Address. Enter the primary AVS VPN peer IP address.
+* Peer Address. Enter the primary CloudSimple VPN peer IP address.
 * Authentication. Select **Pre-Shared Key**.
-* Pre-shared Key / Confirm Pre-shared Key. Enter the pre-shared key to match the AVS VPN gateway key.
+* Pre-shared Key / Confirm Pre-shared Key. Enter the pre-shared key to match the CloudSimple VPN gateway key.
 * Local Identification. Enter the public IP address of the on-premises Palo Alto firewall.
-* Peer Identification. Enter the primary AVS VPN peer IP address.
+* Peer Identification. Enter the primary CloudSimple VPN peer IP address.
 
 Advanced Options tab:
 
@@ -233,7 +231,7 @@ Select **Network** > **Expand Network Profiles** > **IPSEC Crypto** > **Add**, c
 * Lifetime. Set as 30 minutes.
 * Enable. Leave the box unchecked.
 
-Repeat the previous steps to create another IPsec crypto profile, which will be used for as the secondary AVS VPN peer. The same IPSEC Crypto profile can also be used for both the primary and secondary IPsec tunnels (see the following procedure).
+Repeat the previous steps to create another IPsec crypto profile, which will be used for as the secondary CloudSimple VPN peer. The same IPSEC Crypto profile can also be used for both the primary and secondary IPsec tunnels (see the following procedure).
 
 ### 6. Define monitor profiles for tunnel monitoring
 
@@ -250,7 +248,7 @@ Select **Network** > **IPsec Tunnels** > **Add**, configure the following fields
 
 General tab:
 
-* Name. Enter any name for the primary IPSEC tunnel to be peered with primary AVS VPN peer.
+* Name. Enter any name for the primary IPSEC tunnel to be peered with primary CloudSimple VPN peer.
 * Tunnel Interface. Select the primary tunnel interface.
 * Type. Leave default.
 * Address Type. Select **IPv4**.
@@ -259,18 +257,18 @@ General tab:
 * Enable Replay Protection. Leave default.
 * Copy TOS Header. Leave the box unchecked.
 * Tunnel Monitor. Check the box.
-* Destination IP. Enter any IP address belonging to the AVS Private Cloud subnet that is allowed over the Site-to-Site connection. Make sure that the tunnel interfaces (such as tunnel.20 - 10.64.5.2/32 and tunnel.30 - 10.64.6.2/32) on Palo Alto are allowed to reach the AVS Private Cloud IP address over the Site-to-Site VPN. See the following configuration for proxy IDs.
+* Destination IP. Enter any IP address belonging to the CloudSimple Private Cloud subnet that is allowed over the Site-to-Site connection. Make sure that the tunnel interfaces (such as tunnel.20 - 10.64.5.2/32 and tunnel.30 - 10.64.6.2/32) on Palo Alto are allowed to reach the CloudSimple Private Cloud IP address over the Site-to-Site VPN. See the following configuration for proxy IDs.
 * Profile. Select the monitor profile.
 
 Proxy IDs tab:
 Click **IPv4** > **Add** and configure the following:
 
 * Proxy ID. Enter any name for the interesting traffic. There could be multiple Proxy IDs carried inside one IPsec tunnel.
-* Local. Specify the on-premises local subnets that are allowed to communicate with AVS Private Cloud subnets over the Site-to-Site VPN.
-* Remote. Specify the AVS Private Cloud remote subnets that are allowed to communicate with the local subnets.
+* Local. Specify the on-premises local subnets that are allowed to communicate with Private Cloud subnets over the Site-to-Site VPN.
+* Remote. Specify the Private Cloud remote subnets that are allowed to communicate with the local subnets.
 * Protocol. Select **any**.
 
-Repeat the previous steps to create another IPsec tunnel to use for the secondary AVS VPN peer.
+Repeat the previous steps to create another IPsec tunnel to use for the secondary CloudSimple VPN peer.
 
 ## References
 

@@ -16,9 +16,9 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## FHIR version
 
-Latest version supported: `4.0.0`
+Latest version supported: `4.0.1`
 
-Previous versions also currently supported include: `3.0.1`
+Previous versions also currently supported include: `3.0.2`
 
 ## REST API
 
@@ -35,6 +35,8 @@ Previous versions also currently supported include: `3.0.1`
 | create                         | Yes       | Yes       | Yes       | Support both POST/PUT                               |
 | create (conditional)           | Yes       | Yes       | Yes       |                                                     |
 | search                         | Partial   | Partial   | Partial   | See below                                           |
+| chained search                 | No        | Yes       | No        |                                           |
+| reverse chained search         | No        | No        | No        |                                            |
 | capabilities                   | Yes       | Yes       | Yes       |                                                     |
 | batch                          | Yes       | Yes       | Yes       |                                                     |
 | transaction                    | No        | Yes       | No        |                                                     |
@@ -44,7 +46,7 @@ Previous versions also currently supported include: `3.0.1`
 
 ## Search
 
-All search parameter types are supported. Chained parameters and reverse chaining are *not* supported.
+All search parameter types are supported. 
 
 | Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-----------------------|-----------|-----------|-----------|---------|
@@ -83,7 +85,7 @@ All search parameter types are supported. Chained parameters and reverse chainin
 | `_security`             | Yes       | Yes       | Yes       |         |
 | `_text`                 | No        | No        | No        |         |
 | `_content`              | No        | No        | No        |         |
-| `_list`                 | No        | No        | No        |         |
+| `_list`                 | No        | Yes       | Yes       |         |
 | `_has`                  | No        | No        | No        |         |
 | `_type`                 | Yes       | Yes       | Yes       |         |
 | `_query`                | No        | No        | No        |         |

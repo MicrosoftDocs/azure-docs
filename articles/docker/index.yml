@@ -1,0 +1,47 @@
+### YamlMime:Landing
+
+title: Docker on Azure documentation
+summary: Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows. Learn how to leverage Docker on Azure.
+
+metadata:
+  title: Docker on Azure documentation
+  description: Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows. Learn how to leverage Docker on Azure.
+  services: multiple
+  ms.service: multiple
+  ms.topic: landing-page
+  author: georgewallace
+  ms.author: gwallace
+  ms.date: 03/08/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: Deploy Docker on Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Deploy Docker on Ubuntu Quickstart template
+            url: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Run a Python (Django) web app with PostgreSQL in Azure App Service
+            url: ../app-service/containers/tutorial-python-postgresql-app.md
+          - text: Create a development infrastructure on a Linux VM in Azure with Jenkins, GitHub, and Docker
+            url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
+
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Docker Azure site
+            url: https://docs.docker.com/docker-for-azure/why/
+          - text: Docker Azure driver
+            url: https://docs.docker.com/machine/drivers/azure/
+          - text: Learn about Docker
+            url: https://docker.com

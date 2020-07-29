@@ -1,9 +1,9 @@
 ---
-title: Autoscale Azure resources based on performance data or a schedule
+title: Autoscale Azure resources based on data or schedule
 description: Create an autoscale setting for an app service plan using metric data and a schedule
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
@@ -176,8 +176,8 @@ In this tutorial, you
 > * Cleaned up your resources
 
 
-To learn more about autoscale settings, continue on to the [autoscale overview](../../azure-monitor/platform/autoscale-overview.md).
+To learn more about autoscale settings, continue on to the [autoscale overview](../platform/autoscale-overview.md).
 
 > [!div class="nextstepaction"]
-> [Archive your monitoring data](tutorial-archive-data.md)
+> [Archive your monitoring data](../platform/platform-logs-overview.md)
 

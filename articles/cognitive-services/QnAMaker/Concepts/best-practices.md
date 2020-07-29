@@ -1,16 +1,8 @@
 ---
 title: Best practices - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
+ms.date: 02/15/2020
 ---
 
 # Best practices of a QnA Maker knowledge base
@@ -26,8 +18,6 @@ In general, FAQ pages should be stand-alone and not combined with other informat
 ### Configuring multi-turn
 
 [Create your knowledge base](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted.
-
-<!--is this a global setting that can only be configured at kb creation time? -->
 
 ## Creating good questions and answers
 
@@ -99,7 +89,7 @@ Make sure you are making the best use of the ranking features QnA Maker supports
 
 ### Choosing a threshold
 
-The default [confidence score](confidence-score.md) that is used as a threshold is 50, however you can [change the threshold](confidence-score.md#set-threshold) for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB.
+The default [confidence score](confidence-score.md) that is used as a threshold is 0, however you can [change the threshold](confidence-score.md#set-threshold) for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB.
 
 ### Choosing Ranker type
 By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.
@@ -144,7 +134,7 @@ QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md)
 
 ## Active learning
 
-[Active learning](../How-to/improve-knowledge-base.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
+[Active learning](../How-to/use-active-learning.md) does the best job of suggesting alternative questions when it has a wide range of quality and quantity of user-based queries. It is important to allow client-applications' user queries to participate in the active learning feedback loop without censorship. Once questions are suggested in the QnA Maker portal, you can **[filter by suggestions](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** then review and accept or reject those suggestions.
 
 ## Next steps
 

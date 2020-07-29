@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -29,12 +29,16 @@ The following is a list of information to keep in mind when selecting a solution
 - The source anchor for objects is chosen automatically.  It uses ms-DS-ConsistencyGuid if present, otherwise ObjectGUID is used.
 - You cannot change the attribute that is used for source anchor.
 
+## Single forest, single Azure AD tenant
+![Topology for a single forest and a single tenant](media/plan-cloud-provisioning-topologies/single-forest.png)
+
+The simplest topology is a single on-premises forest, with one or multiple domains, and a single Azure AD tenant.  For an example of this scenario see [Tutorial: A single forest with a single Azure AD tenant](tutorial-single-forest.md)
 
 
 ## Multi-forest, single Azure AD tenant
 ![Topology for a multi-forest and a single tenant](media/plan-cloud-provisioning-topologies/multi-forest.png)
 
-The most common topology is a multiple AD forests, with one or multiple domains, and a single Azure AD tenant.  
+A common topology is a multiple AD forests, with one or multiple domains, and a single Azure AD tenant.  
 
 ## Existing forest with Azure AD Connect, new forest with cloud Provisioning
 ![Topology for a single forest and a single tenant](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
@@ -47,10 +51,7 @@ The piloting scenario involves the existence of both Azure AD Connect and Azure 
 
 For an example of this scenario see [Tutorial: Pilot Azure AD Connect cloud provisioning in an existing synced AD forest](tutorial-pilot-aadc-aadccp.md)
 
-## Single forest, single Azure AD tenant
-![Topology for a single forest and a single tenant](media/plan-cloud-provisioning-topologies/single-forest.png)
 
-The simplest topology is a single on-premises forest, with one or multiple domains, and a single Azure AD tenant.  For an example of this scenario see [Tutorial: A single forest with a single Azure AD tenant](tutorial-single-forest.md)
 
 ## Next steps 
 

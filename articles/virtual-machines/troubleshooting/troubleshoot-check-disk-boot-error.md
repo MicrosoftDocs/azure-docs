@@ -21,9 +21,6 @@ ms.author: genli
 
 This article describes the “Checking file system” error that you may encounter when you boot a Windows Virtual Machine (VM) in Microsoft Azure.
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/management/deployment-models.md). This article describes using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
 ## Symptom 
 
@@ -39,9 +36,12 @@ If an NTFS error is found in the file system, Windows will check and repair the 
 ## Solution 
 
 Windows will boot normally after the Check Disk process is completed. If the VM is stuck in the Check Disk process, try to run the Check Disk on the VM offline:
-1.	Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
-2.	[Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).  
-3.	On the recovery VM, run Check Disk on the attached OS disk. In the following sample, the driver letter of the attached OS disk is E: 
-        
-        chkdsk E: /f
-4.	After the Check Disk completes, detach the disk from the recovery VM, and then re-attach the disk to the affected VM as an OS disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).
+1. Take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+2. [Attach the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).  
+3. On the recovery VM, run Check Disk on the attached OS disk. In the following sample, the driver letter of the attached OS disk is E: 
+
+    ```console
+    chkdsk E: /f
+    ```
+
+4. After the Check Disk completes, detach the disk from the recovery VM, and then re-attach the disk to the affected VM as an OS disk. For more information, see [Troubleshoot a Windows VM by attaching the OS disk to a recovery VM](troubleshoot-recovery-disks-portal-windows.md).

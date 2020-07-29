@@ -86,6 +86,12 @@ Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSamp
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
+## Troubleshooting
+
+### Unity 2019.3
+
+Due to breaking changes, Unity 2019.3 is not currently supported. Please use Unity 2019.1 or 2019.2.
+
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps

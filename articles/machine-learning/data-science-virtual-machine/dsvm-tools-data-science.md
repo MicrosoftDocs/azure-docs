@@ -1,5 +1,6 @@
 ---
 title: Machine learning and data science tools
+titleSuffix: Azure Data Science Virtual Machine 
 description: Learn about the machine-learning tools and frameworks that are preinstalled on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
@@ -21,7 +22,7 @@ Here are some of the machine-learning tools and libraries on DSVMs.
 
 See the full reference for the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   |   Azure Machine Learning is a cloud service that you can use to develop and deploy machine-learning models. You can track your models as you build, train, scale, and manage them by using the Python SDK. Deploy models as containers and run them in the cloud, on-premises, or on Azure IoT Edge.   |
 | Supported editions     | Windows (conda environment: AzureML), Linux (conda environment: py36)    |
@@ -33,7 +34,7 @@ See the full reference for the [Azure Machine Learning SDK for Python](https://d
 
 ## H2O
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | An open-source AI platform that supports in-memory, distributed, fast, and scalable machine learning.  |
 | Supported versions      | Linux   |
@@ -47,7 +48,7 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 
 ## LightGBM
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | A fast, distributed, high-performance gradient-boosting (GBDT, GBRT, GBM, or MART) framework based on decision tree algorithms. It's used for ranking, classification, and many other machine-learning tasks.    |
 | Supported versions      | Windows, Linux    |
@@ -57,7 +58,7 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 | Related tools      | MXNet, XgBoost  |
 
 ## Rattle
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   |   A graphical user interface for data mining by using R.   |
 | Supported editions     | Windows, Linux     |
@@ -67,7 +68,7 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 | Related tools      |LightGBM, Weka, XGBoost   |
 
 ## Vowpal Wabbit
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   |   A fast, open-source, out-of-core learning system library    |
 | Supported editions     | Windows, Linux     |
@@ -79,7 +80,7 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 
 
 ## Weka
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   |  A collection of machine-learning algorithms for data-mining tasks. The algorithms can be either applied directly to a data set or called from your own Java code. Weka contains tools for data pre-processing, classification, regression, clustering, association rules, and visualization. |
 | Supported editions     | Windows, Linux     |
@@ -89,7 +90,7 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 | Related tools      |LightGBM, Rattle, XGBoost   |
 
 ## XGBoost 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   |   A fast, portable, and distributed gradient-boosting (GBDT, GBRT, or GBM) library for Python, R, Java, Scala, C++, and more. It runs on a single machine, and on Apache Hadoop and Spark.    |
 | Supported editions     | Windows, Linux     |
@@ -100,10 +101,10 @@ There are several other machine-learning libraries on DSVMs, such as the popular
 | Related tools      | LightGBM, MXNet   |
 
 ## Apache Drill
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | What is it?   | Open-source SQL query engine on big data    |
-| Supported DSVM versions      | Windows 2019 (Preview), Linux  |
+| Supported DSVM versions      | Windows 2019, Linux  |
 | How is it configured and installed on the DSVM?      |  Installed in `/dsvm/tools/drill*` in embedded mode only   |
 | Typical uses      |  For in-place data exploration without requiring extract, transform, load (ETL). Query different data sources and formats, including CSV, JSON, relational tables, and Hadoop.     |
 | How to use and run it      | Desktop shortcut  <br/> [Get started with Drill in 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |

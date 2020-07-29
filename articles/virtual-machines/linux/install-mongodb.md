@@ -1,16 +1,12 @@
 ---
 title: Install MongoDB on a Linux VM with the Azure CLI 
 description: Learn how to install and configure MongoDB on a Linux virtual machine iusing the Azure CLI
-services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
 manager: gwallace
-editor: ''
-
-ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
+ms.subservice: workloads
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
@@ -213,5 +209,4 @@ These examples deploy the core MongoDB environment for development purposes. App
 
 For more information about creating using templates, see the [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](extensions-customscript.md).
-
+The Azure Resource Manager templates use the Custom Script Extension to download and execute scripts on your VMs. For more information, see [Using the Azure Custom Script Extension with Linux Virtual Machines](../extensions/custom-script-linux.md).

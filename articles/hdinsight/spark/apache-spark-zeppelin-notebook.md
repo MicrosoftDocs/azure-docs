@@ -5,20 +5,19 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/05/2019
+ms.topic: how-to
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 04/23/2020
 ---
 
 # Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
 
-HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/) notebooks that you can use to run [Apache Spark](https://spark.apache.org/) jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
+HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/) notebooks. Use the notebooks to run Apache Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
 
 ## Prerequisites
 
-* An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* The URI scheme for your clusters primary storage. This would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  See also, [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) for more information.
+* The URI scheme for your clusters primary storage. The scheme would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  For more information, see [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) .
 
 ## Launch an Apache Zeppelin notebook
 
@@ -67,7 +66,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
     hvac.registerTempTable("hvac")
     ```
 
-    Press **SHIFT + ENTER** or select the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following:
+    Press **SHIFT + ENTER** or select the **Play** button for the paragraph to run the snippet. The status on the right-corner of the paragraph should progress from READY, PENDING, RUNNING to FINISHED. The output shows up at the bottom of the same paragraph. The screenshot looks like the following image:
 
     ![Create a temporary table from raw data](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Create a temporary table from raw data")
 
@@ -76,7 +75,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
     > [!NOTE]  
     > %spark2 interpreter is not supported in Zeppelin notebooks across all HDInsight versions, and %sh interpreter will not be supported from HDInsight 4.0 onwards.
 
-5. You can now run Spark SQL statements on the `hvac` table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
+5. You can now run Spark SQL statements on the `hvac` table. Paste the following query in a new paragraph. The query retrieves the building ID. Also the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
 
     ```sql
     %sql
@@ -85,7 +84,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
     The **%sql** statement at the beginning tells the notebook to use the Livy Scala interpreter.
 
-6. Select the **Bar Chart** icon to change the display.  **settings**, which appears after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
+6. Select the **Bar Chart** icon to change the display.  **settings**, appear after you have selected **Bar Chart**, allows you to choose **Keys**, and **Values**.  The following screenshot shows the output.
 
     ![Run a Spark SQL statement using the notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Run a Spark SQL statement using the notebook1")
 
@@ -109,7 +108,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 ## How do I use external packages with the notebook?
 
-You can configure the Zeppelin notebook in Apache Spark cluster on HDInsight to use external, community-contributed packages that aren't included out-of-the-box in the cluster. You can search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
+Zeppelin notebook in Apache Spark cluster on HDInsight can use external, community-contributed packages that aren't included in the cluster. Search the [Maven repository](https://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](https://spark-packages.org/).
 
 In this article, you'll see how to use the [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter notebook.
 
@@ -137,7 +136,9 @@ In this article, you'll see how to use the [spark-csv](https://search.maven.org/
 
     c. Concatenate the three values, separated by a colon (**:**).
 
-        com.databricks:spark-csv_2.10:1.4.0
+    ```
+    com.databricks:spark-csv_2.10:1.4.0
+    ```
 
 ## Where are the Zeppelin notebooks saved?
 
@@ -145,13 +146,33 @@ The Zeppelin notebooks are saved to the cluster headnodes. So, if you delete the
 
 ![Download notebook](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Download the notebook")
 
-This saves the notebook as a JSON file in your download location.
+This action saves the notebook as a JSON file in your download location.
+
+## Use `Shiro` to Configure Access to Zeppelin Interpreters in Enterprise Security Package (ESP) Clusters
+
+As noted above, the `%sh` interpreter isn't supported from HDInsight 4.0 onwards. Furthermore, since `%sh` interpreter introduces potential security issues, such as access keytabs using shell commands, it has been removed from HDInsight 3.6 ESP clusters as well. It means `%sh` interpreter isn't available when clicking **Create new note** or in the Interpreter UI by default.
+
+Privileged domain users can use the `Shiro.ini` file to control access to the Interpreter UI. Only these users can create new `%sh` interpreters and set permissions on each new `%sh` interpreter. To control access using the `shiro.ini` file, use the following steps:
+
+1. Define a new role using an existing domain group name. In the following example, `adminGroupName` is a group of privileged users in AAD. Don't use special characters or white spaces in the group name. The characters after `=` give the permissions for this role. `*` means the group has full permissions.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Add the new role for access to Zeppelin interpreters. In the following example, all users in `adminGroupName` are given access to Zeppelin interpreters and can create new interpreters. You can put multiple roles between the brackets in `roles[]`, separated by commas. Then, users that have the necessary permissions, can access Zeppelin interpreters.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
 
 ## Livy session management
 
-When you run the first code paragraph in your Zeppelin notebook, a new Livy session is created in your HDInsight Spark cluster. This session is shared across all Zeppelin notebooks that you subsequently create. If for some reason the Livy session is killed (cluster reboot, etc.), you will not be able to run jobs from the Zeppelin notebook.
+The first code paragraph in your Zeppelin notebook creates a new Livy session in your cluster. This session is shared across all Zeppelin notebooks that you later create. If the Livy session is killed for any reason, jobs won't run from the Zeppelin notebook.
 
-In such a case, you must perform the following steps before you can start running jobs from a Zeppelin notebook.  
+In such a case, you must do the following steps before you can start running jobs from a Zeppelin notebook.  
 
 1. Restart the Livy interpreter from the Zeppelin notebook. To do so, open interpreter settings by selecting the logged in user name from the top-right corner, then select **Interpreter**.
 
@@ -161,33 +182,45 @@ In such a case, you must perform the following steps before you can start runnin
 
     ![Restart the Livy interpreter](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "Restart the Zeppelin interpreter")
 
-3. Run a code cell from an existing Zeppelin notebook. This creates a new Livy session in the HDInsight cluster.
+3. Run a code cell from an existing Zeppelin notebook. This  code creates a new Livy session in the HDInsight cluster.
 
-## <a name="seealso"></a>See also
+## General information
+
+### Validate service
+
+To validate the service from Ambari, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` where CLUSTERNAME is the name of your cluster.
+
+To validate the service from a command line, SSH to the head node. Switch user to zeppelin using command `sudo su zeppelin`. Status commands:
+
+|Command |Description |
+|---|---|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|Service status.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|Service version.|
+|`ps -aux | grep zeppelin`|Identify PID.|
+
+### Log locations
+
+|Service |Path |
+|---|---|
+|zeppelin-server|/usr/hdp/current/zeppelin-server/|
+|Server Logs|/var/log/zeppelin|
+|Configuration Interpreter, `Shiro`, site.xml, log4j|/usr/hdp/current/zeppelin-server/conf or /etc/zeppelin/conf|
+|PID directory|/var/run/zeppelin|
+
+### Enable debug logging
+
+1. Navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary` where CLUSTERNAME is the name of your cluster.
+
+1. Navigate to **CONFIGS** > **Advanced zeppelin-log4j-properties** > **log4j_properties_content**.
+
+1. Modify `log4j.appender.dailyfile.Threshold = INFO` to `log4j.appender.dailyfile.Threshold = DEBUG`.
+
+1. Add `log4j.logger.org.apache.zeppelin.realm=DEBUG`.
+
+1. Save changes and restart service.
+
+## Next steps
 
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
-
-### Scenarios
-
-* [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
-* [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
-* [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
-
-### Create and run applications
-
-* [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
-
-### Tools and extensions
-
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Apache Spark Scala applications](apache-spark-intellij-tool-plugin.md)
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Kernels available for Jupyter notebook in Apache Spark cluster for HDInsight](apache-spark-jupyter-notebook-kernels.md)
-* [Use external packages with Jupyter notebooks](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
-
-### Manage resources
-
-* [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)

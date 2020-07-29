@@ -5,11 +5,10 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 11/12/2019
+ms.date: 03/19/2020
 tags: active-directory
 ms.author: mimart
-author: v-miegge
-manager: dcscontentpm
+author: msmimart
 ms.reviewer: mal
 ms.custom:
   - it-pro
@@ -20,6 +19,9 @@ ms.collection: M365-identity-device-management
 # Troubleshooting Azure Active Directory B2B collaboration
 
 Here are some remedies for common problems with Azure Active Directory (Azure AD) B2B collaboration.
+
+   > [!IMPORTANT]
+   > **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
 
 ## I’ve added an external user but do not see them in my Global Address Book or in the people picker
 
@@ -80,7 +82,9 @@ If this scenario is important to you, you can suppress our API invitation email,
 
 A user who has a guest account cannot log on, and is receiving the following error message:
 
+```plaintext
     AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+```
 
 The user has an Azure user account and is a viral tenant who has been abandoned or unmanaged. Additionally, there are no global or company administrators in the tenant.
 
@@ -97,7 +101,6 @@ As of November 18, 2019, guest users in your directory (defined as user accounts
 ## In an Azure US Government tenant, I can't invite a B2B collaboration guest user
 
 Within the Azure US Government cloud, B2B collaboration is currently only supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that isn't part of the Azure US Government cloud or that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
-
 
 ## Next steps
 

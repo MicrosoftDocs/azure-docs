@@ -1,26 +1,23 @@
 ---
-title: Create a scale set that uses Azure Spot VMs (Preview) 
+title: Create a scale set that uses Azure Spot VMs 
 description: Learn how to create Azure virtual machine scale sets that use Spot VMs to save on costs.
 author: cynthn
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 02/11/2020
 ms.author: cynthn
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+
 ---
 
-# Preview: Azure Spot VMs for virtual machine scale sets 
+# Azure Spot VMs for virtual machine scale sets 
 
 Using Azure Spot on scale sets allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Spot instances. Therefore, Spot instances are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying Spot instances on scale sets, Azure will allocate the instance only if there is capacity available, but there is no SLA for these instances. A Spot scale set is deployed in a single fault domain and offers no high availability guarantees.
 
-> [!IMPORTANT]
-> Spot instances are currently in public preview.
-> This preview version is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## Pricing
 
@@ -115,12 +112,12 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 **Q:** How is quota managed for Spot?
 
-**A:** Spot instances and standard instances will have separate quota pools. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+**A:** Spot instances and standard instances will have separate quota pools. Spot quota will be shared between VMs and scale-set instances. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 
 **Q:** Can I request for additional quota for Spot?
 
-**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A:** Yes, you will be able to submit the request to increase your quota for Spot VMs through the [standard quota request process](../azure-portal/supportability/per-vm-quota-requests.md).
 
 
 **Q:** Can I convert existing scale sets to Spot scale sets?
@@ -158,17 +155,16 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 |------------------------------|-----------------------------------|
 | Enterprise Agreement         | Yes                               |
 | Pay As You Go                | Yes                               |
-| Cloud Service Provider (CSP) | [Contact your partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Cloud Service Provider (CSP) | [Contact your partner](/partner-center/azure-plan-get-started) |
 | Benefits                     | Not available                     |
-| Sponsored                    | Not available                     |
+| Sponsored                    | Yes                               |
 | Free Trial                   | Not available                     |
 
 
 **Q:** Where can I post questions?
 
-**A:** You can post and tag your question with `azure-spot` at [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A:** You can post and tag your question with `azure-spot` at [Q&A](/answers/topics/azure-spot.html). 
 
 ## Next steps
-Now that you have created a scale set with Spot VMs, try deploying our [auto scale template using Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
 Check out the [virtual machine scale set pricing page](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) for pricing details.

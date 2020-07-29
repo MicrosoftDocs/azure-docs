@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.reviewer: sogup
@@ -48,6 +48,17 @@ To view VMs on the vault dashboard:
 
 ## Manage backup policy for a VM
 
+### Modify backup policy
+
+To modify an existing backup policy:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
+2. From **Manage > Backup policies**, select the backup policy for the type Azure Virtual Machine.
+3.	Click Modify and change the settings.
+
+
+### Switch backup policy 
+
 To manage a backup policy:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). Open the vault dashboard.
@@ -72,6 +83,9 @@ You can run an on-demand backup of a VM after you set up its protection. Keep th
 * If the initial backup is pending, on-demand backup creates a full copy of the VM in the Recovery Services vault.
 * If the initial backup is complete, an on-demand backup will only send changes from the previous snapshot to the Recovery Services vault. That is, later backups are always incremental.
 * The retention range for an on-demand backup is the retention value that you specify when you trigger the backup.
+
+> [!NOTE]
+> The Azure Backup service supports up to nine on-demand backups per day, but Microsoft recommends no more than four daily on-demand backups to ensure best performance.
 
 To trigger an on-demand backup:
 
@@ -120,6 +134,9 @@ To stop protection and delete data of a VM:
 
     ![Delete backup data](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
+> [!NOTE]
+> After completing the delete operation the backed up data will be retained for 14 days in the [soft deleted state](./soft-delete-virtual-machines.md). <br>In addition, you can also [enable or disable soft delete](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+
 ## Resume protection of a VM
 
 If you chose [Stop protection and retain backup data](#stop-protection-and-retain-backup-data) option during stop VM protection, then you can use **Resume backup**. This option is not available if you choose [Stop protection and delete backup data](#stop-protection-and-delete-backup-data) option or [Delete backup data](#delete-backup-data).
@@ -152,7 +169,7 @@ There are two ways to delete a VM's backup data:
 
   * To delete the backup data for the item, select **Delete**. A notification message lets you know that the backup data has been deleted.
 
-To protect your data, Azure Backup includes the soft delete feature. With soft delete, even after the backup (all the recovery points) of a VM is deleted, the backup data is retained for 14 additional days. For more information, see [the soft delete documentation](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud).
+To protect your data, Azure Backup includes the soft delete feature. With soft delete, even after the backup (all the recovery points) of a VM is deleted, the backup data is retained for 14 additional days. For more information, see [the soft delete documentation](./backup-azure-security-feature-cloud.md).
 
   > [!NOTE]
   > When you delete backup data you delete all associated recovery points. You can't choose specific recovery points to delete.
@@ -161,10 +178,10 @@ To protect your data, Azure Backup includes the soft delete feature. With soft d
 
 * If Azure VMs configured for Azure backup are either deleted or moved without stopping protection, then both scheduled backup jobs and on demand (ad-hoc) backup jobs will fail with the error UserErrorVmNotFoundV2. The backup pre-check will appear as critical only for failed on-demand backup jobs (failed scheduled jobs are not displayed).
 * These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the last recovery point) are cleaned according to the retention range set in the backup policy.
-* Users are recommended to delete the backup items where the primary data source no longer exists to avoid any additional cost, if the backup item/data for the delete resources is no longer required as the last recovery point is retained forever and the user is charged as per the backup pricing applicable.
+* Users are recommended to delete the backup items where the primary data source no longer exists to avoid any additional cost, if the backup item/data for the delete resources is no longer required as the last recovery point is retained forever and the user is charged according to the backup pricing applicable.
 
 ## Next steps
 
 * Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).
 * Learn how to [restore VMs](backup-azure-arm-restore-vms.md).
-* Learn how to [monitor Azure VM backups](backup-azure-monitor-vms.md).
+* Learn how to [monitor Azure VM backups](./backup-azure-monitoring-built-in-monitor.md).

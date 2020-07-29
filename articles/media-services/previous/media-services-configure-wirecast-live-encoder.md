@@ -21,8 +21,6 @@ ms.reviewer: cenkdin;anilmur
 # Use the Wirecast encoder to send a single bitrate live stream 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [Tricaster](media-services-configure-tricaster-live-encoder.md)
->
 >
 
 This article shows how to configure the [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) live encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
@@ -146,7 +144,7 @@ In this tutorial, the following output settings are used. The rest of this secti
 
 Navigate to the AMSE tool, and right-click the channel to be tested. From the menu, hover over **Playback the Preview** and select **with Azure Media Player**.  
 
-    ![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
+![wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast8.png)
 
 If the stream appears in the player, then the encoder has been properly configured to connect to AMS.
 

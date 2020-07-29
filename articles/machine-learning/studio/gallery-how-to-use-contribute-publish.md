@@ -1,11 +1,10 @@
 ---
-title: Azure AI Gallery
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Azure AI Gallery - Azure'
 description: Share and discover analytics resources and more in the Azure AI Gallery. Learn from others and make your own contributions to the community.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: conceptual
+ms.topic: how-to
 
 author: likebupt
 ms.author: keli19
@@ -13,6 +12,11 @@ ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
 ---
 # Share and discover resources in the Azure AI Gallery
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
+
+[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 **[Azure AI Gallery](https://gallery.azure.ai)** is a community-driven site for discovering and sharing solutions built with Azure AI.
 The Gallery has a variety of resources that you can use to develop your own analytics solutions.
@@ -81,7 +85,7 @@ And you can log in with a discussion tool such as Disqus to receive notification
 
 1. In the list of actions below the experiment canvas, select **Publish to Gallery**.
 
-1. In the Gallery, enter a **Name** and **Tags** that are descriptive. Highlight the techniques you used or the real-world problem you're solving. An example of a descriptive experiment title is “Binary Classification: Twitter Sentiment Analysis.”
+1. In the Gallery, enter a **Name** and **Tags** that are descriptive. Highlight the techniques you used or the real-world problem you're solving. An example of a descriptive experiment title is "Binary Classification: Twitter Sentiment Analysis."
 
 1. In the **SUMMARY** box, enter a summary of your experiment. Briefly describe the problem the experiment solves, and how you approached it.
 

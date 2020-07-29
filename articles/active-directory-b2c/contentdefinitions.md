@@ -3,14 +3,14 @@ title: ContentDefinitions
 titleSuffix: Azure AD B2C
 description: Specify the ContentDefinitions element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
-ms.author: marsma
+ms.date: 02/20/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -26,7 +26,7 @@ The **ContentDefinitions** element contains URLs to HTML5 templates that can be 
 
 The following example shows the content definition identifier and the definition of localized resources:
 
-```XML
+```xml
 <ContentDefinition Id="api.localaccountsignup">
   <LoadUri>~/tenant/default/selfAsserted.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
@@ -42,7 +42,7 @@ The following example shows the content definition identifier and the definition
 
 The metadata of the **LocalAccountSignUpWithLogonEmail** self-asserted technical profile contains the content definition identifier **ContentDefinitionReferenceId** set to `api.localaccountsignup`
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -66,7 +66,7 @@ The **ContentDefinition** element contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | A string that contains the URL of the HTML5 page for the content definition. |
-| RecoveryUri | 0:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. |
+| RecoveryUri | 1:1 | A string that contains the URL of the HTML page for displaying an error relating to the content definition. Not currently used, the value must be `~/common/default_page_error.html`. |
 | DataUri | 1:1 | A string that contains the relative URL of an HTML file that provides the user experience to invoke for the step. |
 | Metadata | 0:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. |
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
@@ -78,11 +78,11 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | Page identifier | Description |
 | ----- | ----------- |
 | `globalexception` | Displays an error page when an exception or an error is encountered. |
-| `providerselection` |	Lists the identity providers that users can choose from during sign-in. |
+| `providerselection`, `idpselection` |	Lists the identity providers that users can choose from during sign-in.  |
 | `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
 | `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a user name. |
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
-| `selfasserted` | Displays a form that enables users to create or update their profile. |
+| `selfasserted` | Displays a form to collect data from a user. For example, enables users to create or update their profile. |
 
 ### Select a page layout
 
@@ -139,7 +139,7 @@ The **Item** element of the **Metadata** element contains the following attribut
 
 #### Metadata keys
 
-Content definition supports following metadata items: 
+Content definition supports following metadata items:
 
 | Key | Required | Description |
 | --------- | -------- | ----------- |
@@ -162,7 +162,7 @@ The **LocalizedResourcesReference** element contains the following attributes:
 
 The following example shows a sign-up or sign-in content definition with a reference to localization for English, French and Spanish:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
   <RecoveryUri>~/common/default_page_error.html</RecoveryUri>

@@ -5,7 +5,7 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 05/26/2020
 
 # Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
@@ -19,6 +19,9 @@ This quickstart helps you get started with creating an Azure Data Catalog.
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+
+> [!Note]
+> Due to Azure security requirements, Azure Data Catalog has enfored Transport Layer Security (TLS) 1.2. TLS 1.0 and TLS 1.1 have been disabled. You may encounter errors running the registration tool if your machine is not updated for TLS 1.2. See [Enable Transport Layer Security (1.2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) to update your machine for TLS 1.2.
 
 To get started, you need to have:
 

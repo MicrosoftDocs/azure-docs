@@ -2,29 +2,30 @@
 title: "Quickstart: Create and use learning loop with SDK - Personalizer"
 description: This quickstart shows you how to create and manage your knowledge base using the client SDK.
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 04/27/2020
+ms.custom: tracking-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
 ---
 
 # Quickstart: Personalizer client library
 
-Display personalized content in this python quickstart with the Personalizer service.
+Display personalized content in this quickstart with the Personalizer service.
 
 Get started with the Personalizer client library. Follow these steps to install the package and try out the example code for basic tasks.
 
- * Rank API -  Selects the best item, from content items, based on real-time information you provide about content and context.
+ * Rank API -  Selects the best item, from actions, based on real-time information you provide about content and context.
  * Reward API - You determine the reward score based on your business needs, then send it to Personalizer with this API. That score can be a single value such as 1 for good, and 0 for bad, or an algorithm you create based on your business needs.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Get intent with C# SDK](./includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Get intent with Node.js SDK](./includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
-[!INCLUDE [Get intent with Node.js SDK](./includes/quickstart-sdk-nodejs.md)]
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get intent with Python SDK](./includes/quickstart-sdk-python.md)]
 ::: zone-end
 
 ## Clean up resources

@@ -3,7 +3,7 @@ title: Getting started with Azure metrics explorer
 description: Learn how to create your first metric chart with Azure metrics explorer.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
@@ -35,7 +35,7 @@ To create a metric chart, from your resource, resource group, subscription, or A
 
     > ![Select a metric](./media/metrics-getting-started/metric-picker.png)
 
-4. Optionally, you can change the metric aggregation. For example, you might want your chart to show minimum, maximum, or average values of the metric.
+4. Optionally, you can [change the metric aggregation](metrics-charts.md#changing-aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
 
 > [!NOTE]
 > Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **Add chart** button on top.

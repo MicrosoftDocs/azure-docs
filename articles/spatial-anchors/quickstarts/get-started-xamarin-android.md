@@ -59,6 +59,10 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Open `Xamarin/SampleXamarin.Android/AzureSpatialAnchorsManager.cs`.
+
+Locate `AzureSpatialAnchorsManager(Session arCoreSession)` and add the following line, substituting in your account domain from earlier: `this.spatialAnchorsSession.Configuration.AccountDomain = "MyAccountDomain";`.
+
 ## Deploy the app to your Android device
 
 Power on the Android device, sign in, and connect it to the computer using a USB cable.

@@ -204,9 +204,9 @@
    v:groupContext="group"
    v:layerMember="0">
 			<title
-   id="title49">Web App (Was Websites).1872</title>
+   id="title49">Web app (Was Websites).1872</title>
 			<desc
-   id="desc51">Web App</desc>
+   id="desc51">Web app</desc>
 			<g
    id="group1873-18"
    v:mID="1873"
@@ -514,7 +514,7 @@
    v:langID="1033"
    id="text162"
    style="fill:#008bfd;fill-opacity:1;"><v:paragraph
-   v:horizAlign="1" /><v:tabList />Web App</text>
+   v:horizAlign="1" /><v:tabList />Web app</text>
 			</g>
 		</g>
 	</g>

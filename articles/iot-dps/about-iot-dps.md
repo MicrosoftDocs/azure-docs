@@ -8,6 +8,7 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
+ms.custom:  [amqp, mqtt]
 ---
 
 # Provisioning devices with Azure IoT Hub Device Provisioning Service
@@ -18,7 +19,7 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 
 * Zero-touch provisioning to a single IoT solution without hardcoding IoT Hub connection information at the factory (initial setup)
 * Load-balancing devices across multiple hubs
-* Connecting devices to their owner’s IoT solution based on sales transaction data (multitenancy)
+* Connecting devices to their owner's IoT solution based on sales transaction data (multitenancy)
 * Connecting devices to a particular IoT solution depending on use-case (solution isolation)
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
 * Reprovisioning based on a change in the device

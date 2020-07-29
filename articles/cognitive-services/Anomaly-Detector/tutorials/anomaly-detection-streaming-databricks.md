@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 12/19/2019
+ms.date: 03/05/2020
 ms.author: aahi
 ---
 
@@ -35,13 +35,10 @@ This tutorial covers the following tasks:
 > * Run anomaly detection on tweets
 
 > [!Note]
-> This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
+> * This tutorial introduces an approach to implementing the recommended [solution architecture](https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/) for the Anomaly Detector API.
+> * This tutorial cannot be completed with a free tier (`F0`) subscription for the Anomaly Detector API or Azure Databricks. 
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
-> [!Note]
-> This tutorial cannot be completed with a free trial key for the Anomaly Detector API. 
-> To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
+Create an [Azure subscription](https://azure.microsoft.com/free/) if you don't have one.
 
 ## Prerequisites
 
@@ -298,6 +295,7 @@ pool.shutdown()
 
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet. Each event in the output is a combination of timestamp and number of "Like"s ingested into the Event Hubs.
 
+```output
     Sent event: {"timestamp":"2019-04-24T09:39:40.000Z","favorite":0}
 
     Sent event: {"timestamp":"2019-04-24T09:38:48.000Z","favorite":1}
@@ -316,6 +314,7 @@ To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the 
 
     ...
     ...
+```
 
 ## Read tweets from Event Hubs
 
@@ -421,16 +420,18 @@ object AnomalyDetector extends Serializable {
 
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet.
 
-    import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
-    import java.net.URL
-    import java.sql.Timestamp
-    import com.google.gson.{Gson, GsonBuilder, JsonParser}
-    import javax.net.ssl.HttpsURLConnection
-    defined class Point
-    defined class Series
-    defined class AnomalySingleResponse
-    defined class AnomalyBatchResponse
-    defined object AnomalyDetector
+```scala
+import java.io.{BufferedReader, DataOutputStream, InputStreamReader}
+import java.net.URL
+import java.sql.Timestamp
+import com.google.gson.{Gson, GsonBuilder, JsonParser}
+import javax.net.ssl.HttpsURLConnection
+defined class Point
+defined class Series
+defined class AnomalySingleResponse
+defined class AnomalyBatchResponse
+defined object AnomalyDetector
+```
 
 Then prepare an aggregation function for future usage.
 ```scala
@@ -493,11 +494,13 @@ class AnomalyDetectorAggregationFunction extends UserDefinedAggregateFunction {
 
 To run the notebook, press **SHIFT + ENTER**. You see an output as shown in the following snippet.
 
-    import org.apache.spark.sql.Row
-    import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
-    import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
-    import scala.collection.immutable.ListMap
-    defined class AnomalyDetectorAggregationFunction
+```scala
+import org.apache.spark.sql.Row
+import org.apache.spark.sql.expressions.{MutableAggregationBuffer, UserDefinedAggregateFunction}
+import org.apache.spark.sql.types.{StructType, TimestampType, FloatType, MapType, BooleanType, DataType}
+import scala.collection.immutable.ListMap
+defined class AnomalyDetectorAggregationFunction
+```
 
 Then load data from event hub for anomaly detection. Replace the placeholder with values for your Azure Event Hubs that you created earlier.
 
@@ -567,10 +570,10 @@ display(groupStream)
 The output now resembles the following snippets.
 ```
 groupTime                       average
-2019-04-23T04:00:00.000+0000	24
-2019-04-26T19:00:00.000+0000	47.888888888888886
-2019-04-25T12:00:00.000+0000	32.25
-2019-04-26T09:00:00.000+0000	63.4
+2019-04-23T04:00:00.000+0000    24
+2019-04-26T19:00:00.000+0000    47.888888888888886
+2019-04-25T12:00:00.000+0000    32.25
+2019-04-26T09:00:00.000+0000    63.4
 ...
 ...
 
@@ -611,11 +614,11 @@ display(twitterData)
 The output as below: 
 ```
 groupTime                       average
-2019-04-08T01:00:00.000+0000	25.6
-2019-04-08T02:00:00.000+0000	6857
-2019-04-08T03:00:00.000+0000	71
-2019-04-08T04:00:00.000+0000	55.111111111111114
-2019-04-08T05:00:00.000+0000	2203.8
+2019-04-08T01:00:00.000+0000    25.6
+2019-04-08T02:00:00.000+0000    6857
+2019-04-08T03:00:00.000+0000    71
+2019-04-08T04:00:00.000+0000    55.111111111111114
+2019-04-08T05:00:00.000+0000    2203.8
 ...
 ...
 

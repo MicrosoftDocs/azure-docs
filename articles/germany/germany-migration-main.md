@@ -53,7 +53,7 @@ At the end of this stage, you have:
 In the planning stage, complete the following tasks:
 
 - Use the output of the dependency analysis completed in the assessment stage to define related components. Consider migrating related components together in a *migration package*.
-- (Optional) Use the migration as an opportunity to apply [Gartner 5-R criteria](https://www.gartner.com/newsroom/id/1684114) and to optimize your workload.
+- (Optional) Use the migration as an opportunity to apply [Gartner 5-R criteria](https://www.gartner.com/en/documents/3873016/evaluation-criteria-for-cloud-management-platforms-and-t) and to optimize your workload.
 - Determine the target environment in global Azure:
   1. Identify the target global Azure tenant (create one, if necessary).
   1. Create subscriptions.

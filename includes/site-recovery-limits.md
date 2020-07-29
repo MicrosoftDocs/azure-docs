@@ -18,7 +18,7 @@ ms.author: lauraa
 ---
 The following limits apply to Azure Site Recovery.
 
-| Limit identifier | Default limit |
+| Limit identifier | Limit |
 | --- | --- |
 | Number of vaults per subscription |500 |     
 | Number of servers per Azure vault |250 |

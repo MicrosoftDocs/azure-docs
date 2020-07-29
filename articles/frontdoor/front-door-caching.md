@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - caching | Microsoft Docs
-description: This article helps you understand how Azure Front Door Service monitors the health of your backends
+title: Azure Front Door - caching | Microsoft Docs
+description: This article helps you understand how Azure Front Door monitors the health of your backends
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -13,11 +13,11 @@ ms.date: 09/10/2018
 ms.author: sharadag
 ---
 
-# Caching with Azure Front Door Service
-The following document specifies behavior for Front Door with routing rules that have enabled caching.
+# Caching with Azure Front Door
+The following document specifies behavior for Front Door with routing rules that have enabled caching. Front Door is a modern Content Delivery Network (CDN) and so along with dynamic site acceleration and load balancing, it also supports caching behaviors just like any other CDN.
 
 ## Delivery of large files
-Azure Front Door Service delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the backend. After receiving a full or byte-range file request, a Front Door environment requests the file from the backend in chunks of 8 MB.
+Azure Front Door delivers large files without a cap on file size. Front Door uses a technique called object chunking. When a large file is requested, Front Door retrieves smaller pieces of the file from the backend. After receiving a full or byte-range file request, a Front Door environment requests the file from the backend in chunks of 8 MB.
 
 </br>After the chunk arrives at the Front Door environment, it is cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file is downloaded (if requested), all byte ranges are available (if requested), or the client terminates the connection.
 
@@ -87,8 +87,8 @@ Front Door will cache assets until the asset's time-to-live (TTL) expires. After
 </br>The best practice to make sure your users always obtain the latest copy of your assets is to version your assets for each update and publish them as new URLs. Front Door will immediately retrieve the new assets for the next client requests. Sometimes you may wish to purge cached content from all edge nodes and force them all to retrieve new updated assets. This might be due to updates to your web application, or to quickly update assets that contain incorrect information.
 
 </br>Select what assets you wish to purge from the edge nodes. If you wish to clear all assets, click the Purge all checkbox. Otherwise, type the path of each asset you wish to purge in the Path textbox. Below formats are supported in the path.
-1. **Single URL purge**: Purge individual asset by specifying the full URL, with the file extension, for example, /pictures/strasbourg.png;
-2. **Wildcard purge**: Asterisk (\*) may be used as a wildcard. Purge all folders, subfolders and files under an endpoint with /\* in the path or purge all subfolders and files under a specific folder by specifying the folder followed by /\*, for example, /pictures/\*.
+1. **Single path purge**: Purge individual asset(s) by specifying the full path of the asset (without the protocol and domain), with the file extension, for example, /pictures/strasbourg.png;
+2. **Wildcard purge**: Asterisk (\*) may be used as a wildcard. Purge all folders, subfolders, and files under an endpoint with /\* in the path or purge all subfolders and files under a specific folder by specifying the folder followed by /\*, for example, /pictures/\*.
 3. **Root domain purge**: Purge the root of the endpoint with "/" in the path.
 
 Cache purges on the Front Door are case-insensitive. Additionally, they are query string agnostic, meaning purging a URL will purge all query-string variations of it. 
@@ -99,13 +99,11 @@ The following order of headers is used in order to determine how long an item wi
 2. Cache-Control: max-age=\<seconds>
 3. Expires: \<http-date>
 
-Cache-Control response headers that indicate that the response won’t be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response. If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
-
+Cache-Control response headers that indicate that the response won't be cached such as Cache-Control: private, Cache-Control: no-cache, and Cache-Control: no-store are honored. However, if there are multiple requests in-flight at a POP for the same URL, they may share the response. If no Cache-Control is present the default behavior is that AFD will cache the resource for X amount of time where X is randomly picked between 1 to 3 days.
 
 ## Request headers
 
 The following request headers will not be forwarded to a backend when using caching.
-- Authorization
 - Content-Length
 - Transfer-Encoding
 

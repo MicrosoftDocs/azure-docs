@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 04/04/2020
 ms.author: yulili
 ---
 
@@ -18,8 +18,7 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=android)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 
 ## Create user interface
 
@@ -40,7 +39,7 @@ We will create a basic user interface for the application. Edit the layout for y
 
 The text and graphical representation of your UI should now look like this:
 
-![](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
+![Screenshot of how your UI should look.](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-2-tts-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/android/text-to-speech/app/src/main/res/layout/activity_main.xml)]
 
@@ -74,7 +73,7 @@ Enter a text and press the button in the application to begin a speech synthesis
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech synthesis basics](../../text-to-speech-next-steps.md)]
 
 ## See also
 

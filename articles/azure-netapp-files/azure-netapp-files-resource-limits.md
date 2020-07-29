@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 07/08/2020
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -31,13 +31,16 @@ The following table describes resource limits for Azure NetApp Files:
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of subnets delegated to Azure NetApp Files (Microsoft.NetApp/volumes) per Azure Virtual Network    |   1   |    No    |
-|  Number of IPs in a VNet (including peered VNets) that can access Azure NetApp Files   |    1000   |    Yes   |
+|  Number of used IPs in a VNet (including immediately peered VNets) with Azure NetApp Files   |    1000   |    No   |
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No    |
-|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
 |  Maximum size of a single file     |    16 TiB    |    No    |    
+|  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
+|  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
+
+For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
 
 ## Maxfiles limits <a name="maxfiles"></a> 
 
@@ -53,7 +56,7 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 |    >= 3 TiB but < 4 TiB    |    80 million     |
 |    >= 4 TiB                |    100 million    |
 
-For any volume size, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
+If you have already allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
 
 ## Request limit increase <a name="limit_increase"></a> 
 

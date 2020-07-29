@@ -1,22 +1,22 @@
 ---
 title: Overview | Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/11/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-#Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has so that I can take advantage of mapping in my applications. 
+ms.custom: mvc, references_regions
+#Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
 
 # What is Azure Maps?
 
 Azure Maps is a collection of geospatial services that use fresh mapping data to provide geographic context to web and mobile applications. Azure Maps provides:
 
-* REST APIs to render maps in multiple styles and in satellite imagery.
+* REST APIs to render maps in multiple styles and in satellite imagery.''
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require traffic information.
@@ -41,13 +41,13 @@ The following video explains Azure Maps in depth:
 
 The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery. You can use this interactive map for both your web or mobile applications. The map control makes use of WebGL, so you can render large data sets with high performance. Develop with the SDK by using JavaScript or TypeScript.
 
-![Example map of population change](media/about-azure-maps/Introduction_WebMapControl.png)
+![Example map of population change](media/about-azure-maps/intro_web_map_control.png)
 
 ### Android SDK
 
 Use the Azure Maps Android SDK to create mobile mapping applications. 
 
-![Map examples on a mobile device](media/about-azure-maps/AndroidSDK.png)
+![Map examples on a mobile device](media/about-azure-maps/android_sdk.png)
 
 ## Services in Azure Maps
 
@@ -69,7 +69,7 @@ To learn more about the service, see the [Mobility API documentation](https://do
 
 The Render service helps developers create web and mobile applications with mapping features. The service uses either high-quality raster graphic images, available in 19 zoom levels, or fully customizable vector format map images.
 
-![Example of a map from the Render service](media/about-azure-maps/Introduction_Map.png)
+![Example of a map from the Render service](media/about-azure-maps/intro_map.png)
 
 The Render service now offers preview APIs to allow developers to work with satellite imagery. For more details, read the [Render API documentation](https://docs.microsoft.com/rest/api/maps/render).
 
@@ -77,7 +77,7 @@ The Render service now offers preview APIs to allow developers to work with sate
 
 The Route service contains robust geometry calculations for real-world infrastructure and directions for multiple transportation modes. The service allows developers to calculate directions across a number of travel modes such as car, truck, bicycle, or walking. The service also considers inputs such as traffic conditions, weight restrictions, or hazardous material transport.
 
-![Example of a map from the Route service](media/about-azure-maps/Introduction_Route.png)
+![Example of a map from the Route service](media/about-azure-maps/intro_route.png)
 
 The Route service offers a preview of advanced features, such as: 
 
@@ -91,7 +91,7 @@ For details on the routing capabilities, read the [Route API documentation](http
 
 The Search service helps developers search for addresses, places, business listings by name or category, and other geographic information. The Search service can [reverse geocode](https://en.wikipedia.org/wiki/Reverse_geocoding) addresses and cross streets based on latitudes and longitudes.
 
-![Example of a search on a map](media/about-azure-maps/Introduction_Search.png)
+![Example of a search on a map](media/about-azure-maps/intro_search.png)
 
 The Search service also provides advanced features such as:
 
@@ -145,13 +145,13 @@ The Traffic service is a suite of web services that developers can use for web o
 * Traffic flow: Real-time observed speeds and travel times for all key roads in the network.
 * Traffic incidents: An up-to-date view of traffic jams and incidents around the road network.
 
-![Example of a map with traffic information](media/about-azure-maps/Introduction_Traffic.png)
+![Example of a map with traffic information](media/about-azure-maps/intro_traffic.png)
 
 For more information, see the [Traffic API documentation](https://docs.microsoft.com/rest/api/maps/traffic).
 
 ### IP to Location service
 
-Use the IP to Location service to preview the retrieved two-letter country code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
+Use the IP to Location service to preview the retrieved two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
 
 For more details on the IP to Location service in the REST API, read the [Azure Maps Geolocation API documentation](https://docs.microsoft.com/rest/api/maps/geolocation).
 
@@ -161,20 +161,30 @@ Azure Maps is built for mobility and can help you develop cross-platform applica
 
 Also, Azure Maps offers a convenient [JavaScript map control](https://docs.microsoft.com/javascript/api/azure-maps-control) with a simple programming model. The development is quick and easy for both web and mobile applications.
 
+## Power BI visual
+
+The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
+
+![Power BI desktop with the Azure Maps visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
+
+For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
+
 ## Usage
 
 Accessing the Azure Maps services is a matter of going to the [Azure portal](https://portal.azure.com) and creating an Azure Maps account.
 
 Azure Maps uses a key-based authentication scheme. Your account comes with two keys already generated for you, use either keys. Start integrating these location capabilities in your application and make requests to the Azure Maps services.
 
+Note - Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries are not linked to any customer or end user when shared with TomTom and cannot be used to identify individuals. Microsoft is currently in the process of adding TomTom to the Online Services Subcontractor List. Note that the Mobility and Weather Services, which include integration with Moovit and AccuWeather are currently in [PREVIEW](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Supported regions
 
-The Azure Maps APIs are currently available in all countries and regions except these:
+The Azure Maps APIs are currently available in all countries and regions except the following:
 
 * China
 * South Korea
 
-Verify that the location of your current IP address is in a supported country.
+Verify that the location of your current IP address is in a supported country/region.
 
 ## Next steps
 

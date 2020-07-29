@@ -2,6 +2,7 @@
 title: "Team development using Java and Visual Studio Code"
 services: azure-dev-spaces
 author: stepro
+ms.custom: devx-track-java
 ms.author: stephpr
 ms.date: 08/01/2018
 ms.topic: tutorial
@@ -29,7 +30,7 @@ Your sample application isn't very complex at the moment. But in real-world deve
 * Some developers resort to simulating, or mocking up, many of their service dependencies. This approach can help, but managing those mocks can soon impact development cost. Plus, this approach leads to your development environment looking very different from production, which allows subtle bugs to creep in.
 * It follows that doing any type of integration testing becomes difficult. Integration testing can only realistically happen post-commit, which means you see problems later in the development cycle.
 
-    ![](media/common/microservices-challenges.png)
+    ![Diagram that depicts the challenges you face when developing microservices.](media/common/microservices-challenges.png)
 
 ### Work in a shared dev space
 With Azure Dev Spaces, you can set up a *shared* dev space in Azure. Each developer can focus on just their part of the application, and can iteratively develop *pre-commit code* in a dev space that already contains all the other services and cloud resources that their scenarios depend on. Dependencies are always up-to-date, and developers are working in a way that mirrors production.
@@ -89,7 +90,7 @@ When prompted, select _dev_ as the **parent dev space**. This means our new spac
 
 Keeping with our introductory hypothetical, we've used the name _scott_ for the new space so peers can identify who is working in it. But it can be called anything you like, and be flexible about what it means, like _sprint4_ or _demo_. Whatever the case, _dev_ serves as the baseline for all developers working on a piece of this application:
 
-![](media/common/ci-cd-space-setup.png)
+![A diagram showing a simple C I C D space setup.](media/common/ci-cd-space-setup.png)
 
 Run the `azds space list` command to see a list of all the spaces in the dev environment. The _Selected_ column indicates which space you currently have selected (true/false). In your case, the space named _dev/scott_ was automatically selected when it was created. You can select another space at any time with the `azds space select` command.
 
@@ -161,6 +162,9 @@ To completely delete an Azure Dev Spaces instance on a cluster, including all th
 The following example lists the Azure Dev Spaces controllers in your active subscription, and then deletes the Azure Dev Spaces controller that is associated with AKS cluster 'myaks' in resource group 'myaks-rg'.
 
 ```cmd
-    azds controller list
-    az aks remove-dev-spaces --name myaks --resource-group myaks-rg
+azds controller list
+```
+
+```azurecli
+az aks remove-dev-spaces --name myaks --resource-group myaks-rg
 ```

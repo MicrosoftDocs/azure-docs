@@ -106,7 +106,7 @@ Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) modu
   
 7. **Generate missing value indicator column**: Select this option if you want to output some indication of whether the values in the column met the criteria for missing value cleaning. This option is particularly useful when you are setting up a new cleaning operation and want to make sure it works as designed.
   
-8. Run the pipeline.
+8. Submit the pipeline.
 
 ### Results
 
@@ -134,7 +134,7 @@ If you need to repeat cleaning operations often, we recommend that you save your
 
     However, suppose you created a transformation on a subset of numeric columns. You can apply this transformation to a dataset of mixed column types without raising an error, because the missing values are changed only in the matching numeric columns.
 
-6.  Run the pipeline.  
+6.  Submit the pipeline.  
 
 ## Next steps
 

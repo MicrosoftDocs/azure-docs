@@ -3,8 +3,6 @@ title: Support policies for Azure Kubernetes Service (AKS)
 description: Learn about Azure Kubernetes Service (AKS) support policies, shared responsibility, and features that are in preview (or alpha or beta).
 services: container-service
 author: jnoller
-
-ms.service: container-service
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
@@ -38,11 +36,6 @@ AKS isn't a completely managed cluster solution. Some components, such as worker
 
 The services are *managed* in the sense that Microsoft and the AKS team deploys, operates, and is responsible for service availability and functionality. Customers can't alter these managed components. Microsoft limits customization to ensure a consistent and scalable user experience. For a fully customizable solution, see [AKS Engine](https://github.com/Azure/aks-engine).
 
-> [!NOTE]
-> AKS worker nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (prefixed with MC\\*). It's possible to change AKS worker nodes. For example, you can use Secure Shell (SSH) to change AKS worker nodes the way you change normal virtual machines (you can't, however, change the base OS image, and changes might not persist through an update or reboot), and you can attach other Azure resources to AKS worker nodes. But when you make changes *out of band management and customization,* the AKS cluster can become unsupportable. Avoid changing worker nodes unless Microsoft Support directs you to make changes.
-
-Issuing unsupported operations as defined above, such as out of band deallocation of all agent nodes, renders the cluster unsupported. AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
-
 ## Shared responsibility
 
 When a cluster is created, the customer defines the Kubernetes worker nodes that AKS creates. Customer workloads are executed on these nodes. Customers own and can view or modify the worker nodes.
@@ -55,9 +48,12 @@ Because worker nodes are sensitive, Microsoft takes great care to limit their ba
 
 Microsoft provides technical support for the following:
 
+> [!NOTE]
+> Any cluster actions taken by Microsoft/AKS are made with user consent under a built-in Kubernetes role `aks-service` and built-in role binding `aks-service-rolebinding`. This role enables AKS to troubleshoot and diagnose cluster issues, but can't modify permissions nor create roles or role bindings, or other high privilege actions. Role access is only enabled under active support tickets with just-in-time (JIT) access.
+
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes master nodes, API server, etcd, and kube-dns, for example).
-* Etcd. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to customers or users. They ensure data reliability and consistency.
+* Etcd. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to customers or users. They ensure data reliability and consistency. Etcd. on demand roll back or restore is not supported as a feature.
 * Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI).
 * Questions or issues about customization of control plane components such as the Kubernetes API server, etcd, and kube-dns.
 * Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
@@ -76,7 +72,7 @@ Microsoft doesn't provide technical support for the following:
   > Microsoft can provide best-effort support for third-party open-source projects such as Helm and Kured. Where the third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs, Microsoft supports examples and applications from Microsoft documentation.
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Issues about multicloud or multivendor build-outs. For example, Microsoft doesn't support issues related to running a federated multipublic cloud vendor solution.
-* Network customizations other than those listed in the [AKS documentation](https://docs.microsoft.com/azure/aks/).
+* Network customizations other than those listed in the [AKS documentation](./index.yml).
   > [!NOTE]
   > Microsoft does support issues and bugs related to network security groups (NSGs). For example, Microsoft Support can answer questions about an NSG failure to update or an unexpected NSG or load balancer behavior.
 
@@ -103,8 +99,22 @@ Microsoft doesn't automatically reboot worker nodes to apply OS-level patches. A
 
 Customers are responsible for executing Kubernetes upgrades. They can execute upgrades through the Azure control panel or the Azure CLI. This applies for updates that contain security or functionality improvements to Kubernetes.
 
+#### User customization of worker nodes
 > [!NOTE]
-> Because AKS is a *managed service*, its end goals include removing responsibility for patches, updates, and log collection to make the service management more complete and hands-off. As the service's capacity for end-to-end management increases, future releases might omit some functions (for example, node rebooting and automatic patching).
+> AKS worker nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (prefixed with MC\\*). It is possible to augment AKS worker nodes from their base configurations. For example, you can use Secure Shell (SSH) to change AKS worker nodes the way you change normal virtual machines. You cannot, however, change the base OS image. Any custom changes may not persist through an upgrade, scale, update or reboot. **However**, making changes *out of band and out of scope of the AKS API* leads to the AKS cluster becoming unsupported. Avoid changing worker nodes unless Microsoft Support directs you to make changes.
+
+Issuing unsupported operations as defined above, such as out of band deallocation of all agent nodes, renders the cluster unsupported. AKS reserves the right to archive control planes that have been configured out of support guidelines for extended periods equal to and beyond 30 days. AKS maintains backups of cluster etcd metadata and can readily reallocate the cluster. This reallocation can be initiated by any PUT operation bringing the cluster back into support, such as an upgrade or scale to active agent nodes.
+
+AKS manages the lifecycle and operations of worker nodes on behalf of customers - modifying the IaaS resources associated with the worker nodes is **not supported**. An example of an unsupported operation is customizing a node pool VM Scale Set by manually changing configurations on the VMSS through the VMSS portal or VMSS API.
+ 
+For workload specific configurations or packages, AKS recommends using [Kubernetes daemonsets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/).
+
+Using Kubernetes privileged daemonsets and init containers enables customers to tune/modify or install 3rd party software on cluster worker nodes. Examples of such customizations include adding custom security scanning software or updating sysctl settings.
+
+While this is a recommended path if the above requirements apply, AKS engineering and support can not assist in troubleshooting or diagnosis of broken/nonfunctional modifications or those that render the node unavailable due to a customer deployed daemonset.
+
+> [!NOTE]
+> AKS as a *managed service* has end goals such as removing responsibility for patches, updates, and log collection to make the service management more complete and hands-off. As the service's capacity for end-to-end management increases, future releases might omit some functions (for example, node rebooting and automatic patching).
 
 ### Security issues and patching
 
@@ -124,7 +134,7 @@ Although customers can sign in to and change worker nodes, doing this is discour
 
 ## Network ports, access, and NSGs
 
-As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and whitelisting URLs can make your cluster unsupportable.
+As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than requirements for normal IaaS components. In AKS, operations like customizing NSG rules, blocking a specific port (for example, using firewall rules that block outbound port 443), and adding URLs to an allow list can make your cluster unsupportable.
 
 > [!NOTE]
 > Currently, AKS doesn't allow you to completely lock down egress traffic from your cluster. To control the list of URLs and ports your cluster can use for outbound traffic see  [limit egress traffic](limit-egress-traffic.md).

@@ -1,7 +1,6 @@
 ---
 title: Create custom dashboards in Azure Application Insights | Microsoft Docs
 description: Tutorial to create custom KPI dashboards using Azure Application Insights.
-ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: lgayhardt
@@ -28,7 +27,7 @@ You can create multiple dashboards in the Azure portal that each include tiles v
 
 To complete this tutorial:
 
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md).
+- Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md).
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -124,4 +123,5 @@ Since Azure Applications Insights Logs (Analytics) is a separate service, you ne
 Now that you've learned how to create custom dashboards, have a look at the rest of the Application Insights documentation including a case study.
 
 > [!div class="nextstepaction"]
-> [Deep diagnostics](../../azure-monitor/app/devops.md)
+> [Deep diagnostics](../app/devops.md)
+

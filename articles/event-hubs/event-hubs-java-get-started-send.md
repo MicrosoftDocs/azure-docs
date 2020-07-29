@@ -1,15 +1,9 @@
 ---
 title: Send or receive events from Azure Event Hubs using Java (legacy)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the old azure-eventhubs package. 
-services: event-hubs
-author: spelluru
-
-ms.service: event-hubs
-ms.workload: core
 ms.topic: quickstart
-ms.date: 02/11/2020
-ms.author: spelluru
-
+ms.date: 06/23/2020
+ms.custom: devx-track-java
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs (azure-eventhubs)
@@ -107,7 +101,7 @@ Create a singular event by transforming a string into its UTF-8 byte encoding. T
         // handling different flavors of ingestion to Event Hubs here.
         final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
 
-        // Each EventHubClient instance spins up a new TCP/SSL connection, which is expensive.
+        // Each EventHubClient instance spins up a new TCP/TLS connection, which is expensive.
         // It is always a best practice to reuse these instances. The following sample shows this.
         final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
 
@@ -311,7 +305,8 @@ For different types of build environments, you can explicitly obtain the latest 
 		
            System.out.println("End of sample");
        }
-    ```
+   }
+   ```
 3. Create one more class called `EventProcessor`, using the following code:
    
     ```java

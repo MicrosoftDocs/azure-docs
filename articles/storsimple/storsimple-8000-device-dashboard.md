@@ -1,5 +1,5 @@
 ---
-title: Use StorSimple 8000 series device summary | Microsoft Docs
+title: Use device summary in StorSimple Device Manager service
 description: Describes the StorSimple Device Manager service device summary and how to use it to view storage metrics and connected initiators and find the serial number and IQN.
 services: storsimple
 documentationcenter: NA
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017

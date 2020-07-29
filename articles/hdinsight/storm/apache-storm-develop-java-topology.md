@@ -5,14 +5,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 03/14/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.topic: how-to
+ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
+ms.date: 04/27/2020
 ---
 
 # Create an Apache Storm topology in Java
 
-Learn how to create a Java-based topology for [Apache Storm](https://storm.apache.org/). Here, you create a Storm topology that implements a word-count application. You use [Apache Maven](https://maven.apache.org/) to build and package the project. Then, you learn how to define the topology using the [Apache Storm Flux](https://storm.apache.org/releases/2.0.0/flux.html) framework.
+Learn how to create a Java-based topology for Apache Storm. You create a Storm topology that implements a word-count application. You use Apache Maven to build and package the project. Then, you learn how to define the topology using the Apache Storm Flux framework.
 
 After completing the steps in this document, you can deploy the topology to Apache Storm on HDInsight.
 
@@ -192,7 +192,7 @@ This section is used to add plug-ins, resources, and other build configuration o
 
 * **Apache Maven Compiler Plugin**
 
-    Another useful plug-in is the [Apache Maven Compiler Plugin](https://maven.apache.org/plugins/maven-compiler-plugin/), which is used to change compilation options. Change the Java version that Maven uses for the source and target for your application.
+    Another useful plug-in is the [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/), which is used to change compilation options. Change the Java version that Maven uses for the source and target for your application.
 
   * For HDInsight __3.4 or earlier__, set the source and target Java version to __1.7__.
 
@@ -234,13 +234,13 @@ A Java-based Apache Storm topology consists of three components that you must au
 
 * **Spouts**: Reads data from external sources and emits streams of data into the topology.
 
-* **Bolts**: Performs processing on streams emitted by spouts or other bolts, and emits one or more streams.
+* **Bolts**: Does processing on streams emitted by spouts or other bolts, and emits one or more streams.
 
 * **Topology**: Defines how the spouts and bolts are arranged, and provides the entry point for the topology.
 
 ### Create the spout
 
-To reduce requirements for setting up external data sources, the following spout simply emits random sentences. It's a modified version of a spout that is provided with the [Storm-Starter examples](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Although this topology uses only one spout, others may have several that feed data from different sources into the topology.
+To reduce requirements for setting up external data sources, the following spout simply emits random sentences. It's a modified version of a spout that is provided with the [Storm-Starter examples](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Although this topology uses one spout, others may have several that feed data from different sources into the topology`.`
 
 Enter the command below to create and open a new file `RandomSentenceSpout.java`:
 
@@ -476,7 +476,7 @@ public class WordCount extends BaseBasicBolt {
 
 ### Define the topology
 
-The topology ties the spouts and bolts together into a graph, which defines how data flows between the components. It also provides parallelism hints that Storm uses when creating instances of the components within the cluster.
+The topology ties the spouts and bolts together into a graph. The graph defines how data flows between the components. It also provides parallelism hints that Storm uses when creating instances of the components within the cluster.
 
 The following image is a basic diagram of the graph of components for this topology.
 
@@ -588,7 +588,7 @@ The `<Root level="error">` section configures the root level of logging (everyth
 For more information on configuring logging for Log4j 2, see [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]  
-> Storm version 0.10.0 and higher use Log4j 2.x. Older versions of storm used Log4j 1.x, which used a different format for log configuration. For information on the older configuration, see [https://wiki.apache.org/logging-log4j/Log4jXmlFormat](https://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> Storm version 0.10.0 and higher use Log4j 2.x. Older versions of storm used Log4j 1.x, which used a different format for log configuration. For information on the older configuration, see [https://cwiki.apache.org/confluence/display/LOGGINGLOG4J/Log4jXmlFormat](https://cwiki.apache.org/confluence/display/LOGGINGLOG4J/Log4jXmlFormat).
 
 ## Test the topology locally
 
@@ -600,23 +600,25 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 As it runs, the topology displays startup information. The following text is an example of the word count output:
 
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
-    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
-    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
-    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+```output
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
+```
 
-This example log indicates that the word 'and' has been emitted 113 times. The count continues to go up as long as the topology runs because the spout continuously emits the same sentences.
+This example log indicates that the word 'and' has been emitted 113 times. The count continues to increase as long as the topology runs. This increase is because the spout continuously emits the same sentences.
 
 There's a 5-second interval between emission of words and counts. The **WordCount** component is configured to only emit information when a tick tuple arrives. It requests that tick tuples are only delivered every five seconds.
 
 ## Convert the topology to Flux
 
-[Flux](https://storm.apache.org/releases/2.0.0/flux.html) is a new framework available with Storm 0.10.0 and higher, which allows you to separate configuration from implementation. Your components are still defined in Java, but the topology is defined using a YAML file. You can package a default topology definition with your project, or use a standalone file when submitting the topology. When submitting the topology to Storm, you can use environment variables or configuration files to populate values in the YAML topology definition.
+[Flux](https://storm.apache.org/releases/2.0.0/flux.html) is a new framework available with Storm 0.10.0 and higher. Flux allows you to separate configuration from implementation. Your components are still defined in Java, but the topology is defined using a YAML file. You can package a default topology definition with your project, or use a standalone file when submitting the topology. When submitting the topology to Storm, use environment variables or configuration files to populate YAML topology definition values.
 
-The YAML file defines the components to use for the topology and the data flow between them. You can include a YAML file as part of the jar file or you can use an external YAML file.
+The YAML file defines the components to use for the topology and the data flow between them. You can include a YAML file as part of the jar file. Or you can use an external YAML file.
 
 For more information on Flux, see [Flux framework (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
 
@@ -813,7 +815,7 @@ For more information on these and other features of the Flux framework, see [Flu
 
 ## Trident
 
-[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) is a high-level abstraction that is provided by Storm. It supports stateful processing. The primary advantage of Trident is that it can guarantee that every message that enters the topology is processed only once. Without using Trident, your topology can only guarantee that messages are processed at least once. There are also other differences, such as built-in components that can be used instead of creating bolts. In fact, bolts are replaced by less-generic components, such as filters, projections, and functions.
+[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) is a high-level abstraction that is provided by Storm. It supports stateful processing. The primary advantage of Trident is that it guarantees that every message that enters the topology is processed only once. Without using Trident, your topology can only guarantee that messages are processed at least once. There are also other differences, such as built-in components that can be used instead of creating bolts. Bolts are replaced by less-generic components, such as filters, projections, and functions.
 
 Trident applications can be created by using Maven projects. You use the same basic steps as presented earlier in this article—only the code is different. Trident also can't (currently) be used with the Flux framework.
 
@@ -825,6 +827,6 @@ You've learned how to create an Apache Storm topology by using Java. Now learn h
 
 * [Deploy and manage Apache Storm topologies on HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 
-* [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
+* [Develop topologies using Python](apache-storm-develop-python-topology.md)
 
 You can find more example Apache Storm topologies by visiting [Example topologies for Apache Storm on HDInsight](apache-storm-example-topology.md).

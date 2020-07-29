@@ -1,5 +1,5 @@
 ---
-title: Azure CLI script sample - Route traffic through a network virtual appliance | Microsoft Docs
+title: Azure CLI script sample - Route traffic through a network virtual appliance
 description: Azure CLI script sample - Route traffic through a firewall network virtual appliance.
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,7 +15,7 @@ ms.author: kumud
 
 ---
 
-# Route traffic through a network virtual appliance
+# Use an Azure CLI script to route traffic through a network virtual appliance
 
 This script sample creates a virtual network with front-end and back-end subnets. It also creates a VM with IP forwarding enabled to route traffic between the two subnets. After running the script you can deploy network software, such as a firewall application, to the VM.
 

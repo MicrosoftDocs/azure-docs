@@ -5,15 +5,15 @@ description: Learn how to train a model and set up a batch prediction pipeline u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: peterlu
 author: peterclu
-ms.date: 01/13/2020
-ms.custom: Ignite2019
+ms.date: 02/24/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
-# Run batch predictions using Azure Machine Learning designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# Run batch predictions using Azure Machine Learning designer (preview)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this article, you learn how to use the designer to create a batch prediction pipeline. Batch prediction lets you continuously score large datasets on-demand using a web service that can be triggered from any HTTP library.
 
@@ -30,6 +30,8 @@ To learn how to set up batch scoring services using the SDK, see the accompanyin
 
 This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## Create a batch inference pipeline
 
 Your training pipeline must be run at least once to be able to create an inferencing pipeline.
@@ -38,13 +40,13 @@ Your training pipeline must be run at least once to be able to create an inferen
 
 1. Select the training pipeline that trains the model you want to use to make prediction.
 
-1. **Run** the pipeline.
+1. **Submit** the pipeline.
 
-    ![Run the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+    ![Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 Now that the training pipeline has been run, you can create a batch inference pipeline.
 
-1. Next to **Run**, select the new dropdown **Create inference pipeline**.
+1. Next to **Submit**, select the new dropdown **Create inference pipeline**.
 
 1. Select **Batch inference pipeline**.
 
@@ -105,13 +107,13 @@ In this section, you will set up a manual pipeline run and alter the pipeline pa
 
     The pipeline details page shows you a detailed run history and connection string information for your pipeline. 
     
-1. Select **Run** to create a manual run of the pipeline.
+1. Select **Submit** to create a manual run of the pipeline.
 
     ![Pipeline details](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
     
 1. Change the parameter to use a different dataset.
     
-1. Select **Run** to run the pipeline.
+1. Select **Submit** to run the pipeline.
 
 ### Use the REST endpoint
 
@@ -140,3 +142,4 @@ You can also set a new default pipeline in the **Published pipelines** tab of yo
 ## Next steps
 
 Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
+''

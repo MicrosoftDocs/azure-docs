@@ -1,14 +1,14 @@
 ---
 title: Enable logging in Azure Machine Learning
 description: Learn how to enable logging in Azure Machine Learning using both the default Python logging package, as well as using SDK-specific functionality.
-ms.author: trbye
-author: trevorbye
+ms.author: larryfr
+author: BlackMist
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.date: 03/05/2020
 ms.topic: conceptual
-ms.reviewer: trbye
-ms.date: 07/12/2019
+ms.custom: how-to, tracking-python
 ---
 
 # Enable logging in Azure Machine Learning
@@ -96,7 +96,7 @@ You can also log custom stack traces for your web service by enabling Applicatio
 service.update(enable_app_insights=True)
 ```
 
-See the [how-to](how-to-enable-app-insights.md) for more information on how to work with Application Insights in Azure Machine Learning studio.
+For more information, see [Monitor and collect data from ML web service endpoints](how-to-enable-app-insights.md).
 
 ## Python native logging settings
 
@@ -106,3 +106,7 @@ Certain logs in the SDK may contain an error that instructs you to set the loggi
 import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
+
+## Next steps
+
+* [Monitor and collect data from ML web service endpoints](how-to-enable-app-insights.md)

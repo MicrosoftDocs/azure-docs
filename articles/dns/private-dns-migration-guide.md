@@ -5,7 +5,7 @@ description: This guide provides step by step instruction on how to migrate lega
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
 ---

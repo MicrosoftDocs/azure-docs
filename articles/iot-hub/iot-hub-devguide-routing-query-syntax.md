@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
+ms.custom: ['Role: Cloud Development', 'Role: Data Analytics']
 ---
 
 # IoT Hub message routing query syntax
@@ -51,9 +52,10 @@ System properties help identify contents and source of the messages.
 | contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
 | iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
-| iothub-interface-name | string | This value is set by the user and represents the name of the digital twin interface that implements the telemetry message. To query, use `$interfaceName`. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). |
+| dt-dataschema | string |  This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). To query, use `$dt-dataschema`. |
+| dt-subject | string | The name of the component that is sending the device-to-cloud messages. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). To query, use `$dt-subject`. |
 
-As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding**, and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.
+As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to above properties in the previous table, you can also query **connectionDeviceId**, **connectionModuleId**.
 
 ### Application properties
 
@@ -83,7 +85,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 A full list of supported operators and functions is shown in [Expression and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## Message routing query based on message body 
+## Message routing query based on message body
 
 To enable querying on message body, the message should be in a JSON encoded in either UTF-8, UTF-16 or UTF-32. The `contentType` must be set to `application/JSON` and `contentEncoding` to one of the supported UTF encodings in the system property. If these properties are not specified, IoT Hub will not evaluate the query expression on the message body. 
 
@@ -135,6 +137,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> This shows how to handle the encoding of the body in javascript. If you want to see a sample in C#, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Unzip the master.zip file. The Visual Studio solution *SimulatedDevice*'s Program.cs file shows how to encode and submit messages to an IoT Hub. This is the same sample used for testing the message routing, as explained in the [Message Routing tutorial](tutorial-routing.md). At the bottom of Program.cs, it also has a method to read in one of the encoded files, decode it, and write it back out as ASCII so you can read it. 
+
 
 ### Query expressions
 
@@ -204,6 +210,8 @@ $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.send
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```
+
+Routing query on body or device twin with a period in the payload or property name is not supported.
 
 ## Next steps
 

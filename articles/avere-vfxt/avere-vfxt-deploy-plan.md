@@ -137,7 +137,7 @@ The Avere vFXT for Azure cluster is located in a private subnet, and the cluster
 
 Access options include:
 
-* Jump host - Assign a public IP address to a separate VM within the private network, and use it to create an SSL tunnel to the cluster nodes.
+* Jump host - Assign a public IP address to a separate VM within the private network, and use it to create a TLS tunnel to the cluster nodes.
 
   > [!TIP]
   > If you set a public IP address on the cluster controller, you can use it as the jump host. Read [Cluster controller as jump host](#cluster-controller-as-jump-host) for more information.

@@ -138,7 +138,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Dynatrace SSO
 
-To configure single sign-on on the **Dynatrace** side, you need to send the downloaded **Federation Metadata XML** file and the appropriate copied URLs from the Azure portal to the [Dynatrace support team](https://www.dynatrace.com/services-support/). They configure this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **Dynatrace** side, you need to send the downloaded **Federation Metadata XML** file and the appropriate copied URLs from the Azure portal to [Dynatrace](https://www.dynatrace.com/support/help/shortlink/users-sso-hub). You can follow the instructions on the Dynatrace website to configure the SAML SSO connection on both sides.
 
 ### Create Dynatrace test user
 

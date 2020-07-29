@@ -1,16 +1,13 @@
 ---
 title: Smart groups
 description: Smart Groups are aggregations of alerts that help you reduce alert noise
-ms.service:  azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 05/15/2018
-
 ---
 
 # Smart groups
+
 A common challenge faced when dealing with alerts is sifting through the noise to find out what actually matters - smart groups are intended to be the solution to that problem.  
 
 Smart groups are automatically created by using machine learning algorithms to combine related alerts that represent a single issue.  When an alert is created, the algorithm adds it to a new smart group or an existing smart group based on information such as historical patterns, similar properties, and similar structure. For example, if % CPU on several virtual machines in a subscription simultaneously spikes leading to many individual alerts, and if such alerts have occurred together anytime in the past, these alerts will likely be grouped into a single Smart Group, suggesting a potential common root cause. This means that for someone troubleshooting alerts, smart groups not only allows them to reduce noise by managing related alerts as a single aggregated unit, it also guides them towards possible common root causes for their alerts.
@@ -20,6 +17,7 @@ Currently, the algorithm only considers alerts from the same monitor service wit
 You can view the details of smart groups and set the state similarly to how you can with alerts. Each alert is a member of one and only one smart group. 
 
 ## Smart group state
+
 Smart group state is a similar concept to the alert state, which allows you to manage the resolution process at the level of a smart group. Similar to the alert state, when a smart group is created, it has the **New** state, which can be changed to either **Acknowledged** or **Closed**.
 
 The following smart group states are supported.

@@ -3,7 +3,7 @@ title: Collect custom metrics for Linux VM with the InfluxData Telegraf agent
 description: Instructions on how to deploy the InfluxData Telegraf agent on a Linux VM in Azure and configure the agent to publish metrics to Azure Monitor. 
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
+
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
@@ -19,11 +19,17 @@ By using Azure Monitor, you can collect custom metrics via your application tele
 
  ![Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
+> [!NOTE]  
+> Custom Metrics are not supported in all regions. Supported regions are listed [here](./metrics-custom-overview.md#supported-regions)
+
 ## Send custom metrics 
 
 For this tutorial, we deploy a Linux VM that runs the Ubuntu 16.04 LTS operating system. The Telegraf agent is supported for most Linux operating systems. Both Debian and RPM packages are available along with unpackaged Linux binaries on the [InfluxData download portal](https://portal.influxdata.com/downloads). See this [Telegraf installation guide](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) for additional installation instructions and options. 
 
 Sign in to the [Azure portal](https://portal.azure.com).
+
+> [!NOTE]  
+> If you want to migrate classic alert rules and use an existing Linux virtual machine, make sure the virutal machine has a system-assigned identity set to **On**.
 
 Create a new Linux VM: 
 
@@ -126,6 +132,3 @@ When they're no longer needed, you can delete the resource group, virtual machin
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
-
-
-

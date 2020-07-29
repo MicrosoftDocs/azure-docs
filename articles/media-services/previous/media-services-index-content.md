@@ -21,7 +21,7 @@ ms.reviewer: johndeu
 # Indexing Media Files with Azure Media Indexer
 
 > [!NOTE]
-> The [Azure Media Indexer](media-services-index-content.md) media processor will be retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> The **Azure Media Indexer** media processor will be retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch.  
 
@@ -41,7 +41,7 @@ You can specify more details for your indexing tasks by using a task configurati
 
 You can also process multiple media files at once by using a manifest file.
 
-For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+For more information, see [Task Preset for Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
 
 ## Index an asset
 The following method uploads a media file as an asset and creates a job to index the asset.
@@ -154,7 +154,7 @@ If not all input media files are indexed successfully, the indexing job fails wi
 ## Index multiple files
 The following method uploads multiple media files as an asset, and creates a job to index all these files in a batch.
 
-A manifest file with the ".lst" extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](https://msdn.microsoft.com/library/dn783454.aspx).
+A manifest file with the ".lst" extension is created and uploading into the asset. The manifest file contains the list of all the asset files. For more information, see [Task Preset for Azure Media Indexer](/azure/media-services/previous/media-services-analytics-overview).
 
 ```csharp
     static bool RunBatchIndexingJob(string[] inputMediaFiles, string outputFolder)
@@ -274,4 +274,3 @@ Currently, the English and Spanish languages are supported.
 [Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
 [Indexing Media Files with Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md)
-

@@ -1,6 +1,6 @@
 --- 
-title: Azure VMware Solutions (AVS) - Set up vCenter on an AVS Private Cloud for vRealize Automation
-description: Describes how to set up a VMware vCenter server on your AVS Private Cloud as an endpoint for VMware vRealize Automation
+title: Azure VMware Solution by CloudSimple - Set up vCenter on Private Cloud for vRealize Automation
+description: Describes how to set up a VMware vCenter server on your CloudSimple Private Cloud as an endpoint for VMware vRealize Automation
 author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/19/2019 
@@ -9,16 +9,16 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Set up vCenter on your AVS Private Cloud for VMware vRealize Automation
+# Set up vCenter on your Private Cloud for VMware vRealize Automation
 
-You can set up a VMware vCenter server on your AVS Private Cloud as an endpoint for VMware vRealize Automation.
+You can set up a VMware vCenter server on your CloudSimple Private Cloud as an endpoint for VMware vRealize Automation.
 
 ## Before you begin
 
 Complete these tasks before configuring the vCenter server:
 
-* Configure a [Site-to-Site VPN connection](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises environment and your AVS Private Cloud.
-* [Configure DNS forwarding of on-premises DNS requests](on-premises-dns-setup.md) to the DNS servers for your AVS Private Cloud.
+* Configure a [Site-to-Site VPN connection](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) between your on-premises environment and your Private Cloud.
+* [Configure DNS forwarding of on-premises DNS requests](on-premises-dns-setup.md) to the DNS servers for your Private Cloud.
 * Submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) to create a vRealize Automation IaaS administrative user with the set of permissions that are listed in the following table.
 
 | Attribute Value | Permission |
@@ -38,7 +38,7 @@ Complete these tasks before configuring the vCenter server:
 
 ## Install vRealize Automation in your on-premises environment
 
-1. Sign in to the vRealize Automation IaaS server appliance as the IaaS administrator that AVS Support created for you.
+1. Sign in to the vRealize Automation IaaS server appliance as the IaaS administrator that CloudSimple Support created for you.
 2. Deploy a vSphere Agent for the vRealize Automation endpoint.
     1. Go to https://*vra-url*:5480/installer, where *vra-url* is the URL that you use to access the vRealize Automation administration UI.
     2. Click the **IaaS Installer** to download the installer.<br>
@@ -53,7 +53,7 @@ Complete these tasks before configuring the vCenter server:
     ![vRA login info](media/configure-vra-endpoint-account.png)
     8. For the proxy settings, enter **vSphere** for **Agent type**. Enter a name for the agent.
     9. Enter the IaaS server FQDN in the **Manager Service Host** and the **Model Manager Web Service Host** fields. Click **Test** to test the connection for each of the FQDN values. If the test fails, modify your DNS settings so that the IaaS server hostname is resolved.
-    10. Enter a name for vCenter server endpoint for the AVS Private Cloud. Record the name for use later in the configuration process.
+    10. Enter a name for vCenter server endpoint for the Private Cloud. Record the name for use later in the configuration process.
 
         ![vRA install proxy](media/configure-vra-endpoint-proxy.png)
 
@@ -66,8 +66,8 @@ Complete these tasks before configuring the vCenter server:
 2. Select **Infrastructure** > **Endpoints** > **Endpoints**.
 3. Select **New** > **Virtual** > **vSphere**.
 4. Enter the vSphere endpoint name that you specified in the previous procedure.
-5. For **Address**, enter the AVS Private Cloud vCenter Server URL in the format https://*vcenter-fqdn*/sdk, where *vcenter-fqdn* is the name of the vCenter server.
-6. Enter the credentials for the vRealize Automation IaaS administrative user that AVS Support created for you.
+5. For **Address**, enter the Private Cloud vCenter Server URL in the format https://*vcenter-fqdn*/sdk, where *vcenter-fqdn* is the name of the vCenter server.
+6. Enter the credentials for the vRealize Automation IaaS administrative user that CloudSimple Support created for you.
 7. Click **Test Connection** to validate the user credentials. If the test fails, verify the URL, account information, and [endpoint name](#verify-the-endpoint-name) and test again.
 8. After a successful test, click **OK** to create the vSphere endpoint.
     ![vRA endpoint config access](media/configure-vra-endpoint-vra-edit.png)

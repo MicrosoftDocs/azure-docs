@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2020
+ms.date: 05/19/2020
 
 ms.author: mimart
 author: msmimart
@@ -26,6 +26,9 @@ The following video provides a useful overview.
 
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
+   > [!IMPORTANT]
+   > **Starting March 31, 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md). We welcome your feedback on this public preview feature and are excited to create even more ways to collaborate.
+
 ## Collaborate with any partner using their identities
 
 With Azure AD B2B, the partner uses their own identity management solution, so there is no external administrative overhead for your organization.
@@ -38,7 +41,7 @@ With Azure AD B2B, the partner uses their own identity management solution, so t
 
 ## Invite guest users with a simple invitation and redemption process
 
-Guest users sign in to your apps and services with their own work, school, or social identities. If the guest user doesn’t have a Microsoft account or an Azure AD account, one is created for them when they redeem their invitation. 
+Guest users sign in to your apps and services with their own work, school, or social identities. If the guest user doesn't have a Microsoft account or an Azure AD account, one is created for them when they redeem their invitation. 
 
 - Invite guest users using the email identity of their choice.
 - Send a direct link to an app, or send an invitation to the guest user's own Access Panel.
@@ -78,10 +81,26 @@ You can delegate guest user management to application owners so that they can ad
 
 ## Customize the onboarding experience for B2B guest users
 
-Bring your external partners on board in ways customized to your organization’s needs.
+Bring your external partners on board in ways customized to your organization's needs.
 
 - Use [Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) to configure policies that [manage access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - Use the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) to customize your onboarding experiences.
+
+## Integrate with Identity providers
+
+Azure AD supports external identity providers like Facebook, Microsoft accounts, Google, or enterprise identity providers. You can set up federation with identity providers so your external users can sign in with their existing social or enterprise accounts instead of creating a new account just for your application. Learn more about identity providers for External Identities.
+
+![Screenshot showing the Identity providers page](media/what-is-b2b/identity-providers.png)
+
+
+## Create a self-service sign-up user flow (Preview)
+
+With a self-service sign-up user flow, you can create a sign-up experience for external users who want to access your apps. As part of the sign-up flow, you can provide options for different social or enterprise identity providers, and collect information about the user. Learn about [self-service sign-up and how to set it up](self-service-sign-up-overview.md).
+
+You can also use [API connectors](api-connectors-overview.md) to integrate your self-service sign-up user flows with external cloud systems. You can connect with custom approval workflows, perform identity verification, validate user-provided information, and more.
+
+![Screenshot showing the user flows page](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
+<!--TODO: Add screenshot with API connectors -->
 
 ## Next steps
 
