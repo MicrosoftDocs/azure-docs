@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot connectivity problems in the SSIS integration runtime
+title: Use the diagnose connectivity feature in the SSIS integration runtime
 description: Troubleshoot connection issues in the SSIS integration runtime by using the diagnose connectivity feature. 
 services: data-factory
 ms.service: data-factory
@@ -12,7 +12,7 @@ manager: yidetu
 ms.date: 06/07/2020
 ---
 
-# Troubleshoot connectivity problems in the SSIS integration runtime.
+# Use the diagnose connectivity feature in the SSIS integration runtime
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
