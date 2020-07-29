@@ -465,13 +465,13 @@ The following exhausts possible configuration options within the file:
 
 ## Target App Service Authentication/Authorization Runtime Versions
 
-An app that has enabled App Service Authentication/Authorization runs on a specific version of the App Service Authentication/Authorization runtime. Currently, this runtime only supports one major version: 1.x. By default, apps with App Service Authentication/Authorization enabled run on the newest version of the runtime. This article explains how to configure an app in Azure to run on the authentication/authorization version you choose. For an overview on the authentication and authorization feature, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
+An app that has enabled App Service Authentication / Authorization runs on a specific version of the Authentication / Authorization runtime, which currently only supports one major version: 1.x. By default, these apps run on the newest version of this runtime. This article explains how to configure an app in Azure to run on any runtime version you choose. For an overview on the authentication and authorization feature, see [Authentication and authorization in Azure App Service](overview-authentication-authorization.md).
 
 ### Automatic and manual version updates 
-App Service Authentication/Authorization lets you target a specific version of the runtime by setting the `runtimeVersion` auth setting for the application. The application is run on the newest runtime version until you choose to explicitly pin it back to a specific version. There will be a few minor versions supported at a time. If you pin to an invalid version that is no longer supported, you'll be serving the newest version instead. To always run the newest runtime version, set `runtimeVersion` to ~1. 
+You can target a specific version of the runtime by setting the `runtimeVersion` auth setting for the application. The application runs on the newest runtime version until you choose to explicitly pin it back to a specific version. There will be a few minor versions supported at a time. If you pin to an invalid version that is no longer supported, you'll be serving the newest version instead. To always run the newest runtime version, set `runtimeVersion` to ~1. 
 
 ### View and update the current runtime version
-You can change the runtime version used by your app. Once the app has been restarted, the new runtime version should take effect.
+You can change the runtime version used by your app. The new runtime version should take effect after restarting the app. 
 
 #### From the Azure CLI
 You can also view and set the `runtimeVersion` from the Azure CLI.
