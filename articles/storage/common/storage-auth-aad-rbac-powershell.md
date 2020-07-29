@@ -15,11 +15,11 @@ ms.subservice: common
 
 # Use PowerShell to assign an RBAC role for access to blob and queue data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access containers or queues.
+Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access containers or queues.
 
 When an RBAC role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of the subscription, the resource group, the storage account, or an individual container or queue. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-This article describes how to use Azure PowerShell to list built-in RBAC roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+This article describes how to use Azure PowerShell to list Azure built-in roles and assign them to users. For more information about using Azure PowerShell, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -33,7 +33,7 @@ This article describes how to use Azure PowerShell to list built-in RBAC roles a
 
 ## List available RBAC roles
 
-To list available built-in RBAC roles with Azure PowerShell, use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command:
+To list available Azure built-in roles with Azure PowerShell, use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command:
 
 ```powershell
 Get-AzRoleDefinition | FT Name, Description
