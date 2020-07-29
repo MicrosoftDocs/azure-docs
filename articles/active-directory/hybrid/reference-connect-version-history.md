@@ -49,7 +49,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 07/29/2020: Released for download
 
 ### Functional changes
-This is a bug fix release. ere are no functional changes in this release.
+This is a bug fix release. There are no functional changes in this release.
 
 ### Fixed issues
 
