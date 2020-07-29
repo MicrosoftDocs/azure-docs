@@ -34,10 +34,6 @@ For more information about the new features, check out [our blog post](https://t
 ###Updated Autoscaling tool.  
 An updated version of the autoscaling tool has been made generally available. This tool makes use of an Azure automation account and an Azure Logic App to provide the autoscaling capability that will automatically shut down and restart session host VMs within a host pool, allowing you to reduce your infrastructure costs. More information is available here.   
 
-###Quality improvements 
-
-Improvements in reliability, performance and capacity, and multi-geo DB improvements. 
-
 ###Azure portal 
 Within the Windows Virtual Desktop section of the Azure portal it is now possible to enable: 
 
