@@ -167,8 +167,6 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Managed Virtual Network
-    href: managed-virtual-network-private-endpoint.md
   - name: Security
     items:
     - name: Security baseline
@@ -588,6 +586,8 @@
       href: data-factory-service-identity.md
     - name: Customer managed key encryption
       href: enable-customer-managed-key.md
+    - name: Managed Virtual Network
+      href: managed-virtual-network-private-endpoint.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
