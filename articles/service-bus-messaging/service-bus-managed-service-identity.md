@@ -53,7 +53,7 @@ The following list describes the levels at which you can scope access to Service
 - **Subscription**: Role assignment applies to all the Service Bus resources in all of the resource groups in the subscription.
 
 > [!NOTE]
-> Keep in mind that RBAC role assignments may take up to five minutes to propagate. 
+> Keep in mind that Azure role assignments may take up to five minutes to propagate. 
 
 For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
