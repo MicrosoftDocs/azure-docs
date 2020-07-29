@@ -42,7 +42,9 @@ Updates in July include:
 
 Azure Security Center's vulnerability assessment extension (powered by Qualys) previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
 
-With the removal of this requirement, the vulnerability scanning solution can be deployed to custom Windows and Linux machines.
+With the removal of this requirement, you can deploy the extension to 'custom' Windows and Linux machines (images which you've modified from the marketplace defaults).
+
+Although you can now deploy the extension on many more machines, support is only available if you're using an OS listed in [Deploying the Qualys built-in vulnerability scanner](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
 
 Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](built-in-vulnerability-assessment.md).
 
@@ -108,9 +110,9 @@ Learn more about Security Center's container security in the following articles:
 
 
 
-### New recommendation to updated your adaptive application controls rules
+### New recommendation to update your adaptive application controls rules
 
-The adaptive application controls feature continuously monitors the activity of machines in configured groups. From this update, you'll be notified of potentially legitimate behavior that has not previously been allowed, and which might result in false positive alerts.
+The adaptive application controls feature continuously monitors the activity of machines in configured groups. From this update, you'll be notified of potentially legitimate behavior that hasn't previously been allowed, and which might cause false positive alerts.
 
 The new recommendation, **Allowlist rules in your adaptive application control policy should be updated**, prompts you to add new rules to the existing policy to reduce the number of false positives in adaptive application controls violation alerts.
 
