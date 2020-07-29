@@ -18,22 +18,22 @@ These articles describe how to get started on the InfiniBand-enabled H-series an
 
 ## Features and capabilities
 
-The InfiniBand enabled H-series and N-series VMs are designed to provide the best HPC performance, MPI scalability, and cost efficiency for HPC workloads. See [H-series](virtual-machines/sizes-hpc.md) and [N-series](virtual-machines/sizes-gpu.md) VMs to learn more about the features and capabilities of the VMs.
+The InfiniBand enabled H-series and N-series VMs are designed to provide the best HPC performance, MPI scalability, and cost efficiency for HPC workloads. See [H-series](./virtual-machines/sizes-hpc.md) and [N-series](./virtual-machines/sizes-gpu.md) VMs to learn more about the features and capabilities of the VMs.
 
 ### RDMA and InfiniBand
 
 RDMA-capable H-series and N-series VMs communicate over the low latency and high bandwidth InfiniBand network. The RDMA capability over such an interconnect is critical to boost the scalability and performance of distributed-node HPC and AI workloads. The InfiniBand enabled H-series and N-series VMs are connected in a non-blocking fat tree with a low-diameter design for optimized and consistent RDMA performance.
-See [RDMA capable VMs](virtual-machines/sizes-hpc.md#rdma-capable-instances) to learn more about the RDMA capability of such VMs and their support matrix - supported operating systems, InfiniBand driver installation, MPI support etc.
+See [RDMA capable VMs](./virtual-machines/sizes-hpc.md#rdma-capable-instances) to learn more about the RDMA capability of such VMs and their support matrix - supported operating systems, InfiniBand driver installation, MPI support etc.
 See [Enable InfiniBand](enable-infiniband.md) to learn more about setting up InfiniBand on the InfiniBand enabled VMs.
 
 ### Message passing interface
 
 The SR-IOV enabled H-series and N-series support almost all MPI libraries and versions. Some of the most common, supported MPI libraries are: Intel MPI, OpenMPI, MPICH, MVAPICH2, Platform MPI, and all remote direct memory access (RDMA) verbs.
-See [Set up MPI](setup-mpi) to learn more about installing various supported MPI libraries and their optimal configuration.
+See [Set up MPI](setup-mpi.md) to learn more about installing various supported MPI libraries and their optimal configuration.
 
 ## Get started
 
-The first step is to select the [H-series](virtual-machines/sizes-hpc.md) and [N-series](virtual-machines/sizes-gpu.md) VM optimal for the workload based on the VM specifications and [RDMA capability](virtual-machines/sizes-hpc.md#rdma-capable-instances).
+The first step is to select the [H-series](./virtual-machines/sizes-hpc.md) and [N-series](./virtual-machines/sizes-gpu.md) VM optimal for the workload based on the VM specifications and [RDMA capability](./virtual-machines/sizes-hpc.md#rdma-capable-instances).
 Second, configure the VM by enabling InfiniBand. There are various methods to doing this including using optimized VM images with drivers baked-in; see [Optimization for Linux](configure.md) and [Enable InfiniBand](enable-infiniband.md) for details.
 Third, for distributed node workloads, choosing and configuring MPI is critical. See [Set up MPI](setup-mpi.md) for details.
 Fourth, for performance and scalability, optimally configure the workloads by following guidance specific to the VM family, such as for [HB-series overview](hb-series-overview.md) and [HC-series overview](hc-series-overview.md).
