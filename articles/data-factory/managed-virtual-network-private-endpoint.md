@@ -1,6 +1,6 @@
 ---
-title: Integration runtime
-description: 'Learn about integration runtime in Azure Data Factory.'
+title: Azure Data Factory Managed Virtual Network
+description: 'Learn about Managed Virtual Network in Azure Data Factory.'
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
+ms.date: 07/15/2020
 ---
 
 # Azure Data Factory Managed Virtual Network (preview)
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article will explain Managed Virtual Network and Managed Private endpoints in Azure Data Factory.
 
@@ -77,6 +77,7 @@ Below data sources are supported to connect through private link from ADF Manage
 - Azure SQL Data Warehouse
 - Azure CosmosDB SQL
 - Azure Key Vault
+- Azure Private Link
 
 ### Outbound communications through public endpoint from ADF Managed Virtual Network
 - Only port 443 is opened for outbound communications.
