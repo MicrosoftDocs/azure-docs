@@ -45,6 +45,20 @@ Learn more about [threat protection for Azure Storage](threat-protection.md#thre
 
 
 
+### Vulnerability assessment for virtual machines is now available for non-marketplace images
+
+Azure Security Center's vulnerability assessment extension (powered by Qualys) previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
+
+With the removal of this requirement, the vulnerability scanning solution can be deployed to custom Windows and Linux machines.
+
+Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](built-in-vulnerability-assessment.md).
+
+
+
+
+
+
+
 ### Eight new recommendations to enable threat protection features
 
 Eight new recommendations have been added to provide a simple way to enable Azure Security Center's threat protection features for the following resource types: virtual machines, App Service plans, Azure SQL Database servers, SQL servers on machines, Azure Storage accounts, Azure Kubernetes Service clusters, Azure Container Registry registries, and Azure Key Vault vaults.
@@ -63,6 +77,11 @@ The new recommendations are:
 These new recommendations belong to the **Enable Advanced Threat Protection** security control.
 
 The recommendations also include the quick fix capability. 
+
+> [!IMPORTANT]
+> Remediating any of these recommendations will result in charges for protecting the relevant resources. These charges will begin immediately if you have related resources in the current subscription. Or in the future, if you add them at a later date.
+> 
+> For example, if you don't have any Azure Kubernetes Service clusters in your subscription and you enable the threat protection, no charges will be incurred. If, in the future, you add a cluster on the same subscription, it will automatically be protected and charges will begin at that time.
 
 Learn more about each of these in the [security recommendations reference page](recommendations-reference.md).
 
