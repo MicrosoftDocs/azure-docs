@@ -20,7 +20,7 @@ By default, public access to your blob data is always prohibited. However, the d
 
 When you disallow public blob access for the storage account, Azure Storage rejects all anonymous requests to that account. After public access is disallowed for an account, containers in that account cannot be subsequently configured for public access. Any containers that have already been configured for public access will no longer accept anonymous requests. For more information, see [Configure anonymous public read access for containers and blobs](anonymous-read-access-configure.md).
 
-This article describes how to analyze anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
+This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage public access for your storage accounts.
 
 ## Detect anonymous requests from client applications
 
