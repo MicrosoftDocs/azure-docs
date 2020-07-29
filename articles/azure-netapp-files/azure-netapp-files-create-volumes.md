@@ -51,7 +51,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
     ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.	In the Create a Volume window, click **Create**, and provide information for the following fields:   
+2.	In the Create a Volume window, click **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 

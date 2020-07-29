@@ -39,7 +39,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
     ![Navigate to Volumes](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png) 
 
-2.	In the Create a Volume window, click **Create**, and provide information for the following fields:   
+2.	In the Create a Volume window, click **Create**, and provide information for the following fields under the Basics tab:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
@@ -87,9 +87,9 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 
     * Specify the **Security Style** to use: NTFS (default) or UNIX.
 
-    * Optionally, [configure export policy for the NFS volume](azure-netapp-files-configure-export-policy.md).
+    * Optionally, [configure export policy for the volume](azure-netapp-files-configure-export-policy.md).
 
-    ![Specify NFS protocol](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
+    ![Specify dual-protocol](../media/azure-netapp-files/create-volume-protocol-dual.png)
 
 4. Click **Review + Create** to review the volume details. Then click **Create** to create the volume.
 
@@ -102,8 +102,7 @@ Azure NetApp Files supports creating volumes using NFS (NFSv3 and NFSv4.1), SMBv
 1.	Follow [Install the Certification Authority](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority) to install and configure ADDS Certificate Authority. 
 
 2.	Follow [View certificates with the MMC snap-in](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) to use the MMC snap-in and the Certificate Manager tool.  
-    Use the Certificate Manager snap-in to locate the root or issuing certificate for the local device.  
-    You should run the Certificate Management snap-in commands from one of the following settings:  
+    Use the Certificate Manager snap-in to locate the root or issuing certificate for the local device. You should run the Certificate Management snap-in commands from one of the following settings:  
     * A Windows based client that has joined the domain and has the root certificate installed 
     * Another machine in the domain containing the root certificate  
 

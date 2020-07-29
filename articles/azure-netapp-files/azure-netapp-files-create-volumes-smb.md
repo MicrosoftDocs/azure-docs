@@ -180,7 +180,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 2. Click **+ Add volume** to create a volume.  
     The Create a Volume window appears.
 
-3. In the Create a Volume window, click **Create** and provide information for the following fields:   
+3. In the Create a Volume window, click **Create** and provide information for the following fields under the Basics tab:   
     * **Volume name**      
         Specify the name for the volume that you are creating.   
 
