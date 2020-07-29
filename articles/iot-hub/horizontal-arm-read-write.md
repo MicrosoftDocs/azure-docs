@@ -10,13 +10,33 @@ ms.date: 07/20/2020
 ---
 # Quickstart: Deploy an Azure IoT Hub and a storage account using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT Hub that will route messages to Azure Storage, and a storage account to hold them. After manually adding a virtual IoT device to the hub to use to submit the messages, you configure that connection information in the arm-read-write application to submit messages to the hub using that device. The hub has the routing configured, so the messages sent to the hub are automatically routed by the hub to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT Hub that will route messages to Azure Storage, and a storage account to hold them. After manually adding a virtual IoT device to the hub to submit the messages, you configure that connection information in the arm-read-write application to submit messages to the hub using that device. The hub has the routing configured, so the messages sent to the hub are automatically routed by the hub to the storage account. At the end of this quickstart, you can open the storage account and see the messages sent.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+<!--ROBIN fix this-->
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+
+## Prerequisites
+
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) account before you begin.
+
+## Review the template
+<!--ROBIN fix this-->
+
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-notification-hub/).
+
+<!--ROBIN fix this-->
+:::code language="json" source="~/quickstart-templates/101-notification-hub/azuredeploy.json" range="1-45" highlight="22-40":::
+
+* [Microsoft.NotificationHubs/namespaces](/azure/templates/microsoft.notificationhubs/namespaces)
+* [Microsoft.NotificationHubs/namespaces/notificationHubs](/azure/templates/microsoft.notificationhubs/namespaces/notificationhubs)
+
+
 ## Overview
 
-1. Start by creating the resources by loading the ARM template. Click [here](wherever). how to specify the resource group?
+1. Start the process of creating the resources by loading the ARM template. Click [here](wherever). how to specify the resource group?
 
 1. Download and unzip the c# IoT samples zip file which is [here](https://Azure-Samples/azure-iot-samples-csharp)
 
@@ -54,7 +74,7 @@ The application starts running, and shows the messages as it sends each one to t
 
 {screenshot}
 
-1. Click on a file and select Save As (?) and save the file to a location you can find it later. It will have a name that's numeric, like 47. Add ".txt" to the end to make it easier to open it.
+1. Click on a file and select Save As and save the file to a location you can find it later. It will have a name that's numeric, like 47. Add ".txt" to the end to make it easier to open it.
 
 1. Select the file to open it. Each row is a different message sent to the IoT Hub. 
 
