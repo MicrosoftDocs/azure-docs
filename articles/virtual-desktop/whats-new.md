@@ -40,7 +40,6 @@ Within the Windows Virtual Desktop section of the Azure portal it is now possibl
 - Direct user assignment of users to personal desktop session hosts  
 - The Validation Environment setting for host pools 
  
-
 ###Diagnostics 
 We have released a handful of prebuilt queries directly into your Log Analytics workspace. To access, go to Logs and select Category Windows Virtual Desktop. More information is available here. 
 
