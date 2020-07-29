@@ -10,13 +10,11 @@ services: iot-pnp
 ms.custom: mvc
 ---
 
-# IoT Plug and Play libraries and SDKs
+# Microsoft SDKs for IoT Plug and Play
 
 The IoT Plug and Play libraries and SDKs enable developers to build IoT solutions using a variety of programming languages on multiple platforms. The following table includes links to samples and quickstarts to help you get started:
 
-## Microsoft SDKs for IoT Plug and Play
-
-**Device SDKs**
+## Device SDKs (GA)
 
 | Language | Package | Code Repository | Samples | Quickstart | Reference |
 |---|---|---|---|---|---|
@@ -26,7 +24,15 @@ The IoT Plug and Play libraries and SDKs enable developers to build IoT solution
 | Python - Device | [pip 2.1.4](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp) | [Connect to IoT Hub](quickstart-connect-device-python.md) | [Reference](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device?view=azure-python) |
 | Node - Device | [npm 1.17.0](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp) | [Connect to IoT Hub](quickstart-connect-device-node.md) | [Reference](https://docs.microsoft.com/javascript/api/azure-iot-device/?view=azure-node-latest) |
 
-**Service SDKs (Preview)**
+## Device SDKs (Preview)
+
+| Language | Code Repository/Samples |
+|---|---|
+|Azure SDK for Embedded| [GitHub](https://github.com/Azure/azure-sdk-for-c/#) |
+|Azure RTOS IoT middleware| [GitHub](https://github.com/azure-rtos/azure-iot-preview#) |
+|Azure RTOS getting started guides | [GitHub](https://github.com/azure-rtos/getting-started) |
+
+## Service SDKs (Preview)
 
 | Language | Package | Code Repository | Samples | Quickstart | Reference |
 |---|---|---|---|---|---|
