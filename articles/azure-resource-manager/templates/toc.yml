@@ -10,7 +10,7 @@
     href: quickstart-create-templates-use-the-portal.md
   - name: Create templates - VS Code
     href: quickstart-create-templates-use-visual-studio-code.md
-  - name: Create & deploy template spec
+  - name: Create & deploy template specs
     href: quickstart-create-template-specs.md
   - name: Azure services
     items:
@@ -210,8 +210,10 @@
   - name: Template Specs
     items:
     - name: Create with linked templates
+      displayName: template specs
       href: template-specs-create-linked.md
     - name: Deploy as linked template
+      displayName: template specs
       href: template-specs-deploy-linked-template.md
   - name: Advanced templates
     items:
@@ -366,8 +368,8 @@
       href: deploy-to-management-group.md
     - name: Tenant
       href: deploy-to-tenant.md
-    - name: Cross resource group
-      href: cross-resource-group-deployment.md
+    - name: Cross scope deployments
+      href: cross-scope-deployment.md
   - name: Provide parameters
     items:
     - name: Create parameter file
