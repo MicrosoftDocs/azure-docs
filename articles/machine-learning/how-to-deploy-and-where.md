@@ -634,7 +634,7 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 ### A/B Testing (controlled rollout)
 For more information, see [Controlled rollout of ML models](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) for more information.
 
-## Consume web services
+## Inference using web services
 
 Every deployed web service provides a REST endpoint, so you can create client applications in any programming language.
 If you've enabled key-based authentication for your service, you need to provide a service key as a token in your request header.

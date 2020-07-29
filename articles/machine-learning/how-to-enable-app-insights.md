@@ -123,6 +123,8 @@ If you want to log custom traces, follow the standard deployment process for AKS
 
 3. Build an image and deploy it on [AKS or ACI](how-to-deploy-and-where.md).
 
+For more information on logging and data collection, see [Enable logging in Azure Machine Learning](how-to-enable-logging.md) and [Collect data from models in production](how-to-enable-data-collection.md).
+
 ### Disable tracking in Python
 
 To disable Azure Application Insights, use the following code:
