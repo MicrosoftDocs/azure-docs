@@ -70,7 +70,7 @@ In this section, Postman and a provided collection are used to create the search
 1. Under **Files** > **New**, select the collection to import.
 1. After the collection is imported, expand the actions list (...).
 1. Click **Edit**.
-1. Enter the name of your searchService (for example, if the endpoint is https://mydemo.search.windows.net, then the service name is "mydemo").
+1. Enter the name of your searchService (for example, if the endpoint is `https://mydemo.search.windows.net`, then the service name is "`mydemo`").
 1. Enter the apiKey with either the primary or secondary key of your search service.
 1. Enter the storageConnectionString from the keys page of your Azure Storage account.
 1. Enter the containerName for the container you created in the storage account.

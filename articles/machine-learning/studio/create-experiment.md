@@ -1,6 +1,5 @@
 ---
-title: 'Quickstart: Create a data science experiment'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Quickstart: Create a data science experiment - Azure'
 description: This machine learning quickstart walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
 services: machine-learning
 ms.service: machine-learning
@@ -14,7 +13,10 @@ ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.
 ---
 
-# Quickstart: Create your first data science experiment in Azure Machine Learning Studio (classic)
+# Quickstart: Create your first data science experiment in Machine Learning Studio (classic)
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

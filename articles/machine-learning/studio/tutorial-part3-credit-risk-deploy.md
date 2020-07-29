@@ -1,6 +1,5 @@
 ---
-title: 'Tutorial 3: Deploy credit risk model'
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 'ML Studio (classic) tutorial 3: Deploy credit risk models - Azure'
 description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio (classic). This tutorial is part three of a three-part tutorial series. It shows how to deploy a model as a web service.
 keywords: credit risk, predictive analytics solution,risk assessment, deploy, web service
 author: likebupt
@@ -12,6 +11,9 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ---
 # Tutorial 3: Deploy credit risk model - Azure Machine Learning Studio (classic)
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part three of a three-part tutorial series**.
 

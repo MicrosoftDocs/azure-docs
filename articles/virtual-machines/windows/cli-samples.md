@@ -3,7 +3,7 @@ title: Azure CLI Samples Windows
 description: Azure CLI Samples Windows
 author: cynthn
 ms.service: virtual-machines-windows
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn

@@ -4,7 +4,7 @@ description: Details concerning payout policies, including schedules and recoupm
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
 ---

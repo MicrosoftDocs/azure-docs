@@ -458,12 +458,15 @@
       - name: Parameterized query
         displayName: parameterized query, parameterized, parameter, parameters
         href: sql-query-parameterized-queries.md
-      - name: LINQ to SQL
-        displayName: linq, .NET
-        href: sql-query-linq-to-sql.md
       - name: SQL query execution
         displayName: query performance, query execution
         href: sql-query-execution.md
+      - name: Pagination
+        displayName: page, paging, continuation, token, pagination
+        href: sql-query-pagination.md
+      - name: LINQ to SQL
+        displayName: linq, .NET
+        href: sql-query-linq-to-sql.md
     - name: Work with Azure Cosmos account
       href: account-overview.md
     - name: Containers and items
@@ -574,6 +577,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Advanced threat protection
+        - name: Security controls by Azure Policy
+          displayName: regulatory, compliance, standards, domains
+          href: ./security-controls-policy.md
         - name: Security baseline
           href: security-baseline.md
     - name: Enterprise readiness

@@ -1,6 +1,5 @@
 ---
-title: Deploy a web service
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (classic): Deploy a web service - Azure'
 description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning Studio (classic) web service.
 services: machine-learning
 ms.service: machine-learning
@@ -13,6 +12,9 @@ ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ---
 # Deploy an Azure Machine Learning Studio (classic) web service
+
+**APPLIES TO:** ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-azure-ml.md) ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic) 
+
 
 Azure Machine Learning Studio (classic) enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
 
