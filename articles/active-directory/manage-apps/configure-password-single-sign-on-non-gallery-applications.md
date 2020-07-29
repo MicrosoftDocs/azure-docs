@@ -78,9 +78,6 @@ If Azure AD's parsing attempt fails, you can configure sign-on manually.
 
 8. Select **OK**.
 
-After the capture of the sign-in page, you may assign users and groups, and you can set up credential policies just like regular [password SSO applications](what-is-single-sign-on.md).
-
-
 ## Next steps
 
 - [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
