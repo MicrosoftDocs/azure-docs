@@ -6,6 +6,7 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 04/06/2020
+ms.custom: devx-track-java
 ---
 
 # Use Circuit Breaker Dashboard with Azure Spring Cloud

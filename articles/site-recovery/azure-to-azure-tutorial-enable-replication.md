@@ -99,7 +99,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   operations. This role is best suited for an IT monitoring executive who can monitor the current
   state of protection and raise support tickets.
 
-Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md).
+Learn more about [Azure built-in roles](../role-based-access-control/built-in-roles.md).
 
 ## Enable replication for a VM
 

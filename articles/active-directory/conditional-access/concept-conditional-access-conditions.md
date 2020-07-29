@@ -61,6 +61,9 @@ More information about locations can be found in the article, [What is the locat
 
 Conditional Access policies by default apply to browser-based applications and applications that utilize modern authentication protocols. In addition to these applications, administrators can choose to include Exchange ActiveSync clients and other clients that utilize legacy protocols.
 
+> [!NOTE]
+> The Configure Yes/No toggle in the client apps condition has been removed to make it easier to see which client apps are selected. This does not impact which client apps an existing policy applies to.
+
 - Browser
    - These include web-based applications that use protocols like SAML, WS-Federation, OpenID Connect, or services registered as an OAuth confidential client.
 - Mobile apps and desktop clients

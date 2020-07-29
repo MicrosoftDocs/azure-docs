@@ -4,7 +4,7 @@ description: Create and upload a virtual hard disk (VHD) to Azure using the Reso
 author: cynthn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/10/2017
 ms.author: cynthn
 ms.custom: storage accounts

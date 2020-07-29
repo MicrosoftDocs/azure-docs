@@ -5,6 +5,7 @@ author: suhuruli
 
 ms.topic: conceptual
 ms.date: 11/02/2017
+ms.custom: devx-track-java
 ms.author: suhuruli
 ---
 # Get started with Reliable Services in Java

@@ -234,7 +234,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
 | **References**              | [Use role assignments to manage access to your Azure subscription resources](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
-| **Steps** | Azure Role-Based Access Control (RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs.|
+| **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform their jobs.|
 
 ## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using RBAC
 

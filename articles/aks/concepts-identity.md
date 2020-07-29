@@ -101,7 +101,7 @@ Azure RBAC is an authorization system built on [Azure Resource Manager](../azure
 
 With Azure RBAC, you create a *role definition* that outlines the permissions to be applied. A user or group is then assigned this role definition via a *role assignment* for a particular *scope*, which could be an individual resource, a resource group, or across the subscription.
 
-For more information, see [What is Azure RBAC?][azure-rbac]
+For more information, see [What is Azure role-based access control (Azure RBAC)?][azure-rbac]
 
 There are two levels of access needed to fully operate an AKS cluster: 
 1. [Access the AKS resource in your Azure subscription](#azure-rbac-to-authorize-access-to-the-aks-resource). This process allows you to control things scaling or upgrading your cluster using the AKS APIs as well as pull your kubeconfig.

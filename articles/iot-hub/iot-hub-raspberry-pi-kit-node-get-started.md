@@ -10,6 +10,7 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: wesmc
+ms.custom: ['Role: Cloud Development']
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (Node.js)

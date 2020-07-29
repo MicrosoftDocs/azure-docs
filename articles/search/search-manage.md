@@ -118,7 +118,7 @@ Although query throughput goes up as you add replicas, it does not precisely dou
 
 It's more common to add replicas, but when storage is constrained, you can add partitions to get more capacity. The tier at which you provisioned the service determines whether partitions can be added. The Basic tier is locked at one partition. Standard tiers and above support additional partitions.
 
-Partitions are added in multiples of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
+Partitions are added in divisors of 12 (specifically, 1, 2, 3, 4, 6, or 12). This is an artifact of sharding. An index is created in 12 shards, which can all be stored on 1 partition or equally divided into 2, 3, 4, 6, or 12 partitions (one shard per partition).
 
 ### Remove replicas
 

@@ -41,16 +41,16 @@ Before you start, do the following:
 
 1. Make sure you have one or more [Windows](../virtual-machines/linux/disk-encryption-overview.md) or [Linux](../virtual-machines/linux/disk-encryption-overview.md) VMs with ADE enabled.
 2. [Review the support matrix](backup-support-matrix-iaas.md) for Azure VM backup
-3. [Create](backup-azure-arm-vms-prepare.md#create-a-vault) a Recovery Services Backup vault if you don't have one.
+3. [Create](backup-create-rs-vault.md) a Recovery Services Backup vault if you don't have one.
 4. If you enable encryption for VMs that are already enabled for backup, you simply need to provide Backup with permissions to access the Key Vault so that backups can continue without disruption. [Learn more](#provide-permissions) about assigning these permissions.
 
 In addition, there are a couple of things that you might need to do in some circumstances:
 
-- **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+- **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 ## Configure a backup policy
 
-1. If you haven't yet created a Recovery Services backup vault, follow [these instructions](backup-azure-arm-vms-prepare.md#create-a-vault)
+1. If you haven't yet created a Recovery Services backup vault, follow [these instructions](backup-create-rs-vault.md)
 2. Open the vault in the portal, and select **Backup** in the **Getting Started** section.
 
     ![Backup blade](./media/backup-azure-vms-encryption/select-backup.png)
