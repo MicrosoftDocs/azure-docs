@@ -11,64 +11,96 @@ ms.date: 07/22/2020
 ms.author: pafarley
 ---
 
-# Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)
+# Create a Cognitive Services resource using the Azure Management SDK
 
-Use this quickstart to get started with Azure Cognitive Services using the ___ Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, use the keys and endpoint generated for you to authenticate your applications.
-
-In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription, Using the ___. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or more of the Azure Cognitive Services APIs.
+Use this quickstart to get started with Azure Cognitive Services using the Azure Management SDK. You'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, you use the keys and endpoint generated for you to authenticate your applications.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
+[Reference documentation](tbd) | [Library source code](tbd) | [Package (NuGet)](tbd) | [Samples](tbd)
+
 ## Prerequisites
 
-* A valid Azure subscription - [Create one](https://azure.microsoft.com/free/) for free.
-* __
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
+* The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## Install the Management SDK and sign in 
+## Create an Azure Service Principal
 
-Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). To sign into your local installation of the CLI, run the [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) command:
+In order to have your application interact with your Azure account, you need an Azure service principal to manage permissions. Follow the instructions in [Create an Azure service principal](https://docs.microsoft.com/en-us/powershell/azure/create-azure-service-principal-azureps?view=azps-4.4.0&viewFallbackFrom=azps-3.3.0).
 
-```azurecli-interactive
-az login
+When you create a service principal, you'll see it has a secret value, an ID, and an application ID. Save the application ID and secret to a temporary location for later steps.
+
+## Create a resource group
+
+Before creating a Cognitive Services resource, you must have an Azure resource group to contain the resource. If you don't already have a resource group, create one in the [Azure portal](https://ms.portal.azure.com/) before continuing.
+
+## Create a new C# application
+
+Create a new .NET Core application. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `azure-management-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *program.cs*. 
+
+```console
+dotnet new console -n azure-management-quickstart
 ```
 
-You can also use the green **Try It** button to run these commands in your browser.
- 
-## Create a new Azure Cognitive Services resource group
+Change your directory to the newly created app folder. You can build the application with:
 
-Before creating a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group.
-
-### Choose your resource group location
-
-To create a resource, you'll need one of the Azure locations available for your subscription. You can retrieve a list of available locations with the [az account list-locations](/cli/azure/account#az-account-list-locations) command. Most Cognitive Services can be accessed from several locations. Choose the one closest to you, or see which locations are available for the service.
-
-> [!IMPORTANT]
-> * Remember your Azure location, as you will need it when calling the Azure Cognitive Services.
-> * The availability of some Cognitive Services can vary by region. For more information, see [Azure products by region](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services).  
-
-```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
+```console
+dotnet build
 ```
 
-After you have your azure location, create a new resource group in the Azure CLI using the [az group create](/cli/azure/group#az-group-create) command.
+The build output should contain no warnings or errors. 
 
-In the example below, replace the azure location `westus2` with one of the Azure locations available for your subscription.
-
-```azurecli-interactive
-az group create \
-    --name cognitive-services-resource-group \
-    --location westus2
+```console
+...
+Build succeeded.
+ 0 Warning(s)
+ 0 Error(s)
+...
 ```
+
+### Install the client library
+
+Within the application directory, install the Azure Management client library for .NET with the following command:
+
+```console
+dotnet add package Microsoft.Azure.Management.CognitiveServices
+dotnet add package Microsoft.Azure.Management.Fluent
+dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
+```
+
+If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
+
+### Import libraries
+
+Open *program.cs* and add the following `using` statements to the top of the file:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_using)]
+
+## Declare resource fields
+
+Add the following fields to the root *program.cs* and populate their values, using the service principal you create and your Azure account.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_constants)]
+
+Then, in your **Main** method, use these values to construct a **CognitiveServicesManagementClient** object. This object is needed for all of your Azure management operations.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_assigns)]
+
+## Call management methods
+
+Add the following code to your **Main** method to list available resources, create a sample resource, list your owned resources, and then delete the sample resource. You'll define these methods in the next steps.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_calls)]
 
 ## Create a Cognitive Services resource
 
 ### Choose a cognitive service and pricing tier
 
-When creating a new resource, you will need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or sku) you want. You will use this and other information as parameters when creating the resource.
+When creating a new resource, you will need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or sku) you want. You will use this and other information as parameters when creating the resource. You can find a list of available Cognitive Service "kinds" by calling the following method in your script:
 
-### Multi-service
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_list_avail)]
+
+#### Multi-service
 
 | Service                    | Kind                      |
 |----------------------------|---------------------------|
@@ -78,7 +110,7 @@ When creating a new resource, you will need to know the "kind" of service you wa
 > [!NOTE]
 > Many of the Cognitive Services below have a free tier you can use to try the service. To use the free tier, use `F0` as the sku for your resource.
 
-### Vision
+#### Vision
 
 | Service                    | Kind                      |
 |----------------------------|---------------------------|
@@ -89,7 +121,7 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
-### Search
+#### Search
 
 | Service            | Kind                  |
 |--------------------|-----------------------|
@@ -99,14 +131,14 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Bing Search        | `Bing.Search.v7`      |
 | Bing Spell Check   | `Bing.SpellCheck.v7`  |
 
-### Speech
+#### Speech
 
 | Service            | Kind                 |
 |--------------------|----------------------|
 | Speech Services    | `SpeechServices`     |
 | Speech Recognition | `SpeakerRecognition` |
 
-### Language
+#### Language
 
 | Service            | Kind                |
 |--------------------|---------------------|
@@ -116,7 +148,7 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Text Analytics     | `TextAnalytics`     |
 | Text Translation   | `TextTranslation`   |
 
-### Decision
+#### Decision
 
 | Service           | Kind               |
 |-------------------|--------------------|
@@ -124,76 +156,35 @@ When creating a new resource, you will need to know the "kind" of service you wa
 | Content Moderator | `ContentModerator` |
 | Personalizer      | `Personalizer`     |
 
-You can find a list of available Cognitive Service "kinds" with the [az cognitiveservices account list-kinds](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-kinds) command:
 
-```azurecli-interactive
-az cognitiveservices account list-kinds
-```
-
-### Add a new resource to your resource group
-
-To create and subscribe to a new Cognitive Services resource, use the [az cognitiveservices account create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) command. This command adds a new billable resource to the resource group created earlier. When creating your new resource, you will need to know the "kind" of service you want to use, along with its pricing tier (or sku) and an Azure location:
-
-You can create an F0 (free) resource for Anomaly Detector, named `anomaly-detector-resource` with the command below.
-
-```azurecli-interactive
-az cognitiveservices account create \
-    --name anomaly-detector-resource \
-    --resource-group cognitive-services-resource-group \
-    --kind AnomalyDetector \
-    --sku F0 \
-    --location westus2 \
-    --yes
-```
-
-## Get the keys for your resource
-
-To log into your local installation of the Command-Line Interface(CLI), use the [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) command.
-
-```azurecli-interactive
-az login
-```
-
-Use the [az cognitiveservices account keys list](https://docs.microsoft.com/cli/azure/cognitiveservices/account/keys?view=azure-cli-latest#az-cognitiveservices-account-keys-list) command to get the keys for your Cognitive Service resource.
-
-```azurecli-interactive
-    az cognitiveservices account keys list \
-    --name anomaly-detector-resource \
-    --resource-group cognitive-services-resource-group
-```
-
-[!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
-
-## Pricing tiers and billing
+#### Pricing tiers and billing
 
 Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
 * maximum number of allowed transactions per second (TPS).
 * service features enabled within the pricing tier.
 * The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
-## Get current quota usage for your resource
+## Create a Cognitive Services resource
 
-Use the [az cognitiveservices account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
+To create and subscribe to a new Cognitive Services resource, use the **Create** method. This method adds a new billable resource to the resource group you pass in. When creating your new resource, you'll need to know the "kind" of service you want to use, along with its pricing tier (or sku) and an Azure location. The following method takes all of these as arguments and creates a resource.
 
-```azurecli-interactive
-az cognitiveservices account list-usage \
-    --name anomaly-detector-resource \
-    --resource-group cognitive-services-resource-group \
-    --subscription subscription-name
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_create)]
 
-## Clean up resources
+## View your resources
 
-If you want to clean up and remove a Cognitive Services resource, you can delete it or the resource group. Deleting the resource group also deletes any other resources contained in the group.
+To view all of the resources in your account (across all resource groups), use the following method:
 
-To remove the resource group and its associated resources, use the az group delete command.
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_list)]
 
-```azurecli-interactive
-az group delete --name cognitive-services-resource-group
-```
+## Delete a resource
+
+The following method deletes the given resource from the given resource group.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/azure_management_service/create_delete_resource.cs?name=snippet_delete)]
 
 ## See also
 
+* [Azure Management SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/management?view=azure-dotnet)
 * [Authenticate requests to Azure Cognitive Services](authentication.md)
 * [What is Azure Cognitive Services?](Welcome.md)
 * [Natural language support](language-support.md)
