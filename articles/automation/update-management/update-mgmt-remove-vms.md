@@ -37,6 +37,6 @@ When you're finished deploying updates to VMs in your environment, you can remov
 
 * To continue working with Update Management, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
 
-* For issues with the Windows update agent, see [Troubleshoot Windows update agent issues](troubleshoot/update-agent-issues.md).
+* For issues with the Windows update agent, see [Troubleshoot Windows update agent issues](../troubleshoot/update-agent-issues.md).
 
-* For issues with the Linux update agent, see [Troubleshoot Linux update agent issues](troubleshoot/update-agent-issues-linux.md).
+* For issues with the Linux update agent, see [Troubleshoot Linux update agent issues](../troubleshoot/update-agent-issues-linux.md).
