@@ -41,9 +41,9 @@ This interface allows the RDMA-capable instances to communicate over an InfiniBa
 
 - **InfiniBand and RDMA Drivers** - On InfiniBand enabled VMs, the appropriate drivers are required to enable RDMA. On Linux, the CentOS-HPC VM images in the Marketplace come pre-configured with the appropriate drivers. The Ubuntu VM images can be configured with the right drivers using the [instructions here](https://techcommunity.microsoft.com/t5/azure-compute/configuring-infiniband-for-ubuntu-hpc-and-gpu-vms/ba-p/1221351). On SR-IOV enabled H- and N-series VMs, the [InfiniBandDriverLinux VM extension](./extensions/hpc-compute-infiniband-linux.md) can be used to install the Mellanox OFED drivers and enable InfiniBand. Learn more about enabling InfiniBand on RDMA-capable VM sat [HPC Workloads](./workloads/hpc/overview.md).
 
-On Windows, the [InfiniBandDriverWindows VM extension](./extensions/hpc-compute-infiniband-windows.md) installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated.
+   On Windows, the [InfiniBandDriverWindows VM extension](./extensions/hpc-compute-infiniband-windows.md) installs Windows Network Direct drivers (on non-SR-IOV VMs) or Mellanox OFED drivers (on SR-IOV VMs) for RDMA connectivity. In certain deployments of A8 and A9 instances, the HpcVmDrivers extension is added automatically. Note that the HpcVmDrivers VM extension is being deprecated; it will not be updated.
 
-To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/) cmdlets. For more information, see [Virtual machine extensions and features](./extensions/overview.md). You can also work with extensions for VMs deployed in the [classic deployment model](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
+   To add the VM extension to a VM, you can use [Azure PowerShell](/powershell/azure/) cmdlets. For more information, see [Virtual machine extensions and features](./extensions/overview.md). You can also work with extensions for VMs deployed in the [classic deployment model](/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic).
 
 - **MPI** - The SR-IOV enabled VM sizes on Azure (HBv2, HB, HC, NCv3, NDv2) allow almost any flavor of MPI to be used with Mellanox OFED.
 On non-SR-IOV enabled VMs, supported MPI implementations use the Microsoft Network Direct (ND) interface to communicate between VMs. Hence, only Microsoft MPI (MS-MPI) 2012 R2 or later and Intel MPI 5.x versions are supported. Later versions (2017, 2018) of the Intel MPI runtime library may or may not be compatible with the Azure RDMA drivers.
@@ -93,6 +93,6 @@ Azure provides several options to create clusters of Windows HPC VMs that can co
 
 ## Next steps
 
-- Learn more about optimizing your HPC application for Azure and some examples at [HPC Workloads](./workloads/hpc/overview.md) 
+- Learn more about optimizing your HPC applications for Azure and some examples at [HPC Workloads](./workloads/hpc/overview.md).
 
-- Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
+- Read about the latest announcements and some HPC examples and results at the [Azure Compute Tech Community Blogs](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
