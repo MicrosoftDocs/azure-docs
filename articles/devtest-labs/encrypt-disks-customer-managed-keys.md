@@ -25,10 +25,15 @@ The following section shows how a lab owner can set up encryption using a custom
 - For the lab to handle encryption for all the lab OS disks, lab owner needs to explicitly grant the lab’s system-assigned identity the permission to the disk encryption set. Lab owner can do so by completing the following steps:
     1. On the **Disk Encryption Set** page, select **Access control (IAM)** on the left menu. 
     1. Select **+ Add** on the toolbar and select **Add a role assignment**.  
+
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/add-role-management-menu.png" alt-text="Add role management - menu":::
     1. Select the **Reader** role or a role that allows more access. 
     1. Type the lab name for which the disk encryption set will be used and select the lab name (system-assigned identity for the lab) from the dropdown-list. 
+    
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/select-lab.png" alt-text="Select system-managed identity of the lab":::        
     1. Select **Save** on the toolbar. 
 
+        :::image type="content" source="./media/encrypt-disks-customer-managed-keys/save-role-assignment.png" alt-text="Save role assignment":::
 ## Encrypt lab OS disks with a customer-managed key 
 
 1. On the home page for your lab in the Azure portal, select **Configuration and policies** on the left menu. 
