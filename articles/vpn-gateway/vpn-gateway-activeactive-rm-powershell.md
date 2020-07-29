@@ -43,11 +43,19 @@ The other properties are the same as the non-active-active gateways.
 
 ### Before you begin
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You'll need to install the Azure Resource Manager PowerShell cmdlets. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
+* You'll need to install the Azure Resource Manager PowerShell cmdlets if you don't want to use CloudShell in your browser. See [Overview of Azure PowerShell](/powershell/azure/) for more information about installing the PowerShell cmdlets.
 
 ### Step 1 - Create and configure VNet1
 #### 1. Declare your variables
-For this exercise, we'll start by declaring our variables. The example below declares the variables using the values for this exercise. Be sure to replace the values with your own when configuring for production. You can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables, and then copy and paste into your PowerShell console.
+
+For this exercise, we'll start by declaring our variables. If you use the "Try It" Cloud Shell, you will automatically connect to your account. If you use PowerShell locally, use the following example to help you connect:
+
+```powershell
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $Sub1
+```
+
+The example below declares the variables using the values for this exercise. Be sure to replace the values with your own when configuring for production. You can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables, and then copy and paste into your PowerShell console.
 
 ```azurepowershell-interactive
 $Sub1 = "Ross"
@@ -74,17 +82,7 @@ $Connection151 = "VNet1toSite5_1"
 $Connection152 = "VNet1toSite5_2"
 ```
 
-#### 2. Connect to your subscription and create a new resource group
-Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
-
-Open your PowerShell console and connect to your account. If you use the "Try It" Cloud Shell, you will automatically connect to your account. 
-
-If you use PowerShell locally, use the following sample to help you connect:
-
-```powershell
-Connect-AzAccount
-Select-AzSubscription -SubscriptionName $Sub1
-```
+#### 2. Create a new resource group
 
 Use the example below to create a new resource group:
 
