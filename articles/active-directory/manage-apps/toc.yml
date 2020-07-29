@@ -139,7 +139,7 @@
         href: manage-self-service-access.md
       - name: Home Realm Discovery
         href: configure-authentication-for-federated-users-portal.md
-    - name: Migrate apps to Azure AD
+    - name: Migrate identity management to Azure AD
       items:
       - name: Migration resources
         href: migration-resources.md
@@ -183,8 +183,8 @@
           href: application-proxy-configure-single-sign-on-with-ping-access.md
         - name: SAML SSO
           href: application-proxy-configure-single-sign-on-on-premises-apps.md
-        - name: Secure legacy apps with app delivery controllers or networks
-          href: secure-hybrid-access.md
+      - name: Secure legacy apps with app delivery controllers or networks
+        href: secure-hybrid-access.md
       - name: Publishing walkthroughs
         items:
         - name: Integrate with Application Proxy on an NDES server
@@ -267,7 +267,7 @@
           href: access-panel-extension-problem-installing.md
         - name: Error using self-service app access
           href: access-panel-troubleshoot-self-service-access.md
-      - name: Troubleshoot Application Proxy
+      - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
           href: application-proxy-troubleshoot.md
