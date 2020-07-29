@@ -36,11 +36,13 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 ## Overview
 
-1. Start the process of creating the resources by loading the ARM template. Click [here](wherever). how to specify the resource group?
+<!-- Robin fix this -->
 
-1. Download and unzip the c# IoT samples zip file which is [here](https://Azure-Samples/azure-iot-samples-csharp)
+1. Start the process of creating the resources by loading the ARM template. Click [ARM-Read-Write template](CREATE-TEMPLATE). how to specify the resource group?
 
-1. Open a text editor such as notepad and paste the following into it. Then we'll retrieve the values needed.
+1. Download and unzip the c# IoT samples zip file which is [IoT Samples C#](https://Azure-Samples/azure-iot-samples-csharp)
+
+1. Open a text editor such as notepad and paste the following into it. Then we'll retrieve the missing values.
 
 ```cmd
 SET ENV_HUB_URI = <hub-name-goes-here>.azure.devices.net
