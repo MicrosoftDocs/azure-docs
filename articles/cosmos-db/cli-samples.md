@@ -15,7 +15,7 @@ The following table includes links to sample Azure CLI scripts for Azure Cosmos 
 
 These samples require Azure CLI version 2.9.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
 
-## Common Samples <a id="common"/>
+## Common Samples
 
 These samples apply to all Azure Cosmos DB APIs
 
@@ -28,7 +28,7 @@ These samples apply to all Azure Cosmos DB APIs
 | [Secure existing account with service endpoints](scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
 |||
 
-## Core (SQL) API Samples <a id="sql"/>
+## Core (SQL) API Samples
 
 |Task | Description |
 |---|---|
@@ -38,7 +38,7 @@ These samples apply to all Azure Cosmos DB APIs
 | [Lock resources from deletion](scripts/cli/sql/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
-## MongoDB API Samples <a id="mongodb"/>
+## MongoDB API Samples
 
 |Task | Description |
 |---|---|
@@ -48,7 +48,7 @@ These samples apply to all Azure Cosmos DB APIs
 | [Lock resources from deletion](scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
-## Cassandra API Samples <a id="cassandra"/>
+## Cassandra API Samples
 
 |Task | Description |
 |---|---|
@@ -58,7 +58,7 @@ These samples apply to all Azure Cosmos DB APIs
 | [Lock resources from deletion](scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
-## Gremlin API Samples <a id="gremlin"/>
+## Gremlin API Samples
 
 |Task | Description |
 |---|---|
@@ -68,7 +68,7 @@ These samples apply to all Azure Cosmos DB APIs
 | [Lock resources from deletion](scripts/cli/gremlin/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
 
-## Table API Samples <a id="table"/>
+## Table API Samples
 
 |Task | Description |
 |---|---|

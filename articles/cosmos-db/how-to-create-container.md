@@ -1,6 +1,6 @@
 ---
 title: Create a container in Azure Cosmos DB
-description: Learn how to create a container in Azure Cosmos DB by using Azure portal, .Net, Java, Python, Node.js and other SDKs. 
+description: Learn how to create a container in Azure Cosmos DB by using Azure portal, .NET, Java, Python, Node.js, and other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Create an Azure Cosmos container
 
-This article explains the different ways to create an Azure Cosmos container (collection, table, or graph). You can use Azure portal, Azure CLI, or supported SDKs for this. This article demonstrates how to create a container, specify the partition key, and provision throughput.
+This article explains the different ways to create an Azure Cosmos container (collection, table, or graph) using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
