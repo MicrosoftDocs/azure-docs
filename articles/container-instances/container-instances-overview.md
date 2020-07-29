@@ -68,11 +68,7 @@ Azure Container Instances supports scheduling of [multi-container groups](contai
 
 ## Virtual network deployment
 
-<<<<<<< HEAD
-Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). When deployed into a subnet within your virtual network, container instances can communicate securely with other resources in the virtual network, including those that are on-premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
-=======
 Azure Container Instances enables [deployment of container instances into an Azure virtual network](container-instances-vnet.md). When deployed into a subnet within your virtual network, container instances can communicate securely with other resources in the virtual network, including those that are on premises (through [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md)).
->>>>>>> c8677be1d04557b9bad8d207e9006a4663d9fc7d
 
 ## Next steps
 
