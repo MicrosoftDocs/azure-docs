@@ -44,13 +44,13 @@ Using Azure AD as your Identity Provider and setting up single sign-on (SSO) can
 > Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
 
-## Basic password-based single sign-on
+## Basic configuration
 
 In the [quickstart series](view-applications-portal.md), you learned how to add an app to your tenant so that Azure AD knows it is being used as the Identity Provider (IdP) for the app. Some apps are already pre-configured and they show up in the Azure AD gallery. Other apps are not in the gallery and you have to create a generic app and configure it manually. Depending on the app, the password-based SSO option might not be available. If you don't see the Password-based option list on the single sign-on page for the app, then it is not available.
 
 The configuration page for password-based SSO is simple. It includes only the URL of the sign-on page that the app uses. This string must be the page that includes the username input field.
 
-After you enter the URL, select **Save**. Azure AD tries to parse the sign in page for a username input and a password input. If the attempt succeeds, you're done.
+After you enter the URL, select **Save**. Azure AD parses the HTML of the sign in page for username and password input fields. If the attempt succeeds, you're done.
  
 Your next step is to [Assign users or groups to the application](methods-for-assigning-users-and-groups.md). After you've assigned users and groups, you can provide credentials to be used on behalf of a user when they log in to the application. Select **Users and groups**, select the checkbox for the user's or group's row, and then select **Update Credentials**. Then, enter the username and password to be used on behalf of the user or group. Otherwise, users will be prompted to enter the credentials themselves upon launch.
  
