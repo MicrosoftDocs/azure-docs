@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/01/2020
 ---
 
 # Setting up IP firewall rules to enable indexer access
@@ -30,7 +30,7 @@ The IP address of the search service can be obtained by performing a `nslookup` 
 
 ```azurepowershell
 
-nslookup contosos.search.windows.net
+nslookup contoso.search.windows.net
 Server:  server.example.org
 Address:  10.50.10.50
 
@@ -48,7 +48,7 @@ For this walkthrough, assuming the search service is the Azure Public cloud, the
 
    ![Download JSON file](media\search-indexer-howto-secure-access\service-tag.PNG "Download JSON file")
 
-From that JSON file, assuming the search service is in West Central US, the following is the list of IP address ranges for the multi-tenant indexer execution environment.
+From the JSON file, assuming the search service is in West Central US, the list of IP addresses for the multi-tenant indexer execution environment are listed below.
 
 ```json
     {
@@ -79,7 +79,7 @@ Add the three IP addresses obtained previously (1 for the search service IP, 2 f
 
    ![Firewall IP rules](media\search-indexer-howto-secure-access\storage-firewall-ip.PNG "Firewall IP rules")
 
-The firewall rules take 5-10 minutes to get updated, and after that indexers will be able to access the data in this storage account.
+The firewall rules take 5-10 minutes to get updated after which indexers will be able to access the data in the storage account.
 
 ## Next Steps
 

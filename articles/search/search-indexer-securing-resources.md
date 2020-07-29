@@ -1,28 +1,28 @@
 ---
 title: Access Indexer resources securely
 titleSuffix: Azure Cognitive Search
-description: Conceptual overview of the different options available fo indexers to access resources via network level security mechanisms
+description: Conceptual overview of the network-level security options for Azure data access by indexers in Azure Cognitive Search.
 
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/01/2020
 ---
 
 # Accessing indexer resources via Azure network security mechanisms
 
-Azure Cognitive Search indexers can access several different resources for its execution. The various possible Azure resource types accessed by an indexer in a typical run are listed in the table below.
+Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains how you can enable indexer data access when resources are protected by IP firewalls, private endpoints, and other network-level security mechanisms. The possible resource types that an indexer might access in a typical run are listed in the table below.
 
 | Resource | Purpose within indexer run |
 | --- | --- |
-| Azure Storage (blobs, tables, ADLS Gen 2) | Data Source |
-| Azure Storage (blobs, tables) | Caching temporary state of an indexer; storing knowledge store projections from a skillset |
-| Cosmos DB (various APIs) | Data Source |
-| Azure SQL | Data Source |
-| SQL server on Azure IaaS VMs | Data Source |
-| SQL managed instances | Data Source |
+| Azure Storage (blobs, tables, ADLS Gen 2) | Data source |
+| Azure Storage (blobs, tables) | Skillsets (caching enriched documents, and storing knowledge store projections) |
+| Cosmos DB (various APIs) | Data source |
+| Azure SQL | Data source |
+| SQL server on Azure IaaS VMs | Data source |
+| SQL managed instances | Data source |
 | Azure functions | Host for custom web api skills |
 | Cognitive service resource | Attached to skillset that will be used to bill enrichment beyond the 20 free documents limit |
 
@@ -31,7 +31,7 @@ Azure Cognitive Search indexers can access several different resources for its e
 
 Customers can secure these resources via several network isolation mechanisms offered by Azure. With the exception of cognitive service resource, indexers have limited ability to access all other resources even if they are network isolated outlined in the table below.
 
-| Resource | IP Restriction | Private endpoint (when supported, availability is gated) |
+| Resource | IP Restriction | Private endpoint |
 | --- | --- | ---- |
 | Azure storage (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions | Supported |
 | Cosmos DB - SQL API | Supported | Supported |
@@ -48,7 +48,7 @@ When choosing which secure access mechanism that an indexer should use, consider
 
 - [Service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) will not be supported for any Azure resource.
 - A search service cannot be provisioned into a specific virtual network - this functionality will not be offered by Azure Cognitive Search.
-- When indexers utilize private endpoints to access resources, additional [private link charges](https://azure.microsoft.com/pricing/details/search/) may apply.
+- When indexers utilize (outbound) private endpoints to access resources, additional [private link charges](https://azure.microsoft.com/pricing/details/search/) may apply.
 
 ## Indexer execution environment
 
@@ -81,7 +81,7 @@ Indexers can utilize private endpoints to access resources, access to which are 
 
 ### Step 1: Create a private endpoint to the secure resource
 
-Customers should call the search management operation, [Create or Update *shared private link resource* API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
+Customers should call the search management operation, [Create or Update *shared private link resource* API](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) in order to create a private endpoint connection to their secure resource (for example, a storage account). Traffic that goes over this (outbound) private endpoint connection will originate only from the virtual network that's in the search service specific "private" indexer execution environment.
 
 Azure Cognitive Search will validate that callers of this API have permissions to approve private endpoint connection requests to the secure resource. For example, if you request a private endpoint connection to a storage account that you do not have access to, this call will be rejected.
 

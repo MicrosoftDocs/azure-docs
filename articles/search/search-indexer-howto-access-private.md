@@ -8,14 +8,14 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/01/2020
 ---
 
 # Accessing secure resources via private endpoints
 
 Indexers support accessing certain types of resources that are secured to either only allow access from an approved set of virtual networks or have turned off access from any source altogether. The first scenario describes a resource (such as a storage account), with a public endpoint that only allows traffic originating from specific virtual networks. The second scenario "disables" the public endpoint, and all communication to the resource must occur over a [private link](https://docs.microsoft.com/azure/private-link/private-link-overview).
 
-In either case, customers can request Azure Cognitive Search to create a [private endpoint connection](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) in order to securely access data via indexers.
+In either case, customers can request Azure Cognitive Search to create an (outbound) [private endpoint connection](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) in order to securely access data via indexers.
 
 ## Shared Private Link Resources Management APIs
 
@@ -25,7 +25,7 @@ Azure Cognitive Search offers via the search management API, the ability to [Cre
 
 Private endpoint connections to some resources can only be created via the preview version of the search management API (`2020-08-01-Preview`), indicated with the "preview" tag in the table below. Resources without "preview" tag can be created via both the preview API as well as the GA API (`2020-08-01`)
 
-The following are the list of Azure resources to which private endpoints can be created from Azure Cognitive Search. `groupId` listed in the table below needs to be used exactly (case-sensitive) in the API to create a shared private link resource.
+The following are the list of Azure resources to which outbound private endpoints can be created from Azure Cognitive Search. `groupId` listed in the table below needs to be used exactly (case-sensitive) in the API to create a shared private link resource.
 
 | Azure Resource | Group Id |
 | --- | --- |
@@ -37,7 +37,7 @@ The following are the list of Azure resources to which private endpoints can be 
 | Azure Key Vault | `vault` |
 | Azure functions (preview) | `sites` |
 
-The list of Azure resources for which private endpoint connections are supported can also be queried via the [List Supported API](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/listsupported).
+The list of Azure resources for which outbound private endpoint connections are supported can also be queried via the [List Supported API](https://docs.microsoft.com/rest/api/searchmanagement/privatelinkresources/listsupported).
 
 For the purposes of this guide, a mix of [ARMClient](https://github.com/projectkudu/ARMClient) and [PostMan](https://www.postman.com/) are used to demonstrate the REST API calls.
 
@@ -57,7 +57,7 @@ Configure the storage account to [allow access only from specific subnets](https
 
 ## Step 1: Create a shared private link resource to the storage account
 
-Make the following API call to request Azure Cognitive Search to create a private endpoint connection to the storage account
+Make the following API call to request Azure Cognitive Search to create an outbound private endpoint connection to the storage account
 
 `armclient PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01 create-pe.json`
 
@@ -74,7 +74,7 @@ The contents of `create-pe.json` file (that represents the request body to the A
 }
 ```
 
-A `202 Accepted` response is returned on success - the process of creating a private endpoint is a long running (asynchronous) operation. It involves deploying the following components that will make the private endpoint functional -
+A `202 Accepted` response is returned on success - the process of creating an outbound private endpoint is a long running (asynchronous) operation. It involves deploying the following resources -
 
 1. A private endpoint allocated with a private IP address in a `"Pending"` state. The private IP address is obtained from the address space allocated to the virtual network of the search service specific private indexer execution environment. Upon approval of the private endpoint, any communication from Azure Cognitive Search to the storage account originates from the private IP address and a secure private link channel.
 2. A private DNS zone for the type of resource, based on the `groupId`. This will ensure that any DNS lookup to the private resource utilizes the IP address associated with the private endpoint.
@@ -110,7 +110,7 @@ Select the private endpoint that was created by Azure Cognitive Search (use the 
 
 ![Private endpoint approved](media\search-indexer-howto-secure-access\storage-privateendpoint-after-approval.png "Private endpoint approved")
 
-After the private endpoint connection request is approved, it means that traffic is *capable* of flowing through the private endpoint. Once a private endpoint is approved Azure Cognitive Search will create the necessary DNS zone mappings in the DNS zone created for this resource.
+After the private endpoint connection request is approved, it means that traffic is *capable* of flowing through the private endpoint. Once the private endpoint is approved Azure Cognitive Search will create the necessary DNS zone mappings in the DNS zone created for it.
 
 ## Step 2b: Query the status of the shared private link resource
 
