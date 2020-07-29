@@ -112,13 +112,13 @@ Guardrail|Status|Condition&nbsp;for&nbsp;trigger
 
 You can customize your featurization settings to ensure that the data and features that are used to train your ML model result in relevant predictions.
 
-To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+To customize featurizations, specify `"featurization": FeaturizationConfig` in your `AutoMLConfig` object. If you're using the Azure Machine Learning studio for your experiment, see the [how-to article](how-to-use-automated-ml-for-ml-models.md#customize-featurization). To customize featurization for forecastings task types, refer to the [forecasting how-to](how-to-auto-train-forecast.md#customize-featurization).
 
 Supported customizations include:
 
 |Customization|Definition|
 |--|--|
-|**Column purpose update**|Override the feature type for the specified column.|
+|**Column purpose update**|Override the auto-detected feature type for the specified column.|
 |**Transformer parameter update** |Update the parameters for the specified transformer. Currently supports *Imputer* (mean, most frequent, and median) and *HashOneHotEncoder*.|
 |**Drop columns** |Specifies columns to drop from being featurized.|
 |**Block transformers**| Specifies block transformers to be used in the featurization process.|
