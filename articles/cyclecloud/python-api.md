@@ -1,6 +1,6 @@
 ---
 title: Python API
-description: Interact with a CycleCloud installation programmatically.
+description: Use the Azure CycleCloud Python API to interact with the CycleCloud REST API without having to perform HTTP requests manually.
 author: rokeptne
 ms.date: 07/16/2019
 ms.author: rokeptne

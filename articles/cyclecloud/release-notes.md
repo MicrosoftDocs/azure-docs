@@ -1,6 +1,6 @@
 ---
-title: Release Notes
-description: Product release notes for current Azure CycleCloud major release
+title: Current Release Notes
+description: View the product release notes for the current Azure CycleCloud release 7.9.x. See a list of release highlights for Azure CycleCloud version 7.9.x series.
 author: adriankjohnson
 ms.date: 06/04/2020
 ms.author: adjohnso

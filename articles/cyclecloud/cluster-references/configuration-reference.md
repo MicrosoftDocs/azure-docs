@@ -1,6 +1,6 @@
 ---
-title: Azure CycleCloud Cluster Template Reference
-description: Configuration reference for cluster templates for use with Azure CycleCloud
+title: Azure CycleCloud Cluster Configuration Reference
+description: Read reference information about configuring clusters in Azure CycleCloud. Configuration objects define the configurable properties subordinate to node and nodearray.
 author: adriankjohnson
 ms.date: 03/10/2020
 ms.author: adjohnso

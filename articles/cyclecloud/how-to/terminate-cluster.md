@@ -1,6 +1,6 @@
 ---
 title: Terminate a Cluster
-description: Free up resources after completing jobs in Azure CycleCloud.
+description: Learn how to terminate a cluster in Azure CycleCloud. Cluster termination stops and removes the VMs and deletes non-persistent volumes.
 author: adriankjohnson
 ms.date: 03/30/2020
 ms.author: adjohnso

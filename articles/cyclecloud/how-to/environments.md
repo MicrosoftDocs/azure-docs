@@ -1,6 +1,6 @@
 ---
 title: Environment Resource
-description: Learn about Azure CycleCloud Environments using Azure Resource Manager
+description: Review Azure CycleCloud environments using Azure Resource Manager. Create or delete an environment for each cluster, use a preexisting environment, and more.
 author: KimliW
 ms.date: 04/01/2018
 ms.author: adjohnso
@@ -37,14 +37,14 @@ SecurityGroups = ${envname.outputs.masterSG}​
 
 ## Create or Delete an Environment for Each Cluster
 
-``` ini
+```ini
 [environment envname]​
 TemplatePath = arm/azure.deploy.json​
 ```
 
 ## Use a Pre-Existing Environment
 
-``` ini
+```ini
 [environment envname]​
 ManagedLifecycle = false​
 Azure.ResourceGroup = preexisting-rg​
@@ -52,9 +52,9 @@ Azure.ResourceGroup = preexisting-rg​
 
 ## Refer to an Environment Defined in Another CycleCloud Cluster
 
-``` ini
+```ini
 [environmentref envname]​
 SourceClusterName = long-running-cluster​
-​```
+```
 
 In the three examples above, a `Cloud.Environment` will be created for the first two, but not for the last.​

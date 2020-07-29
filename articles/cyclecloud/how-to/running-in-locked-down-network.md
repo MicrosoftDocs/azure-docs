@@ -1,6 +1,6 @@
 ---
 title: Running in Locked Down Networks
-description: Running Azure CycleCloud in locked down networks.
+description: Learn how to install and run Azure CycleCloud in a locked down networks. Details on internal communication between cluster nodes and CycleCloud.
 author: anhoward
 ms.date: 2/26/2020
 ms.author: anhoward

@@ -1,6 +1,6 @@
 ---
 title: Network File System Options
-description: Attach and manage simple network file systems within Azure CycleCloud.
+description: Learn to mount and configure a simple network file system (NFS) within Azure CycleCloud. Also learn about default shares and how to disable an NFS mount.
 author: KimliW
 ms.date: 02/21/2020
 ms.author: adjohnso

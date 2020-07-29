@@ -1,6 +1,6 @@
 ---
 title: Archived Release Notes
-description: Product release notes for Azure CycleCloud
+description: See links to archived patch and production release notes for versions of Azure CycleCloud. Release notes from 7.5.x through 7.7.x are available.
 author: adriankjohnson
 ms.date: 10/02/2019
 ms.author: adjohnso

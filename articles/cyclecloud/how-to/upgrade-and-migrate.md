@@ -1,6 +1,6 @@
 ---
 title: Upgrade or Migrate
-description: Upgrading to a newer CycleCloud version or migrating to a new host.
+description: Learn about upgrading to a newer version of Azure CycleCloud or migrating to a new host. You can upgrade in place as new versions become available.
 author: mvrequa
 ms.date: 05/27/2020
 ms.author: mirequa

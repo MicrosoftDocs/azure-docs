@@ -1,6 +1,6 @@
 ---
 title: User Authentication
-description: Use Active Directory to manage user accounts in Azure CycleCloud.
+description: Learn about user authentication in Azure CycleCloud. You can authenticate using a built-in database with encryption, Azure AD, or LDAP.
 author: adriankjohnson
 ms.date: 02/04/2020
 ms.author: adjohnso

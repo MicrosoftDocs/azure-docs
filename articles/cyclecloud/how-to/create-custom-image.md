@@ -1,6 +1,6 @@
 ---
 title: Custom Images
-description: Create and modify custom images or Marketplace Images for Azure CycleCloud.
+description: Review custom or marketplace images for an Azure CycleCloud cluster. Create a custom image, specify a custom image in the cluster UI, and more.
 author: adriankjohnson
 ms.date: 03/01/2018
 ms.author: adjohnso

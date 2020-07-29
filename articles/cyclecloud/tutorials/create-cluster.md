@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create a cluster
-description: Learn how to create a cluster using CycleCloud
+description: In this tutorial, learn how to create a cluster using Azure CycleCloud. Select a cluster type, add new cluster settings and usage alerts, and start the cluster.
 author: adriankjohnson
 ms.date: 06/02/2020
 ms.author: adjohnso

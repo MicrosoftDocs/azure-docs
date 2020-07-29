@@ -1,6 +1,6 @@
 ---
 title: Tagging Nodes
-description: Using node tags in Azure CycleCloud.
+description: Learn about tagging nodes in Azure CycleCloud. CycleCloud automatically creates and adds the name, cluster name, and owner tags to each node.
 author: adriankjohnson
 ms.date: 03/20/2020
 ms.author: adjohnso
