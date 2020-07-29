@@ -40,14 +40,15 @@ Updates in July include:
 
 ### Vulnerability assessment for virtual machines is now available for non-marketplace images
 
-Azure Security Center's vulnerability assessment extension (powered by Qualys) previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
+When deploying a vulnerability assessment solution, Security Center previously performed a validation check before deploying. The check was to confirm a marketplace SKU of the destination virtual machine. 
 
-With the removal of this requirement, you can deploy the extension to 'custom' Windows and Linux machines (images which you've modified from the marketplace defaults).
+From this update, the check has been removed and you can now deploy vulnerability assessment tools to 'custom' Windows and Linux machines. Custom images are ones that you've modified from the marketplace defaults.
 
-Although you can now deploy the extension on many more machines, support is only available if you're using an OS listed in [Deploying the Qualys built-in vulnerability scanner](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploying the Qualys built-in vulnerability scanner](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
 
 Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](built-in-vulnerability-assessment.md).
 
+Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](partner-vulnerability-assessment.md).
 
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
