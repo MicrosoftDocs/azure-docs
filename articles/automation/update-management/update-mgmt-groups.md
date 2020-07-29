@@ -44,4 +44,4 @@ A dynamic group for non-Azure machines uses saved searches, also called computer
 
 ## Next steps
 
-To work with Update Management, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+You can [query Azure Monitor logs](update-mgmt-query-logs.md) to analyze update assessments, deployments, and other related management tasks. It includes pre-defined queries to help you get started.

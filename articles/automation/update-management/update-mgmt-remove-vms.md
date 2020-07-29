@@ -8,7 +8,11 @@ ms.custom: mvc
 ---
 # Remove VMs from Update Management
 
-When you're finished deploying updates to VMs in your environment, you can remove them from the [Update Management](update-mgmt-overview.md) feature.
+When you're finished managing updates on your VMs in your environment, you can stop managing VMs with the [Update Management](update-mgmt-overview.md) feature.
+
+## Sign into the Azure portal
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## To remove your VMs
 
@@ -35,8 +39,4 @@ When you're finished deploying updates to VMs in your environment, you can remov
 
 ## Next steps
 
-* To continue working with Update Management, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
-
-* For issues with the Windows update agent, see [Troubleshoot Windows update agent issues](../troubleshoot/update-agent-issues.md).
-
-* For issues with the Linux update agent, see [Troubleshoot Linux update agent issues](../troubleshoot/update-agent-issues-linux.md).
+To re-enable managing your virtual machine, see [Enable Update Management by browsing the Azure portal](update-mgmt-enable-portal.md) or [Enable Update Management from an Azure VM](update-mgmt-enable-vm.md).

@@ -48,3 +48,7 @@ Review [deploy software updates](update-mgmt-deploy-updates.md) to learn how to 
 After the deployment is complete, review the process to determine the success of the update deployment by machine or target group. See [review deployment status](update-mgmt-deploy-updates.md#check-deployment-status) to learn how you can monitor the deployment status.
 
 ## Next steps
+
+* To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](update-mgmt-configure-alerts.md).
+
+* You can [query Azure Monitor logs](update-mgmt-query-logs.md) to analyze update assessments, deployments, and other related management tasks. It includes pre-defined queries to help you get started.

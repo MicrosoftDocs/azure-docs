@@ -39,7 +39,4 @@ To limit the scope for your Update Management deployment:
 
 ## Next steps
 
-* To work with the feature, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
-* To troubleshoot feature errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).
-* To troubleshoot Windows update agent errors, see [Troubleshoot Windows update agent issues](../troubleshoot/update-agent-issues.md).
-* To troubleshoot Linux update agent errors, see [Troubleshoot Linux update agent issues](../troubleshoot/update-agent-issues-linux.md).
+You can [query Azure Monitor logs](update-mgmt-query-logs.md) to analyze update assessments, deployments, and other related management tasks. It includes pre-defined queries to help you get started.
