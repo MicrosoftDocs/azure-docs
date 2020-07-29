@@ -12,10 +12,14 @@ ms.date: 03/19/2019
 
 # Azure Key Vault soft-delete overview
 
-Key Vault's soft-delete feature allows recovery of the deleted vaults and vault objects, known as soft-delete. Specifically, we address the following scenarios:
+> [!IMPORTANT]
+> You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated by the end of the year, and soft-delete protection will automatically be turned on for all key vaults.  See full details [here](soft-delete-change.md)
 
-- Support for recoverable deletion of a key vault
-- Support for recoverable deletion of key vault objects (ex. keys, secrets, certificates)
+Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
+
+- Once a secret, key, certificate, or key vault is deleted, it will remain recoverable for a configurable period of 7 to 90 calendar days. If no configuration is specified the default recovery period will be set to 90 days. This provides users with sufficient time to notice an accidental secret deletion and respond.
+- Two operations must be made to permanently delete a secret. First a user must delete the object, which puts it into the soft-deleted state. Second, a user must purge the object in the soft-deleted state. The purge operation requires additional access policy permissions. These additional protections reduce the risk of a user accidentally or maliciously deleting a secret or a key vault.  
+- To purge a secret in the soft-deleted state, a service principal must be granted an additional "purge" access policy permission. The purge access policy permission is not granted by default to any service principal including key vault and subscription owners and must be deliberately set. By requiring an elevated access policy permission to purge a soft-deleted secret, it reduces the probability of accidentally deleting a secret.
 
 ## Supporting interfaces
 
@@ -61,7 +65,7 @@ Upon deleting a key vault, the service creates a proxy resource under the subscr
 
 ### Key vault object recovery
 
-Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered, or forcefully/permanently deleted. To view the objects, make sure to use the `-InRemovedState` parameter as [described here for Azure PowerShell commands](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#secrets).  
+Upon deleting a key vault object, such as a key, the service will place the object in a deleted state, making it inaccessible to any retrieval operations. While in this state, the key vault object can only be listed, recovered, or forcefully/permanently deleted. To view the objects, use the Azure CLI `az keyvault key list-deleted` command (as documented in [How to use Key Vault soft-delete with CLI](soft-delete-cli.md)), or the Azure PowerShell `-InRemovedState` parameter (as described in [How to use Key Vault soft-delete with PowerShell](soft-delete-powershell.md#secrets)).  
 
 At the same time, Key Vault will schedule the deletion of the underlying data corresponding to the deleted key vault or key vault object for execution after a predetermined retention interval. The DNS record corresponding to the vault is also retained for the duration of the retention interval.
 
