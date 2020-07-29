@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-javascript
 
 ---
 # Azure Cosmos DB Node.js SDK for SQL API: Release notes and resources
