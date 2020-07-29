@@ -64,7 +64,7 @@ First, create a Conditional Access policy and assign your test group of users as
 1. Check the box for **Users and groups**, then **Select** to browse the available Azure AD users and groups.
 1. Browse for and select your Azure AD group, such as *MFA-Test-Group*, then choose **Select**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [ ![Select your Azure AD group to use with the Conditional Access policy](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. To apply the Conditional Access policy for the group, select **Done**.
 

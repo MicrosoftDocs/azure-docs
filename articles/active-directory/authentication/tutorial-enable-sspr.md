@@ -59,7 +59,7 @@ In this tutorial, configure SSPR for a set of users in a test group. In the foll
 1. From the **Properties** page, under the option *Self service password reset enabled*, choose **Select group**
 1. Browse for and select your Azure AD group, such as *SSPR-Test-Group*, then choose *Select*.
 
-    [![](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png "Select a group in the Azure portal to enable for self-service password reset")](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
+    [ ![Select a group in the Azure portal to enable for self-service password reset](media/tutorial-enable-sspr/enable-sspr-for-group-cropped.png) ](media/tutorial-enable-sspr/enable-sspr-for-group.png#lightbox)
 
 1. To enable SSPR for the select users, select **Save**.
 
