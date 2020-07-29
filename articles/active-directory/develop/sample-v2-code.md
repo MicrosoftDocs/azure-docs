@@ -58,7 +58,7 @@ The following samples illustrate web applications that sign in users. Some sampl
 | ![This image shows the Python logo](media/sample-v2-code/logo_python.png)  |                   | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![This image shows the Ruby logo](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 
-## Desktop and mobile applications
+## Desktop and mobile public client apps
 
 The following samples show public client applications (desktop or mobile applications) that access the Microsoft Graph API, or your own web API in the name of a user. Apart from the *Desktop (Console) with WAM* sample, all these client applications use Microsoft Authentication Library (MSAL).
 
