@@ -636,6 +636,8 @@
         href: formcom-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-tutorial.md
+      - name: FortiGate SSL VPN
+        href: fortigate-ssl-vpn-tutorial.md
       - name: Freedcamp
         href: freedcamp-tutorial.md
       - name: FreshDesk
