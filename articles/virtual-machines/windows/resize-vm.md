@@ -94,7 +94,8 @@ If the size you want is not listed, continue with the following steps to dealloc
 Stop all VMs in the availability set.
    
 ```powershell
-$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
+$availabilitySetName = "<availabilitySetName>"
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup -Name $availabilitySetName
 $virtualMachines = $as.VirtualMachinesReferences |  Get-AzResource | Get-AzVM
 $virtualMachines |  Stop-AzVM -Force -NoWait  
 ```
@@ -102,8 +103,9 @@ $virtualMachines |  Stop-AzVM -Force -NoWait
 Resize and restart the VMs in the availability set.
    
 ```powershell
+$availabilitySetName = "<availabilitySetName>"
 $newSize = "<newVmSize>"
-$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup -Name $availabilitySetName
 $virtualMachines = $as.VirtualMachinesReferences |  Get-AzResource | Get-AzVM
 $virtualMachines | Foreach-Object { $_.HardwareProfile.VmSize = $newSize }
 $virtualMachines | Update-AzVM
