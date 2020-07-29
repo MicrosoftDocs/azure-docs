@@ -140,7 +140,9 @@ The DSVM comes loaded with client tools on the command line and on the GUI to ac
 
 To download code from a GitHub repository, you use the ```git clone``` command. For example, to download the data science repository published by Microsoft into the current directory, you can run the following command in Git Bash:
 
-    git clone https://github.com/Azure/DataScienceVM.git
+```bash
+git clone https://github.com/Azure/DataScienceVM.git
+```
 
 In Visual Studio, you can do the same clone operation. The  following screenshot shows how to access Git and GitHub tools in Visual Studio:
 
@@ -167,7 +169,9 @@ Azure Blob storage is a reliable, economical cloud storage service for data big 
 
 To move data between your local files and Blob storage, you can use AzCopy on the command line or in PowerShell:
 
-    AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```powershell
+AzCopy /Source:C:\myfolder /Dest:https://<mystorageaccount>.blob.core.windows.net/<mycontainer> /DestKey:<storage account key> /Pattern:abc.txt
+```
 
 Replace **C:\myfolder** with the path where your file is stored, **mystorageaccount** with your Blob storage account name, **mycontainer** with the container name, and **storage account key** with your Blob storage access key. You can find your storage account credentials in the [Azure portal](https://portal.azure.com).
 

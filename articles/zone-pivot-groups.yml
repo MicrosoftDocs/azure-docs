@@ -479,5 +479,29 @@ groups:
     title: C#
   - id: programming-language-nodejs
     title: Node.js
+  - id: programming-language-java-android
+    title: Java (Android)
+  - id: programming-language-kotlin
+    title: Kotlin (Android)
   - id: programming-language-swift
-    title: Swift
+    title: Swift (iOS)
+- id: programming-languages-set-twenty-one
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+- id: programming-languages-set-twenty-two
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python

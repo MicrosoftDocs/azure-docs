@@ -46,14 +46,21 @@ More than one Conditional Access policy may apply when you access a cloud app. I
 
 All policies are enforced in two phases:
 
-- Phase 1: 
-   - Detail collection: Gather details to identify policies that would already be satisfied.
-   - During this phase, users may see a certificate prompt if device compliance is part of your Conditional Access policies. This prompt may occur for browser apps when the device operating system is not Windows 10.
-   - Phase 1 of policy evaluation occurs for all enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
-- Phase 2:
-   - Enforcement: Taking in to account the details gathered in phase 1, request user to satisfy any additional requirements that have not been met.
-   - Apply results to session. 
-   - Phase 2 of policy evaluation occurs for all enabled policies.
+- Phase 1: Collect session details 
+   - Gather session details, like user location and device identity that will be necessary for policy evaluation. 
+   - During this phase, users may see a certificate prompt if device compliance is part of your Conditional Access policies. This prompt may occur for browser apps when the device operating system is not Windows 10. 
+   - Phase 1 of policy evaluation occurs for enabled policies and policies in [report-only mode](concept-conditional-access-report-only.md).
+- Phase 2: Enforcement 
+   - Use the session details gathered in phase 1 to identify any requirements that have not been met. 
+   - If there is a policy that is configured to block access, with the block grant control, enforcement will stop here and the user will be blocked. 
+   - The user will then be prompted to complete additional grant control requirements that have not been satisfied during phase 1 in the following order, until policy is satisfied:  
+      - Multi-factor authentication​ 
+      - Approved client app/app protection policy​ 
+      - Managed device (compliant or hybrid Azure AD join)​ 
+      - Terms of use 
+      - Custom controls  
+      - Once grant controls have been satisfied, apply session controls (App Enforced, Microsoft Cloud App Security, and token Lifetime) 
+   - Phase 2 of policy evaluation occurs for all enabled policies. 
 
 ### How are assignments evaluated?
 
@@ -68,7 +75,7 @@ If you need to configure a location condition that applies to all connections ma
 
 If you are locked out of the Azure AD portal due to an incorrect setting in a Conditional Access policy:
 
-- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign in. 
+- Check is there are other administrators in your organization that aren't blocked yet. An administrator with access to the Azure portal can disable the policy that is impacting your sign-in. 
 - If none of the administrators in your organization can update the policy, you need to submit a support request. Microsoft support can review and update Conditional Access policies that are preventing access.
 
 ### What happens if you have policies in the Azure classic portal and Azure portal configured?  

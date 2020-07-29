@@ -1,6 +1,6 @@
 ---
 title: How to use Azure Cosmos DB change feed with Azure Functions
-description: Use Azure Functions to connect to Azure Cosmos DB change feed. Later you can create reactive Azure functions that are triggered on every new event. 
+description: Use Azure Functions to connect to Azure Cosmos DB change feed. Later you can create reactive Azure functions that are triggered on every new event.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -32,7 +32,7 @@ To implement a serverless event-based flow, you need:
 Creating your Azure Function with an Azure Functions trigger for Cosmos DB is now supported across all Azure Functions IDE and CLI integrations:
 
 * [Visual Studio Extension](../azure-functions/functions-develop-vs.md) for Visual Studio users.
-* [Visual Studio Code Extension](/azure/javascript/tutorial-vscode-serverless-node-01) for Visual Studio Code users.
+* [Visual Studio Code Extension](/azure/developer/javascript/tutorial-vscode-serverless-node-01) for Visual Studio Code users.
 * And finally [Core CLI tooling](../azure-functions/functions-run-local.md#create-func) for a cross-platform IDE agnostic experience.
 
 ## Run your trigger locally

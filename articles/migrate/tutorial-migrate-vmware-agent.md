@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-Before you begin this tutorial, [review](migrate-architecture.md) the VMware agent-based migration architecture.
+Before you begin this tutorial, [review](./agent-based-migration-architecture.md) the VMware agent-based migration architecture.
 
 ## Prepare Azure
 
@@ -146,7 +146,7 @@ If you have a project, add the tool as follows:
 3. In **Overview**, click **Assess and migrate servers**.
 4. Under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
 
-    ![Discover and assess servers](./media/tutorial-migrate-vmware-agent/assess-migrate.png
+    ![Discover and assess servers](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
 
 1. In **Discover, assess and migrate servers**, click **Add tools**.
 2. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
@@ -173,7 +173,7 @@ Download the template as follows:
 
     ![Discover VMs](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
-3. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
+3. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMware vSphere hypervisor**.
 4. In **How do you want to migrate?**, select **Using agent-based replication**.
 5. In **Target region**, select the Azure region to which you want to migrate the machines.
 6. Select **Confirm that the target region for migration is region-name**.
@@ -191,7 +191,7 @@ Download the template as follows:
 
 After downloading the OVF template, you import it into VMware to create the replication application on a VMware VM running Windows Server 2016.
 
-1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
+1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMware vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the **Deploy OVF Template Wizard**. 
 3. In **Select source**, enter the location of the downloaded OVF.
 4. In **Review details**, select **Next**.
@@ -205,7 +205,7 @@ After downloading the OVF template, you import it into VMware to create the repl
 
 ### Start appliance setup
 
-1. In the VMWare vSphere Client console, turn on the VM. The VM boots up into a Windows Server 2016 installation experience.
+1. In the VMware vSphere Client console, turn on the VM. The VM boots up into a Windows Server 2016 installation experience.
 2. Accept the license agreement, and enter an administrator password.
 3. After the installation finishes, sign in to the VM as the administrator, using the admin password. The first time you sign in, the replication appliance setup tool (Azure Site Recovery Configuration Tool) starts within a few seconds.
 5. Enter a name to use for registering the appliance with Server Migration. Then click **Next**.
@@ -351,7 +351,7 @@ After you've verified that the test migration works as expected, you can migrate
     - Stops replication for the on-premises machine.
     - Removes the machine from the **Replicating servers** count in Azure Migrate: Server Migration.
     - Cleans up replication state information for the VM.
-2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
+2. Install the Azure VM [Windows](../virtual-machines/extensions/agent-windows.md) or [Linux](../virtual-machines/extensions/agent-linux.md) agent on the migrated machines.
 3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
 4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
 5. Cut over traffic to the migrated Azure VM instance.
@@ -377,16 +377,16 @@ After you've verified that the test migration works as expected, you can migrate
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
-    - Restrict network traffic to management endpoints with [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/security-overview).
-    - Deploy [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) to help secure disks, and keep data safe from theft and unauthorized access.
+    - Lock down and limit inbound traffic access with [Azure Security Center - Just in time administration](../security-center/security-center-just-in-time.md).
+    - Restrict network traffic to management endpoints with [Network Security Groups](../virtual-network/security-overview.md).
+    - Deploy [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) to help secure disks, and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/), and visit the [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
-    - Consider deploying [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) to monitor resource usage and spending.
+    - Consider deploying [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) to monitor resource usage and spending.
 
 
 
 
  ## Next steps
 
-Investigate the [cloud migration journey](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.

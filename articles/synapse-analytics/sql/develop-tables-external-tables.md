@@ -91,13 +91,16 @@ data_source_name
 Specifies the user-defined name for the data source. The name must be unique within the database.
 
 #### Location
-LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path to the external data source. The path can include a container in the form of  `'<prefix>://<path>/container'`, and a folder in the form of `'<prefix>://<path>/container/folder'`.
+LOCATION = `'<prefix>://<path>'`   - Provides the connectivity protocol and path to the external data source. The following patterns are can be used in location:
 
 | External Data Source        | Location prefix | Location path                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
 | Azure Blob Storage          | `wasb[s]`       | `<container>@<storage_account>.blob.core.windows.net` |
-| Azure Data Lake Store Gen 1 | `adl`           | `<storage_account>.azuredatalake.net`                 |
-| Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
+| Azure Blob Storage          | `http[s]`       | `<storage_account>.blob.core.windows.net/<container>/subfolders` |
+| Azure Data Lake Store Gen 1 | `http[s]`       | `<storage_account>.azuredatalakestore.net/webhdfs/v1` |
+| Azure Data Lake Store Gen 2 | `http[s]`       | `<storage_account>.dfs.core.windows.net/<container>/subfolders`  |
+
+`https:` prefix enables you to use subfolder in the path.
 
 #### Credential
 CREDENTIAL = `<database scoped credential>` is optional credential that will be used to authenticate on Azure storage. External data source without credential can access public storage account. 
@@ -119,7 +122,7 @@ The following example creates an external data source for Azure Data Lake Gen2 p
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStore
 WITH
   -- Please note the abfss endpoint when your account has secure transfer enabled
-  ( LOCATION = 'abfss://newyorktaxidataset.azuredatalakestore.net' ,
+  ( LOCATION = 'abfss://data@newyorktaxidataset.dfs.core.windows.net' ,
     CREDENTIAL = ADLS_credential ,
     TYPE = HADOOP
   ) ;

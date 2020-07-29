@@ -12,6 +12,7 @@ ms.custom: mvc
 
 ## Update (June 2020)
 
+- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
 - Support for multiple credentials on appliance for physical server discovery.
 - Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
 - New Azure Migrate appliance versions as listed below.

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech from a microphone, Swift - Speech service'
+title: 'Quickstart: Recognize speech, Swift - Speech service (macOS)'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Swift on macOS using the Speech SDK
+description: Learn how to create an app to recognize speech in Swift for a macOS computer using the Cognitive Services Speech SDK.
 services: cognitive-services
 author: cbasoglu
 manager: nitinme

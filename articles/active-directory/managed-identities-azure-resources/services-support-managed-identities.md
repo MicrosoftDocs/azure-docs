@@ -4,7 +4,7 @@ description: List of services that support managed identities for Azure resource
 services: active-directory
 author: MarkusVi
 ms.author: markvi
-ms.date: 06/11/2020
+ms.date: 07/09/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -133,7 +133,7 @@ Refer to the following list to configure managed identity for Azure Data Factory
 
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | Preview | Not available | Not available | Not available |
+| System assigned | Preview | Preview | Not available | Preview |
 | User assigned | Not available | Not available  | Not available  | Not available |
 
 
@@ -180,8 +180,8 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | ![Available][check] | - | - | - | 
-| User assigned | ![Available][check] | - | - | - |
+| System assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] | 
+| User assigned | ![Available][check] | ![Available][check] | Not available | ![Available][check] |
 
 
 For more information, see [Use managed identities in Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/use-managed-identity).
@@ -219,7 +219,7 @@ Refer to the following list to configure managed identity for Azure Policy (in r
 
 ### Azure Service Fabric
 
-[Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is in Preview and available in all regions.
+[Managed Identity for Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) is available in all regions.
 
 Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |

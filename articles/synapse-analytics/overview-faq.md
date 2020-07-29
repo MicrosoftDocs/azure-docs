@@ -5,7 +5,7 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
@@ -27,6 +27,8 @@ A: Azure Synapse is an integrated data platform for BI, AI, and continuous intel
 - Easily Monitor and quickly optimize, react, and debug  events happening in your workspace activities at any layer.
 - Manage your metadata across engines. Create a Spark table and it will be automatically available in your Azure Synapse databases.
 - Interact with the data through a unified user experience. Synapse Studio brings Big Data Developers, Data Engineers, DBAs, Data Analysts, and Data Scientists on to the same platform.
+
+For more information, see [What is Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics/overview-what-is).
 
 ### Q: What are the main components of Azure Synapse Analytics
 

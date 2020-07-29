@@ -15,7 +15,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 > [!NOTE]
 > The samples use [Az.CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) management cmdlets. Please check for updates to `Az.CosmosDB` regularly.
 
-| | |
+|Task | Description |
 |---|---|
 |[Create an account and table](scripts/powershell/table/ps-table-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates an Azure Cosmos account and table. |
 |[List or get tables](scripts/powershell/table/ps-table-list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| List or get tables. |

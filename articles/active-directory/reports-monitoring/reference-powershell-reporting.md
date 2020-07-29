@@ -14,7 +14,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/12/2019
+ms.date: 08/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -46,9 +46,9 @@ You get access to the audit logs using the `Get-AzureADAuditDirectoryLogs cmdlet
 | Scenario                      | PowerShell command |
 | :--                           | :--                |
 | Application Display Name      | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync'" |
-| Category                      | Get-AzureADAuditDirectoryLogs -Filter "category eq 'Application Management'" |
+| Category                      | Get-AzureADAuditDirectoryLogs -Filter "category eq 'ApplicationManagement'" |
 | Activity Date Time            | Get-AzureADAuditDirectoryLogs -Filter "activityDateTime gt 2019-04-18" |
-| All of the above              | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync' and category eq 'Application Management' and activityDateTime gt 2019-04-18"|
+| All of the above              | Get-AzureADAuditDirectoryLogs -Filter "initiatedBy/app/displayName eq 'Azure AD Cloud Sync' and category eq 'ApplicationManagement' and activityDateTime gt 2019-04-18"|
 
 
 The following image shows an example for this command. 

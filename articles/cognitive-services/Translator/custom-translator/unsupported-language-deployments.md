@@ -42,7 +42,7 @@ Once submitted, the model will no longer be available on the **Unrequested train
 
 ## What's next?
 
-The models you selected for deployment are saved once the Hub is decommissioned and all models are undeployed.  You have until May 24 to submit requests for deployment of unsupported models.  We will deploy these models on June 15 at which point they will be accessible through the Translator V3 API.  In addition, they will be available through the V2 API until July 1.  
+The models you selected for deployment are saved once the Hub is decommissioned and all models are undeployed.  You have until May 24 to submit requests for deployment of unsupported models.  We will deploy these models on June 15 at which point they will be accessible through Translator V3.  In addition, they will be available through Translator V2 until July 1.  
 
 For further information on important dates in the deprecation of the Hub check [here](https://www.microsoft.com/translator/business/hub/).
 Once deployed, normal hosting charges will apply.  See [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) for details.  

@@ -23,7 +23,7 @@ Adds a time duration to a base value. ISO 8601 format is expected.
 |:--- |:--- |:--- |:--- |
 | base | Yes | string | The starting datetime value for the addition. Use [ISO 8601 timestamp format](https://en.wikipedia.org/wiki/ISO_8601). |
 | duration | Yes | string | The time value to add to the base. It can be a negative value. Use [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| format | No | string | The output format for the date time result. If not provided, the format of the base value is used. Use either [standard format strings](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or [custom format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format | No | string | The output format for the date time result. If not provided, the format of the base value is used. Use either [standard format strings](/dotnet/standard/base-types/standard-date-and-time-format-strings) or [custom format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### Return value
 
@@ -138,7 +138,7 @@ Returns the current (UTC) datetime value in the specified format. If no format i
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| format |No |string |The URI encoded value to convert to a string. Use either [standard format strings](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) or [custom format strings](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |No |string |The URI encoded value to convert to a string. Use either [standard format strings](/dotnet/standard/base-types/standard-date-and-time-format-strings) or [custom format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### Remarks
 

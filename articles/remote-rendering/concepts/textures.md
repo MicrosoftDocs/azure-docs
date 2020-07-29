@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Textures
 
-Textures are an immutable [shared resource](../concepts/lifetime.md). Textures can be loaded from [blob storage](../how-tos/conversion/blob-storage.md) and applied to models directly, as demonstrated in [Tutorial: Changing the environment and materials](../tutorials/unity/changing-environment-and-materials.md). Most commonly, though, textures will be part of a [converted model](../how-tos/conversion/model-conversion.md), where they are referenced by its [materials](materials.md).
+Textures are an immutable [shared resource](../concepts/lifetime.md). Textures can be loaded from [blob storage](../how-tos/conversion/blob-storage.md) and applied to models directly, as demonstrated in [Tutorial: Changing the environment and materials](../tutorials/unity/materials-lighting-effects/materials-lighting-effects.md). Most commonly, though, textures will be part of a [converted model](../how-tos/conversion/model-conversion.md), where they are referenced by its [materials](materials.md).
 
 ## Texture types
 

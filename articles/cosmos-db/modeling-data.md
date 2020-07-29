@@ -34,34 +34,38 @@ When working with relational databases, the strategy is to normalize all your da
 
 The guiding premise when normalizing data is to **avoid storing redundant data** on each record and rather refer to data. In this example, to read a person, with all their contact details and addresses, you need to use JOINS to effectively compose back (or denormalize) your data at run time.
 
-    SELECT p.FirstName, p.LastName, a.City, cd.Detail
-    FROM Person p
-    JOIN ContactDetail cd ON cd.PersonId = p.Id
-    JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
-    JOIN Address a ON a.PersonId = p.Id
+```sql
+SELECT p.FirstName, p.LastName, a.City, cd.Detail
+FROM Person p
+JOIN ContactDetail cd ON cd.PersonId = p.Id
+JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
+JOIN Address a ON a.PersonId = p.Id
+```
 
 Updating a single person with their contact details and addresses requires write operations across many individual tables.
 
 Now let's take a look at how we would model the same data as a self-contained entity in Azure Cosmos DB.
 
-    {
-        "id": "1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "addresses": [
-            {
-                "line1": "100 Some Street",
-                "line2": "Unit 1",
-                "city": "Seattle",
-                "state": "WA",
-                "zip": 98012
-            }
-        ],
-        "contactDetails": [
-            {"email": "thomas@andersen.com"},
-            {"phone": "+1 555 555-5555", "extension": 5555}
-        ]
-    }
+```json
+{
+    "id": "1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "addresses": [
+        {
+            "line1": "100 Some Street",
+            "line2": "Unit 1",
+            "city": "Seattle",
+            "state": "WA",
+            "zip": 98012
+        }
+    ],
+    "contactDetails": [
+        {"email": "thomas@andersen.com"},
+        {"phone": "+1 555 555-5555", "extension": 5555}
+    ]
+}
+```
 
 Using the approach above we have **denormalized** the person record, by **embedding** all the information related to this person, such as their contact details and addresses, into a *single JSON* document.
 In addition, because we're not confined to a fixed schema we have the flexibility to do things like having contact details of different shapes entirely.
@@ -89,21 +93,23 @@ While the rule of thumb in Azure Cosmos DB is to denormalize everything and embe
 
 Take this JSON snippet.
 
-    {
-        "id": "1",
-        "name": "What's new in the coolest Cloud",
-        "summary": "A blog post by someone real famous",
-        "comments": [
-            {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
-            {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
-            …
-            {"id": 100001, "author": "jane", "comment": "and on we go ..."},
-            …
-            {"id": 1000000001, "author": "angry", "comment": "blah angry blah angry"},
-            …
-            {"id": ∞ + 1, "author": "bored", "comment": "oh man, will this ever end?"},
-        ]
-    }
+```json
+{
+    "id": "1",
+    "name": "What's new in the coolest Cloud",
+    "summary": "A blog post by someone real famous",
+    "comments": [
+        {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
+        {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
+        …
+        {"id": 100001, "author": "jane", "comment": "and on we go ..."},
+        …
+        {"id": 1000000001, "author": "angry", "comment": "blah angry blah angry"},
+        …
+        {"id": ∞ + 1, "author": "bored", "comment": "oh man, will this ever end?"},
+    ]
+}
+```
 
 This might be what a post entity with embedded comments would look like if we were modeling a typical blog, or CMS, system. The problem with this example is that the comments array is **unbounded**, meaning that there is no (practical) limit to the number of comments any single post can have. This may become a problem as the size of the item could grow infinitely large.
 
@@ -111,36 +117,38 @@ As the size of the item grows the ability to transmit the data over the wire as 
 
 In this case, it would be better to consider the following data model.
 
-    Post item:
-    {
-        "id": "1",
-        "name": "What's new in the coolest Cloud",
-        "summary": "A blog post by someone real famous",
-        "recentComments": [
-            {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
-            {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
-            {"id": 3, "author": "jane", "comment": "....."}
-        ]
-    }
+```json
+Post item:
+{
+    "id": "1",
+    "name": "What's new in the coolest Cloud",
+    "summary": "A blog post by someone real famous",
+    "recentComments": [
+        {"id": 1, "author": "anon", "comment": "something useful, I'm sure"},
+        {"id": 2, "author": "bob", "comment": "wisdom from the interwebs"},
+        {"id": 3, "author": "jane", "comment": "....."}
+    ]
+}
 
-    Comment items:
-    {
-        "postId": "1"
-        "comments": [
-            {"id": 4, "author": "anon", "comment": "more goodness"},
-            {"id": 5, "author": "bob", "comment": "tails from the field"},
-            ...
-            {"id": 99, "author": "angry", "comment": "blah angry blah angry"}
-        ]
-    },
-    {
-        "postId": "1"
-        "comments": [
-            {"id": 100, "author": "anon", "comment": "yet more"},
-            ...
-            {"id": 199, "author": "bored", "comment": "will this ever end?"}
-        ]
-    }
+Comment items:
+{
+    "postId": "1"
+    "comments": [
+        {"id": 4, "author": "anon", "comment": "more goodness"},
+        {"id": 5, "author": "bob", "comment": "tails from the field"},
+        ...
+        {"id": 99, "author": "angry", "comment": "blah angry blah angry"}
+    ]
+},
+{
+    "postId": "1"
+    "comments": [
+        {"id": 100, "author": "anon", "comment": "yet more"},
+        ...
+        {"id": 199, "author": "bored", "comment": "will this ever end?"}
+    ]
+}
+```
 
 This model has the three most recent comments embedded in the post container, which is an array with a fixed set of attributes. The other comments are grouped in to batches of 100 comments and stored as separate items. The size of the batch was chosen as 100 because our fictitious application allows the user to load 100 comments at a time.  
 
@@ -148,21 +156,23 @@ Another case where embedding data is not a good idea is when the embedded data i
 
 Take this JSON snippet.
 
-    {
-        "id": "1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "holdings": [
-            {
-                "numberHeld": 100,
-                "stock": { "symbol": "zaza", "open": 1, "high": 2, "low": 0.5 }
-            },
-            {
-                "numberHeld": 50,
-                "stock": { "symbol": "xcxc", "open": 89, "high": 93.24, "low": 88.87 }
-            }
-        ]
-    }
+```json
+{
+    "id": "1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "holdings": [
+        {
+            "numberHeld": 100,
+            "stock": { "symbol": "zaza", "open": 1, "high": 2, "low": 0.5 }
+        },
+        {
+            "numberHeld": 50,
+            "stock": { "symbol": "xcxc", "open": 89, "high": 93.24, "low": 88.87 }
+        }
+    ]
+}
+```
 
 This could represent a person's stock portfolio. We have chosen to embed the stock information into each portfolio document. In an environment where related data is changing frequently, like a stock trading application, embedding data that changes frequently is going to mean that you are constantly updating each portfolio document every time a stock is traded.
 
@@ -176,38 +186,40 @@ Relational databases are not the only place where you can create relationships b
 
 In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it. This way, when the stock item changes frequently throughout the day the only document that needs to be updated is the single stock document.
 
-    Person document:
-    {
-        "id": "1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "holdings": [
-            { "numberHeld":  100, "stockId": 1},
-            { "numberHeld":  50, "stockId": 2}
-        ]
-    }
+```json
+Person document:
+{
+    "id": "1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "holdings": [
+        { "numberHeld":  100, "stockId": 1},
+        { "numberHeld":  50, "stockId": 2}
+    ]
+}
 
-    Stock documents:
-    {
-        "id": "1",
-        "symbol": "zaza",
-        "open": 1,
-        "high": 2,
-        "low": 0.5,
-        "vol": 11970000,
-        "mkt-cap": 42000000,
-        "pe": 5.89
-    },
-    {
-        "id": "2",
-        "symbol": "xcxc",
-        "open": 89,
-        "high": 93.24,
-        "low": 88.87,
-        "vol": 2970200,
-        "mkt-cap": 1005000,
-        "pe": 75.82
-    }
+Stock documents:
+{
+    "id": "1",
+    "symbol": "zaza",
+    "open": 1,
+    "high": 2,
+    "low": 0.5,
+    "vol": 11970000,
+    "mkt-cap": 42000000,
+    "pe": 5.89
+},
+{
+    "id": "2",
+    "symbol": "xcxc",
+    "open": 89,
+    "high": 93.24,
+    "low": 88.87,
+    "vol": 2970200,
+    "mkt-cap": 1005000,
+    "pe": 75.82
+}
+```
 
 An immediate downside to this approach though is if your application is required to show information about each stock that is held when displaying a person's portfolio; in this case you would need to make multiple trips to the database to load the information for each stock document. Here we've made a decision to improve the efficiency of write operations, which happen frequently throughout the day, but in turn compromised on the read operations that potentially have less impact on the performance of this particular system.
 
@@ -236,40 +248,44 @@ The growth of the relationship will help determine in which document to store th
 
 If we look at the JSON below that models publishers and books.
 
-    Publisher document:
-    {
-        "id": "mspress",
-        "name": "Microsoft Press",
-        "books": [ 1, 2, 3, ..., 100, ..., 1000]
-    }
+```json
+Publisher document:
+{
+    "id": "mspress",
+    "name": "Microsoft Press",
+    "books": [ 1, 2, 3, ..., 100, ..., 1000]
+}
 
-    Book documents:
-    {"id": "1", "name": "Azure Cosmos DB 101" }
-    {"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
-    {"id": "3", "name": "Taking over the world one JSON doc at a time" }
-    ...
-    {"id": "100", "name": "Learn about Azure Cosmos DB" }
-    ...
-    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
+Book documents:
+{"id": "1", "name": "Azure Cosmos DB 101" }
+{"id": "2", "name": "Azure Cosmos DB for RDBMS Users" }
+{"id": "3", "name": "Taking over the world one JSON doc at a time" }
+...
+{"id": "100", "name": "Learn about Azure Cosmos DB" }
+...
+{"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
+```
 
 If the number of the books per publisher is small with limited growth, then storing the book reference inside the publisher document may be useful. However, if the number of books per publisher is unbounded, then this data model would lead to mutable, growing arrays, as in the example publisher document above.
 
 Switching things around a bit would result in a model that still represents the same data but now avoids these large mutable collections.
 
-    Publisher document:
-    {
-        "id": "mspress",
-        "name": "Microsoft Press"
-    }
+```json
+Publisher document:
+{
+    "id": "mspress",
+    "name": "Microsoft Press"
+}
 
-    Book documents:
-    {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
-    {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
-    {"id": "3","name": "Taking over the world one JSON doc at a time"}
-    ...
-    {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
-    ...
-    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
+Book documents:
+{"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
+{"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
+{"id": "3","name": "Taking over the world one JSON doc at a time"}
+...
+{"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
+...
+{"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
+```
 
 In the above example, we have dropped the unbounded collection on the publisher document. Instead we just have a reference to the publisher on each book document.
 
@@ -282,37 +298,41 @@ In a relational database *many:many* relationships are often modeled with join t
 
 You might be tempted to replicate the same thing using documents and produce a data model that looks similar to the following.
 
-    Author documents:
-    {"id": "a1", "name": "Thomas Andersen" }
-    {"id": "a2", "name": "William Wakefield" }
+```json
+Author documents:
+{"id": "a1", "name": "Thomas Andersen" }
+{"id": "a2", "name": "William Wakefield" }
 
-    Book documents:
-    {"id": "b1", "name": "Azure Cosmos DB 101" }
-    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
-    {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
-    {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
+Book documents:
+{"id": "b1", "name": "Azure Cosmos DB 101" }
+{"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
+{"id": "b3", "name": "Taking over the world one JSON doc at a time" }
+{"id": "b4", "name": "Learn about Azure Cosmos DB" }
+{"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
-    Joining documents:
-    {"authorId": "a1", "bookId": "b1" }
-    {"authorId": "a2", "bookId": "b1" }
-    {"authorId": "a1", "bookId": "b2" }
-    {"authorId": "a1", "bookId": "b3" }
+Joining documents:
+{"authorId": "a1", "bookId": "b1" }
+{"authorId": "a2", "bookId": "b1" }
+{"authorId": "a1", "bookId": "b2" }
+{"authorId": "a1", "bookId": "b3" }
+```
 
 This would work. However, loading either an author with their books, or loading a book with its author, would always require at least two additional queries against the database. One query to the joining document and then another query to fetch the actual document being joined.
 
 If all this join table is doing is gluing together two pieces of data, then why not drop it completely?
 Consider the following.
 
-    Author documents:
-    {"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
-    {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
+```json
+Author documents:
+{"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
+{"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
-    Book documents:
-    {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
-    {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
-    {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
+Book documents:
+{"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
+{"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
+{"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
+{"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
+```
 
 Now, if I had an author, I immediately know which books they have written, and conversely if I had a book document loaded I would know the IDs of the author(s). This saves that intermediary query against the join table reducing the number of server round trips your application has to make.
 
@@ -326,46 +346,48 @@ Based on your application's specific usage patterns and workloads there may be c
 
 Consider the following JSON.
 
-    Author documents:
-    {
-        "id": "a1",
-        "firstName": "Thomas",
-        "lastName": "Andersen",
-        "countOfBooks": 3,
-        "books": ["b1", "b2", "b3"],
-        "images": [
-            {"thumbnail": "https://....png"}
-            {"profile": "https://....png"}
-            {"large": "https://....png"}
-        ]
-    },
-    {
-        "id": "a2",
-        "firstName": "William",
-        "lastName": "Wakefield",
-        "countOfBooks": 1,
-        "books": ["b1"],
-        "images": [
-            {"thumbnail": "https://....png"}
-        ]
-    }
+```json
+Author documents:
+{
+    "id": "a1",
+    "firstName": "Thomas",
+    "lastName": "Andersen",
+    "countOfBooks": 3,
+    "books": ["b1", "b2", "b3"],
+    "images": [
+        {"thumbnail": "https://....png"}
+        {"profile": "https://....png"}
+        {"large": "https://....png"}
+    ]
+},
+{
+    "id": "a2",
+    "firstName": "William",
+    "lastName": "Wakefield",
+    "countOfBooks": 1,
+    "books": ["b1"],
+    "images": [
+        {"thumbnail": "https://....png"}
+    ]
+}
 
-    Book documents:
-    {
-        "id": "b1",
-        "name": "Azure Cosmos DB 101",
-        "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
-            {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
-        ]
-    },
-    {
-        "id": "b2",
-        "name": "Azure Cosmos DB for RDBMS Users",
-        "authors": [
-            {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
-        ]
-    }
+Book documents:
+{
+    "id": "b1",
+    "name": "Azure Cosmos DB 101",
+    "authors": [
+        {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+        {"id": "a2", "name": "William Wakefield", "thumbnailUrl": "https://....png"}
+    ]
+},
+{
+    "id": "b2",
+    "name": "Azure Cosmos DB for RDBMS Users",
+    "authors": [
+        {"id": "a1", "name": "Thomas Andersen", "thumbnailUrl": "https://....png"},
+    ]
+}
+```
 
 Here we've (mostly) followed the embedded model, where data from other entities are embedded in the top-level document, but other data is referenced.
 
@@ -381,27 +403,29 @@ The ability to have a model with pre-calculated fields is made possible because 
 
 In some scenarios, you may want to mix different document types in the same collection; this is usually the case when you want multiple, related documents to sit in the same [partition](partitioning-overview.md). For example, you could put both books and book reviews in the same collection and partition it by `bookId`. In such situation, you usually want to add to your documents with a field that identifies their type in order to differentiate them.
 
-    Book documents:
-    {
-        "id": "b1",
-        "name": "Azure Cosmos DB 101",
-        "bookId": "b1",
-        "type": "book"
-    }
+```json
+Book documents:
+{
+    "id": "b1",
+    "name": "Azure Cosmos DB 101",
+    "bookId": "b1",
+    "type": "book"
+}
 
-    Review documents:
-    {
-        "id": "r1",
-        "content": "This book is awesome",
-        "bookId": "b1",
-        "type": "review"
-    },
-    {
-        "id": "r2",
-        "content": "Best book ever!",
-        "bookId": "b1",
-        "type": "review"
-    }
+Review documents:
+{
+    "id": "r1",
+    "content": "This book is awesome",
+    "bookId": "b1",
+    "type": "review"
+},
+{
+    "id": "r2",
+    "content": "Best book ever!",
+    "bookId": "b1",
+    "type": "review"
+}
+```
 
 ## Next steps
 

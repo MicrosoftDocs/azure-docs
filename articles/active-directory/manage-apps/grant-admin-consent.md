@@ -64,7 +64,9 @@ When granting tenant-wide admin consent using either method described above, a w
 
 The tenant-wide admin consent URL follows the following format:
 
-    https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```http
+https://login.microsoftonline.com/{tenant-id}/adminconsent?client_id={client-id}
+```
 
 where:
 

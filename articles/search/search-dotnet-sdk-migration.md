@@ -53,7 +53,9 @@ Once NuGet has downloaded the new packages and their dependencies, rebuild your 
 
 If your build fails, you should see a build error like the following:
 
-    Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft.Azure.Search.ISearchIndexClient' to 'Microsoft.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
+```output
+Program.cs(31,45,31,86): error CS0266: Cannot implicitly convert type 'Microsoft.Azure.Search.ISearchIndexClient' to 'Microsoft.Azure.Search.SearchIndexClient'. An explicit conversion exists (are you missing a cast?)
+```
 
 The next step is to fix this build error. See [Breaking changes in version 3](#ListOfChanges) for details on what causes the error and how to fix it.
 

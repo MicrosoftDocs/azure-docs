@@ -100,7 +100,7 @@ End users who are subject to a policy that requires mobile application managemen
 
 ## Next steps
 
-[What is passwordless?](concept-authentication-passwordless.md)
+[Learn how passwordless authentication works](concept-authentication-passwordless.md)
 
 [Learn about device registration](../devices/overview.md#getting-devices-in-azure-ad)
 

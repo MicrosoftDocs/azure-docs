@@ -2,7 +2,7 @@
 title: Enable automatic tuning
 description: You can enable automatic tuning on your database easily using the Azure portal.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
@@ -111,7 +111,7 @@ Automatic tuning is monitoring all the actions it takes on the database and in s
 
 ## Permissions
 
-As automatic tuning is an Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from the Azure portal.
+As automatic tuning is an Azure feature, to use it you will need to use Azure's built-in roles. Using SQL Authentication only will not be sufficient to use the feature from the Azure portal.
 
 To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL Database contributor](../../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such as SQL Server Contributor, SQL Managed Instance Contributor, Contributor, and Owner.
 

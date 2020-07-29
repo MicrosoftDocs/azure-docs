@@ -12,7 +12,7 @@ ms.date: 6/9/2020
 
 You can create an Azure Database for MariaDB server in one of three different pricing tiers: Basic, General Purpose, and Memory Optimized. The pricing tiers are differentiated by the amount of compute in vCores that can be provisioned, memory per vCore, and the storage technology used to store the data. All resources are provisioned at the MariaDB server level. A server can have one or many databases.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Resource | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 5 |Gen 5 | Gen 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
@@ -38,7 +38,7 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 
 The storage you provision is the amount of storage capacity available to your Azure Database for MariaDB server. The storage is used for the database files, temporary files, transaction logs, and the MariaDB server logs. The total amount of storage you provision also defines the I/O capacity available to your server.
 
-|    | **Basic** | **General Purpose** | **Memory Optimized** |
+| Storage attributes   | Basic | General Purpose | Memory Optimized |
 |:---|:----------|:--------------------|:---------------------|
 | Storage type | Basic Storage | General Purpose Storage | General Purpose Storage |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
@@ -58,7 +58,7 @@ You can monitor your I/O consumption in the Azure portal or by using Azure CLI c
 
 We are increasing the storage limits in our General Purpose and Memory Optimized tiers. Newly created servers that opt-in to the preview can provision up to 16 TB of storage. The IOPS scale at a 3:1 ratio up to 20,000 IOPS. As with the current generally available storage, you can add additional storage capacity after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
 
-|              | **General Purpose** | **Memory Optimized** |
+| Storage attributes | General Purpose | Memory Optimized |
 |:-------------|:--------------------|:---------------------|
 | Storage type | Azure Premium Storage | Azure Premium Storage |
 | Storage size | 32 GB to 16 TB| 32 to 16 TB |

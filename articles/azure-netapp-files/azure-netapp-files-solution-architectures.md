@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/06/2020
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -44,6 +44,7 @@ This section provides references for Windows applications and SQL Server solutio
 ### SQL Server
 
 * [Deploy SQL Server Over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=x7udfcYbibs)
+* [Deploy SQL Server Always-On Failover Cluster over SMB with Azure NetApp Files](https://www.youtube.com/watch?v=zuNJ5E07e8Q)
 * [Deploy Always-On Availability Groups with Azure NetApp Files](https://www.youtube.com/watch?v=y3VQmzzeyvc)
 
 ## SAP on Azure solutions

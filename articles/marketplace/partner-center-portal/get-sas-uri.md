@@ -1,19 +1,19 @@
 ---
 title: Shared access signature URI for VM images - Azure Marketplace
 description: Generate a shared access signature (SAS) URI for your virtual hard disks (VHD) in Azure Marketplace.
-author: anbene
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/09/2020
-ms.author: mingshen
+ms.topic: article
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 07/14/2020
 ---
 
 # Get shared access signature URI for your VM image
 
 This article describes how to generate a shared access signature (SAS) uniform resource identifier (URI) for each virtual hard disk (VHD).
 
-During the publishing process, you must provide a URI for each VHD that's associated with your plans. These plans were previously referred to as SKUs, or stock keeping units. Microsoft needs access to these VHDs during the certification process. You'll enter this URI on the **Plans** tab in Partner Center.
+During the publishing process, you must provide a URI for each VHD that's associated with your plans (formerly called SKUs). Microsoft needs access to these VHDs during the certification process. You'll enter this URI on the **Plans** tab in Partner Center.
 
 When generating SAS URIs for your VHDs, follow these requirements:
 
@@ -106,7 +106,7 @@ There are two common tools used to create an SAS address (URL):
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Repeat these steps for each VHD in the SKUs you plan to publish.
+Repeat these steps for each VHD in the plans you will publish.
 
 ## Verify the SAS URI
 
@@ -120,6 +120,6 @@ Review each created SAS URI by using the following checklist to verify that:
 
 ## Next step
 
-If you have difficulties creating an SAS URI, see [Common SAS URL issues](https://docs.microsoft.com/azure/marketplace/partner-center-portal/common-sas-uri-issues). Otherwise, save the SAS URI(s) to a secure location for later use. You'll need it to publish your VM offer in Partner Center.
+If you have difficulties creating an SAS URI, see [Common SAS URL issues](common-sas-uri-issues.md). Otherwise, save the SAS URI(s) to a secure location for later use. You'll need it to publish your VM offer in Partner Center.
 
-* [Create an Azure Virtual Machine offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer)
+* [Create an Azure Virtual Machine offer](azure-vm-create-offer.md)

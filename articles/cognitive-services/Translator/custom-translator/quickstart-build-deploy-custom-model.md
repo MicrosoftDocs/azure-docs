@@ -21,14 +21,14 @@ This article provides step-by-step instructions to build a translation system wi
     Portal, you will need a [Microsoft account](https://signup.live.com) or [Azure AD account](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
     (organization account hosted on Azure) to sign in.
 
-2. A subscription to the Translator via the Azure portal. You will need the Translator subscription key to associate with your workspace in Custom Translator. See [how to sign up for Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. A subscription to Translator via the Azure portal. You will need a Translator subscription key to associate with your workspace in Custom Translator. See [how to sign up for Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
 
 3. When you have both of the above, sign in to the
     [Custom Translator](https://portal.customtranslator.azure.ai) portal to create workspaces, projects, upload files and create/deploy models.
 
 ## Create a workspace
 
-If you are first time user, you will be asked to agree to the Terms of Service, to create a workspace and to associate your workspace with Translator subscription.
+If you are first time user, you will be asked to agree to the Terms of Service, to create a workspace and to associate your workspace with your Translator subscription.
 
 ![Create workspace](media/quickstart/terms-of-service.png)
 ![Create workspace](media/quickstart/create-workspace-1.png)
@@ -103,8 +103,8 @@ Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
 ## Use a deployed model
 
-Deployed models can be accessed via the Microsoft Translator [Text API V3 by
-specifying the CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). More information about the Translator can be found on the [API
+Deployed models can be accessed via Translator by
+specifying the CategoryID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). More information about Translator can be found on the [API
 Reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) webpage.
 
 ## Next steps

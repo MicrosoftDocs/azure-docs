@@ -33,7 +33,7 @@ The article assumes that you have already:
 
 ## Set up the configuration server
 
-You can set up the configuration server as an on-premises VMware VM through an Open Virtualization Application (OVA) template. [Learn more](concepts-vmware-to-azure-architecture.md) about the components that will be installed on the VMware VM.
+You can set up the configuration server as an on-premises VMware VM through an Open Virtualization Application (OVA) template. [Learn more](./vmware-azure-architecture.md) about the components that will be installed on the VMware VM.
 
 1. Learn about the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequisites) for configuration server deployment.
 2. [Check capacity numbers](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements) for deployment.

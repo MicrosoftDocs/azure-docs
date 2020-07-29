@@ -240,8 +240,10 @@ Similar to using an SSH client, when connecting to the cluster you must provide 
 
 Once connected, you're presented with a `sftp>` prompt. From this prompt, you can change directories, upload, and download files. For example, the following commands change directories to the **/var/log/hadoop/hdfs** directory and then download all files in the directory.
 
-    cd /var/log/hadoop/hdfs
-    get *
+```bash
+cd /var/log/hadoop/hdfs
+get *
+```
 
 For a list of available commands, enter `help` at the `sftp>` prompt.
 
@@ -261,7 +263,7 @@ From the Ambari Web UI, select the service you wish to view logs for (for exampl
 
 The size of a node can only be selected during cluster creation. You can find a list of the different VM sizes available for HDInsight on the [HDInsight pricing page](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal](https://portal.azure.com/), [Azure PowerShell module Az](/powershell/azureps-cmdlets-docs), and the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
+When creating a cluster, you can specify the size of the nodes. The following information provides guidance on how to specify the size using the [Azure portal](https://portal.azure.com/), [Azure PowerShell module Az](/powershell/azure/), and the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest):
 
 * **Azure portal**: When creating a cluster, you can set the size of the nodes used by the cluster:
 
@@ -277,6 +279,6 @@ To learn more about the items discussed in this article, see:
 
 * [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Install and configure the Azure CLI](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Install and configure Azure PowerShell module Az](/powershell/azure/overview)
+* [Install and configure Azure PowerShell module Az](/powershell/azure/)
 * [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

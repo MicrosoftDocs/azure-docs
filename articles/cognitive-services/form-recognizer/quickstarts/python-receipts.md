@@ -27,7 +27,7 @@ To complete this quickstart, you must have:
 - A URL for an image of a receipt. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
 
 > [!NOTE]
-> This quickstart uses a remote receipt accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync).
+> This quickstart uses a remote receipt accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
 
 ## Create a Form Recognizer resource
 
@@ -35,7 +35,7 @@ To complete this quickstart, you must have:
 
 ## Analyze a receipt
 
-To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** API using the Python script below. Before you run the script, make these changes:
+To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API using the Python script below. Before you run the script, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
@@ -91,7 +91,7 @@ https://cognitiveservice/formrecognizer/v2.0/prebuilt/receipt/operations/54f0b07
 
 ## Get the receipt results
 
-After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the operation ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've called the **Analyze Receipt** API, you call the **[Get Analyze Receipt Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeReceiptResult)** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This uses the operation ID value in a new API call. This script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 ```python
 n_tries = 10
@@ -463,4 +463,4 @@ The `"recognitionResults"` node contains all of the recognized text. Text is org
 In this quickstart, you used the Form Recognizer REST API with Python to extract the content of a sales receipt. Next, see the reference documentation to explore the Form Recognizer API in more depth.
 
 > [!div class="nextstepaction"]
-> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)
+> [REST API reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)

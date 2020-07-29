@@ -207,13 +207,19 @@ Provide your container registry credentials to Docker so that it can push your c
 
 1. Open the Visual Studio Code integrated terminal by selecting **View** > **Terminal**.
 
-2. Sign in to Docker with the Azure container registry credentials that you saved after creating the registry.
+2. Sign in to Docker with the Azure Container registry credentials that you saved after creating the registry.
 
    ```cmd/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+   
+3. Log in to Azure Container Registry
+
+   ```cmd/sh
+   az acr login -n <ACR registry name>
+   ```
 
 ### Build and push
 
