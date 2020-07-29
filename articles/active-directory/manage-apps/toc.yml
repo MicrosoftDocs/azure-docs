@@ -8,6 +8,7 @@
     - name: What is single sign-on (SSO)?
       href: what-is-single-sign-on.md
   - name: Quickstarts
+    expanded: true
     items:
     - name: View your apps
       href: view-applications-portal.md
@@ -30,7 +31,7 @@
     - name: Azure PowerShell samples for Application Proxy
       href: application-proxy-powershell-samples.md
   - name: Concepts
-    expanded: true
+    expanded: false
     items: 
     - name: App management best practices
       href: application-management-fundamentals.md
@@ -97,7 +98,7 @@
        - name: Comparison of remote access solutions
          href: application-proxy-migration.md
   - name: How-to guides
-    expanded: true
+    expanded: false
     items:
     - name: Configure single sign-on
       items:
