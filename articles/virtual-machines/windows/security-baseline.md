@@ -1089,7 +1089,7 @@ If you are using Azure disk encryption, you can restore the Azure VM with the di
 
 * [Soft delete for VMs](../../backup/soft-delete-virtual-machines.md)
 
-* [Azure Key Vault soft-delete overview](../../key-vault/general/overview-soft-delete.md)
+* [Azure Key Vault soft-delete overview](../../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center monitoring**: Yes
 

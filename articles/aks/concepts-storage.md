@@ -72,6 +72,9 @@ parameters:
   kind: Managed
 ```
 
+> [!NOTE]
+> AKS reconciles the default storage classes and will overwrite any changes you make to those storage classes.
+
 ## Persistent volume claims
 
 A PersistentVolumeClaim requests either Disk or File storage of a particular StorageClass, access mode, and size. The Kubernetes API server can dynamically provision the underlying storage resource in Azure if there is no existing resource to fulfill the claim based on the defined StorageClass. The pod definition includes the volume mount once the volume has been connected to the pod.
