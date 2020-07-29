@@ -53,7 +53,7 @@ If the instance was created successfully, the result in Cloud Shell looks someth
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/create-instance.png" alt-text="Command window with successful creation of resource group and Azure Digital Twins instance":::
 
-Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources.
+Note the Azure Digital Twins instance's *hostName*, *name*, and *resourceGroup* from the output. These are all important values that you may need as you continue working with your Azure Digital Twins instance, to set up authentication and related Azure resources. If other users will be programming against the instance, you should share these values with them.
 
 > [!TIP]
 > You can see these properties, along with all the properties of your instance, at any time by running `az dt show --dt-name <your-Azure-Digital-Twins-instance>`.
@@ -91,7 +91,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 
 To create an app registration, you need to provide the resource IDs for the Azure Digital Twins APIs, and the baseline permissions to the API.
 
-In your working directory, open a new file and enter the following JSON snippet to configure these details: 
+In your working directory, create a new file and enter the following JSON snippet to configure these details: 
 
 ```json
 [{
@@ -105,12 +105,12 @@ In your working directory, open a new file and enter the following JSON snippet 
 }]
 ``` 
 
-Save this file as *manifest.json*.
+Save this file as _**manifest.json**_.
 
 > [!NOTE] 
 > There are some places where a "friendly," human-readable string `https://digitaltwins.azure.net` can be used for the Azure Digital Twins resource app ID instead of the GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0`. For instance, many examples throughout this documentation set use authentication with the MSAL library, and the friendly string can be used for that. However, during this step of creating the app registration, the GUID form of the ID is required as it is shown above. 
 
-In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
+Next, you'll upload this file to Cloud Shell. In your Cloud Shell window, click the "Upload/Download files" icon and choose "Upload".
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 Navigate to the *manifest.json* you just created and hit "Open."

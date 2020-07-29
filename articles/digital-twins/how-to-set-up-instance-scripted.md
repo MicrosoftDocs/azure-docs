@@ -65,9 +65,26 @@ Here is an excerpt of the output log from the script:
 
 If the script completes successfully, the final printout will say `Deployment completed successfully`. Otherwise, address the error message, and re-run the script. It will bypass the steps that you've already completed and start requesting input again at the point where you left off.
 
-Upon script completion, you now have an Azure Digital Twins instance ready to go and permissions set up to manage it.
+Upon script completion, you now have an Azure Digital Twins instance ready to go with permissions to manage it, and have set up permissions for a client app to access it.
+
+> [!NOTE]
+> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Owner (Preview)*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ## Collect important values
+
+There are several important values from the resources set up by the script that you may need as you continue working with your Azure Digital Twins instance. In this section, you will use the [Azure portal](https://portal.azure.com) to collect these values. You should save them in a safe place, or return to this section to find them later when you need them.
+
+If other users will be programming against the instance, you should also share these values with them.
+
+### Collect instance values
+
+In the [Azure portal](https://portal.azure.com), find your Azure Digital Twins instance by searching for the name of your instance in the portal search bar.
+
+Selecting it will open up the instance's *Overview* page. Note its *Name*, *Resource group*, and *Host name*. You may need these later to identify and connect to your instance.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Highlighting the important values from the instance's Overview page":::
+
+### Collect app registration values 
 
 There are two important values from the app registration that will be needed later to [authenticate a client app against the Azure Digital Twins APIs](how-to-authenticate-client.md). 
 
@@ -90,6 +107,9 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 ### Verify user role assignment
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+
+> [!NOTE]
+> Recall that the script currently assigns this required role to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 ### Verify app registration
 
