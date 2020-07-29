@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 07/20/2020
+ms.date: 07/29/2020
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -128,19 +128,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Freshservice SSO
 
-1. Open a new web browser window and sign into your Freshservice company site as an administrator and perform the following steps:
+1. Open a new web browser window and sign into your Freshservice company site as an administrator.
 
 1. In the menu on the left, click **Admin** and select **Helpdesk Security** in the **General Settings**.
 
-    ![Admin](./media/freshservice-tutorial/configure1.png "Admin")
+    ![Admin](./media/freshservice-tutorial/configure-1.png "Admin")
 
 1. In the **Security**, click on **Go to Freshworks 360 Security**.
 
-    ![Security](./media/freshservice-tutorial/configure2.png "Security")
+    ![Security](./media/freshservice-tutorial/configure-2.png "Security")
 
 1. In the **Security** section, perform the following steps:
 
-	![Single Sign On](./media/freshservice-tutorial/configure3.png "Single Sign On")
+	![Single Sign On](./media/freshservice-tutorial/configure-3.png "Single Sign On")
   
 	a. For **Single Sign On**, select **On**.
 
@@ -171,14 +171,14 @@ To enable Azure AD users to sign in to FreshService, they must be provisioned in
 
 3. In the **User Management** section, click **Requesters**.
 
-    ![Requesters](./media/freshservice-tutorial/createuser1.png "Requesters")
+    ![Requesters](./media/freshservice-tutorial/create-user-1.png "Requesters")
 
 4. Click **New Requester**.
 
-    ![New Requesters](./media/freshservice-tutorial/createuser2.png "New Requesters")
+    ![New Requesters](./media/freshservice-tutorial/create-user-2.png "New Requesters")
 
 5. In the **New Requester** section, enter the required fields and click on **Save**.
-    ![New Requester](./media/freshservice-tutorial/createuser3.png "New Requester")  
+    ![New Requester](./media/freshservice-tutorial/create-user-3.png "New Requester")  
 
     > [!NOTE]
     > The Azure Active Directory account holder gets an email including a link to confirm the account before it becomes active
