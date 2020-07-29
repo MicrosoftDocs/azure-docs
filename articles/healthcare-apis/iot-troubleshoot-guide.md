@@ -11,9 +11,9 @@ ms.author: jasteppe
 ---
 # Azure IoT Connector for FHIR (preview) troubleshooting guide
 
-This article provides steps for troubleshooting common Azure IoT Connector for FHIR (preview) error messages and conditions.  
+This article provides steps for troubleshooting common Azure IoT Connector for FHIR error messages and conditions.  
 
-You'll also learn how to create copies of the Azure IoT Connector for FHIR (preview) JSON-mapping files for editing and archiving outside of the Azure portal or for providing to Azure Technical Support when opening a support ticket. 
+You'll also learn how to create copies of the Azure IoT Connector for FHIR JSON-mapping files for editing and archiving outside of the Azure portal or for providing to Azure Technical Support when opening a support ticket. 
 
 ## Error messages and fixes
 
