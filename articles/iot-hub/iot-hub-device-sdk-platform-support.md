@@ -133,7 +133,7 @@ If you experience problems while using the Azure IoT device SDKs, there are seve
 
 * [Azure IoT Hub Python SDK issues](https://github.com/Azure/azure-iot-sdk-python/issues)
 
-**Technical Questions** – You can ask technical questions on both [Microsoft Q&A](https://docs.microsoft.com/en-us/answers/topics/azure-iot-sdk.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) using the tag *azure-iot-sdk*.
+**Technical Questions** – You can ask technical questions on both [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) and [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) using the tag *azure-iot-sdk*.
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a new support request directly from the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
