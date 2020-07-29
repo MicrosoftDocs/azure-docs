@@ -167,7 +167,7 @@ You also need to provide a persistent-reservation-key when using PR_RESERVE, PR_
 
 ## Next steps
 
-If you prefer to use Azure Resource Manager templates to deploy your disk, the following sample templates are available for you:
+If you prefer to use Azure Resource Manager templates to deploy your disk, the following sample templates are available:
 - [Premium SSD](https://aka.ms/SharedPremiumDiskARMtemplate)
 - [Regional ultra disks](https://aka.ms/SharedUltraDiskARMtemplateRegional)
 - [Zonal ultra disks](https://aka.ms/SharedUltraDiskARMtemplateZonal)
