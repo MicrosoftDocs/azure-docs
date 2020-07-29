@@ -13,9 +13,7 @@ ms.reviewer: cherylmc
 ---
 # Configure active-active S2S VPN connections with Azure VPN Gateways
 
-This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell.
-
-
+This article walks you through the steps to create active-active cross-premises and VNet-to-VNet connections using the Resource Manager deployment model and PowerShell. You can also configure an active-active gateway using the Azure portal.
 
 ## About highly available cross-premises connections
 To achieve high availability for cross-premises and VNet-to-VNet connectivity, you should deploy multiple VPN gateways and establish multiple parallel connections between your networks and Azure. See [Highly Available Cross-Premises and VNet-to-VNet Connectivity](vpn-gateway-highlyavailable.md) for an overview of connectivity options and topology.
@@ -79,11 +77,18 @@ $Connection152 = "VNet1toSite5_2"
 #### 2. Connect to your subscription and create a new resource group
 Make sure you switch to PowerShell mode to use the Resource Manager cmdlets. For more information, see [Using Windows PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
 
-Open your PowerShell console and connect to your account. Use the following sample to help you connect:
+Open your PowerShell console and connect to your account. If you use the "Try It" Cloud Shell, you will automatically connect to your account. 
 
-```azurepowershell-interactive
+If you use PowerShell locally, use the following sample to help you connect:
+
+```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName $Sub1
+```
+
+Use the example below to create a new resource group:
+
+```azurepowershell-interactive
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
 

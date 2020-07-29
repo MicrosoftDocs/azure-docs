@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/24/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
@@ -55,7 +55,7 @@ $ras.Count
 
     If you get the error "Insufficient privileges to complete the operation", it is likely because Azure CLI is attempting to lookup the assignee identity in Azure AD and the service principal cannot read Azure AD by default.
 
-    There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role to the service principal so that it can read data in the directory. You could also grant the [Directory.Read.All permission](https://docs.microsoft.com/graph/permissions-reference) in Microsoft Graph.
+    There are two ways to potentially resolve this error. The first way is to assign the [Directory Readers](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role to the service principal so that it can read data in the directory.
 
     The second way to resolve this error is to create the role assignment by using the `--assignee-object-id` parameter instead of `--assignee`. By using `--assignee-object-id`, Azure CLI will skip the Azure AD lookup. You will need to get the object ID of the user, group, or application that you want to assign the role to. For more information, see [Add or remove Azure role assignments using Azure CLI](role-assignments-cli.md#new-service-principal).
 

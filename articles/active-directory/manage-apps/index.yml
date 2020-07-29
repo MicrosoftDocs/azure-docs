@@ -41,7 +41,7 @@ landingContent:
           - text: Add a non-gallery app
             url: add-non-gallery-app.md
           - text: Configure single sign-on
-            url: configure-single-sign-on-non-gallery-applications.md
+            url: configure-saml-single-sign-on.md
           - text: Assign a user or group to an app
             url: assign-user-or-group-access-portal.md
   - title: Provision users and groups to an app
