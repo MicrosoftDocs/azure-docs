@@ -111,7 +111,7 @@ If you choose to train on your local machine ("configure as local run"), you do 
 
 ## R SDK
 
-The R SDK enables you to use the R language with Azure Machine Learning. The SDK uses the reticulate package to bind to Azure Machine Learning's Python SDK. This allows you access to core objects and methods implemented in the Python SDK from any R environment.
+The R SDK enables you to use the R language with Azure Machine Learning. The SDK uses the reticulate package to bind to Azure Machine Learning's Python SDK. This gives you access to core objects and methods implemented in the Python SDK from any R environment.
 
 For more information, see the following articles:
 
@@ -120,7 +120,7 @@ For more information, see the following articles:
 
 ## Azure Machine Learning designer
 
-The designer lets you to train models using a drag and drop interface in your web browser.
+The designer lets you train models using a drag and drop interface in your web browser.
 
 + [What is the designer?](concept-designer.md)
 + [Tutorial: Predict automobile price](tutorial-designer-automobile-price-train-score.md)
