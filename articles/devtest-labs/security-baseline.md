@@ -543,7 +543,7 @@ If you're using Azure disk encryption, you can restore the Azure VM with the dis
 **Guidance:** When you back up managed disks with Azure Backup, VMs are encrypted at rest with Storage Service Encryption (SSE). Azure Backup can also back up Azure VMs that are encrypted by using Azure Disk Encryption. Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). Enable Soft-Delete in Key Vault to protect keys against accidental or malicious deletion.
 
 - [Soft delete for VMs](../backup/soft-delete-virtual-machines.md)
-- [Azure Key Vault - soft-delete overview](../key-vault/general/overview-soft-delete.md)
+- [Azure Key Vault - soft-delete overview](../key-vault/general/soft-delete-overview.md)
 
 **Azure Security Center monitoring:** Yes
 

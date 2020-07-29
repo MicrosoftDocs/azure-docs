@@ -23,33 +23,23 @@ This article shows how to download, install, and set up your on-premises data ga
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure account with a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure account with a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * Your Azure account must belong to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You must use the same Azure account for installing and administering the gateway on your local computer.
-
-  * During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. Later, in the Azure portal, you must use the same Azure account and Azure AD tenant when you create an Azure gateway resource that registers and claims your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources.
+  * Your Azure account needs to be either a work account or school account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
     > [!NOTE]
-    > You can link only one gateway installation and one Azure gateway resource to each other. 
-    > You can't link the same gateway installation to multiple Azure accounts or Azure gateway resources. 
-    > However, an Azure account can link to multiple gateway installations and Azure gateway resources. 
-    > In an on-premises trigger or action, you can select from your various Azure subscriptions, 
-    > and then select an associated gateway resource.
-
-  * You need to sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
-
-    > [!TIP]
     > If you signed up for an Office 365 offering and didn't provide your work email address, 
     > your address might look like `username@domain.onmicrosoft.com`. Your account is stored 
-    > within a tenant in an Azure Active Directory (Azure AD). In most cases, the User Principal 
-    > Name (UPN) for your Azure AD account is the same as your email address.
-    >
-    > To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) 
-    > that's linked to a Microsoft account, first 
-    > [create a tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md)
-    > or use the default directory. Add a user with a password to the directory, and then give that 
-    > user access to your Azure subscription. You can then sign in during gateway installation 
-    > with this username and password.
+    > in an Azure AD tenant. In most cases, the User Principal Name (UPN) for your Azure account 
+    > is the same as your email address.
+
+    To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated with a Microsoft account, first [create an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md) or use the default directory. Add a user with a password to the directory, and then give that user access to your Azure subscription. You can then sign in during gateway installation with this username and password.
+
+  * Your Azure account must belong only to a single [Azure Active Directory (Azure AD) tenant or directory](../active-directory/fundamentals/active-directory-whatis.md#terminology). You need to use the same Azure account for installing and administering the gateway on your local computer.
+
+  * When you install the gateway, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. You can't link the same gateway installation across multiple Azure accounts or Azure AD tenants.
+
+  * Later in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that links to your gateway installation. You can link only one gateway installation and one Azure gateway resource to each other. However, your Azure account can link to different gateway installations that are each associated with a Azure gateway resource. Your logic apps can then use this gateway resource in triggers and actions that can access on-premises data sources.
 
 * Here are requirements for your local computer:
 

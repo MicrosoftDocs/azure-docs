@@ -55,9 +55,9 @@ The hosts in this section are used to install Python packages. They are required
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **anaconda.com** | Used when installing conda packages |
-| **pypi.org** | Used when installing pip packages |
-
+| **anaconda.com** | Used to install default packages. |
+| **\*.anaconda.org** | Used to get repo data. |
+| **pypi.org** | Used to list dependencies from the default index, if any, and the index is not overwritten by user settings. If the index is overwritten, you must also allow **\*.pythonhosted.org**. |
 
 ## R hosts
 
