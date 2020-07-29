@@ -26,7 +26,7 @@ For Azure Analysis Services, getting setup with the gateway the first time is a 
 
 
 
-## <a name="how-it-works"> </a>How it works
+## How it works
 The gateway you install on a computer in your organization runs as a Windows service, **On-premises data gateway**. This local service is registered with the Gateway Cloud Service through Azure Service Bus. You then create an On-premises data gateway resource for an Azure subscription. Your Azure Analysis Services servers are then connected to your Azure gateway resource. When models on your server need to connect to your on-premises data sources for queries or processing, a query and data flow traverses the gateway resource, Azure Service Bus, the local on-premises data gateway service, and your data sources. 
 
 ![How it works](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
@@ -71,7 +71,7 @@ The following are fully qualified domain names used by the gateway.
 | *.microsoftonline-p.com |443 |Used for authentication depending on configuration. |
 | dc.services.visualstudio.com    |443 |Used by AppInsights to collect telemetry. |
 
-### <a name="force-https"></a>Forcing HTTPS communication with Azure Service Bus
+### Forcing HTTPS communication with Azure Service Bus
 
 You can force the gateway to communicate with Azure Service Bus by using HTTPS instead of direct TCP; however, doing so can greatly reduce performance. You can modify the *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* file by changing the value from `AutoDetect` to `Https`. This file is typically located at *C:\Program Files\On-premises data gateway*.
 

@@ -108,7 +108,7 @@ After you've installed and registered your gateway, you need to create a gateway
 ## Connect gateway resource to server
 
 > [!NOTE]
-> Connecting to a gateway resource in a different subscription from your server is not supported in the portal. Use PowerShell.
+> Connecting to a gateway resource in a different subscription from your server is not supported in the portal, but is supported using PowerShell.
 
 # [Portal](#tab/azure-portal)
 
