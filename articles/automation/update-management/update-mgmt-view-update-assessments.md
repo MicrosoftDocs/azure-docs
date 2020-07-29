@@ -62,7 +62,7 @@ The following tables list the supported update classifications in Update Managem
 |Tools     | Utilities or features that help complete one or more tasks.        |
 |Updates     | Updates to applications or files that are installed currently.        |
 
-### <a name="linux-2"></a>Linux
+### Linux
 
 |Classification  |Description  |
 |---------|---------|
